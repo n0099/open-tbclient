@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.ForumData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.base.i {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // com.baidu.adp.base.i
@@ -31,51 +31,51 @@ public class ae extends com.baidu.adp.base.i {
         com.baidu.tieba.tbadkCore.e eVar6;
         boolean z = false;
         if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.ae)) {
-            com.baidu.tieba.tbadkCore.d aeH = com.baidu.tieba.tbadkCore.d.aeH();
-            str4 = this.aDW.aCQ;
-            aeH.B(str4, false);
+            com.baidu.tieba.tbadkCore.d aeC = com.baidu.tieba.tbadkCore.d.aeC();
+            str4 = this.aDT.aCN;
+            aeC.B(str4, false);
             ((com.baidu.tieba.tbadkCore.ae) obj).setLike(1);
-            eVar6 = this.aDW.aDi;
+            eVar6 = this.aDT.aDf;
             eVar6.a((com.baidu.tieba.tbadkCore.ae) obj);
             z = true;
         }
         if (!z) {
-            acVar = this.aDW.zm;
+            acVar = this.aDT.zj;
             if (acVar.getErrorCode() == 22) {
-                this.aDW.showToast(this.aDW.getPageContext().getString(com.baidu.tieba.z.had_liked_forum));
+                this.aDT.showToast(this.aDT.getPageContext().getString(com.baidu.tieba.z.had_liked_forum));
             } else {
-                FrsActivity frsActivity = this.aDW;
-                acVar2 = this.aDW.zm;
+                FrsActivity frsActivity = this.aDT;
+                acVar2 = this.aDT.zj;
                 frsActivity.showToast(acVar2.getErrorString());
             }
-            this.aDW.refresh();
+            this.aDT.refresh();
             return;
         }
-        str = this.aDW.mPageType;
+        str = this.aDT.mPageType;
         if (str.equals("normal_page")) {
-            bpVar3 = this.aDW.aCY;
-            eVar4 = this.aDW.aDi;
-            ForumData aeN = eVar4.aeN();
-            eVar5 = this.aDW.aDi;
-            bpVar3.b(1, aeN, eVar5, true);
+            bpVar3 = this.aDT.aCV;
+            eVar4 = this.aDT.aDf;
+            ForumData aeI = eVar4.aeI();
+            eVar5 = this.aDT.aDf;
+            bpVar3.b(1, aeI, eVar5, true);
         } else {
-            str2 = this.aDW.mPageType;
+            str2 = this.aDT.mPageType;
             if (str2.equals("frs_page")) {
-                bpVar = this.aDW.aCY;
-                eVar = this.aDW.aDi;
-                ForumData aeN2 = eVar.aeN();
-                eVar2 = this.aDW.aDi;
-                bpVar.a(1, aeN2, eVar2, true);
+                bpVar = this.aDT.aCV;
+                eVar = this.aDT.aDf;
+                ForumData aeI2 = eVar.aeI();
+                eVar2 = this.aDT.aDf;
+                bpVar.a(1, aeI2, eVar2, true);
             }
         }
-        bpVar2 = this.aDW.aCY;
+        bpVar2 = this.aDT.aCV;
         bpVar2.bU(true);
-        this.aDW.showToast(this.aDW.getPageContext().getString(com.baidu.tieba.z.like_success));
+        this.aDT.showToast(this.aDT.getPageContext().getString(com.baidu.tieba.z.like_success));
         TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-        str3 = this.aDW.aCQ;
+        str3 = this.aDT.aCN;
         m255getInst.addLikeForum(str3);
-        FrsActivity frsActivity2 = this.aDW;
-        eVar3 = this.aDW.aDi;
-        frsActivity2.g(true, eVar3.aeN().getId());
+        FrsActivity frsActivity2 = this.aDT;
+        eVar3 = this.aDT.aDf;
+        frsActivity2.g(true, eVar3.aeI().getId());
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 public class a extends b {
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aeV.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aeV.setTitleText("");
+        this.aeS.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aeS.setTitleText("");
     }
 
     @Override // com.baidu.tbadk.mvc.g.a.b, com.baidu.tbadk.mvc.g.a.d, com.baidu.tieba.tbadkCore.y

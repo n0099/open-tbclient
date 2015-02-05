@@ -17,12 +17,12 @@ import java.util.List;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private int aXn;
-    private j cbI;
+    private int aXm;
+    private j cbH;
     private List<IconInfo> mData;
 
     public b(j jVar) {
-        this.cbI = jVar;
+        this.cbH = jVar;
     }
 
     @Override // android.widget.Adapter
@@ -54,23 +54,23 @@ public class b extends BaseAdapter {
             if (view == null || !(view.getTag() instanceof c)) {
                 view = com.baidu.adp.lib.g.b.ei().inflate(viewGroup.getContext(), x.buy_tbean_item, null);
                 c cVar2 = new c(null);
-                cVar2.cbM = (LinearLayout) view.findViewById(w.item_parent_ll);
-                cVar2.cbN = (LinearLayout) view.findViewById(w.item_child_ll);
-                cVar2.cbO = (TextView) view.findViewById(w.tbean_num_tv);
-                cVar2.cbP = (TextView) view.findViewById(w.price_tv);
-                cVar2.cbR = (TextView) view.findViewById(w.name_tv);
-                cVar2.cbQ = (TbImageView) view.findViewById(w.thumb_tiv);
-                cVar2.cbS = view.findViewById(w.left_empty_view);
+                cVar2.cbL = (LinearLayout) view.findViewById(w.item_parent_ll);
+                cVar2.cbM = (LinearLayout) view.findViewById(w.item_child_ll);
+                cVar2.cbN = (TextView) view.findViewById(w.tbean_num_tv);
+                cVar2.cbO = (TextView) view.findViewById(w.price_tv);
+                cVar2.cbQ = (TextView) view.findViewById(w.name_tv);
+                cVar2.cbP = (TbImageView) view.findViewById(w.thumb_tiv);
+                cVar2.cbR = view.findViewById(w.left_empty_view);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.cbS.setVisibility(i == 0 ? 0 : 8);
-            cVar.cbR.setText(bf.h(iconInfo.name, 10));
-            cVar.cbP.setText(String.valueOf(this.cbI.getString(z.yinji_price_tip)) + " " + this.cbI.il(iconInfo.dubi.intValue()));
-            cVar.cbO.setText(String.valueOf(this.cbI.getString(z.tbean_give_tip)) + " " + this.cbI.a(iconInfo) + this.cbI.getString(z.tbean_title));
-            cVar.cbQ.d(iconInfo.picUrl, 10, false);
+            cVar.cbR.setVisibility(i == 0 ? 0 : 8);
+            cVar.cbQ.setText(bf.h(iconInfo.name, 10));
+            cVar.cbO.setText(String.valueOf(this.cbH.getString(z.yinji_price_tip)) + " " + this.cbH.il(iconInfo.dubi.intValue()));
+            cVar.cbN.setText(String.valueOf(this.cbH.getString(z.tbean_give_tip)) + " " + this.cbH.a(iconInfo) + this.cbH.getString(z.tbean_title));
+            cVar.cbP.d(iconInfo.picUrl, 10, false);
             a(cVar, i);
             return view;
         }
@@ -78,20 +78,20 @@ public class b extends BaseAdapter {
     }
 
     private void a(c cVar, int i) {
-        bc.b(cVar.cbR, t.cp_cont_d, 1);
-        bc.b(cVar.cbP, t.cp_cont_b, 1);
+        bc.b(cVar.cbQ, t.cp_cont_d, 1);
         bc.b(cVar.cbO, t.cp_cont_b, 1);
-        bc.i(cVar.cbM, t.cp_bg_line_d);
-        if (this.aXn == i) {
-            bc.i(cVar.cbN, v.chx_box_gift_s);
+        bc.b(cVar.cbN, t.cp_cont_b, 1);
+        bc.i(cVar.cbL, t.cp_bg_line_d);
+        if (this.aXm == i) {
+            bc.i(cVar.cbM, v.chx_box_gift_s);
         } else {
-            bc.i(cVar.cbN, v.chx_box_gift_n);
+            bc.i(cVar.cbM, v.chx_box_gift_n);
         }
     }
 
     public void ii(int i) {
-        if (this.aXn != i) {
-            this.aXn = i;
+        if (this.aXm != i) {
+            this.aXm = i;
         }
     }
 

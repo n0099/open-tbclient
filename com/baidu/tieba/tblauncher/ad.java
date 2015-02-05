@@ -23,10 +23,10 @@ class ad extends CustomMessageListener {
             if (customResponsedMessage.getData() instanceof g) {
                 this.this$0.a((g) customResponsedMessage.getData());
             }
-            aiVar = this.this$0.ccK;
-            aiVar.ajB().ajH();
-            aiVar2 = this.this$0.ccK;
-            aiVar2.ajx();
+            aiVar = this.this$0.ccJ;
+            aiVar.ajw().ajC();
+            aiVar2 = this.this$0.ccJ;
+            aiVar2.ajs();
         }
     }
 }

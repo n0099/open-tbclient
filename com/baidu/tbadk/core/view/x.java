@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class x extends LinearLayout {
-    private static /* synthetic */ int[] Nt;
-    private TbImageView Nj;
+    private static /* synthetic */ int[] Nq;
+    private TbImageView Ng;
+    private TextView Nh;
+    private TextView Ni;
+    private TextView Nj;
     private TextView Nk;
     private TextView Nl;
     private TextView Nm;
-    private TextView Nn;
-    private TextView No;
-    private TextView Np;
-    private String Nq;
-    private String Nr;
-    private View Ns;
+    private String Nn;
+    private String No;
+    private View Np;
     private Context mContext;
     private View mRootView;
 
-    static /* synthetic */ int[] qG() {
-        int[] iArr = Nt;
+    static /* synthetic */ int[] qA() {
+        int[] iArr = Nq;
         if (iArr == null) {
             iArr = new int[NoDataViewFactory.ImgType.valuesCustom().length];
             try {
@@ -58,7 +58,7 @@ public class x extends LinearLayout {
                 iArr[NoDataViewFactory.ImgType.SINGALL.ordinal()] = 6;
             } catch (NoSuchFieldError e7) {
             }
-            Nt = iArr;
+            Nq = iArr;
         }
         return iArr;
     }
@@ -71,15 +71,15 @@ public class x extends LinearLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mRootView = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.no_data_view, this);
-        this.Nj = (TbImageView) this.mRootView.findViewById(com.baidu.tieba.w.iv_no_data_img);
-        this.Nj.setDefaultBgResource(0);
-        this.Nj.setDefaultResource(0);
-        this.Nj.setSupportNoImage(false);
-        this.Nk = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_text_reamrk);
-        this.Nl = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_subtitle);
-        this.Nm = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_title);
-        this.Nn = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.btn_func);
-        this.Ns = (LinearLayout) this.mRootView.findViewById(com.baidu.tieba.w.two_button_layout);
+        this.Ng = (TbImageView) this.mRootView.findViewById(com.baidu.tieba.w.iv_no_data_img);
+        this.Ng.setDefaultBgResource(0);
+        this.Ng.setDefaultResource(0);
+        this.Ng.setSupportNoImage(false);
+        this.Nh = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_text_reamrk);
+        this.Ni = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_subtitle);
+        this.Nj = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.tv_title);
+        this.Nk = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.btn_func);
+        this.Np = (LinearLayout) this.mRootView.findViewById(com.baidu.tieba.w.two_button_layout);
     }
 
     public void a(z zVar, aa aaVar, ab abVar) {
@@ -94,94 +94,94 @@ public class x extends LinearLayout {
             ((TbPageContext) jVar).getLayoutMode().h(this);
         }
         if (i == 1) {
-            this.Nj.d(this.Nr, 29, false);
+            this.Ng.d(this.No, 29, false);
         } else {
-            this.Nj.d(this.Nq, 29, false);
+            this.Ng.d(this.Nn, 29, false);
         }
     }
 
     public void setTextOption(ab abVar) {
         if (abVar != null) {
             if (!TextUtils.isEmpty(abVar.mTitle)) {
-                this.Nm.setText(abVar.mTitle);
-                this.Nm.setVisibility(0);
+                this.Nj.setText(abVar.mTitle);
+                this.Nj.setVisibility(0);
             } else {
-                this.Nm.setVisibility(8);
+                this.Nj.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(abVar.Nz)) {
-                this.Nl.setText(abVar.Nz);
+            if (!TextUtils.isEmpty(abVar.Nw)) {
+                this.Ni.setText(abVar.Nw);
                 if (TextUtils.isEmpty(abVar.mTitle)) {
-                    this.Nl.setTextSize(0, getResources().getDimension(com.baidu.tieba.u.fontsize28));
+                    this.Ni.setTextSize(0, getResources().getDimension(com.baidu.tieba.u.fontsize28));
                 }
             } else {
-                this.Nl.setVisibility(8);
+                this.Ni.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(abVar.NA)) {
-                this.Nk.setText(abVar.NA);
-                this.Nk.setVisibility(0);
+            if (!TextUtils.isEmpty(abVar.Nx)) {
+                this.Nh.setText(abVar.Nx);
+                this.Nh.setVisibility(0);
                 return;
             }
-            this.Nk.setVisibility(8);
+            this.Nh.setVisibility(8);
         }
     }
 
     public void setImgOption(aa aaVar) {
         if (aaVar != null) {
-            switch (qG()[aaVar.Nx.ordinal()]) {
+            switch (qA()[aaVar.Nu.ordinal()]) {
                 case 2:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion03.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion03_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion03.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion03_1.png");
                     break;
                 case 3:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion05.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion05_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion05.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion05_1.png");
                     break;
                 case 4:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion01.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion01_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion01.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion01_1.png");
                     break;
                 case 5:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion02.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion02_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion02.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion02_1.png");
                     break;
                 case 6:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion06.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion06_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion06.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion06_1.png");
                     break;
                 case 7:
-                    this.Nq = com.baidu.tbadk.util.b.zO().eD("pic_emotion07.png");
-                    this.Nr = com.baidu.tbadk.util.b.zO().eD("pic_emotion07_1.png");
+                    this.Nn = com.baidu.tbadk.util.b.zI().eA("pic_emotion07.png");
+                    this.No = com.baidu.tbadk.util.b.zI().eA("pic_emotion07_1.png");
                     break;
             }
             if (aaVar.mHeight >= 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Nj.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Ng.getLayoutParams();
                 layoutParams.setMargins(0, aaVar.mHeight, 0, 0);
-                this.Nj.setLayoutParams(layoutParams);
+                this.Ng.setLayoutParams(layoutParams);
             }
         }
     }
 
     public void setButtonOption(z zVar) {
         if (zVar == null) {
-            this.Nn.setVisibility(8);
-            this.Ns.setVisibility(8);
+            this.Nk.setVisibility(8);
+            this.Np.setVisibility(8);
             return;
         }
-        y yVar = zVar.Nv;
-        y yVar2 = zVar.Nw;
+        y yVar = zVar.Ns;
+        y yVar2 = zVar.Nt;
         if (yVar2 == null && yVar != null) {
-            this.Nn.setOnClickListener(yVar.Nu);
-            this.Nn.setText(yVar.mText);
-            this.Nn.setVisibility(0);
+            this.Nk.setOnClickListener(yVar.Nr);
+            this.Nk.setText(yVar.mText);
+            this.Nk.setVisibility(0);
         }
         if (yVar2 != null && yVar != null) {
-            this.No = (TextView) this.Ns.findViewById(com.baidu.tieba.w.btn_left);
-            this.Np = (TextView) this.Ns.findViewById(com.baidu.tieba.w.btn_right);
-            this.No.setOnClickListener(yVar.Nu);
-            this.No.setText(yVar.mText);
-            this.Np.setOnClickListener(yVar2.Nu);
-            this.Np.setText(yVar2.mText);
-            this.Ns.setVisibility(0);
+            this.Nl = (TextView) this.Np.findViewById(com.baidu.tieba.w.btn_left);
+            this.Nm = (TextView) this.Np.findViewById(com.baidu.tieba.w.btn_right);
+            this.Nl.setOnClickListener(yVar.Nr);
+            this.Nl.setText(yVar.mText);
+            this.Nm.setOnClickListener(yVar2.Nr);
+            this.Nm.setText(yVar2.mText);
+            this.Np.setVisibility(0);
         }
     }
 
@@ -190,6 +190,6 @@ public class x extends LinearLayout {
     }
 
     public void onActivityStop() {
-        this.Nj.setBackgroundResource(0);
+        this.Ng.setBackgroundResource(0);
     }
 }

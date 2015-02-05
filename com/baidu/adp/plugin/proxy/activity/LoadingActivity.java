@@ -16,15 +16,15 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra("intent_extra_package_name");
-        if (PluginCenter.gW().aR(stringExtra)) {
+        if (PluginCenter.getInstance().isLoaded(stringExtra)) {
             finish();
             return;
         }
-        bv(stringExtra);
-        PluginPackageManager.ic().a(stringExtra, new a(this));
+        bs(stringExtra);
+        PluginPackageManager.hV().a(stringExtra, new a(this));
     }
 
-    private void bv(String str) {
+    private void bs(String str) {
         try {
             LinearLayout linearLayout = new LinearLayout(getPageContext().getPageActivity());
             linearLayout.setGravity(17);

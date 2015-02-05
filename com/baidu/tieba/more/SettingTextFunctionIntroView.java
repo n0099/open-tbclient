@@ -8,7 +8,7 @@ import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
-    public static String bxX = "has_shown_funtion_intro";
+    public static String bxW = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);
@@ -21,11 +21,11 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public void refresh() {
         VersionData versionData = TbadkCoreApplication.m255getInst().getVersionData();
         boolean z = versionData != null && versionData.hasNewVer();
-        boolean z2 = com.baidu.tbadk.core.sharedPref.b.oj().getBoolean(bxX, false);
+        boolean z2 = com.baidu.tbadk.core.sharedPref.b.oc().getBoolean(bxW, false);
         if (!z && !z2) {
-            com.baidu.tbadk.core.util.bc.i((View) this.Vz, com.baidu.tieba.v.icon_news_head_new);
+            com.baidu.tbadk.core.util.bc.i((View) this.Vw, com.baidu.tieba.v.icon_news_head_new);
         } else {
-            tW();
+            tQ();
         }
     }
 }

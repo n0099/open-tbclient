@@ -60,10 +60,10 @@ public class g {
                 adVar.o("lat", String.valueOf(z.getLatitude()));
                 adVar.o("lng", String.valueOf(z.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aic().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ahX().getLocationData();
             if (locationData != null) {
-                adVar.o("name", locationData.ahY());
-                adVar.o("sn", locationData.aia());
+                adVar.o("name", locationData.ahT());
+                adVar.o("sn", locationData.ahV());
             }
         }
     }

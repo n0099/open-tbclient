@@ -21,10 +21,10 @@ class ab extends CustomMessageListener {
         ai aiVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            aiVar = this.this$0.ccK;
+            aiVar = this.this$0.ccJ;
             if (booleanValue) {
-                aiVar2 = this.this$0.ccK;
-                if (aiVar2.ajr()) {
+                aiVar2 = this.this$0.ccJ;
+                if (aiVar2.ajm()) {
                     z = true;
                     aiVar.eK(z);
                 }

@@ -15,54 +15,54 @@ public abstract class e extends c {
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void kH() {
-        yA();
+    protected void kA() {
+        yu();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void kG() {
-        yB();
+    protected void kz() {
+        yv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void yz() {
+    public void yt() {
         BdListView listView = getListView();
         if (listView != null) {
-            listView.setPullRefresh(yE());
+            listView.setPullRefresh(yy());
         }
-        wN().setListPullRefreshListener(yE(), wP());
+        wH().setListPullRefreshListener(yy(), wJ());
     }
 
     protected void aW(boolean z) {
-        wN().addEventDelegate(this);
+        wH().addEventDelegate(this);
         g(16777217, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void yA() {
+    public void yu() {
         BdListView listView = getListView();
-        yE().a((h) null);
-        listView.jJ();
-        wN().setListPullRefreshListener(yE(), wP());
+        yy().a((h) null);
+        listView.jC();
+        wH().setListPullRefreshListener(yy(), wJ());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void yB() {
-        getListView().jI();
+    public void yv() {
+        getListView().jB();
     }
 
-    protected void yC() {
-        yA();
+    protected void yw() {
+        yu();
     }
 
-    protected void yD() {
-        yB();
+    protected void yx() {
+        yv();
     }
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
-        yE().cs(i);
+        yy().cs(i);
         return true;
     }
 
@@ -71,11 +71,11 @@ public abstract class e extends c {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xs() == 33554437) {
-            yC();
+        if (bVar.xm() == 33554437) {
+            yw();
             return true;
-        } else if (bVar.xs() == 33554438) {
-            yD();
+        } else if (bVar.xm() == 33554438) {
+            yx();
             return true;
         } else {
             return false;
@@ -83,7 +83,7 @@ public abstract class e extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ak yE() {
+    public ak yy() {
         if (this.mPullView == null) {
             this.mPullView = new ak(getPageContext());
         }

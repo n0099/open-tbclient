@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(FrsActivity frsActivity, int i) {
         super(i);
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,59 +42,59 @@ class l extends CustomMessageListener {
         com.baidu.tieba.tbadkCore.e eVar7;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            str = this.aDW.mPageType;
+            str = this.aDT.mPageType;
             if (str != null) {
-                bpVar = this.aDW.aCY;
+                bpVar = this.aDT.aCV;
                 if (bpVar != null) {
-                    eVar = this.aDW.aDi;
+                    eVar = this.aDT.aDf;
                     if (eVar != null) {
-                        eVar2 = this.aDW.aDi;
-                        if (eVar2.aeN() != null) {
+                        eVar2 = this.aDT.aDf;
+                        if (eVar2.aeI() != null) {
                             if (booleanValue) {
-                                str6 = this.aDW.mPageType;
+                                str6 = this.aDT.mPageType;
                                 if (str6.equals("normal_page")) {
-                                    bpVar7 = this.aDW.aCY;
-                                    eVar6 = this.aDW.aDi;
-                                    ForumData aeN = eVar6.aeN();
-                                    eVar7 = this.aDW.aDi;
-                                    bpVar7.b(1, aeN, eVar7, false);
+                                    bpVar7 = this.aDT.aCV;
+                                    eVar6 = this.aDT.aDf;
+                                    ForumData aeI = eVar6.aeI();
+                                    eVar7 = this.aDT.aDf;
+                                    bpVar7.b(1, aeI, eVar7, false);
                                 } else {
-                                    str7 = this.aDW.mPageType;
+                                    str7 = this.aDT.mPageType;
                                     if (str7.equals("frs_page")) {
-                                        bpVar5 = this.aDW.aCY;
-                                        eVar4 = this.aDW.aDi;
-                                        ForumData aeN2 = eVar4.aeN();
-                                        eVar5 = this.aDW.aDi;
-                                        bpVar5.a(1, aeN2, eVar5, false);
+                                        bpVar5 = this.aDT.aCV;
+                                        eVar4 = this.aDT.aDf;
+                                        ForumData aeI2 = eVar4.aeI();
+                                        eVar5 = this.aDT.aDf;
+                                        bpVar5.a(1, aeI2, eVar5, false);
                                     }
                                 }
-                                bpVar6 = this.aDW.aCY;
+                                bpVar6 = this.aDT.aCV;
                                 bpVar6.bU(true);
                                 TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                                str8 = this.aDW.aCQ;
+                                str8 = this.aDT.aCN;
                                 m255getInst.addLikeForum(str8);
                                 return;
                             }
-                            com.baidu.tieba.tbadkCore.d aeH = com.baidu.tieba.tbadkCore.d.aeH();
-                            str2 = this.aDW.aCQ;
-                            aeH.B(str2, false);
-                            eVar3 = this.aDW.aDi;
-                            eVar3.aeN().setLike(0);
-                            str3 = this.aDW.mPageType;
+                            com.baidu.tieba.tbadkCore.d aeC = com.baidu.tieba.tbadkCore.d.aeC();
+                            str2 = this.aDT.aCN;
+                            aeC.B(str2, false);
+                            eVar3 = this.aDT.aDf;
+                            eVar3.aeI().setLike(0);
+                            str3 = this.aDT.mPageType;
                             if (str3.equals("normal_page")) {
-                                bpVar4 = this.aDW.aCY;
+                                bpVar4 = this.aDT.aCV;
                                 bpVar4.eX(0);
                             } else {
-                                str4 = this.aDW.mPageType;
+                                str4 = this.aDT.mPageType;
                                 if (str4.equals("frs_page")) {
-                                    bpVar2 = this.aDW.aCY;
+                                    bpVar2 = this.aDT.aCV;
                                     bpVar2.eY(0);
                                 }
                             }
-                            bpVar3 = this.aDW.aCY;
+                            bpVar3 = this.aDT.aCV;
                             bpVar3.bU(false);
                             TbadkCoreApplication m255getInst2 = TbadkCoreApplication.m255getInst();
-                            str5 = this.aDW.aCQ;
+                            str5 = this.aDT.aCN;
                             m255getInst2.delLikeForum(str5);
                         }
                     }

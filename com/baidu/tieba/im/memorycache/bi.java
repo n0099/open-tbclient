@@ -15,8 +15,8 @@ public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.QO().l(imMessageCenterPojo);
-        c.QO().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        c.QJ().l(imMessageCenterPojo);
+        c.QJ().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c

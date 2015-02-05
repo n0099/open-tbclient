@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ap {
-    private HashMap<String, Integer> bat = new HashMap<>();
-    private as bau;
+    private HashMap<String, Integer> bas = new HashMap<>();
+    private as bat;
 
     public void a(as asVar) {
-        this.bau = asVar;
+        this.bat = asVar;
     }
 
     public void at(List<UserData> list) {
@@ -18,7 +18,7 @@ public class ap {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.bat.put(userData.getUserId(), 1);
+                        this.bas.put(userData.getUserId(), 1);
                     } else {
                         com.baidu.tieba.im.i.a(new aq(this, userData), new ar(this, userData));
                     }
@@ -31,24 +31,24 @@ public class ap {
         if (userData == null) {
             return 0;
         }
-        return gJ(userData.getUserId());
+        return gG(userData.getUserId());
     }
 
-    public boolean gH(String str) {
-        int gJ = gJ(str);
-        return gJ == 1 || gJ == 3;
+    public boolean gE(String str) {
+        int gG = gG(str);
+        return gG == 1 || gG == 3;
     }
 
-    public int gJ(String str) {
-        if (!StringUtils.isNull(str) && this.bat.containsKey(str)) {
-            return this.bat.get(str).intValue();
+    public int gG(String str) {
+        if (!StringUtils.isNull(str) && this.bas.containsKey(str)) {
+            return this.bas.get(str).intValue();
         }
         return 0;
     }
 
     public void F(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.bat.put(str, Integer.valueOf(i));
+            this.bas.put(str, Integer.valueOf(i));
         }
     }
 
@@ -61,7 +61,7 @@ public class ap {
     }
 
     private int Y(long j) {
-        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.Ne().X(j);
+        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.MZ().X(j);
         if (X == null || X.getStatus() == 0) {
             return 0;
         }

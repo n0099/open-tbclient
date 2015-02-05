@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class bb extends com.baidu.adp.base.e<MsglistActivity<?>> {
-    private TextView aRX;
+    private TextView aRW;
     private TbPageContext<MsglistActivity<?>> mContext;
     private LinearLayout mLayout;
     private TextView mTextTitle;
@@ -18,7 +18,7 @@ public class bb extends com.baidu.adp.base.e<MsglistActivity<?>> {
     public bb(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, com.baidu.tieba.x.msg_msgtopic_view);
         this.mTextTitle = null;
-        this.aRX = null;
+        this.aRW = null;
         this.mLayout = null;
         this.mContext = null;
         this.mContext = tbPageContext;
@@ -26,9 +26,9 @@ public class bb extends com.baidu.adp.base.e<MsglistActivity<?>> {
     }
 
     private void initView() {
-        this.aRX = (TextView) findViewById(com.baidu.tieba.w.tex_content);
+        this.aRW = (TextView) findViewById(com.baidu.tieba.w.tex_content);
         this.mTextTitle = (TextView) findViewById(com.baidu.tieba.w.tex_title);
-        this.aRX.setMovementMethod(LinkMovementMethod.getInstance());
+        this.aRW.setMovementMethod(LinkMovementMethod.getInstance());
         this.mTextTitle.setMovementMethod(LinkMovementMethod.getInstance());
         this.mLayout = (LinearLayout) findViewById(com.baidu.tieba.w.topic_title_layout);
     }
@@ -43,14 +43,14 @@ public class bb extends com.baidu.adp.base.e<MsglistActivity<?>> {
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mLayout.getLayoutParams();
             if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
-                this.aRX.setVisibility(0);
-                this.aRX.setText(topicSystemGroupChatMessage.mSystemContent);
+                this.aRW.setVisibility(0);
+                this.aRW.setText(topicSystemGroupChatMessage.mSystemContent);
                 layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds24);
                 this.mLayout.setLayoutParams(layoutParams);
                 return;
             }
-            this.aRX.setText("");
-            this.aRX.setVisibility(8);
+            this.aRW.setText("");
+            this.aRW.setVisibility(8);
             layoutParams.topMargin = 0;
             this.mLayout.setLayoutParams(layoutParams);
         }

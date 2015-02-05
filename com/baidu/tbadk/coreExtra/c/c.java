@@ -19,50 +19,50 @@ public class c {
                 if (StringUtils.isNull(loadString)) {
                     inst.saveString("launch_config_md5", optString2);
                     inst.saveString("launch_config_remote_url", optString);
-                    dn(optString);
+                    dk(optString);
                 } else if (!TextUtils.equals(loadString, optString2)) {
                     inst.saveString("launch_config_md5", optString2);
                     inst.saveString("launch_config_remote_url", optString);
-                    dn(optString);
+                    dk(optString);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void su() {
+    public void so() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String sv() {
+    public String sp() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void dn(String str) {
-        String sv = sv();
-        if (!TextUtils.equals(sv, str) || !dp(sv)) {
-            ae(str, sv);
+    public void dk(String str) {
+        String sp = sp();
+        if (!TextUtils.equals(sp, str) || !dl(sp)) {
+            ae(str, sp);
         }
     }
 
-    public void sw() {
+    public void sq() {
         if (com.baidu.adp.lib.util.i.fg()) {
             TbadkSettings inst = TbadkSettings.getInst();
             ae(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
         }
     }
 
-    private boolean dp(String str) {
-        File ch = s.ch(bh.cH(str));
-        return ch != null && ch.exists() && ch.isFile();
+    private boolean dl(String str) {
+        File ce = s.ce(bh.cE(str));
+        return ce != null && ce.exists() && ce.isFile();
     }
 
     private void ae(String str, String str2) {
         if (com.baidu.adp.lib.util.i.fg()) {
-            new d(str, bh.cH(str), str2).execute(new String[0]);
+            new d(str, bh.cE(str), str2).execute(new String[0]);
         }
     }
 }

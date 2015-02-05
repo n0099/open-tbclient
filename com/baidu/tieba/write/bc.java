@@ -9,11 +9,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -29,93 +29,93 @@ public class bc implements com.baidu.tbadk.editortool.w {
         String str2;
         String str3;
         String str4;
-        boolean FJ;
+        boolean FD;
         if (i == 38) {
-            this.cgS.it(38);
+            this.cgR.it(38);
         } else if (i == 39) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 2) {
-            this.cgS.it(2);
+            this.cgR.it(2);
         } else if (i == 3) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 56) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 59) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 0) {
-            FJ = this.cgS.FJ();
-            if (FJ) {
-                this.cgS.showToast(com.baidu.tieba.z.over_limit_tip);
+            FD = this.cgR.FD();
+            if (FD) {
+                this.cgR.showToast(com.baidu.tieba.z.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cgS.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cgR.getPageContext().getPageActivity(), 12004, true)));
             }
         } else if (i == 8) {
-            this.cgS.it(8);
+            this.cgR.it(8);
         } else if (i == 9) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 4) {
-            str2 = this.cgS.bAr;
+            str2 = this.cgR.bAq;
             if (str2 != null) {
-                str3 = this.cgS.bAr;
+                str3 = this.cgR.bAq;
                 if (str3.length() > 0) {
-                    WriteActivity writeActivity = this.cgS;
-                    str4 = this.cgS.bAr;
+                    WriteActivity writeActivity = this.cgR;
+                    str4 = this.cgR.bAq;
                     writeActivity.showToast(str4);
                 }
             }
         } else if (i == 5) {
-            this.cgS.it(5);
+            this.cgR.it(5);
         } else if (i == 6) {
-            this.cgS.akF();
+            this.cgR.akA();
         } else if (i == 22) {
-            writeImagesInfo3 = this.cgS.writeImagesInfo;
+            writeImagesInfo3 = this.cgR.writeImagesInfo;
             int size = writeImagesInfo3.size();
-            writeImagesInfo4 = this.cgS.writeImagesInfo;
+            writeImagesInfo4 = this.cgR.writeImagesInfo;
             if (size < writeImagesInfo4.getMaxImagesAllowed()) {
-                this.cgS.aBK = String.valueOf(System.currentTimeMillis());
-                TbPageContext pageContext = this.cgS.getPageContext();
-                str = this.cgS.aBK;
+                this.cgR.aBH = String.valueOf(System.currentTimeMillis());
+                TbPageContext pageContext = this.cgR.getPageContext();
+                str = this.cgR.aBH;
                 com.baidu.tbadk.core.util.bb.a(pageContext, str);
                 return;
             }
-            this.cgS.showToast(String.format(this.cgS.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+            this.cgR.showToast(String.format(this.cgR.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
         } else if (i != 23) {
             if (i == 44) {
-                this.cgS.it(i);
+                this.cgR.it(i);
             } else if (i == 45) {
-                this.cgS.akF();
+                this.cgR.akA();
             } else if (i != 48) {
                 if (i == 50) {
-                    editorToolComponetContainer3 = this.cgS.bWk;
-                    if (editorToolComponetContainer3.afX()) {
-                        this.cgS.it(i);
+                    editorToolComponetContainer3 = this.cgR.bWj;
+                    if (editorToolComponetContainer3.afS()) {
+                        this.cgR.it(i);
                     }
                 } else if (i == 49) {
-                    this.cgS.akF();
+                    this.cgR.akA();
                 } else if (i != 55 && i != 58) {
                     if (i == 59) {
-                        this.cgS.it(i);
+                        this.cgR.it(i);
                     } else if (i == 60) {
-                        this.cgS.it(60);
+                        this.cgR.it(60);
                     } else if (i == 57) {
-                        writeImagesInfo = this.cgS.writeImagesInfo;
+                        writeImagesInfo = this.cgR.writeImagesInfo;
                         if (writeImagesInfo != null) {
-                            writeImagesInfo2 = this.cgS.writeImagesInfo;
+                            writeImagesInfo2 = this.cgR.writeImagesInfo;
                             if (writeImagesInfo2.size() > 0) {
-                                this.cgS.it(57);
+                                this.cgR.it(57);
                                 return;
                             }
                         }
-                        editorToolComponetContainer = this.cgS.bWk;
-                        if (editorToolComponetContainer.afN()) {
-                            editorToolComponetContainer2 = this.cgS.bWk;
+                        editorToolComponetContainer = this.cgR.bWj;
+                        if (editorToolComponetContainer.afI()) {
+                            editorToolComponetContainer2 = this.cgR.bWj;
                             editorToolComponetContainer2.hideAll();
                         }
-                        this.cgS.akL();
+                        this.cgR.akG();
                     }
                 }
             } else {
-                this.cgS.iv(i);
+                this.cgR.iv(i);
             }
         }
     }

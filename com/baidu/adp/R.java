@@ -104,35 +104,35 @@ public final class R {
         public static final int adp_debug_switch_edit_quit = 0x7f02001a;
         public static final int adp_debug_update_package_item = 0x7f02001b;
         public static final int adp_down_arrow = 0x7f02001c;
-        public static final int btn_switch = 0x7f020512;
-        public static final int btn_switch_1 = 0x7f020513;
-        public static final int btn_switch_masking = 0x7f020514;
-        public static final int btn_switch_masking_1 = 0x7f020515;
-        public static final int btn_switch_masking_sidebar = 0x7f020516;
-        public static final int icon_gif = 0x7f02078d;
-        public static final int listview_pull_refresh01 = 0x7f020a73;
-        public static final int listview_pull_refresh01_1 = 0x7f020a74;
-        public static final int listview_pull_refresh02 = 0x7f020a75;
-        public static final int listview_pull_refresh02_1 = 0x7f020a76;
-        public static final int pull_icon = 0x7f020b63;
-        public static final int pull_loading = 0x7f020b64;
-        public static final int pull_progressbar = 0x7f020b65;
+        public static final int btn_switch = 0x7f020513;
+        public static final int btn_switch_1 = 0x7f020514;
+        public static final int btn_switch_masking = 0x7f020515;
+        public static final int btn_switch_masking_1 = 0x7f020516;
+        public static final int btn_switch_masking_sidebar = 0x7f020517;
+        public static final int icon_gif = 0x7f02078e;
+        public static final int listview_pull_refresh01 = 0x7f020a74;
+        public static final int listview_pull_refresh01_1 = 0x7f020a75;
+        public static final int listview_pull_refresh02 = 0x7f020a76;
+        public static final int listview_pull_refresh02_1 = 0x7f020a77;
+        public static final int pull_icon = 0x7f020b66;
+        public static final int pull_loading = 0x7f020b67;
+        public static final int pull_progressbar = 0x7f020b68;
     }
 
     /* loaded from: classes.dex */
     public final class id {
-        public static final int RelativeLayout01 = 0x7f060d98;
-        public static final int adp_debug_constom_config_default_value = 0x7f060d99;
-        public static final int adp_debug_custom_config_defaults_list = 0x7f060d9f;
-        public static final int adp_debug_custom_config_item = 0x7f060d9a;
-        public static final int adp_debug_custom_config_title = 0x7f060d9b;
+        public static final int RelativeLayout01 = 0x7f060d99;
+        public static final int adp_debug_constom_config_default_value = 0x7f060d9a;
+        public static final int adp_debug_custom_config_defaults_list = 0x7f060da0;
+        public static final int adp_debug_custom_config_item = 0x7f060d9b;
+        public static final int adp_debug_custom_config_title = 0x7f060d9c;
         public static final int adp_debug_custom_configs_list = 0x7f0602fd;
-        public static final int adp_debug_edit_custom_config = 0x7f060d9c;
+        public static final int adp_debug_edit_custom_config = 0x7f060d9d;
         public static final int both = 0x7f060005;
         public static final int close_debug = 0x7f0602fc;
         public static final int common = 0x7f060000;
         public static final int debug_bt = 0x7f06030a;
-        public static final int debug_close_item = 0x7f060d97;
+        public static final int debug_close_item = 0x7f060d98;
         public static final int debug_cpu = 0x7f060303;
         public static final int debug_fps = 0x7f060301;
         public static final int debug_gc = 0x7f060304;
@@ -147,8 +147,8 @@ public final class R {
         public static final int debug_title = 0x7f0602fb;
         public static final int debug_total = 0x7f060307;
         public static final int debug_ts = 0x7f060306;
-        public static final int debug_update_package_item = 0x7f060dad;
-        public static final int delete_custom_config = 0x7f060d9d;
+        public static final int debug_update_package_item = 0x7f060dae;
+        public static final int delete_custom_config = 0x7f060d9e;
         public static final int disabled = 0x7f060002;
         public static final int foot_layout_progress = 0x7f060311;
         public static final int foot_layout_text = 0x7f060310;
@@ -164,31 +164,31 @@ public final class R {
         public static final int monitor_view = 0x7f0602f9;
         public static final int pullFromEnd = 0x7f060004;
         public static final int pullFromStart = 0x7f060003;
-        public static final int pull_content = 0x7f060c4f;
-        public static final int pull_image = 0x7f060c4e;
-        public static final int pull_root = 0x7f060c4d;
-        public static final int pull_text = 0x7f060c50;
-        public static final int pull_time = 0x7f060c51;
+        public static final int pull_content = 0x7f060c50;
+        public static final int pull_image = 0x7f060c4f;
+        public static final int pull_root = 0x7f060c4e;
+        public static final int pull_text = 0x7f060c51;
+        public static final int pull_time = 0x7f060c52;
         public static final int shader = 0x7f060001;
-        public static final int switch_capture_package = 0x7f060d95;
-        public static final int switch_capture_package_button = 0x7f060d96;
-        public static final int switch_capture_package_item = 0x7f060d93;
-        public static final int switch_capture_package_text = 0x7f060d94;
-        public static final int switch_custom_config = 0x7f060d9e;
+        public static final int switch_capture_package = 0x7f060d96;
+        public static final int switch_capture_package_button = 0x7f060d97;
+        public static final int switch_capture_package_item = 0x7f060d94;
+        public static final int switch_capture_package_text = 0x7f060d95;
+        public static final int switch_custom_config = 0x7f060d9f;
         public static final int switch_image = 0x7f060384;
-        public static final int switch_lcs_reOnline = 0x7f060da2;
-        public static final int switch_lcs_reOnline_btn = 0x7f060da3;
-        public static final int switch_lcs_reOnline_item = 0x7f060da0;
-        public static final int switch_lcs_reOnline_lcs_address = 0x7f060da4;
-        public static final int switch_lcs_reOnline_text = 0x7f060da1;
-        public static final int switch_lcs_switch = 0x7f060da7;
-        public static final int switch_lcs_switch_btn = 0x7f060da8;
-        public static final int switch_lcs_switch_item = 0x7f060da5;
-        public static final int switch_lcs_switch_text = 0x7f060da6;
-        public static final int switch_monitor = 0x7f060dab;
-        public static final int switch_monitor_button = 0x7f060dac;
-        public static final int switch_monitor_item = 0x7f060da9;
-        public static final int switch_monitor_text = 0x7f060daa;
+        public static final int switch_lcs_reOnline = 0x7f060da3;
+        public static final int switch_lcs_reOnline_btn = 0x7f060da4;
+        public static final int switch_lcs_reOnline_item = 0x7f060da1;
+        public static final int switch_lcs_reOnline_lcs_address = 0x7f060da5;
+        public static final int switch_lcs_reOnline_text = 0x7f060da2;
+        public static final int switch_lcs_switch = 0x7f060da8;
+        public static final int switch_lcs_switch_btn = 0x7f060da9;
+        public static final int switch_lcs_switch_item = 0x7f060da6;
+        public static final int switch_lcs_switch_text = 0x7f060da7;
+        public static final int switch_monitor = 0x7f060dac;
+        public static final int switch_monitor_button = 0x7f060dad;
+        public static final int switch_monitor_item = 0x7f060daa;
+        public static final int switch_monitor_text = 0x7f060dab;
     }
 
     /* loaded from: classes.dex */
@@ -200,8 +200,8 @@ public final class R {
         public static final int adp_detault_footer_layout = 0x7f030024;
         public static final int adp_pull_refresh_scroll_view = 0x7f030025;
         public static final int bd_switch_view = 0x7f030046;
-        public static final int pull_simple_view = 0x7f030252;
-        public static final int pull_view = 0x7f030253;
+        public static final int pull_simple_view = 0x7f030253;
+        public static final int pull_view = 0x7f030254;
     }
 
     /* loaded from: classes.dex */

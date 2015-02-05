@@ -27,7 +27,7 @@ public class y extends com.baidu.adp.framework.listener.e {
             if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(",")) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
                 for (String str : split) {
                     if (id.equals(str)) {
-                        this.this$0.gY(responseRemoveMembersMessage.getGroupId());
+                        this.this$0.gV(responseRemoveMembersMessage.getGroupId());
                         return;
                     }
                 }

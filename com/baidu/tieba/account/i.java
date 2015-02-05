@@ -15,16 +15,16 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, AccountData> {
-    final /* synthetic */ AccountActivity amI;
-    private AccountData amM;
-    private boolean amN;
+    final /* synthetic */ AccountActivity amF;
+    private AccountData amJ;
+    private boolean amK;
     private int mType = 0;
 
     public i(AccountActivity accountActivity, boolean z, AccountData accountData) {
-        this.amI = accountActivity;
-        this.amN = false;
-        this.amM = accountData;
-        this.amN = z;
+        this.amF = accountActivity;
+        this.amK = false;
+        this.amJ = accountData;
+        this.amK = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,27 +43,27 @@ public class i extends BdAsyncTask<Object, Integer, AccountData> {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            if (this.amN) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.amM.getID()));
+            if (this.amK) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.amJ.getID()));
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.amM.getID()));
-            o.deleteAccountAllInfo(this.amM.getID());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.amJ.getID()));
+            o.deleteAccountAllInfo(this.amJ.getID());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            com.baidu.tbadk.core.sharedPref.b.oj().remove("get_addresslist_switch" + this.amM.getID());
-            if (this.amM.getID().equals(currentAccount)) {
+            com.baidu.tbadk.core.sharedPref.b.oc().remove("get_addresslist_switch" + this.amJ.getID());
+            if (this.amJ.getID().equals(currentAccount)) {
                 SapiAccountManager.getInstance().logout();
                 this.mType = 2;
                 return null;
             }
             List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (!TextUtils.isEmpty(this.amM.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+            if (!TextUtils.isEmpty(this.amJ.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
                 Iterator<SapiAccount> it = loginAccounts.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     SapiAccount next = it.next();
-                    if (this.amM.getID().equals(next.uid)) {
+                    if (this.amJ.getID().equals(next.uid)) {
                         SapiAccountManager.getInstance().removeLoginAccount(next);
                         break;
                     }
@@ -83,27 +83,27 @@ public class i extends BdAsyncTask<Object, Integer, AccountData> {
     public void onPostExecute(AccountData accountData) {
         ArrayList arrayList;
         m mVar;
-        if (this.amM != null) {
-            new j(this.amI, this.amM.getBDUSS()).start();
+        if (this.amJ != null) {
+            new j(this.amF, this.amJ.getBDUSS()).start();
         }
-        this.amI.closeLoadingDialog();
+        this.amF.closeLoadingDialog();
         if (this.mType != 0) {
-            TbadkCoreApplication.setCurrentAccount(null, this.amI.getPageContext().getPageActivity());
+            TbadkCoreApplication.setCurrentAccount(null, this.amF.getPageContext().getPageActivity());
         }
         switch (this.mType) {
             case 0:
-                this.amI.showToast(this.amI.getPageContext().getString(com.baidu.tieba.z.success));
-                arrayList = this.amI.amC;
-                arrayList.remove(this.amM);
-                this.amM = null;
-                mVar = this.amI.amD;
+                this.amF.showToast(this.amF.getPageContext().getString(com.baidu.tieba.z.success));
+                arrayList = this.amF.amz;
+                arrayList.remove(this.amJ);
+                this.amJ = null;
+                mVar = this.amF.amA;
                 mVar.notifyDataSetChanged();
                 break;
             case 2:
                 TbadkCoreApplication.m255getInst().onUserChanged();
-                com.baidu.tbadk.core.b.b.a(this.amI.getPageContext().getPageActivity(), 11, false);
+                com.baidu.tbadk.core.b.b.a(this.amF.getPageContext().getPageActivity(), 11, false);
                 break;
         }
-        this.amI.amH = null;
+        this.amF.amE = null;
     }
 }

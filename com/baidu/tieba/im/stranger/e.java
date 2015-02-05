@@ -4,15 +4,15 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
 class e implements DialogInterface.OnClickListener {
-    private final /* synthetic */ ImMessageCenterShowItemData aTG;
-    final /* synthetic */ StrangerListActivity bpr;
-    private final /* synthetic */ int bps;
+    private final /* synthetic */ ImMessageCenterShowItemData aTF;
+    final /* synthetic */ StrangerListActivity bpq;
+    private final /* synthetic */ int bpr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bpr = strangerListActivity;
-        this.bps = i;
-        this.aTG = imMessageCenterShowItemData;
+        this.bpq = strangerListActivity;
+        this.bpr = i;
+        this.aTF = imMessageCenterShowItemData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -20,15 +20,15 @@ class e implements DialogInterface.OnClickListener {
         StrangerListModel strangerListModel;
         com.baidu.tieba.im.chat.notify.a aVar;
         StrangerListModel strangerListModel2;
-        if (this.bps == 1) {
-            strangerListModel2 = this.bpr.bpm;
-            strangerListModel2.Tw();
-            this.bpr.finish();
+        if (this.bpr == 1) {
+            strangerListModel2 = this.bpq.bpl;
+            strangerListModel2.Tr();
+            this.bpq.finish();
             return;
         }
-        strangerListModel = this.bpr.bpm;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aTG;
-        aVar = this.bpr.aTD;
+        strangerListModel = this.bpq.bpl;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aTF;
+        aVar = this.bpq.aTC;
         strangerListModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

@@ -7,12 +7,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class bh<T> extends com.baidu.adp.widget.ListView.a<T> {
-    protected final int aCc;
-    protected final int aCd;
-    protected com.baidu.tieba.tbadkCore.e aEI;
-    protected az aEJ;
-    protected int aEK;
-    protected FrsActivity aEd;
+    protected final int aBZ;
+    protected final int aCa;
+    protected com.baidu.tieba.tbadkCore.e aEF;
+    protected az aEG;
+    protected int aEH;
+    protected FrsActivity aEa;
     protected boolean mIsFromCDN;
     protected ListView mListView;
     protected int mSkinType;
@@ -21,9 +21,9 @@ public abstract class bh<T> extends com.baidu.adp.widget.ListView.a<T> {
     public bh(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
         super(frsActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.aEd = frsActivity;
-        this.aCc = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.listview_item_margin);
-        this.aCd = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.listview_divider_height);
+        this.aEa = frsActivity;
+        this.aBZ = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.listview_item_margin);
+        this.aCa = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.listview_divider_height);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,14 +39,14 @@ public abstract class bh<T> extends com.baidu.adp.widget.ListView.a<T> {
     }
 
     public void e(com.baidu.tieba.tbadkCore.e eVar) {
-        this.aEI = eVar;
+        this.aEF = eVar;
     }
 
     public void a(az azVar) {
-        this.aEJ = azVar;
+        this.aEG = azVar;
     }
 
     public void eM(int i) {
-        this.aEK = i;
+        this.aEH = i;
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView aeW;
-    private ImageView bOM;
-    private l bON;
-    private AdapterView.OnItemClickListener bOO = new j(this);
+    private BdListView aeT;
+    private ImageView bOL;
+    private l bOM;
+    private AdapterView.OnItemClickListener bON = new j(this);
 
     static {
         TbadkApplication.getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
@@ -29,20 +29,20 @@ public class SelectLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(x.select_location_activity);
-        this.aeV.setTitleText(z.select_position_title);
-        this.bOM = (ImageView) this.aeV.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.widget_nb_item_search, (View.OnClickListener) null);
-        this.bOM.setOnClickListener(new k(this));
-        this.aeW = (BdListView) findViewById(w.select_position_list);
-        this.bON = new l(this);
-        this.aeW.setAdapter((ListAdapter) this.bON);
-        this.aeW.setOnItemClickListener(this.bOO);
+        this.aeS.setTitleText(z.select_position_title);
+        this.bOL = (ImageView) this.aeS.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.widget_nb_item_search, (View.OnClickListener) null);
+        this.bOL.setOnClickListener(new k(this));
+        this.aeT = (BdListView) findViewById(w.select_position_list);
+        this.bOM = new l(this);
+        this.aeT.setAdapter((ListAdapter) this.bOM);
+        this.aeT.setOnItemClickListener(this.bON);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bON.notifyDataSetChanged();
+        this.bOM.notifyDataSetChanged();
     }
 
     @Override // android.app.Activity

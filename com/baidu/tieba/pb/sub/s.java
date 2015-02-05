@@ -9,11 +9,11 @@ import com.baidu.tieba.tbadkCore.ak;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class s extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ l bGx;
+    final /* synthetic */ l bGw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(l lVar) {
-        this.bGx = lVar;
+        this.bGw = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,14 +21,14 @@ class s extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.c
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         TbRichTextView tbRichTextView;
-        if (aVar != null && !TextUtils.isEmpty(str) && (tbRichTextView = (TbRichTextView) this.bGx.bGc.findViewWithTag(str)) != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(this.bGx.mActivity.getResources(), aVar.jj(), aVar.jj().getNinePatchChunk(), aVar.jn(), null);
+        if (aVar != null && !TextUtils.isEmpty(str) && (tbRichTextView = (TbRichTextView) this.bGw.bGb.findViewWithTag(str)) != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(this.bGw.mActivity.getResources(), aVar.jc(), aVar.jc().getNinePatchChunk(), aVar.jg(), null);
             if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(ak.mAlpha);
             }
             if (tbRichTextView instanceof TbRichTextView) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                layoutParams.bottomMargin = (int) this.bGx.mActivity.getResources().getDimension(u.ds20);
+                layoutParams.bottomMargin = (int) this.bGw.mActivity.getResources().getDimension(u.ds20);
                 tbRichTextView.setLayoutParams(layoutParams);
                 tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
             }

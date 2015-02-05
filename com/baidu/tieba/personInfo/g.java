@@ -9,11 +9,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.core.dialog.l {
-    final /* synthetic */ PersonInfoActivity bJY;
+    final /* synthetic */ PersonInfoActivity bJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonInfoActivity personInfoActivity) {
-        this.bJY = personInfoActivity;
+        this.bJX = personInfoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.l
@@ -21,14 +21,14 @@ public class g implements com.baidu.tbadk.core.dialog.l {
         WriteImagesInfo writeImagesInfo;
         if (i != 0) {
             if (i == 1) {
-                Activity pageActivity = this.bJY.getPageContext().getPageActivity();
-                writeImagesInfo = this.bJY.writeImagesInfo;
+                Activity pageActivity = this.bJX.getPageContext().getPageActivity();
+                writeImagesInfo = this.bJX.writeImagesInfo;
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo.toJsonString());
                 albumActivityConfig.setRequestCode(12002);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         } else {
-            this.bJY.abu();
+            this.bJX.abp();
         }
         iVar.dismiss();
     }

@@ -8,15 +8,15 @@ import android.widget.BaseAdapter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ap extends BaseAdapter {
-    private SparseArray<a<am>> xE;
-    private List<am> xG;
-    private final int xD = -1;
-    private SparseArray<Integer> xF = new SparseArray<>();
+    private SparseArray<a<am>> xB;
+    private List<am> xD;
+    private final int xA = -1;
+    private SparseArray<Integer> xC = new SparseArray<>();
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.xG != null) {
-            return this.xG.size();
+        if (this.xD != null) {
+            return this.xD.size();
         }
         return 0;
     }
@@ -25,10 +25,10 @@ public class ap extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: aD */
     public am getItem(int i) {
-        if (this.xG != null) {
-            int size = this.xG.size();
+        if (this.xD != null) {
+            int size = this.xD.size();
             if (i >= 0 && i < size) {
-                return this.xG.get(i);
+                return this.xD.get(i);
             }
         }
         return null;
@@ -43,9 +43,9 @@ public class ap extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a<am> aVar;
         am item;
-        if (this.xE != null && this.xG != null) {
+        if (this.xB != null && this.xD != null) {
             int count = getCount();
-            if (i >= 0 && i < count && (aVar = this.xE.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof am)) {
+            if (i >= 0 && i < count && (aVar = this.xB.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof am)) {
                 return aVar.a(i, view, viewGroup, item);
             }
         }
@@ -55,62 +55,62 @@ public class ap extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         am item;
-        if (this.xE == null || this.xE.size() == 0 || (item = getItem(i)) == null || item.js() == null) {
+        if (this.xB == null || this.xB.size() == 0 || (item = getItem(i)) == null || item.jl() == null) {
             return -1;
         }
-        return this.xF.get(item.js().getId()).intValue();
+        return this.xC.get(item.jl().getId()).intValue();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        if (this.xE != null) {
-            return this.xE.size();
+        if (this.xB != null) {
+            return this.xB.size();
         }
         return 0;
     }
 
     public void a(a<am> aVar) {
-        if (aVar != null && aVar.js() != null) {
-            if (this.xE == null) {
-                this.xE = new SparseArray<>();
+        if (aVar != null && aVar.jl() != null) {
+            if (this.xB == null) {
+                this.xB = new SparseArray<>();
             }
-            if (aVar.js() != null) {
+            if (aVar.jl() != null) {
                 aVar.a(this);
-                int id = aVar.js().getId();
-                int size = this.xE.size();
-                this.xE.put(size, aVar);
-                this.xF.put(id, Integer.valueOf(size));
+                int id = aVar.jl().getId();
+                int size = this.xB.size();
+                this.xB.put(size, aVar);
+                this.xC.put(id, Integer.valueOf(size));
             }
         }
     }
 
     public void setData(List<am> list) {
-        this.xG = list;
+        this.xD = list;
         notifyDataSetChanged();
     }
 
     public List<am> getData() {
-        return this.xG;
+        return this.xD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.xE != null) {
+        if (this.xB != null) {
             am item = getItem(i);
-            a<am> valueAt = this.xE.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.jq() != null) {
-                valueAt.jq().a(view, item, valueAt.js(), adapterView, i, j);
+            a<am> valueAt = this.xB.valueAt(getItemViewType(i));
+            if (valueAt != null && valueAt.jj() != null) {
+                valueAt.jj().a(view, item, valueAt.jl(), adapterView, i, j);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.xE != null) {
+        if (this.xB != null) {
             am item = getItem(i);
-            a<am> valueAt = this.xE.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.jr() != null) {
-                valueAt.jr().b(view, item, valueAt.js(), adapterView, i, j);
+            a<am> valueAt = this.xB.valueAt(getItemViewType(i));
+            if (valueAt != null && valueAt.jk() != null) {
+                valueAt.jk().b(view, item, valueAt.jl(), adapterView, i, j);
             }
         }
         return false;

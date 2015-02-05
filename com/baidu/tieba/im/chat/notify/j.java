@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ g aTE;
+    final /* synthetic */ g aTD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.aTE = gVar;
+        this.aTD = gVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -20,14 +20,14 @@ public class j implements AdapterView.OnItemLongClickListener {
         if (i < 0) {
             return false;
         }
-        g gVar = this.aTE;
-        imMessageCenterListAdapter = this.aTE.aTr;
-        gVar.aTp = imMessageCenterListAdapter.getItem(i);
-        g gVar2 = this.aTE;
-        imMessageCenterShowItemData = this.aTE.aTp;
+        g gVar = this.aTD;
+        imMessageCenterListAdapter = this.aTD.aTq;
+        gVar.aTo = imMessageCenterListAdapter.getItem(i);
+        g gVar2 = this.aTD;
+        imMessageCenterShowItemData = this.aTD.aTo;
         gVar2.c(imMessageCenterShowItemData);
-        if (this.aTE.aTu != null) {
-            com.baidu.adp.lib.g.k.a(this.aTE.aTu, this.aTE.getActivity());
+        if (this.aTD.aTt != null) {
+            com.baidu.adp.lib.g.k.a(this.aTD.aTt, this.aTD.getActivity());
         }
         return true;
     }

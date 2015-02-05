@@ -6,11 +6,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bHL;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonChangeActivity personChangeActivity) {
-        this.bHL = personChangeActivity;
+        this.bHK = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,34 +24,34 @@ class t implements View.OnClickListener {
         com.baidu.tbadk.coreExtra.c.f fVar4;
         com.baidu.tbadk.coreExtra.c.f fVar5;
         Dialog dialog;
-        fVar = this.bHL.bHC;
-        int sex = fVar.sB().getSex();
-        i = this.bHL.mSex;
+        fVar = this.bHK.bHB;
+        int sex = fVar.sv().getSex();
+        i = this.bHK.mSex;
         if (sex != i) {
-            this.bHL.PH = true;
+            this.bHK.PE = true;
         }
-        z = this.bHL.PH;
+        z = this.bHK.PE;
         if (!z) {
-            fVar2 = this.bHL.bHC;
+            fVar2 = this.bHK.bHB;
             if (fVar2 != null) {
-                fVar3 = this.bHL.bHC;
-                if (fVar3.sB().getPhotoChanged()) {
+                fVar3 = this.bHK.bHB;
+                if (fVar3.sv().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    bool = this.bHL.bHr;
+                    bool = this.bHK.bHq;
                     if (bool.booleanValue()) {
-                        fVar5 = this.bHL.bHC;
-                        intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar5.sB());
+                        fVar5 = this.bHK.bHB;
+                        intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar5.sv());
                     } else {
-                        fVar4 = this.bHL.bHC;
-                        intent.putExtra("data", fVar4.sB());
+                        fVar4 = this.bHK.bHB;
+                        intent.putExtra("data", fVar4.sv());
                     }
-                    this.bHL.setResult(-1, intent);
+                    this.bHK.setResult(-1, intent);
                 }
             }
-            this.bHL.finish();
+            this.bHK.finish();
             return;
         }
-        dialog = this.bHL.bHH;
-        com.baidu.adp.lib.g.k.a(dialog, this.bHL.getPageContext());
+        dialog = this.bHK.bHG;
+        com.baidu.adp.lib.g.k.a(dialog, this.bHK.getPageContext());
     }
 }

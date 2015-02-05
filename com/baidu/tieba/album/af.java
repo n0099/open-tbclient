@@ -1,11 +1,11 @@
 package com.baidu.tieba.album;
 /* loaded from: classes.dex */
 class af {
-    final /* synthetic */ aa aqQ;
-    boolean aqV;
+    final /* synthetic */ aa aqN;
+    boolean aqS;
 
     private af(aa aaVar) {
-        this.aqQ = aaVar;
+        this.aqN = aaVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,26 +6,26 @@ import android.webkit.MimeTypeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements DownloadListener {
-    final /* synthetic */ WebTbActivity By;
+    final /* synthetic */ WebTbActivity Bv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(WebTbActivity webTbActivity) {
-        this.By = webTbActivity;
+        this.Bv = webTbActivity;
     }
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        String bG;
+        String bD;
         if (!TextUtils.isEmpty(str)) {
             String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str4);
             if (TextUtils.isEmpty(extensionFromMimeType) || !extensionFromMimeType.equalsIgnoreCase("apk")) {
                 return;
             }
-            bG = this.By.bG(str);
-            if (TextUtils.isEmpty(bG)) {
-                bG = String.valueOf(System.currentTimeMillis()) + ".apk";
+            bD = this.Bv.bD(str);
+            if (TextUtils.isEmpty(bD)) {
+                bD = String.valueOf(System.currentTimeMillis()) + ".apk";
             }
-            com.baidu.tbadk.download.b.vb().a(bG, str, bG, 0, 0);
+            com.baidu.tbadk.download.b.uV().a(bD, str, bD, 0, 0);
         }
     }
 }

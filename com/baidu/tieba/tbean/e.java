@@ -8,13 +8,13 @@ import tbclient.GetIconList.UserInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d cbV;
+    final /* synthetic */ d cbU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.cbV = dVar;
+        this.cbU = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,36 +31,36 @@ public class e extends com.baidu.adp.framework.listener.e {
         BuyTBeanActivity buyTBeanActivity3;
         i iVar5;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-            iVar = this.cbV.cbU;
-            buyTBeanActivity = this.cbV.cbT;
+            iVar = this.cbU.cbT;
+            buyTBeanActivity = this.cbU.cbS;
             iVar.onFailed(buyTBeanActivity.getPageContext().getString(z.neterror));
             return;
         }
         GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
         if (getYinJiResponseMessage.getError() != 0) {
             if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                iVar5 = this.cbV.cbU;
+                iVar5 = this.cbU.cbT;
                 iVar5.onFailed(getYinJiResponseMessage.getErrorString());
                 return;
             }
-            iVar4 = this.cbV.cbU;
-            buyTBeanActivity3 = this.cbV.cbT;
+            iVar4 = this.cbU.cbT;
+            buyTBeanActivity3 = this.cbU.cbS;
             iVar4.onFailed(buyTBeanActivity3.getPageContext().getString(z.neterror));
             return;
         }
-        this.cbV.userInfo = getYinJiResponseMessage.getUserInfo();
-        this.cbV.iconInfoList = getYinJiResponseMessage.getIconInfoList();
-        userInfo = this.cbV.userInfo;
+        this.cbU.userInfo = getYinJiResponseMessage.getUserInfo();
+        this.cbU.iconInfoList = getYinJiResponseMessage.getIconInfoList();
+        userInfo = this.cbU.userInfo;
         if (userInfo != null) {
-            list = this.cbV.iconInfoList;
+            list = this.cbU.iconInfoList;
             if (list != null) {
-                iVar3 = this.cbV.cbU;
+                iVar3 = this.cbU.cbT;
                 iVar3.onSuccess();
                 return;
             }
         }
-        iVar2 = this.cbV.cbU;
-        buyTBeanActivity2 = this.cbV.cbT;
+        iVar2 = this.cbU.cbT;
+        buyTBeanActivity2 = this.cbU.cbS;
         iVar2.onFailed(buyTBeanActivity2.getPageContext().getString(z.no_data_tip));
     }
 }

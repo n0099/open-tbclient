@@ -41,7 +41,7 @@ public class aq extends Handler {
         this.ql.sendMessage(obtainMessage);
     }
 
-    private String gw() {
+    private String gx() {
         byte[] bArr = new byte[16];
         this.qA.nextBytes(bArr);
         return a.p(bArr);
@@ -62,10 +62,10 @@ public class aq extends Handler {
         this.qB.fP();
         this.qB.write("Connection: Upgrade");
         this.qB.fP();
-        this.qB.write("Sec-WebSocket-Key: " + gw());
+        this.qB.write("Sec-WebSocket-Key: " + gx());
         this.qB.fP();
-        if (this.pI != null && this.pI.gr() != null && this.pI.gr().length() > 0) {
-            this.qB.write("Sec-WebSocket-Extensions: " + this.pI.gr());
+        if (this.pI != null && this.pI.gs() != null && this.pI.gs().length() > 0) {
+            this.qB.write("Sec-WebSocket-Extensions: " + this.pI.gs());
             this.qB.fP();
         }
         if (uVar.mOrigin != null && !uVar.mOrigin.equals("")) {
@@ -134,7 +134,7 @@ public class aq extends Handler {
         if (fQ == null) {
             return false;
         }
-        if (fQ.length > this.pI.gm()) {
+        if (fQ.length > this.pI.gn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, fQ);
@@ -142,7 +142,7 @@ public class aq extends Handler {
     }
 
     private void a(t tVar) {
-        if (tVar.pP.length > this.pI.gm()) {
+        if (tVar.pP.length > this.pI.gn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, tVar.pP);
@@ -150,14 +150,14 @@ public class aq extends Handler {
 
     private void a(al alVar) {
         byte[] bytes = alVar.qc.getBytes("UTF-8");
-        if (bytes.length > this.pI.gm()) {
+        if (bytes.length > this.pI.gn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, bytes);
     }
 
     private void a(af afVar) {
-        if (afVar.pP.length > this.pI.gm()) {
+        if (afVar.pP.length > this.pI.gn()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, afVar.pP);
@@ -178,7 +178,7 @@ public class aq extends Handler {
         }
         this.qB.write((byte) (b | ((byte) i)));
         byte b2 = 0;
-        if (this.pI.gq()) {
+        if (this.pI.gr()) {
             b2 = Byte.MIN_VALUE;
         }
         long j = i3;
@@ -191,14 +191,14 @@ public class aq extends Handler {
             this.qB.write((byte) (b2 | Byte.MAX_VALUE));
             this.qB.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
         }
-        if (this.pI.gq()) {
+        if (this.pI.gr()) {
             this.qB.write(0);
             this.qB.write(0);
             this.qB.write(0);
             this.qB.write(0);
         }
         if (j > 0) {
-            this.pI.gq();
+            this.pI.gr();
             this.qB.write(bArr, i2, i3);
         }
     }

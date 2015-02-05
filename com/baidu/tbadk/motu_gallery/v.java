@@ -12,11 +12,11 @@ public class v {
     private static final String[] ACCEPTABLE_IMAGE_TYPES = {"image/jpeg", "image/png", "image/gif"};
     static final String[] IMAGE_PROJECTION = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
-    protected static String wK() {
+    protected static String wE() {
         return "(mime_type in (?, ?, ?))";
     }
 
-    protected static String[] wL() {
+    protected static String[] wF() {
         return ACCEPTABLE_IMAGE_TYPES;
     }
 
@@ -32,7 +32,7 @@ public class v {
                 strArr[0] = uri.getPath();
                 query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_PROJECTION, "(_data=?)", strArr, sortOrder());
             } else {
-                query = MediaStore.Images.Media.query(contentResolver, uri, IMAGE_PROJECTION, wK(), wL(), sortOrder());
+                query = MediaStore.Images.Media.query(contentResolver, uri, IMAGE_PROJECTION, wE(), wF(), sortOrder());
             }
             return query;
         } catch (Exception e) {

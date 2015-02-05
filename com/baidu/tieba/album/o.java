@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class o {
-    private static o aqp;
-    private ContentObserver aqq;
+    private static o aqm;
+    private ContentObserver aqn;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<s> aA = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable aqr = new p(this);
+    private Runnable aqo = new p(this);
 
-    public static o BT() {
-        if (aqp == null) {
-            aqp = new o();
-            aqp.init(TbadkCoreApplication.m255getInst());
+    public static o BN() {
+        if (aqm == null) {
+            aqm = new o();
+            aqm.init(TbadkCoreApplication.m255getInst());
         }
-        return aqp;
+        return aqm;
     }
 
     private o() {
@@ -34,7 +34,7 @@ public class o {
 
     private void init(Context context) {
         this.mReceiver = new q(this);
-        this.aqq = new r(this, this.mHandler);
+        this.aqn = new r(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -43,7 +43,7 @@ public class o {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.aqq);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.aqn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,8 +52,8 @@ public class o {
             bl(true);
             return;
         }
-        this.handler.removeCallbacks(this.aqr);
-        this.handler.postDelayed(this.aqr, 2000L);
+        this.handler.removeCallbacks(this.aqo);
+        this.handler.postDelayed(this.aqo, 2000L);
     }
 
     public void bl(boolean z) {
@@ -83,7 +83,7 @@ public class o {
         removeAllListeners();
         TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
         m255getInst.unregisterReceiver(this.mReceiver);
-        m255getInst.getContentResolver().unregisterContentObserver(this.aqq);
-        aqp = null;
+        m255getInst.getContentResolver().unregisterContentObserver(this.aqn);
+        aqm = null;
     }
 }

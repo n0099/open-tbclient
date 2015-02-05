@@ -28,10 +28,10 @@ public class aw extends CustomMessageListener {
             long friendId = responseNewFriendUpdateUiMsg.getFriendId();
             int action = responseNewFriendUpdateUiMsg.getAction();
             if (action == 0) {
-                ImMessageCenterPojo H = c.QO().H(String.valueOf(friendId), 2);
+                ImMessageCenterPojo H = c.QJ().H(String.valueOf(friendId), 2);
                 if (H != null) {
                     H.setIsFriend(1);
-                    c.QO().n(H);
+                    c.QJ().n(H);
                     CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ax(this, H));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());
                     customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -39,7 +39,7 @@ public class aw extends CustomMessageListener {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
                 }
             } else if (action == 1) {
-                c.QO().I(String.valueOf(friendId), 2);
+                c.QJ().I(String.valueOf(friendId), 2);
                 CustomMessageTask customMessageTask2 = new CustomMessageTask(2001000, new ay(this, friendId));
                 customMessageTask2.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask2.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

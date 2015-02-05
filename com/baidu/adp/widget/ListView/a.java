@@ -8,10 +8,10 @@ import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class a<T> {
     protected Context mContext;
-    protected an vU;
-    protected ao vV;
-    protected BdUniqueId vW;
-    private ap vX;
+    protected an vR;
+    protected ao vS;
+    protected BdUniqueId vT;
+    private ap vU;
 
     protected abstract View a(ViewGroup viewGroup);
 
@@ -20,7 +20,7 @@ public abstract class a<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.vW = bdUniqueId;
+        this.vT = bdUniqueId;
     }
 
     public View a(int i, View view, ViewGroup viewGroup, T t) {
@@ -36,39 +36,39 @@ public abstract class a<T> {
     }
 
     public void a(an anVar) {
-        this.vU = anVar;
+        this.vR = anVar;
     }
 
-    public an jq() {
-        return this.vU;
+    public an jj() {
+        return this.vR;
     }
 
     public void a(ao aoVar) {
-        this.vV = aoVar;
+        this.vS = aoVar;
     }
 
-    public ao jr() {
-        return this.vV;
+    public ao jk() {
+        return this.vS;
     }
 
-    public BdUniqueId js() {
-        return this.vW;
+    public BdUniqueId jl() {
+        return this.vT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ap apVar) {
-        this.vX = apVar;
+        this.vU = apVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.vX != null) {
-            this.vX.notifyDataSetChanged();
+        if (this.vU != null) {
+            this.vU.notifyDataSetChanged();
         }
     }
 
     public am aD(int i) {
-        if (this.vX != null) {
-            return this.vX.getItem(i);
+        if (this.vU != null) {
+            return this.vU.getItem(i);
         }
         return null;
     }

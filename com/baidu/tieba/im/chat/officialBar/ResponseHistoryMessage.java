@@ -50,10 +50,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            com.baidu.adp.lib.cache.t<byte[]> bS = com.baidu.tbadk.core.a.a.nV().bS("tb.im_official_history");
+            com.baidu.adp.lib.cache.t<byte[]> bP = com.baidu.tbadk.core.a.a.nO().bP("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                bS.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                bP.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

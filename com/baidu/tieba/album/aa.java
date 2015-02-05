@@ -12,36 +12,36 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa extends BaseAdapter {
-    private com.baidu.tbadk.img.e apK;
-    private AlbumActivity apM;
-    private n aqK;
-    private boolean aqL;
-    private boolean aqM;
-    private y aqN;
-    private x aqO;
-    private z aqP;
+    private com.baidu.tbadk.img.e apH;
+    private AlbumActivity apJ;
+    private n aqH;
+    private boolean aqI;
+    private boolean aqJ;
+    private y aqK;
+    private x aqL;
+    private z aqM;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public aa(AlbumActivity albumActivity, n nVar) {
-        this.apM = albumActivity;
-        this.apK = albumActivity.BC();
-        this.aqK = nVar;
-        this.mWidth = (int) this.apM.getResources().getDimension(com.baidu.tieba.u.album_gridview_item_height);
+        this.apJ = albumActivity;
+        this.apH = albumActivity.Bw();
+        this.aqH = nVar;
+        this.mWidth = (int) this.apJ.getResources().getDimension(com.baidu.tieba.u.album_gridview_item_height);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.aqL = z;
+        this.aqI = z;
         notifyDataSetChanged();
     }
 
     public boolean isScroll() {
-        return this.aqM;
+        return this.aqJ;
     }
 
     public void bo(boolean z) {
-        this.aqM = z;
+        this.aqJ = z;
     }
 
     public int g(ImageFileInfo imageFileInfo) {
@@ -91,7 +91,7 @@ public class aa extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.aqL && i == 0) ? 1 : 0;
+        return (this.aqI && i == 0) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -106,14 +106,14 @@ public class aa extends BaseAdapter {
         if (view == null) {
             agVar = new ag(this, null);
             if (itemViewType == 0) {
-                view = com.baidu.adp.lib.g.b.ei().a(this.apM.getPageContext().getPageActivity(), com.baidu.tieba.x.album_image_item_view, viewGroup, false);
-                agVar.aqW = (HeadImageView) view.findViewById(com.baidu.tieba.w.pic);
-                agVar.aqX = (ImageView) view.findViewById(com.baidu.tieba.w.select_icon);
-                agVar.aqZ = (RelativeLayout) view.findViewById(com.baidu.tieba.w.lay_select);
+                view = com.baidu.adp.lib.g.b.ei().a(this.apJ.getPageContext().getPageActivity(), com.baidu.tieba.x.album_image_item_view, viewGroup, false);
+                agVar.aqT = (HeadImageView) view.findViewById(com.baidu.tieba.w.pic);
+                agVar.aqU = (ImageView) view.findViewById(com.baidu.tieba.w.select_icon);
+                agVar.aqW = (RelativeLayout) view.findViewById(com.baidu.tieba.w.lay_select);
                 view.setTag(agVar);
             } else {
-                view = com.baidu.adp.lib.g.b.ei().a(this.apM.getPageContext().getPageActivity(), com.baidu.tieba.x.album_image_item_view_camera, viewGroup, false);
-                agVar.aqY = (ViewGroup) view.findViewById(com.baidu.tieba.w.item_camera);
+                view = com.baidu.adp.lib.g.b.ei().a(this.apJ.getPageContext().getPageActivity(), com.baidu.tieba.x.album_image_item_view_camera, viewGroup, false);
+                agVar.aqV = (ViewGroup) view.findViewById(com.baidu.tieba.w.item_camera);
                 view.setTag(agVar);
             }
         } else {
@@ -121,60 +121,60 @@ public class aa extends BaseAdapter {
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            agVar.aqW.setTag(null);
-            agVar.aqW.setRadius(1);
-            agVar.aqW.setDefaultResource(com.baidu.tieba.v.img_default_100);
-            agVar.aqW.d(null, 12, false);
-            agVar.aqW.invalidate();
+            agVar.aqT.setTag(null);
+            agVar.aqT.setRadius(1);
+            agVar.aqT.setDefaultResource(com.baidu.tieba.v.img_default_100);
+            agVar.aqT.d(null, 12, false);
+            agVar.aqT.invalidate();
             af afVar = new af(this, null);
-            afVar.aqV = true;
+            afVar.aqS = true;
             if (item != null) {
                 item.clearPageActions();
                 item.addPageAction(com.baidu.tbadk.img.effect.d.z(this.mWidth, this.mWidth));
-                agVar.aqW.setTag(item.toCachedKey(false));
-                if (this.apK.a(item, false) != null) {
-                    agVar.aqW.invalidate();
+                agVar.aqT.setTag(item.toCachedKey(false));
+                if (this.apH.a(item, false) != null) {
+                    agVar.aqT.invalidate();
                 } else {
-                    this.apK.a(item, new ab(this, viewGroup, afVar), false, this.aqM);
+                    this.apH.a(item, new ab(this, viewGroup, afVar), false, this.aqJ);
                 }
             } else {
-                afVar.aqV = false;
+                afVar.aqS = false;
             }
             int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-            if (this.aqK != null) {
-                if (this.aqK.isAdded(item)) {
-                    bc.i(agVar.aqX, com.baidu.tieba.v.chx_camera_pic_s);
+            if (this.aqH != null) {
+                if (this.aqH.isAdded(item)) {
+                    bc.i(agVar.aqU, com.baidu.tieba.v.chx_camera_pic_s);
                 } else {
-                    bc.i(agVar.aqX, com.baidu.tieba.v.chx_camera_pic_n);
+                    bc.i(agVar.aqU, com.baidu.tieba.v.chx_camera_pic_n);
                 }
-                a(agVar, afVar, i, item, skinType, this.aqK);
+                a(agVar, afVar, i, item, skinType, this.aqH);
             }
-            agVar.aqW.setOnClickListener(new ac(this, afVar, i, item));
+            agVar.aqT.setOnClickListener(new ac(this, afVar, i, item));
         } else {
-            agVar.aqY.setOnClickListener(new ad(this, i, item));
+            agVar.aqV.setOnClickListener(new ad(this, i, item));
         }
         applyNightMode(view);
         return view;
     }
 
     private void applyNightMode(View view) {
-        this.apM.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
-        this.apM.getLayoutMode().h(view);
+        this.apJ.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+        this.apJ.getLayoutMode().h(view);
     }
 
     public void a(y yVar) {
-        this.aqN = yVar;
+        this.aqK = yVar;
     }
 
     public void a(z zVar) {
-        this.aqP = zVar;
+        this.aqM = zVar;
     }
 
     public void a(x xVar) {
-        this.aqO = xVar;
+        this.aqL = xVar;
     }
 
     private void a(ag agVar, af afVar, int i, ImageFileInfo imageFileInfo, int i2, n nVar) {
-        agVar.aqZ.setOnClickListener(new ae(this, afVar, nVar, imageFileInfo, i, agVar));
+        agVar.aqW.setOnClickListener(new ae(this, afVar, nVar, imageFileInfo, i, agVar));
     }
 }

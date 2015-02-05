@@ -25,44 +25,44 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
-    private h FG;
-    private h FH;
-    private h FI;
-    private DialogInterface.OnKeyListener FJ;
-    private String Fp;
-    private String Fq;
-    private String Fr;
-    private DialogInterface.OnCancelListener Fv;
+    private h FD;
+    private h FE;
+    private h FF;
+    private DialogInterface.OnKeyListener FG;
+    private String Fm;
+    private String Fn;
+    private String Fo;
+    private DialogInterface.OnCancelListener Fs;
     protected final Activity mActivity;
     private View mContentView;
     private AlertDialog mDialog;
     private String mMessage;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int Fo = -1;
-    private int FD = -1;
-    private int FE = v.btn_blue_bg;
-    private int FF = t.cp_cont_g;
-    private boolean Fx = false;
-    private boolean Fy = true;
+    private int Fl = -1;
+    private int FA = -1;
+    private int FB = v.btn_blue_bg;
+    private int FC = t.cp_cont_g;
+    private boolean Fu = false;
+    private boolean Fv = true;
 
     public e bz(int i) {
-        this.FD = i;
+        this.FA = i;
         return this;
     }
 
     public e bA(int i) {
-        this.FE = i;
+        this.FB = i;
         return this;
     }
 
     public e bB(int i) {
-        this.FF = i;
+        this.FC = i;
         return this;
     }
 
     public e a(DialogInterface.OnKeyListener onKeyListener) {
-        this.FJ = onKeyListener;
+        this.FG = onKeyListener;
         return this;
     }
 
@@ -75,22 +75,22 @@ public class e {
 
     public e a(int i, h hVar) {
         if (this.mActivity != null) {
-            this.Fp = this.mActivity.getResources().getString(i);
-            this.FG = hVar;
+            this.Fm = this.mActivity.getResources().getString(i);
+            this.FD = hVar;
         }
         return this;
     }
 
     public e b(int i, h hVar) {
         if (this.mActivity != null) {
-            this.Fq = this.mActivity.getResources().getString(i);
-            this.FH = hVar;
+            this.Fn = this.mActivity.getResources().getString(i);
+            this.FE = hVar;
         }
         return this;
     }
 
     public e ak(boolean z) {
-        this.Fy = z;
+        this.Fv = z;
         return this;
     }
 
@@ -103,16 +103,16 @@ public class e {
         boolean z;
         boolean z2;
         boolean z3;
-        if (!this.Fx) {
-            this.Fx = true;
+        if (!this.Fu) {
+            this.Fu = true;
             c(jVar);
             TextView textView = (TextView) this.mRootView.findViewById(w.title);
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(w.content);
             ImageView imageView = (ImageView) this.mRootView.findViewById(w.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(w.message);
             Button button = (Button) this.mRootView.findViewById(w.yes);
-            bc.i((View) button, this.FE);
-            bc.b(button, this.FF, 3);
+            bc.i((View) button, this.FB);
+            bc.b(button, this.FC, 3);
             Button button2 = (Button) this.mRootView.findViewById(w.no);
             Button button3 = (Button) this.mRootView.findViewById(w.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -124,8 +124,8 @@ public class e {
                 linearLayout.removeAllViews();
                 linearLayout.addView(this.mContentView);
             }
-            if (this.FD != -1) {
-                bc.c(imageView, this.FD);
+            if (this.FA != -1) {
+                bc.c(imageView, this.FA);
                 imageView.setVisibility(0);
             } else {
                 imageView.setVisibility(8);
@@ -133,30 +133,30 @@ public class e {
             if (!TextUtils.isEmpty(this.mMessage)) {
                 textView2.setText(this.mMessage);
             }
-            if (TextUtils.isEmpty(this.Fp)) {
+            if (TextUtils.isEmpty(this.Fm)) {
                 z = false;
             } else {
-                button.setText(this.Fp);
-                if (this.FG != null) {
-                    button.setOnClickListener(new g(this, this, this.FG));
+                button.setText(this.Fm);
+                if (this.FD != null) {
+                    button.setOnClickListener(new g(this, this, this.FD));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.Fq)) {
+            if (TextUtils.isEmpty(this.Fn)) {
                 z2 = false;
             } else {
-                button2.setText(this.Fq);
-                if (this.FH != null) {
-                    button2.setOnClickListener(new g(this, this, this.FH));
+                button2.setText(this.Fn);
+                if (this.FE != null) {
+                    button2.setOnClickListener(new g(this, this, this.FE));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.Fr)) {
+            if (TextUtils.isEmpty(this.Fo)) {
                 z3 = false;
             } else {
-                button3.setText(this.Fr);
-                if (this.FI != null) {
-                    button3.setOnClickListener(new g(this, this, this.FI));
+                button3.setText(this.Fo);
+                if (this.FF != null) {
+                    button3.setOnClickListener(new g(this, this, this.FF));
                 }
                 z3 = true;
             }
@@ -221,7 +221,7 @@ public class e {
     }
 
     private e al(boolean z) {
-        if (!this.Fx) {
+        if (!this.Fu) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -232,12 +232,12 @@ public class e {
             }
         } else {
             this.mDialog = new AlertDialog.Builder(this.mActivity).create();
-            this.mDialog.setCanceledOnTouchOutside(this.Fy);
-            if (this.Fv != null) {
-                this.mDialog.setOnCancelListener(this.Fv);
+            this.mDialog.setCanceledOnTouchOutside(this.Fv);
+            if (this.Fs != null) {
+                this.mDialog.setOnCancelListener(this.Fs);
             }
-            if (this.FJ != null) {
-                this.mDialog.setOnKeyListener(this.FJ);
+            if (this.FG != null) {
+                this.mDialog.setOnKeyListener(this.FG);
             }
             if (z) {
                 com.baidu.adp.lib.g.k.a(this.mDialog, this.mActivity);
@@ -245,10 +245,10 @@ public class e {
                 this.mDialog.show();
             }
             Window window = this.mDialog.getWindow();
-            if (this.Fo == -1) {
-                this.Fo = 17;
+            if (this.Fl == -1) {
+                this.Fl = 17;
             }
-            window.setGravity(this.Fo);
+            window.setGravity(this.Fl);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
@@ -264,7 +264,7 @@ public class e {
         return this;
     }
 
-    public e nY() {
+    public e nR() {
         return al(true);
     }
 

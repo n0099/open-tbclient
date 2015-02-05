@@ -18,9 +18,9 @@ public class h {
     private static Object lock = new Object();
     private static long mobileLastTachometerTime = 0;
     private BdUniqueId unique_id = BdUniqueId.gen();
-    private final int BN = 10001;
-    private final int BO = 10002;
-    private HttpMessageListener BP = new i(this, CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
+    private final int BK = 10001;
+    private final int BL = 10002;
+    private HttpMessageListener BM = new i(this, CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
     private final Handler handler = new j(this, Looper.getMainLooper());
 
     public h() {
@@ -28,22 +28,22 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lB() {
+    public void lu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.BP);
-        MessageManager.getInstance().registerListener(this.BP);
+        MessageManager.getInstance().unRegisterListener(this.BM);
+        MessageManager.getInstance().registerListener(this.BM);
     }
 
-    public void lC() {
+    public void lv() {
         long currentTimeMillis;
         if (!com.baidu.adp.lib.util.i.fg() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
             synchronized (lock) {
                 try {
                     if (0 == mobileLastTachometerTime) {
-                        mobileLastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oj().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        mobileLastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oc().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -51,7 +51,7 @@ public class h {
                 }
                 if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
                     mobileLastTachometerTime = currentTimeMillis;
-                    com.baidu.tbadk.core.sharedPref.b.oj().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    com.baidu.tbadk.core.sharedPref.b.oc().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.handler.sendEmptyMessage(10002);
                 }
             }
@@ -59,7 +59,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lD() {
+    public void lw() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
         httpMessage.addParam("domain", "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);

@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class g extends a {
-    private final boolean Lg = false;
-    private final boolean Lh = false;
-    private final boolean Li = false;
+    private final boolean Ld = false;
+    private final boolean Le = false;
+    private final boolean Lf = false;
     private int height;
     private int width;
 
@@ -25,7 +25,7 @@ public class g extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a c = super.c(str, str2, objArr);
-        if (c != null && c.jj() != null && c.jj().isRecycled()) {
+        if (c != null && c.jc() != null && c.jc().isRecycled()) {
             return null;
         }
         return c;
@@ -52,12 +52,12 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qq() {
+    public boolean qj() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qr() {
+    public boolean qk() {
         return false;
     }
 }

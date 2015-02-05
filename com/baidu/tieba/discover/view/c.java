@@ -15,26 +15,26 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.discover.data.c, com.baidu.tbadk.mvc.e.c> {
-    private TextView Xo;
-    private ImageView awq;
-    private TextView awu;
-    private ImageView awv;
-    private View aww;
-    private View awx;
-    private View awy;
-    private TbImageView zS;
+    private TextView Xl;
+    private ImageView awn;
+    private TextView awr;
+    private ImageView aws;
+    private View awt;
+    private View awu;
+    private View awv;
+    private TbImageView zP;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.awy = view.findViewById(w.root_view);
-        this.zS = (TbImageView) view.findViewById(w.icon);
-        this.Xo = (TextView) view.findViewById(w.title);
-        this.awu = (TextView) view.findViewById(w.desc);
-        this.awq = (ImageView) view.findViewById(w.red_tip);
-        this.awv = (ImageView) view.findViewById(w.red_new_tip);
-        this.aww = view.findViewById(w.top_divider);
-        this.awx = view.findViewById(w.bottom_divider);
-        this.zS.setSupportNoImage(false);
+        this.awv = view.findViewById(w.root_view);
+        this.zP = (TbImageView) view.findViewById(w.icon);
+        this.Xl = (TextView) view.findViewById(w.title);
+        this.awr = (TextView) view.findViewById(w.desc);
+        this.awn = (ImageView) view.findViewById(w.red_tip);
+        this.aws = (ImageView) view.findViewById(w.red_new_tip);
+        this.awt = view.findViewById(w.top_divider);
+        this.awu = view.findViewById(w.bottom_divider);
+        this.zP.setSupportNoImage(false);
         a(tbPageContext, TbadkApplication.getInst().getSkinType());
     }
 
@@ -44,38 +44,38 @@ public class c extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.discover.data.c, 
     public void y(com.baidu.tieba.discover.data.c cVar) {
         super.y(cVar);
         if (cVar != null) {
-            this.zS.setDefaultResource(p.fg(cVar.Dr()));
+            this.zP.setDefaultResource(p.fd(cVar.Dl()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
-                this.zS.d(cVar.getIcon_url(), 10, false);
+                this.zP.d(cVar.getIcon_url(), 10, false);
             }
-            this.Xo.setText(m.f(cVar.getTitle(), 0, 16));
-            this.awu.setText(cVar.Dq());
-            if (cVar.Ds()) {
-                this.awv.setVisibility(0);
+            this.Xl.setText(m.f(cVar.getTitle(), 0, 16));
+            this.awr.setText(cVar.Dk());
+            if (cVar.Dm()) {
+                this.aws.setVisibility(0);
             } else {
-                this.awv.setVisibility(8);
+                this.aws.setVisibility(8);
             }
-            if (cVar.Dt()) {
-                this.awq.setVisibility(0);
+            if (cVar.Dn()) {
+                this.awn.setVisibility(0);
             } else {
-                this.awq.setVisibility(8);
+                this.awn.setVisibility(8);
             }
-            switch (cVar.Du()) {
+            switch (cVar.Do()) {
                 case 1:
-                    this.aww.setVisibility(0);
-                    this.awx.setVisibility(0);
+                    this.awt.setVisibility(0);
+                    this.awu.setVisibility(0);
                     return;
                 case 2:
-                    this.aww.setVisibility(8);
-                    this.awx.setVisibility(8);
+                    this.awt.setVisibility(8);
+                    this.awu.setVisibility(8);
                     return;
                 case 3:
-                    this.aww.setVisibility(0);
-                    this.awx.setVisibility(8);
+                    this.awt.setVisibility(0);
+                    this.awu.setVisibility(8);
                     return;
                 default:
-                    this.aww.setVisibility(8);
-                    this.awx.setVisibility(0);
+                    this.awt.setVisibility(8);
+                    this.awu.setVisibility(0);
                     return;
             }
         }
@@ -84,8 +84,8 @@ public class c extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.discover.data.c, 
     @Override // com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.g.a.a(tbPageContext, getRootView());
-        bc.i(this.awy, v.addresslist_item_bg);
-        this.zS.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        bc.i(this.awv, v.addresslist_item_bg);
+        this.zP.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
         return true;
     }
 }

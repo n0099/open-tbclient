@@ -4,14 +4,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class bj {
-    ImageView aEN;
-    ImageView aEO;
-    final /* synthetic */ bi aEP;
-    TextView amR;
+    ImageView aEK;
+    ImageView aEL;
+    final /* synthetic */ bi aEM;
+    TextView amO;
     ImageView mDivider;
 
     private bj(bi biVar) {
-        this.aEP = biVar;
+        this.aEM = biVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

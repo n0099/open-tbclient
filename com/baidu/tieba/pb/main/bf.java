@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 class bf implements bt {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.main.bt
@@ -35,87 +35,87 @@ class bf implements bt {
         bz bzVar14;
         bz bzVar15;
         bz bzVar16;
-        this.bAT.bAf = true;
+        this.bAS.bAe = true;
         long currentTimeMillis = System.currentTimeMillis();
-        bzVar = this.bAT.bAx;
-        bzVar.YI();
-        PbActivity pbActivity = this.bAT;
-        bzVar2 = this.bAT.bAx;
+        bzVar = this.bAS.bAw;
+        bzVar.YD();
+        PbActivity pbActivity = this.bAS;
+        bzVar2 = this.bAS.bAw;
         pbActivity.hideLoadingView(bzVar2.getView());
-        bzVar3 = this.bAT.bAx;
-        bzVar3.Qn();
-        z2 = this.bAT.aae;
+        bzVar3 = this.bAS.bAw;
+        bzVar3.Qi();
+        z2 = this.bAS.aab;
         if (z2) {
-            this.bAT.aae = false;
-            bzVar16 = this.bAT.bAx;
-            bzVar16.bCY.bEV.setEnabled(true);
+            this.bAS.aab = false;
+            bzVar16 = this.bAS.bAw;
+            bzVar16.bCX.bEU.setEnabled(true);
         }
         if (i4 == 0 && iVar != null) {
-            this.bAT.aCM = true;
+            this.bAS.aCJ = true;
         }
         if (z && iVar != null) {
-            bzVar7 = this.bAT.bAx;
-            bzVar7.GS();
-            bzVar8 = this.bAT.bAx;
-            bzVar8.Zr();
+            bzVar7 = this.bAS.bAw;
+            bzVar7.GM();
+            bzVar8 = this.bAS.bAw;
+            bzVar8.Zm();
             TbadkCoreApplication.m255getInst().setDefaultBubble(iVar.getUserData().getBimg_url());
             TbadkCoreApplication.m255getInst().setDefaultBubbleEndTime(iVar.getUserData().getBimg_end_time());
-            bzVar9 = this.bAT.bAx;
-            if (bzVar9.FF() != null) {
-                bzVar15 = this.bAT.bAx;
-                bzVar15.FF().refresh();
+            bzVar9 = this.bAS.bAw;
+            if (bzVar9.Fz() != null) {
+                bzVar15 = this.bAS.bAw;
+                bzVar15.Fz().refresh();
             }
-            eVar = this.bAT.bAt;
-            eVar.Y(iVar.li());
-            bzVar10 = this.bAT.bAx;
-            bqVar = this.bAT.bAs;
-            bzVar10.a(iVar, i2, i3, bqVar.XL(), i4);
-            bzVar11 = this.bAT.bAx;
-            bqVar2 = this.bAT.bAs;
-            bzVar11.a(iVar, bqVar2.XL(), false, i2);
-            bzVar12 = this.bAT.bAx;
-            bqVar3 = this.bAT.bAs;
+            eVar = this.bAS.bAs;
+            eVar.Y(iVar.lb());
+            bzVar10 = this.bAS.bAw;
+            bqVar = this.bAS.bAr;
+            bzVar10.a(iVar, i2, i3, bqVar.XG(), i4);
+            bzVar11 = this.bAS.bAw;
+            bqVar2 = this.bAS.bAr;
+            bzVar11.a(iVar, bqVar2.XG(), false, i2);
+            bzVar12 = this.bAS.bAw;
+            bqVar3 = this.bAS.bAr;
             bzVar12.dZ(bqVar3.getHostMode());
-            this.bAT.Xx();
-            AntiData mR = iVar.mR();
-            if (mR != null) {
-                Boolean valueOf = Boolean.valueOf(mR.isIfvoice());
-                this.bAT.bAr = mR.getVoice_message();
-                this.bAT.g(valueOf);
+            this.bAS.Xs();
+            AntiData mK = iVar.mK();
+            if (mK != null) {
+                Boolean valueOf = Boolean.valueOf(mK.isIfvoice());
+                this.bAS.bAq = mK.getVoice_message();
+                this.bAS.g(valueOf);
             }
-            if (iVar == null || iVar.CH() != 1) {
-                bzVar13 = this.bAT.bAx;
+            if (iVar == null || iVar.CB() != 1) {
+                bzVar13 = this.bAS.bAw;
                 bzVar13.eb(false);
             } else {
-                bzVar14 = this.bAT.bAx;
+                bzVar14 = this.bAS.bAw;
                 bzVar14.eb(true);
             }
         } else if (str != null) {
             if (i == 4 || i == 28) {
-                this.bAT.finish();
+                this.bAS.finish();
             }
-            z3 = this.bAT.aCM;
+            z3 = this.bAS.aCJ;
             if (!z3 && i4 == 1) {
                 if (i2 == 3 || i2 == 4 || i2 == 6) {
-                    PbActivity pbActivity2 = this.bAT;
-                    bzVar5 = this.bAT.bAx;
-                    pbActivity2.showNetRefreshView(bzVar5.getView(), this.bAT.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, str, Integer.valueOf(i)), true);
-                    bzVar6 = this.bAT.bAx;
-                    bzVar6.Zs();
+                    PbActivity pbActivity2 = this.bAS;
+                    bzVar5 = this.bAS.bAw;
+                    pbActivity2.showNetRefreshView(bzVar5.getView(), this.bAS.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, str, Integer.valueOf(i)), true);
+                    bzVar6 = this.bAS.bAw;
+                    bzVar6.Zn();
                 }
             } else {
-                this.bAT.showToast(str);
+                this.bAS.showToast(str);
             }
-            bzVar4 = this.bAT.bAx;
-            bzVar4.qK();
+            bzVar4 = this.bAS.bAw;
+            bzVar4.qE();
         }
-        this.bAT.agS = System.currentTimeMillis() - currentTimeMillis;
+        this.bAS.agP = System.currentTimeMillis() - currentTimeMillis;
     }
 
     @Override // com.baidu.tieba.pb.main.bt
     public void a(com.baidu.tieba.tbadkCore.b.i iVar) {
         bz bzVar;
-        bzVar = this.bAT.bAx;
+        bzVar = this.bAS.bAw;
         bzVar.e(iVar);
     }
 
@@ -124,19 +124,19 @@ class bf implements bt {
         long j;
         long j2;
         long j3;
-        PbActivity pbActivity = this.bAT;
+        PbActivity pbActivity = this.bAS;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.bAT.aDp;
-        pbActivity.agT = currentTimeMillis - j;
+        j = this.bAS.aDm;
+        pbActivity.agQ = currentTimeMillis - j;
         if (z) {
             com.baidu.tbadk.performanceLog.w wVar = new com.baidu.tbadk.performanceLog.w();
             wVar.dX(1001);
-            wVar.agK = this.bAT.aDz;
-            j2 = this.bAT.createTime;
-            wVar.agM = j2;
-            j3 = this.bAT.agT;
-            wVar.agT = j3;
-            wVar.zs();
+            wVar.agH = this.bAS.aDw;
+            j2 = this.bAS.createTime;
+            wVar.agJ = j2;
+            j3 = this.bAS.agQ;
+            wVar.agQ = j3;
+            wVar.zm();
         }
     }
 
@@ -148,22 +148,22 @@ class bf implements bt {
         long j4;
         long j5;
         if (wVar != null) {
-            j = this.bAT.createTime;
-            wVar.agM = j;
-            this.bAT.createTime = 0L;
-            wVar.agK = this.bAT.aDz;
-            j2 = this.bAT.agS;
-            wVar.agS = j2;
-            j3 = this.bAT.agT;
+            j = this.bAS.createTime;
+            wVar.agJ = j;
+            this.bAS.createTime = 0L;
+            wVar.agH = this.bAS.aDw;
+            j2 = this.bAS.agP;
+            wVar.agP = j2;
+            j3 = this.bAS.agQ;
             if (j3 == 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j5 = this.bAT.aDp;
+                j5 = this.bAS.aDm;
                 j4 = currentTimeMillis - j5;
             } else {
-                j4 = this.bAT.agT;
+                j4 = this.bAS.agQ;
             }
-            wVar.agT = j4;
-            wVar.zt();
+            wVar.agQ = j4;
+            wVar.zn();
         }
     }
 }

@@ -27,7 +27,7 @@ public class ct {
     public String j(String str, byte[] bArr) {
         switch (com.baidu.tbadk.core.util.s.a(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.s.os();
+                return com.baidu.tbadk.core.util.s.ol();
             case -1:
             default:
                 return this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error);

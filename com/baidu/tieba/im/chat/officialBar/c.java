@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private TbImageView aTR;
-    private int aTS;
-    private String aTT;
+    private TbImageView aTQ;
+    private int aTR;
+    private String aTS;
     private Context mContext;
     private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
@@ -35,8 +35,8 @@ public class c extends LinearLayout {
     private void initView() {
         setOrientation(0);
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_bottom_view, this, true);
-        this.aTR = (TbImageView) findViewById(com.baidu.tieba.w.bottom_content_pic);
-        this.aTR.setAutoChangeStyle(false);
+        this.aTQ = (TbImageView) findViewById(com.baidu.tieba.w.bottom_content_pic);
+        this.aTQ.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(com.baidu.tieba.w.bottom_title);
     }
 
@@ -51,16 +51,16 @@ public class c extends LinearLayout {
                 setOnClickListener(new e(this, tbPageContext, pVar, i));
             }
             if (!TextUtils.isEmpty(pVar.src)) {
-                this.aTR.setTag(pVar.src);
-                this.aTR.d(pVar.src, 10, false);
+                this.aTQ.setTag(pVar.src);
+                this.aTQ.d(pVar.src, 10, false);
             }
         }
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.aTR.setBackgroundDrawable(null);
-        this.aTR.setImageDrawable(null);
+        this.aTQ.setBackgroundDrawable(null);
+        this.aTQ.setImageDrawable(null);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
@@ -72,11 +72,11 @@ public class c extends LinearLayout {
     }
 
     public void setStPosition(int i) {
-        this.aTS = i;
+        this.aTR = i;
     }
 
     public void setTaskInfo(String str) {
-        this.aTT = str;
+        this.aTS = str;
     }
 
     public void cy(boolean z) {
@@ -84,7 +84,7 @@ public class c extends LinearLayout {
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.aTR.setAutoChangeStyle(z);
+        this.aTQ.setAutoChangeStyle(z);
         bc.a(this.mTitle, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
     }
 }

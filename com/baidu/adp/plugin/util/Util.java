@@ -22,7 +22,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (ue) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ub) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -168,15 +168,15 @@ public final class Util {
         }
     }
 
-    public static File bw(String str) {
-        PluginSetting bd = PluginPackageManager.ic().bd(str);
-        if (bd == null || bd.apkPath == null || bd.apkPath.length() <= ".apk".length()) {
+    public static File bt(String str) {
+        PluginSetting ba = PluginPackageManager.hV().ba(str);
+        if (ba == null || ba.apkPath == null || ba.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bd.apkPath.substring(0, bd.apkPath.length() - ".apk".length()));
+        return new File(ba.apkPath.substring(0, ba.apkPath.length() - ".apk".length()));
     }
 
-    public static File iE() {
+    public static File ix() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -271,7 +271,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bx(String str) {
+    public static String bu(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -282,10 +282,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return iE() + File.separator + e(pluginSetting);
+        return ix() + File.separator + e(pluginSetting);
     }
 
-    public static long iF() {
+    public static long iy() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

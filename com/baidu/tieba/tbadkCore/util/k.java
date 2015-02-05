@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.util.bm;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class k {
-    private static String bAl = "tbgametype";
+    private static String bAk = "tbgametype";
 
-    public static String iu(String str) {
+    public static String is(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
@@ -24,10 +24,10 @@ public class k {
         return "";
     }
 
-    public static boolean hz(String str) {
-        Map<String, String> cK;
-        if (!TextUtils.isEmpty(str) && (cK = bm.cK(bm.cL(str))) != null) {
-            String str2 = cK.get(bAl);
+    public static boolean hw(String str) {
+        Map<String, String> cH;
+        if (!TextUtils.isEmpty(str) && (cH = bm.cH(bm.cI(str))) != null) {
+            String str2 = cH.get(bAk);
             return !TextUtils.isEmpty(str2) && str2.equals("1");
         }
         return false;

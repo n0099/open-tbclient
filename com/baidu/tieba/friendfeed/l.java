@@ -7,11 +7,11 @@ import com.baidu.tieba.data.FriendFeedThreadData;
 import com.baidu.tieba.tbadkCore.ao;
 /* loaded from: classes.dex */
 class l implements u {
-    final /* synthetic */ FriendFeedActivity aBV;
+    final /* synthetic */ FriendFeedActivity aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FriendFeedActivity friendFeedActivity) {
-        this.aBV = friendFeedActivity;
+        this.aBS = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.friendfeed.u
@@ -21,20 +21,20 @@ class l implements u {
         x xVar3;
         boolean z;
         ao aoVar;
-        xVar = this.aBV.aBD;
-        if (i != xVar.FI().FD() || view2 == null || view == null) {
-            xVar2 = this.aBV.aBD;
-            if (i != xVar2.FI().FC()) {
-                xVar3 = this.aBV.aBD;
-                xVar3.FI().FE();
+        xVar = this.aBS.aBA;
+        if (i != xVar.FC().Fx() || view2 == null || view == null) {
+            xVar2 = this.aBS.aBA;
+            if (i != xVar2.FC().Fw()) {
+                xVar3 = this.aBS.aBA;
+                xVar3.FC().Fy();
                 return;
             }
-            this.aBV.aBH = friendFeedThreadData;
-            z = this.aBV.aBG;
+            this.aBS.aBE = friendFeedThreadData;
+            z = this.aBS.aBD;
             if (!z) {
-                this.aBV.aBG = true;
+                this.aBS.aBD = true;
                 int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                aoVar = this.aBV.aBU;
+                aoVar = this.aBS.aBR;
                 aoVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
                 return;
             }
@@ -43,6 +43,6 @@ class l implements u {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.aBV.a(i2, friendFeedThreadData, rect.bottom);
+        this.aBS.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

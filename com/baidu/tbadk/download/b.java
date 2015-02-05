@@ -13,36 +13,36 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b XC = null;
-    private static e XG = null;
-    private static List<e> XH = new LinkedList();
+    private static b Xz = null;
+    private static e XD = null;
+    private static List<e> XE = new LinkedList();
     private final int max = 5;
-    private int XD = 0;
-    private c XE = null;
-    private d XF = null;
+    private int XA = 0;
+    private c XB = null;
+    private d XC = null;
     private int progress = 0;
     private String schedule = null;
 
     private b() {
     }
 
-    public static b vb() {
+    public static b uV() {
         synchronized (b.class) {
-            if (XC == null) {
-                XC = new b();
+            if (Xz == null) {
+                Xz = new b();
             }
         }
-        return XC;
+        return Xz;
     }
 
     public void a(String str, String str2, String str3, int i, int i2) {
-        if (this.XD >= 5) {
+        if (this.XA >= 5) {
             Toast.makeText(TbadkCoreApplication.m255getInst(), z.download_fail_over_max, 0).show();
             return;
         }
         DownloadData downloadData = new DownloadData(str);
         downloadData.setType(12);
-        this.XD++;
+        this.XA++;
         downloadData.setStatus(1);
         downloadData.setStatusMsg(null);
         downloadData.setNotifyId(i2);
@@ -53,18 +53,18 @@ public class b {
         eVar.setName(str3);
         eVar.setPosition(i);
         eVar.dj(i2);
-        XH.add(eVar);
-        vc();
+        XE.add(eVar);
+        uW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vc() {
-        if (XG == null && !XH.isEmpty()) {
-            XG = XH.get(0);
-            if (XG != null) {
-                this.XE = new c(this, null);
-                this.XE.setPriority(3);
-                this.XE.execute(XG);
+    public void uW() {
+        if (XD == null && !XE.isEmpty()) {
+            XD = XE.get(0);
+            if (XD != null) {
+                this.XB = new c(this, null);
+                this.XB.setPriority(3);
+                this.XB.execute(XD);
             }
         }
     }
@@ -82,7 +82,7 @@ public class b {
 
     public void e(DownloadData downloadData) {
         if (downloadData.getStatus() != 1 && downloadData.getStatus() != 5) {
-            this.XD--;
+            this.XA--;
         }
         LinkedList linkedList = new LinkedList();
         linkedList.add(downloadData);
@@ -94,14 +94,14 @@ public class b {
     }
 
     public void v(ArrayList<com.baidu.tbadk.core.data.c> arrayList) {
-        this.XF = new d(this, null);
-        this.XF.execute(arrayList);
+        this.XC = new d(this, null);
+        this.XC.execute(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String at(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(s.ou());
+        sb.append(s.on());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -144,8 +144,8 @@ public class b {
         }
     }
 
-    public boolean dR(String str) {
-        for (DownloadData downloadData : g.vf().vh()) {
+    public boolean dO(String str) {
+        for (DownloadData downloadData : g.uZ().vb()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }
@@ -153,7 +153,7 @@ public class b {
         return false;
     }
 
-    public boolean dS(String str) {
-        return (TextUtils.isEmpty(str) || s.ch(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+    public boolean dP(String str) {
+        return (TextUtils.isEmpty(str) || s.ce(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 }

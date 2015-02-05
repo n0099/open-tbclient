@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
 /* loaded from: classes.dex */
 class i implements ap {
-    final /* synthetic */ b bVj;
+    final /* synthetic */ b bVi;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(b bVar, Context context) {
-        this.bVj = bVar;
+        this.bVi = bVar;
         this.val$context = context;
     }
 
@@ -30,17 +30,17 @@ class i implements ap {
         } else {
             zVar = (com.baidu.tieba.tbadkCore.bubble.z) view;
         }
-        hM = this.bVj.hM(i);
+        hM = this.bVi.hM(i);
         if (hM != null) {
-            bubbleListData = this.bVj.bUZ;
+            bubbleListData = this.bVi.bUY;
             zVar.a(hM, com.baidu.tieba.tbadkCore.bubble.h.aI(bubbleListData.getB_info()));
             zVar.setGravity(17);
             zVar.setTag(Integer.valueOf(i));
-            onClickListener = this.bVj.bVg;
+            onClickListener = this.bVi.bVf;
             zVar.setOnClickListener(onClickListener);
         }
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        context = this.bVj.mContext;
+        context = this.bVi.mContext;
         TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.m.D(context);
         tbPageContext.getLayoutMode().ab(skinType == 1);
         tbPageContext.getLayoutMode().h(view);

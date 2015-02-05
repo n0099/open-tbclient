@@ -7,13 +7,13 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 public abstract class q implements ListAdapter {
-    private final DataSetObservable xV = new DataSetObservable();
+    private final DataSetObservable xS = new DataSetObservable();
 
     public abstract void a(View view, AdapterView<?> adapterView, int i);
 
-    public abstract int jS();
+    public abstract int jL();
 
-    public abstract View jT();
+    public abstract View jM();
 
     @Override // android.widget.Adapter
     public boolean hasStableIds() {
@@ -22,16 +22,16 @@ public abstract class q implements ListAdapter {
 
     @Override // android.widget.Adapter
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        this.xV.registerObserver(dataSetObserver);
+        this.xS.registerObserver(dataSetObserver);
     }
 
     @Override // android.widget.Adapter
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        this.xV.unregisterObserver(dataSetObserver);
+        this.xS.unregisterObserver(dataSetObserver);
     }
 
     public void notifyDataSetChanged() {
-        this.xV.notifyChanged();
+        this.xS.notifyChanged();
     }
 
     @Override // android.widget.ListAdapter

@@ -3,9 +3,9 @@ package com.baidu.tbadk.c.a;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int Xj;
-    private int Xk;
-    public int Xl;
+    private int Xg;
+    private int Xh;
+    public int Xi;
     private int iconId;
     private Context mContext;
 
@@ -13,17 +13,17 @@ public abstract class a {
 
     public a(Context context, int i, int i2, int i3, int i4) {
         this.mContext = context;
-        this.Xj = i;
+        this.Xg = i;
         this.iconId = i2;
-        this.Xl = i3;
-        this.Xk = i4;
+        this.Xi = i3;
+        this.Xh = i4;
     }
 
-    public int uS() {
+    public int uM() {
         return this.iconId;
     }
 
-    public int uT() {
-        return this.Xj;
+    public int uN() {
+        return this.Xg;
     }
 }

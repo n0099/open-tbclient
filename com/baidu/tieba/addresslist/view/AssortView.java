@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.relationship.o;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AssortView extends View {
-    private a apG;
+    private a apD;
     private Paint mPaint;
     private int mPosition;
 
@@ -39,7 +39,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.apG = aVar;
+        this.apD = aVar;
     }
 
     @Override // android.view.View
@@ -48,14 +48,14 @@ public class AssortView extends View {
         int height = getHeight();
         int width = getWidth();
         float f = (float) (width / 48.0d);
-        int length = height / o.SW.length;
-        int length2 = o.SW.length;
+        int length = height / o.SS.length;
+        int length2 = o.SS.length;
         for (int i = 0; i < length2; i++) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
             this.mPaint.setColor(bc.getColor(t.cp_cont_c));
             this.mPaint.setTextSize(26.0f * f);
-            canvas.drawText(o.SW[i], (width / 2) - (this.mPaint.measureText(o.SW[i]) / 2.0f), (length * i) + length, this.mPaint);
+            canvas.drawText(o.SS[i], (width / 2) - (this.mPaint.measureText(o.SS[i]) / 2.0f), (length * i) + length, this.mPaint);
             this.mPaint.reset();
         }
     }
@@ -68,27 +68,27 @@ public class AssortView extends View {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * o.SW.length);
-        if (y >= 0 && y < o.SW.length) {
+        int y = (int) ((motionEvent.getY() / getHeight()) * o.SS.length);
+        if (y >= 0 && y < o.SS.length) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.apG != null) {
-                        this.apG.eP(o.SW[this.mPosition]);
+                    if (this.apD != null) {
+                        this.apD.eM(o.SS[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.apG != null) {
-                        this.apG.Bs();
+                    if (this.apD != null) {
+                        this.apD.Bm();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.apG != null) {
-                            this.apG.eP(o.SW[this.mPosition]);
+                        if (this.apD != null) {
+                            this.apD.eM(o.SS[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -99,8 +99,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.apG != null) {
-            this.apG.Bs();
+        if (this.apD != null) {
+            this.apD.Bm();
             return true;
         }
         return true;

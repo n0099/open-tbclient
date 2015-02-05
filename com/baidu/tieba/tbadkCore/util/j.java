@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class j {
+    private static Boolean caF = true;
     private static Boolean caG = true;
-    private static Boolean caH = true;
 
-    public static void ir(String str) {
+    public static void ip(String str) {
         D(13, str);
     }
 
@@ -33,11 +33,11 @@ public class j {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> aip() {
+    public static ArrayList<String> aik() {
         return ig(0);
     }
 
-    public static ArrayList<String> aiq() {
+    public static ArrayList<String> ail() {
         return ig(1);
     }
 
@@ -91,11 +91,11 @@ public class j {
         return arrayList;
     }
 
-    public static void is(String str) {
+    public static void iq(String str) {
         E(0, str);
     }
 
-    public static void it(String str) {
+    public static void ir(String str) {
         E(1, str);
     }
 
@@ -118,11 +118,11 @@ public class j {
         }
     }
 
-    public static void air() {
+    public static void aim() {
         ih(0);
     }
 
-    public static void ais() {
+    public static void ain() {
         ih(1);
     }
 
@@ -140,7 +140,7 @@ public class j {
         }
     }
 
-    public static ArrayList<MarkData> ait() {
+    public static ArrayList<MarkData> aio() {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -196,10 +196,10 @@ public class j {
     }
 
     public static void h(Boolean bool) {
-        caG = bool;
+        caF = bool;
     }
 
-    public static void aiu() {
+    public static void aip() {
         if (TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getCurrentAccount().length() <= 0 || TbadkCoreApplication.getCurrentAccountName() == null) {
             TbadkCoreApplication.m255getInst().setMsgFrequency(0);
             return;

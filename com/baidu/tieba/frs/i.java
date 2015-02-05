@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class i implements az {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v58, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -38,26 +38,26 @@ class i implements az {
         String str;
         boolean z;
         com.baidu.tieba.tbadkCore.ao aoVar;
-        bpVar = this.aDW.aCY;
-        if (i != bpVar.Hl().FD() || view2 == null || view == null) {
-            bpVar2 = this.aDW.aCY;
-            if (i != bpVar2.Hl().Gs()) {
-                bpVar3 = this.aDW.aCY;
-                if (i != bpVar3.Hl().FC()) {
-                    bpVar4 = this.aDW.aCY;
-                    if (i != bpVar4.Hl().FE()) {
-                        bpVar5 = this.aDW.aCY;
-                        if (i != bpVar5.Hl().Gt()) {
-                            bpVar6 = this.aDW.aCY;
-                            if (i == bpVar6.Hl().Gu()) {
-                                com.baidu.tbadk.core.i.B(this.aDW.getParent(), "my_service_ck");
-                                eVar = this.aDW.aDi;
+        bpVar = this.aDT.aCV;
+        if (i != bpVar.Hf().Fx() || view2 == null || view == null) {
+            bpVar2 = this.aDT.aCV;
+            if (i != bpVar2.Hf().Gm()) {
+                bpVar3 = this.aDT.aCV;
+                if (i != bpVar3.Hf().Fw()) {
+                    bpVar4 = this.aDT.aCV;
+                    if (i != bpVar4.Hf().Fy()) {
+                        bpVar5 = this.aDT.aCV;
+                        if (i != bpVar5.Hf().Gn()) {
+                            bpVar6 = this.aDT.aCV;
+                            if (i == bpVar6.Hf().Go()) {
+                                com.baidu.tbadk.core.i.B(this.aDT.getParent(), "my_service_ck");
+                                eVar = this.aDT.aDf;
                                 if (eVar != null) {
-                                    eVar2 = this.aDW.aDi;
-                                    if (eVar2.aeN() != null) {
-                                        eVar3 = this.aDW.aDi;
-                                        ForumData aeN = eVar3.aeN();
-                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aDW.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(aeN.getId(), 0L), aeN.getName(), aeN.getImage_url(), 0)));
+                                    eVar2 = this.aDT.aDf;
+                                    if (eVar2.aeI() != null) {
+                                        eVar3 = this.aDT.aDf;
+                                        ForumData aeI = eVar3.aeI();
+                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aDT.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(aeI.getId(), 0L), aeI.getName(), aeI.getImage_url(), 0)));
                                         return;
                                     }
                                     return;
@@ -66,27 +66,27 @@ class i implements az {
                             }
                             return;
                         }
-                        com.baidu.tbadk.core.i.A(this.aDW.getParent(), "forum_fortune_click");
+                        com.baidu.tbadk.core.i.A(this.aDT.getParent(), "forum_fortune_click");
                         if (TbadkCoreApplication.isLogin()) {
-                            this.aDW.Gd();
+                            this.aDT.FX();
                             return;
                         } else {
-                            this.aDW.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aDW.getPageContext().getPageActivity(), (String) null, true, 18004)));
+                            this.aDT.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aDT.getPageContext().getPageActivity(), (String) null, true, 18004)));
                             return;
                         }
                     }
-                    FrsActivity frsActivity = this.aDW;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aDW.getPageContext().getPageActivity());
-                    str = this.aDW.aCQ;
+                    FrsActivity frsActivity = this.aDT;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aDT.getPageContext().getPageActivity());
+                    str = this.aDT.aCN;
                     frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(xVar, str, null, 18003, true, false, false)));
                     return;
                 } else if (xVar != null) {
-                    this.aDW.aCL = xVar;
-                    z = this.aDW.aBG;
+                    this.aDT.aCI = xVar;
+                    z = this.aDT.aBD;
                     if (!z) {
-                        this.aDW.aBG = true;
+                        this.aDT.aBD = true;
                         int isLike = xVar.getPraise() == null ? 0 : xVar.getPraise().getIsLike();
-                        aoVar = this.aDW.aBU;
+                        aoVar = this.aDT.aBR;
                         aoVar.a(xVar.getFirst_post_id(), xVar.getTid(), isLike, "frs");
                         return;
                     }
@@ -94,13 +94,13 @@ class i implements az {
                 } else {
                     return;
                 }
-            } else if (xVar != null && xVar.nA() != null && xVar.nA().get(0) != null && !StringUtils.isNull(xVar.nA().get(0).getUrl())) {
-                com.baidu.tbadk.core.util.bm.pV().b(this.aDW.getPageContext(), new String[]{xVar.nA().get(0).getUrl()});
-                if (xVar.nA().get(0).mq() == 1) {
-                    TiebaStatic.eventStat(this.aDW.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
+            } else if (xVar != null && xVar.nt() != null && xVar.nt().get(0) != null && !StringUtils.isNull(xVar.nt().get(0).getUrl())) {
+                com.baidu.tbadk.core.util.bm.pO().b(this.aDT.getPageContext(), new String[]{xVar.nt().get(0).getUrl()});
+                if (xVar.nt().get(0).mj() == 1) {
+                    TiebaStatic.eventStat(this.aDT.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
                     return;
-                } else if (xVar.nA().get(0).mq() == 2) {
-                    TiebaStatic.eventStat(this.aDW.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
+                } else if (xVar.nt().get(0).mj() == 2) {
+                    TiebaStatic.eventStat(this.aDT.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
                     return;
                 } else {
                     return;
@@ -112,6 +112,6 @@ class i implements az {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.aDW.a(i2, xVar, rect.bottom);
+        this.aDT.a(i2, xVar, rect.bottom);
     }
 }

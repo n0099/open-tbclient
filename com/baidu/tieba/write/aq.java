@@ -4,11 +4,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.base.i {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.WriteActivity */
@@ -18,21 +18,21 @@ public class aq extends com.baidu.adp.base.i {
         FeedBackTopListView feedBackTopListView;
         FeedBackTopListView feedBackTopListView2;
         FeedBackTopListView feedBackTopListView3;
-        this.cgS.hideProgressBar();
+        this.cgR.hideProgressBar();
         if (obj == null || !(obj instanceof o)) {
-            feedBackTopListView = this.cgS.cgs;
+            feedBackTopListView = this.cgR.cgr;
             feedBackTopListView.setVisibility(8);
-            this.cgS.showToast(com.baidu.tieba.z.neterror);
+            this.cgR.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         o oVar = (o) obj;
         if (oVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.cgS.cgs;
+            feedBackTopListView2 = this.cgR.cgr;
             feedBackTopListView2.setVisibility(8);
             return;
         }
-        ArrayList<com.baidu.tbadk.core.data.x> akg = oVar.akg();
-        feedBackTopListView3 = this.cgS.cgs;
-        feedBackTopListView3.a(akg, this.cgS.getPageContext());
+        ArrayList<com.baidu.tbadk.core.data.x> akb = oVar.akb();
+        feedBackTopListView3 = this.cgR.cgr;
+        feedBackTopListView3.a(akb, this.cgR.getPageContext());
     }
 }

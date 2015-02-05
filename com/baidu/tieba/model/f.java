@@ -2,13 +2,13 @@ package com.baidu.tieba.model;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.data.e bur;
-    final /* synthetic */ e bus;
+    private final /* synthetic */ com.baidu.tieba.data.e buq;
+    final /* synthetic */ e bur;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, com.baidu.tieba.data.e eVar2) {
-        this.bus = eVar;
-        this.bur = eVar2;
+        this.bur = eVar;
+        this.buq = eVar2;
     }
 
     @Override // java.lang.Runnable
@@ -16,18 +16,18 @@ public class f implements Runnable {
         d dVar;
         d dVar2;
         h hVar;
-        dVar = this.bus.buq;
+        dVar = this.bur.bup;
         g gVar = new g(dVar);
         gVar.type = 0;
-        if (this.bur != null && this.bur.isSuccess()) {
-            gVar.azu = true;
-            gVar.buu = this.bur;
+        if (this.buq != null && this.buq.isSuccess()) {
+            gVar.azr = true;
+            gVar.but = this.buq;
         } else {
-            gVar.azu = false;
-            gVar.buu = this.bur;
+            gVar.azr = false;
+            gVar.but = this.buq;
         }
-        dVar2 = this.bus.buq;
-        hVar = dVar2.bul;
+        dVar2 = this.bur.bup;
+        hVar = dVar2.buk;
         hVar.a(gVar);
     }
 }

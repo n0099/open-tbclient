@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import java.util.List;
 /* loaded from: classes.dex */
 public class az extends com.baidu.adp.base.g<NewFriendsActivity> {
-    private NewFriendsActivity blD;
-    private BdListView blE;
-    private ah blF;
+    private NewFriendsActivity blC;
+    private BdListView blD;
+    private ah blE;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.x mNoDataView;
     private com.baidu.tbadk.core.view.ak mPullView;
@@ -18,28 +18,28 @@ public class az extends com.baidu.adp.base.g<NewFriendsActivity> {
 
     public az(NewFriendsActivity newFriendsActivity) {
         super(newFriendsActivity.getPageContext());
-        this.blD = newFriendsActivity;
-        this.mRoot = this.blD.findViewById(com.baidu.tieba.w.new_friend_activity);
-        this.mNavigationBar = (NavigationBar) this.blD.findViewById(com.baidu.tieba.w.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.blD.getPageContext().getString(com.baidu.tieba.z.new_friends));
+        this.blC = newFriendsActivity;
+        this.mRoot = this.blC.findViewById(com.baidu.tieba.w.new_friend_activity);
+        this.mNavigationBar = (NavigationBar) this.blC.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.blC.getPageContext().getString(com.baidu.tieba.z.new_friends));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.x.add_new_friend_text, this.blD);
-        this.blE = (BdListView) this.blD.findViewById(com.baidu.tieba.w.new_friend_listview);
-        this.blF = new ah(this.blD);
-        this.blE.setAdapter((ListAdapter) this.blF);
-        this.blE.setOnItemClickListener(this.blD);
-        this.blE.setOnItemLongClickListener(this.blD);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.x.add_new_friend_text, this.blC);
+        this.blD = (BdListView) this.blC.findViewById(com.baidu.tieba.w.new_friend_listview);
+        this.blE = new ah(this.blC);
+        this.blD.setAdapter((ListAdapter) this.blE);
+        this.blD.setOnItemClickListener(this.blC);
+        this.blD.setOnItemLongClickListener(this.blC);
         this.mPullView = new com.baidu.tbadk.core.view.ak(newFriendsActivity.getPageContext());
-        this.blE.setPullRefresh(this.mPullView);
-        this.mNoDataView = NoDataViewFactory.a(this.blD.getPageContext().getPageActivity(), this.mRoot, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.cp(com.baidu.tieba.z.no_new_friend_hint), null);
+        this.blD.setPullRefresh(this.mPullView);
+        this.mNoDataView = NoDataViewFactory.a(this.blC.getPageContext().getPageActivity(), this.mRoot, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.cp(com.baidu.tieba.z.no_new_friend_hint), null);
     }
 
-    public void jJ() {
-        this.blE.jJ();
+    public void jC() {
+        this.blD.jC();
     }
 
-    public void jI() {
-        this.blE.jI();
+    public void jB() {
+        this.blD.jB();
     }
 
     public void a(com.baidu.adp.widget.ListView.g gVar) {
@@ -47,34 +47,34 @@ public class az extends com.baidu.adp.base.g<NewFriendsActivity> {
     }
 
     public void a(aj ajVar) {
-        this.blF.a(ajVar);
+        this.blE.a(ajVar);
     }
 
     public void changeSkinType(com.baidu.tbadk.core.c cVar, int i) {
         cVar.ab(i == 1);
-        this.mNavigationBar.onChangeSkinType(this.blD.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.blC.getPageContext(), i);
         this.mPullView.cs(i);
         cVar.h(this.mRoot);
-        this.mNoDataView.onChangeSkinType(this.blD.getPageContext(), i);
+        this.mNoDataView.onChangeSkinType(this.blC.getPageContext(), i);
     }
 
     public void setData(List<com.baidu.tieba.im.data.b> list) {
-        this.blE.setEmptyView(this.mNoDataView);
-        this.blF.setData(list);
-        this.blF.notifyDataSetChanged();
+        this.blD.setEmptyView(this.mNoDataView);
+        this.blE.setData(list);
+        this.blE.notifyDataSetChanged();
     }
 
     public void d(com.baidu.tieba.im.data.b bVar) {
-        this.blF.d(bVar);
-        this.blF.notifyDataSetChanged();
+        this.blE.d(bVar);
+        this.blE.notifyDataSetChanged();
     }
 
     public void aB(List<com.baidu.tieba.im.data.b> list) {
-        this.blF.aB(list);
-        this.blF.notifyDataSetChanged();
+        this.blE.aB(list);
+        this.blE.notifyDataSetChanged();
     }
 
-    public ah Se() {
-        return this.blF;
+    public ah RZ() {
+        return this.blE;
     }
 }

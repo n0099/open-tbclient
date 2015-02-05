@@ -11,11 +11,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ah {
-    final /* synthetic */ a boF;
+    final /* synthetic */ a boE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.boF = aVar;
+        this.boE = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.ah
@@ -23,7 +23,7 @@ public class b implements ah {
         ae aeVar;
         ae aeVar2;
         try {
-            a.To().k(chatMessage);
+            a.Tj().k(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData u = com.baidu.tieba.im.util.i.u(chatMessage);
@@ -32,10 +32,10 @@ public class b implements ah {
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(u) + "]");
                     }
                     TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    a.To().m(chatMessage);
-                    aeVar = this.boF.mSendCallback;
+                    a.Tj().m(chatMessage);
+                    aeVar = this.boE.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.boF.mSendCallback;
+                        aeVar2 = this.boE.mSendCallback;
                         aeVar2.gB(2);
                         return;
                     }

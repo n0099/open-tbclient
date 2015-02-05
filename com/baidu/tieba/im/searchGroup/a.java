@@ -7,20 +7,20 @@ import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends e {
-    final /* synthetic */ AddGroupActivity bnI;
+    final /* synthetic */ AddGroupActivity bnH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddGroupActivity addGroupActivity, int i) {
         super(i);
-        this.bnI = addGroupActivity;
+        this.bnH = addGroupActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         b bVar;
-        bVar = this.bnI.bnF;
+        bVar = this.bnH.bnE;
         bVar.cW(false);
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103007) {
             if (socketResponsedMessage instanceof ResponseSearchGroupMessage) {
@@ -28,19 +28,19 @@ class a extends e {
                 if (responseSearchGroupMessage.getError() == 0) {
                     List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                     if (searchResult == null || searchResult.size() <= 0) {
-                        this.bnI.Tc();
+                        this.bnH.SX();
                         return;
                     } else {
-                        this.bnI.a(searchResult.get(0));
+                        this.bnH.a(searchResult.get(0));
                         return;
                     }
                 }
-                this.bnI.v(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                this.bnH.v(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                 return;
             }
-            this.bnI.Tc();
+            this.bnH.SX();
             return;
         }
-        this.bnI.Tc();
+        this.bnH.SX();
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.main;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements Runnable {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bAT.praiseStopTime = System.currentTimeMillis();
+        this.bAS.praiseStopTime = System.currentTimeMillis();
     }
 }

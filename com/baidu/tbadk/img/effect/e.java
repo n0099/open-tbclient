@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int abY = 0;
+    private int abV = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -20,9 +20,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void eq(String str) {
+    public void en(String str) {
         if (str != null) {
-            this.abY = Integer.parseInt(str);
+            this.abV = Integer.parseInt(str);
         }
     }
 
@@ -31,18 +31,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.we().dx(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
-        if (this.abY == 0 || this.abY == 1) {
-            return com.baidu.tbadk.core.util.d.g(bitmap, this.abY);
+        com.baidu.tbadk.imageManager.e.vY().dx(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
+        if (this.abV == 0 || this.abV == 1) {
+            return com.baidu.tbadk.core.util.d.g(bitmap, this.abV);
         }
-        if (this.abY == 2 || this.abY == 3) {
-            return com.baidu.tbadk.core.util.d.i(bitmap, this.abY);
+        if (this.abV == 2 || this.abV == 3) {
+            return com.baidu.tbadk.core.util.d.i(bitmap, this.abV);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap er(String str) {
+    public Bitmap eo(String str) {
         int max = Math.max(l.M(TbadkCoreApplication.m255getInst().getApp()), l.N(TbadkCoreApplication.m255getInst().getApp()));
         return b(com.baidu.tbadk.core.util.d.b(str, max, max), true);
     }

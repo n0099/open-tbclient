@@ -7,50 +7,50 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] bVy = {com.baidu.tieba.s.custom_state_focused};
-    protected static final int[] bVz = {com.baidu.tieba.s.custom_state_skin};
+    protected static final int[] bVx = {com.baidu.tieba.s.custom_state_focused};
+    protected static final int[] bVy = {com.baidu.tieba.s.custom_state_skin};
+    protected boolean bVt;
     protected boolean bVu;
     protected boolean bVv;
     protected boolean bVw;
-    protected boolean bVx;
     protected Context mContext;
     protected int mSkinType;
     protected TextView mTip;
 
     public EditorToolButton(Context context) {
         super(context);
-        this.bVu = false;
-        this.bVv = true;
+        this.bVt = false;
+        this.bVu = true;
+        this.bVv = false;
         this.bVw = false;
-        this.bVx = false;
         this.mSkinType = 0;
         this.mContext = context;
     }
 
     public EditorToolButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bVu = false;
-        this.bVv = true;
+        this.bVt = false;
+        this.bVu = true;
+        this.bVv = false;
         this.bVw = false;
-        this.bVx = false;
         this.mSkinType = 0;
         this.mContext = context;
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.ab.custom_state);
-        this.bVu = obtainStyledAttributes.getBoolean(1, false);
+        this.bVt = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public int[] onCreateDrawableState(int i) {
         int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
-        if (this.bVu) {
-            mergeDrawableStates(onCreateDrawableState, bVy);
+        if (this.bVt) {
+            mergeDrawableStates(onCreateDrawableState, bVx);
         }
         return onCreateDrawableState;
     }
 
-    public void yR() {
-        if (!this.bVx) {
+    public void yL() {
+        if (!this.bVw) {
             setVisibility(0);
         }
     }
@@ -69,7 +69,7 @@ public class EditorToolButton extends ImageView {
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        if (!this.bVw) {
+        if (!this.bVv) {
             super.setEnabled(z);
         }
     }
@@ -82,20 +82,20 @@ public class EditorToolButton extends ImageView {
         this.mTip = textView;
     }
 
-    public void tV() {
+    public void tP() {
         if (this.mTip != null) {
             this.mTip.setVisibility(0);
         }
     }
 
-    public void ii(String str) {
+    public void ig(String str) {
         if (this.mTip != null) {
             this.mTip.setVisibility(0);
             this.mTip.setText(str);
         }
     }
 
-    public void tW() {
+    public void tQ() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -103,38 +103,38 @@ public class EditorToolButton extends ImageView {
 
     @Override // android.view.View
     public void setFocusable(boolean z) {
-        this.bVv = z;
+        this.bVu = z;
         if (!z) {
-            aft();
+            afo();
         }
     }
 
-    public boolean afr() {
-        return this.bVv;
+    public boolean afm() {
+        return this.bVu;
     }
 
     public void setHardDisabled(boolean z) {
-        this.bVw = z;
+        this.bVv = z;
         disable();
     }
 
     public void setHardInvisible(boolean z) {
-        this.bVx = z;
+        this.bVw = z;
         hide();
     }
 
-    public void afs() {
-        this.bVu = true;
+    public void afn() {
+        this.bVt = true;
         refreshDrawableState();
     }
 
     @Override // android.view.View
     public boolean isFocused() {
-        return this.bVu;
+        return this.bVt;
     }
 
-    public void aft() {
-        this.bVu = false;
+    public void afo() {
+        this.bVt = false;
         refreshDrawableState();
     }
 }

@@ -31,8 +31,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.BX = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.BY = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.BU = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.BV = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

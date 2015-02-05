@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class q implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity anq;
+    final /* synthetic */ ActivationActivity ann;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ActivationActivity activationActivity) {
-        this.anq = activationActivity;
+        this.ann = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,30 +29,30 @@ class q implements View.OnClickListener {
         u uVar4;
         t tVar3;
         t tVar4;
-        view2 = this.anq.mBack;
+        view2 = this.ann.mBack;
         if (view != view2) {
-            relativeLayout = this.anq.anc;
+            relativeLayout = this.ann.amZ;
             if (view != relativeLayout) {
-                relativeLayout2 = this.anq.and;
+                relativeLayout2 = this.ann.ana;
                 if (view != relativeLayout2) {
-                    imageView = this.anq.amX;
+                    imageView = this.ann.amU;
                     if (view == imageView) {
-                        editText = this.anq.anb;
+                        editText = this.ann.amY;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.anq.ang;
+                z = this.ann.and;
                 if (z) {
-                    uVar = this.anq.ane;
+                    uVar = this.ann.anb;
                     if (uVar == null) {
-                        tVar = this.anq.anf;
+                        tVar = this.ann.anc;
                         if (tVar == null) {
-                            this.anq.ane = new u(this.anq, null);
-                            uVar2 = this.anq.ane;
+                            this.ann.anb = new u(this.ann, null);
+                            uVar2 = this.ann.anb;
                             uVar2.setPriority(3);
-                            uVar3 = this.anq.ane;
+                            uVar3 = this.ann.anb;
                             uVar3.execute(new String[0]);
                             return;
                         }
@@ -62,14 +62,14 @@ class q implements View.OnClickListener {
                 }
                 return;
             }
-            tVar2 = this.anq.anf;
+            tVar2 = this.ann.anc;
             if (tVar2 == null) {
-                uVar4 = this.anq.ane;
+                uVar4 = this.ann.anb;
                 if (uVar4 == null) {
-                    this.anq.anf = new t(this.anq, null);
-                    tVar3 = this.anq.anf;
+                    this.ann.anc = new t(this.ann, null);
+                    tVar3 = this.ann.anc;
                     tVar3.setPriority(3);
-                    tVar4 = this.anq.anf;
+                    tVar4 = this.ann.anc;
                     tVar4.execute(new String[0]);
                     return;
                 }
@@ -77,7 +77,7 @@ class q implements View.OnClickListener {
             }
             return;
         }
-        this.anq.setResult(0);
-        this.anq.finish();
+        this.ann.setResult(0);
+        this.ann.finish();
     }
 }

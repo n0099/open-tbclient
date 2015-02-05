@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.util.s;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a cX(String str) {
+    public static a cU(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.cv(aVar.error_code);
-        } else if (!s.ce(String.valueOf(s.ou()) + "voice")) {
+        } else if (!s.cb(String.valueOf(s.on()) + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.cv(aVar.error_code);
         } else {
-            String e = z.e(s.cm(str));
+            String e = z.e(s.cj(str));
             if (e == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.cv(aVar.error_code);
@@ -36,9 +36,9 @@ public class b {
         return s.aa(str, s.b(str2, 1, true));
     }
 
-    public static synchronized void qV() {
+    public static synchronized void qP() {
         synchronized (b.class) {
-            File file = new File(String.valueOf(s.ou()) + "voice");
+            File file = new File(String.valueOf(s.on()) + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

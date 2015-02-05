@@ -5,11 +5,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements c {
-    final /* synthetic */ WriteShareActivity bPF;
+    final /* synthetic */ WriteShareActivity bPE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(WriteShareActivity writeShareActivity) {
-        this.bPF = writeShareActivity;
+        this.bPE = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.shareSDK.c
@@ -22,17 +22,17 @@ public class f implements c {
         q qVar3;
         PostPrefixData postPrefixData5;
         if (z) {
-            this.bPF.mPrefixData = postPrefixData;
-            postPrefixData2 = this.bPF.mPrefixData;
+            this.bPE.mPrefixData = postPrefixData;
+            postPrefixData2 = this.bPE.mPrefixData;
             if (postPrefixData2 != null) {
-                postPrefixData3 = this.bPF.mPrefixData;
+                postPrefixData3 = this.bPE.mPrefixData;
                 if (postPrefixData3.getPrefixs().size() > 0) {
-                    postPrefixData4 = this.bPF.mPrefixData;
-                    postPrefixData4.getPrefixs().add(this.bPF.getPageContext().getString(z.write_no_prefix));
-                    qVar2 = this.bPF.bPr;
+                    postPrefixData4 = this.bPE.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.bPE.getPageContext().getString(z.write_no_prefix));
+                    qVar2 = this.bPE.bPq;
                     if (qVar2 != null) {
-                        qVar3 = this.bPF.bPr;
-                        postPrefixData5 = this.bPF.mPrefixData;
+                        qVar3 = this.bPE.bPq;
+                        postPrefixData5 = this.bPE.mPrefixData;
                         qVar3.a(postPrefixData5);
                         return;
                     }
@@ -42,16 +42,16 @@ public class f implements c {
             }
             return;
         }
-        this.bPF.mPrefixData = null;
-        qVar = this.bPF.bPr;
+        this.bPE.mPrefixData = null;
+        qVar = this.bPE.bPq;
         qVar.a((PostPrefixData) null);
     }
 
     @Override // com.baidu.tieba.shareSDK.c
-    public void acV() {
+    public void acQ() {
         q qVar;
-        this.bPF.mPrefixData = null;
-        qVar = this.bPF.bPr;
+        this.bPE.mPrefixData = null;
+        qVar = this.bPE.bPq;
         qVar.a((PostPrefixData) null);
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.tieba.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ bb blL;
-    private final /* synthetic */ String blN;
+    final /* synthetic */ bb blK;
+    private final /* synthetic */ String blM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(bb bbVar, String str) {
-        this.blL = bbVar;
-        this.blN = str;
+        this.blK = bbVar;
+        this.blM = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,8 +17,8 @@ public class bd implements com.baidu.tieba.im.g<Void> {
     public void onReturnDataInUI(Void r3) {
         ba baVar;
         be beVar;
-        baVar = this.blL.blK;
-        beVar = baVar.blG;
-        beVar.fA(this.blN);
+        baVar = this.blK.blJ;
+        beVar = baVar.blF;
+        beVar.fx(this.blM);
     }
 }

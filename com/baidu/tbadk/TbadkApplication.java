@@ -65,16 +65,16 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (isMainProcess(true)) {
-            com.baidu.tbadk.distribute.a.uU().uX();
+            com.baidu.tbadk.distribute.a.uO().uR();
             UninstallInquirer.getInstance().startProcessBySwitch();
         }
-        ad.zC().x(System.currentTimeMillis());
+        ad.zw().x(System.currentTimeMillis());
         if (this.isRemoteProcess) {
-            ad.zC().D(System.currentTimeMillis() - this.processCreateTime);
+            ad.zw().D(System.currentTimeMillis() - this.processCreateTime);
         }
-        LivePlayingStatusMgr.tP();
+        LivePlayingStatusMgr.tJ();
         if (isMainProcess(false)) {
-            av.pv().pw();
+            av.po().pp();
         }
     }
 
@@ -97,11 +97,11 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
 
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
-        int wf = e.we().wf();
-        int max = (int) Math.max(wf * 0.8d, TbConfig.getBigImageMaxUsedMemory());
-        if (max < wf) {
+        int vZ = e.vY().vZ();
+        int max = (int) Math.max(vZ * 0.8d, TbConfig.getBigImageMaxUsedMemory());
+        if (max < vZ) {
             BdLog.isDebugMode();
-            e.we().dw(max);
+            e.vY().dw(max);
         }
         com.baidu.tbadk.core.util.d.eS();
         c.eR().eS();
@@ -117,7 +117,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             com.baidu.adp.lib.asyncTask.f.ct();
             com.baidu.tbadk.core.sharedPref.b.ct();
             GifView.releaseBitmap();
-            e.we().wg();
+            e.vY().wa();
             getApp().getResources().updateConfiguration(getApp().getResources().getConfiguration(), getApp().getResources().getDisplayMetrics());
         }
     }
@@ -138,7 +138,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.oj().remove("account_share");
+        com.baidu.tbadk.core.sharedPref.b.oc().remove("account_share");
     }
 
     public String loginShareRead() {

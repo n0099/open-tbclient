@@ -32,7 +32,7 @@ public class f extends BroadcastReceiver {
                 String stringExtra4 = intent.getStringExtra("require_load");
                 boolean booleanExtra = intent.getBooleanExtra("is_inject_classloader", false);
                 String stringExtra5 = intent.getStringExtra("cmd_range");
-                PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy().findPluginSetting(stringExtra);
+                PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir().findPluginSetting(stringExtra);
                 if (findPluginSetting == null) {
                     findPluginSetting = new PluginSetting();
                     findPluginSetting.forbidden = false;
@@ -51,16 +51,16 @@ public class f extends BroadcastReceiver {
                 findPluginSetting.url = "";
                 findPluginSetting.setInjectClassloader(booleanExtra);
                 this.this$0.d(findPluginSetting);
-                com.baidu.adp.plugin.packageManager.pluginSettings.h iy = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy();
-                z3 = this.this$0.sP;
-                iy.a(stringExtra, findPluginSetting, z3);
+                com.baidu.adp.plugin.packageManager.pluginSettings.h ir = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir();
+                z3 = this.this$0.sM;
+                ir.a(stringExtra, findPluginSetting, z3);
                 if (!TextUtils.isEmpty(findPluginSetting.requireLoad) && findPluginSetting.requireLoad.equals("0")) {
-                    PluginCenter.gW().aP(findPluginSetting.packageName);
+                    PluginCenter.getInstance().launch(findPluginSetting.packageName);
                 }
                 this.this$0.a(stringExtra, true, (String) null);
-                z4 = this.this$0.sP;
+                z4 = this.this$0.sM;
                 if (z4) {
-                    com.baidu.adp.plugin.b.a.hU().H("plugin_install", stringExtra);
+                    com.baidu.adp.plugin.b.a.hN().H("plugin_install", stringExtra);
                 }
             } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                 String stringExtra6 = intent.getStringExtra("install_src_file");
@@ -69,21 +69,21 @@ public class f extends BroadcastReceiver {
                 String stringExtra8 = intent.getStringExtra("install_comment");
                 String stringExtra9 = intent.getStringExtra("package_name");
                 if (!TextUtils.isEmpty(stringExtra9)) {
-                    PluginSetting findPluginSetting2 = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy().findPluginSetting(stringExtra9);
+                    PluginSetting findPluginSetting2 = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir().findPluginSetting(stringExtra9);
                     if (findPluginSetting2 == null) {
                         findPluginSetting2 = new PluginSetting();
                         findPluginSetting2.packageName = stringExtra9;
                     }
                     findPluginSetting2.enable = false;
-                    com.baidu.adp.plugin.packageManager.pluginSettings.h iy2 = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy();
-                    z2 = this.this$0.sP;
-                    iy2.a(stringExtra9, findPluginSetting2, z2);
+                    com.baidu.adp.plugin.packageManager.pluginSettings.h ir2 = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir();
+                    z2 = this.this$0.sM;
+                    ir2.a(stringExtra9, findPluginSetting2, z2);
                 }
                 this.this$0.a(substring, false, stringExtra7);
-                z = this.this$0.sP;
+                z = this.this$0.sM;
                 if (z) {
-                    com.baidu.adp.plugin.b.a.hU().aZ("plugin_install_fail");
-                    com.baidu.adp.plugin.b.a.hU().d("plugin_install", stringExtra7, stringExtra9, stringExtra8);
+                    com.baidu.adp.plugin.b.a.hN().aW("plugin_install_fail");
+                    com.baidu.adp.plugin.b.a.hN().d("plugin_install", stringExtra7, stringExtra9, stringExtra8);
                 }
             }
         }

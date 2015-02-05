@@ -9,12 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ b XI;
-    ArrayList<com.baidu.tbadk.core.data.c> XJ;
+    final /* synthetic */ b XF;
+    ArrayList<com.baidu.tbadk.core.data.c> XG;
 
     private d(b bVar) {
-        this.XI = bVar;
-        this.XJ = null;
+        this.XF = bVar;
+        this.XG = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,12 +32,12 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (arrayList == null) {
             return linkedList;
         }
-        this.XJ = arrayList;
+        this.XG = arrayList;
         Iterator<com.baidu.tbadk.core.data.c> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.core.data.c next = it.next();
-            String str = next.Ds;
-            if (s.ch(this.XI.getFileOfUrl(next.Dr)) != null) {
+            String str = next.Dp;
+            if (s.ce(this.XF.getFileOfUrl(next.Do)) != null) {
                 DownloadData downloadData = new DownloadData(str);
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
@@ -55,14 +55,14 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : g.vf().vh()) {
-            Iterator<com.baidu.tbadk.core.data.c> it = this.XJ.iterator();
+        for (DownloadData downloadData : g.uZ().vb()) {
+            Iterator<com.baidu.tbadk.core.data.c> it = this.XG.iterator();
             while (it.hasNext()) {
-                if (TextUtils.equals(it.next().Ds, downloadData.getId())) {
+                if (TextUtils.equals(it.next().Dp, downloadData.getId())) {
                     list.add(downloadData);
                 }
             }
         }
-        this.XI.l(list);
+        this.XF.l(list);
     }
 }

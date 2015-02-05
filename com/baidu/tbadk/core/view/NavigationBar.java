@@ -31,7 +31,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (Nh) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Ne) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -46,7 +46,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (Ni) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Nf) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -246,8 +246,8 @@ public class NavigationBar extends RelativeLayout {
             ((TbPageContext) jVar).getLayoutMode().h(this);
         } else if (this.mCurrentActivity instanceof ActivityProxy) {
             ActivityProxy activityProxy = (ActivityProxy) this.mCurrentActivity;
-            if (activityProxy.hg() instanceof ProxyAdkBaseActivity) {
-                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.hg();
+            if (activityProxy.gZ() instanceof ProxyAdkBaseActivity) {
+                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.gZ();
                 proxyAdkBaseActivity.getLayoutMode().ab(i == 1);
                 proxyAdkBaseActivity.getLayoutMode().h(this);
             }

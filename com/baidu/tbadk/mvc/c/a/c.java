@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.h {
-    final /* synthetic */ b aei;
+    final /* synthetic */ b aef;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aei = bVar;
+        this.aef = bVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -17,7 +17,7 @@ public class c implements com.baidu.adp.widget.ListView.h {
         if (s != null) {
             s.aO(z);
             s.setView(view);
-            this.aei.dispatchMvcEvent(s);
+            this.aef.dispatchMvcEvent(s);
         }
     }
 }

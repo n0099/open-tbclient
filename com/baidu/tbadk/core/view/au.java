@@ -12,7 +12,7 @@ class au implements com.baidu.adp.lib.e.c<HeadImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: qQ */
+    /* renamed from: qK */
     public HeadImageView eb() {
         return new HeadImageView(this.val$context);
     }

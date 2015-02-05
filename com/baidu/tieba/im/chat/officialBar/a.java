@@ -9,10 +9,10 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    LinearLayout MC;
-    TbRichTextView aTI;
-    TextView aTJ;
-    ChatImageWithTailView aTK;
+    LinearLayout Mz;
+    TbRichTextView aTH;
+    TextView aTI;
+    ChatImageWithTailView aTJ;
     Context mContext;
 
     public a(Context context) {
@@ -26,30 +26,30 @@ public class a extends LinearLayout {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.official_history_item, this, true);
         setClickable(false);
         setFocusable(false);
-        this.MC = (LinearLayout) findViewById(com.baidu.tieba.w.history_container);
-        this.aTJ = (TextView) findViewById(com.baidu.tieba.w.history_send_time);
-        this.aTI = (TbRichTextView) findViewById(com.baidu.tieba.w.history_txt);
-        this.aTK = (ChatImageWithTailView) findViewById(com.baidu.tieba.w.history_pic);
-        bc.i(this.MC, com.baidu.tieba.v.selector_history_multi_single_bg);
-        bc.b(this.aTJ, com.baidu.tieba.t.official_time_text, 1);
-        bc.b(this.aTI, com.baidu.tieba.t.cp_cont_c, 1);
+        this.Mz = (LinearLayout) findViewById(com.baidu.tieba.w.history_container);
+        this.aTI = (TextView) findViewById(com.baidu.tieba.w.history_send_time);
+        this.aTH = (TbRichTextView) findViewById(com.baidu.tieba.w.history_txt);
+        this.aTJ = (ChatImageWithTailView) findViewById(com.baidu.tieba.w.history_pic);
+        bc.i(this.Mz, com.baidu.tieba.v.selector_history_multi_single_bg);
+        bc.b(this.aTI, com.baidu.tieba.t.official_time_text, 1);
+        this.aTH.setTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_c));
     }
 
     public void setTime(String str) {
-        this.aTJ.setText(str);
+        this.aTI.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.aTI;
+        return this.aTH;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.aTK;
+        return this.aTJ;
     }
 
     public void C(View view) {
-        this.MC.setBackgroundDrawable(null);
-        this.MC.removeAllViews();
-        this.MC.addView(view);
+        this.Mz.setBackgroundDrawable(null);
+        this.Mz.removeAllViews();
+        this.Mz.addView(view);
     }
 }

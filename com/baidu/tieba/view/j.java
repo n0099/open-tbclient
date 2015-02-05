@@ -4,11 +4,11 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 class j extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ CustomScrollView ceQ;
+    final /* synthetic */ CustomScrollView ceP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(CustomScrollView customScrollView) {
-        this.ceQ = customScrollView;
+        this.ceP = customScrollView;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.al;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class h implements com.baidu.tieba.tbadkCore.f.b {
-    final /* synthetic */ FriendFeedActivity aBV;
+    final /* synthetic */ FriendFeedActivity aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FriendFeedActivity friendFeedActivity) {
-        this.aBV = friendFeedActivity;
+        this.aBS = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.b
@@ -33,45 +33,45 @@ class h implements com.baidu.tieba.tbadkCore.f.b {
         FriendFeedThreadData friendFeedThreadData2;
         FriendFeedThreadData friendFeedThreadData3;
         x xVar4;
-        this.aBV.stopVoice();
-        xVar = this.aBV.aBD;
+        this.aBS.stopVoice();
+        xVar = this.aBS.aBA;
         xVar.bG(z);
-        xVar2 = this.aBV.aBD;
-        writeImagesInfo = this.aBV.aql;
+        xVar2 = this.aBS.aBA;
+        writeImagesInfo = this.aBS.aqi;
         xVar2.a(writeImagesInfo, true);
         if (z) {
-            xVar3 = this.aBV.aBD;
-            xVar3.FH();
+            xVar3 = this.aBS.aBA;
+            xVar3.FB();
             TbadkApplication.getInst().resetPbRecorder();
-            aVar = this.aBV.aBM;
-            aVar.Ft();
-            aVar2 = this.aBV.aBM;
+            aVar = this.aBS.aBJ;
+            aVar.Fn();
+            aVar2 = this.aBS.aBJ;
             aVar2.c((WriteData) null);
-            aVar3 = this.aBV.aBM;
+            aVar3 = this.aBS.aBJ;
             aVar3.eF(false);
-            this.aBV.a(antiData, str);
-            friendFeedThreadData = this.aBV.aBL;
+            this.aBS.a(antiData, str);
+            friendFeedThreadData = this.aBS.aBI;
             al.b(friendFeedThreadData.getTid(), (WriteData) null);
-            friendFeedThreadData2 = this.aBV.aBL;
-            friendFeedThreadData3 = this.aBV.aBL;
+            friendFeedThreadData2 = this.aBS.aBI;
+            friendFeedThreadData3 = this.aBS.aBI;
             friendFeedThreadData2.setReply_num(friendFeedThreadData3.getReply_num() + 1);
-            xVar4 = this.aBV.aBD;
-            xVar4.FK();
+            xVar4 = this.aBS.aBA;
+            xVar4.FE();
         } else if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
                 writeData.setVcodeMD5(jVar.getVcode_md5());
                 writeData.setVcodeUrl(jVar.getVcode_pic_url());
-                if (jVar.rQ().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aBV.getPageContext().getPageActivity(), 12006, writeData, false)));
+                if (jVar.rK().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aBS.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aBV.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aBS.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.aBV.a(antiData, str);
+            this.aBS.a(antiData, str);
         } else {
-            this.aBV.a(antiData, str);
+            this.aBS.a(antiData, str);
         }
     }
 }

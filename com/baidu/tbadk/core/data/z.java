@@ -14,7 +14,7 @@ public class z {
         return this.title;
     }
 
-    public String nR() {
+    public String nK() {
         return this.title_link;
     }
 

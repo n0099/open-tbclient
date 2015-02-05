@@ -6,24 +6,24 @@ import org.json.JSONObject;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class k {
-    private int btw;
+    private int btv;
     private String mId = "";
     private String mName = "";
-    private String auY = "";
+    private String auV = "";
     private String mPortrait = "";
     private int mUserType = 0;
-    private int btv = 0;
+    private int btu = 0;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.mId = jSONObject.optString("id");
                 this.mUserType = jSONObject.optInt(OfficalBarChatActivityConfig.USER_TYPE);
-                this.btv = jSONObject.optInt("is_verify");
+                this.btu = jSONObject.optInt("is_verify");
                 this.mName = jSONObject.optString("name");
-                this.auY = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.auV = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
                 this.mPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
-                this.btw = jSONObject.optInt("is_friend");
+                this.btv = jSONObject.optInt("is_friend");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -35,11 +35,11 @@ public class k {
             try {
                 this.mId = String.valueOf(user.id);
                 this.mUserType = user.user_type.intValue();
-                this.btv = user.is_verify.intValue();
+                this.btu = user.is_verify.intValue();
                 this.mName = user.name;
-                this.auY = user.name_show;
+                this.auV = user.name_show;
                 this.mPortrait = user.portrait;
-                this.btw = user.is_friend.intValue();
+                this.btv = user.is_friend.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -54,8 +54,8 @@ public class k {
         return this.mName;
     }
 
-    public String Um() {
-        return this.auY;
+    public String Uh() {
+        return this.auV;
     }
 
     public String getPortrait() {
@@ -63,6 +63,6 @@ public class k {
     }
 
     public int getIsMyFriend() {
-        return this.btw;
+        return this.btv;
     }
 }

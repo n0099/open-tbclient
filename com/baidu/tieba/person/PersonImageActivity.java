@@ -16,14 +16,14 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
-    private String aRd;
+    private String aRc;
     private ProgressBar mProgress = null;
-    private ba bIg = null;
-    private MultiImageView aQZ = null;
+    private ba bIf = null;
+    private MultiImageView aQY = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener Uq = null;
-    private DialogInterface.OnClickListener brY = null;
-    private com.baidu.tbadk.core.view.a aRa = null;
+    private View.OnLongClickListener Un = null;
+    private DialogInterface.OnClickListener brX = null;
+    private com.baidu.tbadk.core.view.a aQZ = null;
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(PersonImageActivityConfig.class, PersonImageActivity.class);
@@ -38,11 +38,11 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         initData(bundle);
         initUI();
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.aRd);
-        this.aQZ.setIsFromCDN(true);
-        this.aQZ.setAllowLocalUrl(true);
-        this.aQZ.setUrlData(arrayList);
-        this.aQZ.setCurrentItem(0, false);
+        arrayList.add(this.aRc);
+        this.aQY.setIsFromCDN(true);
+        this.aQY.setAllowLocalUrl(true);
+        this.aQY.setUrlData(arrayList);
+        this.aQY.setCurrentItem(0, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,9 +50,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.aQZ.setBackgroundColor(com.baidu.tbadk.core.util.bc.cc(i));
+            this.aQY.setBackgroundColor(com.baidu.tbadk.core.util.bc.cc(i));
         } else {
-            this.aQZ.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.aQY.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
     }
 
@@ -60,29 +60,29 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.aQZ.onPause();
+        this.aQY.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aQZ.onResume();
+        this.aQY.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.aQZ.onDestroy();
+        this.aQY.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkCoreApplication.m255getInst().delRemoteActivity(this);
-        this.aQZ.onDestroy();
-        if (this.bIg != null) {
-            this.bIg.cancel();
-            this.bIg = null;
+        this.aQY.onDestroy();
+        if (this.bIf != null) {
+            this.bIf.cancel();
+            this.bIf = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -101,42 +101,42 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
     private void initUI() {
         this.mOnClickListener = new aw(this);
-        this.Uq = new ax(this);
-        this.brY = new ay(this);
-        this.aRa = new az(this);
+        this.Un = new ax(this);
+        this.brX = new ay(this);
+        this.aQZ = new az(this);
         this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.w.progress);
-        this.aQZ = (MultiImageView) findViewById(com.baidu.tieba.w.viewpager);
-        this.aQZ.setPageMargin(com.baidu.adp.lib.util.l.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.aQZ.x(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.aQZ.setItemOnclickListener(this.mOnClickListener);
-        this.aQZ.setItemOnLongClickListener(this.Uq);
-        this.aQZ.setCurrentItem(0, false);
-        this.aQZ.setOnScrollOutListener(this.aRa);
-        this.aQZ.setHasNext(false);
-        this.aQZ.setNextTitle("mNextTitle");
-        this.aQZ.setHeadImage(true);
+        this.aQY = (MultiImageView) findViewById(com.baidu.tieba.w.viewpager);
+        this.aQY.setPageMargin(com.baidu.adp.lib.util.l.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.aQY.x(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.aQY.setItemOnclickListener(this.mOnClickListener);
+        this.aQY.setItemOnLongClickListener(this.Un);
+        this.aQY.setCurrentItem(0, false);
+        this.aQY.setOnScrollOutListener(this.aQZ);
+        this.aQY.setHasNext(false);
+        this.aQY.setNextTitle("mNextTitle");
+        this.aQY.setHeadImage(true);
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.aRd = bundle.getString("curImgUrl");
+            this.aRc = bundle.getString("curImgUrl");
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
-            this.aRd = intent.getStringExtra("curImgUrl");
+            this.aRc = intent.getStringExtra("curImgUrl");
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("curImgUrl", this.aRd);
+        bundle.putString("curImgUrl", this.aRc);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.aQZ.setCurrentItem(0, true);
+        this.aQY.setCurrentItem(0, true);
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class m {
-    final /* synthetic */ h agt;
-    public String agu;
-    public int agv;
+    final /* synthetic */ h agq;
+    public String agr;
+    public int ags;
 
     public m(h hVar) {
-        this.agt = hVar;
+        this.agq = hVar;
     }
 }

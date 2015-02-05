@@ -8,16 +8,16 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private long aUh;
-    private String aXS;
+    private long aUg;
+    private String aXR;
     List<p> list;
 
     public c(List<p> list) {
         this.list = list;
-        MG();
+        MB();
     }
 
-    private void MG() {
+    private void MB() {
         List<p> list = this.list;
         if (list != null && !list.isEmpty()) {
             long j = 0;
@@ -27,18 +27,18 @@ public class c {
             for (p pVar : list) {
                 if (pVar != null) {
                     if (str2 == null) {
-                        str2 = pVar.aUe;
+                        str2 = pVar.aUd;
                     }
                     if (str == null) {
-                        str = pVar.aUg;
+                        str = pVar.aUf;
                     }
-                    j2 += pVar.aUf;
-                    j += pVar.aUh;
+                    j2 += pVar.aUe;
+                    j += pVar.aUg;
                 }
             }
-            this.aUh = j;
+            this.aUg = j;
             if (j2 <= 0) {
-                this.aXS = null;
+                this.aXR = null;
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -49,12 +49,12 @@ public class c {
             if (!StringUtils.isNull(str)) {
                 sb.append(str);
             }
-            this.aXS = sb.toString();
+            this.aXR = sb.toString();
         }
     }
 
     public boolean isShow() {
-        return (!StringUtils.isNull(this.aXS)) || ((this.aUh > 0L ? 1 : (this.aUh == 0L ? 0 : -1)) > 0);
+        return (!StringUtils.isNull(this.aXR)) || ((this.aUg > 0L ? 1 : (this.aUg == 0L ? 0 : -1)) > 0);
     }
 
     public void G(View view) {
@@ -65,17 +65,17 @@ public class c {
             return;
         }
         view.setVisibility(0);
-        if (StringUtils.isNull(this.aXS)) {
+        if (StringUtils.isNull(this.aXR)) {
             textView.setVisibility(4);
         } else {
             textView.setVisibility(0);
-            textView.setText(this.aXS);
+            textView.setText(this.aXR);
         }
-        if (this.aUh <= 0) {
+        if (this.aUg <= 0) {
             textView2.setVisibility(4);
             return;
         }
         textView2.setVisibility(0);
-        textView2.setText(new StringBuilder(String.valueOf(this.aUh)).toString());
+        textView2.setText(new StringBuilder(String.valueOf(this.aUg)).toString());
     }
 }

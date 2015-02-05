@@ -7,10 +7,10 @@ import java.util.List;
 import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class w {
-    private ArrayList<v> EC = new ArrayList<>();
+    private ArrayList<v> Ez = new ArrayList<>();
 
-    public ArrayList<v> nr() {
-        return this.EC;
+    public ArrayList<v> nk() {
+        return this.Ez;
     }
 
     public void i(List<?> list) {
@@ -27,7 +27,7 @@ public class w {
                     if (list.get(i) instanceof Banner) {
                         v vVar = new v();
                         vVar.a((Banner) list.get(i));
-                        this.EC.add(vVar);
+                        this.Ez.add(vVar);
                     } else {
                         return;
                     }

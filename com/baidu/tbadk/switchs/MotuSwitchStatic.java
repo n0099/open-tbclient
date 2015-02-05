@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class MotuSwitchStatic extends a {
-    public static final String[] ahP;
+    public static final String[] ahM;
 
     static {
         f.da().l(MotuSwitchStatic.class);
-        ahP = new String[]{"cn.jingling.lib"};
+        ahM = new String[]{"cn.jingling.lib"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class MotuSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return ahP;
+        return ahM;
     }
 
     @Override // com.baidu.adp.lib.b.a

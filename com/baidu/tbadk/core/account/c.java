@@ -17,7 +17,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static AccountData O(String str, String str2) {
         ad adVar;
-        String oy;
+        String or;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -27,16 +27,16 @@ public class c {
             adVar.o("isphone", "0");
             adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
             adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-            adVar.oZ().qg().qj().KQ = true;
-            adVar.oZ().qg().mIsNeedAddCommenParam = false;
-            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
-            oy = adVar.oy();
+            adVar.oS().pZ().qc().KN = true;
+            adVar.oS().pZ().mIsNeedAddCommenParam = false;
+            adVar.oS().pZ().mIsUseCurrentBDUSS = false;
+            or = adVar.or();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (adVar.oZ().qh().ma() && oy != null) {
+        if (adVar.oS().qa().lT() && or != null) {
             com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-            nVar.parserJson(oy);
+            nVar.parserJson(or);
             String userId = nVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
@@ -52,19 +52,19 @@ public class c {
             accountData.setBDUSS(nVar.getUser().getBDUSS());
             accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (nVar.mR() != null) {
-                accountData.setTbs(nVar.mR().getTbs());
+            if (nVar.mK() != null) {
+                accountData.setTbs(nVar.mK().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (adVar.pc()) {
-            switch (adVar.pd()) {
+        if (adVar.oV()) {
+            switch (adVar.oW()) {
                 case 1:
                 case 2:
                 case 5:
                     adVar.dJ();
-                    ReloginManager.oe().d(null);
+                    ReloginManager.nX().d(null);
                     break;
             }
             return null;

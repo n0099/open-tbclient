@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ai implements Runnable {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SquareSearchActivity squareSearchActivity) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,20 +20,20 @@ class ai implements Runnable {
         ak akVar;
         ak akVar2;
         try {
-            str = this.btb.bsO;
+            str = this.bta.bsN;
             if (str != null) {
-                str2 = this.btb.bsO;
+                str2 = this.bta.bsN;
                 if (str2.length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
                     stringBuffer.append(TbConfig.SERVER_ADDRESS);
                     stringBuffer.append("c/f/forum/search");
-                    str3 = this.btb.bsO;
+                    str3 = this.bta.bsN;
                     BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
-                    this.btb.rA();
-                    this.btb.bsM = new ak(this.btb, stringBuffer.toString(), basicNameValuePair, true);
-                    akVar = this.btb.bsM;
+                    this.bta.ru();
+                    this.bta.bsL = new ak(this.bta, stringBuffer.toString(), basicNameValuePair, true);
+                    akVar = this.bta.bsL;
                     akVar.setPriority(3);
-                    akVar2 = this.btb.bsM;
+                    akVar2 = this.bta.bsL;
                     akVar2.execute(stringBuffer.toString(), basicNameValuePair);
                 }
             }

@@ -10,11 +10,11 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements ad {
-    final /* synthetic */ AbsMsgImageActivity aRj;
+    final /* synthetic */ AbsMsgImageActivity aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AbsMsgImageActivity absMsgImageActivity) {
-        this.aRj = absMsgImageActivity;
+        this.aRi = absMsgImageActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
@@ -45,26 +45,26 @@ public class g implements ad {
         String str3;
         String str4;
         boolean z2;
-        this.aRj.aQV = linkedHashMap;
-        linkedHashMap2 = this.aRj.aQV;
+        this.aRi.aQU = linkedHashMap;
+        linkedHashMap2 = this.aRi.aQU;
         if (linkedHashMap2 != null) {
-            z2 = this.aRj.aRi;
+            z2 = this.aRi.aRh;
         }
-        this.aRj.aQV = new LinkedHashMap();
-        linkedHashMap3 = this.aRj.aQV;
+        this.aRi.aQU = new LinkedHashMap();
+        linkedHashMap3 = this.aRi.aQU;
         if (linkedHashMap3.isEmpty()) {
-            str2 = this.aRj.aRd;
+            str2 = this.aRi.aRc;
             if (!TextUtils.isEmpty(str2)) {
-                linkedHashMap8 = this.aRj.aQV;
-                str3 = this.aRj.aRe;
-                str4 = this.aRj.aRd;
+                linkedHashMap8 = this.aRi.aQU;
+                str3 = this.aRi.aRd;
+                str4 = this.aRi.aRc;
                 linkedHashMap8.put(str3, str4);
             }
         }
-        linkedHashMap4 = this.aRj.aQV;
+        linkedHashMap4 = this.aRi.aQU;
         if (linkedHashMap4.size() != 0) {
-            str = this.aRj.aRe;
-            linkedHashMap5 = this.aRj.aQV;
+            str = this.aRi.aRd;
+            linkedHashMap5 = this.aRi.aQU;
             Iterator it = linkedHashMap5.keySet().iterator();
             int i3 = 0;
             while (true) {
@@ -74,35 +74,35 @@ public class g implements ad {
                 }
                 String str5 = (String) it.next();
                 if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str5) && str5.equals(str)) {
-                    this.aRj.mIndex = i3;
+                    this.aRi.mIndex = i3;
                     z = true;
                     break;
                 }
                 i3++;
             }
-            AbsMsgImageActivity absMsgImageActivity = this.aRj;
-            linkedHashMap6 = this.aRj.aQV;
+            AbsMsgImageActivity absMsgImageActivity = this.aRi;
+            linkedHashMap6 = this.aRi.aQU;
             absMsgImageActivity.mCount = linkedHashMap6.size();
             if (!z) {
-                AbsMsgImageActivity absMsgImageActivity2 = this.aRj;
-                i2 = this.aRj.mCount;
+                AbsMsgImageActivity absMsgImageActivity2 = this.aRi;
+                i2 = this.aRi.mCount;
                 absMsgImageActivity2.mIndex = i2 - 1;
             }
-            textView = this.aRj.mTextView;
+            textView = this.aRi.mTextView;
             textView.setVisibility(0);
-            this.aRj.Kf();
-            multiImageView = this.aRj.aQZ;
+            this.aRi.Ka();
+            multiImageView = this.aRi.aQY;
             multiImageView.setIsFromCDN(true);
-            multiImageView2 = this.aRj.aQZ;
+            multiImageView2 = this.aRi.aQY;
             multiImageView2.setAllowLocalUrl(true);
-            multiImageView3 = this.aRj.aQZ;
-            linkedHashMap7 = this.aRj.aQV;
+            multiImageView3 = this.aRi.aQY;
+            linkedHashMap7 = this.aRi.aQU;
             multiImageView3.setUrlData(new ArrayList<>(linkedHashMap7.values()));
-            multiImageView4 = this.aRj.aQZ;
-            i = this.aRj.mIndex;
+            multiImageView4 = this.aRi.aQY;
+            i = this.aRi.mIndex;
             multiImageView4.setCurrentItem(i, false);
             return;
         }
-        this.aRj.finish();
+        this.aRi.finish();
     }
 }

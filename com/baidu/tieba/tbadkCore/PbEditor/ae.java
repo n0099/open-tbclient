@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.editortool.w {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aCI;
-    final /* synthetic */ PbEditor bWq;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w aCF;
+    final /* synthetic */ PbEditor bWp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PbEditor pbEditor, com.baidu.tbadk.editortool.w wVar) {
-        this.bWq = pbEditor;
-        this.aCI = wVar;
+        this.bWp = pbEditor;
+        this.aCF = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -22,108 +22,108 @@ public class ae implements com.baidu.tbadk.editortool.w {
         TbPageContext tbPageContext2;
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.f)) {
-                if (this.bWq.FJ()) {
-                    com.baidu.adp.lib.util.l.showToast(this.bWq.getContext(), com.baidu.tieba.z.over_limit_tip);
+                if (this.bWp.FD()) {
+                    com.baidu.adp.lib.util.l.showToast(this.bWp.getContext(), com.baidu.tieba.z.over_limit_tip);
                     return;
                 }
                 com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) obj;
                 if (fVar.getName() != null) {
-                    if (PbEditor.ik(this.bWq.bWj.getEditText().getText().toString()) >= 10) {
-                        tbPageContext = this.bWq.mPageContext;
+                    if (PbEditor.ii(this.bWp.bWi.getEditText().getText().toString()) >= 10) {
+                        tbPageContext = this.bWp.mPageContext;
                         if (tbPageContext != null) {
-                            tbPageContext2 = this.bWq.mPageContext;
-                            tbPageContext2.showToast(this.bWq.mContext.getResources().getString(com.baidu.tieba.z.too_many_face));
+                            tbPageContext2 = this.bWp.mPageContext;
+                            tbPageContext2.showToast(this.bWp.mContext.getResources().getString(com.baidu.tieba.z.too_many_face));
                             return;
                         }
                     }
-                    this.bWq.bWj.getEditText().getText().insert(this.bWq.bWj.getEditText().getSelectionStart(), fVar.getName());
+                    this.bWp.bWi.getEditText().getText().insert(this.bWp.bWi.getEditText().getSelectionStart(), fVar.getName());
                 }
-                if (this.bWq.agh()) {
-                    this.bWq.bWj.agf();
+                if (this.bWp.agc()) {
+                    this.bWp.bWi.aga();
                 } else {
-                    this.bWq.bWj.agg();
+                    this.bWp.bWi.agb();
                 }
             }
         } else if (i == 21) {
-            if (this.bWq.bWj.getEditText().getSelectionStart() > 0) {
-                String substring = this.bWq.bWj.getEditText().getText().toString().substring(0, this.bWq.bWj.getEditText().getSelectionStart());
-                pattern = PbEditor.bWm;
+            if (this.bWp.bWi.getEditText().getSelectionStart() > 0) {
+                String substring = this.bWp.bWi.getEditText().getText().toString().substring(0, this.bWp.bWi.getEditText().getSelectionStart());
+                pattern = PbEditor.bWl;
                 Matcher matcher = pattern.matcher(substring);
                 if (matcher.find()) {
-                    this.bWq.bWj.getEditText().getText().delete(this.bWq.bWj.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.bWq.bWj.getEditText().getSelectionStart());
+                    this.bWp.bWi.getEditText().getText().delete(this.bWp.bWi.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.bWp.bWi.getEditText().getSelectionStart());
                     return;
                 }
-                this.bWq.bWj.getEditText().getText().delete(this.bWq.bWj.getEditText().getSelectionStart() - 1, this.bWq.bWj.getEditText().getSelectionStart());
+                this.bWp.bWi.getEditText().getText().delete(this.bWp.bWi.getEditText().getSelectionStart() - 1, this.bWp.bWi.getEditText().getSelectionStart());
             }
         } else if (i == 14) {
-            this.bWq.bWj.agr();
-            if (this.bWq.agh()) {
-                this.bWq.bWj.agf();
+            this.bWp.bWi.agm();
+            if (this.bWp.agc()) {
+                this.bWp.bWi.aga();
             } else {
-                this.bWq.bWj.agg();
+                this.bWp.bWi.agb();
             }
         } else if (i == 15) {
-            this.bWq.bWj.ags();
-            if (this.bWq.agh()) {
-                this.bWq.bWj.agf();
+            this.bWp.bWi.agn();
+            if (this.bWp.agc()) {
+                this.bWp.bWi.aga();
             } else {
-                this.bWq.bWj.agg();
+                this.bWp.bWi.agb();
             }
         } else if (i == 2) {
-            this.bWq.hQ(i);
-            this.bWq.bWj.afw();
+            this.bWp.hQ(i);
+            this.bWp.bWi.afr();
         } else if (i == 23) {
-            this.bWq.bWj.afw();
-            if (this.bWq.bWk.afW()) {
-                this.bWq.hQ(i);
+            this.bWp.bWi.afr();
+            if (this.bWp.bWj.afR()) {
+                this.bWp.hQ(i);
             } else {
-                this.aCI.handleAction(i, obj);
+                this.aCF.handleAction(i, obj);
             }
         } else if (i == 22) {
-            this.bWq.bWj.afw();
-            this.aCI.handleAction(i, obj);
+            this.bWp.bWi.afr();
+            this.aCF.handleAction(i, obj);
         } else if (i == 13) {
-            this.bWq.refresh();
-            if (this.bWq.agh()) {
-                this.bWq.bWj.agf();
+            this.bWp.refresh();
+            if (this.bWp.agc()) {
+                this.bWp.bWi.aga();
             } else {
-                this.bWq.bWj.agg();
+                this.bWp.bWi.agb();
             }
-            this.aCI.handleAction(i, obj);
+            this.aCF.handleAction(i, obj);
         } else if (i == 0) {
-            if (this.bWq.FJ()) {
-                com.baidu.adp.lib.util.l.showToast(this.bWq.getContext(), com.baidu.tieba.z.over_limit_tip);
+            if (this.bWp.FD()) {
+                com.baidu.adp.lib.util.l.showToast(this.bWp.getContext(), com.baidu.tieba.z.over_limit_tip);
             } else {
-                this.aCI.handleAction(i, obj);
+                this.aCF.handleAction(i, obj);
             }
         } else if (i == 44) {
-            this.bWq.hQ(i);
-            this.bWq.bWj.afw();
+            this.bWp.hQ(i);
+            this.bWp.bWi.afr();
         } else if (i == 46) {
-            this.bWq.bWj.agt();
+            this.bWp.bWi.ago();
         } else if (i == 47) {
-            this.bWq.refresh();
+            this.bWp.refresh();
         } else if (i == 48) {
-            this.bWq.bWj.afw();
-            if (this.bWq.bWk.afX()) {
-                this.bWq.hQ(i);
+            this.bWp.bWi.afr();
+            if (this.bWp.bWj.afS()) {
+                this.bWp.hQ(i);
                 return;
             }
-            this.bWq.bWk.vE();
-            this.aCI.handleAction(i, obj);
+            this.bWp.bWj.vy();
+            this.aCF.handleAction(i, obj);
         } else if (i == 51) {
-            if (!this.bWq.bWk.afX()) {
-                this.bWq.bWk.afQ();
+            if (!this.bWp.bWj.afS()) {
+                this.bWp.bWj.afL();
             }
-            this.bWq.refresh();
-            if (this.bWq.agh()) {
-                this.bWq.bWj.agf();
+            this.bWp.refresh();
+            if (this.bWp.agc()) {
+                this.bWp.bWi.aga();
             } else {
-                this.bWq.bWj.agg();
+                this.bWp.bWi.agb();
             }
-            this.aCI.handleAction(i, obj);
+            this.aCF.handleAction(i, obj);
         } else {
-            this.aCI.handleAction(i, obj);
+            this.aCF.handleAction(i, obj);
         }
     }
 }

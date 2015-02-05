@@ -16,56 +16,56 @@ import plugin.writeSettings.Plugin_setting;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class e {
-    private static e tw;
-    private m tA;
-    private f tx;
-    private boolean tz;
-    private static final BdUniqueId tv = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, tv);
-    private PluginSettings ty = new PluginSettings();
+    private static e tt;
+    private f tu;
+    private boolean tw;
+    private m tx;
+    private static final BdUniqueId ts = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ts);
+    private PluginSettings tv = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
-    public static e iu() {
-        if (tw == null) {
+    public static e in() {
+        if (tt == null) {
             synchronized (e.class) {
-                if (tw == null) {
-                    tw = new e();
+                if (tt == null) {
+                    tt = new e();
                 }
             }
         }
-        return tw;
+        return tt;
     }
 
     private e() {
     }
 
-    public PluginSettings iv() {
-        return this.ty;
+    public PluginSettings io() {
+        return this.tv;
     }
 
     public void a(m mVar) {
-        if (!this.tz) {
-            this.tA = mVar;
-            this.tz = true;
-            PluginSettings iw = iw();
-            this.tz = false;
-            if (iw != null) {
-                this.ty = iw;
+        if (!this.tw) {
+            this.tx = mVar;
+            this.tw = true;
+            PluginSettings ip = ip();
+            this.tw = false;
+            if (ip != null) {
+                this.tv = ip;
             }
-            if (this.tA != null) {
-                this.tA.a(iw);
-                this.tA = null;
+            if (this.tx != null) {
+                this.tx.a(ip);
+                this.tx = null;
             }
         }
     }
 
-    private PluginSettings iw() {
-        byte[] bq = bq(iu().ix());
-        if (bq == null) {
+    private PluginSettings ip() {
+        byte[] bn = bn(in().iq());
+        if (bn == null) {
             return null;
         }
         try {
-            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) new Wire(new Class[0]).parseFrom(bq, WriteSettingsReqIdl.class);
+            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) new Wire(new Class[0]).parseFrom(bn, WriteSettingsReqIdl.class);
             if (writeSettingsReqIdl == null || writeSettingsReqIdl.data == null) {
                 return null;
             }
@@ -119,7 +119,7 @@ public class e {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [190=4, 191=4] */
-    private byte[] bq(String str) {
+    private byte[] bn(String str) {
         FileInputStream fileInputStream;
         OutputStream outputStream;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -183,22 +183,22 @@ public class e {
 
     public void save(PluginSettings pluginSettings, l lVar) {
         if (pluginSettings != null) {
-            this.ty = pluginSettings;
-            if (this.tz && this.tA != null) {
-                this.tA.a(this.ty);
-                this.tA = null;
-                this.tz = false;
-            }
-            if (this.tx != null) {
-                this.tx.cancel();
+            this.tv = pluginSettings;
+            if (this.tw && this.tx != null) {
+                this.tx.a(this.tv);
                 this.tx = null;
+                this.tw = false;
+            }
+            if (this.tu != null) {
+                this.tu.cancel();
+                this.tu = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.tx = new f(this, pluginSettings, lVar);
-            this.tx.setParallel(sBdAsyncTaskParallel);
-            this.tx.execute(new String[0]);
+            this.tu = new f(this, pluginSettings, lVar);
+            this.tu.setParallel(sBdAsyncTaskParallel);
+            this.tu.execute(new String[0]);
         }
     }
 
@@ -247,10 +247,10 @@ public class e {
         }
     }
 
-    public String ix() {
-        if (Util.iE() == null) {
+    public String iq() {
+        if (Util.ix() == null) {
             return null;
         }
-        return Util.iE().getAbsoluteFile() + File.separator + "plugin_settings";
+        return Util.ix().getAbsoluteFile() + File.separator + "plugin_settings";
     }
 }

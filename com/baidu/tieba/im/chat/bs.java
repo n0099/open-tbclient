@@ -110,7 +110,7 @@ public class bs extends BaseAdapter {
         az azVar;
         MsgleftView msgleftView;
         MsgMultiImageTextView msgMultiImageTextView2;
-        com.baidu.tieba.im.data.g hs;
+        com.baidu.tieba.im.data.g hp;
         MsgrightView msgrightView;
         MsgleftView msgleftView2;
         int itemViewType = getItemViewType(i);
@@ -249,7 +249,7 @@ public class bs extends BaseAdapter {
                 } else {
                     msgMultiImageTextView2 = (MsgMultiImageTextView) view.getTag();
                 }
-                if (chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (hs = com.baidu.tieba.im.util.i.hs(chatMessage.getContent())) == null || !this.statContainer.add(Integer.valueOf(i))) {
+                if (chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (hp = com.baidu.tieba.im.util.i.hp(chatMessage.getContent())) == null || !this.statContainer.add(Integer.valueOf(i))) {
                     msgActivityView = null;
                     ayVar = null;
                     bbVar = null;
@@ -260,7 +260,7 @@ public class bs extends BaseAdapter {
                     msgMultiImageTextView = msgMultiImageTextView3;
                     break;
                 } else {
-                    TiebaStatic.eventStat(this.mContext.getPageActivity(), "message_open", "click", 1, "task_type", hs.aXX, "task_id", hs.aXY);
+                    TiebaStatic.eventStat(this.mContext.getPageActivity(), "message_open", "click", 1, "task_type", hp.aXW, "task_id", hp.aXX);
                     msgActivityView = null;
                     ayVar = null;
                     bbVar = null;

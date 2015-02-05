@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ g bHc;
+    final /* synthetic */ g bHb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(g gVar) {
-        this.bHc = gVar;
+        this.bHb = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,27 +24,27 @@ class k implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         q qVar6;
-        qVar = this.bHc.bGR;
+        qVar = this.bHb.bGQ;
         if (qVar != null) {
-            qVar2 = this.bHc.bGR;
-            if (!qVar2.AZ()) {
-                qVar5 = this.bHc.bGR;
+            qVar2 = this.bHb.bGQ;
+            if (!qVar2.AT()) {
+                qVar5 = this.bHb.bGQ;
                 qVar5.setEditState(true);
-                textView3 = this.bHc.amE;
+                textView3 = this.bHb.amB;
                 textView3.setText(com.baidu.tieba.z.done);
-                textView4 = this.bHc.amE;
+                textView4 = this.bHb.amB;
                 com.baidu.tbadk.core.util.bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-                qVar6 = this.bHc.bGR;
+                qVar6 = this.bHb.bGQ;
                 qVar6.notifyDataSetChanged();
                 return;
             }
-            qVar3 = this.bHc.bGR;
+            qVar3 = this.bHb.bGQ;
             qVar3.setEditState(false);
-            textView = this.bHc.amE;
+            textView = this.bHb.amB;
             textView.setText(com.baidu.tieba.z.edit);
-            textView2 = this.bHc.amE;
+            textView2 = this.bHb.amB;
             com.baidu.tbadk.core.util.bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-            qVar4 = this.bHc.bGR;
+            qVar4 = this.bHb.bGQ;
             qVar4.notifyDataSetChanged();
         }
     }

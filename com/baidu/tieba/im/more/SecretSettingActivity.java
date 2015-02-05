@@ -15,12 +15,12 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
-    private g bjR;
-    private a bjS;
-    private boolean bjT = false;
-    private j bjU = new b(this);
-    private HttpMessageListener bjV = new c(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
-    private com.baidu.adp.framework.listener.a bjW = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+    private g bjQ;
+    private a bjR;
+    private boolean bjS = false;
+    private j bjT = new b(this);
+    private HttpMessageListener bjU = new c(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
+    private com.baidu.adp.framework.listener.a bjV = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(SecretSettingActivityConfig.class, SecretSettingActivity.class);
@@ -30,24 +30,24 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bjR = new g(this);
-        this.bjS = new a();
-        this.bjR.a(this.bjU);
-        if (this.bjS.RC()) {
-            this.bjR.dh(true);
-            this.bjR.b(this.bjS);
+        this.bjQ = new g(this);
+        this.bjR = new a();
+        this.bjQ.a(this.bjT);
+        if (this.bjR.Rx()) {
+            this.bjQ.dh(true);
+            this.bjQ.b(this.bjR);
         } else {
-            this.bjR.dh(false);
+            this.bjQ.dh(false);
         }
-        this.bjR.di(TbadkCoreApplication.m255getInst().getLocationShared());
-        registerListener(this.bjW);
+        this.bjQ.di(TbadkCoreApplication.m255getInst().getLocationShared());
         registerListener(this.bjV);
-        vT();
+        registerListener(this.bjU);
+        vN();
         sendMessage(new RequestPrivacySetting());
     }
 
-    private void vT() {
-        MessageManager.getInstance().registerTask(va());
+    private void vN() {
+        MessageManager.getInstance().registerTask(uU());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, O("c/u/user/getPrivateInfo", 303016));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -65,31 +65,31 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bjR.onChangeSkinType(i);
+        this.bjQ.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.bjR.RM();
+        this.bjQ.RH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(String str, String str2) {
-        if (this.bjT) {
+        if (this.bjS) {
             com.baidu.tbadk.core.dialog.i iVar = new com.baidu.tbadk.core.dialog.i(getPageContext().getPageActivity());
-            iVar.a(getResources().getStringArray(r.privacy_setting_config), new f(this, str)).bX(str2);
-            iVar.e(getPageContext()).nZ();
+            iVar.a(getResources().getStringArray(r.privacy_setting_config), new f(this, str)).bU(str2);
+            iVar.e(getPageContext()).nS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RH() {
+    public void RC() {
         sendMessage(new CustomMessage(2008001, new IMBlackListActivityConfig(getPageContext().getPageActivity())));
     }
 
-    private SocketMessageTask va() {
+    private SocketMessageTask uU() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(303016);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(ResponsedPrivacySocketMessage.class);

@@ -4,26 +4,26 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ f acf;
+    final /* synthetic */ f acc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.acf = fVar;
+        this.acc = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int wr;
+        int wl;
         TextView textView;
         String[] strArr;
         TextView textView2;
         Runnable runnable;
-        wr = this.acf.wr();
-        textView = this.acf.Vy;
-        strArr = this.acf.LE;
-        textView.setText(strArr[wr]);
-        textView2 = this.acf.Vy;
-        runnable = this.acf.yd;
+        wl = this.acc.wl();
+        textView = this.acc.Vv;
+        strArr = this.acc.LA;
+        textView.setText(strArr[wl]);
+        textView2 = this.acc.Vv;
+        runnable = this.acc.ya;
         textView2.postDelayed(runnable, 200L);
     }
 }

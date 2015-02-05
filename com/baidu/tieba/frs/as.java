@@ -13,20 +13,20 @@ class as extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean FR;
+        boolean FL;
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.aCO = true;
+                FrsActivity.aCL = true;
             } else if (intValue == 2) {
-                FrsActivity.aCP = true;
+                FrsActivity.aCM = true;
             }
             boolean z = intValue == 3;
-            FR = FrsActivity.FR();
-            if (!z || !FR) {
-                FrsActivity.aCN = true;
+            FL = FrsActivity.FL();
+            if (!z || !FL) {
+                FrsActivity.aCK = true;
             } else {
-                FrsActivity.aCN = false;
+                FrsActivity.aCK = false;
             }
         }
     }

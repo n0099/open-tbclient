@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsGroupActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    protected boolean aHJ;
-    protected boolean aHK;
+    protected boolean aHG;
+    protected boolean aHH;
 
     public a() {
-        this.aHK = TbadkCoreApplication.m255getInst().getIntentClass(FrsGroupActivityConfig.class) != null;
+        this.aHH = TbadkCoreApplication.m255getInst().getIntentClass(FrsGroupActivityConfig.class) != null;
     }
 
-    public boolean Hy() {
-        return this.aHJ;
+    public boolean Hs() {
+        return this.aHG;
     }
 
     public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {

@@ -8,27 +8,27 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class ChildViewPager extends ViewPager {
+    private PointF bTu;
     private PointF bTv;
-    private PointF bTw;
-    private c bTx;
-    private int bTy;
+    private c bTw;
+    private int bTx;
 
     public ChildViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.bTu = new PointF();
         this.bTv = new PointF();
-        this.bTw = new PointF();
         init();
     }
 
     public ChildViewPager(Context context) {
         super(context);
+        this.bTu = new PointF();
         this.bTv = new PointF();
-        this.bTw = new PointF();
         init();
     }
 
     private void init() {
-        this.bTy = new ViewConfiguration().getScaledTouchSlop();
+        this.bTx = new ViewConfiguration().getScaledTouchSlop();
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
@@ -38,28 +38,28 @@ public class ChildViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.bTw.x = motionEvent.getX();
-        this.bTw.y = motionEvent.getY();
+        this.bTv.x = motionEvent.getX();
+        this.bTv.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.bTv.x = motionEvent.getX();
-            this.bTv.y = motionEvent.getY();
+            this.bTu.x = motionEvent.getX();
+            this.bTu.y = motionEvent.getY();
             getParent().requestDisallowInterceptTouchEvent(true);
             setPressed(true);
         }
         if (motionEvent.getAction() == 2) {
-            int abs = (int) Math.abs(this.bTw.x - this.bTv.x);
-            int abs2 = (int) Math.abs(this.bTw.y - this.bTv.y);
+            int abs = (int) Math.abs(this.bTv.x - this.bTu.x);
+            int abs2 = (int) Math.abs(this.bTv.y - this.bTu.y);
             if (abs > abs2) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             } else {
                 getParent().requestDisallowInterceptTouchEvent(false);
             }
-            if (abs > this.bTy || abs2 > this.bTy) {
+            if (abs > this.bTx || abs2 > this.bTx) {
                 setPressed(false);
             }
         }
         if (motionEvent.getAction() == 1) {
-            if (Math.abs(this.bTv.x - this.bTw.x) + Math.abs(this.bTv.y - this.bTw.y) < getResources().getDimensionPixelSize(com.baidu.tieba.u.ds6)) {
+            if (Math.abs(this.bTu.x - this.bTv.x) + Math.abs(this.bTu.y - this.bTv.y) < getResources().getDimensionPixelSize(com.baidu.tieba.u.ds6)) {
                 eO(getCurrentItem());
             }
             setPressed(false);
@@ -68,12 +68,12 @@ public class ChildViewPager extends ViewPager {
     }
 
     public void eO(int i) {
-        if (this.bTx != null) {
-            this.bTx.eO(i);
+        if (this.bTw != null) {
+            this.bTw.eO(i);
         }
     }
 
     public void setOnSingleTouchListener(c cVar) {
-        this.bTx = cVar;
+        this.bTw = cVar;
     }
 }

@@ -11,51 +11,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EllipsizingTextView extends TextView {
-    private final List<i> TT;
-    private boolean TU;
-    private boolean TV;
-    private boolean TW;
-    private String TX;
-    private float TY;
-    private float TZ;
+    private final List<i> TQ;
+    private boolean TR;
+    private boolean TS;
+    private boolean TT;
+    private String TU;
+    private float TV;
+    private float TW;
     private int maxLines;
 
     public EllipsizingTextView(Context context) {
         super(context);
-        this.TT = new ArrayList();
+        this.TQ = new ArrayList();
         this.maxLines = -1;
-        this.TY = 1.0f;
-        this.TZ = 0.0f;
+        this.TV = 1.0f;
+        this.TW = 0.0f;
     }
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.TT = new ArrayList();
+        this.TQ = new ArrayList();
         this.maxLines = -1;
-        this.TY = 1.0f;
-        this.TZ = 0.0f;
+        this.TV = 1.0f;
+        this.TW = 0.0f;
     }
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.TT = new ArrayList();
+        this.TQ = new ArrayList();
         this.maxLines = -1;
-        this.TY = 1.0f;
-        this.TZ = 0.0f;
+        this.TV = 1.0f;
+        this.TW = 0.0f;
     }
 
     public void a(i iVar) {
         if (iVar == null) {
             throw new NullPointerException();
         }
-        this.TT.add(iVar);
+        this.TQ.add(iVar);
     }
 
     @Override // android.widget.TextView
     public void setMaxLines(int i) {
         super.setMaxLines(i);
         this.maxLines = i;
-        this.TV = true;
+        this.TS = true;
     }
 
     @Override // android.widget.TextView
@@ -65,25 +65,25 @@ public class EllipsizingTextView extends TextView {
 
     @Override // android.widget.TextView
     public void setLineSpacing(float f, float f2) {
-        this.TZ = f;
-        this.TY = f2;
+        this.TW = f;
+        this.TV = f2;
         super.setLineSpacing(f, f2);
     }
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
-        if (!this.TW) {
-            this.TX = charSequence.toString();
-            this.TV = true;
+        if (!this.TT) {
+            this.TU = charSequence.toString();
+            this.TS = true;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.TV) {
+        if (this.TS) {
             super.setEllipsize(null);
-            tG();
+            tA();
         }
         super.onDraw(canvas);
     }
@@ -94,15 +94,15 @@ public class EllipsizingTextView extends TextView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void tG() {
+    private void tA() {
         boolean z;
         int maxLines = getMaxLines();
-        String str = this.TX;
+        String str = this.TU;
         if (maxLines != -1) {
-            Layout dE = dE(str);
-            if (dE.getLineCount() > maxLines) {
-                String trim = this.TX.substring(0, dE.getLineEnd(maxLines - 1)).trim();
-                while (dE(String.valueOf(trim) + "...").getLineCount() > maxLines) {
+            Layout dB = dB(str);
+            if (dB.getLineCount() > maxLines) {
+                String trim = this.TU.substring(0, dB.getLineEnd(maxLines - 1)).trim();
+                while (dB(String.valueOf(trim) + "...").getLineCount() > maxLines) {
                     if (trim.length() > "...".length()) {
                         trim = trim.substring(0, trim.length() - "...".length());
                     }
@@ -115,17 +115,17 @@ public class EllipsizingTextView extends TextView {
                 str = String.valueOf(trim) + "...";
                 z = true;
                 if (!str.equals(getText())) {
-                    this.TW = true;
+                    this.TT = true;
                     try {
                         setText(str);
                     } finally {
-                        this.TW = false;
+                        this.TT = false;
                     }
                 }
-                this.TV = false;
-                if (z == this.TU) {
-                    this.TU = z;
-                    for (i iVar : this.TT) {
+                this.TS = false;
+                if (z == this.TR) {
+                    this.TR = z;
+                    for (i iVar : this.TQ) {
                         iVar.aA(z);
                     }
                     return;
@@ -136,13 +136,13 @@ public class EllipsizingTextView extends TextView {
         z = false;
         if (!str.equals(getText())) {
         }
-        this.TV = false;
-        if (z == this.TU) {
+        this.TS = false;
+        if (z == this.TR) {
         }
     }
 
-    private Layout dE(String str) {
-        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.TY, this.TZ, false);
+    private Layout dB(String str) {
+        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.TV, this.TW, false);
     }
 
     @Override // android.widget.TextView

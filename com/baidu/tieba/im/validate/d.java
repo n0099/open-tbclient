@@ -2,11 +2,11 @@ package com.baidu.tieba.im.validate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ ValidateActivity bpQ;
+    final /* synthetic */ ValidateActivity bpP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ValidateActivity validateActivity) {
-        this.bpQ = validateActivity;
+        this.bpP = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -14,9 +14,9 @@ public class d implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         boolean z;
         m mVar;
-        z = this.bpQ.bpN;
+        z = this.bpP.bpM;
         if (!z) {
-            mVar = this.bpQ.bpK;
+            mVar = this.bpP.bpJ;
             mVar.setLoadProgressBarVisable(false);
         }
     }

@@ -15,6 +15,6 @@ class o extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
             return;
         }
-        FloatingPersonalChatActivity.aSH = null;
+        FloatingPersonalChatActivity.aSG = null;
     }
 }

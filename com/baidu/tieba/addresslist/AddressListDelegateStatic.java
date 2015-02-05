@@ -9,7 +9,7 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView aoN;
+    private static ImageView aoK;
 
     static {
         a aVar = new a(2007002);
@@ -28,13 +28,13 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d wv() {
+    public com.baidu.tbadk.mainTab.d wp() {
         if (isAvailable()) {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-            dVar.acz = new d();
+            dVar.acw = new d();
             dVar.type = 4;
-            dVar.acA = z.contacts;
-            dVar.acp = v.icon_tabbar_contact;
+            dVar.acx = z.contacts;
+            dVar.acm = v.icon_tabbar_contact;
             return dVar;
         }
         return null;
@@ -42,15 +42,15 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator W(Context context) {
-        this.acm = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
-        aoN = new ImageView(context);
+        this.acj = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
+        aoK = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.acy = this.acm;
+        cVar.acv = this.acj;
         cVar.jO = com.baidu.adp.lib.util.l.dip2px(context, 7.0f);
-        cVar.view = aoN;
-        cVar.acw = v.icon_news_down_bar_one;
-        aoN.setVisibility(8);
-        this.acm.a("addresslist", cVar);
-        return this.acm;
+        cVar.view = aoK;
+        cVar.acs = v.icon_news_down_bar_one;
+        aoK.setVisibility(8);
+        this.acj.a("addresslist", cVar);
+        return this.acj;
     }
 }

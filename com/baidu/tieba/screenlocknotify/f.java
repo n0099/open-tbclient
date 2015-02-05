@@ -23,54 +23,54 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f bNX;
-    public s bOc;
+    private static f bNW;
+    public s bOb;
+    public int bOc;
     public int bOd;
     public int bOe;
     public int bOf;
     public int bOg;
-    public int bOh;
-    public boolean bOi;
+    public boolean bOh;
+    private List<t> bNY = new LinkedList();
     private List<t> bNZ = new LinkedList();
-    private List<t> bOa = new LinkedList();
-    private HashMap<String, LinkedList<t>> bOb = new HashMap<>();
+    private HashMap<String, LinkedList<t>> bOa = new HashMap<>();
     public Handler mHandler = new g(this);
-    private CustomMessageListener aTC = new h(this, 0);
+    private CustomMessageListener aTB = new h(this, 0);
     private CustomMessageListener mCustomMessageListener = new i(this, 0);
-    private CustomMessageListener bOj = new j(this, 2005016);
-    private final Context Ru = TbadkApplication.getInst().getApp();
-    private KeyguardManager bNY = (KeyguardManager) this.Ru.getSystemService("keyguard");
+    private CustomMessageListener bOi = new j(this, 2005016);
+    private final Context Rr = TbadkApplication.getInst().getApp();
+    private KeyguardManager bNX = (KeyguardManager) this.Rr.getSystemService("keyguard");
 
-    public static f acG() {
-        if (bNX == null) {
-            bNX = new f();
+    public static f acB() {
+        if (bNW == null) {
+            bNW = new f();
         }
-        return bNX;
+        return bNW;
     }
 
     private f() {
-        MessageManager.getInstance().registerListener(2016003, this.aTC);
-        MessageManager.getInstance().registerListener(this.bOj);
+        MessageManager.getInstance().registerListener(2016003, this.aTB);
+        MessageManager.getInstance().registerListener(this.bOi);
         MessageManager.getInstance().registerListener(2013005, this.mCustomMessageListener);
         MessageManager.getInstance().registerListener(2013001, this.mCustomMessageListener);
+        this.bOc = 0;
         this.bOd = 0;
         this.bOe = 0;
         this.bOf = 0;
         this.bOg = 0;
-        this.bOh = 0;
-        this.bOi = true;
-        this.bOc = new s();
+        this.bOh = true;
+        this.bOb = new s();
     }
 
-    public List<t> acH() {
+    public List<t> acC() {
         LinkedList linkedList = new LinkedList();
-        linkedList.addAll(this.bNZ);
+        linkedList.addAll(this.bNY);
         return linkedList;
     }
 
-    public List<t> acI() {
+    public List<t> acD() {
         LinkedList linkedList = new LinkedList();
-        linkedList.addAll(this.bOa);
+        linkedList.addAll(this.bNZ);
         return linkedList;
     }
 
@@ -97,31 +97,31 @@ public class f {
                 if (chatMessage != null && A(chatMessage)) {
                     new t();
                     t a = a(chatMessage, i);
-                    if (a != null && a.bOu > 0) {
+                    if (a != null && a.bOt > 0) {
                         if (!a.isAcceptNotify) {
                             c(a);
                         } else {
-                            a(a, this.bOa);
+                            a(a, this.bNZ);
                             b(a);
                             z = true;
                         }
                     }
                 }
             }
-            acJ();
+            acE();
             if (z) {
-                acL();
+                acG();
             }
         }
     }
 
-    public void acJ() {
-        if (this.bNZ != null && this.bOa != null) {
-            this.bNZ.clear();
-            if (this.bOa.size() > 1) {
-                this.bNZ.addAll(this.bOa);
-            } else if (this.bOa.size() == 1) {
-                this.bNZ.addAll(this.bOb.get(this.bOa.get(0).groupId));
+    public void acE() {
+        if (this.bNY != null && this.bNZ != null) {
+            this.bNY.clear();
+            if (this.bNZ.size() > 1) {
+                this.bNY.addAll(this.bNZ);
+            } else if (this.bNZ.size() == 1) {
+                this.bNY.addAll(this.bOa.get(this.bNZ.get(0).groupId));
             }
         }
     }
@@ -146,49 +146,49 @@ public class f {
 
     public t a(ChatMessage chatMessage, int i) {
         t tVar = new t();
-        tVar.bOu = 0;
+        tVar.bOt = 0;
         tVar.msgType = chatMessage.getMsgType();
         tVar.customGroupType = i;
         tVar.userName = chatMessage.getUserInfo().getUserName();
-        tVar.bOw = chatMessage.getRecordId();
+        tVar.bOv = chatMessage.getRecordId();
         tVar.isAcceptNotify = true;
-        tVar.bOx = true;
+        tVar.bOw = true;
         if (tVar.customGroupType == 1) {
-            ImMessageCenterPojo H = com.baidu.tieba.im.memorycache.c.QO().H(chatMessage.getGroupId(), 1);
+            ImMessageCenterPojo H = com.baidu.tieba.im.memorycache.c.QJ().H(chatMessage.getGroupId(), 1);
             if (H != null) {
                 tVar.groupName = H.getGroup_name();
-                tVar.bOu = H.getUnread_count();
-                tVar.IU = H.getLast_content_time();
+                tVar.bOt = H.getUnread_count();
+                tVar.IR = H.getLast_content_time();
             }
             tVar.content = String.valueOf(tVar.userName) + ":" + com.baidu.tieba.im.util.i.w(chatMessage.getMsgType(), chatMessage.getContent());
             tVar.groupId = chatMessage.getGroupId();
             if (!TbadkCoreApplication.m255getInst().isGroupMsgOn()) {
                 tVar.isAcceptNotify = false;
             } else {
-                tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.c.Tr().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
+                tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.c.Tm().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
             }
         } else if (tVar.customGroupType == 2) {
             tVar.groupId = chatMessage.getUserInfo().getUserId();
-            ImMessageCenterPojo H2 = com.baidu.tieba.im.memorycache.c.QO().H(tVar.groupId, 2);
+            ImMessageCenterPojo H2 = com.baidu.tieba.im.memorycache.c.QJ().H(tVar.groupId, 2);
             if (H2 != null) {
-                tVar.bOu = H2.getUnread_count();
-                tVar.IU = H2.getLast_content_time();
-                tVar.bOx = H2.getIsFriend() == 1;
+                tVar.bOt = H2.getUnread_count();
+                tVar.IR = H2.getLast_content_time();
+                tVar.bOw = H2.getIsFriend() == 1;
             }
             tVar.groupName = chatMessage.getUserInfo().getUserName();
             tVar.content = com.baidu.tieba.im.util.i.w(chatMessage.getMsgType(), chatMessage.getContent());
-            if (tVar.bOx) {
+            if (tVar.bOw) {
                 if (!TbadkCoreApplication.m255getInst().isMsgChatOn()) {
                     tVar.isAcceptNotify = false;
                 } else {
-                    tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.j.Tu().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
+                    tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.j.Tp().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
                 }
             } else if (!TbadkCoreApplication.m255getInst().isMsgChatOn()) {
                 tVar.isAcceptNotify = false;
             } else if (!TbadkCoreApplication.m255getInst().isStrangerChatOn()) {
                 tVar.isAcceptNotify = false;
             } else {
-                tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.j.Tu().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
+                tVar.isAcceptNotify = com.baidu.tieba.im.settingcache.j.Tp().aH(TbadkCoreApplication.getCurrentAccount(), tVar.groupId);
             }
         }
         if (StringUtils.isNull(tVar.content)) {
@@ -213,7 +213,7 @@ public class f {
 
     public void b(t tVar) {
         if (tVar != null) {
-            LinkedList<t> linkedList = this.bOb.get(tVar.groupId);
+            LinkedList<t> linkedList = this.bOa.get(tVar.groupId);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
                 linkedList.add(tVar);
@@ -221,7 +221,7 @@ public class f {
                 a(linkedList, tVar);
                 linkedList.add(tVar);
             }
-            this.bOb.put(tVar.groupId, linkedList);
+            this.bOa.put(tVar.groupId, linkedList);
         }
     }
 
@@ -230,7 +230,7 @@ public class f {
             Iterator<t> it = linkedList.iterator();
             while (it.hasNext()) {
                 t next = it.next();
-                if (next != null && next.bOw == tVar.bOw) {
+                if (next != null && next.bOv == tVar.bOv) {
                     linkedList.remove(next);
                     return;
                 }
@@ -239,36 +239,36 @@ public class f {
     }
 
     public void c(t tVar) {
-        if (tVar != null && this.bOb != null && this.bOb.size() != 0) {
-            this.bOb.remove(tVar.groupId);
-            if (this.bOa != null && this.bOa.size() != 0) {
-                b(tVar, this.bOa);
-                acJ();
+        if (tVar != null && this.bOa != null && this.bOa.size() != 0) {
+            this.bOa.remove(tVar.groupId);
+            if (this.bNZ != null && this.bNZ.size() != 0) {
+                b(tVar, this.bNZ);
+                acE();
             }
         }
     }
 
-    public void acK() {
-        if (this.bOa != null) {
-            this.bOa.clear();
-        }
+    public void acF() {
         if (this.bNZ != null) {
             this.bNZ.clear();
         }
-        if (this.bOb != null) {
-            this.bOb.clear();
+        if (this.bNY != null) {
+            this.bNY.clear();
+        }
+        if (this.bOa != null) {
+            this.bOa.clear();
         }
     }
 
     public t w(ImMessageCenterPojo imMessageCenterPojo) {
         t tVar = new t();
         if (imMessageCenterPojo != null) {
-            tVar.bOu = imMessageCenterPojo.getUnread_count();
+            tVar.bOt = imMessageCenterPojo.getUnread_count();
             tVar.groupId = imMessageCenterPojo.getGid();
             tVar.customGroupType = imMessageCenterPojo.getCustomGroupType();
             tVar.groupName = imMessageCenterPojo.getGroup_name();
             tVar.userName = imMessageCenterPojo.getLast_user_name();
-            tVar.IU = imMessageCenterPojo.getLast_content_time();
+            tVar.IR = imMessageCenterPojo.getLast_content_time();
             if (tVar.customGroupType == 1) {
                 tVar.content = String.valueOf(tVar.userName) + ":" + imMessageCenterPojo.getLast_content();
             } else {
@@ -278,23 +278,23 @@ public class f {
         return tVar;
     }
 
-    public void acL() {
-        if (com.baidu.adp.lib.b.f.da().Z("android_im_window_open") != 0 && TbadkCoreApplication.m255getInst().isMsgRemindOn() && TbadkApplication.getInst().getScreenLock() && this.bNZ != null && this.bNZ.size() != 0 && this.bOa != null && this.bOa.size() != 0) {
-            if (this.bOi) {
-                if (this.bNY.inKeyguardRestrictedInputMode()) {
+    public void acG() {
+        if (com.baidu.adp.lib.b.f.da().Z("android_im_window_open") != 0 && TbadkCoreApplication.m255getInst().isMsgRemindOn() && TbadkApplication.getInst().getScreenLock() && this.bNY != null && this.bNY.size() != 0 && this.bNZ != null && this.bNZ.size() != 0) {
+            if (this.bOh) {
+                if (this.bNX.inKeyguardRestrictedInputMode()) {
                     BdLog.i("----------------系统判断。。。你目前处于加锁状态，需要展示弹窗!");
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Ru)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Rr)));
                     this.mHandler.postDelayed(new k(this), 1000L);
                     return;
                 }
                 BdLog.i("----------------系统判断。。。你目前处于已解锁状态，不需要展示弹窗!");
-            } else if (this.bOd == 0 && this.bOf == 1) {
+            } else if (this.bOc == 0 && this.bOe == 1) {
                 BdLog.i("标志位判断。。。你目前处于已解锁状态，但是弹框处于上方，需要展示弹窗!");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Ru)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Rr)));
                 this.mHandler.postDelayed(new l(this), 1000L);
-            } else if (this.bOd == 1) {
+            } else if (this.bOc == 1) {
                 BdLog.i("标志位判断。。。你目前处于加锁状态，需要展示弹窗!");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Ru)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.Rr)));
                 this.mHandler.postDelayed(new m(this), 1000L);
             }
         }

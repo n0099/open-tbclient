@@ -38,7 +38,7 @@ public class ChatStatusManager {
         if (cVar == null) {
             return "";
         }
-        return cVar.ahS;
+        return cVar.ahP;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -55,11 +55,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         c cVar = this.mStatus.get(i);
         if (cVar != null) {
-            cVar.ahS = str;
+            cVar.ahP = str;
             return;
         }
         c cVar2 = new c();
-        cVar2.ahS = str;
+        cVar2.ahP = str;
         this.mStatus.put(i, cVar2);
     }
 

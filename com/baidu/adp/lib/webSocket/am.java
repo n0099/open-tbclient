@@ -14,7 +14,7 @@ public class am {
     public am() {
         this.ps = null;
         this.qd = 131072;
-        this.qe = 131072;
+        this.qe = 229376;
         this.qf = false;
         this.qg = true;
         this.qh = 30000;
@@ -42,10 +42,14 @@ public class am {
     }
 
     public int gl() {
-        return this.qd;
+        return (int) Math.round(this.qd * 0.25d);
     }
 
     public int gm() {
+        return (int) Math.round(this.qd * 1.75d);
+    }
+
+    public int gn() {
         return this.qe;
     }
 
@@ -53,23 +57,23 @@ public class am {
         return this.qg;
     }
 
-    public int gn() {
+    public int go() {
         return this.qh;
     }
 
-    public int go() {
+    public int gp() {
         return this.qi;
     }
 
-    public boolean gp() {
+    public boolean gq() {
         return this.qj;
     }
 
-    public boolean gq() {
+    public boolean gr() {
         return this.qk;
     }
 
-    public String gr() {
+    public String gs() {
         return this.ps;
     }
 

@@ -5,32 +5,32 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ah implements View.OnTouchListener {
-    private aj bUW;
+    private aj bUV;
     private int count = 0;
+    private long aNS = 0;
     private long aNT = 0;
-    private long aNU = 0;
-    private long aNW = 500;
+    private long aNV = 500;
     private Handler mHandler = new ai(this);
 
     public ah(aj ajVar) {
-        this.bUW = ajVar;
+        this.bUV = ajVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.bUW == null) {
+            if (this.bUV == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.aNT = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.aNW);
+                this.aNS = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.aNV);
                 return true;
             } else if (this.count == 2) {
-                this.aNU = System.currentTimeMillis();
-                if (this.aNU - this.aNT < this.aNW) {
-                    this.bUW.Hp();
+                this.aNT = System.currentTimeMillis();
+                if (this.aNT - this.aNS < this.aNV) {
+                    this.bUV.Hj();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

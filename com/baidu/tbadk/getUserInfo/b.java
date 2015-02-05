@@ -12,28 +12,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.g;
 /* loaded from: classes.dex */
 public class b {
-    private static b ZL;
+    private static b ZI;
 
     private b() {
     }
 
-    public static b vS() {
-        if (ZL == null) {
+    public static b vM() {
+        if (ZI == null) {
             synchronized (b.class) {
-                if (ZL == null) {
-                    ZL = new b();
+                if (ZI == null) {
+                    ZI = new b();
                 }
             }
         }
-        return ZL;
+        return ZI;
     }
 
-    public void vT() {
+    public void vN() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void vU() {
+    public void vO() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -56,7 +56,7 @@ public class b {
             }
             currentAccountObj.setSex(userData.getSex());
             g payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.ms() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.ml() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);

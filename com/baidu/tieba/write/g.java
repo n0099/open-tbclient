@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements n {
-    final /* synthetic */ AtListActivity cfy;
+    final /* synthetic */ AtListActivity cfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
+        this.cfx = atListActivity;
     }
 
     @Override // com.baidu.tieba.write.n
@@ -21,13 +21,13 @@ public class g implements n {
             if (obj instanceof com.baidu.tbadk.core.view.aj) {
                 ((com.baidu.tbadk.core.view.aj) obj).setChecked(false);
             }
-            bdListView = this.cfy.mListView;
+            bdListView = this.cfx.mListView;
             View findViewWithTag = bdListView.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (!(obj instanceof MetaData)) {
             } else {
-                this.cfy.c((MetaData) obj);
+                this.cfx.c((MetaData) obj);
             }
         }
     }

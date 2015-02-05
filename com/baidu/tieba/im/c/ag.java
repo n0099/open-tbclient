@@ -5,15 +5,15 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, String> {
-    private String boS;
-    private ChatMessage boT;
-    private ac boU = new ac();
-    final /* synthetic */ af boV;
+    private String boR;
+    private ChatMessage boS;
+    private ac boT = new ac();
+    final /* synthetic */ af boU;
 
     public ag(af afVar, String str, ChatMessage chatMessage) {
-        this.boV = afVar;
-        this.boS = str;
-        this.boT = chatMessage;
+        this.boU = afVar;
+        this.boR = str;
+        this.boS = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class ag extends BdAsyncTask<Object, Integer, String> {
     /* renamed from: w */
     public String doInBackground(Object... objArr) {
         try {
-            return this.boU.hn(this.boS);
+            return this.boT.hk(this.boR);
         } catch (Exception e) {
             return null;
         }
@@ -35,10 +35,10 @@ public class ag extends BdAsyncTask<Object, Integer, String> {
         ah ahVar;
         ah ahVar2;
         super.onPostExecute((ag) str);
-        ahVar = this.boV.boR;
+        ahVar = this.boU.boQ;
         if (ahVar != null) {
-            ahVar2 = this.boV.boR;
-            ahVar2.a(str, this.boT);
+            ahVar2 = this.boU.boQ;
+            ahVar2.a(str, this.boS);
         }
     }
 }

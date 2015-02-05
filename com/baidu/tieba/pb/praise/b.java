@@ -41,7 +41,7 @@ public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
         super.y(aVar);
         this.mItemName.setText(aVar.getUserName());
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(bf.n(aVar.Zz()));
+        this.mItemTime.setText(bf.n(aVar.Zu()));
         this.mItemHead.d(aVar.getPortrait(), 28, false);
     }
 }

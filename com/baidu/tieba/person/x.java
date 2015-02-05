@@ -5,22 +5,22 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bHL;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PersonChangeActivity personChangeActivity) {
-        this.bHL = personChangeActivity;
+        this.bHK = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
         Dialog dialog2;
-        dialog = this.bHL.bHH;
+        dialog = this.bHK.bHG;
         if (dialog != null) {
-            dialog2 = this.bHL.bHH;
-            com.baidu.adp.lib.g.k.b(dialog2, this.bHL.getPageContext());
+            dialog2 = this.bHK.bHG;
+            com.baidu.adp.lib.g.k.b(dialog2, this.bHK.getPageContext());
         }
-        this.bHL.aaT();
+        this.bHK.aaO();
     }
 }

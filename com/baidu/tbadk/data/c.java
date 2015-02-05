@@ -5,23 +5,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c WO;
-    public final String WK = "2g";
-    public final String WL = "3g";
-    public final String WM = "4g";
-    public final String WN = "wifi";
-    public HashMap<String, String> WP = new HashMap<>();
-    public HashMap<String, String> WQ = new HashMap<>();
-    public HashMap<String, String> WR = new HashMap<>();
-    public String WS;
+    private static c WL;
+    public final String WH = "2g";
+    public final String WI = "3g";
+    public final String WJ = "4g";
+    public final String WK = "wifi";
+    public HashMap<String, String> WM = new HashMap<>();
+    public HashMap<String, String> WN = new HashMap<>();
+    public HashMap<String, String> WO = new HashMap<>();
+    public String WP;
 
-    public static synchronized c uF() {
+    public static synchronized c uz() {
         c cVar;
         synchronized (c.class) {
-            if (WO == null) {
-                WO = new c();
+            if (WL == null) {
+                WL = new c();
             }
-            cVar = WO;
+            cVar = WL;
         }
         return cVar;
     }
@@ -36,16 +36,16 @@ public class c {
                     String optString3 = optJSONObject.optString("4g");
                     String optString4 = optJSONObject.optString("wifi");
                     if (optString != null) {
-                        this.WP.put("2g", optString);
+                        this.WM.put("2g", optString);
                     }
                     if (optString2 != null) {
-                        this.WP.put("3g", optString2);
+                        this.WM.put("3g", optString2);
                     }
                     if (optString3 != null) {
-                        this.WP.put("4g", optString3);
+                        this.WM.put("4g", optString3);
                     }
                     if (optString4 != null) {
-                        this.WP.put("wifi", optString4);
+                        this.WM.put("wifi", optString4);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
@@ -55,16 +55,16 @@ public class c {
                     String optString7 = optJSONObject2.optString("4g");
                     String optString8 = optJSONObject2.optString("wifi");
                     if (optString5 != null) {
-                        this.WQ.put("2g", optString5);
+                        this.WN.put("2g", optString5);
                     }
                     if (optString6 != null) {
-                        this.WQ.put("3g", optString6);
+                        this.WN.put("3g", optString6);
                     }
                     if (optString7 != null) {
-                        this.WQ.put("4g", optString7);
+                        this.WN.put("4g", optString7);
                     }
                     if (optString8 != null) {
-                        this.WQ.put("wifi", optString8);
+                        this.WN.put("wifi", optString8);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
@@ -74,19 +74,19 @@ public class c {
                     String optString11 = optJSONObject3.optString("4g");
                     String optString12 = optJSONObject3.optString("wifi");
                     if (optString9 != null) {
-                        this.WR.put("2g", optString9);
+                        this.WO.put("2g", optString9);
                     }
                     if (optString10 != null) {
-                        this.WR.put("3g", optString10);
+                        this.WO.put("3g", optString10);
                     }
                     if (optString11 != null) {
-                        this.WR.put("4g", optString11);
+                        this.WO.put("4g", optString11);
                     }
                     if (optString12 != null) {
-                        this.WR.put("wifi", optString12);
+                        this.WO.put("wifi", optString12);
                     }
                 }
-                this.WS = jSONObject.optString("is_on");
+                this.WP = jSONObject.optString("is_on");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

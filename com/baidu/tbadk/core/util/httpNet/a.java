@@ -19,7 +19,7 @@ public class a extends Handler {
     public void handleMessage(Message message) {
         super.handleMessage(message);
         if (message.what == 1003) {
-            CDNIPDirectConnect.pX().pZ();
+            CDNIPDirectConnect.pQ().pS();
         }
     }
 }

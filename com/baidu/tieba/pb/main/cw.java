@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cw implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ bz bEC;
+    final /* synthetic */ bz bEB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cw(bz bzVar) {
-        this.bEC = bzVar;
+        this.bEB = bzVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -20,18 +20,18 @@ public class cw implements com.baidu.tbadk.editortool.w {
         PbEditor pbEditor2;
         PbActivity pbActivity;
         if (i == 35) {
-            pbEditor = this.bEC.bEf;
-            if (!pbEditor.afN()) {
-                pbEditor2 = this.bEC.bEf;
-                if (!pbEditor2.agb()) {
-                    pbActivity = this.bEC.bCG;
+            pbEditor = this.bEB.bEe;
+            if (!pbEditor.afI()) {
+                pbEditor2 = this.bEB.bEe;
+                if (!pbEditor2.afW()) {
+                    pbActivity = this.bEB.bCF;
                     TiebaStatic.eventStat(pbActivity.getPageContext().getPageActivity(), "pb_reply", "pbclick", 1, new Object[0]);
                 }
             }
         }
-        wVar = this.bEC.bEg;
+        wVar = this.bEB.bEf;
         if (wVar != null) {
-            wVar2 = this.bEC.bEg;
+            wVar2 = this.bEB.bEf;
             wVar2.handleAction(i, obj);
         }
     }

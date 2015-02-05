@@ -12,14 +12,14 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, Void> {
-    private volatile ad CX = null;
-    private b VK;
-    final /* synthetic */ a VL;
+    private volatile ad CU = null;
+    private b VH;
+    final /* synthetic */ a VI;
 
     public c(a aVar, b bVar) {
-        this.VL = aVar;
-        this.VK = null;
-        this.VK = bVar;
+        this.VI = aVar;
+        this.VH = null;
+        this.VH = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Void doInBackground(Object... objArr) {
-        List dK;
+        List dH;
         List list;
         List list2;
         List list3;
@@ -39,36 +39,36 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         List list5;
         int i = 0;
         try {
-            this.CX = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
-            String oy = this.CX.oy();
-            if (this.CX.oZ().qh().ma() && oy != null) {
-                JSONObject jSONObject = new JSONObject(oy);
+            this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
+            String or = this.CU.or();
+            if (this.CU.oS().qa().lT() && or != null) {
+                JSONObject jSONObject = new JSONObject(or);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
-                    a aVar = this.VL;
-                    dK = this.VL.dK(optString);
-                    aVar.VH = dK;
-                    list = this.VL.VH;
+                    a aVar = this.VI;
+                    dH = this.VI.dH(optString);
+                    aVar.VE = dH;
+                    list = this.VI.VE;
                     if (list != null) {
-                        list2 = this.VL.VH;
+                        list2 = this.VI.VE;
                         if (list2.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i2 = 0; i2 < list3.size(); i2++) {
-                                list5 = this.VL.VH;
+                                list5 = this.VI.VE;
                                 String str2 = (String) list5.get(i2);
                                 p pVar = new p();
-                                pVar.dN(str2);
+                                pVar.dK(str2);
                                 if (pVar.isSucc()) {
-                                    hashMap.put(str2, Integer.valueOf(pVar.ur()));
+                                    hashMap.put(str2, Integer.valueOf(pVar.ul()));
                                 }
                             }
                             if (hashMap.size() > 0) {
-                                this.VL.VH = new ArrayList();
+                                this.VI.VE = new ArrayList();
                                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
                                 Collections.sort(arrayList, new d(this));
                                 StringBuilder sb = new StringBuilder(50);
                                 for (Map.Entry entry : arrayList) {
-                                    list4 = this.VL.VH;
+                                    list4 = this.VI.VE;
                                     list4.add((String) entry.getKey());
                                     if (i != 0) {
                                         sb.append(",");
@@ -81,7 +81,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                             } else {
                                 str = optString;
                             }
-                            com.baidu.tbadk.core.sharedPref.b.oj().putString("KeyOfSharedPrefIpList", str);
+                            com.baidu.tbadk.core.sharedPref.b.oc().putString("KeyOfSharedPrefIpList", str);
                             return null;
                         }
                         return null;
@@ -102,9 +102,9 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Void r3) {
-        this.VL.VI = null;
-        if (this.VK != null) {
-            this.VK.ug();
+        this.VI.VF = null;
+        if (this.VH != null) {
+            this.VH.ua();
         }
     }
 
@@ -113,28 +113,28 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public void onCancelled(Void r3) {
-        this.VL.VI = null;
-        if (this.VK != null) {
-            this.VK.ug();
+        this.VI.VF = null;
+        if (this.VH != null) {
+            this.VH.ua();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
-        this.VL.VI = null;
-        if (this.VK != null) {
-            this.VK.ug();
+        this.VI.VF = null;
+        if (this.VH != null) {
+            this.VH.ua();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.CX != null) {
-            this.CX.dJ();
-            this.CX = null;
+        if (this.CU != null) {
+            this.CU.dJ();
+            this.CU = null;
         }
-        this.VL.VI = null;
+        this.VI.VF = null;
         super.cancel(true);
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ d cat;
+    final /* synthetic */ d cas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.cat = dVar;
+        this.cas = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,21 +24,21 @@ public class g extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.cat.eE(false);
-                this.cat.aS(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                jVar3 = this.cat.can;
+                this.cas.eE(false);
+                this.cas.aS(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                jVar3 = this.cas.cam;
                 if (jVar3 != null) {
-                    jVar4 = this.cat.can;
-                    jVar4.fz(responsedSelectLocation.getName());
+                    jVar4 = this.cas.cam;
+                    jVar4.fw(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.cat.eE(true);
-            jVar = this.cat.can;
+            this.cas.eE(true);
+            jVar = this.cas.cam;
             if (jVar != null) {
-                jVar2 = this.cat.can;
-                jVar2.Fy();
+                jVar2 = this.cas.cam;
+                jVar2.Fs();
             }
         }
     }

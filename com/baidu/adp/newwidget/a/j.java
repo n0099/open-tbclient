@@ -15,7 +15,7 @@ public abstract class j extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a;
         super.a(dVar, imageView, scaleType);
-        if (this.rF != null && (a = this.rF.a(gy())) != null) {
+        if (this.rF != null && (a = this.rF.a(gz())) != null) {
             this.rD.set(a);
             if (this.rE == null) {
                 this.rE = new Paint();
@@ -25,7 +25,7 @@ public abstract class j extends c {
                 this.rE.setDither(true);
                 this.rE.setStrokeWidth(2.0f);
             }
-            gG();
+            gH();
         }
     }
 
@@ -40,10 +40,10 @@ public abstract class j extends c {
         }
     }
 
-    public void gG() {
+    public void gH() {
     }
 
-    public void gH() {
+    public void gI() {
     }
 
     public void a(k kVar) {

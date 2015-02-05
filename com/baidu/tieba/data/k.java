@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.NewRecommend;
 /* loaded from: classes.dex */
 public class k {
-    private long atv;
-    private int atw;
-    private String atx;
+    private long ats;
+    private int att;
+    private String atu;
     private String mForumName;
 
     public void a(NewRecommend newRecommend) {
@@ -19,10 +19,10 @@ public class k {
     public void a(NewRecommend newRecommend, Context context) {
         if (newRecommend != null) {
             try {
-                this.atv = newRecommend.forum_id.longValue();
+                this.ats = newRecommend.forum_id.longValue();
                 this.mForumName = newRecommend.forum_name;
-                this.atw = newRecommend.member_count.intValue();
-                this.atx = newRecommend.avatar;
+                this.att = newRecommend.member_count.intValue();
+                this.atu = newRecommend.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

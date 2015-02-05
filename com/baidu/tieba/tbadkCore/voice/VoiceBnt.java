@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.voice.n;
 import com.baidu.tbadk.core.voice.o;
 /* loaded from: classes.dex */
 public class VoiceBnt extends ImageView {
-    n cbv;
-    private boolean cbw;
+    n cbu;
+    private boolean cbv;
 
     public VoiceBnt(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cbw = false;
+        this.cbv = false;
     }
 
     public void setRecorderView(n nVar) {
-        this.cbv = nVar;
+        this.cbu = nVar;
     }
 
     @Override // android.view.View
@@ -28,10 +28,10 @@ public class VoiceBnt extends ImageView {
             if (voiceManager == null || !voiceManager.isAllowRecord()) {
                 return false;
             }
-            this.cbw = voiceManager.startRecord(this.cbv, -1);
+            this.cbv = voiceManager.startRecord(this.cbu, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.cbw && voiceManager != null) {
+            if (this.cbv && voiceManager != null) {
                 voiceManager.stopRecord();
             }
             setPressed(false);

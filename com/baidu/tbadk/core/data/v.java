@@ -9,11 +9,11 @@ public class v implements l {
     protected String link = null;
 
     @Override // com.baidu.tbadk.core.data.l
-    public String mP() {
+    public String mI() {
         return this.img_url;
     }
 
-    public void bP(String str) {
+    public void bM(String str) {
         this.img_url = str;
     }
 
@@ -35,7 +35,7 @@ public class v implements l {
     public void a(Banner banner, Context context) {
         if (banner != null) {
             try {
-                bP(banner.pic_url);
+                bM(banner.pic_url);
                 setLink(banner.link);
             } catch (Exception e) {
                 BdLog.detailException(e);

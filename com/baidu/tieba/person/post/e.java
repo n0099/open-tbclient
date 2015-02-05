@@ -6,34 +6,34 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes.dex */
 public class e extends FragmentPagerAdapter {
-    private s bIX;
-    private j bIY;
-    private int[] bkE;
+    private s bIW;
+    private j bIX;
+    private int[] bkD;
 
     public e(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
-        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.abh());
-        bundle.putString("key_empty_view_text", personPostActivity.abi());
-        this.bIY = new j();
-        this.bIY.setArguments(bundle);
-        this.bIX = new s();
+        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.abc());
+        bundle.putString("key_empty_view_text", personPostActivity.abd());
+        this.bIX = new j();
         this.bIX.setArguments(bundle);
-        this.bkE = new int[]{0, 1};
+        this.bIW = new s();
+        this.bIW.setArguments(bundle);
+        this.bkD = new int[]{0, 1};
     }
 
-    public s abj() {
-        return this.bIX;
+    public s abe() {
+        return this.bIW;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.bIX;
+                return this.bIW;
             case 1:
-                return this.bIY;
+                return this.bIX;
             default:
                 return null;
         }
@@ -45,6 +45,6 @@ public class e extends FragmentPagerAdapter {
     }
 
     public int gx(int i) {
-        return this.bkE[i];
+        return this.bkD[i];
     }
 }

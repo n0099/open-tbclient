@@ -18,7 +18,7 @@ public class cz extends bh<com.baidu.tbadk.core.data.x> {
     protected View a(ViewGroup viewGroup) {
         View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.frs_top_item, null);
         da daVar = new da(null);
-        daVar.aEx = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.frs_top_item);
+        daVar.aEu = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.frs_top_item);
         daVar.mTitle = (TextView) inflate.findViewById(com.baidu.tieba.w.frs_top_title);
         inflate.setTag(daVar);
         return inflate;
@@ -32,14 +32,14 @@ public class cz extends bh<com.baidu.tbadk.core.data.x> {
         BitmapDrawable bitmapDrawable;
         super.b(i, view, viewGroup, xVar);
         da daVar = (da) view.getTag();
-        this.aEd.getLayoutMode().ab(this.mSkinType == 1);
-        this.aEd.getLayoutMode().h(view);
+        this.aEa.getLayoutMode().ab(this.mSkinType == 1);
+        this.aEa.getLayoutMode().h(view);
         if (xVar == null) {
             return null;
         }
         daVar.mTitle.setText(xVar.getTitle());
         com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m255getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.iw(xVar.getId())) {
+        if (readThreadHistory != null && readThreadHistory.iu(xVar.getId())) {
             com.baidu.tbadk.core.util.bc.b(daVar.mTitle, com.baidu.tieba.t.listview_item_thread_read, 1);
         }
         if (xVar.getIs_top() == 1) {
@@ -47,7 +47,7 @@ public class cz extends bh<com.baidu.tbadk.core.data.x> {
         } else {
             bitmapDrawable = xVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.bc.getDrawable(com.baidu.tieba.v.icon_notice) : null;
         }
-        com.baidu.tbadk.core.util.bc.i(daVar.aEx, com.baidu.tieba.v.frs_top_item_bg);
+        com.baidu.tbadk.core.util.bc.i(daVar.aEu, com.baidu.tieba.v.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

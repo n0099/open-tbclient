@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ a auc;
+    final /* synthetic */ a atZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(a aVar, int i) {
         super(i);
-        this.auc = aVar;
+        this.atZ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,13 +21,13 @@ public class f extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
             return;
         }
-        this.auc.bs(false);
+        this.atZ.bs(false);
         if (customResponsedMessage.getData() instanceof Integer) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
             if (intValue == 2902001) {
-                TiebaStatic.eventStat(this.auc.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
+                TiebaStatic.eventStat(this.atZ.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
             } else if (intValue == 2902040) {
-                TiebaStatic.eventStat(this.auc.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
+                TiebaStatic.eventStat(this.atZ.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
             }
         }
     }

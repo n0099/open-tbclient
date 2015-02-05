@@ -11,18 +11,18 @@ import com.baidu.tieba.tbadkCore.b.j;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d bMH;
+    private static d bMG;
 
-    public static final d aco() {
-        if (bMH != null) {
-            return bMH;
+    public static final d acj() {
+        if (bMG != null) {
+            return bMG;
         }
         synchronized (d.class) {
-            if (bMH == null) {
-                bMH = new d();
+            if (bMG == null) {
+                bMG = new d();
             }
         }
-        return bMH;
+        return bMG;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,8 +34,8 @@ public class d implements View.OnClickListener {
                 j appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
                 i.A(view.getContext(), "pb_tb_btc");
-                int ahq = appData.ahq();
-                if (ahq == 0) {
+                int ahl = appData.ahl();
+                if (ahl == 0) {
                     if (!com.baidu.adp.lib.util.i.fg() && (view.getContext() instanceof Activity)) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
                         aVar.bx(z.del_post_tip);
@@ -47,14 +47,14 @@ public class d implements View.OnClickListener {
                             tbPageContext = ((TbPageContextSupport) view.getContext()).getPageContext();
                         }
                         aVar.b(tbPageContext);
-                        aVar.nX();
+                        aVar.nQ();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.uU().a(view.getContext(), appData.ahu(), "btn_download", "pb", appData.bYG, appData.threadId);
-                    com.baidu.tbadk.distribute.a.uU().a(appData.ahu(), appData.bYG, appData.threadId, "PB", "download");
+                    com.baidu.tbadk.distribute.a.uO().a(view.getContext(), appData.ahp(), "btn_download", "pb", appData.bYF, appData.threadId);
+                    com.baidu.tbadk.distribute.a.uO().a(appData.ahp(), appData.bYF, appData.threadId, "PB", "download");
                     ar.a(view.getContext(), appData, position);
                     baseAppViewHolder.refresh();
-                } else if (ahq == 2) {
+                } else if (ahl == 2) {
                     ar.a(view.getContext(), appData);
                     baseAppViewHolder.refresh();
                 }

@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.NewUserGuideActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o aQi;
+    final /* synthetic */ o aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.aQi = oVar;
+        this.aQh = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,22 +22,22 @@ public class p implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity;
         com.baidu.tieba.data.j jVar2;
         com.baidu.tieba.data.j jVar3;
-        jVar = this.aQi.aPR;
+        jVar = this.aQh.aPQ;
         if (jVar != null) {
-            jVar2 = this.aQi.aPR;
-            if (jVar2.CT() != null) {
-                jVar3 = this.aQi.aPR;
-                if (jVar3.CT().size() > 0) {
+            jVar2 = this.aQh.aPQ;
+            if (jVar2.CN() != null) {
+                jVar3 = this.aQh.aPQ;
+                if (jVar3.CN().size() > 0) {
                     z = true;
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseFragmentActivity = this.aQi.mActivity;
+                    baseFragmentActivity = this.aQh.mActivity;
                     messageManager.sendMessage(new CustomMessage(2012116, new NewUserGuideActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), false, z)));
                 }
             }
         }
         z = false;
         MessageManager messageManager2 = MessageManager.getInstance();
-        baseFragmentActivity = this.aQi.mActivity;
+        baseFragmentActivity = this.aQh.mActivity;
         messageManager2.sendMessage(new CustomMessage(2012116, new NewUserGuideActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), false, z)));
     }
 }

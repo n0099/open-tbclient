@@ -1,17 +1,17 @@
 package com.baidu.tbadk.coreExtra.act;
 /* loaded from: classes.dex */
 class ah {
-    String Gp;
-    final /* synthetic */ Login2Activity QG;
-    int QH;
-    int QI;
-    boolean Qd;
+    String Gm;
+    final /* synthetic */ Login2Activity QD;
+    int QE;
+    int QF;
+    boolean Qa;
     String mAccount;
     String mPassword;
     String mVcode;
 
     private ah(Login2Activity login2Activity) {
-        this.QG = login2Activity;
+        this.QD = login2Activity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

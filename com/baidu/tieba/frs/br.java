@@ -6,17 +6,17 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ bp aGj;
+    final /* synthetic */ bp aGg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(bp bpVar) {
-        this.aGj = bpVar;
+        this.aGg = bpVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         FrsActivity frsActivity;
-        frsActivity = this.aGj.aEd;
+        frsActivity = this.aGg.aEa;
         ImageView imageView = new ImageView(frsActivity.getPageContext().getPageActivity());
         imageView.setBackgroundResource(com.baidu.tieba.v.good_threads_tip);
         return imageView;
@@ -36,8 +36,8 @@ public class br implements com.baidu.adp.lib.guide.b {
     public int getXOffset() {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.aGj.aEd;
-        frsActivity2 = this.aGj.aEd;
+        frsActivity = this.aGg.aEa;
+        frsActivity2 = this.aGg.aEa;
         return (int) ((frsActivity.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds138) - 0.5f) / frsActivity2.getResources().getDisplayMetrics().density);
     }
 

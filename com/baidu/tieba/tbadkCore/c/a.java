@@ -23,18 +23,18 @@ import com.baidu.tieba.z;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final String bZd = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS;
-    private static final String bZe = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS;
-    public static final String bZf = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
-    private h abF;
-    private ErrorData bZg;
-    private AntiData bZh;
-    private ad CX = null;
+    private static final String bZc = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS;
+    private static final String bZd = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS;
+    public static final String bZe = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
+    private h abC;
+    private ErrorData bZf;
+    private AntiData bZg;
+    private ad CU = null;
     private boolean isCancelled = false;
 
     public a() {
-        this.bZg = null;
-        this.bZg = new ErrorData();
+        this.bZf = null;
+        this.bZf = new ErrorData();
     }
 
     public String a(WriteData writeData, boolean z) {
@@ -44,46 +44,46 @@ public class a {
         if (writeData == null) {
             return null;
         }
-        this.CX = new ad();
-        this.CX.oZ().qg().mIsNeedTbs = true;
+        this.CU = new ad();
+        this.CU.oS().pZ().mIsNeedTbs = true;
         if (writeData.getType() == 3) {
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                this.CX.o("vcode", writeData.getVcode());
+                this.CU.o("vcode", writeData.getVcode());
             }
             if (TbadkCoreApplication.m255getInst().getNewVcodeWebviewCrashCount() < 3) {
-                this.CX.o("tag", "11");
+                this.CU.o("tag", "11");
             }
-            this.CX.o("newVcode", "1");
-            this.CX.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData.getContent());
-            this.CX.setUrl(bZf);
-            this.CX.o(ImageViewerConfig.FORUM_NAME, writeData.getForumName());
-            this.CX.o("title", writeData.getTitle());
-            this.CX.o("apiKey", writeData.getShareApiKey());
-            this.CX.o("appName", writeData.getShareAppName());
-            this.CX.o("signKey", writeData.getShareSignKey());
-            this.CX.o("summary_title", writeData.getShareSummaryTitle());
-            this.CX.o("summary_content", writeData.getShareSummaryContent());
-            this.CX.o("summary_img", writeData.getShareSummaryImg());
-            this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
-            this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
-            this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
-            this.CX.o("referUrl", writeData.getShareReferUrl());
+            this.CU.o("newVcode", "1");
+            this.CU.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData.getContent());
+            this.CU.setUrl(bZe);
+            this.CU.o(ImageViewerConfig.FORUM_NAME, writeData.getForumName());
+            this.CU.o("title", writeData.getTitle());
+            this.CU.o("apiKey", writeData.getShareApiKey());
+            this.CU.o("appName", writeData.getShareAppName());
+            this.CU.o("signKey", writeData.getShareSignKey());
+            this.CU.o("summary_title", writeData.getShareSummaryTitle());
+            this.CU.o("summary_content", writeData.getShareSummaryContent());
+            this.CU.o("summary_img", writeData.getShareSummaryImg());
+            this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
+            this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
+            this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
+            this.CU.o("referUrl", writeData.getShareReferUrl());
             str = null;
         } else {
             if (z && writeData.isHasImages()) {
-                if (this.abF == null) {
-                    this.abF = new h("HTTPWriteService.postWriteData");
+                if (this.abC == null) {
+                    this.abC = new h("HTTPWriteService.postWriteData");
                 }
-                this.abF.a(writeData.getWriteImagesInfo());
+                this.abC.a(writeData.getWriteImagesInfo());
             }
             if (this.isCancelled) {
                 return null;
             }
             if (writeData.getIsBaobao()) {
-                if (this.abF == null) {
-                    this.abF = new h("HTTPWriteService.postWriteData");
+                if (this.abC == null) {
+                    this.abC = new h("HTTPWriteService.postWriteData");
                 }
-                this.abF.a(writeData.getBaobaoImagesInfo());
+                this.abC.a(writeData.getBaobaoImagesInfo());
             }
             if (this.isCancelled) {
                 return null;
@@ -100,20 +100,20 @@ public class a {
             if (voice != null && !z2) {
                 c cVar = new c(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                 String n = s.n(voice, 1);
-                com.baidu.tbadk.coreExtra.data.c cZ = cVar.cZ(n);
-                if (cZ != null && cZ.isSuccess()) {
-                    com.baidu.tbadk.coreExtra.data.b rI = cZ.rI();
-                    if (rI != null) {
-                        returnVoiceMd5 = rI.rG();
+                com.baidu.tbadk.coreExtra.data.c cW = cVar.cW(n);
+                if (cW != null && cW.isSuccess()) {
+                    com.baidu.tbadk.coreExtra.data.b rC = cW.rC();
+                    if (rC != null) {
+                        returnVoiceMd5 = rC.rA();
                         com.baidu.tbadk.core.voice.a.b.ad(writeData.getVoice(), returnVoiceMd5);
                         writeData.setReturnVoiceMd5(returnVoiceMd5);
                     } else {
                         r rVar = new r();
-                        rVar.h("ErrCode", Integer.valueOf(cZ.getErrorCode()));
-                        rVar.h("ErrMsg", cZ.getErrorString());
+                        rVar.h("ErrCode", Integer.valueOf(cW.getErrorCode()));
+                        rVar.h("ErrMsg", cW.getErrorString());
                         TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", rVar.toString());
-                        this.bZg.setError_code(cZ.getErrorCode());
-                        this.bZg.setError_msg(cZ.getErrorString());
+                        this.bZf.setError_code(cW.getErrorCode());
+                        this.bZf.setError_msg(cW.getErrorString());
                         return null;
                     }
                 } else {
@@ -124,72 +124,72 @@ public class a {
                 }
             }
             if (!this.isCancelled) {
-                this.CX.o("anonymous", "1");
-                this.CX.o(ImageViewerConfig.FORUM_ID, writeData.getForumId());
+                this.CU.o("anonymous", "1");
+                this.CU.o(ImageViewerConfig.FORUM_ID, writeData.getForumId());
                 if (returnVoiceMd5 != null) {
-                    this.CX.o("voice_md5", returnVoiceMd5);
-                    this.CX.o("during_time", String.valueOf(voiceDuringTime));
+                    this.CU.o("voice_md5", returnVoiceMd5);
+                    this.CU.o("during_time", String.valueOf(voiceDuringTime));
                 }
                 String imagesCodeForPost = writeData.getImagesCodeForPost();
                 if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                    this.CX.o("vcode", writeData.getVcode());
+                    this.CU.o("vcode", writeData.getVcode());
                 }
                 if (TbadkCoreApplication.m255getInst().getNewVcodeWebviewCrashCount() < 3) {
-                    this.CX.o("vcode_tag", "11");
+                    this.CU.o("vcode_tag", "11");
                 }
                 Address z3 = com.baidu.adp.lib.d.a.dB().z(false);
-                this.CX.o("new_vcode", "1");
-                this.CX.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(writeData.getContent()) + imagesCodeForPost);
+                this.CU.o("new_vcode", "1");
+                this.CU.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(writeData.getContent()) + imagesCodeForPost);
                 if (writeData.getIsBaobaoImageUploaded()) {
-                    this.CX.o("tail_type", String.valueOf(b.bZi));
-                    this.CX.o("tail_content", writeData.getBaobaoContent());
+                    this.CU.o("tail_type", String.valueOf(b.bZh));
+                    this.CU.o("tail_content", writeData.getBaobaoContent());
                     writeData.setBabaoPosted(true);
                 } else {
                     writeData.setBabaoPosted(false);
                 }
                 switch (writeData.getType()) {
                     case 0:
-                        this.CX.setUrl(bZd);
-                        this.CX.o("kw", writeData.getForumName());
-                        this.CX.o("title", writeData.getTitle());
-                        this.CX.o("is_ntitle", writeData.isNoTitle() ? "1" : "0");
+                        this.CU.setUrl(bZc);
+                        this.CU.o("kw", writeData.getForumName());
+                        this.CU.o("title", writeData.getTitle());
+                        this.CU.o("is_ntitle", writeData.isNoTitle() ? "1" : "0");
                         if (writeData.isNoTitle()) {
-                            this.CX.o("st_type", "notitle");
+                            this.CU.o("st_type", "notitle");
                         }
                         if (writeData.getLiveCardData() != null) {
-                            this.CX.o("group_id", String.valueOf(writeData.getLiveCardData().getGroupId()));
-                            this.CX.o("start_time", String.valueOf(writeData.getLiveCardData().getStartTime()));
+                            this.CU.o("group_id", String.valueOf(writeData.getLiveCardData().getGroupId()));
+                            this.CU.o("start_time", String.valueOf(writeData.getLiveCardData().getStartTime()));
                         }
                         if (z3 != null && TbadkCoreApplication.m255getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
-                            this.CX.o("lbs", String.valueOf(String.valueOf(z3.getLatitude())) + "," + String.valueOf(z3.getLongitude()));
+                            this.CU.o("lbs", String.valueOf(String.valueOf(z3.getLatitude())) + "," + String.valueOf(z3.getLongitude()));
                         }
-                        g.a(this.CX, writeData);
+                        g.a(this.CU, writeData);
                         str = imagesCodeForPost;
                         break;
                     case 1:
-                        this.CX.setUrl(bZe);
-                        this.CX.o("tid", writeData.getThreadId());
-                        this.CX.o("kw", writeData.getForumName());
-                        this.CX.o("is_ad", writeData.getIsAd() ? "1" : "0");
+                        this.CU.setUrl(bZd);
+                        this.CU.o("tid", writeData.getThreadId());
+                        this.CU.o("kw", writeData.getForumName());
+                        this.CU.o("is_ad", writeData.getIsAd() ? "1" : "0");
                         if (writeData.isFrsReply()) {
-                            this.CX.o("st_param", "frs");
+                            this.CU.o("st_param", "frs");
                         }
-                        g.a(this.CX, writeData);
+                        g.a(this.CU, writeData);
                         str = imagesCodeForPost;
                         break;
                     case 2:
-                        this.CX.setUrl(bZe);
-                        this.CX.o("tid", writeData.getThreadId());
-                        this.CX.o("kw", writeData.getForumName());
-                        this.CX.o("quote_id", String.valueOf(writeData.getFloor()));
-                        this.CX.o(WriteActivityConfig.FLOOR_NUM, String.valueOf(writeData.getFloorNum()));
+                        this.CU.setUrl(bZd);
+                        this.CU.o("tid", writeData.getThreadId());
+                        this.CU.o("kw", writeData.getForumName());
+                        this.CU.o("quote_id", String.valueOf(writeData.getFloor()));
+                        this.CU.o(WriteActivityConfig.FLOOR_NUM, String.valueOf(writeData.getFloorNum()));
                         if (writeData.getRepostId() != null) {
-                            this.CX.o("repostid", writeData.getRepostId());
+                            this.CU.o("repostid", writeData.getRepostId());
                         }
-                        this.CX.o("is_ad", writeData.getIsAd() ? "1" : "0");
-                        this.CX.o(WriteActivityConfig.IS_ADDITION, writeData.isAddition() ? "1" : "0");
+                        this.CU.o("is_ad", writeData.getIsAd() ? "1" : "0");
+                        this.CU.o(WriteActivityConfig.IS_ADDITION, writeData.isAddition() ? "1" : "0");
                         if (writeData.isAddition()) {
-                            this.CX.o("st_type", "conadd");
+                            this.CU.o("st_type", "conadd");
                         }
                     default:
                         str = imagesCodeForPost;
@@ -199,46 +199,46 @@ public class a {
                 return null;
             }
         }
-        String oy = this.CX.oy();
-        if (this.CX.oZ().qh().ma()) {
-            this.bZg.parserJson(oy);
+        String or = this.CU.or();
+        if (this.CU.oS().qa().lT()) {
+            this.bZf.parserJson(or);
         } else {
-            this.bZg.setError_code(this.CX.pc() ? this.CX.pd() : this.CX.pe());
-            this.bZg.setError_msg(this.CX.getErrorString());
+            this.bZf.setError_code(this.CU.oV() ? this.CU.oW() : this.CU.oX());
+            this.bZf.setError_msg(this.CU.getErrorString());
         }
-        if (this.bZg.error_code != 0 && ((writeData.isHasImages() || writeData.getIsBaobao()) && k.isEmpty(String.valueOf(writeData.getContent()) + str))) {
-            this.bZg.setError_msg(TbadkCoreApplication.m255getInst().getApp().getString(z.img_upload_error));
+        if (this.bZf.error_code != 0 && ((writeData.isHasImages() || writeData.getIsBaobao()) && k.isEmpty(String.valueOf(writeData.getContent()) + str))) {
+            this.bZf.setError_msg(TbadkCoreApplication.m255getInst().getApp().getString(z.img_upload_error));
         }
         try {
-            this.bZh = new AntiData();
-            this.bZh.parserJson(new JSONObject(oy).optJSONObject("anti_stat"));
+            this.bZg = new AntiData();
+            this.bZg.parserJson(new JSONObject(or).optJSONObject("anti_stat"));
         } catch (Exception e) {
         }
-        return oy;
+        return or;
     }
 
-    public boolean ma() {
-        if (this.CX == null) {
+    public boolean lT() {
+        if (this.CU == null) {
             return false;
         }
-        return this.CX.oZ().qh().ma();
+        return this.CU.oS().qa().lT();
     }
 
     public void cancel() {
         this.isCancelled = true;
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
-        if (this.abF != null) {
-            this.abF.cancel();
+        if (this.abC != null) {
+            this.abC.cancel();
         }
     }
 
-    public AntiData ahN() {
-        return this.bZh;
-    }
-
-    public ErrorData ahO() {
+    public AntiData ahI() {
         return this.bZg;
+    }
+
+    public ErrorData ahJ() {
+        return this.bZf;
     }
 }

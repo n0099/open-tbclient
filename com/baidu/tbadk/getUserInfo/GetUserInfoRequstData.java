@@ -22,13 +22,18 @@ public class GetUserInfoRequstData extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        if (z) {
-            k.a(builder, true);
+        try {
+            DataReq.Builder builder = new DataReq.Builder();
+            if (z) {
+                k.a(builder, true);
+            }
+            GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
+            builder.uid = Long.valueOf(this.mUid);
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
-        builder.uid = Long.valueOf(this.mUid);
-        builder2.data = builder.build(false);
-        return builder2.build(false);
     }
 }

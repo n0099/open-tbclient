@@ -21,45 +21,45 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private static final HashMap<Integer, Integer[]> FT = new HashMap<>(2);
-    private List<Object> FN;
-    private l FO;
-    private final TextView FP;
-    private final View FQ;
+    private static final HashMap<Integer, Integer[]> FQ = new HashMap<>(2);
+    private List<Object> FK;
+    private l FL;
+    private final TextView FM;
+    private final View FN;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private AlertDialog mDialog;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int FS = -1;
-    private int Fo = -1;
-    private boolean Fx = false;
-    private int FR = x.dialog_bdlist_item;
+    private int FP = -1;
+    private int Fl = -1;
+    private boolean Fu = false;
+    private int FO = x.dialog_bdlist_item;
 
     static {
-        FT.put(0, new Integer[]{Integer.valueOf(v.dialg_alert_btn_bg), Integer.valueOf(v.dialog_bdalert_button_textcolor_pressed)});
-        FT.put(1, new Integer[]{Integer.valueOf(v.btn_blue_square), Integer.valueOf(t.cp_bg_line_d)});
+        FQ.put(0, new Integer[]{Integer.valueOf(v.dialg_alert_btn_bg), Integer.valueOf(v.dialog_bdalert_button_textcolor_pressed)});
+        FQ.put(1, new Integer[]{Integer.valueOf(v.btn_blue_square), Integer.valueOf(t.cp_bg_line_d)});
     }
 
     public i(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.ei().inflate(activity, x.dialog_bdlist, null);
-        this.FP = (TextView) this.mRootView.findViewById(w.dialog_title_list);
+        this.FM = (TextView) this.mRootView.findViewById(w.dialog_title_list);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(w.dialog_content);
-        this.FQ = this.mRootView.findViewById(w.line_bg);
+        this.FN = this.mRootView.findViewById(w.line_bg);
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public i bX(String str) {
+    public i bU(String str) {
         this.mTitle = str;
         return this;
     }
 
     public i bD(int i) {
-        return bX(this.mActivity.getResources().getString(i));
+        return bU(this.mActivity.getResources().getString(i));
     }
 
     public i a(Object[] objArr, l lVar) {
@@ -71,37 +71,37 @@ public class i {
 
     public i a(List<Object> list, l lVar) {
         if (list != null && list.size() > 0) {
-            this.FN = list;
+            this.FK = list;
             if (lVar != null) {
-                this.FO = lVar;
+                this.FL = lVar;
             }
         }
         return this;
     }
 
     public i bE(int i) {
-        this.FS = i;
+        this.FP = i;
         return this;
     }
 
     public i bF(int i) {
-        this.Fo = i;
+        this.Fl = i;
         return this;
     }
 
     public i e(com.baidu.adp.base.j<?> jVar) {
-        if (!this.Fx) {
-            this.Fx = true;
+        if (!this.Fu) {
+            this.Fu = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.FP.setText(this.mTitle);
-                this.FP.setVisibility(0);
-                this.FQ.setVisibility(0);
+                this.FM.setText(this.mTitle);
+                this.FM.setVisibility(0);
+                this.FN.setVisibility(0);
             } else {
-                this.FP.setVisibility(8);
-                this.FQ.setVisibility(8);
+                this.FM.setVisibility(8);
+                this.FN.setVisibility(8);
             }
-            if (this.FN != null && this.FN.size() > 0) {
-                int size = this.FN.size();
+            if (this.FK != null && this.FK.size() > 0) {
+                int size = this.FK.size();
                 for (int i = 0; i < size; i++) {
                     bG(i);
                 }
@@ -111,8 +111,8 @@ public class i {
         return this;
     }
 
-    public i nZ() {
-        if (!this.Fx) {
+    public i nS() {
+        if (!this.Fu) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -122,16 +122,16 @@ public class i {
             this.mDialog.setCanceledOnTouchOutside(true);
             if (com.baidu.adp.lib.g.k.a(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
-                if (this.FS == -1) {
-                    this.FS = k.FX;
+                if (this.FP == -1) {
+                    this.FP = k.FU;
                 }
-                if (this.Fo == -1) {
-                    this.Fo = 17;
+                if (this.Fl == -1) {
+                    this.Fl = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Fo);
+                window.setGravity(this.Fl);
                 window.setContentView(this.mRootView);
             }
         }
@@ -154,11 +154,11 @@ public class i {
 
     private View bG(int i) {
         String valueOf;
-        View a = com.baidu.adp.lib.g.b.ei().a(this.mActivity, this.FR, this.mContentView, false);
+        View a = com.baidu.adp.lib.g.b.ei().a(this.mActivity, this.FO, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) a;
         TextView textView = (TextView) a.findViewById(w.dialog_item_btn);
         bc.i(a, v.dialg_alert_btn_bg);
-        Object obj = this.FN.get(i);
+        Object obj = this.FK.get(i);
         if (obj instanceof Object[]) {
             Object[] objArr = (Object[]) obj;
             if (objArr.length <= 0) {
@@ -170,7 +170,7 @@ public class i {
             valueOf = String.valueOf(obj);
         }
         textView.setText(valueOf);
-        if (this.FO != null) {
+        if (this.FL != null) {
             linearLayout.setOnClickListener(new j(this, i, textView));
         }
         this.mContentView.addView(a);

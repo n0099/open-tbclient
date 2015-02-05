@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        bm.pV().a(new b());
-        bm.pV().a(new c());
+        bm.pO().a(new b());
+        bm.pO().a(new c());
     }
 }

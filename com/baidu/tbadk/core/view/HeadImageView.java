@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int LA;
-    private int Lz;
+    private int Lw;
+    private int Lx;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -24,8 +24,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.Lz = com.baidu.tieba.v.icon_default_avatar100;
-        this.LA = com.baidu.tieba.t.cp_cont_e;
+        this.Lw = com.baidu.tieba.v.icon_default_avatar100;
+        this.Lx = com.baidu.tieba.t.cp_cont_e;
         init();
     }
 
@@ -33,8 +33,8 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.LA);
-        setDefaultResource(this.Lz);
+        setDefaultBgResource(this.Lx);
+        setDefaultResource(this.Lw);
     }
 
     public void setUrl(String str) {
@@ -63,11 +63,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void qF() {
-        if (!this.ajr) {
-            this.ajr = true;
-        } else if (this.aju != null && this.aju.agL) {
-            this.aju.zq();
+    public void qz() {
+        if (!this.ajo) {
+            this.ajo = true;
+        } else if (this.ajr != null && this.ajr.agI) {
+            this.ajr.zk();
         }
     }
 }

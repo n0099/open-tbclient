@@ -15,11 +15,11 @@ public class b {
         this.name = str;
     }
 
-    public String aib() {
+    public String ahW() {
         return this.addr;
     }
 
-    public String aia() {
+    public String ahV() {
         return this.sn;
     }
 

@@ -6,14 +6,14 @@ import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class k {
-    private ArrayList<l> cau = new ArrayList<>();
+    private ArrayList<l> cat = new ArrayList<>();
 
-    public ArrayList<l> ail() {
-        return this.cau;
+    public ArrayList<l> aig() {
+        return this.cat;
     }
 
     public void R(ArrayList<l> arrayList) {
-        this.cau = arrayList;
+        this.cat = arrayList;
     }
 
     public void a(DataRes dataRes) {
@@ -22,7 +22,7 @@ public class k {
             for (Lbs lbs : list) {
                 l lVar = new l();
                 lVar.b(lbs);
-                this.cau.add(lVar);
+                this.cat.add(lVar);
             }
         }
     }

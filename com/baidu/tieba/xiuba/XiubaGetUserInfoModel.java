@@ -37,9 +37,9 @@ public class XiubaGetUserInfoModel {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             ad adVar = new ad(stringBuffer.toString());
             adVar.r(arrayList);
-            String oy = adVar.oy();
+            String or = adVar.or();
             UserInfo userInfo = new UserInfo();
-            userInfo.parseJson(oy);
+            userInfo.parseJson(or);
             return userInfo;
         } catch (Exception e) {
             BdLog.e(e.getMessage());

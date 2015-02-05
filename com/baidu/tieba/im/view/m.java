@@ -18,27 +18,27 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private List<d> bqu;
+    private List<d> bqt;
     private Context mContext;
 
     public m(Context context, List<d> list) {
         this.mContext = context;
-        this.bqu = list;
+        this.bqt = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bqu == null) {
+        if (this.bqt == null) {
             return 0;
         }
-        return (this.bqu.size() * 2) - 1;
+        return (this.bqt.size() * 2) - 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (this.bqu != null && itemId >= 0 && itemId < this.bqu.size()) {
-            return this.bqu.get(itemId);
+        if (this.bqt != null && itemId >= 0 && itemId < this.bqt.size()) {
+            return this.bqt.get(itemId);
         }
         return null;
     }
@@ -77,7 +77,7 @@ public class m extends BaseAdapter {
                 textView.setBackgroundResource(v.official_bar_menu_text_bg);
                 textView.setSingleLine();
                 textView.setEllipsize(TextUtils.TruncateAt.END);
-                nVar.bqv = textView;
+                nVar.bqu = textView;
                 linearLayout = textView;
             } else {
                 linearLayout = view;
@@ -98,7 +98,7 @@ public class m extends BaseAdapter {
         }
         n nVar2 = (n) view2.getTag();
         if (itemViewType == 0) {
-            nVar2.bqv.setText(((d) getItem(i)).getName());
+            nVar2.bqu.setText(((d) getItem(i)).getName());
         }
         return view2;
     }

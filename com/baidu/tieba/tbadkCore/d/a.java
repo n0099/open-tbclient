@@ -6,29 +6,29 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class a {
-    private q bZj;
-    private final int bZk = 10;
-    private final int bZl = 3000;
-    public String bZm = null;
-    public boolean KR = false;
+    private q bZi;
+    private final int bZj = 10;
+    private final int bZk = 3000;
+    public String bZl = null;
+    public boolean KO = false;
 
     public a(String str) {
         C(str, false);
     }
 
     public void C(String str, boolean z) {
-        this.bZm = str;
-        this.KR = z;
-        this.bZj = new q("dbg");
+        this.bZl = str;
+        this.KO = z;
+        this.bZi = new q("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.bZj.eK();
+        this.bZi.eK();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long eL = this.bZj.eL();
+        long eL = this.bZi.eL();
         long j2 = 0;
         long j3 = 0;
         if (z) {
@@ -40,38 +40,38 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e ahP;
-        if (this.bZj != null && (ahP = ahP()) != null) {
+        e ahK;
+        if (this.bZi != null && (ahK = ahK()) != null) {
             if (z) {
-                if (ahP.bZr != null) {
-                    ahP.bZr.num++;
+                if (ahK.bZq != null) {
+                    ahK.bZq.num++;
                     if (z2) {
-                        ahP.bZr.bZo += j2;
-                        ahP.bZr.size += j;
+                        ahK.bZq.bZn += j2;
+                        ahK.bZq.size += j;
                     } else {
-                        ahP.bZr.bZp++;
+                        ahK.bZq.bZo++;
                     }
                 } else {
                     return;
                 }
-            } else if (ahP.bZs != null) {
-                ahP.bZs.num++;
+            } else if (ahK.bZr != null) {
+                ahK.bZr.num++;
                 if (z2) {
-                    ahP.bZs.bZo += j3;
-                    ahP.bZs.size += j;
+                    ahK.bZr.bZn += j3;
+                    ahK.bZr.size += j;
                     j2 = j3;
                 } else {
-                    ahP.bZs.bZp++;
+                    ahK.bZr.bZo++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.bZj = null;
+            this.bZi = null;
             if (z2) {
-                b.a(ahP, 10);
+                b.a(ahK, 10);
             }
-            if (this.bZm == "frsStat") {
+            if (this.bZl == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.r("act", "frs");
@@ -88,20 +88,20 @@ public class a {
     }
 
     public void destory() {
-        e ahP;
-        if (this.bZj != null && (ahP = ahP()) != null && ahP.bZt != null) {
-            long eL = this.bZj.eL();
+        e ahK;
+        if (this.bZi != null && (ahK = ahK()) != null && ahK.bZs != null) {
+            long eL = this.bZi.eL();
             if (eL > 3000) {
-                d dVar = ahP.bZt;
-                dVar.bZo = eL + dVar.bZo;
-                ahP.bZt.num++;
-                b.a(ahP, 10);
+                d dVar = ahK.bZs;
+                dVar.bZn = eL + dVar.bZn;
+                ahK.bZs.num++;
+                b.a(ahK, 10);
             }
         }
     }
 
-    private e ahP() {
-        return b.h(this.bZm, getNetType(), this.KR);
+    private e ahK() {
+        return b.h(this.bZl, getNetType(), this.KO);
     }
 
     private String getNetType() {

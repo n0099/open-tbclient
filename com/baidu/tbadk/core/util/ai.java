@@ -5,35 +5,35 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 class ai implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ ag IM;
-    int IN = 0;
-    int IO = 0;
-    int IP = 0;
-    private final /* synthetic */ Handler IQ;
-    private final /* synthetic */ int IR;
+    final /* synthetic */ ag IJ;
+    int IK = 0;
+    int IL = 0;
+    int IM = 0;
+    private final /* synthetic */ Handler IN;
+    private final /* synthetic */ int IO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ag agVar, Handler handler, int i) {
-        this.IM = agVar;
-        this.IQ = handler;
-        this.IR = i;
+        this.IJ = agVar;
+        this.IN = handler;
+        this.IO = i;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
     public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
         if (httpURLConnection != null && i > 0) {
-            this.IN = i / 50;
+            this.IK = i / 50;
         }
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
     public void a(int i, int i2, HttpURLConnection httpURLConnection) {
-        this.IO += i - this.IP;
-        this.IP = i;
-        if (this.IQ != null) {
-            if (this.IO > this.IN || i == i2) {
-                this.IO = 0;
-                this.IQ.sendMessage(this.IQ.obtainMessage(this.IR, i, i2));
+        this.IL += i - this.IM;
+        this.IM = i;
+        if (this.IN != null) {
+            if (this.IL > this.IK || i == i2) {
+                this.IL = 0;
+                this.IN.sendMessage(this.IN.obtainMessage(this.IO, i, i2));
             }
         }
     }

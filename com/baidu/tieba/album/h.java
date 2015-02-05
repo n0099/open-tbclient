@@ -11,18 +11,18 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class h extends PagerAdapter {
-    private com.baidu.tbadk.img.e apK;
-    private AlbumActivity apM;
-    private Map<Integer, Boolean> aqb = new HashMap();
+    private com.baidu.tbadk.img.e apH;
+    private AlbumActivity apJ;
+    private Map<Integer, Boolean> apY = new HashMap();
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
     private int rc;
 
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
-        this.apM = albumActivity;
-        this.apK = eVar;
-        this.rc = com.baidu.adp.lib.util.l.M(this.apM.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.l.N(this.apM.getPageContext().getContext()) - ((int) this.apM.getResources().getDimension(com.baidu.tieba.u.album_bottom_height));
+        this.apJ = albumActivity;
+        this.apH = eVar;
+        this.rc = com.baidu.adp.lib.util.l.M(this.apJ.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.l.N(this.apJ.getPageContext().getContext()) - ((int) this.apJ.getResources().getDimension(com.baidu.tieba.u.album_bottom_height));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -56,30 +56,30 @@ public class h extends PagerAdapter {
     }
 
     public boolean en(int i) {
-        if (this.aqb.get(Integer.valueOf(i)) == null) {
+        if (this.apY.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.aqb.get(Integer.valueOf(i)).booleanValue();
+        return this.apY.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.apM.getPageContext().getContext(), com.baidu.tieba.x.album_big_image_item, null);
+        View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.apJ.getPageContext().getContext(), com.baidu.tieba.x.album_big_image_item, null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.w.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
         ImageFileInfo em = em(i);
-        this.aqb.put(Integer.valueOf(i), false);
+        this.apY.put(Integer.valueOf(i), false);
         if (em != null) {
             em.clearPageActions();
             em.addPageAction(com.baidu.tbadk.img.effect.d.z(this.rc, this.mMaxHeight));
             tbImageView.setTag(em.toCachedKey(false));
-            if (this.apK.a(em, false) != null) {
+            if (this.apH.a(em, false) != null) {
                 tbImageView.invalidate();
-                this.aqb.put(Integer.valueOf(i), true);
+                this.apY.put(Integer.valueOf(i), true);
             } else {
-                this.apK.a(em, new i(this, viewGroup, i), false);
+                this.apH.a(em, new i(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

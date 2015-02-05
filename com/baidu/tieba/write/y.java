@@ -4,21 +4,21 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements DialogInterface.OnCancelListener {
-    final /* synthetic */ VcodeActivity cgm;
+    final /* synthetic */ VcodeActivity cgl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(VcodeActivity vcodeActivity) {
-        this.cgm = vcodeActivity;
+        this.cgl = vcodeActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ab abVar;
         ab abVar2;
-        this.cgm.destroyWaitingDialog();
-        abVar = this.cgm.cgk;
+        this.cgl.destroyWaitingDialog();
+        abVar = this.cgl.cgj;
         if (abVar != null) {
-            abVar2 = this.cgm.cgk;
+            abVar2 = this.cgl.cgj;
             abVar2.cancel();
         }
     }

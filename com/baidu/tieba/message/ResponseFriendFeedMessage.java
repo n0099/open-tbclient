@@ -55,7 +55,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
                         friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                         friendFeedThreadData.parserProtobuf(list2.get(i3));
                         friendFeedThreadData.parser_title();
-                        getFriendFeedData().CS().add(friendFeedThreadData);
+                        getFriendFeedData().CM().add(friendFeedThreadData);
                     }
                 }
                 getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());
@@ -68,7 +68,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFriendFeedMessage) && getError() == 0 && TextUtils.isEmpty(((RequestFriendFeedMessage) orginalMessage).getTimeline())) {
-            saveProtocolBufferDataToCache(a.nV().bS("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkCoreApplication.getCurrentAccount(), bArr);
+            saveProtocolBufferDataToCache(a.nO().bP("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkCoreApplication.getCurrentAccount(), bArr);
         }
     }
 }

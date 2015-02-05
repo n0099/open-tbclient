@@ -3,15 +3,15 @@ package com.baidu.tbadk.motu_gallery;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements View.OnClickListener {
-    final /* synthetic */ JigsawAlbumListActivity adu;
+    final /* synthetic */ JigsawAlbumListActivity adr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.adu = jigsawAlbumListActivity;
+        this.adr = jigsawAlbumListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.adu.wC();
+        this.adr.ww();
     }
 }

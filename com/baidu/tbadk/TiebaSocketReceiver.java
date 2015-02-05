@@ -19,8 +19,8 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (ImgHttpClient.class) {
-                    ImgHttpClient.KI.removeParameter("http.route.default-proxy");
-                    ImgHttpClient.KG = null;
+                    ImgHttpClient.KF.removeParameter("http.route.default-proxy");
+                    ImgHttpClient.KD = null;
                 }
                 return;
             }

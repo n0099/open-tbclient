@@ -12,18 +12,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class s {
-    private static s aVA;
+    private static s aVz;
 
     private s() {
     }
 
-    public static synchronized s Ln() {
+    public static synchronized s Li() {
         s sVar;
         synchronized (s.class) {
-            if (aVA == null) {
-                aVA = new s();
+            if (aVz == null) {
+                aVz = new s();
             }
-            sVar = aVA;
+            sVar = aVz;
         }
         return sVar;
     }

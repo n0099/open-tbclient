@@ -10,14 +10,14 @@ import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public class bf extends com.baidu.adp.lib.util.k {
-    private static long JD = 86400000;
-    private static long JE = 3600000;
-    private static long JF = TbConfig.USE_TIME_INTERVAL;
-    private static long JG = 1000;
-    private static String JH = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_hour_before);
-    private static String JI = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_min_before);
-    private static String JJ = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_sec_before);
-    private static Date JK = new Date();
+    private static long JA = 86400000;
+    private static long JB = 3600000;
+    private static long JC = TbConfig.USE_TIME_INTERVAL;
+    private static long JD = 1000;
+    private static String JE = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_hour_before);
+    private static String JF = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_min_before);
+    private static String JG = TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.time_sec_before);
+    private static Date JH = new Date();
 
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
@@ -43,7 +43,7 @@ public class bf extends com.baidu.adp.lib.util.k {
         return format;
     }
 
-    public static String pG() {
+    public static String pz() {
         String format;
         Date date = new Date();
         synchronized (nk) {
@@ -77,7 +77,7 @@ public class bf extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static int pH() {
+    public static int pA() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * TbConfig.BIG_IMAGE_MIN_CAPACITY) + ((calendar.get(2) + 1) * 100);
     }
@@ -189,15 +189,15 @@ public class bf extends com.baidu.adp.lib.util.k {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / JD != 0) {
-            if (abs / JD > 30) {
+        if (abs / JA != 0) {
+            if (abs / JA > 30) {
                 return "一个月前";
             }
-            return String.valueOf(abs / JD) + "天前";
-        } else if (abs / JE != 0) {
-            return String.valueOf(abs / JE) + "小时前";
+            return String.valueOf(abs / JA) + "天前";
+        } else if (abs / JB != 0) {
+            return String.valueOf(abs / JB) + "小时前";
         } else {
-            return String.valueOf(abs / JF) + "分钟前";
+            return String.valueOf(abs / JC) + "分钟前";
         }
     }
 
@@ -226,9 +226,9 @@ public class bf extends com.baidu.adp.lib.util.k {
 
     public static String n(long j) {
         String h;
-        synchronized (JK) {
-            JK.setTime(j);
-            h = h(JK);
+        synchronized (JH) {
+            JH.setTime(j);
+            h = h(JH);
         }
         return h;
     }
@@ -238,18 +238,18 @@ public class bf extends com.baidu.adp.lib.util.k {
             return "";
         }
         long time = new Date().getTime() - date.getTime();
-        if (time < JD && time > 0) {
-            if (time < JE) {
-                if (time < JF) {
-                    long j = time / JG;
+        if (time < JA && time > 0) {
+            if (time < JB) {
+                if (time < JC) {
+                    long j = time / JD;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(String.valueOf(j)) + JJ;
+                    return String.valueOf(String.valueOf(j)) + JG;
                 }
-                return String.valueOf(String.valueOf(time / JF)) + JI;
+                return String.valueOf(String.valueOf(time / JC)) + JF;
             }
-            return String.valueOf(String.valueOf(time / JE)) + JH;
+            return String.valueOf(String.valueOf(time / JB)) + JE;
         }
         return d(date);
     }

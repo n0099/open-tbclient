@@ -7,11 +7,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity abe;
+    final /* synthetic */ BuyGiftActivity abb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BuyGiftActivity buyGiftActivity) {
-        this.abe = buyGiftActivity;
+        this.abb = buyGiftActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,20 +21,20 @@ public class e implements View.OnClickListener {
         String str;
         View view3;
         EditText editText2;
-        view2 = this.abe.aaZ;
+        view2 = this.abb.aaW;
         view2.setVisibility(8);
-        BuyGiftActivity buyGiftActivity = this.abe;
-        editText = this.abe.aaW;
+        BuyGiftActivity buyGiftActivity = this.abb;
+        editText = this.abb.aaT;
         buyGiftActivity.mPassword = editText.getText().toString();
-        str = this.abe.mPassword;
+        str = this.abb.mPassword;
         if (!StringUtils.isValidPassWord(str)) {
-            this.abe.showToast(z.wrong_password);
-            view3 = this.abe.aaZ;
+            this.abb.showToast(z.wrong_password);
+            view3 = this.abb.aaW;
             view3.setVisibility(0);
             return;
         }
-        this.abe.vZ();
-        editText2 = this.abe.aaW;
+        this.abb.vT();
+        editText2 = this.abb.aaT;
         editText2.setText("");
     }
 }

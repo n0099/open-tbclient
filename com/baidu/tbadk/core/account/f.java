@@ -12,15 +12,15 @@ public class f {
 
     public static AccountData h(String str, String str2, String str3) {
         ad adVar = new ad(TbConfig.LOGIN_FULL_ADDRESS);
-        adVar.oZ().qg().mIsUseCurrentBDUSS = false;
+        adVar.oS().pZ().mIsUseCurrentBDUSS = false;
         adVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
         adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
         adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-        adVar.oZ().qg().Kx = false;
-        String oy = adVar.oy();
-        if (adVar.oZ().qh().ma() && oy != null) {
+        adVar.oS().pZ().Ku = false;
+        String or = adVar.or();
+        if (adVar.oS().qa().lT() && or != null) {
             com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-            nVar.parserJson(oy);
+            nVar.parserJson(or);
             AccountData accountData = new AccountData();
             accountData.setAccount(nVar.getUser().getUserName());
             accountData.setPassword("");
@@ -28,8 +28,8 @@ public class f {
             accountData.setBDUSS(nVar.getUser().getBDUSS());
             accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (nVar.mR() != null) {
-                accountData.setTbs(nVar.mR().getTbs());
+            if (nVar.mK() != null) {
+                accountData.setTbs(nVar.mK().getTbs());
                 return accountData;
             }
             return accountData;

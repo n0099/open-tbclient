@@ -46,7 +46,7 @@ class b implements bo {
             if (!UtilHelper.isNetOk()) {
                 UtilHelper.showToast(tbPageContext.getContext(), z.neterror);
             } else {
-                XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gW().hd();
+                XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.getInstance().getXiubaClassInstance();
                 if (xiubaPlugin != null) {
                     xiubaPlugin.startXiuba(tbPageContext.getContext());
                 }

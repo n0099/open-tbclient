@@ -1,25 +1,25 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
 class as implements com.baidu.adp.widget.ListView.ab {
-    final /* synthetic */ al bHX;
+    final /* synthetic */ al bHW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(al alVar) {
-        this.bHX = alVar;
+        this.bHW = alVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.ab
     public void onScrollToBottom() {
         boolean z;
         av avVar;
-        z = this.bHX.bHU;
+        z = this.bHW.bHT;
         if (!z) {
-            this.bHX.bHT = false;
-            al alVar = this.bHX;
-            avVar = this.bHX.bHP;
-            alVar.pageNum = avVar.getData().na().mW() + 1;
-            this.bHX.bHU = true;
-            this.bHX.aaY();
+            this.bHW.bHS = false;
+            al alVar = this.bHW;
+            avVar = this.bHW.bHO;
+            alVar.pageNum = avVar.getData().mT().mP() + 1;
+            this.bHW.bHT = true;
+            this.bHW.aaT();
         }
     }
 }

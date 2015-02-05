@@ -7,12 +7,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Bitmap> {
-    private com.baidu.tbadk.core.util.ad AR = null;
-    final /* synthetic */ Register2Activity aod;
+    private com.baidu.tbadk.core.util.ad AO = null;
+    final /* synthetic */ Register2Activity aoa;
     private String mUrl;
 
     public aa(Register2Activity register2Activity, String str) {
-        this.aod = register2Activity;
+        this.aoa = register2Activity;
         this.mUrl = null;
         this.mUrl = str;
     }
@@ -20,11 +20,11 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.aod.anY = null;
-        progressBar = this.aod.anT;
+        this.aoa.anV = null;
+        progressBar = this.aoa.anQ;
         progressBar.setVisibility(8);
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
         super.cancel(true);
     }
@@ -34,9 +34,9 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     public void onPreExecute() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.aod.Qi;
+        imageView = this.aoa.Qf;
         imageView.setImageDrawable(null);
-        progressBar = this.aod.anT;
+        progressBar = this.aoa.anQ;
         progressBar.setVisibility(0);
     }
 
@@ -45,8 +45,8 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
-        this.AR = new com.baidu.tbadk.core.util.ad(this.mUrl);
-        return com.baidu.tbadk.core.util.d.v(this.AR.oz());
+        this.AO = new com.baidu.tbadk.core.util.ad(this.mUrl);
+        return com.baidu.tbadk.core.util.d.v(this.AO.os());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,11 +56,11 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((aa) bitmap);
-        this.aod.anY = null;
-        progressBar = this.aod.anT;
+        this.aoa.anV = null;
+        progressBar = this.aoa.anQ;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            imageView = this.aod.Qi;
+            imageView = this.aoa.Qf;
             imageView.setImageBitmap(bitmap);
         }
     }

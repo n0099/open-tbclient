@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.FaceShopActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView YB;
+    final /* synthetic */ EmotionTabHorizonScrollView Yy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.YB = emotionTabHorizonScrollView;
+        this.Yy = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ public class n implements View.OnClickListener {
         int i;
         String str;
         g gVar;
-        textView = this.YB.Yx;
+        textView = this.Yy.Yu;
         if (textView != null) {
-            gVar = this.YB.Yq;
+            gVar = this.Yy.Yn;
             gVar.setNewViewVisible(false);
         }
         TbadkCoreApplication.m255getInst().setFaceShopVersion(TbadkCoreApplication.m255getInst().getTempFaceShopVersion());
         TbadkCoreApplication.m255getInst().setFaceShopNew(false);
-        i = this.YB.from;
+        i = this.Yy.from;
         switch (i) {
             case 1:
                 str = "faceshop_from_write_shop";
@@ -44,6 +44,6 @@ public class n implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902010, new FaceShopActivityConfig(this.YB.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902010, new FaceShopActivityConfig(this.Yy.getContext(), str)));
     }
 }

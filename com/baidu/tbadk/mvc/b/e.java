@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.b;
 public interface e extends d {
     boolean isNeedUid();
 
-    String lq();
+    String lj();
 
-    boolean xr();
+    boolean xl();
 }

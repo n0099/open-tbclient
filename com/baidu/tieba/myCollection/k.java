@@ -6,18 +6,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class k {
-    TextView aCu;
-    LinearLayout aOk;
-    TextView aQx;
-    final /* synthetic */ i byG;
+    TextView aCr;
+    LinearLayout aOj;
+    TextView aQw;
+    final /* synthetic */ i byF;
+    ImageView byG;
     ImageView byH;
-    ImageView byI;
-    LinearLayout byJ;
-    Button byK;
+    LinearLayout byI;
+    Button byJ;
     TextView mTitle;
 
     private k(i iVar) {
-        this.byG = iVar;
+        this.byF = iVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

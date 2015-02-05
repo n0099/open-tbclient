@@ -15,6 +15,6 @@ class bv extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
             return;
         }
-        PersonalChatActivity.aSH = null;
+        PersonalChatActivity.aSG = null;
     }
 }

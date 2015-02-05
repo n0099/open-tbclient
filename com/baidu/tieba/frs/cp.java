@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class cp {
-    View aGE;
-    TextView aGF;
-    View aGG;
-    TextView aGH;
+    View aGB;
+    TextView aGC;
+    View aGD;
+    TextView aGE;
 
     private cp() {
     }

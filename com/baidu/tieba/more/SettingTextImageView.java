@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-    private ImageView VC;
-    private LinearLayout Vx;
-    private TextView Vy;
-    private HeadImageView bxY;
+    private LinearLayout Vu;
+    private TextView Vv;
+    private ImageView Vz;
+    private HeadImageView bxX;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        tU();
+        tO();
         c(attributeSet);
         da(TbadkCoreApplication.m255getInst().getSkinType());
     }
@@ -28,42 +28,42 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        tU();
+        tO();
         da(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
     public void da(int i) {
-        com.baidu.tbadk.core.util.bc.b(this.Vy, com.baidu.tieba.t.about_tip_color, 1);
-        com.baidu.tbadk.core.util.bc.c(this.VC, com.baidu.tieba.v.icon_arrow_right);
-        this.bxY.invalidate();
+        com.baidu.tbadk.core.util.bc.b(this.Vv, com.baidu.tieba.t.about_tip_color, 1);
+        com.baidu.tbadk.core.util.bc.c(this.Vz, com.baidu.tieba.v.icon_arrow_right);
+        this.bxX.invalidate();
     }
 
-    public void Ws() {
-        if (this.bxY != null) {
-            this.bxY.setVisibility(8);
+    public void Wn() {
+        if (this.bxX != null) {
+            this.bxX.setVisibility(8);
         }
     }
 
-    public void Wt() {
-        if (this.bxY != null) {
-            this.bxY.setVisibility(0);
+    public void Wo() {
+        if (this.bxX != null) {
+            this.bxX.setVisibility(0);
         }
     }
 
     public void v(String str, boolean z) {
         if (z) {
-            this.bxY.d(str, 26, false);
+            this.bxX.d(str, 26, false);
         } else {
-            this.bxY.d(str, 12, false);
+            this.bxX.d(str, 12, false);
         }
     }
 
-    private void tU() {
+    private void tO() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.setting_text_image_view, this, true);
-        this.Vx = (LinearLayout) findViewById(com.baidu.tieba.w.container);
-        this.Vy = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.bxY = (HeadImageView) findViewById(com.baidu.tieba.w.icon);
-        this.VC = (ImageView) findViewById(com.baidu.tieba.w.arrow);
+        this.Vu = (LinearLayout) findViewById(com.baidu.tieba.w.container);
+        this.Vv = (TextView) findViewById(com.baidu.tieba.w.text);
+        this.bxX = (HeadImageView) findViewById(com.baidu.tieba.w.icon);
+        this.Vz = (ImageView) findViewById(com.baidu.tieba.w.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -72,12 +72,12 @@ public class SettingTextImageView extends FrameLayout {
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.Vy.setText(string);
+            this.Vv.setText(string);
         }
         if (color > -1) {
-            this.Vy.setTextColor(color);
+            this.Vv.setTextColor(color);
         }
-        this.Vx.setClickable(false);
-        this.Vx.setFocusable(false);
+        this.Vu.setClickable(false);
+        this.Vu.setFocusable(false);
     }
 }

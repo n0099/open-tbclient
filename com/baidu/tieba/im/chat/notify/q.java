@@ -11,16 +11,16 @@ public class q extends ak {
     }
 
     @Override // com.baidu.adp.widget.ListView.e, com.baidu.adp.widget.ListView.j
-    public View jy() {
-        View jy = super.jy();
-        this.wy.setVisibility(4);
-        return jy;
+    public View jr() {
+        View jr = super.jr();
+        this.wv.setVisibility(4);
+        return jr;
     }
 
     @Override // com.baidu.tbadk.core.view.ak
     public void cs(int i) {
         super.cs(i);
-        this.wx.setBackgroundColor(getContext().getResources().getColor(t.transparent));
+        this.wu.setBackgroundColor(getContext().getResources().getColor(t.transparent));
     }
 
     @Override // com.baidu.tbadk.core.view.ak, com.baidu.adp.widget.ListView.e, com.baidu.adp.widget.ListView.j
@@ -28,11 +28,11 @@ public class q extends ak {
     }
 
     @Override // com.baidu.adp.widget.ListView.e, com.baidu.adp.widget.ListView.j
-    public void jz() {
+    public void js() {
     }
 
     @Override // com.baidu.tbadk.core.view.ak, com.baidu.adp.widget.ListView.e, com.baidu.adp.widget.ListView.j
-    public void jA() {
+    public void jt() {
     }
 
     @Override // com.baidu.tbadk.core.view.ak, com.baidu.adp.widget.ListView.e, com.baidu.adp.widget.ListView.j

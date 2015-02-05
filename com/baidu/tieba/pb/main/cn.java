@@ -1,19 +1,19 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class cn implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.b.o bEF;
-    private final /* synthetic */ boolean bEG;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.b.o bEE;
+    private final /* synthetic */ boolean bEF;
+    private final /* synthetic */ String bEG;
     private final /* synthetic */ String bEH;
-    private final /* synthetic */ String bEI;
-    final /* synthetic */ cm bEJ;
+    final /* synthetic */ cm bEI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(cm cmVar, com.baidu.tieba.tbadkCore.b.o oVar, boolean z, String str, String str2) {
-        this.bEJ = cmVar;
-        this.bEF = oVar;
-        this.bEG = z;
-        this.bEH = str;
-        this.bEI = str2;
+        this.bEI = cmVar;
+        this.bEE = oVar;
+        this.bEF = z;
+        this.bEG = str;
+        this.bEH = str2;
     }
 
     @Override // java.lang.Runnable
@@ -25,19 +25,19 @@ class cn implements Runnable {
         com.baidu.tieba.pb.sub.l lVar;
         bz bzVar4;
         cz czVar2;
-        bzVar = this.bEJ.bEC;
-        czVar = bzVar.bEa;
+        bzVar = this.bEI.bEB;
+        czVar = bzVar.bDZ;
         if (czVar != null) {
-            bzVar4 = this.bEJ.bEC;
-            czVar2 = bzVar4.bEa;
-            czVar2.a(this.bEF);
+            bzVar4 = this.bEI.bEB;
+            czVar2 = bzVar4.bDZ;
+            czVar2.a(this.bEE);
         }
-        if (this.bEG) {
-            bzVar3 = this.bEJ.bEC;
-            lVar = bzVar3.bDw;
-            lVar.aO(this.bEH, this.bEI);
+        if (this.bEF) {
+            bzVar3 = this.bEI.bEB;
+            lVar = bzVar3.bDv;
+            lVar.aO(this.bEG, this.bEH);
         }
-        bzVar2 = this.bEJ.bEC;
-        bzVar2.Zm();
+        bzVar2 = this.bEI.bEB;
+        bzVar2.Zh();
     }
 }

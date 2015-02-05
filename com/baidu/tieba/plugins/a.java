@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends BaseAdapter {
-    private List<PluginNetConfigInfos.PluginConfig> bMa = new ArrayList();
+    private List<PluginNetConfigInfos.PluginConfig> bLZ = new ArrayList();
     private BaseActivity mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,19 +27,19 @@ class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bMa.size();
+        return this.bLZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: hw */
     public PluginNetConfigInfos.PluginConfig getItem(int i) {
-        return this.bMa.get(i);
+        return this.bLZ.get(i);
     }
 
     public void addAll(List<PluginNetConfigInfos.PluginConfig> list) {
-        this.bMa.clear();
-        this.bMa.addAll(list);
+        this.bLZ.clear();
+        this.bLZ.addAll(list);
     }
 
     @Override // android.widget.Adapter
@@ -53,50 +53,50 @@ class a extends BaseAdapter {
         if (view == null) {
             view = View.inflate(this.mActivity.getPageContext().getPageActivity(), x.plugin_center_list_item, null);
             b bVar2 = new b(null);
-            bVar2.aEz = (HeadImageView) view.findViewById(w.icon);
-            bVar2.bMb = (TextView) view.findViewById(w.description);
-            bVar2.aAq = (TextView) view.findViewById(w.name);
-            bVar2.axU = (TextView) view.findViewById(w.status);
-            bVar2.bMc = view.findViewById(w.top_divider);
-            bVar2.bMd = view.findViewById(w.bot_divider);
-            bVar2.bMe = (ImageView) view.findViewById(w.new_mark);
+            bVar2.aEw = (HeadImageView) view.findViewById(w.icon);
+            bVar2.bMa = (TextView) view.findViewById(w.description);
+            bVar2.aAn = (TextView) view.findViewById(w.name);
+            bVar2.axR = (TextView) view.findViewById(w.status);
+            bVar2.bMb = view.findViewById(w.top_divider);
+            bVar2.bMc = view.findViewById(w.bot_divider);
+            bVar2.bMd = (ImageView) view.findViewById(w.new_mark);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
         if (i == 0) {
-            bVar.bMc.setPadding(0, 0, 0, 0);
-            bVar.bMd.setVisibility(4);
+            bVar.bMb.setPadding(0, 0, 0, 0);
+            bVar.bMc.setVisibility(4);
         } else if (i == getCount() - 1) {
-            bVar.bMc.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
-            bVar.bMd.setVisibility(0);
-            bVar.bMd.setPadding(0, 0, 0, 0);
+            bVar.bMb.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
+            bVar.bMc.setVisibility(0);
+            bVar.bMc.setPadding(0, 0, 0, 0);
         } else {
-            bVar.bMc.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
-            bVar.bMd.setVisibility(4);
+            bVar.bMb.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
+            bVar.bMc.setVisibility(4);
         }
         PluginNetConfigInfos.PluginConfig item = getItem(i);
         if (item != null) {
-            bVar.bMb.setText(item.verbose);
-            bVar.aAq.setText(item.display_name);
-            if (PluginPackageManager.ic().bi(item.package_name)) {
-                if (PluginPackageManager.ic().bk(item.package_name)) {
-                    bVar.bMe.setVisibility(0);
-                    bVar.axU.setText(z.plugin_update);
+            bVar.bMa.setText(item.verbose);
+            bVar.aAn.setText(item.display_name);
+            if (PluginPackageManager.hV().bf(item.package_name)) {
+                if (PluginPackageManager.hV().bh(item.package_name)) {
+                    bVar.bMd.setVisibility(0);
+                    bVar.axR.setText(z.plugin_update);
                 } else {
-                    bVar.bMe.setVisibility(4);
-                    if (PluginPackageManager.ic().bj(item.package_name)) {
-                        bVar.axU.setText(this.mActivity.getPageContext().getString(z.plugin_unenabled));
+                    bVar.bMd.setVisibility(4);
+                    if (PluginPackageManager.hV().bg(item.package_name)) {
+                        bVar.axR.setText(this.mActivity.getPageContext().getString(z.plugin_unenabled));
                     } else {
-                        bVar.axU.setText(this.mActivity.getPageContext().getString(z.plugin_enabled));
+                        bVar.axR.setText(this.mActivity.getPageContext().getString(z.plugin_enabled));
                     }
                 }
             } else {
-                bVar.axU.setText(this.mActivity.getPageContext().getString(z.plugin_disabled));
+                bVar.axR.setText(this.mActivity.getPageContext().getString(z.plugin_disabled));
             }
-            bVar.aEz.setTag(item.icon);
-            bVar.aEz.d(item.icon, 10, false);
+            bVar.aEw.setTag(item.icon);
+            bVar.aEw.d(item.icon, 10, false);
         }
         this.mActivity.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().h(view);

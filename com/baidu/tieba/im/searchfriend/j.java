@@ -11,52 +11,52 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j {
-    private EditText boa;
-    private TextView bob;
-    private ImageView boc;
-    private m bod;
-    private View.OnClickListener boe = new k(this);
+    private EditText bnZ;
+    private TextView boa;
+    private ImageView bob;
+    private m boc;
+    private View.OnClickListener bod = new k(this);
     private Context context;
     private TbPageContext<?> mPageContext;
 
     public void dk(boolean z) {
-        this.bob.setClickable(z);
+        this.boa.setClickable(z);
     }
 
-    public void hl(String str) {
-        this.boa.setText(str);
+    public void hi(String str) {
+        this.bnZ.setText(str);
     }
 
     public j(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.boa = (EditText) view.findViewById(w.new_search_friend_input);
-        this.bob = (TextView) view.findViewById(w.new_search_friend_search);
-        this.boc = (ImageView) view.findViewById(w.new_search_friend_del);
-        this.bob.setOnClickListener(this.boe);
-        this.boc.setOnClickListener(this.boe);
-        this.boa.addTextChangedListener(new l(this));
+        this.bnZ = (EditText) view.findViewById(w.new_search_friend_input);
+        this.boa = (TextView) view.findViewById(w.new_search_friend_search);
+        this.bob = (ImageView) view.findViewById(w.new_search_friend_del);
+        this.boa.setOnClickListener(this.bod);
+        this.bob.setOnClickListener(this.bod);
+        this.bnZ.addTextChangedListener(new l(this));
         cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
     public void hideSoftKeyboard() {
-        com.baidu.adp.lib.util.l.c(this.context, this.boa);
+        com.baidu.adp.lib.util.l.c(this.context, this.bnZ);
     }
 
     public void a(m mVar) {
-        this.bod = mVar;
+        this.boc = mVar;
     }
 
     public void cs(int i) {
-        bc.b(this.bob, com.baidu.tieba.t.cp_cont_g, 1);
-        this.boa.setHintTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_e));
-        bc.c(this.boc, com.baidu.tieba.v.icon_search_close);
+        bc.b(this.boa, com.baidu.tieba.t.cp_cont_g, 1);
+        this.bnZ.setHintTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_e));
+        bc.c(this.bob, com.baidu.tieba.v.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fW(String str) {
-        if (this.bod != null) {
-            this.bod.hk(str);
+    public void fT(String str) {
+        if (this.boc != null) {
+            this.boc.hh(str);
         }
     }
 }

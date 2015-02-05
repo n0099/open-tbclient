@@ -5,7 +5,7 @@ import android.widget.ListView;
 public interface ay {
     ListView getListView();
 
-    int qR();
+    int qL();
 
-    com.baidu.adp.lib.e.b<HeadImageView> qS();
+    com.baidu.adp.lib.e.b<HeadImageView> qM();
 }

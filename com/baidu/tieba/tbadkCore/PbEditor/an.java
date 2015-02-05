@@ -6,18 +6,18 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class an extends PagerAdapter {
-    private ArrayList<View> Yp;
-    final /* synthetic */ PrivilegeTabContentView bWH;
+    private ArrayList<View> Ym;
+    final /* synthetic */ PrivilegeTabContentView bWG;
 
     public an(PrivilegeTabContentView privilegeTabContentView, ArrayList<View> arrayList) {
-        this.bWH = privilegeTabContentView;
-        this.Yp = new ArrayList<>();
-        this.Yp = arrayList;
+        this.bWG = privilegeTabContentView;
+        this.Ym = new ArrayList<>();
+        this.Ym = arrayList;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.Yp.size();
+        return this.Ym.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -27,12 +27,12 @@ public class an extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.Yp.get(i));
+        viewGroup.removeView(this.Ym.get(i));
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.Yp.get(i);
+        View view = this.Ym.get(i);
         viewGroup.addView(view);
         return view;
     }

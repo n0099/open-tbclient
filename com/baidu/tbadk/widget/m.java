@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.util.bc;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class m extends DynamicDrawableSpan {
-    private Uri ajh;
-    private int aji;
-    private n ajj;
+    private Uri aje;
+    private int ajf;
+    private n ajg;
     private Context mContext;
     private Rect mRect;
-    private Drawable vI;
+    private Drawable vF;
 
     public void setDrawable(Drawable drawable) {
-        this.vI = drawable;
+        this.vF = drawable;
     }
 
     public m(n nVar, int i, int i2) {
         super(i2);
         this.mRect = new Rect();
-        this.aji = i;
-        this.ajj = nVar;
+        this.ajf = i;
+        this.ajg = nVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.vI != null || this.ajj == null) {
+        if (this.vF != null || this.ajg == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -56,17 +56,17 @@ public class m extends DynamicDrawableSpan {
         Exception e;
         InputStream openInputStream;
         Drawable drawable3 = null;
-        if (this.vI != null) {
-            drawable3 = this.vI;
-        } else if (this.ajj != null) {
-            drawable3 = this.ajj.a(this);
+        if (this.vF != null) {
+            drawable3 = this.vF;
+        } else if (this.ajg != null) {
+            drawable3 = this.ajg.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.ajh != null) {
+        if (this.aje != null) {
             try {
-                openInputStream = this.mContext.getContentResolver().openInputStream(this.ajh);
+                openInputStream = this.mContext.getContentResolver().openInputStream(this.aje);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
             } catch (Exception e2) {
                 drawable2 = drawable3;
@@ -78,12 +78,12 @@ public class m extends DynamicDrawableSpan {
                 return drawable2;
             } catch (Exception e3) {
                 e = e3;
-                Log.e("sms", "Failed to loaded content " + this.ajh, e);
+                Log.e("sms", "Failed to loaded content " + this.aje, e);
                 return drawable2;
             }
         }
         try {
-            drawable = bc.getDrawable(this.aji);
+            drawable = bc.getDrawable(this.ajf);
         } catch (Exception e4) {
             drawable = drawable3;
         }
@@ -91,7 +91,7 @@ public class m extends DynamicDrawableSpan {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             return drawable;
         } catch (Exception e5) {
-            Log.e("sms", "Unable to find resource: " + this.aji);
+            Log.e("sms", "Unable to find resource: " + this.ajf);
             return drawable;
         }
     }

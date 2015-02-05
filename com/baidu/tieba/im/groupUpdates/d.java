@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ UpdatesActivity bhj;
+    final /* synthetic */ UpdatesActivity bhi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(UpdatesActivity updatesActivity) {
-        this.bhj = updatesActivity;
+        this.bhi = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,16 +27,16 @@ public class d implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         p pVar3;
         UpdatesModel updatesModel2;
         List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-        pVar = this.bhj.bhg;
+        pVar = this.bhi.bhf;
         pVar.setData(convertToUpdatesItemData);
-        updatesModel = this.bhj.bhi;
+        updatesModel = this.bhi.bhh;
         updatesModel.calculateSelects(convertToUpdatesItemData);
-        pVar2 = this.bhj.bhg;
+        pVar2 = this.bhi.bhf;
         pVar2.setLoadProgressBarVisable(false);
-        pVar3 = this.bhj.bhg;
-        updatesModel2 = this.bhj.bhi;
+        pVar3 = this.bhi.bhf;
+        updatesModel2 = this.bhi.bhh;
         pVar3.setDelCount(updatesModel2.getDeleteSize());
-        this.bhj.loadImage();
+        this.bhi.loadImage();
         ImMessageCenterPojo imMessageCenterPojo = null;
         if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() > 0) {
             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
@@ -46,7 +46,7 @@ public class d implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001216, imMessageCenterPojo));
         if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() == 0) {
-            this.bhj.finish();
+            this.bhi.finish();
         }
     }
 }

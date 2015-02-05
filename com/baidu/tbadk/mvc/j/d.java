@@ -9,8 +9,8 @@ import com.baidu.tbadk.mvc.e.c;
 import com.baidu.tieba.tbadkCore.y;
 /* loaded from: classes.dex */
 public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
-    private S aeb;
-    private final ViewEventCenter afr;
+    private S adY;
+    private final ViewEventCenter afo;
     private D data;
     private TbPageContext<?> pageContext;
     private final View rootView;
@@ -18,7 +18,7 @@ public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
         this.rootView = view;
-        this.afr = viewEventCenter;
+        this.afo = viewEventCenter;
     }
 
     public View getRootView() {
@@ -26,8 +26,8 @@ public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter wN() {
-        return this.afr;
+    public ViewEventCenter wH() {
+        return this.afo;
     }
 
     public void a(D d, S s) {
@@ -39,8 +39,8 @@ public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
         return this.data;
     }
 
-    public S xu() {
-        return this.aeb;
+    public S xo() {
+        return this.adY;
     }
 
     public void y(D d) {
@@ -48,7 +48,7 @@ public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
     }
 
     public void e(S s) {
-        this.aeb = s;
+        this.adY = s;
     }
 
     public Resources getResources() {

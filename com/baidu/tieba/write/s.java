@@ -3,9 +3,9 @@ package com.baidu.tieba.write;
 public interface s {
     void a(com.baidu.tbadk.coreExtra.view.j jVar, int i);
 
-    void akj();
+    void ake();
 
-    void akk();
+    void akf();
 
-    void akl();
+    void akg();
 }

@@ -5,21 +5,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnTouchListener {
-    final /* synthetic */ CarouselRecommendView LX;
+    final /* synthetic */ CarouselRecommendView LU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(CarouselRecommendView carouselRecommendView) {
-        this.LX = carouselRecommendView;
+        this.LU = carouselRecommendView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == this.LX.mPager) {
+        if (view == this.LU.mPager) {
             if (motionEvent.getAction() == 0) {
-                this.LX.qw();
+                this.LU.qp();
                 return false;
             } else if (motionEvent.getAction() == 1) {
-                this.LX.qv();
+                this.LU.qo();
                 return false;
             } else {
                 return false;

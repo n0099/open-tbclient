@@ -15,11 +15,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ FriendFeedActivity aBV;
+    final /* synthetic */ FriendFeedActivity aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FriendFeedActivity friendFeedActivity) {
-        this.aBV = friendFeedActivity;
+        this.aBS = friendFeedActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -42,33 +42,33 @@ public class f implements com.baidu.tbadk.editortool.w {
         x xVar3;
         int i2 = 0;
         if (i == 0) {
-            xVar3 = this.aBV.aBD;
-            if (xVar3.FJ()) {
-                this.aBV.showToast(z.over_limit_tip);
+            xVar3 = this.aBS.aBA;
+            if (xVar3.FD()) {
+                this.aBS.showToast(z.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.aBV.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.aBS.getPageContext().getPageActivity(), 12004, true)));
             }
         } else if (i != 10) {
             if (i != 4) {
                 if (i == 22) {
-                    writeImagesInfo11 = this.aBV.aql;
+                    writeImagesInfo11 = this.aBS.aqi;
                     int size = writeImagesInfo11.size();
-                    writeImagesInfo12 = this.aBV.aql;
+                    writeImagesInfo12 = this.aBS.aqi;
                     if (size < writeImagesInfo12.getMaxImagesAllowed()) {
-                        this.aBV.aBK = String.valueOf(System.currentTimeMillis());
-                        TbPageContext pageContext = this.aBV.getPageContext();
-                        str = this.aBV.aBK;
+                        this.aBS.aBH = String.valueOf(System.currentTimeMillis());
+                        TbPageContext pageContext = this.aBS.getPageContext();
+                        str = this.aBS.aBH;
                         bb.a(pageContext, str);
                         return;
                     }
-                    this.aBV.showToast(String.format(this.aBV.getPageContext().getString(z.editor_mutiiamge_max), 10));
+                    this.aBS.showToast(String.format(this.aBS.getPageContext().getString(z.editor_mutiiamge_max), 10));
                 } else if (i == 23) {
-                    writeImagesInfo8 = this.aBV.aql;
+                    writeImagesInfo8 = this.aBS.aqi;
                     if (writeImagesInfo8 != null) {
-                        writeImagesInfo9 = this.aBV.aql;
+                        writeImagesInfo9 = this.aBS.aqi;
                         if (!TextUtils.isEmpty(writeImagesInfo9.toJsonString())) {
-                            Activity pageActivity = this.aBV.getPageContext().getPageActivity();
-                            writeImagesInfo10 = this.aBV.aql;
+                            Activity pageActivity = this.aBS.getPageContext().getPageActivity();
+                            writeImagesInfo10 = this.aBS.aqi;
                             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo10.toJsonString());
                             albumActivityConfig.setRequestCode(12002);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -76,48 +76,48 @@ public class f implements com.baidu.tbadk.editortool.w {
                     }
                 } else if (i == 42) {
                     int intValue = ((Integer) obj).intValue();
-                    writeImagesInfo4 = this.aBV.aql;
+                    writeImagesInfo4 = this.aBS.aqi;
                     if (writeImagesInfo4 != null) {
-                        writeImagesInfo5 = this.aBV.aql;
+                        writeImagesInfo5 = this.aBS.aqi;
                         if (writeImagesInfo5.getChosedFiles() != null) {
-                            writeImagesInfo6 = this.aBV.aql;
+                            writeImagesInfo6 = this.aBS.aqi;
                             int size2 = writeImagesInfo6.getChosedFiles().size();
                             if (size2 >= 1 && intValue >= 0 && intValue < size2) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                Activity pageActivity2 = this.aBV.getPageContext().getPageActivity();
-                                writeImagesInfo7 = this.aBV.aql;
+                                Activity pageActivity2 = this.aBS.getPageContext().getPageActivity();
+                                writeImagesInfo7 = this.aBS.aqi;
                                 messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(pageActivity2, 12012, writeImagesInfo7, intValue)));
                             }
                         }
                     }
                 } else if (i == 7) {
-                    writeImagesInfo = this.aBV.aql;
+                    writeImagesInfo = this.aBS.aqi;
                     if (writeImagesInfo != null) {
-                        writeImagesInfo2 = this.aBV.aql;
+                        writeImagesInfo2 = this.aBS.aqi;
                         if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
                             String valueOf = String.valueOf(System.currentTimeMillis());
-                            Activity pageActivity3 = this.aBV.getPageContext().getPageActivity();
-                            writeImagesInfo3 = this.aBV.aql;
+                            Activity pageActivity3 = this.aBS.getPageContext().getPageActivity();
+                            writeImagesInfo3 = this.aBS.aqi;
                             AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig(pageActivity3, writeImagesInfo3.toJsonString(), valueOf);
                             albumActivityConfig2.setRequestCode(12002);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig2));
                         }
                     }
                 } else if (i == 52) {
-                    xVar = this.aBV.aBD;
-                    if (xVar.FF() != null) {
-                        xVar2 = this.aBV.aBD;
-                        i2 = xVar2.FF().getLocationInfoViewState();
+                    xVar = this.aBS.aBA;
+                    if (xVar.Fz() != null) {
+                        xVar2 = this.aBS.aBA;
+                        i2 = xVar2.Fz().getLocationInfoViewState();
                     }
                     switch (i2) {
                         case 0:
-                            this.aBV.Fq();
+                            this.aBS.Fk();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.aBV.Fp();
+                            this.aBS.Fj();
                             return;
                     }
                 } else if (i == 53) {
@@ -125,7 +125,7 @@ public class f implements com.baidu.tbadk.editortool.w {
                 }
             }
         } else {
-            this.aBV.fx(null);
+            this.aBS.fu(null);
         }
     }
 }

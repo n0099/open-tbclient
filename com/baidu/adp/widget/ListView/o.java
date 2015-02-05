@@ -2,11 +2,11 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Runnable {
-    final /* synthetic */ BdListView xm;
+    final /* synthetic */ BdListView xj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.xm = bdListView;
+        this.xj = bdListView;
     }
 
     @Override // java.lang.Runnable
@@ -22,38 +22,38 @@ public class o implements Runnable {
         k kVar7;
         int i = 0;
         int i2 = -1;
-        aaVar = this.xm.wU;
+        aaVar = this.xj.wR;
         if (aaVar != null) {
-            int firstVisiblePosition = this.xm.getFirstVisiblePosition();
-            int lastVisiblePosition = this.xm.getLastVisiblePosition();
-            kVar = this.xm.wN;
+            int firstVisiblePosition = this.xj.getFirstVisiblePosition();
+            int lastVisiblePosition = this.xj.getLastVisiblePosition();
+            kVar = this.xj.wK;
             if (kVar != null) {
-                kVar2 = this.xm.wN;
+                kVar2 = this.xj.wK;
                 if (kVar2.getWrappedAdapter() != null) {
-                    kVar3 = this.xm.wN;
-                    if (kVar3.jE() > 0) {
-                        kVar4 = this.xm.wN;
+                    kVar3 = this.xj.wK;
+                    if (kVar3.jx() > 0) {
+                        kVar4 = this.xj.wK;
                         i2 = firstVisiblePosition - kVar4.getHeadersCount();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        kVar5 = this.xm.wN;
+                        kVar5 = this.xj.wK;
                         int headersCount = lastVisiblePosition - kVar5.getHeadersCount();
-                        kVar6 = this.xm.wN;
-                        if (headersCount >= kVar6.jE()) {
-                            kVar7 = this.xm.wN;
-                            headersCount = kVar7.jE() - 1;
+                        kVar6 = this.xj.wK;
+                        if (headersCount >= kVar6.jx()) {
+                            kVar7 = this.xj.wK;
+                            headersCount = kVar7.jx() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;
                         }
-                        aaVar2 = this.xm.wU;
+                        aaVar2 = this.xj.wR;
                         aaVar2.h(i2, i);
                     }
                 }
             }
             i = -1;
-            aaVar2 = this.xm.wU;
+            aaVar2 = this.xj.wR;
             aaVar2.h(i2, i);
         }
     }

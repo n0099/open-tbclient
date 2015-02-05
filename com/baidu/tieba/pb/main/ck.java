@@ -5,13 +5,13 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class ck implements Animation.AnimationListener {
-    final /* synthetic */ bz bEC;
-    private final /* synthetic */ ImageView bED;
+    final /* synthetic */ bz bEB;
+    private final /* synthetic */ ImageView bEC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(bz bzVar, ImageView imageView) {
-        this.bEC = bzVar;
-        this.bED = imageView;
+        this.bEB = bzVar;
+        this.bEC = imageView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,6 +24,6 @@ class ck implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cl(this, this.bED));
+        new Handler().post(new cl(this, this.bEC));
     }
 }

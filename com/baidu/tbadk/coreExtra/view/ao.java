@@ -2,19 +2,19 @@ package com.baidu.tbadk.coreExtra.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements com.baidu.tbadk.widget.h {
-    final /* synthetic */ MultiImageView Vq;
+    final /* synthetic */ MultiImageView Vn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(MultiImageView multiImageView) {
-        this.Vq = multiImageView;
+        this.Vn = multiImageView;
     }
 
     @Override // com.baidu.tbadk.widget.h
     public void a(com.baidu.tbadk.widget.a aVar, boolean z, boolean z2) {
         p pVar;
-        pVar = this.Vq.Vk;
+        pVar = this.Vn.Vh;
         if (pVar.getSelectedView() == aVar) {
-            this.Vq.setZoomButton(aVar);
+            this.Vn.setZoomButton(aVar);
         }
     }
 }

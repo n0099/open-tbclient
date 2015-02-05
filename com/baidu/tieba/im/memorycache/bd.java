@@ -28,11 +28,11 @@ public class bd extends com.baidu.adp.framework.listener.e {
         ImMessageCenterPojo H;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103004 && (responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage) != null && responseGroupInfoMessage.getData() != null) {
             com.baidu.tieba.im.message.i data = responseGroupInfoMessage.getData();
-            if (data.getGroup() != null && (H = c.QO().H((valueOf = String.valueOf(data.getGroup().getGroupId())), 1)) != null) {
+            if (data.getGroup() != null && (H = c.QJ().H((valueOf = String.valueOf(data.getGroup().getGroupId())), 1)) != null) {
                 if (TextUtils.isEmpty(H.getGroup_head()) || TextUtils.isEmpty(H.getGroup_name())) {
                     String name = data.getGroup().getName();
-                    c.QO().aB(valueOf, data.getGroup().getPortrait());
-                    c.QO().aC(valueOf, name);
+                    c.QJ().aB(valueOf, data.getGroup().getPortrait());
+                    c.QJ().aC(valueOf, name);
                     CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, H));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());
                     customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

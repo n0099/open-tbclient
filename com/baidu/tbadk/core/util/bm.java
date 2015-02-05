@@ -14,14 +14,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bm {
-    private static bm JT = new bn();
-    private static final Pattern JV = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private bp JU;
+    private static bm JQ = new bn();
+    private static final Pattern JS = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private bp JR;
     private List<bo> mListeners;
 
     private bm() {
         this.mListeners = new LinkedList();
-        this.JU = null;
+        this.JR = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class bm {
 
     public static SpannableString C(Context context, String str) {
         int start;
-        Matcher matcher = JV.matcher(str);
+        Matcher matcher = JS.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -45,8 +45,8 @@ public class bm {
         return spannableString;
     }
 
-    public static bm pV() {
-        return JT;
+    public static bm pO() {
+        return JQ;
     }
 
     public void a(bo boVar) {
@@ -56,7 +56,7 @@ public class bm {
     }
 
     public void a(bp bpVar) {
-        this.JU = bpVar;
+        this.JR = bpVar;
     }
 
     public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, bq bqVar) {
@@ -77,7 +77,7 @@ public class bm {
                     break;
                 }
             }
-            if (!z2 && this.JU != null && tbPageContext != null) {
+            if (!z2 && this.JR != null && tbPageContext != null) {
                 b(tbPageContext.getContext(), "", strArr[0], z, bqVar);
             }
         }
@@ -101,13 +101,13 @@ public class bm {
                     break;
                 }
             }
-            if (!z2 && this.JU != null) {
+            if (!z2 && this.JR != null) {
                 b(tbPageContext.getContext(), str, strArr[0], z, bqVar);
             }
         }
     }
 
-    public static Map<String, String> cK(String str) {
+    public static Map<String, String> cH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -125,7 +125,7 @@ public class bm {
         return null;
     }
 
-    public static String cL(String str) {
+    public static String cI(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -142,8 +142,8 @@ public class bm {
     }
 
     private void b(Context context, String str, String str2, boolean z, bq bqVar) {
-        if (JV.matcher(str2).find()) {
-            this.JU.a(context, str, str2, z, bqVar);
+        if (JS.matcher(str2).find()) {
+            this.JR.a(context, str, str2, z, bqVar);
         }
     }
 }

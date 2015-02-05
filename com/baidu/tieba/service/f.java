@@ -18,12 +18,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
-    private ad CX;
-    final /* synthetic */ FatalErrorService bOU;
+    private ad CU;
+    final /* synthetic */ FatalErrorService bOT;
 
     private f(FatalErrorService fatalErrorService) {
-        this.bOU = fatalErrorService;
-        this.CX = null;
+        this.bOT = fatalErrorService;
+        this.CU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -102,12 +102,12 @@ class f extends BdAsyncTask<String, Integer, String> {
                                     }
                                     return;
                                 }
-                                this.CX = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-                                this.CX.g("logfile", byteArray);
+                                this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+                                this.CU.g("logfile", byteArray);
                                 if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                    this.CX.o("errortype", str2);
+                                    this.CU.o("errortype", str2);
                                 }
-                                this.CX.oB();
+                                this.CU.ou();
                                 if (byteArrayOutputStream2 != null) {
                                     byteArrayOutputStream2.close();
                                     byteArrayOutputStream3 = null;
@@ -176,7 +176,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                                     fileInputStream2 = fileInputStream;
                                 }
                                 try {
-                                    if (this.CX.oZ().qh().ma()) {
+                                    if (this.CU.oS().qa().lT()) {
                                         if (z2) {
                                             u(file);
                                         }
@@ -346,11 +346,11 @@ class f extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         File[] listFiles;
         try {
-            a(com.baidu.tbadk.core.util.s.ch(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-            a(com.baidu.tbadk.core.util.s.ch(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-            File ch = com.baidu.tbadk.core.util.s.ch(TbConfig.FATAL_ERROR_NATIVE_DIR);
-            if (ch != null) {
-                for (File file : ch.listFiles()) {
+            a(com.baidu.tbadk.core.util.s.ce(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+            a(com.baidu.tbadk.core.util.s.ce(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+            File ce = com.baidu.tbadk.core.util.s.ce(TbConfig.FATAL_ERROR_NATIVE_DIR);
+            if (ce != null) {
+                for (File file : ce.listFiles()) {
                     v(file);
                     a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                 }
@@ -372,7 +372,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, bf.pG(), null);
+                            a(fileWriter, bf.pz(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
@@ -420,12 +420,12 @@ class f extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
-        this.bOU.mTask = null;
+        this.bOT.mTask = null;
         super.cancel(true);
-        this.bOU.stopSelf();
+        this.bOT.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -433,7 +433,7 @@ class f extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((f) str);
-        this.bOU.mTask = null;
-        this.bOU.stopSelf();
+        this.bOT.mTask = null;
+        this.bOT.stopSelf();
     }
 }

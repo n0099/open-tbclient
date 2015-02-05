@@ -8,8 +8,8 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int aCS = 1;
-    private int btR;
+    private int aCP = 1;
+    private int btQ;
     private String ids;
 
     public void b(FeedData feedData) {
@@ -18,27 +18,27 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         }
     }
 
-    public void OZ() {
-        this.aCS++;
-        this.btR = 4;
+    public void OU() {
+        this.aCP++;
+        this.btQ = 4;
     }
 
     public void reset() {
-        this.aCS = 1;
-        this.btR = 1;
+        this.aCP = 1;
+        this.btQ = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.btR;
+        return this.btQ;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> kQ() {
+    public HashMap<String, Object> kJ() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.aCS));
-        if (this.btR == 4 && !TextUtils.isEmpty(this.ids)) {
+        hashMap.put("pn", String.valueOf(this.aCP));
+        if (this.btQ == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -48,7 +48,7 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     public Object X(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.aCS);
+            builder.pn = Integer.valueOf(this.aCP);
             builder.ids = this.ids;
             if (z) {
                 com.baidu.tbadk.util.k.a(builder, true);
@@ -67,12 +67,12 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String lq() {
+    public String lj() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean xr() {
+    public boolean xl() {
         return true;
     }
 

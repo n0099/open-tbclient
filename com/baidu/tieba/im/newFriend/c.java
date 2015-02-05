@@ -5,21 +5,21 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic bla;
-    private final /* synthetic */ com.baidu.tieba.im.data.b blb;
+    final /* synthetic */ NewFriendDbManagerStatic bkZ;
+    private final /* synthetic */ com.baidu.tieba.im.data.b bla;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.b bVar) {
-        this.bla = newFriendDbManagerStatic;
-        this.blb = bVar;
+        this.bkZ = newFriendDbManagerStatic;
+        this.bla = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: KK */
+    /* renamed from: KF */
     public Void doInBackground() {
-        com.baidu.tieba.im.db.m.Ne().b(this.blb);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(com.baidu.tieba.im.db.m.Ne().Nf(), true));
+        com.baidu.tieba.im.db.m.MZ().b(this.bla);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(com.baidu.tieba.im.db.m.MZ().Na(), true));
         return null;
     }
 }

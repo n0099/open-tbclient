@@ -16,8 +16,8 @@ public abstract class d<T extends h, R extends j> extends b<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xs() == 16777217) {
-            if (aQ(bVar.xw())) {
+        if (bVar.xm() == 16777217) {
+            if (aQ(bVar.xq())) {
                 dF(33554437);
                 return true;
             }

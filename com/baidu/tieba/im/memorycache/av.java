@@ -18,7 +18,7 @@ public class av extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001220) {
-            com.baidu.tieba.im.b.b.Rt().Ry();
+            com.baidu.tieba.im.b.b.Ro().Rt();
         }
     }
 }

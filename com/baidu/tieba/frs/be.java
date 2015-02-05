@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class be {
-    TextView aEA;
-    LinearLayout aEx;
-    TextView aEy;
-    HeadImageView aEz;
-    TextView awk;
+    LinearLayout aEu;
+    TextView aEv;
+    HeadImageView aEw;
+    TextView aEx;
+    TextView awh;
     TextView mTitle;
 
     private be() {

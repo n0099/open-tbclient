@@ -5,15 +5,15 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o bRf;
-    private final /* synthetic */ d bRg;
-    private final /* synthetic */ r bRh;
+    final /* synthetic */ o bRe;
+    private final /* synthetic */ d bRf;
+    private final /* synthetic */ r bRg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, d dVar, r rVar) {
-        this.bRf = oVar;
-        this.bRg = dVar;
-        this.bRh = rVar;
+        this.bRe = oVar;
+        this.bRf = dVar;
+        this.bRg = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,21 +21,21 @@ public class p implements View.OnClickListener {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
         SignAllForumActivity signAllForumActivity2;
-        if (!this.bRg.adR()) {
-            this.bRh.bRs.setVisibility(4);
-            this.bRh.bRt.setVisibility(0);
-            this.bRh.bRu.setText(com.baidu.tieba.z.signallforum_resigning);
-            this.bRg.et(true);
-            signAllForumActivity = this.bRf.bRd;
+        if (!this.bRf.adM()) {
+            this.bRg.bRr.setVisibility(4);
+            this.bRg.bRs.setVisibility(0);
+            this.bRg.bRt.setText(com.baidu.tieba.z.signallforum_resigning);
+            this.bRf.et(true);
+            signAllForumActivity = this.bRe.bRc;
             af afVar = new af(signAllForumActivity);
-            afVar.a(this.bRf);
-            String sb = new StringBuilder(String.valueOf(this.bRg.getForumId())).toString();
-            synchronized (this.bRf) {
-                hashMap = this.bRf.bRe;
+            afVar.a(this.bRe);
+            String sb = new StringBuilder(String.valueOf(this.bRf.getForumId())).toString();
+            synchronized (this.bRe) {
+                hashMap = this.bRe.bRd;
                 hashMap.put(sb, afVar);
             }
-            afVar.aq(this.bRg.getForumName(), sb);
-            signAllForumActivity2 = this.bRf.bRd;
+            afVar.aq(this.bRf.getForumName(), sb);
+            signAllForumActivity2 = this.bRe.bRc;
             com.baidu.tbadk.core.i.A(signAllForumActivity2.getPageContext().getPageActivity(), "signall_resign_click");
         }
     }

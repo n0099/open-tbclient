@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.tbadkCore.bubble.l {
-    final /* synthetic */ b bVj;
+    final /* synthetic */ b bVi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.bVj = bVar;
+        this.bVi = bVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.bubble.l
@@ -35,18 +35,18 @@ public class d implements com.baidu.tieba.tbadkCore.bubble.l {
         BubbleListData bubbleListData10;
         BubbleListData bubbleListData11;
         if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
-            this.bVj.agA().agD();
+            this.bVi.agv().agy();
             return;
         }
-        this.bVj.bVb = setBubbleResultData.getB_info().getB_url();
+        this.bVi.bVa = setBubbleResultData.getB_info().getB_url();
         TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-        str = this.bVj.bVb;
+        str = this.bVi.bVa;
         m255getInst.setDefaultBubble(str);
-        hVar = this.bVj.bUY;
-        int agT = hVar.agT();
-        if (agT == 0) {
+        hVar = this.bVi.bUX;
+        int agO = hVar.agO();
+        if (agO == 0) {
             TbadkCoreApplication.m255getInst().setDefaultBubble("");
-            bubbleListData11 = this.bVj.bUZ;
+            bubbleListData11 = this.bVi.bUY;
             for (BubbleListData.BubbleData bubbleData : bubbleListData11.getB_info()) {
                 if (bubbleData.getBcode() != 0) {
                     if (bubbleData.isDef()) {
@@ -57,60 +57,60 @@ public class d implements com.baidu.tieba.tbadkCore.bubble.l {
                 }
             }
         } else if (setBubbleResultData.getB_info().canUser()) {
-            bubbleListData10 = this.bVj.bUZ;
+            bubbleListData10 = this.bVi.bUY;
             for (BubbleListData.BubbleData bubbleData2 : bubbleListData10.getB_info()) {
-                if (bubbleData2.getBcode() == agT) {
+                if (bubbleData2.getBcode() == agO) {
                     bubbleData2.setIs_def(1);
                 } else if (bubbleData2.isDef()) {
                     bubbleData2.setIs_def(0);
                 }
-                if (bubbleData2.getBcode() == agT) {
+                if (bubbleData2.getBcode() == agO) {
                     bubbleData2.setCan_use(1);
                 }
             }
         } else {
-            context = this.bVj.mContext;
+            context = this.bVi.mContext;
             UtilHelper.showToast(context, com.baidu.tieba.z.bubble_setdefualt_error);
-            bubbleListData = this.bVj.bUZ;
+            bubbleListData = this.bVi.bUY;
             if (bubbleListData != null) {
-                bubbleListData2 = this.bVj.bUZ;
+                bubbleListData2 = this.bVi.bUY;
                 if (bubbleListData2.getB_info() != null) {
-                    bubbleListData3 = this.bVj.bUZ;
+                    bubbleListData3 = this.bVi.bUY;
                     if (bubbleListData3.getB_info().size() > 0) {
-                        bubbleListData4 = this.bVj.bUZ;
+                        bubbleListData4 = this.bVi.bUY;
                         if (bubbleListData4.getB_info().get(0).getBcode() == 0) {
-                            this.bVj.bVa = 0;
+                            this.bVi.bUZ = 0;
                             int i2 = 0;
                             while (true) {
-                                bubbleListData5 = this.bVj.bUZ;
+                                bubbleListData5 = this.bVi.bUY;
                                 if (i2 >= bubbleListData5.getB_info().size()) {
                                     break;
                                 }
-                                bubbleListData8 = this.bVj.bUZ;
+                                bubbleListData8 = this.bVi.bUY;
                                 if (bubbleListData8.getB_info().get(i2).isDef()) {
-                                    this.bVj.bVa = i2;
+                                    this.bVi.bUZ = i2;
                                     break;
                                 }
                                 i2++;
                             }
-                            bubbleListData6 = this.bVj.bUZ;
+                            bubbleListData6 = this.bVi.bUY;
                             List<BubbleListData.BubbleData> b_info = bubbleListData6.getB_info();
-                            i = this.bVj.bVa;
+                            i = this.bVi.bUZ;
                             b_info.get(i).setIs_def(0);
-                            bubbleListData7 = this.bVj.bUZ;
+                            bubbleListData7 = this.bVi.bUY;
                             bubbleListData7.getB_info().get(0).setIs_def(1);
                         } else {
                             BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
                             bubbleData3.setBcode(0);
-                            bubbleListData9 = this.bVj.bUZ;
+                            bubbleListData9 = this.bVi.bUY;
                             bubbleListData9.getB_info().add(0, bubbleData3);
                         }
                     }
                 }
             }
         }
-        this.bVj.afp();
-        this.bVj.agA().b(this.bVj);
+        this.bVi.afk();
+        this.bVi.agv().b(this.bVi);
     }
 
     @Override // com.baidu.tieba.tbadkCore.bubble.l
@@ -120,20 +120,20 @@ public class d implements com.baidu.tieba.tbadkCore.bubble.l {
         Context context3;
         Context context4;
         if (setBubbleResultData == null) {
-            context = this.bVj.mContext;
+            context = this.bVi.mContext;
             UtilHelper.showToast(context, com.baidu.tieba.z.neterror);
         } else if (setBubbleResultData.getError_code().equals("0")) {
-            context2 = this.bVj.mContext;
+            context2 = this.bVi.mContext;
             UtilHelper.showToast(context2, com.baidu.tieba.z.neterror);
         } else if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-            context4 = this.bVj.mContext;
+            context4 = this.bVi.mContext;
             UtilHelper.showToast(context4, setBubbleResultData.getError_msg());
         } else {
-            context3 = this.bVj.mContext;
+            context3 = this.bVi.mContext;
             UtilHelper.showToast(context3, com.baidu.tieba.z.neterror);
         }
-        if (this.bVj.agA() != null) {
-            this.bVj.agA().agD();
+        if (this.bVi.agv() != null) {
+            this.bVi.agv().agy();
         }
     }
 }

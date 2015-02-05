@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView aVx;
+    private SettingTextSwitchView aVw;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -19,22 +19,22 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     }
 
     public void setSwitchStateChangeListener(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        if (this.aVx != null) {
-            this.aVx.setSwitchStateChangeListener(cVar);
+        if (this.aVw != null) {
+            this.aVw.setSwitchStateChangeListener(cVar);
         }
     }
 
     private void initUI() {
         setOrientation(1);
         inflate(getContext(), com.baidu.tieba.x.p2ptalk_setting_detail_view, this);
-        this.aVx = (SettingTextSwitchView) findViewById(com.baidu.tieba.w.sv_person_msg_notify);
+        this.aVw = (SettingTextSwitchView) findViewById(com.baidu.tieba.w.sv_person_msg_notify);
     }
 
     public void cF(boolean z) {
         if (z) {
-            this.aVx.M(false);
+            this.aVw.M(false);
         } else {
-            this.aVx.N(false);
+            this.aVw.N(false);
         }
     }
 }

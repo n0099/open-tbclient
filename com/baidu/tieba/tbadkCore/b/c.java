@@ -21,15 +21,15 @@ public class c {
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String bYt = null;
-    private SpannableStringBuilder bYu = null;
-    private boolean bYs = false;
+    private String bYs = null;
+    private SpannableStringBuilder bYt = null;
+    private boolean bYr = false;
 
-    public static boolean ac(int i, int i2) {
+    public static boolean ad(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean ad(int i, int i2) {
+    public static boolean ae(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -45,20 +45,20 @@ public class c {
         return this.text;
     }
 
-    public String agZ() {
+    public String agU() {
         return this.c;
     }
 
-    public SpannableStringBuilder aha() {
-        return this.bYu;
+    public SpannableStringBuilder agV() {
+        return this.bYt;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.bYu == null) {
-            this.bYu = new SpannableStringBuilder();
+        if (this.bYt == null) {
+            this.bYt = new SpannableStringBuilder();
         }
-        this.bYu.append((CharSequence) spannableString);
-        return this.bYu;
+        this.bYt.append((CharSequence) spannableString);
+        return this.bYt;
     }
 
     public SpannableString aw(Context context) {
@@ -77,9 +77,9 @@ public class c {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.m255getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable jl = face.jl();
-                    jl.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(jl, 1), 0, this.text.length(), 33);
+                    BitmapDrawable je = face.je();
+                    je.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(je, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -121,7 +121,7 @@ public class c {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.bYt = jSONObject.optString("cdn_src", null);
+                    this.bYs = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -136,7 +136,7 @@ public class c {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.bYs = true;
+                        this.bYr = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -146,7 +146,7 @@ public class c {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.wd().dZ(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.vX().dW(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

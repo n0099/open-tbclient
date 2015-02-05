@@ -12,23 +12,23 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private com.baidu.tbadk.img.e apK;
-    private AlbumActivity apM;
-    private String aqe;
-    private int aqf;
+    private com.baidu.tbadk.img.e apH;
+    private AlbumActivity apJ;
+    private String aqb;
+    private int aqc;
     private List<a> mList;
     private int mWidth;
 
     public j(AlbumActivity albumActivity) {
-        this.apM = albumActivity;
-        this.apK = albumActivity.BC();
-        this.mWidth = (int) this.apM.getResources().getDimension(com.baidu.tieba.u.album_image_height);
-        this.aqf = com.baidu.adp.lib.util.l.M(this.apM.getPageContext().getPageActivity()) / 2;
+        this.apJ = albumActivity;
+        this.apH = albumActivity.Bw();
+        this.mWidth = (int) this.apJ.getResources().getDimension(com.baidu.tieba.u.album_image_height);
+        this.aqc = com.baidu.adp.lib.util.l.M(this.apJ.getPageContext().getPageActivity()) / 2;
     }
 
     public void a(List<a> list, String str) {
         this.mList = list;
-        this.aqe = str;
+        this.aqb = str;
     }
 
     @Override // android.widget.Adapter
@@ -60,50 +60,50 @@ public class j extends BaseAdapter {
         if (view != null) {
             lVar = (l) view.getTag();
         } else {
-            view = com.baidu.adp.lib.g.b.ei().a(this.apM.getPageContext().getPageActivity(), com.baidu.tieba.x.album_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.ei().a(this.apJ.getPageContext().getPageActivity(), com.baidu.tieba.x.album_list_item, viewGroup, false);
             l lVar2 = new l(this, null);
-            lVar2.aqi = (HeadImageView) view.findViewById(com.baidu.tieba.w.item_head);
-            lVar2.aqj = (TextView) view.findViewById(com.baidu.tieba.w.item_name);
-            lVar2.aqk = (ImageView) view.findViewById(com.baidu.tieba.w.item_arrow);
+            lVar2.aqf = (HeadImageView) view.findViewById(com.baidu.tieba.w.item_head);
+            lVar2.aqg = (TextView) view.findViewById(com.baidu.tieba.w.item_name);
+            lVar2.aqh = (ImageView) view.findViewById(com.baidu.tieba.w.item_arrow);
             view.setTag(lVar2);
             lVar = lVar2;
         }
-        lVar.aqi.setTag(null);
-        lVar.aqi.setDefaultBgResource(0);
-        lVar.aqi.setDefaultResource(com.baidu.tieba.v.img_default_100);
-        lVar.aqi.d(null, 12, false);
-        lVar.aqi.invalidate();
+        lVar.aqf.setTag(null);
+        lVar.aqf.setDefaultBgResource(0);
+        lVar.aqf.setDefaultResource(com.baidu.tieba.v.img_default_100);
+        lVar.aqf.d(null, 12, false);
+        lVar.aqf.invalidate();
         a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                lVar.aqj.setText(String.valueOf(com.baidu.adp.lib.util.l.a(lVar.aqj.getPaint(), item.getName(), this.aqf)) + "(" + item.BF() + ")");
+                lVar.aqg.setText(String.valueOf(com.baidu.adp.lib.util.l.a(lVar.aqg.getPaint(), item.getName(), this.aqc)) + "(" + item.Bz() + ")");
             } else {
-                lVar.aqj.setText("");
+                lVar.aqg.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.aqe)) {
-                lVar.aqk.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.aqb)) {
+                lVar.aqh.setVisibility(0);
             } else {
-                lVar.aqk.setVisibility(8);
+                lVar.aqh.setVisibility(8);
             }
-            ImageFileInfo BG = item.BG();
-            if (BG != null) {
-                BG.clearPageActions();
-                BG.addPageAction(com.baidu.tbadk.img.effect.d.z(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a = this.apK.a(BG, false);
-                lVar.aqi.setTag(BG.toCachedKey(false));
+            ImageFileInfo BA = item.BA();
+            if (BA != null) {
+                BA.clearPageActions();
+                BA.addPageAction(com.baidu.tbadk.img.effect.d.z(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a = this.apH.a(BA, false);
+                lVar.aqf.setTag(BA.toCachedKey(false));
                 if (a != null) {
-                    lVar.aqi.invalidate();
+                    lVar.aqf.invalidate();
                 } else {
-                    this.apK.a(BG, new k(this, viewGroup), false, this.apM.isScroll());
+                    this.apH.a(BA, new k(this, viewGroup), false, this.apJ.isScroll());
                 }
             }
         } else {
-            lVar.aqj.setText("");
+            lVar.aqg.setText("");
         }
-        this.apM.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
-        this.apM.getLayoutMode().h(view);
+        this.apJ.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+        this.apJ.getLayoutMode().h(view);
         return view;
     }
 }

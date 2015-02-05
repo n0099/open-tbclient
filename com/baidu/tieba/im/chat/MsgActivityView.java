@@ -10,23 +10,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MsgActivityView extends bc {
-    private HeadImageView aCp;
+    private HeadImageView aCm;
+    private TextView aRQ;
     private TextView aRR;
     private TextView aRS;
-    private TextView aRT;
     private com.baidu.adp.lib.c.a mItemViewClickListener;
     private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, com.baidu.tieba.x.msg_msgactivity_view);
-        this.ayA = (TextView) findViewById(com.baidu.tieba.w.tex_msgitem_time);
-        this.aRR = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_title);
-        this.aRS = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_time);
-        this.aRT = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_address);
-        this.aCp = (HeadImageView) findViewById(com.baidu.tieba.w.img_msgactivity_photo);
-        this.aCp.setIsRound(false);
-        this.aCp.setClickable(true);
+        this.ayx = (TextView) findViewById(com.baidu.tieba.w.tex_msgitem_time);
+        this.aRQ = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_title);
+        this.aRR = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_time);
+        this.aRS = (TextView) findViewById(com.baidu.tieba.w.msg_msgactivity_address);
+        this.aCm = (HeadImageView) findViewById(com.baidu.tieba.w.img_msgactivity_photo);
+        this.aCm.setIsRound(false);
+        this.aCm.setClickable(true);
         getConvertView().setOnClickListener(new av(this));
         getConvertView().setOnLongClickListener(new aw(this));
     }
@@ -45,7 +45,7 @@ public class MsgActivityView extends bc {
                     String optString4 = optJSONObject.optString("activityImage");
                     String optString5 = optJSONObject.optString("activityUserId");
                     String optString6 = optJSONObject.optString("activityUserName");
-                    this.aRR.setText(optString);
+                    this.aRQ.setText(optString);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(com.baidu.adp.lib.g.c.a(optString2, 0L) * 1000);
                     int i = calendar.get(11);
@@ -86,16 +86,16 @@ public class MsgActivityView extends bc {
                     } else {
                         string2 = this.mContext.getResources().getString(com.baidu.tieba.z.am);
                     }
-                    this.aRS.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
+                    this.aRR.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
-                        this.aRT.setVisibility(4);
+                        this.aRS.setVisibility(4);
                     } else {
-                        this.aRT.setVisibility(0);
-                        this.aRT.setText(optString3);
+                        this.aRS.setVisibility(0);
+                        this.aRS.setText(optString3);
                     }
-                    this.aCp.setTag(optString4);
-                    this.aCp.setOnClickListener(new ax(this, optString5, optString6));
-                    this.aCp.d(optString4, 12, false);
+                    this.aCm.setTag(optString4);
+                    this.aCm.setOnClickListener(new ax(this, optString5, optString6));
+                    this.aCm.d(optString4, 12, false);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

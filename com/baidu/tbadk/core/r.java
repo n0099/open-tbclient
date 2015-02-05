@@ -3,11 +3,11 @@ package com.baidu.tbadk.core;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 /* loaded from: classes.dex */
 class r implements com.baidu.tbadk.util.e {
-    final /* synthetic */ q CT;
+    final /* synthetic */ q CQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.CT = qVar;
+        this.CQ = qVar;
     }
 
     @Override // com.baidu.tbadk.util.e

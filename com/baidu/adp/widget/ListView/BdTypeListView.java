@@ -8,29 +8,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    ap xB;
+    ap xy;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.xB = null;
+        this.xy = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.xB = null;
+        this.xy = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.xB = null;
+        this.xy = null;
         init();
     }
 
     private void init() {
-        if (this.xB == null) {
-            this.xB = new ap();
+        if (this.xy == null) {
+            this.xy = new ap();
         }
         super.setOnItemClickListener(new ak(this));
         super.setOnItemLongClickListener(new al(this));
@@ -49,20 +49,20 @@ public class BdTypeListView extends BdListView {
     public void h(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.xB.a(it.next());
+            this.xy.a(it.next());
         }
-        setAdapter((ListAdapter) this.xB);
+        setAdapter((ListAdapter) this.xy);
     }
 
     public void setData(List<am> list) {
-        this.xB.setData(list);
+        this.xy.setData(list);
     }
 
     public List<am> getData() {
-        return this.xB.getData();
+        return this.xy.getData();
     }
 
     public am aD(int i) {
-        return this.xB.getItem(i);
+        return this.xy.getItem(i);
     }
 }

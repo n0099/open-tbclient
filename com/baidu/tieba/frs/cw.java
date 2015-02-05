@@ -6,17 +6,17 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class cw {
-    LinearLayout aGQ;
-    LinearLayout aGR;
-    cx aGS;
+    LinearLayout aGN;
+    LinearLayout aGO;
+    cx aGP;
+    TextView aGQ;
+    TextView aGR;
+    TextView aGS;
     TextView aGT;
-    TextView aGU;
-    TextView aGV;
-    TextView aGW;
-    TbImageView aGX;
-    TbImageView aGY;
-    TbImageView aGZ;
-    LinearLayout aHa;
-    LinearLayout aHb;
-    View aHc;
+    TbImageView aGU;
+    TbImageView aGV;
+    TbImageView aGW;
+    LinearLayout aGX;
+    LinearLayout aGY;
+    View aGZ;
 }

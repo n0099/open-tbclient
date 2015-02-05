@@ -6,19 +6,19 @@ import org.json.JSONObject;
 import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class u {
-    private String EA;
-    private IconData EB = new IconData();
-    private String Ez;
+    private String Ew;
+    private String Ex;
+    private IconData Ey = new IconData();
     private boolean isAdded;
     private String name;
     private int sex;
     private int userId;
 
-    public void nl() {
+    public void ne() {
         this.isAdded = true;
     }
 
-    public boolean nm() {
+    public boolean nf() {
         return this.isAdded;
     }
 
@@ -26,14 +26,14 @@ public class u {
         if (userInfo != null) {
             this.isAdded = false;
             this.userId = userInfo.user_id.intValue();
-            this.Ez = userInfo.portrait;
+            this.Ew = userInfo.portrait;
             this.name = userInfo.user_name;
             this.sex = userInfo.gender.intValue();
-            this.EA = userInfo.intro;
+            this.Ex = userInfo.intro;
             if (userInfo.tshow_icon != null) {
-                this.EB.setIcon(userInfo.tshow_icon.icon);
-                this.EB.setIconName(userInfo.tshow_icon.name);
-                this.EB.setUrl(userInfo.tshow_icon.url);
+                this.Ey.setIcon(userInfo.tshow_icon.icon);
+                this.Ey.setIconName(userInfo.tshow_icon.name);
+                this.Ey.setUrl(userInfo.tshow_icon.url);
             }
         }
     }
@@ -42,39 +42,39 @@ public class u {
         return this.userId;
     }
 
-    public String nn() {
-        return this.Ez;
+    public String ng() {
+        return this.Ew;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public boolean no() {
+    public boolean nh() {
         return 2 == this.sex;
     }
 
-    public String np() {
-        return this.EA;
+    public String ni() {
+        return this.Ex;
     }
 
-    public IconData nq() {
-        return this.EB;
+    public IconData nj() {
+        return this.Ey;
     }
 
     public void f(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.userId = jSONObject.optInt("user_id");
             this.name = jSONObject.optString("user_name");
-            this.Ez = jSONObject.optString("portait");
+            this.Ew = jSONObject.optString("portait");
             this.sex = jSONObject.optInt("gender");
             this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.EA = jSONObject.optString("intro");
+            this.Ex = jSONObject.optString("intro");
             JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
             if (optJSONObject != null) {
-                this.EB.setIcon(optJSONObject.optString("icon"));
-                this.EB.setIconName(optJSONObject.optString("user_name"));
-                this.EB.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
+                this.Ey.setIcon(optJSONObject.optString("icon"));
+                this.Ey.setIconName(optJSONObject.optString("user_name"));
+                this.Ey.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
             }
         }
     }

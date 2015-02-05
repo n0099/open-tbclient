@@ -41,7 +41,7 @@ public class o {
             tbPageContext.getPageActivity().finish();
             return true;
         } else if (str.startsWith("tbdou:")) {
-            bm.pV().b(tbPageContext, new String[]{str});
+            bm.pO().b(tbPageContext, new String[]{str});
             return true;
         } else {
             if (str != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && tbPageContext != null) {

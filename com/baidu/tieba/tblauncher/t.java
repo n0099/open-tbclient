@@ -19,6 +19,6 @@ class t extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
             return;
         }
-        this.this$0.ajh();
+        this.this$0.ajc();
     }
 }

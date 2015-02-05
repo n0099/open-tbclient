@@ -15,7 +15,7 @@ public class r implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        List<v<String>> b = x.b(com.baidu.tbadk.core.a.a.nV().bT("tb.im_group_search_history"));
+        List<v<String>> b = x.b(com.baidu.tbadk.core.a.a.nO().bQ("tb.im_group_search_history"));
         ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
         responseSearchGroupLocalMessage.setCacheList(b);
         return responseSearchGroupLocalMessage;

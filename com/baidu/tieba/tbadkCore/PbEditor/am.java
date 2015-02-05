@@ -6,16 +6,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 /* loaded from: classes.dex */
 public class am extends BaseAdapter {
-    private final int Yn;
-    private ap bWG;
-    final /* synthetic */ PrivilegeTabContentView bWH;
+    private final int Yk;
+    private ap bWF;
+    final /* synthetic */ PrivilegeTabContentView bWG;
     private final int count;
 
     public am(PrivilegeTabContentView privilegeTabContentView, Context context, int i, int i2, ap apVar) {
-        this.bWH = privilegeTabContentView;
+        this.bWG = privilegeTabContentView;
         this.count = i;
-        this.Yn = i2;
-        this.bWG = apVar;
+        this.Yk = i2;
+        this.bWF = apVar;
     }
 
     @Override // android.widget.Adapter
@@ -35,6 +35,6 @@ public class am extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.bWG.getView(this.Yn + i, view, viewGroup);
+        return this.bWF.getView(this.Yk + i, view, viewGroup);
     }
 }

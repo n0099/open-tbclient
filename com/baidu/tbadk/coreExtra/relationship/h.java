@@ -7,7 +7,7 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes.dex */
 public class h {
-    private List<b> SU;
+    private List<b> SQ;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class h {
     }
 
     public List<b> getContacts() {
-        if (this.SU == null) {
-            this.SU = new ArrayList();
+        if (this.SQ == null) {
+            this.SQ = new ArrayList();
         }
-        return this.SU;
+        return this.SQ;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.SU = new ArrayList();
+                this.SQ = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     b bVar = new b();
                     bVar.a(friendlist);
-                    bVar.dB(this.mKey);
-                    this.SU.add(bVar);
+                    bVar.dy(this.mKey);
+                    this.SQ.add(bVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class h {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.SU = new ArrayList();
+                this.SQ = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     b bVar = new b();
                     bVar.a(friendlist);
-                    bVar.dB(this.mKey);
-                    this.SU.add(bVar);
+                    bVar.dy(this.mKey);
+                    this.SQ.add(bVar);
                 }
             }
         }

@@ -5,16 +5,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnTouchListener {
-    final /* synthetic */ s bcg;
+    final /* synthetic */ s bcf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(s sVar) {
-        this.bcg = sVar;
+        this.bcf = sVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.bcg.OT();
+        this.bcf.OO();
         return false;
     }
 }

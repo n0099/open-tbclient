@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.im.model.UpdatesModel;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ UpdatesActivity bhj;
+    final /* synthetic */ UpdatesActivity bhi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(UpdatesActivity updatesActivity, int i) {
         super(i);
-        this.bhj = updatesActivity;
+        this.bhi = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         p pVar;
         com.baidu.tieba.im.g gVar;
-        pVar = this.bhj.bhg;
+        pVar = this.bhi.bhf;
         pVar.setLoadProgressBarVisable(false);
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
             int cmd = customResponsedMessage.getCmd();
             if (2001136 == cmd || 2001137 == cmd || 2001134 == cmd || 2001133 == cmd || 2001141 == cmd) {
-                gVar = this.bhj.getDataCallBack;
+                gVar = this.bhi.getDataCallBack;
                 UpdatesModel.requestUpdatesDataFromDB(gVar);
             }
         }

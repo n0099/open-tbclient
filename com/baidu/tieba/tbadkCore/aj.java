@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public interface aj {
-    void Ho();
+    void Hi();
 
-    void Hp();
+    void Hj();
 }

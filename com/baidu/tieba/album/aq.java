@@ -6,5 +6,5 @@ import java.util.List;
 public interface aq {
     void a(List<a> list, List<ImageFileInfo> list2, String str);
 
-    void jG();
+    void jz();
 }

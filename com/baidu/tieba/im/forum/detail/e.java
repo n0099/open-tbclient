@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ boolean aEa;
-    final /* synthetic */ ForumDetailActivity baB;
+    private final /* synthetic */ boolean aDX;
+    final /* synthetic */ ForumDetailActivity baA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ForumDetailActivity forumDetailActivity, boolean z) {
-        this.baB = forumDetailActivity;
-        this.aEa = z;
+        this.baA = forumDetailActivity;
+        this.aDX = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,12 @@ public class e extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         String str;
         String str2;
-        str = this.baB.mForumId;
+        str = this.baA.mForumId;
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.im.settingcache.h Tt = com.baidu.tieba.im.settingcache.h.Tt();
+            com.baidu.tieba.im.settingcache.h To = com.baidu.tieba.im.settingcache.h.To();
             String currentAccount = TbadkApplication.getCurrentAccount();
-            str2 = this.baB.mForumId;
-            Tt.f(currentAccount, String.valueOf(str2), this.aEa);
+            str2 = this.baA.mForumId;
+            To.f(currentAccount, String.valueOf(str2), this.aDX);
         }
         return null;
     }

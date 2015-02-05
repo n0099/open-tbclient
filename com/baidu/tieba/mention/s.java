@@ -8,22 +8,22 @@ public class s extends com.baidu.tbadk.mvc.model.a<ae, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<ae> ln() {
+    public Class<ae> lg() {
         return ae.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int lo() {
+    public int lh() {
         return 2001264;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int lp() {
+    public int li() {
         return 2001264;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String lq() {
+    public String lj() {
         return "tb_user_replyme";
     }
 }

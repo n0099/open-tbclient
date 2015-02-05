@@ -13,7 +13,7 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
 public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.core.b implements q<T, R> {
-    protected abstract boolean kK();
+    protected abstract boolean kD();
 
     public a(e<?, ?, ?> eVar) {
         super(eVar);
@@ -22,11 +22,11 @@ public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.co
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        wN().addEventDelegate(this);
+        wH().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
-    public boolean wO() {
+    public boolean wI() {
         return true;
     }
 
@@ -35,8 +35,8 @@ public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xs() == 16777216) {
-            if (kK()) {
+        if (bVar.xm() == 16777216) {
+            if (kD()) {
                 dF(33554435);
                 return true;
             }

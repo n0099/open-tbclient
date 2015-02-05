@@ -15,14 +15,14 @@ public class bb {
         try {
             if (!s.bL()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.ol());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.ol());
                 }
             } else {
-                File cj = s.cj("camera.jpg");
-                if (cj != null) {
-                    Uri fromFile = Uri.fromFile(cj);
+                File cg = s.cg("camera.jpg");
+                if (cg != null) {
+                    Uri fromFile = Uri.fromFile(cg);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", fromFile);
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
@@ -42,17 +42,17 @@ public class bb {
         try {
             if (!s.bL()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.ol());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.ol());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (s.ce(s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (s.cb(s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();

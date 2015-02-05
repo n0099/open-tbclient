@@ -8,9 +8,9 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public abstract class c extends a {
-    protected NavigationBar aeV;
-    protected com.baidu.tbadk.mvc.g.a.d afa;
-    private NoNetworkView afb;
+    protected NavigationBar aeS;
+    protected com.baidu.tbadk.mvc.g.a.d aeX;
+    private NoNetworkView aeY;
 
     protected abstract com.baidu.tbadk.mvc.g.a.d a(NavigationBar navigationBar);
 
@@ -20,36 +20,36 @@ public abstract class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.g.b.a, com.baidu.tbadk.mvc.core.c
-    public void kJ() {
-        this.aeV = (NavigationBar) getView().findViewById(w.view_navigation_bar);
-        this.afa = a(this.aeV);
-        if (yt()) {
+    public void kC() {
+        this.aeS = (NavigationBar) getView().findViewById(w.view_navigation_bar);
+        this.aeX = a(this.aeS);
+        if (yn()) {
             ViewGroup viewGroup = (ViewGroup) getView();
-            this.afb = new NoNetworkView(getActivity());
-            this.afb.a(new d(this));
-            int indexOfChild = viewGroup.indexOfChild(this.aeV);
-            this.afb.setVisibility(8);
-            viewGroup.addView(this.afb, indexOfChild + 1);
+            this.aeY = new NoNetworkView(getActivity());
+            this.aeY.a(new d(this));
+            int indexOfChild = viewGroup.indexOfChild(this.aeS);
+            this.aeY.setVisibility(8);
+            viewGroup.addView(this.aeY, indexOfChild + 1);
         }
-        super.kJ();
+        super.kC();
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.a, com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.afa.a(tbPageContext, i);
-        if (this.afb != null) {
-            this.afb.onChangeSkinType(tbPageContext, i);
+        this.aeX.a(tbPageContext, i);
+        if (this.aeY != null) {
+            this.aeY.onChangeSkinType(tbPageContext, i);
         }
         super.a(tbPageContext, i);
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.a, com.baidu.tbadk.mvc.core.c
-    protected int kI() {
+    protected int kB() {
         return x.mvc_template_navi_list;
     }
 
-    protected boolean yt() {
+    protected boolean yn() {
         return true;
     }
 

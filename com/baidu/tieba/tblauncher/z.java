@@ -24,7 +24,7 @@ class z extends e {
             if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
                 return;
             }
-            this.this$0.iz(configVersion.sync);
+            this.this$0.ix(configVersion.sync);
         }
     }
 }

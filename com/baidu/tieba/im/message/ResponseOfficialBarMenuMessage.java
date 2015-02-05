@@ -61,10 +61,10 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                             dVar2.setName(subMenu.name);
                             dVar2.fF(subMenu.parent_id.intValue());
                             dVar2.T(subMenu.update_time.intValue());
-                            dVar.MI().add(dVar2);
+                            dVar.MD().add(dVar2);
                         }
                     }
-                    getOfficialBarMenuDatas().ML().add(dVar);
+                    getOfficialBarMenuDatas().MG().add(dVar);
                 }
             }
         }
@@ -75,8 +75,8 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         com.baidu.tieba.im.data.e officialBarMenuDatas;
         Message<?> orginalMessage = getOrginalMessage();
-        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.MJ() && officialBarMenuDatas.ML() != null && officialBarMenuDatas.ML().size() > 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.nV().bS("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
+        if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.ME() && officialBarMenuDatas.MG() != null && officialBarMenuDatas.MG().size() > 0) {
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.nO().bP("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
         }
     }
 }

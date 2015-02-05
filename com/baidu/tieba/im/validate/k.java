@@ -7,11 +7,11 @@ import com.baidu.tieba.im.data.ValidateItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ i bpW;
+    final /* synthetic */ i bpV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.bpW = iVar;
+        this.bpV = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,9 +19,9 @@ public class k implements View.OnClickListener {
         ValidateActivity validateActivity;
         HeadImageView headImageView;
         ValidateItemData validateItemData;
-        validateActivity = this.bpW.bpR;
-        headImageView = this.bpW.bhl;
-        validateItemData = this.bpW.bpV;
+        validateActivity = this.bpV.bpQ;
+        headImageView = this.bpV.bhk;
+        validateItemData = this.bpV.bpU;
         validateActivity.a(headImageView, PersonInfoActivityConfig.REQUSET_CHANGE, 0, 0L, validateItemData);
     }
 }

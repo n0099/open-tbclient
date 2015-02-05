@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class ar implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ ao amp;
+    final /* synthetic */ ao amm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ao aoVar) {
-        this.amp = aoVar;
+        this.amm = aoVar;
     }
 
     @Override // com.baidu.adp.lib.d.d

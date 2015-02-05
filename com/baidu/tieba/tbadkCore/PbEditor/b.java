@@ -9,132 +9,132 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
 /* loaded from: classes.dex */
 public class b extends ao {
-    private com.baidu.tieba.tbadkCore.bubble.h bUY;
-    private BubbleListData bUZ;
-    private int bVa;
-    private String bVb;
-    private boolean bVc;
-    private com.baidu.tieba.tbadkCore.bubble.k bVd;
-    private com.baidu.tieba.tbadkCore.bubble.l bVe;
-    public CustomMessageListener bVf;
-    private View.OnClickListener bVg;
+    private com.baidu.tieba.tbadkCore.bubble.h bUX;
+    private BubbleListData bUY;
+    private int bUZ;
+    private String bVa;
+    private boolean bVb;
+    private com.baidu.tieba.tbadkCore.bubble.k bVc;
+    private com.baidu.tieba.tbadkCore.bubble.l bVd;
+    public CustomMessageListener bVe;
+    private View.OnClickListener bVf;
+    private com.baidu.tieba.tbadkCore.bubble.x bVg;
     private com.baidu.tieba.tbadkCore.bubble.x bVh;
-    private com.baidu.tieba.tbadkCore.bubble.x bVi;
     private Context mContext;
 
     public b(au auVar) {
         super(auVar);
-        this.bVa = 0;
-        this.bVc = false;
-        this.bVd = new c(this);
-        this.bVe = new d(this);
-        this.bVf = new e(this, 2010040);
-        this.bVg = new f(this);
-        this.bVh = new g(this);
-        this.bVi = new h(this);
+        this.bUZ = 0;
+        this.bVb = false;
+        this.bVc = new c(this);
+        this.bVd = new d(this);
+        this.bVe = new e(this, 2010040);
+        this.bVf = new f(this);
+        this.bVg = new g(this);
+        this.bVh = new h(this);
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ao
     public void init(Context context) {
-        if (this.bVc) {
-            if (agA() != null) {
-                agA().b(this);
+        if (this.bVb) {
+            if (agv() != null) {
+                agv().b(this);
                 return;
             }
             return;
         }
-        this.bVc = true;
+        this.bVb = true;
         this.mContext = context;
         aq aqVar = new aq();
-        aqVar.bWL = com.baidu.tieba.v.icon_bubble;
-        aqVar.bWM = 0;
+        aqVar.bWK = com.baidu.tieba.v.icon_bubble;
+        aqVar.bWL = 0;
         setVerticalSpacing(TbadkCoreApplication.m255getInst().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds26));
         setHorizontalSpacing(TbadkCoreApplication.m255getInst().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds30));
         a(aqVar);
         hR(2);
         hS(2);
         a(new i(this, context));
-        this.bVb = TbadkCoreApplication.m255getInst().getDefaultBubble();
-        if (this.bUY == null) {
+        this.bVa = TbadkCoreApplication.m255getInst().getDefaultBubble();
+        if (this.bUX == null) {
             if (this.mContext instanceof TbPageContext) {
-                this.bUY = new com.baidu.tieba.tbadkCore.bubble.h((TbPageContext) this.mContext);
+                this.bUX = new com.baidu.tieba.tbadkCore.bubble.h((TbPageContext) this.mContext);
             } else {
-                this.bUY = new com.baidu.tieba.tbadkCore.bubble.h(null);
+                this.bUX = new com.baidu.tieba.tbadkCore.bubble.h(null);
             }
         }
-        this.bUY.a(this.bVd);
-        this.bUY.a(this.bVe);
-        this.bUY.b(this.bVf);
-        this.bUY.agV();
-        this.bUY.agW();
-        if (agA() != null) {
-            agA().OF();
+        this.bUX.a(this.bVc);
+        this.bUX.a(this.bVd);
+        this.bUX.b(this.bVe);
+        this.bUX.agQ();
+        this.bUX.agR();
+        if (agv() != null) {
+            agv().OA();
         }
-        this.bUY.g(0, 50, com.baidu.adp.lib.util.l.M(this.mContext), com.baidu.adp.lib.util.l.N(this.mContext));
+        this.bUX.g(0, 50, com.baidu.adp.lib.util.l.M(this.mContext), com.baidu.adp.lib.util.l.N(this.mContext));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hL(int i) {
-        this.bUY.w(i, com.baidu.adp.lib.util.l.M(this.mContext), com.baidu.adp.lib.util.l.N(this.mContext));
-        this.bUY.hU(i);
-        if (agA() != null) {
-            agA().OF();
+        this.bUX.w(i, com.baidu.adp.lib.util.l.M(this.mContext), com.baidu.adp.lib.util.l.N(this.mContext));
+        this.bUX.hU(i);
+        if (agv() != null) {
+            agv().OA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afp() {
+    public void afk() {
         int i = 0;
-        if (this.bUZ != null && this.bUZ.getB_info() != null && this.bUZ.getB_info().size() > 0) {
+        if (this.bUY != null && this.bUY.getB_info() != null && this.bUY.getB_info().size() > 0) {
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
-            if (this.bUZ.getB_info().get(0).getBcode() != 0) {
-                this.bUZ.getB_info().add(0, bubbleData);
+            if (this.bUY.getB_info().get(0).getBcode() != 0) {
+                this.bUY.getB_info().add(0, bubbleData);
             }
-            this.bVa = 0;
+            this.bUZ = 0;
             while (true) {
-                if (i >= this.bUZ.getB_info().size()) {
+                if (i >= this.bUY.getB_info().size()) {
                     break;
-                } else if (!this.bUZ.getB_info().get(i).isDef()) {
+                } else if (!this.bUY.getB_info().get(i).isDef()) {
                     i++;
                 } else {
-                    this.bVa = i;
+                    this.bUZ = i;
                     break;
                 }
             }
         }
-        if (agB() != null) {
-            if (this.bVa == 0 || TextUtils.isEmpty(this.bVb)) {
-                agB().handleAction(47, null);
+        if (agw() != null) {
+            if (this.bUZ == 0 || TextUtils.isEmpty(this.bVa)) {
+                agw().handleAction(47, null);
             } else {
-                agB().handleAction(46, this.bVb);
+                agw().handleAction(46, this.bVa);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public BubbleListData.BubbleData hM(int i) {
-        if (i < 0 || i >= getCount() || this.bUZ == null) {
+        if (i < 0 || i >= getCount() || this.bUY == null) {
             return null;
         }
-        return this.bUZ.getB_info().get(i);
+        return this.bUY.getB_info().get(i);
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ao
     public int getCount() {
-        if (this.bUZ == null || this.bUZ.getB_info() == null) {
+        if (this.bUY == null || this.bUY.getB_info() == null) {
             return 0;
         }
-        return this.bUZ.getB_info().size();
+        return this.bUY.getB_info().size();
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ao
     public void exit() {
-        if (this.bUY != null) {
-            this.bUY.unRegisterListener();
-            this.bUY.c(this.bVf);
-            this.bUY = null;
-            this.bVc = false;
+        if (this.bUX != null) {
+            this.bUX.unRegisterListener();
+            this.bUX.c(this.bVe);
+            this.bUX = null;
+            this.bVb = false;
         }
     }
 }

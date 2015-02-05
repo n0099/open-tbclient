@@ -14,13 +14,13 @@ class b implements CustomMessageTask.CustomRunnable<f> {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 f data = customMessage.getData();
-                if (data == null || data.ipListData == null || data.ipListData.BK == null) {
+                if (data == null || data.ipListData == null || data.ipListData.BH == null) {
                     return null;
                 }
                 String str = "";
                 if (f.a(data) == null) {
-                    if (data.pos < data.ipListData.BK.size()) {
-                        ArrayList<String> arrayList = data.ipListData.BK.get(data.pos);
+                    if (data.pos < data.ipListData.BH.size()) {
+                        ArrayList<String> arrayList = data.ipListData.BH.get(data.pos);
                         if (arrayList.size() > 0) {
                             z = false;
                             str = arrayList.get(0);
@@ -34,8 +34,8 @@ class b implements CustomMessageTask.CustomRunnable<f> {
                     z = true;
                 }
                 if (str.length() > 0) {
-                    data.isSuccess = data.cdnTachometerModel.a(data.ipListData.imageUrl, str, data.ipListData.BM, data.ipListData.BJ, f.b(data));
-                    data.vD = System.currentTimeMillis() - currentTimeMillis;
+                    data.isSuccess = data.cdnTachometerModel.a(data.ipListData.imageUrl, str, data.ipListData.BJ, data.ipListData.BG, f.b(data));
+                    data.vA = System.currentTimeMillis() - currentTimeMillis;
                     data.cdnIp = str;
                     if (z) {
                         f.a(data, str);

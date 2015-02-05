@@ -20,7 +20,7 @@ public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.QO().l(imMessageCenterPojo);
+        c.QJ().l(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
         }
@@ -33,7 +33,7 @@ public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                 com.baidu.tieba.im.data.g a = com.baidu.tieba.im.util.i.a(commonMsgPojo);
                 if (a != null) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst(), "message_receive", "receive", 1, "task_type", a.aXX, "task_id", a.aXY);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst(), "message_receive", "receive", 1, "task_type", a.aXW, "task_id", a.aXX);
                 }
             }
         }

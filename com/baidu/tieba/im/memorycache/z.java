@@ -18,7 +18,7 @@ public class z extends com.baidu.adp.framework.listener.e {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDismissGroupMessage) && socketResponsedMessage.getError() == 0) {
-            this.this$0.gY(String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId()));
+            this.this$0.gV(String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId()));
         }
     }
 }

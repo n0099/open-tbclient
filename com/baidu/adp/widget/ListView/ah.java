@@ -7,34 +7,34 @@ import android.view.View;
 public class ah {
     int mDuration;
     View mView;
-    private int xu;
-    private com.baidu.adp.widget.ScrollView.g xv;
-    private boolean xw;
-    aj xx;
-    private int xt = 1;
+    private int xr;
+    private com.baidu.adp.widget.ScrollView.g xs;
+    private boolean xt;
+    aj xu;
+    private int xq = 1;
     Handler mHandler = new Handler();
-    Runnable xy = new ai(this);
+    Runnable xv = new ai(this);
 
     public ah(Context context, int i, int i2, int i3) {
-        this.xw = true;
+        this.xt = true;
         int abs = Math.abs(i - i2);
-        this.xu = i2;
-        if (abs < this.xt) {
-            this.xw = false;
+        this.xr = i2;
+        if (abs < this.xq) {
+            this.xt = false;
         }
-        this.xx = new aj(this, context);
+        this.xu = new aj(this, context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.ScrollView.g gVar) {
-        this.xv = gVar;
+        this.xs = gVar;
     }
 
     public void g(View view) {
-        if (this.xw && this.xx != null) {
+        if (this.xt && this.xu != null) {
             this.mView = view;
-            this.xx.i(Math.abs(this.xu), this.mDuration);
-            this.mHandler.postDelayed(this.xy, this.mDuration);
+            this.xu.i(Math.abs(this.xr), this.mDuration);
+            this.mHandler.postDelayed(this.xv, this.mDuration);
         }
     }
 
@@ -42,8 +42,8 @@ public class ah {
     public boolean move(int i) {
         boolean z = true;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.xu) {
-            paddingTop = this.xu;
+        if (paddingTop <= this.xr) {
+            paddingTop = this.xr;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());

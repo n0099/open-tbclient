@@ -23,11 +23,11 @@ class a implements q {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.oj().putBoolean(SettingTextFunctionIntroView.bxX, true);
+                com.baidu.tbadk.core.sharedPref.b.oc().putBoolean(SettingTextFunctionIntroView.bxW, true);
                 MessageManager messageManager = MessageManager.getInstance();
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(com.baidu.tieba.z.setting_funtion_intro);
-                str = this.this$0.buS;
+                str = this.this$0.buR;
                 messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str, true, true, false, false, false)));
             }
         } else {

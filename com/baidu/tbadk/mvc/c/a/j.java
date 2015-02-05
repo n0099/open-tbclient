@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ e aej;
+    final /* synthetic */ e aeg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.aej = eVar;
+        this.aeg = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -18,7 +18,7 @@ class j implements AdapterView.OnItemLongClickListener {
             s.setView(view);
             s.c(adapterView);
             s.dI(i);
-            if (this.aej.dispatchMvcEvent(s)) {
+            if (this.aeg.dispatchMvcEvent(s)) {
                 return true;
             }
         }

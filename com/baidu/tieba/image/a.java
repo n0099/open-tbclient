@@ -6,86 +6,86 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private String aCQ;
-    private ArrayList<String> brg;
+    private String aCN;
+    private ArrayList<String> brf;
+    private String brh;
     private String bri;
-    private String brj;
-    private boolean brp;
-    private String brh = null;
-    private String Uv = null;
-    private boolean brk = false;
-    private boolean brl = true;
-    private b brm = null;
-    private int brn = 0;
-    private boolean bro = false;
-    private c brq = null;
-    private HashMap<String, String> brr = new HashMap<>();
+    private boolean bro;
+    private String brg = null;
+    private String Us = null;
+    private boolean brj = false;
+    private boolean brk = true;
+    private b brl = null;
+    private int brm = 0;
+    private boolean brn = false;
+    private c brp = null;
+    private HashMap<String, String> brq = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.brg = null;
+        this.brf = null;
+        this.brh = null;
+        this.aCN = null;
         this.bri = null;
-        this.aCQ = null;
-        this.brj = null;
-        this.brp = false;
-        this.brg = arrayList;
-        if (this.brg == null) {
-            this.brg = new ArrayList<>();
+        this.bro = false;
+        this.brf = arrayList;
+        if (this.brf == null) {
+            this.brf = new ArrayList<>();
         }
-        int size = this.brg.size();
+        int size = this.brf.size();
         for (int i = 0; i < size; i++) {
-            String str4 = this.brg.get(i);
-            this.brr.put(hv(str4), str4);
+            String str4 = this.brf.get(i);
+            this.brq.put(hs(str4), str4);
         }
-        this.bri = str2;
-        this.aCQ = str;
-        this.brj = str3;
-        if (this.brj == null) {
-            this.brp = true;
+        this.brh = str2;
+        this.aCN = str;
+        this.bri = str3;
+        if (this.bri == null) {
+            this.bro = true;
         }
     }
 
     public void dn(boolean z) {
-        this.brl = z;
+        this.brk = z;
     }
 
-    public void TQ() {
-        if (!this.brk && !this.brp) {
-            c(this.bri, this.brj, 10, 0);
+    public void TL() {
+        if (!this.brj && !this.bro) {
+            c(this.brh, this.bri, 10, 0);
         }
     }
 
-    public void TR() {
-        if (!this.brp) {
-            if (!this.brk) {
-                TQ();
-            } else if (this.brh != null && this.brh.length() > 0) {
-                this.brl = true;
-                c(this.brh, null, 0, 10);
+    public void TM() {
+        if (!this.bro) {
+            if (!this.brj) {
+                TL();
+            } else if (this.brg != null && this.brg.length() > 0) {
+                this.brk = true;
+                c(this.brg, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.brm != null) {
-            if (str2 == null || !str2.equals(this.brm.getPicId())) {
-                this.brm.cancel();
+        if (this.brl != null) {
+            if (str2 == null || !str2.equals(this.brl.getPicId())) {
+                this.brl.cancel();
             } else {
                 return;
             }
         }
-        this.brm = new b(this, str, str2, i, i2);
-        this.brm.setPriority(3);
-        this.brm.execute(new Object[0]);
+        this.brl = new b(this, str, str2, i, i2);
+        this.brl.setPriority(3);
+        this.brl.execute(new Object[0]);
     }
 
     public void a(c cVar) {
-        this.brq = cVar;
+        this.brp = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(d dVar) {
-        if (dVar.Aq() != null && dVar.Aq().length() > 0) {
-            return dVar.Aq();
+        if (dVar.Ak() != null && dVar.Ak().length() > 0) {
+            return dVar.Ak();
         }
         StringBuilder sb = new StringBuilder(150);
         if (dVar.getHeight() * dVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
@@ -106,7 +106,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String hv(String str) {
+    public String hs(String str) {
         int lastIndexOf;
         int indexOf;
         String aF = bf.aF(str);

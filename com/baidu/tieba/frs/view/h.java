@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aIT;
+    final /* synthetic */ FrsHeaderView aIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsHeaderView frsHeaderView) {
-        this.aIT = frsHeaderView;
+        this.aIQ = frsHeaderView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ public class h implements View.OnClickListener {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         String str2;
-        str = this.aIT.aIM;
+        str = this.aIQ.aIJ;
         if (!TextUtils.isEmpty(str)) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aIT.mContext;
+            tbPageContext = this.aIQ.mContext;
             Activity pageActivity = tbPageContext.getPageActivity();
-            tbPageContext2 = this.aIT.mContext;
+            tbPageContext2 = this.aIQ.mContext;
             String string = tbPageContext2.getString(com.baidu.tieba.z.frs_badge_intro);
-            str2 = this.aIT.aIM;
+            str2 = this.aIQ.aIJ;
             messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str2, true, true, false, false, false)));
         }
     }

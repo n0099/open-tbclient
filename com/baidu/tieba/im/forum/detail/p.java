@@ -4,10 +4,10 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class p implements View.OnTouchListener {
-    final /* synthetic */ m baN;
+    final /* synthetic */ m baM;
 
     private p(m mVar) {
-        this.baN = mVar;
+        this.baM = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,13 +19,13 @@ class p implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                m.a(this.baN).cS(false);
+                m.a(this.baM).cS(false);
                 break;
             case 1:
-                m.a(this.baN).cS(true);
+                m.a(this.baM).cS(true);
                 break;
             case 2:
-                m.a(this.baN).cS(false);
+                m.a(this.baM).cS(false);
                 break;
         }
         return false;

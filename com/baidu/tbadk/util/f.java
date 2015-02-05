@@ -3,10 +3,10 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ d ahW;
+    final /* synthetic */ d ahT;
 
     private f(d dVar) {
-        this.ahW = dVar;
+        this.ahT = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(d.a(this.ahW));
+        return Boolean.valueOf(d.a(this.ahT));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        if (d.b(this.ahW) != null && bool != null) {
-            d.b(this.ahW).ae(bool.booleanValue());
+        if (d.b(this.ahT) != null && bool != null) {
+            d.b(this.ahT).ae(bool.booleanValue());
         }
     }
 }

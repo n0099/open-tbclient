@@ -17,21 +17,21 @@ class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (this.jl.jd != null) {
-            while (this.jl.jd.bI() != 1) {
-                if (!this.jl.jf) {
-                    c dd = this.jl.jd.dd();
+        if (GifView.a(this.jl) != null) {
+            while (GifView.a(this.jl).bI() != 1) {
+                if (!GifView.c(this.jl)) {
+                    c dd = GifView.a(this.jl).dd();
                     if (dd == null) {
                         SystemClock.sleep(50L);
                     } else {
                         if (dd.iI != null) {
-                            this.jl.je = dd.iI;
+                            GifView.a(this.jl, dd.iI);
                         } else if (dd.jb != null) {
-                            this.jl.je = BitmapFactory.decodeFile(dd.jb);
+                            GifView.a(this.jl, BitmapFactory.decodeFile(dd.jb));
                         }
                         long j = dd.delay;
-                        if (this.jl.jj != null) {
-                            this.jl.dt();
+                        if (GifView.d(this.jl) != null) {
+                            GifView.b(this.jl);
                             SystemClock.sleep(j);
                         } else {
                             return;
@@ -41,9 +41,9 @@ class d extends Thread {
                     SystemClock.sleep(50L);
                 }
             }
-            this.jl.je = this.jl.jd.dd().iI;
-            this.jl.jd.free();
-            this.jl.dt();
+            GifView.a(this.jl, GifView.a(this.jl).dd().iI);
+            GifView.a(this.jl).free();
+            GifView.b(this.jl);
         }
     }
 }

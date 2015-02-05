@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.data;
 public interface l {
     String getLink();
 
-    String mP();
+    String mI();
 }

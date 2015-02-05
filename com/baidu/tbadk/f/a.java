@@ -88,15 +88,15 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            String rF = com.baidu.tbadk.coreExtra.a.a.rD().rF();
+            String rz = com.baidu.tbadk.coreExtra.a.a.rx().rz();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m255getInst().getKeepaliveWifi() == 1) {
-                    rF = String.valueOf(rF) + "ka=open";
+                    rz = String.valueOf(rz) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m255getInst().getKeepaliveNonWifi() == 1) {
-                rF = String.valueOf(rF) + "ka=open";
+                rz = String.valueOf(rz) + "ka=open";
             }
-            httpMessage.addHeader("Cookie", rF);
+            httpMessage.addHeader("Cookie", rz);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.m255getInst().getTbs());
@@ -132,17 +132,17 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void e(HttpMessage httpMessage) {
-        ap ps = ao.ps();
-        if (ps != null) {
-            httpMessage.addParam("stTime", String.valueOf(ps.mTime));
-            httpMessage.addParam("stSize", String.valueOf(ps.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(ps.Jf));
-            httpMessage.addParam("stMode", String.valueOf(ps.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(ps.Je));
+        ap pl = ao.pl();
+        if (pl != null) {
+            httpMessage.addParam("stTime", String.valueOf(pl.mTime));
+            httpMessage.addParam("stSize", String.valueOf(pl.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(pl.Jc));
+            httpMessage.addParam("stMode", String.valueOf(pl.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(pl.Jb));
         }
         int bX = ao.bX(0);
-        if (bX == 0 && ps != null) {
-            bX = ps.Jf;
+        if (bX == 0 && pl != null) {
+            bX = pl.Jc;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(bX));
     }

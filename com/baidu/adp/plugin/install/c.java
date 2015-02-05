@@ -22,73 +22,73 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class c {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private static volatile c sr = null;
-    private LinkedList<String> sk;
-    private ArrayList<String> sl;
-    private ArrayList<String> sm;
-    private BroadcastReceiver so;
-    private a sq;
-    private HashMap<String, Runnable> st;
-    private boolean sj = false;
-    private boolean ss = true;
-    private f su = null;
+    private static volatile c sm = null;
+    private LinkedList<String> sh;
+    private ArrayList<String> si;
+    private ArrayList<String> sj;
+    private BroadcastReceiver sk;
+    private a sl;
+    private HashMap<String, Runnable> sq;
+    private boolean sg = false;
+    private boolean so = true;
+    private f sr = null;
 
-    public static c hQ() {
-        if (sr == null) {
+    public static c hJ() {
+        if (sm == null) {
             synchronized (c.class) {
-                if (sr == null) {
-                    sr = new c();
+                if (sm == null) {
+                    sm = new c();
                 }
             }
         }
-        return sr;
+        return sm;
     }
 
     public c() {
+        this.sh = null;
+        this.si = null;
+        this.sj = null;
         this.sk = null;
-        this.sl = null;
-        this.sm = null;
-        this.so = null;
-        this.st = null;
-        this.sk = new LinkedList<>();
-        this.sl = new ArrayList<>();
-        this.sm = new ArrayList<>();
-        this.st = new HashMap<>();
-        this.so = new d(this);
-        hR();
+        this.sq = null;
+        this.sh = new LinkedList<>();
+        this.si = new ArrayList<>();
+        this.sj = new ArrayList<>();
+        this.sq = new HashMap<>();
+        this.sk = new d(this);
+        hK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, boolean z) {
-        if (this.sk.contains(str)) {
-            this.sk.remove(str);
+        if (this.sh.contains(str)) {
+            this.sh.remove(str);
         }
-        if (this.sl.contains(str)) {
-            this.sl.remove(str);
+        if (this.si.contains(str)) {
+            this.si.remove(str);
         }
-        sHandler.removeCallbacks(this.st.remove(str));
-        if (z && this.sl.isEmpty() && this.sq != null) {
-            this.sq.J(this.ss);
+        sHandler.removeCallbacks(this.sq.remove(str));
+        if (z && this.si.isEmpty() && this.sl != null) {
+            this.sl.J(this.so);
         }
-        if (this.sm.contains(str)) {
-            this.sm.remove(str);
-            com.baidu.adp.plugin.b.a.hU().aZ("plugin_retry_install_succ");
+        if (this.sj.contains(str)) {
+            this.sj.remove(str);
+            com.baidu.adp.plugin.b.a.hN().aW("plugin_retry_install_succ");
         }
     }
 
     public void a(Context context, a aVar) {
-        this.sq = aVar;
-        if (this.su != null) {
-            this.su.cancel();
-            this.su = null;
+        this.sl = aVar;
+        if (this.sr != null) {
+            this.sr.cancel();
+            this.sr = null;
         }
-        this.su = new f(this, context);
-        this.su.setPriority(4);
-        this.su.execute(new String[0]);
+        this.sr = new f(this, context);
+        this.sr.setPriority(4);
+        this.sr.execute(new String[0]);
     }
 
-    public boolean aW(String str) {
-        return this.sk.contains(str);
+    public boolean aT(String str) {
+        return this.sh.contains(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=4, 187=4] */
@@ -103,9 +103,9 @@ public class c {
         int lastIndexOf2 = str.lastIndexOf(".apk");
         if (lastIndexOf + 1 < lastIndexOf2) {
             String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
-            PluginSetting bd = PluginPackageManager.ic().bd(substring);
-            if (substring != null && substring.length() > 0 && bd != null) {
-                File file = new File(bd.apkPath);
+            PluginSetting ba = PluginPackageManager.hV().ba(substring);
+            if (substring != null && substring.length() > 0 && ba != null) {
+                File file = new File(ba.apkPath);
                 if (file.exists() && file.isFile() && file.length() > 0) {
                     try {
                         fileInputStream = new FileInputStream(file);
@@ -114,8 +114,8 @@ public class c {
                                 com.baidu.adp.plugin.util.f g = Util.g(fileInputStream);
                                 inputStream = context.getAssets().open(str);
                                 if (g.a(Util.g(inputStream)) == 0) {
-                                    if (this.sq != null) {
-                                        this.sq.aU(substring);
+                                    if (this.sl != null) {
+                                        this.sl.aR(substring);
                                     }
                                     com.baidu.adp.lib.g.a.d(fileInputStream);
                                     com.baidu.adp.lib.g.a.d(inputStream);
@@ -164,7 +164,7 @@ public class c {
         PackageInfo packageArchiveInfo;
         boolean z2 = false;
         if (context != null && !TextUtils.isEmpty(str)) {
-            hR();
+            hK();
             String str2 = null;
             if (str.startsWith("assets://")) {
                 str2 = str.substring(str.lastIndexOf("/") + 1, str.lastIndexOf(".apk"));
@@ -175,7 +175,7 @@ public class c {
             if (str2 != null) {
                 if (C(str2, str)) {
                     if (z2) {
-                        this.sl.add(str2);
+                        this.si.add(str2);
                     }
                 } else {
                     return;
@@ -193,23 +193,23 @@ public class c {
         }
     }
 
-    public static File aX(String str) {
-        PluginSetting bd = PluginPackageManager.ic().bd(str);
-        if (bd == null || bd.apkPath == null || bd.apkPath.length() <= 0) {
+    public static File aU(String str) {
+        PluginSetting ba = PluginPackageManager.hV().ba(str);
+        if (ba == null || ba.apkPath == null || ba.apkPath.length() <= 0) {
             return null;
         }
-        return new File(bd.apkPath);
+        return new File(ba.apkPath);
     }
 
-    private void hR() {
-        if (!this.sj) {
+    private void hK() {
+        if (!this.sg) {
             try {
                 Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.plugin.installed");
                 intentFilter.addAction("com.baidu.adp.plugin.installfail");
-                applicationContext.registerReceiver(this.so, intentFilter);
-                this.sj = true;
+                applicationContext.registerReceiver(this.sk, intentFilter);
+                this.sg = true;
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -217,12 +217,12 @@ public class c {
     }
 
     private boolean C(String str, String str2) {
-        if (this.sk.contains(str)) {
+        if (this.sh.contains(str)) {
             return false;
         }
         e eVar = new e(this, str, str2);
-        this.st.put(str, eVar);
+        this.sq.put(str, eVar);
         sHandler.postDelayed(eVar, 240000L);
-        return this.sk.add(str);
+        return this.sh.add(str);
     }
 }

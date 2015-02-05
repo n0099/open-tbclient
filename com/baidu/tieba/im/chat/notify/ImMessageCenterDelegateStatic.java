@@ -13,30 +13,30 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static TextView Vz;
+    private static TextView Vw;
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d wv() {
+    public com.baidu.tbadk.mainTab.d wp() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.acz = new g();
+        dVar.acw = new g();
         dVar.type = 3;
-        dVar.acA = z.enter_message;
-        dVar.acp = v.icon_tabbar_imcenter;
+        dVar.acx = z.enter_message;
+        dVar.acm = v.icon_tabbar_imcenter;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator W(Context context) {
-        this.acm = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
-        Vz = (TextView) com.baidu.adp.lib.g.b.ei().inflate(context, x.message_tip_item, null);
+        this.acj = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
+        Vw = (TextView) com.baidu.adp.lib.g.b.ei().inflate(context, x.message_tip_item, null);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.acy = this.acm;
-        cVar.view = Vz;
-        cVar.acw = v.icon_dot_orange;
-        cVar.acx = t.frs_slidebar_message_text;
-        Vz.setVisibility(8);
-        this.acm.a(AddFriendActivityConfig.MSG, cVar);
-        return this.acm;
+        cVar.acv = this.acj;
+        cVar.view = Vw;
+        cVar.acs = v.icon_dot_orange;
+        cVar.acu = t.frs_slidebar_message_text;
+        Vw.setVisibility(8);
+        this.acj.a(AddFriendActivityConfig.MSG, cVar);
+        return this.acj;
     }
 
     static {

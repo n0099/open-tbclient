@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ Register2Activity aod;
+    final /* synthetic */ Register2Activity aoa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(Register2Activity register2Activity) {
-        this.aod = register2Activity;
+        this.aoa = register2Activity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,38 +37,38 @@ class v implements View.OnClickListener {
         aa aaVar4;
         EditText editText;
         EditText editText2;
-        view2 = this.aod.Qn;
+        view2 = this.aoa.Qk;
         if (view != view2) {
-            textView2 = this.aod.anA;
+            textView2 = this.aoa.anx;
             if (view != textView2) {
-                button = this.aod.anB;
+                button = this.aoa.any;
                 if (view != button) {
-                    imageView = this.aod.anC;
+                    imageView = this.aoa.anz;
                     if (view != imageView) {
-                        imageView2 = this.aod.anD;
+                        imageView2 = this.aoa.anA;
                         if (view == imageView2) {
-                            editText = this.aod.anM;
+                            editText = this.aoa.anJ;
                             editText.setText((CharSequence) null);
                             return;
                         }
-                        relativeLayout = this.aod.anN;
+                        relativeLayout = this.aoa.anK;
                         if (view != relativeLayout) {
-                            imageView3 = this.aod.Qi;
+                            imageView3 = this.aoa.Qf;
                             if (view != imageView3) {
-                                button2 = this.aod.anE;
+                                button2 = this.aoa.anB;
                                 if (view != button2) {
                                     return;
                                 }
                             }
-                            aaVar = this.aod.anY;
+                            aaVar = this.aoa.anV;
                             if (aaVar == null) {
-                                nVar = this.aod.aoa;
+                                nVar = this.aoa.anX;
                                 if (nVar != null) {
-                                    Register2Activity register2Activity = this.aod;
-                                    Register2Activity register2Activity2 = this.aod;
-                                    nVar2 = this.aod.aoa;
-                                    register2Activity.anY = new aa(register2Activity2, nVar2.mR().getVcode_pic_url());
-                                    aaVar2 = this.aod.anY;
+                                    Register2Activity register2Activity = this.aoa;
+                                    Register2Activity register2Activity2 = this.aoa;
+                                    nVar2 = this.aoa.anX;
+                                    register2Activity.anV = new aa(register2Activity2, nVar2.mK().getVcode_pic_url());
+                                    aaVar2 = this.aoa.anV;
                                     aaVar2.execute(new String[0]);
                                     return;
                                 }
@@ -76,34 +76,34 @@ class v implements View.OnClickListener {
                             }
                             return;
                         }
-                        abVar = this.aod.anZ;
+                        abVar = this.aoa.anW;
                         if (abVar == null) {
-                            aaVar3 = this.aod.anY;
+                            aaVar3 = this.aoa.anV;
                             if (aaVar3 != null) {
-                                aaVar4 = this.aod.anY;
+                                aaVar4 = this.aoa.anV;
                                 aaVar4.cancel();
                             }
-                            this.aod.anZ = new ab(this.aod, null);
-                            abVar2 = this.aod.anZ;
+                            this.aoa.anW = new ab(this.aoa, null);
+                            abVar2 = this.aoa.anW;
                             abVar2.setPriority(3);
-                            abVar3 = this.aod.anZ;
+                            abVar3 = this.aoa.anW;
                             abVar3.execute(new String[0]);
                             return;
                         }
                         return;
                     }
-                    editText2 = this.aod.anK;
+                    editText2 = this.aoa.anH;
                     editText2.setText((CharSequence) null);
                     return;
                 }
-                this.aod.Bb();
+                this.aoa.AV();
                 return;
             }
         }
-        textView = this.aod.anA;
+        textView = this.aoa.anx;
         if (view == textView) {
-            this.aod.setResult(0);
+            this.aoa.setResult(0);
         }
-        this.aod.finish();
+        this.aoa.finish();
     }
 }

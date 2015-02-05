@@ -17,16 +17,16 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
+    private TextView aod;
+    private TextView aoe;
+    private TextView aof;
     private TextView aog;
-    private TextView aoh;
-    private TextView aoi;
-    private TextView aoj;
-    private String aok;
-    private String aol;
+    private String aoh;
+    private String aoi;
     private NavigationBar mNavigationBar;
     private String mUserName;
-    private TextWatcher ano = new a(this);
-    private View.OnClickListener aom = new b(this);
+    private TextWatcher anl = new a(this);
+    private View.OnClickListener aoj = new b(this);
 
     static {
         TbadkApplication.getInst().RegisterIntent(AppealActivityConfig.class, AppealActivity.class);
@@ -40,26 +40,26 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(w.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(z.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(z.appeal_submit_btn), this.aom);
-        this.aog = (TextView) findViewById(w.forbid_id);
-        this.aoh = (TextView) findViewById(w.forbid_reason);
-        this.aoi = (TextView) findViewById(w.appeal_reason);
-        this.aoj = (TextView) findViewById(w.remain_text_count);
-        this.aoj.setText(String.valueOf(150));
-        this.aoi.setFocusable(true);
-        this.aoi.setFocusableInTouchMode(true);
-        this.aoi.requestFocus();
-        com.baidu.adp.lib.util.l.d(getPageContext().getPageActivity(), this.aoi);
-        this.aoi.addTextChangedListener(this.ano);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(z.appeal_submit_btn), this.aoj);
+        this.aod = (TextView) findViewById(w.forbid_id);
+        this.aoe = (TextView) findViewById(w.forbid_reason);
+        this.aof = (TextView) findViewById(w.appeal_reason);
+        this.aog = (TextView) findViewById(w.remain_text_count);
+        this.aog.setText(String.valueOf(150));
+        this.aof.setFocusable(true);
+        this.aof.setFocusableInTouchMode(true);
+        this.aof.requestFocus();
+        com.baidu.adp.lib.util.l.d(getPageContext().getPageActivity(), this.aof);
+        this.aof.addTextChangedListener(this.anl);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aok = intent.getStringExtra("forum_id");
-        this.aol = intent.getStringExtra("user_id");
+        this.aoh = intent.getStringExtra("forum_id");
+        this.aoi = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        j.a(this.aok, this.aol, new d(this));
+        j.a(this.aoh, this.aoi, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -78,6 +78,6 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         getLayoutMode().ab(i == 1);
         getLayoutMode().h(findViewById(w.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aoi.setHintTextColor(bc.getColor(t.appeal_hint));
+        this.aof.setHintTextColor(bc.getColor(t.appeal_hint));
     }
 }

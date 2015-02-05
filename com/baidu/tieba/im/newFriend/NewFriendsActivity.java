@@ -16,21 +16,21 @@ import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
 import com.baidu.tbadk.newFriends.NewFriendsActivityConfig;
 /* loaded from: classes.dex */
 public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
-    private az blv;
-    private AlertDialog blw;
-    private String blu = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
-    private aj blx = new al(this);
-    final CustomMessageListener bly = new aq(this, 2001178);
-    final com.baidu.adp.framework.listener.e blz = new ar(this, 304101);
-    private final com.baidu.adp.widget.ListView.g aTB = new as(this);
-    private final ba blA = new ba(this, new at(this));
+    private az blu;
+    private AlertDialog blv;
+    private String blt = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
+    private aj blw = new al(this);
+    final CustomMessageListener blx = new aq(this, 2001178);
+    final com.baidu.adp.framework.listener.e bly = new ar(this, 304101);
+    private final com.baidu.adp.widget.ListView.g aTA = new as(this);
+    private final ba blz = new ba(this, new at(this));
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RZ() {
+    public void RU() {
         com.baidu.tieba.im.i.a(new au(this), new av(this));
     }
 
@@ -39,35 +39,35 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.x.new_friend_activity);
-        this.blv = new az(this);
-        this.blv.a(this.aTB);
-        this.blv.a(this.blx);
+        this.blu = new az(this);
+        this.blu.a(this.aTA);
+        this.blu.a(this.blw);
+        registerListener(this.blx);
         registerListener(this.bly);
-        registerListener(this.blz);
-        if (TbadkSettings.getInst().loadBoolean(this.blu, false)) {
-            Sa();
-            this.blv.jJ();
+        if (TbadkSettings.getInst().loadBoolean(this.blt, false)) {
+            RV();
+            this.blu.jC();
             return;
         }
-        this.blA.setUniqueId(getUniqueId());
-        this.blA.registerListener();
-        this.blA.By();
-        this.blv.jJ();
+        this.blz.setUniqueId(getUniqueId());
+        this.blz.registerListener();
+        this.blz.Bs();
+        this.blu.jC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.blv.changeSkinType(getLayoutMode(), i);
+        this.blu.changeSkinType(getLayoutMode(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Sa() {
+    public void RV() {
         com.baidu.tieba.im.i.a(new aw(this), new ax(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Sb() {
+    public void RW() {
         com.baidu.tieba.im.i.a(new am(this), new an(this));
     }
 
@@ -80,7 +80,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.im.data.b item = this.blv.Se().getItem(i);
+        com.baidu.tieba.im.data.b item = this.blu.RZ().getItem(i);
         if (item != null && (item instanceof com.baidu.tieba.im.data.b)) {
             com.baidu.tieba.im.data.b bVar = item;
             if (i == j) {
@@ -91,22 +91,22 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.im.data.b item = this.blv.Se().getItem(i);
+        com.baidu.tieba.im.data.b item = this.blu.RZ().getItem(i);
         if (item != null && (item instanceof com.baidu.tieba.im.data.b)) {
             com.baidu.tieba.im.data.b bVar = item;
-            if (this.blw == null) {
-                this.blw = Sc();
+            if (this.blv == null) {
+                this.blv = RX();
             }
             ay ayVar = new ay(this, bVar);
-            this.blw.setButton(-1, getPageContext().getString(com.baidu.tieba.z.confirm), ayVar);
-            this.blw.setButton(-2, getPageContext().getString(com.baidu.tieba.z.cancel), ayVar);
-            com.baidu.adp.lib.g.k.a(this.blw, getPageContext());
+            this.blv.setButton(-1, getPageContext().getString(com.baidu.tieba.z.confirm), ayVar);
+            this.blv.setButton(-2, getPageContext().getString(com.baidu.tieba.z.cancel), ayVar);
+            com.baidu.adp.lib.g.k.a(this.blv, getPageContext());
             return true;
         }
         return true;
     }
 
-    private AlertDialog Sc() {
+    private AlertDialog RX() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getPageContext().getPageActivity());
         builder.setTitle(com.baidu.tieba.z.operation);
         builder.setMessage(com.baidu.tieba.z.delete);
@@ -124,7 +124,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(com.baidu.tieba.im.data.b bVar) {
-        com.baidu.tbadk.newFriends.a.yS().c(bVar.getId(), AddFriendActivityConfig.TYPE_NEW_FRD);
+        com.baidu.tbadk.newFriends.a.yM().c(bVar.getId(), AddFriendActivityConfig.TYPE_NEW_FRD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -136,8 +136,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.blw != null) {
-            com.baidu.adp.lib.g.k.b(this.blw, getPageContext());
+        if (this.blv != null) {
+            com.baidu.adp.lib.g.k.b(this.blv, getPageContext());
         }
     }
 }

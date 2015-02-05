@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bJY;
+    final /* synthetic */ PersonInfoActivity bJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bJY = personInfoActivity;
+        this.bJX = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ class i extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
             ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
             int error = responseDeleteFriendMessage.getError();
-            this.bJY.showToast(responseDeleteFriendMessage.getErrorString());
+            this.bJX.showToast(responseDeleteFriendMessage.getErrorString());
             if (error == 0) {
-                aeVar = this.bJY.bJO;
+                aeVar = this.bJX.bJN;
                 aeVar.startLoad();
             }
         }

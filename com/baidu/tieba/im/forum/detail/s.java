@@ -10,34 +10,34 @@ import tbclient.RecommendForumInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.i {
-    final /* synthetic */ ItemFootNavView baW;
-    private final /* synthetic */ ForumDetailActivity baX;
-    private final /* synthetic */ ac baY;
+    final /* synthetic */ ItemFootNavView baV;
+    private final /* synthetic */ ForumDetailActivity baW;
+    private final /* synthetic */ ac baX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ItemFootNavView itemFootNavView, ac acVar, ForumDetailActivity forumDetailActivity) {
-        this.baW = itemFootNavView;
-        this.baY = acVar;
-        this.baX = forumDetailActivity;
+        this.baV = itemFootNavView;
+        this.baX = acVar;
+        this.baW = forumDetailActivity;
     }
 
     @Override // com.baidu.adp.base.i
     public void c(Object obj) {
         RecommendForumInfo recommendForumInfo;
-        if (this.baY.getErrorCode() == 22) {
-            this.baW.cQ(true);
-            this.baW.cR(true);
-        } else if (this.baY.getErrorCode() != 0) {
-            this.baX.showToast(this.baY.getErrorString());
+        if (this.baX.getErrorCode() == 22) {
+            this.baV.cQ(true);
+            this.baV.cR(true);
+        } else if (this.baX.getErrorCode() != 0) {
+            this.baW.showToast(this.baX.getErrorString());
         } else if (((ae) obj) != null) {
-            this.baW.cQ(true);
+            this.baV.cQ(true);
             TbadkApplication inst = TbadkApplication.getInst();
-            recommendForumInfo = this.baW.baz;
+            recommendForumInfo = this.baV.bay;
             inst.addLikeForum(recommendForumInfo.forum_name);
-            this.baW.cR(true);
+            this.baV.cR(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001273, true));
         } else {
-            this.baX.showToast(this.baX.getPageContext().getString(z.neterror));
+            this.baW.showToast(this.baW.getPageContext().getString(z.neterror));
         }
     }
 }

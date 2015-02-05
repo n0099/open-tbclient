@@ -12,19 +12,19 @@ import java.util.Observable;
 import java.util.Observer;
 /* loaded from: classes.dex */
 public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observer {
-    protected boolean Bk = false;
-    protected boolean Bl = false;
-    private BdBrowserDelegate Bm;
+    protected boolean Bh = false;
+    protected boolean Bi = false;
+    private BdBrowserDelegate Bj;
 
     protected void a(Intent intent, Bundle bundle) {
         if (bundle != null) {
-            this.Bk = bundle.getBoolean("autoOrientaion", false);
-            this.Bl = bundle.getBoolean("fullScreen", false);
+            this.Bh = bundle.getBoolean("autoOrientaion", false);
+            this.Bi = bundle.getBoolean("fullScreen", false);
         } else if (intent != null) {
-            this.Bk = intent.getBooleanExtra("autoOrientaion", false);
-            this.Bl = intent.getBooleanExtra("fullScreen", false);
+            this.Bh = intent.getBooleanExtra("autoOrientaion", false);
+            this.Bi = intent.getBooleanExtra("fullScreen", false);
         }
-        if (this.Bl) {
+        if (this.Bi) {
             getWindow().setFlags(1024, 1024);
         } else {
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -32,7 +32,7 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
             getWindow().setAttributes(attributes);
             getWindow().clearFlags(512);
         }
-        if (this.Bk) {
+        if (this.Bh) {
             if (getRequestedOrientation() != 4) {
                 setRequestedOrientation(4);
             }
@@ -53,23 +53,23 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("autoOrientaion", this.Bk);
-        bundle.putBoolean("fullScreen", this.Bl);
+        bundle.putBoolean("autoOrientaion", this.Bh);
+        bundle.putBoolean("fullScreen", this.Bi);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.Bk = bundle.getBoolean("autoOrientaion", false);
-        this.Bl = bundle.getBoolean("fullScreen", false);
+        this.Bh = bundle.getBoolean("autoOrientaion", false);
+        this.Bi = bundle.getBoolean("fullScreen", false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.Bm != null) {
-            this.Bm.onPause();
+        if (this.Bj != null) {
+            this.Bj.onPause();
         }
     }
 
@@ -77,8 +77,8 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a(getIntent(), null);
-        if (this.Bm != null) {
-            this.Bm.onNewIntent(intent);
+        if (this.Bj != null) {
+            this.Bj.onNewIntent(intent);
         }
     }
 
@@ -86,9 +86,9 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.Bm != null) {
+        if (this.Bj != null) {
             try {
-                this.Bm.onResume();
+                this.Bj.onResume();
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
@@ -99,8 +99,8 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.Bm != null) {
-            this.Bm.onStop();
+        if (this.Bj != null) {
+            this.Bj.onStop();
         }
     }
 
@@ -108,32 +108,32 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.Bm != null) {
-            this.Bm.onDestroy();
+        if (this.Bj != null) {
+            this.Bj.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.Bm != null && (this.Bm.onKeyUp(i, keyEvent) || super.onKeyUp(i, keyEvent));
+        return this.Bj != null && (this.Bj.onKeyUp(i, keyEvent) || super.onKeyUp(i, keyEvent));
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        if (this.Bm != null) {
-            this.Bm.onActivityResult(i, i2, intent);
+        if (this.Bj != null) {
+            this.Bj.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.Bm != null) {
-            this.Bm.update(observable, obj);
+        if (this.Bj != null) {
+            this.Bj.update(observable, obj);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.Bm != null && (this.Bm.onKeyDown(i, keyEvent) || super.onKeyDown(i, keyEvent));
+        return this.Bj != null && (this.Bj.onKeyDown(i, keyEvent) || super.onKeyDown(i, keyEvent));
     }
 }

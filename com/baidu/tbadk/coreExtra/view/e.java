@@ -6,10 +6,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 /* loaded from: classes.dex */
 public class e extends WebViewClient {
-    final /* synthetic */ BaseWebView TS;
+    final /* synthetic */ BaseWebView TP;
 
     public e(BaseWebView baseWebView) {
-        this.TS = baseWebView;
+        this.TP = baseWebView;
     }
 
     @Override // android.webkit.WebViewClient
@@ -17,9 +17,9 @@ public class e extends WebViewClient {
         h hVar;
         h hVar2;
         super.onPageStarted(webView, str, bitmap);
-        hVar = this.TS.mOnPageStartedListener;
+        hVar = this.TP.mOnPageStartedListener;
         if (hVar != null) {
-            hVar2 = this.TS.mOnPageStartedListener;
+            hVar2 = this.TP.mOnPageStartedListener;
             hVar2.a(webView, str);
         }
         Log.d("BaseWebView", "@onPageStarted = " + str);
@@ -35,9 +35,9 @@ public class e extends WebViewClient {
         g gVar;
         g gVar2;
         super.onPageFinished(webView, str);
-        gVar = this.TS.mOnPageFinishedListener;
+        gVar = this.TP.mOnPageFinishedListener;
         if (gVar != null) {
-            gVar2 = this.TS.mOnPageFinishedListener;
+            gVar2 = this.TP.mOnPageFinishedListener;
             gVar2.onPageFinished(webView, str);
         }
         Log.d("BaseWebView", "@onPageFinished = " + str);
@@ -47,9 +47,9 @@ public class e extends WebViewClient {
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         f fVar;
         f fVar2;
-        fVar = this.TS.mOnLoadUrlListener;
+        fVar = this.TP.mOnLoadUrlListener;
         if (fVar != null) {
-            fVar2 = this.TS.mOnLoadUrlListener;
+            fVar2 = this.TP.mOnLoadUrlListener;
             return fVar2.shouldOverrideUrlLoading(webView, str);
         }
         return super.shouldOverrideUrlLoading(webView, str);

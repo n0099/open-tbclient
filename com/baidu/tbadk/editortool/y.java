@@ -22,12 +22,12 @@ public class y extends ae {
     @Override // com.baidu.tbadk.editortool.ae
     public String dl(int i) {
         int i2;
-        if (i < 0 || i >= v.YP.size()) {
+        if (i < 0 || i >= v.YM.size()) {
             i2 = 0;
         } else {
-            i2 = v.YP.get(i).intValue();
+            i2 = v.YM.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : v.YQ.entrySet()) {
+        for (Map.Entry<String, Integer> entry : v.YN.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -36,14 +36,14 @@ public class y extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean dU(String str) {
-        return v.YQ.get(str) != null;
+    public boolean dR(String str) {
+        return v.YN.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dV(String str) {
+    public com.baidu.adp.widget.a.a dS(String str) {
         Bitmap b;
-        Integer num = v.YQ.get(str);
+        Integer num = v.YN.get(str);
         if (num != null && (b = com.baidu.adp.lib.util.c.eR().b(TbadkCoreApplication.m255getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(b, false, str);
         }
@@ -52,16 +52,16 @@ public class y extends ae {
 
     @Override // com.baidu.tbadk.editortool.ae
     public int getEmotionsCount() {
-        return v.YP.size();
+        return v.YM.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dW(String str) {
-        return dV(str);
+    public com.baidu.adp.widget.a.a dT(String str) {
+        return dS(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public EmotionGroupType vl() {
+    public EmotionGroupType vf() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -86,7 +86,7 @@ public class y extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean vm() {
+    public boolean vg() {
         return true;
     }
 }

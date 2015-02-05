@@ -11,35 +11,35 @@ import com.baidu.tieba.tbadkCore.FrsPraiseView;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class cm {
-    private int Yk = -1;
-    public LinearLayout aCh;
-    public LinearLayout aCi;
+    private int Yh = -1;
+    public LinearLayout aCe;
+    public LinearLayout aCf;
+    public TextView aCg;
+    public PlayVoiceBnt aCh;
+    public FrsCommonImageLayout aCi;
     public TextView aCj;
-    public PlayVoiceBnt aCk;
-    public FrsCommonImageLayout aCl;
-    public TextView aCm;
-    public TextView aCn;
-    public UserIconBox aCo;
-    public HeadImageView aCp;
+    public TextView aCk;
+    public UserIconBox aCl;
+    public HeadImageView aCm;
+    public LinearLayout aCn;
+    public ImageView aCo;
+    public TextView aCp;
     public LinearLayout aCq;
-    public ImageView aCr;
-    public TextView aCs;
-    public LinearLayout aCt;
-    public TextView aCu;
-    public FrsPraiseView aCv;
-    public TextView aCw;
-    public View aCx;
-    public LinearLayout aCy;
-    public cl aGA;
-    public LinearLayout aGB;
-    public ImageView aGC;
-    public TextView aGD;
-    final /* synthetic */ cf aGt;
+    public TextView aCr;
+    public FrsPraiseView aCs;
+    public TextView aCt;
+    public View aCu;
+    public LinearLayout aCv;
+    public TextView aGA;
+    final /* synthetic */ cf aGq;
+    public LinearLayout aGv;
+    public TextView aGw;
+    public cl aGx;
     public LinearLayout aGy;
-    public TextView aGz;
+    public ImageView aGz;
     public TextView mTitle;
 
     public cm(cf cfVar) {
-        this.aGt = cfVar;
+        this.aGq = cfVar;
     }
 }

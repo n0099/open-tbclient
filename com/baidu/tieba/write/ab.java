@@ -20,15 +20,15 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.data.j> {
-    private com.baidu.tbadk.core.util.ad CX = null;
-    private String QK = null;
-    final /* synthetic */ VcodeActivity cgm;
-    private WriteData cgo;
+    private com.baidu.tbadk.core.util.ad CU = null;
+    private String QH = null;
+    final /* synthetic */ VcodeActivity cgl;
+    private WriteData cgn;
 
     public ab(VcodeActivity vcodeActivity, WriteData writeData) {
-        this.cgm = vcodeActivity;
-        this.cgo = null;
-        this.cgo = writeData;
+        this.cgl = vcodeActivity;
+        this.cgn = null;
+        this.cgn = writeData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,93 +38,93 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
     public com.baidu.tbadk.coreExtra.data.j doInBackground(Integer... numArr) {
         EditText editText;
         Address z;
-        if (this.cgo != null) {
-            this.CX = new com.baidu.tbadk.core.util.ad();
-            editText = this.cgm.mEdit;
+        if (this.cgn != null) {
+            this.CU = new com.baidu.tbadk.core.util.ad();
+            editText = this.cgl.mEdit;
             String editable = editText.getText().toString();
-            String imagesCodeForPost = this.cgo.getImagesCodeForPost();
-            if (this.cgo.getType() == 3) {
-                this.CX.o("newVcode", "1");
-                this.CX.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgo.getContent()) + imagesCodeForPost);
-                this.CX.o("vcodeMd5", this.cgo.getVcodeMD5());
+            String imagesCodeForPost = this.cgn.getImagesCodeForPost();
+            if (this.cgn.getType() == 3) {
+                this.CU.o("newVcode", "1");
+                this.CU.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgn.getContent()) + imagesCodeForPost);
+                this.CU.o("vcodeMd5", this.cgn.getVcodeMD5());
                 if (editable.length() > 0) {
-                    this.CX.o("vcode", editable);
+                    this.CU.o("vcode", editable);
                 }
-                this.CX.o("tag", "11");
-                this.CX.oZ().qg().mIsNeedTbs = true;
-                this.CX.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgo.getContent()) + imagesCodeForPost);
-                this.CX.setUrl(com.baidu.tieba.tbadkCore.c.a.bZf);
-                this.CX.o(ImageViewerConfig.FORUM_NAME, this.cgo.getForumName());
-                this.CX.o("title", this.cgo.getTitle());
-                this.CX.o("apiKey", this.cgo.getShareApiKey());
-                this.CX.o("appName", this.cgo.getShareAppName());
-                this.CX.o("signKey", this.cgo.getShareSignKey());
-                this.CX.o("summary_title", this.cgo.getShareSummaryTitle());
-                this.CX.o("summary_content", this.cgo.getShareSummaryContent());
-                this.CX.o("summary_img", this.cgo.getShareSummaryImg());
-                this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.cgo.getShareSummaryImgWidth()));
-                this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.cgo.getShareSummaryImgHeight()));
-                this.CX.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.cgo.getShareSummaryImgType());
-                this.CX.o("referUrl", this.cgo.getShareReferUrl());
+                this.CU.o("tag", "11");
+                this.CU.oS().pZ().mIsNeedTbs = true;
+                this.CU.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgn.getContent()) + imagesCodeForPost);
+                this.CU.setUrl(com.baidu.tieba.tbadkCore.c.a.bZe);
+                this.CU.o(ImageViewerConfig.FORUM_NAME, this.cgn.getForumName());
+                this.CU.o("title", this.cgn.getTitle());
+                this.CU.o("apiKey", this.cgn.getShareApiKey());
+                this.CU.o("appName", this.cgn.getShareAppName());
+                this.CU.o("signKey", this.cgn.getShareSignKey());
+                this.CU.o("summary_title", this.cgn.getShareSummaryTitle());
+                this.CU.o("summary_content", this.cgn.getShareSummaryContent());
+                this.CU.o("summary_img", this.cgn.getShareSummaryImg());
+                this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.cgn.getShareSummaryImgWidth()));
+                this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.cgn.getShareSummaryImgHeight()));
+                this.CU.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.cgn.getShareSummaryImgType());
+                this.CU.o("referUrl", this.cgn.getShareReferUrl());
             } else {
-                this.CX.o("anonymous", "0");
-                this.CX.o(ImageViewerConfig.FORUM_ID, this.cgo.getForumId());
-                this.CX.o("kw", this.cgo.getForumName());
-                this.CX.o("new_vcode", "1");
-                this.CX.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgo.getContent()) + imagesCodeForPost);
-                if (this.cgo.getIsBaobaoImageUploaded()) {
-                    this.CX.o("tail_type", String.valueOf(com.baidu.tieba.tbadkCore.c.b.bZi));
-                    this.CX.o("tail_content", this.cgo.getBaobaoContent());
-                    this.cgo.setBabaoPosted(true);
+                this.CU.o("anonymous", "0");
+                this.CU.o(ImageViewerConfig.FORUM_ID, this.cgn.getForumId());
+                this.CU.o("kw", this.cgn.getForumName());
+                this.CU.o("new_vcode", "1");
+                this.CU.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.cgn.getContent()) + imagesCodeForPost);
+                if (this.cgn.getIsBaobaoImageUploaded()) {
+                    this.CU.o("tail_type", String.valueOf(com.baidu.tieba.tbadkCore.c.b.bZh));
+                    this.CU.o("tail_content", this.cgn.getBaobaoContent());
+                    this.cgn.setBabaoPosted(true);
                 } else {
-                    this.cgo.setBabaoPosted(false);
+                    this.cgn.setBabaoPosted(false);
                 }
-                com.baidu.tieba.tbadkCore.f.g.a(this.CX, this.cgo);
-                this.CX.o("vcode_md5", this.cgo.getVcodeMD5());
+                com.baidu.tieba.tbadkCore.f.g.a(this.CU, this.cgn);
+                this.CU.o("vcode_md5", this.cgn.getVcodeMD5());
                 if (editable.length() > 0) {
-                    this.CX.o("vcode", editable);
+                    this.CU.o("vcode", editable);
                 }
-                this.CX.oZ().qg().mIsNeedTbs = true;
-                if (this.cgo.getVoice() != null) {
-                    this.CX.o("voice_md5", this.cgo.getVoice());
-                    this.CX.o("during_time", String.valueOf(this.cgo.getVoiceDuringTime()));
+                this.CU.oS().pZ().mIsNeedTbs = true;
+                if (this.cgn.getVoice() != null) {
+                    this.CU.o("voice_md5", this.cgn.getVoice());
+                    this.CU.o("during_time", String.valueOf(this.cgn.getVoiceDuringTime()));
                 }
-                if (this.cgo.getType() == 0) {
-                    this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
-                    this.CX.o("title", this.cgo.getTitle());
-                    this.CX.o("is_ntitle", this.cgo.isNoTitle() ? "1" : "0");
-                    if (this.cgo.getLiveCardData() != null) {
-                        this.CX.o("group_id", String.valueOf(this.cgo.getLiveCardData().getGroupId()));
-                        this.CX.o("start_time", String.valueOf(this.cgo.getLiveCardData().getStartTime()));
+                if (this.cgn.getType() == 0) {
+                    this.CU.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
+                    this.CU.o("title", this.cgn.getTitle());
+                    this.CU.o("is_ntitle", this.cgn.isNoTitle() ? "1" : "0");
+                    if (this.cgn.getLiveCardData() != null) {
+                        this.CU.o("group_id", String.valueOf(this.cgn.getLiveCardData().getGroupId()));
+                        this.CU.o("start_time", String.valueOf(this.cgn.getLiveCardData().getStartTime()));
                     }
-                    if (!TbConfig.getPositionPagerId().equals(this.cgm.getIntent().getStringExtra("forum_id")) && TbadkCoreApplication.m255getInst().getIsLocationOn() && (z = com.baidu.adp.lib.d.a.dB().z(false)) != null) {
-                        this.CX.o("lbs", String.valueOf(String.valueOf(z.getLatitude())) + "," + String.valueOf(z.getLongitude()));
+                    if (!TbConfig.getPositionPagerId().equals(this.cgl.getIntent().getStringExtra("forum_id")) && TbadkCoreApplication.m255getInst().getIsLocationOn() && (z = com.baidu.adp.lib.d.a.dB().z(false)) != null) {
+                        this.CU.o("lbs", String.valueOf(String.valueOf(z.getLatitude())) + "," + String.valueOf(z.getLongitude()));
                     }
                 } else {
-                    this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS);
-                    this.CX.o("tid", this.cgo.getThreadId());
-                    this.CX.o("is_ad", this.cgm.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
-                    if (this.cgo.getType() == 2) {
-                        this.CX.o("quote_id", String.valueOf(this.cgo.getFloor()));
-                        this.CX.o(WriteActivityConfig.FLOOR_NUM, String.valueOf(this.cgo.getFloorNum()));
-                        this.CX.o(WriteActivityConfig.IS_ADDITION, this.cgo.isAddition() ? "1" : "0");
-                        if (this.cgo.getRepostId() != null) {
-                            this.CX.o("repostid", this.cgo.getRepostId());
+                    this.CU.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS);
+                    this.CU.o("tid", this.cgn.getThreadId());
+                    this.CU.o("is_ad", this.cgl.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
+                    if (this.cgn.getType() == 2) {
+                        this.CU.o("quote_id", String.valueOf(this.cgn.getFloor()));
+                        this.CU.o(WriteActivityConfig.FLOOR_NUM, String.valueOf(this.cgn.getFloorNum()));
+                        this.CU.o(WriteActivityConfig.IS_ADDITION, this.cgn.isAddition() ? "1" : "0");
+                        if (this.cgn.getRepostId() != null) {
+                            this.CU.o("repostid", this.cgn.getRepostId());
                         }
                     }
                 }
             }
-            this.QK = this.CX.oy();
+            this.QH = this.CU.or();
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.cgm.cgk = null;
-        this.cgm.closeLoadingDialog();
-        if (this.CX != null) {
-            this.CX.dJ();
+        this.cgl.cgj = null;
+        this.cgl.closeLoadingDialog();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
         super.cancel(true);
     }
@@ -139,57 +139,57 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
         WriteData writeData2;
         WriteData writeData3;
         String str = null;
-        this.cgm.closeLoadingDialog();
-        this.cgm.cgk = null;
-        if (this.CX != null) {
-            if (this.CX.oZ().qh().ma()) {
+        this.cgl.closeLoadingDialog();
+        this.cgl.cgj = null;
+        if (this.CU != null) {
+            if (this.CU.oS().qa().lT()) {
                 ErrorData errorData = new ErrorData();
-                errorData.parserJson(this.QK);
+                errorData.parserJson(this.QH);
                 if (errorData.error_code == 0) {
                     try {
-                        str = new JSONObject(this.QK).optString(AddFriendActivityConfig.MSG);
+                        str = new JSONObject(this.QH).optString(AddFriendActivityConfig.MSG);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     if (StringUtils.isNull(str)) {
                         str = TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.send_success);
                     }
-                    if (this.cgo.getType() != 3) {
-                        com.baidu.tieba.tbadkCore.f.g.M(this.cgm.getPageContext().getPageActivity(), str);
+                    if (this.cgn.getType() != 3) {
+                        com.baidu.tieba.tbadkCore.f.g.M(this.cgl.getPageContext().getPageActivity(), str);
                     }
-                    this.cgo.deleteUploadedTempImages();
-                    if (this.cgo != null && this.cgo.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.afo();
+                    this.cgn.deleteUploadedTempImages();
+                    if (this.cgn != null && this.cgn.isBabaoPosted()) {
+                        com.baidu.tieba.tbadkCore.PbEditor.a.afj();
                     }
-                } else if ((this.cgo.isHasImages() || this.cgo.getIsBaobao()) && com.baidu.adp.lib.util.k.isEmpty(String.valueOf(this.cgo.getContent()) + this.cgo.getImagesCodeForPost())) {
-                    this.cgm.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.img_upload_error));
-                } else if (this.cgo.getType() != 3) {
-                    this.cgm.showToast(errorData.getError_msg());
+                } else if ((this.cgn.isHasImages() || this.cgn.getIsBaobao()) && com.baidu.adp.lib.util.k.isEmpty(String.valueOf(this.cgn.getContent()) + this.cgn.getImagesCodeForPost())) {
+                    this.cgl.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.img_upload_error));
+                } else if (this.cgn.getType() != 3) {
+                    this.cgl.showToast(errorData.getError_msg());
                 }
-                this.cgm.setResult(-1, this.cgm.getIntent());
-                if (this.cgo.getLiveCardData() != null) {
-                    this.cgm.sendMessage(new CustomMessage(2003001, new FrsActivityConfig(this.cgm.getPageContext().getPageActivity()).createRefreshCfgShowContent(this.cgo.getForumName(), "post live's thread")));
+                this.cgl.setResult(-1, this.cgl.getIntent());
+                if (this.cgn.getLiveCardData() != null) {
+                    this.cgl.sendMessage(new CustomMessage(2003001, new FrsActivityConfig(this.cgl.getPageContext().getPageActivity()).createRefreshCfgShowContent(this.cgn.getForumName(), "post live's thread")));
                 }
-                this.cgm.finish();
-            } else if (this.cgo.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(String.valueOf(this.cgo.getContent()) + this.cgo.getImagesCodeForPost())) {
-                this.cgm.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.img_upload_error));
+                this.cgl.finish();
+            } else if (this.cgn.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(String.valueOf(this.cgn.getContent()) + this.cgn.getImagesCodeForPost())) {
+                this.cgl.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.img_upload_error));
             } else {
-                if (this.CX.pd() == 5 || this.CX.pd() == 6) {
+                if (this.CU.oW() == 5 || this.CU.oW() == 6) {
                     com.baidu.tbadk.coreExtra.data.j jVar2 = new com.baidu.tbadk.coreExtra.data.j();
-                    jVar2.parserJson(this.QK);
+                    jVar2.parserJson(this.QH);
                     if (jVar2.getVcode_pic_url() != null) {
-                        writeData = this.cgm.cfW;
+                        writeData = this.cgl.cfV;
                         writeData.setVcodeMD5(jVar2.getVcode_md5());
-                        writeData2 = this.cgm.cfW;
+                        writeData2 = this.cgl.cfV;
                         writeData2.setVcodeUrl(jVar2.getVcode_pic_url());
-                        VcodeActivity vcodeActivity = this.cgm;
-                        writeData3 = this.cgm.cfW;
-                        vcodeActivity.de(writeData3.getVcodeUrl());
+                        VcodeActivity vcodeActivity = this.cgl;
+                        writeData3 = this.cgl.cfV;
+                        vcodeActivity.db(writeData3.getVcodeUrl());
                     }
-                    editText = this.cgm.mEdit;
+                    editText = this.cgl.mEdit;
                     editText.setText((CharSequence) null);
                 }
-                this.cgm.showToast(this.CX.getErrorString());
+                this.cgl.showToast(this.CU.getErrorString());
             }
         }
         super.onPostExecute(jVar);

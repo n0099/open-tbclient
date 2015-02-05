@@ -1,9 +1,9 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public interface c {
-    void jw();
+    void jp();
 
-    void jx();
+    void jq();
 
     void k(float f);
 }

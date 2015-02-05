@@ -5,15 +5,15 @@ import com.baidu.adp.widget.ListView.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ac {
-    final /* synthetic */ a aeZ;
+    final /* synthetic */ a aeW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aeZ = aVar;
+        this.aeW = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.ac
     public void s(BdListView bdListView) {
-        this.aeZ.aV(false);
+        this.aeW.aV(false);
     }
 }

@@ -154,7 +154,7 @@ public class z {
                             }
                             str2 = "";
                         }
-                        SpannableString faceSpannableString = getFaceSpannableString(cVar.Aj(), name, str3);
+                        SpannableString faceSpannableString = getFaceSpannableString(cVar.Ad(), name, str3);
                         if (faceSpannableString != null) {
                             cVar.append(faceSpannableString);
                         }
@@ -177,16 +177,16 @@ public class z {
 
     private static SpannableString getFaceSpannableString(ArrayList<com.baidu.tbadk.widget.richText.f> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int dZ = TbFaceManager.wd().dZ(str);
-        if (dZ != 0) {
+        int dW = TbFaceManager.vX().dW(str);
+        if (dW != 0) {
             spannableString = new SpannableString(String.valueOf(str2) + " ");
-            com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(TbadkCoreApplication.m255getInst(), dZ);
+            com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(TbadkCoreApplication.m255getInst(), dW);
             if (arrayList != null) {
                 arrayList.add(fVar);
             }
-            com.baidu.tbadk.imageManager.c ej = TbFaceManager.wd().ej(str);
-            if (ej != null) {
-                int width = (int) (0.5d * ej.getWidth());
+            com.baidu.tbadk.imageManager.c eg = TbFaceManager.vX().eg(str);
+            if (eg != null) {
+                int width = (int) (0.5d * eg.getWidth());
                 fVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 fVar.setBounds(new Rect(0, 0, 0, 0));

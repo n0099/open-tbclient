@@ -21,13 +21,13 @@ class b extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
             if (responseUnreadPointNum.getNum() > 0 && responseUnreadPointNum.isFromNet()) {
-                imageView3 = AddressListDelegateStatic.aoN;
+                imageView3 = AddressListDelegateStatic.aoK;
                 imageView3.setVisibility(0);
-            } else if (com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                imageView2 = AddressListDelegateStatic.aoN;
+            } else if (com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                imageView2 = AddressListDelegateStatic.aoK;
                 imageView2.setVisibility(0);
             } else {
-                imageView = AddressListDelegateStatic.aoN;
+                imageView = AddressListDelegateStatic.aoK;
                 imageView.setVisibility(8);
             }
         }

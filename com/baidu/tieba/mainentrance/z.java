@@ -11,11 +11,11 @@ import com.baidu.tieba.mainentrance.BarSuggestModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SquareSearchActivity squareSearchActivity) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -37,23 +37,23 @@ public class z implements AdapterView.OnItemClickListener {
         e eVar9;
         SearchPostModel searchPostModel5;
         String str2;
-        i2 = this.btb.mMode;
+        i2 = this.bta.mMode;
         if (i2 != 0) {
-            eVar = this.btb.bsH;
+            eVar = this.bta.bsG;
             if (eVar.getItemId(i) == -1) {
-                eVar7 = this.btb.bsH;
-                if (eVar7.TZ() == 0) {
-                    searchPostModel3 = this.btb.bsL;
+                eVar7 = this.bta.bsG;
+                if (eVar7.TU() == 0) {
+                    searchPostModel3 = this.bta.bsK;
                     if (searchPostModel3 != null) {
-                        searchPostModel4 = this.btb.bsL;
+                        searchPostModel4 = this.bta.bsK;
                         if (searchPostModel4.getCurrentPage() > 1) {
-                            eVar8 = this.btb.bsH;
+                            eVar8 = this.bta.bsG;
                             eVar8.setRefreshing(1);
-                            eVar9 = this.btb.bsH;
+                            eVar9 = this.bta.bsG;
                             eVar9.notifyDataSetChanged();
-                            SquareSearchActivity squareSearchActivity = this.btb;
-                            searchPostModel5 = this.btb.bsL;
-                            str2 = this.btb.bsO;
+                            SquareSearchActivity squareSearchActivity = this.bta;
+                            searchPostModel5 = this.bta.bsK;
+                            str2 = this.bta.bsN;
                             squareSearchActivity.y(searchPostModel5.getCurrentPage() - 1, str2);
                             return;
                         }
@@ -63,19 +63,19 @@ public class z implements AdapterView.OnItemClickListener {
                 }
                 return;
             }
-            eVar2 = this.btb.bsH;
+            eVar2 = this.bta.bsG;
             if (eVar2.getItemId(i) == -2) {
-                eVar4 = this.btb.bsH;
-                if (eVar4.TZ() == 0) {
-                    searchPostModel = this.btb.bsL;
+                eVar4 = this.bta.bsG;
+                if (eVar4.TU() == 0) {
+                    searchPostModel = this.bta.bsK;
                     if (searchPostModel != null) {
-                        eVar5 = this.btb.bsH;
+                        eVar5 = this.bta.bsG;
                         eVar5.setRefreshing(2);
-                        eVar6 = this.btb.bsH;
+                        eVar6 = this.bta.bsG;
                         eVar6.notifyDataSetChanged();
-                        SquareSearchActivity squareSearchActivity2 = this.btb;
-                        searchPostModel2 = this.btb.bsL;
-                        str = this.btb.bsO;
+                        SquareSearchActivity squareSearchActivity2 = this.bta;
+                        searchPostModel2 = this.bta.bsK;
+                        str = this.bta.bsN;
                         squareSearchActivity2.y(searchPostModel2.getCurrentPage() + 1, str);
                         return;
                     }
@@ -83,14 +83,14 @@ public class z implements AdapterView.OnItemClickListener {
                 }
                 return;
             }
-            eVar3 = this.btb.bsH;
+            eVar3 = this.bta.bsG;
             h hVar = (h) eVar3.getItem(i);
             if (hVar != null) {
-                if (hVar.Uc()) {
-                    this.btb.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.btb.getPageContext().getPageActivity()).createNormalCfg(hVar.getTid(), null, "search_post")));
+                if (hVar.TX()) {
+                    this.bta.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bta.getPageContext().getPageActivity()).createNormalCfg(hVar.getTid(), null, "search_post")));
                     return;
                 } else {
-                    this.btb.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.btb.getPageContext().getPageActivity()).createNormalCfg(hVar.getTid(), hVar.getPid(), "search_post")));
+                    this.bta.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bta.getPageContext().getPageActivity()).createNormalCfg(hVar.getTid(), hVar.getPid(), "search_post")));
                     return;
                 }
             }
@@ -99,8 +99,8 @@ public class z implements AdapterView.OnItemClickListener {
         Object item = ((ListView) adapterView).getAdapter().getItem(i);
         if (item instanceof BarSuggestModel.Forum) {
             String str3 = ((BarSuggestModel.Forum) item).forum_name;
-            TiebaStatic.eventStat(this.btb.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-            this.btb.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.btb.getPageContext().getPageActivity()).createFlagCfg(str3, FrsActivityConfig.FRS_FROM_SEARCH, 1)));
+            TiebaStatic.eventStat(this.bta.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
+            this.bta.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bta.getPageContext().getPageActivity()).createFlagCfg(str3, FrsActivityConfig.FRS_FROM_SEARCH, 1)));
         }
     }
 }

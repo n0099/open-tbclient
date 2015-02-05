@@ -3,11 +3,11 @@ package com.baidu.tbadk.browser;
 import android.view.View;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity By;
+    final /* synthetic */ WebTbActivity Bv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WebTbActivity webTbActivity) {
-        this.By = webTbActivity;
+        this.Bv = webTbActivity;
     }
 
     @Override // android.view.View.OnClickListener

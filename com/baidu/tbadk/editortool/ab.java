@@ -12,43 +12,43 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab YY = new ab();
-    private static BdAsyncTaskParallel Zb = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ae> YZ = new ArrayList<>();
-    private final List<e> Za = new ArrayList();
+    private static ab YV = new ab();
+    private static BdAsyncTaskParallel YY = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private ArrayList<ae> YW = new ArrayList<>();
+    private final List<e> YX = new ArrayList();
 
-    public static ab vt() {
-        return YY;
+    public static ab vn() {
+        return YV;
     }
 
     private ab() {
     }
 
     public void b(e eVar) {
-        synchronized (this.Za) {
-            if (!this.Za.contains(eVar)) {
-                this.Za.add(eVar);
-                Collections.sort(this.Za);
+        synchronized (this.YX) {
+            if (!this.YX.contains(eVar)) {
+                this.YX.add(eVar);
+                Collections.sort(this.YX);
             }
         }
     }
 
-    public void vu() {
+    public void vo() {
         new ac(this).execute(new Void[0]);
     }
 
-    public boolean dU(String str) {
-        Iterator<ae> it = this.YZ.iterator();
+    public boolean dR(String str) {
+        Iterator<ae> it = this.YW.iterator();
         while (it.hasNext()) {
-            if (it.next().dU(str)) {
+            if (it.next().dR(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public com.baidu.adp.widget.a.a ec(String str) {
-        return com.baidu.tbadk.imageManager.e.we().en(str);
+    public com.baidu.adp.widget.a.a dZ(String str) {
+        return com.baidu.tbadk.imageManager.e.vY().ek(str);
     }
 
     public String p(String str, boolean z) {
@@ -62,19 +62,19 @@ public class ab {
     public com.baidu.adp.widget.a.a ah(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
         Bitmap ai;
-        com.baidu.adp.widget.a.a en = com.baidu.tbadk.imageManager.e.we().en(str2);
-        if (en != null) {
-            return en;
+        com.baidu.adp.widget.a.a ek = com.baidu.tbadk.imageManager.e.vY().ek(str2);
+        if (ek != null) {
+            return ek;
         }
-        Iterator<ae> it = this.YZ.iterator();
+        Iterator<ae> it = this.YW.iterator();
         while (true) {
             if (!it.hasNext()) {
-                aVar = en;
+                aVar = ek;
                 break;
             }
             ae next = it.next();
-            if (next.dU(str2)) {
-                aVar = next.dV(str2);
+            if (next.dR(str2)) {
+                aVar = next.dS(str2);
                 break;
             }
         }
@@ -86,11 +86,11 @@ public class ab {
     }
 
     public String m(String str, boolean z) {
-        if (!z.vs().isEmpty()) {
-            List<ae> groups = z.vs().getGroups();
+        if (!z.vm().isEmpty()) {
+            List<ae> groups = z.vm().getGroups();
             if (z) {
                 for (ae aeVar : groups) {
-                    if (aeVar.dU(str)) {
+                    if (aeVar.dR(str)) {
                         return str;
                     }
                 }
@@ -104,19 +104,19 @@ public class ab {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.we().c(m(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.vY().c(m(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.we().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.vY().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ae> vv() {
-        return this.YZ;
+    public ArrayList<ae> vp() {
+        return this.YW;
     }
 
-    public ae ed(String str) {
-        Iterator<ae> it = this.YZ.iterator();
+    public ae ea(String str) {
+        Iterator<ae> it = this.YW.iterator();
         while (it.hasNext()) {
             ae next = it.next();
             if (next.getGroupId().equals(str)) {

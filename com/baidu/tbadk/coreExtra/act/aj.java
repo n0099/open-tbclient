@@ -11,18 +11,18 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.n> {
-    final /* synthetic */ Login2Activity QG;
-    ArrayList<BasicNameValuePair> QJ;
+    final /* synthetic */ Login2Activity QD;
+    ArrayList<BasicNameValuePair> QG;
     private String mUrl;
-    private com.baidu.tbadk.core.util.ad CX = null;
-    private String QK = null;
+    private com.baidu.tbadk.core.util.ad CU = null;
+    private String QH = null;
 
     public aj(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.QG = login2Activity;
+        this.QD = login2Activity;
         this.mUrl = null;
-        this.QJ = null;
+        this.QG = null;
         this.mUrl = str;
-        this.QJ = arrayList;
+        this.QG = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,19 +33,19 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.n
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
-        Login2Activity login2Activity = this.QG;
-        InputMethodManager inputMethodManager = this.QG.mInputManager;
-        editText = this.QG.Qe;
+        Login2Activity login2Activity = this.QD;
+        InputMethodManager inputMethodManager = this.QD.mInputManager;
+        editText = this.QD.Qb;
         login2Activity.HidenSoftKeyPad(inputMethodManager, editText);
-        Login2Activity login2Activity2 = this.QG;
-        InputMethodManager inputMethodManager2 = this.QG.mInputManager;
-        editText2 = this.QG.Qf;
+        Login2Activity login2Activity2 = this.QD;
+        InputMethodManager inputMethodManager2 = this.QD.mInputManager;
+        editText2 = this.QD.Qc;
         login2Activity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        progressBar = this.QG.Ql;
+        progressBar = this.QD.Qi;
         progressBar.setVisibility(0);
-        textView = this.QG.Qv;
+        textView = this.QD.Qs;
         textView.setVisibility(4);
-        textView2 = this.QG.Qx;
+        textView2 = this.QD.Qu;
         textView2.setText(com.baidu.tieba.z.account_login_loading);
     }
 
@@ -57,15 +57,15 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.n
         com.baidu.tbadk.core.data.n nVar;
         Exception e;
         try {
-            this.CX = new com.baidu.tbadk.core.util.ad(this.mUrl);
-            this.CX.r(this.QJ);
-            this.QK = this.CX.oy();
-            if (!this.CX.oZ().qh().ma() || this.QK == null) {
+            this.CU = new com.baidu.tbadk.core.util.ad(this.mUrl);
+            this.CU.r(this.QG);
+            this.QH = this.CU.or();
+            if (!this.CU.oS().qa().lT() || this.QH == null) {
                 return null;
             }
             nVar = new com.baidu.tbadk.core.data.n();
             try {
-                nVar.parserJson(this.QK);
+                nVar.parserJson(this.QH);
                 return nVar;
             } catch (Exception e2) {
                 e = e2;
@@ -93,48 +93,48 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.n
         TextView textView7;
         String str;
         EditText editText;
-        progressBar = this.QG.Ql;
+        progressBar = this.QD.Qi;
         progressBar.setVisibility(8);
-        textView = this.QG.Qx;
+        textView = this.QD.Qu;
         textView.setText(com.baidu.tieba.z.account_login);
-        this.QG.ry();
+        this.QD.rs();
         if (nVar != null) {
-            this.QG.QD = nVar;
-            this.QG.ro();
-        } else if (this.CX != null) {
-            if ((!this.CX.pc() || this.CX.pd() != 5) && this.CX.pd() != 6) {
-                textView2 = this.QG.Qv;
+            this.QD.Qz = nVar;
+            this.QD.ri();
+        } else if (this.CU != null) {
+            if ((!this.CU.oV() || this.CU.oW() != 5) && this.CU.oW() != 6) {
+                textView2 = this.QD.Qs;
                 textView2.setVisibility(0);
-                textView3 = this.QG.Qv;
-                textView3.setText(this.CX.getErrorString());
-                textView4 = this.QG.Qw;
+                textView3 = this.QD.Qs;
+                textView3.setText(this.CU.getErrorString());
+                textView4 = this.QD.Qt;
                 textView4.setVisibility(8);
-                this.QG.ru();
+                this.QD.ro();
             } else {
                 com.baidu.tbadk.coreExtra.data.j jVar = new com.baidu.tbadk.coreExtra.data.j();
-                jVar.parserJson(this.QK);
+                jVar.parserJson(this.QH);
                 if (jVar.getVcode_pic_url() == null) {
-                    textView5 = this.QG.Qv;
+                    textView5 = this.QD.Qs;
                     textView5.setVisibility(0);
-                    textView6 = this.QG.Qv;
-                    textView6.setText(this.CX.getErrorString());
-                    textView7 = this.QG.Qw;
+                    textView6 = this.QD.Qs;
+                    textView6.setText(this.CU.getErrorString());
+                    textView7 = this.QD.Qt;
                     textView7.setVisibility(8);
-                    this.QG.ru();
+                    this.QD.ro();
                 } else {
-                    this.QG.PY = jVar.getVcode_md5();
-                    this.QG.mVcodeUrl = jVar.getVcode_pic_url();
-                    Login2Activity login2Activity = this.QG;
-                    str = this.QG.mVcodeUrl;
-                    login2Activity.de(str);
-                    this.QG.rv();
-                    Login2Activity login2Activity2 = this.QG;
-                    editText = this.QG.Qe;
+                    this.QD.PV = jVar.getVcode_md5();
+                    this.QD.mVcodeUrl = jVar.getVcode_pic_url();
+                    Login2Activity login2Activity = this.QD;
+                    str = this.QD.mVcodeUrl;
+                    login2Activity.db(str);
+                    this.QD.rp();
+                    Login2Activity login2Activity2 = this.QD;
+                    editText = this.QD.Qb;
                     login2Activity2.mAccount = editText.getText().toString();
                 }
             }
         }
-        this.QG.QC = null;
+        this.QD.Qy = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -142,14 +142,14 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.n
         ProgressBar progressBar;
         TextView textView;
         super.cancel(true);
-        if (this.CX != null) {
-            this.CX.dJ();
-            this.CX = null;
+        if (this.CU != null) {
+            this.CU.dJ();
+            this.CU = null;
         }
-        progressBar = this.QG.Ql;
+        progressBar = this.QD.Qi;
         progressBar.setVisibility(8);
-        textView = this.QG.Qx;
+        textView = this.QD.Qu;
         textView.setText(com.baidu.tieba.z.account_login);
-        this.QG.ry();
+        this.QD.rs();
     }
 }

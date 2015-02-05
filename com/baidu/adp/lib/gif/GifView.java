@@ -39,6 +39,21 @@ public class GifView extends ImageView implements a {
         return iArr;
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
+    public static /* synthetic */ b a(GifView gifView) {
+        return gifView.jd;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
+    public static /* synthetic */ void a(GifView gifView, Bitmap bitmap) {
+        gifView.je = bitmap;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
+    public static /* synthetic */ boolean c(GifView gifView) {
+        return gifView.jf;
+    }
+
     /* loaded from: classes.dex */
     public enum GifImageType {
         WAIT_FINISH(0),
@@ -168,10 +183,19 @@ public class GifView extends ImageView implements a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
+    public static /* synthetic */ void b(GifView gifView) {
+        gifView.dt();
+    }
+
     public void dt() {
         if (this.jj != null) {
             this.jj.sendMessage(this.jj.obtainMessage());
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
+    public static /* synthetic */ Handler d(GifView gifView) {
+        return gifView.jj;
     }
 }

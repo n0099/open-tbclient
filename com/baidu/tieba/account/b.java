@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class b extends Handler {
-    final /* synthetic */ AccountActivity amI;
+    final /* synthetic */ AccountActivity amF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AccountActivity accountActivity) {
-        this.amI = accountActivity;
+        this.amF = accountActivity;
     }
 
     @Override // android.os.Handler
@@ -16,10 +16,10 @@ class b extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                this.amI.AX();
+                this.amF.AR();
                 return;
             case 2:
-                this.amI.AW();
+                this.amF.AQ();
                 return;
             default:
                 return;

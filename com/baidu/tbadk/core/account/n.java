@@ -23,38 +23,38 @@ import org.json.JSONObject;
 public class n {
     public static AccountLoginHelper.OurToken a(AccountLoginHelper.OurToken ourToken) {
         AccountLoginHelper.OurToken ourToken2;
-        String[] mn;
+        String[] mg;
         if (ourToken == null) {
             return null;
         }
         try {
-            mn = mn();
+            mg = mg();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (mn != null) {
+        if (mg != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", mo()));
-            arrayList.add(new BasicNameValuePair("cert_id", mn[0]));
+            arrayList.add(new BasicNameValuePair("clientip", mh()));
+            arrayList.add(new BasicNameValuePair("cert_id", mg[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, ourToken.mBduss);
             jSONObject.put(SapiAccountManager.SESSION_PTOKEN, ourToken.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.m255getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.m255getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new b().N(mn[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new b().N(mg[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", a(arrayList, TbConfig.PassConfig.ENC_KEY)));
             ad adVar = new ad(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            adVar.oZ().qg().mIsNeedAddCommenParam = false;
-            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
+            adVar.oS().pZ().mIsNeedAddCommenParam = false;
+            adVar.oS().pZ().mIsUseCurrentBDUSS = false;
             adVar.r(arrayList);
-            adVar.oZ().qg().qj().KQ = true;
-            adVar.oZ().qg().qj().mIsBaiduServer = false;
-            String oy = adVar.oy();
-            if (adVar.oZ().qh().ma() && !bf.isEmpty(oy)) {
-                JSONObject jSONObject2 = new JSONObject(oy);
+            adVar.oS().pZ().qc().KN = true;
+            adVar.oS().pZ().qc().mIsBaiduServer = false;
+            String or = adVar.or();
+            if (adVar.oS().qa().lT() && !bf.isEmpty(or)) {
+                JSONObject jSONObject2 = new JSONObject(or);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     ourToken2 = new AccountLoginHelper.OurToken();
                     ourToken2.mBduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
@@ -69,19 +69,19 @@ public class n {
         return null;
     }
 
-    private static String[] mn() {
+    private static String[] mg() {
         try {
             ad adVar = new ad(TbConfig.PassConfig.GET_CERT_URL);
-            adVar.oZ().qg().mIsNeedAddCommenParam = false;
-            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(adVar.oz()));
+            adVar.oS().pZ().mIsNeedAddCommenParam = false;
+            adVar.oS().pZ().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(adVar.os()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String mo() {
+    private static String mh() {
         if (com.baidu.adp.lib.util.i.fg()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.m255getInst().getApp());
         }

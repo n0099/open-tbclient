@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class am implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ LoginActivity QM;
+    final /* synthetic */ LoginActivity QJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(LoginActivity loginActivity) {
-        this.QM = loginActivity;
+        this.QJ = loginActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
     public void onFinish() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj == null) {
-            currentAccountObj = com.baidu.tbadk.core.account.a.mk();
+            currentAccountObj = com.baidu.tbadk.core.account.a.md();
         }
         if (currentAccountObj == null && !TbadkCoreApplication.isSDKLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.QM.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.QJ.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
         }
-        this.QM.finish();
+        this.QJ.finish();
     }
 }

@@ -6,22 +6,22 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity abe;
-    private final /* synthetic */ InputMethodManager abf;
+    final /* synthetic */ BuyGiftActivity abb;
+    private final /* synthetic */ InputMethodManager abc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BuyGiftActivity buyGiftActivity, InputMethodManager inputMethodManager) {
-        this.abe = buyGiftActivity;
-        this.abf = inputMethodManager;
+        this.abb = buyGiftActivity;
+        this.abc = inputMethodManager;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        BuyGiftActivity buyGiftActivity = this.abe;
-        InputMethodManager inputMethodManager = this.abf;
-        editText = this.abe.aaA;
+        BuyGiftActivity buyGiftActivity = this.abb;
+        InputMethodManager inputMethodManager = this.abc;
+        editText = this.abb.aax;
         buyGiftActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        this.abe.mHandler.postDelayed(new m(this), 200L);
+        this.abb.mHandler.postDelayed(new m(this), 200L);
     }
 }

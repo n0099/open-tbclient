@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ PersonImageActivity bIh;
+    final /* synthetic */ PersonImageActivity bIg;
     byte[] mData;
     String mUrl;
 
     public ba(PersonImageActivity personImageActivity, String str, byte[] bArr) {
-        this.bIh = personImageActivity;
+        this.bIg = personImageActivity;
         this.mUrl = null;
         this.mData = null;
         this.mUrl = str;
@@ -22,14 +22,14 @@ public class ba extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: l */
     public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.s.a(this.mUrl, this.mData, this.bIh.getPageContext().getPageActivity())) {
+        switch (com.baidu.tbadk.core.util.s.a(this.mUrl, this.mData, this.bIg.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.s.os();
+                return com.baidu.tbadk.core.util.s.ol();
             case -1:
             default:
-                return this.bIh.getPageContext().getString(com.baidu.tieba.z.save_error);
+                return this.bIg.getPageContext().getString(com.baidu.tieba.z.save_error);
             case 0:
-                return this.bIh.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
+                return this.bIg.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
         }
     }
 
@@ -39,9 +39,9 @@ public class ba extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         ProgressBar progressBar;
         super.onPostExecute((ba) str);
-        this.bIh.showToast(str);
-        this.bIh.bIg = null;
-        progressBar = this.bIh.mProgress;
+        this.bIg.showToast(str);
+        this.bIg.bIf = null;
+        progressBar = this.bIg.mProgress;
         progressBar.setVisibility(8);
     }
 
@@ -54,8 +54,8 @@ public class ba extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.bIh.bIg = null;
-        progressBar = this.bIh.mProgress;
+        this.bIg.bIf = null;
+        progressBar = this.bIg.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

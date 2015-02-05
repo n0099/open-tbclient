@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.dialog.BdToast;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView YB;
+    final /* synthetic */ EmotionTabHorizonScrollView Yy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.YB = emotionTabHorizonScrollView;
+        this.Yy = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.YB.getContext(), this.YB.getContext().getResources().getString(com.baidu.tieba.z.emotion_cant_show)).ob();
+        BdToast.a(this.Yy.getContext(), this.Yy.getContext().getResources().getString(com.baidu.tieba.z.emotion_cant_show)).nU();
     }
 }

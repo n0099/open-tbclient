@@ -4,12 +4,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
 class aa extends com.baidu.tieba.im.h<Boolean> {
-    final /* synthetic */ GroupChatActivity aRo;
+    final /* synthetic */ GroupChatActivity aRn;
     private final /* synthetic */ GroupData val$groupData;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.aRo = groupChatActivity;
+        this.aRn = groupChatActivity;
         this.val$groupData = groupData;
     }
 
@@ -17,6 +17,6 @@ class aa extends com.baidu.tieba.im.h<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.settingcache.c.Tr().aH(TbadkApplication.getCurrentAccount(), String.valueOf(this.val$groupData.getGroupId())));
+        return Boolean.valueOf(com.baidu.tieba.im.settingcache.c.Tm().aH(TbadkApplication.getCurrentAccount(), String.valueOf(this.val$groupData.getGroupId())));
     }
 }

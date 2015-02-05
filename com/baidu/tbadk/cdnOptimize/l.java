@@ -1,12 +1,12 @@
 package com.baidu.tbadk.cdnOptimize;
 /* loaded from: classes.dex */
 class l {
-    final /* synthetic */ k BS;
+    final /* synthetic */ k BP;
     String ip;
-    long vD;
+    long vA;
 
     private l(k kVar) {
-        this.BS = kVar;
+        this.BP = kVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

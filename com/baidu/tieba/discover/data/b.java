@@ -7,25 +7,25 @@ import tbclient.FoundNew.DataReq;
 import tbclient.FoundNew.FoundNewReqIdl;
 /* loaded from: classes.dex */
 public class b implements h {
-    private long auv;
+    private long aus;
 
     public void H(long j) {
-        this.auv = j;
+        this.aus = j;
     }
 
-    public long Dm() {
-        return this.auv;
+    public long Dg() {
+        return this.aus;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> kQ() {
+    public HashMap<String, Object> kJ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
     public Object X(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.timestamp = Long.valueOf(this.auv);
+        builder.timestamp = Long.valueOf(this.aus);
         FoundNewReqIdl.Builder builder2 = new FoundNewReqIdl.Builder();
         builder2.data = builder.build(false);
         k.a(builder2.data, true);

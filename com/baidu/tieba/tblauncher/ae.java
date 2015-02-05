@@ -19,11 +19,11 @@ class ae extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<b> wz;
+        ArrayList<b> wt;
         ai aiVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (wz = ((g) customResponsedMessage.getData()).wz()) != null && wz.size() != 0) {
-            aiVar = this.this$0.ccK;
-            aiVar.S(wz);
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (wt = ((g) customResponsedMessage.getData()).wt()) != null && wt.size() != 0) {
+            aiVar = this.this$0.ccJ;
+            aiVar.S(wt);
             this.this$0.Y(this.this$0.getIntent());
         }
     }

@@ -9,11 +9,11 @@ import android.widget.EditText;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity cgm;
+    final /* synthetic */ VcodeActivity cgl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(VcodeActivity vcodeActivity) {
-        this.cgm = vcodeActivity;
+        this.cgl = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,29 +27,29 @@ class x implements View.OnClickListener {
         ab abVar2;
         ab abVar3;
         ab abVar4;
-        VcodeActivity vcodeActivity = this.cgm;
-        inputMethodManager = this.cgm.mInputManager;
-        editText = this.cgm.mEdit;
+        VcodeActivity vcodeActivity = this.cgl;
+        inputMethodManager = this.cgl.mInputManager;
+        editText = this.cgl.mEdit;
         vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        VcodeActivity vcodeActivity2 = this.cgm;
-        Activity pageActivity = this.cgm.getPageContext().getPageActivity();
-        String string = this.cgm.getPageContext().getString(com.baidu.tieba.z.sending);
-        onCancelListener = this.cgm.bHG;
+        VcodeActivity vcodeActivity2 = this.cgl;
+        Activity pageActivity = this.cgl.getPageContext().getPageActivity();
+        String string = this.cgl.getPageContext().getString(com.baidu.tieba.z.sending);
+        onCancelListener = this.cgl.bHF;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(pageActivity, "", string, true, false, onCancelListener);
-        progressDialog = this.cgm.mWaitingDialog;
+        progressDialog = this.cgl.mWaitingDialog;
         progressDialog.setCanceledOnTouchOutside(false);
-        abVar = this.cgm.cgk;
+        abVar = this.cgl.cgj;
         if (abVar != null) {
-            abVar4 = this.cgm.cgk;
+            abVar4 = this.cgl.cgj;
             abVar4.cancel();
         }
-        VcodeActivity vcodeActivity3 = this.cgm;
-        VcodeActivity vcodeActivity4 = this.cgm;
-        writeData = this.cgm.cfW;
-        vcodeActivity3.cgk = new ab(vcodeActivity4, writeData);
-        abVar2 = this.cgm.cgk;
+        VcodeActivity vcodeActivity3 = this.cgl;
+        VcodeActivity vcodeActivity4 = this.cgl;
+        writeData = this.cgl.cfV;
+        vcodeActivity3.cgj = new ab(vcodeActivity4, writeData);
+        abVar2 = this.cgl.cgj;
         abVar2.setPriority(3);
-        abVar3 = this.cgm.cgk;
+        abVar3 = this.cgl.cgj;
         abVar3.execute(0);
     }
 }

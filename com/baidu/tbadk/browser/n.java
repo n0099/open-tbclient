@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class n extends WebViewClient {
-    final /* synthetic */ TbWebViewActivity Bj;
+    final /* synthetic */ TbWebViewActivity Bg;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public n(TbWebViewActivity tbWebViewActivity) {
-        this.Bj = tbWebViewActivity;
+        this.Bg = tbWebViewActivity;
     }
 
     @Override // android.webkit.WebViewClient
@@ -28,31 +28,31 @@ public class n extends WebViewClient {
         String str4;
         String unused;
         super.onPageFinished(webView, str);
-        if (this.Bj.mWebView != null) {
-            this.Bj.mUrl = this.Bj.mWebView.getUrl();
-            str2 = this.Bj.mUrl;
+        if (this.Bg.mWebView != null) {
+            this.Bg.mUrl = this.Bg.mWebView.getUrl();
+            str2 = this.Bg.mUrl;
             if (str2 != null) {
-                str3 = this.Bj.mUrl;
+                str3 = this.Bg.mUrl;
                 int indexOf = str3.indexOf(47, 8);
                 if (indexOf > 8) {
-                    str4 = this.Bj.mUrl;
+                    str4 = this.Bg.mUrl;
                     str4.substring(0, indexOf);
                 } else {
-                    unused = this.Bj.mUrl;
+                    unused = this.Bg.mUrl;
                 }
             }
-            if (this.Bj.mWebView.canGoBack()) {
-                imageView3 = this.Bj.mBottomBack;
+            if (this.Bg.mWebView.canGoBack()) {
+                imageView3 = this.Bg.mBottomBack;
                 imageView3.setEnabled(true);
-                imageView4 = this.Bj.mBottomBack;
+                imageView4 = this.Bg.mBottomBack;
                 bc.c(imageView4, com.baidu.tieba.v.icon_webview_return_n);
             } else {
-                imageView = this.Bj.mBottomBack;
+                imageView = this.Bg.mBottomBack;
                 imageView.setEnabled(false);
-                imageView2 = this.Bj.mBottomBack;
-                imageView2.setImageDrawable(this.Bj.getResources().getDrawable(com.baidu.tieba.v.icon_webview_return_dd));
+                imageView2 = this.Bg.mBottomBack;
+                imageView2.setImageDrawable(this.Bg.getResources().getDrawable(com.baidu.tieba.v.icon_webview_return_dd));
             }
-            progressBar = this.Bj.mProgressBar;
+            progressBar = this.Bg.mProgressBar;
             progressBar.setVisibility(8);
         }
     }
@@ -64,17 +64,17 @@ public class n extends WebViewClient {
         ProgressBar progressBar;
         ImageView imageView3;
         super.onPageStarted(webView, str, bitmap);
-        if (this.Bj.mWebView != null) {
-            imageView = this.Bj.mBottomBack;
-            imageView.setImageDrawable(this.Bj.getResources().getDrawable(com.baidu.tieba.v.icon_webview_return_dd));
-            if (this.Bj.mWebView.canGoBack()) {
-                imageView3 = this.Bj.mBottomBack;
+        if (this.Bg.mWebView != null) {
+            imageView = this.Bg.mBottomBack;
+            imageView.setImageDrawable(this.Bg.getResources().getDrawable(com.baidu.tieba.v.icon_webview_return_dd));
+            if (this.Bg.mWebView.canGoBack()) {
+                imageView3 = this.Bg.mBottomBack;
                 imageView3.setEnabled(true);
             } else {
-                imageView2 = this.Bj.mBottomBack;
+                imageView2 = this.Bg.mBottomBack;
                 imageView2.setEnabled(false);
             }
-            progressBar = this.Bj.mProgressBar;
+            progressBar = this.Bg.mProgressBar;
             progressBar.setVisibility(0);
         }
     }
@@ -84,11 +84,11 @@ public class n extends WebViewClient {
         if (bf.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.tbadk.util.o.a(this.Bj, str)) {
+        if (com.baidu.tbadk.util.o.a(this.Bg, str)) {
             return true;
         }
-        this.Bj.mUrl = str;
-        this.Bj.refresh();
+        this.Bg.mUrl = str;
+        this.Bg.refresh();
         return true;
     }
 }

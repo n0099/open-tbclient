@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements com.baidu.tbadk.widget.g {
-    final /* synthetic */ MultiImageView Vq;
+    final /* synthetic */ MultiImageView Vn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(MultiImageView multiImageView) {
-        this.Vq = multiImageView;
+        this.Vn = multiImageView;
     }
 
     @Override // com.baidu.tbadk.widget.g
@@ -17,14 +17,14 @@ public class ap implements com.baidu.tbadk.widget.g {
         boolean z;
         p pVar2;
         p pVar3;
-        pVar = this.Vq.Vk;
+        pVar = this.Vn.Vh;
         if (aVar == pVar.getCurrentView()) {
-            z = this.Vq.Vo;
+            z = this.Vn.Vl;
             if (z) {
-                pVar2 = this.Vq.Vk;
+                pVar2 = this.Vn.Vh;
                 int childCount = pVar2.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    pVar3 = this.Vq.Vk;
+                    pVar3 = this.Vn.Vh;
                     View childAt = pVar3.getChildAt(i);
                     if (childAt != null && (childAt instanceof ax) && ((ax) childAt).getImageView() != aVar) {
                         ((ax) childAt).release();

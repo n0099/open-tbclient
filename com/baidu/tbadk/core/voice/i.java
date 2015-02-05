@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    private final /* synthetic */ String Oi;
-    private final /* synthetic */ int Oj;
+    private final /* synthetic */ String Of;
+    private final /* synthetic */ int Og;
     final /* synthetic */ VoiceManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(VoiceManager voiceManager, String str, int i) {
         this.this$0 = voiceManager;
-        this.Oi = str;
-        this.Oj = i;
+        this.Of = str;
+        this.Og = i;
     }
 
     @Override // java.lang.Runnable
@@ -22,7 +22,7 @@ public class i implements Runnable {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        String str = com.baidu.tbadk.core.voice.a.b.cX(r.cW(this.Oi)).md5;
+        String str = com.baidu.tbadk.core.voice.a.b.cU(r.cT(this.Of)).md5;
         handler = this.this$0.mHandle;
         if (handler != null) {
             handler2 = this.this$0.mHandle;
@@ -33,7 +33,7 @@ public class i implements Runnable {
                 return;
             }
             handler3 = this.this$0.mHandle;
-            handler3.post(new k(this, str, this.Oj));
+            handler3.post(new k(this, str, this.Og));
         }
     }
 }

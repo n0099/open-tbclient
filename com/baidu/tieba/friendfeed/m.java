@@ -6,33 +6,33 @@ import com.baidu.tieba.data.FriendFeedThreadData;
 import com.baidu.tieba.tbadkCore.aq;
 /* loaded from: classes.dex */
 class m implements aq {
-    final /* synthetic */ FriendFeedActivity aBV;
+    final /* synthetic */ FriendFeedActivity aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FriendFeedActivity friendFeedActivity) {
-        this.aBV = friendFeedActivity;
+        this.aBS = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aq
-    public void fA(String str) {
+    public void fx(String str) {
         boolean z;
         FriendFeedThreadData friendFeedThreadData;
-        z = this.aBV.aBI;
+        z = this.aBS.aBF;
         if (z) {
-            friendFeedThreadData = this.aBV.aBH;
-            this.aBV.eH(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
+            friendFeedThreadData = this.aBS.aBE;
+            this.aBS.eH(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
         }
-        this.aBV.aBG = false;
+        this.aBS.aBD = false;
         TbadkApplication.getInst().resetPbRecorder();
     }
 
     @Override // com.baidu.tieba.tbadkCore.aq
-    public void fB(String str) {
+    public void fy(String str) {
         boolean z;
-        z = this.aBV.aBI;
+        z = this.aBS.aBF;
         if (z && !TextUtils.isEmpty(str)) {
-            this.aBV.showToast(str);
+            this.aBS.showToast(str);
         }
-        this.aBV.aBG = false;
+        this.aBS.aBD = false;
     }
 }

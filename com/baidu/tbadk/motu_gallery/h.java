@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ JigsawAlbumActivity adc;
+    final /* synthetic */ JigsawAlbumActivity acZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.adc = jigsawAlbumActivity;
+        this.acZ = jigsawAlbumActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,32 +25,32 @@ class h implements AdapterView.OnItemClickListener {
         ArrayList arrayList3;
         u uVar2;
         u uVar3;
-        jVar = this.adc.acN;
+        jVar = this.acZ.acK;
         int i2 = jVar.mList.get(i).type;
-        uVar = this.adc.acP;
+        uVar = this.acZ.acM;
         uVar.removeAll();
-        arrayList = this.adc.acL;
+        arrayList = this.acZ.acI;
         if (i2 < arrayList.size()) {
-            arrayList2 = this.adc.acK;
+            arrayList2 = this.acZ.acH;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 c cVar = (c) it.next();
                 if (cVar != null && cVar.type == i2) {
-                    uVar3 = this.adc.acP;
+                    uVar3 = this.acZ.acM;
                     uVar3.a(cVar);
                 }
             }
-            jVar2 = this.adc.acN;
+            jVar2 = this.acZ.acK;
             String str = jVar2.mList.get(i).path;
-            arrayList3 = this.adc.acL;
+            arrayList3 = this.acZ.acI;
             String substring = str.substring(((c) arrayList3.get(i)).path.lastIndexOf("/") + 1);
-            uVar2 = this.adc.acP;
-            uVar2.ex(substring);
+            uVar2 = this.acZ.acM;
+            uVar2.eu(substring);
         }
-        z = this.adc.acX;
+        z = this.acZ.acU;
         if (!z) {
-            this.adc.startActivityForResult(new Intent(this.adc.getPageContext().getPageActivity(), JigsawAlbumListActivity.class), 10);
-            this.adc.acX = true;
+            this.acZ.startActivityForResult(new Intent(this.acZ.getPageContext().getPageActivity(), JigsawAlbumListActivity.class), 10);
+            this.acZ.acU = true;
         }
     }
 }

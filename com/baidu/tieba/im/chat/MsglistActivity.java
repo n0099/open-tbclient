@@ -35,7 +35,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cv.aTe = com.baidu.tbadk.util.h.zR();
+            cv.aTd = com.baidu.tbadk.util.h.zL();
         }
     }
 

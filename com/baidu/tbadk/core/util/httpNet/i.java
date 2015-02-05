@@ -12,79 +12,79 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class i implements com.baidu.adp.lib.f.b {
-    private static int KX = 5;
-    private com.baidu.adp.lib.network.http.e KU;
-    private ImgHttpClient KZ;
+    private static int KU = 5;
+    private com.baidu.adp.lib.network.http.e KR;
+    private ImgHttpClient KW;
     private volatile com.baidu.adp.lib.network.http.c cV = null;
-    private HashMap<String, String> KV = null;
-    private com.baidu.adp.lib.network.http.g KW = new com.baidu.adp.lib.network.http.g();
-    public String KY = p.eJ();
-    public List<Integer> La = new ArrayList();
-    public boolean Lb = false;
-    public boolean vq = false;
+    private HashMap<String, String> KS = null;
+    private com.baidu.adp.lib.network.http.g KT = new com.baidu.adp.lib.network.http.g();
+    public String KV = p.eJ();
+    public List<Integer> KX = new ArrayList();
+    public boolean KY = false;
+    public boolean vn = false;
     public String kv = "";
-    public com.baidu.adp.lib.network.http.d Lc = null;
+    public com.baidu.adp.lib.network.http.d KZ = null;
     public int dataSize = -1;
     public int responseCode = -1;
-    private boolean Ld = false;
-    public boolean Le = false;
+    private boolean La = false;
+    public boolean Lb = false;
 
-    public boolean qn() {
-        return this.Ld;
+    public boolean qg() {
+        return this.La;
     }
 
     public com.baidu.adp.lib.network.http.g dO() {
-        return this.KW;
+        return this.KT;
     }
 
-    public void qo() {
-        this.Lc = null;
+    public void qh() {
+        this.KZ = null;
         this.kv = "";
-        this.Ld = false;
+        this.La = false;
         this.responseCode = -1;
         this.dataSize = -1;
-        this.vq = false;
-        this.Lb = false;
-        this.La.clear();
+        this.vn = false;
+        this.KY = false;
+        this.KX.clear();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [172=6] */
-    private final byte[] cO(String str) {
+    private final byte[] cL(String str) {
         int size;
         int i = 0;
         try {
             try {
-                qo();
-                if (this.KU != null) {
+                qh();
+                if (this.KR != null) {
                     cancel();
                     this.cV = null;
                 }
-                this.KU = new com.baidu.adp.lib.network.http.e();
-                if (!TextUtils.isEmpty(this.KY)) {
-                    this.KU.dN().p("sid", this.KY);
+                this.KR = new com.baidu.adp.lib.network.http.e();
+                if (!TextUtils.isEmpty(this.KV)) {
+                    this.KR.dN().p("sid", this.KV);
                 }
-                this.KU.dN().setUrl(str);
-                if (this.KV != null) {
-                    for (Map.Entry<String, String> entry : this.KV.entrySet()) {
-                        this.KU.dN().o(entry.getKey(), entry.getValue());
+                this.KR.dN().setUrl(str);
+                if (this.KS != null) {
+                    for (Map.Entry<String, String> entry : this.KS.entrySet()) {
+                        this.KR.dN().o(entry.getKey(), entry.getValue());
                     }
                 }
-                this.cV = new com.baidu.adp.lib.network.http.c(this.KU);
-                this.cV.i(KX, 0, 0);
-                this.KW = this.KU.dO();
-                byte[] bArr = this.KU.dO().kK;
-                this.responseCode = this.KU.dO().responseCode;
-                this.Ld = this.KU.dO().dT();
+                this.cV = new com.baidu.adp.lib.network.http.c(this.KR);
+                this.cV.i(KU, 0, 0);
+                this.KT = this.KR.dO();
+                byte[] bArr = this.KR.dO().kK;
+                this.responseCode = this.KR.dO().responseCode;
+                this.La = this.KR.dO().dT();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.KU.dO().contentEncoding != null && this.KU.dO().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.Lb = true;
+                if (this.KR.dO().contentEncoding != null && this.KR.dO().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.KY = true;
                     bArr = y(bArr);
                 }
-                if (!this.Ld) {
+                if (!this.La) {
                     a(str, null);
                 }
                 while (true) {
@@ -94,16 +94,16 @@ public class i implements com.baidu.adp.lib.f.b {
                 }
             } catch (Exception e) {
                 a(str, e);
-                TiebaStatic.netImg(this.KU);
-                for (int i2 = 0; i2 < this.KU.dP().size(); i2++) {
-                    this.Lc = this.KU.dP().get(i2);
+                TiebaStatic.netImg(this.KR);
+                for (int i2 = 0; i2 < this.KR.dP().size(); i2++) {
+                    this.KZ = this.KR.dP().get(i2);
                 }
                 return null;
             }
         } finally {
-            TiebaStatic.netImg(this.KU);
-            while (i < this.KU.dP().size()) {
-                this.Lc = this.KU.dP().get(i);
+            TiebaStatic.netImg(this.KR);
+            while (i < this.KR.dP().size()) {
+                this.KZ = this.KR.dP().get(i);
                 i++;
             }
         }
@@ -120,8 +120,8 @@ public class i implements com.baidu.adp.lib.f.b {
         }
     }
 
-    public byte[] cP(String str) {
-        return cO(str);
+    public byte[] cM(String str) {
+        return cL(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=6] */
@@ -133,31 +133,31 @@ public class i implements com.baidu.adp.lib.f.b {
         if (TbadkCoreApplication.m255getInst().isHttpClientOpen()) {
             try {
                 try {
-                    qo();
-                    if (this.KZ != null) {
+                    qh();
+                    if (this.KW != null) {
                         cancel();
                     }
-                    this.KU = new com.baidu.adp.lib.network.http.e();
-                    this.KZ = new ImgHttpClient(this.KU);
-                    this.KU.dN().setUrl(str);
-                    if (this.KV != null) {
-                        for (Map.Entry<String, String> entry : this.KV.entrySet()) {
-                            this.KU.dN().o(entry.getKey(), entry.getValue());
+                    this.KR = new com.baidu.adp.lib.network.http.e();
+                    this.KW = new ImgHttpClient(this.KR);
+                    this.KR.dN().setUrl(str);
+                    if (this.KS != null) {
+                        for (Map.Entry<String, String> entry : this.KS.entrySet()) {
+                            this.KR.dN().o(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.KZ.ql();
-                    this.KW = this.KU.dO();
-                    bArr = this.KU.dO().kK;
-                    this.responseCode = this.KU.dO().responseCode;
-                    this.Ld = this.KU.dO().dT();
+                    this.KW.qe();
+                    this.KT = this.KR.dO();
+                    bArr = this.KR.dO().kK;
+                    this.responseCode = this.KR.dO().responseCode;
+                    this.La = this.KR.dO().dT();
                     if (bArr != null) {
                         this.dataSize = bArr.length;
                     } else {
                         this.dataSize = 0;
                     }
-                    this.vq = this.KZ.ck();
-                    this.Le = this.KZ.qm();
-                    if (!this.Ld) {
+                    this.vn = this.KW.ck();
+                    this.Lb = this.KW.qf();
+                    if (!this.La) {
                         a(str, null);
                     }
                     while (true) {
@@ -167,49 +167,49 @@ public class i implements com.baidu.adp.lib.f.b {
                     }
                 } catch (Exception e) {
                     a(str, e);
-                    TiebaStatic.netImg(this.KU);
-                    for (int i2 = 0; i2 < this.KU.dP().size(); i2++) {
-                        this.Lc = this.KU.dP().get(i2);
+                    TiebaStatic.netImg(this.KR);
+                    for (int i2 = 0; i2 < this.KR.dP().size(); i2++) {
+                        this.KZ = this.KR.dP().get(i2);
                     }
                     return null;
                 }
             } finally {
-                TiebaStatic.netImg(this.KU);
-                while (i < this.KU.dP().size()) {
-                    this.Lc = this.KU.dP().get(i);
+                TiebaStatic.netImg(this.KR);
+                while (i < this.KR.dP().size()) {
+                    this.KZ = this.KR.dP().get(i);
                     i++;
                 }
             }
         } else {
             try {
-                bArr = cO(str);
+                bArr = cL(str);
                 if (bArr == null) {
                     return null;
                 }
-                if (this.KU != null && this.KU.dO().kJ != null) {
-                    List<String> list = this.KU.dO().kJ.get("imgsrc");
+                if (this.KR != null && this.KR.dO().kJ != null) {
+                    List<String> list = this.KR.dO().kJ.get("imgsrc");
                     if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                         i = 1;
                     }
-                    List<String> list2 = this.KU.dO().kJ.get("Src-Content-Type");
+                    List<String> list2 = this.KR.dO().kJ.get("Src-Content-Type");
                     if (list2 != null && list2.size() > 0) {
                         if ("image/gif".equalsIgnoreCase(list2.get(0))) {
-                            this.vq = true;
+                            this.vn = true;
                         } else {
-                            this.vq = false;
+                            this.vn = false;
                         }
                     }
-                    List<String> list3 = this.KU.dO().kJ.get("Error-Message");
+                    List<String> list3 = this.KR.dO().kJ.get("Error-Message");
                     if (list3 != null && list3.size() > 0) {
                         String str3 = list3.get(0);
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                            this.Le = false;
+                            this.Lb = false;
                         } else {
-                            this.Le = true;
+                            this.Lb = true;
                         }
                     }
                 }
-                if (this.Ld && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
+                if (this.La && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
                     return h(bArr, 23, bArr.length);
                 }
             } catch (Exception e2) {
@@ -237,8 +237,8 @@ public class i implements com.baidu.adp.lib.f.b {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.KU.dP().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.KU.dP().get(i);
+            for (int i = 0; i < this.KR.dP().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.KR.dP().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
@@ -259,7 +259,7 @@ public class i implements com.baidu.adp.lib.f.b {
                 stringBuffer.append(dVar.kt);
                 stringBuffer.append("executeStatus:");
                 stringBuffer.append(dVar.ky);
-                this.La.add(Integer.valueOf(dVar.ky));
+                this.KX.add(Integer.valueOf(dVar.ky));
             }
             if (exc != null) {
                 stringBuffer.append("webclient exception");
@@ -273,7 +273,7 @@ public class i implements com.baidu.adp.lib.f.b {
             this.kv = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.Ld = false;
+            this.La = false;
         }
     }
 
@@ -282,16 +282,16 @@ public class i implements com.baidu.adp.lib.f.b {
         if (this.cV != null) {
             this.cV.cancel();
         }
-        if (this.KZ != null) {
-            this.KZ.cancel();
-            this.KZ = null;
+        if (this.KW != null) {
+            this.KW.cancel();
+            this.KW = null;
         }
     }
 
-    public boolean qp() {
-        if (this.KZ == null) {
+    public boolean qi() {
+        if (this.KW == null) {
             return false;
         }
-        return this.KZ.KK;
+        return this.KW.KH;
     }
 }

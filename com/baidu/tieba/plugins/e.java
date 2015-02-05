@@ -5,11 +5,11 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class e implements DialogInterface.OnKeyListener {
-    final /* synthetic */ PluginDownloadActivity bMo;
+    final /* synthetic */ PluginDownloadActivity bMn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginDownloadActivity pluginDownloadActivity) {
-        this.bMo = pluginDownloadActivity;
+        this.bMn = pluginDownloadActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -26,28 +26,28 @@ class e implements DialogInterface.OnKeyListener {
         LinearLayout linearLayout4;
         g gVar6;
         LinearLayout linearLayout5;
-        z = this.bMo.bMn;
+        z = this.bMn.bMm;
         if (!z) {
-            gVar = this.bMo.bMm;
+            gVar = this.bMn.bMl;
             gVar.dismiss();
             return true;
         } else if (i == 4 && keyEvent.getAction() == 1) {
-            gVar2 = this.bMo.bMm;
-            linearLayout = gVar2.alS;
+            gVar2 = this.bMn.bMl;
+            linearLayout = gVar2.alP;
             if (linearLayout.getVisibility() == 0) {
-                gVar5 = this.bMo.bMm;
-                linearLayout4 = gVar5.alS;
+                gVar5 = this.bMn.bMl;
+                linearLayout4 = gVar5.alP;
                 linearLayout4.setVisibility(8);
-                gVar6 = this.bMo.bMm;
-                linearLayout5 = gVar6.bMp;
+                gVar6 = this.bMn.bMl;
+                linearLayout5 = gVar6.bMo;
                 linearLayout5.setVisibility(0);
                 return true;
             }
-            gVar3 = this.bMo.bMm;
-            linearLayout2 = gVar3.alS;
+            gVar3 = this.bMn.bMl;
+            linearLayout2 = gVar3.alP;
             linearLayout2.setVisibility(0);
-            gVar4 = this.bMo.bMm;
-            linearLayout3 = gVar4.bMp;
+            gVar4 = this.bMn.bMl;
+            linearLayout3 = gVar4.bMo;
             linearLayout3.setVisibility(8);
             return true;
         } else {

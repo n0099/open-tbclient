@@ -24,23 +24,23 @@ public class a {
 
     public static final void a(b bVar, View view) {
         if (bVar != null && view != null) {
-            int xs = bVar.xs();
+            int xm = bVar.xm();
             BdUniqueId uniqueId = bVar.getUniqueId();
-            com.baidu.tbadk.mvc.b.a xt = bVar.xt();
-            c xu = bVar.xu();
-            com.baidu.tbadk.mvc.a.a xv = bVar.xv();
+            com.baidu.tbadk.mvc.b.a xn = bVar.xn();
+            c xo = bVar.xo();
+            com.baidu.tbadk.mvc.a.a xp = bVar.xp();
             Object extra = bVar.getExtra();
-            boolean xw = bVar.xw();
-            int xx = bVar.xx();
+            boolean xq = bVar.xq();
+            int xr = bVar.xr();
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(50331648, Integer.valueOf(xs));
+            sparseArray.put(50331648, Integer.valueOf(xm));
             sparseArray.put(51380224, uniqueId);
-            sparseArray.put(52428800, xt);
-            sparseArray.put(53477376, xu);
-            sparseArray.put(54525952, xv);
+            sparseArray.put(52428800, xn);
+            sparseArray.put(53477376, xo);
+            sparseArray.put(54525952, xp);
             sparseArray.put(58720256, extra);
-            sparseArray.put(59768832, Boolean.valueOf(xw));
-            sparseArray.put(67108864, Integer.valueOf(xx));
+            sparseArray.put(59768832, Boolean.valueOf(xq));
+            sparseArray.put(67108864, Integer.valueOf(xr));
             a(sparseArray, view);
         }
     }

@@ -17,16 +17,16 @@ import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
-    private final CustomMessageListener aTC = new ai(this, 0);
-    private com.baidu.tieba.im.chat.notify.a aTD = new aj(this);
-    private OfficialBarTipModel aUP;
-    private ao aUQ;
+    private final CustomMessageListener aTB = new ai(this, 0);
+    private com.baidu.tieba.im.chat.notify.a aTC = new aj(this);
+    private OfficialBarTipModel aUO;
+    private ao aUP;
 
     static {
-        KQ();
+        KL();
     }
 
-    private static void KQ() {
+    private static void KL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008022, new ak());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -41,22 +41,22 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aTC);
-        registerListener(2016006, this.aTC);
-        registerListener(2016000, this.aTC);
-        registerListener(2016011, this.aTC);
-        registerListener(2016001, this.aTC);
+        registerListener(2016003, this.aTB);
+        registerListener(2016006, this.aTB);
+        registerListener(2016000, this.aTB);
+        registerListener(2016011, this.aTB);
+        registerListener(2016001, this.aTB);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aUQ.Lf().notifyDataSetChanged();
+        this.aUP.La().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1000", -8)));
     }
 
     private void initData() {
-        this.aUP = new OfficialBarTipModel(getPageContext());
+        this.aUO = new OfficialBarTipModel(getPageContext());
     }
 
     @Override // android.app.Activity
@@ -79,14 +79,14 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        this.aUQ = new ao(this);
-        this.aUQ.getBdListView().setOnItemClickListener(new al(this));
-        this.aUQ.getBdListView().setOnItemLongClickListener(new am(this));
+        this.aUP = new ao(this);
+        this.aUP.getBdListView().setOnItemClickListener(new al(this));
+        this.aUP.getBdListView().setOnItemLongClickListener(new am(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aUQ.onChangeSkinType(i);
+        this.aUP.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,11 +102,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.aUP != null) {
-                    this.aUP.insertOrUpdate(data, this.aTD);
+                if (this.aUO != null) {
+                    this.aUO.insertOrUpdate(data, this.aTC);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.aUP != null) {
-                this.aUP.remove(data, this.aTD);
+            } else if (memoryChangedMessage.getType() == 2 && this.aUO != null) {
+                this.aUO.remove(data, this.aTC);
             }
         }
     }
@@ -116,8 +116,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.aUP != null) {
-                this.aUP.setData(data, this.aTD);
+            if (responsedMemoryListMessage.getType() == 2 && this.aUO != null) {
+                this.aUO.setData(data, this.aTC);
             }
         }
     }

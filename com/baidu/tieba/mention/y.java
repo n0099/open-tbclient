@@ -1,8 +1,8 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
-    private SingleMentionActivity btL;
-    private aa btM;
+    private SingleMentionActivity btK;
+    private aa btL;
 
     static {
         com.baidu.tieba.tbadkCore.a.a.c(303010, CheckPostResponseMessage.class, false);
@@ -10,8 +10,8 @@ public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
 
     public y(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.btL = singleMentionActivity;
-        Up();
+        this.btK = singleMentionActivity;
+        Uk();
     }
 
     public void a(long j, int i, String str) {
@@ -22,7 +22,7 @@ public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void Up() {
+    public void Uk() {
         registerListener(new z(this, 303010));
     }
 
@@ -37,6 +37,6 @@ public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
     }
 
     public void a(aa aaVar) {
-        this.btM = aaVar;
+        this.btL = aaVar;
     }
 }

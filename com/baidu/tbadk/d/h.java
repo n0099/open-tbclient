@@ -12,32 +12,32 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class h extends a {
-    private ImageView acg;
-    private TextView ach;
-    private TextView aci;
-    private TextView acj;
+    private ImageView acd;
+    private TextView ace;
+    private TextView acf;
+    private TextView acg;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(com.baidu.adp.lib.g.b.ei().inflate(context, x.net_refresh_view_layout, null));
-        this.acg = (ImageView) this.aca.findViewById(w.net_refresh_image);
-        this.ach = (TextView) this.aca.findViewById(w.net_refresh_desc);
-        this.aci = (TextView) this.aca.findViewById(w.net_refresh_title);
-        this.acj = (TextView) this.aca.findViewById(w.net_refresh_button);
-        this.acj.setOnClickListener(onClickListener);
-        wu();
+        this.acd = (ImageView) this.abX.findViewById(w.net_refresh_image);
+        this.ace = (TextView) this.abX.findViewById(w.net_refresh_desc);
+        this.acf = (TextView) this.abX.findViewById(w.net_refresh_title);
+        this.acg = (TextView) this.abX.findViewById(w.net_refresh_button);
+        this.acg.setOnClickListener(onClickListener);
+        wo();
     }
 
-    public void es(String str) {
-        this.ach.setText(str);
+    public void ep(String str) {
+        this.ace.setText(str);
     }
 
-    public void wu() {
+    public void wo() {
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        bc.c(this.acg, v.net_refresh_emotion);
-        bc.a(this.ach, t.cp_cont_d, 1, skinType);
-        bc.a(this.aci, t.cp_cont_b, 1, skinType);
-        bc.a(this.acj, t.cp_cont_g, 1, skinType);
-        bc.c(this.acj, v.btn_appdownload, skinType);
-        bc.j(this.aca, t.cp_bg_line_d);
+        bc.c(this.acd, v.net_refresh_emotion);
+        bc.a(this.ace, t.cp_cont_d, 1, skinType);
+        bc.a(this.acf, t.cp_cont_b, 1, skinType);
+        bc.a(this.acg, t.cp_cont_g, 1, skinType);
+        bc.c(this.acg, v.btn_appdownload, skinType);
+        bc.j(this.abX, t.cp_bg_line_d);
     }
 }

@@ -22,15 +22,15 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private HeadImageView bLe;
-    private TextView bzA;
-    private ImageView cdC;
-    private TbImageView cdD;
-    private ImageView cdE;
-    private TbImageView cdF;
-    private ListView cdG;
+    private HeadImageView bLd;
+    private TextView bzz;
+    private ImageView cdB;
+    private TbImageView cdC;
+    private ImageView cdD;
+    private TbImageView cdE;
+    private ListView cdF;
+    private TextView cdG;
     private TextView cdH;
-    private TextView cdI;
 
     public c(Context context) {
         this(context, null);
@@ -44,181 +44,181 @@ public class c extends LinearLayout {
     private void initUI() {
         com.baidu.adp.lib.g.b.ei().a(getContext(), x.main_tab_left_navigation, this, true);
         setOrientation(1);
-        this.bLe = (HeadImageView) findViewById(w.user_head);
-        this.cdC = (ImageView) findViewById(w.user_head_red_tip);
-        this.cdD = (TbImageView) findViewById(w.user_vip_icon);
-        this.cdE = (ImageView) findViewById(w.left_navi_setting_red_tip);
-        this.bzA = (TextView) findViewById(w.user_name);
-        this.cdF = (TbImageView) findViewById(w.user_sex);
-        this.cdG = (ListView) findViewById(w.left_navi_listview);
-        this.cdH = (TextView) findViewById(w.left_navi_setting);
-        this.cdI = (TextView) findViewById(w.left_navi_daynight);
-        abM();
-        ajG();
+        this.bLd = (HeadImageView) findViewById(w.user_head);
+        this.cdB = (ImageView) findViewById(w.user_head_red_tip);
+        this.cdC = (TbImageView) findViewById(w.user_vip_icon);
+        this.cdD = (ImageView) findViewById(w.left_navi_setting_red_tip);
+        this.bzz = (TextView) findViewById(w.user_name);
+        this.cdE = (TbImageView) findViewById(w.user_sex);
+        this.cdF = (ListView) findViewById(w.left_navi_listview);
+        this.cdG = (TextView) findViewById(w.left_navi_setting);
+        this.cdH = (TextView) findViewById(w.left_navi_daynight);
+        abH();
+        ajB();
     }
 
     public void setOnSettingViewClicked(View.OnClickListener onClickListener) {
+        if (this.cdG != null) {
+            this.cdG.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setOnDayNightModeViewClicked(View.OnClickListener onClickListener) {
         if (this.cdH != null) {
             this.cdH.setOnClickListener(onClickListener);
         }
     }
 
-    public void setOnDayNightModeViewClicked(View.OnClickListener onClickListener) {
-        if (this.cdI != null) {
-            this.cdI.setOnClickListener(onClickListener);
-        }
-    }
-
     public void setOnVipIconLoadListener(p pVar) {
-        if (this.cdD != null) {
-            this.cdD.setEvent(pVar);
+        if (this.cdC != null) {
+            this.cdC.setEvent(pVar);
         }
     }
 
     public void setOnPersonInfoViewClicked(View.OnClickListener onClickListener) {
-        if (this.bLe != null) {
-            this.bLe.setOnClickListener(onClickListener);
+        if (this.bLd != null) {
+            this.bLd.setOnClickListener(onClickListener);
         }
-        if (this.bzA != null) {
-            this.bzA.setOnClickListener(onClickListener);
+        if (this.bzz != null) {
+            this.bzz.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnListItemClicked(AdapterView.OnItemClickListener onItemClickListener) {
-        if (this.cdG != null) {
-            this.cdG.setOnItemClickListener(onItemClickListener);
+        if (this.cdF != null) {
+            this.cdF.setOnItemClickListener(onItemClickListener);
         }
     }
 
-    private void abM() {
-        if (this.bLe != null) {
-            this.bLe.setIsRound(true);
-            this.bLe.setDefaultBgResource(0);
-            this.bLe.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.bLe.setDefaultResource(v.pic_mycenter_avatar_def);
+    private void abH() {
+        if (this.bLd != null) {
+            this.bLd.setIsRound(true);
+            this.bLd.setDefaultBgResource(0);
+            this.bLd.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.bLd.setDefaultResource(v.pic_mycenter_avatar_def);
         }
     }
 
     public TbImageView getUserHeadView() {
-        return this.bLe;
+        return this.bLd;
     }
 
     public void eL(boolean z) {
-        if (this.cdD != null) {
+        if (this.cdC != null) {
             if (z) {
-                this.cdD.setVisibility(0);
+                this.cdC.setVisibility(0);
             } else {
-                this.cdD.setVisibility(8);
+                this.cdC.setVisibility(8);
             }
         }
     }
 
-    private void ajG() {
-        this.cdD.setGifIconSupport(false);
-        this.cdD.setSupportNoImage(false);
-        this.cdD.setVisibility(8);
+    private void ajB() {
+        this.cdC.setGifIconSupport(false);
+        this.cdC.setSupportNoImage(false);
+        this.cdC.setVisibility(8);
     }
 
     public void eM(boolean z) {
-        if (this.cdC != null) {
+        if (this.cdB != null) {
             if (z) {
-                bc.c(this.cdC, v.icon_news_down_bar_one);
-                this.cdC.setVisibility(0);
+                bc.c(this.cdB, v.icon_news_down_bar_one);
+                this.cdB.setVisibility(0);
                 return;
             }
-            this.cdC.setImageDrawable(null);
-            this.cdC.setVisibility(8);
+            this.cdB.setImageDrawable(null);
+            this.cdB.setVisibility(8);
         }
     }
 
     public void eN(boolean z) {
-        if (this.cdE != null) {
-            if (z) {
-                bc.c(this.cdE, v.icon_news_down_bar_one);
-                this.cdE.setVisibility(0);
-                return;
-            }
-            this.cdE.setImageDrawable(null);
-            this.cdE.setVisibility(8);
-        }
-    }
-
-    public void iA(String str) {
-        if (this.bLe != null) {
-            if (!StringUtils.isNull(str)) {
-                this.bLe.setVisibility(0);
-                this.bLe.d(str, 25, false);
-                return;
-            }
-            this.bLe.setVisibility(8);
-        }
-    }
-
-    public void iB(String str) {
         if (this.cdD != null) {
+            if (z) {
+                bc.c(this.cdD, v.icon_news_down_bar_one);
+                this.cdD.setVisibility(0);
+                return;
+            }
+            this.cdD.setImageDrawable(null);
+            this.cdD.setVisibility(8);
+        }
+    }
+
+    public void iy(String str) {
+        if (this.bLd != null) {
             if (!StringUtils.isNull(str)) {
-                this.cdD.d(str, 21, false);
+                this.bLd.setVisibility(0);
+                this.bLd.d(str, 25, false);
+                return;
+            }
+            this.bLd.setVisibility(8);
+        }
+    }
+
+    public void iz(String str) {
+        if (this.cdC != null) {
+            if (!StringUtils.isNull(str)) {
+                this.cdC.d(str, 21, false);
             } else {
-                this.cdD.setVisibility(8);
+                this.cdC.setVisibility(8);
             }
         }
     }
 
     public void setUserSexIcon(int i) {
-        if (this.cdF != null) {
+        if (this.cdE != null) {
             if (i == 1) {
-                this.cdF.setVisibility(0);
-                this.cdF.setImageResource(v.icon_pop_boy);
+                this.cdE.setVisibility(0);
+                this.cdE.setImageResource(v.icon_pop_boy);
             } else if (i == 2) {
-                this.cdF.setVisibility(0);
-                this.cdF.setImageResource(v.icon_pop_girl);
+                this.cdE.setVisibility(0);
+                this.cdE.setImageResource(v.icon_pop_girl);
             } else {
-                this.cdF.setVisibility(8);
+                this.cdE.setVisibility(8);
             }
         }
     }
 
     public void setUserName(String str) {
-        if (this.bzA != null) {
-            this.bzA.setText(str);
+        if (this.bzz != null) {
+            this.bzz.setText(str);
         }
     }
 
     public void setListAdapter(BaseAdapter baseAdapter) {
-        if (this.cdG != null) {
-            this.cdG.setAdapter((ListAdapter) baseAdapter);
+        if (this.cdF != null) {
+            this.cdF.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public TextView getSettingView() {
-        return this.cdH;
+        return this.cdG;
     }
 
     public TextView getDayNightView() {
-        return this.cdI;
+        return this.cdH;
     }
 
     public void setDayNightViewText(String str) {
-        if (this.cdI != null) {
-            this.cdI.setText(str);
+        if (this.cdH != null) {
+            this.cdH.setText(str);
         }
     }
 
     public void c(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.g.a.a(tbPageContext, this);
         boolean z = TbadkCoreApplication.m255getInst().getSkinType() == 1;
-        this.bLe.setIsNight(z);
+        this.bLd.setIsNight(z);
+        if (this.cdB.getVisibility() == 0) {
+            bc.c(this.cdB, v.icon_news_down_bar_one);
+        }
         if (this.cdC.getVisibility() == 0) {
-            bc.c(this.cdC, v.icon_news_down_bar_one);
-        }
-        if (this.cdD.getVisibility() == 0) {
-            this.cdD.setIsNight(z);
-        }
-        if (this.cdF.getVisibility() == 0) {
-            this.cdF.setIsNight(z);
+            this.cdC.setIsNight(z);
         }
         if (this.cdE.getVisibility() == 0) {
-            bc.c(this.cdE, v.icon_news_down_bar_one);
+            this.cdE.setIsNight(z);
+        }
+        if (this.cdD.getVisibility() == 0) {
+            bc.c(this.cdD, v.icon_news_down_bar_one);
         }
     }
 }

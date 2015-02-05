@@ -26,17 +26,17 @@ class af extends CustomMessageListener {
         ai aiVar;
         ai aiVar2;
         int i2;
-        this.this$0.ccQ = false;
-        i = this.this$0.ccM;
+        this.this$0.ccP = false;
+        i = this.this$0.ccL;
         if (i <= 0) {
-            i2 = this.this$0.ccO;
+            i2 = this.this$0.ccN;
             if (i2 <= 0) {
                 z = false;
                 if (z) {
-                    aiVar = this.this$0.ccK;
+                    aiVar = this.this$0.ccJ;
                     aiVar.eJ(false);
-                    aiVar2 = this.this$0.ccK;
-                    aiVar2.ajB().eM(false);
+                    aiVar2 = this.this$0.ccJ;
+                    aiVar2.ajw().eM(false);
                     return;
                 }
                 return;

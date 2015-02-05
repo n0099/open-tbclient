@@ -9,13 +9,13 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr Vf;
+    final /* synthetic */ LivePlayingStatusMgr Vc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
         super(i);
-        this.Vf = livePlayingStatusMgr;
+        this.Vc = livePlayingStatusMgr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class ak extends CustomMessageListener {
             String data = ((LiveChatRoomEventResponseMessage) customResponsedMessage).getData();
             if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && !"302".equals(parseFromEventContent.mEventId) && !"306".equals(parseFromEventContent.mEventId)) {
                 if ("310".equals(parseFromEventContent.mEventId)) {
-                    i4 = this.Vf.gid;
+                    i4 = this.Vc.gid;
                     if (i4 != 0) {
-                        this.Vf.tR();
+                        this.Vc.tL();
                     }
                 } else if ("307".equals(parseFromEventContent.mEventId)) {
-                    this.Vf.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                    this.Vc.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
                 } else if ("318".equals(parseFromEventContent.mEventId)) {
-                    i3 = this.Vf.gid;
+                    i3 = this.Vc.gid;
                     if (i3 != 0) {
-                        this.Vf.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                        this.Vc.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
                     }
                 } else if ("308".equals(parseFromEventContent.mEventId)) {
-                    i2 = this.Vf.gid;
+                    i2 = this.Vc.gid;
                     if (i2 != 0) {
-                        this.Vf.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PAUSE);
+                        this.Vc.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PAUSE);
                     }
                 } else if ("309".equals(parseFromEventContent.mEventId)) {
-                    i = this.Vf.gid;
+                    i = this.Vc.gid;
                     if (i != 0) {
-                        this.Vf.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
+                        this.Vc.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
                     }
                 }
             }

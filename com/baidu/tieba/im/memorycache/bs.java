@@ -31,7 +31,7 @@ public class bs extends com.baidu.adp.framework.listener.e {
             imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.h.af(liveGroupInfo.lastMsgId.longValue()));
             imMessageCenterPojo.setCustomGroupType(9);
             imMessageCenterPojo.setIs_hidden(1);
-            c.QO().n(imMessageCenterPojo);
+            c.QJ().n(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bt(this, valueOf));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

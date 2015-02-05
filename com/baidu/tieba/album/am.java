@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class am implements com.baidu.tieba.view.e {
-    final /* synthetic */ ah ari;
+    final /* synthetic */ ah arf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ah ahVar) {
-        this.ari = ahVar;
+        this.arf = ahVar;
     }
 
     @Override // com.baidu.tieba.view.e
@@ -26,13 +26,13 @@ class am implements com.baidu.tieba.view.e {
         String albumId = aVar.getAlbumId();
         String name = aVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            nVar = this.ari.apH;
-            if (!albumId.equals(nVar.BO())) {
-                nVar2 = this.ari.apH;
-                List<ImageFileInfo> BR = nVar2.BR();
+            nVar = this.arf.apE;
+            if (!albumId.equals(nVar.BI())) {
+                nVar2 = this.arf.apE;
+                List<ImageFileInfo> BL = nVar2.BL();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : BR) {
+                    for (ImageFileInfo imageFileInfo : BL) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -40,14 +40,14 @@ class am implements com.baidu.tieba.view.e {
                     z = false;
                 } else {
                     z = true;
-                    list = BR;
+                    list = BL;
                 }
-                nVar3 = this.ari.apH;
+                nVar3 = this.arf.apE;
                 nVar3.D(list);
-                nVar4 = this.ari.apH;
-                nVar4.eX(albumId);
-                this.ari.setData(list, z);
-                textView = this.ari.mTitleText;
+                nVar4 = this.arf.apE;
+                nVar4.eU(albumId);
+                this.arf.setData(list, z);
+                textView = this.arf.mTitleText;
                 textView.setText(name);
             }
         }

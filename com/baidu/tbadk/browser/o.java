@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.webkit.DownloadListener;
 /* loaded from: classes.dex */
 class o implements DownloadListener {
-    final /* synthetic */ TbWebViewActivity Bj;
+    final /* synthetic */ TbWebViewActivity Bg;
 
     private o(TbWebViewActivity tbWebViewActivity) {
-        this.Bj = tbWebViewActivity;
+        this.Bg = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,6 +18,6 @@ class o implements DownloadListener {
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        this.Bj.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+        this.Bg.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
     }
 }

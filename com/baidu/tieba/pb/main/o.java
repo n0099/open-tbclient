@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 class o extends com.baidu.adp.base.i {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.adp.base.i
@@ -17,9 +17,9 @@ class o extends com.baidu.adp.base.i {
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bzVar = this.bAT.bAx;
+                bzVar = this.bAS.bAw;
                 bzVar.j(bitmap);
-                aVar = this.bAT.aBM;
+                aVar = this.bAS.aBJ;
                 aVar.eF(true);
             }
         }

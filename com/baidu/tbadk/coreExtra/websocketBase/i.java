@@ -1,9 +1,9 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 class i {
-    public int VV;
-    public boolean VW;
-    public long VX;
+    public int VS;
+    public boolean VT;
+    public long VU;
 
     private i() {
     }
@@ -14,18 +14,18 @@ class i {
     }
 
     public void reset() {
-        this.VV = 0;
-        if (this.VW) {
-            this.VW = false;
-            this.VX = 0L;
+        this.VS = 0;
+        if (this.VT) {
+            this.VT = false;
+            this.VU = 0L;
         }
     }
 
     public void onError(int i) {
-        this.VV++;
-        if (!this.VW && this.VV >= i) {
-            this.VW = true;
-            this.VX = System.currentTimeMillis();
+        this.VS++;
+        if (!this.VT && this.VS >= i) {
+            this.VT = true;
+            this.VU = System.currentTimeMillis();
         }
     }
 }

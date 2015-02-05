@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity amI;
+    final /* synthetic */ AccountActivity amF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.amI = accountActivity;
+        this.amF = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,25 +25,25 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         m mVar5;
-        mVar = this.amI.amD;
-        if (!mVar.AZ()) {
-            mVar4 = this.amI.amD;
+        mVar = this.amF.amA;
+        if (!mVar.AT()) {
+            mVar4 = this.amF.amA;
             mVar4.setEditState(true);
-            textView3 = this.amI.amE;
+            textView3 = this.amF.amB;
             textView3.setText(com.baidu.tieba.z.done);
-            textView4 = this.amI.amE;
+            textView4 = this.amF.amB;
             bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-            mVar5 = this.amI.amD;
+            mVar5 = this.amF.amA;
             mVar5.notifyDataSetChanged();
             return;
         }
-        mVar2 = this.amI.amD;
+        mVar2 = this.amF.amA;
         mVar2.setEditState(false);
-        textView = this.amI.amE;
+        textView = this.amF.amB;
         textView.setText(com.baidu.tieba.z.edit);
-        textView2 = this.amI.amE;
+        textView2 = this.amF.amB;
         bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-        mVar3 = this.amI.amD;
+        mVar3 = this.amF.amA;
         mVar3.notifyDataSetChanged();
     }
 }

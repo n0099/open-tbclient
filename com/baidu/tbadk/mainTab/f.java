@@ -4,15 +4,15 @@ import android.content.Context;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<e> Xm = new ArrayList<>();
+    private ArrayList<e> Xj = new ArrayList<>();
     private Context mContext;
 
     public f(Context context) {
         this.mContext = context;
     }
 
-    public ArrayList<e> wy() {
-        return this.Xm;
+    public ArrayList<e> ws() {
+        return this.Xj;
     }
 
     public Context getContext() {
@@ -20,8 +20,8 @@ public class f {
     }
 
     public void a(e eVar) {
-        if (this.Xm != null && eVar != null && !this.Xm.contains(eVar)) {
-            this.Xm.add(eVar);
+        if (this.Xj != null && eVar != null && !this.Xj.contains(eVar)) {
+            this.Xj.add(eVar);
         }
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchLocationActivity bOH;
+    final /* synthetic */ SearchLocationActivity bOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchLocationActivity searchLocationActivity) {
-        this.bOH = searchLocationActivity;
+        this.bOG = searchLocationActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,16 +18,16 @@ class d implements AdapterView.OnItemClickListener {
         h hVar;
         h hVar2;
         h hVar3;
-        hVar = this.bOH.bOC;
+        hVar = this.bOG.bOB;
         if (hVar != null) {
-            hVar2 = this.bOH.bOC;
-            if (hVar2.acR()) {
+            hVar2 = this.bOG.bOB;
+            if (hVar2.acM()) {
                 MessageManager messageManager = MessageManager.getInstance();
-                hVar3 = this.bOH.bOC;
+                hVar3 = this.bOG.bOB;
                 com.baidu.tieba.tbadkCore.location.l lVar = (com.baidu.tieba.tbadkCore.location.l) hVar3.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, lVar.getName(), lVar.getName(), lVar.getScreatString()));
-                this.bOH.setResult(-1);
-                this.bOH.finish();
+                this.bOG.setResult(-1);
+                this.bOG.finish();
             }
         }
     }

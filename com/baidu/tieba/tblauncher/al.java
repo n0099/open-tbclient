@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements b {
-    final /* synthetic */ ai cdw;
+    final /* synthetic */ ai cdv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ai aiVar) {
-        this.cdw = aiVar;
+        this.cdv = aiVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.cdw.cdr;
+        mainTabActivity = this.cdv.cdq;
         TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
         textView.setText(com.baidu.tieba.z.first_enter_personinfo_tip);
         textView.setBackgroundResource(com.baidu.tieba.v.tips_home_help);

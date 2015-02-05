@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic bkZ = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic bkY = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new a(2001222));
@@ -26,11 +26,11 @@ public class NewFriendDbManagerStatic {
     private NewFriendDbManagerStatic() {
     }
 
-    public static NewFriendDbManagerStatic RX() {
-        return bkZ;
+    public static NewFriendDbManagerStatic RS() {
+        return bkY;
     }
 
-    public void gZ(String str) {
+    public void gW(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -48,7 +48,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void ha(String str) {
+    public void gX(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -68,7 +68,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void hb(String str) {
+    public void gY(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -79,7 +79,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void hc(String str) {
+    public void gZ(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -106,7 +106,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void hd(String str) {
+    public void ha(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -128,7 +128,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void he(String str) {
+    public void hb(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {

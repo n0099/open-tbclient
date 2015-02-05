@@ -4,11 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
     private final String name;
 
     public ax(FrsActivity frsActivity, String str) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
         this.name = str;
     }
 
@@ -17,7 +17,7 @@ public class ax extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(com.baidu.tieba.frs.utils.a.H(this.aDW.getPageContext().getPageActivity(), this.name));
+        return Boolean.valueOf(com.baidu.tieba.frs.utils.a.H(this.aDT.getPageContext().getPageActivity(), this.name));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class ax extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         if (bool.booleanValue()) {
-            this.aDW.showToast(com.baidu.tieba.z.shortcut_has_add);
+            this.aDT.showToast(com.baidu.tieba.z.shortcut_has_add);
         } else {
-            this.aDW.fD(this.name);
+            this.aDT.fA(this.name);
         }
     }
 }

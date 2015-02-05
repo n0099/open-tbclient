@@ -6,40 +6,40 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class ak implements com.baidu.tbadk.core.account.g {
-    final /* synthetic */ LoginActivity QM;
+    final /* synthetic */ LoginActivity QJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(LoginActivity loginActivity) {
-        this.QM = loginActivity;
+        this.QJ = loginActivity;
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onBeforeLogin(String str) {
-        if (this.QM.getLoadingDialog() == null || !this.QM.getLoadingDialog().isShowing()) {
-            this.QM.showLoadingDialog(this.QM.getPageContext().getString(com.baidu.tieba.z.sapi_logining), new al(this));
+        if (this.QJ.getLoadingDialog() == null || !this.QJ.getLoadingDialog().isShowing()) {
+            this.QJ.showLoadingDialog(this.QJ.getPageContext().getString(com.baidu.tieba.z.sapi_logining), new al(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onSuccess(AccountData accountData) {
-        this.QM.closeLoadingDialog();
+        this.QJ.closeLoadingDialog();
         if (!TextUtils.isEmpty(accountData.getAccount())) {
             com.baidu.tbadk.core.account.a.a(accountData);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.QM.getBaseContext());
+            TbadkCoreApplication.setCurrentAccount(accountData, this.QJ.getBaseContext());
             com.baidu.tbadk.browser.a.Q(TbadkCoreApplication.m255getInst());
-            this.QM.rn();
+            this.QJ.rh();
             return;
         }
-        this.QM.e(accountData);
+        this.QJ.e(accountData);
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onFailure(String str, int i, String str2) {
         SapiWebView sapiWebView;
-        this.QM.closeLoadingDialog();
-        this.QM.showToast(str2);
+        this.QJ.closeLoadingDialog();
+        this.QJ.showToast(str2);
         if (com.baidu.adp.lib.util.i.ff()) {
-            sapiWebView = this.QM.PR;
+            sapiWebView = this.QJ.PO;
             sapiWebView.loadLogin();
         }
     }

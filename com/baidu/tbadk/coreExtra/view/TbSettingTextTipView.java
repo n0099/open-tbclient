@@ -10,43 +10,43 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    private boolean VB;
-    protected ImageView VC;
-    protected LinearLayout Vx;
-    protected TextView Vy;
-    protected TextView Vz;
+    protected LinearLayout Vu;
+    protected TextView Vv;
+    protected TextView Vw;
+    private boolean Vy;
+    protected ImageView Vz;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.VB = true;
+        this.Vy = true;
         this.mContext = context;
-        tY();
+        tS();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.VB = true;
+        this.Vy = true;
         this.mContext = context;
-        tY();
+        tS();
     }
 
-    public void tV() {
-        if (this.Vz != null) {
-            this.Vz.setVisibility(0);
+    public void tP() {
+        if (this.Vw != null) {
+            this.Vw.setVisibility(0);
         }
     }
 
-    public void tW() {
-        if (this.Vz != null) {
-            this.Vz.setVisibility(8);
+    public void tQ() {
+        if (this.Vw != null) {
+            this.Vw.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.Vz != null) {
-            this.Vz.setTextColor(i);
+        if (this.Vw != null) {
+            this.Vw.setTextColor(i);
         }
     }
 
@@ -56,36 +56,36 @@ public class TbSettingTextTipView extends FrameLayout {
     public void recycle() {
     }
 
-    public void tX() {
-        this.VC.setVisibility(8);
+    public void tR() {
+        this.Vz.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.Vy.setText(str);
+        this.Vv.setText(str);
     }
 
     public void setText(int i) {
-        this.Vy.setText(i);
+        this.Vv.setText(i);
     }
 
     public void setTip(String str) {
-        this.Vz.setText(str);
+        this.Vw.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.Vz.getText();
+        return this.Vw.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.Vz.setBackgroundDrawable(drawable);
+        this.Vw.setBackgroundDrawable(drawable);
     }
 
-    protected void tY() {
+    protected void tS() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.tb_setting_text_tip_view, this, true);
-        this.Vx = (LinearLayout) findViewById(com.baidu.tieba.w.container);
-        this.Vy = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.Vz = (TextView) findViewById(com.baidu.tieba.w.tip);
-        this.VC = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
+        this.Vu = (LinearLayout) findViewById(com.baidu.tieba.w.container);
+        this.Vv = (TextView) findViewById(com.baidu.tieba.w.text);
+        this.Vw = (TextView) findViewById(com.baidu.tieba.w.tip);
+        this.Vz = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -95,23 +95,23 @@ public class TbSettingTextTipView extends FrameLayout {
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
         if (string != null) {
-            this.Vy.setText(string);
+            this.Vv.setText(string);
         }
         if (color > -1) {
-            this.Vy.setTextColor(color);
+            this.Vv.setTextColor(color);
         }
         if (string2 != null) {
-            this.Vz.setText(string2);
+            this.Vw.setText(string2);
         }
         if (color2 > -1) {
-            this.Vz.setTextColor(color2);
+            this.Vw.setTextColor(color2);
         }
-        this.VB = obtainStyledAttributes.getBoolean(5, true);
+        this.Vy = obtainStyledAttributes.getBoolean(5, true);
         obtainStyledAttributes.recycle();
-        this.Vx.setClickable(false);
-        this.Vx.setFocusable(false);
-        if (!this.VB) {
-            this.VC.setVisibility(4);
+        this.Vu.setClickable(false);
+        this.Vu.setFocusable(false);
+        if (!this.Vy) {
+            this.Vz.setVisibility(4);
         }
     }
 }

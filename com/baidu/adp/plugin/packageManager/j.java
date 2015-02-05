@@ -25,9 +25,9 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
     public void e(BdFileDownloadData bdFileDownloadData) {
         e eVar;
         e eVar2;
-        eVar = this.this$0.sV;
+        eVar = this.this$0.sS;
         if (eVar != null) {
-            eVar2 = this.this$0.sV;
+            eVar2 = this.this$0.sS;
             eVar2.a(bdFileDownloadData);
         }
     }
@@ -47,32 +47,32 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
         e eVar3;
         e eVar4;
         e eVar5;
-        eVar = this.this$0.sV;
+        eVar = this.this$0.sS;
         if (eVar != null) {
-            eVar5 = this.this$0.sV;
+            eVar5 = this.this$0.sS;
             eVar5.b(bdFileDownloadData);
         }
-        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.h.iy().k(id, com.baidu.adp.plugin.packageManager.pluginSettings.c.tr);
-            com.baidu.adp.plugin.b.a.hU().H("plugin_download", bdFileDownloadData.getId());
-            long iF = Util.iF();
-            if (iF <= 0 || iF >= 31457280) {
-                eVar2 = this.this$0.sV;
+        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
+            com.baidu.adp.plugin.packageManager.pluginSettings.h.ir().k(id, com.baidu.adp.plugin.packageManager.pluginSettings.c.tn);
+            com.baidu.adp.plugin.b.a.hN().H("plugin_download", bdFileDownloadData.getId());
+            long iy = Util.iy();
+            if (iy <= 0 || iy >= 31457280) {
+                eVar2 = this.this$0.sS;
                 if (eVar2 != null) {
                     m mVar = new m(this.this$0, null);
                     mVar.packageName = id;
                     mVar.timestamp = System.currentTimeMillis();
-                    mVar.te = new k(this, bdFileDownloadData);
-                    hashtable = this.this$0.sO;
+                    mVar.tb = new k(this, bdFileDownloadData);
+                    hashtable = this.this$0.sL;
                     hashtable.put(id, mVar);
                 }
-                this.this$0.be(Util.f(findPluginSetting));
+                this.this$0.bb(Util.f(findPluginSetting));
                 return;
             }
-            com.baidu.adp.plugin.b.a.hU().g("plugin_install", "rom too small", findPluginSetting.packageName);
-            eVar3 = this.this$0.sV;
+            com.baidu.adp.plugin.b.a.hN().g("plugin_install", "rom too small", findPluginSetting.packageName);
+            eVar3 = this.this$0.sS;
             if (eVar3 != null) {
-                eVar4 = this.this$0.sV;
+                eVar4 = this.this$0.sS;
                 eVar4.a(bdFileDownloadData, -1, BdBaseApplication.getInst().getString(R.string.rom_too_small));
             }
         }
@@ -82,16 +82,16 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str, String str2) {
         e eVar;
         e eVar2;
-        eVar = this.this$0.sV;
+        eVar = this.this$0.sS;
         if (eVar != null) {
             bdFileDownloadData.setStatusMsg(str);
             bdFileDownloadData.setStatus(2);
             bdFileDownloadData.setErrorCode(i);
-            eVar2 = this.this$0.sV;
+            eVar2 = this.this$0.sS;
             eVar2.c(bdFileDownloadData);
         }
         if (bdFileDownloadData != null) {
-            com.baidu.adp.plugin.b.a.hU().g("plugin_download", String.valueOf(i) + str2, bdFileDownloadData.getId());
+            com.baidu.adp.plugin.b.a.hN().g("plugin_download", String.valueOf(i) + str2, bdFileDownloadData.getId());
         }
     }
 }

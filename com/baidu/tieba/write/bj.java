@@ -4,11 +4,11 @@ import android.widget.EditText;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* loaded from: classes.dex */
 class bj implements Runnable {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,15 +18,15 @@ class bj implements Runnable {
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText3;
-        editText = this.cgS.bPG;
+        editText = this.cgR.bPF;
         if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.cgS.bWk;
-            editText3 = this.cgS.bPG;
+            editorToolComponetContainer2 = this.cgR.bWj;
+            editText3 = this.cgR.bPF;
             editorToolComponetContainer2.X(editText3);
             return;
         }
-        editorToolComponetContainer = this.cgS.bWk;
-        editText2 = this.cgS.bPK;
+        editorToolComponetContainer = this.cgR.bWj;
+        editText2 = this.cgR.bPJ;
         editorToolComponetContainer.X(editText2);
     }
 }

@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class k extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ j Yo;
+    final /* synthetic */ j Yl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.Yo = jVar;
+        this.Yl = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ class k extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         EmotionTabContentView emotionTabContentView;
         if (aVar != null) {
-            emotionTabContentView = this.Yo.Yl;
+            emotionTabContentView = this.Yl.Yi;
             View findViewWithTag = emotionTabContentView.findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && str != null) {
                 TbImageView tbImageView = (TbImageView) findViewWithTag;

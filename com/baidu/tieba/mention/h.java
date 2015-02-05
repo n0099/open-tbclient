@@ -2,7 +2,7 @@ package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public class h extends ad {
     @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.e
-    public String lq() {
+    public String lj() {
         return "tb_user_atme";
     }
 
@@ -12,7 +12,7 @@ public class h extends ad {
     }
 
     @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.e
-    public boolean xr() {
+    public boolean xl() {
         return false;
     }
 }

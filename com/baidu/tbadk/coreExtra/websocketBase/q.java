@@ -6,35 +6,35 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q {
-    private static q Wn = null;
-    private int Wo;
+    private static q Wk = null;
+    private int Wl;
     private int currentIndex = 0;
-    private boolean Wp = false;
-    private boolean Wq = false;
-    private List<String> VH = null;
-    private boolean Wr = false;
-    private final com.baidu.adp.lib.webSocket.l Ws = new r(this);
+    private boolean Wm = false;
+    private boolean Wn = false;
+    private List<String> VE = null;
+    private boolean Wo = false;
+    private final com.baidu.adp.lib.webSocket.l Wp = new r(this);
 
-    public static synchronized q us() {
+    public static synchronized q um() {
         q qVar;
         synchronized (q.class) {
-            if (Wn == null) {
+            if (Wk == null) {
                 synchronized (q.class) {
-                    if (Wn == null) {
-                        Wn = new q();
+                    if (Wk == null) {
+                        Wk = new q();
                     }
                 }
             }
-            qVar = Wn;
+            qVar = Wk;
         }
         return qVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.m.fU().a(this.Ws);
+        com.baidu.adp.lib.webSocket.m.fU().a(this.Wp);
     }
 
-    public static String dO(String str) {
+    public static String dL(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -46,60 +46,60 @@ public class q {
         return null;
     }
 
-    private String ut() {
-        if (this.VH == null || this.currentIndex <= -1 || this.currentIndex >= this.VH.size()) {
+    private String un() {
+        if (this.VE == null || this.currentIndex <= -1 || this.currentIndex >= this.VE.size()) {
             return null;
         }
-        return a.ua().ud().get(this.currentIndex);
+        return a.tU().tX().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dP(String str) {
-        String ut = ut();
-        if (ut == null) {
-            if (!a.ua().uf()) {
-                a.ua().a(new s(this, str));
+    public void dM(String str) {
+        String un = un();
+        if (un == null) {
+            if (!a.tU().tZ()) {
+                a.tU().a(new s(this, str));
             }
             com.baidu.adp.framework.client.socket.l.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            uu();
-        } else if (dO(ut) == null) {
-            uu();
+            uo();
+        } else if (dL(un) == null) {
+            uo();
         } else {
-            this.Wr = false;
+            this.Wo = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.l.setUrl(ut);
+            com.baidu.adp.framework.client.socket.l.setUrl(un);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.Wp = true;
+            this.Wm = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uu() {
-        NoNetworkView.qH();
-        this.Wq = false;
+    public void uo() {
+        NoNetworkView.qB();
+        this.Wn = false;
         this.currentIndex = 0;
-        this.Wr = false;
-        this.Wp = false;
+        this.Wo = false;
+        this.Wm = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uv() {
-        if (!this.Wr) {
-            this.Wr = true;
-            if (this.Wp) {
-                this.Wp = false;
-                f.ui().dL(TiebaIMConfig.url);
+    public void up() {
+        if (!this.Wo) {
+            this.Wo = true;
+            if (this.Wm) {
+                this.Wm = false;
+                f.uc().dI(TiebaIMConfig.url);
             }
-            f.ui().uj();
-            if (!this.Wq) {
+            f.uc().ud();
+            if (!this.Wn) {
                 new j("www.baidu.com", new t(this));
-                this.Wq = true;
+                this.Wn = true;
                 return;
             }
-            dP("change ip to reconnect with DNS' failed.");
+            dM("change ip to reconnect with DNS' failed.");
         }
     }
 }

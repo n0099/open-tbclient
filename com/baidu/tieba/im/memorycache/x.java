@@ -9,15 +9,15 @@ import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class x implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ w biO;
-    private final /* synthetic */ List biP;
-    private final /* synthetic */ MemoryClearStrangerItemsMessage biQ;
+    final /* synthetic */ w biN;
+    private final /* synthetic */ List biO;
+    private final /* synthetic */ MemoryClearStrangerItemsMessage biP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar, List list, MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage) {
-        this.biO = wVar;
-        this.biP = list;
-        this.biQ = memoryClearStrangerItemsMessage;
+        this.biN = wVar;
+        this.biO = list;
+        this.biP = memoryClearStrangerItemsMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -25,22 +25,22 @@ class x implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage != null) {
             try {
                 if (customMessage instanceof CustomMessage) {
-                    com.baidu.tieba.im.db.g.MU().MV();
-                    for (ImMessageCenterPojo imMessageCenterPojo : this.biP) {
-                        com.baidu.tieba.im.db.k.MZ().a(imMessageCenterPojo);
+                    com.baidu.tieba.im.db.g.MP().MQ();
+                    for (ImMessageCenterPojo imMessageCenterPojo : this.biO) {
+                        com.baidu.tieba.im.db.k.MU().a(imMessageCenterPojo);
                     }
-                    if (this.biQ.isAllClear()) {
+                    if (this.biP.isAllClear()) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid("-1001");
                         imMessageCenterPojo2.setCustomGroupType(-7);
                         imMessageCenterPojo2.setIs_hidden(1);
-                        com.baidu.tieba.im.db.k.MZ().a(imMessageCenterPojo2);
+                        com.baidu.tieba.im.db.k.MU().a(imMessageCenterPojo2);
                     }
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.MU().endTransaction();
+                com.baidu.tieba.im.db.g.MP().endTransaction();
             }
         }
         return null;

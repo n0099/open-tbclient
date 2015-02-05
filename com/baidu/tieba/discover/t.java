@@ -15,24 +15,24 @@ public class t extends com.baidu.tbadk.mvc.model.e<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> kP() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> kI() {
         return FoundNewHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> kO() {
+    protected Class<? extends MvcSocketResponsedMessage> kH() {
         return FoundNewSocketResponsedMessage.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int kL() {
+    public int kE() {
         return CmdConfigHttp.CMD_FOUND_NEW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String kM() {
+    public String kF() {
         return TbConfig.FOUND_NEW_ADDRESS;
     }
 
@@ -43,7 +43,7 @@ public class t extends com.baidu.tbadk.mvc.model.e<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int kN() {
+    protected int kG() {
         return 303023;
     }
 }

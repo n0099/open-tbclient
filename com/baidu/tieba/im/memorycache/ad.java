@@ -19,7 +19,7 @@ public class ad extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016001 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
-            this.this$0.Ra();
+            this.this$0.QV();
         }
     }
 }

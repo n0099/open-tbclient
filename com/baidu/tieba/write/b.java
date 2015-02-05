@@ -6,19 +6,19 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ AtListActivity cfy;
+    final /* synthetic */ AtListActivity cfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
+        this.cfx = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        Activity pageActivity = this.cfy.getPageContext().getPageActivity();
-        editText = this.cfy.mEditText;
+        Activity pageActivity = this.cfx.getPageContext().getPageActivity();
+        editText = this.cfx.mEditText;
         com.baidu.adp.lib.util.l.c(pageActivity, editText);
-        this.cfy.finish();
+        this.cfx.finish();
     }
 }

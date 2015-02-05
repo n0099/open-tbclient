@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class m<T> extends com.baidu.adp.base.f<T> {
-    public static final String BU = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
-    private o BT;
-    private HttpMessageListener BV;
+    public static final String BR = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
+    private o BQ;
+    private HttpMessageListener BS;
 
     public m(TbPageContext<T> tbPageContext) {
         super(tbPageContext);
-        this.BT = null;
-        this.BV = new n(this, CmdConfigHttp.CDN_IPLIST_CMD);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, BU);
+        this.BQ = null;
+        this.BS = new n(this, CmdConfigHttp.CDN_IPLIST_CMD);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, BR);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.BV);
-        MessageManager.getInstance().registerListener(this.BV);
+        MessageManager.getInstance().unRegisterListener(this.BS);
+        MessageManager.getInstance().registerListener(this.BS);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-        MessageManager.getInstance().unRegisterListener(this.BV);
+        MessageManager.getInstance().unRegisterListener(this.BS);
     }
 
     @Override // com.baidu.adp.base.f
@@ -43,16 +43,16 @@ public class m<T> extends com.baidu.adp.base.f<T> {
     }
 
     public void a(o oVar) {
-        this.BT = oVar;
+        this.BQ = oVar;
     }
 
-    public void lE() {
+    public void lx() {
         sendMessage(new HttpMessage(CmdConfigHttp.CDN_IPLIST_CMD));
     }
 
     public boolean a(String str, String str2, String str3, String str4, boolean z) {
         boolean z2;
-        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.h.eF(str)) {
+        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.h.eC(str)) {
             return false;
         }
         try {

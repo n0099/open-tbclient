@@ -297,7 +297,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
         this.mLayMsgsendMore = (ToolMoreView) talkableActivity.findViewById(com.baidu.tieba.w.lay_msgsend_more);
         this.mLayMsgsendMore.setVisibility(8);
         this.mLayMsgsendMore.setOnClickListener(talkableActivity);
-        this.mLayMsgsendMore.vH();
+        this.mLayMsgsendMore.vB();
         initExpression(talkableActivity);
     }
 
@@ -423,9 +423,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.f fVar) {
         this.personal_lbs_title_name.setText(str);
         if (fVar != null) {
-            if (fVar.to() < 0 || fVar.to() > 1) {
+            if (fVar.ti() < 0 || fVar.ti() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (fVar.to() == 1) {
+            } else if (fVar.ti() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(com.baidu.tieba.z.contact_yinshen));
                 this.personal_lbs_shadow.setVisibility(8);
@@ -646,7 +646,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
             this.mMsgItemOperation = iVar;
             this.mMsgItemOperation.e(this.mContext.getPageContext());
             this.mMsgItemOperation.getRootView().setTag(Integer.valueOf(i));
-            this.mMsgItemOperation.nZ();
+            this.mMsgItemOperation.nS();
         }
     }
 
@@ -761,7 +761,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.Ki();
+            this.mCallback.Kd();
         }
     }
 
@@ -910,9 +910,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.f)) {
                 com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) obj;
-                EmotionGroupType rM = fVar.rM();
+                EmotionGroupType rG = fVar.rG();
                 String name = fVar.getName();
-                if (rM == EmotionGroupType.LOCAL) {
+                if (rG == EmotionGroupType.LOCAL) {
                     if (name != null) {
                         this.mEdtMsgSendText.getText().insert(this.mEdtMsgSendText.getSelectionStart(), name);
                     }

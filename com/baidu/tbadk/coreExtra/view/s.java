@@ -13,61 +13,61 @@ import com.baidu.tbadk.core.util.bc;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class s extends PagerAdapter {
-    private ArrayList<String> Up;
-    private com.baidu.tbadk.widget.g Us;
-    private boolean Uz;
+    private ArrayList<String> Um;
+    private com.baidu.tbadk.widget.g Up;
+    private boolean Uw;
     private Context mContext;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener Uq = null;
-    private com.baidu.tbadk.widget.h Ur = null;
+    private View.OnLongClickListener Un = null;
+    private com.baidu.tbadk.widget.h Uo = null;
+    private int Uq = 0;
+    private boolean Ur = false;
+    private String Us = null;
     private int Ut = 0;
     private boolean Uu = false;
-    private String Uv = null;
-    private int Uw = 0;
-    private boolean Ux = false;
-    private boolean Uy = false;
+    private boolean Uv = false;
 
     public s(Context context, ArrayList<String> arrayList, com.baidu.tbadk.widget.g gVar) {
         this.mContext = null;
+        this.Um = null;
         this.Up = null;
-        this.Us = null;
         this.mContext = context;
-        this.Up = arrayList;
-        this.Us = gVar;
+        this.Um = arrayList;
+        this.Up = gVar;
     }
 
     public void s(ArrayList<String> arrayList) {
-        this.Up = arrayList;
+        this.Um = arrayList;
         notifyDataSetChanged();
     }
 
     public void setNextTitle(String str) {
-        this.Uv = str;
+        this.Us = str;
     }
 
     public void setHasNext(boolean z) {
-        this.Uu = z;
+        this.Ur = z;
         notifyDataSetChanged();
     }
 
     public boolean getHasNext() {
-        return this.Uu;
+        return this.Ur;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.Up != null) {
-            i = this.Up.size();
-            if (this.Uu) {
+        if (this.Um != null) {
+            i = this.Um.size();
+            if (this.Ur) {
                 i++;
             }
         }
-        return i + this.Uw;
+        return i + this.Ut;
     }
 
     public void setTempSize(int i) {
-        this.Uw = i;
+        this.Ut = i;
         notifyDataSetChanged();
     }
 
@@ -76,15 +76,15 @@ public class s extends PagerAdapter {
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.Uq = onLongClickListener;
+        this.Un = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.Ut = i;
+        this.Uq = i;
     }
 
     public void a(com.baidu.tbadk.widget.h hVar) {
-        this.Ur = hVar;
+        this.Uo = hVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -102,27 +102,27 @@ public class s extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i == this.Up.size()) {
+        if (i == this.Um.size()) {
             View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.big_image_next, null);
             ((ImageView) inflate.findViewById(com.baidu.tieba.w.image)).setImageDrawable(bc.getDrawable(com.baidu.tieba.v.big_image_next_default));
-            ((TextView) inflate.findViewById(com.baidu.tieba.w.thread_name)).setText(this.Uv);
+            ((TextView) inflate.findViewById(com.baidu.tieba.w.thread_name)).setText(this.Us);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
         }
         ax axVar = new ax(this.mContext);
-        String str = i < this.Up.size() ? this.Up.get(i) : null;
+        String str = i < this.Um.size() ? this.Um.get(i) : null;
         axVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         axVar.setImageOnClickListener(this.mOnClickListener);
-        axVar.setImageOnLongClickListener(this.Uq);
-        axVar.setIsCdn(this.Ux);
-        axVar.setOnSizeChangedListener(this.Ur);
+        axVar.setImageOnLongClickListener(this.Un);
+        axVar.setIsCdn(this.Uu);
+        axVar.setOnSizeChangedListener(this.Uo);
         ((ViewPager) viewGroup).addView(axVar, 0);
-        axVar.n(str, this.Uy);
-        axVar.setGifMaxUseableMem(this.Ut);
+        axVar.n(str, this.Uv);
+        axVar.setGifMaxUseableMem(this.Uq);
         axVar.setTag(String.valueOf(i));
-        axVar.setGifSetListener(this.Us);
-        axVar.setHeadImage(this.Uz);
+        axVar.setGifSetListener(this.Up);
+        axVar.setHeadImage(this.Uw);
         return axVar;
     }
 
@@ -140,28 +140,28 @@ public class s extends PagerAdapter {
                 }
             }
             com.baidu.tbadk.widget.a currentView = pVar.getCurrentView();
-            if (imageView != currentView || i == this.Up.size() - 1) {
+            if (imageView != currentView || i == this.Um.size() - 1) {
                 if (currentView != null) {
                     currentView.restoreSize();
                 }
-                ((ax) obj).aB(this.Uy);
+                ((ax) obj).aB(this.Uv);
                 pVar.setCurrentView(imageView);
                 if (((ax) obj).getImageType() == 1) {
-                    this.Us.a(imageView);
+                    this.Up.a(imageView);
                 }
             }
         }
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.Uy = z;
+        this.Uv = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.Ux = z;
+        this.Uu = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.Uz = z;
+        this.Uw = z;
     }
 }

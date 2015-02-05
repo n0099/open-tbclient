@@ -8,14 +8,14 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tieba.tbadkCore.ChildViewPager;
 /* loaded from: classes.dex */
 class bo {
-    ChildViewPager aEZ;
-    TextView aFa;
-    IndicatorView aFb;
-    TextView aFc;
-    View aFd;
-    View aFe;
-    ImageView aFf;
-    RelativeLayout aFg;
+    ChildViewPager aEW;
+    TextView aEX;
+    IndicatorView aEY;
+    TextView aEZ;
+    View aFa;
+    View aFb;
+    ImageView aFc;
+    RelativeLayout aFd;
 
     private bo() {
     }

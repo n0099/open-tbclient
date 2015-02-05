@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView aRU;
+    final /* synthetic */ MsgActivityView aRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(MsgActivityView msgActivityView) {
-        this.aRU = msgActivityView;
+        this.aRT = msgActivityView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,10 +16,10 @@ public class av implements View.OnClickListener {
         com.baidu.adp.lib.c.a aVar;
         com.baidu.adp.lib.c.a aVar2;
         int i;
-        aVar = this.aRU.mItemViewClickListener;
+        aVar = this.aRT.mItemViewClickListener;
         if (aVar != null) {
-            aVar2 = this.aRU.mItemViewClickListener;
-            i = this.aRU.mPosition;
+            aVar2 = this.aRT.mItemViewClickListener;
+            i = this.aRT.mPosition;
             aVar2.onItemViewClick(view, 8, i, 0L);
         }
     }

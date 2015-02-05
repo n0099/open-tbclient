@@ -17,9 +17,9 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private b bnF = null;
-    private SearchGroupModel bnG = null;
-    private e bnH = new a(this, 103007);
+    private b bnE = null;
+    private SearchGroupModel bnF = null;
+    private e bnG = new a(this, 103007);
 
     static {
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
@@ -29,31 +29,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bnF = new b(this);
-        this.bnG = new SearchGroupModel(this);
-        registerListener(this.bnH);
+        this.bnE = new b(this);
+        this.bnF = new SearchGroupModel(this);
+        registerListener(this.bnG);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bnF.changeSkinType(i);
+        this.bnE.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bnF.SO()) {
+        if (view == this.bnE.SJ()) {
             finish();
-        } else if (view == this.bnF.Td()) {
+        } else if (view == this.bnE.SY()) {
             i.A(getPageContext().getContext(), "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                hj((String) view.getTag());
+                hg((String) view.getTag());
             }
-        } else if (view == this.bnF.LZ()) {
-            this.bnF.Tf();
-        } else if (view == this.bnF.Te()) {
+        } else if (view == this.bnE.LU()) {
+            this.bnE.Ta();
+        } else if (view == this.bnE.SZ()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new com.baidu.tbadk.core.frameworkData.a(getPageContext().getPageActivity())));
         }
     }
@@ -71,20 +71,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.bnG != null) {
-            this.bnG.cancelLoadData();
+        if (this.bnF != null) {
+            this.bnF.cancelLoadData();
         }
     }
 
-    public void hj(String str) {
+    public void hg(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.bnF.cW(true);
-                this.bnG.sendMessage(Integer.parseInt(str));
+                this.bnE.cW(true);
+                this.bnF.sendMessage(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.bnF.cW(false);
+                this.bnE.cW(false);
                 showToast(z.groupid_error);
                 return;
             }
@@ -93,7 +93,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tc() {
+    public void SX() {
         showToast(z.add_group_toast_noresult);
     }
 

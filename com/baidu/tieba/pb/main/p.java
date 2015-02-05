@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class p implements cz {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.main.cz
@@ -13,12 +13,12 @@ class p implements cz {
         com.baidu.tieba.pb.sub.e eVar;
         com.baidu.tieba.pb.sub.e eVar2;
         bz bzVar;
-        eVar = this.bAT.bAv;
+        eVar = this.bAS.bAu;
         if (eVar != null) {
-            eVar2 = this.bAT.bAv;
-            if (eVar2.xL()) {
-                bzVar = this.bAT.bAx;
-                bzVar.YM();
+            eVar2 = this.bAS.bAu;
+            if (eVar2.xF()) {
+                bzVar = this.bAS.bAw;
+                bzVar.YH();
             }
         }
     }

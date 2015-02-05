@@ -20,13 +20,13 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView asJ;
-    private FragmentTransaction asK;
+    private ImageView asG;
+    private FragmentTransaction asH;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener CL = new a(this, 2008002);
+    private CustomMessageListener CI = new a(this, 2008002);
 
     static {
         TbadkApplication.getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
@@ -37,7 +37,7 @@ public class ChatMessageActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.CL);
+        registerListener(this.CI);
         sendMessage(new CustomMessage(2008002));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 1));
     }
@@ -57,6 +57,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(w.view_navigation_bar);
         this.mNavigationBar.setTitleText(z.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.asJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.widget_nb_item_addchat, this.mOnClickListener);
+        this.asG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

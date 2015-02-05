@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 class h extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bJY;
+    final /* synthetic */ PersonInfoActivity bJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bJY = personInfoActivity;
+        this.bJX = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,23 +28,23 @@ class h extends com.baidu.adp.framework.listener.e {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    blackListModel3 = this.bJY.bJM;
+                    blackListModel3 = this.bJX.bJL;
                     blackListModel3.setMaskType(1);
                 } else {
-                    blackListModel = this.bJY.bJM;
+                    blackListModel = this.bJX.bJL;
                     blackListModel.setMaskType(0);
                 }
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    blackListModel2 = this.bJY.bJM;
+                    blackListModel2 = this.bJX.bJL;
                     if (blackListModel2.getMaskType() == 1) {
-                        this.bJY.showToast(this.bJY.getPageContext().getString(com.baidu.tieba.z.chat_message_blocked));
+                        this.bJX.showToast(this.bJX.getPageContext().getString(com.baidu.tieba.z.chat_message_blocked));
                         return;
                     } else {
-                        this.bJY.showToast(this.bJY.getPageContext().getString(com.baidu.tieba.z.block_chat_remove_success));
+                        this.bJX.showToast(this.bJX.getPageContext().getString(com.baidu.tieba.z.block_chat_remove_success));
                         return;
                     }
                 }
-                this.bJY.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                this.bJX.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

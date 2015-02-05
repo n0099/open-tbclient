@@ -3,63 +3,63 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f {
-    private boolean AW;
-    private MarkData AX;
-    private f AY;
-    private g AZ;
+    private boolean AT;
+    private MarkData AU;
+    private f AV;
+    private g AW;
 
     public e(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.AW = false;
-        this.AX = null;
-        this.AY = null;
-        this.AZ = null;
-        this.AX = new MarkData();
+        this.AT = false;
+        this.AU = null;
+        this.AV = null;
+        this.AW = null;
+        this.AU = new MarkData();
     }
 
-    public boolean li() {
-        return this.AW;
+    public boolean lb() {
+        return this.AT;
     }
 
-    public MarkData lj() {
-        return this.AX;
+    public MarkData lc() {
+        return this.AU;
     }
 
     public void a(g gVar) {
-        this.AZ = gVar;
+        this.AW = gVar;
     }
 
     public void b(MarkData markData) {
-        this.AX = markData;
+        this.AU = markData;
     }
 
     public void Y(boolean z) {
-        this.AW = z;
+        this.AT = z;
     }
 
-    public String lk() {
-        if (this.AX != null) {
-            return this.AX.getPostId();
+    public String ld() {
+        if (this.AU != null) {
+            return this.AU.getPostId();
         }
         return null;
     }
 
-    public void ll() {
-        if (this.AY != null) {
-            this.AY.cancel();
+    public void le() {
+        if (this.AV != null) {
+            this.AV.cancel();
         }
-        this.AY = new f(this, true);
-        this.AY.setPriority(3);
-        this.AY.execute(new Boolean[0]);
+        this.AV = new f(this, true);
+        this.AV.setPriority(3);
+        this.AV.execute(new Boolean[0]);
     }
 
-    public void lm() {
-        if (this.AY != null) {
-            this.AY.cancel();
+    public void lf() {
+        if (this.AV != null) {
+            this.AV.cancel();
         }
-        this.AY = new f(this, false);
-        this.AY.setPriority(3);
-        this.AY.execute(new Boolean[0]);
+        this.AV = new f(this, false);
+        this.AV.setPriority(3);
+        this.AV.execute(new Boolean[0]);
     }
 
     @Override // com.baidu.adp.base.f
@@ -69,8 +69,8 @@ public class e extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.AY != null) {
-            this.AY.cancel();
+        if (this.AV != null) {
+            this.AV.cancel();
             return false;
         }
         return false;

@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.util.httpNet;
 /* loaded from: classes.dex */
 public class e {
-    public int KB;
-    public int KC;
-    public String KD = null;
-    public boolean gi = false;
+    public int Ky;
+    public int Kz;
     public String mErrorString;
+    public String KA = null;
+    public boolean gi = false;
+
+    public boolean oV() {
+        return this.Ky == 200;
+    }
+
+    public boolean lT() {
+        return this.Ky == 200 && this.Kz == 0;
+    }
 
     public boolean pc() {
-        return this.KB == 200;
-    }
-
-    public boolean ma() {
-        return this.KB == 200 && this.KC == 0;
-    }
-
-    public boolean pj() {
-        return this.KB == 200 || this.KB == 206;
+        return this.Ky == 200 || this.Ky == 206;
     }
 }

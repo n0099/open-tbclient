@@ -8,8 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 class w implements com.baidu.tbadk.core.util.bo {
-    Pattern bAU = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
-    Pattern bAV = Pattern.compile("http://tieba.baidu.com/f\\?kz=([\\d]+)");
+    Pattern bAT = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+    Pattern bAU = Pattern.compile("http://tieba.baidu.com/f\\?kz=([\\d]+)");
 
     @Override // com.baidu.tbadk.core.util.bo
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -19,8 +19,8 @@ class w implements com.baidu.tbadk.core.util.bo {
             return false;
         }
         String str2 = strArr[0];
-        Matcher matcher = this.bAU.matcher(str2);
-        Matcher matcher2 = this.bAV.matcher(str2);
+        Matcher matcher = this.bAT.matcher(str2);
+        Matcher matcher2 = this.bAU.matcher(str2);
         if (matcher.find()) {
             substring = matcher.group(1);
             str = "allthread";

@@ -15,13 +15,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, e> {
-    final /* synthetic */ a cbE;
-    private com.baidu.tieba.tbadkCore.c.a cbC = null;
-    private String QK = null;
-    private boolean cbD = false;
+    final /* synthetic */ a cbD;
+    private com.baidu.tieba.tbadkCore.c.a cbB = null;
+    private String QH = null;
+    private boolean cbC = false;
 
     public d(a aVar) {
-        this.cbE = aVar;
+        this.cbD = aVar;
         setPriority(3);
     }
 
@@ -49,47 +49,47 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        if (this.cbD) {
+        if (this.cbC) {
             return null;
         }
-        this.cbC = new com.baidu.tieba.tbadkCore.c.a();
-        com.baidu.tieba.tbadkCore.c.a aVar = this.cbC;
-        writeData = this.cbE.bPp;
-        z = this.cbE.cbB;
-        this.QK = aVar.a(writeData, z);
-        ErrorData ahO = this.cbC.ahO();
-        if (this.cbC.ma() && this.QK != null) {
-            AntiData ahN = this.cbC.ahN();
-            String error_msg = ahO.getError_msg();
+        this.cbB = new com.baidu.tieba.tbadkCore.c.a();
+        com.baidu.tieba.tbadkCore.c.a aVar = this.cbB;
+        writeData = this.cbD.bPo;
+        z = this.cbD.cbA;
+        this.QH = aVar.a(writeData, z);
+        ErrorData ahJ = this.cbB.ahJ();
+        if (this.cbB.lT() && this.QH != null) {
+            AntiData ahI = this.cbB.ahI();
+            String error_msg = ahJ.getError_msg();
             if (k.isEmpty(error_msg)) {
                 error_msg = TbadkCoreApplication.m255getInst().getApp().getString(z.send_success);
             }
-            e eVar2 = new e(ahO.getError_code(), error_msg, ahN);
-            writeData2 = this.cbE.bPp;
+            e eVar2 = new e(ahJ.getError_code(), error_msg, ahI);
+            writeData2 = this.cbD.bPo;
             if (writeData2 != null) {
-                writeData3 = this.cbE.bPp;
+                writeData3 = this.cbD.bPo;
                 if (!writeData3.isHasImages()) {
-                    writeData5 = this.cbE.bPp;
+                    writeData5 = this.cbD.bPo;
                 }
                 if (!eVar2.hasError()) {
-                    writeData4 = this.cbE.bPp;
+                    writeData4 = this.cbD.bPo;
                     writeData4.deleteUploadedTempImages();
                     eVar = eVar2;
                 }
             }
             eVar = eVar2;
-        } else if (ahO != null && !StringUtils.isNull(ahO.getError_msg())) {
-            eVar = new e(ahO.getError_code(), ahO.getError_msg(), null);
+        } else if (ahJ != null && !StringUtils.isNull(ahJ.getError_msg())) {
+            eVar = new e(ahJ.getError_code(), ahJ.getError_msg(), null);
         } else {
             eVar = new e(-17, TbadkCoreApplication.m255getInst().getApp().getString(z.neterror), null);
         }
         if (!eVar.hasError()) {
             try {
-                String optString = new JSONObject(this.QK).optString(AddFriendActivityConfig.MSG);
+                String optString = new JSONObject(this.QH).optString(AddFriendActivityConfig.MSG);
                 try {
-                    String optString2 = new JSONObject(this.QK).optString("pre_msg");
+                    String optString2 = new JSONObject(this.QH).optString("pre_msg");
                     try {
-                        str4 = new JSONObject(this.QK).optString("color_msg");
+                        str4 = new JSONObject(this.QH).optString("color_msg");
                         str3 = optString2;
                         str = optString;
                     } catch (JSONException e) {
@@ -102,8 +102,8 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
                         if (StringUtils.isNull(str)) {
                         }
                         eVar.setErrorString(str);
-                        eVar.ix(str3);
-                        eVar.iy(str4);
+                        eVar.iv(str3);
+                        eVar.iw(str4);
                         return eVar;
                     }
                 } catch (JSONException e2) {
@@ -120,8 +120,8 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
                 str = TbadkCoreApplication.m255getInst().getString(z.send_success);
             }
             eVar.setErrorString(str);
-            eVar.ix(str3);
-            eVar.iy(str4);
+            eVar.iv(str3);
+            eVar.iw(str4);
         }
         return eVar;
     }
@@ -138,29 +138,29 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
         c cVar2;
         WriteData writeData2;
         super.onPostExecute(eVar);
-        this.cbE.cby = null;
-        if (!this.cbD && eVar != null) {
+        this.cbD.cbx = null;
+        if (!this.cbC && eVar != null) {
             if (!eVar.hasError()) {
-                writeData = this.cbE.bPp;
+                writeData = this.cbD.bPo;
                 if (writeData != null) {
-                    writeData2 = this.cbE.bPp;
+                    writeData2 = this.cbD.bPo;
                     if (writeData2.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.afo();
+                        com.baidu.tieba.tbadkCore.PbEditor.a.afj();
                     }
                 }
-                cVar = this.cbE.cbA;
+                cVar = this.cbD.cbz;
                 if (cVar == null) {
-                    bVar = this.cbE.cbz;
+                    bVar = this.cbD.cby;
                     if (bVar != null) {
-                        bVar2 = this.cbE.cbz;
-                        bVar2.a(true, eVar.getErrorString(), null, null, eVar.abT());
+                        bVar2 = this.cbD.cby;
+                        bVar2.a(true, eVar.getErrorString(), null, null, eVar.abO());
                         return;
                     }
                     return;
                 }
-                f fVar = new f(eVar.getErrorString(), eVar.aiI(), eVar.aiJ());
-                cVar2 = this.cbE.cbA;
-                cVar2.a(true, fVar, null, null, eVar.abT());
+                f fVar = new f(eVar.getErrorString(), eVar.aiD(), eVar.aiE());
+                cVar2 = this.cbD.cbz;
+                cVar2.a(true, fVar, null, null, eVar.abO());
                 return;
             }
             b(eVar);
@@ -173,23 +173,23 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
         b bVar;
         b bVar2;
         c cVar2;
-        this.cbD = true;
-        if (this.cbC != null) {
-            this.cbC.cancel();
+        this.cbC = true;
+        if (this.cbB != null) {
+            this.cbB.cancel();
         }
-        cVar = this.cbE.cbA;
+        cVar = this.cbD.cbz;
         if (cVar == null) {
-            bVar = this.cbE.cbz;
+            bVar = this.cbD.cby;
             if (bVar != null) {
-                bVar2 = this.cbE.cbz;
+                bVar2 = this.cbD.cby;
                 bVar2.a(false, null, null, null, null);
             }
         } else {
-            cVar2 = this.cbE.cbA;
+            cVar2 = this.cbD.cbz;
             cVar2.a(false, null, null, null, null);
         }
         super.cancel(true);
-        this.cbE.cby = null;
+        this.cbD.cbx = null;
     }
 
     private void b(e eVar) {
@@ -206,48 +206,48 @@ public class d extends BdAsyncTask<Integer, Integer, e> {
         WriteData writeData4;
         c cVar4;
         WriteData writeData5;
-        AntiData abT = eVar.abT();
-        if (!eVar.aiH()) {
-            cVar = this.cbE.cbA;
+        AntiData abO = eVar.abO();
+        if (!eVar.aiC()) {
+            cVar = this.cbD.cbz;
             if (cVar == null) {
-                bVar = this.cbE.cbz;
+                bVar = this.cbD.cby;
                 if (bVar != null) {
-                    bVar2 = this.cbE.cbz;
-                    bVar2.a(false, eVar.getErrorString(), null, null, eVar.abT());
+                    bVar2 = this.cbD.cby;
+                    bVar2.a(false, eVar.getErrorString(), null, null, eVar.abO());
                     return;
                 }
                 return;
             }
             f fVar = new f(eVar.getErrorString(), null, null);
-            cVar2 = this.cbE.cbA;
-            cVar2.a(false, fVar, null, null, eVar.abT());
+            cVar2 = this.cbD.cbz;
+            cVar2.a(false, fVar, null, null, eVar.abO());
             return;
         }
         j jVar = new j();
-        jVar.parserJson(this.QK);
+        jVar.parserJson(this.QH);
         if (jVar.getVcode_pic_url() != null) {
-            writeData = this.cbE.bPp;
+            writeData = this.cbD.bPo;
             if (writeData != null) {
-                writeData2 = this.cbE.bPp;
+                writeData2 = this.cbD.bPo;
                 writeData2.setVcodeMD5(jVar.getVcode_md5());
-                writeData3 = this.cbE.bPp;
+                writeData3 = this.cbD.bPo;
                 writeData3.setVcodeUrl(jVar.getVcode_pic_url());
-                cVar3 = this.cbE.cbA;
+                cVar3 = this.cbD.cbz;
                 if (cVar3 == null) {
-                    bVar3 = this.cbE.cbz;
+                    bVar3 = this.cbD.cby;
                     if (bVar3 != null) {
-                        bVar4 = this.cbE.cbz;
+                        bVar4 = this.cbD.cby;
                         String errorString = eVar.getErrorString();
-                        writeData4 = this.cbE.bPp;
-                        bVar4.a(false, errorString, jVar, writeData4, abT);
+                        writeData4 = this.cbD.bPo;
+                        bVar4.a(false, errorString, jVar, writeData4, abO);
                         return;
                     }
                     return;
                 }
                 f fVar2 = new f(eVar.getErrorString(), null, null);
-                cVar4 = this.cbE.cbA;
-                writeData5 = this.cbE.bPp;
-                cVar4.a(false, fVar2, jVar, writeData5, abT);
+                cVar4 = this.cbD.cbz;
+                writeData5 = this.cbD.bPo;
+                cVar4.a(false, fVar2, jVar, writeData5, abO);
             }
         }
     }

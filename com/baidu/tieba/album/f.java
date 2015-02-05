@@ -5,12 +5,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, List<a>> {
-    private final m apV;
-    final /* synthetic */ e apW;
+    private final m apS;
+    final /* synthetic */ e apT;
 
     public f(e eVar, m mVar) {
-        this.apW = eVar;
-        this.apV = mVar;
+        this.apT = eVar;
+        this.apS = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,17 +18,17 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: n */
     public List<a> doInBackground(Object... objArr) {
-        List<a> BM;
-        BM = this.apW.BM();
-        return BM;
+        List<a> BG;
+        BG = this.apT.BG();
+        return BG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        if (this.apV != null) {
-            this.apV.jG();
+        if (this.apS != null) {
+            this.apS.jz();
         }
     }
 
@@ -38,8 +38,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     /* renamed from: m */
     public void onPostExecute(List<a> list) {
         super.onPostExecute(list);
-        if (this.apV != null) {
-            this.apV.C(list);
+        if (this.apS != null) {
+            this.apS.C(list);
         }
     }
 }

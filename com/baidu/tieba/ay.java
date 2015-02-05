@@ -14,7 +14,7 @@ public class ay implements DialogInterface.OnDismissListener {
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         ai aiVar;
-        aiVar = this.this$0.amz;
+        aiVar = this.this$0.amw;
         aiVar.dismiss();
         this.this$0.mHandler.postDelayed(new az(this), 100L);
     }

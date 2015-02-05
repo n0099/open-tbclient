@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 public class z {
-    y Nv;
-    y Nw;
+    y Ns;
+    y Nt;
 
     private z() {
     }
 
     public static z a(y yVar) {
         z zVar = new z();
-        zVar.Nv = yVar;
+        zVar.Ns = yVar;
         return zVar;
     }
 }

@@ -7,18 +7,18 @@ import java.util.TimerTask;
 /* loaded from: classes.dex */
 public class c extends TimerTask {
     private final /* synthetic */ View nv;
-    final /* synthetic */ b xZ;
-    private final /* synthetic */ Timer ya;
+    final /* synthetic */ b xW;
+    private final /* synthetic */ Timer xX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, View view, Timer timer) {
-        this.xZ = bVar;
+        this.xW = bVar;
         this.nv = view;
-        this.ya = timer;
+        this.xX = timer;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.nv.post(new d(this, this.nv, this.ya));
+        this.nv.post(new d(this, this.nv, this.xX));
     }
 }

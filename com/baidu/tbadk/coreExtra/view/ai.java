@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    final /* synthetic */ LivePlayingImageView Va;
+    final /* synthetic */ LivePlayingImageView UX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(LivePlayingImageView livePlayingImageView) {
-        this.Va = livePlayingImageView;
+        this.UX = livePlayingImageView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.Va.getStatisticsKey())) {
-            com.baidu.tbadk.core.i.A(this.Va.getContext(), this.Va.getStatisticsKey());
+        if (!TextUtils.isEmpty(this.UX.getStatisticsKey())) {
+            com.baidu.tbadk.core.i.A(this.UX.getContext(), this.UX.getStatisticsKey());
         }
-        if (LivePlayingStatusMgr.tP().getGid() != 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.Va.getContext(), LivePlayingStatusMgr.tP().getGid())));
+        if (LivePlayingStatusMgr.tJ().getGid() != 0) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.UX.getContext(), LivePlayingStatusMgr.tJ().getGid())));
         }
     }
 }

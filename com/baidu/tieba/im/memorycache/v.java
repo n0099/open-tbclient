@@ -9,17 +9,17 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 class v implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ u biK;
-    private final /* synthetic */ ImMessageCenterPojo biL;
-    private final /* synthetic */ ChatMessage biM;
-    private final /* synthetic */ SocketResponsedMessage biN;
+    final /* synthetic */ u biJ;
+    private final /* synthetic */ ImMessageCenterPojo biK;
+    private final /* synthetic */ ChatMessage biL;
+    private final /* synthetic */ SocketResponsedMessage biM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.biK = uVar;
-        this.biL = imMessageCenterPojo;
-        this.biM = chatMessage;
-        this.biN = socketResponsedMessage;
+        this.biJ = uVar;
+        this.biK = imMessageCenterPojo;
+        this.biL = chatMessage;
+        this.biM = socketResponsedMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -28,14 +28,14 @@ class v implements CustomMessageTask.CustomRunnable<String> {
             return null;
         }
         try {
-            com.baidu.tieba.im.db.g.MU().MV();
-            com.baidu.tieba.im.db.k.MZ().a(this.biL, 3);
-            com.baidu.tieba.im.db.c.MQ().b(this.biM.getGroupId(), String.valueOf(this.biM.getRecordId()), String.valueOf(this.biM.getMsgId()), this.biM.getLocalData().getStatus().shortValue());
+            com.baidu.tieba.im.db.g.MP().MQ();
+            com.baidu.tieba.im.db.k.MU().a(this.biK, 3);
+            com.baidu.tieba.im.db.c.ML().b(this.biL.getGroupId(), String.valueOf(this.biL.getRecordId()), String.valueOf(this.biL.getMsgId()), this.biL.getLocalData().getStatus().shortValue());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.MU().endTransaction();
+            com.baidu.tieba.im.db.g.MP().endTransaction();
         }
-        return new CustomResponsedMessage<>(2016012, this.biN);
+        return new CustomResponsedMessage<>(2016012, this.biM);
     }
 }

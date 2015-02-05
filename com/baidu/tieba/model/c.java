@@ -3,22 +3,22 @@ package com.baidu.tieba.model;
 import com.baidu.tieba.data.q;
 /* loaded from: classes.dex */
 public class c {
-    private com.baidu.tieba.data.h bui = null;
-    private q buj = null;
+    private com.baidu.tieba.data.h buh = null;
+    private q bui = null;
 
-    public com.baidu.tieba.data.h Uv() {
-        return this.bui;
+    public com.baidu.tieba.data.h Uq() {
+        return this.buh;
     }
 
     public void a(com.baidu.tieba.data.h hVar) {
-        this.bui = hVar;
+        this.buh = hVar;
     }
 
-    public q Uw() {
-        return this.buj;
+    public q Ur() {
+        return this.bui;
     }
 
     public void a(q qVar) {
-        this.buj = qVar;
+        this.bui = qVar;
     }
 }

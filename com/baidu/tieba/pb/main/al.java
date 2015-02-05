@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
+    private final /* synthetic */ MarkData bAZ;
     private final /* synthetic */ MarkData bBa;
-    private final /* synthetic */ MarkData bBb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PbActivity pbActivity, MarkData markData, MarkData markData2) {
-        this.bAT = pbActivity;
-        this.bBa = markData;
-        this.bBb = markData2;
+        this.bAS = pbActivity;
+        this.bAZ = markData;
+        this.bBa = markData2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -25,23 +25,23 @@ public class al implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.baseEditMark.e eVar4;
         com.baidu.tbadk.baseEditMark.e eVar5;
         com.baidu.tbadk.baseEditMark.e eVar6;
-        eVar = this.bAT.bAt;
-        if (eVar.li()) {
-            eVar5 = this.bAT.bAt;
-            eVar5.lm();
-            eVar6 = this.bAT.bAt;
+        eVar = this.bAS.bAs;
+        if (eVar.lb()) {
+            eVar5 = this.bAS.bAs;
+            eVar5.lf();
+            eVar6 = this.bAS.bAs;
             eVar6.Y(false);
         }
-        eVar2 = this.bAT.bAt;
-        eVar2.b(this.bBa);
-        eVar3 = this.bAT.bAt;
+        eVar2 = this.bAS.bAs;
+        eVar2.b(this.bAZ);
+        eVar3 = this.bAS.bAs;
         eVar3.Y(true);
-        eVar4 = this.bAT.bAt;
-        eVar4.ll();
-        this.bBb.setPostId(this.bBa.getPostId());
+        eVar4 = this.bAS.bAs;
+        eVar4.le();
+        this.bBa.setPostId(this.bAZ.getPostId());
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.bBb);
-        this.bAT.setResult(-1, intent);
-        this.bAT.Xn();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bBa);
+        this.bAS.setResult(-1, intent);
+        this.bAS.Xi();
     }
 }

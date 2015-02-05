@@ -17,17 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private ArrayList<Object> bOQ;
-    private SelectLocationActivity bOR;
+    private ArrayList<Object> bOP;
+    private SelectLocationActivity bOQ;
     private boolean isShowLocation;
 
     public l(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.bOR = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aic().getLocationData();
-        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.aic().aid() ? false : true;
+        this.bOQ = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ahX().getLocationData();
+        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.ahX().ahY() ? false : true;
         if (locationData != null) {
-            this.bOQ = d(locationData.ahZ(), locationData.ahY());
+            this.bOP = d(locationData.ahU(), locationData.ahT());
         }
     }
 
@@ -53,8 +53,8 @@ public class l extends BaseAdapter {
             bVar3.setName(str);
             arrayList.add(0, bVar3);
         }
-        if (this.bOR != null) {
-            arrayList.add(0, this.bOR.getPageContext().getString(z.select_position_no_location));
+        if (this.bOQ != null) {
+            arrayList.add(0, this.bOQ.getPageContext().getString(z.select_position_no_location));
         }
         return arrayList;
     }
@@ -78,18 +78,18 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bOQ == null) {
+        if (this.bOP == null) {
             return 0;
         }
-        return this.bOQ.size();
+        return this.bOP.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bOQ == null || i < 0 || i >= this.bOQ.size()) {
+        if (this.bOP == null || i < 0 || i >= this.bOP.size()) {
             return null;
         }
-        return this.bOQ.get(i);
+        return this.bOP.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -118,10 +118,10 @@ public class l extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.bOR.getPageContext().getPageActivity(), x.select_location_nolocation_item, null);
+                View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.bOQ.getPageContext().getPageActivity(), x.select_location_nolocation_item, null);
                 nVar = new n(null);
-                nVar.Xo = (TextView) inflate.findViewById(w.select_location_title);
-                nVar.bOS = (ImageView) inflate.findViewById(w.select_location_tick);
+                nVar.Xl = (TextView) inflate.findViewById(w.select_location_title);
+                nVar.bOR = (ImageView) inflate.findViewById(w.select_location_tick);
                 nVar.line = inflate.findViewById(w.select_location_line);
                 inflate.setTag(nVar);
                 view2 = inflate;
@@ -130,14 +130,14 @@ public class l extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                nVar.bOS.setVisibility(0);
-                bc.c(nVar.bOS, v.icon_site_ok);
+                nVar.bOR.setVisibility(0);
+                bc.c(nVar.bOR, v.icon_site_ok);
             } else {
-                nVar.bOS.setVisibility(4);
+                nVar.bOR.setVisibility(4);
             }
-            nVar.Xo.setText(str);
+            nVar.Xl.setText(str);
             bc.j(nVar.line, t.cp_bg_line_b);
-            bc.b(nVar.Xo, t.cp_link_tip_a, 1);
+            bc.b(nVar.Xl, t.cp_link_tip_a, 1);
             bc.i(view2, v.home_recommend_item_bg);
             return view2;
         }
@@ -150,28 +150,28 @@ public class l extends BaseAdapter {
         if (item instanceof com.baidu.tieba.tbadkCore.location.b) {
             com.baidu.tieba.tbadkCore.location.b bVar = (com.baidu.tieba.tbadkCore.location.b) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                view = com.baidu.adp.lib.g.b.ei().inflate(this.bOR.getPageContext().getPageActivity(), x.select_location_address_item, null);
+                view = com.baidu.adp.lib.g.b.ei().inflate(this.bOQ.getPageContext().getPageActivity(), x.select_location_address_item, null);
                 m mVar2 = new m(null);
-                mVar2.abm = (TextView) view.findViewById(w.select_location_name);
-                mVar2.bOK = (TextView) view.findViewById(w.select_location_address);
-                mVar2.bOS = (ImageView) view.findViewById(w.select_location_tick);
+                mVar2.abj = (TextView) view.findViewById(w.select_location_name);
+                mVar2.bOJ = (TextView) view.findViewById(w.select_location_address);
+                mVar2.bOR = (ImageView) view.findViewById(w.select_location_tick);
                 view.setTag(mVar2);
                 mVar = mVar2;
             } else {
                 mVar = (m) view.getTag();
             }
-            mVar.bOK.setText(bVar.aib());
+            mVar.bOJ.setText(bVar.ahW());
             if (this.isShowLocation && i == 1) {
-                mVar.bOS.setVisibility(0);
-                if (TextUtils.isEmpty(bVar.aib())) {
-                    mVar.bOK.setText(z.select_location_current);
+                mVar.bOR.setVisibility(0);
+                if (TextUtils.isEmpty(bVar.ahW())) {
+                    mVar.bOJ.setText(z.select_location_current);
                 }
             } else {
-                mVar.bOS.setVisibility(4);
+                mVar.bOR.setVisibility(4);
             }
-            mVar.abm.setText(bVar.getName());
-            this.bOR.getLayoutMode().ab(z);
-            this.bOR.getLayoutMode().h(view);
+            mVar.abj.setText(bVar.getName());
+            this.bOQ.getLayoutMode().ab(z);
+            this.bOQ.getLayoutMode().h(view);
             bc.i(view, v.home_recommend_item_bg);
             return view;
         }

@@ -17,14 +17,14 @@ class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                a.acB().destroy();
+                a.acw().destroy();
                 TbadkApplication.getInst().onLowMemory();
             } else if (TbadkApplication.isLogin()) {
-                a.acB().start();
-                g.acS().start();
+                a.acw().start();
+                g.acN().start();
             } else {
-                a.acB().destroy();
-                g.acS().destroy();
+                a.acw().destroy();
+                g.acN().destroy();
             }
         }
     }

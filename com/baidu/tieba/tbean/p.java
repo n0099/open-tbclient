@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.HorizontalListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements Runnable {
-    final /* synthetic */ j ccq;
+    final /* synthetic */ j ccp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(j jVar) {
-        this.ccq = jVar;
+        this.ccp = jVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,12 +17,12 @@ public class p implements Runnable {
         HorizontalListView horizontalListView;
         int i2;
         int i3 = 0;
-        i = this.ccq.aXn;
+        i = this.ccp.aXm;
         if (i > 0) {
-            i2 = this.ccq.aXn;
+            i2 = this.ccp.aXm;
             i3 = i2 - 1;
         }
-        horizontalListView = this.ccq.cbZ;
+        horizontalListView = this.ccp.cbY;
         horizontalListView.setSelection(i3);
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 class ao implements com.baidu.adp.lib.e.c<GifView> {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Xz */
+    /* renamed from: Xu */
     public GifView eb() {
-        return new GifView(this.bAT.getPageContext().getPageActivity());
+        return new GifView(this.bAS.getPageContext().getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

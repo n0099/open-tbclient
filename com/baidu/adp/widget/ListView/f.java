@@ -1,15 +1,15 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ e wC;
+    final /* synthetic */ e wz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.wC = eVar;
+        this.wz = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.wC.wB.start();
+        this.wz.wy.start();
     }
 }

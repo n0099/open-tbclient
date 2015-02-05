@@ -34,8 +34,8 @@ class i implements g {
             this.pg = inetSocketAddress.getAddress().getHostAddress();
             this.pf = System.currentTimeMillis() - currentTimeMillis;
         }
-        this.pj.connect(inetSocketAddress, amVar.go());
-        this.pj.setSoTimeout(amVar.gn());
+        this.pj.connect(inetSocketAddress, amVar.gp());
+        this.pj.setSoTimeout(amVar.go());
         this.pj.setTcpNoDelay(amVar.getTcpNoDelay());
         this.mInputStream = this.pj.getInputStream();
         this.fU = this.pj.getOutputStream();

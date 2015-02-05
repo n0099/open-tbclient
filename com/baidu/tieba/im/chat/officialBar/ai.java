@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class ai extends CustomMessageListener {
-    final /* synthetic */ OfficialBarTipActivity aUR;
+    final /* synthetic */ OfficialBarTipActivity aUQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(OfficialBarTipActivity officialBarTipActivity, int i) {
         super(i);
-        this.aUR = officialBarTipActivity;
+        this.aUQ = officialBarTipActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ class ai extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            officialBarTipModel = this.aUR.aUP;
-                            aVar = this.aUR.aTD;
+                            officialBarTipModel = this.aUQ.aUO;
+                            aVar = this.aUQ.aTC;
                             officialBarTipModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            aoVar = this.aUR.aUQ;
+                            aoVar = this.aUQ.aUP;
                             if (aoVar != null) {
-                                aoVar2 = this.aUR.aUQ;
-                                if (aoVar2.Lf() != null) {
-                                    aoVar3 = this.aUR.aUQ;
-                                    aoVar3.Lf().notifyDataSetChanged();
+                                aoVar2 = this.aUQ.aUP;
+                                if (aoVar2.La() != null) {
+                                    aoVar3 = this.aUQ.aUP;
+                                    aoVar3.La().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -47,13 +47,13 @@ class ai extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.aUR.e(customResponsedMessage);
+                    this.aUQ.e(customResponsedMessage);
                     return;
                 }
-                this.aUR.d(customResponsedMessage);
+                this.aUQ.d(customResponsedMessage);
                 return;
             }
-            this.aUR.c(customResponsedMessage);
+            this.aUQ.c(customResponsedMessage);
         }
     }
 }

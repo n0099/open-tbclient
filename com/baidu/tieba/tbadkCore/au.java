@@ -1,18 +1,18 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public class au {
-    private String KT = "bar_detail";
-    private av bXA;
+    private String KQ = "bar_detail";
+    private av bXz;
 
     public void setFrom(String str) {
-        this.KT = str;
+        this.KQ = str;
     }
 
     public void a(av avVar) {
-        this.bXA = avVar;
+        this.bXz = avVar;
     }
 
     public void i(String str, long j) {
-        new aw(str, j, this.KT, this.bXA).execute(new Integer[0]);
+        new aw(str, j, this.KQ, this.bXz).execute(new Integer[0]);
     }
 }

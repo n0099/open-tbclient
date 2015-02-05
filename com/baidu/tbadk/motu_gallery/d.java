@@ -5,11 +5,11 @@ import android.os.Message;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class d implements Handler.Callback {
-    final /* synthetic */ JigsawAlbumActivity adc;
+    final /* synthetic */ JigsawAlbumActivity acZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.adc = jigsawAlbumActivity;
+        this.acZ = jigsawAlbumActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,23 +24,23 @@ class d implements Handler.Callback {
         Runnable runnable;
         switch (message.what) {
             case 1:
-                jVar3 = this.adc.acN;
+                jVar3 = this.acZ.acK;
                 jVar3.t(null);
-                jVar4 = this.adc.acN;
+                jVar4 = this.acZ.acK;
                 jVar4.notifyDataSetChanged();
-                runnable = this.adc.mRunnable;
+                runnable = this.acZ.mRunnable;
                 new Thread(runnable).start();
                 break;
             case 2:
-                this.adc.acQ = new l(this.adc);
-                lVar = this.adc.acQ;
+                this.acZ.acN = new l(this.acZ);
+                lVar = this.acZ.acN;
                 lVar.setDaemon(true);
-                lVar2 = this.adc.acQ;
+                lVar2 = this.acZ.acN;
                 lVar2.start();
-                jVar = this.adc.acN;
-                arrayList = this.adc.acL;
+                jVar = this.acZ.acK;
+                arrayList = this.acZ.acI;
                 jVar.t(arrayList);
-                jVar2 = this.adc.acN;
+                jVar2 = this.acZ.acK;
                 jVar2.notifyDataSetChanged();
                 break;
         }

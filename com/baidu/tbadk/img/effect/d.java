@@ -19,7 +19,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void eq(String str) {
+    public void en(String str) {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
@@ -34,12 +34,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.we().dx(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.vY().dx(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
         return com.baidu.tbadk.core.util.d.a(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap er(String str) {
+    public Bitmap eo(String str) {
         return b(com.baidu.tbadk.core.util.d.b(str, this.maxWidth, this.maxHeight), true);
     }
 

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.tbadk.util.i {
-    final /* synthetic */ c bYv;
+    final /* synthetic */ c bYu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c cVar, Context context) {
         super(context);
-        this.bYv = cVar;
+        this.bYu = cVar;
     }
 
     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
@@ -23,14 +23,14 @@ public class f extends com.baidu.tbadk.util.i {
         String str2;
         String str3;
         String str4 = null;
-        str = this.bYv.text;
+        str = this.bYu.text;
         if (str != null) {
-            str3 = this.bYv.text;
+            str3 = this.bYu.text;
             str4 = str3.replace("@", "").replace(" ", "");
         }
         MessageManager messageManager = MessageManager.getInstance();
         Context context = getContext();
-        str2 = this.bYv.link;
+        str2 = this.bYu.link;
         messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, str2, str4)));
     }
 }

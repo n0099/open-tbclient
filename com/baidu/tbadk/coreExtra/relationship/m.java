@@ -14,7 +14,7 @@ class m extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
             a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            com.baidu.tbadk.core.sharedPref.b.oj().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
+            com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
             new p(addressListData).execute(new Void[0]);
         }
     }

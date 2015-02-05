@@ -3,27 +3,27 @@ package com.baidu.adp.plugin.packageManager;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
 class k implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ j tb;
-    private final /* synthetic */ BdFileDownloadData tc;
+    final /* synthetic */ j sX;
+    private final /* synthetic */ BdFileDownloadData sY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, BdFileDownloadData bdFileDownloadData) {
-        this.tb = jVar;
-        this.tc = bdFileDownloadData;
+        this.sX = jVar;
+        this.sY = bdFileDownloadData;
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void aV(String str) {
+    public void aS(String str) {
         PluginPackageManager pluginPackageManager;
         e eVar;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.tb.this$0;
-        eVar = pluginPackageManager.sV;
+        pluginPackageManager = this.sX.this$0;
+        eVar = pluginPackageManager.sS;
         if (eVar != null) {
-            pluginPackageManager2 = this.tb.this$0;
-            eVar2 = pluginPackageManager2.sV;
-            eVar2.a(this.tc, 0, "");
+            pluginPackageManager2 = this.sX.this$0;
+            eVar2 = pluginPackageManager2.sS;
+            eVar2.a(this.sY, 0, "");
         }
     }
 
@@ -33,12 +33,12 @@ class k implements com.baidu.adp.plugin.install.b {
         e eVar;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.tb.this$0;
-        eVar = pluginPackageManager.sV;
+        pluginPackageManager = this.sX.this$0;
+        eVar = pluginPackageManager.sS;
         if (eVar != null) {
-            pluginPackageManager2 = this.tb.this$0;
-            eVar2 = pluginPackageManager2.sV;
-            eVar2.a(this.tc, -1, str2);
+            pluginPackageManager2 = this.sX.this$0;
+            eVar2 = pluginPackageManager2.sS;
+            eVar2.a(this.sY, -1, str2);
         }
     }
 }

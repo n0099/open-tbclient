@@ -14,13 +14,13 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarMsglistView extends CommonPersonalMsglistView {
-    private LinearLayout aUB;
-    private ImageView aUC;
+    private LinearLayout aUA;
+    private ImageView aUB;
+    private LinearLayout aUC;
     private LinearLayout aUD;
     private LinearLayout aUE;
-    private LinearLayout aUF;
-    private com.baidu.tieba.im.view.k aUG;
-    private ah[] aUH;
+    private com.baidu.tieba.im.view.k aUF;
+    private ah[] aUG;
     private TextView mGroupInfoBtnTxt;
 
     public OfficialBarMsglistView(MsglistActivity msglistActivity, boolean z) {
@@ -37,39 +37,39 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.mGroupInfoBtnTxt = (TextView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.w.group_info_btn_txt);
             this.mGroupInfoBtnTxt.setText(string);
         }
-        this.aUB = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_toggle_stub)).inflate();
-        this.aUC = (ImageView) this.aUB.findViewById(com.baidu.tieba.w.official_bar_toggle_button);
+        this.aUA = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_toggle_stub)).inflate();
+        this.aUB = (ImageView) this.aUA.findViewById(com.baidu.tieba.w.official_bar_toggle_button);
+        this.aUB.setVisibility(0);
+        this.aUC = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_stub)).inflate();
         this.aUC.setVisibility(0);
-        this.aUD = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_stub)).inflate();
-        this.aUD.setVisibility(0);
-        this.aUH = new ah[3];
+        this.aUG = new ah[3];
         ah ahVar = new ah();
-        ahVar.aUL = false;
-        ahVar.aUM = (LinearLayout) this.aUD.findViewById(com.baidu.tieba.w.menu_frist);
-        ahVar.aUN = (TextView) this.aUD.findViewById(com.baidu.tieba.w.menu_frist_text);
-        ahVar.aUO = (ImageView) this.aUD.findViewById(com.baidu.tieba.w.menu_frist_tip);
-        this.aUH[0] = ahVar;
+        ahVar.aUK = false;
+        ahVar.aUL = (LinearLayout) this.aUC.findViewById(com.baidu.tieba.w.menu_frist);
+        ahVar.aUM = (TextView) this.aUC.findViewById(com.baidu.tieba.w.menu_frist_text);
+        ahVar.aUN = (ImageView) this.aUC.findViewById(com.baidu.tieba.w.menu_frist_tip);
+        this.aUG[0] = ahVar;
         ah ahVar2 = new ah();
-        ahVar2.aUL = false;
-        ahVar2.aUM = (LinearLayout) this.aUD.findViewById(com.baidu.tieba.w.menu_second);
-        ahVar2.aUN = (TextView) this.aUD.findViewById(com.baidu.tieba.w.menu_second_text);
-        ahVar2.aUO = (ImageView) this.aUD.findViewById(com.baidu.tieba.w.menu_second_tip);
-        this.aUH[1] = ahVar2;
+        ahVar2.aUK = false;
+        ahVar2.aUL = (LinearLayout) this.aUC.findViewById(com.baidu.tieba.w.menu_second);
+        ahVar2.aUM = (TextView) this.aUC.findViewById(com.baidu.tieba.w.menu_second_text);
+        ahVar2.aUN = (ImageView) this.aUC.findViewById(com.baidu.tieba.w.menu_second_tip);
+        this.aUG[1] = ahVar2;
         ah ahVar3 = new ah();
-        ahVar3.aUL = false;
-        ahVar3.aUM = (LinearLayout) this.aUD.findViewById(com.baidu.tieba.w.menu_third);
-        ahVar3.aUN = (TextView) this.aUD.findViewById(com.baidu.tieba.w.menu_third_text);
-        ahVar3.aUO = (ImageView) this.aUD.findViewById(com.baidu.tieba.w.menu_third_tip);
-        this.aUH[2] = ahVar3;
+        ahVar3.aUK = false;
+        ahVar3.aUL = (LinearLayout) this.aUC.findViewById(com.baidu.tieba.w.menu_third);
+        ahVar3.aUM = (TextView) this.aUC.findViewById(com.baidu.tieba.w.menu_third_text);
+        ahVar3.aUN = (ImageView) this.aUC.findViewById(com.baidu.tieba.w.menu_third_tip);
+        this.aUG[2] = ahVar3;
         for (int i = 0; i < 3; i++) {
-            this.aUH[i].aUM.setOnClickListener(talkableActivity);
+            this.aUG[i].aUL.setOnClickListener(talkableActivity);
         }
-        this.aUE = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_down_line)).inflate();
-        this.aUE.setVisibility(0);
-        this.aUF = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_menu_loading)).inflate();
-        this.aUF.setVisibility(8);
+        this.aUD = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_memu_down_line)).inflate();
+        this.aUD.setVisibility(0);
+        this.aUE = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.w.official_bar_menu_loading)).inflate();
+        this.aUE.setVisibility(8);
         this.mInputControl.setVisibility(8);
-        this.aUC.setOnClickListener(talkableActivity);
+        this.aUB.setOnClickListener(talkableActivity);
         cz(true);
     }
 
@@ -77,48 +77,48 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initMsglist(MsglistActivity msglistActivity) {
         super.initMsglist(msglistActivity);
-        this.aUG = new com.baidu.tieba.im.view.k(msglistActivity.getPageContext().getPageActivity());
-        getListMain().addView(this.aUG);
-        this.aUG.setVisibility(8);
-        this.aUG.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
+        this.aUF = new com.baidu.tieba.im.view.k(msglistActivity.getPageContext().getPageActivity());
+        getListMain().addView(this.aUF);
+        this.aUF.setVisibility(8);
+        this.aUF.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
     }
 
-    public com.baidu.tieba.im.view.k La() {
-        return this.aUG;
+    public com.baidu.tieba.im.view.k KV() {
+        return this.aUF;
     }
 
     public void cz(boolean z) {
         if (z) {
-            this.aUB.setVisibility(8);
-            this.aUD.setVisibility(8);
+            this.aUA.setVisibility(8);
+            this.aUC.setVisibility(8);
             this.mInputControl.setVisibility(0);
-            this.aUE.setVisibility(8);
+            this.aUD.setVisibility(8);
             return;
         }
-        this.aUB.setVisibility(0);
-        this.aUD.setVisibility(0);
+        this.aUA.setVisibility(0);
+        this.aUC.setVisibility(0);
         this.mInputControl.setVisibility(8);
-        this.aUE.setVisibility(0);
+        this.aUD.setVisibility(0);
     }
 
-    public ah[] Lb() {
-        return this.aUH;
+    public ah[] KW() {
+        return this.aUG;
     }
 
     public void am(List<com.baidu.tieba.im.data.d> list) {
         if (list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
                 com.baidu.tieba.im.data.d dVar = list.get(i);
-                this.aUH[i].aUN.setText(dVar.getName());
-                if (dVar.MH() != 0) {
-                    this.aUH[i].aUO.setVisibility(8);
+                this.aUG[i].aUM.setText(dVar.getName());
+                if (dVar.MC() != 0) {
+                    this.aUG[i].aUN.setVisibility(8);
                 }
             }
         }
     }
 
     public void cA(boolean z) {
-        this.aUF.setVisibility(z ? 0 : 8);
+        this.aUE.setVisibility(z ? 0 : 8);
     }
 
     public void cB(boolean z) {
@@ -133,27 +133,27 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     public void p(int i, boolean z) {
-        ah ahVar = this.aUH[i];
+        ah ahVar = this.aUG[i];
         if (z) {
-            ahVar.aUO.setImageResource(com.baidu.tieba.v.icon_bottombar_arrow_s);
-            ahVar.aUN.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_link_tip_a));
+            ahVar.aUN.setImageResource(com.baidu.tieba.v.icon_bottombar_arrow_s);
+            ahVar.aUM.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_link_tip_a));
             return;
         }
-        ahVar.aUO.setImageResource(com.baidu.tieba.v.icon_bottombar_arrow_n);
-        ahVar.aUN.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_f));
+        ahVar.aUN.setImageResource(com.baidu.tieba.v.icon_bottombar_arrow_n);
+        ahVar.aUM.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_f));
     }
 
     public int F(View view) {
         for (int i = 0; i < 3; i++) {
-            if (view == this.aUH[i].aUM) {
+            if (view == this.aUG[i].aUL) {
                 return i;
             }
         }
         return 0;
     }
 
-    public ImageView Lc() {
-        return this.aUC;
+    public ImageView KX() {
+        return this.aUB;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -161,13 +161,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         return false;
     }
 
-    public void Ld() {
+    public void KY() {
         if (this.mBtnGroupInfo != null) {
             this.mBtnGroupInfo.setVisibility(8);
         }
     }
 
-    public void Le() {
+    public void KZ() {
         if (this.mLayBottom != null) {
             this.mLayBottom.setVisibility(8);
         }

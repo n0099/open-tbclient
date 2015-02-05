@@ -9,18 +9,18 @@ import com.baidu.tbadk.util.PageType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements DialogInterface.OnClickListener {
-    private final /* synthetic */ PageType caD;
+    private final /* synthetic */ PageType caC;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, PageType pageType) {
         this.val$context = context;
-        this.caD = pageType;
+        this.caC = pageType;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.val$context, this.caD)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.val$context, this.caC)));
     }
 }

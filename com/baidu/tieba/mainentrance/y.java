@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(SquareSearchActivity squareSearchActivity) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,30 +27,30 @@ public class y implements AdapterView.OnItemClickListener {
         EditText editText2;
         EditText editText3;
         String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.btb.mMode;
+        i2 = this.bta.mMode;
         if (i2 != 0) {
-            i3 = this.btb.mMode;
+            i3 = this.bta.mMode;
             if (i3 == 3) {
-                this.btb.fW(str);
+                this.bta.fT(str);
                 return;
             } else if (str != null && str.length() > 0) {
-                aVar = this.btb.bsE;
+                aVar = this.bta.bsD;
                 aVar.gM(i);
-                aVar2 = this.btb.bsE;
+                aVar2 = this.bta.bsD;
                 aVar2.notifyDataSetChanged();
-                this.btb.y(1, str);
-                editText = this.btb.bsw;
+                this.bta.y(1, str);
+                editText = this.bta.bsv;
                 editText.setText(str);
-                editText2 = this.btb.bsw;
+                editText2 = this.bta.bsv;
                 editText2.requestFocus();
-                editText3 = this.btb.bsw;
+                editText3 = this.bta.bsv;
                 Selection.setSelection(editText3.getText(), str.length());
                 return;
             } else {
                 return;
             }
         }
-        com.baidu.tieba.tbadkCore.util.j.is(str);
-        this.btb.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.btb.getPageContext().getPageActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_SEARCH)));
+        com.baidu.tieba.tbadkCore.util.j.iq(str);
+        this.bta.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bta.getPageContext().getPageActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_SEARCH)));
     }
 }

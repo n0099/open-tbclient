@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, o, o> {
-    private com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ o cfI;
+    private com.baidu.tbadk.core.util.ad AO;
+    final /* synthetic */ o cfH;
 
     private p(o oVar) {
-        this.cfI = oVar;
+        this.cfH = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,13 +24,13 @@ public class p extends BdAsyncTask<Object, o, o> {
     public o doInBackground(Object... objArr) {
         WriteActivity writeActivity;
         String obj = objArr[0].toString();
-        this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-        this.AR.o("kw", obj);
-        String oy = this.AR.oy();
-        if (this.AR.oZ().qh().ma()) {
-            writeActivity = this.cfI.cfH;
+        this.AO = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.AO.o("kw", obj);
+        String or = this.AO.or();
+        if (this.AO.oS().qa().lT()) {
+            writeActivity = this.cfH.cfG;
             o oVar = new o(writeActivity);
-            oVar.parserJson(oy);
+            oVar.parserJson(or);
             return oVar;
         }
         return null;
@@ -43,17 +43,17 @@ public class p extends BdAsyncTask<Object, o, o> {
     public void onPostExecute(o oVar) {
         com.baidu.adp.base.i iVar;
         super.onPostExecute(oVar);
-        this.cfI.cfF = null;
-        iVar = this.cfI.mLoadDataCallBack;
+        this.cfH.cfE = null;
+        iVar = this.cfH.mLoadDataCallBack;
         iVar.c(oVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.cfI.cfF = null;
-        if (this.AR != null) {
-            this.AR.dJ();
+        this.cfH.cfE = null;
+        if (this.AO != null) {
+            this.AO.dJ();
         }
     }
 }

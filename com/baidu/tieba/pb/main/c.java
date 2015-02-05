@@ -4,11 +4,11 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.baseEditMark.g {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.g
@@ -20,35 +20,35 @@ class c implements com.baidu.tbadk.baseEditMark.g {
         bz bzVar2;
         bq bqVar3;
         com.baidu.tbadk.baseEditMark.e eVar2;
-        bzVar = this.bAT.bAx;
-        bzVar.YI();
+        bzVar = this.bAS.bAw;
+        bzVar.YD();
         if (z) {
-            eVar = this.bAT.bAt;
+            eVar = this.bAS.bAs;
             eVar.Y(z2);
-            bqVar = this.bAT.bAs;
+            bqVar = this.bAS.bAr;
             bqVar.dS(z2);
-            bqVar2 = this.bAT.bAs;
-            if (!bqVar2.li()) {
-                bzVar2 = this.bAT.bAx;
-                bqVar3 = this.bAT.bAs;
+            bqVar2 = this.bAS.bAr;
+            if (!bqVar2.lb()) {
+                bzVar2 = this.bAS.bAw;
+                bqVar3 = this.bAS.bAr;
                 bzVar2.e(bqVar3.getPbData());
             } else {
-                this.bAT.Xr();
+                this.bAS.Xm();
             }
             if (z2) {
-                eVar2 = this.bAT.bAt;
-                MarkData lj = eVar2.lj();
-                if (lj != null) {
-                    this.bAT.showToast(MessageFormat.format(this.bAT.getPageContext().getString(com.baidu.tieba.z.add_mark_on_pb), Integer.valueOf(lj.getFloor())));
+                eVar2 = this.bAS.bAs;
+                MarkData lc = eVar2.lc();
+                if (lc != null) {
+                    this.bAS.showToast(MessageFormat.format(this.bAS.getPageContext().getString(com.baidu.tieba.z.add_mark_on_pb), Integer.valueOf(lc.getFloor())));
                     return;
                 } else {
-                    this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.add_mark));
+                    this.bAS.showToast(this.bAS.getPageContext().getString(com.baidu.tieba.z.add_mark));
                     return;
                 }
             }
-            this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.remove_mark));
+            this.bAS.showToast(this.bAS.getPageContext().getString(com.baidu.tieba.z.remove_mark));
             return;
         }
-        this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.update_mark_failed));
+        this.bAS.showToast(this.bAS.getPageContext().getString(com.baidu.tieba.z.update_mark_failed));
     }
 }

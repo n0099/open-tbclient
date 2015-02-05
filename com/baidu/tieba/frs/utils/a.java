@@ -29,12 +29,12 @@ public class a {
             l.showToast(context, z.pb_app_error);
             return;
         }
-        File ch = s.ch(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (ch != null) {
+        File ce = s.ce(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (ce != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(ch), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(ce), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -97,10 +97,10 @@ public class a {
     public static ImageFileInfo J(Context context, String str) {
         String str2 = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + str;
         try {
-            int cb = d.cb(str2);
-            if (cb != 0) {
+            int bY = d.bY(str2);
+            if (bY != 0) {
                 Bitmap b = d.b(str2, l.dip2px(context, l.M(context)), l.dip2px(context, l.N(context)));
-                Bitmap h = d.h(b, cb);
+                Bitmap h = d.h(b, bY);
                 if (b != h) {
                     b.recycle();
                 }

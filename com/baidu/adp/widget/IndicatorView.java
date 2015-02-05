@@ -12,12 +12,12 @@ import com.baidu.adp.R;
 public class IndicatorView extends View {
     private int mCount;
     private float mPosition;
-    private boolean vF;
-    private int vG;
-    private float vH;
-    private Drawable vI;
-    private Drawable vJ;
-    private final ab vK;
+    private boolean vC;
+    private int vD;
+    private float vE;
+    private Drawable vF;
+    private Drawable vG;
+    private final ab vH;
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.measure(int, int):void] */
@@ -30,7 +30,7 @@ public class IndicatorView extends View {
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int d(IndicatorView indicatorView) {
-        return indicatorView.vG;
+        return indicatorView.vD;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -41,7 +41,7 @@ public class IndicatorView extends View {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iT():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iM():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(IndicatorView indicatorView, float f) {
         indicatorView.mPosition = f;
@@ -55,24 +55,24 @@ public class IndicatorView extends View {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iT():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iM():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ float f(IndicatorView indicatorView) {
-        return indicatorView.vH;
+        return indicatorView.vE;
     }
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.aC(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void, com.baidu.adp.widget.m.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable a(IndicatorView indicatorView) {
-        return indicatorView.vI;
+        return indicatorView.vF;
     }
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.aC(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void, com.baidu.adp.widget.m.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable b(IndicatorView indicatorView) {
-        return indicatorView.vJ;
+        return indicatorView.vG;
     }
 
     public IndicatorView(Context context) {
@@ -85,69 +85,69 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.vK = new m(this);
+        this.vH = new m(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.vG = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.vD = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(4, 0);
-        this.vI = obtainStyledAttributes.getDrawable(1);
-        if (this.vI == null) {
+        this.vF = obtainStyledAttributes.getDrawable(1);
+        if (this.vF == null) {
             Log.d("IndicatorView$IndicatorView", "Drawable not defined in xml");
         } else {
-            this.vI.setBounds(0, 0, this.vI.getIntrinsicWidth(), this.vI.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.vI.getBounds());
+            this.vF.setBounds(0, 0, this.vF.getIntrinsicWidth(), this.vF.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.vF.getBounds());
         }
-        this.vJ = obtainStyledAttributes.getDrawable(2);
-        if (this.vJ == null) {
+        this.vG = obtainStyledAttributes.getDrawable(2);
+        if (this.vG == null) {
             Log.d("IndicatorView$IndicatorView", "Selector not defined in xml");
         } else {
-            this.vJ.setBounds(0, 0, this.vJ.getIntrinsicWidth(), this.vJ.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.vJ.getBounds());
+            this.vG.setBounds(0, 0, this.vG.getIntrinsicWidth(), this.vG.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.vG.getBounds());
         }
-        this.vF = obtainStyledAttributes.getBoolean(3, false);
+        this.vC = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.vK.measure(i, i2);
+        this.vH.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.vK.draw(canvas);
+        this.vH.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.vF = z;
+        this.vC = z;
     }
 
     public void setDrawable(Drawable drawable) {
-        this.vI = drawable;
+        this.vF = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getDrawable() {
-        return this.vI;
+        return this.vF;
     }
 
     public void setSelector(Drawable drawable) {
-        this.vJ = drawable;
+        this.vG = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getSelector() {
-        return this.vJ;
+        return this.vG;
     }
 
     public void setSpacing(int i) {
-        this.vG = i;
+        this.vD = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.vG;
+        return this.vD;
     }
 
     public int getCount() {

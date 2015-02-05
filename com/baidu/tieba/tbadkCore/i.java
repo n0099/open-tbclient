@@ -8,20 +8,20 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, e, Void> {
-    final /* synthetic */ e bTT;
-    FRSPageRequestMessage bUa;
-    private final WeakReference<BaseActivity> bUb;
-    private int btR;
+    final /* synthetic */ e bTS;
+    FRSPageRequestMessage bTZ;
+    private final WeakReference<BaseActivity> bUa;
+    private int btQ;
     private String mName;
 
     public i(e eVar, BaseActivity baseActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, String str) {
-        this.bTT = eVar;
+        this.bTS = eVar;
         this.mName = null;
-        this.btR = 3;
-        this.bUb = new WeakReference<>(baseActivity);
-        this.bUa = fRSPageRequestMessage;
+        this.btQ = 3;
+        this.bUa = new WeakReference<>(baseActivity);
+        this.bTZ = fRSPageRequestMessage;
         this.mName = str;
-        this.btR = i;
+        this.btQ = i;
         setSelfExecute(true);
     }
 
@@ -30,10 +30,10 @@ public class i extends BdAsyncTask<Object, e, Void> {
     public void onPreExecute() {
         x xVar;
         x xVar2;
-        xVar = this.bTT.bTK;
+        xVar = this.bTS.bTJ;
         if (xVar != null) {
-            xVar2 = this.bTT.bTK;
-            xVar2.eL(this.btR);
+            xVar2 = this.bTS.bTJ;
+            xVar2.eL(this.btQ);
         }
     }
 
@@ -43,14 +43,14 @@ public class i extends BdAsyncTask<Object, e, Void> {
     public Void doInBackground(Object... objArr) {
         boolean z;
         try {
-            z = this.bTT.bTP;
-            if (z && d.aeH().ia(this.mName)) {
-                if (!d.aeH().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
-                    d.aeH().getForumModel().aeN().getSignData().setIsSigned(0);
+            z = this.bTS.bTO;
+            if (z && d.aeC().hY(this.mName)) {
+                if (!d.aeC().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
+                    d.aeC().getForumModel().aeI().getSignData().setIsSigned(0);
                 }
-                publishProgress(d.aeH().getForumModel());
+                publishProgress(d.aeC().getForumModel());
             }
-            this.bTT.bum = System.currentTimeMillis();
+            this.bTS.bul = System.currentTimeMillis();
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -65,9 +65,9 @@ public class i extends BdAsyncTask<Object, e, Void> {
     public void onProgressUpdate(e... eVarArr) {
         x xVar;
         x xVar2;
-        xVar = this.bTT.bTK;
+        xVar = this.bTS.bTJ;
         if (xVar != null) {
-            xVar2 = this.bTT.bTK;
+            xVar2 = this.bTS.bTJ;
             xVar2.d(eVarArr.length > 0 ? eVarArr[0] : null);
         }
     }
@@ -78,14 +78,14 @@ public class i extends BdAsyncTask<Object, e, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r3) {
         boolean z;
-        this.bUa.setUpdateType(this.btR);
-        FRSPageRequestMessage fRSPageRequestMessage = this.bUa;
-        z = this.bTT.bTP;
+        this.bTZ.setUpdateType(this.btQ);
+        FRSPageRequestMessage fRSPageRequestMessage = this.bTZ;
+        z = this.bTS.bTO;
         fRSPageRequestMessage.setNeedCache(z);
-        if (this.bUb != null && this.bUb.get() != null) {
-            this.bUb.get().sendMessage(this.bUa);
+        if (this.bUa != null && this.bUa.get() != null) {
+            this.bUa.get().sendMessage(this.bTZ);
         }
-        this.bTT.bTN = null;
+        this.bTS.bTM = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,10 +99,10 @@ public class i extends BdAsyncTask<Object, e, Void> {
         x xVar;
         x xVar2;
         super.cancel(true);
-        xVar = this.bTT.bTK;
+        xVar = this.bTS.bTJ;
         if (xVar != null) {
-            xVar2 = this.bTT.bTK;
-            xVar2.a(this.btR, true, null);
+            xVar2 = this.bTS.bTJ;
+            xVar2.a(this.btQ, true, null);
         }
     }
 }

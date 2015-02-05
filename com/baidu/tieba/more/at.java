@@ -12,8 +12,8 @@ class at extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MsgRemindStatic.bwC = false;
-        MsgRemindStatic.maskInfo = null;
         MsgRemindStatic.bwB = false;
+        MsgRemindStatic.maskInfo = null;
+        MsgRemindStatic.bwA = false;
     }
 }

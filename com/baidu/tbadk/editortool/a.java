@@ -24,12 +24,12 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a vk() {
-        return super.vK();
+    public com.baidu.adp.widget.a.a ve() {
+        return super.vE();
     }
 
     public boolean isReady() {
-        return vK() != null;
+        return vE() != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
@@ -38,22 +38,22 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean dU(String str) {
+    public boolean dR(String str) {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public EmotionGroupType vl() {
+    public EmotionGroupType vf() {
         return EmotionGroupType.PROMOTION;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dV(String str) {
+    public com.baidu.adp.widget.a.a dS(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dW(String str) {
+    public com.baidu.adp.widget.a.a dT(String str) {
         return null;
     }
 
@@ -83,7 +83,7 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean vm() {
+    public boolean vg() {
         return false;
     }
 }

@@ -8,87 +8,87 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements n {
-    private long aYL = 0;
-    final /* synthetic */ b aYM;
+    private long aYK = 0;
+    final /* synthetic */ b aYL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aYM = bVar;
-    }
-
-    @Override // com.baidu.tieba.im.floatwindow.n
-    public void R(int i, int i2) {
-        com.baidu.tieba.im.floatwindow.view.f Nz;
-        Handler handler;
-        com.baidu.tieba.im.floatwindow.view.a Ny;
-        com.baidu.tieba.im.floatwindow.view.f Nz2;
-        boolean a;
-        com.baidu.tieba.im.floatwindow.view.f Nz3;
-        com.baidu.tieba.im.floatwindow.view.f Nz4;
-        if (SystemClock.elapsedRealtime() - this.aYL <= 300) {
-            return;
-        }
-        Nz = this.aYM.Nz();
-        handler = this.aYM.handler;
-        Nz.b(handler);
-        b bVar = this.aYM;
-        Ny = this.aYM.Ny();
-        j NG = Ny.NG();
-        Nz2 = this.aYM.Nz();
-        a = bVar.a(NG, Nz2.NX());
-        if (a) {
-            Nz4 = this.aYM.Nz();
-            Nz4.NY();
-            return;
-        }
-        Nz3 = this.aYM.Nz();
-        Nz3.NZ();
+        this.aYL = bVar;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.n
     public void S(int i, int i2) {
-        this.aYL = SystemClock.elapsedRealtime();
-    }
-
-    @Override // com.baidu.tieba.im.floatwindow.n
-    public void ND() {
-        com.baidu.tieba.im.floatwindow.view.a Ny;
-        com.baidu.tieba.im.floatwindow.view.f Nz;
+        com.baidu.tieba.im.floatwindow.view.f Nu;
+        Handler handler;
+        com.baidu.tieba.im.floatwindow.view.a Nt;
+        com.baidu.tieba.im.floatwindow.view.f Nu2;
         boolean a;
-        com.baidu.tieba.im.floatwindow.view.a Ny2;
-        com.baidu.tieba.im.floatwindow.view.f Nz2;
-        Handler handler;
-        b bVar = this.aYM;
-        Ny = this.aYM.Ny();
-        j NG = Ny.NG();
-        Nz = this.aYM.Nz();
-        a = bVar.a(NG, Nz.NX());
-        if (a) {
-            this.aYM.cK(true);
-        } else {
-            Ny2 = this.aYM.Ny();
-            Ny2.NU();
+        com.baidu.tieba.im.floatwindow.view.f Nu3;
+        com.baidu.tieba.im.floatwindow.view.f Nu4;
+        if (SystemClock.elapsedRealtime() - this.aYK <= 300) {
+            return;
         }
-        Nz2 = this.aYM.Nz();
-        handler = this.aYM.handler;
-        Nz2.c(handler);
+        Nu = this.aYL.Nu();
+        handler = this.aYL.handler;
+        Nu.b(handler);
+        b bVar = this.aYL;
+        Nt = this.aYL.Nt();
+        j NB = Nt.NB();
+        Nu2 = this.aYL.Nu();
+        a = bVar.a(NB, Nu2.NS());
+        if (a) {
+            Nu4 = this.aYL.Nu();
+            Nu4.NT();
+            return;
+        }
+        Nu3 = this.aYL.Nu();
+        Nu3.NU();
     }
 
     @Override // com.baidu.tieba.im.floatwindow.n
-    public void NE() {
-        com.baidu.tieba.im.floatwindow.view.a Ny;
-        com.baidu.tieba.im.floatwindow.view.a Ny2;
-        com.baidu.tieba.im.floatwindow.view.f Nz;
+    public void T(int i, int i2) {
+        this.aYK = SystemClock.elapsedRealtime();
+    }
+
+    @Override // com.baidu.tieba.im.floatwindow.n
+    public void Ny() {
+        com.baidu.tieba.im.floatwindow.view.a Nt;
+        com.baidu.tieba.im.floatwindow.view.f Nu;
+        boolean a;
+        com.baidu.tieba.im.floatwindow.view.a Nt2;
+        com.baidu.tieba.im.floatwindow.view.f Nu2;
         Handler handler;
-        Ny = this.aYM.Ny();
-        if (!Ny.NT()) {
+        b bVar = this.aYL;
+        Nt = this.aYL.Nt();
+        j NB = Nt.NB();
+        Nu = this.aYL.Nu();
+        a = bVar.a(NB, Nu.NS());
+        if (a) {
+            this.aYL.cK(true);
+        } else {
+            Nt2 = this.aYL.Nt();
+            Nt2.NP();
+        }
+        Nu2 = this.aYL.Nu();
+        handler = this.aYL.handler;
+        Nu2.c(handler);
+    }
+
+    @Override // com.baidu.tieba.im.floatwindow.n
+    public void Nz() {
+        com.baidu.tieba.im.floatwindow.view.a Nt;
+        com.baidu.tieba.im.floatwindow.view.a Nt2;
+        com.baidu.tieba.im.floatwindow.view.f Nu;
+        Handler handler;
+        Nt = this.aYL.Nt();
+        if (!Nt.NO()) {
             Point point = new Point(TbadkCoreApplication.m255getInst().getResources().getDimensionPixelSize(u.ds30), TbadkCoreApplication.m255getInst().getResources().getDimensionPixelSize(u.ds20));
-            this.aYM.aYy = false;
-            Ny2 = this.aYM.Ny();
-            Ny2.b(point);
-            Nz = this.aYM.Nz();
-            handler = this.aYM.handler;
-            Nz.c(handler);
+            this.aYL.aYx = false;
+            Nt2 = this.aYL.Nt();
+            Nt2.b(point);
+            Nu = this.aYL.Nu();
+            handler = this.aYL.handler;
+            Nu.c(handler);
         }
     }
 }

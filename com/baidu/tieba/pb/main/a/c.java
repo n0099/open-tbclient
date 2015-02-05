@@ -10,11 +10,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bET;
+    final /* synthetic */ a bES;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bET = aVar;
+        this.bES = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,11 +23,11 @@ public class c implements View.OnClickListener {
         PbActivity pbActivity2;
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        pbActivity = this.bET.bCG;
+        pbActivity = this.bES.bCF;
         Activity pageActivity = pbActivity.getPageContext().getPageActivity();
-        pbActivity2 = this.bET.bCG;
+        pbActivity2 = this.bES.bCF;
         String string = pbActivity2.getPageContext().getString(z.user_icon_intro);
-        str = a.bEO;
+        str = a.bEN;
         messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, String.valueOf(str) + "?st_type=pb_user_icon", true, true, false, false, false)));
     }
 }

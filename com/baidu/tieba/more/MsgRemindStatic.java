@@ -11,17 +11,17 @@ import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
 import protobuf.MaskInfo;
 /* loaded from: classes.dex */
 public class MsgRemindStatic {
+    private static boolean bwA = false;
     private static boolean bwB = false;
-    private static boolean bwC = false;
-    private static final com.baidu.adp.framework.listener.e bwD = new as(1001);
-    private static final CustomMessageListener bwE = new at(2005016);
-    private static final CustomMessageListener bwF = new au(2001315);
+    private static final com.baidu.adp.framework.listener.e bwC = new as(1001);
+    private static final CustomMessageListener bwD = new at(2005016);
+    private static final CustomMessageListener bwE = new au(2001315);
     private static MaskInfo maskInfo;
 
     static {
-        MessageManager.getInstance().registerListener(bwE);
         MessageManager.getInstance().registerListener(bwD);
-        MessageManager.getInstance().registerListener(bwF);
+        MessageManager.getInstance().registerListener(bwC);
+        MessageManager.getInstance().registerListener(bwE);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
     }
 
@@ -30,17 +30,17 @@ public class MsgRemindStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void VO() {
+    public static final void VJ() {
         boolean z;
         Integer num;
         String[] split;
         String[] split2;
         String[] split3;
-        if (bwB && maskInfo != null && !bwC) {
+        if (bwA && maskInfo != null && !bwB) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
-                if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.oj().getBoolean(new StringBuilder("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
-                    com.baidu.tbadk.core.sharedPref.b.oj().putBoolean("had_sync_setting_switch" + currentAccount, true);
+                if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.oc().getBoolean(new StringBuilder("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
+                    com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("had_sync_setting_switch" + currentAccount, true);
                     if (!TbadkCoreApplication.m255getInst().isMsgRemindOn()) {
                         s(14, false);
                     } else {
@@ -109,20 +109,20 @@ public class MsgRemindStatic {
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskFids) && (split3 = maskInfo.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        com.baidu.tieba.im.settingcache.h.Tt().a(currentAccount, str, false, null);
+                        com.baidu.tieba.im.settingcache.h.To().a(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskGids) && (split2 = maskInfo.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        com.baidu.tieba.im.settingcache.c.Tr().a(currentAccount, str2, false, (com.baidu.tieba.im.g<Void>) null);
+                        com.baidu.tieba.im.settingcache.c.Tm().a(currentAccount, str2, false, (com.baidu.tieba.im.g<Void>) null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskUids) && (split = maskInfo.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        com.baidu.tieba.im.settingcache.j.Tu().a(currentAccount, str3, false, null);
+                        com.baidu.tieba.im.settingcache.j.Tp().a(currentAccount, str3, false, null);
                     }
                 }
-                bwC = true;
+                bwB = true;
             }
         }
     }

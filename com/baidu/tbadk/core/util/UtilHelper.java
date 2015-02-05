@@ -27,6 +27,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -66,6 +68,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
+import java.lang.reflect.Field;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -86,7 +89,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (JY) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (JV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -104,7 +107,7 @@ public class UtilHelper {
         TwoG,
         ThreeG;
 
-        /* JADX DEBUG: Replace access to removed values field (JZ) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (JW) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetworkStateInfo[] valuesCustom() {
             NetworkStateInfo[] valuesCustom = values();
@@ -312,7 +315,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [502=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [506=4] */
     public static final boolean webViewIsProbablyCorrupt(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
@@ -335,12 +338,12 @@ public class UtilHelper {
     }
 
     public static void install_apk(Context context, String str) {
-        File ch;
-        if (str != null && str.length() > 0 && (ch = s.ch(str)) != null) {
+        File ce;
+        if (str != null && str.length() > 0 && (ce = s.ce(str)) != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(ch), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(ce), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -450,8 +453,8 @@ public class UtilHelper {
                 break;
             case 3:
                 z2 = true;
-                if (com.baidu.tbadk.core.b.b.oc() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.b.b.oc());
+                if (com.baidu.tbadk.core.b.b.nV() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.b.b.nV());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -477,7 +480,7 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("live_notify_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                com.baidu.tbadk.coreExtra.messageCenter.a.rY().a(com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.rY().sq(), com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgGiftNum());
+                com.baidu.tbadk.coreExtra.messageCenter.a.rS().a(com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.rS().sk(), com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgGiftNum());
                 boolean z3 = intExtra3 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra4 > 0 || intExtra8 > 0 || intExtra7 > 0;
                 boolean z4 = intExtra2 > 0 || intExtra > 0;
                 if (z3 && intExtra9 != 11) {
@@ -502,8 +505,8 @@ public class UtilHelper {
                 break;
             case 9:
                 z2 = true;
-                if (com.baidu.tbadk.core.b.b.oc() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.b.b.oc());
+                if (com.baidu.tbadk.core.b.b.nV() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.b.b.nV());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -534,7 +537,7 @@ public class UtilHelper {
                 String stringExtra6 = intent.getStringExtra("quan_num");
                 String stringExtra7 = intent.getStringExtra(PayActivityConfig.IS_LEFT);
                 String stringExtra8 = intent.getStringExtra(PayActivityConfig.PROPS_MON);
-                if (TbadkCoreApplication.m255getInst().isDQShouldOpen() && (dQSdkPlugin = (DQSdkPlugin) PluginCenter.gW().ha()) != null) {
+                if (TbadkCoreApplication.m255getInst().isDQShouldOpen() && (dQSdkPlugin = (DQSdkPlugin) PluginCenter.getInstance().getDqClassInstance()) != null) {
                     dQSdkPlugin.startActivity(context, stringExtra4, stringExtra5, stringExtra6, stringExtra7, stringExtra8);
                     z = true;
                     break;
@@ -597,7 +600,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case DealIntentService.CLASS_TYPE_XIUBA /* 26 */:
-                XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gW().hd();
+                XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.getInstance().getXiubaClassInstance();
                 if (xiubaPlugin != null) {
                     xiubaPlugin.startXiuba(context);
                 }
@@ -715,7 +718,7 @@ public class UtilHelper {
         }
         intent.putExtra("is_notify", true);
         intent.putExtra("link", str);
-        intent.putExtra("message_id", pVar.mT());
+        intent.putExtra("message_id", pVar.mM());
         intent.putExtra("task_id", pVar.getTaskId());
         if (!TextUtils.isEmpty(pVar.getStat())) {
             intent.putExtra("stat", pVar.getStat());
@@ -741,7 +744,7 @@ public class UtilHelper {
                     String group = matcher.group(2);
                     if (!TextUtils.isEmpty(group)) {
                         btVar.id = group;
-                        btVar.JX = NativePageType.PB;
+                        btVar.JU = NativePageType.PB;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -753,7 +756,7 @@ public class UtilHelper {
                     String group2 = matcher2.group(2);
                     if (!TextUtils.isEmpty(group2)) {
                         btVar.id = group2;
-                        btVar.JX = NativePageType.PB;
+                        btVar.JU = NativePageType.PB;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -765,7 +768,7 @@ public class UtilHelper {
                     String group3 = matcher3.group(2);
                     if (!TextUtils.isEmpty(group3)) {
                         btVar.id = group3;
-                        btVar.JX = NativePageType.FRS;
+                        btVar.JU = NativePageType.FRS;
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -911,7 +914,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1433=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1437=5] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -1064,18 +1067,31 @@ public class UtilHelper {
         return telephonyManager != null ? telephonyManager.getDeviceId() : "";
     }
 
+    public static void startHardAccelerated(Window window) {
+        if (Build.VERSION.SDK_INT >= 11) {
+            try {
+                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
+                declaredField.setAccessible(true);
+                int i = declaredField.getInt(null);
+                Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static String getTiebaApkMd5() {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m255getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.oj().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.oc().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.oj().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.oc().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.oj().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.oc().putString("version_name", versionName);
                     String d = bh.d(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m255getInst().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.oj().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.oc().putString("apk_md5", d);
                     str = d;
                 }
             }

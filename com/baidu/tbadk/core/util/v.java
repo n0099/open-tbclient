@@ -15,17 +15,17 @@ public interface v {
 
     void o(String str, String str2);
 
-    String oA();
+    ArrayList<BasicNameValuePair> op();
 
-    String oB();
+    boolean oq();
 
-    ArrayList<BasicNameValuePair> ow();
+    String or();
 
-    boolean ox();
+    byte[] os();
 
-    String oy();
+    String ot();
 
-    byte[] oz();
+    String ou();
 
     void r(ArrayList<BasicNameValuePair> arrayList);
 }

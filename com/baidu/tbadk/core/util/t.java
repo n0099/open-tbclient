@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String HM = TbadkCoreApplication.m255getInst().getApp().getFileStreamPath("").getAbsolutePath();
+    public static final String HJ = TbadkCoreApplication.m255getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-    public static boolean cp(String str) {
+    public static boolean cm(String str) {
         try {
-            return new File(new StringBuilder(String.valueOf(HM)).append("/").append(str).toString()).exists();
+            return new File(new StringBuilder(String.valueOf(HJ)).append("/").append(str).toString()).exists();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -17,9 +17,9 @@ public class t {
         }
     }
 
-    public static boolean cq(String str) {
+    public static boolean cn(String str) {
         try {
-            File file = new File(String.valueOf(HM) + "/" + str);
+            File file = new File(String.valueOf(HJ) + "/" + str);
             if (file.exists()) {
                 return false;
             }
@@ -53,9 +53,9 @@ public class t {
         }
     }
 
-    public static boolean cr(String str) {
+    public static boolean co(String str) {
         try {
-            File file = new File(String.valueOf(HM) + "/" + str);
+            File file = new File(String.valueOf(HJ) + "/" + str);
             if (file.exists()) {
                 if (!file.isDirectory()) {
                     return false;
@@ -70,10 +70,10 @@ public class t {
         }
     }
 
-    public static String cs(String str) {
+    public static String cp(String str) {
         String str2 = null;
         try {
-            File file = new File(String.valueOf(HM) + "/" + str);
+            File file = new File(String.valueOf(HJ) + "/" + str);
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 int length = listFiles.length;

@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* loaded from: classes.dex */
 public class LivePlayingImageView extends ImageView implements q {
-    private static /* synthetic */ int[] UZ;
-    private r UY;
+    private static /* synthetic */ int[] UW;
+    private r UV;
     private String mStatisticsKey;
 
-    static /* synthetic */ int[] tO() {
-        int[] iArr = UZ;
+    static /* synthetic */ int[] tI() {
+        int[] iArr = UW;
         if (iArr == null) {
             iArr = new int[LivePlayingStatusMgr.LivePlayingStatus.valuesCustom().length];
             try {
@@ -39,7 +39,7 @@ public class LivePlayingImageView extends ImageView implements q {
                 iArr[LivePlayingStatusMgr.LivePlayingStatus.PLAYING.ordinal()] = 3;
             } catch (NoSuchFieldError e5) {
             }
-            UZ = iArr;
+            UW = iArr;
         }
         return iArr;
     }
@@ -54,12 +54,12 @@ public class LivePlayingImageView extends ImageView implements q {
     }
 
     public r getVisibleChangeCallback() {
-        return this.UY;
+        return this.UV;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.q
     public void setVisibleChangeCallback(r rVar) {
-        this.UY = rVar;
+        this.UV = rVar;
     }
 
     public LivePlayingImageView(Context context) {
@@ -79,12 +79,12 @@ public class LivePlayingImageView extends ImageView implements q {
 
     private void init() {
         setOnClickListener(new ai(this));
-        a(LivePlayingStatusMgr.tP().tQ());
+        a(LivePlayingStatusMgr.tJ().tK());
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.q
-    public void tI() {
-        a(LivePlayingStatusMgr.tP().tQ());
+    public void tC() {
+        a(LivePlayingStatusMgr.tJ().tK());
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -98,13 +98,13 @@ public class LivePlayingImageView extends ImageView implements q {
                 ((AnimationDrawable) drawable).stop();
             }
         }
-        if (this.UY != null) {
-            this.UY.onVisibleChange(i);
+        if (this.UV != null) {
+            this.UV.onVisibleChange(i);
         }
     }
 
     public void a(LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus) {
-        switch (tO()[livePlayingStatus.ordinal()]) {
+        switch (tI()[livePlayingStatus.ordinal()]) {
             case 1:
                 setVisibility(8);
                 return;
@@ -132,13 +132,13 @@ public class LivePlayingImageView extends ImageView implements q {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LivePlayingStatusMgr.tP().a(this);
+        LivePlayingStatusMgr.tJ().a(this);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LivePlayingStatusMgr.tP().b(this);
+        LivePlayingStatusMgr.tJ().b(this);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.q

@@ -33,8 +33,8 @@ public class x implements q {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                afVar = this.this$0.bvR;
-                                                afVar.VN();
+                                                afVar = this.this$0.bvQ;
+                                                afVar.VI();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,31 +53,31 @@ public class x implements q {
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.VI();
+                                            this.this$0.VD();
                                             return;
                                         }
                                     }
-                                    this.this$0.VB();
+                                    this.this$0.Vw();
                                     return;
                                 }
-                                this.this$0.VA();
+                                this.this$0.Vv();
                                 return;
                             }
-                            this.this$0.VC();
+                            this.this$0.Vx();
                             return;
                         }
-                        this.this$0.VH();
+                        this.this$0.VC();
                         return;
                     }
-                    this.this$0.VD();
+                    this.this$0.Vy();
                     return;
                 }
-                this.this$0.VE();
+                this.this$0.Vz();
                 return;
             }
-            this.this$0.VF();
+            this.this$0.VA();
             return;
         }
-        this.this$0.VG();
+        this.this$0.VB();
     }
 }

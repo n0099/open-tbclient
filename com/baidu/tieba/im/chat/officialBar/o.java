@@ -37,11 +37,11 @@ public class o {
                 pVar.src = optString3;
                 pVar.fid = str2;
                 pVar.picId = optLong;
-                pVar.aUf = optLong2;
-                pVar.aUe = optString5;
-                pVar.aUg = optString6;
-                pVar.aUh = optLong3;
-                pVar.aTT = optString7;
+                pVar.aUe = optLong2;
+                pVar.aUd = optString5;
+                pVar.aUf = optString6;
+                pVar.aUg = optLong3;
+                pVar.aTS = optString7;
                 linkedList.add(pVar);
             }
             return linkedList;

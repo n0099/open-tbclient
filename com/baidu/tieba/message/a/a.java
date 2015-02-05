@@ -15,8 +15,8 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         String str = "friend_feed_data" + TbadkCoreApplication.getCurrentAccount();
-        t<byte[]> bS = com.baidu.tbadk.core.a.a.nV().bS("tb.friend_feed");
-        byte[] bArr = bS != null ? bS.get(str) : null;
+        t<byte[]> bP = com.baidu.tbadk.core.a.a.nO().bP("tb.friend_feed");
+        byte[] bArr = bP != null ? bP.get(str) : null;
         ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = new ResponseFriendFeedLocalMessage();
         try {
             responseFriendFeedLocalMessage.decodeInBackGround(2001172, bArr);

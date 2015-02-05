@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
-    private ad AR = null;
-    private h AS;
-    private boolean Ba;
-    final /* synthetic */ e Bb;
+    private ad AO = null;
+    private h AP;
+    private boolean AX;
+    final /* synthetic */ e AY;
 
     public f(e eVar, boolean z) {
-        this.Bb = eVar;
-        this.Ba = true;
-        this.AS = null;
-        this.Ba = z;
-        this.AS = new h();
+        this.AY = eVar;
+        this.AX = true;
+        this.AP = null;
+        this.AX = z;
+        this.AP = new h();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,24 +33,24 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData;
         MarkData markData2;
         MarkData markData3;
-        if (this.Ba) {
-            this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
+        if (this.AX) {
+            this.AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
             a aVar = new a();
-            markData3 = this.Bb.AX;
+            markData3 = this.AY.AU;
             aVar.a(markData3);
-            this.AR.o("data", aVar.m(0, 1));
+            this.AO.o("data", aVar.m(0, 1));
         } else {
-            this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
-            ad adVar = this.AR;
-            markData = this.Bb.AX;
+            this.AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
+            ad adVar = this.AO;
+            markData = this.AY.AU;
             adVar.o("user_id", markData.getAccount());
-            ad adVar2 = this.AR;
-            markData2 = this.Bb.AX;
+            ad adVar2 = this.AO;
+            markData2 = this.AY.AU;
             adVar2.o("tid", markData2.getId());
         }
-        this.AS.parserJson(this.AR.oy());
-        boolean z = this.AS.getErrorCode() == 0;
-        if (this.AR.oZ().qh().ma() && z) {
+        this.AP.parserJson(this.AO.or());
+        boolean z = this.AP.getErrorCode() == 0;
+        if (this.AO.oS().qa().lT() && z) {
             return true;
         }
         return false;
@@ -59,10 +59,10 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        this.Bb.AY = null;
+        this.AY.AV = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,24 +77,24 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
         g gVar5;
         try {
             if (bool.booleanValue()) {
-                gVar4 = this.Bb.AZ;
+                gVar4 = this.AY.AW;
                 if (gVar4 != null) {
-                    gVar5 = this.Bb.AZ;
-                    gVar5.a(true, this.Ba, null);
+                    gVar5 = this.AY.AW;
+                    gVar5.a(true, this.AX, null);
                 }
             } else {
-                gVar = this.Bb.AZ;
+                gVar = this.AY.AW;
                 if (gVar != null) {
-                    if (this.AR == null || this.AR.oZ().qh().ma()) {
-                        gVar2 = this.Bb.AZ;
-                        gVar2.a(false, this.Ba, this.AS.getErrorString());
+                    if (this.AO == null || this.AO.oS().qa().lT()) {
+                        gVar2 = this.AY.AW;
+                        gVar2.a(false, this.AX, this.AP.getErrorString());
                     } else {
-                        gVar3 = this.Bb.AZ;
-                        gVar3.a(false, this.Ba, this.AR.getErrorString());
+                        gVar3 = this.AY.AW;
+                        gVar3.a(false, this.AX, this.AO.getErrorString());
                     }
                 }
             }
-            this.Bb.AY = null;
+            this.AY.AV = null;
         } catch (Throwable th) {
             BdLog.e(th.toString());
         }

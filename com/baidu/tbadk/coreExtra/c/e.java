@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private int RO;
-    private int RP;
-    private int RQ;
-    private int[] RR;
+    private int RL;
+    private int RM;
+    private int RN;
+    private int[] RO;
     private int lcsTimeout2G;
     private int lcsTimeout3G;
     private int lcsTimeoutwifi;
@@ -23,38 +23,38 @@ public class e {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.RO = jSONObject.optInt("conn_conf");
-            this.RP = jSONObject.optInt("continuous_fail_count");
-            this.RQ = jSONObject.optInt("restart_time_interval");
+            this.RL = jSONObject.optInt("conn_conf");
+            this.RM = jSONObject.optInt("continuous_fail_count");
+            this.RN = jSONObject.optInt("restart_time_interval");
             this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
             this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
             this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.RR = new int[optJSONArray.length()];
+                this.RO = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.RR[i] = optJSONArray.optInt(i);
+                    this.RO[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.RR = new int[0];
+            this.RO = new int[0];
         }
     }
 
-    public int sx() {
+    public int sr() {
+        return this.RL;
+    }
+
+    public int ss() {
+        return this.RM;
+    }
+
+    public int st() {
+        return this.RN;
+    }
+
+    public int[] su() {
         return this.RO;
-    }
-
-    public int sy() {
-        return this.RP;
-    }
-
-    public int sz() {
-        return this.RQ;
-    }
-
-    public int[] sA() {
-        return this.RR;
     }
 
     public int getLcsTimeout2G() {

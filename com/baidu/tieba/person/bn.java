@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn extends CustomMessageListener {
-    final /* synthetic */ bl bIF;
+    final /* synthetic */ bl bIE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bn(bl blVar, int i) {
         super(i);
-        this.bIF = blVar;
+        this.bIE = blVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,17 +24,17 @@ public class bn extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
             com.baidu.tbadk.core.data.r data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
             if (data2 != null) {
-                boVar3 = this.bIF.bIr;
+                boVar3 = this.bIE.bIq;
                 if (boVar3 != null) {
-                    boVar4 = this.bIF.bIr;
+                    boVar4 = this.bIE.bIq;
                     boVar4.d(data2, true);
                     return;
                 }
                 return;
             }
-            boVar = this.bIF.bIr;
+            boVar = this.bIE.bIq;
             if (boVar != null) {
-                boVar2 = this.bIF.bIr;
+                boVar2 = this.bIE.bIq;
                 boVar2.A("", true);
             }
         }

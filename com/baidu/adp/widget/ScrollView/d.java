@@ -6,14 +6,14 @@ import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
     private final /* synthetic */ View nv;
-    private final /* synthetic */ Timer ya;
-    final /* synthetic */ c yb;
+    private final /* synthetic */ Timer xX;
+    final /* synthetic */ c xY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.yb = cVar;
+        this.xY = cVar;
         this.nv = view;
-        this.ya = timer;
+        this.xX = timer;
     }
 
     @Override // java.lang.Runnable
@@ -33,30 +33,30 @@ class d implements Runnable {
         b bVar7;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nv.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.yb.xZ;
-        i = bVar.xt;
+        bVar = this.xY.xW;
+        i = bVar.xq;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.yb.xZ;
-        i2 = bVar2.xX;
+        bVar2 = this.xY.xW;
+        i2 = bVar2.xU;
         if (i5 <= i2) {
-            bVar6 = this.yb.xZ;
-            i3 = bVar6.xX;
+            bVar6 = this.xY.xW;
+            i3 = bVar6.xU;
             layoutParams.bottomMargin = i3;
-            this.ya.cancel();
-            bVar7 = this.yb.xZ;
-            bVar7.xY = true;
+            this.xX.cancel();
+            bVar7 = this.xY.xW;
+            bVar7.xV = true;
         }
         this.nv.setLayoutParams(layoutParams);
-        bVar3 = this.yb.xZ;
-        z = bVar3.xY;
+        bVar3 = this.xY.xW;
+        z = bVar3.xV;
         if (z) {
-            bVar4 = this.yb.xZ;
-            gVar = bVar4.xv;
+            bVar4 = this.xY.xW;
+            gVar = bVar4.xs;
             if (gVar != null) {
-                bVar5 = this.yb.xZ;
-                gVar2 = bVar5.xv;
-                gVar2.jN();
+                bVar5 = this.xY.xW;
+                gVar2 = bVar5.xs;
+                gVar2.jG();
             }
         }
     }

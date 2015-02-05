@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c sJ;
-    private ArrayList<String> sG = new ArrayList<>();
-    private d sK;
+    private static volatile c sG;
+    private ArrayList<String> sD = new ArrayList<>();
+    private d sH;
 
-    public static c ib() {
-        if (sJ == null) {
+    public static c hU() {
+        if (sG == null) {
             synchronized (c.class) {
-                if (sJ == null) {
-                    sJ = new c();
+                if (sG == null) {
+                    sG = new c();
                 }
             }
         }
-        return sJ;
+        return sG;
     }
 
     private c() {
@@ -27,7 +27,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.sG.iterator();
+            Iterator<String> it = this.sD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -40,17 +40,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.sG.add(pluginSetting.packageName);
+                this.sD.add(pluginSetting.packageName);
             }
-            ia();
+            hT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ia() {
-        if (this.sG.size() > 0 && this.sK == null) {
-            this.sK = new d(this, this.sG.get(0));
-            this.sK.execute(new String[0]);
+    public void hT() {
+        if (this.sD.size() > 0 && this.sH == null) {
+            this.sH = new d(this, this.sD.get(0));
+            this.sH.execute(new String[0]);
         }
     }
 }

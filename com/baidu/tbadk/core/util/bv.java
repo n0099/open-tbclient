@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements bw {
-    private final /* synthetic */ int Ke;
-    private final /* synthetic */ boolean Kf;
+    private final /* synthetic */ int Kb;
+    private final /* synthetic */ boolean Kc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(int i, boolean z) {
-        this.Ke = i;
-        this.Kf = z;
+        this.Kb = i;
+        this.Kc = z;
     }
 
     @Override // com.baidu.tbadk.core.util.bw
@@ -27,44 +27,44 @@ public class bv implements bw {
         Object tag = view.getTag();
         if (tag != null) {
             if ("skin_text_group".equals(tag)) {
-                bu.c((TextView) view, this.Ke);
+                bu.c((TextView) view, this.Kb);
                 return false;
             } else if ("skin_text_content".equals(tag)) {
-                bu.c((TextView) view, this.Ke);
+                bu.c((TextView) view, this.Kb);
                 return false;
             } else if ("skin_text_num".equals(tag)) {
-                bu.k((TextView) view, this.Ke);
+                bu.k((TextView) view, this.Kb);
                 return false;
             } else if ("skin_check_box".equals(tag)) {
-                bu.a((CheckBox) view, this.Ke);
+                bu.a((CheckBox) view, this.Kb);
                 return false;
             } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TbadkCoreApplication.m255getInst().getApp(), this.Kf ? com.baidu.tieba.aa.sidebar_content_1 : com.baidu.tieba.aa.sidebar_content);
+                ((TextView) view).setTextAppearance(TbadkCoreApplication.m255getInst().getApp(), this.Kc ? com.baidu.tieba.aa.sidebar_content_1 : com.baidu.tieba.aa.sidebar_content);
                 return false;
             } else if ("skin_more_up".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    ap4 = bu.ap(this.Kf);
+                    ap4 = bu.ap(this.Kc);
                     ((RadioButton) view).setTextColor(ap4);
                 }
                 bc.i(view, com.baidu.tieba.v.more_up);
                 return false;
             } else if ("skin_more_middle".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    ap3 = bu.ap(this.Kf);
+                    ap3 = bu.ap(this.Kc);
                     ((RadioButton) view).setTextColor(ap3);
                 }
                 bc.i(view, com.baidu.tieba.v.more_middle);
                 return false;
             } else if ("skin_more_down".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    ap2 = bu.ap(this.Kf);
+                    ap2 = bu.ap(this.Kc);
                     ((RadioButton) view).setTextColor(ap2);
                 }
                 bc.i(view, com.baidu.tieba.v.more_down);
                 return false;
             } else if ("skin_more_all".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    ap = bu.ap(this.Kf);
+                    ap = bu.ap(this.Kc);
                     ((RadioButton) view).setTextColor(ap);
                 }
                 bc.i(view, com.baidu.tieba.v.more_all);
@@ -73,7 +73,7 @@ public class bv implements bw {
                 bc.c((ImageView) view, com.baidu.tieba.v.icon_ba_top_arrow_big);
                 return false;
             } else if ("skin_list_line".equals(tag)) {
-                bu.k(view, this.Ke);
+                bu.k(view, this.Kb);
                 return false;
             } else {
                 return false;

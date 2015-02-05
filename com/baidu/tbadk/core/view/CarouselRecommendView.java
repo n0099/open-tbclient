@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extends FrameLayout {
-    private static int LQ = 5000;
-    private CarouselRecommendView<T>.e LJ;
-    private IndicatorView LL;
-    private float LM;
-    private int LN;
-    private int LO;
-    private int LP;
-    private boolean LR;
-    private View LS;
-    private String LT;
-    private List<T> LU;
-    private CarouselRecommendView<T>.g LV;
-    public View.OnTouchListener LW;
+    private static int LN = 5000;
+    private CarouselRecommendView<T>.e LG;
+    private IndicatorView LI;
+    private float LJ;
+    private int LK;
+    private int LL;
+    private int LM;
+    private boolean LO;
+    private View LP;
+    private String LQ;
+    private List<T> LR;
+    private CarouselRecommendView<T>.g LS;
+    public View.OnTouchListener LT;
     private TbPageContext<?> mContext;
     private Handler mHandler;
     private int mHeight;
@@ -42,45 +42,45 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
     }
 
     public View getViewPagerBottomLine() {
-        return this.LS;
+        return this.LP;
     }
 
     public CarouselRecommendView(Context context, AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
         this.mContext = null;
         this.mPager = null;
-        this.LL = null;
-        this.LJ = null;
+        this.LI = null;
+        this.LG = null;
         this.mWidth = 0;
         this.mHeight = 0;
-        this.LM = 0.3043478f;
-        this.LR = true;
-        this.LT = "";
-        this.LU = new ArrayList();
+        this.LJ = 0.3043478f;
+        this.LO = true;
+        this.LQ = "";
+        this.LR = new ArrayList();
         this.mHandler = new c(this);
-        this.LV = null;
-        this.LW = new d(this);
-        this.LR = z;
+        this.LS = null;
+        this.LT = new d(this);
+        this.LO = z;
         com.baidu.adp.lib.g.b.ei().a(context, com.baidu.tieba.x.carousel_topics_recommend, this, true);
         this.mPager = (ViewPager) findViewById(com.baidu.tieba.w.carousel_pager);
         if (z) {
-            this.LS = findViewById(com.baidu.tieba.w.carousel_bottom_line);
-            this.LL = (IndicatorView) findViewById(com.baidu.tieba.w.carousel_indicator_for_game_center);
+            this.LP = findViewById(com.baidu.tieba.w.carousel_bottom_line);
+            this.LI = (IndicatorView) findViewById(com.baidu.tieba.w.carousel_indicator_for_game_center);
         } else {
-            this.LL = (IndicatorView) findViewById(com.baidu.tieba.w.carousel_indicator);
+            this.LI = (IndicatorView) findViewById(com.baidu.tieba.w.carousel_indicator);
         }
-        this.LL.setVisibility(0);
-        this.mPager.setOnTouchListener(this.LW);
-        if (this.LR) {
+        this.LI.setVisibility(0);
+        this.mPager.setOnTouchListener(this.LT);
+        if (this.LO) {
             this.mWidth = com.baidu.adp.lib.util.l.M(context);
             this.mHeight = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds330);
         } else {
-            this.LO = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_caroucel_paddingTop);
-            this.LN = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_caroucel_paddingBottom);
-            this.LP = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_page_padding);
-            this.mWidth = com.baidu.adp.lib.util.l.M(context) - (this.LP * 2);
-            this.mHeight = (int) (0.5f + (this.mWidth * this.LM));
-            setPadding(this.LP, this.LO, this.LP, this.LN);
+            this.LL = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_caroucel_paddingTop);
+            this.LK = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_caroucel_paddingBottom);
+            this.LM = context.getResources().getDimensionPixelSize(com.baidu.tieba.u.square_page_padding);
+            this.mWidth = com.baidu.adp.lib.util.l.M(context) - (this.LM * 2);
+            this.mHeight = (int) (0.5f + (this.mWidth * this.LJ));
+            setPadding(this.LM, this.LL, this.LM, this.LK);
         }
         ViewGroup.LayoutParams layoutParams = this.mPager.getLayoutParams();
         layoutParams.width = this.mWidth;
@@ -94,67 +94,67 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
 
     public boolean a(TbPageContext<?> tbPageContext, List<T> list) {
         this.mContext = tbPageContext;
-        if (this.LJ == null) {
-            this.LJ = new e(this.mContext);
+        if (this.LG == null) {
+            this.LG = new e(this.mContext);
         }
         if (list == null || list.size() == 0) {
             setVisibility(8);
             return false;
         }
-        this.LU.clear();
-        this.LU = list;
+        this.LR.clear();
+        this.LR = list;
         setVisibility(0);
-        int size = this.LU.size();
+        int size = this.LR.size();
         if (size > 1) {
-            this.LU.add(list.get(0));
-            this.LU.add(0, list.get(list.size() - 1));
+            this.LR.add(list.get(0));
+            this.LR.add(0, list.get(list.size() - 1));
         }
-        this.LV = new g(this, null);
-        this.LJ.setData(this.LU);
-        this.mPager.setAdapter(this.LJ);
-        this.mPager.setOnPageChangeListener(this.LV);
+        this.LS = new g(this, null);
+        this.LG.setData(this.LR);
+        this.mPager.setAdapter(this.LG);
+        this.mPager.setOnPageChangeListener(this.LS);
         this.mPager.setCurrentItem(size > 1 ? 1 : 0, false);
         this.mPager.invalidate();
         if (size > 1) {
-            this.LL.setVisibility(0);
-            this.LL.setCount(this.LU.size() - 2);
-            this.LL.setPosition(0.0f);
+            this.LI.setVisibility(0);
+            this.LI.setCount(this.LR.size() - 2);
+            this.LI.setPosition(0.0f);
         } else {
-            this.LL.setVisibility(8);
+            this.LI.setVisibility(8);
         }
-        qv();
+        qo();
         return true;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.LJ != null) {
-            this.LJ.onChangeSkinType(i);
+        if (this.LG != null) {
+            this.LG.onChangeSkinType(i);
         }
     }
 
-    public void qv() {
+    public void qo() {
         this.mHandler.removeMessages(0);
-        this.mHandler.sendEmptyMessageDelayed(0, LQ);
+        this.mHandler.sendEmptyMessageDelayed(0, LN);
     }
 
-    public void qw() {
+    public void qp() {
         this.mHandler.removeMessages(0);
     }
 
     public CarouselRecommendView<T>.e getPagerAdapter() {
-        return this.LJ;
+        return this.LG;
     }
 
     public void setGameRefId(String str) {
-        this.LT = str;
+        this.LQ = str;
     }
 
     public void onDestroy() {
         if (this.mPager != null) {
             this.mPager.setOnPageChangeListener(null);
         }
-        if (this.LJ != null) {
-            this.LJ.qz();
+        if (this.LG != null) {
+            this.LG.qs();
         }
     }
 
@@ -162,35 +162,35 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
     public class e extends PagerAdapter implements t, com.baidu.tbadk.imageManager.d {
         private TbPageContext<?> mContext;
         private View mParent;
-        private List<T> LY = null;
+        private List<T> LV = null;
         private int count = 0;
-        private List<View> LZ = new ArrayList();
-        public List<TbImageView> Ma = new ArrayList();
+        private List<View> LW = new ArrayList();
+        public List<TbImageView> LX = new ArrayList();
 
         public e(TbPageContext<?> tbPageContext) {
             this.mContext = null;
             this.mContext = tbPageContext;
         }
 
-        public void qz() {
-            for (TbImageView tbImageView : this.Ma) {
+        public void qs() {
+            for (TbImageView tbImageView : this.LX) {
                 tbImageView.setOnClickListener(null);
             }
-            this.Ma.clear();
-            this.LZ.clear();
+            this.LX.clear();
+            this.LW.clear();
         }
 
         private void a(TbImageView tbImageView, T t, int i) {
-            if (tbImageView != null && t != null && t.mP() != null) {
-                if (CarouselRecommendView.this.LR) {
-                    tbImageView.a(t.mP().trim(), 10, CarouselRecommendView.this.mWidth, CarouselRecommendView.this.mHeight, false);
+            if (tbImageView != null && t != null && t.mI() != null) {
+                if (CarouselRecommendView.this.LO) {
+                    tbImageView.a(t.mI().trim(), 10, CarouselRecommendView.this.mWidth, CarouselRecommendView.this.mHeight, false);
                 } else {
-                    tbImageView.a(t.mP().trim(), 10, CarouselRecommendView.this.mWidth - (CarouselRecommendView.this.LP * 2), (CarouselRecommendView.this.mHeight - CarouselRecommendView.this.LO) - CarouselRecommendView.this.LN, false);
+                    tbImageView.a(t.mI().trim(), 10, CarouselRecommendView.this.mWidth - (CarouselRecommendView.this.LM * 2), (CarouselRecommendView.this.mHeight - CarouselRecommendView.this.LL) - CarouselRecommendView.this.LK, false);
                 }
                 tbImageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setOnClickListener(new f(this, t, tbImageView, i));
-                this.Ma.add(tbImageView);
+                this.LX.add(tbImageView);
             }
         }
 
@@ -198,35 +198,39 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
             clear();
             if (list != null && list.size() != 0) {
                 this.count = list.size();
-                this.LY = list;
+                this.LV = list;
                 int i = 0;
                 while (i < this.count) {
                     TbImageView tbImageView = (TbImageView) com.baidu.adp.lib.g.b.ei().inflate(this.mContext.getContext(), com.baidu.tieba.x.carousel_topics_recommend_item, null);
                     tbImageView.setSupportNoImage(false);
-                    if (!CarouselRecommendView.this.LR) {
+                    if (!CarouselRecommendView.this.LO) {
                         tbImageView.setDrawerType(1);
                         tbImageView.setGifIconSupport(false);
                         tbImageView.setDrawBorder(true);
                     }
                     a(tbImageView, (TbImageView) list.get(i), i > 0 ? i - 1 : 0);
-                    this.LZ.add(tbImageView);
+                    this.LW.add(tbImageView);
                     i++;
                 }
                 notifyDataSetChanged();
             }
         }
 
+        public List<TbImageView> qt() {
+            return this.LX;
+        }
+
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (this.LZ == null) {
+            if (this.LW == null) {
                 return 0;
             }
-            return this.LZ.size();
+            return this.LW.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            View view = this.LZ.get(i);
+            View view = this.LW.get(i);
             view.setTag(Integer.valueOf(i));
             view.invalidate();
             if (view.getParent() == null) {
@@ -236,8 +240,8 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
         }
 
         public void onChangeSkinType(int i) {
-            if (this.Ma != null && this.Ma.size() > 0) {
-                for (TbImageView tbImageView : this.Ma) {
+            if (this.LX != null && this.LX.size() > 0) {
+                for (TbImageView tbImageView : this.LX) {
                     tbImageView.invalidate();
                 }
             }
@@ -253,14 +257,14 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
         }
 
         private void clear() {
-            this.LZ.clear();
+            this.LW.clear();
             this.count = 0;
-            this.LY = null;
+            this.LV = null;
             notifyDataSetChanged();
         }
 
         @Override // com.baidu.tbadk.core.view.t
-        public void qx() {
+        public void qq() {
         }
 
         @Override // com.baidu.tbadk.core.view.t
@@ -288,55 +292,57 @@ public class CarouselRecommendView<T extends com.baidu.tbadk.core.data.l> extend
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (CarouselRecommendView.this.LL != null && CarouselRecommendView.this.LJ != null && CarouselRecommendView.this.LU.size() > 1) {
-                int count = CarouselRecommendView.this.LJ.getCount();
+            if (CarouselRecommendView.this.LI != null && CarouselRecommendView.this.LG != null && CarouselRecommendView.this.LR.size() > 1) {
+                int count = CarouselRecommendView.this.LG.getCount();
                 if (i == 0) {
-                    CarouselRecommendView.this.LL.setPosition((count - 3) + f);
+                    CarouselRecommendView.this.LI.setPosition((count - 3) + f);
                 } else if (i == count - 1) {
-                    CarouselRecommendView.this.LL.setPosition(f);
+                    CarouselRecommendView.this.LI.setPosition(f);
                 } else {
-                    CarouselRecommendView.this.LL.setPosition((i - 1) + f);
+                    CarouselRecommendView.this.LI.setPosition((i - 1) + f);
                 }
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            String str;
-            if (CarouselRecommendView.this.LR && i >= 1 && i <= 5) {
-                com.baidu.tbadk.core.data.l lVar = (com.baidu.tbadk.core.data.l) CarouselRecommendView.this.LU.get(i - 1);
-                if (!(lVar instanceof com.baidu.tbadk.core.data.l)) {
-                    str = "";
-                } else {
-                    str = com.baidu.tieba.tbadkCore.util.k.iu(lVar.getLink());
+            if (CarouselRecommendView.this.LO && i >= 1 && i <= 5) {
+                com.baidu.tbadk.core.data.l lVar = (com.baidu.tbadk.core.data.l) CarouselRecommendView.this.LR.get(i - 1);
+                String str = "";
+                if (lVar instanceof com.baidu.tbadk.core.data.l) {
+                    str = com.baidu.tieba.tbadkCore.util.k.is(lVar.getLink());
+                    if (CarouselRecommendView.this.LG != null && CarouselRecommendView.this.LG.qt() != null && CarouselRecommendView.this.LG.qt().get(i - 1) != null) {
+                        CarouselRecommendView.this.LG.qt().get(i - 1).refresh();
+                    }
                 }
-                if ("4001001".equals(CarouselRecommendView.this.LT)) {
-                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_single_" + i, "", 1, "dev_id", str, "ref_id", CarouselRecommendView.this.LT);
-                } else if ("4000201".equals(CarouselRecommendView.this.LT)) {
-                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_h5_" + i, "", 1, "dev_id", str, "ref_id", CarouselRecommendView.this.LT);
-                } else if ("4000101".equals(CarouselRecommendView.this.LT)) {
-                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_index_" + i, "", 1, "dev_id", str, "ref_id", CarouselRecommendView.this.LT);
+                String str2 = str;
+                if ("4001001".equals(CarouselRecommendView.this.LQ)) {
+                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_single_" + i, "", 1, "dev_id", str2, "ref_id", CarouselRecommendView.this.LQ);
+                } else if ("4000201".equals(CarouselRecommendView.this.LQ)) {
+                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_h5_" + i, "", 1, "dev_id", str2, "ref_id", CarouselRecommendView.this.LQ);
+                } else if ("4000101".equals(CarouselRecommendView.this.LQ)) {
+                    TiebaStatic.eventStat(CarouselRecommendView.this.mContext.getPageActivity(), "gamecenter_ad_index_" + i, "", 1, "dev_id", str2, "ref_id", CarouselRecommendView.this.LQ);
                 }
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (CarouselRecommendView.this.mPager != null && CarouselRecommendView.this.LJ != null) {
+            if (CarouselRecommendView.this.mPager != null && CarouselRecommendView.this.LG != null) {
                 if (i == 0) {
-                    if (CarouselRecommendView.this.LU.size() > 1) {
+                    if (CarouselRecommendView.this.LR.size() > 1) {
                         int currentItem = CarouselRecommendView.this.mPager.getCurrentItem();
                         if (currentItem < 1) {
-                            CarouselRecommendView.this.mPager.setCurrentItem(CarouselRecommendView.this.LJ.getCount() - 2, false);
+                            CarouselRecommendView.this.mPager.setCurrentItem(CarouselRecommendView.this.LG.getCount() - 2, false);
                             CarouselRecommendView.this.mPager.invalidate();
-                        } else if (currentItem > CarouselRecommendView.this.LJ.getCount() - 2) {
+                        } else if (currentItem > CarouselRecommendView.this.LG.getCount() - 2) {
                             CarouselRecommendView.this.mPager.setCurrentItem(1, false);
                             CarouselRecommendView.this.mPager.invalidate();
                             CarouselRecommendView.this.mHandler.removeMessages(0);
-                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.LQ);
+                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.LN);
                         } else {
                             CarouselRecommendView.this.mHandler.removeMessages(0);
-                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.LQ);
+                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.LN);
                         }
                     }
                     CarouselRecommendView.this.mPager.requestDisallowInterceptTouchEvent(false);

@@ -5,84 +5,84 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private List<a> aqa;
-    private String aqe;
-    private WriteImagesInfo aql;
-    private List<ImageFileInfo> aqm;
-    private List<ImageFileInfo> aqn;
-    private String aqo;
+    private List<a> apX;
+    private String aqb;
+    private WriteImagesInfo aqi;
+    private List<ImageFileInfo> aqj;
+    private List<ImageFileInfo> aqk;
+    private String aql;
     private int mCurrentIndex;
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aql == null) {
-            this.aql = new WriteImagesInfo();
+        if (this.aqi == null) {
+            this.aqi = new WriteImagesInfo();
         }
-        this.aql.addChooseFile(imageFileInfo);
+        this.aqi.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aql != null) {
-            this.aql.delChooseFile(imageFileInfo);
+        if (this.aqi != null) {
+            this.aqi.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.aql == null) {
+        if (this.aqi == null) {
             return false;
         }
-        return this.aql.isAdded(imageFileInfo);
+        return this.aqi.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> BN() {
-        if (this.aql != null) {
-            return this.aql.getChosedFiles();
+    public List<ImageFileInfo> BH() {
+        if (this.aqi != null) {
+            return this.aqi.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.aql;
+        return this.aqi;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.aql = writeImagesInfo;
+        this.aqi = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.aql != null) {
-            return this.aql.getLastAlbumId();
+        if (this.aqi != null) {
+            return this.aqi.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.aql == null) {
-            this.aql = new WriteImagesInfo();
+        if (this.aqi == null) {
+            this.aqi = new WriteImagesInfo();
         }
-        this.aql.setLastAlbumId(str);
+        this.aqi.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.aql != null) {
-            return this.aql.getMaxImagesAllowed();
+        if (this.aqi != null) {
+            return this.aqi.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String BO() {
-        return this.aqe;
+    public String BI() {
+        return this.aqb;
     }
 
-    public void eX(String str) {
-        this.aqe = str;
+    public void eU(String str) {
+        this.aqb = str;
     }
 
-    public List<ImageFileInfo> BP() {
-        return this.aqm;
+    public List<ImageFileInfo> BJ() {
+        return this.aqj;
     }
 
     public void D(List<ImageFileInfo> list) {
-        this.aqm = list;
+        this.aqj = list;
     }
 
     public int getCurrentIndex() {
@@ -93,34 +93,34 @@ public class n {
         this.mCurrentIndex = i;
     }
 
-    public List<a> BQ() {
-        return this.aqa;
+    public List<a> BK() {
+        return this.apX;
     }
 
     public void E(List<a> list) {
-        this.aqa = list;
+        this.apX = list;
     }
 
-    public List<ImageFileInfo> BR() {
-        return this.aqn;
+    public List<ImageFileInfo> BL() {
+        return this.aqk;
     }
 
     public void F(List<ImageFileInfo> list) {
-        this.aqn = list;
+        this.aqk = list;
     }
 
     public int size() {
-        if (this.aql == null) {
+        if (this.aqi == null) {
             return 0;
         }
-        return this.aql.size();
+        return this.aqi.size();
     }
 
-    public String BS() {
-        return this.aqo;
+    public String BM() {
+        return this.aql;
     }
 
-    public void eY(String str) {
-        this.aqo = str;
+    public void eV(String str) {
+        this.aql = str;
     }
 }

@@ -14,81 +14,81 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 /* loaded from: classes.dex */
 public abstract class g extends i {
-    private Service tO;
-    private com.baidu.adp.plugin.a.b tP;
+    private Service tL;
+    private com.baidu.adp.plugin.a.b tM;
 
     public abstract IBinder onBind(Intent intent);
 
     public g() {
         super(null);
-        this.tO = null;
-        this.tP = null;
+        this.tL = null;
+        this.tM = null;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.tP.proxyBindService(intent, serviceConnection, i);
+        return this.tM.proxyBindService(intent, serviceConnection, i);
     }
 
     protected void finalize() {
-        this.tP.proxyFinalize();
+        this.tM.proxyFinalize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public PackageManager getPackageManager() {
-        return this.tP.proxyGetPackageManager();
+        return this.tM.proxyGetPackageManager();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.tP.proxyOnConfigurationChanged(configuration);
+        this.tM.proxyOnConfigurationChanged(configuration);
     }
 
     public void onCreate() {
     }
 
     public void onDestroy() {
-        this.tP.proxyOnDestroy();
+        this.tM.proxyOnDestroy();
     }
 
     public void onLowMemory() {
-        this.tP.proxyOnLowMemory();
+        this.tM.proxyOnLowMemory();
     }
 
     public void onStart(Intent intent, int i) {
-        this.tP.proxyOnStart(intent, i);
+        this.tM.proxyOnStart(intent, i);
     }
 
     public int onStartCommand(Intent intent, int i, int i2) {
-        return this.tP.proxyOnStartCommand(intent, i, i2);
+        return this.tM.proxyOnStartCommand(intent, i, i2);
     }
 
     public boolean onUnbind(Intent intent) {
-        return this.tP.proxyOnUnbind(intent);
+        return this.tM.proxyOnUnbind(intent);
     }
 
     public void a(com.baidu.adp.plugin.a.b bVar) {
-        this.tO = bVar.getService();
-        this.tP = bVar;
+        this.tL = bVar.getService();
+        this.tM = bVar;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        this.tP.proxyStartActivity(intent);
+        this.tM.proxyStartActivity(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        return this.tP.proxyStartService(intent);
+        return this.tM.proxyStartService(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean stopService(Intent intent) {
-        return this.tP.proxyStopService(intent);
+        return this.tM.proxyStopService(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return this.tP.proxyGetSharedPreferences(str, i);
+        return this.tM.proxyGetSharedPreferences(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -103,21 +103,21 @@ public abstract class g extends i {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileInputStream openFileInput(String str) {
-        return this.tO.openFileInput(str);
+        return this.tL.openFileInput(str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) {
-        return this.tO.openFileOutput(str, i);
+        return this.tL.openFileOutput(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        return this.tO.openOrCreateDatabase(str, i, cursorFactory);
+        return this.tL.openOrCreateDatabase(str, i, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
-        return this.tO.getFileStreamPath(str);
+        return this.tL.getFileStreamPath(str);
     }
 }

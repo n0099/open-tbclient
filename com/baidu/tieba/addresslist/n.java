@@ -6,11 +6,11 @@ import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ QuickSearchActivity apk;
+    final /* synthetic */ QuickSearchActivity apg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(QuickSearchActivity quickSearchActivity) {
-        this.apk = quickSearchActivity;
+        this.apg = quickSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,11 +18,11 @@ public class n implements View.OnClickListener {
         EditText editText;
         View view2;
         ListView listView;
-        editText = this.apk.ape;
+        editText = this.apg.apb;
         editText.setText("");
-        view2 = this.apk.apg;
+        view2 = this.apg.apd;
         view2.setVisibility(8);
-        listView = this.apk.aph;
+        listView = this.apg.ape;
         listView.setVisibility(8);
     }
 }

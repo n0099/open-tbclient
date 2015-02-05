@@ -5,15 +5,15 @@ import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tieba.im.g<PersonalSettingItemData> {
-    private final /* synthetic */ long aSc;
-    final /* synthetic */ r aVs;
-    private final /* synthetic */ PersonalTalkSettingActivity aVt;
+    private final /* synthetic */ long aSb;
+    final /* synthetic */ r aVr;
+    private final /* synthetic */ PersonalTalkSettingActivity aVs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(r rVar, long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aVs = rVar;
-        this.aSc = j;
-        this.aVt = personalTalkSettingActivity;
+        this.aVr = rVar;
+        this.aSb = j;
+        this.aVs = personalTalkSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ public class v implements com.baidu.tieba.im.g<PersonalSettingItemData> {
     /* renamed from: a */
     public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
         if (personalSettingItemData != null) {
-            this.aVs.aVo = personalSettingItemData.isAcceptNotify();
+            this.aVr.aVn = personalSettingItemData.isAcceptNotify();
         }
         RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-        requestQueryUserInfoMessage.setReqUserId(this.aSc);
-        this.aVt.sendMessage(requestQueryUserInfoMessage);
+        requestQueryUserInfoMessage.setReqUserId(this.aSb);
+        this.aVs.sendMessage(requestQueryUserInfoMessage);
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bHL;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PersonChangeActivity personChangeActivity) {
-        this.bHL = personChangeActivity;
+        this.bHK = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,24 +22,24 @@ public class y implements DialogInterface.OnClickListener {
         com.baidu.tbadk.coreExtra.c.f fVar2;
         com.baidu.tbadk.coreExtra.c.f fVar3;
         Dialog dialog2;
-        dialog = this.bHL.bHH;
+        dialog = this.bHK.bHG;
         if (dialog != null) {
-            dialog2 = this.bHL.bHH;
-            com.baidu.adp.lib.g.k.b(dialog2, this.bHL.getPageContext());
+            dialog2 = this.bHK.bHG;
+            com.baidu.adp.lib.g.k.b(dialog2, this.bHK.getPageContext());
         }
-        fVar = this.bHL.bHC;
-        if (fVar.sB().getPhotoChanged()) {
+        fVar = this.bHK.bHB;
+        if (fVar.sv().getPhotoChanged()) {
             Intent intent = new Intent();
-            bool = this.bHL.bHr;
+            bool = this.bHK.bHq;
             if (bool.booleanValue()) {
-                fVar3 = this.bHL.bHC;
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.sB());
+                fVar3 = this.bHK.bHB;
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.sv());
             } else {
-                fVar2 = this.bHL.bHC;
-                intent.putExtra("data", fVar2.sB());
+                fVar2 = this.bHK.bHB;
+                intent.putExtra("data", fVar2.sv());
             }
-            this.bHL.setResult(-1, intent);
+            this.bHK.setResult(-1, intent);
         }
-        this.bHL.finish();
+        this.bHK.finish();
     }
 }

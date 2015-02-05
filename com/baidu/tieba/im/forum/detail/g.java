@@ -3,11 +3,11 @@ package com.baidu.tieba.im.forum.detail;
 import android.view.View;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    final /* synthetic */ ForumDetailActivity baB;
+    final /* synthetic */ ForumDetailActivity baA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ForumDetailActivity forumDetailActivity) {
-        this.baB = forumDetailActivity;
+        this.baA = forumDetailActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,13 +17,13 @@ class g implements View.OnClickListener {
         h hVar;
         String str;
         if (com.baidu.adp.lib.util.l.isNetOk()) {
-            mVar = this.baB.bax;
-            mVar.Ic();
-            mVar2 = this.baB.bax;
+            mVar = this.baA.baw;
+            mVar.HW();
+            mVar2 = this.baA.baw;
             mVar2.showLoading();
-            hVar = this.baB.bay;
-            str = this.baB.mForumId;
-            hVar.gL(str);
+            hVar = this.baA.bax;
+            str = this.baA.mForumId;
+            hVar.gI(str);
         }
     }
 }

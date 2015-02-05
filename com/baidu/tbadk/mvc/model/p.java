@@ -16,8 +16,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.b.j, ActivityType> extends BdAsyncTask<Object, D, D> {
-    private NetModel<T, D, ActivityType> aeH;
-    private com.baidu.tbadk.core.util.httpNet.c aeI;
+    private NetModel<T, D, ActivityType> aeE;
+    private com.baidu.tbadk.core.util.httpNet.c aeF;
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tbadk.mvc.model.p<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.b.j, ActivityType> */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +28,7 @@ public class p<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.
     }
 
     public p(NetModel<T, D, ActivityType> netModel) {
-        this.aeH = netModel;
+        this.aeE = netModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class p<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.
         com.baidu.tbadk.mvc.b.h hVar;
         com.baidu.tbadk.mvc.b.h hVar2;
         com.baidu.tbadk.mvc.b.h hVar3;
-        ((NetModel) this.aeH).aeC = true;
-        ad adVar = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + this.aeH.kM());
-        hVar = ((NetModel) this.aeH).aev;
-        for (Map.Entry<String, Object> entry : hVar.kQ().entrySet()) {
+        ((NetModel) this.aeE).aez = true;
+        ad adVar = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + this.aeE.kF());
+        hVar = ((NetModel) this.aeE).aes;
+        for (Map.Entry<String, Object> entry : hVar.kJ().entrySet()) {
             adVar.o(entry.getKey(), String.valueOf(entry.getValue()));
         }
-        String oy = adVar.oy();
-        this.aeI = adVar.oZ();
-        D q = q(this.aeH.getResponseDataClass());
+        String or = adVar.or();
+        this.aeF = adVar.oS();
+        D q = q(this.aeE.getResponseDataClass());
         try {
-            q.c(new JSONObject(oy));
+            q.c(new JSONObject(or));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         publishProgress(q);
-        if (this.aeH.isNeedCache() && this.aeI != null && this.aeI.qh() != null && this.aeI.qh().ma() && q != null) {
-            hVar2 = ((NetModel) this.aeH).aev;
+        if (this.aeE.isNeedCache() && this.aeF != null && this.aeF.qa() != null && this.aeF.qa().lT() && q != null) {
+            hVar2 = ((NetModel) this.aeE).aes;
             if (hVar2 instanceof com.baidu.tbadk.mvc.b.e) {
-                hVar3 = ((NetModel) this.aeH).aev;
+                hVar3 = ((NetModel) this.aeE).aes;
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) hVar3;
                 String cacheKey = eVar.getCacheKey();
-                String lq = eVar.lq();
+                String lj = eVar.lj();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(lq) || q == null) {
+                if (cacheKey == null || TextUtils.isEmpty(lj) || q == null) {
                     return q;
                 }
-                com.baidu.adp.lib.cache.t<String> R = com.baidu.tbadk.core.a.a.nV().R(lq, currentAccount);
+                com.baidu.adp.lib.cache.t<String> R = com.baidu.tbadk.core.a.a.nO().R(lj, currentAccount);
                 if (R == null) {
                     return q;
                 }
-                R.f(cacheKey, oy);
+                R.f(cacheKey, or);
             }
         }
         return q;
@@ -87,30 +87,30 @@ public class p<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.
         Runnable runnable2;
         super.onProgressUpdate(dArr);
         if (dArr != null && dArr.length > 0) {
-            ((NetModel) this.aeH).aeC = false;
-            runnable = ((NetModel) this.aeH).aeE;
+            ((NetModel) this.aeE).aez = false;
+            runnable = ((NetModel) this.aeE).aeB;
             if (runnable != null) {
                 com.baidu.adp.lib.g.i ej = com.baidu.adp.lib.g.i.ej();
-                runnable2 = ((NetModel) this.aeH).aeE;
+                runnable2 = ((NetModel) this.aeE).aeB;
                 ej.removeCallbacks(runnable2);
             }
-            hVar = ((NetModel) this.aeH).aev;
-            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(hVar, this.aeH.kL());
-            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.aeH.kL());
+            hVar = ((NetModel) this.aeE).aes;
+            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(hVar, this.aeE.kE());
+            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.aeE.kE());
             mvcJsonHttpResponsedMessage.setData(dArr[0]);
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-            if (this.aeI != null && this.aeI.qh() != null) {
-                mvcJsonHttpResponsedMessage.setStatusCode(this.aeI.qh().KB, this.aeI.qh().mErrorString);
-                mvcJsonHttpResponsedMessage.setError(this.aeI.qh().KC);
-                mvcJsonHttpResponsedMessage.setErrorString(this.aeI.qh().mErrorString);
-                if (this.aeI.qh().KD != null) {
-                    BdLog.e(this.aeI.qh().KD);
+            if (this.aeF != null && this.aeF.qa() != null) {
+                mvcJsonHttpResponsedMessage.setStatusCode(this.aeF.qa().Ky, this.aeF.qa().mErrorString);
+                mvcJsonHttpResponsedMessage.setError(this.aeF.qa().Kz);
+                mvcJsonHttpResponsedMessage.setErrorString(this.aeF.qa().mErrorString);
+                if (this.aeF.qa().KA != null) {
+                    BdLog.e(this.aeF.qa().KA);
                 }
             }
-            this.aeH.xS();
-            rVar = ((NetModel) this.aeH).aet;
+            this.aeE.xM();
+            rVar = ((NetModel) this.aeE).aeq;
             if (rVar != null) {
-                rVar2 = ((NetModel) this.aeH).aet;
+                rVar2 = ((NetModel) this.aeE).aeq;
                 rVar2.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
             }
         }

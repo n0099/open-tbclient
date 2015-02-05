@@ -4,19 +4,19 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.core.util.bq;
 /* loaded from: classes.dex */
 class e implements DialogInterface.OnClickListener {
-    final /* synthetic */ c Bg;
-    private final /* synthetic */ bq Bi;
+    final /* synthetic */ c Bd;
+    private final /* synthetic */ bq Bf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, bq bqVar) {
-        this.Bg = cVar;
-        this.Bi = bqVar;
+        this.Bd = cVar;
+        this.Bf = bqVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (this.Bi != null) {
-            this.Bi.onCancel();
+        if (this.Bf != null) {
+            this.Bf.onCancel();
         }
     }
 }

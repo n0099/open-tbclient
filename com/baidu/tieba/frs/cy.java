@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class cy {
-    private long aHj;
-    private long aHk;
-    private long aHl;
+    private long aHg;
+    private long aHh;
+    private long aHi;
 
     public cy(Context context) {
         K(0L);
@@ -13,22 +13,22 @@ public class cy {
     }
 
     public void K(long j) {
-        this.aHj = j;
+        this.aHg = j;
     }
 
-    public long Hr() {
-        return this.aHj + this.aHk;
+    public long Hl() {
+        return this.aHg + this.aHh;
     }
 
     public void L(long j) {
-        this.aHk = j;
+        this.aHh = j;
     }
 
-    public long Hs() {
-        return this.aHl;
+    public long Hm() {
+        return this.aHi;
     }
 
     public void M(long j) {
-        this.aHl = j;
+        this.aHi = j;
     }
 }

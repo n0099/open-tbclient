@@ -24,8 +24,8 @@ class h implements g {
             this.pg = inetSocketAddress.getAddress().getHostAddress();
             this.pf = System.currentTimeMillis() - currentTimeMillis;
         }
-        this.pe.socket().connect(inetSocketAddress, amVar.go());
-        this.pe.socket().setSoTimeout(amVar.gn());
+        this.pe.socket().connect(inetSocketAddress, amVar.gp());
+        this.pe.socket().setSoTimeout(amVar.go());
         this.pe.socket().setTcpNoDelay(amVar.getTcpNoDelay());
         this.ph = com.baidu.adp.lib.util.l.fu();
         this.pi = com.baidu.adp.lib.util.l.fv();

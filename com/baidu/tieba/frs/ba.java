@@ -10,12 +10,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ba {
-    private Animation aEt;
+    private Animation aEq;
     private TbPageContext<FrsActivity> mContext;
 
     public ba(TbPageContext<FrsActivity> tbPageContext) {
         this.mContext = tbPageContext;
-        this.aEt = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), com.baidu.tieba.q.frs_like);
+        this.aEq = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), com.baidu.tieba.q.frs_like);
     }
 
     public void v(View view) {
@@ -34,7 +34,7 @@ public class ba {
             gVar.a(new bb(this, inflate));
             com.baidu.adp.lib.guide.d dx = gVar.dx();
             dx.i(this.mContext.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.aEt, new bc(this, dx));
+            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.aEq, new bc(this, dx));
         }
     }
 }

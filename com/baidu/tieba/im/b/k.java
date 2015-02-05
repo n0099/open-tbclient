@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.framework.a.j {
-    private long bjO;
+    private long bjN;
 
     public k() {
         super(202003);
-        this.bjO = 0L;
+        this.bjN = 0L;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,9 +29,9 @@ public class k extends com.baidu.adp.framework.a.j {
         if (socketResponsedMessage.getError() == 110000) {
             MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
         }
-        if (this.bjO % 10 == 0) {
+        if (this.bjN % 10 == 0) {
             TiebaStatic.imNet(socketResponsedMessage);
-            this.bjO++;
+            this.bjN++;
         }
         ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
         List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
@@ -41,7 +41,7 @@ public class k extends com.baidu.adp.framework.a.j {
             }
         }
         if (!a(responsePullMessage)) {
-            b.Rt().RA();
+            b.Ro().Rv();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;
@@ -66,10 +66,10 @@ public class k extends com.baidu.adp.framework.a.j {
                 return false;
             }
             SparseArray<Long> sparseArray = new SparseArray<>();
-            SparseArray<Long> QY = com.baidu.tieba.im.memorycache.c.QO().QY();
+            SparseArray<Long> QT = com.baidu.tieba.im.memorycache.c.QJ().QT();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
-                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && ca.gj(groupMsgData.getGroupInfo().getCustomType()) && (l = QY.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && ca.gj(groupMsgData.getGroupInfo().getCustomType()) && (l = QT.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                     boolean z2 = l.longValue() > l2.longValue() ? true : z;
                     if (groupMsgData.hasMore()) {
                         sparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
@@ -80,7 +80,7 @@ public class k extends com.baidu.adp.framework.a.j {
             if (!z || sparseArray.size() <= 0) {
                 return false;
             }
-            b.Rt().d(sparseArray);
+            b.Ro().d(sparseArray);
             return true;
         }
         return false;

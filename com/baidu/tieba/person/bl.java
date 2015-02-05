@@ -13,24 +13,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class bl extends com.baidu.adp.base.f<PersonListActivity> {
-    public static final BdUniqueId bIA = BdUniqueId.gen();
-    public static final BdUniqueId bIB = BdUniqueId.gen();
-    private boolean bIC;
-    public HttpMessageListener bID;
-    public CustomMessageListener bIE;
-    private bo bIr;
+    private boolean bIB;
+    public HttpMessageListener bIC;
+    public CustomMessageListener bID;
+    private bo bIq;
     private String mId;
     private int mPage;
     private int mSex;
+    public static final BdUniqueId bIz = BdUniqueId.gen();
+    public static final BdUniqueId bIA = BdUniqueId.gen();
 
     public bl(PersonListActivity personListActivity, bo boVar) {
         super(personListActivity.getPageContext());
         this.mPage = 0;
-        this.bID = new bm(this, CmdConfigHttp.PIC_PERSONAL_LIST);
-        this.bIE = new bn(this, 2001192);
-        this.bIC = true;
+        this.bIC = new bm(this, CmdConfigHttp.PIC_PERSONAL_LIST);
+        this.bID = new bn(this, 2001192);
+        this.bIB = true;
         this.mId = null;
-        this.bIr = boVar;
+        this.bIq = boVar;
     }
 
     public int getPage() {
@@ -58,17 +58,17 @@ public class bl extends com.baidu.adp.base.f<PersonListActivity> {
     }
 
     public void bU(boolean z) {
-        this.bIC = z;
+        this.bIB = z;
     }
 
-    public boolean abc() {
-        return this.bIC;
+    public boolean aaX() {
+        return this.bIB;
     }
 
-    public void JC() {
+    public void Jx() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        if (this.bIC) {
+        if (this.bIB) {
             str = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/page";
         } else {
             str = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/fans/page";
@@ -76,15 +76,15 @@ public class bl extends com.baidu.adp.base.f<PersonListActivity> {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_PERSONAL_LIST, str);
         tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bID);
+        registerListener(this.bIC);
     }
 
-    public void abd() {
+    public void aaY() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
-        if (this.bIC) {
-            httpMessage.setTag(bIB);
-        } else {
+        if (this.bIB) {
             httpMessage.setTag(bIA);
+        } else {
+            httpMessage.setTag(bIz);
         }
         if (this.mId != null && !this.mId.equals(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addParam(SapiAccountManager.SESSION_UID, this.mId);
@@ -96,23 +96,23 @@ public class bl extends com.baidu.adp.base.f<PersonListActivity> {
         sendMessage(httpMessage);
     }
 
-    public void abe() {
+    public void aaZ() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2001192, new bp());
         aVar.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
-        registerListener(this.bIE);
+        registerListener(this.bID);
     }
 
-    public void abf() {
+    public void aba() {
         RequestLocalPersonListMessage requestLocalPersonListMessage = new RequestLocalPersonListMessage();
-        requestLocalPersonListMessage.setFollow(this.bIC);
+        requestLocalPersonListMessage.setFollow(this.bIB);
         requestLocalPersonListMessage.setUid(this.mId);
         sendMessage(requestLocalPersonListMessage);
     }
 
-    public void abg() {
-        MessageManager.getInstance().unRegisterListener(this.bIE);
+    public void abb() {
         MessageManager.getInstance().unRegisterListener(this.bID);
+        MessageManager.getInstance().unRegisterListener(this.bIC);
     }
 
     @Override // com.baidu.adp.base.f

@@ -5,15 +5,15 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class o implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity bPF;
+    final /* synthetic */ WriteShareActivity bPE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(WriteShareActivity writeShareActivity) {
-        this.bPF = writeShareActivity;
+        this.bPE = writeShareActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.adq()) goto L19;
+        if (r4 == r0.adl()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -34,43 +34,43 @@ class o implements View.OnFocusChangeListener {
         q qVar10;
         q qVar11;
         q qVar12;
-        qVar = this.bPF.bPr;
+        qVar = this.bPE.bPq;
         if (qVar != null) {
-            qVar2 = this.bPF.bPr;
-            if (view != qVar2.adm()) {
-                qVar11 = this.bPF.bPr;
-                if (view != qVar11.adp()) {
-                    qVar12 = this.bPF.bPr;
+            qVar2 = this.bPE.bPq;
+            if (view != qVar2.adh()) {
+                qVar11 = this.bPE.bPq;
+                if (view != qVar11.adk()) {
+                    qVar12 = this.bPE.bPq;
                 }
             }
             if (!z) {
-                qVar3 = this.bPF.bPr;
-                if (view == qVar3.adm()) {
-                    qVar4 = this.bPF.bPr;
-                    if (qVar4.adr() != null) {
-                        qVar5 = this.bPF.bPr;
-                        qVar5.adr().setVisibility(0);
+                qVar3 = this.bPE.bPq;
+                if (view == qVar3.adh()) {
+                    qVar4 = this.bPE.bPq;
+                    if (qVar4.adm() != null) {
+                        qVar5 = this.bPE.bPq;
+                        qVar5.adm().setVisibility(0);
                     }
                 }
             } else {
-                WriteShareActivity writeShareActivity = this.bPF;
-                inputMethodManager = this.bPF.mInputManager;
-                qVar6 = this.bPF.bPr;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, qVar6.adm());
+                WriteShareActivity writeShareActivity = this.bPE;
+                inputMethodManager = this.bPE.mInputManager;
+                qVar6 = this.bPE.bPq;
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, qVar6.adh());
             }
-            qVar7 = this.bPF.bPr;
-            if (view == qVar7.adn()) {
+            qVar7 = this.bPE.bPq;
+            if (view == qVar7.adi()) {
                 if (z) {
-                    qVar10 = this.bPF.bPr;
-                    qVar10.adn().setHint((CharSequence) null);
+                    qVar10 = this.bPE.bPq;
+                    qVar10.adi().setHint((CharSequence) null);
                 } else {
-                    qVar8 = this.bPF.bPr;
-                    qVar8.adn().setHint(z.content);
+                    qVar8 = this.bPE.bPq;
+                    qVar8.adi().setHint(z.content);
                 }
-                WriteShareActivity writeShareActivity2 = this.bPF;
-                inputMethodManager2 = this.bPF.mInputManager;
-                qVar9 = this.bPF.bPr;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, qVar9.adm());
+                WriteShareActivity writeShareActivity2 = this.bPE;
+                inputMethodManager2 = this.bPE.mInputManager;
+                qVar9 = this.bPE.bPq;
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, qVar9.adh());
             }
         }
     }

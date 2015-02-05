@@ -14,7 +14,7 @@ public class al {
             }
             return;
         }
-        new an(il(str), amVar).execute(new String[0]);
+        new an(ij(str), amVar).execute(new String[0]);
     }
 
     public static void b(String str, am amVar) {
@@ -25,7 +25,7 @@ public class al {
             }
             return;
         }
-        new an(im(str), amVar).execute(new String[0]);
+        new an(ik(str), amVar).execute(new String[0]);
     }
 
     public static void a(int i, am amVar) {
@@ -33,41 +33,41 @@ public class al {
     }
 
     public static void a(int i, WriteData writeData) {
-        com.baidu.adp.lib.cache.t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.pb_editor");
+        com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
-            bT.b(hT(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            bQ.b(hT(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
         } else {
-            bT.V(hT(i));
+            bQ.V(hT(i));
         }
     }
 
     public static void a(String str, WriteData writeData) {
         if (!bf.isEmpty(str)) {
-            com.baidu.adp.lib.cache.t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.pb_editor");
+            com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                bT.b(im(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                bQ.b(ik(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                bT.V(im(str));
+                bQ.V(ik(str));
             }
         }
     }
 
     public static void b(String str, WriteData writeData) {
         if (!bf.isEmpty(str)) {
-            com.baidu.adp.lib.cache.t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.pb_editor");
+            com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                bT.b(il(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                bQ.b(ij(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                bT.V(il(str));
+                bQ.V(ij(str));
             }
         }
     }
 
-    protected static String il(String str) {
+    protected static String ij(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
     }
 
-    protected static String im(String str) {
+    protected static String ik(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
     }
 

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class bi extends CustomMessageListener {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bi(WriteActivity writeActivity, int i) {
         super(i);
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ class bi extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.cgS.aBF;
+                dVar2 = this.cgR.aBC;
                 dVar2.eE(false);
-                dVar3 = this.cgS.aBF;
+                dVar3 = this.cgR.aBC;
                 dVar3.aS(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                kVar2 = this.cgS.cgz;
+                kVar2 = this.cgR.cgy;
                 kVar2.B(2, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.cgS.aBF;
+            dVar = this.cgR.aBC;
             dVar.eE(true);
-            kVar = this.cgS.cgz;
+            kVar = this.cgR.cgy;
             kVar.setLocationInfoViewState(0);
         }
     }

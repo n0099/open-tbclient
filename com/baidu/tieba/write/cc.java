@@ -43,7 +43,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (X != null) {
                     int dip2px = com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                     if (Build.VERSION.SDK_INT >= 7) {
-                        z = this.this$0.PE;
+                        z = this.this$0.PA;
                         if (z) {
                             Bitmap f = com.baidu.tbadk.core.util.d.f(X, dip2px);
                             if (f != null) {
@@ -52,11 +52,11 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
                                 }
                                 Bitmap a = com.baidu.tbadk.core.util.d.a(f, com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), true);
                                 if (a != null) {
-                                    obj = this.this$0.chf;
+                                    obj = this.this$0.che;
                                     synchronized (obj) {
-                                        this.this$0.PJ = new HashMap();
-                                        this.this$0.PK = new HashMap();
-                                        hashMap = this.this$0.PJ;
+                                        this.this$0.PF = new HashMap();
+                                        this.this$0.PG = new HashMap();
+                                        hashMap = this.this$0.PF;
                                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
                                     }
                                     return X;
@@ -87,7 +87,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.cha;
+        view = this.this$0.cgZ;
         view.setEnabled(false);
         super.onPreExecute();
     }
@@ -95,7 +95,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.this$0.chb = null;
+        this.this$0.cha = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
@@ -111,20 +111,20 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((cc) bitmap);
-        view = this.this$0.cha;
+        view = this.this$0.cgZ;
         view.setEnabled(true);
-        this.this$0.chb = null;
+        this.this$0.cha = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.this$0.anr;
+            imageView = this.this$0.ano;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.PE;
+                z = this.this$0.PA;
                 if (z) {
                     WriteImageActivity writeImageActivity = this.this$0;
-                    strArr = WriteImageActivity.Pk;
+                    strArr = WriteImageActivity.Ph;
                     writeImageActivity.m(strArr);
                 }
             }

@@ -7,30 +7,30 @@ import com.baidu.tieba.x;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static a bMA;
-    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> bMB = new HashMap<>();
+    private static a bMz;
+    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> bMA = new HashMap<>();
 
-    public static final a acm() {
-        if (bMA != null) {
-            return bMA;
+    public static final a ach() {
+        if (bMz != null) {
+            return bMz;
         }
         synchronized (a.class) {
-            if (bMA == null) {
-                bMA = new a();
+            if (bMz == null) {
+                bMz = new a();
             }
         }
-        return bMA;
+        return bMz;
     }
 
     public void registerHolder(int i, Class<? extends PbRecBaseViewHolder> cls) {
-        if (i >= 0 && cls != null && !this.bMB.containsKey(Integer.valueOf(i))) {
-            this.bMB.put(Integer.valueOf(i), cls);
+        if (i >= 0 && cls != null && !this.bMA.containsKey(Integer.valueOf(i))) {
+            this.bMA.put(Integer.valueOf(i), cls);
         }
     }
 
     public PbRecBaseViewHolder j(Context context, int i) {
         View inflate;
-        if (context == null || !this.bMB.containsKey(Integer.valueOf(i))) {
+        if (context == null || !this.bMA.containsKey(Integer.valueOf(i))) {
             return null;
         }
         switch (i) {
@@ -45,7 +45,7 @@ public class a {
                 break;
         }
         try {
-            return this.bMB.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
+            return this.bMA.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

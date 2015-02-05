@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,13 +20,13 @@ public class ap implements View.OnClickListener {
         ch chVar;
         TbEditorToolButtonContainer tbEditorToolButtonContainer;
         EditorToolComponetContainer editorToolComponetContainer;
-        textView = this.cgS.bPM;
+        textView = this.cgR.bPL;
         textView.setSelected(true);
-        chVar = this.cgS.bPN;
-        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(chVar, view, 0, com.baidu.adp.lib.util.l.dip2px(this.cgS.getPageContext().getPageActivity(), 1.0f));
-        tbEditorToolButtonContainer = this.cgS.cgA;
-        tbEditorToolButtonContainer.afw();
-        editorToolComponetContainer = this.cgS.bWk;
+        chVar = this.cgR.bPM;
+        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(chVar, view, 0, com.baidu.adp.lib.util.l.dip2px(this.cgR.getPageContext().getPageActivity(), 1.0f));
+        tbEditorToolButtonContainer = this.cgR.cgz;
+        tbEditorToolButtonContainer.afr();
+        editorToolComponetContainer = this.cgR.bWj;
         editorToolComponetContainer.hideAll();
     }
 }

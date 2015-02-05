@@ -3,27 +3,27 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.view.View;
 /* loaded from: classes.dex */
 public class k {
-    private EditorInfoContainer bVq;
+    private EditorInfoContainer bVp;
 
     public k(EditorInfoContainer editorInfoContainer) {
-        this.bVq = editorInfoContainer;
+        this.bVp = editorInfoContainer;
     }
 
-    public void wu() {
-        if (this.bVq != null) {
-            this.bVq.wu();
+    public void wo() {
+        if (this.bVp != null) {
+            this.bVp.wo();
         }
     }
 
     public void H(View.OnClickListener onClickListener) {
-        if (this.bVq != null && this.bVq.bVk != null) {
-            this.bVq.bVk.setOnClickListener(onClickListener);
+        if (this.bVp != null && this.bVp.bVj != null) {
+            this.bVp.bVj.setOnClickListener(onClickListener);
         }
     }
 
     public void B(int i, String str) {
-        if (this.bVq != null && this.bVq.bVk != null) {
-            this.bVq.bVk.C(i, str);
+        if (this.bVp != null && this.bVp.bVj != null) {
+            this.bVp.bVj.C(i, str);
         }
     }
 
@@ -32,15 +32,15 @@ public class k {
     }
 
     public int getLocationInfoViewState() {
-        if (this.bVq == null || this.bVq.bVk == null) {
+        if (this.bVp == null || this.bVp.bVj == null) {
             return 0;
         }
-        return this.bVq.bVk.getState();
+        return this.bVp.bVj.getState();
     }
 
     public void destroy() {
-        if (this.bVq != null) {
-            this.bVq.setVisibility(8);
+        if (this.bVp != null) {
+            this.bVp.setVisibility(8);
         }
     }
 }

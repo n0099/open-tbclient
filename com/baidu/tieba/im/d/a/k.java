@@ -4,6 +4,6 @@ import com.baidu.tieba.im.settingcache.h;
 /* loaded from: classes.dex */
 public class k extends b {
     public k() {
-        super(h.Tt(), 2001154);
+        super(h.To(), 2001154);
     }
 }

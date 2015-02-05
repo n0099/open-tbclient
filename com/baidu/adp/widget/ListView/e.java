@@ -9,86 +9,86 @@ import android.widget.LinearLayout;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class e extends j {
-    private h wA;
-    protected AnimationDrawable wB;
-    private View ww;
-    protected LinearLayout wx;
-    protected ImageView wy;
-    private g wz;
+    private View wt;
+    protected LinearLayout wu;
+    protected ImageView wv;
+    private g ww;
+    private h wx;
+    protected AnimationDrawable wy;
 
     public e(Context context) {
         super(context);
+        this.wt = null;
+        this.wu = null;
+        this.wv = null;
         this.ww = null;
         this.wx = null;
-        this.wy = null;
-        this.wz = null;
-        this.wA = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.j
-    public View jy() {
+    public View jr() {
         Context context = getContext();
-        this.ww = com.baidu.adp.lib.g.b.ei().inflate(getContext(), R.layout.pull_simple_view, null);
-        this.wx = (LinearLayout) this.ww.findViewById(R.id.pull_root);
-        this.wy = (ImageView) this.ww.findViewById(R.id.pull_image);
-        this.wB = new AnimationDrawable();
+        this.wt = com.baidu.adp.lib.g.b.ei().inflate(getContext(), R.layout.pull_simple_view, null);
+        this.wu = (LinearLayout) this.wt.findViewById(R.id.pull_root);
+        this.wv = (ImageView) this.wt.findViewById(R.id.pull_image);
+        this.wy = new AnimationDrawable();
         Drawable drawable = context.getResources().getDrawable(R.drawable.listview_pull_refresh02);
         if (drawable != null) {
-            this.wB.addFrame(drawable, 100);
+            this.wy.addFrame(drawable, 100);
         }
         Drawable drawable2 = context.getResources().getDrawable(R.drawable.listview_pull_refresh01);
         if (drawable2 != null) {
-            this.wB.addFrame(drawable2, 100);
+            this.wy.addFrame(drawable2, 100);
         }
-        this.wB.setOneShot(false);
-        this.wy.setBackgroundDrawable(this.wB);
-        return this.ww;
+        this.wy.setOneShot(false);
+        this.wv.setBackgroundDrawable(this.wy);
+        return this.wt;
     }
 
     @Override // com.baidu.adp.widget.ListView.j
-    public void jz() {
-        this.wB.stop();
-        this.wy.setBackgroundDrawable(this.wB.getFrame(0));
+    public void js() {
+        this.wy.stop();
+        this.wv.setBackgroundDrawable(this.wy.getFrame(0));
     }
 
     @Override // com.baidu.adp.widget.ListView.j
     public void Q(boolean z) {
-        this.wB.stop();
-        this.wy.setBackgroundDrawable(this.wB.getFrame(0));
+        this.wy.stop();
+        this.wv.setBackgroundDrawable(this.wy.getFrame(0));
     }
 
     @Override // com.baidu.adp.widget.ListView.j
-    public void jA() {
-        this.wB.stop();
-        this.wy.setBackgroundDrawable(this.wB);
-        this.wy.post(new f(this));
+    public void jt() {
+        this.wy.stop();
+        this.wv.setBackgroundDrawable(this.wy);
+        this.wv.post(new f(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.j
     public void R(boolean z) {
-        this.wB.stop();
+        this.wy.stop();
     }
 
     @Override // com.baidu.adp.widget.ListView.j
     public void S(boolean z) {
-        if (this.wz != null) {
-            this.wz.onListPullRefresh(z);
+        if (this.ww != null) {
+            this.ww.onListPullRefresh(z);
         }
-        if (this.wA != null) {
-            this.wA.a(this.ww, z);
+        if (this.wx != null) {
+            this.wx.a(this.wt, z);
         }
     }
 
     public void a(g gVar) {
-        this.wz = gVar;
+        this.ww = gVar;
     }
 
     public void a(h hVar) {
-        this.wA = hVar;
+        this.wx = hVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.j
-    public int jB() {
+    public int ju() {
         return 0;
     }
 }

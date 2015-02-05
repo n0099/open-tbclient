@@ -5,11 +5,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements b {
-    final /* synthetic */ c bhS;
+    final /* synthetic */ c bhR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(c cVar) {
-        this.bhS = cVar;
+        this.bhR = cVar;
     }
 
     @Override // com.baidu.tieba.im.memorycache.b

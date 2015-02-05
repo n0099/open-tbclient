@@ -13,7 +13,7 @@ public class y implements CustomMessageTask.CustomRunnable<Integer> {
         if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
             int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
             if (intValue == 2) {
-                MainTabActivity.ccE = true;
+                MainTabActivity.ccD = true;
             }
             return new NewMsgArriveResponsedMessage(intValue);
         }

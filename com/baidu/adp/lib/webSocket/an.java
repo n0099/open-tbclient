@@ -34,8 +34,8 @@ public class an extends Thread {
         this.ql = handler;
         this.pA = gVar;
         this.pI = amVar;
-        this.qm = ByteBuffer.allocateDirect(amVar.gl() + 14);
-        this.qn = new e(amVar.gm());
+        this.qm = ByteBuffer.allocateDirect(amVar.gm() + 14);
+        this.qn = new e();
         this.qr = null;
         this.mState = 1;
     }
@@ -47,7 +47,7 @@ public class an extends Thread {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [215=8] */
-    private boolean gs() {
+    private boolean gt() {
         String str;
         int i;
         int i2;
@@ -119,7 +119,7 @@ public class an extends Thread {
                         }
                         i3 = 10;
                     }
-                    if (j > this.pI.gl()) {
+                    if (j > this.pI.gm()) {
                         throw new WebSocketException("frame payload too large");
                     }
                     this.qr = new ao(null);
@@ -158,22 +158,22 @@ public class an extends Thread {
                 if (!this.qp) {
                     this.qp = true;
                     this.qq = this.qr.qt;
-                    if (this.qq == 1 && this.pI.gp()) {
+                    if (this.qq == 1 && this.pI.gq()) {
                         this.qs.reset();
                     }
                 }
                 if (bArr != null) {
-                    if (this.qn.size() + bArr.length > this.pI.gm()) {
+                    if (this.qn.size() + bArr.length > this.pI.gn()) {
                         throw new WebSocketException("message payload too large");
                     }
-                    if (this.qq == 1 && this.pI.gp() && !this.qs.q(bArr)) {
+                    if (this.qq == 1 && this.pI.gq() && !this.qs.q(bArr)) {
                         throw new WebSocketException("invalid UTF-8 in text message payload");
                     }
                     this.qn.write(bArr);
                 }
                 if (this.qr.qu) {
                     if (this.qq == 1) {
-                        if (this.pI.gp() && !this.qs.isValid()) {
+                        if (this.pI.gq() && !this.qs.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
                         if (this.pI.gk()) {
@@ -254,7 +254,7 @@ public class an extends Thread {
         p(new t(bArr));
     }
 
-    private boolean gt() {
+    private boolean gu() {
         boolean z;
         boolean z2;
         for (int position = this.qm.position() - 4; position >= 0; position--) {
@@ -262,9 +262,9 @@ public class an extends Thread {
                 int position2 = this.qm.position();
                 Map<String, String> map = null;
                 if (this.qm.get(0) == 72 && this.qm.get(1) == 84 && this.qm.get(2) == 84 && this.qm.get(3) == 80) {
-                    Pair<Integer, String> gu = gu();
-                    if (((Integer) gu.first).intValue() >= 300) {
-                        p(new ai(((Integer) gu.first).intValue(), (String) gu.second));
+                    Pair<Integer, String> gv = gv();
+                    if (((Integer) gv.first).intValue() >= 300) {
+                        p(new ai(((Integer) gv.first).intValue(), (String) gv.second));
                         z = true;
                     } else {
                         z = false;
@@ -311,7 +311,7 @@ public class an extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> gu() {
+    private Pair<Integer, String> gv() {
         int i = 4;
         while (i < this.qm.position() && this.qm.get(i) != 32) {
             i++;
@@ -337,12 +337,12 @@ public class an extends Thread {
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean gv() {
+    private boolean gw() {
         if (this.mState == 3 || this.mState == 2) {
-            return gs();
+            return gt();
         }
         if (this.mState == 1) {
-            return gt();
+            return gu();
         }
         if (this.mState == 0) {
         }
@@ -373,7 +373,7 @@ public class an extends Thread {
                     }
                     if (read > 0) {
                         do {
-                        } while (gv());
+                        } while (gw());
                     } else if (read < 0) {
                         p(new w(new SocketException("len < 0")));
                         this.mStopped = true;

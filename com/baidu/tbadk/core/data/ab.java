@@ -5,11 +5,11 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class ab {
-    private String Fi;
+    private String Ff;
     private String summary;
 
-    public String nU() {
-        return this.Fi;
+    public String nN() {
+        return this.Ff;
     }
 
     public String getSummary() {
@@ -18,7 +18,7 @@ public class ab {
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.Fi = topNews.news_link;
+            this.Ff = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
@@ -26,7 +26,7 @@ public class ab {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Fi = jSONObject.optString("news_link");
+                this.Ff = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

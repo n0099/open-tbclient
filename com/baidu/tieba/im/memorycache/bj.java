@@ -17,7 +17,7 @@ public class bj implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.QO().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        c.QJ().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
         }
@@ -28,7 +28,7 @@ public class bj implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
         if (list != null && list.size() != 0) {
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
-                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.ga(commonMsgPojo.getContent());
+                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.fX(commonMsgPojo.getContent());
                 }
             }
         }

@@ -5,5 +5,5 @@ public interface b {
 
     void onPrimary();
 
-    c yH();
+    c yB();
 }

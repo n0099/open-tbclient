@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
 class ck implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ PersonalChatActivity aSN;
+    final /* synthetic */ PersonalChatActivity aSM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(PersonalChatActivity personalChatActivity) {
-        this.aSN = personalChatActivity;
+        this.aSM = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -13,9 +13,9 @@ class ck implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         if (bool != null) {
             if (bool.booleanValue()) {
-                this.aSN.mListView.closeNotNotify();
+                this.aSM.mListView.closeNotNotify();
             } else {
-                this.aSN.mListView.showNotNotfiy();
+                this.aSM.mListView.showNotNotfiy();
             }
         }
     }

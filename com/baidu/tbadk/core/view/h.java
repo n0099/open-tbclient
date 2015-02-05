@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.data.MediaData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ CommonImageLayout Mp;
-    private final /* synthetic */ MediaData Mq;
+    final /* synthetic */ CommonImageLayout Mm;
+    private final /* synthetic */ MediaData Mn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(CommonImageLayout commonImageLayout, MediaData mediaData) {
-        this.Mp = commonImageLayout;
-        this.Mq = mediaData;
+        this.Mm = commonImageLayout;
+        this.Mn = mediaData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        context = this.Mp.mContext;
-        com.baidu.tbadk.browser.a.x(context, this.Mq.getVideoUrl());
+        context = this.Mm.mContext;
+        com.baidu.tbadk.browser.a.x(context, this.Mn.getVideoUrl());
     }
 }

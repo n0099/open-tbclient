@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.q;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class l extends MediaPlayer implements i {
-    private static Object Pa = new Object();
-    private static l Pb = null;
-    private boolean Pc = false;
-    private boolean Pd = true;
-    private int Pe = -1;
+    private static Object OX = new Object();
+    private static l OY = null;
+    private boolean OZ = false;
+    private boolean Pa = true;
+    private int Pb = -1;
 
     private l() {
     }
 
-    public static l ri() {
-        if (Pb == null) {
-            synchronized (Pa) {
-                if (Pb == null) {
-                    Pb = new l();
+    public static l rc() {
+        if (OY == null) {
+            synchronized (OX) {
+                if (OY == null) {
+                    OY = new l();
                 }
             }
         }
-        return Pb;
+        return OY;
     }
 
     public void setStreamType(int i) {
@@ -30,10 +30,10 @@ public class l extends MediaPlayer implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean db(String str) {
-        this.Pe = -1;
-        if (!this.Pc) {
-            this.Pd = true;
+    public boolean cY(String str) {
+        this.Pb = -1;
+        if (!this.OZ) {
+            this.Pa = true;
             reset();
             try {
                 setDataSource(str);
@@ -42,53 +42,53 @@ public class l extends MediaPlayer implements i {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.Pe = 2;
+                    this.Pb = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.Pe = 1;
+                    this.Pb = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.Pe = 2;
+                this.Pb = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.Pe = 0;
+                this.Pb = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.Pe = 1;
+                this.Pb = 1;
                 return false;
             }
         }
-        this.Pc = true;
+        this.OZ = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void re() {
+    public void qY() {
         start();
-        this.Pd = false;
+        this.Pa = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qY() {
-        if (!this.Pd) {
+    public void qS() {
+        if (!this.Pa) {
             stop();
-            this.Pd = true;
-            this.Pc = false;
+            this.Pa = true;
+            this.OZ = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void rf() {
+    public void qZ() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void rg() {
+    public void ra() {
         reset();
-        this.Pc = false;
-        this.Pd = true;
-        this.Pe = -1;
+        this.OZ = false;
+        this.Pa = true;
+        this.Pb = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
@@ -97,8 +97,8 @@ public class l extends MediaPlayer implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean rh() {
-        return this.Pc;
+    public boolean rb() {
+        return this.OZ;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
@@ -115,6 +115,6 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public int getErrorNo() {
-        return this.Pe;
+        return this.Pb;
     }
 }

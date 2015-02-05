@@ -14,11 +14,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AccountActivity amI;
+    final /* synthetic */ AccountActivity amF;
     private AccountData mAccount;
 
     public k(AccountActivity accountActivity, AccountData accountData) {
-        this.amI = accountActivity;
+        this.amF = accountActivity;
         this.mAccount = null;
         this.mAccount = accountData;
     }
@@ -71,14 +71,14 @@ public class k extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.amI.getBaseContext());
+        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.amF.getBaseContext());
         if (this.mAccount != null) {
-            new l(this.amI, this.mAccount.getBDUSS()).start();
+            new l(this.amF, this.mAccount.getBDUSS()).start();
         }
-        this.amI.closeLoadingDialog();
+        this.amF.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         TbadkCoreApplication.m255getInst().onUserChanged();
-        com.baidu.tbadk.core.b.b.a(this.amI.getPageContext().getPageActivity(), 1, false);
-        this.amI.amG = null;
+        com.baidu.tbadk.core.b.b.a(this.amF.getPageContext().getPageActivity(), 1, false);
+        this.amF.amD = null;
     }
 }

@@ -20,10 +20,10 @@ public class aw extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         byte[] bArr;
         byte[] bArr2;
-        bArr = ao.amm;
+        bArr = ao.amj;
         synchronized (bArr) {
-            ao.amn = Boolean.valueOf(UtilHelper.isARM());
-            bArr2 = ao.amm;
+            ao.amk = Boolean.valueOf(UtilHelper.isARM());
+            bArr2 = ao.amj;
             bArr2.notifyAll();
         }
         return null;

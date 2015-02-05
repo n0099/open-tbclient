@@ -14,7 +14,7 @@ class aw extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            LivePlayingStatusMgr.tP().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+            LivePlayingStatusMgr.tJ().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
         }
     }
 }

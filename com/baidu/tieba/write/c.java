@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements TextWatcher {
-    final /* synthetic */ AtListActivity cfy;
+    final /* synthetic */ AtListActivity cfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
+        this.cfx = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -25,28 +25,28 @@ public class c implements TextWatcher {
         Runnable runnable2;
         String a = com.baidu.adp.lib.util.k.a(editable, null);
         if (a != null) {
-            str = this.cfy.cfs;
+            str = this.cfx.cfr;
             if (!a.equals(str)) {
-                handler = this.cfy.mHandler;
-                runnable = this.cfy.cfx;
+                handler = this.cfx.mHandler;
+                runnable = this.cfx.cfw;
                 handler.removeCallbacks(runnable);
-                handler2 = this.cfy.mHandler;
-                runnable2 = this.cfy.cfx;
+                handler2 = this.cfx.mHandler;
+                runnable2 = this.cfx.cfw;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                textView2 = this.cfy.cfm;
+                textView2 = this.cfx.cfl;
                 textView2.setVisibility(0);
                 return;
             }
-            textView = this.cfy.cfm;
+            textView = this.cfx.cfl;
             textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.cfy.cfs = com.baidu.adp.lib.util.k.a(charSequence, null);
+        this.cfx.cfr = com.baidu.adp.lib.util.k.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher
