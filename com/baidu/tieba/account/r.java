@@ -1,51 +1,41 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes.dex */
-class r implements TextWatcher {
-    final /* synthetic */ ActivationActivity ann;
+class r extends BdAsyncTask<Void, Void, AccountData> {
+    final /* synthetic */ q auN;
+    private final /* synthetic */ String auO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(ActivationActivity activationActivity) {
-        this.ann = activationActivity;
+    public r(q qVar, String str) {
+        this.auN = qVar;
+        this.auO = str;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        RelativeLayout relativeLayout;
-        int i;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i2;
-        int i3;
-        RelativeLayout relativeLayout2;
-        if (editable.length() == 6) {
-            relativeLayout2 = this.ann.amZ;
-            relativeLayout2.setEnabled(true);
-        } else {
-            relativeLayout = this.ann.amZ;
-            relativeLayout.setEnabled(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public AccountData doInBackground(Void... voidArr) {
+        return com.baidu.tbadk.core.a.d.bQ(this.auO);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: m */
+    public void onPostExecute(AccountData accountData) {
+        p pVar;
+        com.baidu.tieba.a.b bVar;
+        super.onPostExecute(accountData);
+        if (accountData != null && !bd.isEmpty(accountData.getPassword())) {
+            String account = accountData.getAccount();
+            String password = accountData.getPassword();
+            pVar = this.auN.auM;
+            bVar = pVar.auL;
+            com.baidu.tieba.a.a.a(account, password, bVar);
         }
-        i = this.ann.ank;
-        if (i != 0) {
-            this.ann.ank = 0;
-            linearLayout = this.ann.amT;
-            linearLayout.setBackgroundResource(com.baidu.tieba.v.pass_input);
-            linearLayout2 = this.ann.amT;
-            i2 = this.ann.ani;
-            i3 = this.ann.anj;
-            linearLayout2.setPadding(i2, 0, i3, 0);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

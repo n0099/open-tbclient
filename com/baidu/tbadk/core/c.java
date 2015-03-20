@@ -23,103 +23,103 @@ import java.util.Map;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class c {
-    private boolean Ct = false;
-    Map<String, b> Cu = new HashMap();
-    private Resources Cv;
-    private Resources Cw;
+    private boolean Od = false;
+    Map<String, b> Oe = new HashMap();
+    private Resources Of;
+    private Resources Og;
 
     public void a(String str, Context context, AttributeSet attributeSet) {
-        int[] bH;
+        int[] bM;
         int i;
         boolean z = false;
         try {
-            this.Cv = context.getResources();
-            this.Cw = this.Cv;
+            this.Of = context.getResources();
+            this.Og = this.Of;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.bG(str);
+            bVar.bL(str);
             for (int i2 = 0; i2 < attributeCount; i2++) {
                 String attributeName = attributeSet.getAttributeName(i2);
                 String attributeValue = attributeSet.getAttributeValue(i2);
                 if (attributeName.equals("id")) {
                     bVar.setId(attributeValue);
                 } else if (attributeName.equals("tb_background")) {
-                    int[] bH2 = bH(attributeValue);
-                    if (bH2 != null) {
-                        bVar.aX(bH2[0]);
-                        bVar.aY(bH2[1]);
+                    int[] bM2 = bM(attributeValue);
+                    if (bM2 != null) {
+                        bVar.aV(bM2[0]);
+                        bVar.aW(bM2[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_src")) {
-                    int[] bH3 = bH(attributeValue);
-                    if (bH3 != null) {
-                        bVar.bd(bH3[0]);
-                        bVar.be(bH3[1]);
+                    int[] bM3 = bM(attributeValue);
+                    if (bM3 != null) {
+                        bVar.bb(bM3[0]);
+                        bVar.bc(bM3[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_textColor")) {
-                    int[] bH4 = bH(attributeValue);
-                    if (bH4 != null) {
-                        bVar.bb(bH4[0]);
-                        bVar.bc(bH4[1]);
+                    int[] bM4 = bM(attributeValue);
+                    if (bM4 != null) {
+                        bVar.aZ(bM4[0]);
+                        bVar.ba(bM4[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_style")) {
-                    int[] bH5 = bH(attributeValue);
-                    if (bH5 != null) {
-                        bVar.bg(bH5[0]);
-                        bVar.bf(bH5[1]);
+                    int[] bM5 = bM(attributeValue);
+                    if (bM5 != null) {
+                        bVar.be(bM5[0]);
+                        bVar.bd(bM5[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_divider")) {
-                    int[] bH6 = bH(attributeValue);
-                    if (bH6 != null) {
-                        bVar.aT(bH6[0]);
-                        bVar.aU(bH6[1]);
+                    int[] bM6 = bM(attributeValue);
+                    if (bM6 != null) {
+                        bVar.aR(bM6[0]);
+                        bVar.aS(bM6[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableTop")) {
-                    int[] bH7 = bH(attributeValue);
-                    if (bH7 != null) {
-                        bVar.aR(bH7[0]);
-                        bVar.aS(bH7[1]);
+                    int[] bM7 = bM(attributeValue);
+                    if (bM7 != null) {
+                        bVar.aP(bM7[0]);
+                        bVar.aQ(bM7[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableLeft")) {
-                    int[] bH8 = bH(attributeValue);
-                    if (bH8 != null) {
-                        bVar.aP(bH8[0]);
-                        bVar.aQ(bH8[1]);
+                    int[] bM8 = bM(attributeValue);
+                    if (bM8 != null) {
+                        bVar.aN(bM8[0]);
+                        bVar.aO(bM8[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableRight")) {
-                    int[] bH9 = bH(attributeValue);
-                    if (bH9 != null) {
-                        bVar.aV(bH9[0]);
-                        bVar.aW(bH9[1]);
+                    int[] bM9 = bM(attributeValue);
+                    if (bM9 != null) {
+                        bVar.aT(bM9[0]);
+                        bVar.aU(bM9[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_progressDrawable")) {
-                    int[] bH10 = bH(attributeValue);
-                    if (bH10 != null) {
-                        bVar.bh(bH10[0]);
-                        bVar.bi(bH10[1]);
+                    int[] bM10 = bM(attributeValue);
+                    if (bM10 != null) {
+                        bVar.bf(bM10[0]);
+                        bVar.bg(bM10[1]);
                         z = true;
                     }
-                } else if (attributeName.equals("tb_textColorHint") && (bH = bH(attributeValue)) != null) {
-                    bVar.aZ(bH[0]);
-                    bVar.ba(bH[1]);
+                } else if (attributeName.equals("tb_textColorHint") && (bM = bM(attributeValue)) != null) {
+                    bVar.aX(bM[0]);
+                    bVar.aY(bM[1]);
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (i = com.baidu.adp.lib.g.c.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bVar.bF(String.valueOf(attributeName) + "=" + this.Cv.getResourceName(i));
+                    bVar.bK(String.valueOf(attributeName) + "=" + this.Of.getResourceName(i));
                 }
             }
             if (z) {
-                if (!TextUtils.isEmpty(bVar.getId()) && this.Cu != null && !this.Cu.containsKey(bVar.getId())) {
-                    this.Cu.put(bVar.getId(), bVar);
+                if (!TextUtils.isEmpty(bVar.getId()) && this.Oe != null && !this.Oe.containsKey(bVar.getId())) {
+                    this.Oe.put(bVar.getId(), bVar);
                 } else if (!TextUtils.isEmpty(bVar.getId())) {
-                    this.Cu.containsKey(bVar.getId());
+                    this.Oe.containsKey(bVar.getId());
                 }
             }
         } catch (Resources.NotFoundException e) {
@@ -128,10 +128,10 @@ public class c {
         }
     }
 
-    private final int[] bH(String str) {
+    private final int[] bM(String str) {
         int parseInt;
         if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-            return new int[]{parseInt, a(this.Cv, this.Cw, parseInt)};
+            return new int[]{parseInt, a(this.Of, this.Og, parseInt)};
         }
         return null;
     }
@@ -156,7 +156,7 @@ public class c {
             while (!stack.isEmpty()) {
                 View view2 = (View) stack.pop();
                 if (view2 instanceof ViewGroup) {
-                    b((ViewGroup) view2);
+                    c((ViewGroup) view2);
                     if (!(view2 instanceof AdapterView)) {
                         int childCount = ((ViewGroup) view2).getChildCount();
                         for (int i = 0; i < childCount; i++) {
@@ -170,15 +170,15 @@ public class c {
         }
     }
 
-    private void b(ViewGroup viewGroup) {
+    private void c(ViewGroup viewGroup) {
         String str = "@" + viewGroup.getId();
-        if (this.Cu != null && this.Cu.containsKey(str)) {
-            b bVar = this.Cu.get(str);
+        if (this.Oe != null && this.Oe.containsKey(str)) {
+            b bVar = this.Oe.get(str);
             if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.lD() != 0) {
+                if ((viewGroup instanceof ListView) && bVar.pf() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(b(this.Ct, bVar.lC(), bVar.lD()));
+                    listView.setDivider(b(this.Od, bVar.pe(), bVar.pf()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -186,16 +186,16 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.lH() != 0) {
+            if (bVar.pj() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.Cv.getResourceTypeName(bVar.lG());
+                String resourceTypeName = this.Of.getResourceTypeName(bVar.pi());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(c(this.Ct, bVar.lG(), bVar.lH()));
+                    viewGroup.setBackgroundColor(c(this.Od, bVar.pi(), bVar.pj()));
                 } else {
-                    viewGroup.setBackgroundDrawable(b(this.Ct, bVar.lG(), bVar.lH()));
+                    viewGroup.setBackgroundDrawable(b(this.Od, bVar.pi(), bVar.pj()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -207,48 +207,48 @@ public class c {
         Drawable b2;
         Drawable b3;
         String str = "@" + view.getId();
-        if (this.Cu != null && this.Cu.containsKey(str)) {
-            b bVar = this.Cu.get(str);
+        if (this.Oe != null && this.Oe.containsKey(str)) {
+            b bVar = this.Oe.get(str);
             if (view instanceof TextView) {
-                if (bVar.lL() != 0) {
-                    ((TextView) view).setTextColor(d(this.Ct, bVar.lK(), bVar.lL()));
+                if (bVar.pn() != 0) {
+                    ((TextView) view).setTextColor(d(this.Od, bVar.pm(), bVar.pn()));
                 }
-                if (bVar.lJ() != 0) {
-                    ((TextView) view).setHintTextColor(d(this.Ct, bVar.lI(), bVar.lJ()));
+                if (bVar.pl() != 0) {
+                    ((TextView) view).setHintTextColor(d(this.Od, bVar.pk(), bVar.pl()));
                 }
-                if (bVar.lO() != 0) {
-                    ((TextView) view).setTextAppearance(view.getContext(), this.Ct ? bVar.lO() : bVar.lP());
+                if (bVar.pq() != 0) {
+                    ((TextView) view).setTextAppearance(view.getContext(), this.Od ? bVar.pq() : bVar.pr());
                 }
-                if (bVar.lB() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.Ct, bVar.lA(), bVar.lB()), (Drawable) null, (Drawable) null);
+                if (bVar.pd() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.Od, bVar.pc(), bVar.pd()), (Drawable) null, (Drawable) null);
                 }
-                if (bVar.lz() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.Ct, bVar.ly(), bVar.lz()), (Drawable) null, (Drawable) null, (Drawable) null);
+                if (bVar.pb() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.Od, bVar.pa(), bVar.pb()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                if (bVar.lF() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.Ct, bVar.lE(), bVar.lF()), (Drawable) null);
+                if (bVar.ph() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.Od, bVar.pg(), bVar.ph()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.lM() != 0 && (b3 = b(this.Ct, bVar.lN(), bVar.lM())) != null) {
+                if (bVar.po() != 0 && (b3 = b(this.Od, bVar.pp(), bVar.po())) != null) {
                     ((ImageView) view).setImageDrawable(b3);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.lM() != 0 && (b2 = b(this.Ct, bVar.lN(), bVar.lM())) != null) {
+                if (bVar.po() != 0 && (b2 = b(this.Od, bVar.pp(), bVar.po())) != null) {
                     ((ImageView) view).setImageDrawable(b2);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.lR() != 0 && (b = b(this.Ct, bVar.lQ(), bVar.lR())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.pt() != 0 && (b = b(this.Od, bVar.ps(), bVar.pt())) != null) {
                 ((ProgressBar) view).setProgressDrawable(b);
             }
-            if (bVar.lH() != 0) {
+            if (bVar.pj() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.Cv.getResourceTypeName(bVar.lG());
+                String resourceTypeName = this.Of.getResourceTypeName(bVar.pi());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(c(this.Ct, bVar.lG(), bVar.lH()));
+                    view.setBackgroundColor(c(this.Od, bVar.pi(), bVar.pj()));
                 } else {
-                    view.setBackgroundDrawable(b(this.Ct, bVar.lG(), bVar.lH()));
+                    view.setBackgroundDrawable(b(this.Od, bVar.pi(), bVar.pj()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -257,70 +257,70 @@ public class c {
 
     private Drawable b(boolean z, int i, int i2) {
         if (!z) {
-            return this.Cv.getDrawable(i);
+            return this.Of.getDrawable(i);
         }
         if (i == i2) {
-            this.Cw = this.Cv;
-            i2 = a(this.Cv, this.Cw, i);
+            this.Og = this.Of;
+            i2 = a(this.Of, this.Og, i);
         }
-        if (this.Cw == null) {
-            return this.Cv.getDrawable(i);
+        if (this.Og == null) {
+            return this.Of.getDrawable(i);
         }
         try {
-            return this.Cw.getDrawable(i2);
+            return this.Og.getDrawable(i2);
         } catch (Resources.NotFoundException e) {
-            return this.Cv.getDrawable(i);
+            return this.Of.getDrawable(i);
         }
     }
 
     private int c(boolean z, int i, int i2) {
         if (!z) {
-            return this.Cv.getColor(i);
+            return this.Of.getColor(i);
         }
         if (i == i2) {
-            this.Cw = this.Cv;
-            i2 = a(this.Cv, this.Cw, i);
+            this.Og = this.Of;
+            i2 = a(this.Of, this.Og, i);
         }
-        if (this.Cw == null) {
-            return this.Cv.getColor(i);
+        if (this.Og == null) {
+            return this.Of.getColor(i);
         }
         try {
-            return this.Cw.getColor(i2);
+            return this.Og.getColor(i2);
         } catch (Resources.NotFoundException e) {
-            return this.Cv.getColor(i);
+            return this.Of.getColor(i);
         }
     }
 
     private ColorStateList d(boolean z, int i, int i2) {
         if (!z) {
-            return this.Cv.getColorStateList(i);
+            return this.Of.getColorStateList(i);
         }
         if (i == i2) {
-            this.Cw = this.Cv;
-            i2 = a(this.Cv, this.Cw, i);
+            this.Og = this.Of;
+            i2 = a(this.Of, this.Og, i);
         }
-        if (this.Cw == null) {
-            return this.Cv.getColorStateList(i);
+        if (this.Og == null) {
+            return this.Of.getColorStateList(i);
         }
         try {
-            return this.Cw.getColorStateList(i2);
+            return this.Og.getColorStateList(i2);
         } catch (Resources.NotFoundException e) {
-            return this.Cv.getColorStateList(i);
+            return this.Of.getColorStateList(i);
         }
     }
 
-    public void ab(boolean z) {
-        this.Ct = z;
+    public void X(boolean z) {
+        this.Od = z;
     }
 
     public void a(Resources resources) {
-        this.Cw = resources;
+        this.Og = resources;
     }
 
     public void destroy() {
-        if (this.Cu != null) {
-            this.Cu.clear();
-            this.Cu = null;
+        if (this.Oe != null) {
+            this.Oe.clear();
+            this.Oe = null;
         }
     }
 }

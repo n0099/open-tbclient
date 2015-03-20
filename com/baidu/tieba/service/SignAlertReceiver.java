@@ -6,11 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -26,15 +25,15 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(z.sign_notification_content);
-                NotificationHelper.showNotification(context, 12, context.getString(z.app_name), string, string, service, false);
+                String string = context.getString(y.sign_notification_content);
+                NotificationHelper.showNotification(context, 12, context.getString(y.app_name), string, string, service, false);
             } catch (Throwable th) {
                 try {
                     if (BdLog.isDebugMode()) {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    TbadkCoreApplication.m255getInst().updateSignAlarm();
+                    com.baidu.tbadk.coreExtra.messageCenter.c.vq().updateSignAlarm();
                 }
             }
         }

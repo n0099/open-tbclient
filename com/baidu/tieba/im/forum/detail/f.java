@@ -1,39 +1,36 @@
 package com.baidu.tieba.im.forum.detail;
-
-import com.baidu.tbadk.core.view.ad;
-import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-class f implements ad {
-    final /* synthetic */ ForumDetailActivity baA;
+class f implements com.baidu.tbadk.core.view.y {
+    final /* synthetic */ ForumDetailActivity bcD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ForumDetailActivity forumDetailActivity) {
-        this.baA = forumDetailActivity;
+        this.bcD = forumDetailActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.ad
-    public void at(boolean z) {
+    @Override // com.baidu.tbadk.core.view.y
+    public void an(boolean z) {
         m mVar;
         m mVar2;
         m mVar3;
         m mVar4;
         h hVar;
         String str;
-        if (!this.baA.aKp) {
+        if (!this.bcD.aQr) {
             if (z) {
-                mVar3 = this.baA.baw;
-                mVar3.HW();
-                mVar4 = this.baA.baw;
+                mVar3 = this.bcD.bcy;
+                mVar3.hideNoDataView();
+                mVar4 = this.bcD.bcy;
                 mVar4.showLoading();
-                hVar = this.baA.bax;
-                str = this.baA.mForumId;
-                hVar.gI(str);
+                hVar = this.bcD.bcz;
+                str = this.bcD.mForumId;
+                hVar.gz(str);
                 return;
             }
-            mVar = this.baA.baw;
-            mVar.Ou();
-            mVar2 = this.baA.baw;
-            mVar2.fg(z.game_index_no_network_text);
+            mVar = this.bcD.bcy;
+            mVar.Qj();
+            mVar2 = this.bcD.bcy;
+            mVar2.fg(com.baidu.tieba.y.game_index_no_network_text);
         }
     }
 }

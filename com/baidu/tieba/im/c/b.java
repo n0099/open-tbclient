@@ -11,11 +11,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ah {
-    final /* synthetic */ a boE;
+    final /* synthetic */ a bmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.boE = aVar;
+        this.bmC = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.ah
@@ -23,20 +23,20 @@ public class b implements ah {
         ae aeVar;
         ae aeVar2;
         try {
-            a.Tj().k(chatMessage);
+            a.Tk().l(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
-                    VoiceMsgData u = com.baidu.tieba.im.util.i.u(chatMessage);
-                    if (u != null) {
-                        u.setVoice_md5(str);
-                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(u) + "]");
+                    VoiceMsgData v = com.baidu.tieba.im.util.i.v(chatMessage);
+                    if (v != null) {
+                        v.setVoice_md5(str);
+                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    a.Tj().m(chatMessage);
-                    aeVar = this.boE.mSendCallback;
+                    a.Tk().n(chatMessage);
+                    aeVar = this.bmC.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.boE.mSendCallback;
-                        aeVar2.gB(2);
+                        aeVar2 = this.bmC.mSendCallback;
+                        aeVar2.gm(2);
                         return;
                     }
                     return;
@@ -45,13 +45,13 @@ public class b implements ah {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001221, chatMessage));
                 if (chatMessage instanceof CommonGroupChatMessage) {
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                    com.baidu.tieba.im.i.a(new c(this, commonGroupChatMessage), new d(this, commonGroupChatMessage));
+                    com.baidu.tieba.im.l.a(new c(this, commonGroupChatMessage), new d(this, commonGroupChatMessage));
                 } else if (chatMessage instanceof PersonalChatMessage) {
                     PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
-                    com.baidu.tieba.im.i.a(new e(this, personalChatMessage), new f(this, personalChatMessage));
+                    com.baidu.tieba.im.l.a(new e(this, personalChatMessage), new f(this, personalChatMessage));
                 } else if (chatMessage instanceof OfficialChatMessage) {
                     OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
-                    com.baidu.tieba.im.i.a(new g(this, officialChatMessage), new h(this, officialChatMessage));
+                    com.baidu.tieba.im.l.a(new g(this, officialChatMessage), new h(this, officialChatMessage));
                 }
             }
         } catch (Exception e) {

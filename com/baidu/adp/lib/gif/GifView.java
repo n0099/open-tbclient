@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements a {
-    private static /* synthetic */ int[] jk;
-    private b jd;
-    private Bitmap je;
-    private boolean jf;
-    private d jg;
-    private View jh;
-    private GifImageType ji;
-    private final Handler jj;
+    private static /* synthetic */ int[] uB;
+    private final Handler uA;
+    private b uu;
+    private Bitmap uv;
+    private boolean uw;
+    private d ux;
+    private View uy;
+    private GifImageType uz;
 
-    static /* synthetic */ int[] du() {
-        int[] iArr = jk;
+    static /* synthetic */ int[] gS() {
+        int[] iArr = uB;
         if (iArr == null) {
             iArr = new int[GifImageType.valuesCustom().length];
             try {
@@ -34,24 +34,9 @@ public class GifView extends ImageView implements a {
                 iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError e3) {
             }
-            jk = iArr;
+            uB = iArr;
         }
         return iArr;
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
-    public static /* synthetic */ b a(GifView gifView) {
-        return gifView.jd;
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
-    public static /* synthetic */ void a(GifView gifView, Bitmap bitmap) {
-        gifView.je = bitmap;
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
-    public static /* synthetic */ boolean c(GifView gifView) {
-        return gifView.jf;
     }
 
     /* loaded from: classes.dex */
@@ -62,7 +47,7 @@ public class GifView extends ImageView implements a {
         
         final int nativeInt;
 
-        /* JADX DEBUG: Replace access to removed values field (jm) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (uD) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static GifImageType[] valuesCustom() {
             GifImageType[] valuesCustom = values();
@@ -78,30 +63,30 @@ public class GifView extends ImageView implements a {
     }
 
     private void setGifDecoderImage(byte[] bArr) {
-        if (this.jd == null) {
-            this.jd = new b(this);
+        if (this.uu == null) {
+            this.uu = new b(this);
         }
-        this.jd.setGifImage(bArr);
-        this.jd.start();
+        this.uu.setGifImage(bArr);
+        this.uu.start();
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
-        if (this.jd == null) {
-            this.jd = new b(this);
+        if (this.uu == null) {
+            this.uu = new b(this);
         }
-        this.jd.setGifImage(inputStream);
-        this.jd.start();
+        this.uu.setGifImage(inputStream);
+        this.uu.start();
     }
 
     public void setAsBackground(View view) {
-        this.jh = view;
+        this.uy = view;
     }
 
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         super.onSaveInstanceState();
-        if (this.jd != null) {
-            this.jd.free();
+        if (this.uu != null) {
+            this.uu.free();
             return null;
         }
         return null;
@@ -120,57 +105,57 @@ public class GifView extends ImageView implements a {
     }
 
     public void setGifImageType(GifImageType gifImageType) {
-        if (this.jd == null) {
-            this.ji = gifImageType;
+        if (this.uu == null) {
+            this.uz = gifImageType;
         }
     }
 
     @Override // com.baidu.adp.lib.gif.a
     public void a(boolean z, int i) {
         if (z) {
-            if (this.jd != null) {
-                switch (du()[this.ji.ordinal()]) {
+            if (this.uu != null) {
+                switch (gS()[this.uz.ordinal()]) {
                     case 1:
                         if (i == -1) {
-                            if (this.jd.bI() > 1) {
+                            if (this.uu.fg() > 1) {
                                 new d(this, null).start();
                                 return;
                             } else {
-                                dt();
+                                gR();
                                 return;
                             }
                         }
                         return;
                     case 2:
                         if (i == 1) {
-                            this.je = this.jd.getImage();
-                            dt();
+                            this.uv = this.uu.getImage();
+                            gR();
                             return;
                         } else if (i == -1) {
-                            dt();
+                            gR();
                             return;
-                        } else if (this.jg == null) {
-                            this.jg = new d(this, null);
-                            this.jg.start();
+                        } else if (this.ux == null) {
+                            this.ux = new d(this, null);
+                            this.ux.start();
                             return;
                         } else {
                             return;
                         }
                     case 3:
                         if (i == 1) {
-                            this.je = this.jd.getImage();
-                            dt();
+                            this.uv = this.uu.getImage();
+                            gR();
                             return;
                         } else if (i == -1) {
-                            if (this.jd.bI() > 1) {
-                                if (this.jg == null) {
-                                    this.jg = new d(this, null);
-                                    this.jg.start();
+                            if (this.uu.fg() > 1) {
+                                if (this.ux == null) {
+                                    this.ux = new d(this, null);
+                                    this.ux.start();
                                     return;
                                 }
                                 return;
                             }
-                            dt();
+                            gR();
                             return;
                         } else {
                             return;
@@ -183,19 +168,9 @@ public class GifView extends ImageView implements a {
         }
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
-    public static /* synthetic */ void b(GifView gifView) {
-        gifView.dt();
-    }
-
-    public void dt() {
-        if (this.jj != null) {
-            this.jj.sendMessage(this.jj.obtainMessage());
+    public void gR() {
+        if (this.uA != null) {
+            this.uA.sendMessage(this.uA.obtainMessage());
         }
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.gif.d.run():void] */
-    public static /* synthetic */ Handler d(GifView gifView) {
-        return gifView.jj;
     }
 }

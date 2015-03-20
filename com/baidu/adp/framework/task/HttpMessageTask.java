@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     private e mConnectTimeOut;
+    private a mDownloadTask;
     private boolean mIsImm;
     private HTTP_METHOD mMethod;
     private boolean mNeedGzip;
@@ -17,7 +18,7 @@ public class HttpMessageTask extends MessageTask {
         GET,
         POST;
 
-        /* JADX DEBUG: Replace access to removed values field (fq) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HTTP_METHOD[] valuesCustom() {
             HTTP_METHOD[] valuesCustom = values();
@@ -35,6 +36,7 @@ public class HttpMessageTask extends MessageTask {
         this.mMethod = HTTP_METHOD.POST;
         this.mNeedGzip = true;
         this.mIsImm = false;
+        this.mDownloadTask = null;
         this.mUrl = str;
         this.mPriority = 1;
     }
@@ -67,6 +69,14 @@ public class HttpMessageTask extends MessageTask {
         this.mIsImm = z;
     }
 
+    public a getDownloadTask() {
+        return this.mDownloadTask;
+    }
+
+    public void setDownloadTask(a aVar) {
+        this.mDownloadTask = aVar;
+    }
+
     public Class<? extends HttpResponsedMessage> getResponsedClass() {
         return this.mResponsedClass;
     }
@@ -77,7 +87,7 @@ public class HttpMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.q(this.mCmd);
+        return FrameHelper.r(this.mCmd);
     }
 
     public e getConnectTimeOut() {

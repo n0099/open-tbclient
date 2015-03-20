@@ -10,43 +10,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout Vu;
-    protected TextView Vv;
-    protected TextView Vw;
-    private boolean Vy;
-    protected ImageView Vz;
+    private boolean afA;
+    protected ImageView afB;
+    protected LinearLayout afw;
+    protected TextView afx;
+    protected TextView afy;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Vy = true;
+        this.afA = true;
         this.mContext = context;
-        tS();
+        xj();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.Vy = true;
+        this.afA = true;
         this.mContext = context;
-        tS();
+        xj();
     }
 
-    public void tP() {
-        if (this.Vw != null) {
-            this.Vw.setVisibility(0);
-        }
-    }
-
-    public void tQ() {
-        if (this.Vw != null) {
-            this.Vw.setVisibility(8);
+    public void displayTip() {
+        if (this.afy != null) {
+            this.afy.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.Vw != null) {
-            this.Vw.setTextColor(i);
+        if (this.afy != null) {
+            this.afy.setTextColor(i);
         }
     }
 
@@ -56,62 +50,54 @@ public class TbSettingTextTipView extends FrameLayout {
     public void recycle() {
     }
 
-    public void tR() {
-        this.Vz.setVisibility(8);
+    public void hideArrow() {
+        this.afB.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.Vv.setText(str);
+        this.afx.setText(str);
     }
 
     public void setText(int i) {
-        this.Vv.setText(i);
+        this.afx.setText(i);
     }
 
     public void setTip(String str) {
-        this.Vw.setText(str);
+        this.afy.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.Vw.getText();
+        return this.afy.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.Vw.setBackgroundDrawable(drawable);
+        this.afy.setBackgroundDrawable(drawable);
     }
 
-    protected void tS() {
-        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.tb_setting_text_tip_view, this, true);
-        this.Vu = (LinearLayout) findViewById(com.baidu.tieba.w.container);
-        this.Vv = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.Vw = (TextView) findViewById(com.baidu.tieba.w.tip);
-        this.Vz = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
+    protected void xj() {
+        com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.tb_setting_text_tip_view, this, true);
+        this.afw = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.afx = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.afy = (TextView) findViewById(com.baidu.tieba.v.tip);
+        this.afB = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.ab.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
-        int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(3);
-        int color2 = obtainStyledAttributes.getColor(4, -1);
         if (string != null) {
-            this.Vv.setText(string);
-        }
-        if (color > -1) {
-            this.Vv.setTextColor(color);
+            this.afx.setText(string);
         }
         if (string2 != null) {
-            this.Vw.setText(string2);
+            this.afy.setText(string2);
         }
-        if (color2 > -1) {
-            this.Vw.setTextColor(color2);
-        }
-        this.Vy = obtainStyledAttributes.getBoolean(5, true);
+        this.afA = obtainStyledAttributes.getBoolean(5, true);
         obtainStyledAttributes.recycle();
-        this.Vu.setClickable(false);
-        this.Vu.setFocusable(false);
-        if (!this.Vy) {
-            this.Vz.setVisibility(4);
+        this.afw.setClickable(false);
+        this.afw.setFocusable(false);
+        if (!this.afA) {
+            this.afB.setVisibility(4);
         }
     }
 }

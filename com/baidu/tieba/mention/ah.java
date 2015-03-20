@@ -1,22 +1,28 @@
 package com.baidu.tieba.mention;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class ah implements aa {
-    final /* synthetic */ af bua;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(af afVar) {
-        this.bua = afVar;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.ReplyMe.ReplyMeResIdl;
+/* loaded from: classes.dex */
+public class ah extends u implements com.baidu.tbadk.mvc.b.c {
+    @Override // com.baidu.tbadk.mvc.b.b
+    public boolean A(byte[] bArr) {
+        try {
+            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    @Override // com.baidu.tieba.mention.aa
-    public void a(long j, long j2, long j3) {
-        FeedData feedData;
-        this.bua.mForumId = String.valueOf(j);
-        this.bua.btV = j2;
-        this.bua.btW = j3;
-        af afVar = this.bua;
-        feedData = this.bua.btU;
-        afVar.c(feedData);
+    @Override // com.baidu.tbadk.mvc.b.b
+    public byte[] Aw() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "replyme_cache";
     }
 }

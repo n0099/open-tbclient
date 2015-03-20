@@ -1,119 +1,57 @@
 package com.baidu.tbadk.coreExtra.share;
 
-import android.content.Context;
-import android.net.Uri;
-import android.util.Log;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.z;
+import android.util.Pair;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class g {
-    private static c Ts = null;
-    private static boolean Tt = false;
-    private a Tu;
-    private b Tv;
-    private final Context mContext;
-
-    public g(Context context, a aVar) {
-        this.Tu = null;
-        this.Tv = null;
-        this.mContext = context;
-        if (aVar != null) {
-            this.Tu = aVar;
-        }
-        V(this.mContext);
-        if (Ts != null) {
-            this.Tv = Ts.createWorker(this.mContext, this.Tu);
-        }
-    }
-
-    public static boolean V(Context context) {
-        if (context == null) {
-            return false;
-        }
-        if (!Tt) {
-            try {
-                Ts = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
-            } catch (Exception e) {
-                Log.e("", "Exception in checking ShareCreator", e);
+class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
+        d dVar;
+        d dVar2;
+        d dVar3;
+        d dVar4;
+        d dVar5;
+        d dVar6;
+        d dVar7;
+        if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
+            ShareDialogConfig data = customMessage.getData();
+            ShareStatic.adt = new d(data.getContext());
+            dVar = ShareStatic.adt;
+            dVar.a(data.shareItem, data.showLocation);
+            if (data.mtjStatistics != null) {
+                dVar7 = ShareStatic.adt;
+                dVar7.a(data.mtjStatistics);
             }
-            Tt = true;
-        }
-        return Ts != null;
-    }
-
-    public void a(f fVar) {
-        if (this.Tv != null) {
-            this.Tv.a(a(fVar, "weixin"), 3, false);
-        }
-    }
-
-    public void b(f fVar) {
-        if (this.Tv != null) {
-            fVar.title = fVar.content;
-            this.Tv.a(a(fVar, "weixin_timeline"), 2, false);
-        }
-    }
-
-    public void c(f fVar) {
-        if (this.Tv != null) {
-            fVar.content = e(fVar.content, 80, 32);
-            this.Tv.a(a(fVar, "qzone"), 4, true);
-        }
-    }
-
-    public void d(f fVar) {
-        if (this.Tv != null) {
-            fVar.content = e(fVar.content, 140, 20);
-            this.Tv.a(a(fVar, "tencent_weibo"), 5, true);
-        }
-    }
-
-    public void e(f fVar) {
-        if (this.Tv != null) {
-            fVar.content = e(fVar.content, 140, 20);
-            this.Tv.a(a(fVar, "sina_weibo"), 6, true);
-        }
-    }
-
-    public void f(f fVar) {
-        if (this.Tv != null) {
-            fVar.content = e(fVar.content, 140, 20);
-            this.Tv.a(a(fVar, "renren"), 7, true);
-        }
-    }
-
-    private String e(String str, int i, int i2) {
-        String string = TbadkCoreApplication.m255getInst().getContext().getString(z.share_tail);
-        if (str != null) {
-            int min = Math.min((i - string.length()) - i2, str.length());
-            if (min < str.length()) {
-                return String.valueOf(str.substring(0, min - 1)) + ("..." + string);
+            if (data.isSetCopyLink) {
+                dVar6 = ShareStatic.adt;
+                dVar6.setIsCopyLink(data.isCopyLink);
             }
-            return String.valueOf(str) + string;
-        }
-        return string;
-    }
-
-    private f a(f fVar, String str) {
-        if (fVar.To == null && fVar.getImageData() == null) {
-            String str2 = "http://tb1.bdstatic.com/tb/r/image/2013-10-11/6e28217cc80f804e61251d35ba4c5fbd.jpg";
-            if (str.startsWith("weixin")) {
-                str2 = "http://tb1.bdstatic.com/tb/r/image/2013-10-16/2392e7325ec8c6d2f02c9a39509e4438.png";
+            if (data.copyLinkListener != null) {
+                dVar5 = ShareStatic.adt;
+                dVar5.setCopyLinkListener(data.copyLinkListener);
             }
-            fVar.To = Uri.parse(str2);
+            if (data.textViewList != null && data.textViewList.size() > 0) {
+                Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
+                while (it.hasNext()) {
+                    Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
+                    dVar3 = ShareStatic.adt;
+                    TextView u = dVar3.u(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                    dVar4 = ShareStatic.adt;
+                    dVar4.a(u);
+                    if (((Pair) next.second).second != null) {
+                        u.setOnClickListener((View.OnClickListener) ((Pair) next.second).second);
+                    }
+                }
+            }
+            dVar2 = ShareStatic.adt;
+            dVar2.show();
         }
-        if (fVar.To != null) {
-            fVar.To = Uri.parse(af(fVar.To.toString(), "sfc=" + str));
-        }
-        fVar.Tn = af(bf.isEmpty(fVar.Tn) ? "http://tieba.baidu.com" : fVar.Tn, "sfc=" + str);
-        return fVar;
-    }
-
-    private String af(String str, String str2) {
-        if (bf.isEmpty(Uri.parse(str).getQuery())) {
-            str = String.valueOf(str) + "?";
-        }
-        return String.valueOf(str) + "&" + str2;
+        return null;
     }
 }

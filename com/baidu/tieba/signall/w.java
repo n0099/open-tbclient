@@ -4,11 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<String, Integer, s> {
-    private h bRI = null;
-    final /* synthetic */ u bRJ;
+    private i ceE = null;
+    final /* synthetic */ u ceF;
 
     public w(u uVar) {
-        this.bRJ = uVar;
+        this.ceF = uVar;
         setPriority(3);
     }
 
@@ -16,13 +16,13 @@ public class w extends BdAsyncTask<String, Integer, s> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        this.bRJ.eB = true;
+        this.ceF.pT = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: A */
+    /* renamed from: y */
     public s doInBackground(String... strArr) {
         s sVar;
         if (strArr[0] == null) {
@@ -40,36 +40,36 @@ public class w extends BdAsyncTask<String, Integer, s> {
                     sb.append(String.valueOf(split[i2 + i3]) + ",");
                 }
             }
-            this.bRI = new h();
-            if (com.baidu.adp.lib.util.i.ff()) {
-                hV(sb.toString());
+            this.ceE = new i();
+            if (com.baidu.adp.lib.util.k.iH()) {
+                im(sb.toString());
             }
         }
-        sVar = this.bRJ.bRE;
+        sVar = this.ceF.ceA;
         return sVar;
     }
 
-    private s hV(String str) {
+    private s im(String str) {
         s sVar;
         s sVar2;
-        String hT = this.bRI.hT(str);
-        if (this.bRI.lT()) {
-            sVar = this.bRJ.bRE;
-            sVar.parserJson(hT);
-            sVar2 = this.bRJ.bRE;
+        String ij = this.ceE.ij(str);
+        if (this.ceE.pv()) {
+            sVar = this.ceF.ceA;
+            sVar.parserJson(ij);
+            sVar2 = this.ceF.ceA;
             return sVar2;
         }
-        this.bRJ.bRE = null;
+        this.ceF.ceA = null;
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.bRI.cancel();
-        this.bRI = null;
-        this.bRJ.bRD = null;
-        this.bRJ.eB = false;
+        this.ceE.cancel();
+        this.ceE = null;
+        this.ceF.cez = null;
+        this.ceF.pT = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,20 +82,20 @@ public class w extends BdAsyncTask<String, Integer, s> {
         v vVar2;
         v vVar3;
         s sVar3;
-        this.bRJ.eB = false;
-        this.bRJ.bRD = null;
-        vVar = this.bRJ.bRF;
+        this.ceF.pT = false;
+        this.ceF.cez = null;
+        vVar = this.ceF.ceB;
         if (vVar != null) {
-            sVar2 = this.bRJ.bRE;
+            sVar2 = this.ceF.ceA;
             if (sVar2 != null) {
-                vVar3 = this.bRJ.bRF;
-                sVar3 = this.bRJ.bRE;
+                vVar3 = this.ceF.ceB;
+                sVar3 = this.ceF.ceA;
                 vVar3.b(sVar3);
                 return;
             }
-            String lU = this.bRI != null ? this.bRI.lU() : null;
-            vVar2 = this.bRJ.bRF;
-            vVar2.gH(lU);
+            String pw = this.ceE != null ? this.ceE.pw() : null;
+            vVar2 = this.ceF.ceB;
+            vVar2.gy(pw);
         }
     }
 }

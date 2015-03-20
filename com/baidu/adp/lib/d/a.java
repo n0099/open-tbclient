@@ -6,6 +6,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.location.BDGeofence;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
@@ -14,34 +15,34 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static long jQ = 10000;
-    private static a jR = null;
-    private static long jS = 300000;
+    private static long vh = 10000;
+    private static a vi = null;
+    private static long vj = 300000;
     private LocationManager mLocationManager;
-    private boolean jT = true;
-    private LocationClient jU = null;
-    private BDLocationListener jV = null;
-    private String jW = "baidu";
-    private boolean jX = true;
+    private boolean vk = true;
+    private LocationClient vl = null;
+    private BDLocationListener vm = null;
+    private String vn = "baidu";
+    private boolean vo = true;
     private int errorCode = 0;
-    private Address jY = null;
-    private f jZ = null;
-    public long kb = 0;
-    private ArrayList<SoftReference<d>> kc = null;
+    private Address vp = null;
+    private f vq = null;
+    public long vr = 0;
+    private ArrayList<SoftReference<d>> vs = null;
     private Context mContext = null;
     private Handler handler = null;
-    private final LocationListener kd = new b(this);
+    private final LocationListener vt = new b(this);
 
     private a() {
     }
 
-    public static synchronized a dB() {
+    public static synchronized a gZ() {
         a aVar;
         synchronized (a.class) {
-            if (jR == null) {
-                jR = new a();
+            if (vi == null) {
+                vi = new a();
             }
-            aVar = jR;
+            aVar = vi;
         }
         return aVar;
     }
@@ -54,41 +55,40 @@ public class a {
         if (context == null) {
             throw new InvalidParameterException("context is null");
         }
-        this.kc = new ArrayList<>();
+        this.vs = new ArrayList<>();
         this.mContext = context;
-        this.jW = str;
-        this.jX = z;
-        dC();
-        dD();
+        this.vn = str;
+        this.vo = z;
+        ha();
+        hb();
     }
 
     public void y(boolean z) {
-        this.jT = z;
+        this.vk = z;
     }
 
-    private void dC() {
+    private void ha() {
         this.handler = new Handler(new c(this));
     }
 
-    private void dD() {
+    private void hb() {
         try {
             this.mLocationManager = (LocationManager) this.mContext.getSystemService("location");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
         try {
-            if (this.jT) {
-                this.jV = new e(this, null);
+            if (this.vk) {
+                this.vm = new e(this, null);
                 LocationClientOption locationClientOption = new LocationClientOption();
                 locationClientOption.setOpenGps(true);
-                locationClientOption.setProdName(this.jW);
+                locationClientOption.setProdName(this.vn);
                 locationClientOption.setAddrType("all");
-                locationClientOption.setCoorType("bd09ll");
+                locationClientOption.setCoorType(BDGeofence.COORD_TYPE_BD09LL);
                 locationClientOption.setScanSpan(500);
-                locationClientOption.disableCache(this.jX);
-                this.jU = new LocationClient(this.mContext);
-                this.jU.registerLocationListener(this.jV);
-                this.jU.setLocOption(locationClientOption);
+                this.vl = new LocationClient(this.mContext);
+                this.vl.registerLocationListener(this.vm);
+                this.vl.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -96,30 +96,30 @@ public class a {
     }
 
     public Address z(boolean z) {
-        if (System.currentTimeMillis() - this.kb > jS) {
-            this.jY = null;
+        if (System.currentTimeMillis() - this.vr > vj) {
+            this.vp = null;
         }
-        if (this.jY != null && !z) {
-            return this.jY;
+        if (this.vp != null && !z) {
+            return this.vp;
         }
-        this.jY = null;
-        dF();
+        this.vp = null;
+        hd();
         return null;
     }
 
     public Address a(boolean z, d dVar) {
         boolean z2;
-        if (System.currentTimeMillis() - this.kb > jS) {
-            this.jY = null;
+        if (System.currentTimeMillis() - this.vr > vj) {
+            this.vp = null;
         }
-        if (this.jY != null && !z) {
-            return this.jY;
+        if (this.vp != null && !z) {
+            return this.vp;
         }
         if (dVar != null) {
             int i = 0;
             while (true) {
-                if (i < this.kc.size()) {
-                    d dVar2 = this.kc.get(i).get();
+                if (i < this.vs.size()) {
+                    d dVar2 = this.vs.get(i).get();
                     if (dVar2 == null || !dVar2.equals(dVar)) {
                         i++;
                     } else {
@@ -132,12 +132,12 @@ public class a {
                 }
             }
             if (!z2) {
-                if (this.kc.size() >= 100) {
-                    this.kc.remove(0);
+                if (this.vs.size() >= 100) {
+                    this.vs.remove(0);
                 }
-                this.kc.add(new SoftReference<>(dVar));
+                this.vs.add(new SoftReference<>(dVar));
             }
-            dF();
+            hd();
         }
         return null;
     }
@@ -146,13 +146,13 @@ public class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.kc.size()) {
-                SoftReference<d> softReference = this.kc.get(i2);
+            if (i2 < this.vs.size()) {
+                SoftReference<d> softReference = this.vs.get(i2);
                 d dVar2 = softReference.get();
                 if (dVar2 == null || !dVar2.equals(dVar)) {
                     i = i2 + 1;
                 } else {
-                    this.kc.remove(softReference);
+                    this.vs.remove(softReference);
                     return;
                 }
             } else {
@@ -161,62 +161,62 @@ public class a {
         }
     }
 
-    public void dE() {
+    public void hc() {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
         if (this.mLocationManager != null) {
             try {
-                this.mLocationManager.removeUpdates(this.kd);
+                this.mLocationManager.removeUpdates(this.vt);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.jU != null && this.jU.isStarted()) {
-            this.jU.stop();
+        if (this.vl != null && this.vl.isStarted()) {
+            this.vl.stop();
         }
-        if (this.jZ != null) {
-            this.jZ.cancel();
-            this.jZ = null;
+        if (this.vq != null) {
+            this.vq.cancel();
+            this.vq = null;
         }
     }
 
-    private void dF() {
+    private void hd() {
         try {
-            this.jY = null;
+            this.vp = null;
             if (this.handler.hasMessages(0)) {
                 this.handler.removeMessages(0);
             }
             if (this.mLocationManager != null) {
-                this.mLocationManager.removeUpdates(this.kd);
+                this.mLocationManager.removeUpdates(this.vt);
             }
-            if (this.jT) {
-                if (!this.jU.isStarted()) {
-                    this.jU.start();
+            if (this.vk) {
+                if (!this.vl.isStarted()) {
+                    this.vl.start();
                 }
-                this.jU.requestLocation();
+                this.vl.requestLocation();
             }
             this.errorCode = 4;
             if (this.mLocationManager != null && !this.mLocationManager.isProviderEnabled("gps") && !this.mLocationManager.isProviderEnabled("network")) {
                 this.errorCode = 3;
-                if (!this.jT) {
+                if (!this.vk) {
                     this.handler.sendMessageDelayed(this.handler.obtainMessage(0), 100L);
                     return;
                 }
             }
             if (this.mLocationManager != null && this.mLocationManager.isProviderEnabled("gps")) {
-                this.mLocationManager.requestLocationUpdates("gps", 10000L, 100.0f, this.kd);
+                this.mLocationManager.requestLocationUpdates("gps", 10000L, 100.0f, this.vt);
             } else {
                 this.errorCode = 1;
             }
             if (this.mLocationManager != null && this.mLocationManager.isProviderEnabled("network")) {
-                this.mLocationManager.requestLocationUpdates("network", 10000L, 100.0f, this.kd);
+                this.mLocationManager.requestLocationUpdates("network", 10000L, 100.0f, this.vt);
             } else {
                 this.errorCode = 2;
             }
-            this.handler.sendMessageDelayed(this.handler.obtainMessage(0), jQ);
+            this.handler.sendMessageDelayed(this.handler.obtainMessage(0), vh);
         } catch (Exception e) {
-            dE();
+            hc();
             this.errorCode = 5;
             if (this.handler.hasMessages(0)) {
                 this.handler.removeMessages(0);
@@ -230,13 +230,13 @@ public class a {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        if (this.kc == null) {
+        if (this.vs == null) {
             return;
         }
         while (true) {
             int i3 = i2;
-            if (i3 < this.kc.size()) {
-                d dVar = this.kc.get(i3).get();
+            if (i3 < this.vs.size()) {
+                d dVar = this.vs.get(i3).get();
                 if (dVar != null) {
                     try {
                         dVar.b(i, str, address);
@@ -246,7 +246,7 @@ public class a {
                 }
                 i2 = i3 + 1;
             } else {
-                this.kc.clear();
+                this.vs.clear();
                 return;
             }
         }

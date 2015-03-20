@@ -18,115 +18,116 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static final String a = "sapi_version";
-    private static final String b = "login_share_strategy";
-    private static final String c = "current_account";
-    private static final String d = "share_accounts";
-    private static final String e = "login_accounts";
-    private static final String f = "first_install";
-    private static final String g = "login_status_changed";
-    private static final String h = "voluntary_share_version";
-    private static final String i = "sapi_options";
-    private static final String j = "relogin_credentials";
-    private static final String k = "cuidtoken";
-    private static final String l = "device_token";
-    private static final String m = "device_login_available";
-    private static final String n = "hosts_hijacked";
-    private static final String o = "stat_items";
-    private static c q;
-    private SharedPreferences p;
+    private static final int a = 5;
+    private static final String b = "sapi_version";
+    private static final String c = "login_share_strategy";
+    private static final String d = "current_account";
+    private static final String e = "share_accounts";
+    private static final String f = "login_accounts";
+    private static final String g = "first_install";
+    private static final String h = "login_status_changed";
+    private static final String i = "voluntary_share_version";
+    private static final String j = "sapi_options";
+    private static final String k = "relogin_credentials";
+    private static final String l = "cuidtoken";
+    private static final String m = "device_token";
+    private static final String n = "device_login_available";
+    private static final String o = "hosts_hijacked";
+    private static final String p = "stat_items";
+    private static c r;
+    private SharedPreferences q;
 
     public static c a(Context context) {
         synchronized (c.class) {
-            if (q == null) {
-                q = new c(context.getApplicationContext());
+            if (r == null) {
+                r = new c(context.getApplicationContext());
             }
         }
-        return q;
+        return r;
     }
 
     private c(Context context) {
-        this.p = context.getSharedPreferences("sapi_system", 0);
+        this.q = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.p.edit().putString(str, str2).apply();
+            this.q.edit().putString(str, str2).apply();
         } else {
-            this.p.edit().putString(str, str2).commit();
+            this.q.edit().putString(str, str2).commit();
         }
     }
 
     private void a(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.p.edit().putInt(str, i2).apply();
+            this.q.edit().putInt(str, i2).apply();
         } else {
-            this.p.edit().putInt(str, i2).commit();
+            this.q.edit().putInt(str, i2).commit();
         }
     }
 
     private void a(String str, boolean z) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.p.edit().putBoolean(str, z).apply();
+            this.q.edit().putBoolean(str, z).apply();
         } else {
-            this.p.edit().putBoolean(str, z).commit();
+            this.q.edit().putBoolean(str, z).commit();
         }
     }
 
     private String f(String str) {
-        return this.p.getString(str, "");
+        return this.q.getString(str, "");
     }
 
     private boolean b(String str, boolean z) {
-        return this.p.getBoolean(str, z);
+        return this.q.getBoolean(str, z);
     }
 
     private int b(String str, int i2) {
-        return this.p.getInt(str, i2);
+        return this.q.getInt(str, i2);
     }
 
     public String a() {
-        return f(l);
+        return f(m);
     }
 
     public void a(String str) {
-        a(l, str);
+        a(m, str);
     }
 
     public boolean b() {
-        return b(m, false);
-    }
-
-    public void a(boolean z) {
-        a(m, z);
-    }
-
-    public boolean c() {
         return b(n, false);
     }
 
-    public void b(boolean z) {
+    public void a(boolean z) {
         a(n, z);
     }
 
+    public boolean c() {
+        return b(o, false);
+    }
+
+    public void b(boolean z) {
+        a(o, z);
+    }
+
     public void b(String str) {
-        a(a, str);
+        a(b, str);
     }
 
     public void a(LoginShareStrategy loginShareStrategy) {
         if (loginShareStrategy != null) {
-            a(b, loginShareStrategy.getStrValue());
+            a(c, loginShareStrategy.getStrValue());
         }
     }
 
     public void a(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
-            a(c, "");
+            a(d, "");
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
-            a(c, jSONObject.toString());
+            a(d, jSONObject.toString());
             if (!h()) {
                 n();
             }
@@ -134,11 +135,11 @@ public final class c {
     }
 
     public SapiAccount d() {
-        if (TextUtils.isEmpty(f(c))) {
+        if (TextUtils.isEmpty(f(d))) {
             return null;
         }
         try {
-            return SapiAccount.fromJSONObject(new JSONObject(f(c)));
+            return SapiAccount.fromJSONObject(new JSONObject(f(d)));
         } catch (JSONException e2) {
             return null;
         }
@@ -150,9 +151,10 @@ public final class c {
             if (!e2.contains(sapiAccount)) {
                 e2.add(sapiAccount);
             } else {
-                e2.set(e2.indexOf(sapiAccount), sapiAccount);
+                e2.remove(e2.indexOf(sapiAccount));
+                e2.add(sapiAccount);
             }
-            a(e2);
+            a(a(e2, 5));
         }
     }
 
@@ -192,9 +194,9 @@ public final class c {
     }
 
     public List<SapiAccount> e() {
-        if (!TextUtils.isEmpty(f(d))) {
+        if (!TextUtils.isEmpty(f(e))) {
             try {
-                return SapiAccount.fromJSONArray(new JSONArray(f(d)));
+                return a(SapiAccount.fromJSONArray(new JSONArray(f(e))), 5);
             } catch (Throwable th) {
                 return new ArrayList();
             }
@@ -203,9 +205,9 @@ public final class c {
     }
 
     public List<SapiAccount> f() {
-        if (!TextUtils.isEmpty(f(e))) {
+        if (!TextUtils.isEmpty(f(f))) {
             try {
-                return SapiAccount.fromJSONArray(new JSONArray(f(e)));
+                return SapiAccount.fromJSONArray(new JSONArray(f(f)));
             } catch (Exception e2) {
                 return new ArrayList();
             }
@@ -214,45 +216,45 @@ public final class c {
     }
 
     public boolean g() {
-        if (b(f, true)) {
-            a(f, false);
+        if (b(g, true)) {
+            a(g, false);
             return true;
         }
         return false;
     }
 
     public boolean h() {
-        return b(g, false);
+        return b(h, false);
     }
 
     private void n() {
-        a(g, true);
+        a(h, true);
     }
 
     public int i() {
-        return b(h, 0);
+        return b(i, 0);
     }
 
     public void a(int i2) {
-        a(h, i2);
+        a(i, i2);
     }
 
     private void a(List<SapiAccount> list) {
-        JSONArray jSONArray = SapiAccount.toJSONArray(list);
-        if (jSONArray != null) {
-            a(d, jSONArray.toString());
-        }
-    }
-
-    private void b(List<SapiAccount> list) {
         JSONArray jSONArray = SapiAccount.toJSONArray(list);
         if (jSONArray != null) {
             a(e, jSONArray.toString());
         }
     }
 
+    private void b(List<SapiAccount> list) {
+        JSONArray jSONArray = SapiAccount.toJSONArray(list);
+        if (jSONArray != null) {
+            a(f, jSONArray.toString());
+        }
+    }
+
     public b j() {
-        String f2 = f(i);
+        String f2 = f(j);
         if (!TextUtils.isEmpty(f2)) {
             try {
                 return b.a(new JSONObject(f2));
@@ -264,7 +266,7 @@ public final class c {
 
     public void a(b bVar) {
         if (bVar != null) {
-            a(i, bVar.i());
+            a(j, bVar.i());
         }
     }
 
@@ -277,7 +279,7 @@ public final class c {
             }
             try {
                 k2.put(str, reloginCredentials.toJSONObject());
-                a(j, k2.toString());
+                a(k, k2.toString());
             } catch (JSONException e2) {
                 L.e(e2);
             }
@@ -296,7 +298,7 @@ public final class c {
     }
 
     public JSONObject k() {
-        String f2 = f(j);
+        String f2 = f(k);
         if (!TextUtils.isEmpty(f2)) {
             try {
                 return new JSONObject(f2);
@@ -307,11 +309,11 @@ public final class c {
     }
 
     void d(String str) {
-        a(k, str);
+        a(l, str);
     }
 
     String l() {
-        return f(k);
+        return f(l);
     }
 
     public void a(String str, Map<String, String> map) {
@@ -326,7 +328,7 @@ public final class c {
                 for (Map.Entry<String, Map<String, String>> entry : m2.entrySet()) {
                     jSONObject.put(entry.getKey(), new JSONObject(entry.getValue()));
                 }
-                a(o, jSONObject.toString());
+                a(p, jSONObject.toString());
             } catch (Throwable th) {
                 L.e(th);
             }
@@ -340,7 +342,7 @@ public final class c {
                 if (m2.containsKey(str)) {
                     m2.remove(str);
                 }
-                a(o, new JSONObject(m2).toString());
+                a(p, new JSONObject(m2).toString());
             } catch (Throwable th) {
                 L.e(th);
             }
@@ -349,7 +351,7 @@ public final class c {
 
     public Map<String, Map<String, String>> m() {
         HashMap hashMap = new HashMap();
-        String f2 = f(o);
+        String f2 = f(p);
         if (!TextUtils.isEmpty(f2)) {
             try {
                 JSONObject jSONObject = new JSONObject(f2);
@@ -375,5 +377,9 @@ public final class c {
             }
         }
         return hashMap;
+    }
+
+    <T> List<T> a(List<T> list, int i2) {
+        return (list == null || i2 < 0 || i2 >= list.size()) ? list : list.subList(list.size() - i2, list.size());
     }
 }

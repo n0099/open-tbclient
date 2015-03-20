@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private UpdatesActivity bhj;
+    private UpdatesActivity biz;
     private List<UpdatesItemData> datas = new ArrayList();
 
     public h(UpdatesActivity updatesActivity) {
-        this.bhj = updatesActivity;
+        this.biz = updatesActivity;
     }
 
     public void destroy() {
-        this.bhj = null;
+        this.biz = null;
     }
 
     public List<UpdatesItemData> getDatas() {
@@ -44,7 +44,7 @@ public class h extends BaseAdapter {
         if (view != null) {
             iVar = (i) view.getTag();
         }
-        i iVar2 = iVar == null ? new i(this.bhj) : iVar;
+        i iVar2 = iVar == null ? new i(this.biz) : iVar;
         iVar2.refresh(this.datas.get(i));
         return iVar2.getConvertView();
     }

@@ -25,6 +25,7 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -179,7 +180,7 @@ public final class SapiAccountService {
         }
         arrayList.add(new BasicNameValuePair("lPlayout", String.valueOf(this.b.configurableViewLayout.ordinal())));
         if (!this.b.showRegLink) {
-            arrayList.add(new BasicNameValuePair("regLink", "0"));
+            arrayList.add(new BasicNameValuePair("regLink", GameInfoData.NOT_FROM_DETAIL));
         }
         if (!TextUtils.isEmpty(this.b.fastRegTitleText)) {
             try {

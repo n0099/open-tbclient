@@ -1,60 +1,46 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class r extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FrsActivity aDT;
+class r implements SlidingMenu.OnOpenedListener {
+    final /* synthetic */ FrsActivity aJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aDT = frsActivity;
+    public r(FrsActivity frsActivity) {
+        this.aJG = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tieba.tbadkCore.x xVar;
-        com.baidu.tieba.tbadkCore.d.a aVar;
-        boolean z;
-        com.baidu.tieba.tbadkCore.x xVar2;
-        com.baidu.tieba.tbadkCore.d.a aVar2;
-        if (socketResponsedMessage instanceof FRSPageSocketResponsedMessage) {
-            FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) socketResponsedMessage;
-            com.baidu.tieba.tbadkCore.h hVar = new com.baidu.tieba.tbadkCore.h();
-            hVar.bTX = fRSPageSocketResponsedMessage.getError() < -13 || fRSPageSocketResponsedMessage.getError() > -10;
-            hVar.isSuccess = !fRSPageSocketResponsedMessage.hasNetworkError();
-            hVar.errorCode = fRSPageSocketResponsedMessage.getError();
-            hVar.errorMsg = fRSPageSocketResponsedMessage.getErrorString();
-            hVar.bTY = fRSPageSocketResponsedMessage.getDownSize();
-            xVar = this.aDT.aDD;
-            xVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, hVar);
-            this.aDT.FM();
-            aVar = this.aDT.aDe;
-            if (aVar != null) {
-                aVar2 = this.aDT.aDe;
-                aVar2.a(false, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.bTY);
-                this.aDT.aDe = null;
-            }
-            z = this.aDT.aDt;
-            if (!z) {
-                this.aDT.aDt = true;
-                com.baidu.tbadk.performanceLog.w wVar = new com.baidu.tbadk.performanceLog.w();
-                wVar.dX(1000);
-                wVar.agV = false;
-                wVar.isSuccess = hVar.isSuccess;
-                wVar.agK = socketResponsedMessage.performanceData.fb;
-                wVar.agL = socketResponsedMessage.performanceData.fc;
-                wVar.agM = socketResponsedMessage.performanceData.fd;
-                wVar.agN = socketResponsedMessage.performanceData.fe;
-                wVar.agO = socketResponsedMessage.performanceData.ff;
-                wVar.agT = hVar.bTY;
-                wVar.agU = 0L;
-                xVar2 = this.aDT.aDD;
-                if (xVar2 != null) {
-                    this.aDT.e(wVar);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        bf bfVar;
+        cf cfVar;
+        com.baidu.tieba.frs.c.k kVar;
+        cf cfVar2;
+        com.baidu.tieba.tbadkCore.w wVar;
+        com.baidu.tieba.tbadkCore.w wVar2;
+        com.baidu.tieba.tbadkCore.w wVar3;
+        this.aJG.setSwipeBackEnabled(false);
+        bfVar = this.aJG.aIS;
+        cfVar = this.aJG.aIX;
+        bfVar.a(cfVar);
+        kVar = this.aJG.aJm;
+        cfVar2 = this.aJG.aIX;
+        kVar.a(cfVar2);
+        TiebaStatic.eventStat(this.aJG.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
+        wVar = this.aJG.aIV;
+        if (wVar != null) {
+            wVar2 = this.aJG.aIV;
+            if (wVar2.YO() != null) {
+                wVar3 = this.aJG.aIV;
+                ArrayList<com.baidu.tbadk.core.data.r> recommendForumData = wVar3.YO().getRecommendForumData();
+                if (recommendForumData != null) {
+                    Iterator<com.baidu.tbadk.core.data.r> it = recommendForumData.iterator();
+                    while (it.hasNext()) {
+                        TiebaStatic.eventStat(this.aJG.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().PY);
+                    }
                 }
             }
         }

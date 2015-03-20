@@ -57,6 +57,11 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 liveCardData.setStatus(liveGroupInfo.status.intValue());
                 liveCardData.setStreamId(liveGroupInfo.streamId);
                 liveCardData.setFlag(liveGroupInfo.flag.intValue());
+                if (liveGroupInfo.fromType == null) {
+                    liveCardData.setFromType(0);
+                } else {
+                    liveCardData.setFromType(liveGroupInfo.fromType.intValue());
+                }
                 this.frsLiveListData.getGroups().add(liveCardData);
             }
             this.frsLiveListData.setHotGroups(new ArrayList());

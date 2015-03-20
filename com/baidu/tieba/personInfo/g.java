@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.core.dialog.l {
-    final /* synthetic */ PersonInfoActivity bJX;
+public class g implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ PersonInfoActivity bSh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonInfoActivity personInfoActivity) {
-        this.bJX = personInfoActivity;
+        this.bSh = personInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.l
-    public void itemClick(com.baidu.tbadk.core.dialog.i iVar, int i, View view) {
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
         WriteImagesInfo writeImagesInfo;
         if (i != 0) {
             if (i == 1) {
-                Activity pageActivity = this.bJX.getPageContext().getPageActivity();
-                writeImagesInfo = this.bJX.writeImagesInfo;
+                Activity pageActivity = this.bSh.getPageContext().getPageActivity();
+                writeImagesInfo = this.bSh.writeImagesInfo;
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo.toJsonString());
                 albumActivityConfig.setRequestCode(12002);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         } else {
-            this.bJX.abp();
+            this.bSh.adD();
         }
-        iVar.dismiss();
+        eVar.dismiss();
     }
 }

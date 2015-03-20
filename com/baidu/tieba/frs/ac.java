@@ -1,37 +1,29 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aDT;
+class ac extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(FrsActivity frsActivity) {
-        this.aDT = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aJG = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.tbadkCore.location.i iVar;
-        bp bpVar;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        bp bpVar2;
-        bp bpVar3;
-        if (UtilHelper.isNetOk()) {
-            bpVar = this.aDT.aCV;
-            if (bpVar.Fz() != null) {
-                bpVar2 = this.aDT.aCV;
-                bpVar2.Fz().setLocationInfoViewState(1);
-                bpVar3 = this.aDT.aCV;
-                bpVar3.Fz().setLocationViewVisibility(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bf bfVar;
+        bf bfVar2;
+        if (customResponsedMessage != null) {
+            bfVar = this.aJG.aIS;
+            if (bfVar != null) {
+                bfVar2 = this.aJG.aIS;
+                bfVar2.mX();
             }
-            dVar = this.aDT.aBC;
-            dVar.aif();
-        } else {
-            iVar = this.aDT.aBN;
-            iVar.Fr();
         }
-        aVar.dismiss();
     }
 }

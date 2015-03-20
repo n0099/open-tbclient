@@ -4,30 +4,30 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 class k implements h {
-    private HashMap<String, Long> hx = new HashMap<>();
     private final int maxSize;
+    private HashMap<String, Long> sS = new HashMap<>();
 
     public k(int i) {
         this.maxSize = i;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public int cI() {
+    public int gh() {
         return this.maxSize;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public boolean cJ() {
+    public boolean gi() {
         return true;
     }
 
-    public String R(String str) {
+    public String Y(String str) {
         String str2;
-        if (!this.hx.containsKey(str) && this.hx.size() >= this.maxSize) {
+        if (!this.sS.containsKey(str) && this.sS.size() >= this.maxSize) {
             synchronized (this) {
                 long j = -1;
                 str2 = null;
-                for (Map.Entry<String, Long> entry : this.hx.entrySet()) {
+                for (Map.Entry<String, Long> entry : this.sS.entrySet()) {
                     long longValue = entry.getValue().longValue();
                     if (j == -1 || j > longValue) {
                         j = longValue;
@@ -35,7 +35,7 @@ class k implements h {
                     }
                 }
                 if (str2 != null) {
-                    this.hx.remove(str2);
+                    this.sS.remove(str2);
                 }
             }
             return str2;
@@ -45,30 +45,30 @@ class k implements h {
 
     @Override // com.baidu.adp.lib.cache.h
     public String e(m<?> mVar) {
-        String R = R(mVar.hy);
+        String Y = Y(mVar.sT);
         synchronized (this) {
-            this.hx.put(mVar.hy, Long.valueOf(mVar.hB));
+            this.sS.put(mVar.sT, Long.valueOf(mVar.sW));
         }
-        return R;
+        return Y;
     }
 
     @Override // com.baidu.adp.lib.cache.h
-    public void cM() {
+    public void gl() {
     }
 
     @Override // com.baidu.adp.lib.cache.h
     public String f(m<?> mVar) {
-        return mVar.hC < System.currentTimeMillis() ? mVar.hy : e(mVar);
+        return mVar.sX < System.currentTimeMillis() ? mVar.sT : e(mVar);
     }
 
     @Override // com.baidu.adp.lib.cache.h
-    public void cN() {
+    public void gm() {
     }
 
     @Override // com.baidu.adp.lib.cache.h
     public void release() {
         synchronized (this) {
-            this.hx.clear();
+            this.sS.clear();
         }
     }
 }

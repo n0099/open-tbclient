@@ -1,7 +1,16 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
-public interface az {
-    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.x xVar);
+public class az {
+    TextView axL;
+    HeadImageView azr;
+    UserIconBox azs;
+    TextView azt;
+    TextView azu;
+    TextView azx;
+    ImageView azy;
 }

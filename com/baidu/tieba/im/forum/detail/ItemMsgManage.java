@@ -10,9 +10,9 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class ItemMsgManage extends LinearLayout {
-    private SettingTextSwitchView bbn;
-    private RelativeLayout bbo;
-    private RelativeLayout bbp;
+    private SettingTextSwitchView bdp;
+    private RelativeLayout bdq;
+    private RelativeLayout bdr;
 
     public ItemMsgManage(Context context) {
         super(context);
@@ -26,11 +26,12 @@ public class ItemMsgManage extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        com.baidu.adp.lib.g.b.ei().a(context, com.baidu.tieba.x.forum_detail_msg_manage, this, true);
+        com.baidu.adp.lib.g.b.hH().a(context, com.baidu.tieba.w.forum_detail_msg_manage, this, true);
         setVisibility(8);
-        this.bbn = (SettingTextSwitchView) findViewById(com.baidu.tieba.w.bar_notify);
-        this.bbo = (RelativeLayout) findViewById(com.baidu.tieba.w.bar_info_clean_lay);
-        this.bbp = (RelativeLayout) findViewById(com.baidu.tieba.w.bar_info_history_lay);
+        this.bdp = (SettingTextSwitchView) findViewById(com.baidu.tieba.v.bar_notify);
+        this.bdp.setTextLeftMargin(com.baidu.tieba.t.ds20);
+        this.bdq = (RelativeLayout) findViewById(com.baidu.tieba.v.bar_info_clean_lay);
+        this.bdr = (RelativeLayout) findViewById(com.baidu.tieba.v.bar_info_history_lay);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
@@ -38,7 +39,7 @@ public class ItemMsgManage extends LinearLayout {
         if (recommendForumInfo.is_like.intValue() == 0) {
             setVisibility(8);
         }
-        com.baidu.tieba.im.settingcache.h.To().a(TbadkApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new y(this));
+        com.baidu.tieba.im.settingcache.h.Tp().a(TbadkApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new y(this));
     }
 
     private void setShowState(RecommendForumInfo recommendForumInfo) {
@@ -49,7 +50,7 @@ public class ItemMsgManage extends LinearLayout {
             } else if (intValue == 1) {
                 setVisibility(0);
             } else if (intValue == 2) {
-                this.bbp.setVisibility(8);
+                this.bdr.setVisibility(8);
                 setVisibility(0);
             }
         }
@@ -64,24 +65,24 @@ public class ItemMsgManage extends LinearLayout {
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.bbn.getSwitchView().iC();
+            this.bdp.getSwitchView().lY();
         } else {
-            this.bbn.getSwitchView().iD();
+            this.bdp.getSwitchView().lZ();
         }
     }
 
     public void setMsgOnClickListener(View.OnClickListener onClickListener) {
-        this.bbo.setOnClickListener(onClickListener);
-        this.bbp.setOnClickListener(onClickListener);
+        this.bdq.setOnClickListener(onClickListener);
+        this.bdr.setOnClickListener(onClickListener);
     }
 
-    public void setSwitchChangeListener(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        this.bbn.setSwitchStateChangeListener(cVar);
+    public void setSwitchChangeListener(com.baidu.adp.widget.BdSwitchView.b bVar) {
+        this.bdp.setSwitchStateChangeListener(bVar);
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        forumDetailActivity.getLayoutMode().ab(i == 1);
+        forumDetailActivity.getLayoutMode().X(i == 1);
         forumDetailActivity.getLayoutMode().h(this);
-        this.bbn.da(i);
+        this.bdp.dc(i);
     }
 }

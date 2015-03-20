@@ -1,25 +1,36 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo biK;
-    final /* synthetic */ bd bjd;
+public class be implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bd bdVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bjd = bdVar;
-        this.biK = imMessageCenterPojo;
+    public be(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null) {
-            com.baidu.tieba.im.db.k.MU().a(this.biK, 2);
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
+    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
+        c.Sd().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        if (z) {
+            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
         }
-        return null;
+    }
+
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
+    public void c(String str, List<CommonMsgPojo> list) {
+        if (list != null && list.size() != 0) {
+            for (CommonMsgPojo commonMsgPojo : list) {
+                if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
+                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.gb(commonMsgPojo.getContent());
+                }
+            }
+        }
     }
 }

@@ -4,6 +4,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
@@ -18,8 +19,9 @@ public class CommonIMTaskRegisterStatic {
         e.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
         e.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         e.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        e.b(2001146, com.baidu.tieba.im.d.a.e.class);
-        e.b(2001149, com.baidu.tieba.im.d.a.g.class);
-        e.b(2001152, com.baidu.tieba.im.d.a.f.class);
+        e.b(103104, ResponseDismissGroupMessage.class, false);
+        e.b(2001146, com.baidu.tieba.im.e.a.e.class);
+        e.b(2001149, com.baidu.tieba.im.e.a.g.class);
+        e.b(2001152, com.baidu.tieba.im.e.a.f.class);
     }
 }

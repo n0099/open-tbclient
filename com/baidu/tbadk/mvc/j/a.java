@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.e.c;
 /* loaded from: classes.dex */
-public abstract class a<D, S extends com.baidu.tbadk.mvc.e.c> extends d<D, S> {
+public abstract class a<D, S extends com.baidu.tbadk.mvc.e.c> extends e<D, S> {
     protected int position;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {

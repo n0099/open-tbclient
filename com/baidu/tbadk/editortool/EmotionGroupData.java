@@ -6,17 +6,17 @@ public class EmotionGroupData implements Serializable {
     public static final int STATUS_DOWNLOADED = 1;
     public static final int STATUS_DOWNLOADING = 0;
     private static final long serialVersionUID = 1;
-    protected int bytesLength;
-    protected int bytesReceived;
-    protected long downloadTime;
-    protected String downloadUrl;
-    protected int emotionsCount;
-    protected String groupDesc;
-    protected String groupId;
-    protected String groupName;
-    protected int height;
-    protected int status;
-    protected int width;
+    public int bytesLength;
+    public int bytesReceived;
+    public long downloadTime;
+    public String downloadUrl;
+    public int emotionsCount;
+    public String groupDesc;
+    public String groupId;
+    public String groupName;
+    public int height;
+    public int status;
+    public int width;
 
     public String getGroupId() {
         return this.groupId;

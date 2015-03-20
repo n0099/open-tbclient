@@ -16,6 +16,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.tbadk.game.GameInfoData;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0009b {
+    public interface InterfaceC0007b {
         void a(Intent intent);
 
         void a(Intent intent, Intent intent2);
@@ -42,20 +43,20 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, InterfaceC0009b interfaceC0009b) {
-        if (context != null && interfaceC0009b != null) {
+    public static void a(Context context, InterfaceC0007b interfaceC0007b) {
+        if (context != null && interfaceC0007b != null) {
             for (Map.Entry<String, Map<String, Intent>> entry : a(context).entrySet()) {
                 if (entry.getValue() != null) {
                     Intent intent = entry.getValue().get(a);
                     Intent intent2 = entry.getValue().get(b);
                     if (intent != null) {
                         if (a(context, intent.getComponent().getPackageName())) {
-                            interfaceC0009b.a(intent, intent2);
+                            interfaceC0007b.a(intent, intent2);
                         } else if (intent2 != null) {
-                            interfaceC0009b.a(intent2);
+                            interfaceC0007b.a(intent2);
                         }
                     } else if (intent2 != null) {
-                        interfaceC0009b.a(intent2);
+                        interfaceC0007b.a(intent2);
                     }
                 }
             }
@@ -230,7 +231,7 @@ public final class b {
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
-                sb.append("0");
+                sb.append(GameInfoData.NOT_FROM_DETAIL);
             }
             sb.append(hexString);
         }

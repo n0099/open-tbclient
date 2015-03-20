@@ -5,53 +5,53 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int lb;
-    private int lc;
-    private LinkedList<T> ld;
-    private c<T> le;
+    private int wp;
+    private int wq;
+    private LinkedList<T> wr;
+    private c<T> ws;
 
     public b(c<T> cVar, int i, int i2) {
-        this.lb = 10;
-        this.lc = 0;
-        this.ld = null;
-        this.le = null;
+        this.wp = 10;
+        this.wq = 0;
+        this.wr = null;
+        this.ws = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.le = cVar;
-        this.lb = i;
-        this.lc = i2;
-        this.ld = new LinkedList<>();
-        V(this.lc);
+        this.ws = cVar;
+        this.wp = i;
+        this.wq = i2;
+        this.wr = new LinkedList<>();
+        W(this.wq);
     }
 
-    private void V(int i) {
+    private void W(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.le.l(this.le.eb());
+                    t = this.ws.l(this.ws.hA());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.ld.offer(t);
+                    this.wr.offer(t);
                 }
             }
         }
     }
 
-    public T ea() {
+    public T hz() {
         T t = null;
         synchronized (this) {
             try {
-                if (this.ld.size() > 0) {
-                    t = this.le.l(this.ld.poll());
+                if (this.wr.size() > 0) {
+                    t = this.ws.l(this.wr.poll());
                 } else {
-                    t = this.le.l(this.le.eb());
+                    t = this.ws.l(this.ws.hA());
                 }
-                V(this.lc - this.ld.size());
+                W(this.wq - this.wr.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -62,25 +62,25 @@ public class b<T> {
     public void j(T t) {
         T t2;
         synchronized (this) {
-            if (this.ld.size() < this.lb) {
+            if (this.wr.size() < this.wp) {
                 try {
-                    t2 = this.le.m(t);
+                    t2 = this.ws.m(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.ld.offer(t2);
+                    this.wr.offer(t2);
                 }
             } else {
-                this.le.k(t);
+                this.ws.k(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.ld.clear();
+            this.wr.clear();
         }
     }
 }

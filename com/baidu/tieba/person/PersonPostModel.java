@@ -14,8 +14,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int bIF = 0;
-    private static String bIG = "";
+    private static int bQN = 0;
+    private static String bQO = "";
     public int hide_post;
     public List<PostList> post_list;
 
@@ -40,24 +40,24 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
         return false;
     }
 
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, bq bqVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(bIG)) {
-            bIF = 1;
-            bIG = str;
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, bo boVar, boolean z, String str, boolean z2) {
+        if (z || !str.equals(bQO)) {
+            bQN = 1;
+            bQO = str;
         } else {
-            bIF++;
+            bQN++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(bIG);
-        userPostPageRequestMessage.setPn(bIF);
+        userPostPageRequestMessage.setUid(bQO);
+        userPostPageRequestMessage.setPn(bQN);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(bqVar));
+        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(boVar));
         sendMessage(userPostPageRequestMessage);
     }
 
@@ -90,7 +90,7 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
     }
 
     /* loaded from: classes.dex */
-    public class PostList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.au, Serializable {
+    public class PostList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.as, Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -158,16 +158,16 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.au
-        public ArrayList<com.baidu.tbadk.core.util.at> getImages() {
+        @Override // com.baidu.tbadk.core.util.as
+        public ArrayList<com.baidu.tbadk.core.util.ar> getImages() {
             Media[] mediaArr;
-            ArrayList<com.baidu.tbadk.core.util.at> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tbadk.core.util.ar> arrayList = new ArrayList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    com.baidu.tbadk.core.util.at atVar = new com.baidu.tbadk.core.util.at();
-                    atVar.EX = media.big_pic;
-                    atVar.Jk = 10;
-                    arrayList.add(atVar);
+                    com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar();
+                    arVar.QK = media.big_pic;
+                    arVar.UU = 10;
+                    arrayList.add(arVar);
                 }
             }
             return arrayList;

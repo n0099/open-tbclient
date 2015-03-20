@@ -1,47 +1,48 @@
 package com.baidu.tieba.account;
 
-import android.content.DialogInterface;
 import android.view.View;
-import com.baidu.tbadk.core.data.AccountData;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.ba;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements DialogInterface.OnClickListener {
-    final /* synthetic */ c amG;
-    private final /* synthetic */ View amH;
+public class d implements View.OnClickListener {
+    final /* synthetic */ AccountActivity auu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, View view) {
-        this.amG = cVar;
-        this.amH = view;
+    public d(AccountActivity accountActivity) {
+        this.auu = accountActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AccountActivity accountActivity;
-        AccountActivity accountActivity2;
-        if (this.amH != null) {
-            AccountData accountData = (AccountData) this.amH.getTag();
-            switch (i) {
-                case 0:
-                    if (accountData != null) {
-                        accountActivity2 = this.amG.amF;
-                        accountActivity2.a(false, accountData);
-                    }
-                    dialogInterface.cancel();
-                    return;
-                case 1:
-                    if (accountData != null) {
-                        accountActivity = this.amG.amF;
-                        accountActivity.a(true, accountData);
-                    }
-                    dialogInterface.cancel();
-                    return;
-                case 2:
-                    dialogInterface.cancel();
-                    return;
-                default:
-                    dialogInterface.cancel();
-                    return;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        m mVar;
+        m mVar2;
+        TextView textView;
+        TextView textView2;
+        m mVar3;
+        m mVar4;
+        TextView textView3;
+        TextView textView4;
+        m mVar5;
+        mVar = this.auu.auo;
+        if (!mVar.Ei()) {
+            mVar4 = this.auu.auo;
+            mVar4.setEditState(true);
+            textView3 = this.auu.auq;
+            textView3.setText(com.baidu.tieba.y.done);
+            textView4 = this.auu.auq;
+            ba.b(textView4, com.baidu.tieba.s.cp_link_tip_a, 1);
+            mVar5 = this.auu.auo;
+            mVar5.notifyDataSetChanged();
+            return;
         }
+        mVar2 = this.auu.auo;
+        mVar2.setEditState(false);
+        textView = this.auu.auq;
+        textView.setText(com.baidu.tieba.y.edit);
+        textView2 = this.auu.auq;
+        ba.b(textView2, com.baidu.tieba.s.navi_op_text, 1);
+        mVar3 = this.auu.auo;
+        mVar3.notifyDataSetChanged();
     }
 }

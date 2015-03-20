@@ -1,24 +1,24 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 public class j {
-    private m VV;
-    private l VW;
-    private k VX;
+    private m agb;
+    private l agc;
+    private k agd;
 
     public j(String str, l lVar) {
-        this.VV = null;
-        this.VW = null;
-        this.VX = null;
-        this.VV = new m(this);
-        this.VW = lVar;
-        this.VV.sendEmptyMessageDelayed(0, 50000L);
-        this.VX = new k(this, null);
-        this.VX.setSelfExecute(true);
-        this.VX.execute(String.valueOf(ug()) + str);
+        this.agb = null;
+        this.agc = null;
+        this.agd = null;
+        this.agb = new m(this);
+        this.agc = lVar;
+        this.agb.sendEmptyMessageDelayed(0, 50000L);
+        this.agd = new k(this, null);
+        this.agd.setSelfExecute(true);
+        this.agd.execute(String.valueOf(xx()) + str);
     }
 
-    private String ug() {
-        switch (com.baidu.adp.lib.util.i.fk()) {
+    private String xx() {
+        switch (com.baidu.adp.lib.util.k.iM()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
             case 2:
@@ -31,12 +31,12 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uh() {
-        if (this.VX != null) {
-            this.VX.cancel(true);
+    public void xy() {
+        if (this.agd != null) {
+            this.agd.cancel(true);
         }
-        if (this.VV != null) {
-            this.VV.removeMessages(0);
+        if (this.agb != null) {
+            this.agb.removeMessages(0);
         }
     }
 }

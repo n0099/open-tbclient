@@ -1,60 +1,31 @@
 package com.baidu.tbadk.editortool;
 
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import android.app.Activity;
+import android.widget.ListView;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
-public class z extends e {
-    private static z YP = new z();
-    private LinkedList<ae> YQ;
+public class z implements Runnable {
+    private PbEditor ajo;
+    private ListView ajp;
+    private Activity ajq;
+    private int ajr;
+    private int distance;
+    private int position;
 
-    @Override // com.baidu.tbadk.editortool.e
-    public int getIndex() {
-        return 1;
+    public z(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
+        this.distance = i2;
+        this.position = i;
+        this.ajo = pbEditor;
+        this.ajp = listView;
+        this.ajr = i3;
+        this.ajq = activity;
     }
 
-    public static synchronized z vm() {
-        z zVar;
-        synchronized (z.class) {
-            zVar = YP;
-        }
-        return zVar;
-    }
-
-    public List<ae> getGroups() {
-        return this.YQ;
-    }
-
-    @Override // com.baidu.tbadk.editortool.e
-    public void a(f fVar) {
-        if (this.YQ == null) {
-            this.YQ = new LinkedList<>();
-            if (TbFaceManager.vX().vl() > 0) {
-                y yVar = new y();
-                this.YQ.add(yVar);
-                if (fVar != null) {
-                    fVar.a(yVar);
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        Iterator<ae> it = this.YQ.iterator();
-        while (it.hasNext()) {
-            ae next = it.next();
-            if (fVar != null) {
-                fVar.a(next);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortool.e
-    public void rv() {
-    }
-
-    public boolean isEmpty() {
-        return this.YQ == null || this.YQ.size() == 0;
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.ajo.getLocationInWindow(iArr);
+        this.ajp.setSelectionFromTop(this.position + this.ajp.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.ajr) - com.baidu.adp.lib.util.n.l(this.ajq));
+        this.ajp.invalidate();
     }
 }

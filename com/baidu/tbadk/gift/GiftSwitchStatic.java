@@ -1,8 +1,11 @@
 package com.baidu.tbadk.gift;
+
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
-public class GiftSwitchStatic extends com.baidu.adp.lib.b.a {
+public class GiftSwitchStatic extends a {
     static {
-        com.baidu.adp.lib.b.f.da().l(GiftSwitchStatic.class);
+        f.gz().l(GiftSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

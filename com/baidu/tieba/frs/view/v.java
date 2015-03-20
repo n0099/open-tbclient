@@ -1,29 +1,20 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* loaded from: classes.dex */
-public class v implements View.OnClickListener {
-    final /* synthetic */ o aIY;
+class v implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ o aOZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(o oVar) {
-        this.aIY = oVar;
+        this.aOZ = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        String str;
-        MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aIY.mContext;
-        Context context = tbPageContext.getContext();
-        str = this.aIY.aIo;
-        messageManager.sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(context, str, "2", "1")));
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.aOZ.LN.getPageActivity(), this.aOZ.aOz, "exp_acce")));
+        aVar.dismiss();
     }
 }

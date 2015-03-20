@@ -9,7 +9,9 @@ import tbclient.GetGameCenter.RecommendGame;
 public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
+    public static final String IS_FROM_DETAIL = "1";
     public static final int NEW_MARK = 2;
+    public static final String NOT_FROM_DETAIL = "0";
     public static final int NO_MARK = 0;
     public static final int WAITING_MARK = 1;
     private static final long serialVersionUID = -3662330595966807760L;
@@ -43,12 +45,15 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String package_link;
     private String package_size;
     private int player_num;
-    private String ref_id = "5000901";
     private String schema_url;
+    private int score;
     private String secret_key;
     private int star;
     private String superscript_color;
     private String version;
+    private String ref_id = "5000901";
+    private String ref_type = "606";
+    private String is_detail = NOT_FROM_DETAIL;
 
     public String getGameId() {
         return this.game_id;
@@ -103,7 +108,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = ee(str);
+        this.package_size = el(str);
     }
 
     public String getGameLink() {
@@ -314,7 +319,11 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
             gameInfoData.setCategoryName(gameInfo.category_name);
             gameInfoData.setCategoryNameSim(gameInfo.category_name_sim);
             gameInfoData.setVersion(gameInfo.version);
-            gameInfoData.setStar(gameInfo.star.intValue());
+            if (gameInfo.score.intValue() != 0) {
+                gameInfoData.setStar(gameInfo.score.intValue());
+            } else {
+                gameInfoData.setStar(gameInfo.star.intValue());
+            }
             gameInfoData.setSecretKey(gameInfo.secret_key);
             if (TextUtils.isEmpty(gameInfo.subscript_color)) {
                 gameInfoData.setSuperscriptColor(gameInfo.superscript_color);
@@ -386,6 +395,22 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.ref_id = str;
     }
 
+    public String getRefType() {
+        return this.ref_type;
+    }
+
+    public void setRefType(String str) {
+        this.ref_type = str;
+    }
+
+    public String getIsDetail() {
+        return this.is_detail;
+    }
+
+    public void setIsDetail(String str) {
+        this.is_detail = str;
+    }
+
     public String getApp_id() {
         return this.app_id;
     }
@@ -394,7 +419,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String ee(String str) {
+    private String el(String str) {
         return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.c.a(str, 0.0f)));
     }
 

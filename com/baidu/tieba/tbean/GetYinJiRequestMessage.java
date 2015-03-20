@@ -26,7 +26,7 @@ public class GetYinJiRequestMessage extends NetMessage {
         ReqData.Builder builder = new ReqData.Builder();
         builder.st_type = getSt_type();
         if (z) {
-            com.baidu.tbadk.util.k.a(builder, true);
+            com.baidu.tbadk.util.j.a(builder, true);
         }
         GetIconListReqIdl.Builder builder2 = new GetIconListReqIdl.Builder();
         builder2.data = builder.build(false);

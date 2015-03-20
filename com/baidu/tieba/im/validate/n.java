@@ -1,20 +1,12 @@
 package com.baidu.tieba.im.validate;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ m bpZ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.bpZ = mVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ValidateActivity validateActivity;
-        validateActivity = this.bpZ.bpQ;
-        validateActivity.finish();
+class n implements CustomMessageTask.CustomRunnable<Void> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+        return new CustomResponsedMessage<>(2001306, new o());
     }
 }

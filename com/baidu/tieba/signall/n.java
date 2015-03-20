@@ -1,21 +1,16 @@
 package com.baidu.tieba.signall;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
-    final /* synthetic */ SignAllForumActivity bRb;
+public class n implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ SignAllForumActivity cdX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(SignAllForumActivity signAllForumActivity) {
-        this.bRb = signAllForumActivity;
+        this.cdX = signAllForumActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.bRb.mDialog;
-        alertDialog.dismiss();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

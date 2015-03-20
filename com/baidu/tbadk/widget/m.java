@@ -1,120 +1,69 @@
 package com.baidu.tbadk.widget;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import android.util.Log;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import java.io.InputStream;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.performanceLog.z;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends DynamicDrawableSpan {
-    private Uri aje;
-    private int ajf;
-    private n ajg;
-    private Context mContext;
-    private Rect mRect;
-    private Drawable vF;
+public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbImageView arV;
 
-    public void setDrawable(Drawable drawable) {
-        this.vF = drawable;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(TbImageView tbImageView) {
+        this.arV = tbImageView;
     }
 
-    public m(n nVar, int i, int i2) {
-        super(i2);
-        this.mRect = new Rect();
-        this.ajf = i;
-        this.ajg = nVar;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.vF != null || this.ajg == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-        }
-        if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.mRect.bottom;
-            fontMetricsInt.descent = 0;
-            fontMetricsInt.top = fontMetricsInt.ascent;
-            fontMetricsInt.bottom = 0;
-        }
-        return this.mRect.right;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        Drawable drawable;
-        Drawable drawable2;
-        Exception e;
-        InputStream openInputStream;
-        Drawable drawable3 = null;
-        if (this.vF != null) {
-            drawable3 = this.vF;
-        } else if (this.ajg != null) {
-            drawable3 = this.ajg.a(this);
-        }
-        if (drawable3 != null) {
-            return drawable3;
-        }
-        if (this.aje != null) {
-            try {
-                openInputStream = this.mContext.getContentResolver().openInputStream(this.aje);
-                drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
-            } catch (Exception e2) {
-                drawable2 = drawable3;
-                e = e2;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        n nVar;
+        long j;
+        n nVar2;
+        this.arV.stopLoading();
+        BdLog.i("imagecallback. resourceFrom-" + i);
+        nVar = this.arV.arH;
+        if (nVar != null) {
+            if (aVar != null) {
+                this.arV.arS = aVar.getWidth();
+                this.arV.arT = aVar.getHeight();
             }
-            try {
-                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-                openInputStream.close();
-                return drawable2;
-            } catch (Exception e3) {
-                e = e3;
-                Log.e("sms", "Failed to loaded content " + this.aje, e);
-                return drawable2;
+            nVar2 = this.arV.arH;
+            nVar2.onComplete(str, aVar != null);
+        }
+        if (aVar != null) {
+            if (aVar.Gu != null) {
+                this.arV.arQ.Gw = aVar.Gu.Gw;
+                this.arV.arQ.isSuccess = aVar.Gu.Gy;
+                this.arV.arQ.Gx = aVar.Gu.Gx;
             }
+        } else {
+            this.arV.arQ.Gw = "net";
+            this.arV.arQ.isSuccess = false;
+            z zVar = this.arV.arQ;
+            long currentTimeMillis = System.currentTimeMillis();
+            j = this.arV.arR;
+            zVar.Gx = currentTimeMillis - j;
         }
-        try {
-            drawable = bc.getDrawable(this.ajf);
-        } catch (Exception e4) {
-            drawable = drawable3;
-        }
-        try {
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            return drawable;
-        } catch (Exception e5) {
-            Log.e("sms", "Unable to find resource: " + this.ajf);
-            return drawable;
-        }
+        this.arV.tK();
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable drawable = getDrawable();
-        if (drawable != null) {
-            canvas.save();
-            int i6 = i5 - drawable.getBounds().bottom;
-            if (this.mVerticalAlignment != 0) {
-                i5 = i4;
-            }
-            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
-            if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
-                drawable.setColorFilter(new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY));
-            }
-            drawable.draw(canvas);
-            canvas.restore();
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
     }
 
-    public void e(int i, int i2, int i3, int i4) {
-        this.mRect.set(i, i2, i3, i4);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void onCancelled(String str) {
+        n nVar;
+        n nVar2;
+        super.onCancelled(str);
+        this.arV.stopLoading();
+        nVar = this.arV.arH;
+        if (nVar != null) {
+            nVar2 = this.arV.arH;
+            nVar2.onCancel();
+        }
     }
 }

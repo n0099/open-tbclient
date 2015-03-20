@@ -12,29 +12,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class s {
-    private static s aVz;
+    private static s aZU;
 
     private s() {
     }
 
-    public static synchronized s Li() {
+    public static synchronized s Og() {
         s sVar;
         synchronized (s.class) {
-            if (aVz == null) {
-                aVz = new s();
+            if (aZU == null) {
+                aZU = new s();
             }
-            sVar = aVz;
+            sVar = aZU;
         }
         return sVar;
     }
 
-    public void h(String str, long j) {
+    public void f(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long fA(int i) {
+    public long fC(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -62,12 +62,12 @@ public class s {
             while (it.hasNext()) {
                 ChatMessage next = it.next();
                 if (!TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
                 if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
-                if (TbadkCoreApplication.m255getInst().isPromotedMessageOn()) {
+                if (TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(2012100);
                     customMessage.setData(new com.baidu.tbadk.core.data.p(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);

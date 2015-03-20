@@ -5,19 +5,14 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SyncServiceConfig;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends BdBaseService {
     private static String mStatistics = null;
-    private o mSyncTask = null;
+    private l mSyncTask = null;
     private int mHaveRetry = 0;
     private com.baidu.tbadk.coreExtra.c.g mModel = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new n(this);
-
-    static {
-        TbadkCoreApplication.m255getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
-    }
+    private Runnable mRunnable = new k(this);
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -38,7 +33,7 @@ public class TiebaSyncService extends BdBaseService {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new o(this, null);
+        this.mSyncTask = new l(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 
@@ -62,7 +57,7 @@ public class TiebaSyncService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tbadk.data.b.uy()));
+            TbadkCoreApplication.m411getInst().refreshNewVersion(true);
         }
     }
 }

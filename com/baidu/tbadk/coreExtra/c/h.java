@@ -6,279 +6,279 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class h {
-    private String SA;
-    private String SB;
-    private String SC;
-    private String Sr;
-    private String Ss;
-    private String St;
-    private String Su;
-    private String Sx;
-    private String Sy;
-    private String Sz;
-    private int RX = 0;
-    private int RY = 0;
-    private int RZ = 0;
-    private int Sa = 0;
-    private int Sb = 0;
-    private int Sc = 0;
-    private int Sd = 0;
-    private int Se = 0;
-    private int Sf = 0;
-    private int Sg = 0;
-    private int Sh = 0;
-    private int Si = 0;
-    private int Sj = 0;
-    private int Sk = 0;
-    private int Sl = 0;
-    private int Sm = 0;
-    private int Sn = 0;
-    private int So = 0;
-    private boolean Sp = true;
-    private boolean Sq = true;
-    private HashMap<String, String> Sv = new HashMap<>();
-    private HashMap<String, String> Sw = new HashMap<>();
-    private String SD = null;
-    private String SE = null;
-    private List<i> SF = new ArrayList();
+    private String acA;
+    private String acB;
+    private String acC;
+    private String acD;
+    private String acE;
+    private String acF;
+    private String acu;
+    private String acv;
+    private String acw;
+    private String acx;
+    private int abZ = 0;
+    private int aca = 0;
+    private int acb = 0;
+    private int acc = 0;
+    private int acd = 0;
+    private int ace = 0;
+    private int acf = 0;
+    private int acg = 0;
+    private int ach = 0;
+    private int aci = 0;
+    private int acj = 0;
+    private int ack = 0;
+    private int acl = 0;
+    private int acm = 0;
+    private int acn = 0;
+    private int aco = 0;
+    private int acp = 0;
+    private int acq = 0;
+    private boolean acr = true;
+    private boolean acs = true;
+    private HashMap<String, String> acy = new HashMap<>();
+    private HashMap<String, String> acz = new HashMap<>();
+    private String acG = null;
+    private String acH = null;
+    private List<i> acI = new ArrayList();
 
-    public void sC() {
-        HashMap<String, String> sS = sS();
-        Set<String> keySet = sS.keySet();
+    public void vY() {
+        HashMap<String, String> wo = wo();
+        Set<String> keySet = wo.keySet();
         if (keySet.size() != 1) {
-            dn(null);
+            dw(null);
         } else {
-            dn(sS.get(keySet.iterator().next()));
+            dw(wo.get(keySet.iterator().next()));
         }
     }
 
-    public void sD() {
-        HashMap<String, String> sY = sY();
-        Set<String> keySet = sY.keySet();
+    public void vZ() {
+        HashMap<String, String> wu = wu();
+        Set<String> keySet = wu.keySet();
         if (keySet.size() != 1) {
-            du(null);
+            dC(null);
         } else {
-            du(sY.get(keySet.iterator().next()));
+            dC(wu.get(keySet.iterator().next()));
         }
     }
 
-    public int sE() {
-        return this.RX;
-    }
-
-    public void cF(int i) {
-        this.RX = i;
-    }
-
-    public int sF() {
-        return this.Sa;
+    public int wa() {
+        return this.abZ;
     }
 
     public void cG(int i) {
-        this.Sa = i;
+        this.abZ = i;
     }
 
-    public int sG() {
-        return this.Sb;
-    }
-
-    public int sH() {
-        return this.Sf;
+    public int wb() {
+        return this.acc;
     }
 
     public void cH(int i) {
-        this.Sf = i;
+        this.acc = i;
     }
 
-    public int sI() {
-        return this.Sj;
+    public int wc() {
+        return this.acd;
+    }
+
+    public int wd() {
+        return this.ach;
     }
 
     public void cI(int i) {
-        this.Sj = i;
+        this.ach = i;
     }
 
-    public int sJ() {
-        return this.Si;
+    public int we() {
+        return this.acl;
     }
 
     public void cJ(int i) {
-        this.Si = i;
+        this.acl = i;
     }
 
-    public int sK() {
-        return this.RX;
-    }
-
-    public int sL() {
-        return this.RZ;
+    public int wf() {
+        return this.ack;
     }
 
     public void cK(int i) {
-        this.RZ = i;
+        this.ack = i;
     }
 
-    public boolean sM() {
-        return this.Sp;
+    public int wg() {
+        return this.abZ;
     }
 
-    public void ax(boolean z) {
-        this.Sp = z;
-    }
-
-    public String sN() {
-        return this.Sr;
-    }
-
-    public void dm(String str) {
-        this.Sr = str;
-    }
-
-    public String sO() {
-        return this.Sx;
-    }
-
-    public void dn(String str) {
-        this.Sx = str;
-    }
-
-    public void dp(String str) {
-        this.Sy = str;
-    }
-
-    public int sP() {
-        return this.RY;
+    public int wh() {
+        return this.acb;
     }
 
     public void cL(int i) {
-        this.RY = i;
+        this.acb = i;
     }
 
-    public void dq(String str) {
-        this.Sz = str;
+    public boolean wi() {
+        return this.acr;
     }
 
-    public String sQ() {
-        return this.SB;
+    public void aD(boolean z) {
+        this.acr = z;
     }
 
-    public String sR() {
-        return this.SC;
-    }
-
-    public HashMap<String, String> sS() {
-        return this.Sv;
-    }
-
-    public int sT() {
-        return this.Sc;
-    }
-
-    public void cM(int i) {
-        this.Sc = i;
-    }
-
-    public int sU() {
-        return this.Sg;
-    }
-
-    public void cN(int i) {
-        this.Sg = i;
-    }
-
-    public int sV() {
-        return this.Sk;
-    }
-
-    public void cO(int i) {
-        this.Sk = i;
-    }
-
-    public void dr(String str) {
-        this.Ss = str;
-    }
-
-    public void ds(String str) {
-        this.St = str;
-    }
-
-    public int sW() {
-        return this.Sh;
-    }
-
-    public void cP(int i) {
-        this.Sh = i;
-    }
-
-    public String sX() {
-        return this.Su;
-    }
-
-    public void dt(String str) {
-        this.Su = str;
-    }
-
-    public HashMap<String, String> sY() {
-        return this.Sw;
-    }
-
-    public String sZ() {
-        return this.SA;
-    }
-
-    public void du(String str) {
-        this.SA = str;
-    }
-
-    public int ta() {
-        return this.Sd;
-    }
-
-    public int tb() {
-        return this.Se;
-    }
-
-    public void cQ(int i) {
-        this.Sd = i;
-    }
-
-    public void cR(int i) {
-        this.Se = i;
+    public String wj() {
+        return this.acu;
     }
 
     public void dv(String str) {
-        this.SD = str;
+        this.acu = str;
+    }
+
+    public String wk() {
+        return this.acA;
     }
 
     public void dw(String str) {
-        this.SE = str;
+        this.acA = str;
     }
 
-    public int tc() {
-        return this.Sm;
+    public void dx(String str) {
+        this.acB = str;
+    }
+
+    public int wl() {
+        return this.aca;
+    }
+
+    public void cM(int i) {
+        this.aca = i;
+    }
+
+    public void dy(String str) {
+        this.acC = str;
+    }
+
+    public String wm() {
+        return this.acE;
+    }
+
+    public String wn() {
+        return this.acF;
+    }
+
+    public HashMap<String, String> wo() {
+        return this.acy;
+    }
+
+    public int wp() {
+        return this.ace;
+    }
+
+    public void cN(int i) {
+        this.ace = i;
+    }
+
+    public int wq() {
+        return this.aci;
+    }
+
+    public void cO(int i) {
+        this.aci = i;
+    }
+
+    public int wr() {
+        return this.acm;
+    }
+
+    public void cP(int i) {
+        this.acm = i;
+    }
+
+    public void dz(String str) {
+        this.acv = str;
+    }
+
+    public void dA(String str) {
+        this.acw = str;
+    }
+
+    public int ws() {
+        return this.acj;
+    }
+
+    public void cQ(int i) {
+        this.acj = i;
+    }
+
+    public String wt() {
+        return this.acx;
+    }
+
+    public void dB(String str) {
+        this.acx = str;
+    }
+
+    public HashMap<String, String> wu() {
+        return this.acz;
+    }
+
+    public String wv() {
+        return this.acD;
+    }
+
+    public void dC(String str) {
+        this.acD = str;
+    }
+
+    public int ww() {
+        return this.acf;
+    }
+
+    public int wx() {
+        return this.acg;
+    }
+
+    public void cR(int i) {
+        this.acf = i;
     }
 
     public void cS(int i) {
-        this.Sm = i;
+        this.acg = i;
     }
 
-    public int td() {
-        return this.Sn;
+    public void dD(String str) {
+        this.acG = str;
+    }
+
+    public void dE(String str) {
+        this.acH = str;
+    }
+
+    public int wy() {
+        return this.aco;
     }
 
     public void cT(int i) {
-        this.Sn = i;
+        this.aco = i;
     }
 
-    public List<i> te() {
-        return this.SF;
-    }
-
-    public int tf() {
-        return this.So;
+    public int wz() {
+        return this.acp;
     }
 
     public void cU(int i) {
-        this.So = i;
+        this.acp = i;
+    }
+
+    public List<i> wA() {
+        return this.acI;
+    }
+
+    public int wB() {
+        return this.acq;
+    }
+
+    public void cV(int i) {
+        this.acq = i;
     }
 }

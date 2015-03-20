@@ -53,4 +53,7 @@ public class ErrorData implements Serializable {
             }
         }
     }
+
+    public void logPrint() {
+    }
 }

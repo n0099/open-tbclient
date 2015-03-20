@@ -1,38 +1,36 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class au extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aDT;
+public class au extends com.baidu.adp.widget.ListView.am {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    TbImageView aKA;
+    TextView aKB;
+    LinearLayout aKv;
+    HeadImageView aKw;
+    TextView aKx;
+    TextView aKy;
+    TextView aKz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aDT = frsActivity;
+    static {
+        $assertionsDisabled = !au.class.desiredAssertionStatus();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean FL;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.aCL = true;
-            } else if (intValue == 2) {
-                FrsActivity.aCM = true;
-            }
-            boolean z = intValue == 3;
-            FL = FrsActivity.FL();
-            if (!z || !FL) {
-                FrsActivity.aCK = true;
-            } else {
-                FrsActivity.aCK = false;
-            }
-            this.aDT.FP();
+    public au(View view) {
+        super(view);
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
+        this.aKv = (LinearLayout) view.findViewById(com.baidu.tieba.v.frs_app_item_parent);
+        this.aKw = (HeadImageView) view.findViewById(com.baidu.tieba.v.frs_app_icon);
+        this.aKx = (TextView) view.findViewById(com.baidu.tieba.v.frs_app_name);
+        this.aKy = (TextView) view.findViewById(com.baidu.tieba.v.frs_app_time);
+        this.aKz = (TextView) view.findViewById(com.baidu.tieba.v.frs_app_desc);
+        this.aKA = (TbImageView) view.findViewById(com.baidu.tieba.v.frs_app_url);
+        this.aKB = (TextView) view.findViewById(com.baidu.tieba.v.frs_app_download);
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bz {
-    public static ImMessageCenterPojo s(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, c.QJ().QQ());
+    public static ImMessageCenterPojo m(ImMessageCenterPojo imMessageCenterPojo) {
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, c.Sd().Sl());
     }
 
-    private static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+    private static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
         imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
         imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
@@ -26,18 +26,20 @@ public class bz {
         imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
         imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        boolean z = true;
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-            if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                if (!com.baidu.tieba.im.settingcache.h.To().aH(currentAccount, imMessageCenterPojo3.getGid())) {
+            if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
+                if (!com.baidu.tieba.im.settingcache.j.Tq().aF(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                 } else {
-                    com.baidu.tieba.im.settingcache.g.Tn().setAcceptNotify(true);
+                    com.baidu.tieba.im.settingcache.l.Tr().setAcceptNotify(true);
+                    z = false;
                 }
             }
         }
-        if (imMessageCenterPojo2.getUnread_count() <= 0) {
+        if (z) {
             imMessageCenterPojo2.setUnread_count(1);
-            com.baidu.tieba.im.settingcache.g.Tn().setAcceptNotify(false);
+            com.baidu.tieba.im.settingcache.l.Tr().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

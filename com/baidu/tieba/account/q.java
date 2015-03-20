@@ -1,83 +1,46 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity ann;
+public class q implements com.baidu.tbadk.core.a.b {
+    final /* synthetic */ p auM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(ActivationActivity activationActivity) {
-        this.ann = activationActivity;
+    public q(p pVar) {
+        this.auM = pVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        ImageView imageView;
-        EditText editText;
-        boolean z;
+    @Override // com.baidu.tbadk.core.a.b
+    public void bO(String str) {
         u uVar;
-        t tVar;
         u uVar2;
-        u uVar3;
-        t tVar2;
-        u uVar4;
-        t tVar3;
-        t tVar4;
-        view2 = this.ann.mBack;
-        if (view != view2) {
-            relativeLayout = this.ann.amZ;
-            if (view != relativeLayout) {
-                relativeLayout2 = this.ann.ana;
-                if (view != relativeLayout2) {
-                    imageView = this.ann.amU;
-                    if (view == imageView) {
-                        editText = this.ann.amY;
-                        editText.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                }
-                z = this.ann.and;
-                if (z) {
-                    uVar = this.ann.anb;
-                    if (uVar == null) {
-                        tVar = this.ann.anc;
-                        if (tVar == null) {
-                            this.ann.anb = new u(this.ann, null);
-                            uVar2 = this.ann.anb;
-                            uVar2.setPriority(3);
-                            uVar3 = this.ann.anb;
-                            uVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            tVar2 = this.ann.anc;
-            if (tVar2 == null) {
-                uVar4 = this.ann.anb;
-                if (uVar4 == null) {
-                    this.ann.anc = new t(this.ann, null);
-                    tVar3 = this.ann.anc;
-                    tVar3.setPriority(3);
-                    tVar4 = this.ann.anc;
-                    tVar4.execute(new String[0]);
-                    return;
-                }
-                return;
-            }
-            return;
+        uVar = this.auM.auJ;
+        if (uVar != null) {
+            uVar2 = this.auM.auJ;
+            uVar2.bO(str);
         }
-        this.ann.setResult(0);
-        this.ann.finish();
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void a(AccountData accountData) {
+        u uVar;
+        u uVar2;
+        uVar = this.auM.auJ;
+        if (uVar != null) {
+            uVar2 = this.auM.auJ;
+            uVar2.onSuccess();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void c(String str, int i, String str2) {
+        if (i == 1) {
+            ReloginManager.rw().e(null);
+        }
+        r rVar = new r(this, str);
+        rVar.setPriority(3);
+        rVar.execute(new Void[0]);
     }
 }

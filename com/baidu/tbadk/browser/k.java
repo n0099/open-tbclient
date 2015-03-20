@@ -1,17 +1,15 @@
 package com.baidu.tbadk.browser;
-
-import android.app.Activity;
 /* loaded from: classes.dex */
-class k implements m {
-    final /* synthetic */ TbWebViewActivity Bg;
+class k implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ i Nm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(TbWebViewActivity tbWebViewActivity) {
-        this.Bg = tbWebViewActivity;
+    public k(i iVar) {
+        this.Nm = iVar;
     }
 
-    @Override // com.baidu.tbadk.browser.m
-    public Object o(Activity activity) {
-        return new TbJsBridge(activity);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

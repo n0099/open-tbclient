@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Handler.Callback {
-    final /* synthetic */ a aiK;
+    final /* synthetic */ a arm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aiK = aVar;
+        this.arm = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -17,19 +17,19 @@ public class b implements Handler.Callback {
         boolean z;
         switch (message.what) {
             case 0:
-                this.aiK.zT();
+                this.arm.Do();
                 break;
             case 1:
-                z = this.aiK.aiJ;
+                z = this.arm.arl;
                 if (z) {
-                    this.aiK.zT();
+                    this.arm.Do();
                     break;
                 }
                 break;
             case 2:
-                this.aiK.invalidate();
-                this.aiK.aiI = System.currentTimeMillis();
-                this.aiK.mHandler.sendEmptyMessage(0);
+                this.arm.invalidate();
+                this.arm.ark = System.currentTimeMillis();
+                this.arm.mHandler.sendEmptyMessage(0);
                 break;
         }
         return false;

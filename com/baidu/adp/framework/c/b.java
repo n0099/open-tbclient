@@ -1,30 +1,28 @@
 package com.baidu.adp.framework.c;
-
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b fh = null;
-    private e fi;
+    private static b qz = null;
+    private e qA;
 
-    public static b bu() {
-        if (fh == null) {
+    public static b eR() {
+        if (qz == null) {
             synchronized (b.class) {
-                if (fh == null) {
-                    fh = new b();
+                if (qz == null) {
+                    qz = new b();
                 }
             }
         }
-        return fh;
+        return qz;
     }
 
     private b() {
-        this.fi = null;
-        this.fk = new e(30000, 20000, TbConfig.BIG_IMAGE_MIN_CAPACITY);
-        this.fi = new e(20000, TbConfig.BIG_IMAGE_MIN_CAPACITY, 5000);
+        this.qA = null;
+        this.qC = new e(30000, 20000, 10000);
+        this.qA = new e(20000, 10000, 5000);
         this.mRetryCount = 5;
     }
 
-    public e bv() {
-        return this.fi;
+    public e eS() {
+        return this.qA;
     }
 }

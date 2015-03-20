@@ -1,15 +1,13 @@
 package com.baidu.tieba.im.message;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-class h implements CustomMessageTask.CustomRunnable<String> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_KD_MREAD, customMessage.getData());
-        }
-        return null;
+public class h {
+    public boolean ahV;
+    public int customGroupType;
+    public String id;
+
+    public h(String str, int i, boolean z) {
+        this.id = str;
+        this.customGroupType = i;
+        this.ahV = z;
     }
 }

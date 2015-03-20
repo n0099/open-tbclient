@@ -11,56 +11,57 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class j extends HorizontalScrollView {
-    private int TX;
-    private int TY;
-    private Runnable TZ;
-    private TbPageContextSupport Ua;
-    private ImageView[] Ub;
-    private View Uc;
-    private View Ud;
-    private o Ue;
-    private boolean Uf;
-    private String Ug;
+    private int adZ;
+    private int aea;
+    private Runnable aeb;
+    private TbPageContextSupport aec;
+    private ImageView[] aed;
+    private View aee;
+    private View aef;
+    private o aeg;
+    private boolean aeh;
+    private String aei;
     private Context mContext;
 
     public j(TbPageContextSupport tbPageContextSupport, o oVar, String str) {
         super(tbPageContextSupport.getPageContext().getContext());
-        this.TX = 0;
-        this.TY = 0;
-        this.TZ = new k(this);
+        this.adZ = 0;
+        this.aea = 0;
+        this.aeb = new k(this);
         this.mContext = null;
-        this.Ub = null;
-        this.Uc = null;
-        this.Ud = null;
-        this.Ue = null;
-        this.Uf = true;
-        this.Ug = WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        this.aed = null;
+        this.aee = null;
+        this.aef = null;
+        this.aeg = null;
+        this.aeh = true;
+        this.aei = WriteImageActivityConfig.FILTER_NAME_NORMAL;
         this.mContext = tbPageContextSupport.getPageContext().getContext();
-        this.Ua = tbPageContextSupport;
-        this.Ue = oVar;
+        this.aec = tbPageContextSupport;
+        this.aeg = oVar;
         if (str != null) {
-            this.Ug = str;
+            this.aei = str;
         }
         init();
     }
 
     private void init() {
-        this.TX = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds4);
-        this.TY = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds30);
+        this.adZ = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds4);
+        this.aea = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds30);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         linearLayout.setGravity(16);
         linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.TY, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+        linearLayout.setPadding(this.aea, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
         setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         addView(linearLayout);
-        String[] stringArray = this.mContext.getResources().getStringArray(com.baidu.tieba.r.fiter_name);
-        this.Ub = new ImageView[stringArray.length];
+        String[] stringArray = this.mContext.getResources().getStringArray(com.baidu.tieba.q.fiter_name);
+        this.aed = new ImageView[stringArray.length];
         int length = stringArray.length;
         int i = 0;
         int i2 = 0;
@@ -68,22 +69,22 @@ public class j extends HorizontalScrollView {
             String str = stringArray[i];
             String substring = str.substring(0, str.indexOf("|"));
             String substring2 = str.substring(str.indexOf("|") + 1);
-            View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.filter_item, null);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.w.filter_text);
+            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.filter_item, null);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.filter_text);
             textView.setText(substring2);
             textView.setTag(substring);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.w.filter_immage);
-            imageView.setPadding(this.TX, this.TX, this.TX, this.TX);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
+            imageView.setPadding(this.adZ, this.adZ, this.adZ, this.adZ);
             imageView.setTag(textView);
             imageView.setOnClickListener(new l(this));
-            if (substring.equals(this.Ug)) {
-                this.Uc = inflate;
-                this.Ud = imageView;
-                imageView.setBackgroundResource(com.baidu.tieba.v.bg_choose_filter);
+            if (substring.equals(this.aei)) {
+                this.aee = inflate;
+                this.aef = imageView;
+                imageView.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
                 textView.setSelected(true);
             }
-            imageView.setImageResource(dC(substring));
-            this.Ub[i2] = imageView;
+            imageView.setImageResource(dK(substring));
+            this.aed[i2] = imageView;
             linearLayout.addView(inflate);
             i++;
             i2++;
@@ -93,87 +94,87 @@ public class j extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.Uc != null) {
-            post(this.TZ);
+        if (this.aee != null) {
+            post(this.aeb);
         }
     }
 
     public String getSelectedFilter() {
-        return this.Ud != null ? (String) ((View) this.Ud.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        return this.aef != null ? (String) ((View) this.aef.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
     }
 
     public void setCanbeClick(boolean z) {
-        this.Uf = z;
+        this.aeh = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(View view) {
-        if (this.Uf && view != this.Ud && tB()) {
-            if (this.Ud != null) {
-                this.Ud.setBackgroundDrawable(null);
-                ((TextView) this.Ud.getTag()).setSelected(false);
+        if (this.aeh && view != this.aef && wU()) {
+            if (this.aef != null) {
+                this.aef.setBackgroundDrawable(null);
+                ((TextView) this.aef.getTag()).setSelected(false);
             }
-            this.Ud = view;
-            view.setBackgroundResource(com.baidu.tieba.v.bg_choose_filter);
+            this.aef = view;
+            view.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
             TextView textView = (TextView) view.getTag();
             textView.setSelected(true);
-            this.Ug = (String) textView.getTag();
-            if (this.Ue != null) {
-                this.Ue.dD(this.Ug);
+            this.aei = (String) textView.getTag();
+            if (this.aeg != null) {
+                this.aeg.dL(this.aei);
             }
         }
     }
 
-    private boolean tB() {
-        PluginPackageManager.PluginStatus bj = PluginPackageManager.hV().bj(PluginCenter.NAME_MOTUSDK);
-        if (bj == PluginPackageManager.PluginStatus.NROMAL) {
+    private boolean wU() {
+        PluginPackageManager.PluginStatus br = PluginPackageManager.ls().br(PluginCenter.NAME_MOTUSDK);
+        if (br == PluginPackageManager.PluginStatus.NROMAL) {
             return true;
         }
-        if (bj == PluginPackageManager.PluginStatus.DISABLE) {
-            UtilHelper.showToast(getContext(), com.baidu.tieba.z.plugin_config_not_found);
+        if (br == PluginPackageManager.PluginStatus.DISABLE) {
+            UtilHelper.showToast(getContext(), com.baidu.tieba.y.plugin_config_not_found);
             return false;
-        } else if (bj == PluginPackageManager.PluginStatus.UNINSTALLED) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.hV().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
+        } else if (br == PluginPackageManager.PluginStatus.UNINSTALLED) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.ls().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
             return false;
-        } else if (bj == PluginPackageManager.PluginStatus.FORBIDDEN) {
-            com.baidu.tbadk.coreExtra.util.a.a(this.Ua.getPageContext(), com.baidu.tieba.z.plugin_muto_not_install, new m(this), new n(this));
+        } else if (br == PluginPackageManager.PluginStatus.FORBIDDEN) {
+            com.baidu.tbadk.coreExtra.util.a.a(this.aec.getPageContext(), com.baidu.tieba.y.plugin_muto_not_install, new m(this), new n(this));
             return false;
         } else {
             return true;
         }
     }
 
-    public static int dC(String str) {
-        if (str == null) {
-            return com.baidu.tieba.v.motu_filter_normal;
+    public static int dK(String str) {
+        if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
+            return 0;
         }
-        if (str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-            return com.baidu.tieba.v.motu_filter_normal;
+        if (str == null || str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
+            return TbadkCoreApplication.getMotuFilterImageMap().get(WriteImageActivityConfig.FILTER_NAME_NORMAL).intValue();
         }
         if (str.equals("clvivid")) {
-            return com.baidu.tieba.v.motu_filter_skin;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clvivid").intValue();
         }
         if (str.equals("cllomoscenery")) {
-            return com.baidu.tieba.v.motu_filter_lomo;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("cllomoscenery").intValue();
         }
         if (str.equals("clcaisefupian")) {
-            return com.baidu.tieba.v.motu_filter_classichdr;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clcaisefupian").intValue();
         }
         if (str.equals("clm3")) {
-            return com.baidu.tieba.v.motu_filter_nashiv;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clm3").intValue();
         }
         if (str.equals("cqiuse")) {
-            return com.baidu.tieba.v.motu_filter_fleeting;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("cqiuse").intValue();
         }
         if (str.equals("clzaoan")) {
-            return com.baidu.tieba.v.motu_filter_bluetone;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clzaoan").intValue();
         }
         if (str.equals("clfuguscenery")) {
-            return com.baidu.tieba.v.motu_filter_elegant;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clfuguscenery").intValue();
         }
         if (str.equals("clheibai")) {
-            return com.baidu.tieba.v.motu_filter_gray;
+            return TbadkCoreApplication.getMotuFilterImageMap().get("clheibai").intValue();
         }
-        return com.baidu.tieba.v.motu_filter_normal;
+        return TbadkCoreApplication.getMotuFilterImageMap().get(WriteImageActivityConfig.FILTER_NAME_NORMAL).intValue();
     }
 }

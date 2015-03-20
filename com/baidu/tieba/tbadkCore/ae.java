@@ -1,100 +1,77 @@
 package com.baidu.tieba.tbadkCore;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import org.json.JSONObject;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
-public class ae {
-    private int bUS;
-    private int bUT;
-    private int cur_score;
-    private String fid;
-    private int is_like;
-    private String level_name;
-    private int levelup_score;
-    private int user_level;
+public class ae implements com.baidu.tbadk.mvc.b.a {
+    private String aCw;
+    private int aOu;
+    private int clt;
+    private String mId;
+    private String mName;
+    private int mType;
 
     public ae() {
-        setLike(0);
-        this.bUS = 0;
-        this.bUT = 0;
-        this.user_level = 0;
-        setLevelName("");
-        setCurScore(0);
-        setLevelupScore(0);
     }
 
-    public String getFid() {
-        return this.fid;
+    public ae(int i) {
+        this.mType = i;
     }
 
-    public void id(String str) {
-        this.fid = str;
+    public String getId() {
+        return this.mId;
     }
 
-    public int adH() {
-        return this.user_level;
+    public String getName() {
+        return this.mName;
     }
 
-    public void hE(int i) {
-        if (i >= 0) {
-            this.user_level = i;
+    public void il(int i) {
+        this.clt = i;
+    }
+
+    public int akO() {
+        return this.clt;
+    }
+
+    public void setLevel(int i) {
+        this.aOu = i;
+    }
+
+    public int getLevel() {
+        return this.aOu;
+    }
+
+    public String getAvatar() {
+        return this.aCw;
+    }
+
+    public void a(LikeForum likeForum) {
+        if (likeForum != null) {
+            a(likeForum, null);
         }
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(LikeForum likeForum, Context context) {
+        if (likeForum != null) {
             try {
-                setLike(jSONObject.optInt("is_like", 0));
-                this.bUS = jSONObject.optInt("is_black", 0);
-                this.bUT = jSONObject.optInt("like_num", 0);
-                this.user_level = jSONObject.optInt("level_id", 0);
-                setLevelName(jSONObject.optString("level_name", ""));
-                setLevelupScore(jSONObject.optInt("levelup_score", 0));
-                setCurScore(jSONObject.optInt("cur_score", 0));
+                this.mId = String.valueOf(likeForum.forum_id);
+                this.mName = likeForum.forum_name;
+                this.clt = likeForum.is_sign.intValue();
+                this.aOu = likeForum.level_id.intValue();
+                this.aCw = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public void setLike(int i) {
-        this.is_like = i;
+    public int getType() {
+        return this.mType;
     }
 
-    public int isLike() {
-        return this.is_like;
-    }
-
-    public void setLevelName(String str) {
-        this.level_name = str;
-    }
-
-    public String getLevelName() {
-        return this.level_name;
-    }
-
-    public void setCurScore(int i) {
-        this.cur_score = i;
-    }
-
-    public int getCurScore() {
-        return this.cur_score;
-    }
-
-    public void setLevelupScore(int i) {
-        this.levelup_score = i;
-    }
-
-    public int getLevelupScore() {
-        return this.levelup_score;
+    public void setType(int i) {
+        this.mType = i;
     }
 }

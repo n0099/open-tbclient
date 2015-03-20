@@ -9,57 +9,57 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends a {
-    private Paint aiS;
-    private Paint aiT;
-    private int aiU;
-    private int aiV;
-    private float aiW;
-    private int aiX;
+    private Paint aru;
+    private Paint arv;
+    private int arw;
+    private int arx;
+    private float ary;
+    private int arz;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiS = null;
-        this.aiT = null;
-        this.aiU = 0;
-        this.aiV = 0;
-        this.aiW = 0.42857143f;
-        this.aiX = 0;
+        this.aru = null;
+        this.arv = null;
+        this.arw = 0;
+        this.arx = 0;
+        this.ary = 0.42857143f;
+        this.arz = 0;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiS = null;
-        this.aiT = null;
-        this.aiU = 0;
-        this.aiV = 0;
-        this.aiW = 0.42857143f;
-        this.aiX = 0;
+        this.aru = null;
+        this.arv = null;
+        this.arw = 0;
+        this.arx = 0;
+        this.ary = 0.42857143f;
+        this.arz = 0;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.aiS = null;
-        this.aiT = null;
-        this.aiU = 0;
-        this.aiV = 0;
-        this.aiW = 0.42857143f;
-        this.aiX = 0;
+        this.aru = null;
+        this.arv = null;
+        this.arw = 0;
+        this.arx = 0;
+        this.ary = 0.42857143f;
+        this.arz = 0;
         init();
     }
 
     private void init() {
-        this.aiS = new Paint();
-        this.aiS.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.aiS.setAlpha(153);
-        this.aiT = new Paint();
-        this.aiT.setStyle(Paint.Style.STROKE);
-        this.aiT.setColor(-1);
-        this.aiX = getResources().getColor(t.editimage_bg);
+        this.aru = new Paint();
+        this.aru.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.aru.setAlpha(153);
+        this.arv = new Paint();
+        this.arv.setStyle(Paint.Style.STROKE);
+        this.arv.setColor(-1);
+        this.arz = getResources().getColor(s.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -74,28 +74,28 @@ public class EditHeadsImageView extends a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.aiU = (int) (((i4 - i2) - (i3 - i)) * this.aiW);
-        this.aiV = (int) (((i4 - i2) - (i3 - i)) * (1.0f - this.aiW));
-        setOffset(0, this.aiU, 0, this.aiV);
+        this.arw = (int) (((i4 - i2) - (i3 - i)) * this.ary);
+        this.arx = (int) (((i4 - i2) - (i3 - i)) * (1.0f - this.ary));
+        setOffset(0, this.arw, 0, this.arx);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(this.aiX);
+        canvas.drawColor(this.arz);
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.aiU, this.aiS);
-        canvas.drawRect(0.0f, getHeight() - this.aiV, getWidth(), getHeight(), this.aiS);
-        canvas.drawRect(0.0f, this.aiU, getWidth() - 1, getHeight() - this.aiV, this.aiT);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.arw, this.aru);
+        canvas.drawRect(0.0f, getHeight() - this.arx, getWidth(), getHeight(), this.aru);
+        canvas.drawRect(0.0f, this.arw, getWidth() - 1, getHeight() - this.arx, this.arv);
     }
 
-    public Bitmap bb(boolean z) {
+    public Bitmap bg(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.aiU, getWidth(), getWidth());
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.arw, getWidth(), getWidth());
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();

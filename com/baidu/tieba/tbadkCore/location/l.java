@@ -1,35 +1,29 @@
 package com.baidu.tieba.tbadkCore.location;
 
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class l {
-    private String lat;
-    private String lng;
-    private String name;
-    private String screatString;
+    private ArrayList<m> cpw = new ArrayList<>();
 
-    public String getName() {
-        return this.name;
+    public ArrayList<m> ank() {
+        return this.cpw;
     }
 
-    public void setName(String str) {
-        this.name = str;
+    public void W(ArrayList<m> arrayList) {
+        this.cpw = arrayList;
     }
 
-    public void b(Lbs lbs) {
-        if (lbs != null) {
-            this.name = lbs.name;
-            this.lat = lbs.lat;
-            this.lng = lbs.lng;
-            this.screatString = lbs.sn;
+    public void a(DataRes dataRes) {
+        List<Lbs> list = dataRes.poi_info;
+        if (list != null && !list.isEmpty()) {
+            for (Lbs lbs : list) {
+                m mVar = new m();
+                mVar.b(lbs);
+                this.cpw.add(mVar);
+            }
         }
-    }
-
-    public String getScreatString() {
-        return this.screatString;
-    }
-
-    public void io(String str) {
-        this.screatString = str;
     }
 }

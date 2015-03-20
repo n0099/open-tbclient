@@ -1,41 +1,26 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.RequestSendPVTJMessage;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+public class bl implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bjW;
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+    public bl(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, ImMessageCenterPojo imMessageCenterPojo) {
         this.this$0 = imMemoryCacheRegisterStatic;
+        this.bjW = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.QJ().l(imMessageCenterPojo);
-        if (z) {
-            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null) {
+            com.baidu.tieba.im.db.k.PT().a(this.bjW, 2);
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        for (CommonMsgPojo commonMsgPojo : list) {
-            if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
-                RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
-                com.baidu.tieba.im.data.g a = com.baidu.tieba.im.util.i.a(commonMsgPojo);
-                if (a != null) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst(), "message_receive", "receive", 1, "task_type", a.aXW, "task_id", a.aXX);
-                }
-            }
-        }
+        return null;
     }
 }

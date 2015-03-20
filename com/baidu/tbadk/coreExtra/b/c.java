@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.t;
+import com.baidu.adp.lib.util.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GameCategoryDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
@@ -15,18 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c Ro;
+    private static c abd;
 
     private c() {
     }
 
-    public static synchronized c rQ() {
+    public static synchronized c uR() {
         c cVar;
         synchronized (c.class) {
-            if (Ro == null) {
-                Ro = new c();
+            if (abd == null) {
+                abd = new c();
             }
-            cVar = Ro;
+            cVar = abd;
         }
         return cVar;
     }
@@ -62,16 +62,16 @@ public class c {
     }
 
     public boolean b(GameInfoData gameInfoData) {
-        SQLiteDatabase rP = b.rP();
+        SQLiteDatabase uQ = b.uQ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (gameInfoData == null || rP == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
+        if (gameInfoData == null || uQ == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
             return false;
         }
         try {
-            o(rP);
+            o(uQ);
             ContentValues a = a(gameInfoData);
-            if (rP.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
-                rP.insert("table_download" + currentAccount, null, a);
+            if (uQ.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
+                uQ.insert("table_download" + currentAccount, null, a);
                 return true;
             }
             return true;
@@ -81,16 +81,16 @@ public class c {
         }
     }
 
-    public boolean q(String str, int i) {
-        SQLiteDatabase rP = b.rP();
+    public boolean p(String str, int i) {
+        SQLiteDatabase uQ = b.uQ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || rP == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || uQ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("label", Integer.valueOf(i));
-            if (rP.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (uQ.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -99,16 +99,16 @@ public class c {
         return false;
     }
 
-    public boolean df(String str) {
-        SQLiteDatabase rP = b.rP();
+    public boolean dl(String str) {
+        SQLiteDatabase uQ = b.uQ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || rP == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || uQ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("current_Time", Long.valueOf(System.currentTimeMillis()));
-            if (rP.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (uQ.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -118,21 +118,21 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4] */
-    public boolean dg(String str) {
+    public boolean dm(String str) {
         Cursor cursor;
-        SQLiteDatabase rP = b.rP();
+        SQLiteDatabase uQ = b.uQ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || rP == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || uQ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
-            cursor = rP.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
+            cursor = uQ.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
                         if (cursor.getCount() > 0) {
-                            if (rP.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
-                                t.b(cursor);
+                            if (uQ.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
+                                v.b(cursor);
                                 return true;
                             }
                         }
@@ -140,23 +140,23 @@ public class c {
                         e = e;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.deleteItem", new Object[0]);
-                        t.b(cursor);
+                        v.b(cursor);
                         return false;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    t.b(cursor);
+                    v.b(cursor);
                     throw th;
                 }
             }
-            t.b(cursor);
+            v.b(cursor);
         } catch (Exception e2) {
             e = e2;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            t.b(cursor);
+            v.b(cursor);
             throw th;
         }
         return false;
@@ -169,15 +169,15 @@ public class c {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public GameInfoData dh(String str) {
+    public GameInfoData dn(String str) {
         Cursor cursor;
-        SQLiteDatabase rP = b.rP();
+        SQLiteDatabase uQ = b.uQ();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (rP != null) {
+        if (uQ != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = rP.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
+                        cursor = uQ.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
@@ -205,25 +205,25 @@ public class c {
                                     gameInfoData.setDeadline(cursor.getInt(cursor.getColumnIndex("deadline")));
                                     gameInfoData.setEditorRec(cursor.getString(cursor.getColumnIndex("editor_rec")));
                                     gameInfoData.setApp_id(cursor.getString(cursor.getColumnIndex("app_id")));
-                                    t.b(cursor);
+                                    v.b(cursor);
                                     return gameInfoData;
                                 }
                             } catch (Exception e) {
                                 e = e;
                                 e.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getGameItemByPackageName", new Object[0]);
-                                t.b(cursor);
+                                v.b(cursor);
                                 return null;
                             }
                         }
-                        t.b(cursor);
+                        v.b(cursor);
                     } catch (Exception e2) {
                         e = e2;
                         cursor = null;
                     } catch (Throwable th) {
                         th = th;
                         currentAccount = 0;
-                        t.b((Cursor) currentAccount);
+                        v.b((Cursor) currentAccount);
                         throw th;
                     }
                     return null;
@@ -241,16 +241,16 @@ public class c {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public List<GameInfoData> rR() {
+    public List<GameInfoData> uS() {
         Cursor cursor;
-        SQLiteDatabase rP = b.rP();
+        SQLiteDatabase uQ = b.uQ();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (rP != null) {
+        if (uQ != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = rP.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
+                        cursor = uQ.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
                                 try {
@@ -289,19 +289,19 @@ public class c {
                                     e = e;
                                     e.printStackTrace();
                                     TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getGameDownloadList", new Object[0]);
-                                    t.b(cursor);
+                                    v.b(cursor);
                                     return arrayList;
                                 }
                             }
                         }
-                        t.b(cursor);
+                        v.b(cursor);
                     } catch (Exception e2) {
                         e = e2;
                         cursor = null;
                     } catch (Throwable th) {
                         th = th;
                         currentAccount = 0;
-                        t.b((Cursor) currentAccount);
+                        v.b((Cursor) currentAccount);
                         throw th;
                     }
                     return arrayList;
@@ -313,17 +313,17 @@ public class c {
         return arrayList;
     }
 
-    public List<GameInfoData> cA(int i) {
+    public List<GameInfoData> cz(int i) {
         Cursor cursor;
-        SQLiteDatabase rP = b.rP();
+        SQLiteDatabase uQ = b.uQ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (rP == null || TextUtils.isEmpty(currentAccount)) {
+        if (uQ == null || TextUtils.isEmpty(currentAccount)) {
             return arrayList;
         }
         if (i == 3 || i == 2) {
             try {
-                cursor = rP.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
+                cursor = uQ.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -336,24 +336,24 @@ public class c {
                                 e = e;
                                 e.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getAllFinishList", new Object[0]);
-                                t.b(cursor);
+                                v.b(cursor);
                                 return arrayList;
                             }
                         } catch (Throwable th) {
                             th = th;
-                            t.b(cursor);
+                            v.b(cursor);
                             throw th;
                         }
                     }
                 }
-                t.b(cursor);
+                v.b(cursor);
             } catch (Exception e2) {
                 e = e2;
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
                 cursor = null;
-                t.b(cursor);
+                v.b(cursor);
                 throw th;
             }
             return arrayList;

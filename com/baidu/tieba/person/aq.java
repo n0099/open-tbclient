@@ -1,37 +1,25 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class aq implements AdapterView.OnItemClickListener {
-    final /* synthetic */ al bHW;
+class aq implements com.baidu.adp.widget.ListView.x {
+    final /* synthetic */ aj bQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(al alVar) {
-        this.bHW = alVar;
+    public aq(aj ajVar) {
+        this.bQe = ajVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // com.baidu.adp.widget.ListView.x
+    public void onScrollToBottom() {
+        boolean z;
         at atVar;
-        at atVar2;
-        at atVar3;
-        PersonFriendActivity aaS;
-        atVar = this.bHW.bHP;
-        if (atVar != null) {
-            atVar2 = this.bHW.bHP;
-            if (atVar2.getItemViewType(i) == 0) {
-                atVar3 = this.bHW.bHP;
-                UserData userData = (UserData) atVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    al alVar = this.bHW;
-                    aaS = this.bHW.aaS();
-                    alVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(aaS.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
-                }
-            }
+        z = this.bQe.bQb;
+        if (!z) {
+            this.bQe.bQa = false;
+            aj ajVar = this.bQe;
+            atVar = this.bQe.bPW;
+            ajVar.pageNum = atVar.getData().XE().qj() + 1;
+            this.bQe.bQb = true;
+            this.bQe.adc();
         }
     }
 }

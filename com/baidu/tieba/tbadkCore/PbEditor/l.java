@@ -1,59 +1,50 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.util.AttributeSet;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import java.io.File;
 /* loaded from: classes.dex */
-public class l extends TextView {
-    private int Yh;
-    private GradientDrawable bVq;
-    protected int bVr;
-    protected int bVs;
+class l implements View.OnClickListener {
+    final /* synthetic */ j cms;
+    private final /* synthetic */ ViewGroup cmt;
 
-    public l(Context context) {
-        this(context, null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(j jVar, ViewGroup viewGroup) {
+        this.cms = jVar;
+        this.cmt = viewGroup;
     }
 
-    public l(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public l(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.Yh = -1;
-        this.bVr = (int) context.getResources().getDimension(com.baidu.tieba.u.ds12);
-        this.bVs = (int) context.getResources().getDimension(com.baidu.tieba.u.ds6);
-        setPadding(this.bVr, this.bVs, this.bVr, this.bVs);
-        setGravity(16);
-        setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(com.baidu.tieba.u.ds24));
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(com.baidu.tieba.u.ds48));
-    }
-
-    public void qF() {
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType != this.Yh) {
-            this.Yh = skinType;
-            wo();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        WriteImagesInfo writeImagesInfo;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteImagesInfo writeImagesInfo2;
+        int indexOfChild;
+        boolean z;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        com.baidu.tbadk.editortool.v vVar;
+        EditorToolComponetContainer editorToolComponetContainer3;
+        writeImagesInfo = this.cms.cmr;
+        editorToolComponetContainer = this.cms.cmo;
+        writeImagesInfo2 = editorToolComponetContainer.cml;
+        if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.cmt.indexOfChild(view)) >= 0) {
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.cms.getItem(indexOfChild);
+            if (imageFileInfo == null) {
+                z = false;
+            } else {
+                File file = new File(imageFileInfo.getFilePath());
+                z = file.exists() && file.length() != 0;
+            }
+            if (!z) {
+                editorToolComponetContainer3 = this.cms.cmo;
+                com.baidu.adp.lib.util.n.c(editorToolComponetContainer3.getContext(), com.baidu.tieba.y.editor_mutiiamge_image_error);
+                return;
+            }
+            editorToolComponetContainer2 = this.cms.cmo;
+            vVar = editorToolComponetContainer2.aip;
+            vVar.handleAction(42, Integer.valueOf(indexOfChild));
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void wo() {
-        if (this.bVq == null) {
-            this.bVq = new GradientDrawable();
-            this.bVq.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.u.ds24));
-        }
-        bc.b(this, com.baidu.tieba.t.cp_cont_c, 1);
-        this.bVq.setColor(bc.getColor(com.baidu.tieba.t.cp_bg_line_e));
-        setBackgroundDrawable(this.bVq);
     }
 }

@@ -1,5 +1,8 @@
 package com.baidu.adp.plugin.util;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
@@ -30,35 +33,41 @@ public class a {
             return null;
         }
         try {
-            PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
-            DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
-            dexClassLoader.loadClass(str);
-            a(pathClassLoader, PathClassLoader.class, "mPaths", d(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
-            a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-            a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-            a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
             try {
-                ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
-                for (String str2 : (String[]) a(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
-                    arrayList.add(str2);
+                PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
+                DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
+                dexClassLoader.loadClass(str);
+                a(pathClassLoader, PathClassLoader.class, "mPaths", d(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
+                a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                try {
+                    ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
+                    for (String str2 : (String[]) a(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
+                        arrayList.add(str2);
+                    }
+                    bVar = null;
+                } catch (Exception e) {
+                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", c(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
+                    bVar = null;
                 }
-                bVar = null;
-            } catch (Exception e) {
-                a(pathClassLoader, PathClassLoader.class, "mLibPaths", c(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
-                bVar = null;
+            } catch (NoSuchFieldError e2) {
+                b a = a(false, e2);
+                BdLog.e(e2);
+                bVar = a;
             }
-        } catch (IllegalAccessException e2) {
-            b a = a(false, e2);
-            BdLog.e(e2);
-            bVar = a;
-        } catch (NoSuchFieldException e3) {
+        } catch (IllegalAccessException e3) {
             b a2 = a(false, e3);
             BdLog.e(e3);
             bVar = a2;
-        } catch (Exception e4) {
+        } catch (NoSuchFieldException e4) {
             b a3 = a(false, e4);
             BdLog.e(e4);
             bVar = a3;
+        } catch (Exception e5) {
+            b a4 = a(false, e5);
+            BdLog.e(e5);
+            bVar = a4;
         }
         if (bVar == null) {
             return a(true, null);
@@ -91,10 +100,14 @@ public class a {
             b a3 = a(false, e3);
             BdLog.e(e3);
             bVar = a3;
-        } catch (NoSuchFieldException e4) {
+        } catch (NoSuchFieldError e4) {
             b a4 = a(false, e4);
             BdLog.e(e4);
             bVar = a4;
+        } catch (NoSuchFieldException e5) {
+            b a5 = a(false, e5);
+            BdLog.e(e5);
+            bVar = a5;
         }
         if (bVar == null) {
             return a(true, null);
@@ -146,7 +159,7 @@ public class a {
 
     private static b a(boolean z, Throwable th) {
         b bVar = new b();
-        bVar.tT = z;
+        bVar.EN = z;
         bVar.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return bVar;
     }
@@ -161,5 +174,25 @@ public class a {
 
     private static Object u(Object obj) {
         return a(obj, obj.getClass(), "nativeLibraryDirectories");
+    }
+
+    public static b a(Context context, ClassLoader classLoader, String str) {
+        Object a;
+        try {
+            classLoader.loadClass(str);
+            if (Build.VERSION.SDK_INT <= 7) {
+                a = a(context.getApplicationContext(), Class.forName("android.app.ApplicationContext"), "mPackageInfo");
+            } else {
+                a = a(a(context.getApplicationContext(), ContextWrapper.class, "mBase"), Class.forName("android.app.ContextImpl"), "mPackageInfo");
+            }
+            a(a, a.getClass(), "mClassLoader", classLoader);
+            return a(true, null);
+        } catch (IllegalAccessException e) {
+            return a(false, e);
+        } catch (IllegalArgumentException e2) {
+            return a(false, e2);
+        } catch (Throwable th) {
+            return a(false, th);
+        }
     }
 }

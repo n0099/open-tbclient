@@ -6,28 +6,28 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b {
-    private static b ZC = new b();
-    private GameInfoData ZD;
-    private final com.baidu.adp.framework.listener.e ZE = new c(this, 303009);
+    private static b aka = new b();
+    private GameInfoData akb;
+    private final com.baidu.adp.framework.listener.e akc = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.ZE);
+        MessageManager.getInstance().registerListener(this.akc);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001268, new d(this));
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static b vH() {
-        return ZC;
+    public static b zh() {
+        return aka;
     }
 
-    public void ak(String str, String str2) {
+    public void aj(String str, String str2) {
         this.mUrl = str2;
-        this.ZD = null;
+        this.akb = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -35,21 +35,21 @@ public class b {
         }
     }
 
-    private GameInfoData vI() {
+    private GameInfoData zi() {
         GameInfoData gameInfoData = new GameInfoData();
-        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(z.default_share_to_game_title));
+        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(y.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
         gameInfoData.setGameId("default");
         gameInfoData.setIconUrl("default");
-        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(z.default_share_to_game_content));
+        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(y.default_share_to_game_content));
         return gameInfoData;
     }
 
     public GameInfoData getGameInfoData() {
-        return this.ZD == null ? vI() : this.ZD;
+        return this.akb == null ? zi() : this.akb;
     }
 
-    public ShareFromGameCenterMsgData vJ() {
+    public ShareFromGameCenterMsgData zj() {
         GameInfoData gameInfoData = getGameInfoData();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
         shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
@@ -63,16 +63,16 @@ public class b {
         } else {
             shareFromGameCenterMsgData.setShareSourceUrl("game:detail:TBCGameID=" + gameId);
         }
-        String gameLink = gameInfoData.getGameLink();
-        if (gameLink == null) {
-            gameLink = GameShareJsBridge.getInstance().getShareContentUrl();
+        String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
+        if (StringUtils.isNull(shareContentUrl)) {
+            shareContentUrl = gameInfoData.getGameLink();
         }
-        if (StringUtils.isNull(gameLink, true)) {
-            gameLink = "";
-        } else if (!gameLink.contains("tbgametype")) {
-            gameLink = gameLink + "&tbgametype=1";
+        if (StringUtils.isNull(shareContentUrl, true)) {
+            shareContentUrl = "";
+        } else if (!shareContentUrl.contains("tbgametype")) {
+            shareContentUrl = shareContentUrl + "&tbgametype=1";
         }
-        shareFromGameCenterMsgData.setShareUrl(gameLink.toString());
+        shareFromGameCenterMsgData.setShareUrl(shareContentUrl.toString());
         return shareFromGameCenterMsgData;
     }
 }

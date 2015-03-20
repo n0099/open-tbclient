@@ -1,6 +1,6 @@
 package protobuf;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.location.a0;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public final class GroupInfo extends Message {
     public static final String DEFAULT_NOTICE = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_ENTER_OFFICIAL, type = Message.Datatype.INT32)
+    @ProtoField(tag = 27, type = Message.Datatype.INT32)
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
     public final String album;
@@ -41,7 +41,7 @@ public final class GroupInfo extends Message {
     public final Integer forumId;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = 31, type = Message.Datatype.STRING)
+    @ProtoField(tag = a0.h, type = Message.Datatype.STRING)
     public final String forumShowName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;
@@ -75,7 +75,7 @@ public final class GroupInfo extends Message {
     public final Integer memberNum;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_XIUBA, type = Message.Datatype.STRING)
+    @ProtoField(tag = 26, type = Message.Datatype.STRING)
     public final String nickName;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String notice;

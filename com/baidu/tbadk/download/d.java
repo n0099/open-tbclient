@@ -2,19 +2,19 @@ package com.baidu.tbadk.download;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.o;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ b XF;
-    ArrayList<com.baidu.tbadk.core.data.c> XG;
+    final /* synthetic */ b ahL;
+    ArrayList<com.baidu.tbadk.core.data.c> ahM;
 
     private d(b bVar) {
-        this.XF = bVar;
-        this.XG = null;
+        this.ahL = bVar;
+        this.ahM = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,12 +32,12 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (arrayList == null) {
             return linkedList;
         }
-        this.XG = arrayList;
+        this.ahM = arrayList;
         Iterator<com.baidu.tbadk.core.data.c> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.core.data.c next = it.next();
-            String str = next.Dp;
-            if (s.ce(this.XF.getFileOfUrl(next.Do)) != null) {
+            String str = next.Pb;
+            if (o.cm(this.ahL.getFileOfUrl(next.Pa)) != null) {
                 DownloadData downloadData = new DownloadData(str);
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
@@ -49,20 +49,20 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: m */
+    /* renamed from: n */
     public void onPostExecute(List<DownloadData> list) {
         super.onPostExecute(list);
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : g.uZ().vb()) {
-            Iterator<com.baidu.tbadk.core.data.c> it = this.XG.iterator();
+        for (DownloadData downloadData : g.yp().lG()) {
+            Iterator<com.baidu.tbadk.core.data.c> it = this.ahM.iterator();
             while (it.hasNext()) {
-                if (TextUtils.equals(it.next().Dp, downloadData.getId())) {
+                if (TextUtils.equals(it.next().Pb, downloadData.getId())) {
                     list.add(downloadData);
                 }
             }
         }
-        this.XF.l(list);
+        this.ahL.m(list);
     }
 }

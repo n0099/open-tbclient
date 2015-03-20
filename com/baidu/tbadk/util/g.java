@@ -1,75 +1,35 @@
 package com.baidu.tbadk.util;
-
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class g {
-    public static void c(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream;
-        try {
-            gZIPOutputStream = new GZIPOutputStream(outputStream);
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr, 0, 1024);
-                    if (read != -1) {
-                        gZIPOutputStream.write(bArr, 0, read);
-                    } else {
-                        gZIPOutputStream.flush();
-                        try {
-                            gZIPOutputStream.close();
-                            return;
-                        } catch (Exception e) {
-                            return;
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    gZIPOutputStream.close();
-                } catch (Exception e2) {
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            gZIPOutputStream = null;
-        }
+    public static boolean Df() {
+        return Dg();
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream;
-        try {
-            gZIPInputStream = new GZIPInputStream(inputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPInputStream = null;
+    public static boolean Dg() {
+        return com.baidu.tbadk.core.util.o.fj() && com.baidu.adp.gif.f.fi();
+    }
+
+    public static boolean eG(String str) {
+        if (str == null) {
+            return false;
         }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 1024);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    try {
-                        gZIPInputStream.close();
-                        return;
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            try {
-                gZIPInputStream.close();
-            } catch (Exception e2) {
-            }
-            throw th;
+        if (eH(str)) {
+            return true;
         }
+        int indexOf = str.indexOf("imgsrc");
+        if (indexOf <= 0 || indexOf >= 20) {
+            return (com.baidu.adp.lib.b.f.gz().ag("portrait_cdn_open") != 0) && eI(str);
+        }
+        return true;
+    }
+
+    public static boolean eH(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
+    }
+
+    public static boolean eI(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }
 }

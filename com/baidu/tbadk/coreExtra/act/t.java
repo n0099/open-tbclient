@@ -1,26 +1,20 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.widget.Toast;
-import com.baidu.sapi2.shell.listener.AuthorizationListener;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class t extends AuthorizationListener {
-    final /* synthetic */ FillUProfileActivity PQ;
-
+class t extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(FillUProfileActivity fillUProfileActivity) {
-        this.PQ = fillUProfileActivity;
+    public t(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onSuccess() {
-        Toast.makeText(this.PQ.getPageContext().getPageActivity(), "正常化成功", 0).show();
-        this.PQ.ri();
-    }
-
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onFailed(int i, String str) {
-        Toast.makeText(this.PQ.getPageContext().getPageActivity(), String.format("%s(%d)", str, Integer.valueOf(i)), 0).show();
-        this.PQ.finish();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.j) && ((com.baidu.tbadk.core.data.j) customResponsedMessage.getData()).info.contains("com.baidu.sapi2")) {
+            TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
+        }
     }
 }

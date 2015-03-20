@@ -1,44 +1,79 @@
 package com.baidu.adp.plugin.packageManager;
 
-import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.PluginCenter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ j sX;
-    private final /* synthetic */ BdFileDownloadData sY;
+public class k extends BroadcastReceiver {
+    final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar, BdFileDownloadData bdFileDownloadData) {
-        this.sX = jVar;
-        this.sY = bdFileDownloadData;
+    public k(PluginPackageManager pluginPackageManager) {
+        this.this$0 = pluginPackageManager;
     }
 
-    @Override // com.baidu.adp.plugin.install.b
-    public void aS(String str) {
-        PluginPackageManager pluginPackageManager;
-        e eVar;
-        PluginPackageManager pluginPackageManager2;
-        e eVar2;
-        pluginPackageManager = this.sX.this$0;
-        eVar = pluginPackageManager.sS;
-        if (eVar != null) {
-            pluginPackageManager2 = this.sX.this$0;
-            eVar2 = pluginPackageManager2.sS;
-            eVar2.a(this.sY, 0, "");
-        }
-    }
-
-    @Override // com.baidu.adp.plugin.install.b
-    public void B(String str, String str2) {
-        PluginPackageManager pluginPackageManager;
-        e eVar;
-        PluginPackageManager pluginPackageManager2;
-        e eVar2;
-        pluginPackageManager = this.sX.this$0;
-        eVar = pluginPackageManager.sS;
-        if (eVar != null) {
-            pluginPackageManager2 = this.sX.this$0;
-            eVar2 = pluginPackageManager2.sS;
-            eVar2.a(this.sY, -1, str2);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String str;
+        String str2;
+        boolean z;
+        boolean z2 = true;
+        if (intent != null && "com.baidu.adp.plugin.currentpath".equals(intent.getAction())) {
+            Bundle resultExtras = getResultExtras(true);
+            String str3 = "";
+            if (resultExtras != null) {
+                str3 = resultExtras.getString("package_name");
+            }
+            if (!TextUtils.isEmpty(str3) && resultExtras != null) {
+                str = str3;
+                str2 = resultExtras.getString("current_path");
+            } else if (intent.getExtras() == null) {
+                str = str3;
+                str2 = "";
+            } else {
+                str = intent.getExtras().getString("package_name");
+                str2 = intent.getExtras().getString("current_path");
+            }
+            String str4 = "";
+            if (PluginCenter.getInstance().getPlugin(str) != null) {
+                str4 = PluginCenter.getInstance().getPlugin(str).kf();
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = str4;
+                } else {
+                    String[] split = str2.split(",");
+                    int length = split.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            if (split[i].equals(str4)) {
+                                break;
+                            }
+                            i++;
+                        } else {
+                            z2 = false;
+                            break;
+                        }
+                    }
+                    if (!z2) {
+                        str2 = String.valueOf(str2) + "," + str4;
+                    }
+                }
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString("package_name", str);
+            bundle.putString("current_path", str2);
+            setResultExtras(bundle);
+            z = this.this$0.DH;
+            if (!z) {
+                return;
+            }
+            this.this$0.L(str, str2);
         }
     }
 }

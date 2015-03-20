@@ -3,14 +3,15 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.ad CU;
-    private final String bTQ;
-    private final g bTR;
-    final /* synthetic */ e bTS;
+    private com.baidu.tbadk.core.util.aa ZD;
+    private final String ckk;
+    private final g ckl;
+    final /* synthetic */ e ckm;
     private final String mForumId;
     private final String mForumName;
 
@@ -19,38 +20,40 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
+        w wVar;
         try {
-            this.CU = new com.baidu.tbadk.core.util.ad(strArr[0]);
-            this.CU.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-            this.CU.o("kw", this.mForumName);
-            this.CU.o("is_like", this.bTQ);
-            this.CU.oS().pZ().mIsNeedTbs = true;
-            String or = this.CU.or();
-            if (this.CU.oV()) {
-                if (this.bTQ.equals("0")) {
+            this.ZD = new com.baidu.tbadk.core.util.aa(strArr[0]);
+            this.ZD.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+            this.ZD.o("kw", this.mForumName);
+            this.ZD.o("is_like", this.ckk);
+            this.ZD.sp().tp().mIsNeedTbs = true;
+            String rO = this.ZD.rO();
+            if (this.ZD.ss()) {
+                if (this.ckk.equals(GameInfoData.NOT_FROM_DETAIL)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(or);
+                        JSONObject jSONObject = new JSONObject(rO);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.bTR.level = optJSONObject.optInt("level_id", 0);
-                            this.bTR.bTW = optJSONObject.optString("level_name", "");
+                            this.ckl.level = optJSONObject.optInt("level_id", 0);
+                            this.ckl.ckq = optJSONObject.optString("level_name", "");
                             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
                             if (optJSONObject2 != null) {
-                                this.bTR.cur_score = optJSONObject2.optInt("cur_score", 0);
-                                this.bTR.levelup_score = optJSONObject2.optInt("levelup_score", 0);
+                                this.ckl.cur_score = optJSONObject2.optInt("cur_score", 0);
+                                this.ckl.levelup_score = optJSONObject2.optInt("levelup_score", 0);
                             }
-                            this.bTR.bTU = true;
+                            this.ckl.cko = true;
                         }
-                        this.bTS.a(this.bTR);
+                        wVar = this.ckm.ckd;
+                        wVar.a(this.ckl);
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
                 }
-                if (this.CU.oS().qa().lT()) {
+                if (this.ZD.sp().tq().pv()) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(or);
-                        this.bTR.bTV = jSONObject2.optInt("num");
-                        this.bTR.bTT = true;
+                        JSONObject jSONObject2 = new JSONObject(rO);
+                        this.ckl.ckp = jSONObject2.optInt("num");
+                        this.ckl.ckn = true;
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
@@ -66,11 +69,11 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.CU != null) {
-            this.CU.dJ();
+        if (this.ZD != null) {
+            this.ZD.hh();
         }
-        this.bTS.bTN = null;
-        this.bTS.ew(false);
+        this.ckm.cki = null;
+        this.ckm.eJ(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,18 +81,18 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        w wVar;
-        w wVar2;
-        this.bTS.bTN = null;
-        this.bTS.ew(false);
-        if (this.CU != null) {
+        z zVar;
+        z zVar2;
+        this.ckm.cki = null;
+        this.ckm.eJ(false);
+        if (this.ZD != null) {
             h hVar = new h();
-            hVar.errorMsg = this.CU.getErrorString();
-            hVar.errorCode = this.CU.oW();
-            wVar = this.bTS.bTK;
-            if (wVar != null) {
-                wVar2 = this.bTS.bTK;
-                wVar2.a(this.bTR, hVar);
+            hVar.errorMsg = this.ZD.getErrorString();
+            hVar.errorCode = this.ZD.st();
+            zVar = this.ckm.ckf;
+            if (zVar != null) {
+                zVar2 = this.ckm.ckf;
+                zVar2.a(this.ckl, hVar);
             }
         }
     }

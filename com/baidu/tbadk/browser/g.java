@@ -1,19 +1,20 @@
 package com.baidu.tbadk.browser;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class g implements com.baidu.tbadk.core.view.v {
-    final /* synthetic */ TbWebViewActivity Bg;
-
+class g extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(TbWebViewActivity tbWebViewActivity) {
-        this.Bg = tbWebViewActivity;
+    public g(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tbadk.core.view.v
-    public void lq() {
-        this.Bg.showPopMenu();
-    }
-
-    @Override // com.baidu.tbadk.core.view.v
-    public void lr() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
+            f.U(TbadkCoreApplication.m411getInst());
+        }
     }
 }

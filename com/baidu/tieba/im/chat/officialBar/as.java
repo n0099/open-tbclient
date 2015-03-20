@@ -1,28 +1,12 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class as implements View.OnLongClickListener {
-    final /* synthetic */ ar aVe;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(ar arVar) {
-        this.aVe = arVar;
-    }
-
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.adp.lib.c.b bVar;
-        com.baidu.adp.lib.c.b bVar2;
-        int i;
-        bVar = this.aVe.mItemViewLongClickListener;
-        if (bVar != null) {
-            bVar2 = this.aVe.mItemViewLongClickListener;
-            i = this.aVe.mPosition;
-            bVar2.onItemViewLongClick(view, 9, i, 0L);
-            return false;
-        }
-        return false;
+class as implements CustomMessageTask.CustomRunnable<Void> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+        return new CustomResponsedMessage<>(2001296, Integer.valueOf(com.baidu.tieba.u.icon_im_subscribe));
     }
 }

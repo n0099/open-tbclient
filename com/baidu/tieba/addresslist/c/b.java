@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends f<QuickSearchActivity> {
-    private com.baidu.tieba.addresslist.b.a apB;
-    private byte[] apC;
+    private com.baidu.tieba.addresslist.b.a azA;
+    private byte[] azB;
 
     public b(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.apC = new byte[0];
-        this.apB = com.baidu.tieba.addresslist.b.a.Bo();
+        this.azB = new byte[0];
+        this.azA = com.baidu.tieba.addresslist.b.a.EO();
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> eP(String str) {
-        synchronized (this.apC) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> fj(String str) {
+        synchronized (this.azB) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.b> Bp = this.apB.Bp();
-            if (Bp == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> EP = this.azA.EP();
+            if (EP == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar : Bp) {
-                String userName = bVar.getUserName();
-                String quanpin = bVar.getQuanpin();
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : EP) {
+                String userName = aVar.getUserName();
+                String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
-                    arrayList.add(bVar);
+                    arrayList.add(aVar);
                 } else if (!TextUtils.isEmpty(quanpin) && quanpin.toLowerCase().startsWith(str.toLowerCase())) {
-                    arrayList.add(bVar);
+                    arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : Bp) {
-                String userName2 = bVar2.getUserName();
-                String quanpin2 = bVar2.getQuanpin();
-                if (!arrayList.contains(bVar2)) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : EP) {
+                String userName2 = aVar2.getUserName();
+                String quanpin2 = aVar2.getQuanpin();
+                if (!arrayList.contains(aVar2)) {
                     if (!TextUtils.isEmpty(userName2) && userName2.toLowerCase().contains(str.toLowerCase())) {
-                        arrayList.add(bVar2);
+                        arrayList.add(aVar2);
                     } else if (!TextUtils.isEmpty(quanpin2) && quanpin2.toLowerCase().contains(str.toLowerCase())) {
-                        arrayList.add(bVar2);
+                        arrayList.add(aVar2);
                     }
                 }
             }

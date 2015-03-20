@@ -4,17 +4,17 @@ import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private Date Dd;
+    private Date OJ;
     private int errorCode;
     private String errorMsg;
 
-    protected abstract void e(JSONObject jSONObject);
+    protected abstract void d(JSONObject jSONObject);
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public boolean mi() {
+    public boolean pJ() {
         return this.errorMsg != null;
     }
 
@@ -30,7 +30,7 @@ public abstract class a {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            setErrorMsg("你的网络状况不大好，请稍后重试");
+            setErrorMsg("网络不稳定，请稍后再试");
             e.printStackTrace();
         }
     }
@@ -39,24 +39,24 @@ public abstract class a {
         try {
             this.errorCode = jSONObject.optInt("error_code", 0);
             if (this.errorCode != 0) {
-                setErrorMsg(jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试"));
+                setErrorMsg(jSONObject.optString("error_msg", "网络不稳定，请稍后再试"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
                 this.errorCode = optJSONObject.optInt("errno", 0);
                 if (this.errorCode != 0) {
-                    setErrorMsg(optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试"));
+                    setErrorMsg(optJSONObject.optString("usermsg", "网络不稳定，请稍后再试"));
                     return;
                 }
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.Dd = new Date(optLong * 1000);
+                this.OJ = new Date(optLong * 1000);
             }
-            e(jSONObject);
+            d(jSONObject);
         } catch (Exception e) {
-            setErrorMsg("你的网络状况不大好，请稍后重试");
+            setErrorMsg("网络不稳定，请稍后再试");
             e.printStackTrace();
         }
     }

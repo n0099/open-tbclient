@@ -1,31 +1,17 @@
 package com.baidu.tieba.im.validate;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ValidateItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.ValidateActivityConfig;
 /* loaded from: classes.dex */
-public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ ValidateActivity bpP;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(ValidateActivity validateActivity) {
-        this.bpP = validateActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        m mVar;
-        ValidateItemData validateItemData;
-        switch (i) {
-            case 0:
-                mVar = this.bpP.bpJ;
-                mVar.setLoadProgressBarVisable(true);
-                ValidateActivity validateActivity = this.bpP;
-                validateItemData = this.bpP.bpL;
-                validateActivity.e(validateItemData);
-                return;
-            default:
-                return;
+class g implements CustomMessageTask.CustomRunnable<ValidateActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ValidateActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ValidateActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

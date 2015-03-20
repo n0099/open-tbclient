@@ -1,57 +1,51 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class cg implements com.baidu.adp.lib.e.c<cl> {
-    final /* synthetic */ cf aGq;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cf cfVar) {
-        this.aGq = cfVar;
+public class cg extends av<com.baidu.tbadk.core.data.w, ch> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cg(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
+        super(frsActivity, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Hk */
-    public cl eb() {
-        Context context;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        com.baidu.adp.lib.g.b ei = com.baidu.adp.lib.g.b.ei();
-        context = this.aGq.mContext;
-        View inflate = ei.inflate(context, com.baidu.tieba.x.frs_item_livecard, null);
-        cl clVar = new cl(this.aGq);
-        clVar.aCw = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.live_card_layout);
-        clVar.aCx = (LiveBroadcastCard) inflate.findViewById(com.baidu.tieba.w.item_card);
-        frsActivity = this.aGq.aEa;
-        frsActivity.getLayoutMode().ab(this.aGq.mSkinType == 1);
-        frsActivity2 = this.aGq.aEa;
-        frsActivity2.getLayoutMode().h(inflate);
-        clVar.Yh = this.aGq.mSkinType;
-        return clVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: k */
+    public ch a(ViewGroup viewGroup) {
+        return new ch(com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.frs_top_item, null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void k(cl clVar) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public cl l(cl clVar) {
-        return clVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public cl m(cl clVar) {
-        return clVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, ch chVar) {
+        BitmapDrawable bitmapDrawable;
+        super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) chVar);
+        this.aJT.getLayoutMode().X(this.mSkinType == 1);
+        this.aJT.getLayoutMode().h(view);
+        if (wVar == null) {
+            return null;
+        }
+        chVar.mTitle.setText(wVar.getTitle());
+        com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.iO(wVar.getId())) {
+            com.baidu.tbadk.core.util.ba.b(chVar.mTitle, com.baidu.tieba.s.listview_item_thread_read, 1);
+        }
+        if (wVar.getIs_top() == 1) {
+            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_top);
+        } else {
+            bitmapDrawable = wVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_notice) : null;
+        }
+        com.baidu.tbadk.core.util.ba.i(chVar.aKq, com.baidu.tieba.u.frs_top_item_bg);
+        if (bitmapDrawable != null) {
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+        }
+        chVar.mTitle.setCompoundDrawables(bitmapDrawable, null, null, null);
+        return view;
     }
 }

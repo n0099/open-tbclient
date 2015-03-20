@@ -5,26 +5,26 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class c extends PagerAdapter {
-    private a aff;
+    private a anz;
 
     public c(a aVar) {
-        this.aff = aVar;
+        this.anz = aVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aff.getChildCount();
+        return this.anz.getChildCount();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        this.aff.a(i, viewGroup, this.aff.dK(i));
-        return this.aff.dH(i).getView();
+        this.anz.a(i, viewGroup, this.anz.dN(i));
+        return this.anz.dK(i).getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        this.aff.h(i, false);
+        this.anz.h(i, false);
     }
 
     @Override // android.support.v4.view.PagerAdapter

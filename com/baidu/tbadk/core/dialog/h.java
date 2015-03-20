@@ -1,5 +1,7 @@
 package com.baidu.tbadk.core.dialog;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface h {
-    void onClick(e eVar);
+    void itemClick(e eVar, int i, View view);
 }

@@ -14,8 +14,4 @@ public class c {
     public int getWidth() {
         return this.mWidth;
     }
-
-    public int getHeight() {
-        return this.mHeight;
-    }
 }

@@ -1,7 +1,20 @@
 package com.baidu.adp.widget.ListView;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
 /* loaded from: classes.dex */
-public interface am {
-    BdUniqueId jl();
+public class am {
+    private View view;
+
+    public am(View view) {
+        this.view = null;
+        this.view = view;
+        if (this.view == null) {
+            throw new RuntimeException("view cannt be null");
+        }
+        this.view.setTag(this);
+    }
+
+    public View getView() {
+        return this.view;
+    }
 }

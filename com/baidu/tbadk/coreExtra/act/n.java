@@ -1,37 +1,19 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class n extends BroadcastReceiver {
-    final /* synthetic */ EditHeadActivity this$0;
-
-    private n(EditHeadActivity editHeadActivity) {
-        this.this$0 = editHeadActivity;
-    }
+class n implements DialogInterface.OnCancelListener {
+    final /* synthetic */ m aas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(EditHeadActivity editHeadActivity, n nVar) {
-        this(editHeadActivity);
+    public n(m mVar) {
+        this.aas = mVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        View view;
-        View view2;
-        this.this$0.releaseResouce();
-        if (intent.getBooleanExtra("result", false)) {
-            this.this$0.initData();
-            return;
-        }
-        this.this$0.showToast(intent.getStringExtra("error"));
-        view = this.this$0.Pl;
-        if (view != null) {
-            view2 = this.this$0.Pl;
-            view2.setEnabled(false);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        LoginActivity loginActivity;
+        loginActivity = this.aas.aar;
+        loginActivity.destroyWaitingDialog();
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.a.b.a.d;
 /* loaded from: classes.dex */
 public class a implements h {
-    private Object gm;
+    private Object rG;
 
     public a(Object obj) {
         if (obj != null && obj.getClass().isArray()) {
-            this.gm = obj;
+            this.rG = obj;
         }
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        if (this.gm != null) {
-            return com.baidu.adp.lib.a.b.a.e.b.a(this.gm, cVar);
+        if (this.rG != null) {
+            return com.baidu.adp.lib.a.b.a.e.b.a(this.rG, cVar);
         }
         return null;
     }

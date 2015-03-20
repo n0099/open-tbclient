@@ -6,21 +6,19 @@ import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ BasePersonInfoActivity bGC;
+    final /* synthetic */ BasePersonInfoActivity bOA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BasePersonInfoActivity basePersonInfoActivity) {
-        this.bGC = basePersonInfoActivity;
+        this.bOA = basePersonInfoActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        z = this.bGC.bGz;
-        if (z) {
+        if (this.bOA.bOx) {
             MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(false));
-            com.baidu.tbadk.core.b.b.a(this.bGC.getPageContext().getPageActivity(), 200, false);
+            com.baidu.tbadk.core.c.b.a(this.bOA.getPageContext().getPageActivity(), 200, false);
         }
-        this.bGC.finish();
+        this.bOA.finish();
     }
 }

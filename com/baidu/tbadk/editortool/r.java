@@ -1,29 +1,24 @@
 package com.baidu.tbadk.editortool;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends CustomMessageListener {
-    final /* synthetic */ EmotionTabHost YG;
+public class r implements View.OnClickListener {
+    final /* synthetic */ EmotionTabWidgetView aiZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(EmotionTabHost emotionTabHost, int i) {
-        super(i);
-        this.YG = emotionTabHost;
+    public r(EmotionTabWidgetView emotionTabWidgetView) {
+        this.aiZ = emotionTabWidgetView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        switch (customResponsedMessage.getCmd()) {
-            case 2001120:
-                this.YG.reset();
-                this.YG.setup();
-                return;
-            default:
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        v vVar;
+        v vVar2;
+        vVar = this.aiZ.aip;
+        if (vVar != null) {
+            vVar2 = this.aiZ.aip;
+            vVar2.handleAction(21, null);
         }
     }
 }

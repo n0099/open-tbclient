@@ -1,32 +1,15 @@
 package com.baidu.tieba.mainentrance;
-
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
-class ae extends HttpMessageListener {
-    final /* synthetic */ SquareSearchActivity bta;
+class ae implements Runnable {
+    final /* synthetic */ ad bzI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(SquareSearchActivity squareSearchActivity, int i, boolean z) {
-        super(i, z);
-        this.bta = squareSearchActivity;
+    public ae(ad adVar) {
+        this.bzI = adVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        TextView textView;
-        TextView textView2;
-        textView = this.bta.bsx;
-        if (textView != null) {
-            textView2 = this.bta.bsx;
-            textView2.setClickable(true);
-        }
-        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
-            this.bta.a(httpResponsedMessage, !((FrsPageHttpResponseMessage) httpResponsedMessage).hasNetworkError());
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.tbadkCore.util.j.anr();
     }
 }

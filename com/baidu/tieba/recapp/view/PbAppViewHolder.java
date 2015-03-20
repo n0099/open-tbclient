@@ -6,84 +6,83 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.l;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.n;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.s;
 import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.b.j;
+import com.baidu.tieba.tbadkCore.c.i;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PbAppViewHolder extends BaseAppViewHolder {
     public PbAppViewHolder(View view) {
         super(view);
-        this.bML = (TextView) view.findViewById(w.recommend_title);
-        this.bMM = (TextView) view.findViewById(w.recommend_content);
-        this.bMN = (HeadImageView) view.findViewById(w.recommend_icon);
-        this.bMK = (TextView) view.findViewById(w.recommend_btn);
-        this.bMO = view.findViewById(w.divider_line);
-        view.setTag(this);
-        this.bMN.setClickable(false);
+        this.bXt = (TextView) view.findViewById(v.recommend_title);
+        this.bXu = (TextView) view.findViewById(v.recommend_content);
+        this.bXv = (HeadImageView) view.findViewById(v.recommend_icon);
+        this.bXs = (TextView) view.findViewById(v.recommend_btn);
+        this.bXw = view.findViewById(v.divider_line);
+        this.bXv.setClickable(false);
     }
 
     @Override // com.baidu.tieba.recapp.PbRecBaseViewHolder
-    public void update(j jVar, int i, boolean z) {
-        super.update(jVar, i, z);
-        if (jVar != null) {
-            this.bML.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, bc.getDrawable(v.icon_extend), (Drawable) null);
-            this.bML.setText(jVar.agY());
-            if (StringUtils.isNull(jVar.aha())) {
-                this.bMM.setVisibility(8);
+    public void update(i iVar, int i, boolean z) {
+        super.update(iVar, i, z);
+        if (iVar != null) {
+            this.bXt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ba.getDrawable(u.icon_extend), (Drawable) null);
+            this.bXt.setText(iVar.aml());
+            if (StringUtils.isNull(iVar.amn())) {
+                this.bXu.setVisibility(8);
             } else {
-                this.bMM.setVisibility(0);
-                this.bMM.setText(getFixedChineseString(jVar.aha()));
+                this.bXu.setVisibility(0);
+                this.bXu.setText(getFixedChineseString(iVar.amn()));
             }
-            if (!l.lV().lX()) {
-                ViewGroup.LayoutParams layoutParams = this.bMN.getLayoutParams();
-                layoutParams.width = (int) this.rootView.getResources().getDimension(u.ds30);
-                this.bMN.setLayoutParams(layoutParams);
-                this.bMN.setVisibility(4);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bMM.getLayoutParams();
-                marginLayoutParams.leftMargin = (int) this.rootView.getResources().getDimension(u.ds50);
-                this.bMM.setLayoutParams(marginLayoutParams);
+            if (!n.px().pz()) {
+                ViewGroup.LayoutParams layoutParams = this.bXv.getLayoutParams();
+                layoutParams.width = (int) this.rootView.getResources().getDimension(t.ds30);
+                this.bXv.setLayoutParams(layoutParams);
+                this.bXv.setVisibility(4);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bXu.getLayoutParams();
+                marginLayoutParams.leftMargin = (int) this.rootView.getResources().getDimension(t.ds50);
+                this.bXu.setLayoutParams(marginLayoutParams);
             } else {
-                ViewGroup.LayoutParams layoutParams2 = this.bMN.getLayoutParams();
-                layoutParams2.width = (int) this.rootView.getResources().getDimension(u.ds60);
-                this.bMN.setLayoutParams(layoutParams2);
-                this.bMN.setVisibility(0);
-                if (!TextUtils.isEmpty(jVar.agZ())) {
-                    this.bMN.d(jVar.agZ(), z ? 17 : 18, false);
+                ViewGroup.LayoutParams layoutParams2 = this.bXv.getLayoutParams();
+                layoutParams2.width = (int) this.rootView.getResources().getDimension(t.ds60);
+                this.bXv.setLayoutParams(layoutParams2);
+                this.bXv.setVisibility(0);
+                if (!TextUtils.isEmpty(iVar.amm())) {
+                    this.bXv.c(iVar.amm(), z ? 17 : 18, false);
                 }
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bMM.getLayoutParams();
-                marginLayoutParams2.leftMargin = (int) this.rootView.getResources().getDimension(u.ds80);
-                this.bMM.setLayoutParams(marginLayoutParams2);
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bXu.getLayoutParams();
+                marginLayoutParams2.leftMargin = (int) this.rootView.getResources().getDimension(t.ds80);
+                this.bXu.setLayoutParams(marginLayoutParams2);
             }
-            this.bMK.setTag(this);
+            this.bXs.setTag(this);
             this.rootView.setBackgroundDrawable(null);
-            acm();
+            aft();
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected void acn() {
-        if (this.bMK != null && this.rootView != null) {
-            bc.i((View) this.bMK, v.frs_praise_btn_bg);
-            bc.b(this.bMK, t.cp_cont_b, 1);
+    protected void afu() {
+        if (this.bXs != null && this.rootView != null) {
+            ba.i((View) this.bXs, u.frs_praise_btn_bg);
+            ba.b(this.bXs, s.cp_cont_b, 1);
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected void aco() {
-        if (this.bMK != null && this.rootView != null) {
-            bc.i((View) this.bMK, v.frs_praise_btn_bg);
-            bc.b(this.bMK, t.cp_cont_b, 1);
+    protected void afv() {
+        if (this.bXs != null && this.rootView != null) {
+            ba.i((View) this.bXs, u.frs_praise_btn_bg);
+            ba.b(this.bXs, s.cp_cont_b, 1);
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected int acp() {
-        return z.download;
+    protected int afw() {
+        return y.download;
     }
 }

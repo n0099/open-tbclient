@@ -11,16 +11,8 @@ public class d implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Boolean bool;
-        Boolean bool2;
-        bool = this.this$0.bSpeakerphoneOn;
-        if (bool != null) {
-            bool2 = this.this$0.bSpeakerphoneOn;
-            if (bool2.booleanValue()) {
-                this.this$0.openSpeaker();
-            } else {
-                this.this$0.closeSpeaker();
-            }
+        if (!this.this$0.isPlaying()) {
+            this.this$0.unRegistSensor();
         }
     }
 }

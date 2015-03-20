@@ -5,17 +5,17 @@ import com.baidu.tbadk.gif.GiftGifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements DialogInterface.OnDismissListener {
-    final /* synthetic */ i ajb;
+    final /* synthetic */ i arD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.ajb = iVar;
+        this.arD = iVar;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         GiftGifView giftGifView;
-        giftGifView = this.ajb.aja;
+        giftGifView = this.arD.arC;
         giftGifView.stop();
     }
 }

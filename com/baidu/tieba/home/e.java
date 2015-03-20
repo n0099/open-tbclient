@@ -5,18 +5,18 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ CreateBarGuideActivity aPy;
-    private final /* synthetic */ String aPz;
+    final /* synthetic */ CreateBarGuideActivity aVT;
+    private final /* synthetic */ String aVU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CreateBarGuideActivity createBarGuideActivity, String str) {
-        this.aPy = createBarGuideActivity;
-        this.aPz = str;
+        this.aVT = createBarGuideActivity;
+        this.aVU = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aPy.sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.aPy.getPageContext().getPageActivity(), this.aPz, true)));
-        this.aPy.finish();
+        this.aVT.sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.aVT.getPageContext().getPageActivity(), this.aVU, true)));
+        this.aVT.finish();
     }
 }

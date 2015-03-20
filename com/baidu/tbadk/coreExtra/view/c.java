@@ -3,11 +3,11 @@ package com.baidu.tbadk.coreExtra.view;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnLongClickListener {
-    final /* synthetic */ BaseWebView TP;
+    final /* synthetic */ BaseWebView adR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebView baseWebView) {
-        this.TP = baseWebView;
+        this.adR = baseWebView;
     }
 
     @Override // android.view.View.OnLongClickListener

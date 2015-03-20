@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap aiR;
+    private Bitmap art;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -35,11 +35,11 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void Y(View view) {
+    public void ab(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.aiR = Bitmap.createBitmap(view.getDrawingCache());
+        this.art = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
         view.getDrawingRect(this.mTempRect);
@@ -54,15 +54,15 @@ public class DragContainer extends LinearLayout {
         if (this.view != null) {
             if (this.mScroller.computeScrollOffset()) {
                 canvas.save();
-                canvas.drawBitmap(this.aiR, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.art, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.aiR != null) {
-                this.aiR.recycle();
+            if (this.art != null) {
+                this.art.recycle();
             }
-            this.aiR = null;
+            this.art = null;
             this.view = null;
         }
     }
@@ -71,10 +71,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.aiR != null) {
-            this.aiR.recycle();
+        if (this.art != null) {
+            this.art.recycle();
         }
-        this.aiR = null;
+        this.art = null;
         this.view = null;
     }
 }

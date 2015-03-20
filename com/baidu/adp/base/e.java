@@ -8,7 +8,7 @@ public class e<T> extends g<T> {
     public e(j<T> jVar, int i) {
         super(jVar);
         this.mConvertView = null;
-        this.mConvertView = com.baidu.adp.lib.g.b.ei().inflate(jVar.getContext(), i, null);
+        this.mConvertView = com.baidu.adp.lib.g.b.hH().inflate(jVar.getContext(), i, null);
         this.mConvertView.setTag(this);
     }
 

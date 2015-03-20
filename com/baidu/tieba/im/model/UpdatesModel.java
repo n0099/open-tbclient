@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.g;
 import com.baidu.tieba.im.h;
-import com.baidu.tieba.im.i;
+import com.baidu.tieba.im.l;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -22,12 +23,12 @@ public class UpdatesModel {
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            i.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            l.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return d.MM().k(linkedList);
+                    return d.PL().k(linkedList);
                 }
             }, gVar);
         }
@@ -35,24 +36,24 @@ public class UpdatesModel {
 
     public static void deleteUpdatesData(final UpdatesItemData updatesItemData, g<Boolean> gVar) {
         if (updatesItemData != null) {
-            i.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            l.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.MM().gs(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.PL().gv(UpdatesItemData.this.getNotice_id()));
                 }
             }, gVar);
         }
     }
 
     public void deleteDatas(g<Boolean> gVar) {
-        i.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        l.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tieba.im.h
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.MM().aq(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.PL().aA(UpdatesModel.this.dataToDelete));
             }
         }, gVar);
     }
@@ -112,11 +113,11 @@ public class UpdatesModel {
     }
 
     public static void requestUpdatesDataFromDB(g<LinkedList<GroupNewsPojo>> gVar) {
-        i.a(new h<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        l.a(new h<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.im.h
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.MM().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.PL().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, gVar);
     }
@@ -164,7 +165,7 @@ public class UpdatesModel {
                     updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
                 }
             } else {
-                updatesItemData = (UpdatesItemData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(content, UpdatesItemData.class);
+                updatesItemData = (UpdatesItemData) i.objectWithJsonStr(content, UpdatesItemData.class);
             }
             return updatesItemData;
         } catch (Exception e) {

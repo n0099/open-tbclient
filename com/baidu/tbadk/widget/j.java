@@ -5,15 +5,15 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.gif.h {
-    final /* synthetic */ i ajb;
+    final /* synthetic */ i arD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.ajb = iVar;
+        this.arD = iVar;
     }
 
     @Override // com.baidu.tbadk.gif.h
@@ -22,12 +22,12 @@ public class j implements com.baidu.tbadk.gif.h {
         LinearLayout linearLayout;
         Dialog dialog;
         Activity activity;
-        giftGifView = this.ajb.aja;
+        giftGifView = this.arD.arC;
         giftGifView.setIsHide(true);
-        linearLayout = this.ajb.aiZ;
+        linearLayout = this.arD.arB;
         linearLayout.setVisibility(8);
-        dialog = this.ajb.aiY;
-        activity = this.ajb.mActivity;
+        dialog = this.arD.arA;
+        activity = this.arD.mActivity;
         com.baidu.adp.lib.g.k.b(dialog, activity);
     }
 
@@ -38,14 +38,14 @@ public class j implements com.baidu.tbadk.gif.h {
         Activity activity;
         GiftGifView giftGifView;
         LinearLayout linearLayout;
-        progressDialog = this.ajb.mWaitingDialog;
-        com.baidu.adp.lib.util.l.a(progressDialog);
-        dialog = this.ajb.aiY;
-        activity = this.ajb.mActivity;
+        progressDialog = this.arD.mWaitingDialog;
+        com.baidu.adp.lib.util.n.a(progressDialog);
+        dialog = this.arD.arA;
+        activity = this.arD.mActivity;
         com.baidu.adp.lib.g.k.a(dialog, activity);
-        giftGifView = this.ajb.aja;
+        giftGifView = this.arD.arC;
         giftGifView.setVisibility(0);
-        linearLayout = this.ajb.aiZ;
+        linearLayout = this.arD.arB;
         linearLayout.setVisibility(0);
     }
 
@@ -56,17 +56,17 @@ public class j implements com.baidu.tbadk.gif.h {
         Activity activity;
         Activity activity2;
         Activity activity3;
-        progressDialog = this.ajb.mWaitingDialog;
-        com.baidu.adp.lib.util.l.a(progressDialog);
-        dialog = this.ajb.aiY;
-        activity = this.ajb.mActivity;
+        progressDialog = this.arD.mWaitingDialog;
+        com.baidu.adp.lib.util.n.a(progressDialog);
+        dialog = this.arD.arA;
+        activity = this.arD.mActivity;
         com.baidu.adp.lib.g.k.b(dialog, activity);
-        if (com.baidu.adp.lib.util.l.isNetOk()) {
-            activity3 = this.ajb.mActivity;
-            com.baidu.adp.lib.util.l.showToast(activity3, z.gif_play_failed_tip);
+        if (com.baidu.adp.lib.util.n.isNetOk()) {
+            activity3 = this.arD.mActivity;
+            com.baidu.adp.lib.util.n.showToast(activity3, y.gif_play_failed_tip);
             return;
         }
-        activity2 = this.ajb.mActivity;
-        com.baidu.adp.lib.util.l.showToast(activity2, z.neterror);
+        activity2 = this.arD.mActivity;
+        com.baidu.adp.lib.util.n.showToast(activity2, y.neterror);
     }
 }

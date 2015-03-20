@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ ItemHotThreadView bbf;
-    private final /* synthetic */ String bbg;
+    final /* synthetic */ ItemHotThreadView bdh;
+    private final /* synthetic */ String bdi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ItemHotThreadView itemHotThreadView, String str) {
-        this.bbf = itemHotThreadView;
-        this.bbg = str;
+        this.bdh = itemHotThreadView;
+        this.bdi = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        context = this.bbf.mContext;
+        context = this.bdh.mContext;
         TiebaStatic.eventStat(context, "detail_hot_thread", "click", 1, new Object[0]);
         MessageManager messageManager = MessageManager.getInstance();
-        context2 = this.bbf.mContext;
-        messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(context2).createNormalCfg(this.bbg, "", "")));
+        context2 = this.bdh.mContext;
+        messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(context2).createNormalCfg(this.bdi, "", "")));
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.tbadk.editortool;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class EmotionData implements x, Serializable {
+public class EmotionData implements w, Serializable {
     private static final long serialVersionUID = 1;
-    protected String groupId;
-    protected int orderId;
-    protected String sharpText;
+    public String groupId;
+    public int orderId;
+    public String sharpText;
 
     public int getOrderId() {
         return this.orderId;
@@ -24,7 +24,7 @@ public class EmotionData implements x, Serializable {
         this.sharpText = str;
     }
 
-    @Override // com.baidu.tbadk.editortool.x
+    @Override // com.baidu.tbadk.editortool.w
     public String getGroupId() {
         return this.groupId;
     }
@@ -33,7 +33,7 @@ public class EmotionData implements x, Serializable {
         this.groupId = str;
     }
 
-    @Override // com.baidu.tbadk.editortool.x
+    @Override // com.baidu.tbadk.editortool.w
     public boolean IsValid() {
         return true;
     }

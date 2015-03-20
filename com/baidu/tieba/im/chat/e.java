@@ -1,54 +1,49 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements DialogInterface.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity aRi;
+public class e implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ AbsMsgImageActivity aWp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.aRi = absMsgImageActivity;
+        this.aWp = absMsgImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        com.baidu.tbadk.core.dialog.e listMenu;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         h hVar;
         FrameLayout frameLayout;
-        listMenu = this.aRi.getListMenu();
-        if (dialogInterface == listMenu) {
+        listMenu = this.aWp.getListMenu();
+        if (eVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.aRi.aQY;
+                        multiImageView = this.aWp.aWe;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.aRi.aQY;
+                            multiImageView2 = this.aWp.aWe;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.aRi.aQV = new h(this.aRi, currentImageUrl, currentImageData);
-                            hVar = this.aRi.aQV;
+                            this.aWp.aWb = new h(this.aWp, currentImageUrl, currentImageData);
+                            hVar = this.aWp.aWb;
                             hVar.execute(new String[0]);
-                            frameLayout = this.aRi.aQW;
+                            frameLayout = this.aWp.aWc;
                             frameLayout.setClickable(false);
                         } else {
-                            this.aRi.showToast(this.aRi.getPageContext().getString(com.baidu.tieba.z.no_data));
+                            this.aWp.showToast(this.aWp.getPageContext().getString(com.baidu.tieba.y.no_data));
                         }
-                        return;
+                        break;
                     } catch (Exception e) {
-                        return;
+                        break;
                     }
-                case 1:
-                    dialogInterface.dismiss();
-                    return;
-                default:
-                    return;
             }
+            eVar.dismiss();
         }
     }
 }

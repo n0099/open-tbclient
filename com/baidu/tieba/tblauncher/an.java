@@ -6,16 +6,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.atomData.GameCenterActivityConfig;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ ai cdv;
+    final /* synthetic */ ai crN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ai aiVar) {
-        this.cdv = aiVar;
+        this.crN = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,14 +23,14 @@ public class an implements View.OnClickListener {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        imageView = this.cdv.cdp;
+        imageView = this.crN.crG;
         imageView.setVisibility(4);
-        b.oc().putBoolean("game_is_show_tip", false);
+        com.baidu.tbadk.core.sharedPref.b.rB().putBoolean("game_is_show_tip", false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, false));
-        mainTabActivity = this.cdv.cdq;
-        mainTabActivity2 = this.cdv.cdq;
+        mainTabActivity = this.crN.crH;
+        mainTabActivity2 = this.crN.crH;
         mainTabActivity.sendMessage(new CustomMessage(2002001, new GameCenterActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        mainTabActivity3 = this.cdv.cdq;
-        TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, new Object[0]);
+        mainTabActivity3 = this.crN.crH;
+        TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, "ref_type", "601");
     }
 }

@@ -1,35 +1,18 @@
 package com.baidu.tieba.addresslist;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
+public class b implements View.OnClickListener {
+    final /* synthetic */ AddressListActivity axr;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(int i) {
-        super(i);
+    public b(AddressListActivity addressListActivity) {
+        this.axr = addressListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        ImageView imageView2;
-        ImageView imageView3;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
-            ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-            if (responseUnreadPointNum.getNum() > 0 && responseUnreadPointNum.isFromNet()) {
-                imageView3 = AddressListDelegateStatic.aoK;
-                imageView3.setVisibility(0);
-            } else if (com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                imageView2 = AddressListDelegateStatic.aoK;
-                imageView2.setVisibility(0);
-            } else {
-                imageView = AddressListDelegateStatic.aoK;
-                imageView.setVisibility(8);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.axr.closeActivity();
     }
 }

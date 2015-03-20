@@ -1,16 +1,7 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
 /* loaded from: classes.dex */
-public class an implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aDT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsActivity frsActivity) {
-        this.aDT = frsActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-    }
+public interface an {
+    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.w wVar);
 }

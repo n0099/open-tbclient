@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.net.SocketException;
 /* loaded from: classes.dex */
-public class w extends aa {
-    public SocketException pV;
+public class w extends z {
+    public String AG;
+    public int mStatusCode;
 
-    public w(SocketException socketException) {
-        this.pV = socketException;
+    public w(int i, String str) {
+        this.mStatusCode = i;
+        this.AG = str;
     }
 }

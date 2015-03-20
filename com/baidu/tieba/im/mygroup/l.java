@@ -6,17 +6,17 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.GroupImageView;
 /* loaded from: classes.dex */
 class l {
-    GroupImageView bcr;
-    TextView bct;
-    TextView bcu;
-    ImageView bcv;
-    ImageView bcw;
-    ImageView bcx;
-    ImageView[] bcy;
-    LinearLayout bkJ;
-    TextView bkK;
-    ImageView bkL;
-    ImageView bkM;
-    ImageView bkN;
+    GroupImageView bdB;
+    TextView bdD;
+    TextView bdE;
+    ImageView bdF;
+    ImageView bdG;
+    ImageView bdH;
+    ImageView[] bdI;
+    ImageView blA;
+    ImageView blB;
+    ImageView blC;
+    LinearLayout bly;
+    TextView blz;
     TextView nameText;
 }

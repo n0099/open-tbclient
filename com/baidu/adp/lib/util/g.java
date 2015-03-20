@@ -1,48 +1,48 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.plugin.install.PluginInstallerService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Object, Object> {
-    String mL;
-    String mM;
-    StringBuilder mN;
-    h mO;
-    boolean mP = false;
-    final /* synthetic */ f mQ;
-
-    public g(f fVar, String str, String str2, StringBuilder sb, h hVar) {
-        this.mQ = fVar;
-        this.mL = str;
-        this.mM = str2;
-        this.mN = sb;
-        this.mO = hVar;
+public class g {
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
+                return;
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Object doInBackground(Object... objArr) {
-        boolean a;
-        a = this.mQ.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.mL, this.mN);
-        this.mP = a;
-        if (!this.mP) {
-            this.mQ.a(this.mM, "".getBytes(), this.mN);
-            return null;
+    public static void c(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                return;
+            }
         }
-        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(Object obj) {
-        super.onPostExecute(obj);
-        if (this.mN.length() > 0) {
-            com.baidu.adp.lib.stats.f.eq().a("so", "load_" + this.mL + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, this.mN.toString(), new Object[0]);
-        }
-        if (this.mO != null) {
-            this.mO.l(this.mP);
+    public static void a(byte[] bArr, OutputStream outputStream) {
+        if (bArr != null && bArr.length != 0) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            gZIPOutputStream.write(bArr, 0, bArr.length);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.finish();
+            gZIPOutputStream.close();
         }
     }
 }

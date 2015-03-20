@@ -1,24 +1,22 @@
 package com.baidu.tieba.tbean;
 
-import android.app.Activity;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ d cbU;
+    final /* synthetic */ d cqs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.cbU = dVar;
+        this.cqs = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,14 +32,11 @@ public class g extends HttpMessageListener {
         BuyTBeanActivity buyTBeanActivity8;
         BuyTBeanActivity buyTBeanActivity9;
         BuyTBeanActivity buyTBeanActivity10;
-        BuyTBeanActivity buyTBeanActivity11;
-        BuyTBeanActivity buyTBeanActivity12;
-        BuyTBeanActivity buyTBeanActivity13;
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-            buyTBeanActivity = this.cbU.cbS;
+            buyTBeanActivity = this.cqs.cqq;
             if (buyTBeanActivity != null) {
-                buyTBeanActivity2 = this.cbU.cbS;
-                buyTBeanActivity2.showToast(z.neterror);
+                buyTBeanActivity2 = this.cqs.cqq;
+                buyTBeanActivity2.showToast(y.neterror);
                 return;
             }
             return;
@@ -51,46 +46,38 @@ public class g extends HttpMessageListener {
         ResponseGetPayinfoMessage responseGetPayinfoMessage = (ResponseGetPayinfoMessage) httpResponsedMessage;
         if (statusCode == 200 && error == 0) {
             if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                buyTBeanActivity5 = this.cbU.cbS;
+                buyTBeanActivity5 = this.cqs.cqq;
                 if (buyTBeanActivity5 != null) {
-                    buyTBeanActivity6 = this.cbU.cbS;
-                    buyTBeanActivity6.showToast(z.buy_tbean_failed_tip);
+                    buyTBeanActivity6 = this.cqs.cqq;
+                    buyTBeanActivity6.showToast(y.buy_tbean_failed_tip);
                     return;
                 }
             } else {
                 int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                 if (pay_status != 0) {
-                    buyTBeanActivity7 = this.cbU.cbS;
+                    buyTBeanActivity7 = this.cqs.cqq;
                     if (buyTBeanActivity7 != null) {
-                        buyTBeanActivity8 = this.cbU.cbS;
-                        buyTBeanActivity8.showToast(z.buy_tbean_failed_tip);
+                        buyTBeanActivity8 = this.cqs.cqq;
+                        buyTBeanActivity8.showToast(y.buy_tbean_failed_tip);
                         return;
                     }
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001233, Integer.valueOf(pay_status)));
-                    buyTBeanActivity9 = this.cbU.cbS;
+                    buyTBeanActivity9 = this.cqs.cqq;
                     if (buyTBeanActivity9 != null) {
-                        buyTBeanActivity10 = this.cbU.cbS;
+                        buyTBeanActivity10 = this.cqs.cqq;
                         buyTBeanActivity10.finish();
-                        buyTBeanActivity11 = this.cbU.cbS;
-                        if (!StringUtils.isNull(buyTBeanActivity11.aiG())) {
-                            buyTBeanActivity12 = this.cbU.cbS;
-                            Activity pageActivity = buyTBeanActivity12.getPageContext().getPageActivity();
-                            buyTBeanActivity13 = this.cbU.cbS;
-                            com.baidu.tbadk.browser.a.x(pageActivity, buyTBeanActivity13.aiG());
-                            return;
-                        }
                         return;
                     }
                 }
             }
         }
         if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-            buyTBeanActivity4 = this.cbU.cbS;
+            buyTBeanActivity4 = this.cqs.cqq;
             buyTBeanActivity4.showToast(responseGetPayinfoMessage.getErrorString());
             return;
         }
-        buyTBeanActivity3 = this.cbU.cbS;
-        buyTBeanActivity3.showToast(z.neterror);
+        buyTBeanActivity3 = this.cqs.cqq;
+        buyTBeanActivity3.showToast(y.neterror);
     }
 }

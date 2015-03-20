@@ -4,28 +4,28 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class DrawableCompat {
-    static final b au;
+    static final b lx;
 
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            au = new d();
+            lx = new d();
         } else if (i >= 11) {
-            au = new c();
+            lx = new c();
         } else {
-            au = new a();
+            lx = new a();
         }
     }
 
     public static void jumpToCurrentState(Drawable drawable) {
-        au.jumpToCurrentState(drawable);
+        lx.jumpToCurrentState(drawable);
     }
 
     public static void setAutoMirrored(Drawable drawable, boolean z) {
-        au.setAutoMirrored(drawable, z);
+        lx.setAutoMirrored(drawable, z);
     }
 
     public static boolean isAutoMirrored(Drawable drawable) {
-        return au.isAutoMirrored(drawable);
+        return lx.isAutoMirrored(drawable);
     }
 }

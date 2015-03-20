@@ -2,12 +2,12 @@ package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 class g implements a {
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.a.a B(String str) {
-        NSGif C = NSGif.C(str);
-        if (C == null) {
+    public com.baidu.adp.widget.a.a J(String str) {
+        NSGif K = NSGif.K(str);
+        if (K == null) {
             return null;
         }
-        return new com.baidu.adp.widget.a.a(C);
+        return new com.baidu.adp.widget.a.a(K);
     }
 
     @Override // com.baidu.adp.gif.a

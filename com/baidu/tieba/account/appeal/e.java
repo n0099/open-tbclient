@@ -1,25 +1,20 @@
 package com.baidu.tieba.account.appeal;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class e implements DialogInterface.OnClickListener {
-    final /* synthetic */ AppealActivity aok;
-    private final /* synthetic */ boolean aom;
+class e implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ AppealActivity awm;
+    private final /* synthetic */ boolean awo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AppealActivity appealActivity, boolean z) {
-        this.aok = appealActivity;
-        this.aom = z;
+        this.awm = appealActivity;
+        this.awo = z;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aok.getPageContext());
-        }
-        if (this.aom) {
-            this.aok.finish();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        if (this.awo) {
+            this.awm.finish();
         }
     }
 }

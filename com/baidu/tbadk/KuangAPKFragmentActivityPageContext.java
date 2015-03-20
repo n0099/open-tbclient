@@ -76,7 +76,7 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
 
     @Override // com.baidu.adp.base.j
     public Resources getResources() {
-        return TbadkCoreApplication.m255getInst().getResources();
+        return TbadkCoreApplication.m411getInst().getResources();
     }
 
     @Override // com.baidu.tbadk.TbPageContext

@@ -10,7 +10,7 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     private boolean isReset;
     private boolean isThread;
-    private WeakReference<bq> mCallbackWeakReference;
+    private WeakReference<bo> mCallbackWeakReference;
     private boolean needContent;
     private int pn;
     private int rn;
@@ -20,11 +20,11 @@ public class UserPostPageRequestMessage extends NetMessage {
         super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
     }
 
-    public WeakReference<bq> getmCallbackWeakReference() {
+    public WeakReference<bo> getmCallbackWeakReference() {
         return this.mCallbackWeakReference;
     }
 
-    public void setmCallbackWeakReference(WeakReference<bq> weakReference) {
+    public void setmCallbackWeakReference(WeakReference<bo> weakReference) {
         this.mCallbackWeakReference = weakReference;
     }
 
@@ -86,7 +86,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
         if (z) {
-            com.baidu.tbadk.util.k.a(builder, true);
+            com.baidu.tbadk.util.j.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

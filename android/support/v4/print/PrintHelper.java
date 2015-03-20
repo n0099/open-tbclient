@@ -12,7 +12,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    d aR;
+    d lV;
 
     public static boolean systemSupportsPrint() {
         return Build.VERSION.SDK_INT >= 19;
@@ -20,41 +20,41 @@ public final class PrintHelper {
 
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
-            this.aR = new b(context);
+            this.lV = new b(context);
         } else {
-            this.aR = new c();
+            this.lV = new c();
         }
     }
 
     public void setScaleMode(int i) {
-        this.aR.setScaleMode(i);
+        this.lV.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.aR.getScaleMode();
+        return this.lV.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.aR.setColorMode(i);
+        this.lV.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.aR.getColorMode();
+        return this.lV.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.aR.setOrientation(i);
+        this.lV.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.aR.getOrientation();
+        return this.lV.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.aR.printBitmap(str, bitmap);
+        this.lV.printBitmap(str, bitmap);
     }
 
     public void printBitmap(String str, Uri uri) {
-        this.aR.printBitmap(str, uri);
+        this.lV.printBitmap(str, uri);
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.adp.framework.client.socket.link;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface g {
-    void a(com.baidu.adp.lib.webSocket.d dVar);
+    void G(String str);
+
+    void a(com.baidu.adp.lib.webSocket.c cVar);
 
     void c(Map<String, String> map);
 
     void e(byte[] bArr);
 
     boolean k(int i, String str);
-
-    void y(String str);
 }

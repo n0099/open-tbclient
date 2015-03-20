@@ -2,6 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -103,6 +104,9 @@ public class MarkData implements Serializable {
         return this.mPostId;
     }
 
+    public void logPrint() {
+    }
+
     public void setAccount(String str) {
         this.mAccount = str;
     }
@@ -153,7 +157,7 @@ public class MarkData implements Serializable {
             } else if (!this.mSequence) {
                 jSONObject.put("status", "2");
             } else {
-                jSONObject.put("status", "0");
+                jSONObject.put("status", GameInfoData.NOT_FROM_DETAIL);
             }
             return jSONObject;
         } catch (Exception e) {

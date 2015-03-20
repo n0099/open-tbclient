@@ -7,32 +7,32 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BaseViewPager extends ViewPager implements GestureDetector.OnGestureListener {
-    private a Ly;
-    private a Lz;
+    private a Xa;
+    private a Xb;
     private GestureDetector mGestureDetector;
 
     public BaseViewPager(Context context) {
         super(context);
         this.mGestureDetector = null;
-        this.Ly = null;
-        this.Lz = null;
+        this.Xa = null;
+        this.Xb = null;
         init();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mGestureDetector = null;
-        this.Ly = null;
-        this.Lz = null;
+        this.Xa = null;
+        this.Xb = null;
         init();
     }
 
     public void setOnFlipOutListener(a aVar) {
-        this.Ly = aVar;
+        this.Xa = aVar;
     }
 
     public void setOnScrollOutListener(a aVar) {
-        this.Lz = aVar;
+        this.Xb = aVar;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View
@@ -55,12 +55,12 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.Ly != null) {
+        if (this.Xa != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.Ly.ci(0);
+                this.Xa.cj(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.Ly.ci(1);
+                this.Xa.cj(1);
                 return true;
             }
         }
@@ -73,12 +73,12 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.Lz != null) {
+        if (this.Xb != null) {
             if (f > 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.Lz.ci(0);
+                this.Xb.cj(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.Lz.ci(1);
+                this.Xb.cj(1);
                 return true;
             }
         }

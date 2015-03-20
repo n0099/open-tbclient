@@ -9,14 +9,14 @@ import plugin.writeSettings.WriteSettingsReqIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ e tA;
-    private PluginSettings ty;
-    private l tz;
+    private PluginSettings Es;
+    private l Et;
+    final /* synthetic */ e Eu;
 
     public f(e eVar, PluginSettings pluginSettings, l lVar) {
-        this.tA = eVar;
-        this.ty = pluginSettings;
-        this.tz = lVar;
+        this.Eu = eVar;
+        this.Es = pluginSettings;
+        this.Et = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
         boolean e;
-        if (this.ty == null || this.ty.getPlugins() == null) {
+        if (this.Es == null || this.Es.getPlugins() == null) {
             return false;
         }
         ReqData.Builder builder = new ReqData.Builder();
         ArrayList arrayList = new ArrayList();
-        for (Map.Entry<String, PluginSetting> entry : this.ty.getPlugins().entrySet()) {
+        for (Map.Entry<String, PluginSetting> entry : this.Es.getPlugins().entrySet()) {
             PluginSetting value = entry.getValue();
             if (value != null) {
                 Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -59,15 +59,17 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
                 builder2.version_code = Integer.valueOf(value.versionCode);
                 builder2.is_inject_classloader = Integer.valueOf(value.isInjectClassloader() ? 1 : 0);
                 builder2.abandon_apk_path = value.getAbandon_apk_path();
+                builder2.install_fail_count = Integer.valueOf(value.install_fail_count);
+                builder2.priority = Integer.valueOf(value.priority);
                 arrayList.add(builder2.build(false));
             }
         }
         builder.plugin_settings_list = arrayList;
-        builder.container_version = this.ty.getContainerVersion();
-        builder.forbidden_feature = this.ty.getForbiddenFeatures();
+        builder.container_version = this.Es.getContainerVersion();
+        builder.forbidden_feature = this.Es.getForbiddenFeatures();
         WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
         builder3.data = builder.build(false);
-        e = this.tA.e(this.tA.iq(), builder3.build(false).toByteArray());
+        e = this.Eu.e(this.Eu.lO(), builder3.build(false).toByteArray());
         return Boolean.valueOf(e);
     }
 
@@ -77,11 +79,11 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
-        if (this.tz != null) {
+        if (this.Et != null) {
             if (bool != null && bool.booleanValue()) {
-                this.tz.iu();
+                this.Et.lS();
             } else {
-                this.tz.iv();
+                this.Et.lT();
             }
         }
     }
@@ -89,8 +91,8 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        if (this.tz != null) {
-            this.tz.iv();
+        if (this.Et != null) {
+            this.Et.lT();
         }
     }
 }

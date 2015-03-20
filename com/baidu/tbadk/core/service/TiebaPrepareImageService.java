@@ -24,22 +24,22 @@ public class TiebaPrepareImageService extends BdBaseService {
     private final Runnable mStartRun = new a(this);
 
     public static void StartService(int i, Uri uri, int i2, int i3, String str) {
-        Intent intent = new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.m411getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.putExtra("file_name", str);
         intent.setData(uri);
-        TbadkCoreApplication.m255getInst().getApp().startService(intent);
+        TbadkCoreApplication.m411getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2, int i3) {
-        Intent intent = new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.m411getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.setData(uri);
-        TbadkCoreApplication.m255getInst().getApp().startService(intent);
+        TbadkCoreApplication.m411getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2) {
@@ -47,12 +47,17 @@ public class TiebaPrepareImageService extends BdBaseService {
     }
 
     public static void StopService() {
-        TbadkCoreApplication.m255getInst().getApp().stopService(new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class));
+        TbadkCoreApplication.m411getInst().getApp().stopService(new Intent(TbadkCoreApplication.m411getInst().getApp(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
+    public void onCreate() {
+        super.onCreate();
     }
 
     @Override // android.app.Service
@@ -82,7 +87,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         this.mRequestCode = intent.getIntExtra("request_code", 0);
         this.mMaxSize = intent.getIntExtra(MAX_SIZE, TbConfig.POST_IMAGE_MIDDLE);
         this.mDisplaySize = intent.getIntExtra("display_size", 0);
-        TbadkCoreApplication.m255getInst().addRemoteActivity(null);
+        TbadkCoreApplication.m411getInst().addRemoteActivity(null);
         if (!IS_DECODING) {
             this.mTask = new b(this, this.mRequestCode, this.mUri, this.mFileName);
             this.mTask.execute(new Object[0]);

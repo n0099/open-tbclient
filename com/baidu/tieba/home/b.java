@@ -6,15 +6,15 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ CreateBarActivity aPw;
+    final /* synthetic */ CreateBarActivity aVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(CreateBarActivity createBarActivity) {
-        this.aPw = createBarActivity;
+        this.aVR = createBarActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -40,28 +40,28 @@ public class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.aPw.aPk;
+        editText = this.aVR.aVF;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.aPw.Qd;
+            editText2 = this.aVR.avK;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.aPw.aPl;
+                relativeLayout2 = this.aVR.aVG;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.aPw.aPr;
-                    textView3.setText(this.aPw.getPageContext().getString(z.bar_name_long));
-                    textView4 = this.aPw.aPr;
+                    textView3 = this.aVR.aVM;
+                    textView3.setText(this.aVR.getPageContext().getString(y.bar_name_long));
+                    textView4 = this.aVR.aVM;
                     textView4.setTextColor(SupportMenu.CATEGORY_MASK);
                     return;
                 }
-                textView = this.aPw.aPr;
-                textView.setText(this.aPw.getPageContext().getString(z.bar_name_rule));
-                textView2 = this.aPw.aPr;
+                textView = this.aVR.aVM;
+                textView.setText(this.aVR.getPageContext().getString(y.bar_name_rule));
+                textView2 = this.aVR.aVM;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.aPw.aPl;
+        relativeLayout = this.aVR.aVG;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }

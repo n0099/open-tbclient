@@ -1,14 +1,16 @@
 package com.baidu.tieba.person;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
-class az implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ PersonImageActivity bIg;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public az(PersonImageActivity personImageActivity) {
-        this.bIg = personImageActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.view.a
-    public void ci(int i) {
+class az implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            PersonInfoActivityStatic.a(customMessage.getData());
+        }
+        return null;
     }
 }

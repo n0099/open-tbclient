@@ -1,33 +1,48 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private String Rl;
-    private String Rm;
-    private String Rn;
+    private String vcode_md5 = null;
+    private String vcode_pic_url = null;
+    private String aaW = null;
+
+    public String getVcode_md5() {
+        return this.vcode_md5;
+    }
+
+    public String getVcode_pic_url() {
+        return this.vcode_pic_url;
+    }
+
+    public String uI() {
+        return this.aaW;
+    }
+
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject("anti");
+            }
+            parserJson(optJSONObject);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Rl = jSONObject.optString("drop_pic");
-                this.Rm = jSONObject.optString("drop_pic_md5");
-                this.Rn = jSONObject.optString("drop_pic_num");
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.aaW = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                e.printStackTrace();
+                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public String rM() {
-        return this.Rl;
-    }
-
-    public String rN() {
-        return this.Rm;
-    }
-
-    public String rO() {
-        return this.Rn;
     }
 }

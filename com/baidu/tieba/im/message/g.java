@@ -1,13 +1,20 @@
 package com.baidu.tieba.im.message;
+
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class g {
-    public boolean XS;
+    public ChatMessage bku;
     public int customGroupType;
     public String id;
+    public int type;
 
-    public g(String str, int i, boolean z) {
+    public g() {
+    }
+
+    public g(String str, int i, ChatMessage chatMessage, int i2) {
         this.id = str;
         this.customGroupType = i;
-        this.XS = z;
+        this.bku = chatMessage;
+        this.type = i2;
     }
 }

@@ -7,11 +7,11 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e yb;
+    final /* synthetic */ e IE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.yb = eVar;
+        this.IE = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,44 +31,44 @@ public class f implements Runnable {
         int i2;
         int i3;
         int i4;
-        weakReference = this.yb.xZ;
+        weakReference = this.IE.IB;
         if (weakReference != null) {
-            weakReference2 = this.yb.xZ;
+            weakReference2 = this.IE.IB;
             View view = (View) weakReference2.get();
             if (view == null) {
-                this.yb.xV = true;
+                this.IE.Ix = true;
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
                 int i5 = layoutParams.topMargin;
-                i2 = this.yb.xq;
+                i2 = this.IE.Ii;
                 layoutParams.topMargin = i5 - ((int) (i2 * 1.5f));
                 int i6 = layoutParams.topMargin;
-                i3 = this.yb.xU;
+                i3 = this.IE.Iw;
                 if (i6 <= i3) {
-                    i4 = this.yb.xU;
+                    i4 = this.IE.Iw;
                     layoutParams.topMargin = i4;
-                    this.yb.xV = true;
+                    this.IE.Ix = true;
                 }
                 view.setLayoutParams(layoutParams);
             }
-            z = this.yb.xV;
+            z = this.IE.Ix;
             if (z) {
-                gVar = this.yb.xs;
+                gVar = this.IE.Ik;
                 if (gVar != null) {
-                    gVar2 = this.yb.xs;
-                    gVar2.jG();
+                    gVar2 = this.IE.Ik;
+                    gVar2.nb();
                 }
-                handler3 = this.yb.handler;
-                runnable3 = this.yb.ya;
+                handler3 = this.IE.handler;
+                runnable3 = this.IE.IC;
                 handler3.removeCallbacks(runnable3);
                 return;
             }
-            handler = this.yb.handler;
-            runnable = this.yb.ya;
+            handler = this.IE.handler;
+            runnable = this.IE.IC;
             handler.removeCallbacks(runnable);
-            handler2 = this.yb.handler;
-            runnable2 = this.yb.ya;
-            i = this.yb.xT;
+            handler2 = this.IE.handler;
+            runnable2 = this.IE.IC;
+            i = this.IE.Iv;
             handler2.postDelayed(runnable2, i);
         }
     }

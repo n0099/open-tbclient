@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.aa;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,14 +12,14 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, Void> {
-    private volatile ad CU = null;
-    private b VH;
-    final /* synthetic */ a VI;
+    private volatile aa ZD = null;
+    private b afN;
+    final /* synthetic */ a afO;
 
     public c(a aVar, b bVar) {
-        this.VI = aVar;
-        this.VH = null;
-        this.VH = bVar;
+        this.afO = aVar;
+        this.afN = null;
+        this.afN = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Void doInBackground(Object... objArr) {
-        List dH;
+        List dQ;
         List list;
         List list2;
         List list3;
@@ -39,36 +39,36 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         List list5;
         int i = 0;
         try {
-            this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
-            String or = this.CU.or();
-            if (this.CU.oS().qa().lT() && or != null) {
-                JSONObject jSONObject = new JSONObject(or);
+            this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
+            String rO = this.ZD.rO();
+            if (this.ZD.sp().tq().pv() && rO != null) {
+                JSONObject jSONObject = new JSONObject(rO);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
-                    a aVar = this.VI;
-                    dH = this.VI.dH(optString);
-                    aVar.VE = dH;
-                    list = this.VI.VE;
+                    a aVar = this.afO;
+                    dQ = this.afO.dQ(optString);
+                    aVar.afK = dQ;
+                    list = this.afO.afK;
                     if (list != null) {
-                        list2 = this.VI.VE;
+                        list2 = this.afO.afK;
                         if (list2.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i2 = 0; i2 < list3.size(); i2++) {
-                                list5 = this.VI.VE;
+                                list5 = this.afO.afK;
                                 String str2 = (String) list5.get(i2);
                                 p pVar = new p();
-                                pVar.dK(str2);
+                                pVar.dT(str2);
                                 if (pVar.isSucc()) {
-                                    hashMap.put(str2, Integer.valueOf(pVar.ul()));
+                                    hashMap.put(str2, Integer.valueOf(pVar.xC()));
                                 }
                             }
                             if (hashMap.size() > 0) {
-                                this.VI.VE = new ArrayList();
+                                this.afO.afK = new ArrayList();
                                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
                                 Collections.sort(arrayList, new d(this));
                                 StringBuilder sb = new StringBuilder(50);
                                 for (Map.Entry entry : arrayList) {
-                                    list4 = this.VI.VE;
+                                    list4 = this.afO.afK;
                                     list4.add((String) entry.getKey());
                                     if (i != 0) {
                                         sb.append(",");
@@ -81,7 +81,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                             } else {
                                 str = optString;
                             }
-                            com.baidu.tbadk.core.sharedPref.b.oc().putString("KeyOfSharedPrefIpList", str);
+                            com.baidu.tbadk.core.sharedPref.b.rB().putString("KeyOfSharedPrefIpList", str);
                             return null;
                         }
                         return null;
@@ -102,9 +102,9 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Void r3) {
-        this.VI.VF = null;
-        if (this.VH != null) {
-            this.VH.ua();
+        this.afO.afL = null;
+        if (this.afN != null) {
+            this.afN.xr();
         }
     }
 
@@ -113,28 +113,28 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public void onCancelled(Void r3) {
-        this.VI.VF = null;
-        if (this.VH != null) {
-            this.VH.ua();
+        this.afO.afL = null;
+        if (this.afN != null) {
+            this.afN.xr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
-        this.VI.VF = null;
-        if (this.VH != null) {
-            this.VH.ua();
+        this.afO.afL = null;
+        if (this.afN != null) {
+            this.afN.xr();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.CU != null) {
-            this.CU.dJ();
-            this.CU = null;
+        if (this.ZD != null) {
+            this.ZD.hh();
+            this.ZD = null;
         }
-        this.VI.VF = null;
+        this.afO.afL = null;
         super.cancel(true);
     }
 }

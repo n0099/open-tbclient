@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedList;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ cb aSO;
-    private final /* synthetic */ LinkedList aSP;
+public class cc implements View.OnClickListener {
+    final /* synthetic */ MsgrightView aYa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(cb cbVar, LinkedList linkedList) {
-        this.aSO = cbVar;
-        this.aSP = linkedList;
+    public cc(MsgrightView msgrightView) {
+        this.aYa = msgrightView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: KF */
-    public Void doInBackground() {
-        return com.baidu.tieba.im.db.o.Nf().j(this.aSP);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aYa.aXc.onItemViewClick(view, 6, this.aYa.mPosition, 0L);
     }
 }

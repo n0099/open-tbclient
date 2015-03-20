@@ -1,55 +1,67 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class f extends HttpMessageListener {
-    final /* synthetic */ e bQS;
+public class f extends com.baidu.adp.base.f<SignAllForumActivity> {
+    private static final String cdK = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
+    private c cdH;
+    private h cdI;
+    private HttpMessage cdJ;
+    private final BdUniqueId cdL;
+    private final HttpMessageListener cdM;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i) {
-        super(i);
-        this.bQS = eVar;
+    public f(SignAllForumActivity signAllForumActivity) {
+        super(signAllForumActivity.getPageContext());
+        this.cdH = null;
+        this.cdI = null;
+        this.cdL = BdUniqueId.gen();
+        this.cdM = new g(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
+        MessageManager messageManager = MessageManager.getInstance();
+        this.cdH = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, cdK);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        registerListener(this.cdM);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        g gVar;
-        g gVar2;
-        g gVar3;
-        b bVar;
-        g gVar4;
-        b bVar2;
-        g gVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
-            int error = httpResponsedMessage.getError();
-            if (!httpResponsedMessage.isSuccess()) {
-                String errorString = httpResponsedMessage.getErrorString();
-                gVar5 = this.bQS.bQN;
-                gVar5.gH(errorString);
-            } else if (error == 0) {
-                this.bQS.bQM = ((GetForumResponsed) httpResponsedMessage).listData;
-                gVar2 = this.bQS.bQN;
-                if (gVar2 != null) {
-                    bVar = this.bQS.bQM;
-                    if (bVar != null) {
-                        gVar4 = this.bQS.bQN;
-                        bVar2 = this.bQS.bQM;
-                        gVar4.a(bVar2);
-                    }
-                }
-                String errorString2 = httpResponsedMessage.getErrorString();
-                gVar3 = this.bQS.bQN;
-                gVar3.gH(errorString2);
-            } else {
-                String errorString3 = httpResponsedMessage.getErrorString();
-                gVar = this.bQS.bQN;
-                gVar.gH(errorString3);
-            }
-            this.bQS.bQO = null;
+    public void a(h hVar) {
+        this.cdI = hVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.f
+    public boolean LoadData() {
+        if (this.cdJ != null) {
+            return false;
         }
+        this.cdJ = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+        AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+        String str = null;
+        if (currentAccountObj != null) {
+            str = currentAccountObj.getID();
+        }
+        this.cdJ.addParam("user_id", str);
+        this.cdJ.setTag(this.cdL);
+        MessageManager.getInstance().sendMessage(this.cdJ);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        if (this.cdJ != null) {
+            MessageManager.getInstance().removeHttpMessage(this.cdL);
+            this.cdJ = null;
+        }
+        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
+        return true;
     }
 }

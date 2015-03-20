@@ -1,21 +1,19 @@
 package com.baidu.tieba;
-/* loaded from: classes.dex */
-class ae {
-    final /* synthetic */ SnowView alu;
-    public int speed;
-    public int x;
-    public int y;
 
-    private ae(SnowView snowView) {
-        this.alu = snowView;
-    }
+import android.view.View;
+/* loaded from: classes.dex */
+class ae implements View.OnClickListener {
+    final /* synthetic */ ab auc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(SnowView snowView, ae aeVar) {
-        this(snowView);
+    public ae(ab abVar) {
+        this.auc = abVar;
     }
 
-    public String toString() {
-        return "Coordinate: [" + this.x + "," + this.y + "," + this.speed + "]";
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ag agVar;
+        agVar = this.auc.atZ;
+        agVar.DX();
     }
 }

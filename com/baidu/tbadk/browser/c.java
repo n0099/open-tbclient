@@ -1,17 +1,28 @@
 package com.baidu.tbadk.browser;
 
-import android.content.Context;
-import com.baidu.tbadk.core.util.bp;
-import com.baidu.tbadk.core.util.bq;
+import android.os.Message;
+import java.util.Timer;
+import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements bp {
-    @Override // com.baidu.tbadk.core.util.bp
-    public void a(Context context, String str, String str2, boolean z, bq bqVar) {
-        if (z) {
-            com.baidu.tbadk.coreExtra.util.a.a(context, new d(this, context, str, str2), new e(this, bqVar), str2);
-        } else {
-            a.f(context, str, str2);
-        }
+public class c extends TimerTask {
+    final /* synthetic */ BaseWebViewActivity Nl;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(BaseWebViewActivity baseWebViewActivity) {
+        this.Nl = baseWebViewActivity;
+    }
+
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        Timer timer;
+        Timer timer2;
+        Message message = new Message();
+        message.what = BaseWebViewActivity.TIME_OUT_MSG_CODE;
+        this.Nl.mHandler.sendMessage(message);
+        timer = this.Nl.mTimer;
+        timer.cancel();
+        timer2 = this.Nl.mTimer;
+        timer2.purge();
     }
 }

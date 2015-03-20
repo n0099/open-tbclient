@@ -1,33 +1,38 @@
 package com.baidu.adp.widget.BdSwitchView;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
-public class BdSwitchView extends FrameLayout {
-    FrameLayout mLayout;
-    private c ud;
-    private SwitchState ue;
-    private boolean uf;
-    private boolean ug;
-    private boolean uh;
-    private TranslateAnimation ui;
-    private TranslateAnimation uj;
-    private Animation.AnimationListener uk;
-    ImageView ul;
+public class BdSwitchView extends View implements View.OnTouchListener {
+    private SwitchState EY;
+    private float EZ;
+    private float Fa;
+    private Bitmap Fb;
+    private Bitmap Fc;
+    private Bitmap Fd;
+    private boolean Fe;
+    private boolean Ff;
+    private boolean Fg;
+    private int Fh;
+    private b Fi;
+    private int height;
+    private Runnable mRunnable;
+    private Paint paint;
+    private int width;
 
     /* loaded from: classes.dex */
     public enum SwitchState {
         ON,
         OFF;
 
-        /* JADX DEBUG: Replace access to removed values field (uo) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Fk) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchState[] valuesCustom() {
             SwitchState[] valuesCustom = values();
@@ -44,7 +49,7 @@ public class BdSwitchView extends FrameLayout {
         NIGHT,
         SIDE_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (up) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Fl) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchStyle[] valuesCustom() {
             SwitchStyle[] valuesCustom = values();
@@ -57,223 +62,223 @@ public class BdSwitchView extends FrameLayout {
 
     public BdSwitchView(Context context) {
         super(context);
-        this.ud = null;
-        this.ue = SwitchState.ON;
-        this.uf = false;
-        this.ug = false;
-        this.uh = false;
-        this.uk = null;
-        this.mLayout = null;
-        this.ul = null;
+        this.EY = SwitchState.ON;
+        this.Fe = false;
+        this.Ff = false;
+        this.Fg = false;
+        this.paint = new Paint();
+        this.width = 0;
+        this.height = 0;
+        this.Fh = 0;
+        this.Fi = null;
+        this.mRunnable = new a(this);
         init(context);
     }
 
     public BdSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ud = null;
-        this.ue = SwitchState.ON;
-        this.uf = false;
-        this.ug = false;
-        this.uh = false;
-        this.uk = null;
-        this.mLayout = null;
-        this.ul = null;
+        this.EY = SwitchState.ON;
+        this.Fe = false;
+        this.Ff = false;
+        this.Fg = false;
+        this.paint = new Paint();
+        this.width = 0;
+        this.height = 0;
+        this.Fh = 0;
+        this.Fi = null;
+        this.mRunnable = new a(this);
         init(context);
     }
 
     private void init(Context context) {
-        com.baidu.adp.lib.g.b.ei().a(context, R.layout.bd_switch_view, this, true);
-        this.mLayout = (FrameLayout) findViewById(R.id.layout);
-        this.ul = (ImageView) findViewById(R.id.switch_image);
-        iz();
-        iA();
-        this.uk = new a(this);
-        setOnClickListener(new b(this));
-        iB();
+        this.Fb = BitmapFactory.decodeResource(getResources(), R.drawable.bg_game_switch_open);
+        this.Fc = BitmapFactory.decodeResource(getResources(), R.drawable.bg_game_switch_close);
+        this.Fd = BitmapFactory.decodeResource(getResources(), R.drawable.btn_game_handle);
+        this.width = this.Fb.getWidth();
+        this.height = this.Fb.getHeight();
+        this.Fh = this.Fd.getWidth();
+        setOnTouchListener(this);
     }
 
-    private void iz() {
-        if (this.mLayout != null && this.mLayout.getForeground() != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mLayout.getLayoutParams();
-            layoutParams.width = this.mLayout.getForeground().getIntrinsicWidth();
-            this.mLayout.setLayoutParams(layoutParams);
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        setMeasuredDimension(this.width, this.height);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (this.Fg) {
+            return false;
         }
-    }
-
-    private void iA() {
-        if (this.ul != null && this.ul.getBackground() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
-            layoutParams.width = this.ul.getBackground().getIntrinsicWidth();
-            this.ul.setLayoutParams(layoutParams);
+        if (getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(true);
+        }
+        switch (motionEvent.getAction()) {
+            case 0:
+                if (motionEvent.getX() > this.width || motionEvent.getY() > this.height) {
+                    return false;
+                }
+                postDelayed(this.mRunnable, 200L);
+                this.Fe = true;
+                this.EZ = motionEvent.getX();
+                this.Fa = this.EZ;
+                return true;
+            case 1:
+                this.Fe = false;
+                SwitchState switchState = this.EY;
+                if (Math.abs(this.Fa - this.EZ) <= 0.02d * this.width) {
+                    invalidate();
+                    return true;
+                }
+                removeCallbacks(this.mRunnable);
+                this.Fg = true;
+                if (motionEvent.getX() >= this.width / 2) {
+                    this.EY = SwitchState.ON;
+                } else {
+                    this.EY = SwitchState.OFF;
+                }
+                if (this.Ff && switchState != this.EY && this.Fi != null) {
+                    this.Fi.a(this, this.EY);
+                }
+                this.Fg = false;
+                invalidate();
+                return true;
+            case 2:
+                this.Fa = motionEvent.getX();
+                if (Math.abs(this.Fa - this.EZ) > 0.05d * this.width) {
+                    removeCallbacks(this.mRunnable);
+                    if (Math.abs(this.Fa - this.EZ) > 0.1d * this.width) {
+                        invalidate();
+                    }
+                }
+                return true;
+            case 3:
+                this.Fe = false;
+                SwitchState switchState2 = this.EY;
+                removeCallbacks(this.mRunnable);
+                this.Fg = true;
+                if (this.Fa >= this.width / 2) {
+                    this.EY = SwitchState.ON;
+                } else {
+                    this.EY = SwitchState.OFF;
+                }
+                if (this.Ff && switchState2 != this.EY && this.Fi != null) {
+                    this.Fi.a(this, this.EY);
+                }
+                this.Fg = false;
+                invalidate();
+                return true;
+            default:
+                return true;
         }
     }
 
     @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (!this.uf) {
-            super.setOnClickListener(onClickListener);
-            this.uf = true;
-        }
-    }
-
-    private void iB() {
-        float translateDis = getTranslateDis();
-        if (!this.uh) {
-            this.ui = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
-            this.uj = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
-        } else {
-            this.ui = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
-            this.uj = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
-        }
-        this.ui.setDuration(200L);
-        this.ui.setFillAfter(true);
-        this.ui.setAnimationListener(this.uk);
-        this.uj.setDuration(200L);
-        this.uj.setFillAfter(true);
-        this.uj.setAnimationListener(this.uk);
-    }
-
-    private float getTranslateDis() {
-        return this.mLayout.getForeground().getIntrinsicWidth() * 0.6666667f;
-    }
-
-    private void b(boolean z, boolean z2) {
-        if (!this.ug) {
-            if (this.ue == SwitchState.ON) {
-                this.ue = SwitchState.OFF;
-                if (this.uj != null) {
-                    if (z) {
-                        this.uj.setDuration(200L);
-                        this.ul.startAnimation(this.uj);
-                    } else if (!O(false)) {
-                        this.uj.setDuration(200L);
-                        this.ul.startAnimation(this.uj);
-                    }
-                }
+    protected void onDraw(Canvas canvas) {
+        float f;
+        super.onDraw(canvas);
+        if (this.Fe) {
+            if (this.Fa < this.width / 2) {
+                canvas.drawBitmap(this.Fc, 0.0f, 0.0f, this.paint);
             } else {
-                this.ue = SwitchState.ON;
-                if (this.ui != null) {
-                    if (z) {
-                        this.ui.setDuration(200L);
-                        this.ul.startAnimation(this.ui);
-                    } else if (!O(true)) {
-                        this.ui.setDuration(200L);
-                        this.ul.startAnimation(this.ui);
-                    }
-                }
+                canvas.drawBitmap(this.Fb, 0.0f, 0.0f, this.paint);
             }
-            if (this.ud != null && z2) {
-                this.ud.a(this, this.ue);
+        } else if (this.EY == SwitchState.ON) {
+            canvas.drawBitmap(this.Fb, 0.0f, 0.0f, this.paint);
+        } else if (this.EY == SwitchState.OFF) {
+            canvas.drawBitmap(this.Fc, 0.0f, 0.0f, this.paint);
+        }
+        if (this.Fe) {
+            if (this.Fa > this.Fb.getWidth()) {
+                f = this.width - (this.Fh / 2);
+            } else {
+                f = this.Fa - (this.Fh / 2);
             }
+        } else if (this.EY == SwitchState.ON) {
+            f = this.width - this.Fh;
+        } else {
+            f = this.EY == SwitchState.OFF ? 0.0f : 0.0f;
+        }
+        if (f < 0.0f) {
+            f = 0.0f;
+        } else if (f > this.width - this.Fh) {
+            f = this.width - this.Fh;
+        }
+        canvas.drawBitmap(this.Fd, f, 0.0f, this.paint);
+    }
+
+    private void a(SwitchState switchState, boolean z) {
+        if (!this.Fg) {
+            this.Fg = true;
+            if (switchState == SwitchState.ON) {
+                this.Fa = this.width;
+            } else if (switchState == SwitchState.OFF) {
+                this.Fa = 0.0f;
+            }
+            if (z && switchState != this.EY && this.Fi != null) {
+                this.Fi.a(this, switchState);
+            }
+            this.EY = switchState;
+            this.Fg = false;
+            invalidate();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3) {
+        this.Fb = bitmap;
+        this.Fc = bitmap2;
+        this.Fd = bitmap3;
+        invalidate();
+    }
+
+    public void lY() {
+        if (this.EY != SwitchState.ON) {
+            a(SwitchState.ON, false);
+        }
+    }
+
+    public void lZ() {
+        if (this.EY != SwitchState.OFF) {
+            a(SwitchState.OFF, false);
+        }
+    }
+
+    public void ma() {
+        a(SwitchState.ON, true);
+    }
+
     public void L(boolean z) {
-        b(z, true);
-    }
-
-    public void setSwitchFrame(int i) {
-        this.mLayout.setForeground(getResources().getDrawable(i));
-        iz();
-    }
-
-    public void setSwitchImage(int i) {
-        this.ul.setBackgroundResource(i);
-        iA();
-    }
-
-    public void setSwitchStyle(SwitchStyle switchStyle) {
-        if (switchStyle == SwitchStyle.DAY) {
-            setSwitchFrame(R.drawable.btn_switch_masking);
-            setSwitchImage(R.drawable.btn_switch);
-        } else if (switchStyle == SwitchStyle.NIGHT) {
-            setSwitchFrame(R.drawable.btn_switch_masking_1);
-            setSwitchImage(R.drawable.btn_switch_1);
-        } else if (switchStyle == SwitchStyle.SIDE_BAR) {
-            setSwitchFrame(R.drawable.btn_switch_masking_sidebar);
-            setSwitchImage(R.drawable.btn_switch_1);
+        if (this.EY != SwitchState.ON) {
+            ma();
         }
     }
 
-    public void iC() {
-        if (this.ue != SwitchState.ON) {
-            b(false, false);
-        }
-    }
-
-    public void iD() {
-        if (this.ue != SwitchState.OFF) {
-            b(false, false);
-        }
-    }
-
-    public void iE() {
-        M(false);
+    public void mb() {
+        a(SwitchState.OFF, true);
     }
 
     public void M(boolean z) {
-        if (this.ue != SwitchState.ON) {
-            L(z);
+        if (this.EY != SwitchState.OFF) {
+            mb();
         }
     }
 
-    public void iF() {
-        N(false);
+    public boolean hZ() {
+        return this.EY == SwitchState.ON;
     }
 
-    public void N(boolean z) {
-        if (this.ue != SwitchState.OFF) {
-            L(z);
+    public void setOnSwitchStateChangeListener(b bVar) {
+        this.Ff = true;
+        this.Fi = bVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void mc() {
+        if (this.EY == SwitchState.ON) {
+            a(SwitchState.OFF, true);
+        } else if (this.EY == SwitchState.OFF) {
+            a(SwitchState.ON, true);
         }
-    }
-
-    public boolean iG() {
-        return this.ue == SwitchState.ON;
-    }
-
-    private boolean O(boolean z) {
-        boolean z2;
-        if (this.ug) {
-            return false;
-        }
-        this.ug = true;
-        float translateDis = getTranslateDis();
-        if (!z) {
-            this.ue = SwitchState.OFF;
-            z2 = !this.uh;
-            this.uh = true;
-            if (ax((int) (-translateDis))) {
-                iB();
-            } else {
-                z2 = false;
-            }
-        } else {
-            this.ue = SwitchState.ON;
-            boolean z3 = this.uh;
-            this.uh = false;
-            if (ax(0)) {
-                iB();
-                z2 = z3;
-            } else {
-                z2 = false;
-            }
-        }
-        if (z2) {
-            this.ug = false;
-        }
-        return z2;
-    }
-
-    private boolean ax(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
-        layoutParams.setMargins(i, 0, 0, 0);
-        this.ul.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
-        return layoutParams2 == null || layoutParams2.leftMargin == i;
-    }
-
-    public void setOnSwitchStateChangeListener(c cVar) {
-        this.ud = cVar;
     }
 }

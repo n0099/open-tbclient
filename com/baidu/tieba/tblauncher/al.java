@@ -3,49 +3,48 @@ package com.baidu.tieba.tblauncher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.guide.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements b {
-    final /* synthetic */ ai cdv;
+public class al implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ ai crN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ai aiVar) {
-        this.cdv = aiVar;
+        this.crN = aiVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.cdv.cdq;
+        mainTabActivity = this.crN.crH;
         TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(com.baidu.tieba.z.first_enter_personinfo_tip);
-        textView.setBackgroundResource(com.baidu.tieba.v.tips_home_help);
-        textView.setPadding(com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds32), com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds48), com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds32), com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds32));
-        textView.setTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_g));
-        textView.setTextSize(0, com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds28));
+        textView.setText(com.baidu.tieba.y.first_enter_addresslist_tip);
+        textView.setBackgroundResource(com.baidu.tieba.u.tips_home_help);
+        textView.setPadding(com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds26), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10));
+        textView.setTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_g));
+        textView.setTextSize(0, com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds28));
         return textView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dv() {
+    public int gT() {
         return 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dw() {
+    public int gU() {
         return 32;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int getXOffset() {
-        return 0;
+        return com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds40);
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int getYOffset() {
-        return -com.baidu.adp.lib.util.l.d(TbadkCoreApplication.m255getInst(), com.baidu.tieba.u.ds10);
+        return -com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds6);
     }
 }

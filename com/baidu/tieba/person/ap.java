@@ -1,26 +1,32 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class ap implements View.OnClickListener {
-    final /* synthetic */ al bHW;
+class ap implements com.baidu.tbadk.core.view.ae {
+    final /* synthetic */ aj bQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(al alVar) {
-        this.bHW = alVar;
+    public ap(aj ajVar) {
+        this.bQe = ajVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        av avVar;
-        z = this.bHW.bHT;
-        if (!z) {
-            al alVar = this.bHW;
-            avVar = this.bHW.bHO;
-            alVar.pageNum = avVar.getData().mT().mP() + 1;
-            this.bHW.bHT = true;
-            this.bHW.aaT();
+    @Override // com.baidu.tbadk.core.view.ae
+    public void onListPullRefresh(boolean z) {
+        PersonFriendActivity adb;
+        at atVar;
+        boolean z2;
+        PersonFriendActivity adb2;
+        int i;
+        int i2;
+        adb = this.bQe.adb();
+        if (adb != null) {
+            this.bQe.pageNum = 0;
+            this.bQe.bQa = true;
+            atVar = this.bQe.bPW;
+            z2 = this.bQe.mIsHost;
+            adb2 = this.bQe.adb();
+            String uid = adb2.getUid();
+            i = this.bQe.pageNum;
+            i2 = this.bQe.resNum;
+            atVar.a(z2, uid, i, i2);
         }
     }
 }

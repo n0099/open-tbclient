@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn implements View.OnClickListener {
-    final /* synthetic */ bc aSq;
+    final /* synthetic */ bk aXJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bc bcVar) {
-        this.aSq = bcVar;
+    public bn(bk bkVar) {
+        this.aXJ = bkVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aSq.mItemViewClickListener.onItemViewClick(view, 10, this.aSq.mPosition, 0L);
+        this.aXJ.aXc.onItemViewClick(view, 12, this.aXJ.mPosition, 0L);
     }
 }

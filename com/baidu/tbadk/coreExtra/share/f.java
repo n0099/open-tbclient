@@ -4,27 +4,30 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.o;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    public static final String Tr = s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public static final String ads = o.yl + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String adp;
+    public String adq;
+    public boolean adl = false;
     public String title = null;
     public String content = null;
-    public String Tn = null;
-    public Uri To = null;
-    public Location Tp = null;
-    private WeakReference<Bitmap> Tq = null;
+    public String adm = null;
+    public Uri adn = null;
+    public Location ado = null;
+    private WeakReference<Bitmap> adr = null;
 
     public Bitmap getImageData() {
         Bitmap bitmap;
-        if (this.Tq == null || (bitmap = this.Tq.get()) == null || bitmap.isRecycled()) {
+        if (this.adr == null || (bitmap = this.adr.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void h(Bitmap bitmap) {
-        this.Tq = new WeakReference<>(bitmap);
+        this.adr = new WeakReference<>(bitmap);
     }
 }

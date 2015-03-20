@@ -36,16 +36,6 @@ public class j {
         }
     }
 
-    public static boolean a(Context context, ServiceConnection serviceConnection) {
-        try {
-            context.unbindService(serviceConnection);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
-
     public static boolean g(Context context, Intent intent) {
         try {
             context.stopService(intent);

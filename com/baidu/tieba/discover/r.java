@@ -8,11 +8,11 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements com.baidu.tbadk.mvc.model.q<com.baidu.tieba.discover.data.b, com.baidu.tieba.discover.data.a> {
-    final /* synthetic */ p auh;
+    final /* synthetic */ p aBT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.auh = pVar;
+        this.aBT = pVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.r
@@ -24,24 +24,24 @@ public class r implements com.baidu.tbadk.mvc.model.q<com.baidu.tieba.discover.d
         s sVar4;
         com.baidu.tieba.discover.data.b bVar2;
         if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
-            sVar = this.auh.aug;
+            sVar = this.aBT.aBS;
             if (sVar != null) {
-                sVar2 = this.auh.aug;
-                sVar2.Dc();
+                sVar2 = this.aBT.aBS;
+                sVar2.FV();
                 return;
             }
             return;
         }
         com.baidu.tieba.discover.data.a data = mvcHttpResponsedMessage.getData();
-        sVar3 = this.auh.aug;
+        sVar3 = this.aBT.aBS;
         if (sVar3 != null) {
-            sVar4 = this.auh.aug;
-            long Dg = data.Dg();
-            bVar2 = this.auh.auf;
-            sVar4.a(true, data, Dg > bVar2.Dg());
+            sVar4 = this.aBT.aBS;
+            long Gb = data.Gb();
+            bVar2 = this.aBT.aBR;
+            sVar4.a(true, data, Gb > bVar2.Gb());
         }
-        bVar = this.auh.auf;
-        bVar.H(data.Dg());
+        bVar = this.aBT.aBR;
+        bVar.M(data.Gb());
     }
 
     @Override // com.baidu.tbadk.mvc.model.s
@@ -53,23 +53,23 @@ public class r implements com.baidu.tbadk.mvc.model.q<com.baidu.tieba.discover.d
         s sVar4;
         com.baidu.tieba.discover.data.b bVar2;
         if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
-            sVar = this.auh.aug;
+            sVar = this.aBT.aBS;
             if (sVar != null) {
-                sVar2 = this.auh.aug;
-                sVar2.Dc();
+                sVar2 = this.aBT.aBS;
+                sVar2.FV();
                 return;
             }
             return;
         }
         com.baidu.tieba.discover.data.a data = mvcSocketResponsedMessage.getData();
-        sVar3 = this.auh.aug;
+        sVar3 = this.aBT.aBS;
         if (sVar3 != null) {
-            sVar4 = this.auh.aug;
-            long Dg = data.Dg();
-            bVar2 = this.auh.auf;
-            sVar4.a(true, data, Dg > bVar2.Dg());
+            sVar4 = this.aBT.aBS;
+            long Gb = data.Gb();
+            bVar2 = this.aBT.aBR;
+            sVar4.a(true, data, Gb > bVar2.Gb());
         }
-        bVar = this.auh.auf;
-        bVar.H(data.Dg());
+        bVar = this.aBT.aBR;
+        bVar.M(data.Gb());
     }
 }

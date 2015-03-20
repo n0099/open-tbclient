@@ -1,37 +1,32 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.model.ValidateModel;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ ValidateActivity bpP;
+public class e implements com.baidu.tieba.im.g<Integer> {
+    final /* synthetic */ ValidateActivity bnG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.bpP = validateActivity;
+        this.bnG = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
-    public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
-        m mVar;
-        boolean z;
-        m mVar2;
+    /* renamed from: c */
+    public void onReturnDataInUI(Integer num) {
         int i;
-        mVar = this.bpP.bpJ;
-        mVar.setData(ValidateModel.convertToValidateItemDataList(linkedList));
-        if (linkedList != null) {
-            ValidateActivity validateActivity = this.bpP;
-            i = validateActivity.offset;
-            validateActivity.offset = i + linkedList.size();
+        int i2;
+        int i3;
+        com.baidu.tieba.im.g gVar;
+        this.bnG.totalCount = num.intValue();
+        i = this.bnG.totalCount;
+        if (i > 0) {
+            this.bnG.amT = true;
+            i2 = this.bnG.bnE;
+            i3 = this.bnG.offset;
+            gVar = this.bnG.getDataCallBack;
+            ValidateModel.requestValidateDataFromDB(i2, i3, gVar);
         }
-        z = this.bpP.bpM;
-        if (!z) {
-            mVar2 = this.bpP.bpJ;
-            mVar2.setLoadProgressBarVisable(false);
-        }
-        this.bpP.aez = false;
     }
 }

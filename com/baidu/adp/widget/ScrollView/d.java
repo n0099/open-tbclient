@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ View nv;
-    private final /* synthetic */ Timer xX;
-    final /* synthetic */ c xY;
+    final /* synthetic */ c IA;
+    private final /* synthetic */ Timer Iz;
+    private final /* synthetic */ View yS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.xY = cVar;
-        this.nv = view;
-        this.xX = timer;
+        this.IA = cVar;
+        this.yS = view;
+        this.Iz = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nv.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yS.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.xY.xW;
-        i = bVar.xq;
+        bVar = this.IA.Iy;
+        i = bVar.Ii;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.xY.xW;
-        i2 = bVar2.xU;
+        bVar2 = this.IA.Iy;
+        i2 = bVar2.Iw;
         if (i5 <= i2) {
-            bVar6 = this.xY.xW;
-            i3 = bVar6.xU;
+            bVar6 = this.IA.Iy;
+            i3 = bVar6.Iw;
             layoutParams.bottomMargin = i3;
-            this.xX.cancel();
-            bVar7 = this.xY.xW;
-            bVar7.xV = true;
+            this.Iz.cancel();
+            bVar7 = this.IA.Iy;
+            bVar7.Ix = true;
         }
-        this.nv.setLayoutParams(layoutParams);
-        bVar3 = this.xY.xW;
-        z = bVar3.xV;
+        this.yS.setLayoutParams(layoutParams);
+        bVar3 = this.IA.Iy;
+        z = bVar3.Ix;
         if (z) {
-            bVar4 = this.xY.xW;
-            gVar = bVar4.xs;
+            bVar4 = this.IA.Iy;
+            gVar = bVar4.Ik;
             if (gVar != null) {
-                bVar5 = this.xY.xW;
-                gVar2 = bVar5.xs;
-                gVar2.jG();
+                bVar5 = this.IA.Iy;
+                gVar2 = bVar5.Ik;
+                gVar2.nb();
             }
         }
     }

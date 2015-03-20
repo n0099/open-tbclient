@@ -7,51 +7,51 @@ import com.baidu.adp.R;
 class b implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        j jVar;
-        j jVar2;
-        j jVar3;
-        j jVar4;
-        j jVar5;
-        j jVar6;
+        f fVar;
+        f fVar2;
+        f fVar3;
+        f fVar4;
+        f fVar5;
+        f fVar6;
         String str;
-        j jVar7;
-        j jVar8;
+        f fVar7;
+        f fVar8;
         switch (message.what) {
             case 0:
-                jVar5 = a.ob;
-                if (jVar5 != null) {
-                    jVar6 = a.ob;
+                fVar5 = a.zy;
+                if (fVar5 != null) {
+                    fVar6 = a.zy;
                     str = a.mFileName;
-                    jVar6.j(str, message.arg1);
+                    fVar6.i(str, message.arg1);
                     break;
                 }
                 break;
             case 1:
-                jVar3 = a.ob;
-                if (jVar3 != null) {
-                    jVar4 = a.ob;
-                    jVar4.error(message.what, q.getString(R.string.voice_err_no_file));
+                fVar3 = a.zy;
+                if (fVar3 != null) {
+                    fVar4 = a.zy;
+                    fVar4.error(message.what, l.getString(R.string.voice_err_no_file));
                     break;
                 }
                 break;
             case 6:
-                jVar = a.ob;
-                if (jVar != null) {
-                    jVar2 = a.ob;
-                    jVar2.ag(message.arg1);
+                fVar = a.zy;
+                if (fVar != null) {
+                    fVar2 = a.zy;
+                    fVar2.ai(message.arg1);
                 }
                 return true;
             default:
-                jVar7 = a.ob;
-                if (jVar7 != null) {
-                    jVar8 = a.ob;
-                    jVar8.error(message.what, q.getString(R.string.voice_err_play));
+                fVar7 = a.zy;
+                if (fVar7 != null) {
+                    fVar8 = a.zy;
+                    fVar8.error(message.what, l.getString(R.string.voice_err_play));
                     break;
                 }
                 break;
         }
-        a.nZ = 0;
-        a.ob = null;
+        a.zw = 0;
+        a.zy = null;
         return false;
     }
 }

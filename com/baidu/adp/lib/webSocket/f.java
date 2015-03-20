@@ -1,8 +1,23 @@
 package com.baidu.adp.lib.webSocket;
+
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-class f {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g a(String str, int i, am amVar, boolean z) {
-        return z ? new h(str, i, amVar) : new i(str, i, amVar);
-    }
+public interface f {
+    void close();
+
+    String iX();
+
+    String iY();
+
+    boolean isConnected();
+
+    String jn();
+
+    long jo();
+
+    int jp();
+
+    int read(ByteBuffer byteBuffer);
+
+    int write(ByteBuffer byteBuffer);
 }

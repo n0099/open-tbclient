@@ -3,9 +3,9 @@ package com.baidu.tieba.im.message;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    public List<g> datas;
+    public List<h> datas;
 
-    public e(List<g> list) {
+    public e(List<h> list) {
         this.datas = list;
     }
 }

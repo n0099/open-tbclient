@@ -1,42 +1,38 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.frs.bi;
-import com.baidu.tieba.tbadkCore.GoodGridView;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import com.baidu.tbadk.TbPageContextSupport;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    private GoodGridView aHM;
-    private ImageView aHN;
-    private View mParent;
+public class e implements Animation.AnimationListener {
+    final /* synthetic */ a aON;
+    private final /* synthetic */ TbPageContextSupport aOO;
+    private final /* synthetic */ float aOP;
+    private final /* synthetic */ View yS;
 
-    public e(Context context) {
-        this.mParent = null;
-        this.aHM = null;
-        this.aHN = null;
-        this.mParent = com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.dialog_good, null);
-        this.aHM = (GoodGridView) this.mParent.findViewById(com.baidu.tieba.w.good_gridview);
-        this.aHN = (ImageView) this.mParent.findViewById(com.baidu.tieba.w.divider_line);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(a aVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
+        this.aON = aVar;
+        this.aOO = tbPageContextSupport;
+        this.yS = view;
+        this.aOP = f;
     }
 
-    public void a(bi biVar) {
-        this.aHM.setAdapter((ListAdapter) biVar);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public void c(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aHM.setOnItemClickListener(onItemClickListener);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    public View getView() {
-        return this.mParent;
-    }
-
-    public void changeSkinType(int i) {
-        bc.j(this.aHM, com.baidu.tieba.t.cp_bg_line_d);
-        bc.i(this.aHN, com.baidu.tieba.t.frs_goodheader_line_end);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(300L);
+        com.baidu.tieba.tbadkCore.a.a(this.aOO, this.yS, scaleAnimation, new f(this, this.aOP, this.yS));
     }
 }

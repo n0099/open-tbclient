@@ -9,7 +9,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -21,7 +22,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!bf.isEmpty(str)) {
+        if (!bd.isEmpty(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -37,13 +38,11 @@ public class TbJsBridge {
         com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
         fVar.title = str;
         fVar.content = str2;
-        fVar.Tn = str4;
-        if (!bf.isEmpty(str3)) {
-            fVar.To = Uri.parse(str3);
+        fVar.adm = str4;
+        if (!bd.isEmpty(str3)) {
+            fVar.adn = Uri.parse(str3);
         }
-        com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
-        dVar.a(fVar, true);
-        dVar.show();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.mActivity, fVar, true)));
     }
 
     @JavascriptInterface

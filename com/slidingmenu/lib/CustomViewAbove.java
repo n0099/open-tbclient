@@ -22,7 +22,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.location.BDLocation;
 import com.baidu.tbadk.TbConfig;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
@@ -618,18 +617,22 @@ public class CustomViewAbove extends ViewGroup {
         int i = this.mActivePointerId;
         int pointerIndex = getPointerIndex(motionEvent, i);
         if (i != -1) {
-            float x = MotionEventCompat.getX(motionEvent, pointerIndex);
-            float f = x - this.mLastMotionX;
-            float abs = Math.abs(f);
-            float y = MotionEventCompat.getY(motionEvent, pointerIndex);
-            float abs2 = Math.abs(y - this.mLastMotionY);
-            if (abs > (isMenuOpen() ? this.mTouchSlop / 2 : this.mTouchSlop) && abs > abs2 && thisSlideAllowed(f)) {
-                startDrag();
-                this.mLastMotionX = x;
-                this.mLastMotionY = y;
-                setScrollingCacheEnabled(true);
-            } else if (abs > this.mTouchSlop) {
-                this.mIsUnableToDrag = true;
+            try {
+                float x = MotionEventCompat.getX(motionEvent, pointerIndex);
+                float y = MotionEventCompat.getY(motionEvent, pointerIndex);
+                float f = x - this.mLastMotionX;
+                float abs = Math.abs(f);
+                float abs2 = Math.abs(y - this.mLastMotionY);
+                if (abs > (isMenuOpen() ? this.mTouchSlop / 2 : this.mTouchSlop) && abs > abs2 && thisSlideAllowed(f)) {
+                    startDrag();
+                    this.mLastMotionX = x;
+                    this.mLastMotionY = y;
+                    setScrollingCacheEnabled(true);
+                } else if (abs > this.mTouchSlop) {
+                    this.mIsUnableToDrag = true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -743,7 +746,7 @@ public class CustomViewAbove extends ViewGroup {
                 return arrowScroll(17);
             case 22:
                 return arrowScroll(66);
-            case BDLocation.TypeGpsLocation /* 61 */:
+            case 61:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

@@ -2,29 +2,44 @@ package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import java.util.List;
 /* loaded from: classes.dex */
 public class by extends com.baidu.adp.framework.a.a {
     public by() {
-        super(2016003);
+        super(2016006);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
-    /* renamed from: g */
+    /* renamed from: f */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+        List<ImMessageCenterPojo> data;
         if (customResponsedMessage == null) {
             return null;
         }
-        if (customResponsedMessage instanceof MemoryChangedMessage) {
-            ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
-            if (data != null && data.getCustomGroupType() == -8) {
-                return new MemoryChangedMessage(bz.s(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+        if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+            ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+            if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
+                ImMessageCenterPojo imMessageCenterPojo = null;
+                ImMessageCenterPojo imMessageCenterPojo2 = null;
+                for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
+                    if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
+                        imMessageCenterPojo2 = imMessageCenterPojo3;
+                    }
+                    if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
+                        imMessageCenterPojo = imMessageCenterPojo3;
+                    }
+                }
+                if (imMessageCenterPojo2 != null) {
+                    data.remove(imMessageCenterPojo2);
+                    data.add(bw.l(imMessageCenterPojo2));
+                }
+                if (imMessageCenterPojo != null) {
+                    data.remove(imMessageCenterPojo);
+                    data.add(bz.m(imMessageCenterPojo));
+                }
             }
-            if (data != null && data.getCustomGroupType() == -7) {
-                return new MemoryChangedMessage(cc.t(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
-            }
-            return customResponsedMessage;
         }
         return customResponsedMessage;
     }

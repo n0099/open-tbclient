@@ -1,19 +1,30 @@
 package com.baidu.tieba.addresslist;
 
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
+    final /* synthetic */ AddressListActivity axr;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(AddressListActivity addressListActivity, int i) {
         super(i);
+        this.axr = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            ((com.baidu.tbadk.mainTab.g) customResponsedMessage.getData()).a(new AddressListDelegateStatic());
+        BdListView bdListView;
+        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
+            if (((NetWorkChangeMessage) customResponsedMessage).mState == 0 || !BdSocketLinkService.isAvailable()) {
+                bdListView = this.axr.axm;
+                bdListView.mW();
+            }
         }
     }
 }

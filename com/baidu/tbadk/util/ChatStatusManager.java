@@ -4,6 +4,8 @@ import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
+    public static final int LIVE = 9;
+    public static final int LIVE_NOTIFY = 8;
     public static final int OFFICIALBAR_CHAT = 1;
     public static final int OFFICIAL_MERGE = 4;
     public static final int PERSONAL_CHAT = 0;
@@ -38,7 +40,7 @@ public class ChatStatusManager {
         if (cVar == null) {
             return "";
         }
-        return cVar.ahP;
+        return cVar.aqu;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -55,11 +57,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         c cVar = this.mStatus.get(i);
         if (cVar != null) {
-            cVar.ahP = str;
+            cVar.aqu = str;
             return;
         }
         c cVar2 = new c();
-        cVar2.ahP = str;
+        cVar2.aqu = str;
         this.mStatus.put(i, cVar2);
     }
 

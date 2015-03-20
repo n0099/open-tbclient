@@ -1,21 +1,15 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.LinearLayout;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* loaded from: classes.dex */
-public class bv implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ bp aGg;
+public class bv {
+    public LinearLayout aIs;
+    public LiveBroadcastCard aIt;
+    final /* synthetic */ bs aMb;
+    private int aiq = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bp bpVar) {
-        this.aGg = bpVar;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void ty() {
-        this.aGg.Gt();
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void tz() {
-        this.aGg.Ha();
+    public bv(bs bsVar) {
+        this.aMb = bsVar;
     }
 }

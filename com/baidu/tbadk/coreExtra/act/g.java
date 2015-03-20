@@ -1,36 +1,26 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.Toast;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity this$0;
+public class g extends AuthorizationListener {
+    final /* synthetic */ FillUProfileActivity aao;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(EditHeadActivity editHeadActivity) {
-        this.this$0 = editHeadActivity;
+    public g(FillUProfileActivity fillUProfileActivity) {
+        this.aao = fillUProfileActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.this$0.mProgress;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.this$0.mBitmap;
-            if (bitmap == null) {
-                bitmap2 = this.this$0.Pw;
-                if (bitmap2 == null) {
-                    return;
-                }
-            }
-            if (view.getTag() != null) {
-                this.this$0.PE = false;
-                this.this$0.cZ(view.getTag().toString());
-            }
-        }
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        Toast.makeText(this.aao.getPageContext().getPageActivity(), "正常化成功", 0).show();
+        this.aao.uq();
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        Toast.makeText(this.aao.getPageContext().getPageActivity(), String.format("%s(%d)", str, Integer.valueOf(i)), 0).show();
+        this.aao.finish();
     }
 }

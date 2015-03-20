@@ -1,6 +1,7 @@
 package com.squareup.wire;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class Preconditions {
+public final class Preconditions {
     private Preconditions() {
     }
 

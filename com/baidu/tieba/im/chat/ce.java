@@ -1,35 +1,43 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-class ce implements Runnable {
-    final /* synthetic */ PersonalChatActivity aSM;
+public class ce {
+    BaseActivity mActivity;
+    String mUrl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(PersonalChatActivity personalChatActivity) {
-        this.aSM = personalChatActivity;
+    public ce(String str, BaseActivity baseActivity) {
+        this.mUrl = null;
+        this.mUrl = str;
+        this.mActivity = baseActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        UserData userData;
-        com.baidu.tbadk.coreExtra.relationship.f fVar;
-        long j;
-        Handler handler;
-        Runnable runnable;
-        long j2;
-        AbsMsglistView absMsglistView = this.aSM.mListView;
-        userData = this.aSM.mUser;
-        String userName = userData.getUserName();
-        fVar = this.aSM.aSE;
-        absMsglistView.refreshPersonalHeadFooter(userName, fVar);
-        j = this.aSM.aSD;
-        if (j != 0) {
-            handler = this.aSM.mHandler;
-            runnable = this.aSM.aSJ;
-            j2 = this.aSM.aSD;
-            handler.postDelayed(runnable, j2);
+    public void execute() {
+        try {
+            if (this.mUrl == null || this.mUrl.length() <= 0) {
+                showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.y.save_error));
+            }
+            com.baidu.adp.lib.f.d.hB().a(this.mUrl, 10, new cf(this), this.mActivity.getUniqueId());
+        } catch (Exception e) {
+            showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.y.save_error));
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String k(String str, byte[] bArr) {
+        switch (com.baidu.tbadk.core.util.o.a(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
+            case -2:
+                return com.baidu.tbadk.core.util.o.rI();
+            case -1:
+            default:
+                return this.mActivity.getPageContext().getString(com.baidu.tieba.y.save_error);
+            case 0:
+                return this.mActivity.getPageContext().getString(com.baidu.tieba.y.save_image_to_album);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void showToast(String str) {
+        this.mActivity.showToast(str);
     }
 }

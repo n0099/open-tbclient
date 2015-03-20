@@ -1,50 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.ForumData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class ao implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aDT;
+public class ao {
+    private TbPageContext<FrsActivity> LN;
+    private Animation aKm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(FrsActivity frsActivity) {
-        this.aDT = frsActivity;
+    public ao(TbPageContext<FrsActivity> tbPageContext) {
+        this.LN = tbPageContext;
+        this.aKm = AnimationUtils.loadAnimation(this.LN.getPageActivity(), com.baidu.tieba.p.frs_like);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.tbadkCore.e eVar;
-        com.baidu.tieba.tbadkCore.e eVar2;
-        com.baidu.tieba.tbadkCore.e eVar3;
-        com.baidu.tieba.tbadkCore.au auVar;
-        if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aDT.getPageContext());
+    public void t(View view) {
+        if (!this.LN.getPageActivity().isFinishing()) {
+            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.LN.getPageActivity(), com.baidu.tieba.w.frs_like_cover, null);
+            Button button = (Button) inflate.findViewById(com.baidu.tieba.v.btn_love);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.tv_love);
+            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.ba.getColor(com.baidu.tieba.s.frs_like_shadow));
+            com.baidu.tbadk.core.util.ba.i((View) button, com.baidu.tieba.u.frs_btn_like);
+            com.baidu.tbadk.core.util.ba.b(textView, com.baidu.tieba.s.frs_like_txt, 1);
+            button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
+            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+            gVar.u(false);
+            gVar.P(com.baidu.tieba.v.love).O(0).v(true);
+            gVar.a(new ap(this, inflate));
+            com.baidu.adp.lib.guide.d gV = gVar.gV();
+            gV.i(this.LN.getPageActivity());
+            com.baidu.tieba.tbadkCore.a.a(this.LN.getOrignalPage(), inflate, this.aKm, new aq(this, gV));
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            eVar = this.aDT.aDf;
-            if (eVar != null) {
-                eVar2 = this.aDT.aDf;
-                if (eVar2.aeI() != null) {
-                    eVar3 = this.aDT.aDf;
-                    ForumData aeI = eVar3.aeI();
-                    if (aeI.getName() != null && aeI.getId() != null) {
-                        auVar = this.aDT.aDg;
-                        auVar.i(aeI.getName(), com.baidu.adp.lib.g.c.a(aeI.getId(), 0L));
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        this.aDT.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aDT.getPageContext().getPageActivity(), this.aDT.getPageContext().getString(com.baidu.tieba.z.login_to_use), true, 11036)));
     }
 }

@@ -1,43 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.slidingmenu.lib.SlidingMenu;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class k implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ FrsActivity aDT;
+class k extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(FrsActivity frsActivity) {
-        this.aDT = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aJG = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        bp bpVar;
-        cy cyVar;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        bp bpVar2;
-        com.baidu.tieba.tbadkCore.e eVar;
-        bpVar = this.aDT.aCV;
-        cyVar = this.aDT.aDi;
-        z = FrsActivity.aCK;
-        z2 = FrsActivity.aCL;
-        z3 = FrsActivity.aCM;
-        bpVar.a(cyVar, z, z2, z3);
-        bpVar2 = this.aDT.aCV;
-        bpVar2.FB();
-        TiebaStatic.eventStat(this.aDT.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
-        eVar = this.aDT.aDf;
-        ArrayList<com.baidu.tbadk.core.data.s> recommendForumData = eVar.aeI().getRecommendForumData();
-        if (recommendForumData != null) {
-            Iterator<com.baidu.tbadk.core.data.s> it = recommendForumData.iterator();
-            while (it.hasNext()) {
-                TiebaStatic.eventStat(this.aDT.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().Em);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
+                }
+                this.aJG.e(customResponsedMessage);
+                return;
             }
+            this.aJG.d(customResponsedMessage);
         }
     }
 }

@@ -9,13 +9,13 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
 public class e {
-    public Rect XX;
-    public Bitmap aiR;
-    public Bundle cag;
-    public boolean cah;
-    public boolean cai;
+    private Rect GY = new Rect();
+    public Rect aia;
+    public Bitmap art;
+    public Bundle cpj;
+    public boolean cpk;
+    public boolean cpl;
     private Context mContext;
-    private Rect vZ = new Rect();
 
     public e(Context context) {
         this.mContext = context;
@@ -23,7 +23,7 @@ public class e {
 
     public void draw(Canvas canvas) {
         DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-        this.vZ.set(0, 0, this.aiR.getScaledWidth(displayMetrics), this.aiR.getScaledHeight(displayMetrics));
-        canvas.drawBitmap(this.aiR, this.vZ, this.XX, (Paint) null);
+        this.GY.set(0, 0, this.art.getScaledWidth(displayMetrics), this.art.getScaledHeight(displayMetrics));
+        canvas.drawBitmap(this.art, this.GY, this.aia, (Paint) null);
     }
 }

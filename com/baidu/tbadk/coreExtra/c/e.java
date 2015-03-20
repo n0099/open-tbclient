@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private int RL;
-    private int RM;
-    private int RN;
-    private int[] RO;
+    private int abN;
+    private int abO;
+    private int abP;
+    private int[] abQ;
     private int lcsTimeout2G;
     private int lcsTimeout3G;
     private int lcsTimeoutwifi;
@@ -23,38 +23,38 @@ public class e {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.RL = jSONObject.optInt("conn_conf");
-            this.RM = jSONObject.optInt("continuous_fail_count");
-            this.RN = jSONObject.optInt("restart_time_interval");
+            this.abN = jSONObject.optInt("conn_conf");
+            this.abO = jSONObject.optInt("continuous_fail_count");
+            this.abP = jSONObject.optInt("restart_time_interval");
             this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
             this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
             this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.RO = new int[optJSONArray.length()];
+                this.abQ = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.RO[i] = optJSONArray.optInt(i);
+                    this.abQ[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.RO = new int[0];
+            this.abQ = new int[0];
         }
     }
 
-    public int sr() {
-        return this.RL;
+    public int vN() {
+        return this.abN;
     }
 
-    public int ss() {
-        return this.RM;
+    public int vO() {
+        return this.abO;
     }
 
-    public int st() {
-        return this.RN;
+    public int vP() {
+        return this.abP;
     }
 
-    public int[] su() {
-        return this.RO;
+    public int[] vQ() {
+        return this.abQ;
     }
 
     public int getLcsTimeout2G() {

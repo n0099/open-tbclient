@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends a {
-    private final boolean Ld = false;
-    private final boolean Le = false;
-    private final boolean Lf = false;
+    private final boolean WF = false;
+    private final boolean WG = false;
+    private final boolean WH = false;
     private int height;
     private int width;
 
@@ -14,25 +14,25 @@ public class g extends a {
         this.width = 0;
         this.height = 0;
         if (z) {
-            this.width = TbadkCoreApplication.m255getInst().getApp().getResources().getDimensionPixelSize(u.frs_starheader_photo_width);
+            this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(t.frs_starheader_photo_width);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.m255getInst().getApp().getResources().getDimensionPixelSize(u.frs_header_photo_width);
-        this.height = TbadkCoreApplication.m255getInst().getApp().getResources().getDimensionPixelSize(u.frs_header_photo_height);
+        this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_width);
+        this.height = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_height);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a c = super.c(str, str2, objArr);
-        if (c != null && c.jc() != null && c.jc().isRecycled()) {
+        if (c != null && c.mz() != null && c.mz().isRecycled()) {
             return null;
         }
         return c;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.f.g
-    public boolean ef() {
+    public boolean hE() {
         return true;
     }
 
@@ -52,12 +52,12 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qj() {
+    public boolean tz() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qk() {
+    public boolean tA() {
         return false;
     }
 }

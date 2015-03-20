@@ -1,38 +1,29 @@
 package com.baidu.tieba.shareSDK;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
-public class a {
-    private final c bPd;
-    private BaseActivity mActivity;
+class a extends CustomMessageListener {
+    final /* synthetic */ ShareToTBActivity ccQ;
 
-    public a(BaseActivity baseActivity, c cVar) {
-        this.mActivity = baseActivity;
-        this.bPd = cVar;
-        acP();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(ShareToTBActivity shareToTBActivity, int i) {
+        super(i);
+        this.ccQ = shareToTBActivity;
     }
 
-    public void hS(String str) {
-        if (this.mActivity != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
-            httpMessage.addParam(ImageViewerConfig.FORUM_NAME, str);
-            this.mActivity.sendMessage(httpMessage);
-        }
-    }
-
-    public void acP() {
-        if (this.mActivity != null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getprefix");
-            tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
-            messageManager.registerTask(tbHttpMessageTask);
-            this.mActivity.registerListener(new b(this, CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof ShareSDKResultMessage) {
+            if (((ShareSDKResultMessage) customResponsedMessage).getData().booleanValue()) {
+                this.ccQ.setResult(-1);
+            } else {
+                this.ccQ.setResult(0);
+            }
+            this.ccQ.finish();
         }
     }
 }

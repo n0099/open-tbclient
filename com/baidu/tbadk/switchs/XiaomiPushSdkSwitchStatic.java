@@ -7,13 +7,13 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class XiaomiPushSdkSwitchStatic extends a {
     static {
-        f.da().l(XiaomiPushSdkSwitchStatic.class);
+        f.gz().l(XiaomiPushSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001314));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001317));
     }
 
     @Override // com.baidu.adp.lib.b.a

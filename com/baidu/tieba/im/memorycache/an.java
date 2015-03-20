@@ -3,19 +3,36 @@ package com.baidu.tieba.im.memorycache;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.live.message.a> {
-    final /* synthetic */ am biU;
+public class an implements CustomMessageTask.CustomRunnable<Integer> {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.biU = amVar;
+    public an(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.live.message.a> customMessage) {
-        com.baidu.tbadk.live.message.a data = customMessage.getData();
-        com.baidu.tieba.im.db.k.MU().B(data.id, data.customGroupType);
-        return null;
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        List<ImMessageCenterPojo> Sm;
+        if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
+            return null;
+        }
+        int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
+        if (intValue == 3) {
+            Sm = c.Sd().Sl();
+        } else if (intValue == 2) {
+            Sm = c.Sd().Sk();
+        } else if (intValue == 1) {
+            Sm = c.Sd().Si();
+        } else {
+            Sm = intValue == 4 ? c.Sd().Sm() : null;
+        }
+        return new ResponsedMemoryListMessage(Sm, intValue);
     }
 }

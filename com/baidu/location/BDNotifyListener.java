@@ -10,7 +10,7 @@ public abstract class BDNotifyListener {
     public double mLongitudeC = Double.MIN_VALUE;
     public int Notified = 0;
     public boolean isAdded = false;
-    public i mNotifyCache = null;
+    public ab mNotifyCache = null;
 
     public void SetNotifyLocation(double d, double d2, float f, String str) {
         this.mLatitude = d;
@@ -20,22 +20,22 @@ public abstract class BDNotifyListener {
         } else {
             this.mRadius = f;
         }
-        if (str.equals("gcj02") || str.equals("bd09") || str.equals("bd09ll") || str.equals("gps")) {
+        if (str.equals(BDGeofence.COORD_TYPE_GCJ) || str.equals(BDGeofence.COORD_TYPE_BD09) || str.equals(BDGeofence.COORD_TYPE_BD09LL) || str.equals("gps")) {
             this.mCoorType = str;
         } else {
-            this.mCoorType = "gcj02";
+            this.mCoorType = BDGeofence.COORD_TYPE_GCJ;
         }
-        if (this.mCoorType.equals("gcj02")) {
+        if (this.mCoorType.equals(BDGeofence.COORD_TYPE_GCJ)) {
             this.mLatitudeC = this.mLatitude;
             this.mLongitudeC = this.mLongitude;
         }
         if (this.isAdded) {
             this.Notified = 0;
-            this.mNotifyCache.a(this);
+            this.mNotifyCache.m128if(this);
         }
     }
 
     public void onNotify(BDLocation bDLocation, float f) {
-        j.a(f.v, "new location, not far from the destination..." + f);
+        c.m262do(a0.i, "new location, not far from the destination..." + f);
     }
 }

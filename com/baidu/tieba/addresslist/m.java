@@ -1,20 +1,40 @@
 package com.baidu.tieba.addresslist;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextWatcher;
 /* loaded from: classes.dex */
-public class m implements View.OnFocusChangeListener {
-    final /* synthetic */ QuickSearchActivity apg;
+class m implements TextWatcher {
+    final /* synthetic */ QuickSearchActivity axA;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(QuickSearchActivity quickSearchActivity) {
-        this.apg = quickSearchActivity;
+    private m(QuickSearchActivity quickSearchActivity) {
+        this.axA = quickSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.util.l.c(this.apg.getPageContext().getPageActivity(), view);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ m(QuickSearchActivity quickSearchActivity, m mVar) {
+        this(quickSearchActivity);
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        if (charSequence.toString().trim().length() != 0) {
+            QuickSearchActivity.a(this.axA, charSequence.toString());
+            return;
+        }
+        QuickSearchActivity.a(this.axA).setVisibility(8);
+        QuickSearchActivity.b(this.axA).setVisibility(8);
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        if (editable.toString().trim().length() == 0) {
+            QuickSearchActivity.c(this.axA).setVisibility(8);
+        } else {
+            QuickSearchActivity.c(this.axA).setVisibility(0);
         }
     }
 }

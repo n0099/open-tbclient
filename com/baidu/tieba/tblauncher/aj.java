@@ -4,16 +4,16 @@ import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ai cdv;
+    final /* synthetic */ ai crN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ai aiVar) {
-        this.cdv = aiVar;
+        this.crN = aiVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        com.baidu.adp.lib.g.i.ej().postDelayed(new ak(this), 200L);
+        com.baidu.adp.lib.g.i.hI().postDelayed(new ak(this), 200L);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

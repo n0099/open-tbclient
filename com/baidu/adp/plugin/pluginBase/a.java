@@ -14,6 +14,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.n;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class a extends c implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, l {
@@ -28,7 +29,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        com.baidu.adp.base.a.ah().g(getActivity());
+        com.baidu.adp.base.a.dF().g(getActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.c
@@ -65,7 +66,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.l.showToast(getApplicationContext(), str);
+        n.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -137,8 +138,8 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.ec().d(this.mId);
-        com.baidu.adp.base.a.ah().h(getActivity());
+        com.baidu.adp.lib.f.d.hB().d(this.mId);
+        com.baidu.adp.base.a.dF().h(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -146,7 +147,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.ec().e(this.mId);
+        com.baidu.adp.lib.f.d.hB().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,7 +164,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.jA();
+            onGetPreLoadListView.mV();
         }
     }
 

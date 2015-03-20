@@ -1,119 +1,164 @@
 package com.baidu.tbadk.e;
 
-import android.os.Handler;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.stats.p;
+import com.baidu.adp.lib.util.ab;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.z;
-import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.httpNet.g;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b {
-    private static a ahB = new a();
-    private static BdFileDownloadData ahC = null;
-    private static List<BdFileDownloadData> XE = new LinkedList();
-    private c ahD = null;
-    private Handler XM = new b(this);
-
-    private a() {
+public class a extends com.baidu.adp.framework.a.d {
+    public a(int i) {
+        super(i);
     }
 
-    public static a zz() {
-        return ahB;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    /* renamed from: d */
+    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+            a(httpMessage, tbHttpMessageTask);
+            b(httpMessage, tbHttpMessageTask);
+        }
+        return httpMessage;
     }
 
-    @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
-    public void a(BdFileDownloadData bdFileDownloadData, int i) {
-        if (bdFileDownloadData != null) {
-            if (!s.bL() && i == 2) {
-                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.m255getInst().getApp().getString(z.download_fail_no_sd));
-                bdFileDownloadData.setStatus(2);
+    private void a(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
+        if (tbHttpMessageTask.isFromCDN()) {
+            httpMessage.removeAllParams();
+            return;
+        }
+        if (tbHttpMessageTask.isUseCurrentBDUSS()) {
+            c(httpMessage);
+        }
+        if (tbHttpMessageTask.isNeedAddCommenParam()) {
+            c(httpMessage, tbHttpMessageTask);
+        }
+        e(httpMessage);
+        if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
+            d(httpMessage);
+        }
+    }
+
+    private void b(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
+        boolean z = true;
+        if ((tbHttpMessageTask.isNeedGzip() && !tbHttpMessageTask.isBDImage()) || tbHttpMessageTask.isFromCDN()) {
+            httpMessage.addHeader("Accept-Encoding", "gzip");
+        }
+        httpMessage.addHeader("Charset", "UTF-8");
+        httpMessage.addHeader("User-Agent", "bdtb for Android " + TbConfig.getVersion());
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+        }
+        String ik = p.ik();
+        if (!TextUtils.isEmpty(ik)) {
+            httpMessage.addHeader("sid", ik);
+        }
+        String netType = g.getNetType();
+        if (!TextUtils.isEmpty(netType)) {
+            httpMessage.addHeader("net", netType);
+        }
+        if (!TextUtils.isEmpty(netType)) {
+            if (!TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType) ? TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() != 1 : TbadkCoreApplication.m411getInst().getKeepaliveWifi() != 1) {
+                z = false;
             }
-            if (bdFileDownloadData.getStatus() == 2) {
-                if (bdFileDownloadData.getCallback() != null) {
-                    bdFileDownloadData.getCallback().e(bdFileDownloadData);
-                    return;
+            if (z) {
+                httpMessage.addHeader("Connection", "Keep-Alive");
+            } else {
+                httpMessage.addHeader("Connection", LoginActivityConfig.CLOSE);
+            }
+        }
+    }
+
+    private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
+        httpMessage.addParam("_client_type", "2");
+        if (!TbadkCoreApplication.m411getInst().isOfficial()) {
+            httpMessage.addParam("apid", TbConfig.SW_APID);
+        }
+        httpMessage.addParam("_client_version", TbConfig.getVersion());
+        if (TbadkCoreApplication.m411getInst().getImei() != null) {
+            httpMessage.addParam("_phone_imei", TbadkCoreApplication.m411getInst().getImei());
+        }
+        String clientId = TbadkCoreApplication.getClientId();
+        if (clientId != null) {
+            httpMessage.addParam("_client_id", clientId);
+        }
+        if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+            httpMessage.addParam("subapp_type", TbConfig.getSubappType());
+        }
+        String from = TbadkCoreApplication.getFrom();
+        if (from != null && from.length() > 0) {
+            httpMessage.addParam("from", from);
+        }
+        String netType = g.getNetType();
+        if (netType != null) {
+            String uw = com.baidu.tbadk.coreExtra.a.a.uu().uw();
+            if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
+                if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
+                    uw = String.valueOf(uw) + "ka=open";
                 }
-                return;
+            } else if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
+                uw = String.valueOf(uw) + "ka=open";
             }
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 < XE.size()) {
-                    BdFileDownloadData bdFileDownloadData2 = XE.get(i3);
-                    if (bdFileDownloadData2 == null || !bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) || !bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
-                        i2 = i3 + 1;
-                    } else {
-                        return;
-                    }
-                } else {
-                    bdFileDownloadData.setStatus(1);
-                    XE.add(bdFileDownloadData);
-                    va();
-                    return;
+            httpMessage.addHeader("Cookie", uw);
+        }
+        if (tbHttpMessageTask.isNeedTbs()) {
+            httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
+        }
+        httpMessage.addParam("cuid", TbadkCoreApplication.m411getInst().getCuid());
+        httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
+        httpMessage.addParam("model", Build.MODEL);
+    }
+
+    private void c(HttpMessage httpMessage) {
+        String currentBduss = TbadkCoreApplication.getCurrentBduss();
+        if (currentBduss != null) {
+            httpMessage.addParam("BDUSS", currentBduss);
+        }
+    }
+
+    private void d(HttpMessage httpMessage) {
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
+        for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
+            Map.Entry<String, Object> entry = encodeInBackGround.get(i);
+            if (entry != null) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                if (value instanceof String) {
+                    stringBuffer.append(String.valueOf(key) + "=");
+                    stringBuffer.append(value);
                 }
             }
         }
+        stringBuffer.append("tiebaclient!!!");
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, ab.toMd5(stringBuffer.toString()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void va() {
-        if (ahC == null && !XE.isEmpty()) {
-            ahC = XE.get(0);
-            if (ahC != null) {
-                this.ahD = new c(this);
-                this.ahD.execute(ahC);
-            }
+    private void e(HttpMessage httpMessage) {
+        am sI = al.sI();
+        if (sI != null) {
+            httpMessage.addParam("stTime", String.valueOf(sI.mTime));
+            httpMessage.addParam("stSize", String.valueOf(sI.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(sI.UI));
+            httpMessage.addParam("stMode", String.valueOf(sI.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(sI.UH));
         }
-    }
-
-    @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
-    public void bk(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            if (ahC != null && ahC.getId().equals(str)) {
-                this.ahD.cancel(true);
-                return;
-            }
-            LinkedList<BdFileDownloadData> linkedList = new LinkedList();
-            Iterator<BdFileDownloadData> it = XE.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                BdFileDownloadData next = it.next();
-                if (next.getId().equals(str)) {
-                    next.setStatus(4);
-                    next.setStatusMsg(null);
-                    if (next.getCallback() != null) {
-                        next.getCallback().e(next);
-                    }
-                    linkedList.add(next);
-                }
-            }
-            for (BdFileDownloadData bdFileDownloadData : linkedList) {
-                XE.remove(bdFileDownloadData);
-            }
+        int bY = al.bY(0);
+        if (bY == 0 && sI != null) {
+            bY = sI.UI;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String i(BdFileDownloadData bdFileDownloadData) {
-        if (bdFileDownloadData == null) {
-            return null;
-        }
-        return String.valueOf(bdFileDownloadData.getPath()) + ".tmp";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean j(BdFileDownloadData bdFileDownloadData) {
-        File file;
-        if (bdFileDownloadData == null) {
-            return false;
-        }
-        String path = bdFileDownloadData.getPath();
-        return (TextUtils.isEmpty(path) || (file = new File(path)) == null || !file.exists()) ? false : true;
+        httpMessage.addParam("stErrorNums", String.valueOf(bY));
     }
 }

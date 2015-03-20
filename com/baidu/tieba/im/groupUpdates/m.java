@@ -1,16 +1,15 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ i bhr;
+    final /* synthetic */ i biH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(i iVar) {
-        this.bhr = iVar;
+        this.biH = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,9 +17,9 @@ public class m implements View.OnClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.bhr.bhj;
-        view2 = this.bhr.awv;
-        updatesItemData = this.bhr.data;
-        updatesActivity.onItemViewClick(view2, PersonInfoActivityConfig.REQUSET_CHANGE, 0, 0L, updatesItemData);
+        updatesActivity = this.biH.biz;
+        view2 = this.biH.aCi;
+        updatesItemData = this.biH.data;
+        updatesActivity.onItemViewClick(view2, 101, 0, 0L, updatesItemData);
     }
 }

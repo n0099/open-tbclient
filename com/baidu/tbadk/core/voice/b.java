@@ -11,13 +11,10 @@ public class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int i;
-        if (this.this$0.recordView == null) {
-            return;
-        }
-        i = this.this$0.currRecordState;
-        if (i == 2) {
-            this.this$0.recordView.onStopingRecorder();
+        i playView;
+        playView = this.this$0.getPlayView();
+        if (playView != null) {
+            this.this$0.startPlay(playView);
         }
     }
 }

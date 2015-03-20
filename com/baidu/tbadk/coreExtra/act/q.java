@@ -1,27 +1,36 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.view.View;
-import com.baidu.sapi2.SapiWebView;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ FillUProfileActivity PQ;
+public class q extends AuthorizationListener {
+    final /* synthetic */ LoginActivity aar;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FillUProfileActivity fillUProfileActivity) {
-        this.PQ = fillUProfileActivity;
+    public q(LoginActivity loginActivity) {
+        this.aar = loginActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SapiWebView sapiWebView;
-        SapiWebView sapiWebView2;
-        sapiWebView = this.PQ.PO;
-        if (sapiWebView.canGoBack()) {
-            sapiWebView2 = this.PQ.PO;
-            sapiWebView2.goBack();
-            return;
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        this.aar.uq();
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        if (TextUtils.isEmpty(str)) {
+            this.aar.showToast(y.data_load_error);
+        } else {
+            this.aar.showToast(str);
         }
-        this.PQ.finish();
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public boolean onForgetPwd() {
+        this.aar.startActivity(new Intent(this.aar.getPageContext().getPageActivity(), ForgetPwdActivity.class));
+        return true;
     }
 }

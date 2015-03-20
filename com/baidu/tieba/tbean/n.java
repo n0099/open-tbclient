@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnFocusChangeListener {
-    final /* synthetic */ j ccp;
+    final /* synthetic */ j cqN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.ccp = jVar;
+        this.cqN = jVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -18,10 +18,10 @@ public class n implements View.OnFocusChangeListener {
         EditText editText;
         EditText editText2;
         if (z) {
-            this.ccp.cck = true;
-            editText = this.ccp.ccf;
+            this.cqN.cqI = true;
+            editText = this.cqN.cqD;
             editText.setSelectAllOnFocus(true);
-            editText2 = this.ccp.ccf;
+            editText2 = this.cqN.cqD;
             Selection.selectAll(editText2.getEditableText());
         }
     }

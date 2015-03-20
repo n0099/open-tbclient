@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.notify.a;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
-import com.baidu.tieba.im.message.g;
+import com.baidu.tieba.im.message.h;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -151,7 +151,7 @@ public abstract class ImBaseMessageCenterModel extends f<Object> {
                 if (aVar != null) {
                     aVar.onComplete();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new g(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new h(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
             }
         }
     }

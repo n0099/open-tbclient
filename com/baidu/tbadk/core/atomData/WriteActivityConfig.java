@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
-import com.baidu.adp.lib.util.l;
+import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
@@ -47,7 +47,7 @@ public class WriteActivityConfig extends a {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
         if (antiData != null && antiData.getIfpost() == 0) {
-            l.showToast(activity, antiData.getForbid_info());
+            n.showToast(activity, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

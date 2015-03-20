@@ -1,14 +1,10 @@
 package com.baidu.tieba.image;
 
-import android.content.Intent;
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes.dex */
-class l implements ViewPager.OnPageChangeListener {
+class l implements c {
     final /* synthetic */ ImageViewerActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,64 +12,80 @@ class l implements ViewPager.OnPageChangeListener {
         this.this$0 = imageViewerActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        boolean z;
-        a aVar;
+    @Override // com.baidu.tieba.image.c
+    public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2) {
         MultiImageView multiImageView;
-        a aVar2;
-        int i2;
-        z = this.this$0.brW;
-        if (!z) {
-            aVar = this.this$0.brQ;
-            if (aVar != null) {
-                multiImageView = this.this$0.brO;
-                if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.this$0.brQ;
-                    aVar2.TL();
-                }
-            }
-        } else {
-            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
-            intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
-        }
-        ImageViewerActivity imageViewerActivity = this.this$0;
-        i2 = this.this$0.mIndex;
-        imageViewerActivity.P(i2, i);
-        this.this$0.mIndex = i;
-        this.this$0.TS();
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        long j;
-        ArrayList arrayList;
-        int i2;
-        ArrayList arrayList2;
-        HashMap hashMap;
-        ArrayList arrayList3;
+        MultiImageView multiImageView2;
+        MultiImageView multiImageView3;
+        MultiImageView multiImageView4;
+        MultiImageView multiImageView5;
         int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.this$0.brR;
-            if (nanoTime - j > 300000000) {
-                arrayList = this.this$0.brH;
-                if (arrayList != null) {
-                    i2 = this.this$0.mIndex;
-                    arrayList2 = this.this$0.brH;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.this$0.brS;
-                        arrayList3 = this.this$0.brH;
-                        i3 = this.this$0.mIndex;
-                        hashMap.put((String) arrayList3.get(i3), true);
-                    }
-                }
+        MultiImageView multiImageView6;
+        MultiImageView multiImageView7;
+        MultiImageView multiImageView8;
+        MultiImageView multiImageView9;
+        MultiImageView multiImageView10;
+        MultiImageView multiImageView11;
+        MultiImageView multiImageView12;
+        MultiImageView multiImageView13;
+        MultiImageView multiImageView14;
+        if (z2) {
+            multiImageView10 = this.this$0.buA;
+            if (multiImageView10.getCurrentItem() <= 4) {
+                multiImageView11 = this.this$0.buA;
+                int itemNum = multiImageView11.getItemNum();
+                multiImageView12 = this.this$0.buA;
+                multiImageView12.setTempSize(itemNum + 100);
+                multiImageView13 = this.this$0.buA;
+                multiImageView13.setCurrentItem(itemNum + 90, false);
+                multiImageView14 = this.this$0.buA;
+                multiImageView14.setTempSize(0);
             }
+        }
+        multiImageView = this.this$0.buA;
+        multiImageView.setUrlData(arrayList);
+        multiImageView2 = this.this$0.buA;
+        multiImageView2.setHasNext(z);
+        multiImageView3 = this.this$0.buA;
+        multiImageView3.setNextTitle(str);
+        if (i >= 0) {
+            multiImageView8 = this.this$0.buA;
+            if (i < multiImageView8.getItemNum()) {
+                multiImageView9 = this.this$0.buA;
+                multiImageView9.setCurrentItem(i, false);
+            }
+        }
+        if (i2 != 0) {
+            this.this$0.mCount = i2;
+        }
+        if (arrayList.size() >= 400) {
+            multiImageView4 = this.this$0.buA;
+            if (multiImageView4.getCurrentItem() > 200) {
+                for (int i4 = 0; i4 < 200; i4++) {
+                    arrayList.remove(0);
+                }
+                multiImageView5 = this.this$0.buA;
+                multiImageView5.setUrlData(arrayList);
+                ImageViewerActivity imageViewerActivity = this.this$0;
+                i3 = imageViewerActivity.bus;
+                imageViewerActivity.bus = i3 + 200;
+                multiImageView6 = this.this$0.buA;
+                multiImageView7 = this.this$0.buA;
+                multiImageView6.setCurrentItem(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
+            }
+        }
+        this.this$0.VR();
+    }
+
+    @Override // com.baidu.tieba.image.c
+    public void x(int i, String str) {
+        ArrayList arrayList;
+        this.this$0.showToast(str);
+        if (i == 40) {
+            ImageViewerActivity imageViewerActivity = this.this$0;
+            arrayList = this.this$0.but;
+            imageViewerActivity.mCount = arrayList.size();
+            this.this$0.VR();
         }
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.location.LocationClientOption;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private boolean Wi = false;
-    private int Wj = 0;
+    private boolean ago = false;
+    private int agp = 0;
 
-    public void dK(String str) {
+    public void dT(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -18,8 +18,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.Wi = false;
-        this.Wj = 0;
+        this.ago = false;
+        this.agp = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -48,7 +48,7 @@ public class p {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.Wi = true;
+                                this.ago = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,27 +82,27 @@ public class p {
                         throw th;
                     }
                 }
-                if (this.Wi && i3 > 0) {
-                    this.Wj = i5 / i3;
+                if (this.ago && i3 > 0) {
+                    this.agp = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.Wi;
+        return this.ago;
     }
 
-    public int ul() {
-        return this.Wj;
+    public int xC() {
+        return this.agp;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.fk()) {
+        switch (com.baidu.adp.lib.util.k.iM()) {
             case 1:
-                return 3000;
+                return LocationClientOption.MIN_SCAN_SPAN_NETWORK;
             case 2:
-                return TbConfig.BIG_IMAGE_MIN_CAPACITY;
+                return 10000;
             case 3:
             default:
                 return 5000;

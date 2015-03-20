@@ -1,17 +1,38 @@
 package com.baidu.tieba.person.post;
+
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
+import com.baidu.tieba.person.bo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ j bJr;
+public class n extends HttpMessageListener {
+    final /* synthetic */ k bRB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(j jVar) {
-        this.bJr = jVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(k kVar, int i) {
+        super(i);
+        this.bRB = kVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
-    public void onListPullRefresh(boolean z) {
-        f fVar;
-        fVar = this.bJr.bJj;
-        fVar.ej(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        bo boVar;
+        bo boVar2;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                boVar2 = this.bRB.bRk;
+                boVar2.a(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (!userPostPageRequestMessage.isThread() && (boVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                boVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
+        }
     }
 }

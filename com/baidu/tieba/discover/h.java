@@ -1,26 +1,28 @@
 package com.baidu.tieba.discover;
+
+import com.baidu.tbadk.core.view.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ a atZ;
+public class h implements ae {
+    final /* synthetic */ a aBK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.atZ = aVar;
+        this.aBK = aVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
+    @Override // com.baidu.tbadk.core.view.ae
     public void onListPullRefresh(boolean z) {
         boolean z2;
         p pVar;
         p pVar2;
-        z2 = this.atZ.atT;
+        z2 = this.aBK.aBE;
         if (z2) {
-            pVar2 = this.atZ.atK;
-            pVar2.Bs();
+            pVar2 = this.aBK.aBw;
+            pVar2.Fd();
             return;
         }
-        pVar = this.atZ.atK;
-        pVar.Dd();
+        pVar = this.aBK.aBw;
+        pVar.FY();
     }
 }

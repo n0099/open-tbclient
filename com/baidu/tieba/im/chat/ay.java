@@ -1,24 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.message.FakeSystemGroupChatMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.base.e<MsglistActivity<?>> {
-    private TextView mTextView;
+public class ay implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView aXe;
 
-    public ay(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, com.baidu.tieba.x.msg_msg_chat_rule_view);
-        this.mTextView = (TextView) findViewById(com.baidu.tieba.w.tex_msgcontent);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ay(MsgActivityView msgActivityView) {
+        this.aXe = msgActivityView;
     }
 
-    public void setData(ChatMessage chatMessage) {
-        String str;
-        if (chatMessage == null) {
-            this.mTextView = null;
-        } else if ((chatMessage instanceof FakeSystemGroupChatMessage) && (str = ((FakeSystemGroupChatMessage) chatMessage).mSystemMsg) != null) {
-            this.mTextView.setText(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.c.a aVar;
+        com.baidu.adp.lib.c.a aVar2;
+        int i;
+        aVar = this.aXe.aXc;
+        if (aVar != null) {
+            aVar2 = this.aXe.aXc;
+            i = this.aXe.mPosition;
+            aVar2.onItemViewClick(view, 8, i, 0L);
         }
     }
 }

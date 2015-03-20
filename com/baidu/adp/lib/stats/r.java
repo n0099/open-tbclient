@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public interface r {
-    void aq(String str);
-
-    String eM();
-
-    long eN();
-
-    long eO();
-
-    long eP();
-
-    long eQ();
+    void ax(String str);
 
     void h(long j);
 
     void i(long j);
+
+    String in();
+
+    long io();
+
+    long ip();
+
+    long iq();
+
+    long ir();
 
     void j(long j);
 

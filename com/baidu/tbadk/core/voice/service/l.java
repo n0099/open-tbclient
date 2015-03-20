@@ -1,28 +1,27 @@
 package com.baidu.tbadk.core.voice.service;
 
 import android.media.MediaPlayer;
-import com.baidu.adp.lib.voice.q;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class l extends MediaPlayer implements i {
-    private static Object OX = new Object();
-    private static l OY = null;
-    private boolean OZ = false;
-    private boolean Pa = true;
-    private int Pb = -1;
+    private static Object aac = new Object();
+    private static l aad = null;
+    private boolean aae = false;
+    private boolean aaf = true;
+    private int aag = -1;
 
     private l() {
     }
 
-    public static l rc() {
-        if (OY == null) {
-            synchronized (OX) {
-                if (OY == null) {
-                    OY = new l();
+    public static l ul() {
+        if (aad == null) {
+            synchronized (aac) {
+                if (aad == null) {
+                    aad = new l();
                 }
             }
         }
-        return OY;
+        return aad;
     }
 
     public void setStreamType(int i) {
@@ -30,75 +29,75 @@ public class l extends MediaPlayer implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean cY(String str) {
-        this.Pb = -1;
-        if (!this.OZ) {
-            this.Pa = true;
+    public boolean dh(String str) {
+        this.aag = -1;
+        if (!this.aae) {
+            this.aaf = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(q.oH);
+                setStreamType(com.baidu.adp.lib.voice.l.zJ);
                 try {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.Pb = 2;
+                    this.aag = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.Pb = 1;
+                    this.aag = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.Pb = 2;
+                this.aag = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.Pb = 0;
+                this.aag = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.Pb = 1;
+                this.aag = 1;
                 return false;
             }
         }
-        this.OZ = true;
+        this.aae = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qY() {
+    public void uh() {
         start();
-        this.Pa = false;
+        this.aaf = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qS() {
-        if (!this.Pa) {
+    public void ub() {
+        if (!this.aaf) {
             stop();
-            this.Pa = true;
-            this.OZ = false;
+            this.aaf = true;
+            this.aae = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qZ() {
+    public void ui() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void ra() {
+    public void uj() {
         reset();
-        this.OZ = false;
-        this.Pa = true;
-        this.Pb = -1;
+        this.aae = false;
+        this.aaf = true;
+        this.aag = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public int fE() {
+    public int jh() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean rb() {
-        return this.OZ;
+    public boolean uk() {
+        return this.aae;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
@@ -115,6 +114,6 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public int getErrorNo() {
-        return this.Pb;
+        return this.aag;
     }
 }

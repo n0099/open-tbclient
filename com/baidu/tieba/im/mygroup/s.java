@@ -1,18 +1,20 @@
 package com.baidu.tieba.im.mygroup;
+
+import com.baidu.tbadk.core.view.ae;
 /* loaded from: classes.dex */
-class s implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ m bkX;
+class s implements ae {
+    final /* synthetic */ m blM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(m mVar) {
-        this.bkX = mVar;
+        this.blM = mVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
+    @Override // com.baidu.tbadk.core.view.ae
     public void onListPullRefresh(boolean z) {
-        PersonGroupActivity RR = this.bkX.RR();
-        if (RR != null) {
-            RR.RN().update();
+        PersonGroupActivity SW = this.blM.SW();
+        if (SW != null) {
+            SW.SS().update();
         }
     }
 }

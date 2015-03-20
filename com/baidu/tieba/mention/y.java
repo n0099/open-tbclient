@@ -1,42 +1,21 @@
 package com.baidu.tieba.mention;
+
+import android.view.View;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
-    private SingleMentionActivity btK;
-    private aa btL;
+class y implements View.OnClickListener {
+    final /* synthetic */ w bDf;
 
-    static {
-        com.baidu.tieba.tbadkCore.a.a.c(303010, CheckPostResponseMessage.class, false);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(w wVar) {
+        this.bDf = wVar;
     }
 
-    public y(SingleMentionActivity singleMentionActivity) {
-        super(singleMentionActivity.getPageContext());
-        this.btK = singleMentionActivity;
-        Uk();
-    }
-
-    public void a(long j, int i, String str) {
-        CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
-        checkPostRequestMessage.setPid(j);
-        checkPostRequestMessage.setPostType(i);
-        checkPostRequestMessage.setForumName(str);
-        sendMessage(checkPostRequestMessage);
-    }
-
-    public void Uk() {
-        registerListener(new z(this, 303010));
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(aa aaVar) {
-        this.btL = aaVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ViewEventCenter zT;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9485, this.bDf.getData(), null, null);
+        zT = this.bDf.zT();
+        zT.dispatchMvcEvent(bVar);
     }
 }

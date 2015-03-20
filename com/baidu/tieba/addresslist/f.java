@@ -1,55 +1,38 @@
 package com.baidu.tieba.addresslist;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.coreExtra.relationship.ResponseGetAddressListMessage;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d aoY;
+public class f extends CustomMessageListener {
+    final /* synthetic */ AddressListActivity axr;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(d dVar) {
-        super(304001);
-        this.aoY = dVar;
+    public f(AddressListActivity addressListActivity) {
+        super(2001180);
+        this.axr = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        BdListView bdListView;
-        com.baidu.tieba.addresslist.c.a aVar;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            bdListView = this.aoY.aoT;
-            bdListView.jB();
-            if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                this.aoY.aoX = false;
-                com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                ArrayList arrayList = new ArrayList();
-                if (addressListData != null) {
-                    for (com.baidu.tbadk.coreExtra.relationship.h hVar : addressListData.getAddressList()) {
-                        List<com.baidu.tbadk.coreExtra.relationship.b> contacts = hVar.getContacts();
-                        if (contacts.size() > 0) {
-                            com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
-                            bVar.dy(hVar.getKey());
-                            arrayList.add(bVar);
-                        }
-                        for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : contacts) {
-                            arrayList.add(bVar2);
-                        }
-                    }
-                }
-                aVar = this.aoY.aoL;
-                aVar.B(arrayList);
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.addresslist.a.a aVar;
+        int i;
+        com.baidu.tieba.addresslist.a.a aVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
+            if (customResponsedMessage.getError() != 0) {
+                this.axr.showToast(customResponsedMessage.getErrorString());
                 return;
             }
-            String errorString = socketResponsedMessage.getErrorString();
-            if (!TextUtils.isEmpty(errorString)) {
-                this.aoY.showToast(errorString, false);
-            }
+            this.axr.axq = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+            aVar = this.axr.axn;
+            i = this.axr.axq;
+            aVar.en(i);
+            aVar2 = this.axr.axn;
+            aVar2.notifyDataSetChanged();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001189));
         }
     }
 }

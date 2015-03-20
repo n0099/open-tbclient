@@ -1,33 +1,49 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ g bHb;
+public class h implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(g gVar, int i) {
-        super(i);
-        this.bHb = gVar;
+    public h(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        PersonBarActivity aaG;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            z = this.bHb.mIsHost;
-            if (z) {
-                f personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                aaG = this.bHb.aaG();
-                if (aaG != null) {
-                    this.bHb.a(personBarData, true);
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        EditHeadsImageView editHeadsImageView;
+        int i2;
+        boolean b;
+        int i3;
+        String str = TbConfig.PERSON_HEAD_FILE;
+        i = this.this$0.bnp;
+        if (i != 0) {
+            str = TbConfig.GROUP_HEAD_FILE;
+        }
+        editHeadsImageView = this.this$0.bOE;
+        i2 = this.this$0.bnp;
+        Bitmap bg = editHeadsImageView.bg(i2 == 0);
+        if (bg == null) {
+            return;
+        }
+        b = this.this$0.b(str, bg);
+        if (b) {
+            i3 = this.this$0.bnp;
+            if (i3 == 0) {
+                this.this$0.acL();
+                return;
             }
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.o.cl(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.zx();
+            aVar.a(new i(this));
+            aVar.zv();
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(com.baidu.tieba.y.uploading));
         }
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private ai NP;
+    private aa YS;
 
-    public void setTagData(aj ajVar) {
-        setTag(ajVar);
-        qF();
+    public void setTagData(ab abVar) {
+        setTag(abVar);
+        tP();
     }
 
     public TbCheckBox(Context context) {
@@ -24,43 +24,43 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new ah(this));
-        qF();
+        setOnClickListener(new z(this));
+        tP();
     }
 
-    public void setStatedChangedListener(ai aiVar) {
-        this.NP = aiVar;
+    public void setStatedChangedListener(aa aaVar) {
+        this.YS = aaVar;
     }
 
-    public void qF() {
-        if (qG()) {
-            bc.c(this, com.baidu.tieba.v.btn_friend_choose_s);
+    public void tP() {
+        if (tQ()) {
+            ba.c(this, com.baidu.tieba.u.icon_set_list_ok_s);
         } else {
-            bc.c(this, com.baidu.tieba.v.btn_friend_choose_n);
+            ba.c(this, com.baidu.tieba.u.icon_set_list_ok_n);
         }
     }
 
     public boolean isChecked() {
-        return qG();
+        return tQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean qG() {
+    public boolean tQ() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof aj)) {
+        if (tag == null || !(tag instanceof ab)) {
             return false;
         }
-        return ((aj) tag).isChecked();
+        return ((ab) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof aj)) {
-            ((aj) tag).setChecked(z);
+        if (tag != null && (tag instanceof ab)) {
+            ((ab) tag).setChecked(z);
         }
-        qF();
-        if (this.NP != null) {
-            this.NP.a(this, z, getTag());
+        tP();
+        if (this.YS != null) {
+            this.YS.a(this, z, getTag());
         }
     }
 }

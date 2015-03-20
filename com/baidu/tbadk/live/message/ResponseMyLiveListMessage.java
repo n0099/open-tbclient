@@ -79,7 +79,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.nO().bP("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.b.a.rc().bW("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
         }
     }
 }

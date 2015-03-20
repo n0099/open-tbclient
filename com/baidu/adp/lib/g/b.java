@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b lA = new b();
+    private static b wO = new b();
 
     private b() {
     }
 
-    public static b ei() {
-        return lA;
+    public static b hH() {
+        return wO;
     }
 
     private LayoutInflater F(Context context) {

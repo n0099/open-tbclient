@@ -6,18 +6,18 @@ import android.view.animation.Transformation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Animation {
-    final /* synthetic */ a aiK;
-    private boolean aiL = false;
-    private boolean aiM = false;
-    private long aiN;
-    private long aiO;
-    private long aiP;
-    private long aiQ;
+    final /* synthetic */ a arm;
+    private boolean arn = false;
+    private boolean aro = false;
+    private long arp;
+    private long arq;
+    private long arr;
+    private long ars;
     private int mStartX;
     private int mStartY;
 
     public d(a aVar) {
-        this.aiK = aVar;
+        this.arm = aVar;
     }
 
     public void b(float f, float f2) {
@@ -32,16 +32,16 @@ public class d extends Animation {
         } else if (f2 < -1500.0f) {
             f2 = -1500.0f;
         }
-        this.aiN = f;
-        this.aiO = f2;
-        this.aiP = Math.abs((f * 1000.0f) / 2500.0f);
-        this.aiQ = Math.abs((f2 * 1000.0f) / 2500.0f);
-        setDuration(Math.max(this.aiP, this.aiQ));
-        interpolator = this.aiK.aiB;
+        this.arp = f;
+        this.arq = f2;
+        this.arr = Math.abs((f * 1000.0f) / 2500.0f);
+        this.ars = Math.abs((f2 * 1000.0f) / 2500.0f);
+        setDuration(Math.max(this.arr, this.ars));
+        interpolator = this.arm.ard;
         setInterpolator(interpolator);
-        this.mStartX = this.aiK.getScrollX();
-        this.mStartY = this.aiK.getScrollY();
-        this.aiL = true;
+        this.mStartX = this.arm.getScrollX();
+        this.mStartY = this.arm.getScrollY();
+        this.arn = true;
     }
 
     @Override // android.view.animation.Animation
@@ -68,56 +68,56 @@ public class d extends Animation {
         if (f > 1.0f) {
             f = 1.0f;
         }
-        if (this.aiP > this.aiQ) {
-            j = ((float) this.aiP) * f;
+        if (this.arr > this.ars) {
+            j = ((float) this.arr) * f;
         } else {
-            j = ((float) this.aiQ) * f;
+            j = ((float) this.ars) * f;
         }
-        float f8 = ((float) (j > this.aiP ? this.aiP : j)) / 1000.0f;
-        if (this.aiN > 0) {
-            i = this.mStartX - ((int) (f8 * (((float) this.aiN) - ((2500.0f * f8) / 2.0f))));
+        float f8 = ((float) (j > this.arr ? this.arr : j)) / 1000.0f;
+        if (this.arp > 0) {
+            i = this.mStartX - ((int) (f8 * (((float) this.arp) - ((2500.0f * f8) / 2.0f))));
         } else {
-            i = this.mStartX - ((int) (f8 * (((float) this.aiN) + ((2500.0f * f8) / 2.0f))));
+            i = this.mStartX - ((int) (f8 * (((float) this.arp) + ((2500.0f * f8) / 2.0f))));
         }
-        if (j > this.aiQ) {
-            j = this.aiQ;
+        if (j > this.ars) {
+            j = this.ars;
         }
         float f9 = ((float) j) / 1000.0f;
-        if (this.aiO > 0) {
-            i2 = this.mStartY - ((int) (f9 * (((float) this.aiO) - ((2500.0f * f9) / 2.0f))));
+        if (this.arq > 0) {
+            i2 = this.mStartY - ((int) (f9 * (((float) this.arq) - ((2500.0f * f9) / 2.0f))));
         } else {
-            i2 = this.mStartY - ((int) (f9 * (((float) this.aiO) + ((2500.0f * f9) / 2.0f))));
+            i2 = this.mStartY - ((int) (f9 * (((float) this.arq) + ((2500.0f * f9) / 2.0f))));
         }
-        f2 = this.aiK.aig;
-        i3 = this.aiK.mTop;
+        f2 = this.arm.aqH;
+        i3 = this.arm.mTop;
         float f10 = f2 + i3;
-        i4 = this.aiK.mBottom;
-        if (f10 + i4 > this.aiK.getHeight()) {
-            i6 = this.aiK.aiw;
+        i4 = this.arm.mBottom;
+        if (f10 + i4 > this.arm.getHeight()) {
+            i6 = this.arm.aqX;
             if (i2 < (-i6)) {
-                i11 = this.aiK.aiw;
+                i11 = this.arm.aqX;
                 i2 = -i11;
             }
-            f6 = this.aiK.aig;
-            i7 = this.aiK.mBottom;
+            f6 = this.arm.aqH;
+            i7 = this.arm.mBottom;
             float f11 = f6 + i7;
-            i8 = this.aiK.aix;
-            if (this.aiK.getHeight() + i2 > f11 + i8) {
-                f7 = this.aiK.aig;
-                i9 = this.aiK.mBottom;
-                float height = (f7 - this.aiK.getHeight()) + i9;
-                i10 = this.aiK.aix;
+            i8 = this.arm.aqY;
+            if (this.arm.getHeight() + i2 > f11 + i8) {
+                f7 = this.arm.aqH;
+                i9 = this.arm.mBottom;
+                float height = (f7 - this.arm.getHeight()) + i9;
+                i10 = this.arm.aqY;
                 i2 = (int) (height + i10);
             }
         } else {
             i2 = 0;
         }
-        f3 = this.aiK.aif;
-        if (f3 > this.aiK.getWidth()) {
-            f4 = this.aiK.aif;
-            if (this.aiK.getWidth() + i > f4) {
-                f5 = this.aiK.aif;
-                i5 = (int) (f5 - this.aiK.getWidth());
+        f3 = this.arm.aqG;
+        if (f3 > this.arm.getWidth()) {
+            f4 = this.arm.aqG;
+            if (this.arm.getWidth() + i > f4) {
+                f5 = this.arm.aqG;
+                i5 = (int) (f5 - this.arm.getWidth());
             } else {
                 i5 = i;
             }
@@ -125,40 +125,40 @@ public class d extends Animation {
                 i12 = i5;
             }
         }
-        this.aiK.scrollTo(i12, i2);
-        this.aiK.invalidate();
+        this.arm.scrollTo(i12, i2);
+        this.arm.invalidate();
     }
 
     @Override // android.view.animation.Animation
     public boolean getTransformation(long j, Transformation transformation) {
         boolean z;
-        if (!this.aiM) {
-            z = this.aiK.aik;
+        if (!this.aro) {
+            z = this.arm.aqL;
             if (z) {
-                this.aiL = false;
+                this.arn = false;
                 return false;
             }
             try {
                 if (!super.getTransformation(j, transformation)) {
-                    this.aiL = false;
+                    this.arn = false;
                     return false;
                 }
                 return true;
             } catch (Exception e) {
-                this.aiL = false;
+                this.arn = false;
                 return false;
             }
         }
-        this.aiM = false;
-        this.aiL = false;
+        this.aro = false;
+        this.arn = false;
         return false;
     }
 
-    public boolean zV() {
-        return this.aiL;
+    public boolean Dr() {
+        return this.arn;
     }
 
     public void stopAnimation() {
-        this.aiM = true;
+        this.aro = true;
     }
 }

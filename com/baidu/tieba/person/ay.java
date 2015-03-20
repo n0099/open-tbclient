@@ -1,46 +1,61 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonImageActivity bIg;
+public class ay extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ PersonImageActivity bQo;
+    byte[] mData;
+    String mUrl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PersonImageActivity personImageActivity) {
-        this.bIg = personImageActivity;
+    public ay(PersonImageActivity personImageActivity, String str, byte[] bArr) {
+        this.bQo = personImageActivity;
+        this.mUrl = null;
+        this.mData = null;
+        this.mUrl = str;
+        this.mData = bArr;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        ba baVar;
-        ProgressBar progressBar;
-        listMenu = this.bIg.getListMenu();
-        if (dialogInterface == listMenu && i == 0) {
-            try {
-                multiImageView = this.bIg.aQY;
-                byte[] currentImageData = multiImageView.getCurrentImageData();
-                if (currentImageData != null) {
-                    multiImageView2 = this.bIg.aQY;
-                    String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                    this.bIg.bIf = new ba(this.bIg, currentImageUrl, currentImageData);
-                    baVar = this.bIg.bIf;
-                    baVar.execute(new String[0]);
-                    progressBar = this.bIg.mProgress;
-                    progressBar.setVisibility(0);
-                } else {
-                    this.bIg.showToast(this.bIg.getPageContext().getString(com.baidu.tieba.z.no_data));
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) {
+        switch (com.baidu.tbadk.core.util.o.a(this.mUrl, this.mData, this.bQo.getPageContext().getPageActivity())) {
+            case -2:
+                return com.baidu.tbadk.core.util.o.rI();
+            case -1:
+            default:
+                return this.bQo.getPageContext().getString(com.baidu.tieba.y.save_error);
+            case 0:
+                return this.bQo.getPageContext().getString(com.baidu.tieba.y.save_image_to_album);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        ProgressBar progressBar;
+        super.onPostExecute((ay) str);
+        this.bQo.showToast(str);
+        this.bQo.bQn = null;
+        progressBar = this.bQo.mProgress;
+        progressBar.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        this.bQo.bQn = null;
+        progressBar = this.bQo.mProgress;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

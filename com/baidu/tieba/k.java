@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class k implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity alh;
+class k extends Thread {
+    final /* synthetic */ LogoActivity atC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(LogoActivity logoActivity) {
-        this.alh = logoActivity;
+        this.atC = logoActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.alh.akU = true;
-        z = this.alh.akV;
-        if (!z) {
-            return;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            com.baidu.tbadk.core.util.e.rG();
+            this.atC.s(this.atC.getPageContext().getPageActivity().getCacheDir());
+        } catch (Exception e) {
         }
-        this.alh.ai(this.alh.getBaseContext());
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        handler = this.atC.mHandler;
+        handler2 = this.atC.mHandler;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

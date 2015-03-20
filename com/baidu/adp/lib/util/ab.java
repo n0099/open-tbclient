@@ -1,57 +1,65 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.android.common.security.RSAUtil;
-import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class ab {
-    public static final Charset nI = Charset.forName("UTF-8");
-    private static final byte[] nJ = {-92, 11, -56, 52, -42, -107, -13, 19};
+    private static final char[] ze = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    public static PublicKey o(byte[] bArr) {
-        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
-    }
-
-    public static byte[] a(PublicKey publicKey, byte[] bArr) {
-        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
-        cipher.init(1, publicKey);
-        return cipher.doFinal(bArr);
-    }
-
-    public static SecretKey aH(String str) {
-        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        char[] cArr = new char[str.length()];
-        for (int i = 0; i < cArr.length; i++) {
-            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
+    public static String p(byte[] bArr) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            return toHexString(messageDigest.digest());
+        } catch (Exception e) {
+            BdLog.e(e);
+            return null;
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, nJ, 5, 256));
     }
 
-    public static byte[] a(SecretKey secretKey, byte[] bArr) {
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(1, secretKey);
-        return cipher.doFinal(bArr);
-    }
-
-    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) {
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(2, secretKey);
-        return cipher.doFinal(bArr, i, i2);
-    }
-
-    public static String ab(int i) {
-        String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
-        if (bigInteger.length() > i) {
-            return bigInteger.substring(0, bigInteger.length());
+    public static String toHexString(byte[] bArr) {
+        if (bArr == null) {
+            return null;
         }
-        return bigInteger;
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i = 0; i < bArr.length; i++) {
+            sb.append(ze[(bArr[i] & 240) >>> 4]);
+            sb.append(ze[bArr[i] & 15]);
+        }
+        return sb.toString();
+    }
+
+    public static String e(InputStream inputStream) {
+        String str = null;
+        if (inputStream != null) {
+            try {
+                byte[] bArr = new byte[1024];
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                str = toHexString(messageDigest.digest());
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            } finally {
+                v.d(inputStream);
+            }
+        }
+        return str;
+    }
+
+    public static String toMd5(String str) {
+        if (str == null) {
+            return null;
+        }
+        try {
+            return p(str.getBytes("UTF-8"));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

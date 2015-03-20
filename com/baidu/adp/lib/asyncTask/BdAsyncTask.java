@@ -11,7 +11,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final f sDefaultExecutor = f.cu();
+    private static final f sDefaultExecutor = f.fS();
     private static final d sHandler = new d(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -31,7 +31,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         RUNNING,
         FINISHED;
 
-        /* JADX DEBUG: Replace access to removed values field (gT) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (so) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskStatus[] valuesCustom() {
             BdAsyncTaskStatus[] valuesCustom = values();

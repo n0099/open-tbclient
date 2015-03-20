@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.a;
 import com.baidu.tbadk.data.IconData;
@@ -28,7 +28,7 @@ public class OldUserData extends a implements Serializable {
     public void setToUserData(UserData userData) {
         if (userData != null) {
             userData.setUserIdLong(Math.max(this.id, this.userId));
-            userData.setUserName((k.isEmpty(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+            userData.setUserName((m.isEmpty(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
             userData.setPortrait(this.portrait);
             userData.setSex(this.sex);
             userData.setPosition(this.position);

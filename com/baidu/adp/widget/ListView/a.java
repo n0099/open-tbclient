@@ -4,77 +4,83 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.am;
 /* loaded from: classes.dex */
-public abstract class a<T> {
+public abstract class a<T, V extends am> {
+    protected aj GP;
+    protected ak GQ;
+    protected BdUniqueId GR;
+    private al GS;
+    private V GT;
     protected Context mContext;
-    protected an vR;
-    protected ao vS;
-    protected BdUniqueId vT;
-    private ap vU;
 
-    protected abstract View a(ViewGroup viewGroup);
+    protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
 
-    protected abstract View b(int i, View view, ViewGroup viewGroup, T t);
+    protected abstract V a(ViewGroup viewGroup);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.vT = bdUniqueId;
+        this.GR = bdUniqueId;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.am> */
+    /* JADX WARN: Multi-variable type inference failed */
     public View a(int i, View view, ViewGroup viewGroup, T t) {
+        View view2;
         if (d(view)) {
-            view = a(viewGroup);
-            BdLog.i("convertView is creating");
+            this.GT = (V) a(viewGroup);
+            view2 = this.GT.getView();
+            if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.i("convertView is creating" + this.GT.getClass().getName());
+            }
+        } else {
+            view2 = view;
         }
-        if (view == null) {
-            BdLog.e("convertView still is null");
-            return null;
-        }
-        return b(i, view, viewGroup, t);
+        return a(i, view2, viewGroup, t, (am) view2.getTag());
     }
 
-    public void a(an anVar) {
-        this.vR = anVar;
+    private boolean d(View view) {
+        return view == null || view.getTag() == null || this.GT == null || !this.GT.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.GT.getClass());
     }
 
-    public an jj() {
-        return this.vR;
+    public void a(aj ajVar) {
+        this.GP = ajVar;
     }
 
-    public void a(ao aoVar) {
-        this.vS = aoVar;
+    public aj mG() {
+        return this.GP;
     }
 
-    public ao jk() {
-        return this.vS;
+    public void a(ak akVar) {
+        this.GQ = akVar;
     }
 
-    public BdUniqueId jl() {
-        return this.vT;
+    public ak mH() {
+        return this.GQ;
+    }
+
+    public BdUniqueId getType() {
+        return this.GR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ap apVar) {
-        this.vU = apVar;
+    public void a(al alVar) {
+        this.GS = alVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.vU != null) {
-            this.vU.notifyDataSetChanged();
+        if (this.GS != null) {
+            this.GS.notifyDataSetChanged();
         }
     }
 
-    public am aD(int i) {
-        if (this.vU != null) {
-            return this.vU.getItem(i);
+    public ai aA(int i) {
+        if (this.GS != null) {
+            return this.GS.getItem(i);
         }
         return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean d(View view) {
-        return view == null || view.getTag() == null;
     }
 }

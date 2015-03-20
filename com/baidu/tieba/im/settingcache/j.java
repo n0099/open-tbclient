@@ -2,30 +2,31 @@ package com.baidu.tieba.im.settingcache;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.t;
+import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j bpg = new j();
+    private static j bne = new j();
 
     private j() {
     }
 
-    public static j Tp() {
-        return bpg;
+    public static j Tq() {
+        return bne;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: aK */
-    public PersonalSettingItemData aG(String str, String str2) {
+    /* renamed from: aI */
+    public PersonalSettingItemData aE(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.boV) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.boV.get(str3);
+        synchronized (this.bmT) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bmT.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -33,7 +34,7 @@ public class j extends a {
             personalSettingItemData2.setMyUid(str);
             personalSettingItemData2.setToUid(str2);
             personalSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.l.ft()) {
+            if (n.iW()) {
                 a(personalSettingItemData2, null);
                 return personalSettingItemData2;
             }
@@ -43,23 +44,23 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void MK() {
+    public void PJ() {
         super.s(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData aG;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aG = aG(str, str2)) != null) {
-            aG.setToPortrait(userData.getPortrait());
-            aG.setToName(userData.getUserName());
-            a(aG);
+        PersonalSettingItemData aE;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aE = aE(str, str2)) != null) {
+            aE.setToPortrait(userData.getPortrait());
+            aE.setToName(userData.getUserName());
+            a(aE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public t<String> Tl() {
-        return com.baidu.tbadk.core.a.a.nO().bQ("tb.im_personal_chat_setting");
+    public t<String> Tm() {
+        return com.baidu.tbadk.core.b.a.rc().bX("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -74,13 +75,13 @@ public class j extends a {
                 }
                 return;
             }
-            t<String> Tl = Tl();
+            t<String> Tm = Tm();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.boV) {
-                this.boV.put(str, personalSettingItemData);
+            synchronized (this.bmT) {
+                this.bmT.put(str, personalSettingItemData);
             }
-            Tl.f(str, jsonStrWithObject);
+            Tm.f(str, jsonStrWithObject);
         }
     }
 
@@ -97,10 +98,10 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.boV) {
-                this.boV.put(str, personalSettingItemData);
+            synchronized (this.bmT) {
+                this.bmT.put(str, personalSettingItemData);
             }
-            com.baidu.tieba.im.i.a(new k(this, personalSettingItemData, str), gVar);
+            com.baidu.tieba.im.l.a(new k(this, personalSettingItemData, str), gVar);
         }
     }
 }

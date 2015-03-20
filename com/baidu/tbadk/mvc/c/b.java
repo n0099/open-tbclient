@@ -6,91 +6,91 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int adV;
-    private boolean adW = true;
-    private com.baidu.tbadk.mvc.b.a adX;
-    private com.baidu.tbadk.mvc.e.c adY;
-    private com.baidu.tbadk.mvc.a.a adZ;
-    private boolean aea;
-    private int aeb;
-    private Object aec;
-    private WeakReference<View> aed;
-    private WeakReference<ViewGroup> aee;
+    private int amp;
+    private boolean amq = true;
+    private com.baidu.tbadk.mvc.b.a amr;
+    private com.baidu.tbadk.mvc.e.c ams;
+    private com.baidu.tbadk.mvc.a.a amt;
+    private boolean amu;
+    private int amv;
+    private Object amw;
+    private WeakReference<View> amx;
+    private WeakReference<ViewGroup> amy;
     private BdUniqueId uniqueId;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i) {
-        this.adV = i;
+        this.amp = i;
     }
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.e.c cVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.adV = i;
-        this.adX = aVar;
-        this.adY = cVar;
-        this.adZ = aVar2;
+        this.amp = i;
+        this.amr = aVar;
+        this.ams = cVar;
+        this.amt = aVar2;
     }
 
-    public int xm() {
-        return this.adV;
+    public int Az() {
+        return this.amp;
     }
 
-    public com.baidu.tbadk.mvc.b.a xn() {
-        return this.adX;
+    public com.baidu.tbadk.mvc.b.a AA() {
+        return this.amr;
     }
 
-    public com.baidu.tbadk.mvc.e.c xo() {
-        return this.adY;
+    public com.baidu.tbadk.mvc.e.c AB() {
+        return this.ams;
     }
 
-    public com.baidu.tbadk.mvc.a.a xp() {
-        return this.adZ;
+    public com.baidu.tbadk.mvc.a.a AC() {
+        return this.amt;
     }
 
     public Object getExtra() {
-        return this.aec;
+        return this.amw;
     }
 
     public void setExtra(Object obj) {
-        this.aec = obj;
+        this.amw = obj;
     }
 
     public View getView() {
-        if (this.aed != null) {
-            return this.aed.get();
+        if (this.amx != null) {
+            return this.amx.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.aed = new WeakReference<>(view);
+        this.amx = new WeakReference<>(view);
     }
 
-    public void c(ViewGroup viewGroup) {
-        this.aee = new WeakReference<>(viewGroup);
+    public void d(ViewGroup viewGroup) {
+        this.amy = new WeakReference<>(viewGroup);
     }
 
-    public boolean xq() {
-        return this.aea;
+    public boolean AD() {
+        return this.amu;
     }
 
-    public void aO(boolean z) {
-        this.aea = z;
+    public void aS(boolean z) {
+        this.amu = z;
     }
 
-    public int xr() {
-        return this.aeb;
+    public int AE() {
+        return this.amv;
     }
 
-    public void dI(int i) {
-        this.aeb = i;
+    public void dL(int i) {
+        this.amv = i;
     }
 
-    public boolean xs() {
-        return this.adW;
+    public boolean AF() {
+        return this.amq;
     }
 
-    public void aP(boolean z) {
-        this.adW = z;
+    public void aT(boolean z) {
+        this.amq = z;
     }
 
     public BdUniqueId getUniqueId() {

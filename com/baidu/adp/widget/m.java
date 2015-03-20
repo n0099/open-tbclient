@@ -1,261 +1,236 @@
 package com.baidu.adp.widget;
 
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.os.SystemClock;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.Log;
+import android.view.VelocityTracker;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
 /* loaded from: classes.dex */
-public class m implements ab {
-    private final int vI;
-    private long vJ;
-    private long vK;
-    private int vL;
-    private float vM;
-    private boolean vN;
-    private final n vO = new n(this, null);
-    final /* synthetic */ IndicatorView vP;
+public class m {
+    private static /* synthetic */ int[] Gj;
+    final /* synthetic */ HorizontalTranslateLayout FW;
+    VelocityTracker Gf;
+    boolean Gg;
+    final int Gh;
+    final int Gi;
 
-    public m(IndicatorView indicatorView) {
-        this.vP = indicatorView;
-        this.vI = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
-    }
-
-    @Override // com.baidu.adp.widget.ab
-    public void measure(int i, int i2) {
-        Drawable drawable;
-        Drawable drawable2;
-        int i3;
-        Drawable drawable3;
-        Drawable drawable4;
-        drawable = this.vP.vF;
-        if (drawable != null) {
-            drawable2 = this.vP.vG;
-            if (drawable2 != null) {
-                i3 = this.vP.mCount;
-                if (i3 != 0) {
-                    this.vP.setWillNotDraw(false);
-                    int aB = aB(i);
-                    int aC = aC(i2);
-                    Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + aB);
-                    Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + aC);
-                    this.vP.setMeasuredDimension(aB, aC);
-                    StringBuilder sb = new StringBuilder("drawable bound = ");
-                    drawable3 = this.vP.vF;
-                    Log.d("IndicatorView$IndicatorView", sb.append(drawable3.getBounds().toShortString()).toString());
-                    StringBuilder sb2 = new StringBuilder("selector bound = ");
-                    drawable4 = this.vP.vG;
-                    Log.d("IndicatorView$IndicatorView", sb2.append(drawable4.getBounds().toShortString()).toString());
-                    return;
-                }
+    static /* synthetic */ int[] mw() {
+        int[] iArr = Gj;
+        if (iArr == null) {
+            iArr = new int[HorizontalTranslateLayout.TrackDirection.valuesCustom().length];
+            try {
+                iArr[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
+            } catch (NoSuchFieldError e) {
             }
+            try {
+                iArr[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                iArr[HorizontalTranslateLayout.TrackDirection.none.ordinal()] = 4;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                iArr[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
+            } catch (NoSuchFieldError e4) {
+            }
+            Gj = iArr;
         }
-        this.vP.setWillNotDraw(true);
-        this.vP.setMeasuredDimension(0, 0);
-        Log.d("IndicatorView$IndicatorView", "will not draw.");
+        return iArr;
     }
 
-    private int aB(int i) {
+    public boolean aw(int i) {
+        HorizontalTranslateLayout.TrackDirection trackDirection;
+        i iVar;
+        i iVar2;
         int i2;
         int i3;
-        Drawable drawable;
-        Drawable drawable2;
         int i4;
-        Drawable drawable3;
-        Drawable drawable4;
-        Drawable drawable5;
-        Drawable drawable6;
         int i5;
-        int i6;
-        int i7;
-        Drawable drawable7;
-        Drawable drawable8;
-        Drawable drawable9;
-        Drawable drawable10;
-        Drawable drawable11;
-        Drawable drawable12;
-        Drawable drawable13;
-        Drawable drawable14;
-        Drawable drawable15;
-        Drawable drawable16;
-        int i8 = i & (-1073741824);
-        int i9 = 1073741823 & i;
-        Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i9);
-        i2 = this.vP.vD;
-        i3 = this.vP.mCount;
-        int i10 = i2 * (i3 - 1);
-        drawable = this.vP.vF;
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-        drawable2 = this.vP.vG;
-        int max = Math.max(intrinsicWidth, drawable2.getIntrinsicWidth());
-        i4 = this.vP.mCount;
-        int i11 = i10 + (max * i4);
-        switch (i8) {
-            case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
-                int min = Math.min(i9, i11);
-                drawable11 = this.vP.vF;
-                drawable12 = this.vP.vF;
-                int intrinsicWidth2 = drawable12.getIntrinsicWidth();
-                drawable13 = this.vP.vF;
-                drawable11.setBounds(0, 0, intrinsicWidth2, drawable13.getBounds().height());
-                drawable14 = this.vP.vG;
-                drawable15 = this.vP.vG;
-                int intrinsicWidth3 = drawable15.getIntrinsicWidth();
-                drawable16 = this.vP.vG;
-                drawable14.setBounds(0, 0, intrinsicWidth3, drawable16.getBounds().height());
-                return min;
-            case 0:
-                drawable3 = this.vP.vF;
-                drawable4 = this.vP.vF;
-                drawable3.setBounds(0, 0, drawable4.getIntrinsicWidth(), 0);
-                drawable5 = this.vP.vG;
-                drawable6 = this.vP.vG;
-                drawable5.setBounds(0, 0, drawable6.getIntrinsicWidth(), 0);
-                return i11;
-            case 1073741824:
-                i5 = this.vP.vD;
-                i6 = this.vP.mCount;
-                i7 = this.vP.mCount;
-                int i12 = (int) ((i9 - (i5 * (i6 - 1))) / i7);
-                drawable7 = this.vP.vG;
-                drawable8 = this.vP.vG;
-                drawable7.setBounds(0, 0, i12, drawable8.getBounds().height());
-                drawable9 = this.vP.vF;
-                drawable10 = this.vP.vF;
-                drawable9.setBounds(0, 0, i12, drawable10.getBounds().height());
-                return i9;
-            default:
-                return i9;
+        int[] mw = mw();
+        trackDirection = this.FW.FG;
+        switch (mw[trackDirection.ordinal()]) {
+            case 1:
+                i4 = this.FW.FH;
+                if (i4 != 10004) {
+                    i5 = this.FW.FH;
+                    if (i5 != 10000) {
+                        return false;
+                    }
+                }
+                break;
+            case 2:
+                i2 = this.FW.FH;
+                if (i2 != 10004) {
+                    i3 = this.FW.FH;
+                    if (i3 != 10001) {
+                        return false;
+                    }
+                }
+                break;
+            case 3:
+                iVar = this.FW.FV;
+                if (iVar != null) {
+                    iVar2 = this.FW.FV;
+                    iVar2.av(i);
+                    break;
+                }
+                break;
         }
+        this.Gf = VelocityTracker.obtain();
+        this.Gg = true;
+        return true;
     }
 
-    private int aC(int i) {
-        Drawable drawable;
-        Drawable drawable2;
-        Drawable drawable3;
-        Drawable drawable4;
-        Drawable drawable5;
-        Drawable drawable6;
-        Drawable drawable7;
-        Drawable drawable8;
-        Drawable drawable9;
-        Drawable drawable10;
-        Drawable drawable11;
-        Drawable drawable12;
-        Drawable drawable13;
-        Drawable drawable14;
-        int i2 = i & (-1073741824);
-        int i3 = 1073741823 & i;
-        drawable = this.vP.vF;
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        drawable2 = this.vP.vG;
-        int max = Math.max(intrinsicHeight, drawable2.getIntrinsicHeight());
-        switch (i2) {
-            case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
-                int min = Math.min(i3, max);
-                Log.d("IndicatorView$IndicatorView", "min size = " + min);
-                drawable11 = this.vP.vF;
-                drawable12 = this.vP.vF;
-                drawable11.setBounds(0, 0, drawable12.getBounds().width(), min);
-                drawable13 = this.vP.vG;
-                drawable14 = this.vP.vG;
-                drawable13.setBounds(0, 0, drawable14.getBounds().width(), min);
-                return min;
-            case 0:
-                drawable3 = this.vP.vF;
-                drawable4 = this.vP.vF;
-                drawable3.setBounds(0, 0, drawable4.getBounds().width(), max);
-                drawable5 = this.vP.vG;
-                drawable6 = this.vP.vG;
-                drawable5.setBounds(0, 0, drawable6.getBounds().width(), max);
-                return max;
-            case 1073741824:
-                drawable7 = this.vP.vF;
-                drawable8 = this.vP.vF;
-                drawable7.setBounds(0, 0, drawable8.getBounds().width(), i3);
-                drawable9 = this.vP.vG;
-                drawable10 = this.vP.vG;
-                drawable9.setBounds(0, 0, drawable10.getBounds().width(), i3);
-                return i3;
-            default:
-                return i3;
-        }
+    public void mu() {
+        this.Gg = false;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:17:0x0013 */
-    @Override // com.baidu.adp.widget.ab
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void draw(Canvas canvas) {
-        int i;
-        Drawable drawable;
+    public void ax(int i) {
         int i2;
-        float f;
-        Drawable drawable2;
-        Drawable drawable3;
-        Drawable drawable4;
-        int i3;
-        Log.d("IndicatorView$IndicatorView", "draw");
-        int save = canvas.save();
-        for (int i4 = 0; i4 < i; i4++) {
-            if (i4 != 0) {
-                drawable4 = this.vP.vF;
-                int width = drawable4.getBounds().width();
-                i3 = this.vP.vD;
-                canvas.translate(width + i3, 0.0f);
-            }
-            drawable3 = this.vP.vF;
-            drawable3.draw(canvas);
-        }
-        canvas.restoreToCount(save);
-        int save2 = canvas.save();
-        drawable = this.vP.vG;
-        int width2 = drawable.getBounds().width();
-        i2 = this.vP.vD;
-        f = this.vP.mPosition;
-        canvas.translate((width2 + i2) * f, 0.0f);
-        drawable2 = this.vP.vG;
-        drawable2.draw(canvas);
-        canvas.restoreToCount(save2);
-    }
-
-    public void iM() {
+        HorizontalTranslateLayout.TrackDirection trackDirection;
         float f;
         float f2;
+        int i3;
         float f3;
+        int i4;
         float f4;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.vM = ((((float) (uptimeMillis - this.vJ)) / 1000.0f) * this.vL) + this.vM;
-        this.vJ = uptimeMillis;
-        this.vK = this.vJ + 16;
-        if (this.vL < 0) {
-            float f5 = this.vM;
-            f3 = this.vP.vE;
-            if (f5 < f3) {
-                IndicatorView indicatorView = this.vP;
-                f4 = this.vP.vE;
-                indicatorView.mPosition = f4;
-                this.vN = false;
-            } else {
-                this.vP.mPosition = this.vM;
-                this.vO.removeMessages(1000);
-                this.vO.sendEmptyMessageAtTime(1000, this.vK);
-            }
-        } else {
-            float f6 = this.vM;
-            f = this.vP.vE;
-            if (f6 > f) {
-                IndicatorView indicatorView2 = this.vP;
-                f2 = this.vP.vE;
-                indicatorView2.mPosition = f2;
-                this.vN = false;
-            } else {
-                this.vP.mPosition = this.vM;
-                this.vO.removeMessages(1000);
-                this.vO.sendEmptyMessageAtTime(1000, this.vK);
+        int i5;
+        if (this.Gg) {
+            i2 = this.FW.FC;
+            int i6 = i2 - i;
+            int[] mw = mw();
+            trackDirection = this.FW.FG;
+            switch (mw[trackDirection.ordinal()]) {
+                case 1:
+                    Log.d("HorizontalTranslateLayout", "@move left");
+                    f4 = this.FW.FA;
+                    if (i6 > f4 - this.FW.getMeasuredWidth() && i6 < 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout = this.FW;
+                        i5 = horizontalTranslateLayout.FC;
+                        horizontalTranslateLayout.FC = i5 - i;
+                        this.FW.invalidate();
+                        return;
+                    }
+                    return;
+                case 2:
+                    Log.d("HorizontalTranslateLayout", "@move right");
+                    f3 = this.FW.FB;
+                    if (i6 < this.FW.getMeasuredWidth() - f3 && i6 > 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.FW;
+                        i4 = horizontalTranslateLayout2.FC;
+                        horizontalTranslateLayout2.FC = i4 - i;
+                        this.FW.invalidate();
+                        return;
+                    }
+                    return;
+                case 3:
+                    Log.d("HorizontalTranslateLayout", "@move horizontal");
+                    f = this.FW.FA;
+                    if (i6 >= f - this.FW.getMeasuredWidth()) {
+                        f2 = this.FW.FB;
+                        if (i6 <= this.FW.getMeasuredWidth() - f2) {
+                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.FW;
+                            i3 = horizontalTranslateLayout3.FC;
+                            horizontalTranslateLayout3.FC = i3 - i;
+                            this.FW.invalidate();
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                default:
+                    return;
             }
         }
-        this.vP.invalidate();
+    }
+
+    public void mv() {
+        float max;
+        HorizontalTranslateLayout.TrackDirection trackDirection;
+        this.Gf.computeCurrentVelocity(this.Gh);
+        float xVelocity = this.Gf.getXVelocity();
+        Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
+        if (xVelocity < 0.0f) {
+            max = Math.min(xVelocity, -this.Gi);
+        } else {
+            max = Math.max(xVelocity, this.Gi);
+        }
+        int[] mw = mw();
+        trackDirection = this.FW.FG;
+        switch (mw[trackDirection.ordinal()]) {
+            case 1:
+                h(max);
+                break;
+            case 2:
+                i(max);
+                break;
+            case 3:
+                g(max);
+                break;
+        }
+        this.Gf.recycle();
+        this.Gf = null;
+    }
+
+    private void g(float f) {
+        int i;
+        float f2;
+        h hVar;
+        h hVar2;
+        float f3;
+        h hVar3;
+        h hVar4;
+        Log.d("HorizontalTranslateLayout", "@horizontalFling");
+        i = this.FW.FC;
+        if (i <= 0) {
+            f3 = this.FW.FA;
+            if (i >= f3 - this.FW.getMeasuredWidth()) {
+                if (f < 0.0f) {
+                    hVar4 = this.FW.FQ;
+                    hVar4.e(f);
+                    return;
+                }
+                hVar3 = this.FW.FQ;
+                hVar3.c(f);
+                return;
+            }
+        }
+        if (i >= 0) {
+            f2 = this.FW.FB;
+            if (i <= this.FW.getMeasuredWidth() - f2) {
+                if (f < 0.0f) {
+                    hVar2 = this.FW.FQ;
+                    hVar2.d(f);
+                    return;
+                }
+                hVar = this.FW.FQ;
+                hVar.f(f);
+            }
+        }
+    }
+
+    private void h(float f) {
+        h hVar;
+        h hVar2;
+        Log.d("HorizontalTranslateLayout", "@leftFling");
+        if (f < 0.0f) {
+            hVar2 = this.FW.FQ;
+            hVar2.e(f);
+            return;
+        }
+        hVar = this.FW.FQ;
+        hVar.c(f);
+    }
+
+    private void i(float f) {
+        h hVar;
+        h hVar2;
+        Log.d("HorizontalTranslateLayout", "@rightFling");
+        if (f < 0.0f) {
+            hVar2 = this.FW.FQ;
+            hVar2.d(f);
+            return;
+        }
+        hVar = this.FW.FQ;
+        hVar.f(f);
     }
 }

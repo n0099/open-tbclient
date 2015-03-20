@@ -1,30 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class d implements View.OnTouchListener {
-    final /* synthetic */ CarouselRecommendView LU;
+class d extends com.baidu.tbadk.core.flow.a.b {
+    private final /* synthetic */ TbPageContext Nn;
+    final /* synthetic */ b Xi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(CarouselRecommendView carouselRecommendView) {
-        this.LU = carouselRecommendView;
+    public d(b bVar, TbPageContext tbPageContext) {
+        this.Xi = bVar;
+        this.Nn = tbPageContext;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == this.LU.mPager) {
-            if (motionEvent.getAction() == 0) {
-                this.LU.qp();
-                return false;
-            } else if (motionEvent.getAction() == 1) {
-                this.LU.qo();
-                return false;
-            } else {
-                return false;
-            }
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.e rm() {
+        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
+        eVar.setHeight(this.Nn.getPageActivity().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds330));
+        return eVar;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.c rl() {
+        com.baidu.tbadk.core.flow.a.c rl = super.rl();
+        if (rl != null) {
+            rl.setGravity(85);
+            rl.bJ(com.baidu.tieba.t.ds20);
+            rl.bK(com.baidu.tieba.t.ds30);
         }
-        return false;
+        return rl;
     }
 }

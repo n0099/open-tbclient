@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.game.GameInfoData;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import java.util.HashMap;
 import org.json.JSONObject;
@@ -53,7 +54,7 @@ public class RequestSendPVTJMessage extends TbSocketMessage {
     private static String buildExtJson(String str) {
         HashMap hashMap = new HashMap();
         hashMap.put("st_param", str);
-        hashMap.put("jobid", "0");
+        hashMap.put("jobid", GameInfoData.NOT_FROM_DETAIL);
         return new JSONObject(hashMap).toString();
     }
 

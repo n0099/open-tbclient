@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.a;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PersonChangeActivityConfig extends a {
     public static final String IS_FROM_PERSONINFO = "isFromPersonInfo";
@@ -25,7 +25,7 @@ public class PersonChangeActivityConfig extends a {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(z.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(y.live_error_system_not_support));
         return false;
     }
 }

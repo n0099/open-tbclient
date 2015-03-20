@@ -1,26 +1,23 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.TimerTask;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-class aj extends TimerTask {
-    final /* synthetic */ ag IJ;
+class aj extends BroadcastReceiver {
+    final /* synthetic */ ai this$0;
 
-    private aj(ag agVar) {
-        this.IJ = agVar;
+    private aj(ai aiVar) {
+        this.this$0 = aiVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(ag agVar, aj ajVar) {
-        this(agVar);
+    public /* synthetic */ aj(ai aiVar, aj ajVar) {
+        this(aiVar);
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        try {
-            this.IJ.dJ();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.this$0.sF();
     }
 }

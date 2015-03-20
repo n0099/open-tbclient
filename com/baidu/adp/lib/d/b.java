@@ -6,11 +6,11 @@ import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements LocationListener {
-    final /* synthetic */ a ke;
+    final /* synthetic */ a vu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ke = aVar;
+        this.vu = aVar;
     }
 
     @Override // android.location.LocationListener
@@ -19,12 +19,12 @@ public class b implements LocationListener {
         f fVar2;
         f fVar3;
         if (location != null) {
-            fVar = this.ke.jZ;
+            fVar = this.vu.vq;
             if (fVar == null) {
-                this.ke.jZ = new f(this.ke, null);
-                fVar2 = this.ke.jZ;
+                this.vu.vq = new f(this.vu, null);
+                fVar2 = this.vu.vq;
                 fVar2.setSelfExecute(true);
-                fVar3 = this.ke.jZ;
+                fVar3 = this.vu.vq;
                 fVar3.execute(location);
             }
         }

@@ -6,27 +6,27 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.MyGift;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    private List<MyGift> bKK;
-    final /* synthetic */ r bKL;
+    private List<MyGift> bSU;
+    final /* synthetic */ r bSV;
 
     public s(r rVar, List<MyGift> list) {
-        this.bKL = rVar;
-        this.bKK = list;
+        this.bSV = rVar;
+        this.bSU = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bKK == null) {
+        if (this.bSU == null) {
             return 0;
         }
-        if (this.bKK.size() <= 8) {
-            return this.bKK.size();
+        if (this.bSU.size() <= 8) {
+            return this.bSU.size();
         }
         return 8;
     }
@@ -41,36 +41,35 @@ public class s extends BaseAdapter {
         return 0L;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0077: INVOKE  (r0v5 int A[REMOVE]) = (r2v8 com.baidu.tbadk.data.MyGift) type: VIRTUAL call: com.baidu.tbadk.data.MyGift.getGiftNum():int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0074: INVOKE  (r0v5 int A[REMOVE]) = (r2v8 com.baidu.tbadk.data.MyGift) type: VIRTUAL call: com.baidu.tbadk.data.MyGift.getGiftNum():int)] */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         PersonInfoActivity personInfoActivity;
         PersonInfoActivity personInfoActivity2;
         PersonInfoActivity personInfoActivity3;
-        com.baidu.adp.lib.g.b ei = com.baidu.adp.lib.g.b.ei();
-        personInfoActivity = this.bKL.bJY;
-        View inflate = ei.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.personinfo_gift_icon, null);
-        personInfoActivity2 = this.bKL.bJY;
-        int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds86);
-        personInfoActivity3 = this.bKL.bJY;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds80)));
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.w.gift_icon);
+        com.baidu.adp.lib.g.b hH = com.baidu.adp.lib.g.b.hH();
+        personInfoActivity = this.bSV.bSi;
+        View inflate = hH.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.w.personinfo_gift_icon, null);
+        personInfoActivity2 = this.bSV.bSi;
+        int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds86);
+        personInfoActivity3 = this.bSV.bSi;
+        inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds80)));
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.gift_icon);
         headImageView.setIsRound(true);
         headImageView.setDrawBorder(false);
         headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        headImageView.setSupportNoImage(false);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.w.gift_num);
+        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.gift_num);
         g(textView);
-        MyGift myGift = this.bKK.get(i);
+        MyGift myGift = this.bSU.get(i);
         if (myGift != null) {
-            headImageView.d(myGift.getGiftIcon(), 10, false);
+            headImageView.c(myGift.getGiftIcon(), 10, false);
             textView.setText(new StringBuilder().append(myGift.getGiftNum()).toString());
         }
         return inflate;
     }
 
     private void g(TextView textView) {
-        bc.i((View) textView, com.baidu.tieba.v.personinfo_gift_num_bg);
-        bc.b(textView, com.baidu.tieba.t.cp_cont_g, 1);
+        ba.i((View) textView, com.baidu.tieba.u.personinfo_gift_num_bg);
+        ba.b(textView, com.baidu.tieba.s.cp_cont_g, 1);
     }
 }

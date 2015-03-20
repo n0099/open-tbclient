@@ -2,11 +2,11 @@ package com.baidu.adp.plugin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
+import com.baidu.adp.lib.util.n;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.h;
@@ -40,58 +40,61 @@ public class PluginCenter {
         this.mCommonErrorShowText = null;
         this.mPluginsMap = new HashMap<>();
         this.mCommonErrorShowText = "内部错误，请稍后重试~";
+        String packageName = BdBaseApplication.getInst().getPackageName();
+        b bVar = new b();
+        this.mPluginsMap.put(packageName, bVar);
+        bVar.kk();
     }
 
     public boolean launch(String str) {
-        l.fs();
+        n.iV();
         if (TextUtils.isEmpty(str)) {
             if (BdBaseApplication.getInst().isDebugMode()) {
                 throw new IllegalArgumentException("plugincenter launch args exception!");
             }
             return false;
-        } else if (this.mPluginsMap.containsKey(str) || h.ir().bq(str)) {
-            return false;
-        } else {
-            b bVar = new b();
-            this.mPluginsMap.put(str, bVar);
-            return bVar.aN(str);
         }
+        BdLog.i("----launch plugin" + str);
+        if (this.mPluginsMap.containsKey(str)) {
+            return false;
+        }
+        b bVar = new b();
+        this.mPluginsMap.put(str, bVar);
+        return bVar.aV(str);
     }
 
-    public boolean launchIntent(Context context, int i, Intent intent) {
-        boolean z;
-        String str;
-        l.fs();
-        if (context == null || i == 0) {
+    public boolean launchIntent(Context context, String str, Intent intent) {
+        n.iV();
+        if (context == null || TextUtils.isEmpty(str)) {
             if (BdBaseApplication.getInst().isDebugMode()) {
                 throw new IllegalArgumentException("plugincenter launchIntent args exception!");
             }
             return false;
         }
-        String aw = h.ir().aw(i);
-        if (TextUtils.isEmpty(aw)) {
-            str = BdBaseApplication.getInst().getPackageName();
-            z = true;
-        } else if (h.ir().bq(aw)) {
-            return false;
-        } else {
-            z = false;
-            str = aw;
-        }
         b bVar = this.mPluginsMap.get(str);
-        if (bVar == null && z) {
-            bVar = new b();
-            this.mPluginsMap.put(str, bVar);
-            bVar.gQ();
-        }
         if (bVar == null || !bVar.isLoaded()) {
             return false;
         }
         return bVar.i(context, intent);
     }
 
+    public boolean bindService(Context context, String str, Intent intent, ServiceConnection serviceConnection, int i) {
+        n.iV();
+        if (context == null) {
+            if (BdBaseApplication.getInst().isDebugMode()) {
+                throw new IllegalArgumentException("plugincenter launchIntent args exception!");
+            }
+            return false;
+        }
+        b bVar = this.mPluginsMap.get(str);
+        if (bVar == null || !bVar.isLoaded()) {
+            return false;
+        }
+        return bVar.a(context, intent, serviceConnection, i);
+    }
+
     public boolean releasePlugin(String str) {
-        l.fs();
+        n.iV();
         if (str == null) {
             return false;
         }
@@ -104,7 +107,7 @@ public class PluginCenter {
     }
 
     public boolean hasInstance(String str) {
-        l.fs();
+        n.iV();
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -112,7 +115,7 @@ public class PluginCenter {
     }
 
     public boolean isLoaded(String str) {
-        l.fs();
+        n.iV();
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -124,7 +127,7 @@ public class PluginCenter {
     }
 
     public boolean isEnable(String str) {
-        return isLoaded(str) && !h.ir().bq(str);
+        return isLoaded(str) && !h.lP().by(str);
     }
 
     public int getHostResourcesId(Context context, String str, String str2, String str3) {
@@ -154,22 +157,34 @@ public class PluginCenter {
             return null;
         }
         for (Map.Entry<String, b> entry : this.mPluginsMap.entrySet()) {
-            if (entry.getValue() != null && entry.getValue().aO(str)) {
-                return entry.getValue().gK();
+            if (entry.getValue() != null && entry.getValue().aW(str)) {
+                return entry.getValue().kf();
             }
         }
         return BdBaseApplication.getInst().getPackageCodePath();
     }
 
+    public String getPluginNameByClassloader(ClassLoader classLoader) {
+        if (classLoader == null) {
+            return null;
+        }
+        for (Map.Entry<String, b> entry : this.mPluginsMap.entrySet()) {
+            if (entry.getValue() != null && entry.getValue().kh() != null && entry.getValue().kh().equals(classLoader)) {
+                return entry.getValue().getPackageName();
+            }
+        }
+        return BdBaseApplication.getInst().getPackageName();
+    }
+
     public String getPluginFilePathByPackage(String str) {
-        if (StringUtils.isNull(str)) {
+        if (TextUtils.isEmpty(str)) {
             return null;
         }
         for (Map.Entry<String, b> entry : this.mPluginsMap.entrySet()) {
             if (entry.getValue() != null) {
-                String gK = entry.getValue().gK();
-                if (!StringUtils.isNull(gK) && gK.contains(str)) {
-                    return gK;
+                String kf = entry.getValue().kf();
+                if (!TextUtils.isEmpty(kf) && kf.contains(str)) {
+                    return kf;
                 }
             }
         }
@@ -200,7 +215,7 @@ public class PluginCenter {
             b plugin2 = getPlugin(str);
             if (plugin2 != null) {
                 try {
-                    System.load(new File(plugin2.gL(), "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX).getAbsolutePath());
+                    System.load(new File(plugin2.kg(), "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX).getAbsolutePath());
                     z = true;
                 } catch (UnsatisfiedLinkError e) {
                     BdLog.e(e.getMessage());
@@ -218,15 +233,15 @@ public class PluginCenter {
     }
 
     public <P> P getSocialShareClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.social_share_sdk")) {
+        if (PluginPackageManager.ls().isFeatureForbidden("com.baidu.tieba.social_share_sdk")) {
             return null;
         }
         try {
             return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.social_share_sdk.BdSocialShareSdkDelegateImpl").getConstructor(new Class[0]).newInstance(new Object[0]);
         } catch (Throwable th) {
             BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "SocialShare-" + th.getMessage());
+            if (PluginPackageManager.ls().lA()) {
+                com.baidu.adp.plugin.b.a.lh().d("plugin_load", "get_inject_class", null, "SocialShare-" + th.getMessage());
                 return null;
             }
             return null;
@@ -234,31 +249,15 @@ public class PluginCenter {
     }
 
     public <P> P getDqClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.dqsdk")) {
+        if (PluginPackageManager.ls().isFeatureForbidden("com.baidu.tieba.dqsdk")) {
             return null;
         }
         try {
             return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.dqsdk.DQSdkImpl").getConstructor(new Class[0]).newInstance(new Object[0]);
         } catch (Throwable th) {
             BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "dq-" + th.getMessage());
-                return null;
-            }
-            return null;
-        }
-    }
-
-    public <P> P getHao123ClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.hao123_sdk")) {
-            return null;
-        }
-        try {
-            return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.hao123_sdk.Hao123PluginImplStatic").getConstructor(new Class[0]).newInstance(new Object[0]);
-        } catch (Throwable th) {
-            BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "hao123-" + th.getMessage());
+            if (PluginPackageManager.ls().lA()) {
+                com.baidu.adp.plugin.b.a.lh().d("plugin_load", "get_inject_class", null, "dq-" + th.getMessage());
                 return null;
             }
             return null;
@@ -266,15 +265,15 @@ public class PluginCenter {
     }
 
     public <P> P getMotuClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.motu_sdk") || PluginPackageManager.hV().bg(NAME_MOTUSDK)) {
+        if (PluginPackageManager.ls().isFeatureForbidden("com.baidu.tbadk.motu_gallery") || PluginPackageManager.ls().bn(NAME_MOTUSDK)) {
             return null;
         }
         try {
-            return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.motu_sdk.MotuPluginImpl").getConstructor(new Class[0]).newInstance(new Object[0]);
+            return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tbadk.motu_gallery.MotuPluginImpl").getConstructor(new Class[0]).newInstance(new Object[0]);
         } catch (Throwable th) {
             BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "motu-" + th.getMessage());
+            if (PluginPackageManager.ls().lA()) {
+                com.baidu.adp.plugin.b.a.lh().d("plugin_load", "get_inject_class", null, "motu-" + th.getMessage());
                 return null;
             }
             return null;
@@ -282,15 +281,15 @@ public class PluginCenter {
     }
 
     public <P> P getLightAppClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.light_app") || PluginPackageManager.hV().bg(NAME_LIGHTAPP)) {
+        if (PluginPackageManager.ls().isFeatureForbidden("com.baidu.tieba.light_app") || PluginPackageManager.ls().bn(NAME_LIGHTAPP)) {
             return null;
         }
         try {
             return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.light_app.LightAppPluginImpl").getConstructor(new Class[0]).newInstance(new Object[0]);
         } catch (Throwable th) {
             BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "lightapp-" + th.getMessage());
+            if (PluginPackageManager.ls().lA()) {
+                com.baidu.adp.plugin.b.a.lh().d("plugin_load", "get_inject_class", null, "lightapp-" + th.getMessage());
                 return null;
             }
             return null;
@@ -298,15 +297,15 @@ public class PluginCenter {
     }
 
     public <P> P getXiubaClassInstance() {
-        if (PluginPackageManager.hV().isFeatureForbidden("com.baidu.tieba.xiuba") || PluginPackageManager.hV().bg(NAME_XIU8)) {
+        if (PluginPackageManager.ls().isFeatureForbidden("com.baidu.tieba.xiuba") || PluginPackageManager.ls().bn(NAME_XIU8)) {
             return null;
         }
         try {
             return (P) BdBaseApplication.getInst().getClassLoader().loadClass("com.baidu.tieba.xiuba.XiubaPluginStatic").getConstructor(new Class[0]).newInstance(new Object[0]);
         } catch (Throwable th) {
             BdLog.e(th);
-            if (PluginPackageManager.hV().id()) {
-                com.baidu.adp.plugin.b.a.hN().d("plugin_load", "get_inject_class", null, "xiuba-" + th.getMessage());
+            if (PluginPackageManager.ls().lA()) {
+                com.baidu.adp.plugin.b.a.lh().d("plugin_load", "get_inject_class", null, "xiuba-" + th.getMessage());
                 return null;
             }
             return null;

@@ -53,6 +53,7 @@ import com.baidu.sapi2.utils.enums.NMLoginType;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -1051,7 +1052,7 @@ public final class SapiWebView extends WebView {
             });
             do {
             } while (!zArr2[0]);
-            return zArr[0] ? "1" : "0";
+            return zArr[0] ? "1" : GameInfoData.NOT_FROM_DETAIL;
         }
 
         @JavascriptInterface

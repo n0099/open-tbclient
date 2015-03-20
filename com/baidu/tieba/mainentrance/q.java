@@ -1,52 +1,71 @@
 package com.baidu.tieba.mainentrance;
 
+import android.app.Activity;
 import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class q implements TextView.OnEditorActionListener {
-    final /* synthetic */ SquareSearchActivity bta;
+class q implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bzG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(SquareSearchActivity squareSearchActivity) {
-        this.bta = squareSearchActivity;
+        this.bzG = squareSearchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
-        int i3;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         String str;
         String str2;
+        int i;
+        int i2;
         String str3;
+        EditText editText;
         String str4;
-        if (i == 2) {
-            i2 = this.bta.mMode;
-            if (i2 != 0) {
-                i3 = this.bta.mMode;
-                if (i3 == 3) {
-                    str2 = this.bta.bsN;
-                    if (TextUtils.isEmpty(str2)) {
-                        return true;
+        String str5;
+        String str6;
+        String str7;
+        boolean z;
+        str = this.bzG.bzm;
+        if (str != null) {
+            str2 = this.bzG.bzm;
+            if (str2.trim().length() >= 1) {
+                i = this.bzG.mMode;
+                if (i != 0) {
+                    i2 = this.bzG.mMode;
+                    if (i2 == 3) {
+                        Activity pageActivity = this.bzG.getPageContext().getPageActivity();
+                        editText = this.bzG.byS;
+                        com.baidu.adp.lib.util.n.c(pageActivity, editText);
+                        str4 = this.bzG.bzm;
+                        if (!TextUtils.isEmpty(str4)) {
+                            str5 = this.bzG.bzm;
+                            if (str5.trim().length() != 0) {
+                                SquareSearchActivity squareSearchActivity = this.bzG;
+                                str6 = this.bzG.bzm;
+                                squareSearchActivity.bzm = str6.trim();
+                                SquareSearchActivity squareSearchActivity2 = this.bzG;
+                                str7 = this.bzG.bzm;
+                                squareSearchActivity2.fg(str7);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
                     }
-                    str3 = this.bta.bsN;
-                    if (str3.trim().length() > 0) {
-                        SquareSearchActivity squareSearchActivity = this.bta;
-                        str4 = this.bta.bsN;
-                        squareSearchActivity.fT(str4);
-                        return true;
-                    }
-                    return true;
+                    SquareSearchActivity squareSearchActivity3 = this.bzG;
+                    str3 = this.bzG.bzm;
+                    squareSearchActivity3.y(1, str3);
+                    return;
                 }
-                SquareSearchActivity squareSearchActivity2 = this.bta;
-                str = this.bta.bsN;
-                squareSearchActivity2.y(1, str);
-                return true;
+                z = this.bzG.bzu;
+                if (z) {
+                    this.bzG.WL();
+                    return;
+                }
+                return;
             }
-            this.bta.Uc();
-            return true;
         }
-        return false;
+        this.bzG.showToast(this.bzG.getResources().getString(com.baidu.tieba.y.write_keyword));
     }
 }

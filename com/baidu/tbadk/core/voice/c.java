@@ -11,10 +11,16 @@ public class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        m playView;
-        playView = this.this$0.getPlayView();
-        if (playView != null) {
-            this.this$0.startPlay(playView);
+        Boolean bool;
+        Boolean bool2;
+        bool = this.this$0.bSpeakerphoneOn;
+        if (bool != null) {
+            bool2 = this.this$0.bSpeakerphoneOn;
+            if (bool2.booleanValue()) {
+                this.this$0.openSpeaker();
+            } else {
+                this.this$0.closeSpeaker();
+            }
         }
     }
 }

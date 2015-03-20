@@ -3,21 +3,21 @@ package android.support.v4.text;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class ICUCompat {
-    private static final c bn;
+    private static final c mr;
 
     static {
         if (Build.VERSION.SDK_INT >= 14) {
-            bn = new e();
+            mr = new e();
         } else {
-            bn = new d();
+            mr = new d();
         }
     }
 
     public static String getScript(String str) {
-        return bn.getScript(str);
+        return mr.getScript(str);
     }
 
     public static String addLikelySubtags(String str) {
-        return bn.addLikelySubtags(str);
+        return mr.addLikelySubtags(str);
     }
 }

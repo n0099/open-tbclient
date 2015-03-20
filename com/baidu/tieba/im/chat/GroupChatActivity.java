@@ -18,10 +18,6 @@ import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.GroupMsglistModel;
 /* loaded from: classes.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
-    static {
-        TbadkApplication.getInst().RegisterIntent(GroupChatActivityConfig.class, GroupChatActivity.class);
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
     public void refreshHeadIcon() {
@@ -34,7 +30,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     this.mListView.refreshHeaderFooter(name, true);
                 }
             }
-            com.baidu.tieba.im.i.a(new aa(this, group), new ab(this, group));
+            com.baidu.tieba.im.l.a(new aa(this, group), new ab(this, group));
         }
     }
 
@@ -51,7 +47,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         super.onResume();
         ChatStatusManager.getInst().setIsOpen(2, true);
         String curId = ChatStatusManager.getInst().getCurId(2);
-        com.baidu.tbadk.coreExtra.messageCenter.a.rS().di(curId);
+        com.baidu.tbadk.coreExtra.messageCenter.a.uT().dp(curId);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(curId, 1)));
     }
 
@@ -125,18 +121,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     public void onPageInited() {
-        Ke();
+        Nu();
     }
 
-    private void Ke() {
+    private void Nu() {
         if (getIntent() != null) {
             String stringExtra = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
-            if (!com.baidu.adp.lib.util.k.isEmpty(stringExtra)) {
+            if (!com.baidu.adp.lib.util.m.isEmpty(stringExtra)) {
                 getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
                 this.mListModel.sendExtraMessage(stringExtra);
             }
             String stringExtra2 = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
-            if (!com.baidu.adp.lib.util.k.isEmpty(stringExtra2) && stringExtra2.trim().length() > 0) {
+            if (!com.baidu.adp.lib.util.m.isEmpty(stringExtra2) && stringExtra2.trim().length() > 0) {
                 getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
                 this.mListModel.sendTextMessage(stringExtra2);
             }
@@ -144,8 +140,8 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected boolean first(au auVar) {
-        this.mListModel.loadFirst(auVar);
+    protected boolean first(ax axVar) {
+        this.mListModel.loadFirst(axVar);
         return true;
     }
 

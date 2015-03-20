@@ -15,27 +15,27 @@ import java.io.FileWriter;
 public class TiebaActiveService extends BdBaseService {
     private static final int ACTIVE_FAIL = 1;
     private static final int ACTIVE_SUCC = 2;
-    private m mActiveTask = null;
+    private j mActiveTask = null;
     private int mHaveRetry = 0;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new l(this);
+    private Runnable mRunnable = new i(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.oc().getString("channel_id", null);
+        return com.baidu.tbadk.core.sharedPref.b.rB().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.oc().putString("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.rB().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File ce = com.baidu.tbadk.core.util.s.ce(TbConfig.CHANNEL_FILE);
-            if (ce != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(ce));
+            File cm = com.baidu.tbadk.core.util.o.cm(TbConfig.CHANNEL_FILE);
+            if (cm != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(cm));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -51,9 +51,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File cg = com.baidu.tbadk.core.util.s.cg(TbConfig.CHANNEL_FILE);
-                if (cg != null) {
-                    FileWriter fileWriter = new FileWriter(cg);
+                File co = com.baidu.tbadk.core.util.o.co(TbConfig.CHANNEL_FILE);
+                if (co != null) {
+                    FileWriter fileWriter = new FileWriter(co);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -96,7 +96,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.oc().getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.rB().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -118,7 +118,7 @@ public class TiebaActiveService extends BdBaseService {
         if (this.mActiveTask != null) {
             this.mActiveTask.cancel();
         }
-        this.mActiveTask = new m(this, null);
+        this.mActiveTask = new j(this, null);
         this.mActiveTask.execute(new String[0]);
     }
 }

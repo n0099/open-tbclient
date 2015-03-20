@@ -9,15 +9,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
+    private static int lastProgressNotifiyId = 0;
 
     public static boolean cancelNotification(Context context, int i) {
         if (context == null) {
@@ -36,24 +35,38 @@ public class NotificationHelper {
     }
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
+        Notification notif_excption;
         boolean processNotification;
         synchronized (NotificationHelper.class) {
             PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
             if (TbConfig.getAppRunMode() == TbConfig.AppRunMode.RUN_IN_KUANG_SDK) {
                 processNotification = showNotification(context, i, str3, str3, str, activity, z);
             } else {
-                if (PROGRESS_BUILDER == null) {
-                    PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.m255getInst());
+                try {
+                    if (PROGRESS_BUILDER == null) {
+                        PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.m411getInst());
+                    }
+                    if (i != lastProgressNotifiyId) {
+                        PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
+                    }
+                    lastProgressNotifiyId = i;
+                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.m411getInst().getResources().getDrawable(com.baidu.tieba.u.icon)).getBitmap());
+                    PROGRESS_BUILDER.setContent(null);
+                    notif_excption = PROGRESS_BUILDER.build();
+                    notif_excption.contentIntent = activity;
+                } catch (Exception e) {
+                    notif_excption = notif_excption(context);
                 }
-                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.m255getInst().getResources().getDrawable(com.baidu.tieba.v.icon)).getBitmap());
-                Notification build = PROGRESS_BUILDER.build();
-                build.contentIntent = activity;
-                if (!z) {
-                    build.flags = 16;
+                if (notif_excption == null) {
+                    processNotification = false;
                 } else {
-                    build.flags = 2;
+                    if (!z) {
+                        notif_excption.flags = 16;
+                    } else {
+                        notif_excption.flags = 2;
+                    }
+                    processNotification = processNotification(context, i, notif_excption);
                 }
-                processNotification = processNotification(context, i, build);
             }
         }
         return processNotification;
@@ -68,113 +81,87 @@ public class NotificationHelper {
     }
 
     private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
-        Notification notification;
-        boolean z2;
-        boolean z3;
-        boolean z4 = false;
-        boolean z5 = false;
-        boolean z6 = false;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.rU() && com.baidu.tbadk.coreExtra.messageCenter.a.rT()) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - TbadkCoreApplication.m255getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                boolean z7 = audioManager.getRingerMode() == 0;
-                boolean z8 = audioManager.getRingerMode() == 1;
-                if (TbadkCoreApplication.m255getInst().isMsgToneOn()) {
-                    z4 = true;
-                    if (z7 || z8) {
-                        z4 = false;
-                    }
-                }
-                if (!TbadkCoreApplication.m255getInst().isMsgVibrateOn()) {
-                    z2 = false;
-                } else {
-                    if (!z7) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    z2 = z8 ? true : z3;
-                }
-                TbadkCoreApplication.m255getInst().setLastNotifyTime(currentTimeMillis);
-                z5 = z2;
-            }
+        Notification notif_excption;
+        an switchData = getSwitchData(context);
+        if (switchData == null) {
+            return false;
         }
-        if (TbadkCoreApplication.m255getInst().isMsgLightOn()) {
-            z6 = true;
+        if (bd.isEmpty(str)) {
+            str = context.getString(com.baidu.tieba.y.app_name);
         }
-        if (remoteViews != null) {
-            notification = new Notification(com.baidu.tieba.v.icon, str3, System.currentTimeMillis());
-            notification.icon = com.baidu.tieba.v.icon_notify;
-            if (TextUtils.isEmpty(str)) {
-                str = context.getString(com.baidu.tieba.z.app_name);
+        try {
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.m411getInst());
+            builder.setContentTitle(str).setContentText(str2).setSmallIcon(com.baidu.tieba.u.icon_notify).setTicker(str3);
+            builder.setContent(remoteViews);
+            notif_excption = builder.build();
+            notif_excption.contentIntent = pendingIntent;
+        } catch (Exception e) {
+            notif_excption = notif_excption(context);
+        }
+        if (notif_excption != null) {
+            notif_excption.defaults = -1;
+            if (!switchData.UK) {
+                notif_excption.defaults &= -3;
             }
-            notification.setLatestEventInfo(context, str, str3, pendingIntent);
-            notification.contentView = remoteViews;
-        } else {
-            if (TextUtils.isEmpty(str3)) {
-                str3 = context.getString(com.baidu.tieba.z.notify_text);
+            notif_excption.audioStreamType = 1;
+            if (!switchData.UJ) {
+                notif_excption.defaults &= -2;
             }
-            notification = new Notification(com.baidu.tieba.v.icon_notify, str3, System.currentTimeMillis());
-            cancelNotification(context, i);
-            int i2 = 0;
-            try {
-                Field field = Class.forName("com.android.internal.R$id").getField("icon");
-                field.setAccessible(true);
-                i2 = field.getInt(null);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                notification = notif_excption(context);
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                notification = notif_excption(context);
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-                notification = notif_excption(context);
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
-                notification = notif_excption(context);
-            } catch (SecurityException e5) {
-                e5.printStackTrace();
-                notification = notif_excption(context);
-            }
-            if (bf.isEmpty(str)) {
-                notification.setLatestEventInfo(context, context.getString(com.baidu.tieba.z.app_name), str2, pendingIntent);
+            if (z) {
+                notif_excption.flags = 34;
             } else {
-                notification.setLatestEventInfo(context, str, str2, pendingIntent);
+                notif_excption.flags |= 16;
             }
-            if (i2 != 0 && notification.contentView != null) {
-                notification.contentView.setImageViewResource(i2, com.baidu.tieba.v.icon);
+            if (switchData.UL) {
+                notif_excption.defaults &= -5;
+                notif_excption.ledARGB = -16776961;
+                notif_excption.ledOnMS = 400;
+                notif_excption.ledOffMS = 700;
+                notif_excption.flags |= 1;
             }
+            return processNotification(context, i, notif_excption);
         }
-        notification.defaults = -1;
-        if (!z5) {
-            notification.defaults &= -3;
-        }
-        if (!z4) {
-            notification.defaults &= -2;
-        }
-        if (z) {
-            notification.flags = 34;
-        } else {
-            notification.flags |= 16;
-        }
-        if (z6) {
-            notification.defaults &= -5;
-            notification.ledARGB = -16776961;
-            notification.ledOnMS = 400;
-            notification.ledOffMS = 700;
-            notification.flags |= 1;
-        }
-        return processNotification(context, i, notification);
+        return false;
     }
 
     public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
         return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, z);
     }
 
+    private static an getSwitchData(Context context) {
+        an anVar = new an();
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.uV() && com.baidu.tbadk.coreExtra.messageCenter.a.uU()) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - TbadkCoreApplication.m411getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
+                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                boolean z = audioManager.getRingerMode() == 0;
+                boolean z2 = audioManager.getRingerMode() == 1;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vz()) {
+                    anVar.UJ = true;
+                    if (z || z2) {
+                        anVar.UJ = false;
+                    }
+                }
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vC()) {
+                    anVar.UK = true;
+                    if (z) {
+                        anVar.UK = false;
+                    }
+                    if (z2) {
+                        anVar.UK = true;
+                    }
+                }
+                TbadkCoreApplication.m411getInst().setLastNotifyTime(currentTimeMillis);
+            }
+        }
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vA()) {
+            anVar.UL = true;
+        }
+        return anVar;
+    }
+
     private static Notification notif_excption(Context context) {
-        return new Notification(com.baidu.tieba.v.icon, context.getString(com.baidu.tieba.z.notify_text), System.currentTimeMillis());
+        return new Notification(com.baidu.tieba.u.icon, context.getString(com.baidu.tieba.y.notify_text), System.currentTimeMillis());
     }
 
     private static boolean processNotification(Context context, int i, Notification notification) {

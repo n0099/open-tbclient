@@ -1,29 +1,34 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ FrsActivity aDT;
-    private final /* synthetic */ String aDW;
-    private final /* synthetic */ boolean aDX;
+public class ag extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FrsActivity aJG;
+    private final String name;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(FrsActivity frsActivity, String str, boolean z) {
-        this.aDT = frsActivity;
-        this.aDW = str;
-        this.aDX = z;
+    public ag(FrsActivity frsActivity, String str) {
+        this.aJG = frsActivity;
+        this.name = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        if (!TextUtils.isEmpty(this.aDW)) {
-            com.baidu.tieba.im.settingcache.h.To().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aDW), this.aDX);
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(com.baidu.tieba.frs.utils.a.H(this.aJG.getPageContext().getPageActivity(), this.name));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.aJG.showToast(com.baidu.tieba.y.shortcut_has_add);
+        } else {
+            this.aJG.fH(this.name);
         }
-        return null;
     }
 }

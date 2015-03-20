@@ -1,22 +1,17 @@
 package com.baidu.tieba.screenlocknotify;
 
-import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class p {
-    View Ta;
-    TextView bNK;
-    TextView bNL;
-    TextView bOm;
-    TextView bOn;
-    final /* synthetic */ o bOo;
+    final /* synthetic */ m bYL;
+    TextView bYM;
 
-    private p(o oVar) {
-        this.bOo = oVar;
+    private p(m mVar) {
+        this.bYL = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(o oVar, p pVar) {
-        this(oVar);
+    public /* synthetic */ p(m mVar, p pVar) {
+        this(mVar);
     }
 }

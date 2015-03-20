@@ -1,49 +1,35 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.ViewGroup;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.editortool.w {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aCF;
-    final /* synthetic */ PbEditor bWp;
+class ad implements Animation.AnimationListener {
+    private final /* synthetic */ ae cmV;
+    private final /* synthetic */ ViewGroup cmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(PbEditor pbEditor, com.baidu.tbadk.editortool.w wVar) {
-        this.bWp = pbEditor;
-        this.aCF = wVar;
+    public ad(ae aeVar, ViewGroup viewGroup) {
+        this.cmV = aeVar;
+        this.cmW = viewGroup;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void handleAction(int i, Object obj) {
-        if (i == 2) {
-            this.bWp.hQ(i);
-        } else if (i == 3) {
-            this.bWp.ZZ();
-        } else if (i == 5) {
-            this.bWp.hQ(i);
-        } else if (i == 6) {
-            this.bWp.ZZ();
-        } else if (i == 8) {
-            this.bWp.hQ(i);
-        } else if (i == 9) {
-            this.bWp.ZZ();
-        } else if (i != 0) {
-            if (i == 18) {
-                if (this.bWp.agc()) {
-                    this.bWp.bWi.aga();
-                } else {
-                    this.bWp.bWi.agb();
-                }
-            } else if (i == 12) {
-                this.aCF.handleAction(35, obj);
-                this.bWp.bWi.afr();
-                this.bWp.bWj.X(this.bWp.bWi.getEditText());
-            } else if (i == 38) {
-                this.bWp.hQ(i);
-            } else if (i == 44) {
-                this.bWp.hQ(i);
-            } else if (i == 50) {
-                this.bWp.hQ(i);
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        if (this.cmV != null) {
+            this.cmV.alY();
         }
-        this.aCF.handleAction(i, obj);
+        this.cmW.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.cmW.setVisibility(8);
+        if (this.cmV != null) {
+            this.cmV.alZ();
+        }
     }
 }

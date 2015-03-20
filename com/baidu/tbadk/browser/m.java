@@ -1,7 +1,8 @@
 package com.baidu.tbadk.browser;
-
-import android.app.Activity;
 /* loaded from: classes.dex */
-public interface m {
-    Object o(Activity activity);
+class m implements com.baidu.tbadk.core.dialog.d {
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

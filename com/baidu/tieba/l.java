@@ -1,27 +1,16 @@
 package com.baidu.tieba;
-
-import android.os.Handler;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends Thread {
-    final /* synthetic */ LogoActivity alh;
+public class l implements Runnable {
+    final /* synthetic */ LogoActivity atC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LogoActivity logoActivity) {
-        this.alh = logoActivity;
+        this.atC = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            com.baidu.tbadk.core.util.i.oj();
-            this.alh.t(this.alh.getPageContext().getPageActivity().getCacheDir());
-        } catch (Exception e) {
-        }
-        handler = this.alh.mHandler;
-        handler2 = this.alh.mHandler;
-        handler.sendMessage(handler2.obtainMessage());
+        this.atC.DU();
     }
 }

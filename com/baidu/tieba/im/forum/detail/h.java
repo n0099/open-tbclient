@@ -4,31 +4,31 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.f<ForumDetailActivity> {
-    private ForumDetailActivity baB;
-    private l baC;
+    private ForumDetailActivity bcE;
+    private l bcF;
 
     public h(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.baB = forumDetailActivity;
-        this.baC = forumDetailActivity;
-        Or();
-        Os();
-        Ot();
+        this.bcE = forumDetailActivity;
+        this.bcF = forumDetailActivity;
+        Qg();
+        Qh();
+        Qi();
     }
 
-    private void Or() {
+    private void Qg() {
         registerListener(new i(this, CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
     }
 
-    private void Os() {
+    private void Qh() {
         registerListener(new j(this, 104102));
     }
 
-    private void Ot() {
+    private void Qi() {
         registerListener(new k(this, 2001155));
     }
 
-    public void gI(String str) {
+    public void gz(String str) {
         ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
         forumDetailRequestMessage.setForumId(com.baidu.adp.lib.g.c.a(str, 0L));
         sendMessage(forumDetailRequestMessage);
@@ -44,7 +44,7 @@ public class h extends com.baidu.adp.base.f<ForumDetailActivity> {
         return false;
     }
 
-    public void j(boolean z, String str) {
+    public void h(boolean z, String str) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         if (z) {
             requestUpdateMaskInfoMessage.setIsMask(0);

@@ -1,11 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.AppUploadMessage;
+import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements Runnable {
+public class p implements Runnable {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,13 +14,10 @@ class p implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        Runnable runnable;
-        if (TbadkCoreApplication.m255getInst().isAppUploadOpen()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
-            handler = this.this$0.mHandler;
-            runnable = this.this$0.cdg;
-            handler.postDelayed(runnable, 18000000L);
+        boolean z;
+        z = this.this$0.crb;
+        if (!z) {
+            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }
     }
 }

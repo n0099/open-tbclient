@@ -3,9 +3,12 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ImageViewerConfig extends a {
+    public static final String ASSIST_URLS = "assist_urls";
     public static final String COUNT = "count";
     public static final String DATA_NOT_VALID = "data_not_valid";
     public static final String DATA_VALID = "data_valid";
@@ -22,7 +25,6 @@ public class ImageViewerConfig extends a {
     public static final String PV_TYPE = "pv_type";
     public static final String REVERSE_MODE = "reverse_mode";
     public static final String START_ACTIVITY_NORMAL = "start_activity_normal";
-    public static final String START_ACTIVITY_RESULT = "start_activity_result";
     public static final String START_ACTIVITY_TYPE = "start_activity_type";
     public static final String THREAD_ID = "tid";
     public static final String URL = "url";
@@ -31,7 +33,7 @@ public class ImageViewerConfig extends a {
         super(context);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap) {
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
@@ -46,32 +48,14 @@ public class ImageViewerConfig extends a {
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);
+            intent.putExtra(ASSIST_URLS, hashMap);
         } else {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         return this;
     }
 
-    public ImageViewerConfig createForResultConfig(ArrayList<String> arrayList, int i, int i2, String str, String str2, String str3, boolean z, boolean z2, String str4) {
-        Intent intent = getIntent();
-        intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_RESULT);
-        if (arrayList != null && arrayList.size() > 0) {
-            intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra(URL, arrayList);
-            intent.putExtra(INDEX, i);
-            intent.putExtra(NEED_BROADCAST, true);
-            intent.putExtra("is_pv", true);
-            intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(COUNT, i2);
-            intent.putExtra(HAS_NEXT, z2);
-            intent.putExtra(FORUM_NAME, str);
-            intent.putExtra(FORUM_ID, str2);
-            intent.putExtra("tid", str3);
-            intent.putExtra(NEXT_TILE, str4);
-            intent.putExtra(PARAM_IS_CDN, z);
-        } else {
-            intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
-        }
-        return this;
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null);
     }
 }

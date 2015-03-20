@@ -1,27 +1,64 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends Thread {
-    final /* synthetic */ AccountActivity amF;
-    private String mBduss;
+public class j extends BdAsyncTask<Object, Integer, Boolean> {
+    final /* synthetic */ AccountActivity auu;
+    private AccountData mAccount;
 
-    public j(AccountActivity accountActivity, String str) {
-        this.amF = accountActivity;
-        this.mBduss = null;
-        this.mBduss = str;
+    public j(AccountActivity accountActivity, AccountData accountData) {
+        this.auu = accountActivity;
+        this.mAccount = null;
+        this.mAccount = accountData;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tbadk.core.util.ad adVar = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-        adVar.oS().pZ().Ku = false;
-        adVar.oS().pZ().mIsUseCurrentBDUSS = false;
-        adVar.o("BDUSS", this.mBduss);
-        adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
-        adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-        adVar.or();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: g */
+    public Boolean doInBackground(Object... objArr) {
+        try {
+            try {
+                Thread.sleep(1000L);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            this.mAccount.setIsActive(1);
+            com.baidu.tbadk.core.a.d.b(this.mAccount);
+            com.baidu.tbadk.coreExtra.act.l um = com.baidu.tbadk.coreExtra.act.a.um();
+            if (um != null) {
+                um.i(this.mAccount);
+            }
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
+        }
+        return true;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.auu.getBaseContext());
+        if (this.mAccount != null) {
+            new k(this.auu, this.mAccount.getBDUSS()).start();
+        }
+        this.auu.closeLoadingDialog();
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
+        TbadkCoreApplication.m411getInst().onUserChanged();
+        com.baidu.tbadk.core.c.b.a(this.auu.getPageContext().getPageActivity(), 1, false);
+        this.auu.aus = null;
     }
 }

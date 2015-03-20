@@ -2,33 +2,33 @@ package com.baidu.tieba.discover;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ a atZ;
-    private final /* synthetic */ String aua;
+    final /* synthetic */ a aBK;
+    private final /* synthetic */ String aBL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str) {
-        this.atZ = aVar;
-        this.aua = str;
+        this.aBK = aVar;
+        this.aBL = str;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void tz() {
+    public void wS() {
         BdListView bdListView;
         BannerView bannerView;
-        bdListView = this.atZ.atL;
-        bannerView = this.atZ.atP;
+        bdListView = this.aBK.aBx;
+        bannerView = this.aBK.aBA;
         bdListView.removeHeaderView(bannerView);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void ty() {
-        if (!StringUtils.isNull(this.aua)) {
-            bm.pO().b(this.atZ.getPageContext(), new String[]{this.aua});
+    public void wR() {
+        if (!StringUtils.isNull(this.aBL)) {
+            bk.tl().b(this.aBK.getPageContext(), new String[]{this.aBL});
         }
     }
 }

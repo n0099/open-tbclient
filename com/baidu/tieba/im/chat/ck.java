@@ -1,22 +1,18 @@
 package com.baidu.tieba.im.chat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ PersonalChatActivity aSM;
+public class ck implements Runnable {
+    final /* synthetic */ TalkableActivity aYd;
+    private final /* synthetic */ String val$content;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(PersonalChatActivity personalChatActivity) {
-        this.aSM = personalChatActivity;
+    public ck(TalkableActivity talkableActivity, String str) {
+        this.aYd = talkableActivity;
+        this.val$content = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    public void onReturnDataInUI(Boolean bool) {
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                this.aSM.mListView.closeNotNotify();
-            } else {
-                this.aSM.mListView.showNotNotfiy();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.aYd.mListModel.sendTextMessage(this.val$content);
     }
 }

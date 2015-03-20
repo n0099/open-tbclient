@@ -42,10 +42,7 @@ public final class ShareReceiver extends BroadcastReceiver {
                     String b2 = com.baidu.sapi2.share.a.b(context, shareModel.c());
                     if (TextUtils.isEmpty(b2) || !b2.equals(context.getPackageName())) {
                         if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                            com.baidu.sapi2.share.b.c(context, intent.getStringExtra("RELOGIN_CREDENTIALS"));
-                            if (d != null) {
-                                g.post(new a(shareModel));
-                            }
+                            g.post(new a(context, intent, shareModel));
                         } else {
                             return;
                         }
@@ -77,15 +74,22 @@ public final class ShareReceiver extends BroadcastReceiver {
 
     /* loaded from: classes.dex */
     class a implements Runnable {
-        final /* synthetic */ ShareModel a;
+        final /* synthetic */ Context a;
+        final /* synthetic */ Intent b;
+        final /* synthetic */ ShareModel c;
 
-        a(ShareModel shareModel) {
-            this.a = shareModel;
+        a(Context context, Intent intent, ShareModel shareModel) {
+            this.a = context;
+            this.b = intent;
+            this.c = shareModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ShareReceiver.d.a(this.a);
+            com.baidu.sapi2.share.b.c(this.a, this.b.getStringExtra("RELOGIN_CREDENTIALS"));
+            if (ShareReceiver.d != null) {
+                ShareReceiver.d.a(this.c);
+            }
         }
     }
 

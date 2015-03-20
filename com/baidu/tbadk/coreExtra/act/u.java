@@ -1,21 +1,13 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.coreExtra.view.y {
-    final /* synthetic */ FillUProfileActivity PQ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(FillUProfileActivity fillUProfileActivity) {
-        this.PQ = fillUProfileActivity;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.y
-    public void f(AccountData accountData) {
-        com.baidu.tbadk.core.account.a.a(accountData);
-        TbadkCoreApplication.setCurrentAccount(accountData, this.PQ.getBaseContext());
-        this.PQ.rh();
+class u implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<l> run(CustomMessage<Activity> customMessage) {
+        return new CustomResponsedMessage<>(2001275, s.ut());
     }
 }

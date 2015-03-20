@@ -1,18 +1,23 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* loaded from: classes.dex */
-public class n implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ EditorToolComponetContainer bVZ;
+class n extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ j cms;
+    private final /* synthetic */ String cmv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(EditorToolComponetContainer editorToolComponetContainer) {
-        this.bVZ = editorToolComponetContainer;
+    public n(j jVar, String str) {
+        this.cms = jVar;
+        this.cmv = str;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void handleAction(int i, Object obj) {
-        com.baidu.tbadk.editortool.w wVar;
-        wVar = this.bVZ.Yg;
-        wVar.handleAction(i, obj);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.tbadk.core.util.o.deleteFile(new File(this.cmv));
+        return null;
     }
 }

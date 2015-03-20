@@ -1,37 +1,42 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.frs.aw;
+import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aIQ;
+public class h {
+    private View LM;
+    private GoodGridView aOR;
+    private ImageView aOS;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(FrsHeaderView frsHeaderView) {
-        this.aIQ = frsHeaderView;
+    public h(Context context) {
+        this.LM = null;
+        this.aOR = null;
+        this.aOS = null;
+        this.LM = com.baidu.adp.lib.g.b.hH().inflate(context, com.baidu.tieba.w.dialog_good, null);
+        this.aOR = (GoodGridView) this.LM.findViewById(com.baidu.tieba.v.good_gridview);
+        this.aOS = (ImageView) this.LM.findViewById(com.baidu.tieba.v.divider_line);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        String str2;
-        str = this.aIQ.aIJ;
-        if (!TextUtils.isEmpty(str)) {
-            MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aIQ.mContext;
-            Activity pageActivity = tbPageContext.getPageActivity();
-            tbPageContext2 = this.aIQ.mContext;
-            String string = tbPageContext2.getString(com.baidu.tieba.z.frs_badge_intro);
-            str2 = this.aIQ.aIJ;
-            messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str2, true, true, false, false, false)));
-        }
+    public void a(aw awVar) {
+        this.aOR.setAdapter((ListAdapter) awVar);
+    }
+
+    public void b(AdapterView.OnItemClickListener onItemClickListener) {
+        this.aOR.setOnItemClickListener(onItemClickListener);
+    }
+
+    public View getView() {
+        return this.LM;
+    }
+
+    public void changeSkinType(int i) {
+        ba.j(this.aOR, com.baidu.tieba.s.cp_bg_line_d);
+        ba.i(this.aOS, com.baidu.tieba.s.frs_goodheader_line_end);
     }
 }

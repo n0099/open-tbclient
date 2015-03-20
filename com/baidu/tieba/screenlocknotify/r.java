@@ -1,17 +1,16 @@
 package com.baidu.tieba.screenlocknotify;
-
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class r {
-    final /* synthetic */ o bOo;
-    TextView bOp;
-
-    private r(o oVar) {
-        this.bOo = oVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(o oVar, r rVar) {
-        this(oVar);
-    }
+public class r {
+    public long Uw;
+    public int bYQ;
+    public String bYR;
+    public long bYS;
+    public boolean bYT;
+    public String content;
+    public int customGroupType;
+    public String groupId;
+    public String groupName;
+    public boolean isAcceptNotify;
+    public int msgType;
+    public String userName;
 }

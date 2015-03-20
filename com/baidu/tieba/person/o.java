@@ -1,20 +1,19 @@
 package com.baidu.tieba.person;
+
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-class o implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ g bHb;
+class o implements Runnable {
+    final /* synthetic */ n bPg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(g gVar) {
-        this.bHb = gVar;
+    public o(n nVar) {
+        this.bPg = nVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
-    public void onListPullRefresh(boolean z) {
-        PersonBarActivity aaG;
-        aaG = this.bHb.aaG();
-        if (aaG != null) {
-            this.bHb.bGT = 1;
-            this.bHb.Jq();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        EditHeadActivity editHeadActivity;
+        editHeadActivity = this.bPg.this$0;
+        editHeadActivity.hU(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

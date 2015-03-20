@@ -1,63 +1,47 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.ad;
+import android.view.animation.Animation;
+import java.lang.ref.WeakReference;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    protected ad AO;
-    protected NewErrorData Cy = null;
+public class h implements Animation.AnimationListener {
+    final /* synthetic */ BaseFragmentActivity Oh;
+    private final /* synthetic */ Animation.AnimationListener val$listener;
+    private final /* synthetic */ WeakReference val$reference;
 
-    public h() {
-        this.AO = null;
-        this.AO = new ad();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
+        this.Oh = baseFragmentActivity;
+        this.val$listener = animationListener;
+        this.val$reference = weakReference;
     }
 
-    public void cancel() {
-        if (this.AO != null) {
-            this.AO.dJ();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationStart(animation);
         }
     }
 
-    protected void setUrl(String str) {
-        this.AO.setUrl(str);
-    }
-
-    public void o(String str, String str2) {
-        this.AO.o(str, str2);
-    }
-
-    protected String lS() {
-        String or = this.AO.or();
-        this.Cy = new NewErrorData();
-        this.Cy.parserJson(or);
-        return or;
-    }
-
-    public boolean lT() {
-        if (this.AO != null) {
-            return this.AO.oS().qa().lT();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationRepeat(animation);
         }
-        return false;
     }
 
-    public String lU() {
-        if (this.AO != null) {
-            return this.AO.getErrorString();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        List list;
+        List list2;
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationEnd(animation);
         }
-        return null;
-    }
-
-    public int getErrorCode() {
-        if (this.Cy != null) {
-            return this.Cy.getErrorNumber();
+        list = this.Oh.animationList;
+        synchronized (list) {
+            list2 = this.Oh.animationList;
+            list2.remove(this.val$reference);
         }
-        return -1;
-    }
-
-    public String getErrorMsg() {
-        if (this.Cy != null) {
-            return this.Cy.getErrorMsg();
-        }
-        return null;
     }
 }

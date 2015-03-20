@@ -1,32 +1,32 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.tieba.im.model.ValidateModel;
+import android.view.View;
+import com.baidu.tieba.im.data.ValidateItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.g<Integer> {
-    final /* synthetic */ ValidateActivity bpP;
+public class f implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ ValidateActivity bnG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ValidateActivity validateActivity) {
-        this.bpP = validateActivity;
+        this.bnG = validateActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: b */
-    public void onReturnDataInUI(Integer num) {
-        int i;
-        int i2;
-        int i3;
-        com.baidu.tieba.im.g gVar;
-        this.bpP.totalCount = num.intValue();
-        i = this.bpP.totalCount;
-        if (i > 0) {
-            this.bpP.aez = true;
-            i2 = this.bpP.bpN;
-            i3 = this.bpP.offset;
-            gVar = this.bpP.getDataCallBack;
-            ValidateModel.requestValidateDataFromDB(i2, i3, gVar);
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        p pVar;
+        ValidateItemData validateItemData;
+        eVar.dismiss();
+        switch (i) {
+            case 0:
+                pVar = this.bnG.bnA;
+                pVar.setLoadProgressBarVisable(true);
+                ValidateActivity validateActivity = this.bnG;
+                validateItemData = this.bnG.bnC;
+                validateActivity.e(validateItemData);
+                return;
+            default:
+                return;
         }
     }
 }

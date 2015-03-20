@@ -6,15 +6,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    View Ta;
-    TextView amN;
-    TextView amO;
-    ImageView amP;
-    Button amQ;
-    final /* synthetic */ m amR;
+    View acX;
+    TextView auD;
+    TextView auE;
+    ImageView auF;
+    Button auG;
+    final /* synthetic */ m auH;
 
     private n(m mVar) {
-        this.amR = mVar;
+        this.auH = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

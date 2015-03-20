@@ -2,17 +2,17 @@ package com.baidu.tieba.myCollection;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class EditMarkStatic {
-    private static com.baidu.tbadk.mainTab.f aPh;
-    private static com.baidu.tbadk.mainTab.e byr;
+    private static com.baidu.tbadk.mainTab.e bDN;
     private static int msgCount = 0;
 
     static {
-        d dVar = new d(2007007);
-        dVar.setPriority(1);
-        MessageManager.getInstance().registerListener(dVar);
-        MessageManager.getInstance().registerListener(new f(2001124));
+        MessageManager.getInstance().registerListener(new d(2001124));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001274));
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001302, new e());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

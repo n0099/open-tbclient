@@ -51,7 +51,7 @@ public class BaseWebView extends WebView {
     public void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
+        com.baidu.tbadk.browser.f.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new e(this);
         setWebViewClient(this.mWebViewClient);
         setOnLongClickListener(new c(this));

@@ -7,9 +7,9 @@ import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
 public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
-    private k mSyncTask = null;
+    private h mSyncTask = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new j(this);
+    private Runnable mRunnable = new g(this);
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -25,7 +25,7 @@ public class SyncLoginService extends BdBaseService {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new k(this, null);
+        this.mSyncTask = new h(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 

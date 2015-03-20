@@ -1,54 +1,62 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.UserData;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aDT;
+class d implements AbsListView.OnScrollListener {
+    final /* synthetic */ FrsActivity aJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aDT = frsActivity;
+    public d(FrsActivity frsActivity) {
+        this.aJG = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Integer num;
-        com.baidu.tieba.tbadkCore.e eVar;
-        com.baidu.tieba.tbadkCore.e eVar2;
-        bp bpVar;
-        String str;
-        String str2;
-        bp bpVar2;
-        bp bpVar3;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            eVar = this.aDT.aDf;
-            if (eVar != null) {
-                eVar2 = this.aDT.aDf;
-                UserData userData = eVar2.getUserData();
-                if (userData != null) {
-                    userData.setIsMem(num.intValue());
-                    if (num.intValue() != 0) {
-                        bpVar = this.aDT.aCV;
-                        bpVar.setIsMem(num.intValue());
-                        str = this.aDT.mPageType;
-                        if ("frs_page".equals(str)) {
-                            bpVar3 = this.aDT.aCV;
-                            bpVar3.Hc();
-                            return;
-                        }
-                        str2 = this.aDT.mPageType;
-                        if ("normal_page".equals(str2)) {
-                            bpVar2 = this.aDT.aCV;
-                            bpVar2.Hb();
-                        }
-                    }
-                }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        com.baidu.tieba.frs.c.a aVar;
+        boolean z;
+        bf bfVar;
+        bf bfVar2;
+        bf bfVar3;
+        bf bfVar4;
+        com.baidu.adp.widget.ListView.ak akVar;
+        bf bfVar5;
+        com.baidu.tieba.frs.c.a aVar2;
+        aVar = this.aJG.aJl;
+        if (aVar != null) {
+            aVar2 = this.aJG.aJl;
+            aVar2.setScrollState(i);
+        }
+        if (i == 2 || i == 1) {
+            z = this.aJG.aJe;
+            if (!z) {
+                this.aJG.aJe = true;
+                bfVar = this.aJG.aIS;
+                bfVar.Km();
             }
         }
+        if (this.aJG.aJf == null) {
+            this.aJG.aJf = new com.baidu.tbadk.performanceLog.h();
+            this.aJG.aJf.eb(1000);
+            this.aJG.aJf.apk = this.aJG.aJi;
+        }
+        if (i == 0) {
+            bfVar4 = this.aJG.aIS;
+            akVar = this.aJG.aJC;
+            bfVar4.a(akVar);
+            bfVar5 = this.aJG.aIS;
+            bfVar5.bV(false);
+            this.aJG.Jm = false;
+        } else {
+            bfVar2 = this.aJG.aIS;
+            bfVar2.a((com.baidu.adp.widget.ListView.ak) null);
+            bfVar3 = this.aJG.aIS;
+            bfVar3.bV(true);
+            this.aJG.Jm = true;
+        }
+        this.aJG.aJf.Cn();
     }
 }

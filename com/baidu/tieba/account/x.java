@@ -1,37 +1,51 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-class x implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity aoa;
+class x implements TextWatcher {
+    final /* synthetic */ ActivationActivity avm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(Register2Activity register2Activity) {
-        this.aoa = register2Activity;
+    public x(ActivationActivity activationActivity) {
+        this.avm = activationActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.aoa.anH;
-        if (view == editText) {
-            imageView = this.aoa.anz;
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        RelativeLayout relativeLayout;
+        int i;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        int i2;
+        int i3;
+        RelativeLayout relativeLayout2;
+        if (editable.length() == 6) {
+            relativeLayout2 = this.avm.auY;
+            relativeLayout2.setEnabled(true);
         } else {
-            editText2 = this.aoa.anJ;
-            if (view == editText2) {
-                imageView = this.aoa.anA;
-            }
+            relativeLayout = this.avm.auY;
+            relativeLayout.setEnabled(false);
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
+        i = this.avm.avj;
+        if (i != 0) {
+            this.avm.avj = 0;
+            linearLayout = this.avm.auS;
+            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
+            linearLayout2 = this.avm.auS;
+            i2 = this.avm.avh;
+            i3 = this.avm.avi;
+            linearLayout2.setPadding(i2, 0, i3, 0);
         }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

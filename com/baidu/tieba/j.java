@@ -1,24 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class j implements d {
-    final /* synthetic */ LogoActivity alh;
+class j implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity atC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(LogoActivity logoActivity) {
-        this.alh = logoActivity;
+        this.atC = logoActivity;
     }
 
-    @Override // com.baidu.tieba.d
-    public void A(Object obj) {
-        if (obj != null) {
-            this.alh.eg(com.baidu.adp.lib.g.c.toInt(String.valueOf(obj), 0));
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.atC.att = true;
+        z = this.atC.atu;
+        if (!z) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.alh.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
-        this.alh.finish();
+        this.atC.al(this.atC.getBaseContext());
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

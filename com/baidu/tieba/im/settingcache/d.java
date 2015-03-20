@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.settingcache;
 /* loaded from: classes.dex */
 class d extends com.baidu.tieba.im.h<Boolean> {
-    private final /* synthetic */ String bje;
-    private final /* synthetic */ String boO;
-    final /* synthetic */ c boZ;
-    private final /* synthetic */ long bpa;
+    private final /* synthetic */ String bkm;
+    private final /* synthetic */ String bmM;
+    final /* synthetic */ c bmX;
+    private final /* synthetic */ long bmY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, long j) {
-        this.boZ = cVar;
-        this.boO = str;
-        this.bje = str2;
-        this.bpa = j;
+        this.bmX = cVar;
+        this.bmM = str;
+        this.bkm = str2;
+        this.bmY = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        GroupSettingItemData aG = this.boZ.aG(this.boO, this.bje);
-        if (aG != null && aG.isAlreadyApply()) {
-            if (System.currentTimeMillis() - aG.getLastApplyTimeStamp() <= this.bpa) {
+        GroupSettingItemData aE = this.bmX.aE(this.bmM, this.bkm);
+        if (aE != null && aE.isAlreadyApply()) {
+            if (System.currentTimeMillis() - aE.getLastApplyTimeStamp() <= this.bmY) {
                 return false;
             }
         }

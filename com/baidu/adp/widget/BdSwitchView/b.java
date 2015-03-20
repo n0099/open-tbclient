@@ -1,18 +1,8 @@
 package com.baidu.adp.widget.BdSwitchView;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ BdSwitchView um;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(BdSwitchView bdSwitchView) {
-        this.um = bdSwitchView;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.um.L(true);
-    }
+public interface b {
+    void a(View view, BdSwitchView.SwitchState switchState);
 }

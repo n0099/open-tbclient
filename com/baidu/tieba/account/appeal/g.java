@@ -3,43 +3,43 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.bd;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<String, Object, AppealData> {
-    private String aoo;
-    private String aop;
-    private String aoq;
-    private String aor;
-    private WeakReference<h> aos;
+    private String awq;
+    private String awr;
+    private String aws;
+    private String awt;
+    private WeakReference<h> awu;
 
     public g(String str, String str2, String str3, String str4, h hVar) {
-        this.aoo = str;
-        this.aop = str2;
-        this.aoq = str3;
-        this.aor = str4;
-        this.aos = new WeakReference<>(hVar);
+        this.awq = str;
+        this.awr = str2;
+        this.aws = str3;
+        this.awt = str4;
+        this.awu = new WeakReference<>(hVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: r */
+    /* renamed from: n */
     public AppealData doInBackground(String... strArr) {
         String str;
-        str = f.aon;
-        ad adVar = new ad(str);
-        adVar.o("forum_id", this.aoo);
-        adVar.o("user_id", this.aop);
-        adVar.o("user_name", this.aoq);
-        adVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aor);
-        String or = adVar.or();
-        if (adVar.oS().qa().lT()) {
+        str = f.awp;
+        aa aaVar = new aa(str);
+        aaVar.o("forum_id", this.awq);
+        aaVar.o("user_id", this.awr);
+        aaVar.o("user_name", this.aws);
+        aaVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.awt);
+        String rO = aaVar.rO();
+        if (aaVar.sp().tq().pv()) {
             try {
-                return (AppealData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(or, AppealData.class);
+                return (AppealData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(rO, AppealData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 AppealData appealData = new AppealData();
@@ -48,8 +48,8 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
             }
         }
         AppealData appealData2 = new AppealData();
-        appealData2.errNo = adVar.oW();
-        appealData2.errMsg = adVar.getErrorString();
+        appealData2.errNo = aaVar.st();
+        appealData2.errMsg = aaVar.getErrorString();
         return appealData2;
     }
 
@@ -59,9 +59,9 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
     /* renamed from: c */
     public void onPostExecute(AppealData appealData) {
         super.onPostExecute(appealData);
-        h hVar = this.aos.get();
+        h hVar = this.awu.get();
         if (hVar != null) {
-            if (appealData.errNo == 0 && bf.isEmpty(appealData.errMsg)) {
+            if (appealData.errNo == 0 && bd.isEmpty(appealData.errMsg)) {
                 hVar.a(appealData);
             } else {
                 hVar.b(appealData);

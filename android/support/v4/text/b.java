@@ -1,34 +1,34 @@
 package android.support.v4.text;
 /* loaded from: classes.dex */
 class b {
-    private static final byte[] bj = new byte[1792];
-    private final boolean bk;
-    private int bl;
-    private char bm;
+    private static final byte[] mn = new byte[1792];
     private final int length;
+    private final boolean mo;
+    private int mp;
+    private char mq;
     private final String text;
 
     static {
         for (int i = 0; i < 1792; i++) {
-            bj[i] = Character.getDirectionality(i);
+            mn[i] = Character.getDirectionality(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str, boolean z) {
         this.text = str;
-        this.bk = z;
+        this.mo = z;
         this.length = str.length();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int X() {
-        this.bl = 0;
+    public int dv() {
+        this.mp = 0;
         int i = 0;
         int i2 = 0;
         int i3 = 0;
-        while (this.bl < this.length && i == 0) {
-            switch (Z()) {
+        while (this.mp < this.length && i == 0) {
+            switch (dx()) {
                 case 0:
                     if (i3 != 0) {
                         i = i3;
@@ -81,8 +81,8 @@ class b {
         if (i2 != 0) {
             return i2;
         }
-        while (this.bl > 0) {
-            switch (aa()) {
+        while (this.mp > 0) {
+            switch (dy()) {
                 case 14:
                 case 15:
                     if (i != i3) {
@@ -108,12 +108,12 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int Y() {
-        this.bl = this.length;
+    public int dw() {
+        this.mp = this.length;
         int i = 0;
         int i2 = 0;
-        while (this.bl > 0) {
-            switch (aa()) {
+        while (this.mp > 0) {
+            switch (dy()) {
                 case 0:
                     if (i2 != 0) {
                         if (i != 0) {
@@ -181,118 +181,118 @@ class b {
     }
 
     private static byte a(char c) {
-        return c < 1792 ? bj[c] : Character.getDirectionality(c);
+        return c < 1792 ? mn[c] : Character.getDirectionality(c);
     }
 
-    byte Z() {
-        this.bm = this.text.charAt(this.bl);
-        if (Character.isHighSurrogate(this.bm)) {
-            int codePointAt = Character.codePointAt(this.text, this.bl);
-            this.bl += Character.charCount(codePointAt);
+    byte dx() {
+        this.mq = this.text.charAt(this.mp);
+        if (Character.isHighSurrogate(this.mq)) {
+            int codePointAt = Character.codePointAt(this.text, this.mp);
+            this.mp += Character.charCount(codePointAt);
             return Character.getDirectionality(codePointAt);
         }
-        this.bl++;
-        byte a = a(this.bm);
-        if (this.bk) {
-            if (this.bm == '<') {
-                return ab();
+        this.mp++;
+        byte a = a(this.mq);
+        if (this.mo) {
+            if (this.mq == '<') {
+                return dz();
             }
-            if (this.bm == '&') {
-                return ad();
+            if (this.mq == '&') {
+                return dB();
             }
             return a;
         }
         return a;
     }
 
-    byte aa() {
-        this.bm = this.text.charAt(this.bl - 1);
-        if (Character.isLowSurrogate(this.bm)) {
-            int codePointBefore = Character.codePointBefore(this.text, this.bl);
-            this.bl -= Character.charCount(codePointBefore);
+    byte dy() {
+        this.mq = this.text.charAt(this.mp - 1);
+        if (Character.isLowSurrogate(this.mq)) {
+            int codePointBefore = Character.codePointBefore(this.text, this.mp);
+            this.mp -= Character.charCount(codePointBefore);
             return Character.getDirectionality(codePointBefore);
         }
-        this.bl--;
-        byte a = a(this.bm);
-        if (this.bk) {
-            if (this.bm == '>') {
-                return ac();
+        this.mp--;
+        byte a = a(this.mq);
+        if (this.mo) {
+            if (this.mq == '>') {
+                return dA();
             }
-            if (this.bm == ';') {
-                return ae();
+            if (this.mq == ';') {
+                return dC();
             }
             return a;
         }
         return a;
     }
 
-    private byte ab() {
-        int i = this.bl;
-        while (this.bl < this.length) {
+    private byte dz() {
+        int i = this.mp;
+        while (this.mp < this.length) {
             String str = this.text;
-            int i2 = this.bl;
-            this.bl = i2 + 1;
-            this.bm = str.charAt(i2);
-            if (this.bm == '>') {
+            int i2 = this.mp;
+            this.mp = i2 + 1;
+            this.mq = str.charAt(i2);
+            if (this.mq == '>') {
                 return (byte) 12;
             }
-            if (this.bm == '\"' || this.bm == '\'') {
-                char c = this.bm;
-                while (this.bl < this.length) {
+            if (this.mq == '\"' || this.mq == '\'') {
+                char c = this.mq;
+                while (this.mp < this.length) {
                     String str2 = this.text;
-                    int i3 = this.bl;
-                    this.bl = i3 + 1;
+                    int i3 = this.mp;
+                    this.mp = i3 + 1;
                     char charAt = str2.charAt(i3);
-                    this.bm = charAt;
+                    this.mq = charAt;
                     if (charAt == c) {
                         break;
                     }
                 }
             }
         }
-        this.bl = i;
-        this.bm = '<';
+        this.mp = i;
+        this.mq = '<';
         return (byte) 13;
     }
 
-    private byte ac() {
-        int i = this.bl;
-        while (this.bl > 0) {
+    private byte dA() {
+        int i = this.mp;
+        while (this.mp > 0) {
             String str = this.text;
-            int i2 = this.bl - 1;
-            this.bl = i2;
-            this.bm = str.charAt(i2);
-            if (this.bm == '<') {
+            int i2 = this.mp - 1;
+            this.mp = i2;
+            this.mq = str.charAt(i2);
+            if (this.mq == '<') {
                 return (byte) 12;
             }
-            if (this.bm == '>') {
+            if (this.mq == '>') {
                 break;
-            } else if (this.bm == '\"' || this.bm == '\'') {
-                char c = this.bm;
-                while (this.bl > 0) {
+            } else if (this.mq == '\"' || this.mq == '\'') {
+                char c = this.mq;
+                while (this.mp > 0) {
                     String str2 = this.text;
-                    int i3 = this.bl - 1;
-                    this.bl = i3;
+                    int i3 = this.mp - 1;
+                    this.mp = i3;
                     char charAt = str2.charAt(i3);
-                    this.bm = charAt;
+                    this.mq = charAt;
                     if (charAt == c) {
                         break;
                     }
                 }
             }
         }
-        this.bl = i;
-        this.bm = '>';
+        this.mp = i;
+        this.mq = '>';
         return (byte) 13;
     }
 
-    private byte ad() {
-        while (this.bl < this.length) {
+    private byte dB() {
+        while (this.mp < this.length) {
             String str = this.text;
-            int i = this.bl;
-            this.bl = i + 1;
+            int i = this.mp;
+            this.mp = i + 1;
             char charAt = str.charAt(i);
-            this.bm = charAt;
+            this.mq = charAt;
             if (charAt == ';') {
                 return (byte) 12;
             }
@@ -300,22 +300,22 @@ class b {
         return (byte) 12;
     }
 
-    private byte ae() {
-        int i = this.bl;
-        while (this.bl > 0) {
+    private byte dC() {
+        int i = this.mp;
+        while (this.mp > 0) {
             String str = this.text;
-            int i2 = this.bl - 1;
-            this.bl = i2;
-            this.bm = str.charAt(i2);
-            if (this.bm == '&') {
+            int i2 = this.mp - 1;
+            this.mp = i2;
+            this.mq = str.charAt(i2);
+            if (this.mq == '&') {
                 return (byte) 12;
             }
-            if (this.bm == ';') {
+            if (this.mq == ';') {
                 break;
             }
         }
-        this.bl = i;
-        this.bm = ';';
+        this.mp = i;
+        this.mq = ';';
         return (byte) 13;
     }
 }

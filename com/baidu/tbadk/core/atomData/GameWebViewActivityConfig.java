@@ -8,5 +8,6 @@ public class GameWebViewActivityConfig extends TbWebViewActivityConfig {
     public GameWebViewActivityConfig(Context context, String str, String str2, String str3, boolean z) {
         super(context, str, str2, z);
         getIntent().putExtra(TAG_GAME_ID, str3);
+        getIntent().putExtra(WebViewActivityConfig.TAG_NAV_BAR, false);
     }
 }

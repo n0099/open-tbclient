@@ -1,31 +1,24 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.ViewTreeObserver;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ BaseFragmentActivity Cx;
+public class e extends CustomMessageListener {
+    final /* synthetic */ BaseFragmentActivity Oh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(BaseFragmentActivity baseFragmentActivity) {
-        this.Cx = baseFragmentActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(BaseFragmentActivity baseFragmentActivity, int i) {
+        super(i);
+        this.Oh = baseFragmentActivity;
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        Rect rect = new Rect();
-        this.Cx.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int height = this.Cx.getWindow().getDecorView().getRootView().getHeight();
-        int i = height - (rect.bottom - rect.top);
-        Context applicationContext = this.Cx.getApplicationContext();
-        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (identifier > 0) {
-            i -= applicationContext.getResources().getDimensionPixelSize(identifier);
-        }
-        if (TbadkCoreApplication.m255getInst().isKeyboardHeightCanSet(i) && i < (height * 2) / 3 && TbadkCoreApplication.m255getInst().getKeyboardHeight() != i) {
-            TbadkCoreApplication.m255getInst().setKeyboardHeight(i);
-            this.Cx.onKeyboardHeightChanged(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001311 && (customResponsedMessage.getData() instanceof Integer)) {
+            this.Oh.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }
 }

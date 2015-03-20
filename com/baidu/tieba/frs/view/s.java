@@ -1,37 +1,23 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ o aIY;
+class s implements View.OnClickListener {
+    private final /* synthetic */ PopupWindow aOV;
+    final /* synthetic */ o aOZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar) {
-        this.aIY = oVar;
+    public s(o oVar, PopupWindow popupWindow) {
+        this.aOZ = oVar;
+        this.aOV = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        String str2;
-        str = this.aIY.aIJ;
-        if (!TextUtils.isEmpty(str)) {
-            MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aIY.mContext;
-            Activity pageActivity = tbPageContext.getPageActivity();
-            tbPageContext2 = this.aIY.mContext;
-            String string = tbPageContext2.getString(com.baidu.tieba.z.frs_badge_intro);
-            str2 = this.aIY.aIJ;
-            messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str2, true, true, false, false, false)));
-        }
+        this.aOV.dismiss();
+        com.baidu.tbadk.browser.f.a(this.aOZ.LN.getPageActivity(), this.aOZ.LN.getResources().getString(y.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
     }
 }

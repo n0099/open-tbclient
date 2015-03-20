@@ -1,282 +1,105 @@
 package com.baidu.adp.lib.util;
 
-import android.os.Environment;
-import android.os.StatFs;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import android.support.v4.media.TransportMediator;
+import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class d {
-    private static String mI = "baidu";
-    public static final File mJ = Environment.getExternalStorageDirectory();
+public class d extends FilterOutputStream {
+    private byte[] buffer;
+    private int position;
+    private boolean xZ;
+    private int ya;
+    private int yb;
+    private boolean yc;
+    private byte[] yd;
+    private boolean ye;
+    private int yf;
+    private byte[] yg;
 
-    public static boolean bL() {
-        return Environment.getExternalStorageState().equals("mounted");
+    public d(OutputStream outputStream, int i) {
+        super(outputStream);
+        byte[] ad;
+        this.yc = (i & 8) != 0;
+        this.xZ = (i & 1) != 0;
+        this.ya = this.xZ ? 3 : 4;
+        this.buffer = new byte[this.ya];
+        this.position = 0;
+        this.yb = 0;
+        this.ye = false;
+        this.yd = new byte[4];
+        this.yf = i;
+        ad = c.ad(i);
+        this.yg = ad;
     }
 
-    public static int eT() {
-        String externalStorageState = Environment.getExternalStorageState();
-        if (externalStorageState.equals("mounted")) {
-            return 0;
-        }
-        if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable") || externalStorageState.equals("removed")) {
-            return 1;
-        }
-        if (externalStorageState.equals("shared")) {
-            return 2;
-        }
-        return 3;
-    }
-
-    public static String as(String str) {
-        if (str != null) {
-            return mJ + "/" + mI + "/" + str + "/";
-        }
-        return mJ + "/" + mI + "/";
-    }
-
-    public static String s(String str, String str2) {
-        if (str != null) {
-            return mJ + "/" + mI + "/" + str + "/" + str2;
-        }
-        return mJ + "/" + mI + "/" + str2;
-    }
-
-    public static boolean eU() {
-        try {
-            StatFs statFs = new StatFs(mJ.getPath());
-            return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static String at(String str) {
-        return s(null, str);
-    }
-
-    public static boolean au(String str) {
-        String as = as(str);
-        if (bL()) {
-            File file = new File(as);
-            return file.exists() || file.mkdirs();
-        }
-        return false;
-    }
-
-    private static String av(String str) {
-        int lastIndexOf = str.lastIndexOf("/");
-        if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
-            return null;
-        }
-        return str.substring(0, lastIndexOf);
-    }
-
-    public static boolean t(String str, String str2) {
-        File file = new File(av(s(str, str2)));
-        if (!file.exists()) {
-            try {
-                if (!file.mkdirs()) {
-                    return false;
+    @Override // java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) {
+        int a;
+        byte[] a2;
+        if (this.ye) {
+            this.out.write(i);
+        } else if (this.xZ) {
+            byte[] bArr = this.buffer;
+            int i2 = this.position;
+            this.position = i2 + 1;
+            bArr[i2] = (byte) i;
+            if (this.position >= this.ya) {
+                OutputStream outputStream = this.out;
+                a2 = c.a(this.yd, this.buffer, this.ya, this.yf);
+                outputStream.write(a2);
+                this.yb += 4;
+                if (this.yc && this.yb >= 76) {
+                    this.out.write(10);
+                    this.yb = 0;
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                this.position = 0;
             }
-        }
-        return true;
-    }
-
-    public static File u(String str, String str2) {
-        if (au(str)) {
-            try {
-                return new File(s(str, str2));
-            } catch (SecurityException e) {
-                BdLog.e(e.getMessage());
-                return null;
+        } else if (this.yg[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
+            byte[] bArr2 = this.buffer;
+            int i3 = this.position;
+            this.position = i3 + 1;
+            bArr2[i3] = (byte) i;
+            if (this.position >= this.ya) {
+                a = c.a(this.buffer, 0, this.yd, 0, this.yf);
+                this.out.write(this.yd, 0, a);
+                this.position = 0;
             }
+        } else if (this.yg[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
+            throw new IOException("Invalid character in Base64 data.");
         }
-        return null;
     }
 
-    public static File x(String str, String str2) {
-        if (au(str)) {
-            try {
-                if (t(str, str2)) {
-                    File u = u(str, str2);
-                    if (!u.exists() || u.delete()) {
-                        if (u.createNewFile()) {
-                            return u;
-                        }
-                        return null;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+    @Override // java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) {
+        if (this.ye) {
+            this.out.write(bArr, i, i2);
+            return;
+        }
+        for (int i3 = 0; i3 < i2; i3++) {
+            write(bArr[i + i3]);
+        }
+    }
+
+    public void is() {
+        byte[] a;
+        if (this.position > 0) {
+            if (this.xZ) {
+                OutputStream outputStream = this.out;
+                a = c.a(this.yd, this.buffer, this.position, this.yf);
+                outputStream.write(a);
+                this.position = 0;
+                return;
             }
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [448=5, 449=5, 451=5, 452=5] */
-    public static boolean d(String str, String str2, byte[] bArr) {
-        FileOutputStream fileOutputStream = null;
-        if (!au(str) || !t(str, str2)) {
-            return false;
-        }
-        File u = u(str, str2);
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                if (u.exists() && !u.delete()) {
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream2.close();
-                            return false;
-                        } catch (Exception e) {
-                            BdLog.e(e.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                } else if (!u.createNewFile()) {
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream2.close();
-                            return false;
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                } else {
-                    FileOutputStream fileOutputStream3 = new FileOutputStream(u);
-                    try {
-                        fileOutputStream3.write(bArr, 0, bArr.length);
-                        fileOutputStream3.flush();
-                        fileOutputStream3.close();
-                        FileOutputStream fileOutputStream4 = null;
-                        if (0 != 0) {
-                            try {
-                                fileOutputStream4.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        }
-                        return true;
-                    } catch (IOException e4) {
-                        e = e4;
-                        fileOutputStream = fileOutputStream3;
-                        BdLog.e(e.getMessage());
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                                return false;
-                            } catch (Exception e5) {
-                                BdLog.e(e5.getMessage());
-                                return false;
-                            }
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream3;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (Exception e6) {
-                                BdLog.e(e6.getMessage());
-                            }
-                        }
-                        throw th;
-                    }
-                }
-            } catch (IOException e7) {
-                e = e7;
-            }
-        } catch (Throwable th2) {
-            th = th2;
+            throw new IOException("Base64 input not properly padded.");
         }
     }
 
-    public static boolean d(String str, byte[] bArr) {
-        return d(null, str, bArr);
-    }
-
-    public static byte[] y(String str, String str2) {
-        byte[] bArr = null;
-        if (au(str)) {
-            File u = u(str, str2);
-            try {
-                if (u.exists()) {
-                    FileInputStream fileInputStream = new FileInputStream(u);
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    byte[] bArr2 = new byte[1024];
-                    while (true) {
-                        int read = fileInputStream.read(bArr2, 0, 1024);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr2, 0, read);
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    bArr = byteArrayOutputStream.toByteArray();
-                    return bArr;
-                }
-                return null;
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-                return bArr;
-            }
-        }
-        return null;
-    }
-
-    public static byte[] aw(String str) {
-        return y(null, str);
-    }
-
-    public static boolean z(String str, String str2) {
-        if (au(str)) {
-            File u = u(str, str2);
-            try {
-                if (u.exists()) {
-                    return u.delete();
-                }
-                return false;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static boolean ax(String str) {
-        return z(null, str);
-    }
-
-    public static void c(OutputStream outputStream) {
-        outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
-    }
-
-    public static void ay(String str) {
-        try {
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        is();
+        super.close();
+        this.buffer = null;
+        this.out = null;
     }
 }

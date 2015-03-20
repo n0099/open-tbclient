@@ -1,239 +1,305 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.plugin.install.PluginInstallerService;
+import android.os.Environment;
+import android.os.StatFs;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class f {
-    private static f mK = null;
+    private static String yk = "baidu";
+    public static final File yl = Environment.getExternalStorageDirectory();
 
-    public static f eV() {
-        f fVar;
-        if (mK == null) {
-            synchronized (f.class) {
-                if (mK == null) {
-                    mK = new f();
-                }
-                fVar = mK;
-            }
-            return fVar;
-        }
-        return mK;
+    public static boolean fj() {
+        return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public boolean a(String str, int i, h hVar) {
-        boolean z;
-        StringBuilder sb = new StringBuilder();
-        if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-            z = false;
-        } else {
-            boolean z2 = false;
-            for (int i2 = 0; i2 < i; i2++) {
-                z2 = a(str, sb);
-                if (z2) {
-                    break;
-                }
-            }
-            if (z2) {
-                z = z2;
-            } else {
-                String aA = aA(str);
-                File file = new File(aA);
-                if (file.exists()) {
-                    if (file.length() > 0) {
-                        boolean b = b(aA, sb);
-                        if (b) {
-                            sb.append("-Succ2-");
-                            z = b;
-                        } else {
-                            sb.append("-Error7-");
-                            z = b;
-                        }
-                    } else {
-                        sb.append("-Error6:soSize1-");
-                        z = z2;
-                    }
-                } else {
-                    g gVar = new g(this, str, aA, sb, hVar);
-                    gVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
-                    gVar.execute(new Object[0]);
+    public static int iv() {
+        String externalStorageState = Environment.getExternalStorageState();
+        if (externalStorageState.equals("mounted")) {
+            return 0;
+        }
+        if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable") || externalStorageState.equals("removed")) {
+            return 1;
+        }
+        if (externalStorageState.equals("shared")) {
+            return 2;
+        }
+        return 3;
+    }
+
+    public static String az(String str) {
+        if (str != null) {
+            return yl + "/" + yk + "/" + str + "/";
+        }
+        return yl + "/" + yk + "/";
+    }
+
+    public static String s(String str, String str2) {
+        if (str != null) {
+            return yl + "/" + yk + "/" + str + "/" + str2;
+        }
+        return yl + "/" + yk + "/" + str2;
+    }
+
+    public static boolean iw() {
+        try {
+            StatFs statFs = new StatFs(yl.getPath());
+            return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static String aA(String str) {
+        return s(null, str);
+    }
+
+    public static boolean aB(String str) {
+        String az = az(str);
+        if (fj()) {
+            File file = new File(az);
+            return file.exists() || file.mkdirs();
+        }
+        return false;
+    }
+
+    private static String aC(String str) {
+        int lastIndexOf = str.lastIndexOf("/");
+        if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
+            return null;
+        }
+        return str.substring(0, lastIndexOf);
+    }
+
+    public static boolean t(String str, String str2) {
+        File file = new File(aC(s(str, str2)));
+        if (!file.exists()) {
+            try {
+                if (!file.mkdirs()) {
                     return false;
                 }
-            }
-            if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.f.eq().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, sb.toString(), new Object[0]);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
-        return z;
+        return true;
     }
 
-    private boolean a(String str, StringBuilder sb) {
-        boolean b = b(az(str), sb);
-        if (!b) {
+    public static File u(String str, String str2) {
+        if (aB(str)) {
             try {
-                System.loadLibrary(str);
-                sb.append("-Succ3-");
-                return true;
-            } catch (Throwable th) {
-                sb.append("-Error3:");
-                sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-                sb.append("-");
-                return b;
+                return new File(s(str, str2));
+            } catch (SecurityException e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-        return b;
+        return null;
     }
 
-    private boolean b(String str, StringBuilder sb) {
-        if (!new File(str).exists()) {
-            sb.append("-Error1:");
-            sb.append(str);
-            sb.append("_FileNotFound-");
-            return false;
-        }
-        try {
-            System.load(str);
-            return true;
-        } catch (Throwable th) {
-            sb.append("-Error2:");
-            sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-            sb.append("-");
-            return false;
-        }
-    }
-
-    private String az(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
-    }
-
-    private String aA(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [220=4] */
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, String str2, StringBuilder sb) {
-        ZipInputStream zipInputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ZipInputStream zipInputStream2 = null;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        zipInputStream2 = null;
-        zipInputStream2 = null;
-        boolean z = false;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("lib" + File.separator + "x86" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                try {
-                    zipInputStream = new ZipInputStream(new FileInputStream(file));
-                } catch (IOException e) {
-                    e = e;
+    public static File x(String str, String str2) {
+        if (aB(str)) {
+            try {
+                if (t(str, str2)) {
+                    File u = u(str, str2);
+                    if (!u.exists() || u.delete()) {
+                        if (u.createNewFile()) {
+                            return u;
+                        }
+                        return null;
+                    }
+                    return null;
                 }
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            break;
-                        } else if (arrayList.contains(nextEntry.getName())) {
-                            try {
-                                byteArrayOutputStream = new ByteArrayOutputStream();
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        byteArrayOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e2) {
-                                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
-                                    } catch (Throwable th) {
-                                        byteArrayOutputStream2 = byteArrayOutputStream;
-                                        th = th;
-                                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream2);
-                                        throw th;
-                                    }
-                                }
-                                byteArrayOutputStream.flush();
-                                String aA = aA(str2);
-                                a(aA, byteArrayOutputStream.toByteArray(), sb);
-                                if (b(aA, sb)) {
-                                    sb.append("-Succ5-");
-                                    z = true;
-                                    com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
-                                    break;
-                                }
-                                com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
-                            } catch (Exception e3) {
-                                byteArrayOutputStream = null;
-                            } catch (Throwable th2) {
-                                th = th2;
-                            }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static File y(String str, String str2) {
+        if (aB(str)) {
+            try {
+                File u = u(str, str2);
+                if (u.exists()) {
+                    return u;
+                }
+                if (u.createNewFile()) {
+                    return u;
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static File aD(String str) {
+        return y(null, str);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [448=5, 449=5, 451=5, 452=5] */
+    public static boolean d(String str, String str2, byte[] bArr) {
+        FileOutputStream fileOutputStream = null;
+        if (!aB(str) || !t(str, str2)) {
+            return false;
+        }
+        File u = u(str, str2);
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            try {
+                if (u.exists() && !u.delete()) {
+                    if (0 != 0) {
+                        try {
+                            fileOutputStream2.close();
+                            return false;
+                        } catch (Exception e) {
+                            BdLog.e(e.getMessage());
+                            return false;
                         }
                     }
-                    com.baidu.adp.lib.g.a.d(zipInputStream);
-                } catch (IOException e4) {
-                    e = e4;
-                    zipInputStream2 = zipInputStream;
-                    sb.append("-Error5:");
-                    sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("-");
-                    com.baidu.adp.lib.g.a.d(zipInputStream2);
-                    return z;
-                } catch (Throwable th3) {
-                    th = th3;
-                    zipInputStream2 = zipInputStream;
-                    com.baidu.adp.lib.g.a.d(zipInputStream2);
-                    throw th;
+                    return false;
+                } else if (!u.createNewFile()) {
+                    if (0 != 0) {
+                        try {
+                            fileOutputStream2.close();
+                            return false;
+                        } catch (Exception e2) {
+                            BdLog.e(e2.getMessage());
+                            return false;
+                        }
+                    }
+                    return false;
+                } else {
+                    FileOutputStream fileOutputStream3 = new FileOutputStream(u);
+                    try {
+                        fileOutputStream3.write(bArr, 0, bArr.length);
+                        fileOutputStream3.flush();
+                        fileOutputStream3.close();
+                        FileOutputStream fileOutputStream4 = null;
+                        if (0 != 0) {
+                            try {
+                                fileOutputStream4.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        }
+                        return true;
+                    } catch (IOException e4) {
+                        e = e4;
+                        fileOutputStream = fileOutputStream3;
+                        BdLog.e(e.getMessage());
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                                return false;
+                            } catch (Exception e5) {
+                                BdLog.e(e5.getMessage());
+                                return false;
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = fileOutputStream3;
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e6) {
+                                BdLog.e(e6.getMessage());
+                            }
+                        }
+                        throw th;
+                    }
                 }
+            } catch (IOException e7) {
+                e = e7;
             }
-            return z;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, byte[] bArr, StringBuilder sb) {
-        FileOutputStream fileOutputStream;
-        try {
-            fileOutputStream = new FileOutputStream(new File(str));
+    public static boolean d(String str, byte[] bArr) {
+        return d(null, str, bArr);
+    }
+
+    public static byte[] z(String str, String str2) {
+        byte[] bArr = null;
+        if (aB(str)) {
+            File u = u(str, str2);
             try {
-                try {
-                    fileOutputStream.write(bArr);
-                    com.baidu.adp.lib.g.a.b(fileOutputStream);
-                } catch (Exception e) {
-                    e = e;
-                    sb.append("-Error4:");
-                    sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("-");
-                    com.baidu.adp.lib.g.a.b(fileOutputStream);
+                if (u.exists()) {
+                    FileInputStream fileInputStream = new FileInputStream(u);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                    byte[] bArr2 = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream.read(bArr2, 0, 1024);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr2, 0, read);
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    bArr = byteArrayOutputStream.toByteArray();
+                    return bArr;
                 }
-            } catch (Throwable th) {
-                th = th;
-                com.baidu.adp.lib.g.a.b(fileOutputStream);
-                throw th;
+                return null;
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+                return bArr;
             }
-        } catch (Exception e2) {
-            e = e2;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            com.baidu.adp.lib.g.a.b(fileOutputStream);
-            throw th;
+        }
+        return null;
+    }
+
+    public static byte[] aE(String str) {
+        return z(null, str);
+    }
+
+    public static boolean A(String str, String str2) {
+        if (aB(str)) {
+            File u = u(str, str2);
+            try {
+                if (u.exists()) {
+                    return u.delete();
+                }
+                return false;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aF(String str) {
+        return A(null, str);
+    }
+
+    public static void c(OutputStream outputStream) {
+        outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
+    }
+
+    public static void aG(String str) {
+        try {
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

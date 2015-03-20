@@ -4,11 +4,12 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView aub;
+    private static ImageView aBM;
+    private static Boolean aBN = false;
 
     static {
         n nVar = new n(2007002);
@@ -20,26 +21,30 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d wp() {
+    public com.baidu.tbadk.mainTab.d zK() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.acw = new a();
+        dVar.alV = new a();
         dVar.type = 6;
-        dVar.acx = com.baidu.tieba.z.discover;
-        dVar.acm = v.icon_tabbar_discover;
+        dVar.alW = y.discover;
+        dVar.alM = com.baidu.tieba.u.icon_tabbar_discover;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator W(Context context) {
-        this.acj = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
-        aub = new ImageView(context);
+    public FragmentTabIndicator af(Context context) {
+        this.alJ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
+        aBM = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.acv = this.acj;
-        cVar.jO = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        cVar.view = aub;
-        cVar.acs = v.icon_news_down_bar_one;
-        aub.setVisibility(8);
-        this.acj.a("emotion", cVar);
-        return this.acj;
+        cVar.alU = this.alJ;
+        cVar.vf = com.baidu.adp.lib.util.n.dip2px(context, 3.0f);
+        cVar.view = aBM;
+        cVar.alS = com.baidu.tieba.u.icon_news_down_bar_one;
+        if (aBN.booleanValue()) {
+            aBM.setVisibility(0);
+        } else {
+            aBM.setVisibility(8);
+        }
+        this.alJ.a("emotion", cVar);
+        return this.alJ;
     }
 }

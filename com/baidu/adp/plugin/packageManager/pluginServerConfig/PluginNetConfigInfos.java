@@ -18,6 +18,7 @@ public class PluginNetConfigInfos extends i implements Serializable {
         public int download_type;
         public int is_force_update;
         public String md5;
+        public String newest_ext;
         public int size;
         public String url;
         public String version;
@@ -29,11 +30,13 @@ public class PluginNetConfigInfos extends i implements Serializable {
         private static final long serialVersionUID = -5184076118455114028L;
         public String display_name;
         public int enable;
+        public String ext;
         public int forbidden;
         public String forbidden_features;
         public String icon;
         public Newest newest;
         public String package_name;
+        public int priority = 1000;
         public String verbose;
         public int version_code;
     }

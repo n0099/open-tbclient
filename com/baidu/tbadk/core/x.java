@@ -7,11 +7,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    final /* synthetic */ TbadkCoreApplication CO;
+    final /* synthetic */ TbadkCoreApplication Ox;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(TbadkCoreApplication tbadkCoreApplication) {
-        this.CO = tbadkCoreApplication;
+        this.Ox = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -19,7 +19,7 @@ public class x implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.
         HashMap hashMap;
         if (customMessage != null && customMessage.getData() != null) {
             com.baidu.tbadk.core.frameworkData.a data = customMessage.getData();
-            hashMap = this.CO.mActicyConfig;
+            hashMap = this.Ox.mActicyConfig;
             Class<?> cls = (Class) hashMap.get(data.getClass());
             if (cls != null) {
                 data.getIntent().setClass(customMessage.getData().getContext(), cls);

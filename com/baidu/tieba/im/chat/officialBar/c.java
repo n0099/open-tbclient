@@ -1,90 +1,35 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends LinearLayout {
-    private TbImageView aTQ;
-    private int aTR;
-    private String aTS;
-    private Context mContext;
-    private com.baidu.adp.lib.c.b mItemViewLongClickListener;
-    private int mPosition;
-    private TextView mTitle;
+public class c implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ MultiContentView aYw;
 
-    public c(Context context) {
-        this(context, null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(MultiContentView multiContentView) {
+        this.aYw = multiContentView;
     }
 
-    public c(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mItemViewLongClickListener = null;
-        this.mContext = context;
-        initView();
-        setOnLongClickListener(new d(this));
-    }
-
-    private void initView() {
-        setOrientation(0);
-        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_bottom_view, this, true);
-        this.aTQ = (TbImageView) findViewById(com.baidu.tieba.w.bottom_content_pic);
-        this.aTQ.setAutoChangeStyle(false);
-        this.mTitle = (TextView) findViewById(com.baidu.tieba.w.bottom_title);
-    }
-
-    public void a(TbPageContext<?> tbPageContext, p pVar, View view, int i) {
-        if (pVar != null) {
-            String str = "";
-            if (!TextUtils.isEmpty(pVar.title)) {
-                str = pVar.title;
-            }
-            this.mTitle.setText(str);
-            if (!TextUtils.isEmpty(pVar.url)) {
-                setOnClickListener(new e(this, tbPageContext, pVar, i));
-            }
-            if (!TextUtils.isEmpty(pVar.src)) {
-                this.aTQ.setTag(pVar.src);
-                this.aTQ.d(pVar.src, 10, false);
-            }
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        com.baidu.adp.lib.e.b bVar3;
+        if (view2 instanceof g) {
+            bVar3 = this.aYw.aYr;
+            bVar3.j((g) view2);
+        } else if (view2 instanceof d) {
+            bVar2 = this.aYw.aYs;
+            bVar2.j((d) view2);
+        } else if (view2 instanceof av) {
+            bVar = this.aYw.aYt;
+            bVar.j((av) view2);
         }
     }
 
-    public void reset() {
-        this.mTitle.setText("");
-        this.aTQ.setBackgroundDrawable(null);
-        this.aTQ.setImageDrawable(null);
-    }
-
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.mItemViewLongClickListener = bVar;
-    }
-
-    public void setPosition(int i) {
-        this.mPosition = i;
-    }
-
-    public void setStPosition(int i) {
-        this.aTR = i;
-    }
-
-    public void setTaskInfo(String str) {
-        this.aTS = str;
-    }
-
-    public void cy(boolean z) {
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType == 1 && !z) {
-            skinType = 0;
-        }
-        this.aTQ.setAutoChangeStyle(z);
-        bc.a(this.mTitle, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

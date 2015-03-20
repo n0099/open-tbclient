@@ -28,6 +28,7 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_PERSON_NEW = 12;
     public static final int CLASS_TYPE_PK_AFTER = 7;
     public static final int CLASS_TYPE_PK_BEFORE = 6;
+    public static final int CLASS_TYPE_RECOMMEND_PB = 28;
     public static final int CLASS_TYPE_SIGN = 9;
     public static final int CLASS_TYPE_SINGLESQUARE_ACTIVITY = 19;
     public static final int CLASS_TYPE_SQUARESEARCH_ACTIVITY = 18;

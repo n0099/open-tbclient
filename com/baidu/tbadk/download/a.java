@@ -9,9 +9,9 @@ public class a implements f {
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.uV().f(downloadData);
+                b.yl().f(downloadData);
             }
-            b.uV().e(downloadData);
+            b.yl().e(downloadData);
         }
     }
 
@@ -35,12 +35,12 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.download.f
     public void d(DownloadData downloadData) {
-        NotificationHelper.cancelNotification(TbadkCoreApplication.m255getInst().getApp(), downloadData.getNotifyId());
-        UtilHelper.install_apk(TbadkCoreApplication.m255getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+        NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId());
+        UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
     }
 
     @Override // com.baidu.tbadk.download.f
     public void a(DownloadData downloadData, int i, String str) {
-        b.uV().g(downloadData);
+        b.yl().g(downloadData);
     }
 }

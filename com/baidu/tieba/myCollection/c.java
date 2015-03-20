@@ -1,24 +1,16 @@
 package com.baidu.tieba.myCollection;
 
-import android.content.DialogInterface;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-class c implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditMarkActivity byq;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(EditMarkActivity editMarkActivity) {
-        this.byq = editMarkActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        g gVar;
-        com.baidu.tbadk.baseEditMark.a aVar;
-        com.baidu.tbadk.baseEditMark.a aVar2;
-        gVar = this.byq.byn;
-        aVar = this.byq.bym;
-        gVar.gW(aVar.getOffset());
-        aVar2 = this.byq.bym;
-        aVar2.c((Boolean) true);
+class c implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), EditMarkActivity.class);
+            customMessage.getData().startActivity();
+        }
+        return null;
     }
 }

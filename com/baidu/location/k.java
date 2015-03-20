@@ -1,416 +1,411 @@
 package com.baidu.location;
 
-import android.location.Location;
-import com.baidu.location.c;
-import com.baidu.location.e;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import android.os.Bundle;
+import android.os.DeadObjectException;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
+import android.util.Log;
+import com.baidu.location.LocationClientOption;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
+public class k implements a0, n {
+    private static k bx = null;
+    private ArrayList bw;
+    private boolean by = false;
+    private boolean bv = false;
 
-    /* renamed from: else  reason: not valid java name */
-    private static String f215else = f.v;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a {
 
-    /* renamed from: void  reason: not valid java name */
-    private static ArrayList f223void = new ArrayList();
+        /* renamed from: for  reason: not valid java name */
+        public Messenger f97for;
 
-    /* renamed from: try  reason: not valid java name */
-    private static ArrayList f222try = new ArrayList();
-    private static ArrayList f = new ArrayList();
-    private static String h = f.aa + "/yo.dat";
-    private static File c = null;
+        /* renamed from: int  reason: not valid java name */
+        public String f99int;
 
-    /* renamed from: char  reason: not valid java name */
-    private static int f213char = 1024;
+        /* renamed from: do  reason: not valid java name */
+        public LocationClientOption f96do = new LocationClientOption();
 
-    /* renamed from: if  reason: not valid java name */
-    private static int f218if = 512;
-    private static int i = 32;
+        /* renamed from: if  reason: not valid java name */
+        public int f98if = 0;
 
-    /* renamed from: case  reason: not valid java name */
-    private static int f212case = 5;
-    private static int j = 1024;
-    private static int g = 256;
-    private static double e = 0.0d;
-    private static double a = 0.1d;
-
-    /* renamed from: long  reason: not valid java name */
-    private static double f220long = 30.0d;
-    private static double d = 100.0d;
-
-    /* renamed from: new  reason: not valid java name */
-    private static int f221new = 0;
-    private static int b = 64;
-
-    /* renamed from: int  reason: not valid java name */
-    private static int f219int = 128;
-
-    /* renamed from: goto  reason: not valid java name */
-    private static Location f217goto = null;
-
-    /* renamed from: byte  reason: not valid java name */
-    private static Location f211byte = null;
-
-    /* renamed from: do  reason: not valid java name */
-    private static Location f214do = null;
-
-    /* renamed from: for  reason: not valid java name */
-    private static e.c f216for = null;
-
-    k() {
-    }
-
-    private static int a(int i2, int i3, int i4, long j2) {
-        if (i2 < 0 || i2 > 256 || i3 > 2048 || i4 > 1024 || j2 > 5242880) {
-            return -1;
-        }
-        j.a(f215else, "upload manager start to init cache ...");
-        try {
-            if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
-                    File file = new File(f.aa);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    if (!c.createNewFile()) {
-                        j.a(f215else, "upload manager create file error...");
-                        c = null;
-                        return -2;
-                    }
-                    j.a(f215else, "upload manager create file success");
+        public a(Message message) {
+            this.f99int = null;
+            this.f97for = null;
+            this.f97for = message.replyTo;
+            this.f99int = message.getData().getString("packName");
+            this.f96do.f22if = message.getData().getString("prodName");
+            a2.cC().m80try(this.f96do.f22if, this.f99int);
+            this.f96do.f18do = message.getData().getString("coorType");
+            this.f96do.f19else = message.getData().getString("addrType");
+            c.aF = this.f96do.f19else;
+            this.f96do.f20for = message.getData().getBoolean("openGPS");
+            this.f96do.f23int = message.getData().getInt("scanSpan");
+            this.f96do.d = message.getData().getInt("timeOut");
+            this.f96do.h = message.getData().getInt("priority");
+            this.f96do.f21goto = message.getData().getBoolean("location_change_notify");
+            this.f96do.g = message.getData().getBoolean("needDirect");
+            if (this.f96do.g) {
+                ah.bG().m152try(this.f96do.g);
+                ah.bG().bH();
+            }
+            if (this.f96do.f23int > 1000) {
+                h.m291for().m293int();
+            }
+            if (this.f96do.getLocationMode() == LocationClientOption.LocationMode.Hight_Accuracy) {
+                if (!au.cc().cf()) {
+                    Log.w(a0.i, "use hight accuracy mode does not use open wifi");
                 }
-            }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-            randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(i4);
-            randomAccessFile.writeInt(i3);
-            randomAccessFile.writeLong(j2);
-            randomAccessFile.close();
-            j.a(f215else, "cache inited ...");
-            return 0;
-        } catch (Exception e2) {
-            return -3;
-        }
-    }
-
-    private static int a(List list, int i2) {
-        if (list == null || i2 > 256 || i2 < 0) {
-            return -1;
-        }
-        try {
-            if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
-                    j.a(f215else, "upload man readfile does not exist...");
-                    c = null;
-                    return -2;
-                }
-            }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-            if (randomAccessFile.length() < 1) {
-                randomAccessFile.close();
-                return -3;
-            }
-            randomAccessFile.seek(i2);
-            int readInt = randomAccessFile.readInt();
-            int readInt2 = randomAccessFile.readInt();
-            int readInt3 = randomAccessFile.readInt();
-            int readInt4 = randomAccessFile.readInt();
-            long readLong = randomAccessFile.readLong();
-            if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
-                randomAccessFile.close();
-                return -4;
-            }
-            byte[] bArr = new byte[j];
-            int i3 = readInt2;
-            int i4 = i;
-            while (i4 > 0 && i3 > 0) {
-                randomAccessFile.seek(((((readInt + i3) - 1) % readInt3) * readInt4) + readLong);
-                int readInt5 = randomAccessFile.readInt();
-                if (readInt5 > 0 && readInt5 < readInt4) {
-                    randomAccessFile.read(bArr, 0, readInt5);
-                    if (bArr[readInt5 - 1] == 0) {
-                        list.add(new String(bArr, 0, readInt5 - 1));
-                    }
-                }
-                i4--;
-                i3--;
-            }
-            randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(readInt);
-            randomAccessFile.writeInt(i3);
-            randomAccessFile.writeInt(readInt3);
-            randomAccessFile.writeInt(readInt4);
-            randomAccessFile.writeLong(readLong);
-            randomAccessFile.close();
-            return i - i4;
-        } catch (Exception e2) {
-            return -5;
-        }
-    }
-
-    public static String a() {
-        String str = null;
-        if (f223void == null || f223void.size() < 1) {
-            a(f223void, f221new);
-        }
-        if (f223void != null && f223void.size() >= 1) {
-            str = (String) f223void.get(0);
-            f223void.remove(0);
-            j.a(f215else, "upload manager get upload data from q1 ...");
-        }
-        if (str == null) {
-            if (f222try == null || f222try.size() < 1) {
-                a(f222try, b);
-            }
-            if (f222try != null && f222try.size() >= 1) {
-                str = (String) f222try.get(0);
-                f222try.remove(0);
-                j.a(f215else, "upload manager get upload data from q2 ...");
-            }
-        }
-        if (str == null) {
-            if (f == null || f.size() < 1) {
-                a(f, f219int);
-            }
-            if (f != null && f.size() >= 1) {
-                str = (String) f.get(0);
-                f.remove(0);
-                j.a(f215else, "upload manager get upload data from q3 ...");
-            }
-        }
-        j.a(f215else, "upload manager get upload data : " + str);
-        return str;
-    }
-
-    public static void a(double d2, double d3, double d4, double d5) {
-        if (d2 <= 0.0d) {
-            d2 = e;
-        }
-        e = d2;
-        a = d3;
-        if (d4 <= 20.0d) {
-            d4 = f220long;
-        }
-        f220long = d4;
-        d = d5;
-    }
-
-    public static void a(c.a aVar, e.c cVar, Location location, String str) {
-        String a2;
-        j.a(f215else, "upload manager insert2UploadQueue...");
-        if (j.f203long != 3 || a(location, cVar) || a(location, false)) {
-            if (aVar != null && aVar.m117do()) {
-                if (!a(location, cVar)) {
-                    cVar = null;
-                }
-                String a3 = j.a(aVar, cVar, location, str, 1);
-                if (a3 != null) {
-                    m253if(Jni.m6if(a3));
-                    f211byte = location;
-                    f217goto = location;
-                    if (cVar != null) {
-                        f216for = cVar;
-                    }
-                }
-            } else if (cVar != null && cVar.m142if() && a(location, cVar)) {
-                String a4 = j.a(a(location) ? aVar : null, cVar, location, str, 2);
-                if (a4 != null) {
-                    String m6if = Jni.m6if(a4);
-                    j.a(f215else, "upload size:" + m6if.length());
-                    a(m6if);
-                    f214do = location;
-                    f217goto = location;
-                    if (cVar != null) {
-                        f216for = cVar;
-                    }
-                }
-            } else {
-                if (!a(location)) {
-                    aVar = null;
-                }
-                e.c cVar2 = a(location, cVar) ? cVar : null;
-                if ((aVar == null && cVar2 == null) || (a2 = j.a(aVar, cVar2, location, str, 3)) == null) {
+                if (z.bc().a9()) {
                     return;
                 }
-                m250do(Jni.m6if(a2));
-                f217goto = location;
-                if (cVar2 != null) {
-                    f216for = cVar2;
+                Log.w(a0.i, "use hight accuracy mode does not use open gps");
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void a(int i) {
+            Message obtain = Message.obtain((Handler) null, i);
+            try {
+                if (this.f97for != null) {
+                    this.f97for.send(obtain);
+                }
+                this.f98if = 0;
+            } catch (Exception e) {
+                if (e instanceof DeadObjectException) {
+                    this.f98if++;
                 }
             }
         }
-    }
 
-    public static void a(c.a aVar, e.c cVar, String str, double d2, double d3, String str2) {
-        String str3 = String.format("&manll=%.5f|%.5f&manaddr=%s", Double.valueOf(d2), Double.valueOf(d3), str2) + j.a(aVar, cVar, null, str, 1);
-        if (str3 != null) {
-            m253if(Jni.m6if(str3));
+        private void a(int i, String str, BDLocation bDLocation) {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(str, bDLocation);
+            Message obtain = Message.obtain((Handler) null, i);
+            obtain.setData(bundle);
+            try {
+                if (this.f97for != null) {
+                    this.f97for.send(obtain);
+                }
+                this.f98if = 0;
+            } catch (Exception e) {
+                if (e instanceof DeadObjectException) {
+                    this.f98if++;
+                }
+            }
+        }
+
+        public void a() {
+            a(23);
+        }
+
+        public void a(BDLocation bDLocation) {
+            a(bDLocation, 21);
+        }
+
+        public void a(BDLocation bDLocation, int i) {
+            BDLocation bDLocation2 = new BDLocation(bDLocation);
+            bDLocation2.internalSet(0, a2.cC().jj);
+            if (bDLocation2 == null) {
+                return;
+            }
+            if (i == 21) {
+                a(27, "locStr", bDLocation2);
+            }
+            if (this.f96do.f18do != null && !this.f96do.f18do.equals(BDGeofence.COORD_TYPE_GCJ)) {
+                double longitude = bDLocation2.getLongitude();
+                double latitude = bDLocation2.getLatitude();
+                if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
+                    double[] m20if = Jni.m20if(longitude, latitude, this.f96do.f18do);
+                    bDLocation2.setLongitude(m20if[0]);
+                    bDLocation2.setLatitude(m20if[1]);
+                }
+            }
+            a(i, "locStr", bDLocation2);
+        }
+
+        /* renamed from: if  reason: not valid java name */
+        public void m306if() {
+            if (this.f96do.f21goto) {
+                if (c.a5) {
+                    a(54);
+                } else {
+                    a(55);
+                }
+            }
+        }
+
+        /* renamed from: if  reason: not valid java name */
+        public void m307if(BDLocation bDLocation) {
+            if (!this.f96do.f21goto || ag.bz().bA()) {
+                return;
+            }
+            a(bDLocation);
+            an.a().a((String) null);
+            an.a().m184if(an.a().f52new);
         }
     }
 
-    private static void a(String str) {
-        if (f222try == null) {
+    private k() {
+        this.bw = null;
+        this.bw = new ArrayList();
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    private a m295if(Messenger messenger) {
+        if (this.bw == null) {
+            return null;
+        }
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            a aVar = (a) it.next();
+            if (aVar.f97for.equals(messenger)) {
+                return aVar;
+            }
+        }
+        return null;
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    private void m296if(a aVar) {
+        if (aVar == null) {
             return;
         }
-        j.a(f215else, "insert2WifiQueue...");
-        if (f222try.size() <= i) {
-            f222try.add(str);
-        }
-        if (f222try.size() < i || m251if(f222try, b) >= -1) {
+        if (m295if(aVar.f97for) != null) {
+            aVar.a(14);
             return;
         }
-        a(b, j, f218if, g + (j * f218if));
-        m251if(f222try, b);
+        this.bw.add(aVar);
+        aVar.a(13);
     }
 
-    private static boolean a(int i2, int i3, int i4, int i5, long j2) {
-        return i2 >= 0 && i2 < i4 && i3 >= 0 && i3 <= i4 && i4 >= 0 && i4 <= 1024 && i5 >= 128 && i5 <= 1024;
+    private void k() {
+        m();
+        n();
     }
 
-    private static boolean a(Location location) {
-        if (location == null) {
-            return false;
+    private void m() {
+        Iterator it = this.bw.iterator();
+        boolean z = false;
+        boolean z2 = false;
+        while (it.hasNext()) {
+            a aVar = (a) it.next();
+            if (aVar.f96do.f20for) {
+                z2 = true;
+            }
+            z = aVar.f96do.f21goto ? true : z;
         }
-        if (f211byte == null || f217goto == null) {
-            f211byte = location;
-            return true;
+        c.aL = z;
+        if (this.by != z2) {
+            this.by = z2;
+            z.bc().m409int(this.by);
         }
-        double distanceTo = location.distanceTo(f211byte);
-        return ((double) location.distanceTo(f217goto)) > ((distanceTo * ((double) j.P)) + ((((double) j.S) * distanceTo) * distanceTo)) + ((double) j.N);
     }
 
-    private static boolean a(Location location, e.c cVar) {
-        if (location == null || cVar == null || cVar.f126do == null || cVar.f126do.isEmpty() || cVar.m139do(f216for)) {
-            return false;
+    public static k q() {
+        if (bx == null) {
+            bx = new k();
         }
-        if (f214do == null) {
-            f214do = location;
-            return true;
-        }
-        return true;
+        return bx;
     }
 
-    public static boolean a(Location location, boolean z) {
-        return b.a(f217goto, location, z);
+    /* renamed from: byte  reason: not valid java name */
+    public void m297byte(String str) {
+        BDLocation bDLocation = new BDLocation(str);
+        an.a().f52new = str;
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            ((a) it.next()).m307if(bDLocation);
+        }
     }
 
     /* renamed from: do  reason: not valid java name */
-    private static void m250do(String str) {
-        if (f == null) {
+    public void m298do(Message message) {
+        a m295if = m295if(message.replyTo);
+        if (m295if != null) {
+            this.bw.remove(m295if);
+        }
+        ah.bG().bF();
+        h.m291for().m292do();
+        k();
+    }
+
+    /* renamed from: do  reason: not valid java name */
+    public void m299do(BDLocation bDLocation) {
+        ArrayList arrayList = new ArrayList();
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            a aVar = (a) it.next();
+            aVar.a(bDLocation);
+            if (aVar.f98if > 4) {
+                arrayList.add(aVar);
+            }
+        }
+        if (arrayList == null || arrayList.size() <= 0) {
             return;
         }
-        j.a(f215else, "insert2GpsQueue...");
-        if (f.size() <= i) {
-            f.add(str);
+        Iterator it2 = arrayList.iterator();
+        while (it2.hasNext()) {
+            this.bw.remove((a) it2.next());
         }
-        if (f.size() < i || m251if(f, f219int) >= -1) {
-            return;
+    }
+
+    /* renamed from: for  reason: not valid java name */
+    public int m300for(Message message) {
+        a m295if;
+        if (message == null || message.replyTo == null || (m295if = m295if(message.replyTo)) == null || m295if.f96do == null) {
+            return 1;
         }
-        a(f219int, j, f213char, g + (j * f218if * 2));
-        m251if(f, f219int);
+        return m295if.f96do.h;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m251if(List list, int i2) {
-        int i3;
-        int i4;
-        int i5 = 0;
-        if (list == null || list.size() < 1 || i2 > 256 || i2 < 0) {
-            return -1;
+    public String m301if(Message message) {
+        a m295if;
+        if (message == null || message.replyTo == null || (m295if = m295if(message.replyTo)) == null) {
+            return null;
         }
-        try {
-            if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
-                    j.a(f215else, "upload man write file does not exist...");
-                    c = null;
-                    return -2;
+        m295if.f96do.f24long = message.getData().getInt("num", m295if.f96do.f24long);
+        m295if.f96do.c = message.getData().getFloat("distance", m295if.f96do.c);
+        m295if.f96do.e = message.getData().getBoolean("extraInfo", m295if.f96do.e);
+        m295if.f96do.f25new = true;
+        String format = String.format(Locale.CHINA, "&poi=%.1f|%d", Float.valueOf(m295if.f96do.c), Integer.valueOf(m295if.f96do.f24long));
+        return m295if.f96do.e ? format + "|1" : format;
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    public void m302if(BDLocation bDLocation, int i) {
+        ArrayList arrayList = new ArrayList();
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            a aVar = (a) it.next();
+            aVar.a(bDLocation, i);
+            if (aVar.f98if > 4) {
+                arrayList.add(aVar);
+            }
+        }
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
+        }
+        Iterator it2 = arrayList.iterator();
+        while (it2.hasNext()) {
+            this.bw.remove((a) it2.next());
+        }
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    public void m303if(BDLocation bDLocation, Message message) {
+        a m295if;
+        if (bDLocation == null || message == null || (m295if = m295if(message.replyTo)) == null) {
+            return;
+        }
+        m295if.a(bDLocation);
+        if (m295if.f98if > 4) {
+            this.bw.remove(m295if);
+        }
+    }
+
+    /* renamed from: int  reason: not valid java name */
+    public boolean m304int(Message message) {
+        boolean z = false;
+        a m295if = m295if(message.replyTo);
+        if (m295if != null) {
+            int i = m295if.f96do.f23int;
+            m295if.f96do.f23int = message.getData().getInt("scanSpan", m295if.f96do.f23int);
+            if (m295if.f96do.f23int < 1000) {
+                h.m291for().a();
+                ah.bG().bF();
+                z.bc().a8();
+            } else {
+                h.m291for().mo251if();
+            }
+            if (m295if.f96do.f23int > 999 && i < 1000) {
+                z = true;
+                if (m295if.f96do.g) {
+                    ah.bG().m152try(m295if.f96do.g);
+                    ah.bG().bH();
                 }
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-            if (randomAccessFile.length() < 1) {
-                randomAccessFile.close();
-                return -3;
+            m295if.f96do.f20for = message.getData().getBoolean("openGPS", m295if.f96do.f20for);
+            String string = message.getData().getString("coorType");
+            LocationClientOption locationClientOption = m295if.f96do;
+            if (string == null || string.equals("")) {
+                string = m295if.f96do.f18do;
             }
-            randomAccessFile.seek(i2);
-            int readInt = randomAccessFile.readInt();
-            int readInt2 = randomAccessFile.readInt();
-            int readInt3 = randomAccessFile.readInt();
-            int readInt4 = randomAccessFile.readInt();
-            long readLong = randomAccessFile.readLong();
-            if (!a(readInt, readInt2, readInt3, readInt4, readLong)) {
-                randomAccessFile.close();
-                return -4;
+            locationClientOption.f18do = string;
+            String string2 = message.getData().getString("addrType");
+            LocationClientOption locationClientOption2 = m295if.f96do;
+            if (string2 == null || string2.equals("")) {
+                string2 = m295if.f96do.f19else;
             }
-            for (int size = list.size(); size > f212case; size--) {
-                randomAccessFile.seek(((((readInt + readInt2) + i5) % readInt3) * readInt4) + readLong);
-                byte[] bytes = (((String) list.get(0)) + (char) 0).getBytes();
-                randomAccessFile.writeInt(bytes.length);
-                randomAccessFile.write(bytes, 0, bytes.length);
-                list.remove(0);
-                i5++;
+            locationClientOption2.f19else = string2;
+            if (!c.aF.equals(m295if.f96do.f19else)) {
+                ak.aF().aG();
             }
-            int i6 = readInt2 + i5;
-            if (i6 > readInt3) {
-                i3 = (readInt + (i6 - readInt3)) % readInt3;
-                i4 = readInt3;
-            } else {
-                i3 = readInt;
-                i4 = i6;
-            }
-            randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(i3);
-            randomAccessFile.writeInt(i4);
-            randomAccessFile.writeInt(readInt3);
-            randomAccessFile.writeInt(readInt4);
-            randomAccessFile.writeLong(readLong);
-            randomAccessFile.close();
-            return i5;
-        } catch (IOException e2) {
-            return -5;
+            c.aF = m295if.f96do.f19else;
+            m295if.f96do.d = message.getData().getInt("timeOut", m295if.f96do.d);
+            m295if.f96do.f21goto = message.getData().getBoolean("location_change_notify", m295if.f96do.f21goto);
+            m295if.f96do.h = message.getData().getInt("priority", m295if.f96do.h);
+            k();
+        }
+        return z;
+    }
+
+    public void j() {
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            ((a) it.next()).a();
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static void m252if() {
-        j.a(f215else, "upload manager flush...");
-        f212case = 0;
-        if (m251if(f223void, f221new) < -1) {
-            a(f221new, j, f218if, g);
-            m251if(f223void, f221new);
-        }
-        if (m251if(f222try, b) < -1) {
-            a(b, j, f218if, g + (j * f218if));
-            m251if(f222try, b);
-        }
-        if (m251if(f, f219int) < -1) {
-            a(f219int, j, f213char, g + (j * f218if * 2));
-            m251if(f, f219int);
-        }
-        f212case = 5;
+    public boolean l() {
+        return this.by;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    private static void m253if(String str) {
-        if (f223void == null) {
+    public void n() {
+        Iterator it = this.bw.iterator();
+        while (it.hasNext()) {
+            ((a) it.next()).m306if();
+        }
+    }
+
+    /* renamed from: new  reason: not valid java name */
+    public void m305new(Message message) {
+        if (message == null || message.replyTo == null) {
             return;
         }
-        j.a(f215else, "insert2CellQueue...");
-        if (f223void.size() <= i) {
-            f223void.add(str);
+        m296if(new a(message));
+        k();
+    }
+
+    public void o() {
+        this.bw.clear();
+        k();
+    }
+
+    public String p() {
+        StringBuffer stringBuffer = new StringBuffer(256);
+        if (this.bw.isEmpty()) {
+            return "&prod=" + a2.jg + ":" + a2.jc;
         }
-        if (f223void.size() < i || m251if(f223void, f221new) >= -1) {
-            return;
+        a aVar = (a) this.bw.get(0);
+        if (aVar.f96do.f22if != null) {
+            stringBuffer.append(aVar.f96do.f22if);
         }
-        a(f221new, j, f218if, g);
-        m251if(f223void, f221new);
+        if (aVar.f99int != null) {
+            stringBuffer.append(":");
+            stringBuffer.append(aVar.f99int);
+            stringBuffer.append("|");
+        }
+        String stringBuffer2 = stringBuffer.toString();
+        if (stringBuffer2 == null || stringBuffer2.equals("")) {
+            return null;
+        }
+        return "&prod=" + stringBuffer2;
     }
 }

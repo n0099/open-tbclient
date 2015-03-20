@@ -1,16 +1,37 @@
 package com.baidu.tbadk.core.util;
 
-import android.widget.Toast;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-class l implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        Toast toast2;
-        toast = k.nt;
-        if (toast != null) {
-            toast2 = k.nt;
-            toast2.cancel();
+class l {
+    private static byte rA = Byte.MIN_VALUE;
+    boolean rC = false;
+    long rD = 0;
+
+    public static int fL() {
+        return 13;
+    }
+
+    public byte[] toByteArray() {
+        ByteBuffer allocate = ByteBuffer.allocate(fL());
+        allocate.putInt(1786600510);
+        allocate.put(this.rC ? (byte) (0 | rA) : (byte) 0);
+        allocate.putLong(this.rD);
+        allocate.flip();
+        return allocate.array();
+    }
+
+    public boolean l(byte[] bArr) {
+        if (bArr == null || bArr.length < fL()) {
+            return false;
         }
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fL());
+        if (wrap.getInt() == 1786600510) {
+            if ((wrap.get() & rA) != 0) {
+                this.rC = true;
+            }
+            this.rD = wrap.getLong();
+            return true;
+        }
+        return false;
     }
 }

@@ -1,6 +1,12 @@
 package com.baidu.adp.lib.util;
-
-import java.util.Queue;
 /* loaded from: classes.dex */
-public interface u extends Queue {
+final class u<E> {
+    E item;
+    u<E> yY;
+    u<E> zb;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(E e) {
+        this.item = e;
+    }
 }

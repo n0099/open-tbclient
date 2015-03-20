@@ -1,22 +1,24 @@
 package com.baidu.tbadk.mvc.c.a;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.ac;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.ac;
+import com.baidu.tbadk.core.view.af;
 /* loaded from: classes.dex */
 public abstract class b extends e {
-    private com.baidu.adp.widget.ListView.h listPullRefreshListener;
-    private ac scrollToBottomListener;
+    private af listPullRefreshListener;
+    private y scrollToBottomListener;
 
-    public com.baidu.adp.widget.ListView.h setListPullRefreshListener(com.baidu.adp.widget.ListView.e eVar, com.baidu.tbadk.mvc.c.c cVar) {
-        if (eVar == null || cVar == null) {
+    public af setListPullRefreshListener(ac acVar, com.baidu.tbadk.mvc.c.c cVar) {
+        if (acVar == null || cVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.c.b dJ = cVar.dJ(16777217);
-        if (eVar.getView() != null) {
-            com.baidu.tbadk.mvc.h.a.a(dJ, eVar.getView());
+        com.baidu.tbadk.mvc.c.b dM = cVar.dM(16777217);
+        if (acVar.getView() != null) {
+            com.baidu.tbadk.mvc.h.a.a(dM, acVar.getView());
         }
         createListPullRefreshListener();
-        eVar.a(this.listPullRefreshListener);
+        acVar.a(this.listPullRefreshListener);
         return this.listPullRefreshListener;
     }
 
@@ -26,11 +28,11 @@ public abstract class b extends e {
         }
     }
 
-    public ac setScrollToBottomListener(BdListView bdListView, com.baidu.tbadk.mvc.c.c cVar) {
+    public y setScrollToBottomListener(BdListView bdListView, com.baidu.tbadk.mvc.c.c cVar) {
         if (cVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.h.a.a(cVar.dJ(16777218), bdListView);
+        com.baidu.tbadk.mvc.h.a.a(cVar.dM(16777218), bdListView);
         if (this.scrollToBottomListener == null) {
             this.scrollToBottomListener = new d(this);
         }

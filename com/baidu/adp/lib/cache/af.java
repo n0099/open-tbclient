@@ -10,9 +10,9 @@ public class af extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String G(String str) {
+    public String O(String str) {
         String str2 = "cache_kv_t" + Math.abs(str.hashCode());
-        this.hm.t("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.sH.D("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -21,7 +21,7 @@ public class af extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int cD() {
+    public int gb() {
         return 1;
     }
 
@@ -32,15 +32,15 @@ public class af extends c<String> {
         Throwable th;
         m<String> mVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.hn + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sI + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     mVar = new m<>();
-                    mVar.hy = cursor.getString(0);
-                    mVar.hA = cursor.getLong(1);
-                    mVar.hB = cursor.getLong(2);
-                    mVar.hC = cursor.getLong(3);
-                    mVar.gL = cursor.getString(4);
+                    mVar.sT = cursor.getString(0);
+                    mVar.sV = cursor.getLong(1);
+                    mVar.sW = cursor.getLong(2);
+                    mVar.sX = cursor.getLong(3);
+                    mVar.sf = cursor.getString(4);
                     com.baidu.adp.lib.g.a.b(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.b(cursor);
@@ -60,22 +60,22 @@ public class af extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(m<String> mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.hy);
-        contentValues.put("m_value", mVar.gL);
-        contentValues.put("saveTime", Long.valueOf(mVar.hA));
-        contentValues.put("lastHitTime", Long.valueOf(mVar.hB));
-        contentValues.put("timeToExpire", Long.valueOf(mVar.hC));
+        contentValues.put("m_key", mVar.sT);
+        contentValues.put("m_value", mVar.sf);
+        contentValues.put("saveTime", Long.valueOf(mVar.sV));
+        contentValues.put("lastHitTime", Long.valueOf(mVar.sW));
+        contentValues.put("timeToExpire", Long.valueOf(mVar.sX));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.hn, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.sI, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean I(String str) {
-        this.hm.t("DROP TABLE IF EXISTS " + this.hn);
+    protected boolean P(String str) {
+        this.sH.D("DROP TABLE IF EXISTS " + this.sI);
         return true;
     }
 }

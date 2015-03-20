@@ -246,4 +246,7 @@ public class MetaData extends i implements Serializable {
             }
         }
     }
+
+    public void logPrint() {
+    }
 }

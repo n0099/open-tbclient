@@ -1,23 +1,39 @@
 package com.baidu.tbadk.c;
 
-import android.content.Context;
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    private Context Xc;
-    private ArrayList<c> Xd;
+    protected View alx;
+    private boolean aly;
 
-    public ArrayList<c> uL() {
-        return this.Xd;
+    public a(View view) {
+        this.alx = view;
     }
 
-    public void a(c cVar) {
-        if (cVar != null) {
-            this.Xd.add(cVar);
+    public boolean zC() {
+        return this.aly;
+    }
+
+    public void b(View view, boolean z) {
+        if (view != null && this.alx != null && this.alx.getParent() == null) {
+            this.aly = true;
+            d.q(view).a(view, this.alx, z);
+            zD();
         }
     }
 
-    public Context getContext() {
-        return this.Xc;
+    public void p(View view) {
+        if (view != null && this.alx != null && this.alx.getParent() != null && (view instanceof ViewGroup)) {
+            zE();
+            ((ViewGroup) view).removeView(this.alx);
+            this.aly = false;
+        }
+    }
+
+    protected void zD() {
+    }
+
+    protected void zE() {
     }
 }

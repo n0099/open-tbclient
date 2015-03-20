@@ -3,20 +3,20 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class m extends x {
-    public static final BdUniqueId DV = BdUniqueId.gen();
-    private ArrayList<LiveCardData> DW;
+public class m extends w {
+    public static final BdUniqueId PK = BdUniqueId.gen();
+    private ArrayList<LiveCardData> PL;
 
-    public ArrayList<LiveCardData> mJ() {
-        return this.DW;
+    public ArrayList<LiveCardData> qd() {
+        return this.PL;
     }
 
-    public void o(ArrayList<LiveCardData> arrayList) {
-        this.DW = arrayList;
+    public void k(ArrayList<LiveCardData> arrayList) {
+        this.PL = arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.am
-    public BdUniqueId jl() {
-        return DV;
+    @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.ai
+    public BdUniqueId getType() {
+        return PK;
     }
 }

@@ -63,4 +63,7 @@ public class UploadedImageInfo implements Serializable {
             }
         }
     }
+
+    public void logPrint() {
+    }
 }

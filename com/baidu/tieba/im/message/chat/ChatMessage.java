@@ -1,7 +1,10 @@
 package com.baidu.tieba.im.message.chat;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.widget.ListView.ai;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -12,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a {
+public abstract class ChatMessage extends TbSocketMessage implements a, ai {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -43,6 +46,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
     private long userId;
     private UserData userInfo;
     private int width;
+    public static final BdUniqueId TYPE_MSG_LEFT = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_RIGHT = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_MID = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_TOPIC = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_CHAT_ROOM_RULE = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
 
     public ChatMessage(int i) {
         super(i);
@@ -107,15 +118,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.ZL = false;
-                aVar.ZM = optString;
-                aVar.ZN = optString2;
-                aVar.ZO = optString3;
-                aVar.ZP = optString4;
-                aVar.ZQ = optInt;
-                aVar.ZR = optInt2;
+                aVar.akj = false;
+                aVar.akk = optString;
+                aVar.akl = optString2;
+                aVar.akm = optString3;
+                aVar.akn = optString4;
+                aVar.ako = optInt;
+                aVar.akp = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.ZS = optString6;
+                aVar.akq = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -333,5 +344,34 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
             return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
         }
         return false;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.ai
+    public BdUniqueId getType() {
+        if (this.msgType == 11) {
+            return TYPE_MSG_MID;
+        }
+        if (this.msgType == 12) {
+            return TYPE_MSG_TOPIC;
+        }
+        if (this.msgType == 13) {
+            return TYPE_MSG_CHAT_ROOM_RULE;
+        }
+        if (this.msgType == 6) {
+            return TYPE_MSG_GROUP_ACTIVITY;
+        }
+        if (this.msgType == 7) {
+            return TYPE_MSG_MULTI_PIC_TEXT;
+        }
+        if (this.msgType == 23) {
+            return TYPE_MSG_REPLY_CARD;
+        }
+        if (getUserInfo() != null && getUserInfo().getUserId() != null) {
+            if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                return TYPE_MSG_RIGHT;
+            }
+            return TYPE_MSG_LEFT;
+        }
+        return TYPE_MSG_LEFT;
     }
 }

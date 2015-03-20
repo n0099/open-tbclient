@@ -1,21 +1,29 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-class v implements View.OnClickListener {
-    final /* synthetic */ t btJ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar) {
-        this.btJ = tVar;
+public class v extends com.baidu.tbadk.mvc.model.a<ah, SingleMentionActivity> {
+    public v(TbPageContext<SingleMentionActivity> tbPageContext) {
+        super(tbPageContext);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter wH;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9485, this.btJ.getData(), null, null);
-        wH = this.btJ.wH();
-        wH.dispatchMvcEvent(bVar);
+    @Override // com.baidu.tbadk.mvc.a.b
+    public Class<ah> zO() {
+        return ah.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int zP() {
+        return 2001264;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int zQ() {
+        return 2001264;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public String zR() {
+        return "tb_user_replyme";
     }
 }

@@ -1,65 +1,71 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Rp;
-    protected ArrayList<FeedData> btB = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.q btC = new com.baidu.tbadk.core.data.q();
-    protected com.baidu.tbadk.data.e btD = new com.baidu.tbadk.data.e();
+public class r {
+    private static r bCX = null;
+    private final HttpMessageListener bCY = new s(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long bCZ = 0;
+    private final Handler mHandler = new t(this);
 
-    public ArrayList<FeedData> Uj() {
-        return this.btB;
+    static {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void c(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    FeedData feedData = new FeedData();
-                    feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.btB.add(feedData);
-                }
+    public static synchronized r XA() {
+        r rVar;
+        synchronized (r.class) {
+            if (bCX == null) {
+                bCX = new r();
             }
-            this.btD.parserJson(jSONObject.optJSONObject("message"));
-            this.btC.parserJson(jSONObject.optJSONObject("page"));
-            this.Rp = true;
-        } catch (Exception e) {
-            this.Rp = false;
-            BdLog.e(e.getMessage());
+            rVar = bCX;
         }
+        return rVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        if (message instanceof ReplyMeResIdl) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        this.btB.add(feedData);
-                    }
-                }
-                this.btC.a(dataRes.page);
-                this.Rp = true;
-            } catch (Exception e) {
-                this.Rp = false;
-                BdLog.e(e.getMessage());
-            }
+    public r() {
+        MessageManager.getInstance().registerListener(this.bCY);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void XB() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean iH() {
+        return UtilHelper.getNetStatusInfo(TbadkCoreApplication.m411getInst().getApp().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
+    }
+
+    public void XC() {
+        this.bCZ = 0L;
+        destroy();
+        start();
+    }
+
+    public void start() {
+        long currentTimeMillis = System.currentTimeMillis() - this.bCZ;
+        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
+        if (j >= 600000) {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
+        } else {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
+        this.bCZ = System.currentTimeMillis();
+    }
+
+    public void destroy() {
+        this.mHandler.removeMessages(1);
     }
 }

@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbEditorToolView extends LinearLayout {
-    protected PbEditorToolButtonContainer bWx;
-    protected TextView bWy;
+    protected PbEditorToolButtonContainer cmO;
+    protected TextView cmP;
     protected Context mContext;
     protected EditText mEditText;
 
@@ -28,7 +28,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public TextView getPostButton() {
-        return this.bWy;
+        return this.cmP;
     }
 
     public EditText getEditText() {
@@ -36,14 +36,15 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     protected void initialize() {
-        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.pb_editor_tool_view, this, true);
-        this.bWx = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.w.tool_button_container);
-        this.mEditText = (EditText) findViewById(com.baidu.tieba.w.reply_content);
-        this.bWy = (TextView) findViewById(com.baidu.tieba.w.pb_reply_post);
+        setOrientation(1);
+        com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.pb_editor_tool_view, this, true);
+        this.cmO = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
+        this.mEditText = (EditText) findViewById(com.baidu.tieba.v.reply_content);
+        this.cmP = (TextView) findViewById(com.baidu.tieba.v.pb_reply_post);
         this.mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
-    public void P(ArrayList<String> arrayList) {
+    public void V(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -63,76 +64,76 @@ public class PbEditorToolView extends LinearLayout {
         }
     }
 
-    public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.bWx.setOnActionListener(new ag(this, wVar));
-        this.mEditText.setOnTouchListener(new ah(this, wVar));
-        this.mEditText.addTextChangedListener(new ai(this, wVar));
-        this.bWy.setOnClickListener(new aj(this, wVar));
+    public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
+        this.cmO.setOnActionListener(new x(this, vVar));
+        this.mEditText.setOnTouchListener(new y(this, vVar));
+        this.mEditText.addTextChangedListener(new z(this, vVar));
+        this.cmP.setOnClickListener(new aa(this, vVar));
     }
 
     public void clearData() {
-        this.bWx.agn();
+        this.cmO.amb();
         this.mEditText.setText("");
-        agb();
+        alO();
     }
 
-    public void YP() {
-        this.bWx.ey(true);
+    public void aaZ() {
+        this.cmO.eN(true);
     }
 
-    public void YO() {
-        this.bWx.ey(false);
+    public void aaY() {
+        this.cmO.eN(false);
     }
 
-    public void aga() {
-        this.bWy.setEnabled(true);
+    public void alN() {
+        this.cmP.setEnabled(true);
     }
 
-    public void agb() {
-        this.bWy.setEnabled(false);
+    public void alO() {
+        this.cmP.setEnabled(false);
     }
 
-    public void agm() {
-        this.bWx.agm();
+    public void ama() {
+        this.cmO.ama();
     }
 
-    public void agn() {
-        this.bWx.agn();
+    public void amb() {
+        this.cmO.amb();
     }
 
-    public void ago() {
-        this.bWx.ago();
+    public void amc() {
+        this.cmO.amc();
     }
 
-    public void agp() {
-        this.bWx.agp();
+    public void amd() {
+        this.cmO.amd();
     }
 
-    public void afr() {
-        this.bWx.afr();
+    public void ale() {
+        this.cmO.ale();
     }
 
     public void setAudioFocusable(boolean z) {
-        this.bWx.setAudioFocusable(z);
+        this.cmO.setAudioFocusable(z);
     }
 
     public void setMoreFocusable(boolean z) {
-        this.bWx.setMoreFocusable(z);
+        this.cmO.setMoreFocusable(z);
     }
 
     public void changeSkinType(int i) {
         if (i == 1) {
-            this.mEditText.setHintTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_e));
-            this.bWy.setBackgroundDrawable(bc.getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
+            this.mEditText.setHintTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_e));
+            this.cmP.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
         } else {
-            this.bWy.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
-            this.mEditText.setHintTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_e));
+            this.cmP.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
+            this.mEditText.setHintTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.cp_cont_e));
         }
-        if (this.bWy.isEnabled()) {
-            aga();
+        if (this.cmP.isEnabled()) {
+            alN();
         } else {
-            agb();
+            alO();
         }
-        this.bWx.changeSkinType(i);
+        this.cmO.changeSkinType(i);
     }
 }

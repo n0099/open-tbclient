@@ -2,7 +2,7 @@ package com.baidu.adp.lib.network.willdelete;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.k;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h {
-    public static boolean dW() {
+    public static boolean hv() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dV().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.hu().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.getType() == 0) {
                     return true;
@@ -26,10 +26,10 @@ public class h {
         return false;
     }
 
-    public static int dX() {
-        if (dW()) {
+    public static int hw() {
+        if (hv()) {
             try {
-                return S(((ConnectivityManager) e.dV().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
+                return T(((ConnectivityManager) e.hu().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
             } catch (Exception e) {
                 return 0;
             }
@@ -37,11 +37,11 @@ public class h {
         return 0;
     }
 
-    public static boolean dY() {
-        return 1 == dX();
+    public static boolean hx() {
+        return 1 == hw();
     }
 
-    public static int S(int i) {
+    public static int T(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -66,11 +66,11 @@ public class h {
         }
     }
 
-    public static boolean ad(String str) {
+    public static boolean ak(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static String ae(String str) {
+    public static String al(String str) {
         String[] split;
         if (str == null) {
             return "utf-8";
@@ -165,7 +165,7 @@ public class h {
         }
     }
 
-    public static int dZ() {
-        return i.fg() ? 500000 : 200000;
+    public static int hy() {
+        return k.iI() ? 500000 : 200000;
     }
 }

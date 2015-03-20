@@ -1,46 +1,58 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.io.File;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ar {
-    public static final void a(Context context, v vVar, int i) {
-        if (context != null && vVar != null) {
-            if (!(!TextUtils.isEmpty(vVar.getPkgName()))) {
-                com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.pb_app_error);
-            } else if (com.baidu.adp.lib.util.i.ff()) {
-                vVar.hJ(1);
-                TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", vVar.getPkgName());
-                com.baidu.tbadk.download.b.uV().a(vVar.getPkgName(), vVar.getDownloadUrl(), vVar.getAppName(), i, 0);
-            } else {
-                com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.neterror);
-            }
-        }
+public class ar extends com.baidu.adp.base.f {
+    private static final String ayG = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask ayH = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, ayG);
+    private final HttpMessageListener ayI;
+    private at cnd;
+
+    static {
+        ayH.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(ayH);
     }
 
-    public static final void a(Context context, v vVar) {
-        if (context != null && vVar != null) {
-            String pkgName = vVar.getPkgName();
-            if (TextUtils.isEmpty(pkgName)) {
-                com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.pb_app_error);
-                return;
-            }
-            File ce = com.baidu.tbadk.core.util.s.ce(String.valueOf(pkgName.replace(".", "_")) + ".apk");
-            if (ce != null) {
-                Intent intent = new Intent();
-                intent.addFlags(268435456);
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(ce), "application/vnd.android.package-archive");
-                context.startActivity(intent);
-            }
-        }
+    public ar(TbPageContext tbPageContext, at atVar) {
+        super(tbPageContext);
+        this.cnd = null;
+        this.ayI = new as(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.cnd = atVar;
     }
 
-    public static boolean isInstalledPackage(Context context, String str) {
-        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    public void registerListener() {
+        registerListener(this.ayI);
+    }
+
+    public void a(String str, String str2, int i, String str3) {
+        String str4;
+        if (i == 1) {
+            str4 = "unlike";
+        } else {
+            str4 = "like";
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        httpMessage.addParam("st_type", str4);
+        httpMessage.addParam("action", str4);
+        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
+        httpMessage.addParam("st_param", str3);
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
     }
 }

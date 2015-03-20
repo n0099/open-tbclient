@@ -4,11 +4,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ e aeg;
+    final /* synthetic */ e amA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.aeg = eVar;
+        this.amA = eVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,7 +19,7 @@ class h implements DialogInterface.OnClickListener {
             if (dialog.getWindow() != null) {
                 a.setView(dialog.getWindow().getDecorView());
             }
-            if (this.aeg.dispatchMvcEvent(a)) {
+            if (this.amA.dispatchMvcEvent(a)) {
             }
         }
     }

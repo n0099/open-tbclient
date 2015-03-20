@@ -17,10 +17,8 @@ public class ae extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.this$0.bhX = null;
-            com.baidu.tieba.im.c.a.gF(0);
-            c.QJ().init();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008016) {
+            c.Sd().reset();
         }
     }
 }

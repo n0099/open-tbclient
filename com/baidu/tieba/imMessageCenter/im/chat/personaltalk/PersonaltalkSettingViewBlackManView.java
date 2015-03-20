@@ -1,0 +1,42 @@
+package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+/* loaded from: classes.dex */
+public class PersonaltalkSettingViewBlackManView extends LinearLayout {
+    private TextView bpX;
+
+    public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        initUI();
+    }
+
+    public PersonaltalkSettingViewBlackManView(Context context) {
+        super(context);
+        initUI();
+    }
+
+    private void initUI() {
+        inflate(getContext(), com.baidu.tieba.w.p2ptalk_setting_black_man_view, this);
+        setOrientation(1);
+        this.bpX = (TextView) findViewById(com.baidu.tieba.v.black_man_text);
+    }
+
+    public void setSex(int i) {
+        String string;
+        switch (i) {
+            case 1:
+                string = getResources().getString(com.baidu.tieba.y.he);
+                break;
+            case 2:
+                string = getResources().getString(com.baidu.tieba.y.she);
+                break;
+            default:
+                string = getResources().getString(com.baidu.tieba.y.it);
+                break;
+        }
+        this.bpX.setText(getResources().getString(com.baidu.tieba.y.in_black_desc_1, string));
+    }
+}

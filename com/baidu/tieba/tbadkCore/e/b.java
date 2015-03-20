@@ -1,117 +1,69 @@
 package com.baidu.tieba.tbadkCore.e;
 
-import com.baidu.adp.base.i;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ad;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.stats.f;
+import com.baidu.adp.lib.stats.q;
+import com.baidu.tbadk.game.GameInfoData;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<String, Integer, String> {
-    private ad CU = null;
-    private int bFu;
-    private boolean bzd;
-    private int cax;
-    final /* synthetic */ a cay;
-    private String mForumId;
-    private String mForumName;
-    private String mPostId;
-    private String mThreadId;
+public class b {
+    private static HashMap<String, e> coq;
 
-    public b(a aVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.cay = aVar;
-        this.mForumId = str;
-        this.mForumName = str2;
-        this.mThreadId = str3;
-        this.mPostId = str4;
-        this.cax = i;
-        this.bFu = i2;
-        this.bzd = z;
+    static {
+        MessageManager.getInstance().registerListener(new c(2001011));
+        coq = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public String doInBackground(String... strArr) {
-        String str;
-        String str2 = TbConfig.SERVER_ADDRESS;
-        if (this.cax == 0) {
-            str = String.valueOf(str2) + TbConfig.DEL_THREAD_ADDRESS;
-        } else {
-            str = String.valueOf(str2) + TbConfig.DEL_POST_ADDRESS;
+    public static void g(String str, String str2, boolean z) {
+        if (str2 == null) {
+            str2 = "";
         }
-        this.CU = new ad(str);
-        this.CU.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-        this.CU.o("word", this.mForumName);
-        this.CU.o("z", this.mThreadId);
-        if (this.cax == 0) {
-            if (this.bFu == 0) {
-                this.CU.o("delete_my_thread", "1");
-            }
-        } else if (this.cax == 1) {
-            this.CU.o("pid", this.mPostId);
-            this.CU.o("isfloor", "0");
-            this.CU.o("src", "1");
-            if (this.bFu == 0 && this.bzd) {
-                this.CU.o("delete_my_post", "1");
-            }
-        } else if (this.cax == 2) {
-            this.CU.o("pid", this.mPostId);
-            this.CU.o("isfloor", "1");
-            this.CU.o("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-            if (this.bFu == 0 && this.bzd) {
-                this.CU.o("delete_my_post", "1");
-            }
+        String str3 = String.valueOf(str) + str2;
+        if (!coq.containsKey(str3)) {
+            coq.put(str3, new e(str, str2, z));
         }
-        if (this.bFu == 0 && !this.bzd) {
-            this.CU.o("is_vipdel", "1");
-        } else {
-            this.CU.o("is_vipdel", "0");
-        }
-        this.CU.oS().pZ().mIsNeedTbs = true;
-        this.CU.or();
-        if (this.CU.oS().qa().lT()) {
-            return null;
-        }
-        return this.CU.getErrorString();
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        i iVar;
-        if (this.CU != null) {
-            this.CU.dJ();
+    public static e h(String str, String str2, boolean z) {
+        if (str2 == null) {
+            str2 = "";
         }
-        this.cay.cau = null;
-        super.cancel(true);
-        iVar = this.cay.mLoadDataCallBack;
-        iVar.c(null);
+        String str3 = String.valueOf(str) + str2;
+        if (!coq.containsKey(str3)) {
+            coq.put(str3, new e(str, str2, z));
+        }
+        return coq.get(str3);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        i iVar;
-        i iVar2;
-        super.onPostExecute((b) str);
-        this.cay.cau = null;
-        if (this.CU == null) {
-            iVar2 = this.cay.mLoadDataCallBack;
-            iVar2.c(null);
-            return;
+    public static void it(int i) {
+        for (String str : coq.keySet()) {
+            a(coq.get(str), i);
         }
-        c cVar = new c(this.cay);
-        cVar.cax = this.cax;
-        cVar.mPostId = this.mPostId;
-        cVar.caz = str;
-        if (str == null) {
-            cVar.qb = true;
-        } else {
-            cVar.qb = false;
+    }
+
+    public static void a(e eVar, int i) {
+        d dVar = eVar.cou;
+        d dVar2 = eVar.cov;
+        d dVar3 = eVar.cow;
+        if (dVar.num + dVar2.num + dVar3.num >= i) {
+            q qVar = new q("dbg");
+            qVar.r("act", eVar.type);
+            qVar.r("httpTimeCost", String.valueOf(dVar.cor));
+            qVar.r("httpNum", String.valueOf(dVar.num));
+            qVar.r("httpFailnum", String.valueOf(dVar.cos));
+            qVar.r("httpSize", String.valueOf(dVar.size));
+            qVar.r("socketTimeCost", String.valueOf(dVar2.cor));
+            qVar.r("socketNum", String.valueOf(dVar2.num));
+            qVar.r("socketFailnum", String.valueOf(dVar2.cos));
+            qVar.r("socketSize", String.valueOf(dVar2.size));
+            qVar.r("abortTimeCost", String.valueOf(dVar3.cor));
+            qVar.r("abortNum", String.valueOf(dVar3.num));
+            qVar.r("netType", eVar.biK);
+            qVar.r("isJson", eVar.cot ? "1" : GameInfoData.NOT_FROM_DETAIL);
+            f.hP().a("frs", qVar);
+            dVar.reset();
+            dVar2.reset();
+            dVar3.reset();
         }
-        iVar = this.cay.mLoadDataCallBack;
-        iVar.c(cVar);
     }
 }

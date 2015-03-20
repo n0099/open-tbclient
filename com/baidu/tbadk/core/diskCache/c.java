@@ -1,22 +1,35 @@
 package com.baidu.tbadk.core.diskCache;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import java.io.File;
+import android.os.Handler;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
-class c extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
-    public c(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+class c extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.lib.Disk.a
-    public boolean c(File file) {
-        return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void l(boolean z) {
-        super.l(z);
-        ImagesInvalidService.stopService();
-        ImagesInvalidReceiver.broadcast(z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Handler handler;
+        boolean z;
+        Handler handler2;
+        if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                z = ImagesInvalidServiceStatic.RI;
+                if (!z) {
+                    handler2 = ImagesInvalidServiceStatic.ot;
+                    handler2.sendEmptyMessageDelayed(1, 10000L);
+                    return;
+                }
+                return;
+            }
+            handler = ImagesInvalidServiceStatic.ot;
+            handler.removeMessages(1);
+            ImagesInvalidServiceStatic.stopService();
+        }
     }
 }

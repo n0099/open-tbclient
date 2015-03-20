@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 /* loaded from: classes.dex */
 class o extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ m bkX;
+    final /* synthetic */ m blM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(m mVar, int i) {
         super(i);
-        this.bkX = mVar;
+        this.blM = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ class o extends com.baidu.adp.framework.listener.e {
             case 103112:
             case 2001109:
                 if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
-                    this.bkX.bkR = true;
+                    this.blM.blG = true;
                     return;
                 }
                 return;

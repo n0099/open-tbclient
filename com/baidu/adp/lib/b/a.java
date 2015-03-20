@@ -26,7 +26,7 @@ public abstract class a {
     public void addToManager() {
         c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
         cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        f.da().a(cVar);
+        f.gz().a(cVar);
     }
 
     public a() {

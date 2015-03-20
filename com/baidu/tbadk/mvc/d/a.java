@@ -2,9 +2,8 @@ package com.baidu.tbadk.mvc.d;
 
 import android.os.Bundle;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.mvc.b.j;
-import com.baidu.tbadk.mvc.core.e;
+import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.k;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
@@ -12,21 +11,21 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
-public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.core.b implements q<T, R> {
-    protected abstract boolean kD();
+public abstract class a<T extends i, R extends k> extends com.baidu.tbadk.mvc.core.b implements q<T, R> {
+    protected abstract boolean ow();
 
-    public a(e<?, ?, ?> eVar) {
+    public a(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
     }
 
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        wH().addEventDelegate(this);
+        zT().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
-    public boolean wI() {
+    public boolean zU() {
         return true;
     }
 
@@ -35,12 +34,12 @@ public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xm() == 16777216) {
-            if (kD()) {
-                dF(33554435);
+        if (bVar.Az() == 16777216) {
+            if (ow()) {
+                dI(33554435);
                 return true;
             }
-            dF(33554436);
+            dI(33554436);
             return true;
         }
         return false;

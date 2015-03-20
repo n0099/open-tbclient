@@ -1,25 +1,25 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class at extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(int i) {
-        super(i);
-    }
+public class at extends com.baidu.adp.widget.ListView.am {
+    LinearLayout aKq;
+    TextView aKr;
+    HeadImageView aKs;
+    TextView aKt;
+    TextView aKu;
+    TextView mTitle;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            if (com.baidu.adp.lib.g.c.toInt(customResponsedMessage.getData().toString(), 1) == 1) {
-                FrsActivity.aCL = false;
-                FrsActivity.aCK = false;
-                return;
-            }
-            FrsActivity.aCM = false;
-            FrsActivity.aCK = false;
-        }
+    public at(View view) {
+        super(view);
+        this.aKq = (LinearLayout) view.findViewById(com.baidu.tieba.v.app_parent);
+        this.mTitle = (TextView) view.findViewById(com.baidu.tieba.v.app_name);
+        this.aKt = (TextView) view.findViewById(com.baidu.tieba.v.app_desc);
+        this.aKs = (HeadImageView) view.findViewById(com.baidu.tieba.v.app_icon);
+        this.aKu = (TextView) view.findViewById(com.baidu.tieba.v.app_download);
+        this.aKr = (TextView) view.findViewById(com.baidu.tieba.v.recommend_app);
     }
 }

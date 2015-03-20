@@ -12,14 +12,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private boolean mAutoChangeStyle;
-    private aw mChildClickListener;
+    private as mChildClickListener;
     private int mChildCount;
     private Context mContext;
     private List<MetaData> mDatas;
     private int mItemSize;
     private int mNormalShowCount;
     private int mPadding;
-    private ax mTbRecyclerListener;
+    private at mTbRecyclerListener;
     private com.baidu.adp.lib.e.b<HeadImageView> mUserPhotoPool;
 
     public void setAutoChangeStyle(boolean z) {
@@ -55,29 +55,29 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mAutoChangeStyle = true;
         this.mNormalShowCount = 6;
         this.mContext = context;
-        this.mPadding = com.baidu.adp.lib.util.l.dip2px(this.mContext, this.mPadding);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds60);
-        if (this.mContext instanceof ay) {
-            ay ayVar = (ay) this.mContext;
-            this.mUserPhotoPool = ayVar.qM();
-            if (ayVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new ax(ayVar.qL());
-                ayVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
+        this.mPadding = com.baidu.adp.lib.util.n.dip2px(this.mContext, this.mPadding);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds60);
+        if (this.mContext instanceof au) {
+            au auVar = (au) this.mContext;
+            this.mUserPhotoPool = auVar.tW();
+            if (auVar.getListView() != null && this.mTbRecyclerListener == null) {
+                this.mTbRecyclerListener = new at(auVar.tV());
+                auVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new at(this));
+        setOnHierarchyChangeListener(new ap(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new av(this, getChildCount() - 1, null));
+        view.setOnClickListener(new ar(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new av(this, getChildCount() - 1, null));
+        view.setOnClickListener(new ar(this, getChildCount() - 1, null));
     }
 
     public void setData(List<MetaData> list, boolean z) {
@@ -97,7 +97,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             imageView.setAutoChangeStyle(this.mAutoChangeStyle);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(imageView);
-            imageView.d(this.mDatas.get(i).getPortrait(), 12, false);
+            imageView.c(this.mDatas.get(i).getPortrait(), 12, false);
         }
         requestLayout();
         invalidate();
@@ -152,8 +152,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public void setOnChildClickListener(aw awVar) {
-        this.mChildClickListener = awVar;
+    public void setOnChildClickListener(as asVar) {
+        this.mChildClickListener = asVar;
     }
 
     public void reset() {
@@ -170,13 +170,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new au(context), i, 0);
+        return new com.baidu.adp.lib.e.b<>(new aq(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.ea();
+            headImageView = this.mUserPhotoPool.hz();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

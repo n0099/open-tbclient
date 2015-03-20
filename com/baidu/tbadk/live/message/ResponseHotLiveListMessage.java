@@ -59,6 +59,7 @@ public class ResponseHotLiveListMessage extends TbSocketReponsedMessage {
                     liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
                     liveCardData.setStatus(liveGroupInfo.status.intValue());
                     liveCardData.setStreamId(liveGroupInfo.streamId);
+                    liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
                     this.hotLiveListData.getGroups().add(liveCardData);
                     i2 = i3 + 1;
                 } else {
@@ -73,7 +74,7 @@ public class ResponseHotLiveListMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestHotLiveListMessage) && getError() == 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.nO().bP("tb.live_hotlist"), "live_" + String.valueOf(((RequestHotLiveListMessage) orginalMessage).getType()), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.b.a.rc().bW("tb.live_hotlist"), "live_" + String.valueOf(((RequestHotLiveListMessage) orginalMessage).getType()), bArr);
         }
     }
 }

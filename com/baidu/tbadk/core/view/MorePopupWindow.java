@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
-    private u mContainer;
+    private p mContainer;
     private View mContentView;
     private View mHostView;
     private boolean mIsIntercepted;
@@ -21,7 +21,7 @@ public class MorePopupWindow extends PopupWindow {
     private int mShowRightTopXOff;
     private int mWindowHeight;
 
-    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, v vVar) {
+    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, q qVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -32,10 +32,10 @@ public class MorePopupWindow extends PopupWindow {
         this.mPadding_10 = 0;
         this.mIsIntercepted = false;
         this.mHostView = view2;
-        init(activity, view, drawable, vVar);
+        init(activity, view, drawable, qVar);
     }
 
-    public MorePopupWindow(Activity activity, View view, Drawable drawable, v vVar) {
+    public MorePopupWindow(Activity activity, View view, Drawable drawable, q qVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -45,13 +45,13 @@ public class MorePopupWindow extends PopupWindow {
         this.mContentView = null;
         this.mPadding_10 = 0;
         this.mIsIntercepted = false;
-        init(activity, view, drawable, vVar);
+        init(activity, view, drawable, qVar);
     }
 
-    private void init(Activity activity, View view, Drawable drawable, v vVar) {
+    private void init(Activity activity, View view, Drawable drawable, q qVar) {
         this.mActivity = activity;
         this.mContentView = view;
-        this.mContainer = new u(activity, this.mContentView, vVar);
+        this.mContainer = new p(activity, this.mContentView, qVar);
         setContentView(this.mContainer);
         setOutsideTouchable(true);
         setFocusable(true);
@@ -91,7 +91,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ab(i == 1);
+            cVar.X(i == 1);
             try {
                 cVar.h(this.mContentView);
             } catch (IllegalArgumentException e) {
@@ -108,7 +108,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int M = com.baidu.adp.lib.util.l.M(context);
+        int M = com.baidu.adp.lib.util.n.M(context);
         this.mContentView.getLayoutParams().width = M;
         setWidth(M);
     }
@@ -134,7 +134,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(com.baidu.tieba.aa.pop_window_anim);
+        setAnimationStyle(com.baidu.tieba.z.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
@@ -145,9 +145,9 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(com.baidu.tieba.u.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(com.baidu.tieba.t.ds4));
             setHeight(this.mWindowHeight);
-            int[] P = com.baidu.adp.lib.util.l.P(this.mActivity);
+            int[] P = com.baidu.adp.lib.util.n.P(this.mActivity);
             if (P != null && P.length > 1 && P[1] > measuredWidth) {
                 this.mShowRightTopXOff = P[1] - measuredWidth;
             }

@@ -12,28 +12,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.g;
 /* loaded from: classes.dex */
 public class b {
-    private static b ZI;
+    private static b akg;
 
     private b() {
     }
 
-    public static b vM() {
-        if (ZI == null) {
+    public static b zm() {
+        if (akg == null) {
             synchronized (b.class) {
-                if (ZI == null) {
-                    ZI = new b();
+                if (akg == null) {
+                    akg = new b();
                 }
             }
         }
-        return ZI;
+        return akg;
     }
 
-    public void vN() {
+    public void zn() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void vO() {
+    public void zo() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -56,12 +56,12 @@ public class b {
             }
             currentAccountObj.setSex(userData.getSex());
             g payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.ml() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.pM() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            l.ek().b(new c(this, currentAccountObj));
+            l.hJ().b(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001253, payMemberInfoData));
         }
     }

@@ -1,0 +1,5 @@
+package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
+/* loaded from: classes.dex */
+public interface e {
+    void Ux();
+}

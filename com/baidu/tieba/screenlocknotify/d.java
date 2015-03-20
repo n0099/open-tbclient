@@ -16,20 +16,20 @@ class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        t tVar;
-        if (!StringUtils.isNull(this.this$0.acy()) && f.acB().acC() != null && f.acB().acC().size() > 0 && (tVar = f.acB().acC().get(0)) != null) {
-            if (tVar.customGroupType == 1) {
-                MessageUtils.createGroupChatMessage(1, this.this$0.acy(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L));
-                com.baidu.tbadk.coreExtra.messageCenter.a.rS().dj(tVar.groupId);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(tVar.groupId, 1)));
-            } else if (tVar.customGroupType == 2) {
-                MessageUtils.createPersonalChatMessage(1, this.this$0.acy(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L), tVar.userName, tVar.bOu);
-                com.baidu.tbadk.coreExtra.messageCenter.a.rS().dj(tVar.groupId);
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(tVar.groupId, 2)));
-                MessageUtils.sendHasReadMessage(tVar.groupId, 2);
+        r rVar;
+        if (!StringUtils.isNull(this.this$0.afI()) && f.afN().afO() != null && f.afN().afO().size() > 0 && (rVar = f.afN().afO().get(0)) != null) {
+            if (rVar.customGroupType == 1) {
+                MessageUtils.createGroupChatMessage(1, this.this$0.afI(), com.baidu.adp.lib.g.c.a(rVar.groupId, 0L));
+                com.baidu.tbadk.coreExtra.messageCenter.a.uT().dq(rVar.groupId);
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(rVar.groupId, 1)));
+            } else if (rVar.customGroupType == 2) {
+                MessageUtils.createPersonalChatMessage(1, this.this$0.afI(), com.baidu.adp.lib.g.c.a(rVar.groupId, 0L), rVar.userName, rVar.bYR);
+                com.baidu.tbadk.coreExtra.messageCenter.a.uT().dq(rVar.groupId);
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(rVar.groupId, 2)));
+                MessageUtils.sendHasReadMessage(rVar.groupId, 2);
             }
-            f.acB().c(tVar);
-            f.acB().bOb.acH();
+            f.afN().c(rVar);
+            this.this$0.afK();
             this.this$0.finish();
         }
     }

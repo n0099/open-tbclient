@@ -1,37 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tieba.person.PersonPostModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.ae;
 /* loaded from: classes.dex */
-public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ j bJr;
+class o implements ae {
+    final /* synthetic */ k bRB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(j jVar) {
-        this.bJr = jVar;
+    public o(k kVar) {
+        this.bRB = kVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        f fVar;
-        f fVar2;
-        f fVar3;
-        if (i >= 0) {
-            fVar = this.bJr.bJj;
-            if (fVar != null) {
-                fVar2 = this.bJr.bJj;
-                if (i < fVar2.getCount()) {
-                    fVar3 = this.bJr.bJj;
-                    PersonPostModel.PostList hs = fVar3.hs(i);
-                    if (hs != null) {
-                        this.bJr.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bJr.getActivity()).createCfgForPersonCenter(String.valueOf(hs.thread_id), String.valueOf(hs.post_id), "person_post", 18005)));
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.core.view.ae
+    public void onListPullRefresh(boolean z) {
+        g gVar;
+        gVar = this.bRB.bRt;
+        gVar.eg(true);
     }
 }

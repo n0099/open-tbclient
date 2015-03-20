@@ -1,59 +1,209 @@
 package com.baidu.tieba.person;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Handler;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.data.ForumData;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
+import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.plugins.MotuPlugin;
+import com.baidu.tbadk.widget.EditHeadsImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ g bHb;
+public class n extends BdAsyncTask<String, Void, Bitmap> {
+    private Boolean bPe;
+    private Boolean bPf;
+    private Bitmap bitmap;
+    private String mLabel;
+    final /* synthetic */ EditHeadActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(g gVar) {
-        this.bHb = gVar;
+    private n(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
+        this.bPe = false;
+        this.bPf = false;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
-        boolean z;
-        q qVar2;
-        PersonBarActivity aaG;
-        boolean z2;
-        PersonBarActivity aaG2;
-        PersonBarActivity aaG3;
-        PersonBarActivity aaG4;
-        qVar = this.bHb.bGQ;
-        if (qVar.getItem(i) != null) {
-            z = this.bHb.bGW;
-            if (!z) {
-                this.bHb.byo = i;
-                qVar2 = this.bHb.bGQ;
-                ForumData forumData = (ForumData) qVar2.getItem(i);
-                if (forumData != null) {
-                    aaG = this.bHb.aaG();
-                    if (aaG != null) {
-                        z2 = this.bHb.bGz;
-                        if (z2) {
-                            Intent intent = new Intent();
-                            intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
-                            intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            aaG3 = this.bHb.aaG();
-                            this.bHb.aaG();
-                            aaG3.setResult(-1, intent);
-                            aaG4 = this.bHb.aaG();
-                            aaG4.finish();
-                            return;
-                        }
-                        g gVar = this.bHb;
-                        aaG2 = this.bHb.aaG();
-                        gVar.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(aaG2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
-                    }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(EditHeadActivity editHeadActivity, n nVar) {
+        this(editHeadActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        Handler handler;
+        Intent intent;
+        Handler handler2;
+        ProgressBar progressBar;
+        View view;
+        PluginPackageManager.PluginStatus br = PluginPackageManager.ls().br(PluginCenter.NAME_MOTUSDK);
+        if (br == PluginPackageManager.PluginStatus.NROMAL) {
+            progressBar = this.this$0.mProgress;
+            progressBar.setVisibility(0);
+            view = this.this$0.bOG;
+            view.setEnabled(false);
+            return;
+        }
+        try {
+            intent = new Intent(this.this$0.getPageContext().getPageActivity(), Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (br != PluginPackageManager.PluginStatus.DISABLE) {
+            handler2 = this.this$0.mHandler;
+            handler2.postDelayed(new o(this), 500L);
+            return;
+        }
+        intent.putExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG, PluginPackageManager.ls().getPluginConfig(PluginCenter.NAME_MOTUSDK));
+        this.this$0.startActivity(intent);
+        cancel();
+        handler = this.this$0.mHandler;
+        handler.postDelayed(new p(this), 500L);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: m */
+    public Bitmap doInBackground(String... strArr) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        this.mLabel = strArr[0];
+        bitmap = this.this$0.mBitmap;
+        if (bitmap == null) {
+            bitmap9 = this.this$0.bOR;
+            if (bitmap9 == null) {
+                return null;
+            }
+        }
+        if (this.mLabel.equals(GameInfoData.NOT_FROM_DETAIL) || this.mLabel.equals("1")) {
+            this.bPe = true;
+        } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+            this.bPf = true;
+        }
+        if (!this.bPe.booleanValue() && !this.bPf.booleanValue()) {
+            bitmap7 = this.this$0.mBitmap;
+            bitmap8 = this.this$0.mBitmap;
+            this.bitmap = bitmap7.copy(bitmap8.getConfig(), true);
+        } else {
+            bitmap2 = this.this$0.bOR;
+            if (bitmap2 == null) {
+                bitmap3 = this.this$0.mBitmap;
+                bitmap4 = this.this$0.mBitmap;
+                this.bitmap = bitmap3.copy(bitmap4.getConfig(), true);
+            } else {
+                bitmap5 = this.this$0.bOR;
+                bitmap6 = this.this$0.bOR;
+                this.bitmap = bitmap5.copy(bitmap6.getConfig(), true);
+            }
+        }
+        if (this.bPe.booleanValue()) {
+            this.bitmap = com.baidu.tbadk.core.util.c.g(this.bitmap, Integer.parseInt(this.mLabel));
+        } else if (this.bPf.booleanValue()) {
+            this.bitmap = com.baidu.tbadk.core.util.c.i(this.bitmap, Integer.parseInt(this.mLabel));
+        } else {
+            MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
+            if (motuPlugin != null) {
+                this.bitmap = motuPlugin.createOneKeyFilterAndApply(this.this$0.getPageContext().getPageActivity(), this.mLabel, this.bitmap);
+            }
+        }
+        return this.bitmap;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        View view;
+        Bitmap bitmap;
+        if (this.bitmap != null && !this.bitmap.isRecycled()) {
+            bitmap = this.this$0.bOR;
+            if (bitmap != this.bitmap) {
+                this.bitmap.recycle();
+            }
+        }
+        this.bitmap = null;
+        progressBar = this.this$0.mProgress;
+        progressBar.setVisibility(8);
+        view = this.this$0.bOG;
+        view.setClickable(true);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x005c, code lost:
+        if (r0.getHeight() > 750) goto L28;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onPostExecute(Bitmap bitmap) {
+        ProgressBar progressBar;
+        View view;
+        View view2;
+        EditHeadsImageView editHeadsImageView;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        EditHeadsImageView editHeadsImageView2;
+        progressBar = this.this$0.mProgress;
+        progressBar.setVisibility(8);
+        view = this.this$0.bOG;
+        view.setClickable(true);
+        view2 = this.this$0.bOG;
+        view2.setEnabled(true);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.this$0.bOY = true;
+            if (this.bPe.booleanValue() || this.bPf.booleanValue()) {
+                editHeadsImageView = this.this$0.bOE;
+                editHeadsImageView.setImageBitmap(bitmap);
+                bitmap2 = this.this$0.mBitmap;
+                if (bitmap2.getWidth() <= 750) {
+                    bitmap6 = this.this$0.mBitmap;
+                }
+                EditHeadActivity editHeadActivity = this.this$0;
+                bitmap3 = this.this$0.mBitmap;
+                editHeadActivity.mBitmap = com.baidu.tbadk.core.util.c.d(bitmap3, TbConfig.POST_IMAGE_MIDDLE);
+                if (this.bPe.booleanValue()) {
+                    EditHeadActivity editHeadActivity2 = this.this$0;
+                    bitmap5 = this.this$0.mBitmap;
+                    editHeadActivity2.mBitmap = com.baidu.tbadk.core.util.c.g(bitmap5, Integer.parseInt(this.mLabel));
+                } else if (this.bPf.booleanValue()) {
+                    EditHeadActivity editHeadActivity3 = this.this$0;
+                    bitmap4 = this.this$0.mBitmap;
+                    editHeadActivity3.mBitmap = com.baidu.tbadk.core.util.c.i(bitmap4, Integer.parseInt(this.mLabel));
+                }
+            } else {
+                editHeadsImageView2 = this.this$0.bOE;
+                editHeadsImageView2.replaceImageBitmap(bitmap);
+            }
+            bitmap7 = this.this$0.bOR;
+            if (bitmap7 != null) {
+                bitmap8 = this.this$0.bOR;
+                if (!bitmap8.isRecycled()) {
+                    bitmap9 = this.this$0.bOR;
+                    bitmap9.recycle();
                 }
             }
+            this.this$0.bOR = bitmap;
         }
     }
 }

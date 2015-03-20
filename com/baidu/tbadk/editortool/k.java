@@ -1,29 +1,19 @@
 package com.baidu.tbadk.editortool;
 
 import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.dialog.BdToast;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ j Yl;
+public class k implements View.OnClickListener {
+    final /* synthetic */ EmotionTabHorizonScrollView aiJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.Yl = jVar;
+    public k(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
+        this.aiJ = emotionTabHorizonScrollView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EmotionTabContentView emotionTabContentView;
-        if (aVar != null) {
-            emotionTabContentView = this.Yl.Yi;
-            View findViewWithTag = emotionTabContentView.findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && str != null) {
-                TbImageView tbImageView = (TbImageView) findViewWithTag;
-                aVar.a(tbImageView);
-                tbImageView.setTag(null);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BdToast.a(this.aiJ.getContext(), this.aiJ.getContext().getResources().getString(com.baidu.tieba.y.emotion_cant_show)).ri();
     }
 }

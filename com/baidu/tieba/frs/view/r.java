@@ -1,23 +1,20 @@
 package com.baidu.tieba.frs.view;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bm;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ o aIY;
+class r implements View.OnClickListener {
+    final /* synthetic */ o aOZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.aIY = oVar;
+        this.aOZ = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbPageContext<?> tbPageContext;
-        bm pO = bm.pO();
-        tbPageContext = this.aIY.mContext;
-        pO.b(tbPageContext, new String[]{(String) view.getTag()});
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.aOZ.LN.getContext(), this.aOZ.aOp, "2", "1")));
     }
 }

@@ -10,13 +10,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a sB;
+    final /* synthetic */ a Dp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.sB = aVar;
+        this.Dp = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,10 +29,10 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof com.baidu.adp.plugin.message.a)) {
             com.baidu.adp.plugin.message.a aVar = (com.baidu.adp.plugin.message.a) data;
             if (aVar.errNo == 0) {
-                hashMap2 = this.sB.sz;
+                hashMap2 = this.Dp.Dn;
                 if (hashMap2.size() > 0) {
-                    hashMap3 = this.sB.sz;
-                    ArrayList arrayList = (ArrayList) hashMap3.get(aVar.sy);
+                    hashMap3 = this.Dp.Dn;
+                    ArrayList arrayList = (ArrayList) hashMap3.get(aVar.Dm);
                     if (arrayList != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -41,8 +41,8 @@ public class b extends CustomMessageListener {
                     }
                 }
             }
-            hashMap = this.sB.sz;
-            hashMap.remove(aVar.sy);
+            hashMap = this.Dp.Dn;
+            hashMap.remove(aVar.Dm);
         }
     }
 }

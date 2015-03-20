@@ -1,13 +1,7 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.util.Map;
 /* loaded from: classes.dex */
-public class aj extends aa {
-    public Map<String, String> mHeaders;
-    public boolean qb;
-
-    public aj(boolean z, Map<String, String> map) {
-        this.qb = z;
-        this.mHeaders = map;
+public class aj extends ag {
+    public aj(c cVar) {
+        super(cVar);
     }
 }

@@ -1,22 +1,24 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ EditorToolComponetContainer bVZ;
-    private final /* synthetic */ int bWb;
+class t implements ae {
+    final /* synthetic */ s cmI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(EditorToolComponetContainer editorToolComponetContainer, int i) {
-        this.bVZ = editorToolComponetContainer;
-        this.bWb = i;
+    public t(s sVar) {
+        this.cmI = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.editortool.w wVar;
-        wVar = this.bVZ.Yg;
-        wVar.handleAction(this.bWb, null);
+    @Override // com.baidu.tieba.tbadkCore.PbEditor.ae
+    public void alY() {
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        pbEditor = this.cmI.cmG;
+        pbEditor.cmE = true;
+        pbEditor2 = this.cmI.cmG;
+        pbEditor2.cmy.getEditText().requestFocus();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.PbEditor.ae
+    public void alZ() {
     }
 }

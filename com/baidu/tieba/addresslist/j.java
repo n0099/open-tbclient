@@ -1,28 +1,28 @@
 package com.baidu.tieba.addresslist;
 
 import android.app.Activity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnTouchListener {
-    final /* synthetic */ QuickSearchActivity apg;
+public class j implements View.OnClickListener {
+    final /* synthetic */ QuickSearchActivity axA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(QuickSearchActivity quickSearchActivity) {
-        this.apg = quickSearchActivity;
+        this.axA = quickSearchActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         EditText editText;
-        if (motionEvent.getAction() == 0) {
-            Activity pageActivity = this.apg.getPageContext().getPageActivity();
-            editText = this.apg.apb;
-            com.baidu.adp.lib.util.l.c(pageActivity, editText);
-            return false;
+        EditText editText2;
+        editText = this.axA.axv;
+        if (editText.hasFocus()) {
+            Activity pageActivity = this.axA.getPageContext().getPageActivity();
+            editText2 = this.axA.axv;
+            com.baidu.adp.lib.util.n.c(pageActivity, editText2);
         }
-        return false;
+        this.axA.closeActivity();
     }
 }

@@ -1,24 +1,18 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends CustomMessageListener {
-    final /* synthetic */ b bVi;
+public class e implements com.baidu.tbadk.editortool.v {
+    final /* synthetic */ EditorToolComponetContainer cmo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(b bVar, int i) {
-        super(i);
-        this.bVi = bVar;
+    public e(EditorToolComponetContainer editorToolComponetContainer) {
+        this.cmo = editorToolComponetContainer;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.bubble.h hVar;
-        hVar = this.bVi.bUX;
-        hVar.g(0, 50, 0, 0);
+    @Override // com.baidu.tbadk.editortool.v
+    public void handleAction(int i, Object obj) {
+        com.baidu.tbadk.editortool.v vVar;
+        vVar = this.cmo.aip;
+        vVar.handleAction(i, obj);
     }
 }

@@ -1,34 +1,27 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
-public class am extends CustomMessageListener {
-    final /* synthetic */ al bHW;
+class am implements View.OnClickListener {
+    final /* synthetic */ aj bQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(al alVar, int i) {
-        super(i);
-        this.bHW = alVar;
+    public am(aj ajVar) {
+        this.bQe = ajVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        PersonFriendActivity aaS;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
-            z = this.bHW.mIsHost;
-            if (z) {
-                com.baidu.tbadk.core.data.r personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
-                aaS = this.bHW.aaS();
-                if (aaS != null) {
-                    this.bHW.bHR = personListData;
-                    this.bHW.a(personListData, true);
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bQe.bPY = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            this.bQe.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bQe.getBaseFragmentActivity().getPageContext().getPageActivity(), this.bQe.getString(com.baidu.tieba.y.login_to_chat), true, 11028)));
+        } else {
+            this.bQe.add();
         }
     }
 }

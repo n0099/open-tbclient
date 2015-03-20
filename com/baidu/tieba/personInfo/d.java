@@ -2,20 +2,20 @@ package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.i {
-    final /* synthetic */ PersonInfoActivity bJX;
+    final /* synthetic */ PersonInfoActivity bSh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonInfoActivity personInfoActivity) {
-        this.bJX = personInfoActivity;
+        this.bSh = personInfoActivity;
     }
 
     @Override // com.baidu.adp.base.i
     public void c(Object obj) {
         ae aeVar;
         ae aeVar2;
-        aeVar = this.bJX.bJN;
+        aeVar = this.bSh.bRX;
         aeVar.hideProgress();
-        aeVar2 = this.bJX.bJN;
-        aeVar2.acc();
+        aeVar2 = this.bSh.bRX;
+        aeVar2.aep();
     }
 }

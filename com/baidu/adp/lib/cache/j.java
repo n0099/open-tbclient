@@ -3,21 +3,21 @@ package com.baidu.adp.lib.cache;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class j implements g {
-    private LinkedList<m<?>> hw;
     private final int maxSize;
+    private LinkedList<m<?>> sR;
 
     public j(int i) {
         this.maxSize = i;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public int cI() {
+    public int gh() {
         return this.maxSize;
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public void cK() {
-        this.hw = new LinkedList<>();
+    public void gj() {
+        this.sR = new LinkedList<>();
     }
 
     @Override // com.baidu.adp.lib.cache.g
@@ -26,19 +26,19 @@ class j implements g {
         long j;
         int i;
         String str2 = null;
-        if (mVar.hC < System.currentTimeMillis()) {
-            return mVar.hy;
+        if (mVar.sX < System.currentTimeMillis()) {
+            return mVar.sT;
         }
-        this.hw.add(mVar);
-        if (this.hw.size() > cI()) {
+        this.sR.add(mVar);
+        if (this.sR.size() > gh()) {
             long j2 = 0;
             int i2 = 0;
             int i3 = -1;
-            while (i2 < this.hw.size()) {
-                m<?> mVar2 = this.hw.get(i2);
-                if (i3 == -1 || mVar2.hB < j2) {
-                    String str3 = mVar2.hy;
-                    long j3 = mVar2.hB;
+            while (i2 < this.sR.size()) {
+                m<?> mVar2 = this.sR.get(i2);
+                if (i3 == -1 || mVar2.sW < j2) {
+                    String str3 = mVar2.sT;
+                    long j3 = mVar2.sW;
                     str = str3;
                     j = j3;
                     i = i2;
@@ -52,20 +52,20 @@ class j implements g {
                 j2 = j;
                 str2 = str;
             }
-            this.hw.remove(i3);
+            this.sR.remove(i3);
             return str2;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public void cL() {
-        this.hw.clear();
-        this.hw = null;
+    public void gk() {
+        this.sR.clear();
+        this.sR = null;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public boolean cJ() {
+    public boolean gi() {
         return true;
     }
 }

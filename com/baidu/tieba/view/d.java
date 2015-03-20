@@ -1,26 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class d implements Animation.AnimationListener {
-    final /* synthetic */ a ceE;
+class d {
+    public final boolean arW;
+    public final List<Object> arX;
+    public final List<Object> arY;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar) {
-        this.ceE = aVar;
+    public static d e(List<Object> list, List<Object> list2) {
+        return new d(true, list, list2);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public static d apu() {
+        return new d(false, null, null);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.ceE.xX();
+    private d(boolean z, List<Object> list, List<Object> list2) {
+        this.arW = z;
+        this.arX = list;
+        this.arY = list2;
     }
 }

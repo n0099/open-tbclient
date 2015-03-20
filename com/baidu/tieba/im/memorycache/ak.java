@@ -1,64 +1,38 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class ak implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bjW;
+    final /* synthetic */ aj bkd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public ak(aj ajVar, ImMessageCenterPojo imMessageCenterPojo) {
+        this.bkd = ajVar;
+        this.bjW = imMessageCenterPojo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ImMessageCenterPojo H;
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-            this.this$0.f(socketResponsedMessage);
-            ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
-            ChatMessage chatMessage = (ChatMessage) responseCommitPersonalMessage.getOrginalMessage();
-            if (socketResponsedMessage.hasError()) {
-                chatMessage.getLocalData().setStatus((short) 2);
-            } else {
-                long msgId = responseCommitPersonalMessage.getMsgId();
-                long recordId = responseCommitPersonalMessage.getRecordId();
-                chatMessage.setMsgId(msgId);
-                chatMessage.setRecordId(recordId);
-                chatMessage.getLocalData().setStatus((short) 3);
-                com.baidu.tieba.im.c.a.gF(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        try {
+            try {
+                com.baidu.tieba.im.db.g.PO().PP();
+                com.baidu.tieba.im.db.k.PT().a(this.bjW);
+                com.baidu.tieba.im.db.c.PK().gr(this.bjW.getGid());
+                com.baidu.tieba.im.db.g.PO().endTransaction();
+                return null;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                com.baidu.tieba.im.db.g.PO().endTransaction();
+                return null;
             }
-            if (chatMessage instanceof PersonalChatMessage) {
-                c.QJ().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
-            } else if (chatMessage instanceof OfficialChatMessage) {
-                c.QJ().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
-            } else {
-                return;
-            }
-            if (chatMessage instanceof PersonalChatMessage) {
-                H = c.QJ().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 2);
-            } else if (chatMessage instanceof OfficialChatMessage) {
-                H = c.QJ().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 4);
-            } else {
-                return;
-            }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, H, chatMessage, socketResponsedMessage));
-            customMessageTask.setParallel(TiebaIMConfig.getParallel());
-            customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-            customMessageTask.setPriority(4);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
+        } catch (Throwable th) {
+            com.baidu.tieba.im.db.g.PO().endTransaction();
+            throw th;
         }
     }
 }

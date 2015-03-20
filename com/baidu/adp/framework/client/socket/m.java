@@ -43,15 +43,15 @@ public class m {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.f.eq().b("socket", linkedList.toArray());
+            com.baidu.adp.lib.stats.f.hP().b("socket", linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void be() {
+    public static void eB() {
         try {
-            com.baidu.adp.lib.stats.f.eq().b("socket", ImageViewerConfig.URL, com.baidu.adp.lib.webSocket.m.fU().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.m.fU().fS()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.m.fU().gd()), "remote_ip", com.baidu.adp.lib.webSocket.m.fU().fR(), "local_dns", com.baidu.adp.lib.webSocket.m.fU().fu(), "local_dns_bak", com.baidu.adp.lib.webSocket.m.fU().fv(), "net", com.baidu.adp.lib.stats.f.eq().et());
+            com.baidu.adp.lib.stats.f.hP().b("socket", ImageViewerConfig.URL, com.baidu.adp.lib.webSocket.l.jr().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.l.jr().jo()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.l.jr().jz()), "remote_ip", com.baidu.adp.lib.webSocket.l.jr().jn(), "local_dns", com.baidu.adp.lib.webSocket.l.jr().iX(), "local_dns_bak", com.baidu.adp.lib.webSocket.l.jr().iY(), "net", com.baidu.adp.lib.stats.f.hP().hS());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

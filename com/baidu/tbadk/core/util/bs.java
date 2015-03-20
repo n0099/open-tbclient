@@ -1,10 +1,136 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.DialogInterface;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class bs implements DialogInterface.OnClickListener {
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+public class bs {
+    private static int VJ = -1;
+    private static int VK = -1;
+    private static boolean VL = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> VM = new com.baidu.adp.lib.e.a<>(500);
+    private static Context mAppContext = null;
+
+    public static void ab(Context context) {
+        mAppContext = context;
+        VL = true;
+    }
+
+    private static void tm() {
+        if (mAppContext != null && mAppContext.getResources() != null) {
+            VK = mAppContext.getResources().getColor(com.baidu.tieba.s.more_color);
+            VJ = mAppContext.getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
+        }
+    }
+
+    private static int ci(int i) {
+        return aj(i == 1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static int aj(boolean z) {
+        if (VL) {
+            VL = false;
+            tm();
+        }
+        return z ? VJ : VK;
+    }
+
+    public static void m(View view) {
+        if (view instanceof ViewGroup) {
+            b((ViewGroup) view, TbadkCoreApplication.m411getInst().getSkinType());
+        }
+    }
+
+    public static void n(View view) {
+        if (view != null) {
+            VM.remove(Integer.valueOf(System.identityHashCode(view)));
+        }
+    }
+
+    public static void b(ViewGroup viewGroup, int i) {
+        int identityHashCode = System.identityHashCode(viewGroup);
+        Integer num = VM.get(Integer.valueOf(identityHashCode));
+        if (num == null || i != num.intValue()) {
+            c(viewGroup, i);
+            VM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, boolean z, bu buVar) {
+        if (!z || !buVar.k(viewGroup)) {
+            LinkedList linkedList = new LinkedList();
+            while (true) {
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (!buVar.k(childAt)) {
+                        if (childAt instanceof ViewGroup) {
+                            linkedList.addLast((ViewGroup) childAt);
+                        }
+                    } else {
+                        return;
+                    }
+                }
+                if (!linkedList.isEmpty()) {
+                    viewGroup = (ViewGroup) linkedList.removeFirst();
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    private static void c(ViewGroup viewGroup, int i) {
+        a(viewGroup, true, new bt(i, i == 1));
+    }
+
+    public static void k(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundColor(-14078923);
+            } else {
+                view.setBackgroundColor(-1183760);
+            }
+        }
+    }
+
+    public static void e(View view, int i, int i2) {
+        if (view != null) {
+            view.setBackgroundDrawable(null);
+            if (i == 0) {
+                ba.i(view, com.baidu.tieba.u.auto_skin_list_item_bg_up);
+            } else if (i == 2) {
+                ba.i(view, com.baidu.tieba.u.auto_skin_list_item_bg_down);
+            } else {
+                ba.i(view, com.baidu.tieba.u.list_selector_item);
+            }
+        }
+    }
+
+    public static void k(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setTextColor(-11446171);
+            } else {
+                textView.setTextColor(-5065030);
+            }
+        }
+    }
+
+    public static void c(TextView textView, int i) {
+        if (textView != null) {
+            textView.setTextColor(ci(i));
+        }
+    }
+
+    public static void a(CheckBox checkBox, int i) {
+        if (checkBox != null) {
+            checkBox.setTextColor(ci(i));
+        }
     }
 }

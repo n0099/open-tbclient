@@ -5,19 +5,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnTouchListener {
-    final /* synthetic */ AbsMsglistView aRl;
+    final /* synthetic */ AbsMsglistView aWs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(AbsMsglistView absMsglistView) {
-        this.aRl = absMsglistView;
+        this.aWs = absMsglistView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.aRl.sendmsgCloseSoftkey();
-        this.aRl.sendmsgCloseMore();
-        this.aRl.sendmsgCloseExpression();
-        this.aRl.MainOnTouch();
+        this.aWs.sendmsgCloseSoftkey();
+        this.aWs.sendmsgCloseMore();
+        this.aWs.sendmsgCloseExpression();
+        this.aWs.MainOnTouch();
         return false;
     }
 }

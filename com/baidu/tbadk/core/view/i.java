@@ -1,40 +1,27 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
-public class i extends View {
-    private int height;
-    private int width;
+class i implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext Nn;
+    final /* synthetic */ h XL;
+    private final /* synthetic */ int XM;
+    private final /* synthetic */ String XN;
 
-    public i(Context context) {
-        super(context);
-        this.height = 0;
-        this.width = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(h hVar, TbPageContext tbPageContext, int i, String str) {
+        this.XL = hVar;
+        this.Nn = tbPageContext;
+        this.XM = i;
+        this.XN = str;
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.width == 0) {
-            setMeasuredDimension(i & 1073741823, this.height);
-        } else if (this.height == 0) {
-            setMeasuredDimension(this.width, 1073741823 & i2);
-        }
-    }
-
-    public void setHeightPx(int i) {
-        this.height = i;
-    }
-
-    public void setWidthPx(int i) {
-        this.width = i;
-    }
-
-    public void setHeightDip(int i) {
-        this.height = com.baidu.adp.lib.util.l.dip2px(getContext(), i);
-    }
-
-    public void setWidthDip(int i) {
-        this.width = com.baidu.adp.lib.util.l.dip2px(getContext(), i);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.Nn.getPageActivity(), this.XM, this.XN, 11003)));
     }
 }

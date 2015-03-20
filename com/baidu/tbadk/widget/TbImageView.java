@@ -10,32 +10,33 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.performanceLog.v;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.performanceLog.z;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnClickListener, Runnable {
-    private static HashMap<String, SoftReference<com.baidu.adp.widget.a.a>> ajn;
-    private int Lw;
-    private int Lx;
-    private float aac;
-    private boolean aan;
-    private BdUniqueId aao;
-    private p aji;
-    private final int ajj;
-    private int ajk;
-    private int ajl;
-    private float ajm;
-    protected boolean ajo;
-    private boolean ajp;
-    private boolean ajq;
-    protected v ajr;
-    private long ajs;
-    int ajt;
-    int aju;
-    private final com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> ajv;
+    private static HashMap<String, SoftReference<com.baidu.adp.widget.a.a>> arM;
+    private int WY;
+    private int WZ;
+    private float akA;
+    private boolean akL;
+    private BdUniqueId akM;
+    private n arH;
+    private final int arI;
+    private int arJ;
+    private int arK;
+    private float arL;
+    protected boolean arN;
+    private boolean arO;
+    private boolean arP;
+    protected z arQ;
+    private long arR;
+    int arS;
+    int arT;
+    private final com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> arU;
     private boolean mAutoChangeStyle;
     private int mHeight;
     private final Matrix mMatrix;
@@ -44,51 +45,51 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     private String mUrl;
     private int mWidth;
 
-    public void setEvent(p pVar) {
-        this.aji = pVar;
+    public void setEvent(n nVar) {
+        this.arH = nVar;
     }
 
     public int getLoadedWidth() {
-        return this.ajt;
+        return this.arS;
     }
 
     public int getLoadedHeight() {
-        return this.aju;
+        return this.arT;
     }
 
     public TbImageView(Context context) {
         super(context);
-        this.aji = null;
-        this.Lw = com.baidu.tieba.v.img_default_100;
-        this.ajj = com.baidu.tieba.v.img_loading;
-        this.Lx = t.cp_bg_line_c;
+        this.arH = null;
+        this.WY = u.img_default_100;
+        this.arI = u.img_loading;
+        this.WZ = s.cp_bg_line_c;
         this.mType = 10;
         this.mAutoChangeStyle = true;
         this.mMatrix = new Matrix();
-        this.aan = true;
-        this.ajr = null;
-        this.ajs = 0L;
-        this.ajt = 0;
-        this.aju = 0;
-        this.ajv = new o(this);
+        this.akL = false;
+        this.arQ = null;
+        this.arR = 0L;
+        this.arS = 0;
+        this.arT = 0;
+        this.arU = new m(this);
         init(context, null);
     }
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aji = null;
-        this.Lw = com.baidu.tieba.v.img_default_100;
-        this.ajj = com.baidu.tieba.v.img_loading;
-        this.Lx = t.cp_bg_line_c;
+        this.arH = null;
+        this.WY = u.img_default_100;
+        this.arI = u.img_loading;
+        this.WZ = s.cp_bg_line_c;
         this.mType = 10;
         this.mAutoChangeStyle = true;
         this.mMatrix = new Matrix();
-        this.aan = true;
-        this.ajr = null;
-        this.ajs = 0L;
-        this.ajt = 0;
-        this.aju = 0;
-        this.ajv = new o(this);
+        this.akL = false;
+        this.arQ = null;
+        this.arR = 0L;
+        this.arS = 0;
+        this.arT = 0;
+        this.arU = new m(this);
         init(context, attributeSet);
     }
 
@@ -97,9 +98,9 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        zX();
-        this.ajm = 30.0f;
-        this.ajr = new v();
+        Dt();
+        this.arL = 30.0f;
+        this.arQ = new z();
     }
 
     @Override // android.view.View
@@ -108,11 +109,11 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
         super.setTag(obj);
         if (obj == null) {
             if (tag != null) {
-                this.qZ = true;
+                this.BN = true;
                 requestLayout();
             }
         } else if (!obj.equals(tag)) {
-            this.qZ = true;
+            this.BN = true;
             requestLayout();
         }
     }
@@ -125,10 +126,10 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
                 return null;
             }
             String str = (String) tag;
-            com.baidu.adp.widget.a.a ek = com.baidu.tbadk.imageManager.e.vY().ek(str);
-            return ek == null ? com.baidu.tbadk.imageManager.e.vY().ej(str) : ek;
+            com.baidu.adp.widget.a.a er = com.baidu.tbadk.imageManager.e.zs().er(str);
+            return er == null ? com.baidu.tbadk.imageManager.e.zs().eq(str) : er;
         }
-        return (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.ec().a(this.mUrl, this.mType, new Object[0]);
+        return (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hB().a(this.mUrl, this.mType, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -136,35 +137,35 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     public com.baidu.adp.widget.a.a getDefaultBdImage() {
         SoftReference<com.baidu.adp.widget.a.a> softReference;
         com.baidu.adp.widget.a.a aVar;
-        if (ajn == null) {
-            ajn = new HashMap<>();
+        if (arM == null) {
+            arM = new HashMap<>();
         }
-        String valueOf = String.valueOf(this.ajk);
-        String str = (this.mAutoChangeStyle && TbadkCoreApplication.m255getInst().getSkinType() == 1) ? String.valueOf(valueOf) + "_1" : valueOf;
-        if (!ajn.containsKey(str) || (softReference = ajn.get(str)) == null || (aVar = softReference.get()) == null || !aVar.jd()) {
+        String valueOf = String.valueOf(this.arJ);
+        String str = (this.mAutoChangeStyle && TbadkCoreApplication.m411getInst().getSkinType() == 1) ? String.valueOf(valueOf) + "_1" : valueOf;
+        if (!arM.containsKey(str) || (softReference = arM.get(str)) == null || (aVar = softReference.get()) == null || !aVar.mA()) {
             Bitmap bitmap = null;
-            if (this.ajk > 0) {
+            if (this.arJ > 0) {
                 if (this.mAutoChangeStyle) {
-                    if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
-                        bitmap = bc.ce(this.ajk);
+                    if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
+                        bitmap = ba.cg(this.arJ);
                         if (bitmap == null) {
-                            bitmap = com.baidu.tbadk.core.util.d.bN(this.ajk);
+                            bitmap = com.baidu.tbadk.core.util.c.bO(this.arJ);
                         }
                     } else {
-                        bitmap = com.baidu.tbadk.core.util.d.bN(this.ajk);
+                        bitmap = com.baidu.tbadk.core.util.c.bO(this.arJ);
                     }
                 } else {
-                    bitmap = com.baidu.tbadk.core.util.d.bN(this.ajk);
+                    bitmap = com.baidu.tbadk.core.util.c.bO(this.arJ);
                 }
             }
-            com.baidu.adp.widget.a.a aVar2 = new com.baidu.adp.widget.a.a(bitmap, false, String.valueOf(this.ajk));
-            ajn.put(str, new SoftReference<>(aVar2));
+            com.baidu.adp.widget.a.a aVar2 = new com.baidu.adp.widget.a.a(bitmap, false, String.valueOf(this.arJ));
+            arM.put(str, new SoftReference<>(aVar2));
             return aVar2;
         }
         return aVar;
     }
 
-    public void d(String str, int i, boolean z) {
+    public void c(String str, int i, boolean z) {
         a(str, i, 0, 0, z);
     }
 
@@ -185,43 +186,43 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
             this.mUrl = str;
             return;
         }
-        if (!(str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.aao)) {
-            vQ();
-            this.qZ = true;
+        if (!(str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.akM)) {
+            zq();
+            this.BN = true;
             requestLayout();
         } else if (getBdImage() != null) {
-            this.ajr.vz = "memory";
-            this.ajr.isSuccess = true;
-            this.ajr.vA = 0L;
+            this.arQ.Gw = "memory";
+            this.arQ.isSuccess = true;
+            this.arQ.Gx = 0L;
             invalidate();
-            if (this.aji != null) {
-                this.aji.onComplete(str, true);
+            if (this.arH != null) {
+                this.arH.onComplete(str, true);
                 return;
             }
             return;
         }
         this.mUrl = str;
         this.mType = i;
-        this.aao = bdUniqueId;
+        this.akM = bdUniqueId;
         this.mWidth = i2;
         this.mHeight = i3;
-        this.qZ = true;
+        this.BN = true;
         if (z2) {
             invalidate();
-        } else if (!com.baidu.adp.lib.f.d.ec().W(this.mType) && this.aan) {
+        } else if (!com.baidu.adp.lib.f.d.hB().X(this.mType) && this.akL) {
             invalidate();
         } else {
             if (z) {
                 startLoading();
             }
-            this.ajs = System.currentTimeMillis();
-            com.baidu.adp.lib.f.d.ec().a(this.mUrl, this.mType, this.ajv, i2, i3, this.aao, new Object[0]);
+            this.arR = System.currentTimeMillis();
+            com.baidu.adp.lib.f.d.hB().a(this.mUrl, this.mType, this.arU, i2, i3, this.akM, new Object[0]);
         }
     }
 
-    public void vQ() {
+    public void zq() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            com.baidu.adp.lib.f.d.ec().a(this.mUrl, this.mType, this.ajv);
+            com.baidu.adp.lib.f.d.hB().a(this.mUrl, this.mType, this.arU);
             stopLoading();
         }
     }
@@ -229,13 +230,13 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        vQ();
+        zq();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        vQ();
+        zq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -243,7 +244,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 8 || i == 4) {
-            vQ();
+            zq();
         } else {
             refresh();
         }
@@ -252,64 +253,64 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.newwidget.a.b, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        zX();
+        Dt();
         super.onDraw(canvas);
     }
 
     public void startLoading() {
-        this.ajp = true;
-        vP();
+        this.arO = true;
+        zp();
     }
 
     public void stopLoading() {
-        this.ajp = false;
+        this.arO = false;
         removeCallbacks(this);
-        this.aac = 0.0f;
+        this.akA = 0.0f;
         this.mMatrix.reset();
         setExtraMatrix(this.mMatrix);
         invalidate();
     }
 
-    private void vP() {
+    private void zp() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.ajp) {
-            this.aac += this.ajm;
-            if (this.aac > 360.0f - this.ajm) {
-                this.aac = 0.0f;
+        if (this.arO) {
+            this.akA += this.arL;
+            if (this.akA > 360.0f - this.arL) {
+                this.akA = 0.0f;
             }
             this.mMatrix.reset();
-            this.mMatrix.postRotate(this.aac, getWidth() / 2.0f, getHeight() / 2.0f);
+            this.mMatrix.postRotate(this.akA, getWidth() / 2.0f, getHeight() / 2.0f);
             setExtraMatrix(this.mMatrix);
             invalidate();
-            vP();
+            zp();
         }
     }
 
-    private void zX() {
+    private void Dt() {
         if (this.mAutoChangeStyle) {
-            this.qM.rq = TbadkCoreApplication.m255getInst().getSkinType() == 1;
+            this.BA.Cd = TbadkCoreApplication.m411getInst().getSkinType() == 1;
         } else {
-            this.qM.rq = false;
+            this.BA.Cd = false;
         }
-        int i = this.ajk;
-        int i2 = this.ajp ? this.ajj : this.Lw;
-        if (i2 != this.ajk) {
-            this.ajk = i2;
-            this.qZ = true;
+        int i = this.arJ;
+        int i2 = this.arO ? this.arI : this.WY;
+        if (i2 != this.arJ) {
+            this.arJ = i2;
+            this.BN = true;
         }
-        int i3 = this.ajl;
-        this.ajl = this.Lx;
-        if (this.ajl > 0) {
+        int i3 = this.arK;
+        this.arK = this.WZ;
+        if (this.arK > 0) {
             if (this.mAutoChangeStyle) {
-                setDefaultBg(bc.getDrawable(this.ajl));
+                setDefaultBg(ba.getDrawable(this.arK));
                 return;
             } else {
-                setDefaultBg(getResources().getDrawable(this.ajl));
+                setDefaultBg(getResources().getDrawable(this.arK));
                 return;
             }
         }
@@ -317,15 +318,15 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     }
 
     public void setDefaultResource(int i) {
-        if (this.Lw != i) {
-            this.Lw = i;
+        if (this.WY != i) {
+            this.WY = i;
             invalidate();
         }
     }
 
     public void setDefaultBgResource(int i) {
-        if (this.Lx != i) {
-            this.Lx = i;
+        if (this.WZ != i) {
+            this.WZ = i;
             invalidate();
         }
     }
@@ -335,7 +336,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.aao = bdUniqueId;
+        this.akM = bdUniqueId;
     }
 
     public String getUrl() {
@@ -361,46 +362,46 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     }
 
     public void setInterceptOnClick(boolean z) {
-        this.ajq = z;
+        this.arP = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (getBdImage() == null && getDrawable() == null && this.ajq) {
+        if (getBdImage() == null && getDrawable() == null && this.arP) {
             startLoading();
-            com.baidu.adp.lib.f.d.ec().a(this.mUrl, this.mType, this.ajv, this.mWidth, this.mHeight, this.aao, new Object[0]);
+            com.baidu.adp.lib.f.d.hB().a(this.mUrl, this.mType, this.arU, this.mWidth, this.mHeight, this.akM, new Object[0]);
         } else if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(view);
         }
     }
 
     public int getGifIconWidth() {
-        if (this.qM.rt != null) {
-            return this.qM.rt.getIntrinsicWidth();
+        if (this.BA.Cg != null) {
+            return this.BA.Cg.getIntrinsicWidth();
         }
         return -1;
     }
 
     public int getGifIconHeight() {
-        if (this.qM.rt != null) {
-            return this.qM.rt.getIntrinsicHeight();
+        if (this.BA.Cg != null) {
+            return this.BA.Cg.getIntrinsicHeight();
         }
         return -1;
     }
 
     public void setSupportNoImage(boolean z) {
-        this.aan = z;
+        this.akL = z;
     }
 
-    public v getPerfLog() {
-        return this.ajr;
+    public z getPerfLog() {
+        return this.arQ;
     }
 
-    public void qz() {
-        if (!this.ajo) {
-            this.ajo = true;
-        } else if (this.ajr != null && this.ajr.agI) {
-            this.ajr.zl();
+    public void tK() {
+        if (!this.arN) {
+            this.arN = true;
+        } else if (this.arQ != null && this.arQ.apl) {
+            this.arQ.CD();
         }
     }
 }

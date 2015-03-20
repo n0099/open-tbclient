@@ -1,53 +1,30 @@
 package com.baidu.tieba.tbadkCore.b;
 
-import android.content.Context;
 import android.view.View;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* loaded from: classes.dex */
-public class e extends com.baidu.tbadk.util.i {
-    final /* synthetic */ c bYu;
+class e implements View.OnClickListener {
+    private final /* synthetic */ BaseActivity bda;
+    final /* synthetic */ d cnB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(c cVar, Context context) {
-        super(context);
-        this.bYu = cVar;
+    public e(d dVar, BaseActivity baseActivity) {
+        this.cnB = dVar;
+        this.bda = baseActivity;
     }
 
-    @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
+    @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Pattern pattern;
-        String str;
-        Pattern pattern2;
-        String str2;
-        String str3;
-        pattern = c.pbPattern0;
-        str = this.bYu.link;
-        Matcher matcher = pattern.matcher(str);
-        if (matcher.find()) {
-            try {
-                String group = matcher.group();
-                eF(group.substring(group.lastIndexOf("/") + 1));
-                return;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        com.baidu.adp.lib.guide.d dVar;
+        com.baidu.adp.lib.guide.d dVar2;
+        dVar = a.cnx;
+        if (dVar != null) {
+            dVar2 = a.cnx;
+            dVar2.dismiss();
         }
-        pattern2 = c.pbPattern1;
-        str2 = this.bYu.link;
-        Matcher matcher2 = pattern2.matcher(str2);
-        if (matcher2.find()) {
-            try {
-                String group2 = matcher2.group();
-                eF(group2.substring(group2.lastIndexOf("=") + 1));
-                return;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-        str3 = this.bYu.link;
-        eE(str3);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.bda.getPageContext().getPageActivity(), true, 23004, "expiring")));
     }
 }

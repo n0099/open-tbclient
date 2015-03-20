@@ -1,62 +1,49 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ PersonImageActivity bIg;
-    byte[] mData;
-    String mUrl;
+public class ba extends com.baidu.adp.base.g {
+    TextView bQp;
+    TextView bQq;
+    View mView;
 
-    public ba(PersonImageActivity personImageActivity, String str, byte[] bArr) {
-        this.bIg = personImageActivity;
-        this.mUrl = null;
-        this.mData = null;
-        this.mUrl = str;
-        this.mData = bArr;
+    public ba(PersonInfoActivity personInfoActivity) {
+        super(personInfoActivity.getPageContext());
+        a(personInfoActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.s.a(this.mUrl, this.mData, this.bIg.getPageContext().getPageActivity())) {
-            case -2:
-                return com.baidu.tbadk.core.util.s.ol();
-            case -1:
-            default:
-                return this.bIg.getPageContext().getString(com.baidu.tieba.z.save_error);
-            case 0:
-                return this.bIg.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
+    private void a(PersonInfoActivity personInfoActivity) {
+        this.mView = com.baidu.adp.lib.g.b.hH().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.w.person_info_more_view, null);
+        this.bQp = (TextView) this.mView.findViewById(com.baidu.tieba.v.person_info_more_view_item_friend);
+        this.bQp.setOnClickListener(personInfoActivity);
+        this.bQq = (TextView) this.mView.findViewById(com.baidu.tieba.v.person_info_more_view_item_black);
+        this.bQq.setOnClickListener(personInfoActivity);
+    }
+
+    public void e(boolean z, boolean z2) {
+        if (z) {
+            this.bQp.setVisibility(0);
+        } else {
+            this.bQp.setVisibility(8);
+        }
+        if (z2) {
+            this.bQq.setText(com.baidu.tieba.y.remove_block_chat);
+        } else {
+            this.bQq.setText(com.baidu.tieba.y.block_chat_message);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        super.onPostExecute((ba) str);
-        this.bIg.showToast(str);
-        this.bIg.bIf = null;
-        progressBar = this.bIg.mProgress;
-        progressBar.setVisibility(8);
+    public View getView() {
+        return this.mView;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
+    public View ade() {
+        return this.bQp;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.bIg.bIf = null;
-        progressBar = this.bIg.mProgress;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+    public View adf() {
+        return this.bQq;
     }
 }

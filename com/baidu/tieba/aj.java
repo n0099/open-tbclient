@@ -1,40 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 /* loaded from: classes.dex */
-class aj implements View.OnClickListener {
-    final /* synthetic */ ai alW;
+class aj implements Runnable {
+    final /* synthetic */ ai aum;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ai aiVar) {
-        this.alW = aiVar;
+        this.aum = aiVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        boolean z;
-        boolean z2;
-        an anVar;
-        boolean z3;
-        TextView textView2;
-        textView = this.alW.alM;
-        textView.setEnabled(false);
-        z = this.alW.alB;
-        TiebaStatic.eventStat(this.alW.getContext(), "upgrade_channel", z ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        this.alW.alD = true;
-        z2 = this.alW.alC;
-        if (z2) {
-            Drawable drawable = com.baidu.tbadk.core.util.bc.getDrawable(v.btn_dailog_choose_d);
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.alW.alK;
-            textView2.setCompoundDrawables(drawable, null, null, null);
+    @Override // java.lang.Runnable
+    public void run() {
+        UpdateDialog updateDialog;
+        VersionData versionData;
+        UpdateDialog updateDialog2;
+        updateDialog = this.aum.this$0;
+        versionData = updateDialog.aui;
+        if (versionData.forceUpdate()) {
+            updateDialog2 = this.aum.this$0;
+            com.baidu.tbadk.core.c.b.e(updateDialog2.getPageContext().getPageActivity(), 200);
         }
-        anVar = this.alW.alT;
-        z3 = this.alW.alC;
-        anVar.bd(z3);
     }
 }

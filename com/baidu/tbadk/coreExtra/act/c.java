@@ -1,25 +1,33 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity this$0;
+class c implements com.baidu.tbadk.core.a.b {
+    final /* synthetic */ FillUProfileActivity aao;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(EditHeadActivity editHeadActivity) {
-        this.this$0 = editHeadActivity;
+    public c(FillUProfileActivity fillUProfileActivity) {
+        this.aao = fillUProfileActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        Button button;
-        linearLayout = this.this$0.Pu;
-        linearLayout.setVisibility(8);
-        button = this.this$0.Pn;
-        button.setVisibility(0);
+    @Override // com.baidu.tbadk.core.a.b
+    public void bO(String str) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void a(AccountData accountData) {
+        if (accountData.getAccount() != null && !"".equals(accountData.getAccount())) {
+            com.baidu.tbadk.core.a.d.b(accountData);
+            TbadkCoreApplication.setCurrentAccount(accountData, this.aao.getBaseContext());
+            this.aao.up();
+            return;
+        }
+        this.aao.f(accountData);
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void c(String str, int i, String str2) {
+        this.aao.showToast(str2);
     }
 }

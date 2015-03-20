@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 /* loaded from: classes.dex */
 final class c implements d {
-    int aT;
+    int lX;
     int mOrientation;
     int mScaleMode;
 
     private c() {
         this.mScaleMode = 2;
-        this.aT = 2;
+        this.lX = 2;
         this.mOrientation = 1;
     }
 
@@ -21,12 +21,12 @@ final class c implements d {
 
     @Override // android.support.v4.print.d
     public int getColorMode() {
-        return this.aT;
+        return this.lX;
     }
 
     @Override // android.support.v4.print.d
     public void setColorMode(int i) {
-        this.aT = i;
+        this.lX = i;
     }
 
     @Override // android.support.v4.print.d

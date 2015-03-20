@@ -1,28 +1,37 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard UT;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ LiveBroadcastCard afa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(LiveBroadcastCard liveBroadcastCard, int i) {
-        super(i);
-        this.UT = liveBroadcastCard;
+    public ab(LiveBroadcastCard liveBroadcastCard) {
+        this.afa = liveBroadcastCard;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        long j;
-        if (customResponsedMessage != null) {
-            j = this.UT.mStartTime;
-            if (j <= 0) {
-                return;
-            }
-            this.UT.dealStatusWillStart();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ad adVar;
+        ad adVar2;
+        String str;
+        Context context;
+        String str2;
+        adVar = this.afa.mCardListener;
+        if (adVar != null) {
+            adVar2 = this.afa.mCardListener;
+            adVar2.onClick(this.afa);
+            return;
         }
+        str = this.afa.mStatisticsKey;
+        if (!TextUtils.isEmpty(str)) {
+            context = this.afa.mContext;
+            str2 = this.afa.mStatisticsKey;
+            com.baidu.tbadk.core.k.A(context, str2);
+        }
+        this.afa.goToLiveBroadcastAcvitity();
     }
 }

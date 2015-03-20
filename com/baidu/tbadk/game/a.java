@@ -8,18 +8,18 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.GameWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.q;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 /* loaded from: classes.dex */
-public class a extends u {
+public class a extends q {
     public static void c(Context context, String str, String str2, String str3) {
         LightAppPlugin lightAppPlugin;
-        b.vH().ak(str3, str2);
-        if (f.da().Z("t5core") == 0 && (lightAppPlugin = (LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
+        b.zh().aj(str3, str2);
+        if (f.gz().ag("t5core") == 0 && (lightAppPlugin = (LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
             lightAppPlugin.launchLightApp(context, TbConfig.api_key, TbWebViewActivityConfig.addTiebaParams(str2));
             return;
         }
-        e.vK().s(str3, 2);
+        e.zk().r(str3, 2);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameWebViewActivityConfig(context, str, str2, str3, true)));
     }
 }

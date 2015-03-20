@@ -18,21 +18,8 @@ public class bq extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo H;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (H = c.QJ().H("-1003", -4)) != null) {
-            Object data = customResponsedMessage.getData();
-            if (data == null) {
-                H.setUnread_count(0);
-                H.setIs_hidden(1);
-                this.this$0.r(H);
-            } else if (data instanceof ImMessageCenterPojo) {
-                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                H.setLast_content(imMessageCenterPojo.getLast_content());
-                H.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                H.setUnread_count(0);
-                H.setIs_hidden(0);
-                this.this$0.r(H);
-            }
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ImMessageCenterPojo)) {
+            c.Sd().g((ImMessageCenterPojo) customResponsedMessage.getData());
         }
     }
 }

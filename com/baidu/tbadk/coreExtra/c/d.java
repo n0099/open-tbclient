@@ -5,21 +5,21 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Boolean> {
-    private ad AO = null;
-    private final String GB;
-    private final String RJ;
-    private final String RK;
+    private aa Oi = null;
+    private final String SB;
+    private final String abL;
+    private final String abM;
 
     public d(String str, String str2, String str3) {
-        this.RJ = str;
-        this.GB = str2;
-        this.RK = str3;
+        this.abL = str;
+        this.SB = str2;
+        this.abM = str3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,14 +29,14 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public Boolean doInBackground(String... strArr) {
         Boolean bool = false;
         try {
-            this.AO = new ad(this.RJ);
-            bool = Boolean.valueOf(this.AO.a(String.valueOf(this.GB) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+            this.Oi = new aa(this.abL);
+            bool = Boolean.valueOf(this.Oi.a(String.valueOf(this.SB) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
             if (bool != null && bool.booleanValue()) {
-                if (!StringUtils.isNull(s.e(null, String.valueOf(this.GB) + ".tmp", null, this.GB))) {
-                    s.ck(bh.cE(this.RK));
+                if (!StringUtils.isNull(o.e(null, String.valueOf(this.SB) + ".tmp", null, this.SB))) {
+                    o.cs(bf.cN(this.abM));
                 }
             } else {
-                s.ck(String.valueOf(this.GB) + ".tmp");
+                o.cs(String.valueOf(this.SB) + ".tmp");
             }
         } catch (Exception e) {
         }
@@ -50,7 +50,7 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         if (bool != null && bool.booleanValue()) {
-            new c().so();
+            new c().vK();
         }
     }
 }

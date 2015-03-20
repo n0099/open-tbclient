@@ -1,25 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ cb aSO;
-    private final /* synthetic */ CustomMessage amo;
+public class cd implements View.OnClickListener {
+    final /* synthetic */ MsgrightView aYa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cb cbVar, CustomMessage customMessage) {
-        this.aSO = cbVar;
-        this.amo = customMessage;
+    public cd(MsgrightView msgrightView) {
+        this.aYa = msgrightView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: d */
-    public void onReturnDataInUI(Void r5) {
-        ((PersonalChatActivityConfig) this.amo.getData()).getIntent().setClass(((PersonalChatActivityConfig) this.amo.getData()).getContext(), PersonalChatActivity.class);
-        if (((PersonalChatActivityConfig) this.amo.getData()).getUserData().getUserIdLong() != 0) {
-            ((PersonalChatActivityConfig) this.amo.getData()).startActivity();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aYa.aXc.onItemViewClick(view, 1, this.aYa.mPosition, 0L);
     }
 }

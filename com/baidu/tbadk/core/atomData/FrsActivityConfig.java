@@ -19,6 +19,7 @@ public class FrsActivityConfig extends a {
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
+    public static final String FRS_FROM_SQUARE = "from_square";
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
     public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";

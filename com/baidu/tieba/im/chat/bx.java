@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bx implements w {
-    final /* synthetic */ PersonalChatActivity aSM;
+public class bx implements View.OnLongClickListener {
+    final /* synthetic */ MsgleftView aXQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(PersonalChatActivity personalChatActivity) {
-        this.aSM = personalChatActivity;
+    public bx(MsgleftView msgleftView) {
+        this.aXQ = msgleftView;
     }
 
-    @Override // com.baidu.tieba.im.chat.w
-    public void b(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.aSM.mListModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.w
-    public void Kd() {
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        TouchType touchType;
+        touchType = this.aXQ.aXO;
+        touchType.set(true);
+        return true;
     }
 }

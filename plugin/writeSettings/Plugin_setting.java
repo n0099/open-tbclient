@@ -26,6 +26,8 @@ public final class Plugin_setting extends Message {
     public final Integer enable;
     @ProtoField(tag = 6, type = Message.Datatype.UINT32)
     public final Integer forbidden;
+    @ProtoField(tag = 18, type = Message.Datatype.UINT32)
+    public final Integer install_fail_count;
     @ProtoField(tag = 9, type = Message.Datatype.UINT32)
     public final Integer install_status;
     @ProtoField(tag = 16, type = Message.Datatype.UINT32)
@@ -34,6 +36,8 @@ public final class Plugin_setting extends Message {
     public final String md5;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String package_name;
+    @ProtoField(tag = 19, type = Message.Datatype.UINT32)
+    public final Integer priority;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String requireLoad;
     @ProtoField(tag = 8, type = Message.Datatype.UINT32)
@@ -55,6 +59,8 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_TEMP_VERSION_CODE = 0;
     public static final Integer DEFAULT_VERSION_CODE = 0;
     public static final Integer DEFAULT_IS_INJECT_CLASSLOADER = 0;
+    public static final Integer DEFAULT_INSTALL_FAIL_COUNT = 0;
+    public static final Integer DEFAULT_PRIORITY = 1000;
 
     /* synthetic */ Plugin_setting(Builder builder, boolean z, Plugin_setting plugin_setting) {
         this(builder, z);
@@ -145,9 +151,19 @@ public final class Plugin_setting extends Message {
             }
             if (builder.abandon_apk_path == null) {
                 this.abandon_apk_path = "";
-                return;
             } else {
                 this.abandon_apk_path = builder.abandon_apk_path;
+            }
+            if (builder.install_fail_count == null) {
+                this.install_fail_count = DEFAULT_INSTALL_FAIL_COUNT;
+            } else {
+                this.install_fail_count = builder.install_fail_count;
+            }
+            if (builder.priority == null) {
+                this.priority = DEFAULT_PRIORITY;
+                return;
+            } else {
+                this.priority = builder.priority;
                 return;
             }
         }
@@ -168,6 +184,8 @@ public final class Plugin_setting extends Message {
         this.version_code = builder.version_code;
         this.is_inject_classloader = builder.is_inject_classloader;
         this.abandon_apk_path = builder.abandon_apk_path;
+        this.install_fail_count = builder.install_fail_count;
+        this.priority = builder.priority;
     }
 
     /* loaded from: classes.dex */
@@ -178,10 +196,12 @@ public final class Plugin_setting extends Message {
         public String display_name;
         public Integer enable;
         public Integer forbidden;
+        public Integer install_fail_count;
         public Integer install_status;
         public Integer is_inject_classloader;
         public String md5;
         public String package_name;
+        public Integer priority;
         public String requireLoad;
         public Integer size;
         public String temp_md5;
@@ -210,6 +230,8 @@ public final class Plugin_setting extends Message {
                 this.version_code = plugin_setting.version_code;
                 this.is_inject_classloader = plugin_setting.is_inject_classloader;
                 this.abandon_apk_path = plugin_setting.abandon_apk_path;
+                this.install_fail_count = plugin_setting.install_fail_count;
+                this.priority = plugin_setting.priority;
             }
         }
 

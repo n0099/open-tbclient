@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.ValidateItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnLongClickListener {
-    final /* synthetic */ i bpV;
+    final /* synthetic */ i bnM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.bpV = iVar;
+        this.bnM = iVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -17,9 +17,9 @@ public class l implements View.OnLongClickListener {
         ValidateActivity validateActivity;
         View view2;
         ValidateItemData validateItemData;
-        validateActivity = this.bpV.bpQ;
-        view2 = this.bpV.awv;
-        validateItemData = this.bpV.bpU;
+        validateActivity = this.bnM.bnH;
+        view2 = this.bnM.aCi;
+        validateItemData = this.bnM.bnL;
         validateActivity.b(view2, 200, 0, 0L, validateItemData);
         return true;
     }

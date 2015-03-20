@@ -1,46 +1,45 @@
 package com.baidu.tbadk.core.voice.service;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.aa;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
-    private ad AO;
-    private com.baidu.tbadk.coreExtra.data.b OA;
-    private boolean OB = false;
-    final /* synthetic */ c OC;
+class d {
+    private aa Oi;
+    private com.baidu.tbadk.coreExtra.data.b ZI;
+    private boolean ZJ = false;
+    final /* synthetic */ c ZK;
     private String mFileName;
     private String mUrl;
     private String mVoiceMd5;
 
     public d(c cVar, String str, com.baidu.tbadk.coreExtra.data.b bVar, String str2, String str3) {
-        this.OC = cVar;
+        this.ZK = cVar;
         this.mFileName = null;
         this.mUrl = null;
-        this.OA = null;
+        this.ZI = null;
         this.mVoiceMd5 = null;
         this.mFileName = str;
-        this.OA = bVar;
+        this.ZI = bVar;
         this.mUrl = str2;
         this.mVoiceMd5 = str3;
     }
 
-    public com.baidu.tbadk.coreExtra.data.c qV() {
+    public com.baidu.tbadk.coreExtra.data.c ue() {
         com.baidu.tbadk.coreExtra.data.c cVar = new com.baidu.tbadk.coreExtra.data.c();
-        long totalLength = this.OA.getTotalLength();
+        long totalLength = this.ZI.getTotalLength();
         long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-        int rB = this.OA.rB();
-        if (rB < j) {
+        int uy = this.ZI.uy();
+        if (uy < j) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
-            if (randomAccessFile.skipBytes(rB * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < rB * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
-                cVar.au(false);
+            if (randomAccessFile.skipBytes(uy * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < uy * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
+                cVar.af(false);
                 randomAccessFile.close();
                 return cVar;
             }
             while (true) {
-                int i = rB;
+                int i = uy;
                 if (i < j) {
                     int i2 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                     if (i == j - 1) {
@@ -49,40 +48,40 @@ public class d {
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.AO = new ad(this.mUrl);
-                        this.AO.g("voice_chunk", bArr);
-                        this.AO.o("chunk_md5", this.OA.rA());
-                        this.AO.o("length", String.valueOf(read));
-                        this.AO.o("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                        this.AO.o("total_length", String.valueOf(totalLength));
-                        this.AO.o("chunk_no", String.valueOf(i + 1));
-                        this.AO.o("total_num", String.valueOf(j));
-                        this.AO.o("voice_md5", this.mVoiceMd5);
+                        this.Oi = new aa(this.mUrl);
+                        this.Oi.g("voice_chunk", bArr);
+                        this.Oi.o("chunk_md5", this.ZI.ux());
+                        this.Oi.o("length", String.valueOf(read));
+                        this.Oi.o("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                        this.Oi.o("total_length", String.valueOf(totalLength));
+                        this.Oi.o("chunk_no", String.valueOf(i + 1));
+                        this.Oi.o("total_num", String.valueOf(j));
+                        this.Oi.o("voice_md5", this.mVoiceMd5);
                         boolean z = false;
-                        if (this.OB) {
+                        if (this.ZJ) {
                             z = true;
-                        } else if (this.AO.ou() == null || !this.AO.oS().qa().lT()) {
-                            this.OA.cz(i);
-                            com.baidu.tbadk.core.util.i.a(this.OA);
+                        } else if (this.Oi.rR() == null || !this.Oi.sp().tq().pv()) {
+                            this.ZI.cy(i);
+                            com.baidu.tbadk.core.util.e.a(this.ZI);
                             randomAccessFile.close();
                             z = true;
                         }
                         if (z) {
-                            cVar.setErrorCode(this.AO.oW());
-                            cVar.setErrorString(this.AO.getErrorString());
-                            cVar.b(this.OA);
-                            cVar.au(false);
+                            cVar.setErrorCode(this.Oi.st());
+                            cVar.setErrorString(this.Oi.getErrorString());
+                            cVar.b(this.ZI);
+                            cVar.af(false);
                             return cVar;
                         }
                     }
-                    rB = i + 1;
+                    uy = i + 1;
                 } else {
                     randomAccessFile.close();
                     break;
                 }
             }
         }
-        cVar.au(true);
+        cVar.af(true);
         return cVar;
     }
 }

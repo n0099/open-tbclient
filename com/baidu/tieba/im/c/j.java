@@ -7,22 +7,22 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ a boE;
-    private final /* synthetic */ CommonGroupChatMessage boJ;
+    final /* synthetic */ a bmC;
+    private final /* synthetic */ CommonGroupChatMessage bmH;
     private final /* synthetic */ ChatMessage val$chatMessage;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
-        this.boE = aVar;
-        this.boJ = commonGroupChatMessage;
+        this.bmC = aVar;
+        this.bmH = commonGroupChatMessage;
         this.val$chatMessage = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     public void onReturnDataInUI(Boolean bool) {
-        this.boJ.setLogTime(System.currentTimeMillis());
-        MessageManager.getInstance().sendMessage(this.boJ);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(this.boJ.getGroupId(), this.val$chatMessage.getCustomGroupType(), this.val$chatMessage, 3)));
+        this.bmH.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.bmH);
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(this.bmH.getGroupId(), this.val$chatMessage.getCustomGroupType(), this.val$chatMessage, 3)));
     }
 }

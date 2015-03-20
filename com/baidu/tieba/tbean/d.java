@@ -8,15 +8,15 @@ import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
-    private BuyTBeanActivity cbS;
-    private i cbT;
+    private BuyTBeanActivity cqq;
+    private i cqr;
     private List<IconInfo> iconInfoList;
     private UserInfo userInfo;
 
     public d(BuyTBeanActivity buyTBeanActivity, i iVar) {
         super(buyTBeanActivity.getPageContext());
-        this.cbS = buyTBeanActivity;
-        this.cbT = iVar;
+        this.cqq = buyTBeanActivity;
+        this.cqr = iVar;
     }
 
     public UserInfo getUserInfo() {
@@ -24,26 +24,26 @@ public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
     }
 
     public List<IconInfo> getIconInfoList() {
-        return aJ(this.iconInfoList);
+        return aW(this.iconInfoList);
     }
 
-    public void aiI() {
+    public void anG() {
         sendMessage(new GetYinJiRequestMessage());
     }
 
-    public void aiJ() {
+    public void anH() {
         e eVar = new e(this, 306001);
         eVar.setSelfListener(true);
         registerListener(eVar);
     }
 
-    public void aiK() {
+    public void anI() {
         f fVar = new f(this, CmdConfigHttp.CMD_HTTP_GET_YINJI);
         fVar.setSelfListener(true);
         registerListener(fVar);
     }
 
-    public void aiL() {
+    public void anJ() {
         registerListener(new g(this, CmdConfigHttp.GETPAYINFO_CMD));
     }
 
@@ -57,7 +57,7 @@ public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
         return false;
     }
 
-    private List<IconInfo> aJ(List<IconInfo> list) {
+    private List<IconInfo> aW(List<IconInfo> list) {
         if (list == null || list.size() <= 0) {
             return null;
         }

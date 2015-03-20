@@ -6,30 +6,30 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a atZ;
+    final /* synthetic */ a aBK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.atZ = aVar;
+        this.aBK = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mvc.j.c cVar;
-        com.baidu.tbadk.mvc.j.c cVar2;
+        com.baidu.tbadk.mvc.j.d dVar;
+        com.baidu.tbadk.mvc.j.d dVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            cVar = this.atZ.atQ;
-            List<D> yG = cVar.yG();
-            if (yG != 0 && !yG.isEmpty()) {
-                for (D d : yG) {
-                    if (d != null && "discover_game_center".equals(d.Dl())) {
-                        d.bv(booleanValue);
-                        cVar2 = this.atZ.atQ;
-                        cVar2.x((com.baidu.tbadk.mvc.j.c) d);
+            dVar = this.aBK.aBB;
+            List<D> BU = dVar.BU();
+            if (BU != 0 && !BU.isEmpty()) {
+                for (D d : BU) {
+                    if (d != null && "discover_game_center".equals(d.Gg())) {
+                        d.bu(booleanValue);
+                        dVar2 = this.aBK.aBB;
+                        dVar2.y(d);
                         return;
                     }
                 }

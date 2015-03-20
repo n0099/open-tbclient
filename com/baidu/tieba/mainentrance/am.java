@@ -1,103 +1,69 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.mainentrance.BarSuggestModel;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import android.widget.FrameLayout;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
+import com.baidu.tbadk.data.SearchFriendResult;
+import java.util.List;
 /* loaded from: classes.dex */
-public class am extends BaseAdapter {
-    private final String aCN;
-    private final boolean bsl = true;
-    private ArrayList<BarSuggestModel.Forum> btf;
-    private final BaseActivity<?> mActivity;
+class am extends HttpMessageListener {
+    final /* synthetic */ SquareSearchActivity bzG;
 
-    public am(BaseActivity<?> baseActivity, ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.mActivity = baseActivity;
-        this.aCN = baseActivity.getPageContext().getPageActivity().getText(com.baidu.tieba.z.forum).toString();
-        this.btf = arrayList;
-    }
-
-    public void G(ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.btf = arrayList;
-        if (this.btf != null) {
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.btf == null) {
-            return 0;
-        }
-        return this.btf.size();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
+        this.bzG = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: gO */
-    public BarSuggestModel.Forum getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.btf.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        an anVar;
-        if (view == null) {
-            view = com.baidu.adp.lib.g.b.ei().inflate(this.mActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.square_dialog_search_item, null);
-            an anVar2 = new an(this, null);
-            anVar2.aAk = (BarImageView) view.findViewById(com.baidu.tieba.w.forum_avatar);
-            anVar2.aAk.setGifIconSupport(false);
-            anVar2.aAk.setSupportNoImage(false);
-            anVar2.aQw = (TextView) view.findViewById(com.baidu.tieba.w.name);
-            anVar2.aAo = (TextView) view.findViewById(com.baidu.tieba.w.member_count);
-            anVar2.aAp = (TextView) view.findViewById(com.baidu.tieba.w.thread_count);
-            anVar2.aAq = (TextView) view.findViewById(com.baidu.tieba.w.slogan);
-            view.setTag(anVar2);
-            anVar = anVar2;
-        } else {
-            anVar = (an) view.getTag();
-        }
-        BarSuggestModel.Forum item = getItem(i);
-        if (item != null) {
-            int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-            String str = item.avatar;
-            anVar.aAk.setTag(str);
-            anVar.aAk.d(str, 10, false);
-            anVar.aAk.invalidate();
-            if (this.bsl) {
-                anVar.aQw.setText(item.forum_name.concat(this.aCN));
-            } else {
-                anVar.aQw.setText(item.forum_name);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        ResponseSearchFriendMessage responseSearchFriendMessage;
+        HttpMessage httpMessage;
+        FrameLayout frameLayout;
+        com.baidu.tbadk.core.view.s sVar;
+        com.baidu.tbadk.core.view.s sVar2;
+        boolean z;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            int error = httpResponsedMessage.getError();
+            if ((httpResponsedMessage instanceof ResponseSearchFriendMessage) && (responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage) != null && (httpMessage = (HttpMessage) responseSearchFriendMessage.getOrginalMessage()) != null && httpMessage.getTag() == this.bzG.getUniqueId()) {
+                if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
+                    List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
+                    if (userInfo.size() > 0) {
+                        SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
+                        if (String.valueOf(userInfo2.getUserId()) != null && userInfo2.getUserName() != null) {
+                            z = this.bzG.amI;
+                            if (!z) {
+                                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
+                                requestSearchPersonHistoryWriteMessage.setData(userInfo2.getUserName());
+                                this.bzG.amI = true;
+                                this.bzG.sendMessage(requestSearchPersonHistoryWriteMessage);
+                            }
+                            this.bzG.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bzG.getPageContext().getPageActivity(), String.valueOf(userInfo2.getUserId()), userInfo2.getUserName())));
+                            return;
+                        }
+                        return;
+                    }
+                    this.bzG.showToast(com.baidu.tieba.y.neterror);
+                } else if (TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
+                    this.bzG.showToast(com.baidu.tieba.y.neterror);
+                } else {
+                    this.bzG.showToast(httpResponsedMessage.getErrorString());
+                    frameLayout = this.bzG.byR;
+                    frameLayout.setVisibility(8);
+                    sVar = this.bzG.mNoDataView;
+                    sVar.setVisibility(0);
+                    sVar2 = this.bzG.mNoDataView;
+                    sVar2.setTextOption(com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.text_no_suggest));
+                }
             }
-            anVar.aAk.setTag(item.avatar);
-            anVar.aAo.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.z.forum_list_attention_tv)) + " " + eF(item.member_num));
-            anVar.aAp.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.z.forum_list_thread_tv)) + " " + eF(item.thread_num));
-            anVar.aAq.setText(item.slogan);
-            this.mActivity.getLayoutMode().ab(skinType == 1);
-            this.mActivity.getLayoutMode().h(view);
         }
-        return view;
-    }
-
-    public String eF(int i) {
-        if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY)) + this.mActivity.getPageContext().getString(com.baidu.tieba.z.member_count_unit);
-        }
-        return String.valueOf(i);
     }
 }

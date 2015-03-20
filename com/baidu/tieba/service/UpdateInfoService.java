@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
-    private com.baidu.adp.lib.d.d locationCallBack = new t(this);
-    private com.baidu.tieba.model.r mModel;
+    private com.baidu.adp.lib.d.d locationCallBack = new q(this);
+    private com.baidu.tieba.a.g mModel;
 
     static {
-        TbadkCoreApplication.m255getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
+        TbadkCoreApplication.m411getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
     }
 
     @Override // android.app.Service
@@ -23,16 +23,16 @@ public class UpdateInfoService extends BdBaseService {
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mModel = new com.baidu.tieba.model.r(null);
-        this.mModel.UL();
+        this.mModel = new com.baidu.tieba.a.g(null);
+        this.mModel.XL();
         this.mModel.ah(540000L);
-        this.mModel.a(new u(this));
+        this.mModel.a(new r(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m255getInst().getLocationShared() && this.mModel.canSend()) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m411getInst().getLocationShared() && this.mModel.canSend()) {
             findLocationFromLocal();
         }
     }
@@ -45,10 +45,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.d.a.dB().a(true, this.locationCallBack);
+        com.baidu.adp.lib.d.a.gZ().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.d.a.dB().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.gZ().a(this.locationCallBack);
     }
 }

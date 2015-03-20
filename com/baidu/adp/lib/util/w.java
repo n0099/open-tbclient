@@ -1,9 +1,6 @@
 package com.baidu.adp.lib.util;
 
-import java.util.UUID;
+import java.util.Queue;
 /* loaded from: classes.dex */
-public class w {
-    public static String fA() {
-        return UUID.randomUUID().toString();
-    }
+public interface w extends Queue {
 }

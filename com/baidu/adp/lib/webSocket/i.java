@@ -1,116 +1,36 @@
 package com.baidu.adp.lib.webSocket;
-
-import com.baidu.adp.lib.util.BdLog;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-class i implements g {
-    private OutputStream fU;
-    private byte[] mData;
-    private InputStream mInputStream;
-    private long pf;
-    private String pg;
-    private String ph;
-    private String pi;
-    private Socket pj;
+public class i {
+    private static final int[] zW = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    private int mPos;
+    private int mState;
 
-    public i(String str, int i, am amVar) {
-        this.pj = null;
-        this.mInputStream = null;
-        this.fU = null;
-        this.mData = null;
-        this.pf = 0L;
-        this.pg = null;
-        this.ph = null;
-        this.pi = null;
-        this.pj = new Socket();
-        long currentTimeMillis = System.currentTimeMillis();
-        InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
-        if (inetSocketAddress.getAddress() != null) {
-            this.pg = inetSocketAddress.getAddress().getHostAddress();
-            this.pf = System.currentTimeMillis() - currentTimeMillis;
-        }
-        this.pj.connect(inetSocketAddress, amVar.gp());
-        this.pj.setSoTimeout(amVar.go());
-        this.pj.setTcpNoDelay(amVar.getTcpNoDelay());
-        this.mInputStream = this.pj.getInputStream();
-        this.fU = this.pj.getOutputStream();
-        this.mData = new byte[1024];
-        this.ph = com.baidu.adp.lib.util.l.fu();
-        this.pi = com.baidu.adp.lib.util.l.fv();
+    public i() {
+        reset();
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g
-    public void close() {
-        try {
-            this.mInputStream.close();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        try {
-            this.fU.close();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-        }
-        if (this.pj != null) {
-            try {
-                this.pj.close();
-            } catch (IOException e3) {
-                throw e3;
-            } catch (Throwable th) {
+    public void reset() {
+        this.mState = 0;
+        this.mPos = 0;
+    }
+
+    public boolean isValid() {
+        return this.mState == 0;
+    }
+
+    public boolean g(byte[] bArr, int i, int i2) {
+        for (int i3 = i; i3 < i + i2; i3++) {
+            this.mState = zW[(this.mState << 4) + 256 + zW[bArr[i3] & 255]];
+            if (this.mState == 1) {
+                this.mPos += i3;
+                return false;
             }
         }
+        this.mPos += i2;
+        return true;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g
-    public boolean isConnected() {
-        if (this.pj != null) {
-            return this.pj.isConnected();
-        }
-        return false;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public int read(ByteBuffer byteBuffer) {
-        int read = this.mInputStream.read(this.mData);
-        if (read > 0) {
-            byteBuffer.put(this.mData, 0, read);
-        }
-        return read;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public int write(ByteBuffer byteBuffer) {
-        int remaining = byteBuffer.remaining();
-        if (remaining > 0) {
-            byte[] bArr = new byte[remaining];
-            byteBuffer.get(bArr);
-            this.fU.write(bArr);
-        }
-        return remaining;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public String fR() {
-        return this.pg;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public long fS() {
-        return this.pf;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public String fu() {
-        return this.ph;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public String fv() {
-        return this.pi;
+    public boolean r(byte[] bArr) {
+        return g(bArr, 0, bArr.length);
     }
 }

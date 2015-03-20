@@ -23,7 +23,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         DESCEND,
         NONE;
 
-        /* JADX DEBUG: Replace access to removed values field (eZ) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qr) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SORT[] valuesCustom() {
             SORT[] valuesCustom = values();
@@ -154,7 +154,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.q(i);
+        return FrameHelper.r(i);
     }
 
     public boolean setNeedProgress() {

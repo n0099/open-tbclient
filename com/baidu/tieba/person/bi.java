@@ -1,21 +1,30 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class bi implements com.baidu.adp.widget.ListView.ab {
-    final /* synthetic */ PersonListActivity bIr;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(PersonListActivity personListActivity) {
-        this.bIr = personListActivity;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* loaded from: classes.dex */
+class bi {
+    TextView aHg;
+    HeadImageView aIi;
+    TextView aXK;
+    ViewGroup bQE;
+    TextView bQF;
+    final /* synthetic */ bh bQG;
+    ImageView bQj;
+    LinearLayout bQk;
+    TextView bQl;
+    ProgressBar mProgress;
+
+    private bi(bh bhVar) {
+        this.bQG = bhVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.ab
-    public void onScrollToBottom() {
-        bj bjVar;
-        bjVar = this.bIr.bIm;
-        if (!bjVar.isHasMore()) {
-            return;
-        }
-        this.bIr.aaT();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bi(bh bhVar, bi biVar) {
+        this(bhVar);
     }
 }

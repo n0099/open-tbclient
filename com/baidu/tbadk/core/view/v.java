@@ -1,7 +1,24 @@
 package com.baidu.tbadk.core.view;
-/* loaded from: classes.dex */
-public interface v {
-    void lq();
 
-    void lr();
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+/* loaded from: classes.dex */
+public class v {
+    NoDataViewFactory.ImgType YD = NoDataViewFactory.ImgType.NONE;
+    int mHeight = -1;
+
+    private v() {
+    }
+
+    public static v a(NoDataViewFactory.ImgType imgType, int i) {
+        v vVar = new v();
+        vVar.YD = imgType;
+        vVar.mHeight = i;
+        return vVar;
+    }
+
+    public static v a(NoDataViewFactory.ImgType imgType) {
+        v vVar = new v();
+        vVar.YD = imgType;
+        return vVar;
+    }
 }

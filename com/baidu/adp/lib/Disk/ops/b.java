@@ -37,26 +37,26 @@ public class b extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean j(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.gf.k(bArr)) {
-            if (this.gf.gj == 0 || this.gf.gj >= System.currentTimeMillis()) {
-                if (this.ge == null) {
-                    this.ge = new BitmapFactory.Options();
-                    this.ge.inDither = false;
+        if (bArr != null && this.rz.l(bArr)) {
+            if (this.rz.rD == 0 || this.rz.rD >= System.currentTimeMillis()) {
+                if (this.ry == null) {
+                    this.ry = new BitmapFactory.Options();
+                    this.ry.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.ge.inScreenDensity = i;
-                    this.ge.inTargetDensity = i;
-                    r2 = this.ge;
+                    this.ry.inScreenDensity = i;
+                    this.ry.inTargetDensity = i;
+                    r2 = this.ry;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
-                int cn = d.cn();
+                int fL = d.fL();
                 try {
                     try {
-                        byteArrayInputStream = new ByteArrayInputStream(bArr, cn, bArr.length - cn);
+                        byteArrayInputStream = new ByteArrayInputStream(bArr, fL, bArr.length - fL);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.ge);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.ry);
                             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {

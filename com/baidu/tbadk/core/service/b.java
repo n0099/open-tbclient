@@ -5,21 +5,21 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.d;
-import com.baidu.tbadk.core.util.s;
-import com.baidu.tbadk.util.q;
-import com.baidu.tieba.z;
+import com.baidu.tbadk.core.util.c;
+import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.util.p;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ TiebaPrepareImageService Gl;
-    String Gm = null;
+    final /* synthetic */ TiebaPrepareImageService Sl;
+    String Sm = null;
     String mFileName;
     int mRequestCode;
     Uri mUri;
 
     public b(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri, String str) {
-        this.Gl = tiebaPrepareImageService;
+        this.Sl = tiebaPrepareImageService;
         this.mRequestCode = 0;
         this.mUri = null;
         this.mFileName = null;
@@ -31,7 +31,7 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: i */
+    /* renamed from: g */
     public Boolean doInBackground(Object... objArr) {
         int i;
         int i2;
@@ -39,29 +39,29 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
         TiebaPrepareImageService.IS_DECODING = true;
         try {
             int i3 = this.mRequestCode;
-            TiebaPrepareImageService tiebaPrepareImageService = this.Gl;
+            TiebaPrepareImageService tiebaPrepareImageService = this.Sl;
             Uri uri = this.mUri;
             String str = this.mFileName;
-            i = this.Gl.mMaxSize;
-            Bitmap a = q.a(i3, tiebaPrepareImageService, uri, str, i);
+            i = this.Sl.mMaxSize;
+            Bitmap a = p.a(i3, tiebaPrepareImageService, uri, str, i);
             if (a != null) {
-                if (s.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
+                if (o.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                     int i4 = 100;
-                    i2 = this.Gl.mDisplaySize;
+                    i2 = this.Sl.mDisplaySize;
                     if (i2 > 0) {
-                        i4 = this.Gl.mDisplaySize;
+                        i4 = this.Sl.mDisplaySize;
                     }
-                    Bitmap d = d.d(a, i4);
-                    if (d == null || s.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, d, 80) == null) {
-                        this.Gm = this.Gl.getString(z.error_sd_error);
+                    Bitmap d = c.d(a, i4);
+                    if (d == null || o.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, d, 80) == null) {
+                        this.Sm = this.Sl.getString(y.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.Gm = this.Gl.getString(z.error_sd_error);
+                    this.Sm = this.Sl.getString(y.error_sd_error);
                     z = false;
                 }
             } else {
-                this.Gm = this.Gl.getString(z.pic_parser_error);
+                this.Sm = this.Sl.getString(y.pic_parser_error);
                 z = false;
             }
             TiebaPrepareImageService.IS_DECODING = false;
@@ -77,7 +77,7 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.Gl.mTask = null;
+        this.Sl.mTask = null;
         super.cancel(true);
     }
 
@@ -89,9 +89,9 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
         super.onPostExecute(bool);
         Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
         intent.putExtra("result", bool);
-        if (this.Gm != null) {
-            intent.putExtra("error", this.Gm);
+        if (this.Sm != null) {
+            intent.putExtra("error", this.Sm);
         }
-        this.Gl.sendBroadcast(intent);
+        this.Sl.sendBroadcast(intent);
     }
 }

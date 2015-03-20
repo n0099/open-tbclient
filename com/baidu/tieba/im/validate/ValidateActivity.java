@@ -1,14 +1,12 @@
 package com.baidu.tieba.im.validate;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.widget.ListView.ab;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
@@ -18,40 +16,30 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.RequestAddGroupUserMessage;
 import com.baidu.tieba.im.message.RequestDelSystemMessage;
 import com.baidu.tieba.im.model.ValidateModel;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ValidateActivity extends BaseActivity<ValidateActivity> implements ab {
-    private boolean aez;
-    private m bpJ;
-    private com.baidu.tieba.im.g<Boolean> bpK;
-    private ValidateItemData bpL;
-    private com.baidu.tieba.im.g<Integer> bpO;
-    private AlertDialog deleteItemDialog;
+public class ValidateActivity extends BaseActivity<ValidateActivity> implements x {
+    private boolean amT;
+    private p bnA;
+    private com.baidu.tieba.im.g<Boolean> bnB;
+    private ValidateItemData bnC;
+    private com.baidu.tieba.im.g<Integer> bnF;
+    private com.baidu.tbadk.core.dialog.e deleteItemDialog;
     private com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> getDataCallBack;
     private int offset;
     private int totalCount;
-    private boolean bpM = false;
-    private int bpN = 20;
+    private boolean bnD = false;
+    private int bnE = 20;
     private com.baidu.adp.framework.listener.e mListener = new a(this, 0);
     private CustomMessageListener mCustomListener = new b(this, 2001129);
-
-    static {
-        KL();
-    }
-
-    private static void KL() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008021, new c());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bpJ = new m(this);
+        this.bnA = new p(this);
         initDataCallBack();
     }
 
@@ -65,7 +53,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        com.baidu.tbadk.coreExtra.messageCenter.a.rS().cE(1);
+        com.baidu.tbadk.coreExtra.messageCenter.a.uT().cD(1);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1003", -4)));
     }
 
@@ -81,7 +69,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         h TE;
         super.onStop();
         ChatStatusManager.getInst().setIsOpen(7, false);
-        if (this.bpJ != null && (TE = this.bpJ.TE()) != null) {
+        if (this.bnA != null && (TE = this.bnA.TE()) != null) {
             ValidateModel.markShown(TE.getDatas());
         }
     }
@@ -93,29 +81,29 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     private void initDataCallBack() {
-        this.bpK = new d(this);
-        this.getDataCallBack = new e(this);
-        this.bpO = new f(this);
+        this.bnB = new c(this);
+        this.getDataCallBack = new d(this);
+        this.bnF = new e(this);
         registerListener(103111, this.mListener);
         registerListener(202004, this.mListener);
         registerListener(this.mCustomListener);
-        this.bpJ.setLoadProgressBarVisable(true);
-        ValidateModel.requestValidateDataCountFromDB(this.bpO);
+        this.bnA.setLoadProgressBarVisable(true);
+        ValidateModel.requestValidateDataCountFromDB(this.bnF);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bpJ != null) {
-            this.bpJ.destroy();
+        if (this.bnA != null) {
+            this.bnA.destroy();
         }
-        this.bpL = null;
+        this.bnC = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.bpJ != null && view.equals(this.bpJ.TD())) {
+        if (view != null && this.bnA != null && view.equals(this.bnA.TD())) {
             finish();
         }
     }
@@ -124,8 +112,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bpJ != null) {
-            this.bpJ.onChangeSkinType(i);
+        if (this.bnA != null) {
+            this.bnA.onChangeSkinType(i);
         }
     }
 
@@ -141,22 +129,21 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     public void b(View view, int i, int i2, long j, ValidateItemData validateItemData) {
         if (view != null && validateItemData != null && 200 == i) {
-            this.bpL = validateItemData;
+            this.bnC = validateItemData;
             if (this.deleteItemDialog == null) {
                 initDeleteDialog();
             }
-            com.baidu.adp.lib.g.k.a(this.deleteItemDialog, getPageContext());
+            this.deleteItemDialog.rg();
         }
     }
 
     private void initDeleteDialog() {
-        String string = getPageContext().getString(z.delete_user_chat);
-        g gVar = new g(this);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getPageContext().getPageActivity());
-        builder.setTitle(z.operation);
-        builder.setItems(new String[]{string}, gVar);
-        this.deleteItemDialog = builder.create();
-        this.deleteItemDialog.setCanceledOnTouchOutside(true);
+        String string = getPageContext().getString(y.delete_user_chat);
+        f fVar = new f(this);
+        this.deleteItemDialog = new com.baidu.tbadk.core.dialog.e(getPageContext().getPageActivity());
+        this.deleteItemDialog.by(y.operation);
+        this.deleteItemDialog.a(new String[]{string}, fVar);
+        this.deleteItemDialog.d(getPageContext());
     }
 
     private void c(ValidateItemData validateItemData) {
@@ -166,12 +153,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     private void d(ValidateItemData validateItemData) {
-        if (!com.baidu.adp.lib.util.i.ff()) {
-            showToast(z.neterror);
-        } else if (validateItemData != null && !validateItemData.isPass() && !this.bpM) {
+        if (!com.baidu.adp.lib.util.k.iH()) {
+            showToast(y.neterror);
+        } else if (validateItemData != null && !validateItemData.isPass() && !this.bnD) {
             try {
                 validateItemData.setShown(true);
-                this.bpJ.setLoadProgressBarVisable(true);
+                this.bnA.setLoadProgressBarVisable(true);
                 RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
                 requestAddGroupUserMessage.setInviterUserId(validateItemData.getInviterUserId());
                 requestAddGroupUserMessage.setJoinType(validateItemData.getJoinType());
@@ -179,12 +166,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.g.c.toInt(validateItemData.getGroupId(), 0));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String Sd = com.baidu.tieba.im.pushNotify.d.Sb().Sd();
-                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(Sd) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(Sd)) {
-                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.g.c.toInt(Sd, 0));
+                String Ta = com.baidu.tieba.im.pushNotify.d.SY().Ta();
+                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(Ta) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(Ta)) {
+                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.g.c.toInt(Ta, 0));
                     requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.g.c.a(notice_id, 0L) / 100));
                     requestAddGroupUserMessage.setDecision(1);
-                    this.bpM = true;
+                    this.bnD = true;
                     MessageManager.getInstance().sendMessage(requestAddGroupUserMessage);
                 }
             } catch (Exception e) {
@@ -198,24 +185,24 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
      type: STATIC call: java.lang.Long.parseLong(java.lang.String):long) / (100 long))] */
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ValidateItemData validateItemData) {
-        if (!com.baidu.adp.lib.util.i.ff()) {
-            showToast(z.neterror);
+        if (!com.baidu.adp.lib.util.k.iH()) {
+            showToast(y.neterror);
         } else if (validateItemData != null) {
-            this.bpJ.setLoadProgressBarVisable(true);
+            this.bnA.setLoadProgressBarVisable(true);
             RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-            requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.d.Sb().Sd()));
+            requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.d.SY().Ta()));
             requestDelSystemMessage.setMsgIds(new StringBuilder().append(Long.parseLong(validateItemData.getNotice_id()) / 100).toString());
-            this.bpM = true;
+            this.bnD = true;
             MessageManager.getInstance().sendMessage(requestDelSystemMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ValidateItemData hr(String str) {
+    public ValidateItemData gW(String str) {
         if (str == null) {
             return null;
         }
-        List<ValidateItemData> datas = this.bpJ.TE().getDatas();
+        List<ValidateItemData> datas = this.bnA.TE().getDatas();
         if (datas != null) {
             for (ValidateItemData validateItemData : datas) {
                 if (str.equals(validateItemData.getNotice_id())) {
@@ -226,11 +213,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         return null;
     }
 
-    @Override // com.baidu.adp.widget.ListView.ab
+    @Override // com.baidu.adp.widget.ListView.x
     public void onScrollToBottom() {
-        if (!this.aez && this.offset < this.totalCount) {
-            this.aez = true;
-            ValidateModel.requestValidateDataFromDB(this.bpN, this.offset, this.getDataCallBack);
+        if (!this.amT && this.offset < this.totalCount) {
+            this.amT = true;
+            ValidateModel.requestValidateDataFromDB(this.bnE, this.offset, this.getDataCallBack);
         }
     }
 }
