@@ -13,9 +13,10 @@ public class ForumDetailActivityConfig extends a {
         FRS,
         FRS_SIDE,
         BAR_DIR,
-        BAR_RANK;
+        BAR_RANK,
+        BAR_SQUARE;
 
-        /* JADX DEBUG: Replace access to removed values field (Dc) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (OI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();

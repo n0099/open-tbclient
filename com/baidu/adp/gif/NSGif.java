@@ -3,13 +3,14 @@ package com.baidu.adp.gif;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import com.baidu.adp.lib.g.l;
+import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 public class NSGif implements c {
-    public static boolean fz = com.baidu.adp.lib.util.f.eV().a("nsgif_jni", 2, new d());
-    private int fA;
-    private final int fB;
+    public static boolean qS = h.ix().a("nsgif_jni", 2, new d());
     private final int mHeight;
     private final int mWidth;
+    private int qT;
+    private final int qU;
 
     private static native int nativeCreate(String str);
 
@@ -31,13 +32,13 @@ public class NSGif implements c {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.fA = i;
+        this.qT = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.fB = nativeGetFrameCount(i);
+        this.qU = nativeGetFrameCount(i);
     }
 
-    public static NSGif C(String str) {
+    public static NSGif K(String str) {
         int nativeCreate = nativeCreate(str);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
@@ -55,10 +56,10 @@ public class NSGif implements c {
 
     @Override // com.baidu.adp.gif.c
     public void close() {
-        if (this.fA != 0) {
-            int i = this.fA;
-            this.fA = 0;
-            l.ek().b(new e(this, i));
+        if (this.qT != 0) {
+            int i = this.qT;
+            this.qT = 0;
+            l.hJ().b(new e(this, i));
         }
     }
 
@@ -81,13 +82,13 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public int bI() {
-        return this.fB;
+    public int fg() {
+        return this.qU;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int C(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.fA, i);
+    public int D(int i) {
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.qT, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -95,8 +96,8 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public boolean B(int i) {
-        return nativeDecodeFrame(this.fA, i);
+    public boolean C(int i) {
+        return nativeDecodeFrame(this.qT, i);
     }
 
     @Override // com.baidu.adp.gif.c
@@ -104,6 +105,6 @@ public class NSGif implements c {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.fA, bitmap);
+        return nativeWriteTo(this.qT, bitmap);
     }
 }

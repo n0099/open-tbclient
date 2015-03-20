@@ -1,18 +1,20 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bHK;
+class ad implements com.baidu.tbadk.core.view.ae {
+    final /* synthetic */ v bPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(PersonChangeActivity personChangeActivity) {
-        this.bHK = personChangeActivity;
+    public ad(v vVar) {
+        this.bPF = vVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bHK.aaO();
+    @Override // com.baidu.tbadk.core.view.ae
+    public void onListPullRefresh(boolean z) {
+        PersonBarActivity acW;
+        acW = this.bPF.acW();
+        if (acW != null) {
+            this.bPF.bPw = 1;
+            this.bPF.Vn();
+        }
     }
 }

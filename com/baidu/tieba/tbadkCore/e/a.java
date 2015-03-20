@@ -1,78 +1,127 @@
 package com.baidu.tieba.tbadkCore.e;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.stats.f;
+import com.baidu.adp.lib.stats.q;
+import com.baidu.adp.lib.util.k;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
+import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.f {
-    private b cau;
-    private d cav;
-    private f caw;
+public class a {
 
-    public a(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.cau = null;
-        this.cav = null;
-        this.caw = null;
+    /* renamed from: com  reason: collision with root package name */
+    private q f127com;
+    private final int con = 10;
+    private final int coo = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String cop = null;
+    public boolean Wq = false;
+
+    public a(String str) {
+        E(str, false);
     }
 
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
+    public void E(String str, boolean z) {
+        this.cop = str;
+        this.Wq = z;
+        this.f127com = new q("dbg");
+        b.g(str, getNetType(), z);
     }
 
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        aih();
-        return false;
+    public void start() {
+        this.f127com.il();
     }
 
-    public void aih() {
-        if (this.cau != null) {
-            this.cau.cancel();
-            this.cau = null;
-        }
-        if (this.cav != null) {
-            this.cav.cancel();
-            this.cav = null;
-        }
-        if (this.caw != null) {
-            this.caw.cancel();
-            this.caw = null;
-        }
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.cau != null) {
-            this.cau.cancel();
-            this.cau = null;
-        }
-        this.mLoadDataMode = 0;
-        this.cau = new b(this, str, str2, str3, str4, i, i2, z);
-        this.cau.setPriority(2);
-        this.cau.execute(new String[0]);
-    }
-
-    public boolean aii() {
-        return (this.cau == null && this.cav == null && this.caw == null) ? false : true;
-    }
-
-    public void b(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.caw != null) {
-            this.caw.cancel();
-            this.caw = null;
-        }
-        this.mLoadDataMode = i;
-        this.caw = new f(this, str, str2, str3, i, str4);
-        this.caw.setPriority(2);
-        String str6 = TbConfig.SERVER_ADDRESS;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + TbConfig.GOOD_LIST_ADDRESS;
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + TbConfig.COMMIT_GOOD_ADDRESS;
+    public void a(boolean z, boolean z2, int i, String str, long j) {
+        long im = this.f127com.im();
+        long j2 = 0;
+        long j3 = 0;
+        if (z) {
+            j2 = im;
         } else {
-            str5 = String.valueOf(str6) + TbConfig.COMMIT_TOP_ADDRESS;
+            j3 = im;
         }
-        this.caw.execute(str5);
+        a(z, z2, i, str, j, j2, j3);
+    }
+
+    public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        e amL;
+        if (this.f127com != null && (amL = amL()) != null) {
+            if (z) {
+                if (amL.cou != null) {
+                    amL.cou.num++;
+                    if (z2) {
+                        amL.cou.cor += j2;
+                        amL.cou.size += j;
+                    } else {
+                        amL.cou.cos++;
+                    }
+                } else {
+                    return;
+                }
+            } else if (amL.cov != null) {
+                amL.cov.num++;
+                if (z2) {
+                    amL.cov.cor += j3;
+                    amL.cov.size += j;
+                    j2 = j3;
+                } else {
+                    amL.cov.cos++;
+                    j2 = j3;
+                }
+            } else {
+                return;
+            }
+            this.f127com = null;
+            if (z2) {
+                b.a(amL, 10);
+            }
+            if (this.cop == "frsStat") {
+                if (!z2 || j2 > 3000) {
+                    q qVar = new q("dbg");
+                    qVar.r("act", "frs");
+                    qVar.r("result", z2 ? GameInfoData.NOT_FROM_DETAIL : "1");
+                    qVar.r("isHttp", z ? "1" : GameInfoData.NOT_FROM_DETAIL);
+                    qVar.r("timeCost", String.valueOf(j2));
+                    qVar.r("errCode", String.valueOf(i));
+                    qVar.r("errMsg", str);
+                    qVar.r("down", String.valueOf(j));
+                    f.hP().a("frs", qVar);
+                }
+            }
+        }
+    }
+
+    public void destory() {
+        e amL;
+        if (this.f127com != null && (amL = amL()) != null && amL.cow != null) {
+            long im = this.f127com.im();
+            if (im > 3000) {
+                d dVar = amL.cow;
+                dVar.cor = im + dVar.cor;
+                amL.cow.num++;
+                b.a(amL, 10);
+            }
+        }
+    }
+
+    private e amL() {
+        return b.h(this.cop, getNetType(), this.Wq);
+    }
+
+    private String getNetType() {
+        int iM = k.iM();
+        if (iM == 0) {
+            return "N";
+        }
+        if (iM == 1) {
+            return NetworkChangeReceiver.WIFI_STRING;
+        }
+        if (iM == 3) {
+            return "3G";
+        }
+        if (iM != 2) {
+            return "N";
+        }
+        return "2G";
     }
 }

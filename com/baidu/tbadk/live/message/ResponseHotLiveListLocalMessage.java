@@ -60,6 +60,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
                         liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
                         liveCardData.setStatus(liveGroupInfo.status.intValue());
                         liveCardData.setStreamId(liveGroupInfo.streamId);
+                        liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
                         this.hotLiveListData.getGroups().add(liveCardData);
                         i2 = i3 + 1;
                     } else {

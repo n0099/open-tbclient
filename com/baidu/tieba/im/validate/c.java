@@ -1,17 +1,23 @@
 package com.baidu.tieba.im.validate;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ValidateActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements CustomMessageTask.CustomRunnable<ValidateActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ValidateActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ValidateActivity.class);
-            customMessage.getData().startActivity();
+public class c implements com.baidu.tieba.im.g<Boolean> {
+    final /* synthetic */ ValidateActivity bnG;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(ValidateActivity validateActivity) {
+        this.bnG = validateActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.g
+    public void onReturnDataInUI(Boolean bool) {
+        boolean z;
+        p pVar;
+        z = this.bnG.bnD;
+        if (!z) {
+            pVar = this.bnG.bnA;
+            pVar.setLoadProgressBarVisable(false);
         }
-        return null;
     }
 }

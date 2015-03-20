@@ -7,10 +7,10 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect bWD;
+    private Rect cmU;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -23,54 +23,54 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.bWD = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32));
-        C(0, null);
-        wo();
+        this.cmU = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
+        A(0, null);
+        rk();
     }
 
-    public void wo() {
-        setTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_c));
-        afZ();
+    public void rk() {
+        setTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_c));
+        alM();
     }
 
-    public void C(int i, String str) {
+    public void A(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(com.baidu.tieba.z.location_loading);
+                str = getResources().getString(com.baidu.tieba.y.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(com.baidu.tieba.z.location_default);
+                str = getResources().getString(com.baidu.tieba.y.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(com.baidu.tieba.z.location_default);
+                str = getResources().getString(com.baidu.tieba.y.location_default);
             }
             setText(str);
         }
-        afZ();
+        alM();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void afZ() {
+    public void alM() {
         if (this.mState == 1) {
-            Drawable drawable = bc.getDrawable(com.baidu.tieba.v.icon_posts_pin_loading_anim);
+            Drawable drawable = ba.getDrawable(com.baidu.tieba.u.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.bWD);
+                drawable.setBounds(this.cmU);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) com.baidu.adp.base.m.C(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = bc.getDrawable(com.baidu.tieba.v.icon_tips_site);
+        Drawable drawable2 = ba.getDrawable(com.baidu.tieba.u.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.bWD);
+            drawable2.setBounds(this.cmU);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

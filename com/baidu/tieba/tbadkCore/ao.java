@@ -1,58 +1,77 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.base.f {
-    private static final String blG = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask blH = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, blG);
-    private aq bXj;
-    private final HttpMessageListener blI;
-
-    static {
-        blH.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(blH);
-    }
-
-    public ao(TbPageContext tbPageContext, aq aqVar) {
-        super(tbPageContext);
-        this.bXj = null;
-        this.blI = new ap(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.bXj = aqVar;
-    }
-
-    public void registerListener() {
-        registerListener(this.blI);
-    }
-
-    public void a(String str, String str2, int i, String str3) {
-        String str4;
-        if (i == 1) {
-            str4 = "unlike";
-        } else {
-            str4 = "like";
+public class ao {
+    public static void a(String str, ap apVar) {
+        if (bd.isEmpty(str)) {
+            if (apVar != null) {
+                apVar.a(null);
+                return;
+            }
+            return;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        httpMessage.addParam("st_type", str4);
-        httpMessage.addParam("action", str4);
-        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
-        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
-        httpMessage.addParam("st_param", str3);
-        sendMessage(httpMessage);
+        new aq(iE(str), apVar).execute(new String[0]);
     }
 
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
+    public static void b(String str, ap apVar) {
+        if (bd.isEmpty(str)) {
+            if (apVar != null) {
+                apVar.a(null);
+                return;
+            }
+            return;
+        }
+        new aq(iF(str), apVar).execute(new String[0]);
     }
 
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
+    public static void a(int i, ap apVar) {
+        new aq(ip(i), apVar).execute(new String[0]);
+    }
+
+    public static void a(int i, WriteData writeData) {
+        com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
+        if (writeData != null && writeData.hasContentToSave()) {
+            bX.b(ip(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+        } else {
+            bX.ac(ip(i));
+        }
+    }
+
+    public static void a(String str, WriteData writeData) {
+        if (!bd.isEmpty(str)) {
+            com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
+            if (writeData != null && writeData.hasContentToSave()) {
+                bX.b(iF(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                bX.ac(iF(str));
+            }
+        }
+    }
+
+    public static void b(String str, WriteData writeData) {
+        if (!bd.isEmpty(str)) {
+            com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
+            if (writeData != null && writeData.hasContentToSave()) {
+                bX.b(iE(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                bX.ac(iE(str));
+            }
+        }
+    }
+
+    protected static String iE(String str) {
+        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
+    }
+
+    protected static String iF(String str) {
+        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
+    }
+
+    protected static String ip(int i) {
+        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@live" + i;
     }
 }

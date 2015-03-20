@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.model;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
@@ -17,6 +17,6 @@ public class h implements Runnable {
         TbPageContext tbPageContext;
         NetModel netModel = this.this$0;
         tbPageContext = this.this$0.mPageContext;
-        netModel.r(-1, tbPageContext.getString(z.neterror));
+        netModel.p(-1, tbPageContext.getString(y.neterror));
     }
 }

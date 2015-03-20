@@ -11,11 +11,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ServiceConnection {
-    final /* synthetic */ h tF;
+    final /* synthetic */ h EB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.tF = hVar;
+        this.EB = hVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -24,22 +24,22 @@ public class k implements ServiceConnection {
         ArrayList arrayList2;
         ArrayList arrayList3;
         Messenger messenger;
-        this.tF.mSendMessenger = new Messenger(iBinder);
-        this.tF.is();
-        arrayList = this.tF.tE;
+        this.EB.Ex = new Messenger(iBinder);
+        this.EB.lQ();
+        arrayList = this.EB.EA;
         if (arrayList.size() > 0) {
-            arrayList2 = this.tF.tE;
+            arrayList2 = this.EB.EA;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 Message message = (Message) it.next();
                 try {
-                    messenger = this.tF.mSendMessenger;
+                    messenger = this.EB.Ex;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
             }
-            arrayList3 = this.tF.tE;
+            arrayList3 = this.EB.EA;
             arrayList3.clear();
         }
     }
@@ -47,8 +47,8 @@ public class k implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         ArrayList arrayList;
-        this.tF.mSendMessenger = null;
-        arrayList = this.tF.tE;
+        this.EB.Ex = null;
+        arrayList = this.EB.EA;
         arrayList.clear();
     }
 }

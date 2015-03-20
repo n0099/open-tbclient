@@ -1,39 +1,17 @@
 package com.baidu.tbadk.core.voice;
 
-import android.os.Handler;
-import com.baidu.adp.lib.util.StringUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-public class i implements Runnable {
-    private final /* synthetic */ String Of;
-    private final /* synthetic */ int Og;
-    final /* synthetic */ VoiceManager this$0;
+public interface i {
+    void aI(int i);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(VoiceManager voiceManager, String str, int i) {
-        this.this$0 = voiceManager;
-        this.Of = str;
-        this.Og = i;
-    }
+    void b(VoiceData.VoiceModel voiceModel);
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Handler handler4;
-        String str = com.baidu.tbadk.core.voice.a.b.cU(r.cT(this.Of)).md5;
-        handler = this.this$0.mHandle;
-        if (handler != null) {
-            handler2 = this.this$0.mHandle;
-            handler2.removeCallbacks(this.this$0.stopingRecorderRunnable);
-            if (StringUtils.isNull(str)) {
-                handler4 = this.this$0.mHandle;
-                handler4.post(new j(this));
-                return;
-            }
-            handler3 = this.this$0.mHandle;
-            handler3.post(new k(this, str, this.Og));
-        }
-    }
+    i getRealView();
+
+    VoiceData.VoiceModel getVoiceModel();
+
+    void og();
+
+    void onShowErr(int i, String str);
 }

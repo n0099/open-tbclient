@@ -1,35 +1,35 @@
 package com.baidu.tieba.signall;
 /* loaded from: classes.dex */
-class l implements g {
-    final /* synthetic */ SignAllForumActivity bRb;
+class l implements h {
+    final /* synthetic */ SignAllForumActivity cdX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SignAllForumActivity signAllForumActivity) {
-        this.bRb = signAllForumActivity;
+        this.cdX = signAllForumActivity;
     }
 
-    @Override // com.baidu.tieba.signall.g
-    public void a(b bVar) {
-        ad adVar;
-        ad adVar2;
-        adVar = this.bRb.bQU;
-        adVar.JD();
-        com.baidu.tieba.home.t adv = bVar.adv();
-        if (adv != null && adv.getErrorNumber() == 0) {
-            adVar2 = this.bRb.bQU;
-            adVar2.d(bVar);
+    @Override // com.baidu.tieba.signall.h
+    public void a(c cVar) {
+        ae aeVar;
+        ae aeVar2;
+        aeVar = this.cdX.cdP;
+        aeVar.Hr();
+        a ain = cVar.ain();
+        if (ain != null && ain.getErrorNumber() == 0) {
+            aeVar2 = this.cdX.cdP;
+            aeVar2.d(cVar);
             return;
         }
-        this.bRb.showToast(adv.getUserMsg(), false);
-        this.bRb.finish();
+        this.cdX.showToast(ain.getUserMsg(), false);
+        this.cdX.finish();
     }
 
-    @Override // com.baidu.tieba.signall.g
-    public void gH(String str) {
-        ad adVar;
-        adVar = this.bRb.bQU;
-        adVar.JD();
-        this.bRb.showToast(str, false);
-        this.bRb.finish();
+    @Override // com.baidu.tieba.signall.h
+    public void gy(String str) {
+        ae aeVar;
+        aeVar = this.cdX.cdP;
+        aeVar.Hr();
+        this.cdX.showToast(str, false);
+        this.cdX.finish();
     }
 }

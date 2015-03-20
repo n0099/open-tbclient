@@ -6,7 +6,7 @@ import java.util.Set;
 public interface c {
     Object a(String str, Type type);
 
-    Set<String> co();
-
     void e(String str, Object obj);
+
+    Set<String> fM();
 }

@@ -1,19 +1,13 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements View.OnLongClickListener {
-    final /* synthetic */ bc aSq;
+class bi extends be<bg> {
+    final /* synthetic */ MsgMidViewItemAdapter aXt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(bc bcVar) {
-        this.aSq = bcVar;
-    }
-
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.aSq.mItemViewLongClickListener.onItemViewLongClick(view, 4, this.aSq.mPosition, 0L);
-        return true;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi(MsgMidViewItemAdapter msgMidViewItemAdapter, View view, bg bgVar) {
+        super(view, bgVar);
+        this.aXt = msgMidViewItemAdapter;
     }
 }

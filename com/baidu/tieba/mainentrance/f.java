@@ -1,21 +1,34 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import java.util.List;
 /* loaded from: classes.dex */
-class f {
-    ProgressBar Bp;
-    RelativeLayout bsq;
-    TextView bsr;
-    final /* synthetic */ e bss;
+public class f extends com.baidu.adp.base.f<SquareSearchActivity> {
+    private h byA;
+    private SquareSearchActivity byv;
+    private List<e> byw;
 
-    private f(e eVar) {
-        this.bss = eVar;
+    public f(SquareSearchActivity squareSearchActivity, h hVar) {
+        super(squareSearchActivity.getPageContext());
+        this.byv = squareSearchActivity;
+        this.byA = hVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(e eVar, f fVar) {
-        this(eVar);
+    public void WB() {
+        sendMessage(new HotForumNetMessage());
+    }
+
+    public void WC() {
+        registerListener(new g(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
     }
 }

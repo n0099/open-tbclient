@@ -1,37 +1,53 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
+
+import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c te;
-    private b tf;
+    private static volatile c DZ;
+    private b Ea;
 
-    public static c ij() {
-        if (te == null) {
+    public static c lH() {
+        if (DZ == null) {
             synchronized (c.class) {
-                if (te == null) {
-                    te = new c();
+                if (DZ == null) {
+                    DZ = new c();
                 }
             }
         }
-        return te;
+        return DZ;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.tf != null) {
+        if (bdFileDownloadData != null && this.Ea != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.tf.h(bdFileDownloadData);
+            this.Ea.h(bdFileDownloadData);
         }
     }
 
-    public void bl(String str) {
-        if (this.tf != null) {
-            this.tf.bk(str);
+    public void bt(String str) {
+        if (this.Ea != null) {
+            this.Ea.bs(str);
         }
     }
 
     public void a(b bVar) {
-        this.tf = bVar;
+        this.Ea = bVar;
+    }
+
+    public boolean bq(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.Ea != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.Ea.lG()) {
+                if (str.equals(bdFileDownloadData.getId())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

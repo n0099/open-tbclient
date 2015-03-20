@@ -1,20 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv extends CustomMessageListener {
+public class bv implements View.OnClickListener {
+    final /* synthetic */ bk aXJ;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(int i) {
-        super(i);
+    public bv(bk bkVar) {
+        this.aXJ = bkVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
-            return;
-        }
-        PersonalChatActivity.aSG = null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aXJ.aXc.onItemViewClick(view, 10, this.aXJ.mPosition, 0L);
     }
 }

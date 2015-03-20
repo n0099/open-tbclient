@@ -7,25 +7,25 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n implements h {
-    private Queue<?> gv;
+    private Queue<?> rP;
 
     public n(Queue<?> queue) {
-        this.gv = queue;
+        this.rP = queue;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Type[] cp = cVar.cp();
+        Type[] fN = cVar.fN();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.gv) {
+        for (Object obj : this.rP) {
             if (obj != null) {
-                if (cp != null && cp.length >= 1) {
-                    Object a = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cp[0]));
+                if (fN != null && fN.length >= 1) {
+                    Object a = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fN[0]));
                     if (a != null) {
                         jSONArray.put(a);
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.cq()));
+                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.fO()));
                     if (a2 != null) {
                         jSONArray.put(a2);
                     }
@@ -37,17 +37,17 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Type[] cp = cVar.cp();
+        Type[] fN = cVar.fN();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.gv) {
+        for (Object obj : this.rP) {
             if (obj != null) {
-                if (cp != null && cp.length >= 1) {
-                    Object a = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cp[0]));
+                if (fN != null && fN.length >= 1) {
+                    Object a = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fN[0]));
                     if (a != null) {
                         arrayList.add(a.toString());
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.cq()));
+                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.fO()));
                     if (a2 != null) {
                         arrayList.add(a2.toString());
                     }
@@ -64,7 +64,7 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.gv;
+        return this.rP;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -84,6 +84,6 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.gv;
+        return this.rP;
     }
 }

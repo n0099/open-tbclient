@@ -20,7 +20,7 @@ public class ServiceProxy extends Service implements b {
     private g mEntity = null;
 
     public void loadTargetService(Intent intent) {
-        if (this.mEntity != null) {
+        if (this.mEntity == null) {
             String stringExtra = intent.getStringExtra("intent_extra_package_name");
             if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
                 super.stopSelf();
@@ -28,8 +28,8 @@ public class ServiceProxy extends Service implements b {
                 return;
             }
             try {
-                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).gM().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
-                this.mEntity.a(this);
+                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kh().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
+                this.mEntity.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
             } catch (ClassNotFoundException e) {
@@ -66,6 +66,11 @@ public class ServiceProxy extends Service implements b {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
+        if (intent == null) {
+            stopSelf();
+            return null;
+        }
+        loadTargetService(intent);
         if (this.mEntity != null) {
             return this.mEntity.onBind(intent);
         }
@@ -142,6 +147,7 @@ public class ServiceProxy extends Service implements b {
         return false;
     }
 
+    @Override // com.baidu.adp.plugin.a.b
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.dump(fileDescriptor, printWriter, strArr);
     }
@@ -171,6 +177,7 @@ public class ServiceProxy extends Service implements b {
         super.onLowMemory();
     }
 
+    @Override // com.baidu.adp.plugin.a.b
     public void proxyOnRebind(Intent intent) {
         super.onRebind(intent);
     }

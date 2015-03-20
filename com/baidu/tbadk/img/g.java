@@ -6,40 +6,42 @@ import java.util.Queue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Void, f, f> {
-    final /* synthetic */ e abM;
-    final Queue<f> abN;
+    final /* synthetic */ e alm;
+    final Queue<f> aln;
 
     public g(e eVar, Queue<f> queue) {
-        this.abM = eVar;
-        this.abN = queue;
+        this.alm = eVar;
+        this.aln = queue;
         super.setPriority(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
+    /* renamed from: c */
     public f doInBackground(Void... voidArr) {
-        f poll = this.abN.poll();
-        if (poll == null) {
-            return null;
-        }
-        if (isCancelled()) {
-            this.abN.add(poll);
-            return null;
-        }
-        com.baidu.adp.widget.a.a ek = com.baidu.tbadk.imageManager.e.vY().ek(poll.abH.toCachedKey(poll.abJ));
-        if (ek != null) {
-            poll.abK = ek;
-            poll.abL = true;
-        } else {
-            Bitmap b = this.abM.b(poll.abH, poll.abJ);
-            if (b != null) {
-                poll.abK = new com.baidu.adp.widget.a.a(b, false, poll.abH.getFilePath());
+        while (true) {
+            f poll = this.aln.poll();
+            if (poll == null) {
+                break;
+            } else if (isCancelled()) {
+                this.aln.add(poll);
+                break;
+            } else {
+                com.baidu.adp.widget.a.a er = com.baidu.tbadk.imageManager.e.zs().er(poll.alh.toCachedKey(poll.alj));
+                if (er != null) {
+                    poll.alk = er;
+                    poll.all = true;
+                } else {
+                    Bitmap b = this.alm.b(poll.alh, poll.alj);
+                    if (b != null) {
+                        poll.alk = new com.baidu.adp.widget.a.a(b, false, poll.alh.getFilePath());
+                    }
+                }
+                publishProgress(poll);
             }
         }
-        publishProgress(poll);
-        return poll;
+        return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +50,8 @@ public class g extends BdAsyncTask<Void, f, f> {
     /* renamed from: a */
     public void onPostExecute(f fVar) {
         super.onPostExecute(fVar);
-        this.abM.abG = null;
-        this.abM.wf();
+        this.alm.alg = null;
+        this.alm.zz();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,12 +61,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     public void onProgressUpdate(f... fVarArr) {
         if (fVarArr != null) {
             for (f fVar : fVarArr) {
-                com.baidu.adp.widget.a.a aVar = fVar.abK;
-                if (aVar != null && !fVar.abL) {
-                    com.baidu.tbadk.imageManager.e.vY().c(fVar.abH.toCachedKey(fVar.abJ), aVar);
+                com.baidu.adp.widget.a.a aVar = fVar.alk;
+                if (aVar != null && !fVar.all) {
+                    com.baidu.tbadk.imageManager.e.zs().c(fVar.alh.toCachedKey(fVar.alj), aVar);
                 }
-                if (fVar.abI != null) {
-                    fVar.abI.a(aVar, fVar.abH.toCachedKey(fVar.abJ), fVar.abL);
+                if (fVar.ali != null) {
+                    fVar.ali.a(aVar, fVar.alh.toCachedKey(fVar.alj), fVar.all);
                 }
             }
         }
@@ -74,12 +76,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
         super.onCancelled();
-        this.abM.abG = null;
+        this.alm.alg = null;
         while (true) {
-            f poll = this.abN.poll();
+            f poll = this.aln.poll();
             if (poll != null) {
-                if (poll.abI != null) {
-                    poll.abI.a(null, poll.abH.toCachedKey(poll.abJ), false);
+                if (poll.ali != null) {
+                    poll.ali.a(null, poll.alh.toCachedKey(poll.alj), false);
                 }
             } else {
                 return;

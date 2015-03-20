@@ -5,26 +5,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class e extends a implements Runnable {
-    private int cH;
-    private f cI;
+    private int nR;
+    private f nS;
 
-    public f aq() {
+    public f dO() {
         f fVar = new f(this);
-        fVar.cK = u(String.valueOf("/proc/uid_stat/") + this.cH + "/tcp_rcv");
-        fVar.cL = u(String.valueOf("/proc/uid_stat/") + this.cH + "/tcp_snd");
-        fVar.cJ = d.a(fVar.cK + fVar.cL);
+        fVar.nU = E(String.valueOf("/proc/uid_stat/") + this.nR + "/tcp_rcv");
+        fVar.nV = E(String.valueOf("/proc/uid_stat/") + this.nR + "/tcp_snd");
+        fVar.nT = d.a(fVar.nU + fVar.nV);
         return fVar;
     }
 
-    public f ar() {
-        f aq = aq();
-        this.cI.cK = d.a(aq.cK - d.ap().cK);
-        this.cI.cL = d.a(aq.cL - d.ap().cL);
-        this.cI.cJ = d.a(aq.cJ - d.ap().cJ);
-        return this.cI;
+    public f dP() {
+        f dO = dO();
+        this.nS.nU = d.a(dO.nU - d.dN().nU);
+        this.nS.nV = d.a(dO.nV - d.dN().nV);
+        this.nS.nT = d.a(dO.nT - d.dN().nT);
+        return this.nS;
     }
 
-    public double u(String str) {
+    public double E(String str) {
         try {
             return d.a(Long.valueOf(Long.parseLong(new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream())).readLine())).longValue() / 1024.0d);
         } catch (Throwable th) {
@@ -38,13 +38,13 @@ public class e extends a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(ar());
+                d.a(dP());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!an()) {
+            if (!dL()) {
                 return;
             }
             Thread.sleep(500L);

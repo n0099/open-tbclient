@@ -1,34 +1,15 @@
 package com.baidu.tieba.service;
-
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends Handler {
-    final /* synthetic */ g bOW;
+class i implements Runnable {
+    final /* synthetic */ TiebaActiveService bZb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.bOW = gVar;
+    public i(TiebaActiveService tiebaActiveService) {
+        this.bZb = tiebaActiveService;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        Handler handler2;
-        boolean ff;
-        if (message.what == 1) {
-            this.bOW.bNE = System.currentTimeMillis();
-            if (!MessageManager.getInstance().getSocketClient().isValid()) {
-                ff = this.bOW.ff();
-                if (ff) {
-                    this.bOW.acO();
-                }
-            }
-            handler = this.bOW.mHandler;
-            handler2 = this.bOW.mHandler;
-            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bZb.sendActive();
     }
 }

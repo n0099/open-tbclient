@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T bqC;
+    private T bob;
     private int subType;
     private String title;
 
     /* JADX WARN: Type inference failed for: r1v2, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v1, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int aL(String str, String str2) {
+    public int aJ(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -36,7 +36,8 @@ public class a<T> {
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
-                            this.bqC = r2;
+                            r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
+                            this.bob = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -51,7 +52,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.bqC = r1;
+                            this.bob = r1;
                             i = 1;
                         }
                     }
@@ -67,6 +68,6 @@ public class a<T> {
     }
 
     public T TI() {
-        return this.bqC;
+        return this.bob;
     }
 }

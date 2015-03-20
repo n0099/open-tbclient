@@ -1,31 +1,35 @@
 package com.baidu.tbadk.core.view;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
-public class c extends Handler {
-    final /* synthetic */ CarouselRecommendView LU;
+class c implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> {
+    final /* synthetic */ b Xi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(CarouselRecommendView carouselRecommendView) {
-        this.LU = carouselRecommendView;
+    public c(b bVar) {
+        this.Xi = bVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int currentItem = this.LU.mPager.getCurrentItem();
-        if (message.what == 0 && this.LU.mPager != null && this.LU.LG != null && this.LU.LR.size() > 1) {
-            if (currentItem < 1) {
-                this.LU.mPager.setCurrentItem(this.LU.LG.getCount() - 2, false);
-                this.LU.mPager.invalidate();
-            } else if (currentItem > this.LU.LG.getCount() - 2) {
-                this.LU.mPager.setCurrentItem(1, false);
-                this.LU.mPager.invalidate();
-            } else {
-                this.LU.mPager.setCurrentItem(currentItem + 1);
-                this.LU.mPager.invalidate();
-            }
-        }
+    @Override // com.baidu.tbadk.core.flow.a.d
+    public void m(int i, String str) {
+        TbPageContext<?> tbPageContext;
+        TbPageContext tbPageContext2;
+        String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
+        bk tl = bk.tl();
+        tbPageContext = this.Xi.LN;
+        String[] strArr = new String[3];
+        strArr[0] = str;
+        strArr[2] = makeStatisticsParam;
+        tl.b(tbPageContext, strArr);
+        tbPageContext2 = this.Xi.LN;
+        TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "square_banner_picture", "click", 1, "loc", new StringBuilder(String.valueOf(i - 1)).toString());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.flow.a.d
+    public void a(int i, com.baidu.tieba.square.a aVar) {
     }
 }

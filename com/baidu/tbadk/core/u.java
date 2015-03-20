@@ -5,17 +5,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements Runnable {
-    final /* synthetic */ TbadkCoreApplication CO;
-    private final /* synthetic */ boolean CR;
+    final /* synthetic */ TbadkCoreApplication Ox;
+    private final /* synthetic */ boolean Oz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(TbadkCoreApplication tbadkCoreApplication, boolean z) {
-        this.CO = tbadkCoreApplication;
-        this.CR = z;
+        this.Ox = tbadkCoreApplication;
+        this.Oz = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(this.CR)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(this.Oz)));
     }
 }

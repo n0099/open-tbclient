@@ -2,8 +2,12 @@ package com.baidu.tbadk.core.view;
 
 import android.view.View;
 /* loaded from: classes.dex */
-public interface t {
-    void f(View view, int i, int i2);
+public class t {
+    View.OnClickListener YA;
+    String mText;
 
-    void qq();
+    public t(String str, View.OnClickListener onClickListener) {
+        this.mText = str;
+        this.YA = onClickListener;
+    }
 }

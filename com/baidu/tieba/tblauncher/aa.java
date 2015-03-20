@@ -2,8 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -18,16 +16,7 @@ class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ai aiVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
-            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
-                BdLog.e("transform error");
-            } else if (MainTabActivity.ccD) {
-                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
-                aiVar = this.this$0.ccJ;
-                aiVar.im(msgReplyme);
-            }
-        }
+        this.this$0.crf = false;
+        this.this$0.eU(false);
     }
 }

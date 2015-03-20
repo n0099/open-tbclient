@@ -1,47 +1,51 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class z implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bHK;
-    private final /* synthetic */ String bHL;
-    private final /* synthetic */ String bHM;
+class z implements View.OnClickListener {
+    final /* synthetic */ v bPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.bHK = personChangeActivity;
-        this.bHL = str;
-        this.bHM = str2;
+    public z(v vVar) {
+        this.bPF = vVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        af afVar;
+        af afVar2;
+        af afVar3;
         TextView textView;
-        int i2;
-        com.baidu.tbadk.coreExtra.c.f fVar;
-        Dialog dialog;
         TextView textView2;
+        af afVar4;
+        af afVar5;
         TextView textView3;
-        if (i == 0) {
-            this.bHK.mSex = 1;
-            textView3 = this.bHK.bHu;
-            textView3.setText(this.bHL);
-        } else if (i == 1) {
-            this.bHK.mSex = 2;
-            textView = this.bHK.bHu;
-            textView.setText(this.bHM);
+        TextView textView4;
+        af afVar6;
+        afVar = this.bPF.bPt;
+        if (afVar != null) {
+            afVar2 = this.bPF.bPt;
+            if (!afVar2.Ei()) {
+                afVar5 = this.bPF.bPt;
+                afVar5.setEditState(true);
+                textView3 = this.bPF.auq;
+                textView3.setText(com.baidu.tieba.y.done);
+                textView4 = this.bPF.auq;
+                com.baidu.tbadk.core.util.ba.g(textView4, TbadkCoreApplication.m411getInst().getSkinType());
+                afVar6 = this.bPF.bPt;
+                afVar6.notifyDataSetChanged();
+                return;
+            }
+            afVar3 = this.bPF.bPt;
+            afVar3.setEditState(false);
+            textView = this.bPF.auq;
+            textView.setText(com.baidu.tieba.y.edit);
+            textView2 = this.bPF.auq;
+            com.baidu.tbadk.core.util.ba.i(textView2, TbadkCoreApplication.m411getInst().getSkinType());
+            afVar4 = this.bPF.bPt;
+            afVar4.notifyDataSetChanged();
         }
-        this.bHK.aaM();
-        i2 = this.bHK.mSex;
-        fVar = this.bHK.bHB;
-        if (i2 != fVar.sv().getSex()) {
-            textView2 = this.bHK.bfH;
-            textView2.setEnabled(true);
-        }
-        dialog = this.bHK.bHH;
-        com.baidu.adp.lib.g.k.b(dialog, this.bHK.getPageContext());
     }
 }

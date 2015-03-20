@@ -52,10 +52,9 @@ public class a<K, V> {
         return put;
     }
 
-    public synchronized boolean T(int i) {
-        int i2 = this.size - i;
-        if (i2 > this.maxSize * 0.6d) {
-            trimToSize(i2);
+    public synchronized boolean U(int i) {
+        if (this.size + i > this.maxSize * 0.8d) {
+            trimToSize(this.size - i);
         }
         return true;
     }
@@ -136,11 +135,11 @@ public class a<K, V> {
         return this.size;
     }
 
-    public final synchronized int cI() {
+    public final synchronized int gh() {
         return this.maxSize;
     }
 
-    public final void U(int i) {
+    public final void V(int i) {
         synchronized (this) {
             this.maxSize = i;
             trimToSize(i);

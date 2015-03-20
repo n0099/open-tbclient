@@ -1,67 +1,33 @@
 package com.baidu.tieba.person;
 
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity bHK;
+public class w extends CustomMessageListener {
+    final /* synthetic */ v bPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(PersonChangeActivity personChangeActivity) {
-        this.bHK = personChangeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(v vVar, int i) {
+        super(i);
+        this.bPF = vVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        EditText editText;
-        TextView textView;
-        LinearLayout linearLayout;
-        EditText editText2;
-        EditText editText3;
-        editText = this.bHK.mEdit;
-        Editable text = editText.getText();
-        String replaceAll = text.toString().replaceAll("\\s*", "");
-        int length = replaceAll.length();
-        textView = this.bHK.bHx;
-        textView.setText(String.valueOf(length));
-        linearLayout = this.bHK.bHw;
-        linearLayout.setVisibility(0);
-        this.bHK.hp(0);
-        this.bHK.aaN();
-        if (length > 50) {
-            this.bHK.showToast(com.baidu.tieba.z.over_limit_tip);
-            int selectionEnd = Selection.getSelectionEnd(text);
-            String substring = replaceAll.substring(0, 50);
-            editText2 = this.bHK.mEdit;
-            editText2.setText(substring);
-            editText3 = this.bHK.mEdit;
-            Editable text2 = editText3.getText();
-            int length2 = text2.length();
-            if (selectionEnd <= length2) {
-                length2 = selectionEnd;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        PersonBarActivity acW;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
+            z = this.bPF.mIsHost;
+            if (z) {
+                u personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
+                acW = this.bPF.acW();
+                if (acW != null) {
+                    this.bPF.a(personBarData, true);
+                }
             }
-            Selection.setSelection(text2, length2);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        com.baidu.tbadk.coreExtra.c.f fVar;
-        TextView textView;
-        String replaceAll = editable.toString().replaceAll("\\s*", "");
-        fVar = this.bHK.bHB;
-        if (!replaceAll.equals(fVar.sv().getIntro())) {
-            textView = this.bHK.bfH;
-            textView.setEnabled(true);
         }
     }
 }

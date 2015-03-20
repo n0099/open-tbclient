@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ aa biQ;
+public class ab extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.biQ = aaVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        if (imMessageCenterPojo != null) {
-            c.QJ().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.this$0.bjn = null;
+            com.baidu.tieba.im.c.a.gk(0);
+            com.baidu.tieba.im.c.a.gl(0);
+            c.Sd().init();
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
     }
 }

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class LivePlayingStatusMgr {
-    private static LivePlayingStatusMgr UY;
-    private ArrayList<SoftReference<LivePlayingImageView>> Va;
+    private static LivePlayingStatusMgr aff;
+    private ArrayList<SoftReference<LivePlayingImageView>> afh;
     private int gid;
-    private LivePlayingStatus UZ = LivePlayingStatus.IDEL;
-    private final CustomMessageListener mCustomMessageListener = new aj(this, 2001161);
-    private final CustomMessageListener Vb = new ak(this, 2001166);
-    private final Handler mHandler = new al(this);
+    private LivePlayingStatus afg = LivePlayingStatus.IDEL;
+    private final CustomMessageListener mCustomMessageListener = new ai(this, 2001161);
+    private final CustomMessageListener afi = new aj(this, 2001166);
+    private final Handler mHandler = new ak(this);
 
     /* loaded from: classes.dex */
     public enum LivePlayingStatus {
@@ -26,7 +26,7 @@ public class LivePlayingStatusMgr {
         PAUSE,
         NO_PUBLISHER;
 
-        /* JADX DEBUG: Replace access to removed values field (Vd) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (afk) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static LivePlayingStatus[] valuesCustom() {
             LivePlayingStatus[] valuesCustom = values();
@@ -38,32 +38,32 @@ public class LivePlayingStatusMgr {
     }
 
     private LivePlayingStatusMgr() {
-        this.Va = null;
+        this.afh = null;
         BdLog.addLogPackage("com.baidu.tbadk.coreExtra.view");
-        this.Va = new ArrayList<>();
+        this.afh = new ArrayList<>();
         MessageManager.getInstance().registerListener(this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.Vb);
+        MessageManager.getInstance().registerListener(this.afi);
     }
 
-    public static synchronized LivePlayingStatusMgr tJ() {
+    public static synchronized LivePlayingStatusMgr xd() {
         LivePlayingStatusMgr livePlayingStatusMgr;
         synchronized (LivePlayingStatusMgr.class) {
-            if (UY == null) {
-                UY = new LivePlayingStatusMgr();
+            if (aff == null) {
+                aff = new LivePlayingStatusMgr();
             }
-            livePlayingStatusMgr = UY;
+            livePlayingStatusMgr = aff;
         }
         return livePlayingStatusMgr;
     }
 
     public void a(LivePlayingImageView livePlayingImageView) {
         if (livePlayingImageView != null) {
-            this.Va.add(new SoftReference<>(livePlayingImageView));
+            this.afh.add(new SoftReference<>(livePlayingImageView));
         }
     }
 
     public void b(LivePlayingImageView livePlayingImageView) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.Va.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.afh.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView) && next.get() == livePlayingImageView) {
@@ -72,15 +72,15 @@ public class LivePlayingStatusMgr {
         }
     }
 
-    public LivePlayingStatus tK() {
-        return this.UZ;
+    public LivePlayingStatus xe() {
+        return this.afg;
     }
 
     public int getGid() {
         return this.gid;
     }
 
-    public void tL() {
+    public void xf() {
         a(0, LivePlayingStatus.IDEL);
     }
 
@@ -93,7 +93,7 @@ public class LivePlayingStatusMgr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LivePlayingStatus livePlayingStatus) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.Va.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.afh.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView)) {

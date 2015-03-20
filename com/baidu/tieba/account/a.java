@@ -1,16 +1,28 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class a implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), AccountActivity.class);
-            customMessage.getData().startActivity();
+class a extends Handler {
+    final /* synthetic */ AccountActivity auu;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(AccountActivity accountActivity) {
+        this.auu = accountActivity;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.auu.Eg();
+                return;
+            case 2:
+                this.auu.Ef();
+                return;
+            default:
+                return;
         }
-        return null;
     }
 }

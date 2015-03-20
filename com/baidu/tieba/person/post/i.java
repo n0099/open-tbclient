@@ -1,38 +1,46 @@
 package com.baidu.tieba.person.post;
 
 import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends a {
-    public ReplyLinearLayout bJd;
-    public TextView bJe;
-    private View bJf;
-    private View bJg;
+public class i implements b {
+    final /* synthetic */ g bRo;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public i(View view) {
-        super(view, r0);
-        TbPageContext tbPageContext;
-        tbPageContext = f.Mx;
-        this.bJd = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.w.content_container);
-        this.bJe = (TextView) view.findViewById(com.baidu.tieba.w.original_post_title);
-        this.bJf = view.findViewById(com.baidu.tieba.w.reply_top_line);
-        this.bJg = view.findViewById(com.baidu.tieba.w.reply_bottom_line);
-        this.bJe.setOnClickListener(this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(g gVar) {
+        this.bRo = gVar;
     }
 
-    @Override // com.baidu.tieba.person.post.a
-    public void cs(int i) {
-        super.cs(i);
-        bc.i((View) this.bJe, com.baidu.tieba.t.cp_bg_line_e);
-        bc.b(this.bJe, com.baidu.tieba.t.cp_cont_b, 1);
-        bc.i(this.bJf, com.baidu.tieba.t.cp_bg_line_b);
-        bc.i(this.bJg, com.baidu.tieba.t.cp_bg_line_b);
+    @Override // com.baidu.tieba.person.post.b
+    public void Q(View view) {
+        String[] strArr;
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        TbPageContext tbPageContext4;
+        int id = view.getId();
+        if (id == com.baidu.tieba.v.portrait) {
+            tbPageContext4 = g.XE;
+            ((BaseFragmentActivity) tbPageContext4.getOrignalPage()).finish();
+        } else if (id == com.baidu.tieba.v.username) {
+            tbPageContext3 = g.XE;
+            ((BaseFragmentActivity) tbPageContext3.getOrignalPage()).finish();
+        } else if ((id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.original_post_title || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+            if (GameInfoData.NOT_FROM_DETAIL.equals(strArr[2]) || strArr[1] == null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                tbPageContext = g.XE;
+                messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
+                return;
+            }
+            MessageManager messageManager2 = MessageManager.getInstance();
+            tbPageContext2 = g.XE;
+            messageManager2.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext2.getPageActivity()).createSubPbCfg(strArr[0], strArr[1], "person_post_reply")));
+        }
     }
 }

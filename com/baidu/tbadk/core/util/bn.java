@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core.util;
+
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-class bn extends bm {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bn() {
-        super(null);
-    }
+public interface bn {
+    void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bo boVar);
 }

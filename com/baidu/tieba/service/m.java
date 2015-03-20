@@ -1,92 +1,122 @@
 package com.baidu.tieba.service;
 
-import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ TiebaActiveService bOY;
-    ad bOZ;
+public class m extends BdAsyncTask<String, Integer, Boolean> {
+    private aa Oi;
+    final /* synthetic */ TiebaUpdateService bZe;
+    private volatile boolean wb;
 
-    private m(TiebaActiveService tiebaActiveService) {
-        this.bOY = tiebaActiveService;
-        this.bOZ = null;
+    private m(TiebaUpdateService tiebaUpdateService) {
+        this.bZe = tiebaUpdateService;
+        this.wb = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(TiebaActiveService tiebaActiveService, m mVar) {
-        this(tiebaActiveService);
+    public /* synthetic */ m(TiebaUpdateService tiebaUpdateService, m mVar) {
+        this(tiebaUpdateService);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public String doInBackground(String... strArr) {
-        String or;
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        Boolean bool;
+        Exception e;
+        String str;
+        String str2;
+        String str3;
+        Handler handler;
+        boolean z;
+        long j;
+        Boolean bool2 = false;
+        while (!this.wb) {
+            try {
+                str2 = this.bZe.mMainApkUrl;
+                this.Oi = new aa(str2);
+                aa aaVar = this.Oi;
+                str3 = this.bZe.mMainApkFileName;
+                String str4 = String.valueOf(str3) + ".tmp";
+                handler = this.bZe.mMainApkHandler;
+                bool2 = Boolean.valueOf(aaVar.a(str4, handler, 0));
+                if (bool2.booleanValue()) {
+                    break;
+                } else if (this.Oi.st() == -2) {
+                    bool = bool2;
+                    break;
+                } else {
+                    if (!this.Oi.sp().tq().hi()) {
+                        try {
+                            Thread.sleep(10000L);
+                        } catch (Exception e2) {
+                        }
+                    }
+                    z = TiebaUpdateService.sHasStart;
+                    if (z) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        j = this.bZe.mMainTaskWaitingTimestamp;
+                        if (currentTimeMillis - j > 20000) {
+                            this.bZe.sendBroadcast("action_update_progress_interrupted", true);
+                            bool = bool2;
+                            break;
+                        }
+                    }
+                }
+            } catch (Exception e3) {
+                bool = bool2;
+                e = e3;
+            }
+        }
+        bool = bool2;
         try {
-            this.bOZ = new ad("http://114.113.149.3:8086/partnersService");
-            this.bOZ.o("apk", TbadkCoreApplication.m255getInst().getApp().getPackageName());
-            this.bOZ.o("imei", TbadkCoreApplication.m255getInst().getImei());
-            this.bOZ.o("model", Build.MODEL);
-            this.bOZ.o("edition", TbConfig.getVersion());
-            this.bOZ.o("system", Build.VERSION.SDK);
-            this.bOZ.oS().pZ().qc().mIsBaiduServer = false;
-            or = this.bOZ.or();
-        } catch (Exception e) {
-            com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 1);
+            if (bool.booleanValue()) {
+                TiebaUpdateService tiebaUpdateService = this.bZe;
+                str = this.bZe.mMainApkFileName;
+                tiebaUpdateService.renameFile(str);
+            }
+        } catch (Exception e4) {
+            e = e4;
             BdLog.e(e.getMessage());
+            return bool;
         }
-        if (this.bOZ.oV()) {
-            return or;
-        }
-        return null;
+        return bool;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bOY.mActiveTask = null;
-        if (this.bOZ != null) {
-            this.bOZ.dJ();
-        }
         super.cancel(true);
+        this.bZe.mDowndMainApkTask = null;
+        this.wb = true;
+        if (this.Oi != null) {
+            this.Oi.hh();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        int i;
-        int i2;
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
         Handler handler;
-        Runnable runnable;
         Handler handler2;
-        Runnable runnable2;
-        super.onPostExecute((m) str);
-        this.bOY.mActiveTask = null;
-        if (str == null) {
-            TiebaActiveService tiebaActiveService = this.bOY;
-            i = tiebaActiveService.mHaveRetry;
-            tiebaActiveService.mHaveRetry = i + 1;
-            i2 = this.bOY.mHaveRetry;
-            if (i2 < 10) {
-                handler = this.bOY.mHandler;
-                runnable = this.bOY.mRunnable;
-                handler.removeCallbacks(runnable);
-                handler2 = this.bOY.mHandler;
-                runnable2 = this.bOY.mRunnable;
-                handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
-            } else {
-                com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 1);
-                this.bOY.stopSelf();
+        String str;
+        super.onPostExecute(bool);
+        this.bZe.mDowndMainApkTask = null;
+        try {
+            if (bool.booleanValue()) {
+                this.bZe.mIsMainApkDone = true;
+                handler = this.bZe.mMainApkHandler;
+                handler2 = this.bZe.mMainApkHandler;
+                str = this.bZe.mMainApkFileName;
+                handler.sendMessageDelayed(handler2.obtainMessage(1, str), 100L);
             }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 2);
-        this.bOY.stopSelf();
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.b.a;
 
-import com.baidu.tbadk.mvc.b.l;
+import com.baidu.tbadk.mvc.b.m;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a<T> implements l {
+public class a<T> implements m {
     private List<T> mList;
 
     public List<T> getList() {
@@ -14,7 +14,7 @@ public class a<T> implements l {
         return new ArrayList(this.mList);
     }
 
-    public void v(List<T> list) {
+    public void p(List<T> list) {
         if (list != null) {
             if (this.mList == null) {
                 this.mList = new ArrayList();

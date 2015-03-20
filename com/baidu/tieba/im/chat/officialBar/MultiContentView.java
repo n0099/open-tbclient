@@ -6,26 +6,26 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MultiContentView extends LinearLayout {
-    private LinearLayout Mz;
-    private View aOl;
-    private com.baidu.adp.lib.e.b<f> aTK;
-    private com.baidu.adp.lib.e.b<c> aTL;
-    private com.baidu.adp.lib.e.b<ar> aTM;
-    private boolean aTN;
-    private String aTO;
+    private LinearLayout XG;
+    private View aVn;
+    private com.baidu.adp.lib.c.b aXd;
+    private com.baidu.adp.lib.e.b<g> aYr;
+    private com.baidu.adp.lib.e.b<d> aYs;
+    private com.baidu.adp.lib.e.b<av> aYt;
+    private boolean aYu;
+    private String aYv;
     private Context mContext;
-    private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
     private int mType;
 
     public MultiContentView(Context context) {
         super(context);
-        this.mItemViewLongClickListener = null;
-        this.aTN = true;
+        this.aXd = null;
+        this.aYu = true;
         this.mType = 2;
         this.mContext = context;
         initView();
@@ -33,29 +33,29 @@ public class MultiContentView extends LinearLayout {
 
     public MultiContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mItemViewLongClickListener = null;
-        this.aTN = true;
+        this.aXd = null;
+        this.aYu = true;
         this.mType = 2;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.aOl = View.inflate(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_content_view, this);
-        this.Mz = (LinearLayout) this.aOl.findViewById(com.baidu.tieba.w.view_container);
-        this.aTK = i.KP().an(this.mContext);
-        this.aTL = i.KP().ao(this.mContext);
-        this.aTM = i.KP().ap(this.mContext);
-        this.Mz.setOnHierarchyChangeListener(new b(this));
+        this.aVn = View.inflate(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_content_view, this);
+        this.XG = (LinearLayout) this.aVn.findViewById(com.baidu.tieba.v.view_container);
+        this.aYr = j.NV().ar(this.mContext);
+        this.aYs = j.NV().as(this.mContext);
+        this.aYt = j.NV().at(this.mContext);
+        this.XG.setOnHierarchyChangeListener(new c(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        this.Mz.addView(view);
+        this.XG.addView(view);
     }
 
-    public void a(TbPageContext<?> tbPageContext, List<p> list, View view) {
-        this.Mz.removeAllViews();
+    public void a(TbPageContext<?> tbPageContext, List<q> list, View view) {
+        this.XG.removeAllViews();
         if (list != null && list.size() != 0) {
             int size = list.size();
             String str = "";
@@ -67,22 +67,22 @@ public class MultiContentView extends LinearLayout {
             for (int i = 0; i < size; i++) {
                 if (i == 0) {
                     if (list.get(i) != null) {
-                        str = list.get(i).aTS;
+                        str = list.get(i).aYz;
                     }
                     a(tbPageContext, list.get(i), getTopView(), view);
                 } else if (i == size - 1) {
                     if (cVar.isShow()) {
-                        c midView = getMidView();
+                        d midView = getMidView();
                         if (midView != null) {
                             midView.setStPosition(i);
                             midView.setTaskInfo(str);
                         }
                         a(tbPageContext, list.get(i), midView, view);
-                        View inflate = com.baidu.adp.lib.g.b.ei().inflate(tbPageContext.getPageActivity(), com.baidu.tieba.x.office_msg_praise_layout, null);
-                        cVar.G(inflate);
-                        D(inflate);
+                        View inflate = com.baidu.adp.lib.g.b.hH().inflate(tbPageContext.getPageActivity(), com.baidu.tieba.w.office_msg_praise_layout, null);
+                        cVar.E(inflate);
+                        B(inflate);
                     } else {
-                        c bottomView = getBottomView();
+                        d bottomView = getBottomView();
                         if (bottomView != null) {
                             bottomView.setStPosition(i);
                             bottomView.setTaskInfo(str);
@@ -90,7 +90,7 @@ public class MultiContentView extends LinearLayout {
                         a(tbPageContext, list.get(i), bottomView, view);
                     }
                 } else {
-                    c midView2 = getMidView();
+                    d midView2 = getMidView();
                     if (midView2 != null) {
                         midView2.setStPosition(i);
                         midView2.setTaskInfo(str);
@@ -101,138 +101,138 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    private void D(View view) {
+    private g getTopView() {
+        g gVar = null;
+        if (this.aYr != null) {
+            gVar = this.aYr.hz();
+        }
+        if (gVar == null || gVar.getParent() != null) {
+            gVar = new g(this.mContext);
+        }
+        gVar.setOnItemViewLongClickListener(this.aXd);
+        gVar.setPosition(this.mPosition);
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (skinType == 1 && !this.aYu) {
+            skinType = 0;
+        }
+        if (this.mType == 2) {
+            ba.c(gVar, com.baidu.tieba.u.selector_history_multi_top_bg, skinType);
+        } else if (this.mType == 1) {
+            ba.c(gVar, com.baidu.tieba.u.selector_history_multi_top_bg, skinType);
+        }
+        gVar.ct(this.aYu);
+        return gVar;
+    }
+
+    private void B(View view) {
         if (view != null) {
-            bc.c(view, com.baidu.tieba.v.selector_history_multi_bottom_bg, 0);
-            view.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds70)));
+            ba.c(view, com.baidu.tieba.u.selector_history_multi_bottom_bg, 0);
+            view.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds70)));
             view.setEnabled(false);
-            this.Mz.addView(view);
+            this.XG.addView(view);
         }
     }
 
-    private f getTopView() {
-        f fVar = null;
-        if (this.aTK != null) {
-            fVar = this.aTK.ea();
-        }
-        if (fVar == null || fVar.getParent() != null) {
-            fVar = new f(this.mContext);
-        }
-        fVar.setOnItemViewLongClickListener(this.mItemViewLongClickListener);
-        fVar.setPosition(this.mPosition);
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType == 1 && !this.aTN) {
-            skinType = 0;
-        }
-        if (this.mType == 2) {
-            bc.c(fVar, com.baidu.tieba.v.selector_history_multi_top_bg, skinType);
-        } else if (this.mType == 1) {
-            bc.c(fVar, com.baidu.tieba.v.selector_history_multi_top_bg, skinType);
-        }
-        fVar.cy(this.aTN);
-        return fVar;
-    }
-
-    private void a(TbPageContext<?> tbPageContext, p pVar, f fVar, View view) {
-        if (pVar != null && fVar != null) {
-            fVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            fVar.setTime(this.aTO);
-            fVar.a(tbPageContext, pVar, view, this.mType);
-            this.Mz.addView(fVar);
+    private void a(TbPageContext<?> tbPageContext, q qVar, g gVar, View view) {
+        if (qVar != null && gVar != null) {
+            gVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            gVar.setTime(this.aYv);
+            gVar.a(tbPageContext, qVar, view, this.mType);
+            this.XG.addView(gVar);
         }
     }
 
-    private c getCommonBottomView() {
-        c cVar = null;
-        if (this.aTL != null) {
-            cVar = this.aTL.ea();
+    private d getCommonBottomView() {
+        d dVar = null;
+        if (this.aYs != null) {
+            dVar = this.aYs.hz();
         }
-        if (cVar == null || cVar.getParent() != null) {
-            cVar = new c(this.mContext);
+        if (dVar == null || dVar.getParent() != null) {
+            dVar = new d(this.mContext);
         }
-        cVar.setOnItemViewLongClickListener(this.mItemViewLongClickListener);
-        cVar.setPosition(this.mPosition);
-        return cVar;
+        dVar.setOnItemViewLongClickListener(this.aXd);
+        dVar.setPosition(this.mPosition);
+        return dVar;
     }
 
-    private c getMidView() {
-        c commonBottomView = getCommonBottomView();
+    private d getMidView() {
+        d commonBottomView = getCommonBottomView();
         if (commonBottomView == null) {
             return null;
         }
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType == 1 && !this.aTN) {
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (skinType == 1 && !this.aYu) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            bc.c(commonBottomView, com.baidu.tieba.v.selector_history_multi_mid_bg, skinType);
+            ba.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_mid_bg, skinType);
         } else if (this.mType == 1) {
-            bc.c(commonBottomView, com.baidu.tieba.v.selector_history_multi_mid_bg, skinType);
+            ba.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_mid_bg, skinType);
         }
-        commonBottomView.cy(this.aTN);
+        commonBottomView.ct(this.aYu);
         return commonBottomView;
     }
 
-    private c getBottomView() {
-        c commonBottomView = getCommonBottomView();
+    private d getBottomView() {
+        d commonBottomView = getCommonBottomView();
         if (commonBottomView == null) {
             return null;
         }
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType == 1 && !this.aTN) {
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (skinType == 1 && !this.aYu) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            bc.c(commonBottomView, com.baidu.tieba.v.selector_history_multi_bottom_bg, skinType);
+            ba.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_bottom_bg, skinType);
         } else if (this.mType == 1) {
-            bc.c(commonBottomView, com.baidu.tieba.v.selector_history_multi_bottom_bg, skinType);
+            ba.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_bottom_bg, skinType);
         }
-        commonBottomView.cy(this.aTN);
+        commonBottomView.ct(this.aYu);
         return commonBottomView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, p pVar, c cVar, View view) {
-        if (pVar != null && cVar != null) {
-            cVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.multi_bottom_height)));
-            cVar.a(tbPageContext, pVar, view, this.mType);
-            this.Mz.addView(cVar);
+    private void a(TbPageContext<?> tbPageContext, q qVar, d dVar, View view) {
+        if (qVar != null && dVar != null) {
+            dVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_bottom_height)));
+            dVar.a(tbPageContext, qVar, view, this.mType);
+            this.XG.addView(dVar);
         }
     }
 
-    private ar getSingleView() {
-        ar arVar = null;
-        if (this.aTM != null) {
-            arVar = this.aTM.ea();
+    private av getSingleView() {
+        av avVar = null;
+        if (this.aYt != null) {
+            avVar = this.aYt.hz();
         }
-        if (arVar == null || arVar.getParent() == null) {
-            arVar = new ar(this.mContext);
+        if (avVar == null || avVar.getParent() == null) {
+            avVar = new av(this.mContext);
         }
-        arVar.setOnItemViewLongClickListener(this.mItemViewLongClickListener);
-        arVar.setPosition(this.mPosition);
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType == 1 && !this.aTN) {
+        avVar.setOnItemViewLongClickListener(this.aXd);
+        avVar.setPosition(this.mPosition);
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (skinType == 1 && !this.aYu) {
             skinType = 0;
         }
         if (this.mType == 2) {
-            bc.c(arVar, com.baidu.tieba.v.selector_history_multi_single_bg, skinType);
+            ba.c(avVar, com.baidu.tieba.u.selector_history_multi_single_bg, skinType);
         } else if (this.mType == 1) {
-            bc.c(arVar, com.baidu.tieba.v.selector_history_multi_single_bg, skinType);
+            ba.c(avVar, com.baidu.tieba.u.selector_history_multi_single_bg, skinType);
         }
-        arVar.cy(this.aTN);
-        return arVar;
+        avVar.ct(this.aYu);
+        return avVar;
     }
 
-    private void a(TbPageContext<?> tbPageContext, p pVar, ar arVar, View view) {
-        if (pVar != null && arVar != null) {
-            arVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            arVar.setTime(this.aTO);
-            arVar.a(tbPageContext, pVar, view, this.mType);
-            this.Mz.addView(arVar);
+    private void a(TbPageContext<?> tbPageContext, q qVar, av avVar, View view) {
+        if (qVar != null && avVar != null) {
+            avVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            avVar.setTime(this.aYv);
+            avVar.a(tbPageContext, qVar, view, this.mType);
+            this.XG.addView(avVar);
         }
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.mItemViewLongClickListener = bVar;
+        this.aXd = bVar;
     }
 
     public void setPosition(int i) {
@@ -240,11 +240,11 @@ public class MultiContentView extends LinearLayout {
     }
 
     public void setNeedNightMode(boolean z) {
-        this.aTN = z;
+        this.aYu = z;
     }
 
     public void setTime(String str) {
-        this.aTO = str;
+        this.aYv = str;
     }
 
     public void setType(int i) {

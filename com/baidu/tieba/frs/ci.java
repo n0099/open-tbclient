@@ -1,28 +1,48 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ci implements View.OnClickListener {
-    final /* synthetic */ cf aGq;
-    private final /* synthetic */ com.baidu.tbadk.core.data.x aGu;
+public class ci extends PagerAdapter {
+    private ArrayList<LiveBroadcastCard> PL;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(cf cfVar, com.baidu.tbadk.core.data.x xVar) {
-        this.aGq = cfVar;
-        this.aGu = xVar;
+    public ci(ArrayList<LiveBroadcastCard> arrayList) {
+        this.PL = arrayList;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aGq.mContext;
-        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, this.aGu.getAuthor().getUserId(), this.aGu.getAuthor().getName_show(), this.aGq.aEF.aeI().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        if (this.PL == null) {
+            return 0;
+        }
+        return this.PL.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (this.PL == null || i < 0 || i >= this.PL.size()) {
+            return null;
+        }
+        LiveBroadcastCard liveBroadcastCard = this.PL.get(i);
+        if (liveBroadcastCard != null && liveBroadcastCard.getParent() != null && (liveBroadcastCard.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) liveBroadcastCard.getParent()).removeView(liveBroadcastCard);
+        }
+        viewGroup.addView(liveBroadcastCard);
+        return this.PL.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        if (this.PL != null && i >= 0 && i < this.PL.size()) {
+            viewGroup.removeView(this.PL.get(i));
+        }
     }
 }

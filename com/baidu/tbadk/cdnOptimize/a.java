@@ -1,45 +1,45 @@
 package com.baidu.tbadk.cdnOptimize;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.location.LocationClientOption;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public int Bw = 1500;
-    public int Bx = 3000;
-    public int By = 6000;
-    public int Bz = 3000;
-    public int BA = 5000;
-    public int BB = TbConfig.BIG_IMAGE_MIN_CAPACITY;
-    public boolean BC = true;
+    public int Nz = 300;
+    public int NA = 5000;
+    public int NB = 10000;
+    public int NC = 1500;
+    public int ND = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public int NE = 6000;
+    public boolean NF = true;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 int optInt = jSONObject.optInt("wifiSlow", -1);
                 if (optInt > 0) {
-                    this.Bw = optInt;
+                    this.Nz = optInt;
                 }
                 int optInt2 = jSONObject.optInt("threeGSlow", -1);
                 if (optInt2 > 0) {
-                    this.Bx = optInt2;
+                    this.NA = optInt2;
                 }
                 int optInt3 = jSONObject.optInt("twoGSlow", -1);
                 if (optInt3 > 0) {
-                    this.By = optInt3;
+                    this.NB = optInt3;
                 }
                 int optInt4 = jSONObject.optInt("wifiLog", -1);
                 if (optInt4 > 0) {
-                    this.Bz = optInt4;
+                    this.NC = optInt4;
                 }
                 int optInt5 = jSONObject.optInt("threeGLog", -1);
                 if (optInt5 > 0) {
-                    this.BA = optInt5;
+                    this.ND = optInt5;
                 }
                 int optInt6 = jSONObject.optInt("twoGLog", -1);
                 if (optInt6 > 0) {
-                    this.BB = optInt6;
+                    this.NE = optInt6;
                 }
-                this.BC = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
+                this.NF = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
             }
         }

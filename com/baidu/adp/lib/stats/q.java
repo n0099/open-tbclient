@@ -9,52 +9,52 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class q {
-    private ArrayList<BasicNameValuePair> mA;
-    private String mB;
-    private StringBuilder mC;
     private long mStartTime;
+    private ArrayList<BasicNameValuePair> xO;
+    private String xP;
+    private StringBuilder xQ;
 
     public q(String str) {
-        this.mB = null;
-        this.mC = new StringBuilder(100);
-        this.mB = str;
+        this.xP = null;
+        this.xQ = new StringBuilder(100);
+        this.xP = str;
     }
 
     public q() {
-        this.mB = null;
-        this.mC = new StringBuilder(100);
+        this.xP = null;
+        this.xQ = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.mA == null) {
-                this.mA = new ArrayList<>();
+            if (this.xO == null) {
+                this.xO = new ArrayList<>();
             }
-            this.mA.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.xO.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.mA != null) {
-            Iterator<BasicNameValuePair> it = this.mA.iterator();
+        if (this.xO != null) {
+            Iterator<BasicNameValuePair> it = this.xO.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.mC.length() > 0) {
-                        this.mC.append('&');
+                    if (this.xQ.length() > 0) {
+                        this.xQ.append('&');
                     }
-                    this.mC.append(next.getName());
-                    this.mC.append('=');
+                    this.xQ.append(next.getName());
+                    this.xQ.append('=');
                     try {
-                        this.mC.append(URLEncoder.encode(ap(next.getValue()), "utf-8"));
+                        this.xQ.append(URLEncoder.encode(aw(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.mC.append(ap(next.getValue()));
+                        this.xQ.append(aw(next.getValue()));
                     }
                 }
             }
         }
-        return this.mC.toString();
+        return this.xQ.toString();
     }
 
     public void f(Object... objArr) {
@@ -72,29 +72,29 @@ public class q {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.mC.length() > 0) {
-                this.mC.append('&');
+            if (this.xQ.length() > 0) {
+                this.xQ.append('&');
             }
-            this.mC.append(str);
-            this.mC.append("=");
+            this.xQ.append(str);
+            this.xQ.append("=");
             try {
-                this.mC.append(URLEncoder.encode(ap(str2), "utf-8"));
+                this.xQ.append(URLEncoder.encode(aw(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.mC.append(ap(str2));
+                this.xQ.append(aw(str2));
             }
         }
     }
 
-    public void eK() {
+    public void il() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long eL() {
+    public long im() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    private String ap(String str) {
-        return str.replace(" ", "_").replace("[", "(").replace("]", "").replace("&", "|");
+    private String aw(String str) {
+        return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

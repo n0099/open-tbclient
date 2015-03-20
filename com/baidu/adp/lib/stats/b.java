@@ -3,17 +3,17 @@ package com.baidu.adp.lib.stats;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.lib.Disk.ops.e {
-    final /* synthetic */ BdNormalStatBase lJ;
-    private final /* synthetic */ BdStatBase lK;
-    private final /* synthetic */ boolean lL;
+    final /* synthetic */ BdNormalStatBase wX;
+    private final /* synthetic */ BdStatBase wY;
+    private final /* synthetic */ boolean wZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BdNormalStatBase bdNormalStatBase, String str, String str2, DiskFileOperate.Action action, BdStatBase bdStatBase, boolean z) {
         super(str, str2, action);
-        this.lJ = bdNormalStatBase;
-        this.lK = bdStatBase;
-        this.lL = z;
+        this.wX = bdNormalStatBase;
+        this.wY = bdStatBase;
+        this.wZ = z;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -21,15 +21,15 @@ class b extends com.baidu.adp.lib.Disk.ops.e {
         long j;
         long j2;
         super.l(z);
-        if (z && cc() != null) {
-            j = this.lJ.mCurrentFileSize;
+        if (z && fA() != null) {
+            j = this.wX.mCurrentFileSize;
             if (j == 0) {
-                this.lJ.mCurrentFileSize = cc().length();
+                this.wX.mCurrentFileSize = fA().length();
             }
-            BdNormalStatBase bdNormalStatBase = this.lJ;
+            BdNormalStatBase bdNormalStatBase = this.wX;
             j2 = bdNormalStatBase.mCurrentFileSize;
             bdNormalStatBase.mCurrentFileSize = j2 + getContent().length();
         }
-        f.eq().b(this.lK, this.lL);
+        f.hP().b(this.wY, this.wZ);
     }
 }

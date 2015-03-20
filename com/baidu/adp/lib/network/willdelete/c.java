@@ -6,38 +6,38 @@ import java.util.concurrent.atomic.AtomicLong;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements g {
-    private final /* synthetic */ AtomicInteger kS;
-    private final /* synthetic */ String kT;
-    private final /* synthetic */ AtomicLong kU;
-    private final /* synthetic */ AtomicInteger kV;
-    private final /* synthetic */ File kW;
+    private final /* synthetic */ AtomicInteger wg;
+    private final /* synthetic */ String wh;
+    private final /* synthetic */ AtomicLong wi;
+    private final /* synthetic */ AtomicInteger wj;
+    private final /* synthetic */ File wk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtomicInteger atomicInteger, String str, AtomicLong atomicLong, AtomicInteger atomicInteger2, File file) {
-        this.kS = atomicInteger;
-        this.kT = str;
-        this.kU = atomicLong;
-        this.kV = atomicInteger2;
-        this.kW = file;
+        this.wg = atomicInteger;
+        this.wh = str;
+        this.wi = atomicLong;
+        this.wj = atomicInteger2;
+        this.wk = file;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.g
     public void f(byte[] bArr, int i, int i2) {
         if (i2 == 0) {
-            this.kS.incrementAndGet();
+            this.wg.incrementAndGet();
             return;
         }
-        this.kS.set(0);
-        h.a(this.kT, this.kU.longValue(), bArr, i, i2);
-        this.kU.addAndGet(i2);
-        this.kV.addAndGet(i2);
+        this.wg.set(0);
+        h.a(this.wh, this.wi.longValue(), bArr, i, i2);
+        this.wi.addAndGet(i2);
+        this.wj.addAndGet(i2);
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.g
     public void A(boolean z) {
         if (!z) {
-            this.kW.delete();
-            this.kU.set(0L);
+            this.wk.delete();
+            this.wi.set(0L);
         }
     }
 }

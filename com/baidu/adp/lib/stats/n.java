@@ -5,15 +5,15 @@ public class n {
     private int mCount;
     private boolean mIsRunning;
     private long mLastLogTime;
-    private long ms;
-    private boolean mt;
-    final /* synthetic */ m mu;
+    private long xH;
+    private boolean xI;
+    final /* synthetic */ m xJ;
 
     private n(m mVar) {
-        this.mu = mVar;
+        this.xJ = mVar;
         this.mIsRunning = false;
         this.mCount = 0;
-        this.mt = false;
+        this.xI = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,31 +21,31 @@ public class n {
         this(mVar);
     }
 
-    public boolean eB() {
-        return this.mt;
+    public boolean ib() {
+        return this.xI;
     }
 
     public void C(boolean z) {
-        this.mt = z;
+        this.xI = z;
     }
 
-    public long eC() {
-        return this.ms;
+    public long ic() {
+        return this.xH;
     }
 
     public void f(long j) {
-        this.ms = j;
+        this.xH = j;
     }
 
-    public int eD() {
+    public int id() {
         return this.mCount;
     }
 
-    public void X(int i) {
+    public void Y(int i) {
         this.mCount = i;
     }
 
-    public long eE() {
+    public long ie() {
         return this.mLastLogTime;
     }
 
@@ -53,7 +53,7 @@ public class n {
         this.mLastLogTime = j;
     }
 
-    public boolean eF() {
+    public boolean ig() {
         return this.mIsRunning;
     }
 

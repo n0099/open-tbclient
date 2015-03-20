@@ -1,49 +1,37 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.personInfo.PersonInfoActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends com.baidu.adp.base.g {
-    TextView bIh;
-    TextView bIi;
-    View mView;
+public class bc implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity bQz;
 
-    public bc(PersonInfoActivity personInfoActivity) {
-        super(personInfoActivity.getPageContext());
-        a(personInfoActivity);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(PersonListActivity personListActivity) {
+        this.bQz = personListActivity;
     }
 
-    private void a(PersonInfoActivity personInfoActivity) {
-        this.mView = com.baidu.adp.lib.g.b.ei().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.person_info_more_view, null);
-        this.bIh = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_friend);
-        this.bIh.setOnClickListener(personInfoActivity);
-        this.bIi = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_black);
-        this.bIi.setOnClickListener(personInfoActivity);
-    }
-
-    public void i(boolean z, boolean z2) {
-        if (z) {
-            this.bIh.setVisibility(0);
-        } else {
-            this.bIh.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bh bhVar;
+        bh bhVar2;
+        bh bhVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bhVar = this.bQz.bQu;
+        if (bhVar != null) {
+            bhVar2 = this.bQz.bQu;
+            if (bhVar2.getItemViewType(intValue) == 0) {
+                bhVar3 = this.bQz.bQu;
+                UserData userData = (UserData) bhVar3.getItem(intValue);
+                if (userData != null && userData.getUserId() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bQz.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                }
+            }
         }
-        if (z2) {
-            this.bIi.setText(com.baidu.tieba.z.remove_block_chat);
-        } else {
-            this.bIi.setText(com.baidu.tieba.z.block_chat_message);
-        }
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public View aaV() {
-        return this.bIh;
-    }
-
-    public View aaW() {
-        return this.bIi;
     }
 }

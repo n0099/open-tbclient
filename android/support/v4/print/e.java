@@ -10,10 +10,10 @@ import android.print.PrintManager;
 /* loaded from: classes.dex */
 public class e {
     final Context mContext;
-    BitmapFactory.Options aU = null;
+    BitmapFactory.Options lY = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
-    int aT = 2;
+    int lX = 2;
     int mOrientation = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +30,7 @@ public class e {
     }
 
     public void setColorMode(int i) {
-        this.aT = i;
+        this.lX = i;
     }
 
     public void setOrientation(int i) {
@@ -42,7 +42,7 @@ public class e {
     }
 
     public int getColorMode() {
-        return this.aT;
+        return this.lX;
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
@@ -53,7 +53,7 @@ public class e {
             if (bitmap.getWidth() > bitmap.getHeight()) {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
-            printManager.print(str, new f(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.aT).build());
+            printManager.print(str, new f(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.lX).build());
         }
     }
 
@@ -61,7 +61,7 @@ public class e {
         g gVar = new g(this, str, uri, this.mScaleMode);
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.aT);
+        builder.setColorMode(this.lX);
         if (this.mOrientation == 1) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
         } else if (this.mOrientation == 2) {

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
@@ -17,20 +16,10 @@ import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
-    private final CustomMessageListener aTB = new ai(this, 0);
-    private com.baidu.tieba.im.chat.notify.a aTC = new aj(this);
-    private OfficialBarTipModel aUO;
-    private ao aUP;
-
-    static {
-        KL();
-    }
-
-    private static void KL() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008022, new ak());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
+    private OfficialBarTipModel aZA;
+    private ap aZB;
+    private final CustomMessageListener aZC = new aj(this, 0);
+    private com.baidu.tieba.im.chat.notify.a aZD = new ak(this);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -41,22 +30,27 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aTB);
-        registerListener(2016006, this.aTB);
-        registerListener(2016000, this.aTB);
-        registerListener(2016011, this.aTB);
-        registerListener(2016001, this.aTB);
+        registerListener(2016003, this.aZC);
+        registerListener(2016006, this.aZC);
+        registerListener(2016000, this.aZC);
+        registerListener(2016011, this.aZC);
+        registerListener(2016001, this.aZC);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aUP.La().notifyDataSetChanged();
+        this.aZB.Of().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1000", -8)));
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
     private void initData() {
-        this.aUO = new OfficialBarTipModel(getPageContext());
+        this.aZA = new OfficialBarTipModel(getPageContext());
     }
 
     @Override // android.app.Activity
@@ -79,14 +73,14 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        this.aUP = new ao(this);
-        this.aUP.getBdListView().setOnItemClickListener(new al(this));
-        this.aUP.getBdListView().setOnItemLongClickListener(new am(this));
+        this.aZB = new ap(this);
+        this.aZB.getBdListView().setOnItemClickListener(new al(this));
+        this.aZB.getBdListView().setOnItemLongClickListener(new am(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aUP.onChangeSkinType(i);
+        this.aZB.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,11 +96,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.aUO != null) {
-                    this.aUO.insertOrUpdate(data, this.aTC);
+                if (this.aZA != null) {
+                    this.aZA.insertOrUpdate(data, this.aZD);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.aUO != null) {
-                this.aUO.remove(data, this.aTC);
+            } else if (memoryChangedMessage.getType() == 2 && this.aZA != null) {
+                this.aZA.remove(data, this.aZD);
             }
         }
     }
@@ -116,8 +110,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.aUO != null) {
-                this.aUO.setData(data, this.aTC);
+            if (responsedMemoryListMessage.getType() == 2 && this.aZA != null) {
+                this.aZA.setData(data, this.aZD);
             }
         }
     }

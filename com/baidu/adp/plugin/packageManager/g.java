@@ -1,79 +1,56 @@
 package com.baidu.adp.plugin.packageManager;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.PluginCenter;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class g extends BroadcastReceiver {
-    final /* synthetic */ PluginPackageManager this$0;
+public class g {
+    private static volatile g DA;
+    private h DB;
+    private ArrayList<String> Ds = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PluginPackageManager pluginPackageManager) {
-        this.this$0 = pluginPackageManager;
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String str;
-        String str2;
-        boolean z;
-        boolean z2 = true;
-        if (intent != null && "com.baidu.adp.plugin.currentpath".equals(intent.getAction())) {
-            Bundle resultExtras = getResultExtras(true);
-            String str3 = "";
-            if (resultExtras != null) {
-                str3 = resultExtras.getString("package_name");
-            }
-            if (!TextUtils.isEmpty(str3) && resultExtras != null) {
-                str = str3;
-                str2 = resultExtras.getString("current_path");
-            } else if (intent.getExtras() == null) {
-                str = str3;
-                str2 = "";
-            } else {
-                str = intent.getExtras().getString("package_name");
-                str2 = intent.getExtras().getString("current_path");
-            }
-            String str4 = "";
-            if (PluginCenter.getInstance().getPlugin(str) != null) {
-                str4 = PluginCenter.getInstance().getPlugin(str).gK();
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = str4;
-                } else {
-                    String[] split = str2.split(",");
-                    int length = split.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            if (split[i].equals(str4)) {
-                                break;
-                            }
-                            i++;
-                        } else {
-                            z2 = false;
-                            break;
-                        }
-                    }
-                    if (!z2) {
-                        str2 = String.valueOf(str2) + "," + str4;
-                    }
+    public static g lr() {
+        if (DA == null) {
+            synchronized (g.class) {
+                if (DA == null) {
+                    DA = new g();
                 }
             }
-            Bundle bundle = new Bundle();
-            bundle.putString("package_name", str);
-            bundle.putString("current_path", str2);
-            setResultExtras(bundle);
-            z = this.this$0.sM;
-            if (!z) {
-                return;
+        }
+        return DA;
+    }
+
+    private g() {
+    }
+
+    public void a(PluginSetting pluginSetting) {
+        boolean z;
+        if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
+            Iterator<String> it = this.Ds.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = false;
+                    break;
+                }
+                String next = it.next();
+                if (next != null && next.equals(pluginSetting.packageName)) {
+                    z = true;
+                    break;
+                }
             }
-            this.this$0.I(str, str2);
+            if (!z) {
+                this.Ds.add(pluginSetting.packageName);
+            }
+            ln();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ln() {
+        if (this.Ds.size() > 0 && this.DB == null) {
+            this.DB = new h(this, this.Ds.get(0));
+            this.DB.execute(new String[0]);
         }
     }
 }

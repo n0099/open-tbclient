@@ -32,17 +32,17 @@ public class c extends CustomMessageListener {
                                 list3 = this.blO.mList;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rS().c(new h());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rS().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rS().sj();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rS().sg();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().c(new h());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().vl();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().vh();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
                             list = this.blO.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.blO.bz(false);
+                            this.blO.bF(false);
                             return;
                         } else {
                             return;

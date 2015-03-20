@@ -1,22 +1,24 @@
 package com.baidu.tieba.tbadkCore.voice;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-public class b implements DialogInterface.OnClickListener {
-    final /* synthetic */ a cbs;
+public abstract class b extends ViewGroup {
+    public abstract void a(VoiceData.VoiceModel voiceModel);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.cbs = aVar;
-    }
+    public abstract VoiceData.VoiceModel getVoiceModel();
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        this.cbs.aiw();
-        if (this.cbs.getVoiceManager() != null && this.cbs.mModel != null) {
-            this.cbs.getVoiceManager().delRecord(this.cbs.mModel.voiceId);
-            this.cbs.mModel = null;
-        }
+    public abstract void of();
+
+    public abstract void onStopingRecorder();
+
+    public abstract void reset();
+
+    public abstract void setCallback(c cVar);
+
+    public b(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

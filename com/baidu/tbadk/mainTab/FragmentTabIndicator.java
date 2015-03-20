@@ -8,45 +8,53 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.t;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends LinearLayout {
-    private int ack;
-    public int acl;
-    private int acm;
-    private TextView acn;
-    private int aco;
-    private int acp;
-    private HashMap<String, c> acq;
+    private int alK;
+    public int alL;
+    private int alM;
+    private TextView alN;
+    private int alO;
+    private int alP;
+    private HashMap<String, c> alQ;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.ack = 0;
-        this.acq = new HashMap<>();
+        this.alK = 0;
+        this.alQ = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ack = 0;
-        this.acq = new HashMap<>();
+        this.alK = 0;
+        this.alQ = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.aco = getResources().getDimensionPixelSize(u.ds2);
-        this.acp = getResources().getDimensionPixelSize(u.ds12);
-        this.acn = new TextView(getContext());
+        this.alO = getResources().getDimensionPixelSize(t.ds2);
+        this.alP = getResources().getDimensionPixelSize(t.ds12);
+        this.alN = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.acn.setLayoutParams(layoutParams);
-        this.acn.setGravity(17);
-        this.acn.setDuplicateParentStateEnabled(true);
-        addView(this.acn);
+        this.alN.setLayoutParams(layoutParams);
+        this.alN.setGravity(17);
+        this.alN.setDuplicateParentStateEnabled(true);
+        addView(this.alN);
+    }
+
+    public void setContentTvTopMargin(int i) {
+        if (this.alN.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alN.getLayoutParams();
+            layoutParams.topMargin = i;
+            this.alN.setLayoutParams(layoutParams);
+        }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -54,7 +62,7 @@ public class FragmentTabIndicator extends LinearLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, c> entry : this.acq.entrySet()) {
+        for (Map.Entry<String, c> entry : this.alQ.entrySet()) {
             entry.getValue().view.measure(View.MeasureSpec.makeMeasureSpec(size, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(size2, ExploreByTouchHelper.INVALID_ID));
         }
     }
@@ -65,20 +73,20 @@ public class FragmentTabIndicator extends LinearLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, c>> it = this.acq.entrySet().iterator();
-        while (it.hasNext() && this.acn.getText() != null) {
+        Iterator<Map.Entry<String, c>> it = this.alQ.entrySet().iterator();
+        while (it.hasNext() && this.alN.getText() != null) {
             c value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.acn.getPaint().measureText(this.acn.getText().toString());
-            if (value.acr) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.jO;
+            int measureText = (int) this.alN.getPaint().measureText(this.alN.getText().toString());
+            if (value.alR) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.vf;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.jO) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.vf) - (measureText / 2);
             }
-            if (this.ack == 1) {
-                i5 = measuredWidth - this.acp;
-                measuredHeight = this.aco;
+            if (this.alK == 1) {
+                i5 = measuredWidth - this.alP;
+                measuredHeight = this.alO;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -88,61 +96,61 @@ public class FragmentTabIndicator extends LinearLayout {
     }
 
     public void setTipPosType(int i) {
-        this.ack = i;
+        this.alK = i;
     }
 
     public void a(String str, c cVar) {
         if (cVar.view != null) {
             addView(cVar.view);
-            this.acq.put(str, cVar);
+            this.alQ.put(str, cVar);
         }
     }
 
-    public c eq(String str) {
-        return this.acq.get(str);
+    public c ex(String str) {
+        return this.alQ.get(str);
     }
 
     public void setText(int i) {
-        this.acn.setText(i);
+        this.alN.setText(i);
     }
 
     public void setText(String str) {
-        this.acn.setText(str);
+        this.alN.setText(str);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.acm = i;
+        this.alM = i;
     }
 
     public void setCompoundDrawablePadding(int i) {
-        this.acn.setCompoundDrawablePadding(i);
+        this.alN.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.acn.setTextSize(f);
+        this.alN.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.acn.setTextSize(i, f);
+        this.alN.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.acl = i;
+        this.alL = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ct(TbadkCoreApplication.m255getInst().getSkinType());
+        cu(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void ct(int i) {
-        bc.b(this.acn, this.acl, 1);
-        if (this.acn != null) {
-            this.acn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, bc.getDrawable(this.acm), (Drawable) null, (Drawable) null);
+    public void cu(int i) {
+        ba.b(this.alN, this.alL, 1);
+        if (this.alN != null) {
+            this.alN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ba.getDrawable(this.alM), (Drawable) null, (Drawable) null);
         }
-        for (Map.Entry<String, c> entry : this.acq.entrySet()) {
-            entry.getValue().ct(i);
+        for (Map.Entry<String, c> entry : this.alQ.entrySet()) {
+            entry.getValue().cu(i);
         }
     }
 }

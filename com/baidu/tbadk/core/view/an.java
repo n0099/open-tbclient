@@ -1,20 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.tbadk.core.util.bu;
+import android.view.View;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ UserIconBox Oa;
+public class an implements AbsListView.RecyclerListener {
+    private int mId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(UserIconBox userIconBox) {
-        this.Oa = userIconBox;
+    public an(int i) {
+        this.mId = 0;
+        this.mId = i;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str != null) {
-            bu.a(this.Oa, false, new ao(this, str));
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.mId);
+        if (findViewById != null && (findViewById instanceof UserIconBox)) {
+            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
         }
     }
 }

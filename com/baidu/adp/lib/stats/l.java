@@ -6,23 +6,23 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Object, Integer, Void> {
-    private BdStatBase mo;
     final /* synthetic */ f this$0;
+    private BdStatBase xD;
 
     public l(f fVar, BdStatBase bdStatBase) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
         BdUniqueId bdUniqueId;
         BdAsyncTaskParallel bdAsyncTaskParallel2;
         this.this$0 = fVar;
-        this.mo = null;
-        this.mo = bdStatBase;
-        bdAsyncTaskParallel = fVar.ml;
+        this.xD = null;
+        this.xD = bdStatBase;
+        bdAsyncTaskParallel = fVar.xA;
         if (bdAsyncTaskParallel == null) {
-            fVar.ml = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+            fVar.xA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
-        bdUniqueId = f.lN;
+        bdUniqueId = f.xb;
         setTag(bdUniqueId);
-        bdAsyncTaskParallel2 = fVar.ml;
+        bdAsyncTaskParallel2 = fVar.xA;
         setParallel(bdAsyncTaskParallel2);
     }
 
@@ -30,7 +30,7 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Object... objArr) {
-        this.this$0.c(this.mo);
+        this.this$0.c(this.xD);
         return null;
     }
 
@@ -42,9 +42,9 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
         BdStatSwitchData bdStatSwitchData;
         BdStatSwitchData bdStatSwitchData2;
         super.onPostExecute(r6);
-        bdStatSwitchData = this.this$0.mh;
+        bdStatSwitchData = this.this$0.xw;
         if (!bdStatSwitchData.inSpecStrategy()) {
-            bdStatSwitchData2 = this.this$0.mh;
+            bdStatSwitchData2 = this.this$0.xw;
             if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
                 new i(this.this$0, false).execute(new Object[0]);
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.b;
 /* loaded from: classes.dex */
 public class a {
-    public static int gn(int i) {
+    public static int gc(int i) {
         switch (i) {
             case 1:
                 return -2;
@@ -18,6 +18,14 @@ public class a {
             case 18:
             case 19:
             case 20:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            case 27:
+            case 28:
+            case 29:
             default:
                 return 1;
             case 6:
@@ -34,6 +42,8 @@ public class a {
                 return 8;
             case 21:
                 return 9;
+            case 30:
+                return -9;
         }
     }
 }

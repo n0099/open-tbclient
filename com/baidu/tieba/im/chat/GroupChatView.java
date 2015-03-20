@@ -20,13 +20,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initHeader(talkableActivity, z);
-        String string = talkableActivity.getPageContext().getString(com.baidu.tieba.z.msglist_groupinfo);
+        String string = talkableActivity.getPageContext().getString(com.baidu.tieba.y.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
-            this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.x.group_info_btn, talkableActivity);
-            this.mGroupInfoBtnTxt = (TextView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.w.group_info_btn_txt);
+            this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
+            this.mGroupInfoBtnTxt = (TextView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.v.group_info_btn_txt);
             this.mGroupInfoBtnTxt.setText(string);
-            this.mGroupInfoDot = (ImageView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.w.red_dot);
+            this.mGroupInfoDot = (ImageView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.v.red_dot);
             this.mGroupInfoDot.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
                 showInfoDot();
@@ -40,13 +40,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     }
 
     public void showInfoDot() {
-        if (!com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("has_shown_group_btn_dot", false)) {
+        if (!com.baidu.tbadk.core.sharedPref.b.rB().getBoolean("has_shown_group_btn_dot", false)) {
             this.mGroupInfoDot.setVisibility(0);
         }
     }
 
     public void hideInfoDot() {
         this.mGroupInfoDot.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("has_shown_group_btn_dot", true);
+        com.baidu.tbadk.core.sharedPref.b.rB().putBoolean("has_shown_group_btn_dot", true);
     }
 }

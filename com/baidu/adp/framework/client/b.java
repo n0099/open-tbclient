@@ -20,10 +20,10 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     /* renamed from: a */
     public void sendMessage(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         if (customMessage != null && customMessageTask != null) {
-            if (customMessageTask.bA() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.eX() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 CustomResponsedMessage<?> customResponsedMessage = null;
                 try {
-                    customResponsedMessage = customMessageTask.bz().run(customMessage);
+                    customResponsedMessage = customMessageTask.eW().run(customMessage);
                     if (customResponsedMessage != null) {
                         customResponsedMessage.setOrginalMessage(customMessage);
                     }
@@ -31,7 +31,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.cO.dispatchResponsedMessage(customResponsedMessage);
+                    this.nY.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
                 return;
@@ -40,20 +40,20 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         }
     }
 
-    public <T> CustomResponsedMessage<T> runTask(CustomMessageTask customMessageTask, Class<T> cls) {
+    public <T> CustomResponsedMessage<T> a(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         CustomResponsedMessage<T> customResponsedMessage = null;
         if (customMessageTask != null) {
-            if (customMessageTask.bA() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.eX() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.bz().run(null);
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.eW().run(customMessage);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.cO.dispatchResponsedMessage(customResponsedMessage);
+                    this.nY.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
-                new c(this, null, customMessageTask).execute(new String[0]);
+                new c(this, customMessage, customMessageTask).execute(new String[0]);
             }
         }
         return customResponsedMessage;
@@ -88,7 +88,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof c) {
-                linkedList.add(((c) next).as());
+                linkedList.add(((c) next).dQ());
             }
         }
         return linkedList;

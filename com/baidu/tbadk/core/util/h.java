@@ -1,31 +1,16 @@
 package com.baidu.tbadk.core.util;
+
+import android.widget.Toast;
 /* loaded from: classes.dex */
-class h {
-    final /* synthetic */ e HA;
-    StringBuffer HC;
-
-    private h(e eVar) {
-        this.HA = eVar;
-        this.HC = new StringBuffer(100);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(e eVar, h hVar) {
-        this(eVar);
-    }
-
-    public void bQ(int i) {
-        if (this.HC.length() != 0) {
-            this.HC.append(",");
+class h implements Runnable {
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        Toast toast2;
+        toast = g.yQ;
+        if (toast != null) {
+            toast2 = g.yQ;
+            toast2.cancel();
         }
-        this.HC.append(i);
-    }
-
-    public void clear() {
-        this.HC.setLength(0);
-    }
-
-    public String toString() {
-        return this.HC.toString();
     }
 }

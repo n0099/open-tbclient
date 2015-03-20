@@ -23,24 +23,24 @@ public class g extends com.baidu.adp.framework.listener.e {
         s sVar;
         s sVar2;
         Runnable runnable2;
-        this.this$0.aez = false;
-        runnable = this.this$0.aeB;
+        this.this$0.amT = false;
+        runnable = this.this$0.amV;
         if (runnable != null) {
-            com.baidu.adp.lib.g.i ej = com.baidu.adp.lib.g.i.ej();
-            runnable2 = this.this$0.aeB;
-            ej.removeCallbacks(runnable2);
+            com.baidu.adp.lib.g.i hI = com.baidu.adp.lib.g.i.hI();
+            runnable2 = this.this$0.amV;
+            hI.removeCallbacks(runnable2);
         }
         if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
             if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                sVar = this.this$0.aer;
+                sVar = this.this$0.amL;
                 if (sVar != null) {
-                    sVar2 = this.this$0.aer;
+                    sVar2 = this.this$0.amL;
                     sVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                 }
-            } else if (TbadkCoreApplication.m255getInst().isDebugMode()) {
+            } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
             }
-        } else if (TbadkCoreApplication.m255getInst().isDebugMode()) {
+        } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage error");
         }
     }

@@ -4,25 +4,25 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.i;
+import com.baidu.tbadk.core.k;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
-import com.baidu.tieba.tbadkCore.ar;
-import com.baidu.tieba.tbadkCore.b.j;
-import com.baidu.tieba.z;
+import com.baidu.tieba.tbadkCore.au;
+import com.baidu.tieba.tbadkCore.c.i;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d bMG;
+    private static d bXo;
 
-    public static final d acj() {
-        if (bMG != null) {
-            return bMG;
+    public static final d afq() {
+        if (bXo != null) {
+            return bXo;
         }
         synchronized (d.class) {
-            if (bMG == null) {
-                bMG = new d();
+            if (bXo == null) {
+                bXo = new d();
             }
         }
-        return bMG;
+        return bXo;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class d implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof BaseAppViewHolder) {
                 BaseAppViewHolder baseAppViewHolder = (BaseAppViewHolder) tag;
-                j appData = baseAppViewHolder.getAppData();
+                i appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
-                i.A(view.getContext(), "pb_tb_btc");
-                int ahl = appData.ahl();
-                if (ahl == 0) {
-                    if (!com.baidu.adp.lib.util.i.fg() && (view.getContext() instanceof Activity)) {
+                k.A(view.getContext(), "pb_tb_btc");
+                int ams = appData.ams();
+                if (ams == 0) {
+                    if (!com.baidu.adp.lib.util.k.iI() && (view.getContext() instanceof Activity)) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
-                        aVar.bx(z.del_post_tip);
-                        aVar.by(z.frs_network_tips);
-                        aVar.a(z.alert_yes_button, new e(this, view, appData, position, baseAppViewHolder));
-                        aVar.b(z.alert_no_button, new f(this));
+                        aVar.bw(y.del_post_tip);
+                        aVar.bx(y.frs_network_tips);
+                        aVar.a(y.alert_yes_button, new e(this, view, appData, position, baseAppViewHolder));
+                        aVar.b(y.alert_no_button, new f(this));
                         TbPageContext tbPageContext = null;
                         if (view.getContext() instanceof TbPageContextSupport) {
                             tbPageContext = ((TbPageContextSupport) view.getContext()).getPageContext();
                         }
                         aVar.b(tbPageContext);
-                        aVar.nQ();
+                        aVar.re();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.uO().a(view.getContext(), appData.ahp(), "btn_download", "pb", appData.bYF, appData.threadId);
-                    com.baidu.tbadk.distribute.a.uO().a(appData.ahp(), appData.bYF, appData.threadId, "PB", "download");
-                    ar.a(view.getContext(), appData, position);
+                    com.baidu.tbadk.distribute.a.ye().a(view.getContext(), appData.amw(), "btn_download", "pb", appData.cnP, appData.threadId);
+                    com.baidu.tbadk.distribute.a.ye().a(appData.amw(), appData.cnP, appData.threadId, "PB", "download");
+                    au.a(view.getContext(), appData, position);
                     baseAppViewHolder.refresh();
-                } else if (ahl == 2) {
-                    ar.a(view.getContext(), appData);
+                } else if (ams == 2) {
+                    au.a(view.getContext(), appData);
                     baseAppViewHolder.refresh();
                 }
             }

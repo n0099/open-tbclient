@@ -6,129 +6,140 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q {
-    private PersonInfoActivity bJY;
-    private View bKe;
-    private RelativeLayout bKf;
-    private TextView bKg;
-    private TextView bKh;
-    private ImageView bKi;
-    private View bKj;
-    private RelativeLayout bKk;
-    private TextView bKl;
-    private TextView bKm;
-    private ImageView bKn;
-    private View bKo;
-    private RelativeLayout bKp;
-    private TextView bKq;
-    private TextView bKr;
-    private ImageView bKs;
+    private int aiq = -1;
+    private TextView bSA;
+    private TextView bSB;
+    private ImageView bSC;
+    private PersonInfoActivity bSi;
+    private View bSo;
+    private RelativeLayout bSp;
+    private TextView bSq;
+    private TextView bSr;
+    private ImageView bSs;
+    private View bSt;
+    private RelativeLayout bSu;
+    private TextView bSv;
+    private TextView bSw;
+    private ImageView bSx;
+    private View bSy;
+    private RelativeLayout bSz;
+    private boolean mIsHost;
     private View mRootView;
 
     public q(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bJY = personInfoActivity;
-        this.mRootView = com.baidu.adp.lib.g.b.ei().inflate(this.bJY.getPageContext().getPageActivity(), com.baidu.tieba.x.personinfo_common, null);
+        this.bSi = personInfoActivity;
+        this.mIsHost = z;
+        this.mRootView = com.baidu.adp.lib.g.b.hH().inflate(this.bSi.getPageContext().getPageActivity(), com.baidu.tieba.w.personinfo_common, null);
         initView();
     }
 
     private void initView() {
-        this.bKe = this.mRootView.findViewById(com.baidu.tieba.w.root_next);
-        this.bKf = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.w.common_like_rl);
-        this.bKg = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_like_text);
-        this.bKh = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_like_bar);
-        this.bKi = (ImageView) this.mRootView.findViewById(com.baidu.tieba.w.arrow_top);
-        this.bKf.setOnClickListener(this.bJY);
-        this.bKj = this.mRootView.findViewById(com.baidu.tieba.w.line1);
-        this.bKk = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.w.common_friend_rl);
-        this.bKl = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_friend_text);
-        this.bKm = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_friend);
-        this.bKn = (ImageView) this.mRootView.findViewById(com.baidu.tieba.w.arrow_middle);
-        this.bKk.setOnClickListener(this.bJY);
-        this.bKo = this.mRootView.findViewById(com.baidu.tieba.w.line2);
-        this.bKp = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.w.common_group_rl);
-        this.bKq = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_group_text);
-        this.bKr = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.common_group);
-        this.bKs = (ImageView) this.mRootView.findViewById(com.baidu.tieba.w.arrow_bottom);
-        this.bKp.setOnClickListener(this.bJY);
-        kx();
+        this.bSo = this.mRootView.findViewById(com.baidu.tieba.v.root_next);
+        this.bSp = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.v.common_like_rl);
+        this.bSq = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_like_text);
+        this.bSr = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_like_bar);
+        this.bSs = (ImageView) this.mRootView.findViewById(com.baidu.tieba.v.arrow_top);
+        this.bSp.setOnClickListener(this.bSi);
+        this.bSt = this.mRootView.findViewById(com.baidu.tieba.v.line1);
+        this.bSu = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.v.common_friend_rl);
+        this.bSv = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_friend_text);
+        this.bSw = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_friend);
+        this.bSx = (ImageView) this.mRootView.findViewById(com.baidu.tieba.v.arrow_middle);
+        this.bSu.setOnClickListener(this.bSi);
+        this.bSy = this.mRootView.findViewById(com.baidu.tieba.v.line2);
+        this.bSz = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.v.common_group_rl);
+        this.bSA = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_group_text);
+        this.bSB = (TextView) this.mRootView.findViewById(com.baidu.tieba.v.common_group);
+        this.bSC = (ImageView) this.mRootView.findViewById(com.baidu.tieba.v.arrow_bottom);
+        this.bSz.setOnClickListener(this.bSi);
+        oq();
     }
 
-    public RelativeLayout abC() {
-        return this.bKp;
+    public RelativeLayout adQ() {
+        return this.bSz;
     }
 
-    public RelativeLayout abu() {
-        return this.bKf;
+    public RelativeLayout adI() {
+        return this.bSp;
     }
 
-    public RelativeLayout abw() {
-        return this.bKk;
+    public RelativeLayout adK() {
+        return this.bSu;
     }
 
-    public void kx() {
-        bc.j(this.bKe, com.baidu.tieba.t.cp_bg_line_d);
-        bc.i(this.bKf, com.baidu.tieba.v.personinfo_select_bg);
-        bc.b(this.bKg, com.baidu.tieba.t.cp_cont_d, 1);
-        bc.b(this.bKh, com.baidu.tieba.t.cp_cont_b, 1);
-        bc.i(this.bKi, com.baidu.tieba.v.icon_dredge_arrow_r_n);
-        bc.j(this.bKj, com.baidu.tieba.t.cp_bg_line_b);
-        bc.i(this.bKk, com.baidu.tieba.v.personinfo_select_bg);
-        bc.b(this.bKl, com.baidu.tieba.t.cp_cont_d, 1);
-        bc.b(this.bKm, com.baidu.tieba.t.cp_cont_b, 1);
-        bc.i(this.bKn, com.baidu.tieba.v.icon_dredge_arrow_r_n);
-        bc.j(this.bKo, com.baidu.tieba.t.cp_bg_line_b);
-        bc.i(this.bKp, com.baidu.tieba.v.personinfo_select_bg);
-        bc.b(this.bKq, com.baidu.tieba.t.cp_cont_d, 1);
-        bc.b(this.bKr, com.baidu.tieba.t.cp_cont_b, 1);
-        bc.i(this.bKs, com.baidu.tieba.v.icon_dredge_arrow_r_n);
+    public void oq() {
+        if (this.aiq != TbadkCoreApplication.m411getInst().getSkinType()) {
+            this.aiq = TbadkCoreApplication.m411getInst().getSkinType();
+            ba.j(this.bSo, com.baidu.tieba.s.cp_bg_line_d);
+            ba.i(this.bSp, com.baidu.tieba.u.personinfo_select_bg);
+            ba.b(this.bSq, com.baidu.tieba.s.cp_cont_d, 1);
+            ba.b(this.bSr, com.baidu.tieba.s.cp_cont_b, 1);
+            ba.i(this.bSs, com.baidu.tieba.u.icon_dredge_arrow_r_n);
+            ba.j(this.bSt, com.baidu.tieba.s.cp_bg_line_b);
+            ba.i(this.bSu, com.baidu.tieba.u.personinfo_select_bg);
+            ba.b(this.bSv, com.baidu.tieba.s.cp_cont_d, 1);
+            ba.b(this.bSw, com.baidu.tieba.s.cp_cont_b, 1);
+            ba.i(this.bSx, com.baidu.tieba.u.icon_dredge_arrow_r_n);
+            ba.j(this.bSy, com.baidu.tieba.s.cp_bg_line_b);
+            ba.i(this.bSz, com.baidu.tieba.u.personinfo_select_bg);
+            ba.b(this.bSA, com.baidu.tieba.s.cp_cont_d, 1);
+            ba.b(this.bSB, com.baidu.tieba.s.cp_cont_b, 1);
+            ba.i(this.bSC, com.baidu.tieba.u.icon_dredge_arrow_r_n);
+        }
     }
 
-    public void abD() {
-        v abl = this.bJY.abl();
-        PersonTainInfo abQ = abl.abQ();
-        if (abQ == null) {
-            this.bKe.setVisibility(8);
-        } else if (abQ.getIsFriend() == 1) {
-            this.bKe.setVisibility(8);
+    public void adR() {
+        oq();
+        v ady = this.bSi.ady();
+        PersonTainInfo aed = ady.aed();
+        if (aed == null) {
+            this.bSo.setVisibility(8);
+        } else if (aed.getIsFriend() == 1) {
+            this.bSo.setVisibility(8);
         } else {
-            UserData userData = abl.getUserData();
+            UserData userData = ady.getUserData();
             if (userData == null) {
-                this.bKe.setVisibility(8);
+                this.bSo.setVisibility(8);
                 return;
             }
             com.baidu.tbadk.data.h personPrivate = userData.getPersonPrivate();
             if (personPrivate == null) {
-                this.bKe.setVisibility(8);
+                this.bSo.setVisibility(8);
                 return;
             }
-            if (personPrivate.uH() == 1) {
-                this.bKf.setVisibility(0);
-                this.bKj.setVisibility(0);
+            if (personPrivate.xX() == 1) {
+                this.bSp.setVisibility(0);
+                this.bSt.setVisibility(0);
             } else {
-                this.bKf.setVisibility(8);
-                this.bKj.setVisibility(8);
+                this.bSp.setVisibility(8);
+                this.bSt.setVisibility(8);
             }
-            if (personPrivate.uK() == 1) {
-                this.bKk.setVisibility(0);
-                this.bKj.setVisibility(0);
+            if (personPrivate.ya() == 1) {
+                this.bSu.setVisibility(0);
+                this.bSt.setVisibility(0);
             } else {
-                this.bKk.setVisibility(8);
-                this.bKj.setVisibility(8);
+                this.bSu.setVisibility(8);
+                this.bSt.setVisibility(8);
             }
-            if (personPrivate.uI() == 1) {
-                this.bKp.setVisibility(0);
-                this.bKo.setVisibility(0);
+            int xY = personPrivate.xY();
+            boolean appResponseToIntentClass = TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
+            if (xY == 1 && appResponseToIntentClass) {
+                this.bSz.setVisibility(0);
+                this.bSy.setVisibility(0);
             } else {
-                this.bKp.setVisibility(8);
-                this.bKo.setVisibility(8);
+                this.bSz.setVisibility(8);
+                this.bSy.setVisibility(8);
             }
-            this.bKe.setVisibility(0);
-            List<CommonForum> commonForum = abQ.getCommonForum();
+            this.bSo.setVisibility(0);
+            List<CommonForum> commonForum = aed.getCommonForum();
             if (commonForum != null && commonForum.size() > 0) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 for (int i = 0; i < commonForum.size(); i++) {
@@ -136,12 +147,12 @@ public class q {
                         arrayList.add(commonForum.get(i).getForumName());
                     }
                 }
-                this.bKh.setText(M(arrayList));
+                this.bSr.setText(Q(arrayList));
             } else {
-                this.bKf.setVisibility(8);
-                this.bKj.setVisibility(8);
+                this.bSp.setVisibility(8);
+                this.bSt.setVisibility(8);
             }
-            List<CommonFriend> commonFriend = abQ.getCommonFriend();
+            List<CommonFriend> commonFriend = aed.getCommonFriend();
             if (commonFriend != null && commonFriend.size() > 0) {
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 for (int i2 = 0; i2 < commonFriend.size(); i2++) {
@@ -149,12 +160,12 @@ public class q {
                         arrayList2.add(commonFriend.get(i2).getCommonFriend());
                     }
                 }
-                this.bKm.setText(M(arrayList2));
+                this.bSw.setText(Q(arrayList2));
             } else {
-                this.bKk.setVisibility(8);
-                this.bKj.setVisibility(8);
+                this.bSu.setVisibility(8);
+                this.bSt.setVisibility(8);
             }
-            List<CommonGroup> commonGroup = abQ.getCommonGroup();
+            List<CommonGroup> commonGroup = aed.getCommonGroup();
             if (commonGroup != null && commonGroup.size() > 0) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 for (int i3 = 0; i3 < commonGroup.size(); i3++) {
@@ -162,28 +173,28 @@ public class q {
                         arrayList3.add(commonGroup.get(i3).getCommonGroup());
                     }
                 }
-                this.bKr.setText(M(arrayList3));
+                this.bSB.setText(Q(arrayList3));
             } else {
-                this.bKp.setVisibility(8);
-                this.bKo.setVisibility(8);
+                this.bSz.setVisibility(8);
+                this.bSy.setVisibility(8);
             }
-            if (this.bKf.getVisibility() == 8 && this.bKk.getVisibility() == 8) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bKe.getLayoutParams();
+            if (this.bSp.getVisibility() == 8 && this.bSu.getVisibility() == 8) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSo.getLayoutParams();
                 layoutParams.topMargin = 0;
-                this.bKe.setLayoutParams(layoutParams);
+                this.bSo.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public String M(ArrayList<String> arrayList) {
+    public String Q(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
             return null;
         }
         if (arrayList.size() > 2) {
-            return String.valueOf(com.baidu.tbadk.util.m.f(arrayList.get(0), 0, 10)) + this.bJY.getPageContext().getString(com.baidu.tieba.z.comma) + com.baidu.tbadk.util.m.f(arrayList.get(1), 0, 10) + this.bJY.getPageContext().getString(com.baidu.tieba.z.etc);
+            return String.valueOf(com.baidu.tbadk.util.l.f(arrayList.get(0), 0, 10)) + this.bSi.getPageContext().getString(com.baidu.tieba.y.comma) + com.baidu.tbadk.util.l.f(arrayList.get(1), 0, 10) + this.bSi.getPageContext().getString(com.baidu.tieba.y.etc);
         }
         if (arrayList.size() == 2) {
-            return String.valueOf(com.baidu.tbadk.util.m.f(arrayList.get(0), 0, 15)) + this.bJY.getPageContext().getString(com.baidu.tieba.z.comma) + com.baidu.tbadk.util.m.f(arrayList.get(1), 0, 15);
+            return String.valueOf(com.baidu.tbadk.util.l.f(arrayList.get(0), 0, 15)) + this.bSi.getPageContext().getString(com.baidu.tieba.y.comma) + com.baidu.tbadk.util.l.f(arrayList.get(1), 0, 15);
         }
         return arrayList.get(0);
     }

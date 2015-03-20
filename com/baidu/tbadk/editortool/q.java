@@ -1,44 +1,29 @@
 package com.baidu.tbadk.editortool;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView Yy;
-    private final String mGroupId;
-
-    private q(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str) {
-        this.Yy = emotionTabHorizonScrollView;
-        this.mGroupId = str;
-    }
+public class q extends CustomMessageListener {
+    final /* synthetic */ EmotionTabHost aiU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str, q qVar) {
-        this(emotionTabHorizonScrollView, str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(EmotionTabHost emotionTabHost, int i) {
+        super(i);
+        this.aiU = emotionTabHost;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        String str;
-        i = this.Yy.from;
-        switch (i) {
-            case 1:
-                str = "faceshop_from_write_promotion";
-                break;
-            case 2:
-                str = "faceshop_from_pchat_promotion";
-                break;
-            case 3:
-                str = "faceshop_from_gchat_promotion";
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        switch (customResponsedMessage.getCmd()) {
+            case 2001120:
+                this.aiU.reset();
+                this.aiU.setup();
+                return;
             default:
-                str = "";
-                break;
+                return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.Yy.getContext(), this.mGroupId, false, str)));
     }
 }

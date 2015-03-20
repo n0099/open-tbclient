@@ -20,9 +20,9 @@ public class f extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         List list;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseUploadClientLogMessage)) {
-            this.this$0.bhD = false;
+            this.this$0.biT = false;
             if (socketResponsedMessage.getError() == 0) {
-                list = this.this$0.bhA;
+                list = this.this$0.biQ;
                 list.clear();
             }
         }

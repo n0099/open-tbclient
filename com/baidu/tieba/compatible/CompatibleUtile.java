@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.hardware.Camera;
+import android.net.TrafficStats;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.view.MotionEventCompat;
@@ -88,6 +89,20 @@ public class CompatibleUtile {
             return getObject8().isAutoBrightness(context);
         }
         return false;
+    }
+
+    public long getUidRxBytes(int i) {
+        if (getObject8() != null) {
+            return getObject8().getUidRxBytes(i);
+        }
+        return 0L;
+    }
+
+    public long getUidTxBytes(int i) {
+        if (getObject8() != null) {
+            return getObject8().getUidTxBytes(i);
+        }
+        return 0L;
     }
 
     public int getBitmapMaxMemory(Context context) {
@@ -362,6 +377,14 @@ public class CompatibleUtile {
             if (camera != null) {
                 camera.setDisplayOrientation(i);
             }
+        }
+
+        public long getUidTxBytes(int i) {
+            return TrafficStats.getUidTxBytes(i);
+        }
+
+        public long getUidRxBytes(int i) {
+            return TrafficStats.getUidRxBytes(i);
         }
     }
 

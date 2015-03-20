@@ -11,13 +11,13 @@ public class g extends NetModel<h, i, SingleMentionActivity> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int kE() {
+    public int ox() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String kF() {
+    public String oy() {
         return "c/u/feed/atme";
     }
 
@@ -28,7 +28,7 @@ public class g extends NetModel<h, i, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int kG() {
+    protected int oz() {
         return 0;
     }
 }

@@ -4,16 +4,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class d implements g<Integer> {
-    final /* synthetic */ b aQI;
+    final /* synthetic */ b aVV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aQI = bVar;
+        this.aVV = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
-    /* renamed from: b */
+    /* renamed from: c */
     public void onReturnDataInUI(Integer num) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
     }

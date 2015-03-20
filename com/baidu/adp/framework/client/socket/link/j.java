@@ -2,53 +2,53 @@ package com.baidu.adp.framework.client.socket.link;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.adp.framework.client.socket.m;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.webSocket.m;
 /* loaded from: classes.dex */
 public class j {
-    private boolean eB = false;
-    private int eC = 0;
-    private final Handler eD = new k(this, Looper.getMainLooper());
+    private boolean pT = false;
+    private int pU = 0;
+    private final Handler pV = new k(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
         if (!BdSocketLinkService.isAvailable()) {
-            A("online failed 5");
-        } else if (!this.eB) {
-            this.eB = true;
-            this.eD.removeMessages(1);
-            if (m.fU().fX()) {
+            stop("online failed 5");
+        } else if (!this.pT) {
+            this.pT = true;
+            this.pV.removeMessages(1);
+            if (com.baidu.adp.lib.webSocket.l.jr().ju()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
-                A("in Opened");
+                stop("in Opened");
                 return;
             }
-            bp();
+            eM();
             BdLog.d("启动重连策略");
-            this.eC = 0;
-            int[] bb = com.baidu.adp.framework.client.socket.l.bb();
-            if (bb != null && bb.length >= 1) {
-                BdLog.i("start reconnStrategy... the first will be delay" + bb[0]);
-                this.eD.sendMessageDelayed(this.eD.obtainMessage(1), bb[0] * 1000);
+            this.pU = 0;
+            int[] ey = com.baidu.adp.framework.client.socket.l.ey();
+            if (ey != null && ey.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + ey[0]);
+                this.pV.sendMessageDelayed(this.pV.obtainMessage(1), ey[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
         } else {
             BdLog.d("重连策略正在运行中， 再次启动无效");
-            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.START, BdSocketLinkService.ALLREADY, "have in Running,so invalid");
+            m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.START, BdSocketLinkService.ALLREADY, "have in Running,so invalid");
         }
     }
 
-    private void bp() {
+    private void eM() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void A(String str) {
-        if (this.eB) {
-            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.STOP, BdSocketLinkService.STOP_RECONN, "ReConnStrategy:stop");
-            this.eB = false;
-            this.eC = 0;
+    public void stop(String str) {
+        if (this.pT) {
+            m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.STOP, BdSocketLinkService.STOP_RECONN, "ReConnStrategy:stop");
+            this.pT = false;
+            this.pU = 0;
             BdLog.i("stop reconnStrategy");
-            this.eD.removeMessages(1);
+            this.pV.removeMessages(1);
         }
     }
 }

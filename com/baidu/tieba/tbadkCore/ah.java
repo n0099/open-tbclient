@@ -1,43 +1,100 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ah implements View.OnTouchListener {
-    private aj bUV;
-    private int count = 0;
-    private long aNS = 0;
-    private long aNT = 0;
-    private long aNV = 500;
-    private Handler mHandler = new ai(this);
+public class ah {
+    private int cly;
+    private int clz;
+    private int cur_score;
+    private String fid;
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private int user_level;
 
-    public ah(aj ajVar) {
-        this.bUV = ajVar;
+    public ah() {
+        setLike(0);
+        this.cly = 0;
+        this.clz = 0;
+        this.user_level = 0;
+        setLevelName("");
+        setCurScore(0);
+        setLevelupScore(0);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.bUV == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.aNS = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.aNV);
-                return true;
-            } else if (this.count == 2) {
-                this.aNT = System.currentTimeMillis();
-                if (this.aNT - this.aNS < this.aNV) {
-                    this.bUV.Hj();
-                }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
+    public String getFid() {
+        return this.fid;
+    }
+
+    public void iz(String str) {
+        this.fid = str;
+    }
+
+    public int aiz() {
+        return this.user_level;
+    }
+
+    public void ia(int i) {
+        if (i >= 0) {
+            this.user_level = i;
+        }
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                setLike(jSONObject.optInt("is_like", 0));
+                this.cly = jSONObject.optInt("is_black", 0);
+                this.clz = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-        return true;
+    }
+
+    public void setLike(int i) {
+        this.is_like = i;
+    }
+
+    public int isLike() {
+        return this.is_like;
+    }
+
+    public void setLevelName(String str) {
+        this.level_name = str;
+    }
+
+    public String getLevelName() {
+        return this.level_name;
+    }
+
+    public void setCurScore(int i) {
+        this.cur_score = i;
+    }
+
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
     }
 }

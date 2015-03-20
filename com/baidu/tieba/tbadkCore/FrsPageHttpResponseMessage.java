@@ -1,13 +1,14 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.framework.message.Message;
-import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class FrsPageHttpResponseMessage extends TbHttpResponsedMessage {
-    private e forumModel;
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<u, FrsPageResIdl> {
     private boolean hasNetworkError;
     private boolean needCache;
+    private u responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -24,37 +25,43 @@ public class FrsPageHttpResponseMessage extends TbHttpResponsedMessage {
         if (message.getExtra() instanceof FRSPageRequestMessage) {
             FRSPageRequestMessage fRSPageRequestMessage = (FRSPageRequestMessage) message.getExtra();
             this.updateType = fRSPageRequestMessage.getUpdateType();
-            this.forumModel = fRSPageRequestMessage.getForumModel();
             this.needCache = fRSPageRequestMessage.isNeedCache();
             this.hasNetworkError = hasError();
+        } else if (message.getExtra() instanceof MvcNetMessage) {
+            MvcNetMessage mvcNetMessage = (MvcNetMessage) message.getExtra();
+            if (mvcNetMessage.getRequestData() instanceof t) {
+                t tVar = (t) mvcNetMessage.getRequestData();
+                this.updateType = tVar.getUpdateType();
+                this.needCache = tVar.isNeedCache();
+                this.hasNetworkError = hasError();
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        FrsPageResIdl B = this.forumModel.B(bArr);
-        if (B != null && B.error != null) {
-            if (B.error.errorno != null) {
-                setError(B.error.errorno.intValue());
+        this.responseData = new u();
+        FrsPageResIdl D = this.responseData.D(bArr);
+        if (D != null && D.error != null) {
+            if (D.error.errorno != null) {
+                setError(D.error.errorno.intValue());
             }
-            setErrorString(B.error.usermsg);
+            setErrorString(D.error.usermsg);
         }
+        setData(this.responseData);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.aeI() != null) {
-            d.aeC().a(this.forumModel.aeI().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.YO() != null) {
+            d.ako().a(this.responseData.YO().getName(), bArr, true);
         }
     }
 
-    public e getForumModel() {
-        return this.forumModel;
-    }
-
-    public void setForumModel(e eVar) {
-        this.forumModel = eVar;
+    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
+    protected Class<FrsPageResIdl> getProtobufResponseIdlClass() {
+        return FrsPageResIdl.class;
     }
 
     public int getUpdateType() {
@@ -63,5 +70,13 @@ public class FrsPageHttpResponseMessage extends TbHttpResponsedMessage {
 
     public void setUpdateType(int i) {
         this.updateType = i;
+    }
+
+    public u getResponseData() {
+        return this.responseData;
+    }
+
+    public void setResponseData(u uVar) {
+        this.responseData = uVar;
     }
 }

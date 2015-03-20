@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.util;
+
+import android.widget.Toast;
 /* loaded from: classes.dex */
-public class j {
-    private static String HD = null;
-
-    public static void setIp(String str) {
-        HD = str;
-    }
-
-    public static String getIp() {
-        return HD;
+class j implements Runnable {
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        toast = i.yQ;
+        toast.cancel();
     }
 }

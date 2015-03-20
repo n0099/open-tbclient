@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b {
@@ -97,7 +96,7 @@ public final class b {
             }
             jSONObject.put(g, jSONArray);
             return jSONObject.toString();
-        } catch (JSONException e2) {
+        } catch (Throwable th) {
             return null;
         }
     }
@@ -152,27 +151,27 @@ public final class b {
     /* loaded from: classes.dex */
     public class a {
         private static final String a = ".BD_SAPI_CACHE";
-        private List<C0006a> c = new ArrayList();
+        private List<C0004a> c = new ArrayList();
         private boolean b = true;
 
         public boolean a() {
             return this.b;
         }
 
-        public List<C0006a> b() {
+        public List<C0004a> b() {
             return this.c;
         }
 
         /* renamed from: com.baidu.sapi2.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0006a {
+        public class C0004a {
             public String a;
             public String b;
-            public C0007a c = new C0007a();
+            public C0005a c = new C0005a();
 
             /* renamed from: com.baidu.sapi2.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class C0007a {
+            public class C0005a {
                 public String a;
                 public long b = 0;
                 public String c;
@@ -184,19 +183,19 @@ public final class b {
                         jSONObject.put(b.o, this.b);
                         jSONObject.put(b.p, this.c);
                         return jSONObject;
-                    } catch (JSONException e) {
+                    } catch (Throwable th) {
                         return null;
                     }
                 }
 
-                public static C0007a a(JSONObject jSONObject) {
-                    C0007a c0007a = new C0007a();
+                public static C0005a a(JSONObject jSONObject) {
+                    C0005a c0005a = new C0005a();
                     if (jSONObject != null) {
-                        c0007a.a = jSONObject.optString(b.n);
-                        c0007a.b = jSONObject.optLong(b.o);
-                        c0007a.c = jSONObject.optString(b.p);
+                        c0005a.a = jSONObject.optString(b.n);
+                        c0005a.b = jSONObject.optLong(b.o);
+                        c0005a.c = jSONObject.optString(b.p);
                     }
-                    return c0007a;
+                    return c0005a;
                 }
             }
 
@@ -207,17 +206,17 @@ public final class b {
                     jSONObject.put(b.m, this.b);
                     jSONObject.put(b.l, this.c.a());
                     return jSONObject;
-                } catch (JSONException e) {
+                } catch (Throwable th) {
                     return null;
                 }
             }
 
-            static C0006a a(JSONObject jSONObject) {
-                C0006a c0006a = new C0006a();
-                c0006a.a = jSONObject.optString("id");
-                c0006a.b = jSONObject.optString(b.m);
-                c0006a.c = C0007a.a(jSONObject.optJSONObject(b.l));
-                return c0006a;
+            static C0004a a(JSONObject jSONObject) {
+                C0004a c0004a = new C0004a();
+                c0004a.a = jSONObject.optString("id");
+                c0004a.b = jSONObject.optString(b.m);
+                c0004a.c = C0005a.a(jSONObject.optJSONObject(b.l));
+                return c0004a;
             }
 
             public static String a(String str) {
@@ -239,7 +238,7 @@ public final class b {
                 if (obj == null || getClass() != obj.getClass()) {
                     return false;
                 }
-                return this.a.equals(((C0006a) obj).a);
+                return this.a.equals(((C0004a) obj).a);
             }
 
             public int hashCode() {
@@ -252,12 +251,12 @@ public final class b {
             try {
                 jSONObject.put(b.i, this.b);
                 JSONArray jSONArray = new JSONArray();
-                for (C0006a c0006a : b()) {
-                    jSONArray.put(c0006a.a());
+                for (C0004a c0004a : b()) {
+                    jSONArray.put(c0004a.a());
                 }
                 jSONObject.put(b.j, jSONArray);
                 return jSONObject;
-            } catch (JSONException e) {
+            } catch (Throwable th) {
                 return null;
             }
         }
@@ -269,9 +268,9 @@ public final class b {
                     aVar.b = jSONObject.optBoolean(b.i, true);
                     JSONArray optJSONArray = jSONObject.optJSONArray(b.j);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.b().add(C0006a.a(optJSONArray.getJSONObject(i)));
+                        aVar.b().add(C0004a.a(optJSONArray.getJSONObject(i)));
                     }
-                } catch (JSONException e) {
+                } catch (Throwable th) {
                 }
             }
             return aVar;
@@ -313,6 +312,17 @@ public final class b {
         hashMap.put("cn.jingling.motu.photowonder", "6930f0bd9fa461c2cd65e216acee0118");
         hashMap.put("com.baidu.account", "fe3c74f0431ea0dc303a10b6af6470fc");
         hashMap.put("com.duoku.game.helper", "6231a79a3f43cdd01797eb5febbc6350");
+        hashMap.put("com.dragon.android.pandaspace", "5b120e96b20f5b4ec695d79b20d18753");
+        hashMap.put("com.baidu.addressugc", "9e2a7cde67d36c1e6a01bb070fc8ef7b");
+        hashMap.put("cn.opda.a.phonoalbumshoushou", "310a4f78e839b86df7731c2f48fcadae");
+        hashMap.put("com.baidu.fb", "a4622402640f20dfda894cbe2edf8823");
+        hashMap.put("com.baidu.baidutranslate", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.lbs.waimai", "77ad7ac419a031af0252422152c62e67");
+        hashMap.put("com.baidu.lottery", "6e45686dd05db2374b0a600c7f28c0c4");
+        hashMap.put("com.baidu.doctor", "49c95b74699e358ffe67f5daacab3d48");
+        hashMap.put("com.baidu.patient", "49c95b74699e358ffe67f5daacab3d48");
+        hashMap.put("com.baidu.baidumovie", "645c143e25f34e076bcee9600b30e4c2");
+        hashMap.put("com.baidu.hao123tejia", "7fd3727852d29eb6f4283988dc0d6150");
         return hashMap;
     }
 

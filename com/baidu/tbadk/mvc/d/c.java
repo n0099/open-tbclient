@@ -1,29 +1,11 @@
 package com.baidu.tbadk.mvc.d;
 
-import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.mvc.b.j;
-import com.baidu.tbadk.mvc.core.e;
+import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.k;
+import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
-public abstract class c<T extends h, R extends j> extends d<T, R> {
-    protected abstract boolean xu();
-
-    public c(e<?, ?, ?> eVar) {
+public abstract class c<T extends i, R extends k> extends a<T, R> implements com.baidu.tbadk.mvc.c.a, q<T, R> {
+    public c(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
-    }
-
-    @Override // com.baidu.tbadk.mvc.d.d, com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
-    public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (super.a(bVar)) {
-            return true;
-        }
-        if (bVar.xm() == 16777218) {
-            if (xu()) {
-                dF(33554439);
-                return true;
-            }
-            dF(33554440);
-            return true;
-        }
-        return false;
     }
 }

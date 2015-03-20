@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.a;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class UpdateDialogConfig extends a {
     public static final String KEY_AS_APK_URL = "as_apk_url";
@@ -23,8 +23,8 @@ public class UpdateDialogConfig extends a {
         intent.setFlags(268435456);
         intent.putExtra(KEY_TIEBA_APK_DATA, versionData);
         intent.putExtra(KEY_OTHER_APK_DATA, combineDownload);
-        TbadkCoreApplication.m255getInst().setHasNewVersion(true);
-        TbadkCoreApplication.m255getInst().setCombineDownload(combineDownload);
+        TbadkCoreApplication.m411getInst().setHasNewVersion(true);
+        TbadkCoreApplication.m411getInst().setCombineDownload(combineDownload);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.a
@@ -32,7 +32,7 @@ public class UpdateDialogConfig extends a {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(z.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(y.live_error_system_not_support));
         return false;
     }
 }

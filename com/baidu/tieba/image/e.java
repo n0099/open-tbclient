@@ -8,34 +8,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private AntiData brC;
-    private LinkedList<d> brD;
-    private String atA = null;
+    private AntiData bun;
+    private LinkedList<d> buo;
+    private String bul = null;
     private String fid = null;
-    private int brB = 0;
+    private int bum = 0;
     private Context mContext = null;
-    private String brE = null;
-    private String brF = null;
+    private String bup = null;
+    private String buq = null;
     private String tid = null;
     private String title = null;
-    private int ata = 0;
+    private int bur = 0;
 
-    public String TN() {
-        return this.brE;
+    public String VM() {
+        return this.bup;
     }
 
-    public String TO() {
-        return this.brF;
+    public String VN() {
+        return this.buq;
     }
 
     public e() {
-        this.brC = null;
-        this.brD = null;
-        this.brD = new LinkedList<>();
-        this.brC = new AntiData();
+        this.bun = null;
+        this.buo = null;
+        this.buo = new LinkedList<>();
+        this.bun = new AntiData();
     }
 
-    public void t(String str, boolean z) {
+    public void u(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -43,24 +43,24 @@ public class e {
         }
     }
 
-    public LinkedList<d> TP() {
-        return this.brD;
+    public LinkedList<d> VO() {
+        return this.buo;
     }
 
-    public int TQ() {
-        return this.brB;
+    public int VP() {
+        return this.bum;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                gL(jSONObject.optInt("is_new_url", 0));
+                gE(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.atA = optJSONObject.optString("name");
+                    this.bul = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.brB = jSONObject.optInt("pic_amount", 0);
+                this.bum = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -68,8 +68,8 @@ public class e {
                             d dVar = new d(this.mContext);
                             dVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = dVar.getIndex();
-                            if (index >= 1 && index <= this.brB) {
-                                this.brD.addLast(dVar);
+                            if (index >= 1 && index <= this.bum) {
+                                this.buo.addLast(dVar);
                             }
                         }
                     } else {
@@ -77,22 +77,22 @@ public class e {
                             d dVar2 = new d(this.mContext);
                             dVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = dVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.brB) {
-                                this.brD.addFirst(dVar2);
+                            if (index2 >= 1 && index2 <= this.bum) {
+                                this.buo.addFirst(dVar2);
                             }
                         }
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
-                this.brE = optJSONObject2.optString("tid");
-                this.brF = optJSONObject2.optString("title");
+                this.bup = optJSONObject2.optString("tid");
+                this.buq = optJSONObject2.optString("title");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public void gL(int i) {
-        this.ata = i;
+    public void gE(int i) {
+        this.bur = i;
     }
 }

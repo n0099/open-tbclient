@@ -1,31 +1,27 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tieba.tbadkCore.bubble.x {
-    final /* synthetic */ b bVi;
+public class h implements com.baidu.tieba.tbadkCore.voice.c {
+    final /* synthetic */ EditorToolComponetContainer cmo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(b bVar) {
-        this.bVi = bVar;
+    public h(EditorToolComponetContainer editorToolComponetContainer) {
+        this.cmo = editorToolComponetContainer;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.bubble.x
-    public void hN(int i) {
-        com.baidu.tieba.tbadkCore.bubble.h hVar;
-        Context context;
-        hVar = this.bVi.bUX;
-        hVar.hV(i);
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.bVi.mContext;
-        messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(context, true, 23004, "pop_unable")));
+    @Override // com.baidu.tieba.tbadkCore.voice.c
+    public void alL() {
+        com.baidu.tbadk.editortool.v vVar;
+        vVar = this.cmo.aip;
+        vVar.handleAction(14, null);
+        this.cmo.all();
     }
 
-    @Override // com.baidu.tieba.tbadkCore.bubble.x
-    public void afl() {
+    @Override // com.baidu.tieba.tbadkCore.voice.c
+    public void Nt() {
+        com.baidu.tbadk.editortool.v vVar;
+        vVar = this.cmo.aip;
+        vVar.handleAction(15, null);
+        this.cmo.all();
     }
 }

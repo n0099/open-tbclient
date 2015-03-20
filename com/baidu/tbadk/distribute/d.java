@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ a Xy;
+    final /* synthetic */ a ahE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, int i) {
         super(i);
-        this.Xy = aVar;
+        this.ahE = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,11 +24,11 @@ public class d extends CustomMessageListener {
         switch (((NetWorkChangeMessage) customResponsedMessage).mState) {
             case -1:
             case 0:
-                this.Xy.aF(false);
+                this.ahE.aL(false);
                 return;
             case 1:
             case 2:
-                this.Xy.aF(true);
+                this.ahE.aL(true);
                 return;
             default:
                 return;

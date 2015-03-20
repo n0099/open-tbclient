@@ -1,45 +1,31 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.location.Address;
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ d cas;
+public class g implements com.baidu.adp.lib.d.d {
+    final /* synthetic */ e cpv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(d dVar, int i) {
-        super(i);
-        this.cas = dVar;
+    public g(e eVar) {
+        this.cpv = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.adp.lib.d.d
+    public void b(int i, String str, Address address) {
         j jVar;
         j jVar2;
-        j jVar3;
-        j jVar4;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                this.cas.eE(false);
-                this.cas.aS(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                jVar3 = this.cas.cam;
-                if (jVar3 != null) {
-                    jVar4 = this.cas.cam;
-                    jVar4.fw(responsedSelectLocation.getName());
-                    return;
-                }
-                return;
-            }
-            this.cas.eE(true);
-            jVar = this.cas.cam;
-            if (jVar != null) {
-                jVar2 = this.cas.cam;
-                jVar2.Fs();
-            }
+        if (i == 0 && address != null) {
+            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
+            this.cpv.aW(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+            return;
+        }
+        BdLog.i("mGetLonAndLatCallback error!");
+        jVar = this.cpv.cpo;
+        if (jVar != null) {
+            jVar2 = this.cpv.cpo;
+            jVar2.fE(str);
         }
     }
 }

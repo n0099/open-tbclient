@@ -1,66 +1,75 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.animation.Animation;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ag implements Animation.AnimationListener {
-    final /* synthetic */ OfficialBarMsglistView aUH;
-    private final /* synthetic */ boolean aUI;
-    private final /* synthetic */ Animation aUJ;
+public class ag extends com.baidu.adp.base.g<OfficialBarHistoryActivity> {
+    private BdListView aZi;
+    private NavigationBar aZj;
+    private ae aZk;
+    private View aZl;
+    private BaseActivity auA;
+    private com.baidu.tbadk.core.view.s mNoDataView;
+    private View mRoot;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(OfficialBarMsglistView officialBarMsglistView, boolean z, Animation animation) {
-        this.aUH = officialBarMsglistView;
-        this.aUI = z;
-        this.aUJ = animation;
+    public ag(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.auA = baseActivity;
+        initView();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    private void initView() {
+        this.mRoot = View.inflate(this.auA.getPageContext().getContext(), com.baidu.tieba.w.official_bar_history_activity, null);
+        this.auA.getPageContext().getPageActivity().setContentView(this.mRoot);
+        this.aZj = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.aZj.setTitleText(com.baidu.tieba.y.officical_bar_info_history);
+        this.aZj.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aZi = (BdListView) this.mRoot.findViewById(com.baidu.tieba.v.bar_history_list);
+        this.aZk = new ae(this.auA, this.auA.getPageContext().getContext());
+        this.aZi.setAdapter((ListAdapter) this.aZk);
+        this.aZl = View.inflate(this.auA.getPageContext().getContext(), com.baidu.tieba.w.official_bar_history_item_occupy, null);
+        this.aZi.addHeaderView(this.aZl);
+        this.aZi.addFooterView(this.aZl);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public void setData(List<au> list) {
+        this.aZk.setData(list);
+        au(list);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        LinearLayout linearLayout;
-        FrameLayout frameLayout;
-        ImageView imageView;
-        ah[] ahVarArr;
-        com.baidu.tieba.im.view.k kVar;
-        LinearLayout linearLayout2;
-        FrameLayout frameLayout2;
-        ImageView imageView2;
-        if (this.aUI) {
-            linearLayout2 = this.aUH.aUC;
-            linearLayout2.setVisibility(0);
-            frameLayout2 = this.aUH.mInputControl;
-            frameLayout2.setVisibility(8);
-            imageView2 = this.aUH.aUB;
-            imageView2.setImageResource(com.baidu.tieba.v.btn_bottombar_keyboard_above);
-        } else {
-            linearLayout = this.aUH.aUC;
-            linearLayout.setVisibility(8);
-            frameLayout = this.aUH.mInputControl;
-            frameLayout.setVisibility(0);
-            imageView = this.aUH.aUB;
-            imageView.setImageResource(com.baidu.tieba.v.btn_bottombar_keyboard_below);
-            for (int i = 0; i < 3; i++) {
-                ahVarArr = this.aUH.aUG;
-                ah ahVar = ahVarArr[i];
-                if (ahVar.aUK) {
-                    ahVar.aUK = false;
-                    this.aUH.p(i, ahVar.aUK);
-                    kVar = this.aUH.aUF;
-                    kVar.TF();
-                }
-            }
+    public void onChangeSkinType(int i) {
+        this.auA.getLayoutMode().X(i == 1);
+        this.auA.getLayoutMode().h(this.mRoot);
+        this.aZj.onChangeSkinType(this.auA.getPageContext(), i);
+    }
+
+    public void b(com.baidu.adp.widget.ListView.x xVar) {
+        this.aZi.setOnSrollToBottomListener(xVar);
+    }
+
+    public boolean Oa() {
+        return this.aZk.getCount() != 0 && this.aZi.getLastVisiblePosition() - this.aZi.getHeaderViewsCount() < this.aZk.getCount() + (-1);
+    }
+
+    public void au(List<au> list) {
+        if (list != null && list.size() > 0 && this.mNoDataView != null) {
+            this.mNoDataView.setVisibility(8);
         }
-        this.aUH.getLayoutBottom().startAnimation(this.aUJ);
+    }
+
+    public void av(List<au> list) {
+        if (list == null || list.size() == 0) {
+            if (this.mNoDataView == null) {
+                this.mNoDataView = NoDataViewFactory.a(this.auA.getPageContext().getPageActivity(), this.mRoot, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.no_data_text), null);
+            }
+            this.mNoDataView.onChangeSkinType(this.auA.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNoDataView.setVisibility(0);
+        }
     }
 }

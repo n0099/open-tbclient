@@ -5,32 +5,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends a {
-    private final List<a> adI;
+    private final List<a> amc;
 
     public b(e<?, ?, ?> eVar) {
         super(eVar);
-        this.adI = new ArrayList();
+        this.amc = new ArrayList();
     }
 
     public boolean a(a aVar) {
-        if (this.adI == null || !this.adI.add(aVar)) {
+        if (this.amc == null || !this.amc.add(aVar)) {
             return false;
         }
-        aVar.adF = this;
-        aVar.a(this.adH);
+        aVar.alZ = this;
+        aVar.a(this.amb);
         return true;
     }
 
     public int getChildCount() {
-        if (this.adI == null) {
+        if (this.amc == null) {
             return 0;
         }
-        return this.adI.size();
+        return this.amc.size();
     }
 
-    public a dG(int i) {
-        if (this.adI != null && i >= 0 && i < this.adI.size()) {
-            return this.adI.get(i);
+    public a dJ(int i) {
+        if (this.amc != null && i >= 0 && i < this.amc.size()) {
+            return this.amc.get(i);
         }
         return null;
     }
@@ -40,9 +40,9 @@ public class b extends a {
         super.f(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a dG = dG(i);
-            if (dG != null) {
-                dG.f(bundle);
+            a dJ = dJ(i);
+            if (dJ != null) {
+                dJ.f(bundle);
             }
         }
     }
@@ -52,9 +52,9 @@ public class b extends a {
         super.onSaveInstanceState(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a dG = dG(i);
-            if (dG != null) {
-                dG.onSaveInstanceState(bundle);
+            a dJ = dJ(i);
+            if (dJ != null) {
+                dJ.onSaveInstanceState(bundle);
             }
         }
     }
@@ -64,9 +64,9 @@ public class b extends a {
         super.a(eVar);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a dG = dG(i);
-            if (dG != null) {
-                dG.a(eVar);
+            a dJ = dJ(i);
+            if (dJ != null) {
+                dJ.a(eVar);
             }
         }
     }

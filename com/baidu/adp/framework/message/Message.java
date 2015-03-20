@@ -6,9 +6,10 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class Message<T> extends i {
     private final int mCmd;
+    private BdUniqueId mTag;
     private Object mExtra = null;
     private long mStartTime = 0;
-    private BdUniqueId mTag;
+    private long encodedBinarySize = 0;
 
     public abstract boolean checkCmd(int i);
 
@@ -55,5 +56,13 @@ public abstract class Message<T> extends i {
 
     public void setExtra(Object obj) {
         this.mExtra = obj;
+    }
+
+    public long getEncodedBinarySize() {
+        return this.encodedBinarySize;
+    }
+
+    public void setEncodedBinarySize(long j) {
+        this.encodedBinarySize = j;
     }
 }

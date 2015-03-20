@@ -21,7 +21,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        attachBaseContext(PluginCenter.getInstance().getPlugin(this.mPackageName).gP().getBaseContext());
+        attachBaseContext(PluginCenter.getInstance().getPlugin(this.mPackageName).getApplication().getBaseContext());
     }
 
     public String getPluginPackageName() {
@@ -33,7 +33,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).gM();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).kh();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -41,7 +41,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).gP();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).getApplication();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -49,7 +49,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).gN();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).ki();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

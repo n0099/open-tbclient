@@ -1,19 +1,26 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements com.baidu.tbadk.coreExtra.view.y {
-    final /* synthetic */ SapiFastRegActivity aoc;
+public class af extends com.baidu.tbadk.util.h {
+    final /* synthetic */ Register2Activity awc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(SapiFastRegActivity sapiFastRegActivity) {
-        this.aoc = sapiFastRegActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af(Register2Activity register2Activity, Context context) {
+        super(context);
+        this.awc = register2Activity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.y
-    public void f(AccountData accountData) {
-        this.aoc.aob = "regist_user";
-        this.aoc.i(accountData);
+    @Override // com.baidu.tbadk.util.h, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        ah ahVar;
+        ahVar = this.awc.avY;
+        if (ahVar == null) {
+            getContext().startActivity(new Intent(getContext(), ProtocolActivity.class));
+        }
     }
 }

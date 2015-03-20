@@ -14,9 +14,9 @@ import protobuf.Photo;
 import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
-public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<i> {
+public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<k> {
     private QueryGroupDetailResIdl mResData;
-    private i selfData;
+    private k selfData;
 
     public ResponseGroupInfoLocalMessage() {
         super(2001102);
@@ -33,25 +33,25 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<i> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
-    public i getData() {
+    public k getData() {
         return this.selfData;
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
         ActivityInfo activityInfo;
         Wire wire = new Wire(new Class[0]);
-        this.selfData = new i();
+        this.selfData = new k();
         this.mResData = (QueryGroupDetailResIdl) wire.parseFrom(bArr, QueryGroupDetailResIdl.class);
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.gm(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.de(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.df(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.dd(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.gl(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.gb(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.cS(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.cT(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.cR(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.ga(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.dg(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.cU(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -65,7 +65,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<i> {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.ay(linkedList);
+            this.selfData.aF(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -75,7 +75,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<i> {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.az(linkedList2);
+            this.selfData.aG(linkedList2);
             List<ActivityInfo> list3 = this.mResData.data.activity;
             if (list3 != null && list3.size() > 0 && (activityInfo = list3.get(0)) != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();

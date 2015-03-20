@@ -1,15 +1,21 @@
 package com.baidu.adp.widget.ListView;
+
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements com.baidu.adp.widget.ScrollView.g {
-    final /* synthetic */ af xp;
+public class ag implements AdapterView.OnItemClickListener {
+    final /* synthetic */ BdTypeListView Ir;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.xp = afVar;
+    public ag(BdTypeListView bdTypeListView) {
+        this.Ir = bdTypeListView;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.g
-    public void jG() {
-        this.xp.done();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.Ir.Iq != null) {
+            this.Ir.Iq.onItemClick(adapterView, view, i, j);
+        }
     }
 }

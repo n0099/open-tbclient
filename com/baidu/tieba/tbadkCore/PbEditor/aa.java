@@ -1,21 +1,19 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
 /* loaded from: classes.dex */
-public class aa implements ba {
-    final /* synthetic */ PbEditor bWp;
+class aa implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.editortool.v aIB;
+    final /* synthetic */ PbEditorToolView cmQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(PbEditor pbEditor) {
-        this.bWp = pbEditor;
+    public aa(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.v vVar) {
+        this.cmQ = pbEditorToolView;
+        this.aIB = vVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.PbEditor.ba
-    public void agk() {
-        this.bWp.age();
-        this.bWp.bWm = false;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.PbEditor.ba
-    public void agl() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aIB.handleAction(10, null);
     }
 }

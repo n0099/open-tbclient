@@ -8,32 +8,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    ap xy;
+    al Iq;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.xy = null;
+        this.Iq = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.xy = null;
+        this.Iq = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.xy = null;
+        this.Iq = null;
         init();
     }
 
     private void init() {
-        if (this.xy == null) {
-            this.xy = new ap();
+        if (this.Iq == null) {
+            this.Iq = new al();
         }
-        super.setOnItemClickListener(new ak(this));
-        super.setOnItemLongClickListener(new al(this));
+        super.setOnItemClickListener(new ag(this));
+        super.setOnItemLongClickListener(new ah(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
@@ -46,23 +46,23 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void h(List<a> list) {
+    public void g(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.xy.a(it.next());
+            this.Iq.a(it.next());
         }
-        setAdapter((ListAdapter) this.xy);
+        setAdapter((ListAdapter) this.Iq);
     }
 
-    public void setData(List<am> list) {
-        this.xy.setData(list);
+    public void setData(List<ai> list) {
+        this.Iq.setData(list);
     }
 
-    public List<am> getData() {
-        return this.xy.getData();
+    public List<ai> getData() {
+        return this.Iq.getData();
     }
 
-    public am aD(int i) {
-        return this.xy.getItem(i);
+    public ai aA(int i) {
+        return this.Iq.getItem(i);
     }
 }

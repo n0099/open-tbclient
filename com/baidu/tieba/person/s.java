@@ -1,95 +1,78 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.f {
-    private static final String blG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask blH = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, blG);
-    private int bGT;
-    private f mData;
-    private String mId;
-    private boolean mIsHost;
-    private int mSex;
+public class s extends BdAsyncTask<String, Integer, String> {
+    private com.baidu.tbadk.core.util.aa ZD;
+    final /* synthetic */ EditHeadActivity this$0;
 
-    static {
-        blH.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(blH);
+    private s(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
+        this.ZD = null;
     }
 
-    public s(TbPageContext tbPageContext, boolean z) {
-        super(tbPageContext);
-        this.mData = new f();
-        this.mIsHost = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(EditHeadActivity editHeadActivity, s sVar) {
+        this(editHeadActivity);
     }
 
-    public void setId(String str) {
-        this.mId = str;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(com.baidu.tieba.y.upload_head));
     }
 
-    public String getId() {
-        return this.mId;
-    }
-
-    public void setSex(int i) {
-        this.mSex = i;
-    }
-
-    public void ho(int i) {
-        this.bGT = i;
-    }
-
-    public f aaJ() {
-        return this.mData;
-    }
-
-    public void Dd() {
-        super.sendMessage(new PersonBarByUidLocalMessage());
-    }
-
-    public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
-        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        httpMessage.addParam("friend_uid", str);
-        httpMessage.addParam("is_guest", String.valueOf(1));
-        httpMessage.addParam("page_size", Integer.valueOf(i2));
-        httpMessage.addParam("page_no", Integer.valueOf(i));
-        httpMessage.setExtra(str);
-        super.sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void hJ(String str) {
-        if (this.bGT == 1 && this.mIsHost) {
-            String str2 = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) {
+        String str;
+        Exception e;
+        this.ZD = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        try {
+            str = this.ZD.cD(TbConfig.PERSON_HEAD_FILE);
+        } catch (Exception e2) {
+            str = null;
+            e = e2;
+        }
+        try {
+            if (this.ZD.sp().tq().pv()) {
+                return str;
             }
-            if (str != null) {
-                try {
-                    com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.my_pages");
-                    if (bQ != null) {
-                        bQ.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            return null;
+        } catch (Exception e3) {
+            e = e3;
+            BdLog.e(e.getMessage());
+            return str;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.this$0.closeLoadingDialog();
+        this.this$0.bOQ = null;
+        if (this.ZD != null) {
+            this.ZD.hh();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        this.this$0.closeLoadingDialog();
+        if (this.ZD != null) {
+            if (this.ZD.sp().tq().pv()) {
+                this.this$0.setResult(-1);
+                this.this$0.finish();
+                this.this$0.showToast(this.this$0.getPageContext().getString(com.baidu.tieba.y.upload_head_ok));
+                return;
             }
+            this.this$0.showToast(this.ZD.getErrorString());
         }
     }
 }

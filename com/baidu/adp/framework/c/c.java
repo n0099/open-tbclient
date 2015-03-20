@@ -1,23 +1,21 @@
 package com.baidu.adp.framework.c;
-
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c fj = null;
+    private static c qB = null;
 
-    public static c bw() {
-        if (fj == null) {
+    public static c eT() {
+        if (qB == null) {
             synchronized (c.class) {
-                if (fj == null) {
-                    fj = new c();
+                if (qB == null) {
+                    qB = new c();
                 }
             }
         }
-        return fj;
+        return qB;
     }
 
     private c() {
-        this.fk = new e(20000, TbConfig.BIG_IMAGE_MIN_CAPACITY, 5000);
+        this.qC = new e(20000, 10000, 5000);
         this.mRetryCount = 3;
     }
 
@@ -31,6 +29,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.fk = new e(i, i2, i3);
+        this.qC = new e(i, i2, i3);
     }
 }

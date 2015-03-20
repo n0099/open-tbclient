@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.live.message.ResponseDismissGroupMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.framework.listener.e {
@@ -17,8 +17,12 @@ public class z extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDismissGroupMessage) && socketResponsedMessage.getError() == 0) {
-            this.this$0.gV(String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId()));
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            this.this$0.bjn = (ResponseOnlineMessage) socketResponsedMessage;
+            if (!c.Sd().bjb.get()) {
+                return;
+            }
+            this.this$0.Sp();
         }
     }
 }

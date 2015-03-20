@@ -1,34 +1,34 @@
 package com.baidu.tieba.im.widget.invite2GroupView;
 
-import android.widget.Button;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.g;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements g<Boolean> {
-    private final /* synthetic */ TbPageContext MF;
-    final /* synthetic */ Invite2GroupView brd;
+    private final /* synthetic */ TbPageContext Nn;
+    final /* synthetic */ Invite2GroupView boC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.brd = invite2GroupView;
-        this.MF = tbPageContext;
+        this.boC = invite2GroupView;
+        this.Nn = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     public void onReturnDataInUI(Boolean bool) {
-        Button button;
-        Button button2;
+        TextView textView;
+        TextView textView2;
         if (bool == null) {
             bool = false;
         }
         if (!bool.booleanValue()) {
-            button = this.brd.brb;
-            button.setTextColor(this.brd.getContext().getResources().getColor(t.group_info_join_disable_color));
-            button2 = this.brd.brb;
-            button2.setOnClickListener(new e(this, this.MF));
+            textView = this.boC.boA;
+            textView.setTextColor(this.boC.getContext().getResources().getColor(s.group_info_join_disable_color));
+            textView2 = this.boC.boA;
+            textView2.setOnClickListener(new e(this, this.Nn));
         }
     }
 }

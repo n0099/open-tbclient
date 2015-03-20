@@ -13,91 +13,91 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6) {
         super(2001124);
         this.mData = new f(this);
-        this.mData.Rs = i;
-        this.mData.Rt = i2;
-        this.mData.Ru = i3;
-        this.mData.Rv = i4;
-        this.mData.Rx = i5;
-        this.mData.WT = i6;
+        this.mData.abh = i;
+        this.mData.abi = i2;
+        this.mData.abj = i3;
+        this.mData.abk = i4;
+        this.mData.abm = i5;
+        this.mData.agZ = i6;
     }
 
     public int getMsgReplyme() {
         int i;
-        i = this.mData.Rs;
+        i = this.mData.abh;
         return i;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.Rs = i;
+        this.mData.abh = i;
     }
 
     public int getMsgAtme() {
         int i;
-        i = this.mData.Rt;
+        i = this.mData.abi;
         return i;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.Rt = i;
+        this.mData.abi = i;
     }
 
     public int getMsgChat() {
         int i;
-        i = this.mData.Ru;
+        i = this.mData.abj;
         return i;
     }
 
     public void setMsgChat(int i) {
-        this.mData.Ru = i;
+        this.mData.abj = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.Rw = i;
+        this.mData.abl = i;
     }
 
     public int getMsgFans() {
         int i;
-        i = this.mData.Rw;
+        i = this.mData.abl;
         return i;
     }
 
     public int getMsgBookmark() {
         int i;
-        i = this.mData.Rv;
+        i = this.mData.abk;
         return i;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.Rv = i;
+        this.mData.abk = i;
     }
 
     public int getMsgGiftNum() {
         int i;
-        i = this.mData.Rx;
+        i = this.mData.abm;
         return i;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.Rx = i;
+        this.mData.abm = i;
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.WT = i;
+        this.mData.agZ = i;
     }
 
     public int getMsgPrivateChat() {
         int i;
-        i = this.mData.WT;
+        i = this.mData.agZ;
         return i;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.WU = i;
+        this.mData.aha = i;
     }
 
     public int getMsgStrangerChat() {
         int i;
-        i = this.mData.WU;
+        i = this.mData.aha;
         return i;
     }
 }

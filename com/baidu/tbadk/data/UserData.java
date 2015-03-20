@@ -347,6 +347,11 @@ public class UserData extends MetaData {
         }
     }
 
+    @Override // com.baidu.tbadk.data.MetaData
+    public void logPrint() {
+        super.logPrint();
+    }
+
     public void setConcern_num(int i) {
         this.concern_num = i;
     }

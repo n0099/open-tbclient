@@ -17,7 +17,7 @@ public class MessageUtils {
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(c.QJ().M(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(c.Sd().I(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -55,12 +55,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.Tj().m(personalChatMessage);
+            a.Tk().n(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(c.QJ().M(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(c.Sd().I(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -92,15 +92,15 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.Tj().m(groupChatMessage);
+            a.Tk().n(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo H;
-        if (!StringUtils.isNull(str) && i == 2 && (H = c.QJ().H(str, 2)) != null) {
-            long pulled_msgId = H.getPulled_msgId();
-            if (pulled_msgId > H.getSent_msgId()) {
+        ImMessageCenterPojo D;
+        if (!StringUtils.isNull(str) && i == 2 && (D = c.Sd().D(str, 2)) != null) {
+            long pulled_msgId = D.getPulled_msgId();
+            if (pulled_msgId > D.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(h.ag(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);

@@ -1,17 +1,19 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bu implements View.OnClickListener {
-    final /* synthetic */ MsgrightView aSB;
+public class bu implements View.OnLongClickListener {
+    final /* synthetic */ bk aXJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(MsgrightView msgrightView) {
-        this.aSB = msgrightView;
+    public bu(bk bkVar) {
+        this.aXJ = bkVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aSB.mItemViewClickListener.onItemViewClick(view, 1, this.aSB.mPosition, 0L);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.aXJ.aXd.onItemViewLongClick(view, 7, this.aXJ.mPosition, 0L);
+        return true;
     }
 }

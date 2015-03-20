@@ -1,37 +1,31 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
 /* loaded from: classes.dex */
-public class ap implements com.baidu.tbadk.widget.g {
-    final /* synthetic */ MultiImageView Vn;
+class ap extends TbCountDownTimer {
+    final /* synthetic */ ProgressCountDownView afv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(MultiImageView multiImageView) {
-        this.Vn = multiImageView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.afv = progressCountDownView;
     }
 
-    @Override // com.baidu.tbadk.widget.g
-    public void a(com.baidu.tbadk.widget.a aVar) {
-        p pVar;
-        boolean z;
-        p pVar2;
-        p pVar3;
-        pVar = this.Vn.Vh;
-        if (aVar == pVar.getCurrentView()) {
-            z = this.Vn.Vl;
-            if (z) {
-                pVar2 = this.Vn.Vh;
-                int childCount = pVar2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    pVar3 = this.Vn.Vh;
-                    View childAt = pVar3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ax) && ((ax) childAt).getImageView() != aVar) {
-                        ((ax) childAt).release();
-                    }
-                }
-            }
-            aVar.play();
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onTick(long j) {
+        this.afv.refreshPregress(j);
+        this.afv.refreshText(j);
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onFinish() {
+        aq aqVar;
+        aq aqVar2;
+        aqVar = this.afv.mListerner;
+        if (aqVar != null) {
+            aqVar2 = this.afv.mListerner;
+            aqVar2.onFinish();
         }
     }
 }

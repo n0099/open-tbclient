@@ -1,38 +1,93 @@
 package com.baidu.adp.lib.util;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes.dex */
 public class v {
-    public static String nF = "yyyy-MM-dd HH:mm:ss";
-    public static HashMap<String, String> nG = new HashMap<>();
-
-    static {
-        nG.put("java.lang.String", "java.lang.String");
-        nG.put("java.lang.Integer", "java.lang.Integer");
-        nG.put("java.lang.Double", "java.lang.Double");
-        nG.put("java.lang.Float", "java.lang.Float");
-        nG.put("java.lang.Boolean", "java.lang.Boolean");
-        nG.put("java.lang.Character", "java.lang.Character");
-        nG.put("java.lang.Short", "java.lang.Short");
-        nG.put("java.lang.Long", "java.lang.Long");
-        nG.put("java.lang.Byte", "java.lang.Byte");
-        nG.put("java.util.Date", "java.util.Date");
-        nG.put("java.lang.Integer", "java.lang.Integer");
-        nG.put("java.lang.Integer", "java.lang.Integer");
+    public static void d(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public static Object a(Object obj, Field field) {
-        Object obj2 = null;
-        if (obj != null && field != null) {
-            boolean isAccessible = field.isAccessible();
-            field.setAccessible(true);
+    public static void c(Closeable closeable) {
+        if (closeable != null) {
             try {
-                obj2 = field.get(obj);
+                closeable.close();
             } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
-            field.setAccessible(isAccessible);
         }
-        return obj2;
+    }
+
+    public static void b(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(Writer writer) {
+        if (writer != null) {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(Reader reader) {
+        if (reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void b(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void i(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteStatement sQLiteStatement) {
+        if (sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

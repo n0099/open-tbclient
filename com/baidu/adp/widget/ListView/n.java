@@ -1,14 +1,16 @@
 package com.baidu.adp.widget.ListView;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
-    public Object data;
-    public boolean isSelectable;
-    public View view;
-    final /* synthetic */ k wJ;
+public class n implements Runnable {
+    final /* synthetic */ BdListView Ib;
 
-    public n(k kVar) {
-        this.wJ = kVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(BdListView bdListView) {
+        this.Ib = bdListView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.Ib.setSelection(this.Ib.getCount() - 1);
     }
 }

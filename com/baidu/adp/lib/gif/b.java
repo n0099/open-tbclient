@@ -12,58 +12,58 @@ import java.io.InputStream;
 public class b extends Thread {
     private int bgColor;
     public int height;
-    private int iA;
-    private int iB;
-    private int iC;
-    private int iD;
-    private int iE;
-    private int iF;
-    private int iG;
-    private int iH;
-    private Bitmap iI;
-    private Bitmap iJ;
-    private int iQ;
-    private short[] iR;
-    private byte[] iS;
-    private byte[] iT;
-    private byte[] iU;
-    private c iV;
-    private int iW;
-    private a iX;
-    private boolean ij;
-    private int ik;
-    private int[] im;
     private InputStream in;
-    private int[] io;
-    private int[] iq;
-    private int ir;
-    private int iu;
-    private int iw;
-    private boolean ix;
-    private boolean iy;
-    private int iz;
     private int status;
+    private boolean tE;
+    private int tF;
+    private int[] tH;
+    private int[] tI;
+    private int[] tJ;
+    private int tK;
+    private int tL;
+    private int tM;
+    private boolean tN;
+    private boolean tO;
+    private int tP;
+    private int tQ;
+    private int tR;
+    private int tS;
+    private int tT;
+    private int tU;
+    private int tV;
+    private int tW;
+    private int tX;
+    private Bitmap tY;
+    private Bitmap tZ;
+    private int ug;
+    private short[] uh;
+    private byte[] ui;
+    private byte[] uj;
+    private byte[] uk;
+    private c ul;
+    private int um;
+    private a uo;
     public int width;
-    private int il = 1;
-    private c iK = null;
+    private int tG = 1;
+    private c ua = null;
     private boolean isShow = false;
-    private final byte[] iL = new byte[256];
-    private int iM = 0;
-    private int iN = 0;
-    private int iO = 0;
-    private boolean iP = false;
+    private final byte[] ub = new byte[256];
+    private int uc = 0;
+    private int ud = 0;
+    private int ue = 0;
+    private boolean uf = false;
     private int delay = 0;
-    private byte[] iY = null;
-    private String iZ = null;
-    private boolean ja = false;
+    private byte[] up = null;
+    private String uq = null;
+    private boolean ur = false;
 
     public b(a aVar) {
-        this.iX = null;
-        this.iX = aVar;
+        this.uo = null;
+        this.uo = aVar;
     }
 
     public void setGifImage(byte[] bArr) {
-        this.iY = bArr;
+        this.up = bArr;
     }
 
     public void setGifImage(InputStream inputStream) {
@@ -72,7 +72,7 @@ public class b extends Thread {
 
     private void d(String str, boolean z) {
         try {
-            aa(str);
+            ah(str);
             if (z) {
                 new File(str.toString()).delete();
             }
@@ -80,7 +80,7 @@ public class b extends Thread {
         }
     }
 
-    private boolean aa(String str) {
+    private boolean ah(String str) {
         File file;
         boolean z = false;
         File file2 = new File(str);
@@ -103,7 +103,7 @@ public class b extends Thread {
                 file.delete();
                 z = z2;
             } else if (file.isDirectory()) {
-                aa(String.valueOf(str) + File.separator + list[i]);
+                ah(String.valueOf(str) + File.separator + list[i]);
                 d(String.valueOf(str) + File.separator + list[i], true);
                 z = true;
             } else {
@@ -113,13 +113,13 @@ public class b extends Thread {
         }
     }
 
-    private synchronized String db() {
+    private synchronized String gA() {
         return String.valueOf(System.currentTimeMillis());
     }
 
     private void b(Bitmap bitmap, String str) {
         try {
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.iZ) + File.separator + db() + ".png"));
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.uq) + File.separator + gA() + ".png"));
         } catch (Exception e) {
         }
     }
@@ -127,25 +127,25 @@ public class b extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         if (this.in != null) {
-            df();
-        } else if (this.iY != null) {
-            de();
+            gE();
+        } else if (this.up != null) {
+            gD();
         }
     }
 
     public void free() {
-        c cVar = this.iV;
-        if (!this.ja) {
+        c cVar = this.ul;
+        if (!this.ur) {
             while (cVar != null) {
-                if (cVar.iI != null && !cVar.iI.isRecycled()) {
-                    cVar.iI.recycle();
+                if (cVar.tY != null && !cVar.tY.isRecycled()) {
+                    cVar.tY.recycle();
                 }
-                cVar.iI = null;
-                this.iV = this.iV.jc;
-                cVar = this.iV;
+                cVar.tY = null;
+                this.ul = this.ul.ut;
+                cVar = this.ul;
             }
         } else {
-            d(this.iZ, true);
+            d(this.uq, true);
         }
         if (this.in != null) {
             try {
@@ -154,38 +154,38 @@ public class b extends Thread {
             }
             this.in = null;
         }
-        this.iY = null;
+        this.up = null;
         this.status = 0;
-        this.iK = null;
+        this.ua = null;
     }
 
-    public int bI() {
-        return this.iW;
+    public int fg() {
+        return this.um;
     }
 
     public Bitmap getImage() {
-        return J(0);
+        return K(0);
     }
 
-    private void dc() {
+    private void gB() {
         int i;
         int[] iArr = new int[this.width * this.height];
-        if (this.iO > 0) {
-            if (this.iO == 3) {
-                int i2 = this.iW - 2;
+        if (this.ue > 0) {
+            if (this.ue == 3) {
+                int i2 = this.um - 2;
                 if (i2 > 0) {
-                    this.iJ = J(i2 - 1);
+                    this.tZ = K(i2 - 1);
                 } else {
-                    this.iJ = null;
+                    this.tZ = null;
                 }
             }
-            if (this.iJ != null) {
-                this.iJ.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
-                if (this.iO == 2) {
-                    int i3 = !this.iP ? this.iu : 0;
-                    for (int i4 = 0; i4 < this.iH; i4++) {
-                        int i5 = ((this.iF + i4) * this.width) + this.iE;
-                        int i6 = this.iG + i5;
+            if (this.tZ != null) {
+                this.tZ.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
+                if (this.ue == 2) {
+                    int i3 = !this.uf ? this.tL : 0;
+                    for (int i4 = 0; i4 < this.tX; i4++) {
+                        int i5 = ((this.tV + i4) * this.width) + this.tU;
+                        int i6 = this.tW + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
                             i5++;
@@ -197,9 +197,9 @@ public class b extends Thread {
         int i7 = 8;
         int i8 = 1;
         int i9 = 0;
-        for (int i10 = 0; i10 < this.iD; i10++) {
-            if (this.iy) {
-                if (i9 >= this.iD) {
+        for (int i10 = 0; i10 < this.tT; i10++) {
+            if (this.tO) {
+                if (i9 >= this.tT) {
                     i8++;
                     switch (i8) {
                         case 2:
@@ -221,19 +221,19 @@ public class b extends Thread {
             } else {
                 i = i10;
             }
-            int i12 = i + this.iB;
+            int i12 = i + this.tR;
             if (i12 < this.height) {
                 int i13 = this.width * i12;
-                int i14 = i13 + this.iA;
-                int i15 = this.iC + i14;
+                int i14 = i13 + this.tQ;
+                int i15 = this.tS + i14;
                 if (this.width + i13 < i15) {
                     i15 = this.width + i13;
                 }
-                int i16 = this.iC * i10;
+                int i16 = this.tS * i10;
                 int i17 = i14;
                 while (i17 < i15) {
                     int i18 = i16 + 1;
-                    int i19 = this.iq[this.iU[i16] & 255];
+                    int i19 = this.tJ[this.uk[i16] & 255];
                     if (i19 != 0) {
                         iArr[i17] = i19;
                     }
@@ -242,20 +242,20 @@ public class b extends Thread {
                 }
             }
         }
-        this.iI = Bitmap.createBitmap(iArr, this.width, this.height, Bitmap.Config.ARGB_4444);
+        this.tY = Bitmap.createBitmap(iArr, this.width, this.height, Bitmap.Config.ARGB_4444);
     }
 
-    public Bitmap J(int i) {
-        c K = K(i);
-        if (K == null) {
+    public Bitmap K(int i) {
+        c L = L(i);
+        if (L == null) {
             return null;
         }
-        return K.iI;
+        return L.tY;
     }
 
-    public c K(int i) {
+    public c L(int i) {
         int i2 = 0;
-        for (c cVar = this.iV; cVar != null; cVar = cVar.jc) {
+        for (c cVar = this.ul; cVar != null; cVar = cVar.ut) {
             if (i2 == i) {
                 return cVar;
             }
@@ -264,45 +264,45 @@ public class b extends Thread {
         return null;
     }
 
-    public c dd() {
+    public c gC() {
         if (!this.isShow) {
             this.isShow = true;
-            return this.iV;
-        } else if (this.iK == null) {
+            return this.ul;
+        } else if (this.ua == null) {
             return null;
         } else {
             if (this.status == 0) {
-                if (this.iK.jc != null) {
-                    this.iK = this.iK.jc;
+                if (this.ua.ut != null) {
+                    this.ua = this.ua.ut;
                 }
             } else {
-                this.iK = this.iK.jc;
-                if (this.iK == null) {
-                    this.iK = this.iV;
+                this.ua = this.ua.ut;
+                if (this.ua == null) {
+                    this.ua = this.ul;
                 }
             }
-            return this.iK;
+            return this.ua;
         }
     }
 
-    private int de() {
-        this.in = new ByteArrayInputStream(this.iY);
-        this.iY = null;
-        return df();
+    private int gD() {
+        this.in = new ByteArrayInputStream(this.up);
+        this.up = null;
+        return gE();
     }
 
-    private int df() {
+    private int gE() {
         init();
         if (this.in != null) {
-            dl();
-            if (!dh()) {
-                dj();
-                if (this.iW < 0) {
+            gK();
+            if (!gG()) {
+                gI();
+                if (this.um < 0) {
                     this.status = 1;
-                    this.iX.a(false, -1);
+                    this.uo.a(false, -1);
                 } else {
                     this.status = -1;
-                    this.iX.a(true, -1);
+                    this.uo.a(true, -1);
                 }
             }
             try {
@@ -312,7 +312,7 @@ public class b extends Thread {
             }
         } else {
             this.status = 2;
-            this.iX.a(false, -1);
+            this.uo.a(false, -1);
         }
         return this.status;
     }
@@ -320,7 +320,7 @@ public class b extends Thread {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
-    private void dg() {
+    private void gF() {
         int i;
         int i2;
         int i3;
@@ -331,18 +331,18 @@ public class b extends Thread {
         int i8;
         int i9;
         short s;
-        int i10 = this.iC * this.iD;
-        if (this.iU == null || this.iU.length < i10) {
-            this.iU = new byte[i10];
+        int i10 = this.tS * this.tT;
+        if (this.uk == null || this.uk.length < i10) {
+            this.uk = new byte[i10];
         }
-        if (this.iR == null) {
-            this.iR = new short[4096];
+        if (this.uh == null) {
+            this.uh = new short[4096];
         }
-        if (this.iS == null) {
-            this.iS = new byte[4096];
+        if (this.ui == null) {
+            this.ui = new byte[4096];
         }
-        if (this.iT == null) {
-            this.iT = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
+        if (this.uj == null) {
+            this.uj = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
         int read = read();
         int i11 = 1 << read;
@@ -351,8 +351,8 @@ public class b extends Thread {
         int i14 = read + 1;
         int i15 = (1 << i14) - 1;
         for (int i16 = 0; i16 < i11; i16++) {
-            this.iR[i16] = 0;
-            this.iS[i16] = (byte) i16;
+            this.uh[i16] = 0;
+            this.ui[i16] = (byte) i16;
         }
         int i17 = 0;
         int i18 = 0;
@@ -375,13 +375,13 @@ public class b extends Thread {
                 i8 = i13;
             } else if (i23 < i14) {
                 if (i22 == 0) {
-                    i22 = di();
+                    i22 = gH();
                     if (i22 <= 0) {
                         break;
                     }
                     i25 = 0;
                 }
-                i20 += (this.iL[i25] & 255) << i23;
+                i20 += (this.ub[i25] & 255) << i23;
                 i23 += 8;
                 i25++;
                 i22--;
@@ -397,32 +397,32 @@ public class b extends Thread {
                     i13 = i11 + 2;
                     i24 = -1;
                 } else if (i24 == -1) {
-                    this.iT[i18] = this.iS[i26];
+                    this.uj[i18] = this.ui[i26];
                     i18++;
                     i24 = i26;
                     i19 = i26;
                 } else {
                     if (i26 == i13) {
                         i9 = i18 + 1;
-                        this.iT[i18] = (byte) i19;
+                        this.uj[i18] = (byte) i19;
                         s = i24;
                     } else {
                         i9 = i18;
                         s = i26;
                     }
                     while (s > i11) {
-                        this.iT[i9] = this.iS[s];
-                        s = this.iR[s];
+                        this.uj[i9] = this.ui[s];
+                        s = this.uh[s];
                         i9++;
                     }
-                    int i27 = this.iS[s] & 255;
+                    int i27 = this.ui[s] & 255;
                     if (i13 >= 4096) {
                         break;
                     }
                     int i28 = i9 + 1;
-                    this.iT[i9] = (byte) i27;
-                    this.iR[i13] = (short) i24;
-                    this.iS[i13] = (byte) i27;
+                    this.uj[i9] = (byte) i27;
+                    this.uh[i13] = (short) i24;
+                    this.ui[i13] = (byte) i27;
                     i8 = i13 + 1;
                     if ((i8 & i15) == 0 && i8 < 4096) {
                         i14++;
@@ -438,7 +438,7 @@ public class b extends Thread {
                 }
             }
             int i29 = i5 - 1;
-            this.iU[i17] = this.iT[i29];
+            this.uk[i17] = this.uj[i29];
             i21++;
             i17++;
             i14 = i4;
@@ -452,20 +452,20 @@ public class b extends Thread {
             i24 = i30;
         }
         for (int i31 = i17; i31 < i10; i31++) {
-            this.iU[i31] = 0;
+            this.uk[i31] = 0;
         }
     }
 
-    private boolean dh() {
+    private boolean gG() {
         return this.status != 0;
     }
 
     private void init() {
         this.status = 0;
-        this.iW = 0;
-        this.iV = null;
-        this.im = null;
-        this.io = null;
+        this.um = 0;
+        this.ul = null;
+        this.tH = null;
+        this.tI = null;
     }
 
     private int read() {
@@ -477,13 +477,13 @@ public class b extends Thread {
         }
     }
 
-    private int di() {
-        this.iM = read();
+    private int gH() {
+        this.uc = read();
         int i = 0;
-        if (this.iM > 0) {
-            while (i < this.iM) {
+        if (this.uc > 0) {
+            while (i < this.uc) {
                 try {
-                    int read = this.in.read(this.iL, i, this.iM - i);
+                    int read = this.in.read(this.ub, i, this.uc - i);
                     if (read == -1) {
                         break;
                     }
@@ -492,14 +492,14 @@ public class b extends Thread {
                     e.printStackTrace();
                 }
             }
-            if (i < this.iM) {
+            if (i < this.uc) {
                 this.status = 1;
             }
         }
         return i;
     }
 
-    private int[] L(int i) {
+    private int[] M(int i) {
         int i2;
         int i3 = i * 3;
         int[] iArr = null;
@@ -525,36 +525,36 @@ public class b extends Thread {
         return iArr;
     }
 
-    private void dj() {
+    private void gI() {
         boolean z = false;
-        while (!z && !dh()) {
+        while (!z && !gG()) {
             switch (read()) {
                 case 0:
                     break;
                 case 33:
                     switch (read()) {
                         case 249:
-                            dk();
+                            gJ();
                             continue;
                         case MotionEventCompat.ACTION_MASK /* 255 */:
-                            di();
+                            gH();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = String.valueOf(str) + ((char) this.iL[i]);
+                                str = String.valueOf(str) + ((char) this.ub[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
-                                dp();
+                                gN();
                                 break;
                             } else {
-                                ds();
+                                gQ();
                                 continue;
                             }
                         default:
-                            ds();
+                            gQ();
                             continue;
                     }
                 case 44:
-                    dm();
+                    gL();
                     break;
                 case 59:
                     z = true;
@@ -566,20 +566,20 @@ public class b extends Thread {
         }
     }
 
-    private void dk() {
+    private void gJ() {
         read();
         int read = read();
-        this.iN = (read & 28) >> 2;
-        if (this.iN == 0) {
-            this.iN = 1;
+        this.ud = (read & 28) >> 2;
+        if (this.ud == 0) {
+            this.ud = 1;
         }
-        this.iP = (read & 1) != 0;
-        this.delay = dq() * 10;
-        this.iQ = read();
+        this.uf = (read & 1) != 0;
+        this.delay = gO() * 10;
+        this.ug = read();
         read();
     }
 
-    private void dl() {
+    private void gK() {
         String str = "";
         for (int i = 0; i < 6; i++) {
             str = String.valueOf(str) + ((char) read());
@@ -588,124 +588,124 @@ public class b extends Thread {
             this.status = 1;
             return;
         }
-        dn();
-        if (this.ij && !dh()) {
-            this.im = L(this.ik);
-            this.bgColor = this.im[this.ir];
+        gM();
+        if (this.tE && !gG()) {
+            this.tH = M(this.tF);
+            this.bgColor = this.tH[this.tK];
         }
     }
 
-    private void dm() {
+    private void gL() {
         int i = 0;
-        this.iA = dq();
-        this.iB = dq();
-        this.iC = dq();
-        this.iD = dq();
+        this.tQ = gO();
+        this.tR = gO();
+        this.tS = gO();
+        this.tT = gO();
         int read = read();
-        this.ix = (read & 128) != 0;
-        this.iy = (read & 64) != 0;
-        this.iz = 2 << (read & 7);
-        if (this.ix) {
-            this.io = L(this.iz);
-            this.iq = this.io;
+        this.tN = (read & 128) != 0;
+        this.tO = (read & 64) != 0;
+        this.tP = 2 << (read & 7);
+        if (this.tN) {
+            this.tI = M(this.tP);
+            this.tJ = this.tI;
         } else {
-            this.iq = this.im;
-            if (this.ir == this.iQ) {
+            this.tJ = this.tH;
+            if (this.tK == this.ug) {
                 this.bgColor = 0;
             }
         }
-        if (this.iP) {
-            int i2 = this.iq[this.iQ];
-            this.iq[this.iQ] = 0;
+        if (this.uf) {
+            int i2 = this.tJ[this.ug];
+            this.tJ[this.ug] = 0;
             i = i2;
         }
-        if (this.iq == null) {
+        if (this.tJ == null) {
             this.status = 1;
         }
-        if (!dh()) {
-            dg();
-            ds();
-            if (!dh()) {
-                this.iW++;
-                this.iI = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
-                dc();
-                if (this.iV == null) {
-                    if (this.ja) {
-                        String db = db();
-                        this.iV = new c(String.valueOf(this.iZ) + File.separator + db + ".png", this.delay);
-                        b(this.iI, db);
+        if (!gG()) {
+            gF();
+            gQ();
+            if (!gG()) {
+                this.um++;
+                this.tY = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
+                gB();
+                if (this.ul == null) {
+                    if (this.ur) {
+                        String gA = gA();
+                        this.ul = new c(String.valueOf(this.uq) + File.separator + gA + ".png", this.delay);
+                        b(this.tY, gA);
                     } else {
-                        this.iV = new c(this.iI, this.delay);
+                        this.ul = new c(this.tY, this.delay);
                     }
-                    this.iK = this.iV;
+                    this.ua = this.ul;
                 } else {
-                    c cVar = this.iV;
-                    while (cVar.jc != null) {
-                        cVar = cVar.jc;
+                    c cVar = this.ul;
+                    while (cVar.ut != null) {
+                        cVar = cVar.ut;
                     }
-                    if (this.ja) {
-                        String db2 = db();
-                        cVar.jc = new c(String.valueOf(this.iZ) + File.separator + db2 + ".png", this.delay);
-                        b(this.iI, db2);
+                    if (this.ur) {
+                        String gA2 = gA();
+                        cVar.ut = new c(String.valueOf(this.uq) + File.separator + gA2 + ".png", this.delay);
+                        b(this.tY, gA2);
                     } else {
-                        cVar.jc = new c(this.iI, this.delay);
+                        cVar.ut = new c(this.tY, this.delay);
                     }
                 }
-                if (this.iP) {
-                    this.iq[this.iQ] = i;
+                if (this.uf) {
+                    this.tJ[this.ug] = i;
                 }
-                dr();
-                this.iX.a(true, this.iW);
+                gP();
+                this.uo.a(true, this.um);
             }
         }
     }
 
-    private void dn() {
-        this.width = dq();
-        this.height = dq();
+    private void gM() {
+        this.width = gO();
+        this.height = gO();
         int read = read();
-        this.ij = (read & 128) != 0;
-        this.ik = 2 << (read & 7);
-        this.ir = read();
-        this.iw = read();
+        this.tE = (read & 128) != 0;
+        this.tF = 2 << (read & 7);
+        this.tK = read();
+        this.tM = read();
     }
 
-    private void dp() {
+    private void gN() {
         do {
-            di();
-            if (this.iL[0] == 1) {
-                this.il = (this.iL[1] & 255) | ((this.iL[2] & 255) << 8);
+            gH();
+            if (this.ub[0] == 1) {
+                this.tG = (this.ub[1] & 255) | ((this.ub[2] & 255) << 8);
             }
-            if (this.iM <= 0) {
+            if (this.uc <= 0) {
                 return;
             }
-        } while (!dh());
+        } while (!gG());
     }
 
-    private int dq() {
+    private int gO() {
         return read() | (read() << 8);
     }
 
-    private void dr() {
-        this.iO = this.iN;
-        this.iE = this.iA;
-        this.iF = this.iB;
-        this.iG = this.iC;
-        this.iH = this.iD;
-        this.iJ = this.iI;
-        this.iu = this.bgColor;
-        this.iN = 0;
-        this.iP = false;
+    private void gP() {
+        this.ue = this.ud;
+        this.tU = this.tQ;
+        this.tV = this.tR;
+        this.tW = this.tS;
+        this.tX = this.tT;
+        this.tZ = this.tY;
+        this.tL = this.bgColor;
+        this.ud = 0;
+        this.uf = false;
         this.delay = 0;
-        this.io = null;
+        this.tI = null;
     }
 
-    private void ds() {
+    private void gQ() {
         do {
-            di();
-            if (this.iM <= 0) {
+            gH();
+            if (this.uc <= 0) {
                 return;
             }
-        } while (!dh());
+        } while (!gG());
     }
 }

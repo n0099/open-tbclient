@@ -1,0 +1,12 @@
+package com.baidu.tieba.myCollection.history;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+/* loaded from: classes.dex */
+class h implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tieba.tbadkCore.j.a> run(CustomMessage<String> customMessage) {
+        return new CustomResponsedMessage<>(2001303, new a());
+    }
+}

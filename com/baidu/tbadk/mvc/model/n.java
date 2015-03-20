@@ -25,28 +25,28 @@ public class n extends com.baidu.adp.framework.listener.a {
         r rVar;
         r rVar2;
         Runnable runnable2;
-        this.this$0.aez = false;
-        runnable = this.this$0.aeB;
+        this.this$0.amT = false;
+        runnable = this.this$0.amV;
         if (runnable != null) {
-            com.baidu.adp.lib.g.i ej = com.baidu.adp.lib.g.i.ej();
-            runnable2 = this.this$0.aeB;
-            ej.removeCallbacks(runnable2);
+            com.baidu.adp.lib.g.i hI = com.baidu.adp.lib.g.i.hI();
+            runnable2 = this.this$0.amV;
+            hI.removeCallbacks(runnable2);
         }
         if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
             MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            rVar = this.this$0.aeq;
+            rVar = this.this$0.amK;
             if (rVar != null) {
-                rVar2 = this.this$0.aeq;
+                rVar2 = this.this$0.amK;
                 rVar2.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
             }
         } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
             MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            sVar = this.this$0.aer;
+            sVar = this.this$0.amL;
             if (sVar != null) {
-                sVar2 = this.this$0.aer;
+                sVar2 = this.this$0.amL;
                 sVar2.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
             }
-        } else if (TbadkCoreApplication.m255getInst().isDebugMode()) {
+        } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
         }
     }

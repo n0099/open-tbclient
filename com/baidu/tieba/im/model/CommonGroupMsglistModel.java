@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.h;
-import com.baidu.tieba.im.i;
+import com.baidu.tieba.im.l;
 import com.baidu.tieba.im.memorycache.c;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
@@ -84,7 +84,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return c.QJ().L(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return c.Sd().H(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -92,12 +92,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void deleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            i.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
+            l.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.ML().aA(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.PK().aA(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -106,12 +106,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void markDeleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            i.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
+            l.a(new h<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.ML().az(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.PK().az(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

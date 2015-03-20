@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -11,14 +11,14 @@ import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
-    private List<aq> msg;
+    private List<au> msg;
     private int msgCount;
 
     public int getMsgCount() {
         return this.msgCount;
     }
 
-    public List<aq> getMsg() {
+    public List<au> getMsg() {
         return this.msg;
     }
 
@@ -37,23 +37,23 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         this.msgCount = queryHistoryMsgResIdl.data.total.intValue();
         if (queryHistoryMsgResIdl.data.res != null) {
             for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                aq aqVar = new aq();
+                au auVar = new au();
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aqVar.time = bf.c(date);
-                    aqVar.type = msgInfo.type.intValue();
-                    aqVar.content = msgInfo.content;
-                    aqVar.id = msgInfo.id.intValue();
-                    this.msg.add(aqVar);
+                    auVar.time = bd.c(date);
+                    auVar.type = msgInfo.type.intValue();
+                    auVar.content = msgInfo.content;
+                    auVar.id = msgInfo.id.intValue();
+                    this.msg.add(auVar);
                 }
             }
         }
         if (!this.msg.isEmpty()) {
-            com.baidu.adp.lib.cache.t<byte[]> bP = com.baidu.tbadk.core.a.a.nO().bP("tb.im_official_history");
+            com.baidu.adp.lib.cache.t<byte[]> bW = com.baidu.tbadk.core.b.a.rc().bW("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                bP.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                bW.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

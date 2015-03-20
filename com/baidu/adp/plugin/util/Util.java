@@ -22,7 +22,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (ub) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (EV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -38,17 +38,17 @@ public final class Util {
             return null;
         }
         byte[] bArr = new byte[26];
-        inputStream.read(new byte[4]);
-        inputStream.read(bArr, 0, bArr.length);
-        int d = d(bArr, 6);
-        int d2 = d(bArr, 8);
+        if (inputStream.read(new byte[4]) == -1 || inputStream.read(bArr, 0, bArr.length) == -1) {
+            return null;
+        }
+        int e = e(bArr, 6);
+        int e2 = e(bArr, 8);
         f fVar = new f();
-        fVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
-        inputStream.skip(0L);
+        fVar.set(((e2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
         return fVar;
     }
 
-    private static int d(byte[] bArr, int i) {
+    private static int e(byte[] bArr, int i) {
         if (bArr == null) {
             return 0;
         }
@@ -56,7 +56,7 @@ public final class Util {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [87=4, 89=4, 90=4, 91=4, 92=4, 94=4, 97=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 91=4, 92=4, 93=4, 94=4, 96=4, 99=4] */
     public static String b(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
@@ -168,15 +168,15 @@ public final class Util {
         }
     }
 
-    public static File bt(String str) {
-        PluginSetting ba = PluginPackageManager.hV().ba(str);
-        if (ba == null || ba.apkPath == null || ba.apkPath.length() <= ".apk".length()) {
+    public static File bB(String str) {
+        PluginSetting bi = PluginPackageManager.ls().bi(str);
+        if (bi == null || bi.apkPath == null || bi.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(ba.apkPath.substring(0, ba.apkPath.length() - ".apk".length()));
+        return new File(bi.apkPath.substring(0, bi.apkPath.length() - ".apk".length()));
     }
 
-    public static File ix() {
+    public static File lV() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -230,7 +230,7 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("is_inject_classloader");
     }
 
-    public static VersionCompare K(String str, String str2) {
+    public static VersionCompare N(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -271,7 +271,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bu(String str) {
+    public static String bC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -282,10 +282,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return ix() + File.separator + e(pluginSetting);
+        return lV() + File.separator + e(pluginSetting);
     }
 
-    public static long iy() {
+    public static long lW() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

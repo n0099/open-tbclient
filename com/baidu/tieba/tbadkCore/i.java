@@ -7,33 +7,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<Object, e, Void> {
-    final /* synthetic */ e bTS;
-    FRSPageRequestMessage bTZ;
-    private final WeakReference<BaseActivity> bUa;
-    private int btQ;
+public class i extends BdAsyncTask<Object, u, Void> {
+    private int bDm;
+    final /* synthetic */ e ckm;
+    FRSPageRequestMessage ckt;
+    private final WeakReference<BaseActivity> cku;
     private String mName;
-
-    public i(e eVar, BaseActivity baseActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, String str) {
-        this.bTS = eVar;
-        this.mName = null;
-        this.btQ = 3;
-        this.bUa = new WeakReference<>(baseActivity);
-        this.bTZ = fRSPageRequestMessage;
-        this.mName = str;
-        this.btQ = i;
-        setSelfExecute(true);
-    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        x xVar;
-        x xVar2;
-        xVar = this.bTS.bTJ;
-        if (xVar != null) {
-            xVar2 = this.bTS.bTJ;
-            xVar2.eL(this.btQ);
+        aa aaVar;
+        aa aaVar2;
+        aaVar = this.ckm.cke;
+        if (aaVar != null) {
+            aaVar2 = this.ckm.cke;
+            aaVar2.eG(this.bDm);
         }
     }
 
@@ -43,14 +32,14 @@ public class i extends BdAsyncTask<Object, e, Void> {
     public Void doInBackground(Object... objArr) {
         boolean z;
         try {
-            z = this.bTS.bTO;
-            if (z && d.aeC().hY(this.mName)) {
-                if (!d.aeC().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
-                    d.aeC().getForumModel().aeI().getSignData().setIsSigned(0);
+            z = this.ckm.ckj;
+            if (z && d.ako().is(this.mName)) {
+                if (!d.ako().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
+                    d.ako().getResponseData().YO().getSignData().setIsSigned(0);
                 }
-                publishProgress(d.aeC().getForumModel());
+                publishProgress(d.ako().getResponseData());
             }
-            this.bTS.bul = System.currentTimeMillis();
+            this.ckm.aDj = System.currentTimeMillis();
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -62,13 +51,13 @@ public class i extends BdAsyncTask<Object, e, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onProgressUpdate(e... eVarArr) {
-        x xVar;
-        x xVar2;
-        xVar = this.bTS.bTJ;
-        if (xVar != null) {
-            xVar2 = this.bTS.bTJ;
-            xVar2.d(eVarArr.length > 0 ? eVarArr[0] : null);
+    public void onProgressUpdate(u... uVarArr) {
+        aa aaVar;
+        aa aaVar2;
+        aaVar = this.ckm.cke;
+        if (aaVar != null) {
+            aaVar2 = this.ckm.cke;
+            aaVar2.b(uVarArr.length > 0 ? uVarArr[0] : null);
         }
     }
 
@@ -78,14 +67,14 @@ public class i extends BdAsyncTask<Object, e, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r3) {
         boolean z;
-        this.bTZ.setUpdateType(this.btQ);
-        FRSPageRequestMessage fRSPageRequestMessage = this.bTZ;
-        z = this.bTS.bTO;
+        this.ckt.setUpdateType(this.bDm);
+        FRSPageRequestMessage fRSPageRequestMessage = this.ckt;
+        z = this.ckm.ckj;
         fRSPageRequestMessage.setNeedCache(z);
-        if (this.bUa != null && this.bUa.get() != null) {
-            this.bUa.get().sendMessage(this.bTZ);
+        if (this.cku != null && this.cku.get() != null) {
+            this.cku.get().sendMessage(this.ckt);
         }
-        this.bTS.bTM = null;
+        this.ckm.ckh = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -96,13 +85,13 @@ public class i extends BdAsyncTask<Object, e, Void> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        x xVar;
-        x xVar2;
+        aa aaVar;
+        aa aaVar2;
         super.cancel(true);
-        xVar = this.bTS.bTJ;
-        if (xVar != null) {
-            xVar2 = this.bTS.bTJ;
-            xVar2.a(this.btQ, true, null);
+        aaVar = this.ckm.cke;
+        if (aaVar != null) {
+            aaVar2 = this.ckm.cke;
+            aaVar2.a(this.bDm, true, null);
         }
     }
 }

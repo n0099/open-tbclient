@@ -9,20 +9,20 @@ import com.baidu.adp.lib.voice.Amrnb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-    private boolean mn;
     final /* synthetic */ f this$0;
+    private boolean xC;
 
     public i(f fVar, boolean z) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
         BdAsyncTaskParallel bdAsyncTaskParallel2;
         this.this$0 = fVar;
-        this.mn = false;
-        this.mn = z;
-        bdAsyncTaskParallel = fVar.ml;
+        this.xC = false;
+        this.xC = z;
+        bdAsyncTaskParallel = fVar.xA;
         if (bdAsyncTaskParallel == null) {
-            fVar.ml = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+            fVar.xA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
-        bdAsyncTaskParallel2 = fVar.ml;
+        bdAsyncTaskParallel2 = fVar.xA;
         setParallel(bdAsyncTaskParallel2);
     }
 
@@ -39,29 +39,29 @@ public class i extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         BdErrorLog bdErrorLog;
         BdPerformanceLog bdPerformanceLog;
         boolean z3;
-        if (!this.mn) {
-            z = this.this$0.mb;
+        if (!this.xC) {
+            z = this.this$0.xr;
             if (!z) {
-                this.this$0.eu();
+                this.this$0.hT();
                 str = null;
             } else {
-                str = this.this$0.ev();
+                str = this.this$0.hU();
             }
         } else {
-            this.this$0.eu();
-            z3 = this.this$0.mb;
-            str = z3 ? this.this$0.ev() : null;
-            this.this$0.es();
+            this.this$0.hT();
+            z3 = this.this$0.xr;
+            str = z3 ? this.this$0.hU() : null;
+            this.this$0.hR();
         }
-        z2 = this.this$0.mb;
+        z2 = this.this$0.xr;
         if (z2) {
-            bdStatLog = this.this$0.mc;
+            bdStatLog = this.this$0.xs;
             bdStatLog.clearLogResource();
-            bdDebugLog = this.this$0.md;
+            bdDebugLog = this.this$0.xt;
             bdDebugLog.clearLogResource();
-            bdErrorLog = this.this$0.mf;
+            bdErrorLog = this.this$0.xu;
             bdErrorLog.clearLogResource();
-            bdPerformanceLog = this.this$0.mg;
+            bdPerformanceLog = this.this$0.xv;
             bdPerformanceLog.clearLogResource();
         }
         if (str != null) {
@@ -82,7 +82,7 @@ public class i extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         Handler handler2;
         super.onPostExecute(bdStatSwitchData);
         this.this$0.a(bdStatSwitchData);
-        z = this.this$0.mb;
+        z = this.this$0.xr;
         if (z) {
             this.this$0.sendMultiProcessBroadcast();
         }

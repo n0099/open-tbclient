@@ -1,45 +1,66 @@
 package com.baidu.adp.plugin.packageManager;
 
+import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a sC;
-    private ArrayList<String> sD = new ArrayList<>();
-    private b sE;
+    private static a Dq;
+    private d Dr;
+    private ArrayList<c> Ds = new ArrayList<>();
+    private b Dt;
 
     private a() {
     }
 
-    public static a hS() {
-        if (sC == null) {
+    public static a lm() {
+        if (Dq == null) {
             synchronized (a.class) {
-                if (sC == null) {
-                    sC = new a();
+                if (Dq == null) {
+                    Dq = new a();
                 }
             }
         }
-        return sC;
+        return Dq;
     }
 
-    public void i(ArrayList<String> arrayList) {
+    public void a(ArrayList<c> arrayList, d dVar) {
+        boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            Iterator<String> it = arrayList.iterator();
+            this.Dr = dVar;
+            Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
-                String next = it.next();
-                if (!this.sD.contains(next)) {
-                    this.sD.add(next);
+                c next = it.next();
+                if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
+                    Iterator<c> it2 = this.Ds.iterator();
+                    while (true) {
+                        if (!it2.hasNext()) {
+                            z = false;
+                            break;
+                        } else if (a(it2.next(), next)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (!z) {
+                        this.Ds.add(next);
+                    }
                 }
             }
-            hT();
+            ln();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hT() {
-        if (this.sD.size() != 0 && this.sE == null) {
-            this.sE = new b(this, this.sD.get(0));
-            this.sE.execute(new String[0]);
+    public void ln() {
+        if (this.Ds.size() != 0 && this.Dt == null) {
+            this.Dt = new b(this, this.Ds.get(0));
+            this.Dt.execute(new String[0]);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(c cVar, c cVar2) {
+        return (cVar == null || cVar2 == null || TextUtils.isEmpty(cVar2.apkPath) || TextUtils.isEmpty(cVar2.packageName) || TextUtils.isEmpty(cVar.apkPath) || TextUtils.isEmpty(cVar.packageName) || !cVar2.packageName.equals(cVar.packageName) || !cVar2.apkPath.equals(cVar.apkPath)) ? false : true;
     }
 }

@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes.dex */
 public class LocationSearchResponseMessage extends SocketResponsedMessage {
-    private k mLocationData;
+    private l mLocationData;
 
     public LocationSearchResponseMessage() {
         super(303018);
@@ -19,17 +19,17 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
         setError(getSuggestionByAddrNameResIdl.error.errorno.intValue());
         setErrorString(getSuggestionByAddrNameResIdl.error.usermsg);
         if (getError() == 0) {
-            this.mLocationData = new k();
+            this.mLocationData = new l();
             this.mLocationData.a(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }
 
-    public k getLocationData() {
+    public l getLocationData() {
         return this.mLocationData;
     }
 
-    public void setLocationData(k kVar) {
-        this.mLocationData = kVar;
+    public void setLocationData(l lVar) {
+        this.mLocationData = lVar;
     }
 }

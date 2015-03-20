@@ -14,10 +14,12 @@ class o extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImageView imageView;
+        Boolean bool;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).ach;
-            imageView = DiscoverDelegateStatic.aub;
-            imageView.setVisibility(z ? 0 : 8);
+            DiscoverDelegateStatic.aBN = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).alH);
+            imageView = DiscoverDelegateStatic.aBM;
+            bool = DiscoverDelegateStatic.aBN;
+            imageView.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }
 }

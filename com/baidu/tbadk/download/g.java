@@ -3,38 +3,38 @@ package com.baidu.tbadk.download;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.z;
+import com.baidu.tbadk.core.util.o;
+import com.baidu.tieba.y;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g XJ = new g();
-    private static DownloadData XK = null;
-    private static List<DownloadData> XE = new LinkedList();
-    private i XL = null;
+    private static g ahP = new g();
+    private static DownloadData ahQ = null;
+    private static List<DownloadData> ahK = new LinkedList();
+    private i ahR = null;
     private int max = 20;
-    private Handler XM = new h(this, Looper.getMainLooper());
+    private Handler ahS = new h(this, Looper.getMainLooper());
 
     private g() {
     }
 
-    public static g uZ() {
-        return XJ;
+    public static g yp() {
+        return ahP;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : XE) {
+        for (DownloadData downloadData2 : ahK) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.m255getInst().getApp().getString(z.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().a(downloadData);
                 return;
@@ -46,8 +46,8 @@ public class g {
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!s.bL()) {
-                downloadData.setStatusMsg(TbadkCoreApplication.m255getInst().getApp().getString(z.download_fail_no_sd));
+            if (!o.fj()) {
+                downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
@@ -60,8 +60,8 @@ public class g {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < XE.size()) {
-                    DownloadData downloadData2 = XE.get(i2);
+                if (i2 < ahK.size()) {
+                    DownloadData downloadData2 = ahK.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -69,8 +69,8 @@ public class g {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    XE.add(downloadData);
-                    va();
+                    ahK.add(downloadData);
+                    yq();
                     return;
                 }
             }
@@ -78,23 +78,23 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void va() {
-        if (XK == null && !XE.isEmpty()) {
-            XK = XE.get(0);
-            if (XK != null) {
-                this.XL = new i(this);
-                this.XL.execute(XK);
+    public void yq() {
+        if (ahQ == null && !ahK.isEmpty()) {
+            ahQ = ahK.get(0);
+            if (ahQ != null) {
+                this.ahR = new i(this);
+                this.ahR.execute(ahQ);
             }
         }
     }
 
-    public void dQ(String str) {
-        if (XK != null && XK.getUrl().equals(str)) {
-            this.XL.cancel(true);
+    public void dZ(String str) {
+        if (ahQ != null && ahQ.getUrl().equals(str)) {
+            this.ahR.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = XE.iterator();
+        Iterator<DownloadData> it = ahK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -109,17 +109,17 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            XE.remove(downloadData);
+            ahK.remove(downloadData);
         }
     }
 
-    public void r(String str, int i) {
-        if (XK != null && XK.getId().equals(str) && XK.getType() == i) {
-            this.XL.cancel(true);
+    public void q(String str, int i) {
+        if (ahQ != null && ahQ.getId().equals(str) && ahQ.getType() == i) {
+            this.ahR.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = XE.iterator();
+        Iterator<DownloadData> it = ahK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -135,16 +135,16 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            XE.remove(downloadData);
+            ahK.remove(downloadData);
         }
     }
 
-    public void dk(int i) {
-        if (XK != null && XK.getType() == i) {
-            this.XL.cancel(true);
+    public void dm(int i) {
+        if (ahQ != null && ahQ.getType() == i) {
+            this.ahR.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : XE) {
+        for (DownloadData downloadData : ahK) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -155,11 +155,11 @@ public class g {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            XE.remove(downloadData2);
+            ahK.remove(downloadData2);
         }
     }
 
-    public List<DownloadData> vb() {
-        return XE;
+    public List<DownloadData> lG() {
+        return ahK;
     }
 }

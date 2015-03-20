@@ -1,51 +1,36 @@
 package com.baidu.tieba.person;
 
+import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    final /* synthetic */ g bHb;
+public class k implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(g gVar) {
-        this.bHb = gVar;
+    public k(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        q qVar;
-        q qVar2;
-        q qVar3;
-        TextView textView;
-        TextView textView2;
-        q qVar4;
-        q qVar5;
-        TextView textView3;
-        TextView textView4;
-        q qVar6;
-        qVar = this.bHb.bGQ;
-        if (qVar != null) {
-            qVar2 = this.bHb.bGQ;
-            if (!qVar2.AT()) {
-                qVar5 = this.bHb.bGQ;
-                qVar5.setEditState(true);
-                textView3 = this.bHb.amB;
-                textView3.setText(com.baidu.tieba.z.done);
-                textView4 = this.bHb.amB;
-                com.baidu.tbadk.core.util.bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-                qVar6 = this.bHb.bGQ;
-                qVar6.notifyDataSetChanged();
-                return;
+        ProgressBar progressBar;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        progressBar = this.this$0.mProgress;
+        if (progressBar.getVisibility() != 0) {
+            bitmap = this.this$0.mBitmap;
+            if (bitmap == null) {
+                bitmap2 = this.this$0.bOR;
+                if (bitmap2 == null) {
+                    return;
+                }
             }
-            qVar3 = this.bHb.bGQ;
-            qVar3.setEditState(false);
-            textView = this.bHb.amB;
-            textView.setText(com.baidu.tieba.z.edit);
-            textView2 = this.bHb.amB;
-            com.baidu.tbadk.core.util.bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-            qVar4 = this.bHb.bGQ;
-            qVar4.notifyDataSetChanged();
+            if (view.getTag() != null) {
+                this.this$0.bOY = false;
+                this.this$0.hT(view.getTag().toString());
+            }
         }
     }
 }

@@ -5,9 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.c.a;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.memorycache.c;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.util.i;
@@ -33,7 +31,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001221 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(i.n(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(i.o(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }
@@ -61,7 +59,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001221 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(i.n(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(i.o(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }
@@ -85,11 +83,6 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
 
     private void unRegisterListener() {
         MessageManager.getInstance().unRegisterListener(this.mCustomListener);
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public long getMaxMid() {
-        return c.QJ().L(String.valueOf(a.box), -1);
     }
 
     public void setUser(UserData userData) {

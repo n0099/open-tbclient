@@ -1,27 +1,53 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
+import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ LivePlayingImageView UX;
+public class ai extends CustomMessageListener {
+    final /* synthetic */ LivePlayingStatusMgr afj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(LivePlayingImageView livePlayingImageView) {
-        this.UX = livePlayingImageView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
+        super(i);
+        this.afj = livePlayingStatusMgr;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.UX.getStatisticsKey())) {
-            com.baidu.tbadk.core.i.A(this.UX.getContext(), this.UX.getStatisticsKey());
-        }
-        if (LivePlayingStatusMgr.tJ().getGid() != 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.UX.getContext(), LivePlayingStatusMgr.tJ().getGid())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LiveStatusChangeMessage.LiveStatusData data;
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2;
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus3;
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus4;
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus5;
+        if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
+            if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
+                livePlayingStatus = this.afj.afg;
+                if (livePlayingStatus != LivePlayingStatusMgr.LivePlayingStatus.IDEL) {
+                    livePlayingStatus2 = this.afj.afg;
+                    if (livePlayingStatus2 != LivePlayingStatusMgr.LivePlayingStatus.JOINED) {
+                        livePlayingStatus3 = this.afj.afg;
+                        if (livePlayingStatus3 != LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER) {
+                            return;
+                        }
+                    }
+                }
+                this.afj.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+            } else if (data.status == 0) {
+                livePlayingStatus4 = this.afj.afg;
+                if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {
+                    livePlayingStatus5 = this.afj.afg;
+                    if (livePlayingStatus5 != LivePlayingStatusMgr.LivePlayingStatus.PLAYING) {
+                        return;
+                    }
+                }
+                this.afj.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+            }
         }
     }
 }

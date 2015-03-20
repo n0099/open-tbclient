@@ -1,99 +1,229 @@
 package com.baidu.location;
 
-import android.support.v4.view.MotionEventCompat;
-import java.security.MessageDigest;
+import android.os.Build;
+import android.os.Handler;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d {
+public class d extends t {
+    private static d c9 = null;
+    Handler da;
+    String dd = null;
+    String dc = null;
+    String db = null;
 
-    /* renamed from: if  reason: not valid java name */
-    private static char[] f112if = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/.".toCharArray();
-    private static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    d() {
+    private d() {
+        this.da = null;
+        this.da = new Handler();
     }
 
-    public static String a(String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean Z() {
+        if (this.db == null || new File(c.m276long() + File.separator + this.db).exists()) {
+            return true;
+        }
+        return m281for("http://" + this.dd + "/" + this.db, this.db);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aa() {
+        if (this.dc == null) {
+            return;
+        }
+        File file = new File(c.m276long() + File.separator + this.dc);
+        if (file.exists() || !m281for("http://" + this.dd + "/" + this.dc, this.dc)) {
+            return;
+        }
+        File file2 = new File(c.m276long() + File.separator + f.replaceFileName);
+        if (file2.exists()) {
+            file2.delete();
+        }
         try {
-            char[] a2 = a((str + "webgis").getBytes("UTF-8"));
-            byte[] bytes = str.getBytes("UTF-8");
-            byte[] bArr = new byte[bytes.length + 2];
-            for (int i = 0; i < bytes.length; i++) {
-                bArr[i] = bytes[i];
-            }
-            bArr[bytes.length] = (byte) (Integer.parseInt(String.copyValueOf(a2, 10, 2), 16) & MotionEventCompat.ACTION_MASK);
-            bArr[bytes.length + 1] = (byte) (Integer.parseInt(String.copyValueOf(a2, 20, 2), 16) & MotionEventCompat.ACTION_MASK);
-            String str2 = (("" + ((char) (Integer.parseInt(String.copyValueOf(a2, 6, 2), 16) & MotionEventCompat.ACTION_MASK))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 16, 2), 16) & MotionEventCompat.ACTION_MASK))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 26, 2), 16) & MotionEventCompat.ACTION_MASK));
-            char[] a3 = a((str2 + "webgis").getBytes("iso-8859-1"));
-            int length = bArr.length;
-            int length2 = str2.length();
-            byte[] bArr2 = new byte[length + length2];
-            for (int i2 = 0; i2 < (length + 31) / 32; i2++) {
-                int i3 = i2 * 32;
-                for (int i4 = 0; i4 < 32 && i3 + i4 < length; i4++) {
-                    bArr2[i3 + i4] = (byte) ((a3[i4] & 255) ^ (bArr[i3 + i4] & 255));
+            m283if(file, file2);
+        } catch (Exception e) {
+            file2.delete();
+        }
+    }
+
+    private Handler ab() {
+        return this.da;
+    }
+
+    public static d ac() {
+        if (c9 == null) {
+            c9 = new d();
+        }
+        return c9;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.location.d$3] */
+    public void ad() {
+        if (this.dd != null && au.ca()) {
+            new Thread() { // from class: com.baidu.location.d.3
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    if (d.this.Z()) {
+                        d.this.aa();
+                    }
                 }
-            }
-            for (int i5 = 0; i5 < length2; i5++) {
-                bArr2[length + i5] = (byte) str2.charAt(i5);
-            }
-            return new String(m121if(bArr2));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "UnsupportedEncodingException";
+            }.start();
         }
     }
 
-    private static char[] a(byte[] bArr) {
-        char[] cArr = new char[32];
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(bArr);
-            byte[] digest = messageDigest.digest();
-            int i = 0;
-            for (int i2 = 0; i2 < 16; i2++) {
-                byte b = digest[i2];
-                int i3 = i + 1;
-                cArr[i] = a[(b >>> 4) & 15];
-                i = i3 + 1;
-                cArr[i3] = a[b & 15];
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    /* renamed from: for  reason: not valid java name */
+    private static boolean m281for(String str, String str2) {
+        File file = new File(c.m276long() + File.separator + "tmp");
+        if (file.exists()) {
+            file.delete();
         }
-        return cArr;
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] bArr = new byte[4096];
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read <= 0) {
+                    break;
+                }
+                fileOutputStream.write(bArr, 0, read);
+            }
+            httpURLConnection.disconnect();
+            fileOutputStream.close();
+            if (file.length() < 10240) {
+                file.delete();
+                return false;
+            }
+            file.renameTo(new File(c.m276long() + File.separator + str2));
+            return true;
+        } catch (Exception e) {
+            file.delete();
+            return false;
+        }
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static char[] m121if(byte[] bArr) {
-        boolean z;
-        boolean z2;
-        char[] cArr = new char[((bArr.length + 2) / 3) * 4];
-        int i = 0;
-        int i2 = 0;
-        while (i2 < bArr.length) {
-            int i3 = (bArr[i2] & 255) << 8;
-            if (i2 + 1 < bArr.length) {
-                i3 |= bArr[i2 + 1] & 255;
-                z = true;
-            } else {
-                z = false;
+    public static void m283if(File file, File file2) {
+        BufferedOutputStream bufferedOutputStream;
+        BufferedInputStream bufferedInputStream;
+        BufferedInputStream bufferedInputStream2 = null;
+        try {
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+            try {
+                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
+            } catch (Throwable th) {
+                th = th;
+                bufferedOutputStream = null;
+                bufferedInputStream2 = bufferedInputStream;
             }
-            int i4 = i3 << 8;
-            if (i2 + 2 < bArr.length) {
-                i4 |= bArr[i2 + 2] & 255;
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            cArr[i + 3] = f112if[z2 ? 63 - (i4 & 63) : 64];
-            int i5 = i4 >> 6;
-            cArr[i + 2] = f112if[z ? 63 - (i5 & 63) : 64];
-            int i6 = i5 >> 6;
-            cArr[i + 1] = f112if[63 - (i6 & 63)];
-            cArr[i + 0] = f112if[63 - ((i6 >> 6) & 63)];
-            i2 += 3;
-            i += 4;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedOutputStream = null;
         }
-        return cArr;
+        try {
+            byte[] bArr = new byte[a0.O];
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                bufferedOutputStream.write(bArr, 0, read);
+            }
+            bufferedOutputStream.flush();
+            if (bufferedInputStream != null) {
+                bufferedInputStream.close();
+            }
+            if (bufferedOutputStream != null) {
+                bufferedOutputStream.close();
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedInputStream2 = bufferedInputStream;
+            if (bufferedInputStream2 != null) {
+                bufferedInputStream2.close();
+            }
+            if (bufferedOutputStream != null) {
+                bufferedOutputStream.close();
+            }
+            throw th;
+        }
+    }
+
+    @Override // com.baidu.location.t
+    void X() {
+        StringBuffer stringBuffer = new StringBuffer(128);
+        stringBuffer.append("&sdk=");
+        stringBuffer.append(5.01f);
+        stringBuffer.append("&fw=");
+        stringBuffer.append(f.getFrameVersion());
+        stringBuffer.append("&suit=");
+        stringBuffer.append(2);
+        if (a2.cC().jj == null) {
+            stringBuffer.append("&im=");
+            stringBuffer.append(a2.cC().jf);
+        } else {
+            stringBuffer.append("&cu=");
+            stringBuffer.append(a2.cC().jj);
+        }
+        stringBuffer.append("&mb=");
+        stringBuffer.append(Build.MODEL);
+        stringBuffer.append("&sv=");
+        String str = Build.VERSION.RELEASE;
+        if (str != null && str.length() > 10) {
+            str = str.substring(0, 10);
+        }
+        stringBuffer.append(str);
+        stringBuffer.append("&pack=");
+        stringBuffer.append(a2.jc);
+        this.cX = c.m277new() + "?&it=" + Jni.m(stringBuffer.toString());
+    }
+
+    public void ae() {
+        if (System.currentTimeMillis() - e.m284if().m285do() > 172800000) {
+            ab().postDelayed(new Runnable() { // from class: com.baidu.location.d.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (au.ca()) {
+                        d.this.U();
+                    }
+                }
+            }, 10000L);
+        }
+    }
+
+    @Override // com.baidu.location.t
+    /* renamed from: do */
+    void mo112do(boolean z) {
+        if (z) {
+            try {
+                JSONObject jSONObject = new JSONObject(EntityUtils.toString(this.cY, "utf-8"));
+                if ("up".equals(jSONObject.getString("res"))) {
+                    this.dd = jSONObject.getString("upath");
+                    if (jSONObject.has("u1")) {
+                        this.dc = jSONObject.getString("u1");
+                    }
+                    if (jSONObject.has("u2")) {
+                        this.db = jSONObject.getString("u2");
+                    }
+                    ab().post(new Runnable() { // from class: com.baidu.location.d.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            d.this.ad();
+                        }
+                    });
+                }
+            } catch (Exception e) {
+            }
+        }
+        e.m284if().m286do(System.currentTimeMillis());
     }
 }

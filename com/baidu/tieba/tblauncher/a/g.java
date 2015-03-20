@@ -1,29 +1,27 @@
 package com.baidu.tieba.tblauncher.a;
 
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.widget.p;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements p {
-    final /* synthetic */ d cdM;
+class g implements View.OnClickListener {
+    final /* synthetic */ d csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.cdM = dVar;
+        this.csd = dVar;
     }
 
-    @Override // com.baidu.tbadk.widget.p
-    public void onComplete(String str, boolean z) {
-        AccountData currentAccountObj;
-        c cVar;
-        if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
-            cVar = this.cdM.cdI;
-            cVar.eL(true);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001267));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view.getContext(), currentAccountObj.getID(), currentAccountObj.getAccount())));
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.p
-    public void onCancel() {
     }
 }

@@ -1,43 +1,55 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.ai;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNews;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class aa {
-    private int Fd = 0;
-    private int Fe = 0;
-    private String link = "";
+public class aa implements ai {
+    public static final BdUniqueId QT = BdUniqueId.gen();
+    private String QU;
+    private int position = 0;
+    private String summary;
 
-    public int nL() {
-        return this.Fd;
+    public String rb() {
+        return this.QU;
     }
 
-    public int nM() {
-        return this.Fe;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public String getLink() {
-        return this.link;
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.QU = topNews.news_link;
+            this.summary = topNews.summary;
+        }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.QU = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Fd = jSONObject.optInt("is_lpost", 0);
-                this.Fe = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
+                this.QU = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.Fd = topic.is_lpost.intValue();
-            this.Fe = topic.topic_type.intValue();
-            this.link = topic.link;
-        }
+    @Override // com.baidu.adp.widget.ListView.ai
+    public BdUniqueId getType() {
+        return QT;
     }
 }

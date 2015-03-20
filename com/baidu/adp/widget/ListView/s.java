@@ -1,23 +1,47 @@
 package com.baidu.adp.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public class s implements m {
-    final /* synthetic */ BdListView xj;
+class s implements AdapterView.OnItemSelectedListener {
+    final /* synthetic */ BdListView Ib;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(BdListView bdListView) {
-        this.xj = bdListView;
+        this.Ib = bdListView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public void jz() {
-        Runnable runnable;
-        Runnable runnable2;
-        BdListView bdListView = this.xj;
-        runnable = this.xj.preLoadRunnable;
-        bdListView.removeCallbacks(runnable);
-        BdListView bdListView2 = this.xj;
-        runnable2 = this.xj.preLoadRunnable;
-        bdListView2.postDelayed(runnable2, 100L);
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+        g gVar;
+        g gVar2;
+        AdapterView.OnItemSelectedListener onItemSelectedListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        gVar = this.Ib.HC;
+        int headersCount = gVar.getHeadersCount();
+        if (i >= headersCount) {
+            int i2 = i - headersCount;
+            gVar2 = this.Ib.HC;
+            ListAdapter wrappedAdapter = gVar2.getWrappedAdapter();
+            if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
+                onItemSelectedListener = this.Ib.HF;
+                if (onItemSelectedListener != null) {
+                    onItemSelectedListener2 = this.Ib.HF;
+                    onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
+                }
+            }
+        }
+    }
+
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        AdapterView.OnItemSelectedListener onItemSelectedListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        onItemSelectedListener = this.Ib.HF;
+        if (onItemSelectedListener != null) {
+            onItemSelectedListener2 = this.Ib.HF;
+            onItemSelectedListener2.onNothingSelected(adapterView);
+        }
     }
 }

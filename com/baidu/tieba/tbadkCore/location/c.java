@@ -1,43 +1,20 @@
 package com.baidu.tieba.tbadkCore.location;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class c {
-    private static c caj;
-    private long aus;
-    private boolean cak = com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("no_longer_show_address", false);
-    private a mLocationData;
+class c extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
+    }
 
-    public static c ahX() {
-        if (caj == null) {
-            synchronized (c.class) {
-                if (caj == null) {
-                    caj = new c();
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.j) && ((com.baidu.tbadk.core.data.j) customResponsedMessage.getData()).info.contains("com.baidu.location")) {
+            TbadkCoreApplication.m411getInst().addBDLocCrashCount();
         }
-        return caj;
-    }
-
-    public long Dg() {
-        return this.aus;
-    }
-
-    public void H(long j) {
-        this.aus = j;
-    }
-
-    public a getLocationData() {
-        return this.mLocationData;
-    }
-
-    public void b(a aVar) {
-        this.mLocationData = aVar;
-    }
-
-    public boolean ahY() {
-        return this.cak;
-    }
-
-    public void eD(boolean z) {
-        this.cak = z;
     }
 }

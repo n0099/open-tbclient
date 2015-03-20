@@ -1,24 +1,43 @@
 package com.baidu.tieba.im.memorycache;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bt implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ String bje;
-    final /* synthetic */ bs bjf;
+public class bt extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bs bsVar, String str) {
-        this.bjf = bsVar;
-        this.bje = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bt(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            com.baidu.tieba.im.db.c.ML().go(this.bje);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage;
+        com.baidu.tieba.im.message.e data;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
+            ArrayList arrayList = new ArrayList();
+            for (com.baidu.tieba.im.message.h hVar : data.datas) {
+                c.Sd().d(hVar.id, hVar.customGroupType, hVar.ahV);
+            }
+            if (memoryClearStrangerItemsMessage.isAllClear()) {
+                c.Sd().e("-1001", -7, false);
+            }
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bu(this, arrayList, memoryClearStrangerItemsMessage));
+            customMessageTask.setParallel(TiebaIMConfig.getParallel());
+            customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+            customMessageTask.setPriority(4);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
         }
-        return null;
     }
 }

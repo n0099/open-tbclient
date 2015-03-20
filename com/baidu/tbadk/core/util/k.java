@@ -1,65 +1,73 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import android.widget.Toast;
-import com.baidu.adp.base.BdBaseApplication;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class k {
-    private static Toast nt;
-    private boolean HF;
-    private static Handler mHandler = new Handler();
-    private static Runnable HE = new l();
+public class k extends DiskFileOperate {
+    protected l Tj;
+    protected Bitmap mBitmap;
+    protected BitmapFactory.Options ry;
 
-    public static k ok() {
-        return new k();
+    public k(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
+        this.mBitmap = null;
+        this.ry = null;
+        this.Tj = null;
+        this.Tj = new l();
     }
 
-    private k() {
+    public boolean fI() {
+        return this.Tj.rC;
     }
 
-    public void c(String str, int i, int i2) {
-        if (!this.HF && str != null) {
-            String trim = str.trim();
-            if (trim.length() != 0) {
-                mHandler.removeCallbacks(HE);
-                if (nt != null) {
-                    nt.setText(trim);
-                } else {
-                    nt = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    nt.setGravity(17, 0, i2);
-                }
-                mHandler.postDelayed(HE, i);
-                nt.show();
+    public void r(boolean z) {
+        this.Tj.rC = z;
+    }
+
+    public Bitmap getBitmap() {
+        return this.mBitmap;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void setData(byte[] bArr) {
+        super.setData(bArr);
+        if (!fI() && com.baidu.adp.lib.util.n.n(bArr)) {
+            r(true);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] fv() {
+        if (this.mData == null) {
+            return null;
+        }
+        return this.Tj.toByteArray();
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean k(byte[] bArr) {
+        if (bArr == null) {
+            return false;
+        }
+        if (this.ry == null) {
+            this.ry = new BitmapFactory.Options();
+            this.ry.inPreferredConfig = Bitmap.Config.RGB_565;
+        }
+        boolean l = this.Tj.l(bArr);
+        if (this.Tj.rD == 0 || this.Tj.rD >= System.currentTimeMillis()) {
+            int fL = l.fL();
+            if (!l) {
+                fL = 0;
             }
+            try {
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, fL, bArr.length - fL, this.ry);
+            } catch (Error e) {
+                BdLog.e(e.getMessage());
+            }
+            return this.mBitmap != null;
         }
-    }
-
-    public void showToast(String str, int i) {
-        c(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-    }
-
-    public void showToast(int i, int i2) {
-        showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
-    }
-
-    public void p(int i, int i2, int i3) {
-        c(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
-    }
-
-    public void onPause() {
-        this.HF = true;
-        cancel();
-    }
-
-    public void onResume() {
-        this.HF = false;
-    }
-
-    public static void cancel() {
-        if (nt != null) {
-            mHandler.removeCallbacks(HE);
-            nt.cancel();
-            nt = null;
-        }
+        return false;
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-class l implements Runnable {
-    final /* synthetic */ j PN;
+public interface l {
+    void a(com.baidu.tbadk.core.a.b bVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar) {
-        this.PN = jVar;
-    }
+    void h(AccountData accountData);
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditHeadActivity editHeadActivity;
-        editHeadActivity = this.PN.this$0;
-        editHeadActivity.da(WriteImageActivityConfig.FILTER_NAME_NORMAL);
-    }
+    void i(AccountData accountData);
+
+    void j(AccountData accountData);
+
+    AccountData rz();
+
+    void ur();
 }

@@ -1,45 +1,28 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    final /* synthetic */ c aTT;
-    private final /* synthetic */ TbPageContext aTU;
-    private final /* synthetic */ p aTV;
-    private final /* synthetic */ int aTW;
+public class e implements View.OnLongClickListener {
+    final /* synthetic */ d aYA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, TbPageContext tbPageContext, p pVar, int i) {
-        this.aTT = cVar;
-        this.aTU = tbPageContext;
-        this.aTV = pVar;
-        this.aTW = i;
+    public e(d dVar) {
+        this.aYA = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String str;
-        Context context2;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.adp.lib.c.b bVar;
+        com.baidu.adp.lib.c.b bVar2;
         int i;
-        bm.pO().b(this.aTU, new String[]{this.aTV.url});
-        if (this.aTW == 1) {
-            context = this.aTT.mContext;
-            TiebaStatic.eventStat(context, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, this.aTV.fid);
-            str = this.aTT.aTS;
-            com.baidu.tieba.im.data.g hq = com.baidu.tieba.im.util.i.hq(str);
-            if (hq != null) {
-                context2 = this.aTT.mContext;
-                StringBuilder sb = new StringBuilder();
-                i = this.aTT.aTR;
-                TiebaStatic.eventStat(context2, "message_open_detail", "click", 1, "task_type", hq.aXW, "task_id", hq.aXX, "loc", sb.append(i).toString());
-            }
+        bVar = this.aYA.aXd;
+        if (bVar != null) {
+            bVar2 = this.aYA.aXd;
+            i = this.aYA.mPosition;
+            bVar2.onItemViewLongClick(view, 9, i, 0L);
+            return false;
         }
+        return false;
     }
 }

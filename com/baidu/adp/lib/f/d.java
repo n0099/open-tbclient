@@ -7,40 +7,40 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.q;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d {
-    private static d li;
-    private static BdAsyncTaskParallel lj = null;
-    private static BdAsyncTaskParallel lk = null;
-    private final BdUniqueId lg = BdUniqueId.gen();
-    private SparseArray<g<?>> lh;
+    private static d ww;
+    private static BdAsyncTaskParallel wx = null;
+    private static BdAsyncTaskParallel wy = null;
+    private final BdUniqueId wu = BdUniqueId.gen();
+    private SparseArray<g<?>> wv;
 
-    public static d ec() {
-        if (li == null) {
+    public static d hB() {
+        if (ww == null) {
             synchronized (d.class) {
-                if (li == null) {
-                    li = new d();
+                if (ww == null) {
+                    ww = new d();
                 }
             }
         }
-        return li;
+        return ww;
     }
 
     private d() {
-        this.lh = null;
+        this.wv = null;
         BdUniqueId gen = BdUniqueId.gen();
-        lj = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        lk = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.lh = new SparseArray<>();
+        wx = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        wy = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.wv = new SparseArray<>();
     }
 
     public synchronized <T> void a(int i, g<T> gVar) {
         if (gVar != null) {
-            if (this.lh.get(i) == null) {
-                this.lh.put(i, gVar);
+            if (this.wv.get(i) == null) {
+                this.wv.put(i, gVar);
             } else {
                 throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
             }
@@ -48,21 +48,21 @@ public class d {
     }
 
     public void e(String str, int i) {
-        e af = af(f(str, i));
-        if (af != null) {
-            af.cancel();
+        e am = am(f(str, i));
+        if (am != null) {
+            am.cancel();
         }
     }
 
     public <T> void a(String str, int i, c<T> cVar) {
-        e<T> af = af(f(str, i));
-        if (af != null) {
-            af.a(cVar);
+        e<T> am = am(f(str, i));
+        if (am != null) {
+            am.a(cVar);
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.lg);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.wu);
         if (searchAllTask != null && searchAllTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
@@ -75,7 +75,7 @@ public class d {
     }
 
     public <T> void a(BdUniqueId bdUniqueId, c<T> cVar) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.lg);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.wu);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -88,7 +88,7 @@ public class d {
     }
 
     public void e(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.lg);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.wu);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -100,20 +100,20 @@ public class d {
         }
     }
 
-    public boolean W(int i) {
-        g<?> gVar = this.lh.get(i);
+    public boolean X(int i) {
+        g<?> gVar = this.wv.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
         }
-        return gVar.ef();
+        return gVar.hE();
     }
 
     public Object a(String str, int i, Object... objArr) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("resKey can not be null");
         }
-        g<?> gVar = this.lh.get(i);
+        g<?> gVar = this.wv.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
@@ -125,14 +125,18 @@ public class d {
         return a(str, i, cVar, 0, 0, bdUniqueId, new Object[0]);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r19v0, resolved type: com.baidu.adp.lib.f.c<T> */
-    /* JADX WARN: Multi-variable type inference failed */
     public <T> Object a(String str, int i, c<T> cVar, int i2, int i3, BdUniqueId bdUniqueId, Object... objArr) {
+        return a(str, i, cVar, i2, i3, false, bdUniqueId, objArr);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r20v0, resolved type: com.baidu.adp.lib.f.c<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> Object a(String str, int i, c<T> cVar, int i2, int i3, boolean z, BdUniqueId bdUniqueId, Object... objArr) {
         if (TextUtils.isEmpty(str)) {
             BdLog.e("resKey can not be null");
             return null;
         }
-        g<?> gVar = this.lh.get(i);
+        g<?> gVar = this.wv.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
@@ -150,40 +154,40 @@ public class d {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        e<T> af = af(f);
-        if (af != null && af.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            af.a(cVar, bdUniqueId);
+        e<T> am = am(f);
+        if (am != null && am.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            am.a(cVar, bdUniqueId);
         } else {
-            boolean fg = i.fg();
-            boolean fi = i.fi();
+            boolean iI = k.iI();
+            boolean iK = k.iK();
             q qVar = null;
-            if (fg) {
-                qVar = f.ed();
-                qVar.eK();
+            if (iI) {
+                qVar = f.hC();
+                qVar.il();
             }
-            e eVar = new e(this, str, i, i2, i3, bdUniqueId, cVar, qVar, objArr);
+            e eVar = new e(this, str, i, i2, i3, bdUniqueId, cVar, z, qVar, objArr);
             eVar.setKey(f);
-            eVar.setTag(this.lg);
-            int eh = gVar.eh();
-            if (eh == 0) {
-                eh = 1;
+            eVar.setTag(this.wu);
+            int hG = gVar.hG();
+            if (hG == 0) {
+                hG = 1;
             }
-            eVar.setPriority(eh);
-            if (fg || fi) {
-                if (gVar.eg() == null) {
-                    eVar.setParallel(lk);
+            eVar.setPriority(hG);
+            if (iI || iK) {
+                if (gVar.hF() == null) {
+                    eVar.setParallel(wy);
                 } else {
-                    eVar.setParallel(gVar.eg());
+                    eVar.setParallel(gVar.hF());
                 }
             } else {
-                eVar.setParallel(lj);
+                eVar.setParallel(wx);
             }
             eVar.execute(new String[0]);
         }
         return null;
     }
 
-    private <T> e<T> af(String str) {
+    private <T> e<T> am(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
         if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null) {
             if (!(searchTask instanceof e)) {
@@ -200,7 +204,6 @@ public class d {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public String f(String str, int i) {
         if (str == null) {
             str = "";

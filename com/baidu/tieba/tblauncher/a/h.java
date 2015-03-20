@@ -1,18 +1,23 @@
 package com.baidu.tieba.tblauncher.a;
 
-import android.content.DialogInterface;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ d cdM;
+public class h implements com.baidu.tbadk.core.message.b {
+    final /* synthetic */ d csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar) {
-        this.cdM = dVar;
+        this.csd = dVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.core.b.b.a(TbadkCoreApplication.m255getInst(), 12, false);
+    @Override // com.baidu.tbadk.core.message.b
+    public void j(List<com.baidu.tieba.tbadkCore.f.a> list) {
+        com.baidu.tbadk.mvc.j.d dVar;
+        com.baidu.tbadk.mvc.j.d dVar2;
+        dVar = this.csd.csa;
+        dVar.r(list);
+        dVar2 = this.csd.csa;
+        dVar2.notifyDataSetChanged();
     }
 }

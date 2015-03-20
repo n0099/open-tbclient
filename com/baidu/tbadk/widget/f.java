@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f {
-    public Bitmap aiR;
+    public Bitmap art;
     public int delay;
 
     private f() {

@@ -1,65 +1,41 @@
 package com.baidu.tbadk.mvc.j;
 
-import android.app.Activity;
-import android.content.res.Resources;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.e.c;
-import com.baidu.tieba.tbadkCore.y;
+import com.baidu.tbadk.mvc.j.a;
 /* loaded from: classes.dex */
-public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements y {
-    private S adY;
-    private final ViewEventCenter afo;
-    private D data;
-    private TbPageContext<?> pageContext;
-    private final View rootView;
+public class d<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>> extends c<D, S, H> {
+    private final Class<H> anS;
+    private final int anT;
 
-    public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        this.pageContext = tbPageContext;
-        this.rootView = view;
-        this.afo = viewEventCenter;
+    public d(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, viewEventCenter);
+        this.anT = i;
+        this.anS = cls;
     }
 
-    public View getRootView() {
-        return this.rootView;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getViewTypeCount() {
+        return super.getViewTypeCount() + 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter wH() {
-        return this.afo;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getItemViewType(int i) {
+        if (this.anL && BY()) {
+            return -1;
+        }
+        return super.getItemViewType(i);
     }
 
-    public void a(D d, S s) {
-        y(d);
-        e(s);
-    }
-
-    public D getData() {
-        return this.data;
-    }
-
-    public S xo() {
-        return this.adY;
-    }
-
-    public void y(D d) {
-        this.data = d;
-    }
-
-    public void e(S s) {
-        this.adY = s;
-    }
-
-    public Resources getResources() {
-        return this.pageContext.getResources();
-    }
-
-    public Activity getActivity() {
-        return this.pageContext.getPageActivity();
-    }
-
-    public String getString(int i) {
-        return getResources().getString(i);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (this.anL && BY()) {
+            return BX();
+        }
+        BW();
+        return a(view, i, (Class<?>) this.anS, this.anT);
     }
 }

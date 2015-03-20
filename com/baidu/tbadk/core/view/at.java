@@ -1,31 +1,22 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout Od;
+public class at implements AbsListView.RecyclerListener {
+    private int mId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(UserPhotoLayout userPhotoLayout) {
-        this.Od = userPhotoLayout;
+    public at(int i) {
+        this.mId = 0;
+        this.mId = i;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof HeadImageView) {
-            bVar = this.Od.mUserPhotoPool;
-            if (bVar != null) {
-                bVar2 = this.Od.mUserPhotoPool;
-                bVar2.j((HeadImageView) view2);
-            }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.mId);
+        if (findViewById != null && (findViewById instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) findViewById).reset();
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

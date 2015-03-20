@@ -1,39 +1,59 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
-class aj implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ OfficialBarTipActivity aUQ;
+class aj extends CustomMessageListener {
+    final /* synthetic */ OfficialBarTipActivity aZE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(OfficialBarTipActivity officialBarTipActivity) {
-        this.aUQ = officialBarTipActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj(OfficialBarTipActivity officialBarTipActivity, int i) {
+        super(i);
+        this.aZE = officialBarTipActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.notify.a
-    public void onComplete() {
-        ao aoVar;
-        ao aoVar2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ap apVar;
+        ap apVar2;
+        ap apVar3;
         OfficialBarTipModel officialBarTipModel;
-        OfficialBarTipModel officialBarTipModel2;
-        ao aoVar3;
-        OfficialBarTipModel officialBarTipModel3;
-        aoVar = this.aUQ.aUP;
-        if (aoVar != null) {
-            aoVar2 = this.aUQ.aUP;
-            if (aoVar2.La() != null) {
-                officialBarTipModel = this.aUQ.aUO;
-                if (officialBarTipModel != null) {
-                    officialBarTipModel2 = this.aUQ.aUO;
-                    if (officialBarTipModel2.getData().size() == 0) {
-                        this.aUQ.finish();
+        com.baidu.tieba.im.chat.notify.a aVar;
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2016001) {
+                if (customResponsedMessage.getCmd() != 2016003) {
+                    if (customResponsedMessage.getCmd() != 2016006) {
+                        if (customResponsedMessage.getCmd() == 2016000) {
+                            officialBarTipModel = this.aZE.aZA;
+                            aVar = this.aZE.aZD;
+                            officialBarTipModel.setData(null, aVar);
+                            return;
+                        } else if (customResponsedMessage.getCmd() == 2016011) {
+                            apVar = this.aZE.aZB;
+                            if (apVar != null) {
+                                apVar2 = this.aZE.aZB;
+                                if (apVar2.Of() != null) {
+                                    apVar3 = this.aZE.aZB;
+                                    apVar3.Of().notifyDataSetChanged();
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        } else {
+                            return;
+                        }
                     }
-                    aoVar3 = this.aUQ.aUP;
-                    OfficialBarTipListAdapter La = aoVar3.La();
-                    officialBarTipModel3 = this.aUQ.aUO;
-                    La.setData(officialBarTipModel3.getData());
+                    this.aZE.e(customResponsedMessage);
+                    return;
                 }
+                this.aZE.d(customResponsedMessage);
+                return;
             }
+            this.aZE.c(customResponsedMessage);
         }
     }
 }

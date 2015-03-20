@@ -34,29 +34,29 @@ public class CustomTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            C(i, i2);
+            A(i, i2);
         }
     }
 
-    private void C(int i, int i2) {
+    private void A(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            D(i, i2);
+            B(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        k c = c(spannableStringBuilder, i, i2);
-        if (c.ajx) {
+        d c = c(spannableStringBuilder, i, i2);
+        if (c.arW) {
             a(i, i2, spannableStringBuilder, c);
         } else {
-            D(i, i2);
+            B(i, i2);
         }
     }
 
-    private k c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private d c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -73,12 +73,12 @@ public class CustomTextView extends TextView {
             }
             try {
                 c((CharSequence) spannableStringBuilder, i, i2);
-                return k.d(arrayList, arrayList2);
+                return d.e(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return k.ajZ();
+        return d.apu();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -90,8 +90,8 @@ public class CustomTextView extends TextView {
         measure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, k kVar) {
-        for (Object obj : kVar.ajz) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, d dVar) {
+        for (Object obj : dVar.arY) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -101,7 +101,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : kVar.ajy) {
+        for (Object obj2 : dVar.arX) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -118,7 +118,7 @@ public class CustomTextView extends TextView {
         }
     }
 
-    private void D(int i, int i2) {
+    private void B(int i, int i2) {
         c(getText().toString(), i, i2);
     }
 }

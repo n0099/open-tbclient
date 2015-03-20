@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ AbsMsglistView aRl;
+    final /* synthetic */ AbsMsglistView aWs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(AbsMsglistView absMsglistView) {
-        this.aRl = absMsglistView;
+        this.aWs = absMsglistView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aRl.sendGovoiceEvent();
+        this.aWs.sendGovoiceEvent();
     }
 }

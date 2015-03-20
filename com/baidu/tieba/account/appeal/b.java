@@ -2,14 +2,14 @@ package com.baidu.tieba.account.appeal;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ AppealActivity aok;
+    final /* synthetic */ AppealActivity awm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AppealActivity appealActivity) {
-        this.aok = appealActivity;
+        this.awm = appealActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,17 +18,17 @@ class b implements View.OnClickListener {
         String str;
         String str2;
         String str3;
-        textView = this.aok.aof;
+        textView = this.awm.awh;
         String charSequence = textView.getText().toString();
         if (charSequence.length() < 20) {
-            this.aok.showToast(z.appeal_min_size);
+            this.awm.showToast(y.appeal_min_size);
         } else if (charSequence.length() <= 150) {
-            str = this.aok.aoh;
-            str2 = this.aok.aoi;
-            str3 = this.aok.mUserName;
+            str = this.awm.awj;
+            str2 = this.awm.awk;
+            str3 = this.awm.acM;
             f.a(str, str2, str3, charSequence, new c(this));
         } else {
-            this.aok.showToast(z.appeal_max_size);
+            this.awm.showToast(y.appeal_max_size);
         }
     }
 }

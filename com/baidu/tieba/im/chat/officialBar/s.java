@@ -1,25 +1,37 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
 /* loaded from: classes.dex */
-class s implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ q aUn;
-    private final /* synthetic */ CustomMessage amo;
+class s extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ OfficialBarChatActivity aYU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar, CustomMessage customMessage) {
-        this.aUn = qVar;
-        this.amo = customMessage;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(OfficialBarChatActivity officialBarChatActivity, int i) {
+        super(i);
+        this.aYU = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: d */
-    public void onReturnDataInUI(Void r5) {
-        ((OfficalBarChatActivityConfig) this.amo.getData()).getIntent().setClass(((OfficalBarChatActivityConfig) this.amo.getData()).getContext(), OfficialBarChatActivity.class);
-        if (((OfficalBarChatActivityConfig) this.amo.getData()).getUserData().getUserIdLong() != 0) {
-            ((OfficalBarChatActivityConfig) this.amo.getData()).startActivity();
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        OfficialBarMsglistView officialBarMsglistView;
+        officialBarMsglistView = this.aYU.aYO;
+        officialBarMsglistView.cv(false);
+        if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
+            this.aYU.showToast(com.baidu.tieba.y.neterror);
+            return;
+        }
+        ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
+        if (responseSendOfficialBarMenuMessage.hasError()) {
+            if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
+                this.aYU.showToast(StringUtils.isNull(responseSendOfficialBarMenuMessage.getErrorString()) ? this.aYU.getResources().getString(com.baidu.tieba.y.neterror) : responseSendOfficialBarMenuMessage.getErrorString());
+            } else {
+                this.aYU.showToast(com.baidu.tieba.y.neterror);
+            }
         }
     }
 }

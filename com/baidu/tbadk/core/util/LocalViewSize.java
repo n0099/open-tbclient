@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize Iq = null;
+    private static LocalViewSize TU = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,11 +13,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize oM() {
-        if (Iq == null) {
-            Iq = new LocalViewSize();
+    public static LocalViewSize sj() {
+        if (TU == null) {
+            TU = new LocalViewSize();
         }
-        return Iq;
+        return TU;
     }
 
     private LocalViewSize() {
@@ -54,8 +54,8 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int oN() {
-        int M = com.baidu.adp.lib.util.l.M(this.mContext);
+    public int sk() {
+        int M = com.baidu.adp.lib.util.n.M(this.mContext);
         if (M >= 1080) {
             return 1080;
         }
@@ -64,7 +64,7 @@ public class LocalViewSize {
 
     public ImageSize getMsgSPicMaxSize() {
         int i = 240;
-        int M = com.baidu.adp.lib.util.l.M(this.mContext);
+        int M = com.baidu.adp.lib.util.n.M(this.mContext);
         if (M < 240) {
             i = M / 3;
         } else if (M <= 320) {
@@ -80,14 +80,14 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize oO() {
+    public ImageSize sl() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.l.N(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.l.M(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.n.N(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.n.M(this.mContext);
         return imageSize;
     }
 
-    public int oP() {
+    public int sm() {
         ImageSize msgSPicMaxSize = getMsgSPicMaxSize();
         return msgSPicMaxSize.height >= msgSPicMaxSize.width ? msgSPicMaxSize.height : msgSPicMaxSize.width;
     }

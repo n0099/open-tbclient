@@ -1,22 +1,23 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.adp.base.BdBaseApplication;
-import dalvik.system.DexFile;
-import java.util.Enumeration;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class aa {
-    public static String SUFFIX = "Static";
+class aa implements Comparator<com.baidu.adp.lib.cache.v<?>> {
+    private aa() {
+    }
 
-    public static void fB() {
-        try {
-            Enumeration<String> entries = new DexFile(BdBaseApplication.getInst().getApp().getPackageCodePath()).entries();
-            while (entries.hasMoreElements()) {
-                String nextElement = entries.nextElement();
-                if (nextElement.endsWith(SUFFIX)) {
-                    Class.forName(nextElement);
-                }
-            }
-        } catch (Exception e) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aa(aa aaVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(com.baidu.adp.lib.cache.v<?> vVar, com.baidu.adp.lib.cache.v<?> vVar2) {
+        if (vVar.tn == vVar2.tn) {
+            return 0;
         }
+        return vVar.tn > vVar2.tn ? -1 : 1;
     }
 }

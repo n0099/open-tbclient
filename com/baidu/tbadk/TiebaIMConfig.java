@@ -3,8 +3,8 @@ package com.baidu.tbadk;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.lib.webSocket.a;
+import com.baidu.adp.lib.util.c;
+import com.baidu.adp.lib.util.n;
 /* loaded from: classes.dex */
 public class TiebaIMConfig {
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
@@ -26,11 +26,11 @@ public class TiebaIMConfig {
     public static String IM_LIVE_GROUP_SHARE_URL = "http://tieba.baidu.com/mo/q/liveshowshare?gid=";
 
     public static byte[] getRSAPublicKey() {
-        return a.decode(PUBLIC_KEY_BASE64);
+        return c.decode(PUBLIC_KEY_BASE64);
     }
 
     public static int getMaxChatImageWidthInPx(Context context) {
-        return l.dip2px(context, 300.0f);
+        return n.dip2px(context, 300.0f);
     }
 
     public static BdAsyncTaskParallel getParallel() {

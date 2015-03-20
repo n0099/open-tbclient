@@ -1,21 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import com.slidingmenu.lib.SlidingMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ap implements SlidingMenu.OnAboveViewScrollListener {
-    final /* synthetic */ ai cdv;
+class ap implements View.OnClickListener {
+    final /* synthetic */ ai crN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ai aiVar) {
-        this.cdv = aiVar;
+        this.crN = aiVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnAboveViewScrollListener
-    public void onPageScrolled(int i, float f, int i2) {
-        SlidingMenu slidingMenu;
-        ai aiVar = this.cdv;
-        slidingMenu = this.cdv.aFD;
-        aiVar.y(1.0f - slidingMenu.getPercentOpen());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
     }
 }

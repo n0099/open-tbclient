@@ -1,20 +1,17 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class k extends LinearLayout {
-    public k(Context context, String str) {
-        super(context);
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.x.floatview_item_layout, this);
-        setGravity(17);
-        ((TextView) findViewById(com.baidu.tieba.w.floatview_item_tv)).setText(str);
-        setTag(str);
-    }
-
-    public static LinearLayout.LayoutParams qx() {
-        return new LinearLayout.LayoutParams(-2, -1);
+public class k extends ImageView {
+    public void tJ() {
+        if (getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+            setBackgroundDrawable(null);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
     }
 }

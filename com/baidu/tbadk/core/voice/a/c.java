@@ -5,16 +5,16 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.f.g;
-import com.baidu.adp.lib.voice.q;
+import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.httpNet.i;
+import com.baidu.tbadk.core.util.httpNet.h;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.core.util.resourceLoaderProc.d;
-import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class c implements g<a> {
     @Override // com.baidu.adp.lib.f.g
-    public boolean ef() {
+    public boolean hE() {
         return true;
     }
 
@@ -29,16 +29,16 @@ public class c implements g<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.g(diskFileOperate);
-            aVar.lf = dVar;
+            aVar.wt = dVar;
         }
-        diskFileOperate.bO();
+        diskFileOperate.fm();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String cg = diskFileOperate.cg();
+        String fE = diskFileOperate.fE();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = cg;
+        aVar2.path = fE;
         return aVar2;
     }
 
@@ -53,40 +53,40 @@ public class c implements g<a> {
             str4 = String.valueOf(objArr[0]);
         }
         a aVar2 = new a();
-        i iVar = new i();
+        h hVar = new h();
         if (aVar != null) {
-            aVar.lf = iVar;
+            aVar.wt = hVar;
         }
-        byte[] cM = iVar.cM(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!iVar.qg()) {
+        byte[] cV = hVar.cV(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!hVar.tw()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = q.getString(z.neterror);
+            aVar2.error_msg = l.getString(y.neterror);
             return aVar2;
-        } else if (cM == null || cM.length == 0) {
+        } else if (cV == null || cV.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = q.getString(z.voice_cache_error_no_file);
+            aVar2.error_msg = l.getString(y.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (cM == null || cM.length == 0) {
+            } else if (cV == null || cV.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.o(false);
-                diskFileOperate.setData(cM);
+                diskFileOperate.setData(cV);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.g(diskFileOperate);
-                    aVar.lf = dVar;
+                    aVar.wt = dVar;
                 }
-                diskFileOperate.bO();
-                if (diskFileOperate.isSuccess() && diskFileOperate.cc() != null) {
-                    str5 = diskFileOperate.cc().getAbsolutePath();
+                diskFileOperate.fm();
+                if (diskFileOperate.isSuccess() && diskFileOperate.fA() != null) {
+                    str5 = diskFileOperate.fA().getAbsolutePath();
                     i3 = 0;
-                } else if (s.oo() < cM.length) {
+                } else if (o.rL() < cV.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -108,12 +108,12 @@ public class c implements g<a> {
     }
 
     @Override // com.baidu.adp.lib.f.g
-    public BdAsyncTaskParallel eg() {
+    public BdAsyncTaskParallel hF() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.g
-    public int eh() {
+    public int hG() {
         return 2;
     }
 

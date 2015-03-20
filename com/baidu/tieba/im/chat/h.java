@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ AbsMsgImageActivity aRi;
+    final /* synthetic */ AbsMsgImageActivity aWp;
     byte[] mData;
     String mUrl;
 
     public h(AbsMsgImageActivity absMsgImageActivity, String str, byte[] bArr) {
-        this.aRi = absMsgImageActivity;
+        this.aWp = absMsgImageActivity;
         this.mUrl = null;
         this.mData = null;
         this.mUrl = str;
@@ -20,16 +20,15 @@ public class h extends BdAsyncTask<String, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
     public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.s.a(this.mUrl, this.mData, this.aRi.getPageContext().getPageActivity())) {
+        switch (com.baidu.tbadk.core.util.o.a(this.mUrl, this.mData, this.aWp.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.s.ol();
+                return com.baidu.tbadk.core.util.o.rI();
             case -1:
             default:
-                return this.aRi.getPageContext().getString(com.baidu.tieba.z.save_error);
+                return this.aWp.getPageContext().getString(com.baidu.tieba.y.save_error);
             case 0:
-                return this.aRi.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
+                return this.aWp.getPageContext().getString(com.baidu.tieba.y.save_image_to_album);
         }
     }
 
@@ -39,10 +38,10 @@ public class h extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         FrameLayout frameLayout;
         super.onPostExecute((h) str);
-        this.aRi.aQV = null;
-        frameLayout = this.aRi.aQW;
+        this.aWp.aWb = null;
+        frameLayout = this.aWp.aWc;
         frameLayout.setClickable(true);
-        this.aRi.showToast(str);
+        this.aWp.showToast(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,8 +53,8 @@ public class h extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         FrameLayout frameLayout;
-        this.aRi.aQV = null;
-        frameLayout = this.aRi.aQW;
+        this.aWp.aWb = null;
+        frameLayout = this.aWp.aWc;
         frameLayout.setClickable(true);
         super.cancel(true);
     }

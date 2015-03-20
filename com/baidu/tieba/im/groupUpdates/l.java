@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnLongClickListener {
-    final /* synthetic */ i bhr;
+    final /* synthetic */ i biH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.bhr = iVar;
+        this.biH = iVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -17,9 +17,9 @@ public class l implements View.OnLongClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.bhr.bhj;
-        view2 = this.bhr.awv;
-        updatesItemData = this.bhr.data;
+        updatesActivity = this.biH.biz;
+        view2 = this.biH.aCi;
+        updatesItemData = this.biH.data;
         updatesActivity.onItemViewLongClick(view2, 200, 0, 0L, updatesItemData);
         return true;
     }

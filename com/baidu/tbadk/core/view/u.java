@@ -1,31 +1,15 @@
 package com.baidu.tbadk.core.view;
-
-import android.content.Context;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class u extends LinearLayout {
-    private v Nc;
+public class u {
+    t YB;
+    t YC;
 
-    public u(Context context, View view, v vVar) {
-        super(context);
-        this.Nc = null;
-        setFocusableInTouchMode(true);
-        this.Nc = vVar;
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(view);
+    private u() {
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.Nc != null) {
-                this.Nc.lq();
-            }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.Nc != null) {
-            this.Nc.lr();
-        }
-        return super.dispatchKeyEvent(keyEvent);
+    public static u a(t tVar) {
+        u uVar = new u();
+        uVar.YB = tVar;
+        return uVar;
     }
 }

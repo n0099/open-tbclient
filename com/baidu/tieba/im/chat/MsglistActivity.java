@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements au {
-    protected abstract boolean first(au auVar);
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements ax {
+    protected abstract boolean first(ax axVar);
 
     protected abstract boolean initData(Bundle bundle);
 
     protected abstract void initView();
 
-    @Override // com.baidu.tieba.im.chat.au
+    @Override // com.baidu.tieba.im.chat.ax
     public void onFirstHistoryPageLoaded() {
         onPageInited();
     }
@@ -35,7 +35,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cv.aTd = com.baidu.tbadk.util.h.zL();
+            cg.aYc = com.baidu.tbadk.util.g.Df();
         }
     }
 
@@ -55,9 +55,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
+    protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mListView != null) {
             this.mListView.onChangeSkinType(i);
@@ -69,14 +68,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     public void onResume() {
         super.onResume();
         if (this.mListView != null) {
-            this.mListView.onChangeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
+            this.mListView.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
             refreshHeadIcon();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void refreshHeadIcon() {
-        if (TbadkCoreApplication.m255getInst().isHeadsetModeOn()) {
+        if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
             this.mListView.showReceiver();
         } else {
             this.mListView.closeReceiver();

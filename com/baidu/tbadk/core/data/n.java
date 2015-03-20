@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private ArrayList<String> DZ;
+    private ArrayList<String> PO;
     private int smsCodeTime = 0;
-    private UserData DX = new UserData();
-    private AntiData DY = new AntiData();
+    private UserData PM = new UserData();
+    private AntiData PN = new AntiData();
 
     public n() {
-        this.DZ = null;
-        this.DZ = new ArrayList<>();
+        this.PO = null;
+        this.PO = new ArrayList<>();
         setSmsCodeTime(0);
     }
 
     public UserData getUser() {
-        return this.DX;
+        return this.PM;
     }
 
-    public AntiData mK() {
-        return this.DY;
+    public AntiData qe() {
+        return this.PN;
     }
 
     public void parserJson(String str) {
@@ -35,12 +35,12 @@ public class n {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.DX.parserJson(jSONObject.optJSONObject("user"));
-            this.DY.parserJson(jSONObject.optJSONObject("anti"));
+            this.PM.parserJson(jSONObject.optJSONObject("user"));
+            this.PN.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.DZ.add(optJSONArray.optString(i, null));
+                    this.PO.add(optJSONArray.optString(i, null));
                 }
             }
             setSmsCodeTime(jSONObject.optInt("retrytime"));
@@ -49,8 +49,8 @@ public class n {
         }
     }
 
-    public ArrayList<String> mL() {
-        return this.DZ;
+    public ArrayList<String> qf() {
+        return this.PO;
     }
 
     public void setSmsCodeTime(int i) {

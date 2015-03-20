@@ -1,28 +1,28 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.adp.lib.webSocket.m;
+import com.baidu.adp.lib.webSocket.l;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.framework.client.socket.link.g {
-    final /* synthetic */ b bjM;
+    final /* synthetic */ b bkX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.bjM = bVar;
+        this.bkX = bVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
     public boolean k(int i, String str) {
-        this.bjM.stop();
+        this.bkX.stop();
         return false;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
     public void c(Map<String, String> map) {
-        this.bjM.start();
-        com.baidu.adp.lib.stats.f.eq().a("lc_con", (String) null, (String) null, m.fU().gd(), 0, (String) null, "dns", Long.valueOf(m.fU().fS()), "ip", m.fU().fR(), "net", com.baidu.adp.lib.stats.f.eq().et(), "localdns", m.fU().fu(), "localdnsbak", m.fU().fv());
-        com.baidu.adp.framework.client.socket.i.aT().b(map);
+        this.bkX.start();
+        com.baidu.adp.lib.stats.f.hP().a("lc_con", (String) null, (String) null, l.jr().jz(), 0, (String) null, "dns", Long.valueOf(l.jr().jo()), "ip", l.jr().jn(), "net", com.baidu.adp.lib.stats.f.hP().hS(), "localdns", l.jr().iX(), "localdnsbak", l.jr().iY());
+        com.baidu.adp.framework.client.socket.i.eq().b(map);
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
@@ -30,10 +30,10 @@ public class e implements com.baidu.adp.framework.client.socket.link.g {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
+    public void a(com.baidu.adp.lib.webSocket.c cVar) {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
-    public void y(String str) {
+    public void G(String str) {
     }
 }

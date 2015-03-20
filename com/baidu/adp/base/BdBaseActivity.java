@@ -12,6 +12,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.n;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.megapp.ma.MAActivity;
 /* loaded from: classes.dex */
@@ -27,7 +28,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.ah().g(getPageContext().getPageActivity());
+        a.dF().g(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -64,7 +65,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.l.showToast(getApplicationContext(), str);
+        n.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -136,8 +137,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.ec().d(this.mId);
-        a.ah().h(getPageContext().getPageActivity());
+        com.baidu.adp.lib.f.d.hB().d(this.mId);
+        a.dF().h(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -145,7 +146,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.ec().e(this.mId);
+        com.baidu.adp.lib.f.d.hB().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -162,7 +163,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.jA();
+            onGetPreLoadListView.mV();
         }
     }
 

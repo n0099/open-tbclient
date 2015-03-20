@@ -1,40 +1,32 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.Activity;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class p implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity bta;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(SquareSearchActivity squareSearchActivity) {
-        this.bta = squareSearchActivity;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
-        EditText editText;
-        EditText editText2;
-        if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.bta.bsz;
-            linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.bta.bsz;
-            linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            editText = this.bta.bsv;
-            if (editText.hasFocus()) {
-                Activity pageActivity = this.bta.getPageContext().getPageActivity();
-                editText2 = this.bta.bsv;
-                com.baidu.adp.lib.util.l.c(pageActivity, editText2);
-                return false;
-            }
-            return false;
+public class p implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
+            return null;
         }
-        return false;
+        RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null) {
+            currentAccount = "";
+        }
+        com.baidu.adp.lib.cache.t<String> S = com.baidu.tbadk.core.b.a.rc().S("tb.searchperson_history", currentAccount);
+        if (requestSearchPersonHistoryWriteMessage.isClear()) {
+            BdCacheService.gp().a(S);
+        } else {
+            Object data = requestSearchPersonHistoryWriteMessage.getData();
+            if (data == null || !(data instanceof String)) {
+                return null;
+            }
+            S.f((String) data, null);
+        }
+        return new ResponseSearchPersonHistoryWriteMessage();
     }
 }

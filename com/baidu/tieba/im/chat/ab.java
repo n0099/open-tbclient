@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
 class ab implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ GroupChatActivity aRn;
+    final /* synthetic */ GroupChatActivity aWv;
     private final /* synthetic */ GroupData val$groupData;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.aRn = groupChatActivity;
+        this.aWv = groupChatActivity;
         this.val$groupData = groupData;
     }
 
@@ -18,14 +18,14 @@ class ab implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         if (bool != null) {
             if (bool.booleanValue()) {
-                this.aRn.mListView.closeNotNotify();
+                this.aWv.mListView.closeNotNotify();
             } else {
-                this.aRn.mListView.showNotNotfiy();
+                this.aWv.mListView.showNotNotfiy();
             }
-            if (this.aRn.mListModel != null && this.val$groupData != null) {
+            if (this.aWv.mListModel != null && this.val$groupData != null) {
                 String name = this.val$groupData.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    this.aRn.mListView.refreshHeaderFooter(name, true);
+                    this.aWv.mListView.refreshHeaderFooter(name, true);
                 }
             }
         }

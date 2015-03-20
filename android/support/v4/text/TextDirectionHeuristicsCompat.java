@@ -3,10 +3,10 @@ package android.support.v4.text;
 public class TextDirectionHeuristicsCompat {
     public static final TextDirectionHeuristicCompat LTR = new l(null, false);
     public static final TextDirectionHeuristicCompat RTL = new l(null, true);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new l(i.bt, false);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new l(i.bt, true);
-    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new l(h.br, false);
-    public static final TextDirectionHeuristicCompat LOCALE = m.bw;
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new l(i.my, false);
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new l(i.my, true);
+    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new l(h.mw, false);
+    public static final TextDirectionHeuristicCompat LOCALE = m.mB;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int g(int i) {
@@ -22,7 +22,7 @@ public class TextDirectionHeuristicsCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int h(int i) {
+    public static int i(int i) {
         switch (i) {
             case 0:
             case 14:

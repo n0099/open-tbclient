@@ -1,15 +1,15 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class d {
-    public int kp = -1;
-    public int kq = -1;
-    public long kr = -1;
-    public long ks = -1;
-    public int retry = 0;
-    public long kt = -1;
-    public long ku = -1;
-    public String kv = "";
-    public int kx = -1;
-    public int ky = 0;
-    public String kA = null;
+    public int vE = -1;
+    public int vF = -1;
+    public long vG = -1;
+    public long vH = -1;
+    public int vI = 0;
+    public long vJ = -1;
+    public long vK = -1;
+    public String vL = "";
+    public int vM = -1;
+    public int vN = 0;
+    public String vO = null;
 }

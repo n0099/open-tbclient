@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
-import com.baidu.tieba.im.message.g;
+import com.baidu.tieba.im.message.h;
 /* loaded from: classes.dex */
 public class OfficialBarTipModelStatic {
     static {
@@ -16,7 +16,7 @@ public class OfficialBarTipModelStatic {
                 if (customMessage != null) {
                     String data = customMessage.getData();
                     if (!TextUtils.isEmpty(data)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new g(data, 4, false)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new h(data, 4, false)));
                     }
                 }
                 return null;

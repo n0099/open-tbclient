@@ -1,20 +1,19 @@
 package com.baidu.tieba.person;
+
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.widget.ListView.ab {
-    final /* synthetic */ g bHb;
+class p implements Runnable {
+    final /* synthetic */ n bPg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(g gVar) {
-        this.bHb = gVar;
+    public p(n nVar) {
+        this.bPg = nVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.ab
-    public void onScrollToBottom() {
-        if (this.bHb.hasMore) {
-            this.bHb.bGP.Ez();
-            this.bHb.hn(this.bHb.bGT);
-            return;
-        }
-        this.bHb.bGP.hL(this.bHb.getString(com.baidu.tieba.z.person_post_bar_no_more));
+    @Override // java.lang.Runnable
+    public void run() {
+        EditHeadActivity editHeadActivity;
+        editHeadActivity = this.bPg.this$0;
+        editHeadActivity.hU(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

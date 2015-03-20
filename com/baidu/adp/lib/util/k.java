@@ -1,169 +1,287 @@
 package com.baidu.adp.lib.util;
 
-import java.lang.Character;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
+import com.baidu.adp.base.BdBaseApplication;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat nc = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat nd = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat ne = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat nf = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat ng = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat nh = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat ni = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat nj = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat nk = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat nl = new SimpleDateFormat("MM-dd");
-    private static final char[] nm = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-    private static byte[] nn = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+    private static Pattern vz = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+    private static boolean yA = true;
+    private static k yB;
+    private NetworkInfo yt = null;
+    private boolean yu = true;
+    private boolean yv = false;
+    private boolean yw = true;
+    private int yx = 0;
+    private int yy = 0;
+    private int yz = -1;
+    private String mProxyHost = null;
+    private int mProxyPort = -1;
 
-    public static String a(CharSequence charSequence, String str) {
-        if (charSequence instanceof String) {
-            return (String) charSequence;
-        }
-        return charSequence != null ? charSequence.toString() : str;
-    }
-
-    public static String a(Date date) {
-        String format;
-        synchronized (ng) {
-            format = ng.format(date);
-        }
-        return format;
-    }
-
-    public static String b(Date date) {
-        String format;
-        synchronized (ne) {
-            format = ne.format(date);
-        }
-        return format;
-    }
-
-    public static String c(Date date) {
-        String format;
-        synchronized (nf) {
-            format = nf.format(date);
-        }
-        return format;
-    }
-
-    public static String d(Date date) {
-        String format;
-        synchronized (nh) {
-            format = nh.format(date);
-        }
-        return format;
-    }
-
-    public static boolean isChinese(char c) {
-        Character.UnicodeBlock of = Character.UnicodeBlock.of(c);
-        return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
-    }
-
-    public static boolean aC(String str) {
-        return str != null && str.length() > 0;
-    }
-
-    public static boolean isEmpty(String str) {
-        return str == null || str.length() == 0 || str.equals("null");
-    }
-
-    public static boolean aD(String str) {
-        return str == null || str.trim().length() == 0;
-    }
-
-    public static String aE(String str) {
-        if (str == null) {
-            return null;
-        }
+    static {
         try {
-            return URLEncoder.encode(str, "utf-8");
+            l lVar = new l(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            BdBaseApplication.getInst().getApp().registerReceiver(lVar, intentFilter);
+            iG().iy();
         } catch (Exception e) {
-            e.printStackTrace();
-            return "";
+            BdLog.e(e.getMessage());
         }
+        yB = null;
     }
 
-    public static String aF(String str) {
-        try {
-            return URLDecoder.decode(str, "utf-8");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static String h(String str, int i) {
-        if (str == null || i <= 0) {
-            return String.valueOf("");
-        }
-        int length = str.length();
-        int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            if (isChinese(str.charAt(i2))) {
-                i3 += 2;
+    public void iy() {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        if (activeNetworkInfo != null) {
+            this.yt = activeNetworkInfo;
+            if (activeNetworkInfo.getType() == 1) {
+                this.yu = true;
+                this.yv = false;
+            } else if (activeNetworkInfo.getType() == 0) {
+                this.yu = false;
+                this.yv = true;
             } else {
-                i3++;
+                this.yu = false;
+                this.yv = false;
             }
-            if (i3 >= i) {
-                break;
+            this.yw = true;
+            this.yx = activeNetworkInfo.getSubtype();
+            if (this.yv) {
+                this.yy = T(this.yx);
+            } else {
+                this.yy = 0;
             }
-            i2++;
+        } else {
+            this.yu = false;
+            this.yv = false;
+            this.yw = false;
+            this.yx = 0;
+            this.yx = 0;
         }
-        if (i2 < length) {
-            return String.valueOf(str.substring(0, i2 + 1)) + "...";
-        }
-        return str;
+        this.yz = iF();
+        this.mProxyHost = Proxy.getDefaultHost();
+        this.mProxyPort = Proxy.getDefaultPort();
     }
 
-    public static String base64Encode(byte[] bArr) {
-        int length = bArr.length;
-        int i = 0;
-        StringBuilder sb = new StringBuilder(length / 2);
-        while (true) {
-            if (i >= length) {
-                break;
-            }
-            int i2 = i + 1;
-            int i3 = bArr[i] & 255;
-            if (i2 == length) {
-                sb.append(nm[i3 >>> 2]);
-                sb.append(nm[(i3 & 3) << 4]);
-                sb.append("==");
-                break;
-            }
-            int i4 = i2 + 1;
-            int i5 = bArr[i2] & 255;
-            if (i4 == length) {
-                sb.append(nm[i3 >>> 2]);
-                sb.append(nm[((i3 & 3) << 4) | ((i5 & 240) >>> 4)]);
-                sb.append(nm[(i5 & 15) << 2]);
-                sb.append("=");
-                break;
-            }
-            i = i4 + 1;
-            int i6 = bArr[i4] & 255;
-            sb.append(nm[i3 >>> 2]);
-            sb.append(nm[((i3 & 3) << 4) | ((i5 & 240) >>> 4)]);
-            sb.append(nm[((i5 & 15) << 2) | ((i6 & 192) >>> 6)]);
-            sb.append(nm[i6 & 63]);
+    private NetworkInfo getActiveNetworkInfo() {
+        try {
+            return ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.hu().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return sb.toString();
     }
 
-    public static String e(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return "";
+    public boolean iz() {
+        if (this.yt == null) {
+            iy();
         }
-        StringBuilder sb = new StringBuilder();
-        for (String str : strArr) {
-            sb.append(str);
+        return this.yw;
+    }
+
+    public boolean isWifi() {
+        if (this.yt == null) {
+            iy();
         }
-        return sb.toString();
+        return this.yu;
+    }
+
+    public boolean hv() {
+        if (this.yt == null) {
+            iy();
+        }
+        return this.yv;
+    }
+
+    public int iA() {
+        if (this.yt == null) {
+            iy();
+        }
+        return this.yy;
+    }
+
+    public int iB() {
+        if (this.yz == -1) {
+            try {
+                this.yz = iF();
+            } catch (Exception e) {
+                this.yz = 0;
+            }
+        }
+        return this.yz;
+    }
+
+    public static boolean aJ(String str) {
+        if (vz.matcher(str).find()) {
+            return true;
+        }
+        return false;
+    }
+
+    public String iC() {
+        if (this.mProxyHost == null) {
+            this.mProxyHost = Proxy.getDefaultHost();
+        }
+        return this.mProxyHost;
+    }
+
+    public int iD() {
+        if (-1 == this.mProxyPort) {
+            this.mProxyPort = Proxy.getDefaultPort();
+        }
+        return this.mProxyPort;
+    }
+
+    public static boolean iE() {
+        return (iG().yu || iF() == 1 || m.aL(Proxy.getDefaultHost())) ? false : true;
+    }
+
+    private static int iF() {
+        int i;
+        String networkOperator = ((TelephonyManager) com.baidu.adp.lib.network.willdelete.e.hu().getContext().getSystemService("phone")).getNetworkOperator();
+        if (networkOperator == null || networkOperator.length() < 4 || m.aL(networkOperator)) {
+            return 0;
+        }
+        String substring = networkOperator.substring(0, 3);
+        if (substring == null || !substring.equals("460")) {
+            return 0;
+        }
+        try {
+            i = Integer.parseInt(networkOperator.substring(3));
+        } catch (NumberFormatException e) {
+            i = 0;
+        }
+        switch (i) {
+            case 0:
+            case 2:
+            case 7:
+                return 1;
+            case 1:
+            case 6:
+                return 2;
+            case 3:
+            case 5:
+                return 3;
+            case 4:
+            default:
+                return 0;
+        }
+    }
+
+    public static int T(int i) {
+        switch (i) {
+            case 1:
+            case 2:
+            case 4:
+            case 7:
+            case 11:
+                return 1;
+            case 3:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:
+            case 12:
+            case 14:
+            case 15:
+                return 2;
+            case 13:
+                return 3;
+            default:
+                return 4;
+        }
+    }
+
+    public static synchronized k iG() {
+        k kVar;
+        synchronized (k.class) {
+            if (yB == null) {
+                yB = new k();
+            }
+            kVar = yB;
+        }
+        return kVar;
+    }
+
+    public static boolean iH() {
+        return iG().iz();
+    }
+
+    public static boolean iI() {
+        return iG().isWifi();
+    }
+
+    public static boolean iJ() {
+        return iG().hv();
+    }
+
+    public static boolean iK() {
+        return 3 == iG().iA();
+    }
+
+    public static boolean iL() {
+        return 2 == iG().iA();
+    }
+
+    public static boolean hx() {
+        return 1 == iG().iA();
+    }
+
+    public static int iM() {
+        if (iI()) {
+            return 1;
+        }
+        if (hx()) {
+            return 2;
+        }
+        if (iL()) {
+            return 3;
+        }
+        return (iK() || iH()) ? 4 : 0;
+    }
+
+    public static String iN() {
+        switch (iM()) {
+            case 1:
+                return "wifi";
+            case 2:
+                return "2g";
+            case 3:
+                return "3g";
+            case 4:
+                return "4g";
+            default:
+                return "unreachable";
+        }
+    }
+
+    public static String iO() {
+        String iN = iN();
+        if (iN != null) {
+            return iN.toUpperCase();
+        }
+        return iN;
+    }
+
+    public static int iP() {
+        return iG().iB();
+    }
+
+    public static String iQ() {
+        return iG().iC();
+    }
+
+    public static int iR() {
+        return iG().iD();
+    }
+
+    public static boolean iS() {
+        return yA;
     }
 }

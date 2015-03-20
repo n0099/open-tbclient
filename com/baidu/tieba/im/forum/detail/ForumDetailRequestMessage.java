@@ -21,7 +21,7 @@ public class ForumDetailRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            com.baidu.tbadk.util.k.a(builder, true);
+            com.baidu.tbadk.util.j.a(builder, true);
         }
         GetForumDetailReqIdl.Builder builder2 = new GetForumDetailReqIdl.Builder();
         builder.forum_id = Long.valueOf(this.forumId);

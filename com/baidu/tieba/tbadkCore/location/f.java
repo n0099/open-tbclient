@@ -1,31 +1,38 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import android.location.Address;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ d cas;
+public class f extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ e cpv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.cas = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i, boolean z) {
+        super(i, z);
+        this.cpv = eVar;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void b(int i, String str, Address address) {
-        i iVar;
-        i iVar2;
-        if (i == 0 && address != null) {
-            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
-            this.cas.aR(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        j jVar;
+        j jVar2;
+        if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
+            BdLog.i("mLocationListener response error!");
+            jVar = this.cpv.cpo;
+            if (jVar != null) {
+                String str = null;
+                if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
+                    str = socketResponsedMessage.getErrorString();
+                }
+                jVar2 = this.cpv.cpo;
+                jVar2.fE(str);
+                return;
+            }
             return;
         }
-        BdLog.i("mGetLonAndLatCallback error!");
-        iVar = this.cas.cal;
-        if (iVar != null) {
-            iVar2 = this.cas.cal;
-            iVar2.fv(str);
-        }
+        this.cpv.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
     }
 }

@@ -2,107 +2,106 @@ package com.baidu.tieba.im.chat;
 
 import android.text.TextUtils;
 import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tieba.im.c.ad;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements ad {
-    final /* synthetic */ AbsMsgImageActivity aRi;
+public class g implements com.baidu.tieba.im.c.ad {
+    final /* synthetic */ AbsMsgImageActivity aWp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AbsMsgImageActivity absMsgImageActivity) {
-        this.aRi = absMsgImageActivity;
+        this.aWp = absMsgImageActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
-        if (r0 != false) goto L40;
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
+        if (r0 != false) goto L43;
      */
     @Override // com.baidu.tieba.im.c.ad
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(LinkedHashMap<String, String> linkedHashMap) {
-        LinkedHashMap linkedHashMap2;
-        LinkedHashMap linkedHashMap3;
-        LinkedHashMap linkedHashMap4;
+    public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
         String str;
-        LinkedHashMap linkedHashMap5;
         boolean z;
-        LinkedHashMap linkedHashMap6;
         TextView textView;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         MultiImageView multiImageView3;
-        LinkedHashMap linkedHashMap7;
         MultiImageView multiImageView4;
+        MultiImageView multiImageView5;
         int i;
         int i2;
         String str2;
-        LinkedHashMap linkedHashMap8;
         String str3;
         String str4;
+        String str5;
+        String str6;
         boolean z2;
-        this.aRi.aQU = linkedHashMap;
-        linkedHashMap2 = this.aRi.aQU;
-        if (linkedHashMap2 != null) {
-            z2 = this.aRi.aRh;
+        if (linkedHashMap != null) {
+            z2 = this.aWp.aWo;
         }
-        this.aRi.aQU = new LinkedHashMap();
-        linkedHashMap3 = this.aRi.aQU;
-        if (linkedHashMap3.isEmpty()) {
-            str2 = this.aRi.aRc;
+        linkedHashMap = new LinkedHashMap<>();
+        if (linkedHashMap.isEmpty()) {
+            str2 = this.aWp.aWi;
             if (!TextUtils.isEmpty(str2)) {
-                linkedHashMap8 = this.aRi.aQU;
-                str3 = this.aRi.aRd;
-                str4 = this.aRi.aRc;
-                linkedHashMap8.put(str3, str4);
+                str3 = this.aWp.aWk;
+                str4 = this.aWp.aWi;
+                linkedHashMap.put(str3, str4);
+                if (hashMap == null) {
+                    hashMap = new HashMap<>();
+                }
+                ImageUrlData imageUrlData = new ImageUrlData();
+                str5 = this.aWp.aWj;
+                imageUrlData.imageUrl = str5;
+                imageUrlData.urlType = 10;
+                str6 = this.aWp.aWi;
+                hashMap.put(str6, imageUrlData);
             }
         }
-        linkedHashMap4 = this.aRi.aQU;
-        if (linkedHashMap4.size() != 0) {
-            str = this.aRi.aRd;
-            linkedHashMap5 = this.aRi.aQU;
-            Iterator it = linkedHashMap5.keySet().iterator();
+        if (linkedHashMap.size() != 0) {
+            str = this.aWp.aWk;
+            Iterator<String> it = linkedHashMap.keySet().iterator();
             int i3 = 0;
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
-                String str5 = (String) it.next();
-                if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str5) && str5.equals(str)) {
-                    this.aRi.mIndex = i3;
+                String next = it.next();
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(next) && next.equals(str)) {
+                    this.aWp.mIndex = i3;
                     z = true;
                     break;
                 }
                 i3++;
             }
-            AbsMsgImageActivity absMsgImageActivity = this.aRi;
-            linkedHashMap6 = this.aRi.aQU;
-            absMsgImageActivity.mCount = linkedHashMap6.size();
+            this.aWp.mCount = linkedHashMap.size();
             if (!z) {
-                AbsMsgImageActivity absMsgImageActivity2 = this.aRi;
-                i2 = this.aRi.mCount;
-                absMsgImageActivity2.mIndex = i2 - 1;
+                AbsMsgImageActivity absMsgImageActivity = this.aWp;
+                i2 = this.aWp.mCount;
+                absMsgImageActivity.mIndex = i2 - 1;
             }
-            textView = this.aRi.mTextView;
+            textView = this.aWp.mTextView;
             textView.setVisibility(0);
-            this.aRi.Ka();
-            multiImageView = this.aRi.aQY;
+            this.aWp.Nq();
+            multiImageView = this.aWp.aWe;
             multiImageView.setIsFromCDN(true);
-            multiImageView2 = this.aRi.aQY;
+            multiImageView2 = this.aWp.aWe;
             multiImageView2.setAllowLocalUrl(true);
-            multiImageView3 = this.aRi.aQY;
-            linkedHashMap7 = this.aRi.aQU;
-            multiImageView3.setUrlData(new ArrayList<>(linkedHashMap7.values()));
-            multiImageView4 = this.aRi.aQY;
-            i = this.aRi.mIndex;
-            multiImageView4.setCurrentItem(i, false);
+            multiImageView3 = this.aWp.aWe;
+            multiImageView3.setAssistUrls(hashMap);
+            multiImageView4 = this.aWp.aWe;
+            multiImageView4.setUrlData(new ArrayList<>(linkedHashMap.values()));
+            multiImageView5 = this.aWp.aWe;
+            i = this.aWp.mIndex;
+            multiImageView5.setCurrentItem(i, false);
             return;
         }
-        this.aRi.finish();
+        this.aWp.finish();
     }
 }

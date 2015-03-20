@@ -1,35 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.PersonalMsglistModel;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements com.baidu.tieba.im.g<com.baidu.tieba.im.data.b> {
-    final /* synthetic */ PersonalChatActivity aSM;
+public class bz implements View.OnTouchListener {
+    final /* synthetic */ MsgleftView aXQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(PersonalChatActivity personalChatActivity) {
-        this.aSM = personalChatActivity;
+    public bz(MsgleftView msgleftView) {
+        this.aXQ = msgleftView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: a */
-    public void onReturnDataInUI(com.baidu.tieba.im.data.b bVar) {
-        PersonalMsglistModel personalMsglistModel;
-        PersonalMsglistModel personalMsglistModel2;
-        PersonalChatView personalChatView;
-        PersonalChatView personalChatView2;
-        personalMsglistModel = this.aSM.aSH;
-        PersonalMsglistModel.CardStatus currentStatus = personalMsglistModel.getCurrentStatus(bVar);
-        personalMsglistModel2 = this.aSM.aSH;
-        personalMsglistModel2.setCardStatus(currentStatus);
-        if (currentStatus != PersonalMsglistModel.CardStatus.AGREE) {
-            personalChatView = this.aSM.aSI;
-            personalChatView.a(currentStatus, false, new String[0]);
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        TouchType touchType;
+        TouchType touchType2;
+        touchType = this.aXQ.aXO;
+        if (touchType.get() && motionEvent.getAction() == 1) {
+            this.aXQ.aXd.onItemViewLongClick(view, 2, this.aXQ.mPosition, 0L);
+            touchType2 = this.aXQ.aXO;
+            touchType2.set(false);
         }
-        String content = bVar.getContent();
-        personalChatView2 = this.aSM.aSI;
-        personalChatView2.a(currentStatus, false, content);
+        return false;
     }
 }

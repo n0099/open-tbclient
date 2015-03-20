@@ -2,6 +2,7 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class CommonParam {
     private static final boolean DEBUG = false;
@@ -11,7 +12,7 @@ public class CommonParam {
         String deviceId = getDeviceId(context);
         String imei = DeviceId.getIMEI(context);
         if (TextUtils.isEmpty(imei)) {
-            imei = "0";
+            imei = GameInfoData.NOT_FROM_DETAIL;
         }
         return deviceId + "|" + new StringBuffer(imei).reverse().toString();
     }

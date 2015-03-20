@@ -1,89 +1,50 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+import com.baidu.tbadk.img.ImageUploadResult;
 /* loaded from: classes.dex */
-public class i extends HttpMessageListener {
-    final /* synthetic */ g bHb;
+class i implements com.baidu.tbadk.img.d {
+    final /* synthetic */ h bPc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(g gVar, int i) {
-        super(i);
-        this.bHb = gVar;
+    public i(h hVar) {
+        this.bPc = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        s sVar;
-        s sVar2;
-        int i;
-        ForumData forumData;
-        ForumData forumData2;
-        ForumData forumData3;
-        int i2;
-        int i3;
-        int i4;
-        String str;
-        q qVar;
-        q qVar2;
-        q qVar3;
-        s sVar3;
-        this.bHb.bGW = false;
-        if (httpResponsedMessage.isSuccess()) {
-            if (httpResponsedMessage.getError() == 0) {
-                sVar = this.bHb.bGF;
-                ArrayList<ForumData> aaE = sVar.aaJ().aaE();
-                sVar2 = this.bHb.bGF;
-                int aay = sVar2.aaJ().aay();
-                i = this.bHb.byo;
-                if (i < aay) {
-                    sVar3 = this.bHb.bGF;
-                    sVar3.aaJ().hj(aay - 1);
-                }
-                if (aaE != null) {
-                    i2 = this.bHb.byo;
-                    if (i2 >= 0) {
-                        i3 = this.bHb.byo;
-                        if (i3 < aaE.size()) {
-                            i4 = this.bHb.byo;
-                            aaE.remove(i4);
-                            TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                            str = this.bHb.bGR;
-                            m255getInst.delLikeForum(str);
-                            qVar = this.bHb.bGQ;
-                            if (qVar != null) {
-                                this.bHb.eh(true);
-                                qVar2 = this.bHb.bGQ;
-                                qVar2.K(aaE);
-                                qVar3 = this.bHb.bGQ;
-                                qVar3.notifyDataSetChanged();
-                            }
-                        }
+    @Override // com.baidu.tbadk.img.d
+    public void a(String str, ImageUploadResult imageUploadResult) {
+        EditHeadActivity editHeadActivity;
+        EditHeadActivity editHeadActivity2;
+        EditHeadActivity editHeadActivity3;
+        EditHeadActivity editHeadActivity4;
+        EditHeadActivity editHeadActivity5;
+        editHeadActivity = this.bPc.this$0;
+        editHeadActivity.closeLoadingDialog();
+        editHeadActivity2 = this.bPc.this$0;
+        Intent intent = editHeadActivity2.getIntent();
+        if (imageUploadResult != null) {
+            if (imageUploadResult.error_code != 0) {
+                editHeadActivity5 = this.bPc.this$0;
+                editHeadActivity5.showToast(com.baidu.tieba.y.upload_pic_error, false);
+            } else {
+                PhotoUrlData photoUrlData = new PhotoUrlData();
+                photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
+                if (imageUploadResult.picInfo != null) {
+                    if (imageUploadResult.picInfo.bigPic != null) {
+                        photoUrlData.setBigurl(imageUploadResult.picInfo.bigPic.picUrl);
+                    }
+                    if (imageUploadResult.picInfo.smallPic != null) {
+                        photoUrlData.setSmallurl(imageUploadResult.picInfo.smallPic.picUrl);
                     }
                 }
-                this.bHb.showToast(com.baidu.tieba.z.success);
-                forumData = this.bHb.bGV;
-                if (forumData != null) {
-                    forumData2 = this.bHb.bGV;
-                    if (!TextUtils.isEmpty(forumData2.getId())) {
-                        g gVar = this.bHb;
-                        forumData3 = this.bHb.bGV;
-                        gVar.sendMessage(new CustomMessage(2003004, forumData3.getId()));
-                        return;
-                    }
-                    return;
-                }
-                return;
+                intent.putExtra(EditHeadActivity.PHOTO_RESOURCE, String.valueOf(imageUploadResult.picId));
+                intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
             }
-            this.bHb.showToast(httpResponsedMessage.getErrorString());
         }
+        editHeadActivity3 = this.bPc.this$0;
+        editHeadActivity3.setResult(-1, intent);
+        editHeadActivity4 = this.bPc.this$0;
+        editHeadActivity4.finish();
     }
 }

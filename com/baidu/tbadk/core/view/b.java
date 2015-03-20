@@ -4,38 +4,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.CarouselRecommendView;
+import com.baidu.tbadk.core.flow.CoverFlowView;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b extends BaseAdapter implements t {
-    private CarouselRecommendView LH;
-    private TbPageContext<?> mContext;
-    private CarouselRecommendView.e LG = null;
-    private ArrayList<com.baidu.tbadk.core.data.v> datas = new ArrayList<>();
+public class b extends BaseAdapter {
+    private TbPageContext<?> LN;
+    private CoverFlowView<com.baidu.tieba.square.a> Xh;
+    private ArrayList<com.baidu.tieba.square.a> datas = new ArrayList<>();
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> RR = new c(this);
 
     public b(TbPageContext<?> tbPageContext) {
-        this.LH = null;
-        this.mContext = tbPageContext;
-        this.LH = new CarouselRecommendView(tbPageContext.getContext(), false);
+        this.Xh = null;
+        this.LN = tbPageContext;
+        this.Xh = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.Xh.setCoverFlowFactory(new d(this, tbPageContext));
+        this.Xh.setCallback(this.RR);
     }
 
-    public void s(ArrayList<com.baidu.tbadk.core.data.v> arrayList) {
-        this.datas = arrayList;
-        this.LH.a(this.mContext, arrayList);
-        this.LG = this.LH.getPagerAdapter();
+    public void p(ArrayList<com.baidu.tbadk.core.data.u> arrayList) {
+        ArrayList<com.baidu.tieba.square.a> arrayList2 = new ArrayList<>();
+        Iterator<com.baidu.tbadk.core.data.u> it = arrayList.iterator();
+        while (it.hasNext()) {
+            com.baidu.tbadk.core.data.u next = it.next();
+            if (next != null) {
+                arrayList2.add(new com.baidu.tieba.square.a(next));
+            }
+        }
+        this.datas = arrayList2;
+        this.Xh.setData(arrayList2);
         notifyDataSetChanged();
-    }
-
-    public void qo() {
-        if (this.LH != null) {
-            this.LH.qo();
-        }
-    }
-
-    public void qp() {
-        if (this.LH != null) {
-            this.LH.qp();
-        }
     }
 
     @Override // android.widget.Adapter
@@ -55,26 +53,16 @@ public class b extends BaseAdapter implements t {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.LH;
-    }
-
-    @Override // com.baidu.tbadk.core.view.t
-    public void qq() {
-        if (this.LG != null) {
-            this.LG.qq();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.t
-    public void f(View view, int i, int i2) {
-        if (this.LG != null) {
-            this.LG.f(this.LH, 0, 0);
-        }
+        return this.Xh;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.LH != null) {
-            this.LH.onChangeSkinType(i);
+        if (this.Xh != null) {
+            this.Xh.rk();
         }
+    }
+
+    public CoverFlowView<com.baidu.tieba.square.a> tE() {
+        return this.Xh;
     }
 }

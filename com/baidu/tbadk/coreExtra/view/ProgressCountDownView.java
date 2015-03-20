@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
+import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class ProgressCountDownView extends FrameLayout {
     private static final long MIN_MARK = 60000;
@@ -15,7 +16,7 @@ public class ProgressCountDownView extends FrameLayout {
     public static final int SHOW_TYPE_SECOND = 2;
     private String mFinalText;
     private boolean mFlickFlag;
-    private ar mListerner;
+    private aq mListerner;
     private ProgressBar mProgress;
     private View mRoot;
     private String mStrText;
@@ -41,9 +42,9 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.mRoot = com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.progress_count_down_view, this);
-        this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_text);
-        this.mProgress = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_progress);
+        this.mRoot = com.baidu.adp.lib.g.b.hH().inflate(context, com.baidu.tieba.w.progress_count_down_view, this);
+        this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.progress_count_down_text);
+        this.mProgress = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.v.progress_count_down_progress);
     }
 
     public void setFinalText(String str) {
@@ -53,7 +54,7 @@ public class ProgressCountDownView extends FrameLayout {
     public void setTime(long j, long j2, long j3) {
         this.mTotal = j;
         this.mWarnTime = j3;
-        this.mTimer = new aq(this, j, j2);
+        this.mTimer = new ap(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,11 +85,11 @@ public class ProgressCountDownView extends FrameLayout {
         long j3;
         String str = "";
         if (j / 60000 < 10) {
-            str = String.valueOf("") + "0";
+            str = String.valueOf("") + GameInfoData.NOT_FROM_DETAIL;
         }
         String str2 = String.valueOf(str) + String.valueOf(j2) + "'";
         if ((j % 60000) / 1000 < 10) {
-            str2 = String.valueOf(str2) + "0";
+            str2 = String.valueOf(str2) + GameInfoData.NOT_FROM_DETAIL;
         }
         return String.valueOf(str2) + String.valueOf(j3) + "\"";
     }
@@ -105,7 +106,7 @@ public class ProgressCountDownView extends FrameLayout {
         }
     }
 
-    public void setOnFinishlistener(ar arVar) {
-        this.mListerner = arVar;
+    public void setOnFinishlistener(aq aqVar) {
+        this.mListerner = aqVar;
     }
 }

@@ -1,117 +1,117 @@
 package com.alipay.android.app.lib;
 
-import com.baidu.tieba.aa;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class ResourceMap {
     public static int getString_confirm_title() {
-        return z.confirm_title;
+        return y.confirm_title;
     }
 
     public static int getString_ensure() {
-        return z.ensure;
+        return y.ensure;
     }
 
     public static int getString_cancel() {
-        return z.cancel;
+        return y.cancel;
     }
 
     public static int getString_processing() {
-        return z.processing;
+        return y.processing;
     }
 
     public static int getString_download() {
-        return z.download;
+        return y.download;
     }
 
     public static int getString_cancelInstallTips() {
-        return z.cancel_install_msp;
+        return y.cancel_install_msp;
     }
 
     public static int getString_cancelInstallAlipayTips() {
-        return z.cancel_install_alipay;
+        return y.cancel_install_alipay;
     }
 
     public static int getString_download_fail() {
-        return z.download_fail;
+        return y.download_fail;
     }
 
     public static int getString_redo() {
-        return z.redo;
+        return y.redo;
     }
 
     public static int getString_install_msp() {
-        return z.install_msp;
+        return y.install_msp;
     }
 
     public static int getString_install_alipay() {
-        return z.install_alipay;
+        return y.install_alipay;
     }
 
     public static int getLayout_pay_main() {
-        return x.alipay;
+        return w.alipay;
     }
 
     public static int getLayout_alert_dialog() {
-        return x.dialog_alert;
+        return w.dialog_alert;
     }
 
     public static int getStyle_alert_dialog() {
-        return aa.AlertDialog;
+        return z.AlertDialog;
     }
 
     public static int getImage_title() {
-        return v.title;
+        return u.title;
     }
 
     public static int getImage_title_background() {
-        return v.title_background;
+        return u.title_background;
     }
 
     public static int getId_mainView() {
-        return w.mainView;
+        return v.mainView;
     }
 
     public static int getId_webView() {
-        return w.webView;
+        return v.webView;
     }
 
     public static int getId_btn_refresh() {
-        return w.btn_refresh;
+        return v.btn_refresh;
     }
 
     public static int getId_left_button() {
-        return w.left_button;
+        return v.left_button;
     }
 
     public static int getId_right_button() {
-        return w.right_button;
+        return v.right_button;
     }
 
     public static int getId_dialog_split_v() {
-        return w.dialog_split_v;
+        return v.dialog_split_v;
     }
 
     public static int getId_dialog_title() {
-        return w.dialog_title;
+        return v.dialog_title;
     }
 
     public static int getId_dialog_message() {
-        return w.dialog_message;
+        return v.dialog_message;
     }
 
     public static int getId_dialog_divider() {
-        return w.dialog_divider;
+        return v.dialog_divider;
     }
 
     public static int getId_dialog_content_view() {
-        return w.dialog_content_view;
+        return v.dialog_content_view;
     }
 
     public static int getId_dialog_button_group() {
-        return w.dialog_button_group;
+        return v.dialog_button_group;
     }
 }

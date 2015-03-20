@@ -1,49 +1,22 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements ap {
-    final /* synthetic */ b bVi;
-    private final /* synthetic */ Context val$context;
+public class i implements View.OnClickListener {
+    final /* synthetic */ EditorToolComponetContainer cmo;
+    private final /* synthetic */ int cmq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar, Context context) {
-        this.bVi = bVar;
-        this.val$context = context;
+    public i(EditorToolComponetContainer editorToolComponetContainer, int i) {
+        this.cmo = editorToolComponetContainer;
+        this.cmq = i;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.PbEditor.ap
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.tbadkCore.bubble.z zVar;
-        BubbleListData.BubbleData hM;
-        Context context;
-        BubbleListData bubbleListData;
-        View.OnClickListener onClickListener;
-        if (view == null) {
-            zVar = new com.baidu.tieba.tbadkCore.bubble.z(this.val$context);
-            view = zVar;
-        } else {
-            zVar = (com.baidu.tieba.tbadkCore.bubble.z) view;
-        }
-        hM = this.bVi.hM(i);
-        if (hM != null) {
-            bubbleListData = this.bVi.bUY;
-            zVar.a(hM, com.baidu.tieba.tbadkCore.bubble.h.aI(bubbleListData.getB_info()));
-            zVar.setGravity(17);
-            zVar.setTag(Integer.valueOf(i));
-            onClickListener = this.bVi.bVf;
-            zVar.setOnClickListener(onClickListener);
-        }
-        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        context = this.bVi.mContext;
-        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.m.D(context);
-        tbPageContext.getLayoutMode().ab(skinType == 1);
-        tbPageContext.getLayoutMode().h(view);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortool.v vVar;
+        vVar = this.cmo.aip;
+        vVar.handleAction(this.cmq, null);
     }
 }

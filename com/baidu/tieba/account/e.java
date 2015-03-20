@@ -1,49 +1,43 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity amF;
+public class e implements AdapterView.OnItemClickListener {
+    final /* synthetic */ AccountActivity auu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.amF = accountActivity;
+        this.auu = accountActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         m mVar;
         m mVar2;
-        TextView textView;
-        TextView textView2;
         m mVar3;
-        m mVar4;
-        TextView textView3;
-        TextView textView4;
-        m mVar5;
-        mVar = this.amF.amA;
-        if (!mVar.AT()) {
-            mVar4 = this.amF.amA;
-            mVar4.setEditState(true);
-            textView3 = this.amF.amB;
-            textView3.setText(com.baidu.tieba.z.done);
-            textView4 = this.amF.amB;
-            bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-            mVar5 = this.amF.amA;
-            mVar5.notifyDataSetChanged();
+        mVar = this.auu.auo;
+        if (mVar.getItemId(i) >= 0) {
+            mVar2 = this.auu.auo;
+            if (!mVar2.Ei()) {
+                mVar3 = this.auu.auo;
+                AccountData accountData = (AccountData) mVar3.getItem(i);
+                if (accountData != null && accountData.getIsActive() != 1) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
+                    this.auu.l(accountData);
+                    return;
+                }
+                return;
+            }
             return;
         }
-        mVar2 = this.amF.amA;
-        mVar2.setEditState(false);
-        textView = this.amF.amB;
-        textView.setText(com.baidu.tieba.z.edit);
-        textView2 = this.amF.amB;
-        bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-        mVar3 = this.amF.amA;
-        mVar3.notifyDataSetChanged();
+        this.auu.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.auu.getPageContext().getPageActivity())));
     }
 }

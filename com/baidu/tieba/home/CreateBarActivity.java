@@ -13,55 +13,52 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.x;
-import com.baidu.tieba.z;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
-    RelativeLayout aPs;
+    private RelativeLayout aVN;
     public NavigationBar mNavigationBar;
-    private TextView Qt = null;
-    private TextView aPj = null;
-    private EditText aPk = null;
-    private EditText Qd = null;
-    private RelativeLayout aPl = null;
-    private FrameLayout aPm = null;
-    private ImageView ano = null;
+    private TextView awR = null;
+    private TextView aVE = null;
+    private EditText aVF = null;
+    private EditText avK = null;
+    private RelativeLayout aVG = null;
+    private FrameLayout aVH = null;
+    private ImageView atv = null;
     private ProgressBar mProgress = null;
-    private ProgressBar aPn = null;
-    private c aPo = null;
-    private d aPp = null;
+    private ProgressBar aVI = null;
+    private c aVJ = null;
+    private d aVK = null;
     private View.OnClickListener mOnClickListener = null;
-    private TextWatcher anl = null;
-    private String aPq = null;
-    private TextView aPr = null;
-    RelativeLayout Qx = null;
-    View anf = null;
-    TextView aPt = null;
-    private String aPu = null;
-    private boolean aPv = false;
-
-    static {
-        TbadkApplication.getInst().RegisterIntent(CreateBarActivityConfig.class, CreateBarActivity.class);
-    }
+    private TextWatcher avk = null;
+    private String aVL = null;
+    private TextView aVM = null;
+    private RelativeLayout aup = null;
+    private TextView aVO = null;
+    private String aVP = null;
+    private boolean aVQ = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(x.create_bar_activity);
+        setContentView(w.create_bar_activity);
         initData();
         initUI();
-        Js();
+        Ni();
     }
 
-    private void Js() {
-        if (this.aPp == null) {
-            this.aPp = new d(this, null);
-            this.aPp.execute(new String[0]);
+    private void Ni() {
+        if (this.aVK == null) {
+            this.aVK = new d(this, null);
+            this.aVK.execute(new String[0]);
         }
     }
 
@@ -69,74 +66,73 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aPo != null) {
-            this.aPo.cancel();
+        if (this.aVJ != null) {
+            this.aVJ.cancel();
         }
-        if (this.aPp != null) {
-            this.aPp.cancel();
+        if (this.aVK != null) {
+            this.aVK.cancel();
         }
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aPu = intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
-        this.aPv = intent.getBooleanExtra(CreateBarActivityConfig.BAR_NAME_ISVALID, false);
-        if (this.aPu == null) {
-            this.aPu = "";
+        this.aVP = intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
+        this.aVQ = intent.getBooleanExtra(CreateBarActivityConfig.BAR_NAME_ISVALID, false);
+        if (this.aVP == null) {
+            this.aVP = "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jt() {
-        if (this.aPp == null && this.aPo == null) {
-            this.aPp = new d(this, null);
-            this.aPp.setPriority(3);
-            this.aPp.execute(new String[0]);
+    public void Nj() {
+        if (this.aVK == null && this.aVJ == null) {
+            this.aVK = new d(this, null);
+            this.aVK.setPriority(3);
+            this.aVK.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ju() {
-        if (this.aPo == null) {
-            this.aPo = new c(this, this.aPk.getText().toString().trim(), this.Qd.getText().toString().trim());
-            this.aPo.setPriority(3);
-            this.aPo.execute(new String[0]);
+    public void Nk() {
+        if (this.aVJ == null) {
+            this.aVJ = new c(this, this.aVF.getText().toString().trim(), this.avK.getText().toString().trim());
+            this.aVJ.setPriority(3);
+            this.aVJ.execute(new String[0]);
         }
     }
 
     private void initUI() {
         this.mOnClickListener = new a(this);
-        this.anl = new b(this);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.avk = new b(this);
+        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(z.create_bar));
-        this.Qx = (RelativeLayout) findViewById(com.baidu.tieba.w.container);
-        this.anf = findViewById(com.baidu.tieba.w.title);
-        this.aPt = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.aPr = (TextView) findViewById(com.baidu.tieba.w.error);
-        this.Qt = (TextView) findViewById(com.baidu.tieba.w.info);
-        this.aPl = (RelativeLayout) findViewById(com.baidu.tieba.w.create);
-        this.aPl.setOnClickListener(this.mOnClickListener);
-        this.aPj = (TextView) findViewById(com.baidu.tieba.w.info2);
-        this.aPk = (EditText) findViewById(com.baidu.tieba.w.edit_name);
-        this.aPk.addTextChangedListener(this.anl);
-        this.Qd = (EditText) findViewById(com.baidu.tieba.w.edit_vcode);
-        this.Qd.addTextChangedListener(this.anl);
-        if (this.aPv) {
-            this.aPj.setText(getPageContext().getString(z.bar_name_valid));
-            this.aPk.setText(this.aPu);
+        this.mNavigationBar.setTitleText(getPageContext().getString(y.create_bar));
+        this.aup = (RelativeLayout) findViewById(v.container);
+        this.aVO = (TextView) findViewById(v.text);
+        this.aVM = (TextView) findViewById(v.error);
+        this.awR = (TextView) findViewById(v.info);
+        this.aVG = (RelativeLayout) findViewById(v.create);
+        this.aVG.setOnClickListener(this.mOnClickListener);
+        this.aVE = (TextView) findViewById(v.info2);
+        this.aVF = (EditText) findViewById(v.edit_name);
+        this.aVF.addTextChangedListener(this.avk);
+        this.avK = (EditText) findViewById(v.edit_vcode);
+        this.avK.addTextChangedListener(this.avk);
+        if (this.aVQ) {
+            this.aVE.setText(getPageContext().getString(y.bar_name_valid));
+            this.aVF.setText(this.aVP);
         } else {
-            this.aPj.setText(getPageContext().getString(z.bar_name_invalid));
+            this.aVE.setText(getPageContext().getString(y.bar_name_invalid));
         }
-        this.aPs = (RelativeLayout) findViewById(com.baidu.tieba.w.create);
-        this.aPm = (FrameLayout) findViewById(com.baidu.tieba.w.image_button);
-        this.aPm.setOnClickListener(this.mOnClickListener);
-        this.ano = (ImageView) findViewById(com.baidu.tieba.w.image);
-        this.aPl.setEnabled(false);
-        this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.w.progress);
-        this.aPn = (ProgressBar) findViewById(com.baidu.tieba.w.progress_image);
-        if (this.aPv) {
-            this.Qd.requestFocus();
+        this.aVN = (RelativeLayout) findViewById(v.create);
+        this.aVH = (FrameLayout) findViewById(v.image_button);
+        this.aVH.setOnClickListener(this.mOnClickListener);
+        this.atv = (ImageView) findViewById(v.image);
+        this.aVG.setEnabled(false);
+        this.mProgress = (ProgressBar) findViewById(v.progress);
+        this.aVI = (ProgressBar) findViewById(v.progress_image);
+        if (this.aVQ) {
+            this.avK.requestFocus();
         }
     }
 
@@ -144,16 +140,16 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().ab(i == 1);
-        getLayoutMode().h(this.Qx);
-        bc.b(this.aPt, i);
-        bc.c(this.aPj, i);
-        String str = String.valueOf(this.aPu) + getPageContext().getString(z.bar_not_create);
+        getLayoutMode().X(i == 1);
+        getLayoutMode().h(this.aup);
+        ba.b(this.aVO, i);
+        ba.c(this.aVE, i);
+        String str = String.valueOf(this.aVP) + getPageContext().getString(y.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ForegroundColorSpan(bc.getColor(com.baidu.tieba.t.noexit_create_bar_name_text)), 0, this.aPu.length(), 33);
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.t.skin_1_common_color)), this.aPu.length(), str.length(), 33);
-        bc.i(this.aPs, com.baidu.tieba.v.btn_general_start_selector);
-        this.Qt.setText(spannableString);
+        spannableString.setSpan(new ForegroundColorSpan(ba.getColor(s.noexit_create_bar_name_text)), 0, this.aVP.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(s.skin_1_common_color)), this.aVP.length(), str.length(), 33);
+        ba.i(this.aVN, u.btn_general_start_selector);
+        this.awR.setText(spannableString);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

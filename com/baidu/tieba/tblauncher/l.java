@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,7 +18,60 @@ class l extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.mHasNewVersion = false;
-        this.this$0.eH(false);
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+                return;
+            }
+            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+            int msgBookmark = newsNotifyMessage.getMsgBookmark();
+            i = this.this$0.cqZ;
+            boolean z = msgBookmark == i;
+            int msgFans = newsNotifyMessage.getMsgFans();
+            i2 = this.this$0.cqX;
+            boolean z2 = msgFans == i2;
+            int msgGiftNum = newsNotifyMessage.getMsgGiftNum();
+            i3 = this.this$0.cqY;
+            boolean z3 = msgGiftNum == i3;
+            if (!z || !z2 || !z3) {
+                MainTabActivity mainTabActivity = this.this$0;
+                int msgBookmark2 = newsNotifyMessage.getMsgBookmark();
+                i4 = this.this$0.cqZ;
+                mainTabActivity.crf = msgBookmark2 > i4 ? true : this.this$0.crf;
+                MainTabActivity mainTabActivity2 = this.this$0;
+                int msgFans2 = newsNotifyMessage.getMsgFans();
+                i5 = this.this$0.cqX;
+                mainTabActivity2.crd = msgFans2 > i5 ? true : this.this$0.crd;
+                MainTabActivity mainTabActivity3 = this.this$0;
+                int msgGiftNum2 = newsNotifyMessage.getMsgGiftNum();
+                i6 = this.this$0.cqY;
+                mainTabActivity3.cre = msgGiftNum2 <= i6 ? this.this$0.cre : true;
+                this.this$0.cqZ = newsNotifyMessage.getMsgBookmark();
+                this.this$0.cqX = newsNotifyMessage.getMsgFans();
+                this.this$0.cqY = newsNotifyMessage.getMsgGiftNum();
+                i7 = this.this$0.cqX;
+                if (i7 <= 0) {
+                    this.this$0.crd = false;
+                }
+                i8 = this.this$0.cqY;
+                if (i8 <= 0) {
+                    this.this$0.cre = false;
+                }
+                i9 = this.this$0.cqZ;
+                if (i9 <= 0) {
+                    this.this$0.crf = false;
+                }
+                this.this$0.eU(false);
+            }
+        }
     }
 }

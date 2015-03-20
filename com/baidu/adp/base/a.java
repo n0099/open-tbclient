@@ -5,48 +5,44 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class a {
-    private static ArrayList<SoftReference<Activity>> cf;
-    private static a cg;
-    private b ch;
-    private int ci = 0;
-
-    public void a(b bVar) {
-        this.ch = bVar;
-    }
+    private static ArrayList<SoftReference<Activity>> np;
+    private static a nq;
+    private b nr;
+    private int ns = 0;
 
     private a() {
-        if (cf == null) {
-            cf = new ArrayList<>(20);
+        if (np == null) {
+            np = new ArrayList<>(20);
         }
     }
 
-    public static a ah() {
-        if (cg == null) {
-            cg = new a();
+    public static a dF() {
+        if (nq == null) {
+            nq = new a();
         }
-        return cg;
+        return nq;
     }
 
     public int getSize() {
-        return cf.size();
+        return np.size();
     }
 
     public void g(Activity activity) {
         if (activity != null) {
-            cf.add(new SoftReference<>(activity));
-            n(this.ci);
+            np.add(new SoftReference<>(activity));
+            o(this.ns);
         }
     }
 
-    public Activity m(int i) {
-        int size = cf.size();
+    public Activity n(int i) {
+        int size = np.size();
         if (size == 0) {
             return null;
         }
         if (i < 0 || i >= size) {
             return null;
         }
-        SoftReference<Activity> remove = cf.remove(i);
+        SoftReference<Activity> remove = np.remove(i);
         if (remove == null) {
             return null;
         }
@@ -55,27 +51,27 @@ public final class a {
 
     public void h(Activity activity) {
         if (activity != null) {
-            int size = cf.size();
+            int size = np.size();
             if (size == 0) {
-                if (this.ch != null) {
-                    this.ch.onActivityClosed();
+                if (this.nr != null) {
+                    this.nr.onActivityClosed();
                     return;
                 }
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = cf.get(i);
+                SoftReference<Activity> softReference = np.get(i);
                 if (softReference == null) {
-                    cf.remove(i);
+                    np.remove(i);
                 } else if (activity.equals(softReference.get())) {
-                    cf.remove(i);
-                    if (cf.size() == 0 && this.ch != null) {
-                        this.ch.onActivityClosed();
+                    np.remove(i);
+                    if (np.size() == 0 && this.nr != null) {
+                        this.nr.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (size == 0 && this.ch != null) {
-                    this.ch.onActivityClosed();
+                } else if (size == 0 && this.nr != null) {
+                    this.nr.onActivityClosed();
                 }
             }
         }
@@ -83,40 +79,40 @@ public final class a {
 
     public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
-            this.ci = i;
+            this.ns = i;
         }
     }
 
-    public void ai() {
-        n(3);
+    public void dG() {
+        o(3);
     }
 
-    public void aj() {
-        if (cf != null) {
-            while (!cf.isEmpty()) {
-                SoftReference<Activity> remove = cf.remove(0);
+    public void dH() {
+        if (np != null) {
+            while (!np.isEmpty()) {
+                SoftReference<Activity> remove = np.remove(0);
                 if (remove != null && remove.get() != null) {
                     remove.get().finish();
                 }
             }
         }
-        if (this.ch != null) {
-            this.ch.onActivityClosed();
+        if (this.nr != null) {
+            this.nr.onActivityClosed();
         }
     }
 
     public int getActivityStackMaxSize() {
-        return this.ci;
+        return this.ns;
     }
 
-    private void n(int i) {
+    private void o(int i) {
         if (i != 0) {
-            int size = ah().getSize();
+            int size = dF().getSize();
             while (size > i) {
                 size--;
-                Activity m = ah().m(1);
-                if (m != null) {
-                    m.finish();
+                Activity n = dF().n(1);
+                if (n != null) {
+                    n.finish();
                 }
             }
         }

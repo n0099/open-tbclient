@@ -1,27 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends CustomMessageListener {
-    final /* synthetic */ ak NU;
+public class al implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ UserIconBox Zl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al(ak akVar, int i) {
-        super(i);
-        this.NU = akVar;
+    public al(UserIconBox userIconBox) {
+        this.Zl = userIconBox;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        z = this.NU.NS;
-        if (z) {
-            this.NU.cs(TbadkCoreApplication.m255getInst().getSkinType());
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.Zl.Zg;
+            if (bVar != null) {
+                bVar2 = this.Zl.Zg;
+                bVar2.j((TbImageView) view2);
+            }
         }
+    }
+
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

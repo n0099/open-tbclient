@@ -1,45 +1,26 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class an extends HttpMessageListener {
-    final /* synthetic */ al bHW;
+class an implements View.OnClickListener {
+    final /* synthetic */ aj bQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(al alVar, int i) {
-        super(i);
-        this.bHW = alVar;
+    public an(aj ajVar) {
+        this.bQe = ajVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aaS;
-        PersonFriendActivity aaS2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002000) {
-            this.bHW.bHT = false;
-            aaS = this.bHW.aaS();
-            if (aaS != null) {
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aaS2 = this.bHW.aaS();
-                if (tag == aaS2.getUniqueId()) {
-                    this.bHW.mListView.jB();
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
-                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
-                        if (personFriendResponseMessage.getError() == 0) {
-                            this.bHW.a(personFriendResponseMessage.getPersonListData(), false);
-                            return;
-                        }
-                        this.bHW.showToast(httpResponsedMessage.getErrorString());
-                        return;
-                    }
-                    this.bHW.showToast(httpResponsedMessage.getErrorString());
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        at atVar;
+        z = this.bQe.bQb;
+        if (!z) {
+            aj ajVar = this.bQe;
+            atVar = this.bQe.bPW;
+            ajVar.pageNum = atVar.getData().XE().qj() + 1;
+            this.bQe.bQb = true;
+            this.bQe.adc();
         }
     }
 }

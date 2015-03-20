@@ -1,26 +1,28 @@
 package com.baidu.adp.widget;
 
-import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class o extends DataSetObserver {
-    final /* synthetic */ PinnedHeaderListView xR;
+class o extends Handler {
+    final /* synthetic */ n GN;
+
+    private o(n nVar) {
+        this.GN = nVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(PinnedHeaderListView pinnedHeaderListView) {
-        this.xR = pinnedHeaderListView;
+    public /* synthetic */ o(n nVar, o oVar) {
+        this(nVar);
     }
 
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        this.xR.requestLayout();
-        this.xR.invalidate();
-    }
-
-    @Override // android.database.DataSetObserver
-    public void onInvalidated() {
-        this.xR.xL = -1;
-        this.xR.requestLayout();
-        this.xR.invalidate();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 1000:
+                n.a(this.GN);
+                return;
+            default:
+                return;
+        }
     }
 }

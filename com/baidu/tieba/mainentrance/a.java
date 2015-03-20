@@ -5,49 +5,45 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity UG;
-    private final String aCN;
-    private ArrayList<String> amM;
-    private boolean bsl = true;
+    private final boolean bys = true;
+    private ArrayList<ForumSuggestModel.Forum> byt;
+    private final BaseActivity<?> mActivity;
 
-    public a(BaseActivity baseActivity, ArrayList<String> arrayList) {
-        this.UG = baseActivity;
-        this.amM = arrayList;
-        this.aCN = this.UG.getPageContext().getPageActivity().getText(com.baidu.tieba.z.forum).toString();
+    public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
+        this.mActivity = baseActivity;
+        this.byt = arrayList;
     }
 
-    public void s(ArrayList<String> arrayList) {
-        this.amM = arrayList;
-    }
-
-    public void dp(boolean z) {
-        this.bsl = z;
-    }
-
-    public void gM(int i) {
-        this.amM.remove(i);
-        this.amM.add(0, this.amM.get(i));
+    public void D(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        this.byt = arrayList;
+        if (this.byt != null) {
+            notifyDataSetChanged();
+        }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.amM == null) {
+        if (this.byt == null) {
             return 0;
         }
-        return this.amM.size();
+        return this.byt.size();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    /* renamed from: gJ */
+    public ForumSuggestModel.Forum getItem(int i) {
         int count = getCount();
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.amM.get(i);
+        return this.byt.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,26 +55,45 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.ei().inflate(this.UG.getPageContext().getPageActivity(), com.baidu.tieba.x.home_dialog_search_item, null);
-            bVar = new b(this, null);
-            bVar.aQw = (TextView) view.findViewById(com.baidu.tieba.w.home_lv_search_forum);
-            bVar.bsm = view.findViewById(com.baidu.tieba.w.home_dialog_lv_search_forum_divider);
-            view.setTag(bVar);
+            view = com.baidu.adp.lib.g.b.hH().inflate(this.mActivity.getPageContext().getPageActivity(), com.baidu.tieba.w.square_dialog_search_item, null);
+            b bVar2 = new b(this, null);
+            bVar2.bxR = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
+            bVar2.bxR.setGifIconSupport(false);
+            bVar2.aEv = (TextView) view.findViewById(com.baidu.tieba.v.name);
+            bVar2.bxS = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
+            bVar2.bxT = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
+            bVar2.bwr = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
+            view.setTag(bVar2);
+            bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        Object item = getItem(i);
+        ForumSuggestModel.Forum item = getItem(i);
         if (item != null) {
-            String str = (String) item;
-            if (this.bsl) {
-                bVar.aQw.setText(str.concat(this.aCN));
+            int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+            String str = item.avatar;
+            bVar.bxR.setTag(str);
+            bVar.bxR.c(str, 10, false);
+            bVar.bxR.invalidate();
+            if (this.bys) {
+                bVar.aEv.setText(this.mActivity.getPageContext().getPageActivity().getString(com.baidu.tieba.y.official_msg_list_name, new Object[]{item.forum_name}));
             } else {
-                bVar.aQw.setText(str);
+                bVar.aEv.setText(item.forum_name);
             }
-            bc.i(view, com.baidu.tieba.v.common_list_item_bg_selector);
-            bc.j(bVar.bsm, com.baidu.tieba.t.cp_bg_line_b);
-            bc.b(bVar.aQw, com.baidu.tieba.t.cp_cont_b, 1);
+            bVar.bxR.setTag(item.avatar);
+            bVar.bxS.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + gK(item.member_num));
+            bVar.bxT.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + gK(item.thread_num));
+            bVar.bwr.setText(item.slogan);
+            this.mActivity.getLayoutMode().X(skinType == 1);
+            this.mActivity.getLayoutMode().h(view);
         }
         return view;
+    }
+
+    public String gK(int i) {
+        if (i >= 100000) {
+            return String.valueOf(String.valueOf(i / 10000)) + this.mActivity.getPageContext().getString(com.baidu.tieba.y.member_count_unit);
+        }
+        return String.valueOf(i);
     }
 }

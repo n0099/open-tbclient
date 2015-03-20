@@ -1,77 +1,38 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al {
-    public static void a(String str, am amVar) {
-        if (bf.isEmpty(str)) {
-            if (amVar != null) {
-                amVar.a(null);
-                return;
-            }
-            return;
-        }
-        new an(ij(str), amVar).execute(new String[0]);
+public class al extends Handler {
+    final /* synthetic */ ak clE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(ak akVar) {
+        this.clE = akVar;
     }
 
-    public static void b(String str, am amVar) {
-        if (bf.isEmpty(str)) {
-            if (amVar != null) {
-                amVar.a(null);
-                return;
-            }
-            return;
-        }
-        new an(ik(str), amVar).execute(new String[0]);
-    }
-
-    public static void a(int i, am amVar) {
-        new an(hT(i), amVar).execute(new String[0]);
-    }
-
-    public static void a(int i, WriteData writeData) {
-        com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
-        if (writeData != null && writeData.hasContentToSave()) {
-            bQ.b(hT(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-        } else {
-            bQ.V(hT(i));
-        }
-    }
-
-    public static void a(String str, WriteData writeData) {
-        if (!bf.isEmpty(str)) {
-            com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                bQ.b(ik(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                bQ.V(ik(str));
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        am amVar;
+        am amVar2;
+        if (message.what == 2) {
+            this.clE.count = 0;
+            this.clE.bHv = 0L;
+            this.clE.bHw = 0L;
+        } else if (message.what == 1) {
+            i = this.clE.count;
+            if (i == 1) {
+                amVar = this.clE.clD;
+                if (amVar != null) {
+                    amVar2 = this.clE.clD;
+                    amVar2.Kq();
+                }
+                this.clE.count = 0;
+                this.clE.bHv = 0L;
+                this.clE.bHw = 0L;
             }
         }
-    }
-
-    public static void b(String str, WriteData writeData) {
-        if (!bf.isEmpty(str)) {
-            com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                bQ.b(ij(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                bQ.V(ij(str));
-            }
-        }
-    }
-
-    protected static String ij(String str) {
-        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
-    }
-
-    protected static String ik(String str) {
-        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
-    }
-
-    protected static String hT(int i) {
-        return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@live" + i;
     }
 }

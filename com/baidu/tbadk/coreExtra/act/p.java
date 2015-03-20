@@ -1,33 +1,30 @@
 package com.baidu.tbadk.coreExtra.act;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements com.baidu.tbadk.core.account.g {
-    final /* synthetic */ FillUProfileActivity PQ;
+public class p implements SapiWebView.OnFinishCallback {
+    final /* synthetic */ LoginActivity aar;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(FillUProfileActivity fillUProfileActivity) {
-        this.PQ = fillUProfileActivity;
+    public p(LoginActivity loginActivity) {
+        this.aar = loginActivity;
     }
 
-    @Override // com.baidu.tbadk.core.account.g
-    public void onBeforeLogin(String str) {
-    }
-
-    @Override // com.baidu.tbadk.core.account.g
-    public void onSuccess(AccountData accountData) {
-        if (accountData.getAccount() != null && !"".equals(accountData.getAccount())) {
-            com.baidu.tbadk.core.account.a.a(accountData);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.PQ.getBaseContext());
-            this.PQ.rh();
-            return;
+    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+    public void onFinish() {
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj == null) {
+            currentAccountObj = com.baidu.tbadk.core.a.d.pG();
         }
-        this.PQ.e(accountData);
-    }
-
-    @Override // com.baidu.tbadk.core.account.g
-    public void onFailure(String str, int i, String str2) {
-        this.PQ.showToast(str2);
+        if (currentAccountObj == null && !TbadkCoreApplication.isSDKLogin) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.aar.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
+        }
+        this.aar.finish();
     }
 }

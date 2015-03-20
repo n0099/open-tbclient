@@ -1,10 +1,9 @@
 package com.baidu.tieba.myCollection;
 
-import android.content.Context;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.v;
-import com.baidu.tieba.z;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,27 +14,29 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.f fVar;
-        int i;
-        int i2;
         com.baidu.tbadk.mainTab.e eVar;
+        int i;
         com.baidu.tbadk.mainTab.e eVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007007 && customResponsedMessage.getData() != null) {
-            EditMarkStatic.aPh = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
-            fVar = EditMarkStatic.aPh;
-            Context context = fVar.getContext();
-            int i3 = z.my_mark;
-            int i4 = v.icon_news_down_bar_one;
-            int i5 = v.icon_menu_collect_n;
-            i = EditMarkStatic.msgCount;
-            EditMarkStatic.byr = new e(this, context, i3, i4, i5, i);
-            i2 = EditMarkStatic.msgCount;
-            if (i2 > 0) {
-                eVar2 = EditMarkStatic.byr;
-                eVar2.aN(true);
+        com.baidu.tbadk.mainTab.e eVar3;
+        com.baidu.tbadk.mainTab.e eVar4;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+                return;
             }
-            eVar = EditMarkStatic.byr;
-            ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).a(eVar);
+            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+            EditMarkStatic.msgCount = newsNotifyMessage.getMsgBookmark();
+            eVar = EditMarkStatic.bDN;
+            if (eVar != null) {
+                i = EditMarkStatic.msgCount;
+                eVar2 = EditMarkStatic.bDN;
+                if (i > eVar2.zM()) {
+                    eVar4 = EditMarkStatic.bDN;
+                    eVar4.aR(true);
+                }
+                eVar3 = EditMarkStatic.bDN;
+                eVar3.dH(newsNotifyMessage.getMsgBookmark());
+            }
         }
     }
 }

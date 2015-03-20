@@ -12,7 +12,7 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private transient f XI;
+    private transient f ahO;
     private String check;
     private String description;
     private int errorCode;
@@ -26,17 +26,17 @@ public class DownloadData implements Serializable {
     private long size;
     private int status;
     private String statusMsg;
-    private String tag;
+    private String[] tag;
     private int type;
     private String url;
     private int width;
 
-    public String getTag() {
+    public String[] getTag() {
         return this.tag;
     }
 
-    public void setTag(String str) {
-        this.tag = str;
+    public void setTag(String[] strArr) {
+        this.tag = strArr;
     }
 
     public DownloadData(String str) {
@@ -47,7 +47,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.XI = null;
+        this.ahO = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -61,7 +61,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.XI = null;
+        this.ahO = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -76,13 +76,13 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.XI = null;
+        this.ahO = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.XI = fVar;
+        this.ahO = fVar;
         this.status = 5;
     }
 
@@ -183,11 +183,11 @@ public class DownloadData implements Serializable {
     }
 
     public f getCallback() {
-        return this.XI;
+        return this.ahO;
     }
 
     public void setCallback(f fVar) {
-        this.XI = fVar;
+        this.ahO = fVar;
     }
 
     public String getStatusMsg() {

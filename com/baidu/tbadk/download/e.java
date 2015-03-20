@@ -1,15 +1,15 @@
 package com.baidu.tbadk.download;
 /* loaded from: classes.dex */
 public class e {
-    final /* synthetic */ b XF;
-    private int XH;
+    final /* synthetic */ b ahL;
+    private int ahN;
     private String key;
     private String name;
     private int position;
     private String url;
 
     public e(b bVar) {
-        this.XF = bVar;
+        this.ahL = bVar;
     }
 
     public void setKey(String str) {
@@ -44,11 +44,11 @@ public class e {
         return this.position;
     }
 
-    public int uY() {
-        return this.XH;
+    public int yo() {
+        return this.ahN;
     }
 
-    public void dj(int i) {
-        this.XH = i;
+    public void dl(int i) {
+        this.ahN = i;
     }
 }

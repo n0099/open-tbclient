@@ -1,28 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bta;
+class ab extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ SquareSearchActivity bzG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(SquareSearchActivity squareSearchActivity) {
-        this.bta = squareSearchActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(SquareSearchActivity squareSearchActivity, int i, boolean z) {
+        super(i, z);
+        this.bzG = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        editText = this.bta.bsv;
-        if (editText.hasFocus()) {
-            Activity pageActivity = this.bta.getPageContext().getPageActivity();
-            editText2 = this.bta.bsv;
-            com.baidu.adp.lib.util.l.c(pageActivity, editText2);
-            this.bta.closeActivity();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        this.bzG.bzu = true;
+        if (!(socketResponsedMessage instanceof FRSPageSocketResponsedMessage)) {
+            return;
         }
+        this.bzG.a(socketResponsedMessage, !((FRSPageSocketResponsedMessage) socketResponsedMessage).hasNetworkError());
     }
 }

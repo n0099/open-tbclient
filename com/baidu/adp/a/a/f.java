@@ -1,12 +1,12 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class f {
-    double cJ = 0.0d;
-    double cK = 0.0d;
-    double cL = 0.0d;
-    final /* synthetic */ e cM;
+    double nT = 0.0d;
+    double nU = 0.0d;
+    double nV = 0.0d;
+    final /* synthetic */ e nW;
 
     public f(e eVar) {
-        this.cM = eVar;
+        this.nW = eVar;
     }
 }

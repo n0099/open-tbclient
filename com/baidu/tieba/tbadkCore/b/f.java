@@ -1,36 +1,20 @@
 package com.baidu.tieba.tbadkCore.b;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.tbadk.util.i {
-    final /* synthetic */ c bYu;
+public class f implements Runnable {
+    private final /* synthetic */ BaseActivity bda;
+    private final /* synthetic */ boolean cny;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(c cVar, Context context) {
-        super(context);
-        this.bYu = cVar;
+    public f(BaseActivity baseActivity, boolean z) {
+        this.bda = baseActivity;
+        this.cny = z;
     }
 
-    @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4 = null;
-        str = this.bYu.text;
-        if (str != null) {
-            str3 = this.bYu.text;
-            str4 = str3.replace("@", "").replace(" ", "");
-        }
-        MessageManager messageManager = MessageManager.getInstance();
-        Context context = getContext();
-        str2 = this.bYu.link;
-        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, str2, str4)));
+    @Override // java.lang.Runnable
+    public void run() {
+        a.a(this.bda.getPageContext().getPageActivity(), this.cny);
     }
 }

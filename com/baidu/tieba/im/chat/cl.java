@@ -1,25 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cl implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView aSZ;
+public class cl implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ TalkableActivity aYd;
+    private final /* synthetic */ int aYe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(PersonalChatView personalChatView) {
-        this.aSZ = personalChatView;
+    public cl(TalkableActivity talkableActivity, int i) {
+        this.aYd = talkableActivity;
+        this.aYe = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PersonalChatActivity personalChatActivity;
-        PersonalChatActivity personalChatActivity2;
-        personalChatActivity = this.aSZ.aSR;
-        if (!personalChatActivity.KD()) {
-            personalChatActivity2 = this.aSZ.aSR;
-            personalChatActivity2.showToast(com.baidu.tieba.z.add_friend_cannot_send);
-            return;
-        }
-        this.aSZ.sendSoftkeyEvent();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.aYd.reSendMsg(this.aYe);
     }
 }

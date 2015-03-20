@@ -1,194 +1,107 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.Iterator;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
-    private static m po = null;
-    private String[] pr;
-    private l pv;
-    private String pp = null;
-    private List<BasicNameValuePair> pq = null;
-    private String ps = null;
-    private o pt = null;
-    private ArrayList<l> pu = new ArrayList<>();
+public class m implements k {
+    final /* synthetic */ l Ag;
 
-    public static synchronized m fU() {
-        m mVar;
-        synchronized (m.class) {
-            if (po == null) {
-                po = new m();
-            }
-            mVar = po;
-        }
-        return mVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(l lVar) {
+        this.Ag = lVar;
     }
 
-    public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.pp = str;
-        this.ps = str2;
-        this.pr = strArr;
-        this.pq = list;
-        fZ();
-    }
-
-    private m() {
-        this.pv = null;
-        this.pv = new n(this);
-    }
-
-    public boolean fV() {
-        if (fZ()) {
-            com.baidu.adp.lib.util.l.fs();
-        }
-        if (this.pt != null) {
-            if (this.pt.fY() || this.pt.isOpen()) {
-                fZ();
-                return true;
-            }
-            this.pt.close(1, null);
-            this.pt = null;
-        }
-        this.pt = new o();
-        try {
-            am amVar = new am();
-            amVar.aM(this.ps);
-            this.pt.a(this.pp, this.pr, this.pv, amVar, this.pq);
-            return true;
-        } catch (WebSocketException e) {
-            this.pt = null;
-            return false;
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void G(String str) {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).G(str);
         }
     }
 
-    public void close(int i, String str) {
-        if (this.pt != null) {
-            o oVar = this.pt;
-            this.pt = null;
-            oVar.close(i, str);
-            if (this.pt != null) {
-                BdLog.e("close is opened and thread is leaded!!!");
-                this.pt = null;
-            }
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void s(byte[] bArr) {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).s(bArr);
         }
     }
 
-    public boolean fW() {
-        if (fZ()) {
-            com.baidu.adp.lib.util.l.fs();
-        }
-        return (this.pt == null || !this.pt.isOpen() || this.pt.gg()) ? false : true;
-    }
-
-    public boolean fX() {
-        if (fZ()) {
-            com.baidu.adp.lib.util.l.fs();
-        }
-        return this.pt != null && this.pt.isOpen();
-    }
-
-    public boolean fY() {
-        if (fZ()) {
-            com.baidu.adp.lib.util.l.fs();
-        }
-        return this.pt != null && this.pt.fY();
-    }
-
-    public synchronized boolean sendMessage(d dVar) {
-        boolean z = false;
-        synchronized (this) {
-            if (dVar != null) {
-                com.baidu.adp.lib.util.l.fs();
-                if (this.pt != null) {
-                    z = this.pt.sendMessage(dVar);
-                } else if (dVar != null) {
-                    dVar.u(1);
-                }
-            }
-        }
-        return z;
-    }
-
-    public boolean a(l lVar) {
-        if (lVar != null) {
-            synchronized (m.class) {
-                if (!this.pu.contains(lVar)) {
-                    return this.pu.add(lVar);
-                }
-            }
-        }
-        return false;
-    }
-
-    private boolean fZ() {
-        return BdBaseApplication.getInst().isDebugMode();
-    }
-
-    public void ga() {
-        if (this.pt != null) {
-            this.pt.ga();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void j(byte[] bArr) {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).j(bArr);
         }
     }
 
-    public long getUpFlowSize() {
-        if (this.pt != null) {
-            return this.pt.getUpFlowSize();
-        }
-        return 0L;
-    }
-
-    public void gb() {
-        if (this.pt != null) {
-            this.pt.gb();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void d(Map<String, String> map) {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).d(map);
         }
     }
 
-    public long getDownFlowSize() {
-        if (this.pt != null) {
-            return this.pt.getDownFlowSize();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void l(int i, String str) {
+        ArrayList arrayList;
+        this.Ag.Ac = null;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).l(i, str);
         }
-        return 0L;
     }
 
-    public long fS() {
-        if (this.pt != null) {
-            return this.pt.gh();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(c cVar) {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).a(cVar);
         }
-        return 0L;
     }
 
-    public String fR() {
-        if (this.pt != null) {
-            return this.pt.gi();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void jq() {
+        ArrayList arrayList;
+        arrayList = this.Ag.Ae;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((k) it.next()).jq();
         }
-        return null;
     }
 
-    public long gd() {
-        if (this.pt != null) {
-            return this.pt.gj();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void b(c cVar) {
+        if (cVar != null) {
+            cVar.ed();
         }
-        return 0L;
     }
 
-    public String fu() {
-        if (this.pt != null) {
-            return this.pt.fu();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(int i, c cVar) {
+        if (cVar != null) {
+            cVar.v(i);
         }
-        return null;
     }
 
-    public String fv() {
-        if (this.pt != null) {
-            return this.pt.fv();
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void c(c cVar) {
+        if (cVar != null) {
+            cVar.ee();
         }
-        return null;
-    }
-
-    public String getUrl() {
-        return this.pp;
     }
 }

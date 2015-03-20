@@ -221,10 +221,6 @@ public class SlidingMenu extends RelativeLayout {
         setMenu(LayoutInflater.from(getContext()).inflate(i, (ViewGroup) null));
     }
 
-    public float getPercentOpen() {
-        return this.mViewAbove.getPercentOpen();
-    }
-
     public void setMenu(View view) {
         this.mViewBehind.setContent(view);
     }
@@ -251,6 +247,10 @@ public class SlidingMenu extends RelativeLayout {
 
     public void setSettleDuration(int i) {
         this.mViewAbove.setSettleDuration(i);
+    }
+
+    public float getPercentOpen() {
+        return this.mViewAbove.getPercentOpen();
     }
 
     public boolean isSlidingEnabled() {

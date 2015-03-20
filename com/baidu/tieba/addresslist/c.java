@@ -1,22 +1,52 @@
 package com.baidu.tieba.addresslist;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
+import com.baidu.tieba.y;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
+public class c extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ AddressListActivity axr;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(AddressListActivity addressListActivity) {
+        super(304001);
+        this.axr = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
-            imageView = AddressListDelegateStatic.aoK;
-            imageView.setVisibility(8);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        BdListView bdListView;
+        com.baidu.tieba.addresslist.c.a aVar;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
+            bdListView = this.axr.axm;
+            bdListView.mW();
+            if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                this.axr.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.axr.getResources().getString(y.neterror) : socketResponsedMessage.getErrorString(), false);
+                return;
+            }
+            com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+            ArrayList arrayList = new ArrayList();
+            if (addressListData != null) {
+                for (com.baidu.tieba.addresslist.relationship.f fVar : addressListData.getAddressList()) {
+                    List<com.baidu.tbadk.coreExtra.relationship.a> contacts = fVar.getContacts();
+                    if (contacts.size() > 0) {
+                        com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
+                        aVar2.dG(fVar.getKey());
+                        arrayList.add(aVar2);
+                    }
+                    for (com.baidu.tbadk.coreExtra.relationship.a aVar3 : contacts) {
+                        arrayList.add(aVar3);
+                    }
+                }
+            }
+            aVar = this.axr.axd;
+            aVar.z(arrayList);
         }
     }
 }

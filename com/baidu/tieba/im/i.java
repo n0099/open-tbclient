@@ -1,23 +1,25 @@
 package com.baidu.tieba.im;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.MemoryItemRemoveMessage;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 /* loaded from: classes.dex */
-public class i {
-    private static final BdUniqueId aQK = BdUniqueId.gen();
-
-    public static <T> void a(h<T> hVar, g<T> gVar) {
-        if (hVar != null) {
-            j jVar = new j(hVar, gVar);
-            jVar.setParallel(TiebaIMConfig.getParallel());
-            jVar.setTag(aQK);
-            jVar.setPriority(4);
-            jVar.execute(new String[0]);
-        }
+class i extends com.baidu.adp.framework.listener.e {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(int i) {
+        super(i);
     }
 
-    public static void JY() {
-        BdAsyncTask.removeAllTask(aQK);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDismissGroupMessage) && socketResponsedMessage.getError() == 0) {
+            String valueOf = String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId());
+            com.baidu.tieba.im.message.f fVar = new com.baidu.tieba.im.message.f();
+            fVar.customGroupType = 1;
+            fVar.id = valueOf;
+            MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(fVar));
+        }
     }
 }

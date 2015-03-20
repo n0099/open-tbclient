@@ -1,51 +1,76 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.app.Activity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-class p implements Runnable {
-    final /* synthetic */ ActivationActivity ann;
+public class p extends com.baidu.tbadk.core.a.a {
+    private static p auI = null;
+    private u auJ = null;
+    private final com.baidu.tbadk.core.a.b auK = new q(this);
+    private final com.baidu.tieba.a.b auL = new s(this);
+    private Activity mActivity;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(ActivationActivity activationActivity) {
-        this.ann = activationActivity;
+    private p() {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        int i3;
-        TextView textView;
-        Handler handler;
-        Runnable runnable;
-        TextView textView2;
-        t tVar;
-        RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.ann;
-        i = activationActivity.ua;
-        activationActivity.ua = i - 1;
-        i2 = this.ann.ua;
-        if (i2 <= 0) {
-            this.ann.and = true;
-            textView2 = this.ann.amX;
-            textView2.setText(this.ann.getPageContext().getString(com.baidu.tieba.z.resend_code));
-            tVar = this.ann.anc;
-            if (tVar == null) {
-                relativeLayout = this.ann.ana;
-                relativeLayout.setEnabled(true);
-                return;
-            }
-            return;
+    public static p Ej() {
+        if (auI == null) {
+            auI = new p();
         }
-        String string = this.ann.getPageContext().getString(com.baidu.tieba.z.resend_code_second);
-        i3 = this.ann.ua;
-        String format = String.format(string, Integer.valueOf(i3));
-        textView = this.ann.amX;
-        textView.setText(format);
-        handler = this.ann.mHandler;
-        runnable = this.ann.mRunnable;
-        handler.postDelayed(runnable, 1000L);
+        return auI;
+    }
+
+    @Override // com.baidu.tbadk.core.a.a
+    public com.baidu.tbadk.core.a.c bN(String str) {
+        com.baidu.tbadk.core.a.c cVar;
+        Exception e;
+        if (str != null) {
+            try {
+                String[] split = str.split("[|]");
+                if (split != null && split.length >= 1) {
+                    cVar = new com.baidu.tbadk.core.a.c();
+                    try {
+                        cVar.xh = split[0];
+                        if (split.length >= 2) {
+                            cVar.OD = split[1];
+                            return cVar;
+                        }
+                        return cVar;
+                    } catch (Exception e2) {
+                        e = e2;
+                        BdLog.e(e.getMessage());
+                        return cVar;
+                    }
+                }
+            } catch (Exception e3) {
+                cVar = null;
+                e = e3;
+            }
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.a.a
+    public void p(Activity activity) {
+        com.baidu.tbadk.core.a.c bN;
+        if (com.baidu.adp.lib.util.k.iH()) {
+            this.mActivity = activity;
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null && (bN = bN(currentAccountObj.getBDUSS())) != null) {
+                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), bN.xh, bN.OD, this.auK);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a
+    public void a(String str, String str2, String str3, com.baidu.tbadk.core.a.b bVar) {
+        com.baidu.tieba.a.d.a(str, str2, str3, bVar);
+    }
+
+    @Override // com.baidu.tbadk.core.a.a
+    public AccountData h(String str, String str2, String str3) {
+        return com.baidu.tieba.a.d.h(str, str2, str3);
     }
 }

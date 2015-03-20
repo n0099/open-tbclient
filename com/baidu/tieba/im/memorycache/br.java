@@ -1,8 +1,11 @@
 package com.baidu.tieba.im.memorycache;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends CustomMessageListener {
@@ -18,21 +21,12 @@ public class br extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo H;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (H = c.QJ().H("-1004", -5)) != null) {
-            Object data = customResponsedMessage.getData();
-            if (data == null) {
-                H.setUnread_count(0);
-                H.setIs_hidden(1);
-                this.this$0.r(H);
-            } else if (data instanceof ImMessageCenterPojo) {
-                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                H.setLast_content(imMessageCenterPojo.getLast_content());
-                H.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                H.setUnread_count(0);
-                H.setIs_hidden(0);
-                this.this$0.r(H);
-            }
-        }
+        String valueOf = String.valueOf(customResponsedMessage.getData());
+        c.Sd().F(valueOf, 9);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bs(this, valueOf));
+        customMessageTask.setParallel(TiebaIMConfig.getParallel());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        customMessageTask.setPriority(4);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
     }
 }

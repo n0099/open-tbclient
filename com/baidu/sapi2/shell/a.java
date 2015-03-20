@@ -36,6 +36,7 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -112,11 +113,11 @@ public final class a {
                 }
                 hashMap.put("cuid", this.b.clientId);
                 hashMap.put("cert_id", "2");
-                hashMap.put("isdpass", "0");
+                hashMap.put("isdpass", GameInfoData.NOT_FROM_DETAIL);
                 hashMap.put("username", reloginCredentials.account);
                 hashMap.put("password", reloginCredentials.password);
                 hashMap.put("UBI", reloginCredentials.ubi);
-                hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : "0");
+                hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : GameInfoData.NOT_FROM_DETAIL);
                 hashMap.put(LoginActivityConfig.LOGIN_TYPE, TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                 hashMap.put("key", bVar.a());
                 hashMap.put("sdk_version", "2");
@@ -189,11 +190,11 @@ public final class a {
             }
             hashMap.put("cuid", this.b.clientId);
             hashMap.put("cert_id", "2");
-            hashMap.put("isdpass", "0");
+            hashMap.put("isdpass", GameInfoData.NOT_FROM_DETAIL);
             hashMap.put("username", reloginCredentials.account);
             hashMap.put("password", reloginCredentials.password);
             hashMap.put("UBI", reloginCredentials.ubi);
-            hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : "0");
+            hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : GameInfoData.NOT_FROM_DETAIL);
             hashMap.put(LoginActivityConfig.LOGIN_TYPE, TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
             hashMap.put("key", bVar.a());
             hashMap.put("sdk_version", "2");
@@ -994,7 +995,7 @@ public final class a {
                             hashMap.put("sig", a.this.a(hashMap, a.this.b.appSignKey));
                             a.this.c = new AsyncHttpClient();
                             a.this.c.setUserAgent(a.this.J());
-                            a.this.c.post(a.this.b.context, a.this.F(), new RequestParams(hashMap), new HandlerC0021a());
+                            a.this.c.post(a.this.b.context, a.this.F(), new RequestParams(hashMap), new HandlerC0019a());
                             return;
                         default:
                             this.a.onFinish();
@@ -1014,8 +1015,8 @@ public final class a {
 
         /* renamed from: com.baidu.sapi2.shell.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class HandlerC0021a extends HttpResponseHandler {
-            HandlerC0021a() {
+        class HandlerC0019a extends HttpResponseHandler {
+            HandlerC0019a() {
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -1096,7 +1097,7 @@ public final class a {
             if (z2) {
                 hashMap.put("isphone", "1");
             } else {
-                hashMap.put("isphone", "0");
+                hashMap.put("isphone", GameInfoData.NOT_FROM_DETAIL);
             }
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
             this.c.post(this.b.context, G(), new RequestParams(hashMap), new c(voiceCheckCallBack, str, z, z2));
@@ -1270,18 +1271,18 @@ public final class a {
             }
             hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
-            this.c.post(this.b.context, D(), new RequestParams(hashMap), new HandlerC0020a(oAuthCallBack, str));
+            this.c.post(this.b.context, D(), new RequestParams(hashMap), new HandlerC0018a(oAuthCallBack, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.shell.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0020a extends HttpResponseHandler {
+    public class HandlerC0018a extends HttpResponseHandler {
         final /* synthetic */ OAuthCallBack a;
         final /* synthetic */ String b;
 
-        HandlerC0020a(OAuthCallBack oAuthCallBack, String str) {
+        HandlerC0018a(OAuthCallBack oAuthCallBack, String str) {
             this.a = oAuthCallBack;
             this.b = str;
         }
@@ -1345,7 +1346,7 @@ public final class a {
             if (z) {
                 hashMap.put("newuser", "1");
             } else {
-                hashMap.put("newuser", "0");
+                hashMap.put("newuser", GameInfoData.NOT_FROM_DETAIL);
             }
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
             this.c.post(this.b.context, H(), new RequestParams(hashMap), new h(voiceRegCallBack, z, str, str2, str3));
@@ -2256,7 +2257,7 @@ public final class a {
                     qrAppLoginResponse.province = optJSONObject.optString("provice");
                     qrAppLoginResponse.city = optJSONObject.optString("city");
                 }
-                if (!TextUtils.isEmpty(jSONObject.optString("errno")) && jSONObject.optString("errno").equals("0")) {
+                if (!TextUtils.isEmpty(jSONObject.optString("errno")) && jSONObject.optString("errno").equals(GameInfoData.NOT_FROM_DETAIL)) {
                     SapiAccount sapiAccount = new SapiAccount();
                     sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                     sapiAccount.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);

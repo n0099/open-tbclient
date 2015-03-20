@@ -1,11 +1,9 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.e;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import protobuf.ConfigVersion;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class z extends e {
+class z extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,15 +14,36 @@ class z extends e {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ConfigVersion configVersion;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        int i;
+        boolean z;
+        ai aiVar;
+        ai aiVar2;
+        int i2;
+        this.this$0.cre = false;
+        i = this.this$0.cqX;
+        if (i <= 0) {
+            i2 = this.this$0.cqZ;
+            if (i2 <= 0) {
+                z = false;
+                if (z) {
+                    aiVar = this.this$0.cqV;
+                    aiVar.eW(false);
+                    aiVar2 = this.this$0.cqV;
+                    aiVar2.aor().fa(false);
+                    return;
+                }
                 return;
             }
-            this.this$0.ix(configVersion.sync);
+        }
+        z = true;
+        if (z) {
         }
     }
 }

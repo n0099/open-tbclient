@@ -1,37 +1,39 @@
 package com.baidu.adp.plugin.packageManager;
 
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.m {
-    private final /* synthetic */ String sZ;
+public class l implements d {
     final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(PluginPackageManager pluginPackageManager, String str) {
+    public l(PluginPackageManager pluginPackageManager) {
         this.this$0 = pluginPackageManager;
-        this.sZ = str;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x0010, code lost:
-        if (r0 != false) goto L8;
-     */
-    @Override // com.baidu.adp.plugin.packageManager.pluginSettings.m
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(PluginSettings pluginSettings) {
-        boolean J;
-        if (pluginSettings != null) {
-            if (pluginSettings != null) {
-                J = this.this$0.J(this.sZ, pluginSettings.getContainerVersion());
+    @Override // com.baidu.adp.plugin.packageManager.d
+    public void J(String str, String str2) {
+        PluginSetting findPluginSetting;
+        boolean z;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.lP().findPluginSetting(str)) != null) {
+            if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
+                com.baidu.adp.plugin.packageManager.pluginSettings.h.lP().bx(str);
+            } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
+                String[] split = findPluginSetting.getAbandon_apk_path().split(",");
+                String str3 = "";
+                for (String str4 : split) {
+                    if (!str2.equals(str4)) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str3 = String.valueOf(str3) + ",";
+                        }
+                        str3 = String.valueOf(str3) + str4;
+                    }
+                }
+                com.baidu.adp.plugin.packageManager.pluginSettings.h lP = com.baidu.adp.plugin.packageManager.pluginSettings.h.lP();
+                z = this.this$0.DH;
+                lP.b(str, str3, z);
             }
-            this.this$0.hZ();
-            this.this$0.ib();
-            return;
         }
-        this.this$0.sP = System.currentTimeMillis();
-        this.this$0.ia();
-        this.this$0.hX();
     }
 }

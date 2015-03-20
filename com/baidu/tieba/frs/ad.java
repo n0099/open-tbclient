@@ -1,23 +1,39 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aDT;
+class ad extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(FrsActivity frsActivity) {
-        this.aDT = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aJG = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        bp bpVar;
-        bp bpVar2;
-        bpVar = this.aDT.aCV;
-        if (bpVar.Fz() != null) {
-            bpVar2 = this.aDT.aCV;
-            bpVar2.Fz().setLocationInfoViewState(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Integer num;
+        com.baidu.tieba.tbadkCore.w wVar;
+        com.baidu.tieba.tbadkCore.w wVar2;
+        com.baidu.tieba.frs.c.a aVar;
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
+            wVar = this.aJG.aIV;
+            if (wVar != null) {
+                wVar2 = this.aJG.aIV;
+                UserData userData = wVar2.getUserData();
+                if (userData != null) {
+                    userData.setIsMem(num.intValue());
+                    if (num.intValue() != 0) {
+                        aVar = this.aJG.aJl;
+                        aVar.b(num);
+                    }
+                }
+            }
         }
-        aVar.dismiss();
     }
 }

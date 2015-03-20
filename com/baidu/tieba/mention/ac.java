@@ -1,45 +1,57 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.tbadk.mvc.model.e<ad, ae, SingleMentionActivity> {
-    public ac(TbPageContext<SingleMentionActivity> tbPageContext, ad adVar) {
-        super(tbPageContext, adVar);
+public class ac extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ab bDi;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(ab abVar, int i) {
+        super(i);
+        this.bDi = abVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> kI() {
-        return ReplyMeHttpResponseMessage.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> kH() {
-        return ReplyMeSocketResponseMessage.class;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int kE() {
-        return CmdConfigHttp.REPLYME_HTTP_CMD;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String kF() {
-        return "c/u/feed/replyme";
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ae> getResponseDataClass() {
-        return ae.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int kG() {
-        return 303007;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        SingleMentionActivity singleMentionActivity;
+        SingleMentionActivity singleMentionActivity2;
+        SingleMentionActivity singleMentionActivity3;
+        ad adVar;
+        SingleMentionActivity singleMentionActivity4;
+        SingleMentionActivity singleMentionActivity5;
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
+            singleMentionActivity = this.bDi.bDg;
+            singleMentionActivity.showToast(com.baidu.tieba.y.neterror);
+            return;
+        }
+        CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
+        if (checkPostResponseMessage.hasError()) {
+            if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
+                singleMentionActivity5 = this.bDi.bDg;
+                singleMentionActivity5.showToast(checkPostResponseMessage.getErrorString());
+                return;
+            }
+            singleMentionActivity4 = this.bDi.bDg;
+            singleMentionActivity4.showToast(com.baidu.tieba.y.neterror);
+            return;
+        }
+        long forumId = checkPostResponseMessage.getForumId();
+        long postState = checkPostResponseMessage.getPostState();
+        long quoteId = checkPostResponseMessage.getQuoteId();
+        long repostId = checkPostResponseMessage.getRepostId();
+        if (postState == 1) {
+            adVar = this.bDi.bDh;
+            adVar.a(forumId, quoteId, repostId);
+        } else if (postState == 0) {
+            singleMentionActivity3 = this.bDi.bDg;
+            singleMentionActivity3.showToast(com.baidu.tieba.y.thread_delete_tip);
+        } else if (postState == -1) {
+            singleMentionActivity2 = this.bDi.bDg;
+            singleMentionActivity2.showToast(com.baidu.tieba.y.thread_shield_tip);
+        }
     }
 }

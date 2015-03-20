@@ -9,12 +9,12 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, Boolean> {
-    private String apkPath;
-    final /* synthetic */ a sF;
+    private c Du;
+    final /* synthetic */ a Dv;
 
-    public b(a aVar, String str) {
-        this.sF = aVar;
-        this.apkPath = str;
+    public b(a aVar, c cVar) {
+        this.Dv = aVar;
+        this.Du = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,10 +22,10 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        if (this.apkPath != null) {
-            aX(this.apkPath);
+        if (this.Du != null) {
+            return Boolean.valueOf(bf(this.Du.apkPath));
         }
-        return true;
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,44 +34,60 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         ArrayList arrayList;
+        d dVar;
+        d dVar2;
         ArrayList arrayList2;
+        boolean a;
         ArrayList arrayList3;
         super.onPostExecute(bool);
-        this.sF.sE = null;
-        arrayList = this.sF.sD;
+        this.Dv.Dt = null;
+        arrayList = this.Dv.Ds;
         if (arrayList.size() > 0) {
-            arrayList2 = this.sF.sD;
+            arrayList2 = this.Dv.Ds;
             Iterator it = arrayList2.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                String str = (String) it.next();
-                if (str != null && str.equals(this.apkPath)) {
-                    arrayList3 = this.sF.sD;
-                    arrayList3.remove(str);
+                c cVar = (c) it.next();
+                a = this.Dv.a(this.Du, cVar);
+                if (a) {
+                    arrayList3 = this.Dv.Ds;
+                    arrayList3.remove(cVar);
                     break;
                 }
             }
         }
-        this.sF.hT();
-    }
-
-    private void aX(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.adp.plugin.b.a.hN().g("plugin_del_unuse", "delete unuse", str);
-            com.baidu.adp.lib.util.commonsio.a.g(new File(str));
-            int length = str.length();
-            if (length >= 4) {
-                File file = new File(str.substring(0, length - 4));
-                if (file.exists() && file.isDirectory()) {
-                    try {
-                        com.baidu.adp.lib.util.commonsio.a.f(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (bool != null && bool.booleanValue()) {
+            dVar = this.Dv.Dr;
+            if (dVar != null) {
+                dVar2 = this.Dv.Dr;
+                dVar2.J(this.Du.packageName, this.Du.apkPath);
             }
         }
+        this.Dv.ln();
+    }
+
+    private boolean bf(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        com.baidu.adp.plugin.b.a.lh().g("plugin_del_unuse", "delete unuse", str);
+        com.baidu.adp.lib.util.commonsio.a.g(new File(str));
+        int length = str.length();
+        if (length >= 4) {
+            File file = new File(str.substring(0, length - 4));
+            if (file.exists() && file.isDirectory()) {
+                try {
+                    com.baidu.adp.lib.util.commonsio.a.f(file);
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
     }
 }

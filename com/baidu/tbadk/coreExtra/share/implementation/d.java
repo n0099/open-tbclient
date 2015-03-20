@@ -5,16 +5,16 @@ import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements BdSocialShareSdkDelegate.ShareCallback {
-    private f TA;
-    private int TB;
-    final /* synthetic */ a TC;
+    private f adC;
+    private int adD;
+    final /* synthetic */ a adE;
 
     public d(a aVar, f fVar, int i) {
-        this.TC = aVar;
-        this.TA = null;
-        this.TB = -1;
-        this.TA = fVar;
-        this.TB = i;
+        this.adE = aVar;
+        this.adC = null;
+        this.adD = -1;
+        this.adC = fVar;
+        this.adD = i;
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
@@ -23,34 +23,34 @@ public class d implements BdSocialShareSdkDelegate.ShareCallback {
         c cVar2;
         c cVar3;
         if (z) {
-            cVar2 = this.TC.Tx;
-            cVar2.az(true);
-            cVar3 = this.TC.Tx;
+            cVar2 = this.adE.adz;
+            cVar2.aE(true);
+            cVar3 = this.adE.adz;
             cVar3.a(new e(this));
             return;
         }
-        cVar = this.TC.Tx;
-        cVar.az(false);
+        cVar = this.adE.adz;
+        cVar.aE(false);
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onCancelOfBaiduListener() {
         c cVar;
-        cVar = this.TC.Tx;
-        cVar.tv();
+        cVar = this.adE.adz;
+        cVar.wO();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onCompleteOfBaiduListener() {
         c cVar;
-        cVar = this.TC.Tx;
-        cVar.tu();
+        cVar = this.adE.adz;
+        cVar.wN();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onErrorOfBaiduListener() {
         c cVar;
-        cVar = this.TC.Tx;
-        cVar.tw();
+        cVar = this.adE.adz;
+        cVar.wP();
     }
 }

@@ -1,29 +1,33 @@
 package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ bp aGg;
+public class bq implements com.baidu.adp.lib.guide.h {
+    final /* synthetic */ bf aLR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bp bpVar) {
-        this.aGg = bpVar;
+    public bq(bf bfVar) {
+        this.aLR = bfVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void ty() {
-        com.baidu.tbadk.core.data.j jVar;
-        com.baidu.tbadk.core.data.j jVar2;
-        jVar = this.aGg.aFO;
-        if (jVar != null) {
-            jVar2 = this.aGg.aFO;
-            if (jVar2.getType() == 2) {
-                this.aGg.Gt();
-            }
+    @Override // com.baidu.adp.lib.guide.h
+    public void gW() {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        frsActivity = this.aLR.aJT;
+        if (frsActivity != null) {
+            frsActivity2 = this.aLR.aJT;
+            frsActivity2.setSwipeBackEnabled(false);
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void tz() {
-        this.aGg.Ha();
+    @Override // com.baidu.adp.lib.guide.h
+    public void onDismiss() {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        frsActivity = this.aLR.aJT;
+        if (frsActivity != null) {
+            frsActivity2 = this.aLR.aJT;
+            frsActivity2.setSwipeBackEnabled(true);
+        }
     }
 }

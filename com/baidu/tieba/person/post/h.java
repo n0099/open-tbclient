@@ -1,45 +1,37 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements b {
-    final /* synthetic */ f bJc;
+public class h implements bo {
+    final /* synthetic */ g bRo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.bJc = fVar;
+    public h(g gVar) {
+        this.bRo = gVar;
     }
 
-    @Override // com.baidu.tieba.person.post.b
-    public void Q(View view) {
-        String[] strArr;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        TbPageContext tbPageContext4;
-        int id = view.getId();
-        if (id == com.baidu.tieba.w.portrait) {
-            tbPageContext4 = f.Mx;
-            ((BaseFragmentActivity) tbPageContext4.getOrignalPage()).finish();
-        } else if (id == com.baidu.tieba.w.username) {
-            tbPageContext3 = f.Mx;
-            ((BaseFragmentActivity) tbPageContext3.getOrignalPage()).finish();
-        } else if ((id == com.baidu.tieba.w.item_header || id == com.baidu.tieba.w.original_post_title || id == com.baidu.tieba.w.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            if ("0".equals(strArr[2]) || strArr[1] == null) {
-                MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = f.Mx;
-                messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
-                return;
+    @Override // com.baidu.tieba.person.bo
+    public void a(PersonPostModel personPostModel, boolean z) {
+        PersonPostModel personPostModel2;
+        PersonPostModel personPostModel3;
+        bo boVar;
+        bo boVar2;
+        if (z) {
+            this.bRo.bRl = personPostModel;
+        } else {
+            personPostModel2 = this.bRo.bRl;
+            if (personPostModel2 != null) {
+                personPostModel3 = this.bRo.bRl;
+                personPostModel3.post_list.addAll(personPostModel.post_list);
             }
-            MessageManager messageManager2 = MessageManager.getInstance();
-            tbPageContext2 = f.Mx;
-            messageManager2.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext2.getPageActivity()).createSubPbCfg(strArr[0], strArr[1], "person_post_reply")));
         }
+        boVar = this.bRo.bRk;
+        if (boVar != null) {
+            boVar2 = this.bRo.bRk;
+            boVar2.a(personPostModel, z);
+        }
+        this.bRo.notifyDataSetChanged();
     }
 }

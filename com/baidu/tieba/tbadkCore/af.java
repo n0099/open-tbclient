@@ -1,31 +1,64 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.widget.ListView;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class af implements Runnable {
-    private PbEditor YR;
-    private ListView YS;
-    private Activity YT;
-    private int YU;
-    private int distance;
-    private int position;
+public class af extends com.baidu.adp.base.f {
+    private String clu;
+    private ag clv;
+    private String clw;
+    private String from;
+    private String mForumId;
+    private String mForumName;
 
-    public af(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
-        this.distance = i2;
-        this.position = i;
-        this.YR = pbEditor;
-        this.YS = listView;
-        this.YU = i3;
-        this.YT = activity;
+    public af(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.mForumName = null;
+        this.mForumId = null;
+        this.clu = null;
+        this.clv = null;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        this.YR.getLocationInWindow(iArr);
-        this.YS.setSelectionFromTop(this.position + this.YS.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.YU) - com.baidu.adp.lib.util.l.m(this.YT));
-        this.YS.invalidate();
+    public void setFrom(String str) {
+        this.from = str;
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void KA() {
+        if (this.clv != null) {
+            this.clv.cancel();
+            this.clv = null;
+        }
+    }
+
+    public void p(String str, String str2, String str3) {
+        aV(str, str2);
+        this.clu = str3;
+    }
+
+    public void aV(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.clv == null) {
+            this.mForumName = str;
+            this.mForumId = str2;
+            this.clv = new ag(this, null);
+            this.clv.setPriority(2);
+            this.clv.execute(new Object[0]);
+        }
+    }
+
+    public boolean akP() {
+        return this.clv != null;
+    }
+
+    public void iy(String str) {
+        this.clw = str;
     }
 }

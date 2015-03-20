@@ -1,17 +1,19 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class bx implements com.baidu.tieba.tbadkCore.bubble.y {
-    final /* synthetic */ bp aGg;
+public class bx extends com.baidu.adp.widget.ListView.am {
+    View aMi;
+    TextView aMj;
+    View aMk;
+    TextView aMl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bp bpVar) {
-        this.aGg = bpVar;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.bubble.y
-    public void jq() {
-        if (this.aGg.Fz() != null) {
-            this.aGg.Fz().refresh();
-        }
+    public bx(View view) {
+        super(view);
+        this.aMj = (TextView) view.findViewById(com.baidu.tieba.v.frs_fortune_bag_content);
+        this.aMi = view.findViewById(com.baidu.tieba.v.frs_fortune_bag_item);
+        this.aMk = view.findViewById(com.baidu.tieba.v.frs_my_service_item);
+        this.aMl = (TextView) view.findViewById(com.baidu.tieba.v.frs_my_service_content);
     }
 }

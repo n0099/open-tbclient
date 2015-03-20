@@ -4,70 +4,70 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.x;
-import com.baidu.tieba.z;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.e<ValidateActivity> {
-    private View awv;
-    private HeadImageView bhk;
-    private TextView bhl;
-    private ValidateActivity bpQ;
-    private TextView bpR;
-    private TextView bpS;
-    private TextView bpT;
-    private ValidateItemData bpU;
+    private View aCi;
+    private HeadImageView biA;
+    private TextView biB;
+    private ValidateActivity bnH;
+    private TextView bnI;
+    private TextView bnJ;
+    private TextView bnK;
+    private ValidateItemData bnL;
 
     public i(ValidateActivity validateActivity) {
-        super(validateActivity.getPageContext(), x.validate_item);
-        this.bpQ = validateActivity;
+        super(validateActivity.getPageContext(), w.validate_item);
+        this.bnH = validateActivity;
         initView();
     }
 
     void initView() {
-        this.awv = this.mConvertView.findViewById(w.root_view);
-        this.bhk = (HeadImageView) this.awv.findViewById(w.iv_head);
-        this.bhk.setIsRound(false);
-        this.bpR = (TextView) this.awv.findViewById(w.tv_user_name);
-        this.bhl = (TextView) this.awv.findViewById(w.tv_group_name);
-        this.bpS = (TextView) this.awv.findViewById(w.tv_apply_reason);
-        this.bpT = (TextView) this.awv.findViewById(w.btn_pass);
-        this.bpT.setOnClickListener(new j(this));
-        this.bhk.setOnClickListener(new k(this));
-        this.awv.setOnLongClickListener(new l(this));
+        this.aCi = this.mConvertView.findViewById(v.root_view);
+        this.biA = (HeadImageView) this.aCi.findViewById(v.iv_head);
+        this.biA.setIsRound(false);
+        this.bnI = (TextView) this.aCi.findViewById(v.tv_user_name);
+        this.biB = (TextView) this.aCi.findViewById(v.tv_group_name);
+        this.bnJ = (TextView) this.aCi.findViewById(v.tv_apply_reason);
+        this.bnK = (TextView) this.aCi.findViewById(v.btn_pass);
+        this.bnK.setOnClickListener(new j(this));
+        this.biA.setOnClickListener(new k(this));
+        this.aCi.setOnLongClickListener(new l(this));
     }
 
     public void refresh() {
-        if (this.bpU != null) {
-            this.bpQ.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
-            this.bpQ.getLayoutMode().h(this.awv);
-            String portrait = this.bpU.getPortrait();
-            this.bhk.setTag(portrait);
-            this.bhk.d(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.bpU.getUserName())) {
-                this.bpR.setText(this.bpU.getUserName());
+        if (this.bnL != null) {
+            this.bnH.getLayoutMode().X(TbadkApplication.getInst().getSkinType() == 1);
+            this.bnH.getLayoutMode().h(this.aCi);
+            String portrait = this.bnL.getPortrait();
+            this.biA.setTag(portrait);
+            this.biA.c(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.bnL.getUserName())) {
+                this.bnI.setText(this.bnL.getUserName());
             }
-            if (!TextUtils.isEmpty(this.bpU.getGroupName())) {
-                this.bhl.setText(String.valueOf(this.bpQ.getPageContext().getString(z.validate_im_apply_prefix)) + this.bpU.getGroupName());
+            if (!TextUtils.isEmpty(this.bnL.getGroupName())) {
+                this.biB.setText(String.valueOf(this.bnH.getPageContext().getString(y.validate_im_apply_prefix)) + this.bnL.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.bpU.getApplyReason())) {
-                this.bpS.setText(String.valueOf(this.bpQ.getPageContext().getString(z.validate_im_reason_prefix)) + this.bpU.getApplyReason());
+            if (!TextUtils.isEmpty(this.bnL.getApplyReason())) {
+                this.bnJ.setText(String.valueOf(this.bnH.getPageContext().getString(y.validate_im_reason_prefix)) + this.bnL.getApplyReason());
             }
-            if (this.bpU.isPass()) {
-                this.bpT.setEnabled(false);
-                this.bpT.setText(this.bpQ.getPageContext().getString(z.validate_im_btn_passed));
-                this.bpT.setTextColor(getPageContext().getPageActivity().getResources().getColor(t.cp_cont_d));
-                this.bpT.setBackgroundDrawable(null);
+            if (this.bnL.isPass()) {
+                this.bnK.setEnabled(false);
+                this.bnK.setText(this.bnH.getPageContext().getString(y.validate_im_btn_passed));
+                this.bnK.setTextColor(getPageContext().getPageActivity().getResources().getColor(s.cp_cont_d));
+                this.bnK.setBackgroundDrawable(null);
             } else {
-                this.bpT.setEnabled(true);
-                this.bpT.setText(this.bpQ.getPageContext().getString(z.validate_im_btn_pass));
+                this.bnK.setEnabled(true);
+                this.bnK.setText(this.bnH.getPageContext().getString(y.validate_im_btn_pass));
             }
-            if (!this.bpU.isShown()) {
-                bc.i(this.awv, t.validate_item_background_sean);
+            if (!this.bnL.isShown()) {
+                ba.i(this.aCi, s.validate_item_background_sean);
             }
         }
     }
@@ -78,6 +78,6 @@ public class i extends com.baidu.adp.base.e<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.bpU = validateItemData;
+        this.bnL = validateItemData;
     }
 }

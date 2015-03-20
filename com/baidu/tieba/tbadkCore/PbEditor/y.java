@@ -1,23 +1,25 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.io.File;
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ u bWd;
-    private final /* synthetic */ String bWf;
+public class y implements View.OnTouchListener {
+    private final /* synthetic */ com.baidu.tbadk.editortool.v aIB;
+    final /* synthetic */ PbEditorToolView cmQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(u uVar, String str) {
-        this.bWd = uVar;
-        this.bWf = str;
+    public y(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.v vVar) {
+        this.cmQ = pbEditorToolView;
+        this.aIB = vVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.core.util.s.deleteFile(new File(this.bWf));
-        return null;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.cmQ.mEditText.requestFocus();
+            this.aIB.handleAction(12, null);
+        }
+        return false;
     }
 }

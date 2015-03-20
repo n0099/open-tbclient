@@ -1,90 +1,88 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.model.PersonalMsglistModel;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ch extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity aSM;
+public class ch extends com.baidu.adp.base.i {
+    final /* synthetic */ TalkableActivity aYd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch(PersonalChatActivity personalChatActivity, int i) {
-        super(i);
-        this.aSM = personalChatActivity;
+    public ch(TalkableActivity talkableActivity) {
+        this.aYd = talkableActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        PersonalMsglistModel personalMsglistModel;
-        PersonalChatView personalChatView;
-        PersonalMsglistModel personalMsglistModel2;
-        PersonalMsglistModel personalMsglistModel3;
-        PersonalChatView personalChatView2;
-        PersonalChatView personalChatView3;
-        PersonalMsglistModel personalMsglistModel4;
-        PersonalChatView personalChatView4;
-        PersonalMsglistModel personalMsglistModel5;
-        PersonalMsglistModel personalMsglistModel6;
-        PersonalChatView personalChatView5;
-        PersonalChatView personalChatView6;
-        PersonalMsglistModel personalMsglistModel7;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                String content = p.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
-                        if (optJSONObject != null) {
-                            long optLong = optJSONObject.optLong("user_id");
-                            personalMsglistModel = this.aSM.aSH;
-                            if (optLong == com.baidu.adp.lib.g.c.a(personalMsglistModel.getUser().getUserId(), 0L)) {
-                                String optString = optJSONObject.optString("message");
-                                if (cmd.equals("apply_new_friend")) {
-                                    personalChatView6 = this.aSM.aSI;
-                                    personalChatView6.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                                    personalMsglistModel7 = this.aSM.aSH;
-                                    personalMsglistModel7.setCardStatus(PersonalMsglistModel.CardStatus.AGREE);
-                                } else if (cmd.equals("passed_new_friend")) {
-                                    personalChatView4 = this.aSM.aSI;
-                                    personalChatView4.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel5 = this.aSM.aSH;
-                                    personalMsglistModel5.setCardStatus(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel6 = this.aSM.aSH;
-                                    personalMsglistModel6.setIsFriend(1);
-                                    personalChatView5 = this.aSM.aSI;
-                                    personalChatView5.KH().setVisibility(0);
-                                } else if (cmd.equals("apply_add_friend")) {
-                                    personalChatView3 = this.aSM.aSI;
-                                    personalChatView3.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                                    personalMsglistModel4 = this.aSM.aSH;
-                                    personalMsglistModel4.setCardStatus(PersonalMsglistModel.CardStatus.WAIT);
-                                } else if (cmd.equals("apply_pass_friend")) {
-                                    personalChatView = this.aSM.aSI;
-                                    personalChatView.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel2 = this.aSM.aSH;
-                                    personalMsglistModel2.setCardStatus(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel3 = this.aSM.aSH;
-                                    personalMsglistModel3.setIsFriend(1);
-                                    personalChatView2 = this.aSM.aSI;
-                                    personalChatView2.KH().setVisibility(0);
-                                }
-                            }
-                        }
-                    } catch (JSONException e) {
-                        BdLog.i(e.getMessage());
-                    }
-                }
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        long j;
+        if (!com.baidu.adp.lib.util.k.iH()) {
+            if (this.aYd.mListView != null) {
+                this.aYd.mListView.displayNoNetwork();
             }
+        } else if (this.aYd.mListView != null) {
+            this.aYd.mListView.hideNoNetwork();
         }
+        switch (this.aYd.mListModel.getLoadDataMode()) {
+            case 1:
+                j = this.aYd.preTime;
+                if (j > -1) {
+                    this.aYd.preTime = -1L;
+                }
+                this.aYd.mListView.closeProgress();
+                this.aYd.mListView.refreshGo2New(this.aYd.mListModel.getData());
+                return;
+            case 2:
+                this.aYd.mListView.refreshPrepage(this.aYd.mListModel.getData());
+                return;
+            case 3:
+                this.aYd.mListView.refreshCheckNew(this.aYd.mListModel.getData());
+                return;
+            case 4:
+                this.aYd.mListView.refreshGo2New(this.aYd.mListModel.getData());
+                return;
+            case 5:
+                this.aYd.mListView.refreshNormal(this.aYd.mListModel.getData());
+                return;
+            case 6:
+                this.aYd.mListView.refreshNormal(this.aYd.mListModel.getData());
+                return;
+            case 7:
+                this.aYd.mListView.refreshNormal(this.aYd.mListModel.getData());
+                return;
+            case 8:
+                if (obj != null && (obj instanceof String)) {
+                    String str = (String) obj;
+                    this.aYd.mListView.setDraft(str);
+                    this.aYd.mListModel.setDraft(str);
+                    return;
+                }
+                return;
+            case 9:
+                this.aYd.finish();
+                return;
+            case 10:
+                if (obj != null && (obj instanceof String)) {
+                    this.aYd.mListView.refreshHeaderFooter((String) obj, true);
+                    return;
+                }
+                return;
+            case 11:
+                this.aYd.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.aYd.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.aYd.finish();
+                return;
+            case 12:
+                this.aYd.mListView.refreshGo2New(this.aYd.mListModel.getData());
+                return;
+            case 13:
+                this.aYd.mListView.refreshNormal(this.aYd.mListModel.getData());
+                break;
+            case 14:
+                break;
+            default:
+                return;
+        }
+        this.aYd.mListView.refreshNormal(this.aYd.mListModel.getData());
     }
 }

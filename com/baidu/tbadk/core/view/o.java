@@ -1,17 +1,15 @@
 package com.baidu.tbadk.core.view;
-
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class o extends ImageView {
-    public void qy() {
-        if (getBackground() != null) {
-            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
-            setBackgroundDrawable(null);
-            if (bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-        }
+class o implements Runnable {
+    final /* synthetic */ HorizontalListView Yj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(HorizontalListView horizontalListView) {
+        this.Yj = horizontalListView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.Yj.requestLayout();
     }
 }

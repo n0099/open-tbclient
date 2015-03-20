@@ -1,36 +1,26 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class u extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aUo;
+class u implements com.baidu.tieba.im.chat.w {
+    final /* synthetic */ OfficialBarChatActivity aYU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(OfficialBarChatActivity officialBarChatActivity, int i) {
-        super(i);
-        this.aUo = officialBarChatActivity;
+    public u(OfficialBarChatActivity officialBarChatActivity) {
+        this.aYU = officialBarChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        OfficialBarMsglistView officialBarMsglistView;
-        officialBarMsglistView = this.aUo.aUh;
-        officialBarMsglistView.cA(false);
-        if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
-            this.aUo.showToast(com.baidu.tieba.z.neterror);
-            return;
+    @Override // com.baidu.tieba.im.chat.w
+    public void c(VoiceData.VoiceModel voiceModel) {
+        MsglistModel msglistModel;
+        if (voiceModel != null) {
+            msglistModel = this.aYU.mListModel;
+            msglistModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
         }
-        ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
-        if (responseSendOfficialBarMenuMessage.hasError()) {
-            if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
-                this.aUo.showToast(responseSendOfficialBarMenuMessage.getErrorString());
-            } else {
-                this.aUo.showToast(com.baidu.tieba.z.neterror);
-            }
-        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.w
+    public void Nt() {
     }
 }

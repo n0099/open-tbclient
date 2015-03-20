@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements View.OnLongClickListener {
-    final /* synthetic */ bc aSq;
+    final /* synthetic */ bk aXJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bc bcVar) {
-        this.aSq = bcVar;
+    public bo(bk bkVar) {
+        this.aXJ = bkVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.aSq.mItemViewLongClickListener.onItemViewLongClick(view, 10, this.aSq.mPosition, 0L);
+        this.aXJ.aXd.onItemViewLongClick(view, 11, this.aXJ.mPosition, 0L);
         return true;
     }
 }

@@ -8,17 +8,17 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends ImageView {
-    final /* synthetic */ a afV;
-    private int afW;
+    final /* synthetic */ a aoq;
+    private int aor;
     private final Paint mPaint;
     private long mStartTime;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, Context context) {
         super(context);
-        this.afV = aVar;
+        this.aoq = aVar;
         this.mStartTime = -1L;
-        this.afW = 0;
+        this.aor = 0;
         this.mPaint = new Paint();
         this.mPaint.setColor(0);
         this.mPaint.setAlpha(0);
@@ -32,21 +32,21 @@ public class d extends ImageView {
         c cVar2;
         if (this.mStartTime == -1) {
             this.mStartTime = SystemClock.elapsedRealtime();
-            this.afW = 0;
+            this.aor = 0;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime();
         super.draw(canvas);
         if (elapsedRealtime - this.mStartTime > 1000) {
             this.mStartTime = elapsedRealtime;
-            cVar = this.afV.afU;
+            cVar = this.aoq.aop;
             if (cVar != null) {
-                cVar2 = this.afV.afU;
-                cVar2.dU(this.afW);
+                cVar2 = this.aoq.aop;
+                cVar2.dY(this.aor);
             } else {
-                com.baidu.adp.a.a.d.o(this.afW);
+                com.baidu.adp.a.a.d.p(this.aor);
             }
-            this.afW = 0;
+            this.aor = 0;
         }
-        this.afW++;
+        this.aor++;
     }
 }

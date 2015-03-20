@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public class j extends l {
-    private com.baidu.tbadk.mvc.j.c<FeedData, com.baidu.tbadk.mvc.e.c, b> atQ;
-    private com.baidu.tbadk.mvc.i.b.c bts;
-    private BdListView btt;
+    private com.baidu.tbadk.mvc.j.d<FeedData, com.baidu.tbadk.mvc.e.c, b> aBB;
+    private com.baidu.tbadk.mvc.i.b.c bCO;
+    private BdListView bCP;
     private NoNetworkView mNoNetworkView;
 
     public j(MvcActivity<?, ?, ?> mvcActivity) {
@@ -20,15 +20,15 @@ public class j extends l {
 
     @Override // com.baidu.tbadk.mvc.i.e
     public BdListView getListView() {
-        return this.btt;
+        return this.bCP;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void ky() {
-        super.ky();
-        if (this.atQ != null) {
-            this.atQ.ky();
+    public void or() {
+        super.or();
+        if (this.aBB != null) {
+            this.aBB.or();
         }
     }
 
@@ -36,52 +36,52 @@ public class j extends l {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityStop() {
         super.onActivityStop();
-        if (this.atQ != null) {
-            this.atQ.onActivityStop();
+        if (this.aBB != null) {
+            this.aBB.onActivityStop();
         }
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof q) {
-            this.atQ.w(((q) aVar).Uj());
+            this.aBB.r(((q) aVar).XD());
         }
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    protected int kB() {
-        return com.baidu.tieba.x.at_me_activity;
+    protected int ou() {
+        return com.baidu.tieba.w.at_me_activity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.mention.l, com.baidu.tbadk.mvc.core.c
-    public void kC() {
-        this.btt = (BdListView) getView().findViewById(com.baidu.tieba.w.atme_lv);
-        this.atQ = new com.baidu.tbadk.mvc.j.c<>(getPageContext(), b.class, com.baidu.tieba.x.mention_atme_item, wH());
-        this.atQ.a(com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.u.ds80)), com.baidu.tbadk.core.view.ab.cp(com.baidu.tieba.z.mention_atme_nodata), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
-        this.btt.setAdapter((ListAdapter) this.atQ);
-        this.mNoNetworkView = (NoNetworkView) getView().findViewById(com.baidu.tieba.w.view_no_network_at);
-        super.kC();
+    public void ov() {
+        this.bCP = (BdListView) getView().findViewById(com.baidu.tieba.v.atme_lv);
+        this.aBB = new com.baidu.tbadk.mvc.j.d<>(getPageContext(), b.class, com.baidu.tieba.w.mention_atme_item, zT());
+        this.aBB.a(com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.mention_atme_nodata), (com.baidu.tbadk.core.view.u) null, (FrameLayout.LayoutParams) null);
+        this.bCP.setAdapter((ListAdapter) this.aBB);
+        this.mNoNetworkView = (NoNetworkView) getView().findViewById(com.baidu.tieba.v.view_no_network_at);
+        super.ov();
     }
 
-    @Override // com.baidu.tieba.mention.l, com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
+    @Override // com.baidu.tieba.mention.l, com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.atQ.a(tbPageContext, i);
+        this.aBB.a(tbPageContext, i);
         this.mNoNetworkView.onChangeSkinType(getPageContext(), i);
         return super.a(tbPageContext, i);
     }
 
     @Override // com.baidu.tbadk.mvc.i.b.b
-    public com.baidu.tbadk.mvc.i.b.c yB() {
-        if (this.bts == null) {
-            this.bts = new com.baidu.tbadk.mvc.i.b.c();
-            this.bts.setTitle(getString(com.baidu.tieba.z.mention_atme));
-            this.bts.dO(2);
+    public com.baidu.tbadk.mvc.i.b.c BP() {
+        if (this.bCO == null) {
+            this.bCO = new com.baidu.tbadk.mvc.i.b.c();
+            this.bCO.setTitle(getString(com.baidu.tieba.y.mention_atme));
+            this.bCO.dR(2);
             com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-            cVar.view = com.baidu.adp.lib.g.b.ei().inflate(getActivity(), com.baidu.tieba.x.message_tip_item, null);
-            this.bts.a(cVar);
-            this.bts.ev("msg_tip_key");
+            cVar.view = com.baidu.adp.lib.g.b.hH().inflate(getActivity(), com.baidu.tieba.w.message_tip_item, null);
+            this.bCO.a(cVar);
+            this.bCO.ez("msg_tip_key");
         }
-        return this.bts;
+        return this.bCO;
     }
 }

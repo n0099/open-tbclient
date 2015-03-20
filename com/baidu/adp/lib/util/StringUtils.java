@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.game.GameInfoData;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,6 +20,23 @@ public class StringUtils {
         return new SimpleDateFormat(TIMEFORMAT).format(date);
     }
 
+    public static final String string(Object... objArr) {
+        if (objArr != null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    if (obj instanceof String) {
+                        stringBuffer.append((String) obj);
+                    } else {
+                        stringBuffer.append(String.valueOf(obj));
+                    }
+                }
+            }
+            return stringBuffer.toString();
+        }
+        return "";
+    }
+
     public static String SimpleDateFormat(Date date, String str) {
         if (date == null) {
             return null;
@@ -28,6 +45,12 @@ public class StringUtils {
             str = TIMEFORMAT;
         }
         return new SimpleDateFormat(str).format(date);
+    }
+
+    public static final void clearStringBuilder(StringBuilder sb) {
+        if (sb != null && sb.length() > 0) {
+            sb.delete(0, sb.length());
+        }
     }
 
     public static Date handleDate(String str) {
@@ -76,7 +99,7 @@ public class StringUtils {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
     private static String unitFormat(int i) {
         if (i >= 0 && i < 10) {
-            return "0" + Integer.toString(i);
+            return GameInfoData.NOT_FROM_DETAIL + Integer.toString(i);
         }
         return new StringBuilder().append(i).toString();
     }
@@ -127,6 +150,6 @@ public class StringUtils {
 
     public static long getyyyyMMddHHTimeForNow() {
         Calendar calendar = Calendar.getInstance();
-        return 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * TbConfig.BIG_IMAGE_MIN_CAPACITY) + (calendar.get(5) * 100) + calendar.get(11);
+        return 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
     }
 }

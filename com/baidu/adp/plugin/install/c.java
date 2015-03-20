@@ -21,74 +21,74 @@ import java.util.HashMap;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class c {
-    private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private static volatile c sm = null;
-    private LinkedList<String> sh;
-    private ArrayList<String> si;
-    private ArrayList<String> sj;
-    private BroadcastReceiver sk;
-    private a sl;
-    private HashMap<String, Runnable> sq;
-    private boolean sg = false;
-    private boolean so = true;
-    private f sr = null;
+    private LinkedList<String> CX;
+    private ArrayList<String> CY;
+    private ArrayList<String> CZ;
+    private BroadcastReceiver Da;
+    private a Db;
+    private HashMap<String, Runnable> De;
+    private static Handler ot = new Handler(Looper.getMainLooper());
+    private static volatile c Dc = null;
+    private boolean CW = false;
+    private boolean Dd = true;
+    private f Df = null;
 
-    public static c hJ() {
-        if (sm == null) {
+    public static c ld() {
+        if (Dc == null) {
             synchronized (c.class) {
-                if (sm == null) {
-                    sm = new c();
+                if (Dc == null) {
+                    Dc = new c();
                 }
             }
         }
-        return sm;
+        return Dc;
     }
 
     public c() {
-        this.sh = null;
-        this.si = null;
-        this.sj = null;
-        this.sk = null;
-        this.sq = null;
-        this.sh = new LinkedList<>();
-        this.si = new ArrayList<>();
-        this.sj = new ArrayList<>();
-        this.sq = new HashMap<>();
-        this.sk = new d(this);
-        hK();
+        this.CX = null;
+        this.CY = null;
+        this.CZ = null;
+        this.Da = null;
+        this.De = null;
+        this.CX = new LinkedList<>();
+        this.CY = new ArrayList<>();
+        this.CZ = new ArrayList<>();
+        this.De = new HashMap<>();
+        this.Da = new d(this);
+        le();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, boolean z) {
-        if (this.sh.contains(str)) {
-            this.sh.remove(str);
+        if (this.CX.contains(str)) {
+            this.CX.remove(str);
         }
-        if (this.si.contains(str)) {
-            this.si.remove(str);
+        if (this.CY.contains(str)) {
+            this.CY.remove(str);
         }
-        sHandler.removeCallbacks(this.sq.remove(str));
-        if (z && this.si.isEmpty() && this.sl != null) {
-            this.sl.J(this.so);
+        ot.removeCallbacks(this.De.remove(str));
+        if (z && this.CY.isEmpty() && this.Db != null) {
+            this.Db.J(this.Dd);
         }
-        if (this.sj.contains(str)) {
-            this.sj.remove(str);
-            com.baidu.adp.plugin.b.a.hN().aW("plugin_retry_install_succ");
+        if (this.CZ.contains(str)) {
+            this.CZ.remove(str);
+            com.baidu.adp.plugin.b.a.lh().be("plugin_retry_install_succ");
         }
     }
 
     public void a(Context context, a aVar) {
-        this.sl = aVar;
-        if (this.sr != null) {
-            this.sr.cancel();
-            this.sr = null;
+        this.Db = aVar;
+        if (this.Df != null) {
+            this.Df.cancel();
+            this.Df = null;
         }
-        this.sr = new f(this, context);
-        this.sr.setPriority(4);
-        this.sr.execute(new String[0]);
+        this.Df = new f(this, context);
+        this.Df.setPriority(4);
+        this.Df.execute(new String[0]);
     }
 
-    public boolean aT(String str) {
-        return this.sh.contains(str);
+    public boolean bb(String str) {
+        return this.CX.contains(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=4, 187=4] */
@@ -103,9 +103,9 @@ public class c {
         int lastIndexOf2 = str.lastIndexOf(".apk");
         if (lastIndexOf + 1 < lastIndexOf2) {
             String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
-            PluginSetting ba = PluginPackageManager.hV().ba(substring);
-            if (substring != null && substring.length() > 0 && ba != null) {
-                File file = new File(ba.apkPath);
+            PluginSetting bi = PluginPackageManager.ls().bi(substring);
+            if (substring != null && substring.length() > 0 && bi != null) {
+                File file = new File(bi.apkPath);
                 if (file.exists() && file.isFile() && file.length() > 0) {
                     try {
                         fileInputStream = new FileInputStream(file);
@@ -114,8 +114,8 @@ public class c {
                                 com.baidu.adp.plugin.util.f g = Util.g(fileInputStream);
                                 inputStream = context.getAssets().open(str);
                                 if (g.a(Util.g(inputStream)) == 0) {
-                                    if (this.sl != null) {
-                                        this.sl.aR(substring);
+                                    if (this.Db != null) {
+                                        this.Db.aZ(substring);
                                     }
                                     com.baidu.adp.lib.g.a.d(fileInputStream);
                                     com.baidu.adp.lib.g.a.d(inputStream);
@@ -164,7 +164,7 @@ public class c {
         PackageInfo packageArchiveInfo;
         boolean z2 = false;
         if (context != null && !TextUtils.isEmpty(str)) {
-            hK();
+            le();
             String str2 = null;
             if (str.startsWith("assets://")) {
                 str2 = str.substring(str.lastIndexOf("/") + 1, str.lastIndexOf(".apk"));
@@ -173,9 +173,9 @@ public class c {
                 str2 = packageArchiveInfo.packageName;
             }
             if (str2 != null) {
-                if (C(str2, str)) {
+                if (D(str2, str)) {
                     if (z2) {
-                        this.si.add(str2);
+                        this.CY.add(str2);
                     }
                 } else {
                     return;
@@ -193,36 +193,36 @@ public class c {
         }
     }
 
-    public static File aU(String str) {
-        PluginSetting ba = PluginPackageManager.hV().ba(str);
-        if (ba == null || ba.apkPath == null || ba.apkPath.length() <= 0) {
+    public static File bc(String str) {
+        PluginSetting bi = PluginPackageManager.ls().bi(str);
+        if (bi == null || bi.apkPath == null || bi.apkPath.length() <= 0) {
             return null;
         }
-        return new File(ba.apkPath);
+        return new File(bi.apkPath);
     }
 
-    private void hK() {
-        if (!this.sg) {
+    private void le() {
+        if (!this.CW) {
             try {
                 Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.plugin.installed");
                 intentFilter.addAction("com.baidu.adp.plugin.installfail");
-                applicationContext.registerReceiver(this.sk, intentFilter);
-                this.sg = true;
+                applicationContext.registerReceiver(this.Da, intentFilter);
+                this.CW = true;
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    private boolean C(String str, String str2) {
-        if (this.sh.contains(str)) {
+    private boolean D(String str, String str2) {
+        if (this.CX.contains(str)) {
             return false;
         }
         e eVar = new e(this, str, str2);
-        this.sq.put(str, eVar);
-        sHandler.postDelayed(eVar, 240000L);
-        return this.sh.add(str);
+        this.De.put(str, eVar);
+        ot.postDelayed(eVar, 240000L);
+        return this.CX.add(str);
     }
 }

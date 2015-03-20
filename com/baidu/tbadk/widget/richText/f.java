@@ -38,7 +38,7 @@ public class f extends BitmapDrawable {
         super.setBounds(rect);
     }
 
-    public void G(int i, int i2) {
+    public void E(int i, int i2) {
         if (this.mRect != null) {
             super.setBounds(this.mRect.left, this.mRect.top, this.mRect.right + i, this.mRect.bottom + i2);
         }
@@ -48,19 +48,19 @@ public class f extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.e vY = com.baidu.tbadk.imageManager.e.vY();
-            com.baidu.adp.widget.a.a ek = (vY == null || this.mKey == null) ? null : vY.ek(this.mKey);
-            if (ek == null) {
-                Bitmap b = com.baidu.tbadk.core.util.d.b(this.mContext, this.mId);
+            com.baidu.tbadk.imageManager.e zs = com.baidu.tbadk.imageManager.e.zs();
+            com.baidu.adp.widget.a.a er = (zs == null || this.mKey == null) ? null : zs.er(this.mKey);
+            if (er == null) {
+                Bitmap b = com.baidu.tbadk.core.util.c.b(this.mContext, this.mId);
                 if (b != null) {
-                    ek = new com.baidu.adp.widget.a.a(b, false, null);
+                    er = new com.baidu.adp.widget.a.a(b, false, null);
                 }
-                if (vY != null && ek != null && this.mKey != null) {
-                    vY.c(this.mKey, ek);
+                if (zs != null && er != null && this.mKey != null) {
+                    zs.c(this.mKey, er);
                 }
-                aVar = ek;
+                aVar = er;
             } else {
-                aVar = ek;
+                aVar = er;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();

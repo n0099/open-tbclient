@@ -40,7 +40,7 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof d) {
-                linkedList.add(((d) next).at());
+                linkedList.add(((d) next).dR());
             }
         }
         return linkedList;

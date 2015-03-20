@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ BannerView TO;
+    final /* synthetic */ BannerView adQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BannerView bannerView) {
-        this.TO = bannerView;
+        this.adQ = bannerView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,38 +39,38 @@ public class a implements View.OnClickListener {
         b bVar4;
         TbPageContext tbPageContext5;
         String str10;
-        button = this.TO.TH;
+        button = this.adQ.adJ;
         if (view != button) {
-            str = this.TO.TF;
+            str = this.adQ.adH;
             if (!TextUtils.isEmpty(str)) {
-                tbPageContext4 = this.TO.mContext;
+                tbPageContext4 = this.adQ.LN;
                 Context context = tbPageContext4.getContext();
-                str8 = this.TO.TF;
-                com.baidu.tbadk.core.i.A(context, str8);
+                str8 = this.adQ.adH;
+                com.baidu.tbadk.core.k.A(context, str8);
             }
-            bVar = this.TO.TM;
+            bVar = this.adQ.adO;
             if (bVar == null) {
-                str2 = this.TO.link;
+                str2 = this.adQ.link;
                 if (!TextUtils.isEmpty(str2)) {
-                    bm pO = bm.pO();
-                    tbPageContext = this.TO.mContext;
-                    str3 = this.TO.link;
-                    pO.b(tbPageContext, new String[]{str3});
-                    str4 = this.TO.link;
+                    bk tl = bk.tl();
+                    tbPageContext = this.adQ.LN;
+                    str3 = this.adQ.link;
+                    tl.b(tbPageContext, new String[]{str3});
+                    str4 = this.adQ.link;
                     if (str4.startsWith("game:detail:")) {
-                        str7 = this.TO.type;
+                        str7 = this.adQ.type;
                         if ("frs_banner".equals(str7)) {
-                            tbPageContext3 = this.TO.mContext;
-                            TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601");
+                            tbPageContext3 = this.adQ.LN;
+                            TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                             return;
                         }
                     }
-                    str5 = this.TO.link;
+                    str5 = this.adQ.link;
                     if (str5.startsWith("game:detail:")) {
-                        str6 = this.TO.type;
+                        str6 = this.adQ.type;
                         if ("enterforum_banner".equals(str6)) {
-                            tbPageContext2 = this.TO.mContext;
-                            TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401");
+                            tbPageContext2 = this.adQ.LN;
+                            TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
                             return;
                         }
                         return;
@@ -79,23 +79,23 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            bVar2 = this.TO.TM;
-            bVar2.ty();
+            bVar2 = this.adQ.adO;
+            bVar2.wR();
             return;
         }
-        str9 = this.TO.TG;
+        str9 = this.adQ.adI;
         if (!TextUtils.isEmpty(str9)) {
-            tbPageContext5 = this.TO.mContext;
+            tbPageContext5 = this.adQ.LN;
             Context context2 = tbPageContext5.getContext();
-            str10 = this.TO.TG;
-            com.baidu.tbadk.core.i.A(context2, str10);
+            str10 = this.adQ.adI;
+            com.baidu.tbadk.core.k.A(context2, str10);
         }
-        this.TO.TJ = true;
-        this.TO.setVisibility(8);
-        bVar3 = this.TO.TM;
+        this.adQ.adL = true;
+        this.adQ.setVisibility(8);
+        bVar3 = this.adQ.adO;
         if (bVar3 != null) {
-            bVar4 = this.TO.TM;
-            bVar4.tz();
+            bVar4 = this.adQ.adO;
+            bVar4.wS();
         }
     }
 }

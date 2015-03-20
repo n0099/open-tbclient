@@ -1,30 +1,31 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
+import android.view.View;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
-class an implements DialogInterface.OnClickListener {
-    final /* synthetic */ am aUR;
-    private final /* synthetic */ ImMessageCenterShowItemData aUS;
+class an implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ am aZF;
+    private final /* synthetic */ ImMessageCenterShowItemData aZG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aUR = amVar;
-        this.aUS = imMessageCenterShowItemData;
+        this.aZF = amVar;
+        this.aZG = imMessageCenterShowItemData;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
         OfficialBarTipActivity officialBarTipActivity;
         OfficialBarTipModel officialBarTipModel;
         OfficialBarTipActivity officialBarTipActivity2;
         com.baidu.tieba.im.chat.notify.a aVar;
-        officialBarTipActivity = this.aUR.aUQ;
-        officialBarTipModel = officialBarTipActivity.aUO;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aUS;
-        officialBarTipActivity2 = this.aUR.aUQ;
-        aVar = officialBarTipActivity2.aTC;
+        eVar.dismiss();
+        officialBarTipActivity = this.aZF.aZE;
+        officialBarTipModel = officialBarTipActivity.aZA;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aZG;
+        officialBarTipActivity2 = this.aZF.aZE;
+        aVar = officialBarTipActivity2.aZD;
         officialBarTipModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

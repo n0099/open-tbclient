@@ -1,55 +1,17 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.OfficialBarTipActivityConfig;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.base.g<OfficialBarTipActivity> {
-    private OfficialBarTipListAdapter aUT;
-    private OfficialBarTipActivity aUU;
-    private BdListView mBdListView;
-    private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.core.view.x mNoDataView;
-    private ViewGroup mRootView;
-
-    public ao(OfficialBarTipActivity officialBarTipActivity) {
-        super(officialBarTipActivity.getPageContext());
-        officialBarTipActivity.setContentView(com.baidu.tieba.x.officialbar_msg_activity);
-        this.aUU = officialBarTipActivity;
-        d(officialBarTipActivity);
-        e(officialBarTipActivity);
-    }
-
-    private void d(OfficialBarTipActivity officialBarTipActivity) {
-        this.mNavigationBar = (NavigationBar) officialBarTipActivity.findViewById(com.baidu.tieba.w.view_navigation_bar);
-        this.mNavigationBar.setTitleText(officialBarTipActivity.getPageContext().getString(com.baidu.tieba.z.subscribe_bar_title));
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ap(this, officialBarTipActivity));
-        this.mRootView = (ViewGroup) officialBarTipActivity.findViewById(com.baidu.tieba.w.root_view);
-    }
-
-    public void onChangeSkinType(int i) {
-        this.aUU.getLayoutMode().ab(i == 1);
-        this.aUU.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.aUU.getPageContext(), i);
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.aUU.getPageContext(), i);
+class ao implements CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), OfficialBarTipActivity.class);
+            customMessage.getData().startActivity();
         }
-    }
-
-    private void e(OfficialBarTipActivity officialBarTipActivity) {
-        this.mBdListView = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.w.msg_list);
-        this.aUT = new OfficialBarTipListAdapter(officialBarTipActivity);
-        this.mBdListView.setAdapter((ListAdapter) this.aUT);
-        this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.cp(com.baidu.tieba.z.official_message_activity_no_data), null);
-    }
-
-    public BdListView getBdListView() {
-        return this.mBdListView;
-    }
-
-    public OfficialBarTipListAdapter La() {
-        return this.aUT;
+        return null;
     }
 }

@@ -1,26 +1,15 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-class j implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ ResponsePullMessage bju;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ResponsePullMessage responsePullMessage) {
-        this.bju = responsePullMessage;
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        if (imMessageCenterPojo != null) {
-            com.baidu.tieba.im.db.k.MU().a(imMessageCenterPojo, 2);
+class j implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_KD_MREAD, customMessage.getData());
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.c.ML().a(str, list, true);
+        return null;
     }
 }

@@ -1,44 +1,34 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+public class bk implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ String bkm;
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+    public bk(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, String str) {
         this.this$0 = imMemoryCacheRegisterStatic;
+        this.bkm = str;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.QJ().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        if (list != null && list.size() != 0) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo.getMsg_type() == 11) {
-                    String content = commonMsgPojo.getContent();
-                    try {
-                        String optString = new JSONObject(content).optString("eventId");
-                        if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
-                        }
-                    } catch (JSONException e) {
-                        BdLog.detailException(e);
-                    }
-                }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && (customMessage instanceof CustomMessage)) {
+            try {
+                com.baidu.tieba.im.db.g.PO().PP();
+                com.baidu.tieba.im.db.k.PT().y(this.bkm, 1);
+                com.baidu.tieba.im.db.c.PK().gp(this.bkm);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            } finally {
+                com.baidu.tieba.im.db.g.PO().endTransaction();
             }
         }
+        return null;
     }
 }

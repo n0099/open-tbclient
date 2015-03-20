@@ -3,17 +3,17 @@ package android.support.v4.media;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 class b implements KeyEvent.Callback {
-    final /* synthetic */ TransportMediator aD;
+    final /* synthetic */ TransportMediator lH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TransportMediator transportMediator) {
-        this.aD = transportMediator;
+        this.lH = transportMediator;
     }
 
     @Override // android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (TransportMediator.f(i)) {
-            return this.aD.ax.onMediaButtonDown(i, keyEvent);
+            return this.lH.lB.onMediaButtonDown(i, keyEvent);
         }
         return false;
     }
@@ -26,7 +26,7 @@ class b implements KeyEvent.Callback {
     @Override // android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         if (TransportMediator.f(i)) {
-            return this.aD.ax.onMediaButtonUp(i, keyEvent);
+            return this.lH.lB.onMediaButtonUp(i, keyEvent);
         }
         return false;
     }

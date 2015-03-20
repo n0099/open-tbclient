@@ -145,7 +145,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = jSONObject.optInt("is_floor");
                 this.quote_pid = jSONObject.optString("quote_pid");
                 this.mPraiseItemType = jSONObject.optString("item_type");
-                if (!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) {
+                if (!com.baidu.adp.lib.util.m.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) {
                     JSONObject optJSONObject = jSONObject.optJSONObject(TYPE_ZAN);
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt("is_liked");
@@ -182,7 +182,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = replyList.is_floor.intValue();
                 this.quote_pid = String.valueOf(replyList.quote_pid);
                 this.mPraiseItemType = replyList.item_type;
-                if (!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN) && (zan = replyList.zan) != null) {
+                if (!com.baidu.adp.lib.util.m.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN) && (zan = replyList.zan) != null) {
                     this.mPraiseNum = zan.num.intValue();
                     this.mPraiseLiked = zan.is_liked.intValue();
                     List<User> list = zan.liker_list;

@@ -1,46 +1,23 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 
-import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class k {
-    private EditorInfoContainer bVp;
+class k implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ j cms;
+    private final /* synthetic */ ViewGroup cmt;
 
-    public k(EditorInfoContainer editorInfoContainer) {
-        this.bVp = editorInfoContainer;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar, ViewGroup viewGroup) {
+        this.cms = jVar;
+        this.cmt = viewGroup;
     }
 
-    public void wo() {
-        if (this.bVp != null) {
-            this.bVp.wo();
-        }
-    }
-
-    public void H(View.OnClickListener onClickListener) {
-        if (this.bVp != null && this.bVp.bVj != null) {
-            this.bVp.bVj.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void B(int i, String str) {
-        if (this.bVp != null && this.bVp.bVj != null) {
-            this.bVp.bVj.C(i, str);
-        }
-    }
-
-    public void setLocationInfoViewState(int i) {
-        B(i, null);
-    }
-
-    public int getLocationInfoViewState() {
-        if (this.bVp == null || this.bVp.bVj == null) {
-            return 0;
-        }
-        return this.bVp.bVj.getState();
-    }
-
-    public void destroy() {
-        if (this.bVp != null) {
-            this.bVp.setVisibility(8);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        TbImageView tbImageView = (TbImageView) this.cmt.findViewWithTag(str);
+        if (tbImageView != null && aVar != null) {
+            tbImageView.invalidate();
         }
     }
 }

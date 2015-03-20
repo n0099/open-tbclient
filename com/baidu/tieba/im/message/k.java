@@ -1,44 +1,109 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+import com.baidu.tieba.im.data.GroupActivityData;
+import com.baidu.tieba.im.data.MemberData;
 import java.util.List;
 /* loaded from: classes.dex */
-class k implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ ResponsePullMessage bju;
-    private final /* synthetic */ ImMessageCenterPojo bjv;
+public class k {
+    private boolean bkA;
+    private boolean bkB;
+    private boolean bkC;
+    private boolean bkD;
+    private GroupActivityData bkE;
+    private GroupData bkv;
+    private List<MemberData> bkw;
+    private List<PhotoUrlData> bkx;
+    private int bky;
+    private int bkz;
+    private boolean isMemGroup;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bju = responsePullMessage;
-        this.bjv = imMessageCenterPojo;
+    public GroupActivityData Sq() {
+        return this.bkE;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        int i2 = 2;
-        if (imMessageCenterPojo != null) {
-            com.baidu.tieba.im.db.k.MU().a(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() == 0 && this.bjv != null) {
-                this.bjv.setGid(String.valueOf("-1001"));
-                this.bjv.setCustomGroupType(-7);
-                if (i == 0) {
-                    this.bjv.setUnread_count(0);
-                } else if (i == 1) {
-                    this.bjv.setUnread_count(1);
-                } else {
-                    i2 = 1;
-                }
-                if (z) {
-                    this.bjv.setIs_hidden(0);
-                }
-                com.baidu.tieba.im.db.k.MU().a(this.bjv, i2);
-            }
-        }
+    public void a(GroupActivityData groupActivityData) {
+        this.bkE = groupActivityData;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.o.Nf().a(com.baidu.adp.lib.g.c.a(str, 0L), list, true);
+    public GroupData getGroup() {
+        return this.bkv;
+    }
+
+    public void setGroup(GroupData groupData) {
+        this.bkv = groupData;
+    }
+
+    public List<MemberData> Sr() {
+        return this.bkw;
+    }
+
+    public void aF(List<MemberData> list) {
+        this.bkw = list;
+    }
+
+    public List<PhotoUrlData> Ss() {
+        return this.bkx;
+    }
+
+    public void aG(List<PhotoUrlData> list) {
+        this.bkx = list;
+    }
+
+    public int St() {
+        return this.bky;
+    }
+
+    public void ga(int i) {
+        this.bky = i;
+    }
+
+    public int Su() {
+        return this.bkz;
+    }
+
+    public void gb(int i) {
+        this.bkz = i;
+    }
+
+    public boolean Sv() {
+        return this.bkA;
+    }
+
+    public void cR(boolean z) {
+        this.bkA = z;
+    }
+
+    public boolean Sw() {
+        return this.bkB;
+    }
+
+    public void cS(boolean z) {
+        this.bkB = z;
+    }
+
+    public boolean Sx() {
+        return this.bkC;
+    }
+
+    public void cT(boolean z) {
+        this.bkC = z;
+    }
+
+    public boolean isMemGroup() {
+        return this.isMemGroup;
+    }
+
+    public void setMemGroup(boolean z) {
+        this.isMemGroup = z;
+    }
+
+    public boolean Sy() {
+        return this.bkD;
+    }
+
+    public void cU(boolean z) {
+        this.bkD = z;
     }
 }

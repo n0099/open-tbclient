@@ -33,8 +33,8 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.vL() != null) {
-            b.vM().a(this.mData.vL());
+        if (this.mData != null && this.mData.zl() != null) {
+            b.zm().a(this.mData.zl());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001253));
         }

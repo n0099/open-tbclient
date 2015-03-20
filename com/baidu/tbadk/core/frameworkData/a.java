@@ -3,13 +3,14 @@ package com.baidu.tbadk.core.frameworkData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.h;
+import com.baidu.adp.plugin.pluginBase.g;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a extends i {
@@ -52,20 +53,29 @@ public class a extends i {
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
     public static final String USER_SEX = "user_sex";
+    private Class<?> mComponentClass;
     private Context mContext;
     private Intent mIntent;
     private IntentAction mIntentAction;
     private int mRequestCode;
+    private ServiceConnection mServiceConnection;
+    private int mServiceConnectionFlags;
 
     public a() {
         this.mContext = null;
         this.mIntent = null;
+        this.mServiceConnection = null;
+        this.mServiceConnectionFlags = 0;
+        this.mComponentClass = null;
         this.mIntentAction = IntentAction.Activity;
     }
 
     public a(Context context) {
         this.mContext = null;
         this.mIntent = null;
+        this.mServiceConnection = null;
+        this.mServiceConnectionFlags = 0;
+        this.mComponentClass = null;
         this.mIntentAction = IntentAction.Activity;
         if (context == null) {
             throw new InvalidParameterException("ActivitySwitch context null");
@@ -82,6 +92,22 @@ public class a extends i {
         return this.mIntent;
     }
 
+    public ServiceConnection getServiceConnection() {
+        return this.mServiceConnection;
+    }
+
+    public void setServiceConnection(ServiceConnection serviceConnection) {
+        this.mServiceConnection = serviceConnection;
+    }
+
+    public int getServiceConnectionFlags() {
+        return this.mServiceConnectionFlags;
+    }
+
+    public void setServiceConnectionFlags(int i) {
+        this.mServiceConnectionFlags = i;
+    }
+
     public boolean isValid() {
         return true;
     }
@@ -92,6 +118,19 @@ public class a extends i {
 
     public void setRequestCode(int i) {
         this.mRequestCode = i;
+    }
+
+    public void setComponentClass(Class<?> cls) {
+        if (cls == null) {
+            if (BdBaseApplication.getInst().isDebugMode()) {
+                throw new IllegalArgumentException("IntentConfig setClass args exception!");
+            }
+            return;
+        }
+        this.mComponentClass = cls;
+        if (this.mContext != null) {
+            this.mIntent.setClass(this.mContext, this.mComponentClass);
+        }
     }
 
     public void run() {
@@ -121,13 +160,15 @@ public class a extends i {
         }
     }
 
-    public void startActivityForResult(int i, Message<?> message) {
-        if (message != null) {
-            if (TextUtils.isEmpty(h.ir().aw(message.getCmd()))) {
+    public void startActivityForResult(int i, Class<?> cls) {
+        setComponentClass(cls);
+        if (this.mComponentClass != null && this.mContext != null) {
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (TextUtils.isEmpty(pluginNameByClassloader) || pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
                 if (this.mIntent != null) {
                     try {
                         if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
-                            PluginCenter.getInstance().launchIntent(this.mContext, message.getCmd(), this.mIntent);
+                            PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                             return;
                         }
                     } catch (Exception e) {
@@ -136,18 +177,43 @@ public class a extends i {
                 }
                 try {
                     startActivityForResult(i);
-                    return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
-                    return;
                 }
+            } else if (!h.lP().by(pluginNameByClassloader)) {
+                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
-            PluginCenter.getInstance().launchIntent(this.mContext, message.getCmd(), this.mIntent);
         }
     }
 
     public void startService() {
         this.mContext.startService(this.mIntent);
+    }
+
+    public void startService(Class<?> cls) {
+        setComponentClass(cls);
+        if (this.mComponentClass != null && this.mContext != null) {
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (TextUtils.isEmpty(pluginNameByClassloader) || pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (this.mIntent != null) {
+                    try {
+                        if (g.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
+                            PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                try {
+                    this.mContext.startService(this.mIntent);
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                }
+            } else if (!h.lP().by(pluginNameByClassloader)) {
+                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
+            }
+        }
     }
 
     public void stopService() {
@@ -158,13 +224,16 @@ public class a extends i {
         return this.mRequestCode;
     }
 
-    public void startActivity(Message<?> message) {
-        if (message != null) {
-            if (TextUtils.isEmpty(h.ir().aw(message.getCmd()))) {
+    public void startActivity(Class<?> cls) {
+        setComponentClass(cls);
+        if (this.mComponentClass != null && this.mContext != null) {
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (TextUtils.isEmpty(pluginNameByClassloader) || pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
                 if (this.mIntent != null) {
                     try {
-                        if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
-                            PluginCenter.getInstance().launchIntent(this.mContext, message.getCmd(), this.mIntent);
+                        Class<?> loadClass = BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName());
+                        if (loadClass != null && com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(loadClass)) {
+                            PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                             return;
                         }
                     } catch (Exception e) {
@@ -173,13 +242,38 @@ public class a extends i {
                 }
                 try {
                     this.mContext.startActivity(this.mIntent);
-                    return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
-                    return;
                 }
+            } else if (!h.lP().by(pluginNameByClassloader)) {
+                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
-            PluginCenter.getInstance().launchIntent(this.mContext, message.getCmd(), this.mIntent);
+        }
+    }
+
+    public void bindService(Class<?> cls) {
+        setComponentClass(cls);
+        if (this.mComponentClass != null && this.mContext != null) {
+            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
+            if (TextUtils.isEmpty(pluginNameByClassloader) || pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
+                if (this.mIntent != null) {
+                    try {
+                        if (g.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
+                            PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                try {
+                    this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                }
+            } else if (!h.lP().by(pluginNameByClassloader)) {
+                PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+            }
         }
     }
 }

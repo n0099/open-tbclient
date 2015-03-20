@@ -1,67 +1,98 @@
 package com.baidu.tbadk.core.voice;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.z;
+import com.baidu.tbadk.core.util.n;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
+public class h extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ VoiceManager this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(VoiceManager voiceManager) {
+    private h(VoiceManager voiceManager) {
         this.this$0 = voiceManager;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ h(VoiceManager voiceManager, h hVar) {
+        this(voiceManager);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1287=4, 1288=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void onLoaded(com.baidu.tbadk.core.voice.a.a aVar, String str, int i) {
-        VoiceData.VoiceModel voiceModel;
-        m mVar;
-        m mVar2;
-        VoiceData.VoiceModel voiceModel2;
-        m mVar3;
-        VoiceData.VoiceModel voiceModel3;
-        VoiceData.VoiceModel voiceModel4;
-        VoiceData.VoiceModel voiceModel5;
-        super.onLoaded(aVar, str, i);
-        voiceModel = this.this$0.mCurPlayModel;
-        if (voiceModel == null) {
-            return;
-        }
-        mVar = this.this$0.sPlayView;
-        if (mVar != null && aVar != null) {
-            String str2 = aVar.path;
-            String str3 = aVar.md5;
-            int i2 = aVar.error_code;
-            String str4 = aVar.error_msg;
-            if (StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-                TiebaStatic.voiceError("", 1, this.this$0.context.getString(z.voice_cache_error_internal), str2);
-                if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    mVar2 = this.this$0.sPlayView;
-                    mVar2.onShowErr(5, com.baidu.adp.lib.voice.q.getString(z.voice_err_load_fail));
-                } else {
-                    mVar3 = this.this$0.sPlayView;
-                    mVar3.onShowErr(5, str4);
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Void doInBackground(Void... voidArr) {
+        FileReader fileReader;
+        FileReader fileReader2 = null;
+        try {
+            try {
+                fileReader = new FileReader("/sys/class/switch/h2w/state");
+                try {
+                    char[] cArr = new char[1024];
+                    this.this$0.b_HEADSET_PLUG = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
+                    if (this.this$0.b_HEADSET_PLUG) {
+                        this.this$0.setSpeakerphone(false);
+                    }
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e) {
+                        }
+                    }
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    n nVar = new n();
+                    nVar.h("path", "/sys/class/switch/h2w/state");
+                    TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), nVar.toString());
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e3) {
+                        }
+                    }
+                    return null;
+                } catch (Exception e4) {
+                    e = e4;
+                    n nVar2 = new n();
+                    nVar2.h("path", "/sys/class/switch/h2w/state");
+                    TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), nVar2.toString());
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e5) {
+                        }
+                    }
+                    return null;
                 }
-                VoiceManager voiceManager = this.this$0;
-                voiceModel2 = this.this$0.mCurPlayModel;
-                voiceManager.setPlayWaiting(voiceModel2);
-                return;
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    try {
+                        fileReader2.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                throw th;
             }
-            voiceModel3 = this.this$0.mCurPlayModel;
-            if (!voiceModel3.voiceId.equals(str3)) {
-                return;
+        } catch (FileNotFoundException e7) {
+            e = e7;
+            fileReader = null;
+        } catch (Exception e8) {
+            e = e8;
+            fileReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
             }
-            voiceModel4 = this.this$0.mCurPlayModel;
-            if (VoiceManager.isVoiceDownloading(voiceModel4.voice_status.intValue())) {
-                VoiceManager voiceManager2 = this.this$0;
-                voiceModel5 = this.this$0.mCurPlayModel;
-                voiceManager2.setPlaying(voiceModel5, str2);
-            }
+            throw th;
         }
+        return null;
     }
 }

@@ -1,19 +1,18 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity Bv;
+public class s implements View.OnClickListener {
+    final /* synthetic */ q Ny;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(WebTbActivity webTbActivity) {
-        this.Bv = webTbActivity;
+    public s(q qVar) {
+        this.Ny = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.Bv.mWebView.canGoBack()) {
-            this.Bv.mWebView.goBack();
-        }
+        this.Ny.oV();
     }
 }

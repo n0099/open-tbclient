@@ -1,46 +1,36 @@
 package com.baidu.tbadk.performanceLog;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class w extends u {
-    public long agJ;
-    public long agK;
-    public long agL;
-    public long agM;
-    public long agN;
-    public long agO;
-    public long agP;
-    public long agQ;
-    public long agR;
-    public long agS;
-    public long agT;
-    public long agU;
-    public boolean agV;
-    public boolean isSuccess;
+class w extends CustomMessageListener {
+    final /* synthetic */ u aph;
 
-    public void zm() {
-        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
-        if (aeVar != null) {
-            aeVar.b(this);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(u uVar, int i) {
+        super(i);
+        this.aph = uVar;
     }
 
-    public void zn() {
-        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
-        if (aeVar != null) {
-            aeVar.a(this);
-        }
-    }
-
-    public void zo() {
-        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
-        if (aeVar != null) {
-            aeVar.c(this);
-        }
-    }
-
-    public void zp() {
-        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
-        if (aeVar != null) {
-            aeVar.d(this);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        x xVar;
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        if (customResponsedMessage != null && (xVar = (x) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aph.mId) {
+            this.aph.eC(xVar.aoM);
+            this.aph.ea(xVar.aoN);
+            this.aph.eD(xVar.apj);
+            arrayList = this.aph.aoC;
+            if (arrayList != null) {
+                arrayList2 = this.aph.aoC;
+                if (arrayList2.size() >= 20) {
+                    this.aph.Cz();
+                }
+            }
         }
     }
 }

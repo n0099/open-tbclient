@@ -61,31 +61,31 @@ public class BdStatFirstSwitchData implements Serializable {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        String ep = f.eq().ep();
-        if (com.baidu.adp.lib.util.k.isEmpty(ep)) {
+        String hO = f.hP().hO();
+        if (com.baidu.adp.lib.util.m.isEmpty(hO)) {
             return false;
         }
-        int[] aj = aj(ep);
-        int[] aj2 = aj(str);
-        int[] aj3 = aj(str2);
-        if (aj != null) {
-            if (aj2 != null) {
-                z = aj[0] > aj2[0] || (aj[0] == aj2[0] && (aj[1] > aj2[1] || (aj[1] == aj2[1] && aj[2] >= aj2[2])));
+        int[] aq = aq(hO);
+        int[] aq2 = aq(str);
+        int[] aq3 = aq(str2);
+        if (aq != null) {
+            if (aq2 != null) {
+                z = aq[0] > aq2[0] || (aq[0] == aq2[0] && (aq[1] > aq2[1] || (aq[1] == aq2[1] && aq[2] >= aq2[2])));
             } else {
                 z = false;
             }
-            if (aj3 != null) {
-                z2 = aj3[0] > aj[0] || (aj3[0] == aj[0] && (aj3[1] > aj[1] || (aj3[1] == aj[1] && aj3[2] >= aj[2])));
+            if (aq3 != null) {
+                z2 = aq3[0] > aq[0] || (aq3[0] == aq[0] && (aq3[1] > aq[1] || (aq3[1] == aq[1] && aq3[2] >= aq[2])));
             } else {
                 z2 = false;
             }
-            if (aj2 != null && aj3 != null) {
+            if (aq2 != null && aq3 != null) {
                 if (!z || !z2) {
                     z3 = false;
                 }
                 return z3;
-            } else if (aj2 == null || aj3 != null) {
-                if (aj2 != null || aj3 == null) {
+            } else if (aq2 == null || aq3 != null) {
+                if (aq2 != null || aq3 == null) {
                     return false;
                 }
                 return z2;
@@ -96,9 +96,9 @@ public class BdStatFirstSwitchData implements Serializable {
         return false;
     }
 
-    private int[] aj(String str) {
+    private int[] aq(String str) {
         String[] split;
-        if (com.baidu.adp.lib.util.k.isEmpty(str) || (split = str.split("\\.")) == null || split.length <= 0) {
+        if (com.baidu.adp.lib.util.m.isEmpty(str) || (split = str.split("\\.")) == null || split.length <= 0) {
             return null;
         }
         int[] iArr = new int[3];

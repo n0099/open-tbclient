@@ -1,5 +1,17 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
-public interface j extends n {
-    void ag(int i);
+public interface j {
+    void onDeletedVoice(String str);
+
+    void onSendVoice(String str, int i);
+
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z);
+
+    void onStopingRecorder();
 }

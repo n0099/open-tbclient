@@ -4,16 +4,16 @@ import android.graphics.Bitmap;
 import android.print.PrintDocumentAdapter;
 /* loaded from: classes.dex */
 class f extends PrintDocumentAdapter {
-    final /* synthetic */ String aV;
-    final /* synthetic */ Bitmap aW;
-    final /* synthetic */ int aX;
-    final /* synthetic */ e aY;
+    final /* synthetic */ String lZ;
+    final /* synthetic */ Bitmap ma;
+    final /* synthetic */ int mb;
+    final /* synthetic */ e mc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, String str, Bitmap bitmap, int i) {
-        this.aY = eVar;
-        this.aV = str;
-        this.aW = bitmap;
-        this.aX = i;
+        this.mc = eVar;
+        this.lZ = str;
+        this.ma = bitmap;
+        this.mb = i;
     }
 }

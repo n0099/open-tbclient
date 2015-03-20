@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int bnb;
-    private volatile HashMap<Long, Integer> caI = new HashMap<>();
-    private volatile int caH = 0;
+    private volatile int bVX;
+    private volatile HashMap<Long, Integer> cpL = new HashMap<>();
+    private volatile int cpK = 0;
 
     public l(int i) {
-        this.bnb = i;
+        this.bVX = i;
     }
 
-    public void it(String str) {
+    public void iN(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.caI.size() >= this.bnb) {
-                    aiq();
+                if (this.cpL.size() >= this.bVX) {
+                    anv();
                 }
-                this.caH++;
-                this.caI.put(valueOf, Integer.valueOf(this.caH));
+                this.cpK++;
+                this.cpL.put(valueOf, Integer.valueOf(this.cpK));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void aiq() {
+    public void anv() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.caI.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.cpL.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.caI.remove(l);
+                this.cpL.remove(l);
             } else {
-                this.caI.clear();
+                this.cpL.clear();
             }
         }
     }
 
-    public boolean iu(String str) {
+    public boolean iO(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.caI.get(valueOf) != null) {
+                if (this.cpL.get(valueOf) != null) {
                     z = true;
                 }
             }

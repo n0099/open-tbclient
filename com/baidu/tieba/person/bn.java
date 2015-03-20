@@ -1,42 +1,24 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class bn extends CustomMessageListener {
-    final /* synthetic */ bl bIE;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn(bl blVar, int i) {
-        super(i);
-        this.bIE = blVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bo boVar;
-        bo boVar2;
-        bo boVar3;
-        bo boVar4;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-            com.baidu.tbadk.core.data.r data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
-            if (data2 != null) {
-                boVar3 = this.bIE.bIq;
-                if (boVar3 != null) {
-                    boVar4 = this.bIE.bIq;
-                    boVar4.d(data2, true);
-                    return;
-                }
-                return;
+public class bn implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
+            RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
+            boolean isFollow = requestLocalPersonListMessage.isFollow();
+            String str = com.baidu.tbadk.core.b.a.rc().bX("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
+            com.baidu.tieba.person.a.a aVar = new com.baidu.tieba.person.a.a();
+            if (str != null) {
+                aVar.parserJson(str);
             }
-            boVar = this.bIE.bIq;
-            if (boVar != null) {
-                boVar2 = this.bIE.bIq;
-                boVar2.A("", true);
-            }
+            ResponseLocalPersonListMessage responseLocalPersonListMessage = new ResponseLocalPersonListMessage();
+            responseLocalPersonListMessage.setData(aVar);
+            return responseLocalPersonListMessage;
         }
+        return null;
     }
 }

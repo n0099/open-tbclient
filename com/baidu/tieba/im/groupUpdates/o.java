@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ i bhr;
+    final /* synthetic */ i biH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(i iVar) {
-        this.bhr = iVar;
+        this.biH = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,9 +17,9 @@ public class o implements View.OnClickListener {
         UpdatesActivity updatesActivity;
         UpdatesItemData updatesItemData;
         view.setSelected(!view.isSelected());
-        updatesActivity = this.bhr.bhj;
+        updatesActivity = this.biH.biz;
         boolean isSelected = view.isSelected();
-        updatesItemData = this.bhr.data;
+        updatesItemData = this.biH.data;
         updatesActivity.onCheckedChanged(view, isSelected, updatesItemData);
     }
 }

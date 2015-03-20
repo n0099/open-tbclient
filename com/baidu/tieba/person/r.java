@@ -1,31 +1,37 @@
 package com.baidu.tieba.person;
 
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r {
-    BarImageView aAk;
-    TextView aAn;
-    StringBuffer bHg;
-    TextView bHh;
-    TextView bHi;
-    TextView bHj;
-    TextView bHk;
-    TextView bHl;
-    TextView bHm;
-    Button bHn;
-    ImageView bHo;
-    final /* synthetic */ q bHp;
-    ImageView bkM;
+public class r extends BroadcastReceiver {
+    final /* synthetic */ EditHeadActivity this$0;
 
-    private r(q qVar) {
-        this.bHp = qVar;
+    private r(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(q qVar, r rVar) {
-        this(qVar);
+    public /* synthetic */ r(EditHeadActivity editHeadActivity, r rVar) {
+        this(editHeadActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        View view;
+        View view2;
+        this.this$0.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            this.this$0.initData();
+            return;
+        }
+        this.this$0.showToast(intent.getStringExtra("error"));
+        view = this.this$0.bOG;
+        if (view != null) {
+            view2 = this.this$0.bOG;
+            view2.setEnabled(false);
+        }
     }
 }

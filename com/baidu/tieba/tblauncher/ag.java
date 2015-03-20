@@ -1,37 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class ag extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity this$0;
-
-    private ag(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(MainTabActivity mainTabActivity, ag agVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
+class ag implements CustomMessageTask.CustomRunnable<Integer> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
+            int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
+            if (intValue == 2) {
+                MainTabActivity.cqO = true;
+            }
+            return new NewMsgArriveResponsedMessage(intValue);
         }
-    }
-
-    private void refreshNewVersion() {
-        if (TbadkCoreApplication.checkNeedShowNewVersion()) {
-            this.this$0.mHasNewVersion = true;
-        } else {
-            this.this$0.mHasNewVersion = false;
-        }
-        this.this$0.eH(false);
+        return null;
     }
 }

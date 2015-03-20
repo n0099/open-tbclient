@@ -1,52 +1,78 @@
 package com.baidu.tieba.frs;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by extends CustomMessageListener {
-    final /* synthetic */ bp aGg;
+public class by extends av<com.baidu.tieba.tbadkCore.aj, bx> implements View.OnClickListener {
+    private boolean aMm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public by(bp bpVar, int i) {
-        super(i);
-        this.aGg = bpVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public by(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
+        super(frsActivity, bdUniqueId);
+        this.aMm = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.coreExtra.view.q qVar;
-        boolean z;
-        com.baidu.tbadk.coreExtra.view.q qVar2;
-        com.baidu.tbadk.coreExtra.view.q qVar3;
-        com.baidu.tbadk.coreExtra.view.q qVar4;
-        LinearLayout linearLayout;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.view.q)) {
-            this.aGg.aFM = (com.baidu.tbadk.coreExtra.view.q) customResponsedMessage.getData();
-            qVar = this.aGg.aFM;
-            ImageView view = qVar.getView();
-            view.setVisibility(8);
-            view.setScaleType(ImageView.ScaleType.CENTER);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) TbadkCoreApplication.m255getInst().getApp().getResources().getDimension(com.baidu.tieba.u.navi_item_width), -1);
-            layoutParams.gravity = 17;
-            view.setLayoutParams(layoutParams);
-            z = this.aGg.aFX;
-            if (!z) {
-                linearLayout = this.aGg.aFN;
-                linearLayout.addView(view);
-                this.aGg.aFX = true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: i */
+    public bx a(ViewGroup viewGroup) {
+        return new bx(com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.frs_official_account_item, null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.aj ajVar, bx bxVar) {
+        super.a(i, view, viewGroup, (ViewGroup) ajVar, (com.baidu.tieba.tbadkCore.aj) bxVar);
+        if (ajVar.akQ()) {
+            String akR = ajVar.akR();
+            if (akR != null) {
+                bxVar.aMj.setText(akR);
+            } else if (this.aIV.YO() != null && this.aIV.YO().getName() != null) {
+                bxVar.aMj.setText(this.mContext.getString(com.baidu.tieba.y.get_fortune_hint_format, this.aIV.YO().getName()));
             }
-            qVar2 = this.aGg.aFM;
-            qVar2.setStatisticsKey("frs_live_icon");
-            qVar3 = this.aGg.aFM;
-            qVar3.setVisibleChangeCallback(new bz(this));
-            qVar4 = this.aGg.aFM;
-            qVar4.tC();
+            bxVar.aMi.setTag(Integer.valueOf(i));
+            bxVar.aMi.setOnClickListener(this);
+            bxVar.aMi.setVisibility(0);
+        } else {
+            bxVar.aMi.setVisibility(8);
+        }
+        com.baidu.tieba.tbadkCore.x akS = ajVar.akS();
+        if (akS != null && akS.akM() && !TextUtils.isEmpty(akS.akN())) {
+            bxVar.aMl.setText(akS.akN());
+            bxVar.aMk.setTag(Integer.valueOf(i));
+            bxVar.aMk.setOnClickListener(this);
+            bxVar.aMk.setVisibility(0);
+        } else {
+            bxVar.aMk.setVisibility(8);
+        }
+        this.aJT.getLayoutMode().X(this.mSkinType == 1);
+        this.aJT.getLayoutMode().h(view);
+        if (!this.aMm && !ajVar.akQ()) {
+            return new View(this.mContext);
+        }
+        return view;
+    }
+
+    public int JJ() {
+        return com.baidu.tieba.v.frs_fortune_bag_item;
+    }
+
+    public int JK() {
+        return com.baidu.tieba.v.frs_my_service_item;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.aKC != null) {
+            int id = view.getId();
+            int intValue = ((Integer) view.getTag()).intValue();
+            View childAt = this.mListView.getChildAt(intValue - (this.mListView.getFirstVisiblePosition() - this.mListView.getHeaderViewsCount()));
+            this.aKC.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.w) aA(intValue));
         }
     }
 }

@@ -1,32 +1,32 @@
 package com.baidu.tbadk.core.voice.service;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.z;
+import com.baidu.adp.lib.util.ab;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private ad CU;
-    private d Ow;
-    private com.baidu.tbadk.coreExtra.data.c Ox;
-    private String Oy;
-    private String Oz;
+    private aa ZD;
+    private d ZE;
+    private com.baidu.tbadk.coreExtra.data.c ZF;
+    private String ZG;
+    private String ZH;
 
     public c(String str, String str2) {
-        this.Oy = str;
-        this.Oz = str2;
+        this.ZG = str;
+        this.ZH = str2;
     }
 
-    public com.baidu.tbadk.coreExtra.data.c cW(String str) {
+    public com.baidu.tbadk.coreExtra.data.c df(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + this.Oy);
+            this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZG);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -36,51 +36,51 @@ public class c {
 
     private com.baidu.tbadk.coreExtra.data.c a(String str, File file) {
         String a;
-        String e = z.e(s.l(file));
+        String e = ab.e(o.l(file));
         if (e != null && e.length() > 0) {
             e = e.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.b ca = com.baidu.tbadk.core.util.i.ca(e);
-        if (ca == null) {
-            ca = new com.baidu.tbadk.coreExtra.data.b();
-            ca.dc(e);
-            ca.cz(0);
-            ca.r(file.length());
+        com.baidu.tbadk.coreExtra.data.b ci = com.baidu.tbadk.core.util.e.ci(e);
+        if (ci == null) {
+            ci = new com.baidu.tbadk.coreExtra.data.b();
+            ci.di(e);
+            ci.cy(0);
+            ci.s(file.length());
         }
-        this.Ow = new d(this, str, ca, String.valueOf(TbConfig.SERVER_ADDRESS) + this.Oy, e);
-        this.Ox = this.Ow.qV();
-        if (this.Ox.isSuccess() && (a = a(e, ca)) != null && !a.equals("")) {
+        this.ZE = new d(this, str, ci, String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZG, e);
+        this.ZF = this.ZE.ue();
+        if (this.ZF.isSuccess() && (a = a(e, ci)) != null && !a.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                ca.dc(audioInfoData.getVoiceId());
-                this.Ox.b(ca);
+                ci.di(audioInfoData.getVoiceId());
+                this.ZF.b(ci);
             } else {
-                this.Ox.setErrorCode(audioInfoData.getErrorCode());
-                this.Ox.setErrorString(audioInfoData.getErrorMsg());
-                this.Ox.au(false);
+                this.ZF.setErrorCode(audioInfoData.getErrorCode());
+                this.ZF.setErrorString(audioInfoData.getErrorMsg());
+                this.ZF.af(false);
             }
         }
-        return this.Ox;
+        return this.ZF;
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + this.Oz);
-        this.CU.o("voice_md5", bVar.rA());
-        String or = this.CU.or();
-        if (or == null || !this.CU.oS().qa().lT()) {
-            bVar.cz((int) q(bVar.getTotalLength()));
-            com.baidu.tbadk.core.util.i.a(bVar);
-            this.Ox.setErrorCode(this.CU.oW());
-            this.Ox.setErrorString(this.CU.getErrorString());
-            this.Ox.au(false);
+        this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZH);
+        this.ZD.o("voice_md5", bVar.ux());
+        String rO = this.ZD.rO();
+        if (rO == null || !this.ZD.sp().tq().pv()) {
+            bVar.cy((int) r(bVar.getTotalLength()));
+            com.baidu.tbadk.core.util.e.a(bVar);
+            this.ZF.setErrorCode(this.ZD.st());
+            this.ZF.setErrorString(this.ZD.getErrorString());
+            this.ZF.af(false);
             return null;
         }
-        com.baidu.tbadk.core.util.i.bZ(str);
-        return or;
+        com.baidu.tbadk.core.util.e.ch(str);
+        return rO;
     }
 
-    private long q(long j) {
+    private long r(long j) {
         return j % 30720 == 0 ? j / 30720 : (j / 30720) + 1;
     }
 }

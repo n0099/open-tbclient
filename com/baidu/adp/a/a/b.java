@@ -1,7 +1,7 @@
 package com.baidu.adp.a.a;
 
-import android.util.Log;
 import android.util.SparseArray;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -18,26 +18,26 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    static int cu = 0;
+    static int nE = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str.equals("") || str == null) {
-                stringBuffer.append(String.valueOf(ao()) + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(String.valueOf(dM()) + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(String.valueOf(str) + " = {\n");
             }
             while (cls != null && i(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    cu++;
+                    nE++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    cu--;
+                    nE--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(String.valueOf(ao()) + "}\n");
+            stringBuffer.append(String.valueOf(dM()) + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
@@ -57,14 +57,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(String.valueOf(ao()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(String.valueOf(dM()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String ao() {
+    private static String dM() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < cu; i++) {
+        for (int i = 0; i < nE; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -231,13 +231,13 @@ public class b {
 
     public static void d(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.cG) {
+        if (d.nQ) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(c("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
             String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {
-                Log.i("CP", str2);
+                BdLog.i(str2);
             }
         }
     }

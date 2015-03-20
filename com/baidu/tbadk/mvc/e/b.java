@@ -1,60 +1,60 @@
 package com.baidu.tbadk.mvc.e;
 /* loaded from: classes.dex */
 public class b implements d, e, f {
-    private boolean aeH = false;
-    private boolean aeI = true;
-    private boolean aeJ = false;
-    private boolean aeK = true;
-    private boolean aeL = true;
-    private boolean aeM = false;
-    private boolean aeN = true;
-    private boolean aeO = true;
+    private boolean anb = false;
+    private boolean anc = true;
+    private boolean and = false;
+    private boolean ane = true;
+    private boolean anf = true;
+    private boolean ang = false;
+    private boolean anh = true;
+    private boolean ani = true;
 
-    public boolean xO() {
-        return this.aeM;
+    public boolean Bc() {
+        return this.ang;
     }
 
-    public boolean xP() {
-        return this.aeN;
+    public boolean Bd() {
+        return this.anh;
     }
 
-    public boolean xQ() {
-        return this.aeO;
+    public boolean Be() {
+        return this.ani;
     }
 
-    public boolean xR() {
-        return this.aeH;
+    public boolean Bf() {
+        return this.anb;
     }
 
-    public void aR(boolean z) {
-        this.aeH = z;
+    public void aV(boolean z) {
+        this.anb = z;
     }
 
-    public boolean xS() {
-        return this.aeI;
+    public boolean Bg() {
+        return this.anc;
     }
 
-    public boolean xT() {
-        return this.aeJ;
+    public boolean Bh() {
+        return this.and;
     }
 
-    public void aS(boolean z) {
-        this.aeJ = z;
+    public void aW(boolean z) {
+        this.and = z;
     }
 
-    public boolean xU() {
-        return this.aeK;
+    public boolean Bi() {
+        return this.ane;
     }
 
-    public void aT(boolean z) {
-        this.aeK = z;
+    public void aX(boolean z) {
+        this.ane = z;
     }
 
-    public boolean xV() {
-        return this.aeL;
+    public boolean Bj() {
+        return this.anf;
     }
 
-    public void aU(boolean z) {
-        this.aeL = z;
+    public void aY(boolean z) {
+        this.anf = z;
     }
 }

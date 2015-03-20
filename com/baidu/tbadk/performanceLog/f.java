@@ -8,32 +8,32 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.a.a.a implements Runnable {
-    public static String aga = "logcat ";
-    private static Map<String, e> agc = new HashMap();
-    private Process afX;
-    private InputStream afY;
-    private OutputStream afZ;
-    private g agb;
+    public static String aov = "logcat ";
+    private static Map<String, e> aox = new HashMap();
+    private Process aos;
+    private InputStream aot;
+    private OutputStream aou;
+    private g aow;
 
     public static void a(String str, e eVar) {
-        agc.put(str, eVar);
-        aga = String.valueOf(aga) + " -s " + str;
+        aox.put(str, eVar);
+        aov = String.valueOf(aov) + " -s " + str;
     }
 
-    public void ex(String str) {
+    public void eB(String str) {
         String[] split = str.split("\n");
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, e>> it = agc.entrySet().iterator();
+                Iterator<Map.Entry<String, e>> it = aox.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     Map.Entry<String, e> next = it.next();
                     if (split[i2].contains(next.getKey().toString())) {
-                        next.getValue().ew(split[i2]);
+                        next.getValue().eA(split[i2]);
                         break;
                     }
                 }
@@ -49,11 +49,11 @@ public class f extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.afX = Runtime.getRuntime().exec(aga);
-            this.afZ = this.afX.getOutputStream();
-            this.afY = this.afX.getInputStream();
-            yY();
-            this.afZ.flush();
+            this.aos = Runtime.getRuntime().exec(aov);
+            this.aou = this.aos.getOutputStream();
+            this.aot = this.aos.getInputStream();
+            Cm();
+            this.aou.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -61,26 +61,26 @@ public class f extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void yY() {
-        this.agb = new g(this, this.afY);
-        this.agb.start();
+    private void Cm() {
+        this.aow = new g(this, this.aot);
+        this.aow.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.afX != null) {
-                this.afX.destroy();
+            if (this.aos != null) {
+                this.aos.destroy();
             }
-            if (this.agb != null) {
-                this.agb.finish();
+            if (this.aow != null) {
+                this.aow.finish();
             }
-            if (this.afY != null) {
-                this.afY.close();
+            if (this.aot != null) {
+                this.aot.close();
             }
-            if (this.afZ != null) {
-                this.afZ.close();
+            if (this.aou != null) {
+                this.aou.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

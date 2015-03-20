@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean Ld;
-    private boolean Le;
-    private boolean Lf;
+    private boolean WF;
+    private boolean WG;
+    private boolean WH;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3) {
         this.width = 0;
-        this.Ld = true;
-        this.Le = false;
-        this.Lf = false;
-        this.Ld = z;
-        this.Le = z2;
-        this.Lf = z3;
-        this.width = com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp());
+        this.WF = true;
+        this.WG = false;
+        this.WH = false;
+        this.WF = z;
+        this.WG = z2;
+        this.WH = z3;
+        this.width = com.baidu.adp.lib.util.n.M(TbadkCoreApplication.m411getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
             this.width = 644;
         }
-        if (this.width > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 430.0f)) {
-            this.width = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 430.0f);
+        if (this.width > com.baidu.adp.lib.util.n.dip2px(TbadkCoreApplication.m411getInst().getApp(), 430.0f)) {
+            this.width = com.baidu.adp.lib.util.n.dip2px(TbadkCoreApplication.m411getInst().getApp(), 430.0f);
         }
     }
 
@@ -38,16 +38,16 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.Ld;
+        return this.WF;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qj() {
-        return this.Lf;
+    public boolean tz() {
+        return this.WH;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qk() {
-        return this.Le;
+    public boolean tA() {
+        return this.WG;
     }
 }

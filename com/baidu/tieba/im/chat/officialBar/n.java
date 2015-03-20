@@ -1,47 +1,12 @@
 package com.baidu.tieba.im.chat.officialBar;
-
-import android.content.Context;
 /* loaded from: classes.dex */
-class n implements com.baidu.adp.lib.e.c<ar> {
-    final /* synthetic */ i aUc;
-    private final /* synthetic */ Context val$context;
+class n extends com.baidu.adp.lib.e.b<d> {
+    final /* synthetic */ j aYJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(i iVar, Context context) {
-        this.aUc = iVar;
-        this.val$context = context;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: KS */
-    public ar eb() {
-        return new ar(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void k(ar arVar) {
-        if (arVar instanceof ar) {
-            arVar.reset();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public ar l(ar arVar) {
-        return arVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public ar m(ar arVar) {
-        if (arVar instanceof ar) {
-            arVar.reset();
-        }
-        return arVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(j jVar, com.baidu.adp.lib.e.c cVar, int i, int i2) {
+        super(cVar, i, i2);
+        this.aYJ = jVar;
     }
 }

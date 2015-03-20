@@ -11,6 +11,7 @@ public class ShareFromPBMsgData implements Serializable {
     protected String forumName;
     protected String imageUrl;
     protected String postId;
+    protected String theNewThemeId;
     protected String threadId;
     protected String title;
 
@@ -23,6 +24,7 @@ public class ShareFromPBMsgData implements Serializable {
             jSONObject.put("themeID", this.threadId);
             jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
             jSONObject.put("themeTitle", this.title);
+            jSONObject.put("theNewThemeID", this.theNewThemeId);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
             jSONArray.put("1");
@@ -56,6 +58,14 @@ public class ShareFromPBMsgData implements Serializable {
 
     public void setContent(String str) {
         this.content = str;
+    }
+
+    public String getTheNewThemeId() {
+        return this.theNewThemeId;
+    }
+
+    public void setTheNewThemeId(String str) {
+        this.theNewThemeId = str;
     }
 
     public String getThreadId() {

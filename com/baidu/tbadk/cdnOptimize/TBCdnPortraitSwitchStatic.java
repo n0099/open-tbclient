@@ -1,8 +1,10 @@
 package com.baidu.tbadk.cdnOptimize;
+
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class TBCdnPortraitSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.f.da().l(TBCdnPortraitSwitchStatic.class);
+        f.gz().l(TBCdnPortraitSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

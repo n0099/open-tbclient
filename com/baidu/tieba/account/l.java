@@ -1,27 +1,16 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-class l extends Thread {
-    final /* synthetic */ AccountActivity amF;
-    private String mBduss;
-
-    public l(AccountActivity accountActivity, String str) {
-        this.amF = accountActivity;
-        this.mBduss = null;
-        this.mBduss = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tbadk.core.util.ad adVar = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REGISTER_ADDRESS);
-        adVar.oS().pZ().Ku = false;
-        adVar.oS().pZ().mIsUseCurrentBDUSS = false;
-        adVar.o("BDUSS", this.mBduss);
-        adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
-        adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-        adVar.or();
+class l implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), AccountActivity.class);
+            customMessage.getData().startActivity();
+        }
+        return null;
     }
 }

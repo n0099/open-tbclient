@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity bJX;
+    final /* synthetic */ PersonInfoActivity bSh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bJX = personInfoActivity;
+        this.bSh = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,22 +24,22 @@ class n extends CustomMessageListener {
         v vVar3;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().Rp) {
-                vVar = this.bJX.bJM;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().abe) {
+                vVar = this.bSh.bRW;
                 UserData userData = vVar.getUserData();
                 if (userData != null && userData.getHave_attention() != 1) {
-                    this.bJX.showToast(com.baidu.tieba.z.like_success);
-                    vVar3 = this.bJX.bJM;
+                    this.bSh.showToast(com.baidu.tieba.y.like_success);
+                    vVar3 = this.bSh.bRW;
                     vVar3.getUserData().setHave_attention(1);
                 } else if (userData != null && userData.getHave_attention() == 1) {
-                    vVar2 = this.bJX.bJM;
+                    vVar2 = this.bSh.bRW;
                     vVar2.getUserData().setHave_attention(2);
-                    this.bJX.showToast(com.baidu.tieba.z.unlike_success);
+                    this.bSh.showToast(com.baidu.tieba.y.unlike_success);
                 }
-                aeVar = this.bJX.bJN;
-                aeVar.acc();
+                aeVar = this.bSh.bRX;
+                aeVar.aep();
             } else if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().errorString != null) {
-                this.bJX.showToast(updateAttentionMessage.getData().errorString);
+                this.bSh.showToast(updateAttentionMessage.getData().errorString);
             }
         }
     }

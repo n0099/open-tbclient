@@ -13,7 +13,7 @@ public class a {
     public static final void a(View view, int i, Object obj) {
         if (view != null && obj != null) {
             if ((i >>> 24) < 2) {
-                if (TbadkCoreApplication.m255getInst().isDebugMode()) {
+                if (TbadkCoreApplication.m411getInst().isDebugMode()) {
                     throw new InvalidParameterException("The key must be an application-specific resource id.");
                 }
                 return;
@@ -24,28 +24,28 @@ public class a {
 
     public static final void a(b bVar, View view) {
         if (bVar != null && view != null) {
-            int xm = bVar.xm();
+            int Az = bVar.Az();
             BdUniqueId uniqueId = bVar.getUniqueId();
-            com.baidu.tbadk.mvc.b.a xn = bVar.xn();
-            c xo = bVar.xo();
-            com.baidu.tbadk.mvc.a.a xp = bVar.xp();
+            com.baidu.tbadk.mvc.b.a AA = bVar.AA();
+            c AB = bVar.AB();
+            com.baidu.tbadk.mvc.a.a AC = bVar.AC();
             Object extra = bVar.getExtra();
-            boolean xq = bVar.xq();
-            int xr = bVar.xr();
+            boolean AD = bVar.AD();
+            int AE = bVar.AE();
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(50331648, Integer.valueOf(xm));
+            sparseArray.put(50331648, Integer.valueOf(Az));
             sparseArray.put(51380224, uniqueId);
-            sparseArray.put(52428800, xn);
-            sparseArray.put(53477376, xo);
-            sparseArray.put(54525952, xp);
+            sparseArray.put(52428800, AA);
+            sparseArray.put(53477376, AB);
+            sparseArray.put(54525952, AC);
             sparseArray.put(58720256, extra);
-            sparseArray.put(59768832, Boolean.valueOf(xq));
-            sparseArray.put(67108864, Integer.valueOf(xr));
+            sparseArray.put(59768832, Boolean.valueOf(AD));
+            sparseArray.put(67108864, Integer.valueOf(AE));
             a(sparseArray, view);
         }
     }
 
-    public static final b s(View view) {
+    public static final b r(View view) {
         if (view != null) {
             Object tag = view.getTag(50331648);
             Object tag2 = view.getTag(51380224);
@@ -63,8 +63,8 @@ public class a {
                 b bVar = new b(intValue, (com.baidu.tbadk.mvc.b.a) tag3, (c) tag4, (com.baidu.tbadk.mvc.a.a) tag5);
                 bVar.setUniqueId(bdUniqueId);
                 bVar.setExtra(tag6);
-                bVar.aO(booleanValue);
-                bVar.dI(intValue2);
+                bVar.aS(booleanValue);
+                bVar.dL(intValue2);
                 return bVar;
             }
         }
@@ -81,7 +81,7 @@ public class a {
         if (dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
             return null;
         }
-        return s(dialog.getWindow().getDecorView());
+        return r(dialog.getWindow().getDecorView());
     }
 
     public static final void a(SparseArray<Object> sparseArray, View view) {

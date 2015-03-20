@@ -2,25 +2,24 @@ package com.baidu.tbadk.performanceLog;
 
 import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.a.a {
-    private String agt = "dalvikvm";
-    private String[] agu = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private f agv = null;
-    private int agn = 0;
-    private final int agw = TbConfig.BIG_IMAGE_MIN_CAPACITY;
-    private q agx = null;
-    private final Handler agy = new o(this);
+    private String aoO = "dalvikvm";
+    private String[] aoP = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private f aoQ = null;
+    private int aoI = 0;
+    private final int aoR = 10000;
+    private q aoS = null;
+    private final Handler aoT = new o(this);
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
-        if (!an()) {
+        if (!dL()) {
             super.start();
-            this.agy.sendEmptyMessageDelayed(0, 10000L);
-            zg();
+            this.aoT.sendEmptyMessageDelayed(0, 10000L);
+            Cu();
             try {
-                f.a(this.agt, new p(this));
+                f.a(this.aoO, new p(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,27 +29,27 @@ public class n extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        zh();
+        Cv();
     }
 
-    private void zg() {
-        if (this.agv == null) {
-            this.agv = new f();
+    private void Cu() {
+        if (this.aoQ == null) {
+            this.aoQ = new f();
         }
-        if (!this.agv.an()) {
-            new Thread(this.agv).start();
+        if (!this.aoQ.dL()) {
+            new Thread(this.aoQ).start();
         }
     }
 
-    private void zh() {
-        if (this.agv != null && this.agv.an()) {
-            this.agv.stop();
+    private void Cv() {
+        if (this.aoQ != null && this.aoQ.dL()) {
+            this.aoQ.stop();
         }
     }
 
     public void a(q qVar) {
-        if (this.agx == null) {
-            this.agx = qVar;
+        if (this.aoS == null) {
+            this.aoS = qVar;
         }
     }
 }

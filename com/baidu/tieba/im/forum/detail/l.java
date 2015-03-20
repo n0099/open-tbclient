@@ -5,9 +5,9 @@ public interface l {
 
     void a(ForumDetailSocketResponse forumDetailSocketResponse);
 
-    void cM(boolean z);
+    void cA(boolean z);
 
-    void cN(boolean z);
+    void cB(boolean z);
 
-    void gH(String str);
+    void gy(String str);
 }

@@ -14,46 +14,46 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class b extends Thread {
-    private AladinServer Ao;
-    private Socket Ar;
-    private a As;
+    private AladinServer MU;
+    private Socket MX;
+    private a MY;
 
     public b(Socket socket, AladinServer aladinServer, a aVar) {
-        this.Ar = socket;
-        this.Ao = aladinServer;
-        this.As = aVar;
+        this.MX = socket;
+        this.MU = aladinServer;
+        this.MY = aVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [148=6, 150=6, 151=6, 153=6, 154=6, 157=6, 158=6, 160=6, 161=6, 164=6, 165=6, 167=6, 168=6] */
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         String readLine;
-        com.baidu.tbadk.aladin.a.a kT;
-        if (this.Ar == null) {
+        com.baidu.tbadk.aladin.a.a oM;
+        if (this.MX == null) {
             return;
         }
         try {
-            if (this.Ao == null || this.As == null) {
-                if (this.Ar != null) {
+            if (this.MU == null || this.MY == null) {
+                if (this.MX != null) {
                     try {
-                        if (!this.Ar.isInputShutdown()) {
-                            this.Ar.shutdownInput();
+                        if (!this.MX.isInputShutdown()) {
+                            this.MX.shutdownInput();
                         }
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                     try {
-                        if (!this.Ar.isOutputShutdown()) {
-                            this.Ar.shutdownOutput();
+                        if (!this.MX.isOutputShutdown()) {
+                            this.MX.shutdownOutput();
                         }
                     } catch (Throwable th2) {
                         th2.printStackTrace();
                     }
                     try {
-                        if (this.Ar.isClosed()) {
+                        if (this.MX.isClosed()) {
                             return;
                         }
-                        this.Ar.close();
+                        this.MX.close();
                         return;
                     } catch (Throwable th3) {
                         th3.printStackTrace();
@@ -62,30 +62,30 @@ public class b extends Thread {
                 }
                 return;
             }
-            this.Ar.setSoTimeout(1000);
-            this.Ar.setTcpNoDelay(true);
-            InputStream inputStream = this.Ar.getInputStream();
+            this.MX.setSoTimeout(1000);
+            this.MX.setTcpNoDelay(true);
+            InputStream inputStream = this.MX.getInputStream();
             if (inputStream == null) {
-                if (this.Ar != null) {
+                if (this.MX != null) {
                     try {
-                        if (!this.Ar.isInputShutdown()) {
-                            this.Ar.shutdownInput();
+                        if (!this.MX.isInputShutdown()) {
+                            this.MX.shutdownInput();
                         }
                     } catch (Throwable th4) {
                         th4.printStackTrace();
                     }
                     try {
-                        if (!this.Ar.isOutputShutdown()) {
-                            this.Ar.shutdownOutput();
+                        if (!this.MX.isOutputShutdown()) {
+                            this.MX.shutdownOutput();
                         }
                     } catch (Throwable th5) {
                         th5.printStackTrace();
                     }
                     try {
-                        if (this.Ar.isClosed()) {
+                        if (this.MX.isClosed()) {
                             return;
                         }
-                        this.Ar.close();
+                        this.MX.close();
                         return;
                     } catch (Throwable th6) {
                         th6.printStackTrace();
@@ -104,20 +104,20 @@ public class b extends Thread {
                     str = readLine;
                 }
             } while (readLine.length() != 0);
-            com.baidu.tbadk.aladin.a.a kT2 = new d(new com.baidu.tbadk.aladin.a.a(str)).kT();
-            if (kT2 != null && (kT = new e(kT2).kT()) != null && c.kS()) {
-                com.baidu.tbadk.aladin.a.b bVar = new com.baidu.tbadk.aladin.a.b(kT);
-                boolean kP = bVar.kP();
+            com.baidu.tbadk.aladin.a.a oM2 = new d(new com.baidu.tbadk.aladin.a.a(str)).oM();
+            if (oM2 != null && (oM = new e(oM2).oM()) != null && c.oL()) {
+                com.baidu.tbadk.aladin.a.b bVar = new com.baidu.tbadk.aladin.a.b(oM);
+                boolean oI = bVar.oI();
                 String response = bVar.getResponse();
-                if (kP) {
+                if (oI) {
                     Intent intent = bVar.getIntent();
                     if (intent == null) {
                         bVar.setErrorCode(2);
                         response = bVar.getResponse();
                     } else if (new com.baidu.tbadk.aladin.b.a().G(intent)) {
                         try {
-                            intent.setClass(this.Ao.getApplicationContext(), WebNativeReceiver.class);
-                            this.Ao.sendBroadcast(intent);
+                            intent.setClass(this.MU.getApplicationContext(), WebNativeReceiver.class);
+                            this.MU.sendBroadcast(intent);
                         } catch (Exception e) {
                             bVar.setErrorCode(1);
                             response = bVar.getResponse();
@@ -131,31 +131,31 @@ public class b extends Thread {
                     response = bVar.getResponse();
                 }
                 com.baidu.tbadk.aladin.a.c cVar = new com.baidu.tbadk.aladin.a.c();
-                cVar.L("Connection", "Close");
+                cVar.O("Connection", "Close");
                 cVar.setContent(response);
-                String kR = cVar.kR();
-                OutputStream outputStream = this.Ar.getOutputStream();
+                String oK = cVar.oK();
+                OutputStream outputStream = this.MX.getOutputStream();
                 if (outputStream == null) {
-                    if (this.Ar != null) {
+                    if (this.MX != null) {
                         try {
-                            if (!this.Ar.isInputShutdown()) {
-                                this.Ar.shutdownInput();
+                            if (!this.MX.isInputShutdown()) {
+                                this.MX.shutdownInput();
                             }
                         } catch (Throwable th7) {
                             th7.printStackTrace();
                         }
                         try {
-                            if (!this.Ar.isOutputShutdown()) {
-                                this.Ar.shutdownOutput();
+                            if (!this.MX.isOutputShutdown()) {
+                                this.MX.shutdownOutput();
                             }
                         } catch (Throwable th8) {
                             th8.printStackTrace();
                         }
                         try {
-                            if (this.Ar.isClosed()) {
+                            if (this.MX.isClosed()) {
                                 return;
                             }
-                            this.Ar.close();
+                            this.MX.close();
                             return;
                         } catch (Throwable th9) {
                             th9.printStackTrace();
@@ -165,52 +165,52 @@ public class b extends Thread {
                     return;
                 }
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
-                bufferedWriter.write(kR);
+                bufferedWriter.write(oK);
                 bufferedWriter.flush();
             }
-            if (this.Ar != null) {
+            if (this.MX != null) {
                 try {
-                    if (!this.Ar.isInputShutdown()) {
-                        this.Ar.shutdownInput();
+                    if (!this.MX.isInputShutdown()) {
+                        this.MX.shutdownInput();
                     }
                 } catch (Throwable th10) {
                     th10.printStackTrace();
                 }
                 try {
-                    if (!this.Ar.isOutputShutdown()) {
-                        this.Ar.shutdownOutput();
+                    if (!this.MX.isOutputShutdown()) {
+                        this.MX.shutdownOutput();
                     }
                 } catch (Throwable th11) {
                     th11.printStackTrace();
                 }
                 try {
-                    if (this.Ar.isClosed()) {
+                    if (this.MX.isClosed()) {
                         return;
                     }
-                    this.Ar.close();
+                    this.MX.close();
                 } catch (Throwable th12) {
                     th12.printStackTrace();
                 }
             }
         } catch (Throwable th13) {
-            if (this.Ar != null) {
+            if (this.MX != null) {
                 try {
-                    if (!this.Ar.isInputShutdown()) {
-                        this.Ar.shutdownInput();
+                    if (!this.MX.isInputShutdown()) {
+                        this.MX.shutdownInput();
                     }
                 } catch (Throwable th14) {
                     th14.printStackTrace();
                 }
                 try {
-                    if (!this.Ar.isOutputShutdown()) {
-                        this.Ar.shutdownOutput();
+                    if (!this.MX.isOutputShutdown()) {
+                        this.MX.shutdownOutput();
                     }
                 } catch (Throwable th15) {
                     th15.printStackTrace();
                 }
                 try {
-                    if (!this.Ar.isClosed()) {
-                        this.Ar.close();
+                    if (!this.MX.isClosed()) {
+                        this.MX.close();
                     }
                 } catch (Throwable th16) {
                     th16.printStackTrace();

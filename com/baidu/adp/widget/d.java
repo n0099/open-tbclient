@@ -1,34 +1,39 @@
 package com.baidu.adp.widget;
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.R;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class d extends FrameLayout.LayoutParams {
-    public int column;
+public class d extends ImageSpan {
+    private WeakReference<Drawable> Fm;
 
-    public d(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.column = 1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ColumnLayout_Layout);
-        this.column = obtainStyledAttributes.getInt(0, 1);
-        obtainStyledAttributes.recycle();
-        if (this.gravity == -1) {
-            this.gravity = 51;
+    public d(Drawable drawable, int i) {
+        super(drawable, i);
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable md = md();
+        canvas.save();
+        int i6 = paint.getFontMetricsInt().top;
+        canvas.translate(f, (i5 - md.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((md.getBounds().top + md.getBounds().bottom) / 2)));
+        md.draw(canvas);
+        canvas.restore();
+    }
+
+    private Drawable md() {
+        WeakReference<Drawable> weakReference = this.Fm;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
         }
-    }
-
-    public d(int i, int i2, int i3, int i4) {
-        super(i, i2, i3);
-        this.column = 1;
-        this.column = i4;
-    }
-
-    public d(ViewGroup.LayoutParams layoutParams) {
-        super(layoutParams);
-        this.column = 1;
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.Fm = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

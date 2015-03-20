@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class LiveCardData implements au, Serializable {
+public class LiveCardData implements as, Serializable {
     private static final long serialVersionUID = 1;
     private int authorId;
     private String authorName;
@@ -17,10 +17,12 @@ public class LiveCardData implements au, Serializable {
     private int flag;
     private int forumId;
     private String forumName;
+    private int fromType;
     private int groupId;
     private int groupType;
     private String intro;
     private boolean isModifyTime = false;
+    private int isVip;
     private int likers;
     private int listeners;
     private String name;
@@ -208,6 +210,14 @@ public class LiveCardData implements au, Serializable {
         this.background = str;
     }
 
+    public int getIsVip() {
+        return this.isVip;
+    }
+
+    public void setIsVip(int i) {
+        this.isVip = i;
+    }
+
     public JSONObject toDraftJson() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -240,16 +250,29 @@ public class LiveCardData implements au, Serializable {
             this.startTime = anchorInfo.start_time.intValue();
             this.status = anchorInfo.status.intValue();
             this.forumName = anchorInfo.forumName;
+            if (anchorInfo.from_type == null) {
+                this.fromType = 0;
+            } else {
+                this.fromType = anchorInfo.from_type.intValue();
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.au
-    public ArrayList<at> getImages() {
-        ArrayList<at> arrayList = new ArrayList<>();
-        at atVar = new at();
-        atVar.EX = this.portrait;
-        atVar.Jk = 10;
-        arrayList.add(atVar);
+    @Override // com.baidu.tbadk.core.util.as
+    public ArrayList<ar> getImages() {
+        ArrayList<ar> arrayList = new ArrayList<>();
+        ar arVar = new ar();
+        arVar.QK = this.portrait;
+        arVar.UU = 10;
+        arrayList.add(arVar);
         return arrayList;
+    }
+
+    public int getFromType() {
+        return this.fromType;
+    }
+
+    public void setFromType(int i) {
+        this.fromType = i;
     }
 }

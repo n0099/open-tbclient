@@ -10,69 +10,69 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
+    private int GA;
+    private float GB;
+    private Drawable GC;
+    private Drawable GD;
+    private final ae GE;
+    private boolean Gz;
     private int mCount;
     private float mPosition;
-    private boolean vC;
-    private int vD;
-    private float vE;
-    private Drawable vF;
-    private Drawable vG;
-    private final ab vH;
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.measure(int, int):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(IndicatorView indicatorView, int i, int i2) {
         indicatorView.setMeasuredDimension(i, i2);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.ay(int):int, com.baidu.adp.widget.n.draw(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int d(IndicatorView indicatorView) {
-        return indicatorView.vD;
+        return indicatorView.GA;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void, com.baidu.adp.widget.m.measure(int, int):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.ay(int):int, com.baidu.adp.widget.n.draw(android.graphics.Canvas):void, com.baidu.adp.widget.n.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int c(IndicatorView indicatorView) {
         return indicatorView.mCount;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iM():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.mj():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(IndicatorView indicatorView, float f) {
         indicatorView.mPosition = f;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.draw(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.draw(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ float e(IndicatorView indicatorView) {
         return indicatorView.mPosition;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.iM():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.mj():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ float f(IndicatorView indicatorView) {
-        return indicatorView.vE;
+        return indicatorView.GB;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.aC(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void, com.baidu.adp.widget.m.measure(int, int):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.ay(int):int, com.baidu.adp.widget.n.az(int):int, com.baidu.adp.widget.n.draw(android.graphics.Canvas):void, com.baidu.adp.widget.n.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable a(IndicatorView indicatorView) {
-        return indicatorView.vF;
+        return indicatorView.GC;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.aB(int):int, com.baidu.adp.widget.m.aC(int):int, com.baidu.adp.widget.m.draw(android.graphics.Canvas):void, com.baidu.adp.widget.m.measure(int, int):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.n.ay(int):int, com.baidu.adp.widget.n.az(int):int, com.baidu.adp.widget.n.draw(android.graphics.Canvas):void, com.baidu.adp.widget.n.measure(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable b(IndicatorView indicatorView) {
-        return indicatorView.vG;
+        return indicatorView.GD;
     }
 
     public IndicatorView(Context context) {
@@ -85,69 +85,69 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.vH = new m(this);
+        this.GE = new n(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.vD = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.GA = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(4, 0);
-        this.vF = obtainStyledAttributes.getDrawable(1);
-        if (this.vF == null) {
+        this.GC = obtainStyledAttributes.getDrawable(1);
+        if (this.GC == null) {
             Log.d("IndicatorView$IndicatorView", "Drawable not defined in xml");
         } else {
-            this.vF.setBounds(0, 0, this.vF.getIntrinsicWidth(), this.vF.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.vF.getBounds());
+            this.GC.setBounds(0, 0, this.GC.getIntrinsicWidth(), this.GC.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.GC.getBounds());
         }
-        this.vG = obtainStyledAttributes.getDrawable(2);
-        if (this.vG == null) {
+        this.GD = obtainStyledAttributes.getDrawable(2);
+        if (this.GD == null) {
             Log.d("IndicatorView$IndicatorView", "Selector not defined in xml");
         } else {
-            this.vG.setBounds(0, 0, this.vG.getIntrinsicWidth(), this.vG.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.vG.getBounds());
+            this.GD.setBounds(0, 0, this.GD.getIntrinsicWidth(), this.GD.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.GD.getBounds());
         }
-        this.vC = obtainStyledAttributes.getBoolean(3, false);
+        this.Gz = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.vH.measure(i, i2);
+        this.GE.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.vH.draw(canvas);
+        this.GE.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.vC = z;
+        this.Gz = z;
     }
 
     public void setDrawable(Drawable drawable) {
-        this.vF = drawable;
+        this.GC = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getDrawable() {
-        return this.vF;
+        return this.GC;
     }
 
     public void setSelector(Drawable drawable) {
-        this.vG = drawable;
+        this.GD = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getSelector() {
-        return this.vG;
+        return this.GD;
     }
 
     public void setSpacing(int i) {
-        this.vD = i;
+        this.GA = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.vD;
+        return this.GA;
     }
 
     public int getCount() {

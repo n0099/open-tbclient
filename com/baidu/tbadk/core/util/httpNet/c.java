@@ -1,19 +1,25 @@
 package com.baidu.tbadk.core.util.httpNet;
+
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private d Kq = new d();
-    private e Kr = new e();
-    private f Ks = new f();
+    public int VY;
+    public int VZ;
+    public String mErrorString;
+    public String Wa = null;
+    public boolean rC = false;
+    public Map<String, List<String>> mHeader = null;
 
-    public d pZ() {
-        return this.Kq;
+    public boolean ss() {
+        return this.VY == 200;
     }
 
-    public e qa() {
-        return this.Kr;
+    public boolean pv() {
+        return this.VY == 200 && this.VZ == 0;
     }
 
-    public f qb() {
-        return this.Ks;
+    public boolean hi() {
+        return this.VY == 200 || this.VY == 206;
     }
 }

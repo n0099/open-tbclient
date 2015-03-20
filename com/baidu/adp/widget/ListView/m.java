@@ -1,5 +1,19 @@
 package com.baidu.adp.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface m {
-    void jz();
+public class m implements Runnable {
+    final /* synthetic */ BdListView Ib;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(BdListView bdListView) {
+        this.Ib = bdListView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.base.l B = com.baidu.adp.base.m.B(this.Ib.getContext());
+        if (B != null) {
+            B.onPreLoad(this.Ib);
+        }
+    }
 }

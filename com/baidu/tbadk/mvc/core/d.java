@@ -11,24 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class d extends c {
-    protected final List<c> adI;
+    protected final List<c> amc;
 
     public d(e<?, ?, ?> eVar) {
         super(eVar);
-        this.adI = new ArrayList();
+        this.amc = new ArrayList();
+    }
+
+    public d() {
+        this.amc = new ArrayList();
     }
 
     public void a(int i, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        a(dH(i), viewGroup, layoutParams);
+        a(dK(i), viewGroup, layoutParams);
     }
 
     public void a(c cVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        if (cVar != null && this.adI.contains(cVar)) {
+        if (cVar != null && this.amc.contains(cVar)) {
             View view = cVar.getView();
             if (view == null) {
-                view = cVar.wX();
-                cVar.kC();
-                cVar.a(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
+                view = cVar.Aj();
+                cVar.ov();
+                cVar.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
             }
             if (cVar.getView().getParent() == null) {
                 if (layoutParams == null) {
@@ -38,32 +42,32 @@ public abstract class d extends c {
                 }
             }
             view.setVisibility(0);
-            cVar.wU();
+            cVar.Ag();
         }
     }
 
     public void h(int i, boolean z) {
-        a(dH(i), z);
+        a(dK(i), z);
     }
 
     public void a(c cVar, boolean z) {
         View view;
-        if (cVar != null && this.adI.contains(cVar) && (view = cVar.getView()) != null) {
+        if (cVar != null && this.amc.contains(cVar) && (view = cVar.getView()) != null) {
             if (z) {
                 view.setVisibility(8);
             } else {
                 view.setVisibility(0);
             }
-            cVar.wV();
+            cVar.Ah();
         }
     }
 
     public boolean a(c cVar) {
-        if (cVar == null || this.adI == null || !this.adI.add(cVar)) {
+        if (cVar == null || this.amc == null || !this.amc.add(cVar)) {
             return false;
         }
-        cVar.adJ = this;
-        cVar.a(this.adH);
+        cVar.amd = this;
+        cVar.a(this.amb);
         if (cVar.getUniqueId() == null) {
             cVar.setUniqueId(getUniqueId());
         }
@@ -71,106 +75,106 @@ public abstract class d extends c {
     }
 
     public int getChildCount() {
-        if (this.adI == null) {
+        if (this.amc == null) {
             return 0;
         }
-        return this.adI.size();
+        return this.amc.size();
     }
 
-    public c dH(int i) {
-        if (this.adI != null && i >= 0 && i < this.adI.size()) {
-            return this.adI.get(i);
+    public c dK(int i) {
+        if (this.amc != null && i >= 0 && i < this.amc.size()) {
+            return this.amc.get(i);
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void i(Bundle bundle) {
-        super.i(bundle);
+    public void h(Bundle bundle) {
+        super.h(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.i(bundle);
+            c dK = dK(i);
+            if (dK != null) {
+                dK.h(bundle);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wK() {
-        super.wK();
+    public void zW() {
+        super.zW();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wK();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.zW();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wL() {
-        super.wL();
+    public void zX() {
+        super.zX();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wL();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.zX();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wN() {
-        super.wN();
+    public void zZ() {
+        super.zZ();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wN();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.zZ();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wP() {
-        super.wP();
+    public void Ab() {
+        super.Ab();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wP();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.Ab();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wR() {
-        super.wR();
+    public void Ad() {
+        super.Ad();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wR();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.Ad();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wS() {
-        super.wS();
+    public void Ae() {
+        super.Ae();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.wS();
+            c dK = dK(i);
+            if (dK != null) {
+                dK.Ae();
             }
         }
     }
@@ -182,8 +186,8 @@ public abstract class d extends c {
         int childCount = getChildCount();
         boolean z = onActivityResult;
         for (int i3 = 0; i3 < childCount; i3++) {
-            c dH = dH(i3);
-            if (dH != null && (z = dH.onActivityResult(i, i2, intent))) {
+            c dK = dK(i3);
+            if (dK != null && (z = dK.onActivityResult(i, i2, intent))) {
                 break;
             }
         }
@@ -192,26 +196,26 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wU() {
-        super.wU();
+    public void Ag() {
+        super.Ag();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null && dH.getView() != null && dH.getView().getParent() != null && dH.getView().getVisibility() == 0) {
-                dH.wU();
+            c dK = dK(i);
+            if (dK != null && dK.getView() != null && dK.getView().getParent() != null && dK.getView().getVisibility() == 0) {
+                dK.Ag();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wV() {
-        super.wV();
+    public void Ah() {
+        super.Ah();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null && dH.getView() != null && dH.getView().getParent() != null) {
-                dH.wV();
+            c dK = dK(i);
+            if (dK != null && dK.getView() != null && dK.getView().getParent() != null) {
+                dK.Ah();
             }
         }
     }
@@ -221,21 +225,21 @@ public abstract class d extends c {
         super.onSaveInstanceState(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.onSaveInstanceState(bundle);
+            c dK = dK(i);
+            if (dK != null) {
+                dK.onSaveInstanceState(bundle);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
+    @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            c dH = dH(i2);
-            if (dH != null && dH.getView() != null) {
-                dH.a(tbPageContext, i);
+            c dK = dK(i2);
+            if (dK != null && dK.getView() != null) {
+                dK.a(tbPageContext, i);
             }
         }
         return true;
@@ -247,9 +251,9 @@ public abstract class d extends c {
         super.a(eVar);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null) {
-                dH.a(eVar);
+            c dK = dK(i);
+            if (dK != null) {
+                dK.a(eVar);
             }
         }
     }
@@ -259,9 +263,9 @@ public abstract class d extends c {
         super.setUniqueId(bdUniqueId);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            c dH = dH(i);
-            if (dH != null && dH.getUniqueId() == null) {
-                dH.setUniqueId(getUniqueId());
+            c dK = dK(i);
+            if (dK != null && dK.getUniqueId() == null) {
+                dK.setUniqueId(getUniqueId());
             }
         }
     }

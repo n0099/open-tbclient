@@ -1,17 +1,39 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.OfficialBarTipActivityConfig;
+import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
-class ak implements CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), OfficialBarTipActivity.class);
-            customMessage.getData().startActivity();
+class ak implements com.baidu.tieba.im.chat.notify.a {
+    final /* synthetic */ OfficialBarTipActivity aZE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(OfficialBarTipActivity officialBarTipActivity) {
+        this.aZE = officialBarTipActivity;
+    }
+
+    @Override // com.baidu.tieba.im.chat.notify.a
+    public void onComplete() {
+        ap apVar;
+        ap apVar2;
+        OfficialBarTipModel officialBarTipModel;
+        OfficialBarTipModel officialBarTipModel2;
+        ap apVar3;
+        OfficialBarTipModel officialBarTipModel3;
+        apVar = this.aZE.aZB;
+        if (apVar != null) {
+            apVar2 = this.aZE.aZB;
+            if (apVar2.Of() != null) {
+                officialBarTipModel = this.aZE.aZA;
+                if (officialBarTipModel != null) {
+                    officialBarTipModel2 = this.aZE.aZA;
+                    if (officialBarTipModel2.getData().size() == 0) {
+                        this.aZE.finish();
+                    }
+                    apVar3 = this.aZE.aZB;
+                    OfficialBarTipListAdapter Of = apVar3.Of();
+                    officialBarTipModel3 = this.aZE.aZA;
+                    Of.setData(officialBarTipModel3.getData());
+                }
+            }
         }
-        return null;
     }
 }

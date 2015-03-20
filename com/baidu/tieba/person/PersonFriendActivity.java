@@ -1,71 +1,65 @@
 package com.baidu.tieba.person;
 
 import android.os.Bundle;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonFriendActivityConfig;
 /* loaded from: classes.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
-    private ak bHN = null;
-    private av bHO = null;
-
-    static {
-        TbadkCoreApplication.m255getInst().RegisterIntent(PersonFriendActivityConfig.class, PersonFriendActivity.class);
-    }
+    private ai bPV = null;
+    private at bPW = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bHO = new av(getPageContext(), RM());
-        this.bHO.setSex(getSex());
-        this.bHO.setId(getUid());
-        this.bHO.setUniqueId(getUniqueId());
+        this.bPW = new at(getPageContext(), SR());
+        this.bPW.setSex(getSex());
+        this.bPW.setId(getUid());
+        this.bPW.setUniqueId(getUniqueId());
     }
 
-    public av aaR() {
-        return this.bHO;
+    public at ada() {
+        return this.bPW;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.bHN == null) {
-            this.bHN = new ak(this, RM());
+        if (this.bPV == null) {
+            this.bPV = new ai(this, SR());
         }
-        return this.bHN;
+        return this.bPV;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aam() {
-        return getPageContext().getString(com.baidu.tieba.z.person_friend_title);
+    public String acz() {
+        return getPageContext().getString(com.baidu.tieba.y.person_friend_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aan() {
-        return getPageContext().getString(com.baidu.tieba.z.person_friend_no_personal_title);
+    public String acA() {
+        return getPageContext().getString(com.baidu.tieba.y.person_friend_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aao() {
-        return getPageContext().getString(com.baidu.tieba.z.person_friend_no_common_title);
+    public String acB() {
+        return getPageContext().getString(com.baidu.tieba.y.person_friend_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aap() {
-        return getPageContext().getString(com.baidu.tieba.z.person_friend_personal);
+    public String acC() {
+        return getPageContext().getString(com.baidu.tieba.y.person_friend_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aaq() {
-        return getPageContext().getString(com.baidu.tieba.z.person_friend_common);
+    public String acD() {
+        return getPageContext().getString(com.baidu.tieba.y.person_friend_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aat() {
+    public String acG() {
         return "common_frd";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int aau() {
+    public int acH() {
         return 5;
     }
 }

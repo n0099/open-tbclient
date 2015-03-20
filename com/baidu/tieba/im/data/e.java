@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private long aXU;
-    private int aXV;
+    private long bcc;
+    private int bcd;
     private List<d> parent_menu = new ArrayList();
 
-    public boolean ME() {
-        return this.aXV == 1;
+    public boolean PD() {
+        return this.bcd == 1;
     }
 
-    public void fH(int i) {
-        this.aXV = i;
+    public void fI(int i) {
+        this.bcd = i;
     }
 
-    public long MF() {
-        return this.aXU;
+    public long PE() {
+        return this.bcc;
     }
 
-    public void T(long j) {
-        this.aXU = j;
+    public void X(long j) {
+        this.bcc = j;
     }
 
-    public List<d> MG() {
+    public List<d> PF() {
         return this.parent_menu;
     }
 
-    public void ao(List<d> list) {
+    public void ay(List<d> list) {
         this.parent_menu = list;
     }
 }

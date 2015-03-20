@@ -1,10 +1,16 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.framework.listener.e {
+public class ac extends CustomMessageListener {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,13 +22,18 @@ public class ac extends com.baidu.adp.framework.listener.e {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            this.this$0.bhX = (ResponseOnlineMessage) socketResponsedMessage;
-            if (!c.QJ().bhL.get()) {
-                return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.im.message.g data;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
+            c.Sd().a(data.customGroupType, data.bku, data.id, data.type);
+            ImMessageCenterPojo D = c.Sd().D(data.id, data.customGroupType);
+            if (D != null) {
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, D));
+                customMessageTask.setParallel(TiebaIMConfig.getParallel());
+                customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+                customMessageTask.setPriority(4);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
             }
-            this.this$0.QV();
         }
     }
 }

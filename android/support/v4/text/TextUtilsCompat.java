@@ -1,12 +1,11 @@
 package android.support.v4.text;
 
-import com.baidu.location.BDLocation;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
     public static final Locale ROOT = new Locale("", "");
-    private static String bx = "Arab";
-    private static String by = "Hebr";
+    private static String mD = "Arab";
+    private static String mE = "Hebr";
 
     public static String htmlEncode(String str) {
         StringBuilder sb = new StringBuilder();
@@ -25,7 +24,7 @@ public class TextUtilsCompat {
                 case '<':
                     sb.append("&lt;");
                     break;
-                case BDLocation.TypeCriteriaException /* 62 */:
+                case '>':
                     sb.append("&gt;");
                     break;
                 default:
@@ -42,7 +41,7 @@ public class TextUtilsCompat {
             if (script == null) {
                 return c(locale);
             }
-            if (script.equalsIgnoreCase(bx) || script.equalsIgnoreCase(by)) {
+            if (script.equalsIgnoreCase(mD) || script.equalsIgnoreCase(mE)) {
                 return 1;
             }
         }

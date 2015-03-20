@@ -2,59 +2,59 @@ package com.baidu.tieba.addresslist.c;
 
 import com.baidu.adp.base.f;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.coreExtra.relationship.RequestGetAddressListMessage;
-import com.baidu.tbadk.coreExtra.relationship.o;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.coreExtra.relationship.c;
+import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends f<BaseFragmentActivity> {
-    private com.baidu.tieba.addresslist.b.a apB;
+public class a extends f<BaseActivity> {
+    private com.baidu.tieba.addresslist.b.a azA;
 
-    public a(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext());
-        this.apB = com.baidu.tieba.addresslist.b.a.Bo();
+    public a(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.azA = com.baidu.tieba.addresslist.b.a.EO();
     }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
-        this.apB.a(bVar);
+        this.azA.a(bVar);
     }
 
     public void b(com.baidu.tieba.addresslist.b.b bVar) {
-        this.apB.b(bVar);
+        this.azA.b(bVar);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> Bq() {
-        return this.apB.Bp();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Fm() {
+        return this.azA.EP();
     }
 
-    public void Br() {
+    public void Fn() {
         sendMessage(new CustomMessage(2001182));
     }
 
-    public void Bs() {
+    public void Fd() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void B(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.apB.A(list);
+    public void z(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.azA.v(list);
     }
 
-    public void c(com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.apB.c(bVar);
+    public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
+        this.azA.a(aVar);
     }
 
     public void G(long j) {
-        this.apB.G(j);
+        this.azA.G(j);
     }
 
-    public int eO(String str) {
+    public int fi(String str) {
         int i;
-        if (o.dA(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.b> Bp = this.apB.Bp();
-            if (Bp != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.b bVar : Bp) {
-                    if (str.equals(bVar.th())) {
-                        i = Bp.indexOf(bVar);
+        if (c.dI(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> EP = this.azA.EP();
+            if (EP != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : EP) {
+                    if (str.equals(aVar.wD())) {
+                        i = EP.indexOf(aVar);
                         break;
                     }
                 }

@@ -2,46 +2,52 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-class j implements com.baidu.adp.lib.e.c<f> {
-    final /* synthetic */ i aUc;
-    private final /* synthetic */ Context val$context;
+public class j {
+    public static j aYI = new j();
+    private final int aYF = 9;
+    private final int aYG = 1;
+    private final int aYH = 1;
+    private com.baidu.adp.lib.e.b<g> aYr;
+    private com.baidu.adp.lib.e.b<d> aYs;
+    private com.baidu.adp.lib.e.b<av> aYt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, Context context) {
-        this.aUc = iVar;
-        this.val$context = context;
+    public static j NV() {
+        return aYI;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: KQ */
-    public f eb() {
-        return new f(this.val$context);
+    private j() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public void k(f fVar) {
-        if (fVar instanceof f) {
-            fVar.reset();
+    private void ao(Context context) {
+        this.aYr = new l(this, new k(this, context), 1, 0);
+    }
+
+    private void ap(Context context) {
+        this.aYs = new n(this, new m(this, context), 9, 0);
+    }
+
+    private void aq(Context context) {
+        this.aYt = new com.baidu.adp.lib.e.b<>(new o(this, context), 1, 0);
+    }
+
+    public com.baidu.adp.lib.e.b<g> ar(Context context) {
+        if (this.aYr == null) {
+            ao(context);
         }
+        return this.aYr;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: e */
-    public f l(f fVar) {
-        return fVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: f */
-    public f m(f fVar) {
-        if (fVar instanceof f) {
-            fVar.reset();
+    public com.baidu.adp.lib.e.b<d> as(Context context) {
+        if (this.aYs == null) {
+            ap(context);
         }
-        return fVar;
+        return this.aYs;
+    }
+
+    public com.baidu.adp.lib.e.b<av> at(Context context) {
+        if (this.aYt == null) {
+            aq(context);
+        }
+        return this.aYt;
     }
 }

@@ -1,35 +1,24 @@
 package com.baidu.tieba.frs.view;
 
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements Runnable {
-    final /* synthetic */ o aIY;
+public class p implements View.OnClickListener {
+    final /* synthetic */ o aOZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.aIY = oVar;
+        this.aOZ = oVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PopupWindow popupWindow;
-        PopupWindow popupWindow2;
-        boolean z;
-        PopupWindow popupWindow3;
-        TbPageContext tbPageContext;
-        popupWindow = this.aIY.aIh;
-        if (popupWindow != null) {
-            popupWindow2 = this.aIY.aIh;
-            if (popupWindow2.isShowing()) {
-                z = this.aIY.aIK;
-                if (!z) {
-                    popupWindow3 = this.aIY.aIh;
-                    tbPageContext = this.aIY.mContext;
-                    com.baidu.adp.lib.g.k.a(popupWindow3, tbPageContext.getPageActivity());
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.coreExtra.view.b bVar;
+        com.baidu.tbadk.coreExtra.view.b bVar2;
+        bVar = this.aOZ.adO;
+        if (bVar != null) {
+            bVar2 = this.aOZ.adO;
+            bVar2.wR();
         }
     }
 }

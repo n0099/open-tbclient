@@ -1,74 +1,75 @@
 package com.baidu.adp.lib.stats;
 
+import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
-    private static m mr;
-    private HashMap<String, n> mp = new HashMap<>();
-    private HashMap<String, o> mq = new HashMap<>();
+    private static m xG;
+    private HashMap<String, n> xE = new HashMap<>();
+    private HashMap<String, o> xF = new HashMap<>();
 
-    public static m eA() {
-        if (mr == null) {
+    public static m ia() {
+        if (xG == null) {
             synchronized (BdStatSwitchData.class) {
-                if (mr == null) {
-                    mr = new m();
+                if (xG == null) {
+                    xG = new m();
                 }
             }
         }
-        return mr;
+        return xG;
     }
 
     public m() {
         o oVar = new o(this, null);
-        oVar.Y(3000);
-        oVar.Z(120000);
-        oVar.aa(500);
-        this.mq.put("net", oVar);
-        this.mq.put("op", oVar);
-        this.mq.put("stat", oVar);
+        oVar.Z(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
+        oVar.aa(120000);
+        oVar.ab(500);
+        this.xF.put("net", oVar);
+        this.xF.put("op", oVar);
+        this.xF.put("stat", oVar);
         o oVar2 = new o(this, null);
-        oVar2.Y(GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION);
-        oVar2.Z(120000);
-        oVar2.aa(100);
-        this.mq.put("file", oVar2);
-        this.mq.put("db", oVar2);
-        this.mq.put("img", oVar2);
-        this.mq.put("voice", oVar2);
+        oVar2.Z(GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION);
+        oVar2.aa(120000);
+        oVar2.ab(100);
+        this.xF.put("file", oVar2);
+        this.xF.put("db", oVar2);
+        this.xF.put("img", oVar2);
+        this.xF.put("voice", oVar2);
     }
 
-    public boolean ao(String str) {
-        o oVar = this.mq.get(str);
+    public boolean av(String str) {
+        o oVar = this.xF.get(str);
         if (oVar == null) {
             return false;
         }
-        n nVar = this.mp.get(str);
+        n nVar = this.xE.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (nVar == null) {
             nVar = new n(this, null);
             nVar.D(false);
             nVar.C(false);
             nVar.g(currentTimeMillis);
-            this.mp.put(str, nVar);
+            this.xE.put(str, nVar);
         }
-        if (nVar.eB()) {
+        if (nVar.ib()) {
             return true;
         }
-        if (nVar.eF()) {
-            nVar.X(nVar.eD() + 1);
-            if (currentTimeMillis - nVar.eC() < oVar.eH()) {
-                if (nVar.eD() >= oVar.eI()) {
+        if (nVar.ig()) {
+            nVar.Y(nVar.id() + 1);
+            if (currentTimeMillis - nVar.ic() < oVar.ii()) {
+                if (nVar.id() >= oVar.ij()) {
                     nVar.C(true);
-                    f.eq().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
+                    f.hP().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
                     return true;
                 }
                 return false;
             }
             nVar.D(false);
-            nVar.X(0);
+            nVar.Y(0);
             nVar.g(currentTimeMillis);
             return false;
-        } else if (currentTimeMillis - nVar.eE() < oVar.eG()) {
+        } else if (currentTimeMillis - nVar.ie() < oVar.ih()) {
             nVar.D(true);
             nVar.f(currentTimeMillis);
             return false;

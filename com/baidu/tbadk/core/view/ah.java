@@ -1,21 +1,27 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox NQ;
+public class ah extends CustomMessageListener {
+    final /* synthetic */ ag Zf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(TbCheckBox tbCheckBox) {
-        this.NQ = tbCheckBox;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah(ag agVar, int i) {
+        super(i);
+        this.Zf = agVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean qG;
-        TbCheckBox tbCheckBox = this.NQ;
-        qG = this.NQ.qG();
-        tbCheckBox.setChecked(!qG);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        z = this.Zf.Zc;
+        if (z) {
+            this.Zf.ct(TbadkCoreApplication.m411getInst().getSkinType());
+        }
     }
 }

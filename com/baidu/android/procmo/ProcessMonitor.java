@@ -28,6 +28,12 @@ public class ProcessMonitor {
         System.loadLibrary(LIB_NAME);
     }
 
+    private ProcessMonitor() {
+        this.mAppId = "";
+        this.mFeedbackUrl = "";
+        this.mBrowser = "";
+    }
+
     public ProcessMonitor(Context context, String str, String str2, String str3, int i) {
         String str4;
         this.mAppId = "";
@@ -137,6 +143,10 @@ public class ProcessMonitor {
 
     private static native int setPermissions(String str, int i, int i2, int i3);
 
+    public static void stop(String str) {
+        new ProcessMonitor().exitIfRunning(str);
+    }
+
     public void start() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.android.procmo.ProcessMonitor.1
             @Override // java.lang.Runnable
@@ -147,5 +157,9 @@ public class ProcessMonitor {
         });
         thread.setName("ProcessMonitor-init");
         thread.start();
+    }
+
+    public void stopSelf() {
+        exitIfRunning(this.mAppId);
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.adp.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.n;
 import com.baidu.megapp.ma.MAApplication;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
@@ -25,7 +26,7 @@ public class BdBaseApplication extends MAApplication {
     public void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.l.L(application);
+        n.L(application);
         initWorkMode();
         initBitmapHelper();
         initHttpManager();
@@ -33,11 +34,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.hP().init();
+        com.baidu.adp.plugin.c.a.lj().init();
     }
 
     private void initHttpManager() {
-        com.baidu.adp.lib.network.willdelete.e.dV().init(this.mContext, false);
+        com.baidu.adp.lib.network.willdelete.e.hu().init(this.mContext, false);
     }
 
     public static BdBaseApplication getInst() {
@@ -79,11 +80,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.c.eR().K(this.mContext);
+        com.baidu.adp.lib.util.e.it().K(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.ah().ai();
+        a.dF().dG();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -92,10 +93,10 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.ah().setActivityStackMaxSize(i);
+        a.dF().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.ah().getActivityStackMaxSize();
+        return a.dF().getActivityStackMaxSize();
     }
 }

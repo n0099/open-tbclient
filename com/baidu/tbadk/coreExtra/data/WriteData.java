@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -13,6 +14,8 @@ public class WriteData implements Serializable {
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
     public static final int SHARE_SDK = 3;
+    public static int SHARE_SDK_LOCAL_IMAGE = 1;
+    public static int SHARE_SDK_NET_IMAGE = 0;
     public static final String THREAD_TYPE_LBS = "7";
     private WriteImagesInfo baobaoImagesInfo;
     private boolean isAd;
@@ -35,6 +38,9 @@ public class WriteData implements Serializable {
     private String mReturnVoiceMd5;
     private String mShareApiKey;
     private String mShareAppName;
+    private int mShareImageType;
+    private byte[] mShareLocalImageData;
+    private String mShareLocalImageUri;
     private String mShareReferUrl;
     private String mShareSignKey;
     private String mShareSummaryContent;
@@ -61,6 +67,7 @@ public class WriteData implements Serializable {
     }
 
     public WriteData() {
+        this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -87,16 +94,18 @@ public class WriteData implements Serializable {
         this.mShareSummaryImgHeight = 0;
         this.mShareSummaryImgType = null;
         this.mShareReferUrl = null;
+        this.mShareLocalImageData = null;
     }
 
     public WriteData(int i) {
+        this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
     }
 
     public boolean hasContentToSave() {
-        if (com.baidu.adp.lib.util.k.isEmpty(this.mContent) && com.baidu.adp.lib.util.k.isEmpty(this.mTitle)) {
+        if (m.isEmpty(this.mContent) && m.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     return this.liveCardData != null && this.liveCardData.isModifyTime();
@@ -131,7 +140,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (com.baidu.adp.lib.util.k.isEmpty(str)) {
+        if (m.isEmpty(str)) {
             return null;
         }
         try {
@@ -361,7 +370,7 @@ public class WriteData implements Serializable {
                 int i3 = 0;
                 while (i3 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i3);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.k.isEmpty(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !m.isEmpty(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -381,7 +390,7 @@ public class WriteData implements Serializable {
                 int i4 = 0;
                 while (i4 < chosedFiles2.size()) {
                     ImageFileInfo imageFileInfo2 = chosedFiles2.get(i4);
-                    if (imageFileInfo2.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.k.isEmpty(imageFileInfo2.getFilePath())) {
+                    if (imageFileInfo2.isAlreadyUploadedToServer() && !m.isEmpty(imageFileInfo2.getFilePath())) {
                         File file2 = new File(imageFileInfo2.getFilePath());
                         if (file2.exists()) {
                             file2.delete();
@@ -563,5 +572,29 @@ public class WriteData implements Serializable {
 
     public void setShareSummaryImgType(String str) {
         this.mShareSummaryImgType = str;
+    }
+
+    public void setShareImageType(int i) {
+        this.mShareImageType = i;
+    }
+
+    public int getShareImageType() {
+        return this.mShareImageType;
+    }
+
+    public void setShareLocalImageData(byte[] bArr) {
+        this.mShareLocalImageData = bArr;
+    }
+
+    public byte[] getShareLocalImageData() {
+        return this.mShareLocalImageData;
+    }
+
+    public void setShareLocalImageUri(String str) {
+        this.mShareLocalImageUri = str;
+    }
+
+    public String getShareLocalImageUri() {
+        return this.mShareLocalImageUri;
     }
 }

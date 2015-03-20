@@ -1,19 +1,39 @@
 package com.baidu.tbadk.d;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.plugin.util.Util;
+import java.io.File;
 /* loaded from: classes.dex */
-public class e implements c {
-    @Override // com.baidu.tbadk.d.c
-    public void a(View view, View view2, boolean z) {
-        LinearLayout linearLayout = (LinearLayout) view;
-        if (z) {
-            linearLayout.addView(view2, 0);
-        } else {
-            linearLayout.addView(view2);
+class e extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ d aqn;
+    private File mFile;
+
+    public e(d dVar, File file) {
+        this.aqn = dVar;
+        this.mFile = null;
+        this.mFile = file;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (this.mFile != null && this.mFile.exists()) {
+            Util.h(this.mFile);
+            return null;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
-        layoutParams.gravity = 1;
-        view2.setLayoutParams(layoutParams);
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Void r1) {
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
     }
 }

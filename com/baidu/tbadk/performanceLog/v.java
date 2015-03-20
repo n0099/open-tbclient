@@ -1,22 +1,19 @@
 package com.baidu.tbadk.performanceLog;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class v extends u {
-    public boolean agI;
-    public boolean isSuccess;
-    public long vA;
-    public String vz;
-
-    public void zk() {
-        ae aeVar;
-        if (ac.zs().zt() && (aeVar = (ae) ac.zs().dZ(this.mSubType)) != null) {
-            aeVar.a(this, "head");
+class v implements CustomMessageTask.CustomRunnable<x> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<x> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-    }
-
-    public void zl() {
-        ae aeVar;
-        if (ac.zs().zt() && (aeVar = (ae) ac.zs().dZ(this.mSubType)) != null) {
-            aeVar.a(this, "img");
-        }
+        x data = customMessage.getData();
+        data.aoM = ah.CK().CM();
+        data.aoN = ah.CK().CO();
+        data.apj = ah.CK().CN();
+        return new CustomResponsedMessage<>(2016103, data);
     }
 }

@@ -1,24 +1,17 @@
 package com.baidu.tbadk.browser;
 
-import android.content.Context;
-import android.content.DialogInterface;
+import android.app.Activity;
 /* loaded from: classes.dex */
-class d implements DialogInterface.OnClickListener {
-    final /* synthetic */ c Bd;
-    private final /* synthetic */ String Be;
-    private final /* synthetic */ Context val$context;
-    private final /* synthetic */ String val$url;
+class d implements e {
+    final /* synthetic */ BaseWebViewActivity Nl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, Context context, String str, String str2) {
-        this.Bd = cVar;
-        this.val$context = context;
-        this.Be = str;
-        this.val$url = str2;
+    public d(BaseWebViewActivity baseWebViewActivity) {
+        this.Nl = baseWebViewActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        a.f(this.val$context, this.Be, this.val$url);
+    @Override // com.baidu.tbadk.browser.e
+    public Object o(Activity activity) {
+        return new TbJsBridge(activity);
     }
 }

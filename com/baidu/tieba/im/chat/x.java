@@ -2,18 +2,18 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.live.message.ResponseDismissGroupMessage;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ CommonGroupChatActiviy aRm;
+    final /* synthetic */ CommonGroupChatActiviy aWt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.aRm = commonGroupChatActiviy;
+        this.aWt = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,13 +25,13 @@ public class x extends com.baidu.adp.framework.listener.e {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.aRm.mListView.refresh();
+                    this.aWt.mListView.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                         ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.aRm.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.aRm.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.aRm.finish();
+                        if (responseDismissGroupMessage.getError() == 0 && (this.aWt.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.aWt.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.aWt.finish();
                             return;
                         }
                         return;

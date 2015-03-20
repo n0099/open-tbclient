@@ -4,22 +4,25 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ EmotionTabContentView Yi;
+class h implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ g aiv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(EmotionTabContentView emotionTabContentView) {
-        this.Yi = emotionTabContentView;
+    public h(g gVar) {
+        this.aiv = gVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ae aeVar;
-        aeVar = this.Yi.XT;
-        if (aeVar.vf() == EmotionGroupType.BIG_EMOTION) {
-            this.Yi.a(i, (GridView) adapterView);
+        EmotionTabContentView emotionTabContentView;
+        e eVar = (e) adapterView.getAdapter();
+        if (eVar == null || eVar.yx() == null) {
+            return false;
+        }
+        if (eVar.yx().yB() == EmotionGroupType.BIG_EMOTION) {
+            emotionTabContentView = this.aiv.ais;
+            emotionTabContentView.a(i, (GridView) adapterView);
             return true;
         }
         return false;

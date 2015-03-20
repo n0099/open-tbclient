@@ -1,6 +1,6 @@
 package com.baidu.tieba.discover.data;
 
-import com.baidu.tbadk.mvc.b.j;
+import com.baidu.tbadk.mvc.b.k;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.io.IOException;
@@ -12,25 +12,25 @@ import tbclient.FoundNew.FoundNewResIdl;
 import tbclient.FoundNew.Menu;
 import tbclient.FoundNew.Module;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tbadk.mvc.b.b, j {
-    private long aus;
-    private Banner aut;
-    private List<d> auu;
+public class a implements com.baidu.tbadk.mvc.b.b, k {
+    private long aBU;
+    private Banner aBV;
+    private List<d> aBW;
 
-    public long Dg() {
-        return this.aus;
+    public long Gb() {
+        return this.aBU;
     }
 
-    public Banner Dh() {
-        return this.aut;
+    public Banner Gc() {
+        return this.aBV;
     }
 
-    public List<d> Di() {
-        return this.auu;
+    public List<d> Gd() {
+        return this.aBW;
     }
 
-    public void L(List<d> list) {
-        this.auu = list;
+    public void D(List<d> list) {
+        this.aBW = list;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -38,34 +38,34 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
         return "FoundNewData";
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
+    @Override // com.baidu.tbadk.mvc.b.k
     public void c(JSONObject jSONObject) {
     }
 
-    @Override // com.baidu.tbadk.mvc.b.j
+    @Override // com.baidu.tbadk.mvc.b.k
     public void a(Message message) {
         if (message instanceof FoundNewResIdl) {
             FoundNewResIdl foundNewResIdl = (FoundNewResIdl) message;
             if (foundNewResIdl.error.errorno.intValue() == 0 && foundNewResIdl.data != null) {
                 if (foundNewResIdl.data.timestamp != null) {
-                    this.aus = foundNewResIdl.data.timestamp.longValue();
+                    this.aBU = foundNewResIdl.data.timestamp.longValue();
                 }
-                this.aut = foundNewResIdl.data.banner;
+                this.aBV = foundNewResIdl.data.banner;
                 List<Module> list = foundNewResIdl.data.module;
-                this.auu = new ArrayList(0);
+                this.aBW = new ArrayList(0);
                 if (list != null && !list.isEmpty()) {
                     for (Module module : list) {
                         if (module != null && module.menu_list != null && module.menu_list.size() > 0) {
                             d dVar = new d();
                             dVar.setType(module.type == null ? 0 : module.type.intValue());
                             ArrayList arrayList = new ArrayList(0);
-                            dVar.M(arrayList);
+                            dVar.E(arrayList);
                             for (Menu menu : module.menu_list) {
                                 if (menu != null) {
                                     arrayList.add(new c().a(menu));
                                 }
                             }
-                            this.auu.add(dVar);
+                            this.aBW.add(dVar);
                         }
                     }
                 }
@@ -74,12 +74,12 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] xk() {
+    public byte[] Aw() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
+    public boolean A(byte[] bArr) {
         try {
             a((FoundNewResIdl) new Wire(new Class[0]).parseFrom(bArr, FoundNewResIdl.class));
             return true;

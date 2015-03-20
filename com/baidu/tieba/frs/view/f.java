@@ -1,35 +1,34 @@
 package com.baidu.tieba.frs.view;
 
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbPageContext;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
-public class f implements Runnable {
-    final /* synthetic */ FrsHeaderView aIQ;
+class f implements Animation.AnimationListener {
+    private final /* synthetic */ float aOP;
+    final /* synthetic */ e aOQ;
+    private final /* synthetic */ View yS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(FrsHeaderView frsHeaderView) {
-        this.aIQ = frsHeaderView;
+    public f(e eVar, float f, View view) {
+        this.aOQ = eVar;
+        this.aOP = f;
+        this.yS = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PopupWindow popupWindow;
-        PopupWindow popupWindow2;
-        boolean z;
-        PopupWindow popupWindow3;
-        TbPageContext tbPageContext;
-        popupWindow = this.aIQ.aIh;
-        if (popupWindow != null) {
-            popupWindow2 = this.aIQ.aIh;
-            if (popupWindow2.isShowing()) {
-                z = this.aIQ.aIK;
-                if (!z) {
-                    popupWindow3 = this.aIQ.aIh;
-                    tbPageContext = this.aIQ.mContext;
-                    com.baidu.adp.lib.g.k.a(popupWindow3, tbPageContext.getPageActivity());
-                }
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.aOP, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(300L);
+        this.yS.startAnimation(scaleAnimation);
     }
 }

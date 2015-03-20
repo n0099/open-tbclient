@@ -1,6 +1,9 @@
 package com.baidu.tieba.tblauncher;
+
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements Runnable {
+public class s implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,14 +11,13 @@ class s implements Runnable {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ai aiVar;
-        ai aiVar2;
-        aiVar = this.this$0.ccJ;
-        if (aiVar.isMenuShowing()) {
-            aiVar2 = this.this$0.ccJ;
-            aiVar2.ajq();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        try {
+            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+            aVar.dismiss();
+        } catch (Exception e) {
+            this.this$0.showToast(com.baidu.tieba.y.goto_developActivity_error_toast);
         }
     }
 }

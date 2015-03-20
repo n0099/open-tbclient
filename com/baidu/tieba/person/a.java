@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity bGC;
+    final /* synthetic */ BasePersonInfoActivity bOA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BasePersonInfoActivity basePersonInfoActivity, int i) {
         super(i);
-        this.bGC = basePersonInfoActivity;
+        this.bOA = basePersonInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,24 +28,24 @@ public class a extends HttpMessageListener {
         int i3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int aau = this.bGC.aau();
-                iArr = BasePersonInfoActivity.bkv;
-                i = this.bGC.bkm;
-                com.baidu.tbadk.core.account.o.n(aau, iArr[i]);
-                imageView = this.bGC.bkp;
-                iArr2 = BasePersonInfoActivity.bkt;
-                i2 = this.bGC.bkm;
-                com.baidu.tbadk.core.util.bc.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.bGC;
-                TbPageContext pageContext = this.bGC.getPageContext();
-                iArr3 = BasePersonInfoActivity.bku;
-                i3 = this.bGC.bkm;
-                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), com.baidu.tieba.v.icon_toast_info);
+                int acH = this.bOA.acH();
+                iArr = BasePersonInfoActivity.blk;
+                i = this.bOA.blb;
+                com.baidu.tbadk.core.a.j.l(acH, iArr[i]);
+                imageView = this.bOA.ble;
+                iArr2 = BasePersonInfoActivity.bli;
+                i2 = this.bOA.blb;
+                com.baidu.tbadk.core.util.ba.c(imageView, iArr2[i2]);
+                BasePersonInfoActivity basePersonInfoActivity = this.bOA;
+                TbPageContext pageContext = this.bOA.getPageContext();
+                iArr3 = BasePersonInfoActivity.blj;
+                i3 = this.bOA.blb;
+                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), com.baidu.tieba.u.icon_toast_info);
                 return;
             }
-            this.bGC.showToast(httpResponsedMessage.getErrorString());
+            this.bOA.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.bGC.showToast(this.bGC.getPageContext().getString(com.baidu.tieba.z.neterror));
+        this.bOA.showToast(this.bOA.getPageContext().getString(com.baidu.tieba.y.neterror));
     }
 }

@@ -1,96 +1,110 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.tbadkCore.bubble.k {
-    final /* synthetic */ b bVi;
+public class c extends RelativeLayout {
+    private int clO;
+    private boolean clP;
+    private Context mContext;
+    private Paint paint;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.bVi = bVar;
+    public c(Context context) {
+        this(context, null);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.bubble.k
-    public void a(BubbleListData bubbleListData) {
-        com.baidu.tieba.tbadkCore.bubble.h hVar;
-        com.baidu.tieba.tbadkCore.bubble.h hVar2;
-        com.baidu.tieba.tbadkCore.bubble.h hVar3;
-        com.baidu.tieba.tbadkCore.bubble.h hVar4;
-        com.baidu.tieba.tbadkCore.bubble.h hVar5;
-        com.baidu.tieba.tbadkCore.bubble.h hVar6;
-        com.baidu.tieba.tbadkCore.bubble.h hVar7;
-        Context context;
-        Context context2;
-        if (bubbleListData == null) {
-            this.bVi.agv().agy();
-            return;
+    public c(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public c(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.clP = true;
+        this.mContext = context;
+        this.paint = new Paint();
+        this.paint.setStyle(Paint.Style.FILL);
+        this.clO = com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        if (this.clP) {
+            this.paint.setColor(ba.getColor(com.baidu.tieba.s.cp_bg_line_b));
+            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.clO, this.paint);
         }
-        this.bVi.bUY = bubbleListData.m257clone();
-        hVar = this.bVi.bUX;
-        if (hVar.agP() > 0) {
-            List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
-            if (b_info != null && b_info.size() != 0) {
-                for (BubbleListData.BubbleData bubbleData : b_info) {
-                    if (bubbleData != null) {
-                        int bcode = bubbleData.getBcode();
-                        hVar3 = this.bVi.bUX;
-                        if (bcode == hVar3.agP()) {
-                            if (!bubbleData.canUse() && !bubbleData.isFree()) {
-                                break;
-                            }
-                            hVar4 = this.bVi.bUX;
-                            hVar5 = this.bVi.bUX;
-                            hVar4.hU(hVar5.agP());
-                            hVar6 = this.bVi.bUX;
-                            hVar7 = this.bVi.bUX;
-                            int agP = hVar7.agP();
-                            context = this.bVi.mContext;
-                            int M = com.baidu.adp.lib.util.l.M(context);
-                            context2 = this.bVi.mContext;
-                            hVar6.w(agP, M, com.baidu.adp.lib.util.l.N(context2));
-                        } else {
-                            continue;
-                        }
-                    }
-                }
-                hVar2 = this.bVi.bUX;
-                hVar2.hV(-1);
-            } else {
+    }
+
+    public void setDrawTop(boolean z) {
+        this.clP = z;
+    }
+
+    public TextView a(EditorToolButton editorToolButton, boolean z) {
+        TextView textView = new TextView(this.mContext);
+        ba.b(textView, com.baidu.tieba.s.top_msg_num_day, 1);
+        textView.setGravity(17);
+        if (z) {
+            textView.setTextSize(10.0f);
+            ba.i((View) textView, com.baidu.tieba.u.icon_news_head_prompt_one);
+        } else {
+            textView.setWidth(0);
+            textView.setHeight(0);
+            ba.i((View) textView, com.baidu.tieba.u.icon_news_down_bar_one);
+        }
+        editorToolButton.h(textView);
+        addView(textView);
+        return textView;
+    }
+
+    public void b(EditorToolButton editorToolButton, boolean z) {
+        if (editorToolButton != null && editorToolButton.mTip != null) {
+            if (z) {
+                editorToolButton.mTip.setTextSize(10.0f);
+                ba.b(editorToolButton.mTip, com.baidu.tieba.s.top_msg_num_day, 1);
+                editorToolButton.mTip.setGravity(17);
+                ba.i((View) editorToolButton.mTip, com.baidu.tieba.u.icon_news_head_prompt_one);
                 return;
             }
+            editorToolButton.mTip.setWidth(0);
+            editorToolButton.mTip.setHeight(0);
+            editorToolButton.mTip.setText("");
+            ba.i((View) editorToolButton.mTip, com.baidu.tieba.u.icon_news_down_bar_one);
         }
-        this.bVi.afk();
-        this.bVi.agv().b(this.bVi);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.bubble.k
-    public void b(BubbleListData bubbleListData) {
-        Context context;
-        Context context2;
-        Context context3;
-        Context context4;
-        this.bVi.bVb = false;
-        this.bVi.bUY = null;
-        if (bubbleListData == null) {
-            context = this.bVi.mContext;
-            UtilHelper.showToast(context, com.baidu.tieba.z.neterror);
-        } else if (bubbleListData.getError_code().equals("0")) {
-            context2 = this.bVi.mContext;
-            UtilHelper.showToast(context2, com.baidu.tieba.z.neterror);
-        } else if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
-            context4 = this.bVi.mContext;
-            UtilHelper.showToast(context4, bubbleListData.getError_msg());
-        } else {
-            context3 = this.bVi.mContext;
-            UtilHelper.showToast(context3, com.baidu.tieba.z.neterror);
+    public void alc() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).enable();
+            }
         }
-        if (this.bVi.agv() != null) {
-            this.bVi.agv().agy();
+    }
+
+    public void ald() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).disable();
+            }
+        }
+    }
+
+    public void ale() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).alb();
+            }
         }
     }
 }

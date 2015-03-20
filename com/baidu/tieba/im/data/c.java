@@ -3,42 +3,42 @@ package com.baidu.tieba.im.data;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.im.chat.officialBar.p;
-import com.baidu.tieba.w;
+import com.baidu.tieba.im.chat.officialBar.q;
+import com.baidu.tieba.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private long aUg;
-    private String aXR;
-    List<p> list;
+    private long aYN;
+    private String bbZ;
+    List<q> list;
 
-    public c(List<p> list) {
+    public c(List<q> list) {
         this.list = list;
-        MB();
+        PA();
     }
 
-    private void MB() {
-        List<p> list = this.list;
+    private void PA() {
+        List<q> list = this.list;
         if (list != null && !list.isEmpty()) {
             long j = 0;
             long j2 = 0;
             String str = null;
             String str2 = null;
-            for (p pVar : list) {
-                if (pVar != null) {
+            for (q qVar : list) {
+                if (qVar != null) {
                     if (str2 == null) {
-                        str2 = pVar.aUd;
+                        str2 = qVar.aYK;
                     }
                     if (str == null) {
-                        str = pVar.aUf;
+                        str = qVar.aYM;
                     }
-                    j2 += pVar.aUe;
-                    j += pVar.aUg;
+                    j2 += qVar.aYL;
+                    j += qVar.aYN;
                 }
             }
-            this.aUg = j;
-            if (j2 <= 0) {
-                this.aXR = null;
+            this.aYN = j;
+            if (j2 == 0) {
+                this.bbZ = null;
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -49,33 +49,33 @@ public class c {
             if (!StringUtils.isNull(str)) {
                 sb.append(str);
             }
-            this.aXR = sb.toString();
+            this.bbZ = sb.toString();
         }
     }
 
     public boolean isShow() {
-        return (!StringUtils.isNull(this.aXR)) || ((this.aUg > 0L ? 1 : (this.aUg == 0L ? 0 : -1)) > 0);
+        return (!StringUtils.isNull(this.bbZ)) || ((this.aYN > 0L ? 1 : (this.aYN == 0L ? 0 : -1)) > 0);
     }
 
-    public void G(View view) {
-        TextView textView = (TextView) view.findViewById(w.office_msg_praise_text);
-        TextView textView2 = (TextView) view.findViewById(w.office_msg_praise_number);
+    public void E(View view) {
+        TextView textView = (TextView) view.findViewById(v.office_msg_praise_text);
+        TextView textView2 = (TextView) view.findViewById(v.office_msg_praise_number);
         if (!isShow()) {
             view.setVisibility(8);
             return;
         }
         view.setVisibility(0);
-        if (StringUtils.isNull(this.aXR)) {
+        if (StringUtils.isNull(this.bbZ)) {
             textView.setVisibility(4);
         } else {
             textView.setVisibility(0);
-            textView.setText(this.aXR);
+            textView.setText(this.bbZ);
         }
-        if (this.aUg <= 0) {
+        if (this.aYN <= 0) {
             textView2.setVisibility(4);
             return;
         }
         textView2.setVisibility(0);
-        textView2.setText(new StringBuilder(String.valueOf(this.aUg)).toString());
+        textView2.setText(new StringBuilder(String.valueOf(this.aYN)).toString());
     }
 }

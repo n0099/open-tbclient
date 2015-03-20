@@ -34,38 +34,38 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
             if (getError() == 0) {
                 setOfficialBarMenuDatas(new com.baidu.tieba.im.data.e());
                 if (forumMenuResIdl.data != null) {
-                    getOfficialBarMenuDatas().T(forumMenuResIdl.data.update_time.intValue());
-                    getOfficialBarMenuDatas().fH(forumMenuResIdl.data.has_menu.intValue());
-                    getOfficialBarMenuDatas().ao(new ArrayList());
+                    getOfficialBarMenuDatas().X(forumMenuResIdl.data.update_time.intValue());
+                    getOfficialBarMenuDatas().fI(forumMenuResIdl.data.has_menu.intValue());
+                    getOfficialBarMenuDatas().ay(new ArrayList());
                     int size = forumMenuResIdl.data.parent_menu.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
                         Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                        dVar.fG(menu.action_type.intValue());
+                        dVar.fH(menu.action_type.intValue());
                         dVar.setContent(menu.content);
                         dVar.setCreate_time(menu.create_time.intValue());
                         dVar.setForum_id(new StringBuilder().append(menu.forum_id).toString());
                         dVar.setId(new StringBuilder().append(menu.id).toString());
                         dVar.setLevel(menu.level.intValue());
                         dVar.setName(menu.name);
-                        dVar.an(new ArrayList());
+                        dVar.ax(new ArrayList());
                         if (menu.sub_menu != null) {
                             int size2 = menu.sub_menu.size();
                             for (int i3 = 0; i3 < size2; i3++) {
                                 SubMenu subMenu = menu.sub_menu.get(i3);
                                 com.baidu.tieba.im.data.d dVar2 = new com.baidu.tieba.im.data.d();
-                                dVar2.fG(subMenu.action_type.intValue());
+                                dVar2.fH(subMenu.action_type.intValue());
                                 dVar2.setContent(subMenu.content);
                                 dVar2.setForum_id(new StringBuilder().append(subMenu.forum_id).toString());
                                 dVar2.setId(new StringBuilder().append(subMenu.id).toString());
                                 dVar2.setLevel(subMenu.level.intValue());
                                 dVar2.setName(subMenu.name);
-                                dVar2.fF(subMenu.parent_id.intValue());
-                                dVar2.T(subMenu.update_time.intValue());
-                                dVar.MD().add(dVar2);
+                                dVar2.fG(subMenu.parent_id.intValue());
+                                dVar2.X(subMenu.update_time.intValue());
+                                dVar.PC().add(dVar2);
                             }
                         }
-                        getOfficialBarMenuDatas().MG().add(dVar);
+                        getOfficialBarMenuDatas().PF().add(dVar);
                     }
                 }
             }

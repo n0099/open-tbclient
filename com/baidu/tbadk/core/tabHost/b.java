@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 public class b {
-    public FragmentTabIndicator GN;
-    public Fragment GP;
+    public FragmentTabIndicator SP;
+    public Fragment SQ;
     public int mType;
 }

@@ -8,15 +8,19 @@ import android.net.Uri;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tieba.y;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.regex.Pattern;
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
@@ -37,22 +41,22 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpProtocolParams;
 /* loaded from: classes.dex */
 public class ImgHttpClient implements com.baidu.adp.lib.f.b {
-    private static int IB;
-    public static String KD;
-    private static HttpClient KE;
-    private HttpGet KB;
-    private final com.baidu.adp.lib.network.http.e KC;
-    public boolean KH;
-    private Context mContext;
-    private static volatile String IC = null;
-    private static volatile boolean IE = false;
-    private static Pattern kj = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    public static BasicHttpParams KF = new BasicHttpParams();
-    private boolean gi = false;
-    private boolean KG = false;
-    private int KI = 0;
-    private int IF = 0;
-    private volatile boolean IH = false;
+    private static int Uf;
+    public static String Wf;
+    private static HttpClient Wg;
+    private HttpGet Wd;
+    private final com.baidu.adp.lib.network.http.e We;
+    public boolean Wj;
+    private final Context mContext;
+    private static volatile String Ug = null;
+    private static volatile boolean Uh = false;
+    private static Pattern vz = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
+    public static BasicHttpParams Wh = new BasicHttpParams();
+    private boolean rC = false;
+    private boolean Wi = false;
+    private int Wk = 0;
+    private int Ui = 0;
+    private volatile boolean Uk = false;
 
     /* loaded from: classes.dex */
     public enum NetworkState {
@@ -60,7 +64,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
         WIFI,
         MOBILE;
 
-        /* JADX DEBUG: Replace access to removed values field (KJ) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Wl) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetworkState[] valuesCustom() {
             NetworkState[] valuesCustom = values();
@@ -78,7 +82,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
         TwoG,
         ThreeG;
 
-        /* JADX DEBUG: Replace access to removed values field (KK) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Wm) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetworkStateInfo[] valuesCustom() {
             NetworkStateInfo[] valuesCustom = values();
@@ -90,56 +94,56 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
     }
 
     static {
-        IB = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-        HttpConnectionParams.setConnectionTimeout(KF, 5000);
-        HttpConnectionParams.setSoTimeout(KF, 30000);
-        HttpConnectionParams.setSocketBufferSize(KF, 1024);
-        HttpConnectionParams.setTcpNoDelay(KF, true);
-        HttpClientParams.setRedirecting(KF, true);
-        ConnManagerParams.setMaxConnectionsPerRoute(KF, new ConnPerRouteBean(10));
-        ConnManagerParams.setTimeout(KF, 10000L);
-        ConnManagerParams.setMaxTotalConnections(KF, 10);
-        HttpProtocolParams.setUserAgent(KF, "bdtb for Android " + TbConfig.getVersion());
+        Uf = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+        HttpConnectionParams.setConnectionTimeout(Wh, 5000);
+        HttpConnectionParams.setSoTimeout(Wh, 30000);
+        HttpConnectionParams.setSocketBufferSize(Wh, 1024);
+        HttpConnectionParams.setTcpNoDelay(Wh, true);
+        HttpClientParams.setRedirecting(Wh, true);
+        ConnManagerParams.setMaxConnectionsPerRoute(Wh, new ConnPerRouteBean(10));
+        ConnManagerParams.setTimeout(Wh, 10000L);
+        ConnManagerParams.setMaxTotalConnections(Wh, 10);
+        HttpProtocolParams.setUserAgent(Wh, "bdtb for Android " + TbConfig.getVersion());
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        KE = new DefaultHttpClient(new ThreadSafeClientConnManager(KF, schemeRegistry), KF);
+        Wg = new DefaultHttpClient(new ThreadSafeClientConnManager(Wh, schemeRegistry), Wh);
         if (Runtime.getRuntime().maxMemory() >= 67108864) {
-            IB = 4194304;
+            Uf = 4194304;
         }
     }
 
     public ImgHttpClient(com.baidu.adp.lib.network.http.e eVar) {
-        oZ();
-        this.KC = eVar;
-        this.mContext = TbadkCoreApplication.m255getInst().getApp();
+        sw();
+        this.We = eVar;
+        this.mContext = TbadkCoreApplication.m411getInst().getApp();
     }
 
-    public static void oZ() {
+    public static void sw() {
         synchronized (ImgHttpClient.class) {
-            if (!IE) {
-                IE = true;
-                pa();
+            if (!Uh) {
+                Uh = true;
+                sx();
             }
         }
     }
 
-    public static synchronized void pa() {
+    public static synchronized void sx() {
         synchronized (ImgHttpClient.class) {
             try {
-                Cursor query = TbadkCoreApplication.m255getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                Cursor query = TbadkCoreApplication.m411getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
                 if (query != null && query.moveToNext()) {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    IC = "Basic " + bf.base64Encode((String.valueOf(string) + ":" + string2).getBytes());
+                    Ug = "Basic " + com.baidu.adp.lib.util.c.m((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    public static NetworkState T(Context context) {
+    public static NetworkState ac(Context context) {
         NetworkState networkState;
         NetworkState networkState2 = NetworkState.UNAVAIL;
         try {
@@ -157,262 +161,141 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
         }
     }
 
-    public void dJ() {
-        this.IH = true;
-        this.KC.dO().kI = true;
+    public void hh() {
+        this.Uk = true;
+        this.We.hn().vW = true;
         closeConnection();
     }
 
     private void closeConnection() {
         try {
-            if (this.KB != null) {
-                this.KB.abort();
+            if (this.Wd != null) {
+                this.Wd.abort();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private void l(String str, String str2, String str3) {
-        NetworkState T = T(this.mContext);
-        if (T != NetworkState.UNAVAIL) {
-            this.KH = false;
+    private void j(String str, String str2, String str3) {
+        boolean z;
+        NetworkState ac = ac(this.mContext);
+        if (e.getInstance() != null) {
+            if (!e.getInstance().Wb) {
+                e.getInstance().init();
+            }
+            z = true;
+        } else {
+            z = false;
+        }
+        if (ac != NetworkState.UNAVAIL) {
+            this.Wj = false;
             try {
-                if (T == NetworkState.MOBILE) {
+                if (ac == NetworkState.MOBILE) {
                     URL url = new URL(str);
                     synchronized (ImgHttpClient.class) {
-                        if (KD == null) {
-                            KD = com.baidu.adp.lib.util.i.fo();
+                        if (Wf == null) {
+                            Wf = k.iQ();
                         }
-                        if (KD != null && KD.length() > 0) {
-                            this.KH = true;
-                            if (cK(KD)) {
+                        if (Wf != null && Wf.length() > 0) {
+                            this.Wj = true;
+                            if (cT(Wf) && k.iS()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
-                                sb.append(KD);
+                                sb.append(Wf);
                                 String file = url.getFile();
                                 if (file != null && file.startsWith("?")) {
                                     sb.append("/");
                                 }
                                 sb.append(file);
-                                if (str2 == null || str2.length() == 0) {
-                                    this.KB = CDNIPDirectConnect.pQ().c(sb.toString(), this.KI, false);
+                                if (z) {
+                                    if (str2 == null || str2.length() == 0) {
+                                        this.Wd = e.getInstance().httpGetFactory(sb.toString(), this.Wk, false);
+                                    } else {
+                                        this.Wd = e.getInstance().httpGetFactory(str, str2, str3);
+                                    }
                                 } else {
-                                    this.KB = CDNIPDirectConnect.pQ().k(str, str2, str3);
+                                    this.Wd = new HttpGet(sb.toString());
                                 }
-                                this.KB.setHeader("X-Online-Host", url.getHost());
+                                this.Wd.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.KB.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.Wd.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             } else {
-                                Object parameter = KF.getParameter("http.route.default-proxy");
+                                Object parameter = Wh.getParameter("http.route.default-proxy");
                                 if (parameter == null || !(parameter instanceof HttpHost)) {
-                                    KF.setParameter("http.route.default-proxy", new HttpHost(KD, com.baidu.adp.lib.util.i.fp()));
+                                    Wh.setParameter("http.route.default-proxy", new HttpHost(Wf, k.iR()));
                                 } else {
                                     HttpHost httpHost = (HttpHost) parameter;
-                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(KD) || httpHost.getPort() != com.baidu.adp.lib.util.i.fp()) {
-                                        KF.setParameter("http.route.default-proxy", new HttpHost(KD, com.baidu.adp.lib.util.i.fp()));
+                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(Wf) || httpHost.getPort() != k.iR()) {
+                                        Wh.setParameter("http.route.default-proxy", new HttpHost(Wf, k.iR()));
                                     }
                                 }
-                                if (str2 == null || str2.length() == 0) {
-                                    this.KB = CDNIPDirectConnect.pQ().c(str, this.KI, false);
+                                if (z) {
+                                    if (str2 == null || str2.length() == 0) {
+                                        this.Wd = e.getInstance().httpGetFactory(str, this.Wk, false);
+                                    } else {
+                                        this.Wd = e.getInstance().httpGetFactory(str, str2, str3);
+                                    }
                                 } else {
-                                    this.KB = CDNIPDirectConnect.pQ().k(str, str2, str3);
+                                    this.Wd = new HttpGet(str);
                                 }
-                                if (IC != null) {
-                                    this.KB.setHeader("Proxy-Authorization", IC);
+                                if (Ug != null) {
+                                    this.Wd.setHeader("Proxy-Authorization", Ug);
                                 }
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.KB.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.Wd.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             }
                         }
                     }
                 }
-                if (str2 == null || str2.length() == 0) {
-                    if (T == NetworkState.MOBILE) {
-                        if (!this.KH || this.KB == null) {
-                            this.KB = CDNIPDirectConnect.pQ().c(str, this.KI, false);
+                if (z) {
+                    if (str2 == null || str2.length() == 0) {
+                        if (ac == NetworkState.MOBILE) {
+                            if (!this.Wj || this.Wd == null) {
+                                this.Wd = e.getInstance().httpGetFactory(str, this.Wk, false);
+                                return;
+                            }
                             return;
                         }
+                        this.Wd = e.getInstance().httpGetFactory(str, this.Wk, true);
                         return;
                     }
-                    this.KB = CDNIPDirectConnect.pQ().c(str, this.KI, true);
+                    this.Wd = e.getInstance().httpGetFactory(str, str2, str3);
                     return;
                 }
-                this.KB = CDNIPDirectConnect.pQ().k(str, str2, str3);
+                this.Wd = new HttpGet(str);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private void cJ(String str) {
-        l(str, null, null);
+    private void cS(String str) {
+        j(str, null, null);
     }
 
-    private boolean cK(String str) {
-        if (kj.matcher(str).find()) {
+    private boolean cT(String str) {
+        if (vz.matcher(str).find()) {
             return true;
         }
         return false;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, ARITH, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, CONST, IF, IGET, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, INVOKE, IGET, INVOKE, MOVE, CONST, INVOKE, IGET, INVOKE, MOVE, CONST, IF, INVOKE, IGET, IGET, CAST, CMP_L, IF, INVOKE, IF, INVOKE, ARITH, IF, INVOKE, IF, IF, CONST, CONST, IF, IGET, INVOKE, SGET, IF, IF, INVOKE, MOVE_EXCEPTION, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [518=12, 519=12, 523=12, 525=12, 526=12, 527=24, 528=12, 529=12, 530=24, 532=12, 533=12, 534=12, 536=12, 537=24, 538=12, 539=24, 540=12, 541=12, 543=12] */
-    /* JADX WARN: Code restructure failed: missing block: B:318:0x055b, code lost:
-        if (((int) r16.getContentLength()) <= com.baidu.tbadk.core.util.httpNet.ImgHttpClient.IB) goto L188;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [629=12, 630=12, 634=12, 636=12, 637=12, 638=24, 639=12, 640=12, 641=24, 643=12, 644=12, 645=12, 646=12, 649=12, 650=24, 651=12, 652=12, 653=24, 654=12, 655=12, 656=12, 657=12, 659=24, 660=12] */
+    /* JADX WARN: Code restructure failed: missing block: B:490:0x0877, code lost:
+        if (r12 == null) goto L209;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:319:0x055d, code lost:
-        if (r5 == null) goto L139;
+    /* JADX WARN: Code restructure failed: missing block: B:491:0x0879, code lost:
+        r12.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:320:0x055f, code lost:
-        r5.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:362:0x05e3, code lost:
-        r0 = new byte[1024];
-        r18 = new java.io.ByteArrayOutputStream(1024);
-        r3 = 0;
-        r7 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:363:0x05fa, code lost:
-        if (r8.getFirstHeader("imgsrc") == null) goto L196;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:364:0x05fc, code lost:
-        r19 = r8.getFirstHeader("imgsrc").toString();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:365:0x0608, code lost:
-        if (r19 == null) goto L196;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:367:0x060e, code lost:
-        if (r19.length() <= 0) goto L196;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:368:0x0610, code lost:
-        r7 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:369:0x0611, code lost:
-        if (r7 == false) goto L200;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:370:0x0613, code lost:
-        r7 = new byte[23];
-        r19 = r5.read(r7, 0, 23);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:371:0x0639, code lost:
-        if (new java.lang.String(r7, 0, r7.length).equalsIgnoreCase("app:tiebaclient;type:0;") != false) goto L200;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:372:0x063b, code lost:
-        r18.write(r7, 0, r19);
-        r3 = 0 + r19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:374:0x064e, code lost:
-        if (r8.getFirstHeader("Src-Content-Type") == null) goto L207;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:376:0x0662, code lost:
-        if ("image/gif".equalsIgnoreCase(r8.getFirstHeader("Src-Content-Type").getValue()) == false) goto L205;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:377:0x0664, code lost:
-        r23.gi = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:379:0x066d, code lost:
-        if (r23.IH != false) goto L334;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:381:0x0671, code lost:
-        if (r3 >= com.baidu.tbadk.core.util.httpNet.ImgHttpClient.IB) goto L333;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:382:0x0673, code lost:
-        r7 = r5.read(r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:383:0x067d, code lost:
-        if (r7 != (-1)) goto L214;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:384:0x067f, code lost:
-        r13.ky = -9;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:385:0x0687, code lost:
-        if (r23.IH == false) goto L265;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:386:0x0689, code lost:
-        if (r5 == null) goto L221;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:387:0x068b, code lost:
-        r5.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:414:0x06df, code lost:
-        r23.gi = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:447:0x073c, code lost:
-        r18.write(r0, 0, r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:448:0x0745, code lost:
-        r3 = r3 + r7;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:465:0x077e, code lost:
-        if (r3 >= com.baidu.tbadk.core.util.httpNet.ImgHttpClient.IB) goto L332;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:466:0x0780, code lost:
-        r10 = r18.toByteArray();
-        r18.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:467:0x078b, code lost:
-        if (r16.getContentEncoding() == null) goto L274;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:468:0x078d, code lost:
-        r7 = r16.getContentEncoding().getValue();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:469:0x0795, code lost:
-        if (r7 == null) goto L274;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:471:0x079f, code lost:
-        if (r7.contains("gzip") == false) goto L274;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:472:0x07a1, code lost:
-        r7 = new java.io.ByteArrayInputStream(r10);
-        r16 = new java.io.ByteArrayOutputStream(1024);
-        com.baidu.tbadk.util.g.b(r7, r16);
-        r10 = r16.toByteArray();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:473:0x07b6, code lost:
-        r13.kq = r3;
-        r13.retry = r9 + 1;
-        r13.ks = java.lang.System.currentTimeMillis() - r14;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:474:0x07ca, code lost:
-        if (r8.getFirstHeader("Error-Message") == null) goto L284;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:475:0x07cc, code lost:
-        r7 = r8.getFirstHeader("Error-Message");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:476:0x07d2, code lost:
-        if (r7 == null) goto L283;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:478:0x07dc, code lost:
-        if (android.text.TextUtils.isEmpty(r7.getValue()) != false) goto L283;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:480:0x07e8, code lost:
-        if (r7.getValue().equalsIgnoreCase("OK") == false) goto L282;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:481:0x07ea, code lost:
-        r23.KG = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:482:0x07ef, code lost:
-        if (r3 <= 0) goto L286;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:483:0x07f1, code lost:
-        r6 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:484:0x07f2, code lost:
-        if (r5 == null) goto L287;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:485:0x07f4, code lost:
-        r5.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:512:0x0849, code lost:
-        r23.KC.dO().responseCode = -11;
-        r13.kv = r23.mContext.getResources().getString(com.baidu.tieba.z.data_too_big);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:513:0x086b, code lost:
-        r23.KG = true;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:627:0x0a76  */
+    /* JADX WARN: Removed duplicated region for block: B:630:0x0a7a  */
+    /* JADX WARN: Removed duplicated region for block: B:642:0x0a98  */
+    /* JADX WARN: Removed duplicated region for block: B:648:0x0ab7  */
+    /* JADX WARN: Removed duplicated region for block: B:651:0x0abd  */
+    /* JADX WARN: Removed duplicated region for block: B:719:0x0a5a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -420,6 +303,8 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
         long currentTimeMillis;
         com.baidu.adp.lib.network.http.d dVar;
         String b;
+        Throwable th;
+        InputStream inputStream;
         boolean z;
         boolean z2;
         boolean z3;
@@ -427,264 +312,185 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
         boolean z5;
         boolean z6;
         boolean z7;
+        long currentTimeMillis2;
         boolean z8;
         boolean z9;
         boolean z10;
         boolean z11;
         boolean z12;
+        String value;
+        int read;
+        String obj;
+        boolean z13;
+        boolean z14;
         byte[] bArr = null;
+        boolean z15 = false;
+        if (e.getInstance() != null) {
+            z15 = true;
+            if (!e.getInstance().Wb) {
+                e.getInstance().init();
+            }
+        }
+        boolean z16 = z15;
         if (i <= 0) {
             i = 5;
         }
-        boolean z13 = false;
+        boolean z17 = false;
         int i2 = 0;
         while (true) {
-            if (this.IH || i2 >= i) {
+            if (this.Uk || i2 >= i) {
                 break;
             }
-            this.KI = i2;
+            this.Wk = i2;
             currentTimeMillis = System.currentTimeMillis();
             dVar = new com.baidu.adp.lib.network.http.d();
-            this.KC.a(dVar);
-            dVar.ky = -1;
-            InputStream inputStream = null;
-            b = this.KC.dN().b(dVar);
+            this.We.a(dVar);
+            dVar.vN = -1;
+            InputStream inputStream2 = null;
+            b = this.We.hm().b(dVar);
             try {
+                dVar.vN = -2;
+                currentTimeMillis2 = System.currentTimeMillis();
+                if (str == null || str.length() == 0) {
+                    cS(b);
+                    if (z16) {
+                        dVar.vO = e.getInstance().getCachedCdnIp(this.Wk);
+                    }
+                } else {
+                    j(b, str, str2);
+                    dVar.vO = str;
+                }
+                dVar.vN = -3;
+            } catch (SocketException e) {
+                e = e;
+            } catch (Exception e2) {
+                e = e2;
+                inputStream = null;
+            } catch (HttpException e3) {
+                inputStream = null;
+            } catch (SocketTimeoutException e4) {
+                e = e4;
+                inputStream = null;
+            } catch (IOException e5) {
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+            if (this.Wd == null) {
+                throw new SocketException("network not available.");
+            }
+            if (this.Uk) {
+                if (0 != 0) {
+                    try {
+                        inputStream2.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                closeConnection();
+                if ((str == null || str.length() == 0) && b != null) {
+                    boolean z18 = ac(this.mContext) == NetworkState.WIFI;
+                    if ((z18 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                        long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
+                        if (z18) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                        } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                        } else {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                        }
+                        e.getInstance().result(b, dVar.vO, z17, z8, z18);
+                    }
+                }
+            } else {
+                dVar.vN = -8;
+                HttpResponse execute = Wg.execute(this.Wd);
+                if (execute == null) {
+                    throw new SocketException("httpResponse is null.");
+                }
+                if (execute.getStatusLine() == null) {
+                    throw new SocketException("httpResponse getStatusLine is null.");
+                }
+                this.We.hn().responseCode = execute.getStatusLine().getStatusCode();
+                if (execute.getEntity() == null) {
+                    throw new SocketException("httpResponse getEntity is null.");
+                }
+                HttpEntity entity = execute.getEntity();
+                inputStream = entity.getContent();
                 try {
                     try {
-                        try {
-                            dVar.ky = -2;
-                            long currentTimeMillis2 = System.currentTimeMillis();
-                            if (str == null || str.length() == 0) {
-                                cJ(b);
-                                dVar.kA = CDNIPDirectConnect.pQ().ch(this.KI);
-                            } else {
-                                l(b, str, str2);
-                                dVar.kA = str;
-                            }
-                            dVar.ky = -3;
-                        } catch (Throwable th) {
-                            if (0 != 0) {
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (SocketException e7) {
+                    e = e7;
+                    inputStream2 = inputStream;
+                } catch (SocketTimeoutException e8) {
+                    e = e8;
+                } catch (IOException e9) {
+                } catch (HttpException e10) {
+                } catch (Exception e11) {
+                    e = e11;
+                }
+                if (entity.getContentType() != null) {
+                    String obj2 = entity.getContentType().toString();
+                    this.We.hn().contentType = obj2;
+                    if (obj2.contains("text/vnd.wap.wml")) {
+                        if (this.Ui < 1) {
+                            closeConnection();
+                            this.Ui++;
+                            this.We.hn().responseCode = 0;
+                            i2--;
+                            if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (Exception e) {
+                                } catch (Exception e12) {
                                 }
                             }
                             closeConnection();
                             if ((str == null || str.length() == 0) && b != null) {
-                                boolean z14 = T(this.mContext) == NetworkState.WIFI;
-                                if ((z14 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                                    long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (z14) {
-                                        z6 = currentTimeMillis3 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                                    } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                        z6 = currentTimeMillis3 > ((long) CDNIPDirectConnect.pQ().Kn.By);
+                                boolean z19 = ac(this.mContext) == NetworkState.WIFI;
+                                if ((z19 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                    long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (z19) {
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                    } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().NB);
                                     } else {
-                                        z6 = currentTimeMillis3 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().NA);
                                     }
-                                    CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z6, z14);
+                                    e.getInstance().result(b, dVar.vO, z17, z14, z19);
                                 }
                             }
-                            throw th;
-                        }
-                    } catch (SocketTimeoutException e2) {
-                        this.KC.dO().responseCode = -13;
-                        dVar.kv = String.valueOf(String.valueOf(this.KC.dO().responseCode)) + "|retryCount:" + i2 + "|" + e2.getClass() + "|" + e2.getMessage();
-                        if (0 != 0) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e3) {
-                            }
-                        }
-                        closeConnection();
-                        if ((str == null || str.length() == 0) && b != null) {
-                            boolean z15 = T(this.mContext) == NetworkState.WIFI;
-                            if ((z15 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                                long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
-                                if (z15) {
-                                    z5 = currentTimeMillis4 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                                } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                    z5 = currentTimeMillis4 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                                } else {
-                                    z5 = currentTimeMillis4 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                                }
-                                CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z5, z15);
-                            }
-                        }
-                    }
-                } catch (Exception e4) {
-                    this.KC.dO().responseCode = -10;
-                    dVar.kv = String.valueOf(String.valueOf(this.KC.dO().responseCode)) + "|retryCount:" + i2 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    if (0 != 0) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e5) {
-                        }
-                    }
-                    closeConnection();
-                    if ((str == null || str.length() == 0) && b != null) {
-                        boolean z16 = T(this.mContext) == NetworkState.WIFI;
-                        if ((z16 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                            long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
-                            if (z16) {
-                                z4 = currentTimeMillis5 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                            } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                z4 = currentTimeMillis5 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                            } else {
-                                z4 = currentTimeMillis5 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                            }
-                            CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z4, z16);
-                        }
-                    }
-                } catch (HttpException e6) {
-                    if (0 != 0) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e7) {
-                        }
-                    }
-                    closeConnection();
-                    if ((str == null || str.length() == 0) && b != null) {
-                        boolean z17 = T(this.mContext) == NetworkState.WIFI;
-                        if ((z17 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                            long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
-                            if (z17) {
-                                z3 = currentTimeMillis6 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                            } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                z3 = currentTimeMillis6 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                            } else {
-                                z3 = currentTimeMillis6 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                            }
-                            CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z3, z17);
-                        }
-                    }
-                }
-            } catch (SocketException e8) {
-                this.KC.dO().responseCode = -12;
-                dVar.kv = String.valueOf(String.valueOf(this.KC.dO().responseCode)) + "|retryCount:" + i2 + "|" + e8.getClass() + "|" + e8.getMessage();
-                if (0 != 0) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e9) {
-                    }
-                }
-                closeConnection();
-                if ((str == null || str.length() == 0) && b != null) {
-                    boolean z18 = T(this.mContext) == NetworkState.WIFI;
-                    if ((z18 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                        long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
-                        if (z18) {
-                            z2 = currentTimeMillis7 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                        } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                            z2 = currentTimeMillis7 > ((long) CDNIPDirectConnect.pQ().Kn.By);
+                            i2++;
+                            bArr = bArr;
                         } else {
-                            z2 = currentTimeMillis7 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                        }
-                        CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z2, z18);
-                    }
-                }
-            } catch (IOException e10) {
-                if (0 != 0) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e11) {
-                    }
-                }
-                closeConnection();
-                if ((str == null || str.length() == 0) && b != null) {
-                    boolean z19 = T(this.mContext) == NetworkState.WIFI;
-                    if ((z19 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                        long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
-                        if (z19) {
-                            z = currentTimeMillis8 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                        } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                            z = currentTimeMillis8 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                        } else {
-                            z = currentTimeMillis8 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                        }
-                        CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z, z19);
-                    }
-                }
-            }
-            if (this.KB != null) {
-                if (!this.IH) {
-                    dVar.ky = -8;
-                    HttpResponse execute = KE.execute(this.KB);
-                    if (execute != null) {
-                        if (execute.getStatusLine() != null) {
-                            this.KC.dO().responseCode = execute.getStatusLine().getStatusCode();
-                            if (execute.getEntity() != null) {
-                                HttpEntity entity = execute.getEntity();
-                                InputStream content = entity.getContent();
-                                if (entity.getContentType() == null) {
-                                    break;
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e13) {
                                 }
-                                String obj = entity.getContentType().toString();
-                                this.KC.dO().contentType = obj;
-                                if (!obj.contains("text/vnd.wap.wml")) {
-                                    break;
-                                } else if (this.IF < 1) {
-                                    closeConnection();
-                                    this.IF++;
-                                    this.KC.dO().responseCode = 0;
-                                    i2--;
-                                    if (content != null) {
-                                        try {
-                                            content.close();
-                                        } catch (Exception e12) {
-                                        }
-                                    }
-                                    closeConnection();
-                                    if ((str == null || str.length() == 0) && b != null) {
-                                        boolean z20 = T(this.mContext) == NetworkState.WIFI;
-                                        if ((z20 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                                            long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
-                                            if (z20) {
-                                                z12 = currentTimeMillis9 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                                            } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                                z12 = currentTimeMillis9 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                                            } else {
-                                                z12 = currentTimeMillis9 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                                            }
-                                            CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z12, z20);
-                                        }
-                                    }
-                                    i2++;
-                                    bArr = bArr;
-                                } else {
-                                    if (content != null) {
-                                        try {
-                                            content.close();
-                                        } catch (Exception e13) {
-                                        }
-                                    }
-                                    closeConnection();
-                                    if ((str == null || str.length() == 0) && b != null) {
-                                        boolean z21 = T(this.mContext) == NetworkState.WIFI;
-                                        if ((z21 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                                            long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
-                                            if (z21) {
-                                                z11 = currentTimeMillis10 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                                            } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                                z11 = currentTimeMillis10 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                                            } else {
-                                                z11 = currentTimeMillis10 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
-                                            }
-                                            CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z11, z21);
-                                        }
-                                    }
-                                }
-                            } else {
-                                throw new SocketException("httpResponse getEntity is null.");
                             }
-                        } else {
-                            throw new SocketException("httpResponse getStatusLine is null.");
+                            closeConnection();
+                            if ((str == null || str.length() == 0) && b != null) {
+                                boolean z20 = ac(this.mContext) == NetworkState.WIFI;
+                                if ((z20 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                    long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (z20) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                    } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                    } else {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                    }
+                                    e.getInstance().result(b, dVar.vO, z17, z13, z20);
+                                }
+                            }
                         }
-                    } else {
-                        throw new SocketException("httpResponse is null.");
                     }
-                } else {
-                    if (0 != 0) {
+                }
+                if (((int) entity.getContentLength()) > Uf) {
+                    if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (Exception e14) {
@@ -692,94 +498,320 @@ public class ImgHttpClient implements com.baidu.adp.lib.f.b {
                     }
                     closeConnection();
                     if ((str == null || str.length() == 0) && b != null) {
-                        boolean z22 = T(this.mContext) == NetworkState.WIFI;
-                        if ((z22 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                            long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
-                            if (z22) {
-                                z7 = currentTimeMillis11 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                            } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                                z7 = currentTimeMillis11 > ((long) CDNIPDirectConnect.pQ().Kn.By);
+                        boolean z21 = ac(this.mContext) == NetworkState.WIFI;
+                        if ((z21 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                            long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
+                            if (z21) {
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                            } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().NB);
                             } else {
-                                z7 = currentTimeMillis11 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().NA);
                             }
-                            CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z7, z22);
+                            e.getInstance().result(b, dVar.vO, z17, z9, z21);
+                            return;
                         }
+                        return;
+                    }
+                    return;
+                }
+                byte[] bArr2 = new byte[1024];
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                int i3 = 0;
+                boolean z22 = false;
+                if (execute.getFirstHeader("imgsrc") != null && (obj = execute.getFirstHeader("imgsrc").toString()) != null && obj.length() > 0) {
+                    z22 = true;
+                }
+                if (z22) {
+                    byte[] bArr3 = new byte[23];
+                    int read2 = inputStream.read(bArr3, 0, 23);
+                    if (!new String(bArr3, 0, bArr3.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                        byteArrayOutputStream.write(bArr3, 0, read2);
+                        i3 = 0 + read2;
                     }
                 }
-            } else {
-                throw new SocketException("network not available.");
-            }
-        }
-        this.IF = 0;
-        this.KC.dO().kK = bArr;
-        closeConnection();
-        if ((str == null || str.length() == 0) && b != null) {
-            boolean z23 = T(this.mContext) == NetworkState.WIFI;
-            if ((z23 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
-                if (z23) {
-                    z10 = currentTimeMillis12 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                    z10 = currentTimeMillis12 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                } else {
-                    z10 = currentTimeMillis12 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
+                if (execute.getFirstHeader("Src-Content-Type") != null) {
+                    if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
+                        this.rC = true;
+                    } else {
+                        this.rC = false;
+                    }
                 }
-                CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z10, z23);
-                return;
-            }
-            return;
-        }
-        return;
-        closeConnection();
-        if ((str == null || str.length() == 0) && b != null) {
-            boolean z24 = T(this.mContext) == NetworkState.WIFI;
-            if ((z24 ? dVar.kA != null || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
-                long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
-                if (z24) {
-                    z9 = currentTimeMillis13 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                    z9 = currentTimeMillis13 > ((long) CDNIPDirectConnect.pQ().Kn.By);
-                } else {
-                    z9 = currentTimeMillis13 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
+                while (!this.Uk && i3 < Uf && (read = inputStream.read(bArr2)) != -1) {
+                    byteArrayOutputStream.write(bArr2, 0, read);
+                    i3 += read;
                 }
-                CDNIPDirectConnect.pQ().c(b, dVar.kA, false, z9, z24);
+                dVar.vN = -9;
+                if (this.Uk) {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e15) {
+                        }
+                    }
+                    closeConnection();
+                    if ((str == null || str.length() == 0) && b != null) {
+                        boolean z23 = ac(this.mContext) == NetworkState.WIFI;
+                        if ((z23 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                            long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
+                            if (z23) {
+                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                            } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                            } else {
+                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                            }
+                            e.getInstance().result(b, dVar.vO, z17, z10, z23);
+                        }
+                    }
+                } else {
+                    if (i3 < Uf) {
+                        bArr = byteArrayOutputStream.toByteArray();
+                        byteArrayOutputStream.close();
+                        if (entity.getContentEncoding() != null && (value = entity.getContentEncoding().getValue()) != null && value.contains("gzip")) {
+                            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
+                            com.baidu.adp.lib.util.g.b(byteArrayInputStream, byteArrayOutputStream2);
+                            bArr = byteArrayOutputStream2.toByteArray();
+                        }
+                    } else {
+                        this.We.hn().responseCode = -11;
+                        dVar.vL = this.mContext.getResources().getString(y.data_too_big);
+                    }
+                    dVar.vF = i3;
+                    dVar.vI = i2 + 1;
+                    dVar.vH = System.currentTimeMillis() - currentTimeMillis2;
+                    if (execute.getFirstHeader("Error-Message") != null) {
+                        Header firstHeader = execute.getFirstHeader("Error-Message");
+                        if (firstHeader == null || TextUtils.isEmpty(firstHeader.getValue()) || firstHeader.getValue().equalsIgnoreCase("OK")) {
+                            this.Wi = false;
+                        } else {
+                            this.Wi = true;
+                        }
+                    }
+                    z11 = i3 > 0 ? true : z17;
+                    try {
+                        if (com.baidu.adp.b.a.lX() != null && dVar != null) {
+                            com.baidu.adp.b.a.lX().b(TbConfig.TMP_PIC_DIR_NAME, dVar.vE, dVar.vF);
+                            break;
+                        }
+                        break;
+                    } catch (SocketTimeoutException e16) {
+                        e = e16;
+                        z17 = z11;
+                        this.We.hn().responseCode = -13;
+                        dVar.vL = String.valueOf(String.valueOf(this.We.hn().responseCode)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e17) {
+                            }
+                        }
+                        closeConnection();
+                        if ((str == null || str.length() == 0) && b != null) {
+                            boolean z24 = ac(this.mContext) == NetworkState.WIFI;
+                            if ((z24 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
+                                if (z24) {
+                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                } else {
+                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                }
+                                e.getInstance().result(b, dVar.vO, z17, z7, z24);
+                            }
+                        }
+                        i2++;
+                        bArr = bArr;
+                    } catch (HttpException e18) {
+                        z17 = z11;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e19) {
+                            }
+                        }
+                        closeConnection();
+                        if ((str == null || str.length() == 0) && b != null) {
+                            boolean z25 = ac(this.mContext) == NetworkState.WIFI;
+                            if ((z25 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
+                                if (z25) {
+                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                } else {
+                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                }
+                                e.getInstance().result(b, dVar.vO, z17, z6, z25);
+                            }
+                        }
+                        i2++;
+                        bArr = bArr;
+                    } catch (SocketException e20) {
+                        e = e20;
+                        inputStream2 = inputStream;
+                        z17 = z11;
+                        try {
+                            this.We.hn().responseCode = -12;
+                            dVar.vL = String.valueOf(String.valueOf(this.We.hn().responseCode)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e21) {
+                                }
+                            }
+                            closeConnection();
+                            if ((str == null || str.length() == 0) && b != null) {
+                                boolean z26 = ac(this.mContext) == NetworkState.WIFI;
+                                if ((z26 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                    long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (z26) {
+                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                    } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                    } else {
+                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                    }
+                                    e.getInstance().result(b, dVar.vO, z17, z5, z26);
+                                }
+                            }
+                            i2++;
+                            bArr = bArr;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            inputStream = inputStream2;
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e22) {
+                                }
+                            }
+                            closeConnection();
+                            if ((str != null || str.length() == 0) && b != null) {
+                                z3 = ac(this.mContext) != NetworkState.WIFI;
+                                if ((z3 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                    long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!z3) {
+                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                    } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                    } else {
+                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                    }
+                                    e.getInstance().result(b, dVar.vO, z17, z4, z3);
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e23) {
+                        z17 = z11;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e24) {
+                            }
+                        }
+                        closeConnection();
+                        if ((str == null || str.length() == 0) && b != null) {
+                            boolean z27 = ac(this.mContext) == NetworkState.WIFI;
+                            if ((z27 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
+                                if (z27) {
+                                    z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                    z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                } else {
+                                    z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                }
+                                e.getInstance().result(b, dVar.vO, z17, z2, z27);
+                            }
+                        }
+                        i2++;
+                        bArr = bArr;
+                    } catch (Exception e25) {
+                        e = e25;
+                        z17 = z11;
+                        this.We.hn().responseCode = -10;
+                        dVar.vL = String.valueOf(String.valueOf(this.We.hn().responseCode)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e26) {
+                            }
+                        }
+                        closeConnection();
+                        if ((str == null || str.length() == 0) && b != null) {
+                            boolean z28 = ac(this.mContext) == NetworkState.WIFI;
+                            if ((z28 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
+                                long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
+                                if (z28) {
+                                    z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                                } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                                    z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().NB);
+                                } else {
+                                    z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().NA);
+                                }
+                                e.getInstance().result(b, dVar.vO, z17, z, z28);
+                            }
+                        }
+                        this.Ui = 0;
+                        this.We.hn().vY = bArr;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        z17 = z11;
+                        if (inputStream != null) {
+                        }
+                        closeConnection();
+                        if (str != null) {
+                        }
+                        if (ac(this.mContext) != NetworkState.WIFI) {
+                        }
+                        if (z3 ? dVar.vO != null || z17 || i2 >= i + (-1) : true) {
+                            long currentTimeMillis112 = System.currentTimeMillis() - currentTimeMillis;
+                            if (!z3) {
+                            }
+                            e.getInstance().result(b, dVar.vO, z17, z4, z3);
+                        }
+                        throw th;
+                    }
+                }
             }
         }
-        this.IF = 0;
-        this.KC.dO().kK = bArr;
         closeConnection();
         if ((str == null || str.length() == 0) && b != null) {
-            boolean z25 = T(this.mContext) == NetworkState.WIFI;
-            if ((z25 ? dVar.kA != null || z13 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.h.eB(b)) {
+            boolean z29 = ac(this.mContext) == NetworkState.WIFI;
+            if ((z29 ? dVar.vO != null || z11 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.g.eG(b) && z16) {
                 long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
-                if (z25) {
-                    z8 = currentTimeMillis14 > ((long) CDNIPDirectConnect.pQ().Kn.Bw);
-                } else if (com.baidu.adp.lib.network.willdelete.h.dY()) {
-                    z8 = currentTimeMillis14 > ((long) CDNIPDirectConnect.pQ().Kn.By);
+                if (z29) {
+                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().Nz);
+                } else if (com.baidu.adp.lib.network.willdelete.h.hx()) {
+                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().NB);
                 } else {
-                    z8 = currentTimeMillis14 > ((long) CDNIPDirectConnect.pQ().Kn.Bx);
+                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().NA);
                 }
-                CDNIPDirectConnect.pQ().c(b, dVar.kA, z13, z8, z25);
+                e.getInstance().result(b, dVar.vO, z11, z12, z29);
             }
         }
-        this.IF = 0;
-        this.KC.dO().kK = bArr;
+        this.Ui = 0;
+        this.We.hn().vY = bArr;
     }
 
-    public void qe() {
+    public void tu() {
         e(null, null, -1);
     }
 
-    public boolean ck() {
-        return this.gi;
+    public boolean fI() {
+        return this.rC;
     }
 
-    public boolean qf() {
-        return this.KG;
+    public boolean tv() {
+        return this.Wi;
     }
 
     @Override // com.baidu.adp.lib.f.b
     public void cancel() {
-        dJ();
+        hh();
     }
 }

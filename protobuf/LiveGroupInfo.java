@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -26,12 +25,14 @@ public final class LiveGroupInfo extends Message {
     public final Integer createTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
     public final Integer deviceId;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_XIUBA, type = Message.Datatype.INT32)
+    @ProtoField(tag = 26, type = Message.Datatype.INT32)
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
+    @ProtoField(tag = 27, type = Message.Datatype.INT32)
+    public final Integer fromType;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer gagers;
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
@@ -42,6 +43,8 @@ public final class LiveGroupInfo extends Message {
     public final String intro;
     @ProtoField(tag = 20, type = Message.Datatype.INT32)
     public final Integer isLiving;
+    @ProtoField(tag = 28, type = Message.Datatype.INT32)
+    public final Integer isVip;
     @ProtoField(tag = 24, type = Message.Datatype.INT64)
     public final Long lastMsgId;
     @ProtoField(tag = 19, type = Message.Datatype.INT32)
@@ -83,6 +86,8 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_GAGERS = 0;
     public static final Long DEFAULT_LASTMSGID = 0L;
     public static final Integer DEFAULT_FLAG = 0;
+    public static final Integer DEFAULT_FROMTYPE = 0;
+    public static final Integer DEFAULT_ISVIP = 0;
 
     /* synthetic */ LiveGroupInfo(Builder builder, boolean z, LiveGroupInfo liveGroupInfo) {
         this(builder, z);
@@ -218,9 +223,19 @@ public final class LiveGroupInfo extends Message {
             }
             if (builder.flag == null) {
                 this.flag = DEFAULT_FLAG;
-                return;
             } else {
                 this.flag = builder.flag;
+            }
+            if (builder.fromType == null) {
+                this.fromType = DEFAULT_FROMTYPE;
+            } else {
+                this.fromType = builder.fromType;
+            }
+            if (builder.isVip == null) {
+                this.isVip = DEFAULT_ISVIP;
+                return;
+            } else {
+                this.isVip = builder.isVip;
                 return;
             }
         }
@@ -250,6 +265,8 @@ public final class LiveGroupInfo extends Message {
         this.lastMsgId = builder.lastMsgId;
         this.forumName = builder.forumName;
         this.flag = builder.flag;
+        this.fromType = builder.fromType;
+        this.isVip = builder.isVip;
     }
 
     /* loaded from: classes.dex */
@@ -262,11 +279,13 @@ public final class LiveGroupInfo extends Message {
         public Integer flag;
         public Integer forumId;
         public String forumName;
+        public Integer fromType;
         public Integer gagers;
         public Integer groupId;
         public Integer groupType;
         public String intro;
         public Integer isLiving;
+        public Integer isVip;
         public Long lastMsgId;
         public Integer likers;
         public Integer listeners;
@@ -310,6 +329,8 @@ public final class LiveGroupInfo extends Message {
                 this.lastMsgId = liveGroupInfo.lastMsgId;
                 this.forumName = liveGroupInfo.forumName;
                 this.flag = liveGroupInfo.flag;
+                this.fromType = liveGroupInfo.fromType;
+                this.isVip = liveGroupInfo.isVip;
             }
         }
 

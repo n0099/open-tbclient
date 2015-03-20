@@ -12,6 +12,7 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.tbadk.game.GameInfoData;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -218,7 +219,7 @@ public class SapiUtils {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (Throwable th) {
             L.e(th);
-            return "0";
+            return GameInfoData.NOT_FROM_DETAIL;
         }
     }
 

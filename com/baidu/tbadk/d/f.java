@@ -1,91 +1,75 @@
 package com.baidu.tbadk.d;
 
-import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.x;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.tbadk.core.util.aa;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class f extends a {
-    private String[] LA;
-    private TextView Vv;
-    private ImageView abZ;
-    private TextView aca;
-    private final int acb;
-    private int currentIndex;
-    private Runnable ya;
+class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
+    private aa Oi;
+    final /* synthetic */ d aqn;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.c aqo;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int wl() {
-        this.currentIndex++;
-        if (this.currentIndex >= this.acb) {
-            this.currentIndex = 0;
+    public f(d dVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar) {
+        this.aqn = dVar;
+        this.aqo = cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public PluginNetConfigInfos doInBackground(Void... voidArr) {
+        String str;
+        SystemClock.sleep(1500L);
+        if (this.aqo == null) {
+            return null;
         }
-        return this.currentIndex;
-    }
-
-    public f(Context context) {
-        this(context, context.getResources().getDimensionPixelSize(u.ds484));
-    }
-
-    public f(Context context, int i) {
-        super(com.baidu.adp.lib.g.b.ei().inflate(context, x.loading_view_layout, null));
-        this.currentIndex = 0;
-        this.ya = new g(this);
-        this.abZ = (ImageView) this.abX.findViewById(w.loading_animate_view);
-        if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.abZ.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i;
-                this.abZ.setLayoutParams(marginLayoutParams);
+        String str2 = "";
+        if (this.aqo.lI() != null && this.aqo.lI().size() > 0) {
+            StringBuilder sb = new StringBuilder(50);
+            int size = this.aqo.lI().size();
+            for (int i = 0; i < size; i++) {
+                if (i != 0) {
+                    sb.append(",");
+                }
+                BasicNameValuePair basicNameValuePair = this.aqo.lI().get(i);
+                if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
+                    sb.append(basicNameValuePair.getName());
+                    sb.append(":");
+                    sb.append(basicNameValuePair.getValue());
+                }
             }
+            str2 = sb.toString();
         }
-        this.Vv = (TextView) this.abX.findViewById(w.loading_anim_ellipsis);
-        this.aca = (TextView) this.abX.findViewById(w.loading_text);
-        this.abZ.setBackgroundResource(v.loading_animation);
-        this.LA = context.getResources().getStringArray(r.loading_anim_text_array);
-        this.acb = this.LA.length;
+        str = d.aqk;
+        this.Oi = new aa(str);
+        this.Oi.o("plugin_upload_config", str2);
+        return PluginNetConfigInfos.parse(this.Oi.rO());
     }
 
-    private void wm() {
-        if (this.abZ != null && (this.abZ.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.abZ.getBackground()).start();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(PluginNetConfigInfos pluginNetConfigInfos) {
+        com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar;
+        this.aqn.aqm = false;
+        boolean z = pluginNetConfigInfos != null;
+        aVar = this.aqn.aql;
+        aVar.a(z, pluginNetConfigInfos);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001230));
     }
 
-    private void wn() {
-        if (this.abZ != null && (this.abZ.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.abZ.getBackground()).stop();
-        }
-    }
-
-    @Override // com.baidu.tbadk.d.a
-    protected void wj() {
-        wm();
-        this.Vv.setText(this.LA[0]);
-        this.Vv.postDelayed(this.ya, 200L);
-    }
-
-    @Override // com.baidu.tbadk.d.a
-    protected void wk() {
-        wn();
-        this.Vv.removeCallbacks(this.ya);
-    }
-
-    public void wo() {
-        bc.b(this.Vv, t.cp_cont_c, 1);
-        bc.b(this.aca, t.cp_cont_c, 1);
-        bc.j(this.abX, t.cp_bg_line_d);
-        wn();
-        bc.i(this.abZ, v.loading_animation);
-        wm();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.aqn.aqm = false;
+        this.Oi.hh();
+        this.Oi = null;
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.image;
 
-import android.content.DialogInterface;
-import android.view.View;
-import com.baidu.tieba.z;
+import android.content.Intent;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* loaded from: classes.dex */
-class j implements View.OnLongClickListener {
+class j implements com.baidu.tbadk.core.view.a {
     final /* synthetic */ ImageViewerActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,19 @@ class j implements View.OnLongClickListener {
         this.this$0 = imageViewerActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        DialogInterface.OnClickListener onClickListener;
-        String[] strArr = {this.this$0.getPageContext().getString(z.save)};
-        ImageViewerActivity imageViewerActivity = this.this$0;
-        onClickListener = this.this$0.brX;
-        imageViewerActivity.createListMenu(strArr, onClickListener);
-        this.this$0.showListMenu();
-        return false;
+    @Override // com.baidu.tbadk.core.view.a
+    public void cj(int i) {
+        boolean z;
+        a aVar;
+        z = this.this$0.buI;
+        if (z) {
+            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
+            intent.putExtra(ImageViewerConfig.INDEX, -1);
+            intent.putExtra("state", i);
+            this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
+        } else if (i == 0) {
+            aVar = this.this$0.buC;
+            aVar.VL();
+        }
     }
 }

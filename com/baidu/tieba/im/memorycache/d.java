@@ -11,19 +11,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c bhR;
+    final /* synthetic */ c bjh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.bhR = cVar;
+        this.bjh = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean q;
+        boolean j;
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryGetFromDBMessage)) {
             MemoryGetFromDBMessage memoryGetFromDBMessage = (MemoryGetFromDBMessage) customResponsedMessage;
             String uid = memoryGetFromDBMessage.getUid();
@@ -31,32 +31,32 @@ public class d extends CustomMessageListener {
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                        if (imMessageCenterPojo != null && ca.gk(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bhR.j(imMessageCenterPojo);
+                        if (imMessageCenterPojo != null && bx.fZ(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                            this.bjh.c(imMessageCenterPojo);
                         }
                     }
                 }
-                this.bhR.bhL.set(true);
-                this.bhR.QN();
+                this.bjh.bjb.set(true);
+                this.bjh.Sh();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    q = this.bhR.q(imMessageCenterPojo2);
-                    if (!q || imMessageCenterPojo2.getPulled_msgId() > 0) {
-                        this.bhR.j(imMessageCenterPojo2);
+                    j = this.bjh.j(imMessageCenterPojo2);
+                    if (!j || imMessageCenterPojo2.getPulled_msgId() > 0) {
+                        this.bjh.c(imMessageCenterPojo2);
                     }
                 }
-                this.bhR.db(false);
-                this.bhR.dc(false);
-                this.bhR.QK();
-                this.bhR.QL();
-                this.bhR.QM();
+                this.bjh.cP(false);
+                this.bjh.cQ(false);
+                this.bjh.Se();
+                this.bjh.Sf();
+                this.bjh.Sg();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.bhR.bhL.set(true);
-            this.bhR.QN();
+            this.bjh.bjb.set(true);
+            this.bjh.Sh();
         }
     }
 }

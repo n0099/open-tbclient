@@ -1,50 +1,33 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
-public class k {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+public class k extends Thread {
+    private int aqA;
+    private int aqB;
+    private String type = null;
+
+    public k(int i, int i2) {
+        this.aqA = 0;
+        this.aqB = 0;
+        this.aqA = i;
+        this.aqB = i2;
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TbadkCoreApplication.m255getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.m255getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m255getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.m255getInst().getTbs();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        aaVar.o("img_num", String.valueOf(this.aqA));
+        aaVar.o("img_total", String.valueOf(this.aqB));
+        if (this.type != null) {
+            aaVar.o("img_type", this.type);
         }
+        aaVar.rO();
     }
 }

@@ -1,85 +1,49 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
-
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends BaseAdapter {
-    final /* synthetic */ EditorToolComponetContainer bVZ;
-    private final WriteImagesInfo bWc;
+public class u implements com.baidu.tbadk.editortool.v {
+    private final /* synthetic */ com.baidu.tbadk.editortool.v aIB;
+    final /* synthetic */ PbEditor cmG;
 
-    public u(EditorToolComponetContainer editorToolComponetContainer, WriteImagesInfo writeImagesInfo) {
-        this.bVZ = editorToolComponetContainer;
-        this.bWc = writeImagesInfo;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(PbEditor pbEditor, com.baidu.tbadk.editortool.v vVar) {
+        this.cmG = pbEditor;
+        this.aIB = vVar;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.bWc == null) {
-            return 0;
-        }
-        return this.bWc.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.bWc.getChosedFiles().get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int i2;
-        int i3;
-        com.baidu.tbadk.img.e eVar;
-        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.g.b.ei().inflate(this.bVZ.mContext, com.baidu.tieba.x.editor_muti_image_item, null) : view;
-        TbadkCoreApplication.m255getInst().getSkinType();
-        ImageFileInfo imageFileInfo = this.bWc.getChosedFiles().get(i);
-        int measuredWidth = viewGroup.getMeasuredWidth();
-        i2 = this.bVZ.bVU;
-        int i4 = measuredWidth - (i2 * 2);
-        i3 = this.bVZ.padding;
-        int i5 = i4 + i3;
-        FrameLayout frameLayout2 = (FrameLayout) frameLayout;
-        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.w.iv_container);
-        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(com.baidu.tieba.w.shadow_container);
-        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(com.baidu.tieba.w.iv);
-        if (i5 > 0) {
-            int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
-            int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-            bc.i(frameLayout3, com.baidu.tieba.v.bg_add_photo);
-            frameLayout3.setForeground(bc.getDrawable(com.baidu.tieba.v.bg_add_photo_foregroundselector));
-            imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.z(paddingRight, measuredHeight));
-            tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            eVar = this.bVZ.bVY;
-            if (eVar.a(imageFileInfo, new v(this, viewGroup), true) != null) {
-                tbImageView.invalidate();
+    @Override // com.baidu.tbadk.editortool.v
+    public void handleAction(int i, Object obj) {
+        if (i == 2) {
+            this.cmG.io(i);
+        } else if (i == 3) {
+            this.cmG.acj();
+        } else if (i == 5) {
+            this.cmG.io(i);
+        } else if (i == 6) {
+            this.cmG.acj();
+        } else if (i == 8) {
+            this.cmG.io(i);
+        } else if (i == 9) {
+            this.cmG.acj();
+        } else if (i != 0) {
+            if (i == 18) {
+                if (this.cmG.alP()) {
+                    this.cmG.cmy.alN();
+                } else {
+                    this.cmG.cmy.alO();
+                }
+            } else if (i == 12 || i == 64) {
+                this.aIB.handleAction(35, obj);
+                this.cmG.cmy.ale();
+                this.cmG.cmz.aa(this.cmG.cmy.getEditText());
+            } else if (i == 38) {
+                this.cmG.io(i);
+            } else if (i == 44) {
+                this.cmG.io(i);
+            } else if (i == 50) {
+                this.cmG.io(i);
             }
         }
-        frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
-        frameLayout2.setOnClickListener(new w(this, viewGroup));
-        ImageView imageView = (ImageView) frameLayout2.findViewById(com.baidu.tieba.w.delete);
-        bc.c(imageView, com.baidu.tieba.v.btn_add_photo_close_n);
-        imageView.setOnClickListener(new x(this, frameLayout2));
-        return frameLayout2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ih(String str) {
-        new y(this, str).execute(new Void[0]);
+        this.aIB.handleAction(i, obj);
     }
 }

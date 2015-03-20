@@ -13,91 +13,91 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
-    private com.baidu.tieba.addresslist.c.b aoZ;
-    private View apa;
-    private EditText apb;
-    private TextView apc;
-    private View apd;
-    private ListView ape;
-    private p apf;
+    private com.baidu.tieba.addresslist.c.b axt;
+    private View axu;
+    private EditText axv;
+    private TextView axw;
+    private TextView axx;
+    private ListView axy;
+    private n axz;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(x.quick_search_activity);
-        this.aoZ = new com.baidu.tieba.addresslist.c.b(this);
-        this.aoZ.setUniqueId(getUniqueId());
-        vR();
+        setContentView(w.quick_search_activity);
+        this.axt = new com.baidu.tieba.addresslist.c.b(this);
+        this.axt.setUniqueId(getUniqueId());
+        EJ();
     }
 
-    private void vR() {
-        this.apa = findViewById(w.quick_search_parent);
-        Bn();
-        this.ape = (ListView) findViewById(w.quick_search_result);
-        this.ape.setOnTouchListener(new j(this));
-        this.apf = new p(this, null);
-        this.ape.setAdapter((ListAdapter) this.apf);
-        this.ape.setOnItemClickListener(this);
-        this.apd = findViewById(w.quick_search_empty_result);
-        this.apa.setOnTouchListener(new k(this));
+    private void EJ() {
+        this.axu = findViewById(v.quick_search_parent);
+        EN();
+        this.axy = (ListView) findViewById(v.quick_search_result);
+        this.axy.setOnTouchListener(new h(this));
+        this.axz = new n(this, null);
+        this.axy.setAdapter((ListAdapter) this.axz);
+        this.axy.setOnItemClickListener(this);
+        this.axx = (TextView) findViewById(v.quick_search_empty_result);
+        this.axu.setOnTouchListener(new i(this));
     }
 
-    private void Bn() {
-        this.mNavigationBar = (NavigationBar) findViewById(w.view_navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new l(this));
-        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, x.quick_search_navigation, (View.OnClickListener) null);
-        this.apb = (EditText) addCustomView.findViewById(w.quick_search_input);
-        this.apb.addTextChangedListener(new o(this, null));
-        this.apb.setOnFocusChangeListener(new m(this));
-        this.apc = (TextView) addCustomView.findViewById(w.quick_search_delete_button);
-        com.baidu.adp.lib.util.l.a(getPageContext().getPageActivity(), this.apc, 10, 10, 10, 10);
-        this.apc.setOnClickListener(new n(this));
+    private void EN() {
+        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new j(this));
+        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.quick_search_navigation, (View.OnClickListener) null);
+        this.axv = (EditText) addCustomView.findViewById(v.quick_search_input);
+        this.axv.addTextChangedListener(new m(this, null));
+        this.axv.setOnFocusChangeListener(new k(this));
+        this.axw = (TextView) addCustomView.findViewById(v.quick_search_delete_button);
+        com.baidu.adp.lib.util.n.a(getPageContext().getPageActivity(), this.axw, 10, 10, 10, 10);
+        this.axw.setOnClickListener(new l(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.util.l.c(getPageContext().getPageActivity(), this.apb);
-        this.aoZ = null;
+        com.baidu.adp.lib.util.n.c(getPageContext().getPageActivity(), this.axv);
+        this.axt = null;
     }
 
-    public void eN(String str) {
-        List<com.baidu.tbadk.coreExtra.relationship.b> eP = this.aoZ.eP(str);
-        if (eP.size() > 0) {
-            bj(true);
-            this.apf.setContacts(eP);
-            this.apf.notifyDataSetChanged();
-            this.ape.setSelection(0);
+    public void eU(String str) {
+        List<com.baidu.tbadk.coreExtra.relationship.a> fj = this.axt.fj(str);
+        if (fj.size() > 0) {
+            bn(true);
+            this.axz.setContacts(fj);
+            this.axz.notifyDataSetChanged();
+            this.axy.setSelection(0);
             return;
         }
-        bj(false);
+        bn(false);
     }
 
-    private void bj(boolean z) {
-        this.ape.setVisibility(z ? 0 : 8);
-        this.apd.setVisibility(z ? 8 : 0);
+    private void bn(boolean z) {
+        this.axy.setVisibility(z ? 0 : 8);
+        this.axx.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tbadk.coreExtra.relationship.b item = this.apf.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.axz.getItem(i);
         if (item != null && item.getUserId() > 0) {
             if (item.getUserType() == 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.getUserPortrait(), 0, 4)));
                 return;
             }
-            sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkCoreApplication.m255getInst().getApplicationContext(), String.valueOf(item.getUserId()), item.getUserName())));
+            sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkCoreApplication.m411getInst().getApplicationContext(), String.valueOf(item.getUserId()), item.getUserName())));
         }
     }
 
@@ -105,8 +105,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bc.i(this.apa, t.cp_bg_line_d);
+        ba.i(this.axu, s.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.apf.notifyDataSetChanged();
+        this.axz.notifyDataSetChanged();
+        ba.b(this.axx, s.cp_cont_d, 1);
     }
 }

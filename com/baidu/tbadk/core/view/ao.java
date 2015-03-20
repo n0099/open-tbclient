@@ -1,25 +1,12 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.bw;
+import android.widget.ListView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class ao implements bw {
-    final /* synthetic */ an Ob;
-    private final /* synthetic */ String Oc;
+public interface ao {
+    ListView getListView();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar, String str) {
-        this.Ob = anVar;
-        this.Oc = str;
-    }
+    int tS();
 
-    @Override // com.baidu.tbadk.core.util.bw
-    public boolean k(View view) {
-        Object tag = view.getTag();
-        if (tag != null && this.Oc.equals(tag)) {
-            view.invalidate();
-            return false;
-        }
-        return false;
-    }
+    com.baidu.adp.lib.e.b<TbImageView> tT();
 }

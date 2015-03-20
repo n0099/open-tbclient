@@ -6,75 +6,75 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class j implements Runnable {
-    private k<?> hg;
+    private k<?> sB;
 
     public j(k<?> kVar) {
-        this.hg = null;
-        if (kVar == null || kVar.cw() == null) {
+        this.sB = null;
+        if (kVar == null || kVar.fU() == null) {
             throw new InvalidParameterException("parameter is null");
         }
-        this.hg = kVar;
+        this.sB = kVar;
     }
 
-    public void cv() {
+    public void fT() {
         try {
-            this.hg.run();
+            this.sB.run();
         } catch (OutOfMemoryError e) {
             BdBaseApplication.getInst().onAppMemoryLow();
         }
     }
 
-    public void cr() {
-        this.hg.cr();
+    public void fP() {
+        this.sB.fP();
     }
 
     public boolean isCancelled() {
-        return this.hg.isCancelled();
+        return this.sB.isCancelled();
     }
 
-    public BdAsyncTask<?, ?, ?> cw() {
-        return this.hg.cw();
+    public BdAsyncTask<?, ?, ?> fU() {
+        return this.sB.fU();
     }
 
     public int getPriority() {
-        return this.hg.cw().getPriority();
+        return this.sB.fU().getPriority();
     }
 
     public void setTimeout(boolean z) {
-        this.hg.cw().setTimeout(z);
+        this.sB.fU().setTimeout(z);
     }
 
-    public boolean cx() {
-        return this.hg.cw().isTimeout();
+    public boolean fV() {
+        return this.sB.fU().isTimeout();
     }
 
     public int getTag() {
-        return this.hg.cw().getTag();
+        return this.sB.fU().getTag();
     }
 
-    public int cy() {
-        if (this.hg.cw().getParallel() != null) {
-            return this.hg.cw().getParallel().getTag();
+    public int fW() {
+        if (this.sB.fU().getParallel() != null) {
+            return this.sB.fU().getParallel().getTag();
         }
         return 0;
     }
 
     public String getKey() {
-        return this.hg.cw().getKey();
+        return this.sB.fU().getKey();
     }
 
-    public BdAsyncTaskParallel.BdAsyncTaskParallelType cz() {
-        return this.hg.cw().getParallel() != null ? this.hg.cw().getParallel().cC() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+    public BdAsyncTaskParallel.BdAsyncTaskParallelType fX() {
+        return this.sB.fU().getParallel() != null ? this.sB.fU().getParallel().ga() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
     }
 
-    public int cA() {
-        if (this.hg.cw().getParallel() != null) {
-            return this.hg.cw().getParallel().cB();
+    public int fY() {
+        if (this.sB.fU().getParallel() != null) {
+            return this.sB.fU().getParallel().fZ();
         }
         return 1;
     }
 
     public boolean isSelfExecute() {
-        return this.hg.cw().isSelfExecute();
+        return this.sB.fU().isSelfExecute();
     }
 }

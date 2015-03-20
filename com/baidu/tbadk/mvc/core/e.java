@@ -17,11 +17,11 @@ public interface e<V extends c, M extends a, T> extends View.OnClickListener, Tb
 
     BdUniqueId getUniqueId();
 
-    M kp();
+    M oi();
 
-    V kr();
+    V ok();
 
     void showLoadingView(View view);
 
-    ViewEventCenter wH();
+    ViewEventCenter zT();
 }

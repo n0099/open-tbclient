@@ -2,17 +2,17 @@ package com.baidu.tieba.im.forum.detail;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ m baM;
+    final /* synthetic */ m bcP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.baM = mVar;
+        this.bcP = mVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
-        aVar2 = this.baM.baL;
+        aVar2 = this.bcP.bcO;
         aVar2.dismiss();
     }
 }

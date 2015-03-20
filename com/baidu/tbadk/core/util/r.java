@@ -1,36 +1,31 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class r {
-    private StringBuilder HH;
+public abstract class r {
+    public static r Tn = null;
 
-    public r() {
-        this.HH = null;
-        this.HH = null;
-    }
+    public abstract com.baidu.tbadk.core.data.h getmCdnLogData();
 
-    public void h(String str, Object obj) {
-        if (!bf.isEmpty(str) && obj != null) {
-            try {
-                if (this.HH == null) {
-                    this.HH = new StringBuilder();
-                    this.HH.append(str);
-                    this.HH.append("=");
-                    this.HH.append(obj.toString());
-                } else {
-                    this.HH.append("|");
-                    this.HH.append(str);
-                    this.HH.append("=");
-                    this.HH.append(obj.toString());
+    public abstract void insertErrorData(int i, String str);
+
+    public abstract void insertNormalData(long j, String str);
+
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.h hVar);
+
+    public static r getInstance() {
+        if (Tn == null) {
+            synchronized (r.class) {
+                if (Tn == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016101, r.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        Tn = (r) runTask.getData();
+                    }
+                    return Tn;
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public String toString() {
-        return this.HH != null ? this.HH.toString() : "";
+        return Tn;
     }
 }

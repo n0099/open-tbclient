@@ -1,45 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.FrsPraiseView;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class cm {
-    private int Yh = -1;
-    public LinearLayout aCe;
-    public LinearLayout aCf;
-    public TextView aCg;
-    public PlayVoiceBnt aCh;
-    public FrsCommonImageLayout aCi;
-    public TextView aCj;
-    public TextView aCk;
-    public UserIconBox aCl;
-    public HeadImageView aCm;
-    public LinearLayout aCn;
-    public ImageView aCo;
-    public TextView aCp;
-    public LinearLayout aCq;
-    public TextView aCr;
-    public FrsPraiseView aCs;
-    public TextView aCt;
-    public View aCu;
-    public LinearLayout aCv;
-    public TextView aGA;
-    final /* synthetic */ cf aGq;
-    public LinearLayout aGv;
-    public TextView aGw;
-    public cl aGx;
-    public LinearLayout aGy;
-    public ImageView aGz;
-    public TextView mTitle;
+public class cm extends com.baidu.adp.base.f {
+    private cn aMU;
+    private String mForumId;
+    private String mForumName;
 
-    public cm(cf cfVar) {
-        this.aGq = cfVar;
+    public cm(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.mForumName = null;
+        this.mForumId = null;
+        this.aMU = null;
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void KA() {
+        if (this.aMU != null) {
+            this.aMU.cancel();
+            this.aMU = null;
+        }
+    }
+
+    public void ap(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aMU == null) {
+            this.mForumName = str;
+            this.mForumId = str2;
+            this.aMU = new cn(this, null);
+            this.aMU.setPriority(2);
+            this.aMU.execute(new Object[0]);
+            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        }
     }
 }

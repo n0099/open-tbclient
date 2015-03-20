@@ -1,74 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.LiveCardData;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn {
-    final /* synthetic */ bk aEO;
-    private List<LiveCardData> aET;
-    private List<LiveCardData> aEU;
-    private final boolean aEV;
+public class bn implements com.baidu.tieba.tbadkCore.am {
+    final /* synthetic */ bf aLR;
 
-    public bn(bk bkVar, List<LiveCardData> list) {
-        this.aEO = bkVar;
-        this.aET = list;
-        if (list != null && list.size() > 1) {
-            this.aEV = true;
-        } else {
-            this.aEV = false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bn(bf bfVar) {
+        this.aLR = bfVar;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.am
+    public void Kq() {
+        FrsActivity frsActivity;
+        frsActivity = this.aLR.aJT;
+        frsActivity.Jt();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.am
+    public void Kr() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.aLR.aLk;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.aLR.aLk;
+            bdTypeListView2.setSelection(0);
         }
-        this.aEU = Q(this.aET);
-    }
-
-    private List<LiveCardData> Q(List<LiveCardData> list) {
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            arrayList.addAll(list);
-            if (this.aEV && list.size() >= 1) {
-                arrayList.add(0, list.get(list.size() - 1));
-                arrayList.add(list.get(0));
-            }
-        }
-        return arrayList;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eP(int i) {
-        if (this.aEV) {
-            int size = this.aEU.size();
-            if (i == 0) {
-                return size - 2;
-            }
-            if (i == size - 1) {
-                return 1;
-            }
-            return i;
-        }
-        return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eQ(int i) {
-        if (this.aEV) {
-            return i - 1;
-        }
-        return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int Gq() {
-        if (this.aET == null) {
-            return 0;
-        }
-        return this.aET.size();
-    }
-
-    public int Gr() {
-        return this.aEV ? 1 : 0;
-    }
-
-    public List<LiveCardData> Gs() {
-        return this.aEU;
     }
 }
