@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Void, Void, Void> {
-    final ArrayList<ad> ajw = new ArrayList<>();
-    final b ajx = new ac(this);
-    final /* synthetic */ aa ajy;
+    final ArrayList<ad> ajE = new ArrayList<>();
+    final b ajF = new ac(this);
+    final /* synthetic */ aa ajG;
 
     public ab(aa aaVar) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
-        this.ajy = aaVar;
+        this.ajG = aaVar;
         setPriority(4);
-        bdAsyncTaskParallel = aa.ajv;
+        bdAsyncTaskParallel = aa.ajD;
         setParallel(bdAsyncTaskParallel);
     }
 
@@ -29,10 +29,10 @@ public class ab extends BdAsyncTask<Void, Void, Void> {
         int i = 0;
         while (true) {
             int i2 = i;
-            list = this.ajy.aju;
+            list = this.ajG.ajC;
             if (i2 < list.size()) {
-                list2 = this.ajy.aju;
-                ((a) list2.get(i2)).a(this.ajx);
+                list2 = this.ajG.ajC;
+                ((a) list2.get(i2)).a(this.ajF);
                 i = i2 + 1;
             } else {
                 return null;
@@ -46,7 +46,7 @@ public class ab extends BdAsyncTask<Void, Void, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r4) {
         super.onPostExecute(r4);
-        this.ajy.ajt = this.ajw;
+        this.ajG.ajB = this.ajE;
         MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(2001120));
     }
 }

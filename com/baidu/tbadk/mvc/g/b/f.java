@@ -8,8 +8,8 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public abstract class f extends com.baidu.tbadk.mvc.i.a.a {
-    private FragmentTabWidget anu;
-    private ViewPager anv;
+    private FragmentTabWidget anC;
+    private ViewPager anD;
 
     public f(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
@@ -23,30 +23,30 @@ public abstract class f extends com.baidu.tbadk.mvc.i.a.a {
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        BC().onChangeSkinType(i);
+        BI().onChangeSkinType(i);
         return super.a(tbPageContext, i);
     }
 
     @Override // com.baidu.tbadk.mvc.i.a.a
     protected ViewPager getViewPager() {
-        if (this.anv != null) {
-            return this.anv;
+        if (this.anD != null) {
+            return this.anD;
         }
         if (getView() != null) {
-            this.anv = (ViewPager) getView().findViewById(v.fragment_pager);
-            return this.anv;
+            this.anD = (ViewPager) getView().findViewById(v.fragment_pager);
+            return this.anD;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.i.a.a
-    protected FragmentTabWidget BC() {
-        if (this.anu != null) {
-            return this.anu;
+    protected FragmentTabWidget BI() {
+        if (this.anC != null) {
+            return this.anC;
         }
         if (getView() != null) {
-            this.anu = (FragmentTabWidget) getView().findViewById(v.tab_widget);
-            return this.anu;
+            this.anC = (FragmentTabWidget) getView().findViewById(v.tab_widget);
+            return this.anC;
         }
         return null;
     }

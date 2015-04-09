@@ -13,11 +13,11 @@ public class SearchLocationActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2002012, new f());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        aqk();
+        aqz();
         com.baidu.tieba.tbadkCore.a.a.c(303018, LocationSearchResponseMessage.class, false);
     }
 
-    public static void aqk() {
+    public static void aqz() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, com.baidu.tieba.tbadkCore.a.a.R(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

@@ -16,12 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ba extends av<com.baidu.tbadk.core.data.m, be> implements View.OnClickListener {
-    private ArrayList<LiveBroadcastCard> aKN;
+    private ArrayList<LiveBroadcastCard> aKX;
+    private FrsActivity aKd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ba(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
         super(frsActivity, bdUniqueId);
-        this.aKN = new ArrayList<>();
+        this.aKX = new ArrayList<>();
+        this.aKd = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,39 +38,39 @@ public class ba extends av<com.baidu.tbadk.core.data.m, be> implements View.OnCl
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.m mVar, be beVar) {
-        int JM;
-        int JM2;
+        int JT;
+        int JT2;
         super.a(i, view, viewGroup, (ViewGroup) mVar, (com.baidu.tbadk.core.data.m) beVar);
         bd bdVar = new bd(this, mVar.qd());
-        beVar.aKW.setAdapter(new ci(S(bdVar.JO())));
-        beVar.aKW.setCurrentItem(bdVar.JN(), false);
-        IndicatorView indicatorView = beVar.aKY;
-        beVar.aKW.setOnPageChangeListener(new bb(this, bdVar, beVar.aKW, indicatorView));
-        beVar.aKW.setOnSingleTouchListener(new bc(this, bdVar, mVar));
-        JM = bdVar.JM();
-        if (JM > 1) {
-            if (beVar.aKY.getVisibility() != 0) {
-                beVar.aKY.setVisibility(0);
+        beVar.aLg.setAdapter(new ci(S(bdVar.JV())));
+        beVar.aLg.setCurrentItem(bdVar.JU(), false);
+        IndicatorView indicatorView = beVar.aLi;
+        beVar.aLg.setOnPageChangeListener(new bb(this, bdVar, beVar.aLg, indicatorView));
+        beVar.aLg.setOnSingleTouchListener(new bc(this, bdVar, mVar));
+        JT = bdVar.JT();
+        if (JT > 1) {
+            if (beVar.aLi.getVisibility() != 0) {
+                beVar.aLi.setVisibility(0);
             }
-            IndicatorView indicatorView2 = beVar.aKY;
-            JM2 = bdVar.JM();
-            indicatorView2.setCount(JM2);
-            beVar.aKY.setPosition(0.0f);
-        } else if (beVar.aKY.getVisibility() != 8) {
-            beVar.aKY.setVisibility(8);
+            IndicatorView indicatorView2 = beVar.aLi;
+            JT2 = bdVar.JT();
+            indicatorView2.setCount(JT2);
+            beVar.aLi.setPosition(0.0f);
+        } else if (beVar.aLi.getVisibility() != 8) {
+            beVar.aLi.setVisibility(8);
         }
-        beVar.aKX.setTag(Integer.valueOf(i));
-        beVar.aLc.setTag(Integer.valueOf(i));
-        beVar.aLd.setTag(Integer.valueOf(i));
-        beVar.aLd.setOnClickListener(this);
-        com.baidu.tbadk.core.util.ba.i(beVar.aLd, com.baidu.tieba.u.bg_live_card_up);
-        com.baidu.tbadk.core.util.ba.b(beVar.aKZ, com.baidu.tieba.s.cp_cont_c, 1);
-        com.baidu.tbadk.core.util.ba.i(beVar.aLb, com.baidu.tieba.u.frs_item_control_btn_bg);
-        com.baidu.tbadk.core.util.ba.b(beVar.aKX, com.baidu.tieba.s.cp_cont_c, 1);
-        com.baidu.tbadk.core.util.ba.i(beVar.aLa, com.baidu.tieba.s.cp_bg_line_b);
-        com.baidu.tbadk.core.util.ba.c(beVar.aLc, com.baidu.tieba.u.icon_frs_ba_arrows_live);
-        beVar.aKY.setSelector(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.dot_live_s));
-        beVar.aKY.setDrawable(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.dot_live_n));
+        beVar.aLh.setTag(Integer.valueOf(i));
+        beVar.aLm.setTag(Integer.valueOf(i));
+        beVar.aLn.setTag(Integer.valueOf(i));
+        beVar.aLn.setOnClickListener(this);
+        com.baidu.tbadk.core.util.ba.i(beVar.aLn, com.baidu.tieba.u.bg_live_card_up);
+        com.baidu.tbadk.core.util.ba.b(beVar.aLj, com.baidu.tieba.s.cp_cont_c, 1);
+        com.baidu.tbadk.core.util.ba.i(beVar.aLl, com.baidu.tieba.u.frs_item_control_btn_bg);
+        com.baidu.tbadk.core.util.ba.b(beVar.aLh, com.baidu.tieba.s.cp_cont_c, 1);
+        com.baidu.tbadk.core.util.ba.i(beVar.aLk, com.baidu.tieba.s.cp_bg_line_b);
+        com.baidu.tbadk.core.util.ba.c(beVar.aLm, com.baidu.tieba.u.icon_frs_ba_arrows_live);
+        beVar.aLi.setSelector(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.dot_live_s));
+        beVar.aLi.setDrawable(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.dot_live_n));
         return view;
     }
 
@@ -77,23 +79,23 @@ public class ba extends av<com.baidu.tbadk.core.data.m, be> implements View.OnCl
     private ArrayList<LiveBroadcastCard> S(List<LiveCardData> list) {
         LiveBroadcastCard liveBroadcastCard;
         if (list != null) {
-            int size = this.aKN.size();
+            int size = this.aKX.size();
             int size2 = list.size();
             for (int i = 0; i < size2; i++) {
                 if (size > i) {
-                    liveBroadcastCard = this.aKN.get(i);
+                    liveBroadcastCard = this.aKX.get(i);
                 } else {
                     liveBroadcastCard = (LiveBroadcastCard) com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.frs_live_view_pager_item, null);
-                    this.aKN.add(liveBroadcastCard);
+                    this.aKX.add(liveBroadcastCard);
                 }
                 LiveBroadcastCard liveBroadcastCard2 = liveBroadcastCard;
                 liveBroadcastCard2.setListCard(true);
                 liveBroadcastCard2.setData(list.get(i));
                 liveBroadcastCard2.setStatisticsKey("forum_live_ck");
-                liveBroadcastCard2.onChangeSkinType(this.aJT.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+                liveBroadcastCard2.onChangeSkinType(this.aKd.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
             }
         }
-        return this.aKN;
+        return this.aKX;
     }
 
     @Override // android.view.View.OnClickListener
@@ -101,8 +103,8 @@ public class ba extends av<com.baidu.tbadk.core.data.m, be> implements View.OnCl
         if (view.getId() == com.baidu.tieba.v.frs_live_upItem) {
             com.baidu.tbadk.core.k.A(this.mContext, "all_live_read");
             TiebaStatic.eventStat(this.mContext, "frs_broadcast_detail", "click", 1, new Object[0]);
-            if (this.aIV != null && this.aIV.YO() != null && !TextUtils.isEmpty(this.aIV.YO().getId()) && this.aIV.getUserData() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsLiveListActivityConfig(this.mContext, this.aIV.YO().getId(), this.aIV.getUserData().getIsManager())));
+            if (this.aJd != null && this.aJd.Za() != null && !TextUtils.isEmpty(this.aJd.Za().getId()) && this.aJd.getUserData() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsLiveListActivityConfig(this.mContext, this.aJd.Za().getId(), this.aJd.getUserData().getIsManager())));
             }
         }
     }

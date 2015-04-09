@@ -6,10 +6,10 @@ import android.webkit.DownloadListener;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class p implements DownloadListener {
-    final /* synthetic */ TbWebViewActivity Nq;
+    final /* synthetic */ TbWebViewActivity Ns;
 
     private p(TbWebViewActivity tbWebViewActivity) {
-        this.Nq = tbWebViewActivity;
+        this.Ns = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +20,7 @@ class p implements DownloadListener {
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
         if (!StringUtils.isNull(str)) {
-            this.Nq.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+            this.Ns.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
         }
     }
 }

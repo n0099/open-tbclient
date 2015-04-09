@@ -4,11 +4,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class x {
-    LinearLayout bdj;
-    TextView bdk;
-    TextView bdl;
-    TextView bdm;
-    TextView bdn;
+    TextView bdA;
+    TextView bdB;
+    TextView bdC;
+    TextView bdD;
+    LinearLayout bdz;
 
     private x() {
     }

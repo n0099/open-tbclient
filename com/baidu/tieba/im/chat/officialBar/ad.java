@@ -6,12 +6,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends CustomMessageListener {
-    final /* synthetic */ OfficialBarHistoryActivity aZf;
+    final /* synthetic */ OfficialBarHistoryActivity aZv;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(OfficialBarHistoryActivity officialBarHistoryActivity) {
         super(2001156);
-        this.aZf = officialBarHistoryActivity;
+        this.aZv = officialBarHistoryActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,20 +21,20 @@ public class ad extends CustomMessageListener {
         ag agVar;
         List<au> list2;
         List list3;
-        this.aZf.hideProgressBar();
+        this.aZv.hideProgressBar();
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001156 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
             ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
             if (!responseLocalHistoryMessage.getData().isEmpty()) {
-                list = this.aZf.aEB;
+                list = this.aZv.aEJ;
                 if (list != null) {
-                    list3 = this.aZf.aEB;
+                    list3 = this.aZv.aEJ;
                     if (!list3.isEmpty()) {
                         return;
                     }
                 }
-                this.aZf.aEB = responseLocalHistoryMessage.getData();
-                agVar = this.aZf.aZb;
-                list2 = this.aZf.aEB;
+                this.aZv.aEJ = responseLocalHistoryMessage.getData();
+                agVar = this.aZv.aZr;
+                list2 = this.aZv.aEJ;
                 agVar.setData(list2);
             }
         }

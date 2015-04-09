@@ -22,7 +22,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (EV) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (EX) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();

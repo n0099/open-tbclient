@@ -12,28 +12,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.g;
 /* loaded from: classes.dex */
 public class b {
-    private static b akg;
+    private static b ako;
 
     private b() {
     }
 
-    public static b zm() {
-        if (akg == null) {
+    public static b zs() {
+        if (ako == null) {
             synchronized (b.class) {
-                if (akg == null) {
-                    akg = new b();
+                if (ako == null) {
+                    ako = new b();
                 }
             }
         }
-        return akg;
+        return ako;
     }
 
-    public void zn() {
+    public void zt() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void zo() {
+    public void zu() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {

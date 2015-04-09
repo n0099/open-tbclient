@@ -11,10 +11,10 @@ public class ForumDetailActivityStatic {
     static {
         TbadkApplication.getInst().RegisterIntent(ForumDetailActivityConfig.class, ForumDetailActivity.class);
         com.baidu.tieba.tbadkCore.a.a.c(303021, ForumDetailSocketResponse.class, false);
-        Qf();
+        Qs();
     }
 
-    private static void Qf() {
+    private static void Qs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, com.baidu.tieba.tbadkCore.a.a.R(TbConfig.GET_FORUM_DETAIL, 303021));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

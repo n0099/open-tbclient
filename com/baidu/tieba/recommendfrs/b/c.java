@@ -11,8 +11,8 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends FrameLayout {
-    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> bXZ;
-    private TextView bYa;
+    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> bYo;
+    private TextView bYp;
 
     public c(Context context) {
         this(context, null);
@@ -25,26 +25,26 @@ public class c extends FrameLayout {
 
     private void init() {
         com.baidu.adp.lib.g.b.hH().inflate(getContext(), w.recommend_frs_header_view, this);
-        this.bXZ = (CoverFlowView) findViewById(v.coverflowview);
-        this.bXZ.setDisableParentEvent(false);
-        this.bYa = (TextView) findViewById(v.covertitle);
-        this.bXZ.setCoverFlowFactory(new d(this));
+        this.bYo = (CoverFlowView) findViewById(v.coverflowview);
+        this.bYo.setDisableParentEvent(false);
+        this.bYp = (TextView) findViewById(v.covertitle);
+        this.bYo.setCoverFlowFactory(new d(this));
     }
 
     public void setCoverFlowViewCallBack(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> dVar) {
-        this.bXZ.setCallback(dVar);
+        this.bYo.setCallback(dVar);
     }
 
     public void setTitle(String str) {
-        this.bYa.setText(str);
+        this.bYp.setText(str);
     }
 
     public void setData(List<com.baidu.tieba.recommendfrs.data.a> list) {
-        this.bXZ.setData(list);
+        this.bYo.setData(list);
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.f.a.a(tbPageContext, this);
-        this.bXZ.rk();
+        this.bYo.rk();
     }
 }

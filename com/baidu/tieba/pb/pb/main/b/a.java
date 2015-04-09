@@ -12,86 +12,86 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.i;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.bv;
+import com.baidu.tieba.pb.pb.main.bw;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a {
-    private PbActivity bIF;
-    public final TextView bMA;
-    public final ImageView bMB;
-    public final ImageView bMC;
-    public final ImageView bMD;
-    public final View baY;
+    private PbActivity bIT;
+    public final TextView bMQ;
+    public final ImageView bMR;
+    public final ImageView bMS;
+    public final ImageView bMT;
+    public final View bbo;
     public final NavigationBar mNavigationBar;
     private MorePopupWindow mPopWindow = null;
-    private bv bME = null;
+    private bw bMU = null;
 
     public a(PbActivity pbActivity) {
-        this.bIF = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.bIF.findViewById(v.view_navigation_bar);
+        this.bIT = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.bIT.findViewById(v.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new b(this));
-        this.baY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aLA);
-        this.bMA = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.pb_title_textview, (View.OnClickListener) null);
-        this.bMD = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_add_floor, pbActivity.aLA);
-        this.bMB = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_host, pbActivity.aLA);
-        this.bMC = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, pbActivity.aLA);
-        this.bMA.setOnClickListener(pbActivity.aLA);
+        this.bbo = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aLK);
+        this.bMQ = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.pb_title_textview, (View.OnClickListener) null);
+        this.bMT = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_add_floor, pbActivity.aLK);
+        this.bMR = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_host, pbActivity.aLK);
+        this.bMS = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, pbActivity.aLK);
+        this.bMQ.setOnClickListener(pbActivity.aLK);
     }
 
-    public NavigationBar aby() {
+    public NavigationBar abN() {
         return this.mNavigationBar;
     }
 
-    public void hL(String str) {
+    public void hO(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bMA.setVisibility(0);
-            this.bMA.setText(String.valueOf(str) + this.bIF.getPageContext().getString(y.bar));
+            this.bMQ.setVisibility(0);
+            this.bMQ.setText(String.valueOf(str) + this.bIT.getPageContext().getString(y.bar));
         }
     }
 
-    public void abz() {
-        this.bMB.setVisibility(4);
-        this.bMB.setEnabled(false);
+    public void abO() {
+        this.bMR.setVisibility(4);
+        this.bMR.setEnabled(false);
     }
 
-    public void dW(boolean z) {
+    public void dU(boolean z) {
         if (z) {
-            ba.c(this.bMB, u.icon_floor_host_s);
+            ba.c(this.bMR, u.icon_floor_host_s);
         } else {
-            ba.c(this.bMB, u.icon_floor_host_n);
+            ba.c(this.bMR, u.icon_floor_host_n);
         }
     }
 
-    public void dZ(boolean z) {
+    public void dX(boolean z) {
         if (z) {
-            this.bMD.setVisibility(0);
+            this.bMT.setVisibility(0);
         } else {
-            this.bMD.setVisibility(8);
+            this.bMT.setVisibility(8);
         }
     }
 
     public void c(boolean z, boolean z2, boolean z3) {
-        if (!this.bIF.isProgressBarShown()) {
+        if (!this.bIT.isProgressBarShown()) {
             if (this.mPopWindow == null) {
-                this.bME = new bv((PbActivity) this.bIF.getPageContext().getOrignalPage(), this.bIF.aLA);
+                this.bMU = new bw((PbActivity) this.bIT.getPageContext().getOrignalPage(), this.bIT.aLK);
                 int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-                this.mPopWindow = new MorePopupWindow(this.bIF.getPageContext().getPageActivity(), this.bME.getView(), this.mNavigationBar, ba.getDrawable(u.bg_pull_down_right_n), new c(this));
-                this.mPopWindow.onChangeSkinType(this.bIF, skinType, ba.getDrawable(u.bg_pull_down_right_n));
+                this.mPopWindow = new MorePopupWindow(this.bIT.getPageContext().getPageActivity(), this.bMU.getView(), this.mNavigationBar, ba.getDrawable(u.bg_pull_down_right_n), new c(this));
+                this.mPopWindow.onChangeSkinType(this.bIT, skinType, ba.getDrawable(u.bg_pull_down_right_n));
             }
             if (z3) {
-                this.bME.dQ(false);
+                this.bMU.dO(false);
             } else {
-                this.bME.dQ(true);
+                this.bMU.dO(true);
             }
-            if (i.ae(this.bIF.getPageContext().getPageActivity())) {
-                this.bME.aae().setVisibility(0);
-                this.bME.aaf().setVisibility(0);
+            if (i.ae(this.bIT.getPageContext().getPageActivity())) {
+                this.bMU.aar().setVisibility(0);
+                this.bMU.aas().setVisibility(0);
             } else {
-                this.bME.aae().setVisibility(8);
-                this.bME.aaf().setVisibility(8);
+                this.bMU.aar().setVisibility(8);
+                this.bMU.aas().setVisibility(8);
             }
             if (this.mPopWindow != null) {
                 this.mPopWindow.refresh();
@@ -102,32 +102,32 @@ public class a {
     }
 
     private void d(boolean z, boolean z2) {
-        if (this.bME != null) {
+        if (this.bMU != null) {
             if (!z) {
-                this.bME.aah().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bMU.aau().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bME.aah().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bMU.aau().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.bME.aad().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bMU.aaq().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bME.aad().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bMU.aaq().setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
     public void oW() {
         if (this.mPopWindow != null) {
-            k.a(this.mPopWindow, this.bIF.getPageContext().getPageActivity());
+            k.a(this.mPopWindow, this.bIT.getPageContext().getPageActivity());
         }
     }
 
-    public bv abA() {
-        return this.bME;
+    public bw abP() {
+        return this.bMU;
     }
 
-    public void Wl() {
+    public void Wy() {
         this.mPopWindow = null;
-        this.bME = null;
+        this.bMU = null;
     }
 }

@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class n {
-    private com.baidu.tbadk.coreExtra.c.c atD = new com.baidu.tbadk.coreExtra.c.c();
+    private com.baidu.tbadk.coreExtra.c.c atL = new com.baidu.tbadk.coreExtra.c.c();
 
     public Bitmap am(Context context) {
         CustomResponsedMessage runTask;
-        String vL = this.atD.vL();
+        String vR = this.atL.vR();
         Bitmap bitmap = null;
-        if (!StringUtils.isNull(vL)) {
+        if (!StringUtils.isNull(vR)) {
             try {
-                bitmap = BitmapFactory.decodeFile(com.baidu.tbadk.core.util.o.cm(bf.cN(vL)).getAbsolutePath());
+                bitmap = BitmapFactory.decodeFile(com.baidu.tbadk.core.util.o.cm(bf.cN(vR)).getAbsolutePath());
                 if (bitmap == null) {
-                    this.atD.vM();
+                    this.atL.vS();
                 }
             } catch (Throwable th) {
             }

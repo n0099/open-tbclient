@@ -1,25 +1,18 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ SquareSearchActivity bzG;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bzT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(SquareSearchActivity squareSearchActivity, int i, boolean z) {
-        super(i, z);
-        this.bzG = squareSearchActivity;
+    public ab(SquareSearchActivity squareSearchActivity) {
+        this.bzT = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.bzG.bzu = true;
-        if (!(socketResponsedMessage instanceof FRSPageSocketResponsedMessage)) {
-            return;
-        }
-        this.bzG.a(socketResponsedMessage, !((FRSPageSocketResponsedMessage) socketResponsedMessage).hasNetworkError());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new com.baidu.tbadk.core.dialog.a(this.bzT.getPageContext().getPageActivity()).bZ(this.bzT.getPageContext().getString(com.baidu.tieba.y.alert_title)).ca(this.bzT.getPageContext().getString(com.baidu.tieba.y.alert_clean_history)).a(this.bzT.getPageContext().getString(com.baidu.tieba.y.alert_yes_button), new ac(this)).b(this.bzT.getPageContext().getString(com.baidu.tieba.y.alert_no_button), new ae(this)).b(this.bzT.getPageContext()).re();
     }
 }

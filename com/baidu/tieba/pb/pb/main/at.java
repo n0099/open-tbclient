@@ -4,38 +4,38 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class at implements com.baidu.tieba.tbadkCore.at {
-    final /* synthetic */ PbActivity bIv;
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(PbActivity pbActivity) {
-        this.bIv = pbActivity;
+        this.bIJ = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.at
-    public void fc(String str) {
+    public void ff(String str) {
         com.baidu.tieba.tbadkCore.ar arVar;
-        bq bqVar;
-        this.bIv.aHw = false;
-        arVar = this.bIv.aHL;
+        br brVar;
+        this.bIJ.aHE = false;
+        arVar = this.bIJ.aHT;
         if (arVar != null) {
-            bqVar = this.bIv.bHT;
-            com.baidu.tieba.pb.a.b pbData = bqVar.getPbData();
-            if (pbData.YP().getPraise().getIsLike() == 1) {
-                this.bIv.eE(0);
+            brVar = this.bIJ.bIg;
+            com.baidu.tieba.pb.a.b pbData = brVar.getPbData();
+            if (pbData.Zb().getPraise().getIsLike() == 1) {
+                this.bIJ.eE(0);
             } else {
-                this.bIv.eE(1);
+                this.bIJ.eE(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004004, pbData.YP()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004004, pbData.Zb()));
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.at
-    public void fd(String str) {
+    public void fg(String str) {
         com.baidu.tieba.tbadkCore.ar arVar;
-        this.bIv.aHw = false;
-        arVar = this.bIv.aHL;
+        this.bIJ.aHE = false;
+        arVar = this.bIJ.aHT;
         if (arVar != null && str != null) {
-            this.bIv.showToast(str);
+            this.bIJ.showToast(str);
         }
     }
 }

@@ -7,32 +7,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ca implements View.OnClickListener {
-    final /* synthetic */ by bJN;
-    private final /* synthetic */ String bJO;
-    private final /* synthetic */ String bJP;
-    private final /* synthetic */ String bJQ;
+    final /* synthetic */ bz bKc;
+    private final /* synthetic */ String bKd;
+    private final /* synthetic */ String bKe;
+    private final /* synthetic */ String bKf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(by byVar, String str, String str2, String str3) {
-        this.bJN = byVar;
-        this.bJO = str;
-        this.bJP = str2;
-        this.bJQ = str3;
+    public ca(bz bzVar, String str, String str2, String str3) {
+        this.bKc = bzVar;
+        this.bKd = str;
+        this.bKe = str2;
+        this.bKf = str3;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.bJO) && !StringUtils.isNull(this.bJP)) {
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.bKd) && !StringUtils.isNull(this.bKe)) {
             if (com.baidu.adp.lib.util.k.iH()) {
-                context = this.bJN.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.bJO) + "," + this.bJP, this.bJQ, this.bJQ, context.getString(com.baidu.tieba.y.app_info_for_map));
-                context2 = this.bJN.mContext;
+                context = this.bKc.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.bKd) + "," + this.bKe, this.bKf, this.bKf, context.getString(com.baidu.tieba.y.app_info_for_map));
+                context2 = this.bKc.mContext;
                 com.baidu.tbadk.browser.f.x(context2, format);
                 return;
             }
-            this.bJN.bIF.showToast(com.baidu.tieba.y.neterror);
+            this.bKc.bIT.showToast(com.baidu.tieba.y.neterror);
         }
     }
 }

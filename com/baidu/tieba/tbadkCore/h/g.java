@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g {
     public boolean AM;
-    final /* synthetic */ a cpB;
-    public String cpC;
-    public ArrayList<l> cpE;
+    final /* synthetic */ a cpR;
+    public String cpS;
+    public ArrayList<l> cpU;
 
     public g(a aVar) {
-        this.cpB = aVar;
+        this.cpR = aVar;
     }
 }

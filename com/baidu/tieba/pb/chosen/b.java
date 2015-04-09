@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbChosenActivity bFY;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.j bFZ;
-    private final /* synthetic */ String bGa;
-    private final /* synthetic */ int bGb;
-    private final /* synthetic */ int blo;
+    final /* synthetic */ PbChosenActivity bGl;
+    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.j bGm;
+    private final /* synthetic */ String bGn;
+    private final /* synthetic */ int bGo;
+    private final /* synthetic */ int blE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.j jVar, int i, String str, int i2) {
-        this.bFY = pbChosenActivity;
-        this.bFZ = jVar;
-        this.blo = i;
-        this.bGa = str;
-        this.bGb = i2;
+        this.bGl = pbChosenActivity;
+        this.bGm = jVar;
+        this.blE = i;
+        this.bGn = str;
+        this.bGo = i2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -29,17 +29,17 @@ public class b implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
         String str;
-        aVar2 = this.bFY.chosenData;
+        aVar2 = this.bGl.chosenData;
         if (aVar2 != null) {
-            aVar3 = this.bFY.chosenData;
+            aVar3 = this.bGl.chosenData;
             if (aVar3.getForumInfo() != null) {
-                this.bFY.HidenSoftKeyPad((InputMethodManager) this.bFY.getSystemService("input_method"), this.bFZ.getChatMsgView());
-                String leaveMsg = this.bFZ.getLeaveMsg();
-                aVar4 = this.bFY.chosenData;
-                aVar5 = this.bFY.chosenData;
+                this.bGl.HidenSoftKeyPad((InputMethodManager) this.bGl.getSystemService("input_method"), this.bGm.getChatMsgView());
+                String leaveMsg = this.bGm.getLeaveMsg();
+                aVar4 = this.bGl.chosenData;
+                aVar5 = this.bGl.chosenData;
                 long longValue = aVar5.getForumInfo().ftid.longValue();
-                str = this.bFY.shareUrl;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bFY.getPageContext().getPageActivity(), this.blo, this.bGa, this.bGb, "from_share", leaveMsg, n.a(aVar4, longValue, str).toChatMessageContent())));
+                str = this.bGl.shareUrl;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bGl.getPageContext().getPageActivity(), this.blE, this.bGn, this.bGo, "from_share", leaveMsg, n.a(aVar4, longValue, str).toChatMessageContent())));
                 aVar.dismiss();
             }
         }

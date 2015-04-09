@@ -7,23 +7,23 @@ import java.util.HashMap;
 public class f implements i {
     private String mThreadId = "";
     private String mPostId = "";
-    private String bMQ = "";
-    private boolean bMR = true;
-    private int bMS = 1;
+    private String bNg = "";
+    private boolean bNh = true;
+    private int bNi = 1;
 
     public void j(Bundle bundle) {
         this.mThreadId = bundle.getString("thread_id");
         this.mPostId = bundle.getString("post_id");
-        this.bMQ = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
-        this.bMR = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true);
+        this.bNg = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
+        this.bNh = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true);
     }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, this.bMR);
+        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, this.bNh);
         bundle.putString("thread_id", this.mThreadId);
         bundle.putString("post_id", this.mPostId);
-        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_DESC, this.bMQ);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_DESC, this.bNg);
         return bundle;
     }
 
@@ -31,7 +31,7 @@ public class f implements i {
     public HashMap<String, Object> oC() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("post_id", new StringBuilder(String.valueOf(this.mPostId)).toString());
-        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bMS)).toString());
+        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bNi)).toString());
         hashMap.put("res_num", "20");
         return hashMap;
     }
@@ -45,15 +45,15 @@ public class f implements i {
         return this.mThreadId;
     }
 
-    public boolean abI() {
-        return this.bMR;
+    public boolean abX() {
+        return this.bNh;
     }
 
-    public void abJ() {
-        this.bMS++;
+    public void abY() {
+        this.bNi++;
     }
 
     public int getPageNum() {
-        return this.bMS;
+        return this.bNi;
     }
 }

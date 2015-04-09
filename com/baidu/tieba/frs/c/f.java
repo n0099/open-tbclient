@@ -9,11 +9,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.i {
-    final /* synthetic */ a aNz;
+    final /* synthetic */ a aNQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.aNz = aVar;
+        this.aNQ = aVar;
     }
 
     @Override // com.baidu.adp.base.i
@@ -26,35 +26,35 @@ public class f extends com.baidu.adp.base.i {
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
         boolean z = false;
-        frsActivity = this.aNz.aNb;
-        w Ju = frsActivity.Ju();
-        if (Ju != null && Ju.YO() != null) {
-            String name = Ju.YO().getName();
+        frsActivity = this.aNQ.aNs;
+        w JA = frsActivity.JA();
+        if (JA != null && JA.Za() != null) {
+            String name = JA.Za().getName();
             if (obj != null && (obj instanceof ah)) {
-                com.baidu.tieba.tbadkCore.d.ako().D(name, false);
+                com.baidu.tieba.tbadkCore.d.akD().D(name, false);
                 ((ah) obj).setLike(1);
-                Ju.a((ah) obj);
+                JA.a((ah) obj);
                 z = true;
             }
-            frsActivity2 = this.aNz.aNb;
-            frsActivity2.aJF.c(Boolean.valueOf(z));
+            frsActivity2 = this.aNQ.aNs;
+            frsActivity2.aJP.c(Boolean.valueOf(z));
             if (!z) {
-                afVar = this.aNz.LO;
+                afVar = this.aNQ.LQ;
                 if (afVar.getErrorCode() == 22) {
-                    frsActivity4 = this.aNz.aNb;
-                    frsActivity4.showToast(this.aNz.getPageContext().getString(y.had_liked_forum));
+                    frsActivity4 = this.aNQ.aNs;
+                    frsActivity4.showToast(this.aNQ.getPageContext().getString(y.had_liked_forum));
                     return;
                 }
-                frsActivity3 = this.aNz.aNb;
-                afVar2 = this.aNz.LO;
+                frsActivity3 = this.aNQ.aNs;
+                afVar2 = this.aNQ.LQ;
                 frsActivity3.showToast(afVar2.getErrorString());
                 return;
             }
-            this.aNz.a(Ju, true);
-            frsActivity5 = this.aNz.aNb;
-            frsActivity5.showToast(this.aNz.getPageContext().getString(y.like_success));
+            this.aNQ.a(JA, true);
+            frsActivity5 = this.aNQ.aNs;
+            frsActivity5.showToast(this.aNQ.getPageContext().getString(y.like_success));
             TbadkCoreApplication.m411getInst().addLikeForum(name);
-            this.aNz.f(true, Ju.YO().getId());
+            this.aNQ.f(true, JA.Za().getId());
         }
     }
 }

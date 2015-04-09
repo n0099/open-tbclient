@@ -9,11 +9,11 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class bd<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, be<T>> {
-    protected com.baidu.adp.lib.c.a aXc;
-    protected com.baidu.adp.lib.c.b aXd;
-    private boolean aXj;
-    private boolean aXk;
-    protected int aXl;
+    private boolean aXA;
+    protected int aXB;
+    protected com.baidu.adp.lib.c.a aXs;
+    protected com.baidu.adp.lib.c.b aXt;
+    private boolean aXz;
     protected long mCurrentTime;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
@@ -25,44 +25,44 @@ public abstract class bd<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     public bd(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aXc = null;
-        this.aXd = null;
+        this.aXs = null;
+        this.aXt = null;
         this.mCurrentTime = 0L;
-        this.aXj = false;
-        this.aXk = false;
+        this.aXz = false;
+        this.aXA = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.aXc = aVar;
+        this.aXs = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aXd = bVar;
+        this.aXt = bVar;
     }
 
-    private void NP() {
+    private void Oc() {
         this.mCurrentTime = System.currentTimeMillis() / 1000;
     }
 
-    public boolean NQ() {
-        return this.aXj;
+    public boolean Od() {
+        return this.aXz;
     }
 
-    public void cp(boolean z) {
-        this.aXj = z;
+    public void cn(boolean z) {
+        this.aXz = z;
     }
 
-    public boolean NR() {
-        return this.aXk;
+    public boolean Oe() {
+        return this.aXA;
     }
 
-    public void cq(boolean z) {
-        this.aXk = z;
+    public void co(boolean z) {
+        this.aXA = z;
     }
 
-    public void fy(int i) {
-        this.aXl = i;
+    public void fA(int i) {
+        this.aXB = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,7 +70,7 @@ public abstract class bd<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        NP();
+        Oc();
         return view;
     }
 }

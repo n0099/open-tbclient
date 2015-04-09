@@ -14,16 +14,16 @@ public class b implements Comparator<com.baidu.tbadk.coreExtra.relationship.a> {
         if (aVar2 == null) {
             return 1;
         }
-        String wD = aVar.wD();
-        String wD2 = aVar2.wD();
-        if (!TextUtils.isEmpty(wD) && !TextUtils.isEmpty(wD2) && !wD.equals(wD2)) {
-            if ("#".equals(wD)) {
+        String wJ = aVar.wJ();
+        String wJ2 = aVar2.wJ();
+        if (!TextUtils.isEmpty(wJ) && !TextUtils.isEmpty(wJ2) && !wJ.equals(wJ2)) {
+            if ("#".equals(wJ)) {
                 return 1;
             }
-            if ("#".equals(wD2)) {
+            if ("#".equals(wJ2)) {
                 return -1;
             }
-            return wD.compareToIgnoreCase(wD2);
+            return wJ.compareToIgnoreCase(wJ2);
         }
         String userName = aVar.getUserName();
         String userName2 = aVar2.getUserName();

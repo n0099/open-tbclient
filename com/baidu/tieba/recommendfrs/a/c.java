@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendfrs.data.c> {
-    final /* synthetic */ b bXU;
+    final /* synthetic */ b bYj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bXU = bVar;
+        this.bYj = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -21,13 +21,13 @@ public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendf
         e eVar2;
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0 && readCacheRespMsg.getData().get(0) != null) {
             com.baidu.tieba.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-            eVar = this.bXU.bXT;
+            eVar = this.bYj.bYi;
             if (eVar != null) {
-                eVar2 = this.bXU.bXT;
+                eVar2 = this.bYj.bYi;
                 eVar2.a(false, cVar, false);
             }
         }
-        this.bXU.hM(0);
+        this.bYj.hP(0);
     }
 
     @Override // com.baidu.tbadk.mvc.model.d

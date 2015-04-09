@@ -6,11 +6,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Animation.AnimationListener {
-    final /* synthetic */ g byg;
+    final /* synthetic */ g byw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.byg = gVar;
+        this.byw = gVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,26 +26,26 @@ public class h implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.byg.byc;
+        i = this.byw.bys;
         if (i < 100) {
-            textView5 = this.byg.byd;
-            topRecActivity2 = this.byg.bxM;
+            textView5 = this.byw.byt;
+            topRecActivity2 = this.byw.byc;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(y.done))).append("(");
-            i2 = this.byg.byc;
+            i2 = this.byw.bys;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.byg.byd;
-            topRecActivity = this.byg.bxM;
+            textView = this.byw.byt;
+            topRecActivity = this.byw.byc;
             textView.setText(String.valueOf(topRecActivity.getPageContext().getString(y.done)) + "(99+)");
         }
-        textView2 = this.byg.byd;
+        textView2 = this.byw.byt;
         textView2.invalidate();
-        textView3 = this.byg.byd;
-        animation2 = this.byg.byf;
+        textView3 = this.byw.byt;
+        animation2 = this.byw.byv;
         textView3.setAnimation(animation2);
-        animation3 = this.byg.byf;
+        animation3 = this.byw.byv;
         animation3.start();
-        textView4 = this.byg.byd;
+        textView4 = this.byw.byt;
         textView4.setVisibility(4);
     }
 

@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements m {
-    private int bMK = 0;
-    private int bML = 0;
-    private final List<a> bMM = new ArrayList(100);
+    private int bNa = 0;
+    private int bNb = 0;
+    private final List<a> bNc = new ArrayList(100);
     private int status;
 
     public void a(g gVar) {
-        List<a> abL = gVar.abL();
-        if (abL != null) {
-            for (a aVar : abL) {
-                this.bMM.add(aVar);
+        List<a> aca = gVar.aca();
+        if (aca != null) {
+            for (a aVar : aca) {
+                this.bNc.add(aVar);
             }
         }
-        this.bML = this.bMM.size();
-        this.bMK = gVar.abK();
+        this.bNb = this.bNc.size();
+        this.bNa = gVar.abZ();
     }
 
-    public void hq(int i) {
-        this.bMK = i;
+    public void hs(int i) {
+        this.bNa = i;
     }
 
-    public int abF() {
-        return this.bMK;
+    public int abU() {
+        return this.bNa;
     }
 
     public void setStatus(int i) {
@@ -37,11 +37,11 @@ public class c implements m {
         return this.status;
     }
 
-    public int abG() {
-        return this.bML;
+    public int abV() {
+        return this.bNb;
     }
 
-    public List<a> abH() {
-        return this.bMM;
+    public List<a> abW() {
+        return this.bNc;
     }
 }

@@ -9,12 +9,12 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d zK() {
+    public com.baidu.tbadk.mainTab.d zQ() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.alV = new b();
+        dVar.amd = new b();
         dVar.type = 2;
-        dVar.alW = y.recommend;
-        dVar.alM = u.icon_tabbar_essence;
+        dVar.ame = y.recommend;
+        dVar.alU = u.icon_tabbar_essence;
         return dVar;
     }
 
@@ -26,7 +26,7 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator af(Context context) {
-        this.alJ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
-        return this.alJ;
+        this.alR = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
+        return this.alR;
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.pb.chosen.widget.PullToRefreshScrollView;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bFY;
+    final /* synthetic */ PbChosenActivity bGl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.bFY = pbChosenActivity;
+        this.bGl = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,22 +25,22 @@ class i extends com.baidu.adp.framework.listener.a {
         if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
             com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
             int erroCode = aVar.getErroCode();
-            this.bFY.bFR = true;
+            this.bGl.bGe = true;
             if (erroCode != 0 || aVar.isEmpty()) {
-                PbChosenActivity pbChosenActivity = this.bFY;
-                view = this.bFY.rootView;
+                PbChosenActivity pbChosenActivity = this.bGl;
+                view = this.bGl.rootView;
                 pbChosenActivity.hideLoadingView(view);
-                this.bFY.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.bFY.getResources().getString(y.neterror) : aVar.getErrorText());
+                this.bGl.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.bGl.getResources().getString(y.neterror) : aVar.getErrorText());
             } else {
-                this.bFY.a(aVar);
+                this.bGl.a(aVar);
             }
-            z = this.bFY.aGI;
+            z = this.bGl.aGQ;
             if (!z) {
-                String string = this.bFY.getResources().getString(y.recommend_pb_no_net_text);
-                PbChosenActivity pbChosenActivity2 = this.bFY;
-                view2 = this.bFY.rootView;
+                String string = this.bGl.getResources().getString(y.recommend_pb_no_net_text);
+                PbChosenActivity pbChosenActivity2 = this.bGl;
+                view2 = this.bGl.rootView;
                 pbChosenActivity2.showNetRefreshView(view2, string, true);
-                pullToRefreshScrollView = this.bFY.bFG;
+                pullToRefreshScrollView = this.bGl.bFT;
                 pullToRefreshScrollView.setVisibility(8);
             }
         }

@@ -1,44 +1,44 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class aa extends y {
-    public long apm;
-    public long apn;
-    public long apo;
-    public long apq;
-    public long apr;
-    public long aps;
-    public long apt;
-    public long apu;
+    public long apA;
+    public long apB;
+    public long apC;
+    public long apD;
+    public long apE;
+    public long apF;
+    public long apG;
+    public boolean apH;
     public long apv;
     public long apw;
     public long apx;
     public long apy;
-    public boolean apz;
+    public long apz;
     public boolean isSuccess;
 
-    public void CE() {
-        aj ajVar = (aj) ah.CK().ed(this.mSubType);
+    public void CK() {
+        aj ajVar = (aj) ah.CQ().ed(this.mSubType);
         if (ajVar != null) {
             ajVar.b(this);
         }
     }
 
-    public void CF() {
-        aj ajVar = (aj) ah.CK().ed(this.mSubType);
+    public void CL() {
+        aj ajVar = (aj) ah.CQ().ed(this.mSubType);
         if (ajVar != null) {
             ajVar.a(this);
         }
     }
 
-    public void CG() {
-        aj ajVar = (aj) ah.CK().ed(this.mSubType);
+    public void CM() {
+        aj ajVar = (aj) ah.CQ().ed(this.mSubType);
         if (ajVar != null) {
             ajVar.c(this);
         }
     }
 
-    public void CH() {
-        aj ajVar = (aj) ah.CK().ed(this.mSubType);
+    public void CN() {
+        aj ajVar = (aj) ah.CQ().ed(this.mSubType);
         if (ajVar != null) {
             ajVar.d(this);
         }

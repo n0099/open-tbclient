@@ -1,11 +1,11 @@
 package com.baidu.tbadk.mvc.a;
 /* loaded from: classes.dex */
 public interface b<T> extends a {
-    Class<T> zO();
+    Class<T> zU();
 
-    int zP();
+    int zV();
 
-    int zQ();
+    int zW();
 
-    String zR();
+    String zX();
 }

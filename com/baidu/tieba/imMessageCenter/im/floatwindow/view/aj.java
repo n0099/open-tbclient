@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends com.baidu.adp.lib.g.e {
-    final /* synthetic */ FloatingPersonalChatView brW;
+    final /* synthetic */ FloatingPersonalChatView bsm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(FloatingPersonalChatView floatingPersonalChatView) {
-        this.brW = floatingPersonalChatView;
+        this.bsm = floatingPersonalChatView;
     }
 
     @Override // com.baidu.adp.lib.g.e, android.view.animation.Animation.AnimationListener
@@ -18,26 +18,26 @@ public class aj extends com.baidu.adp.lib.g.e {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         Runnable runnable;
-        iVar = this.brW.brL;
+        iVar = this.bsm.bsb;
         if (iVar.d(animation)) {
-            linearLayout = this.brW.brK;
+            linearLayout = this.bsm.bsa;
             if (linearLayout != null) {
-                linearLayout2 = this.brW.brK;
-                runnable = this.brW.atA;
+                linearLayout2 = this.bsm.bsa;
+                runnable = this.bsm.atI;
                 linearLayout2.removeCallbacks(runnable);
             }
-            com.baidu.tieba.imMessageCenter.im.floatwindow.b.Ul().dk(false);
-            this.brW.brR = true;
+            com.baidu.tieba.imMessageCenter.im.floatwindow.b.Uy().di(false);
+            this.bsm.bsh = true;
         }
     }
 
     @Override // com.baidu.adp.lib.g.e, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         i iVar;
-        iVar = this.brW.brL;
+        iVar = this.bsm.bsb;
         if (!iVar.d(animation)) {
             return;
         }
-        this.brW.exit();
+        this.bsm.exit();
     }
 }

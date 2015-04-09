@@ -4,21 +4,21 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class ad implements Animation.AnimationListener {
-    private final /* synthetic */ ae cmV;
-    private final /* synthetic */ ViewGroup cmW;
+    private final /* synthetic */ ae cnl;
+    private final /* synthetic */ ViewGroup cnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ae aeVar, ViewGroup viewGroup) {
-        this.cmV = aeVar;
-        this.cmW = viewGroup;
+        this.cnl = aeVar;
+        this.cnm = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.cmV != null) {
-            this.cmV.alY();
+        if (this.cnl != null) {
+            this.cnl.amn();
         }
-        this.cmW.setVisibility(0);
+        this.cnm.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -27,9 +27,9 @@ class ad implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.cmW.setVisibility(8);
-        if (this.cmV != null) {
-            this.cmV.alZ();
+        this.cnm.setVisibility(8);
+        if (this.cnl != null) {
+            this.cnl.amo();
         }
     }
 }

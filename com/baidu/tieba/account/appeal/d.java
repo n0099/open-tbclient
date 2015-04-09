@@ -6,11 +6,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements l {
-    final /* synthetic */ AppealActivity awm;
+    final /* synthetic */ AppealActivity awu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AppealActivity appealActivity) {
-        this.awm = appealActivity;
+        this.awu = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.l
@@ -19,20 +19,20 @@ public class d implements l {
         String str;
         TextView textView2;
         String string;
-        textView = this.awm.awf;
-        str = this.awm.acM;
+        textView = this.awu.awn;
+        str = this.awu.acU;
         textView.setText(str);
-        textView2 = this.awm.awg;
+        textView2 = this.awu.awo;
         if (!bd.isEmpty(forbidReasonData.reason)) {
             string = forbidReasonData.reason;
         } else {
-            string = this.awm.getPageContext().getString(y.default_forbid_reason);
+            string = this.awu.getPageContext().getString(y.default_forbid_reason);
         }
         textView2.setText(string);
     }
 
     @Override // com.baidu.tieba.account.appeal.l
     public void b(ForbidReasonData forbidReasonData) {
-        this.awm.showToast(forbidReasonData.error.errMsg);
+        this.awu.showToast(forbidReasonData.error.errMsg);
     }
 }

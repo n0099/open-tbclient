@@ -10,15 +10,15 @@ import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
 public class ac {
     public static void init() {
-        Nm();
-        adx();
+        Nz();
+        adM();
     }
 
-    public static void Nm() {
+    public static void Nz() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
     }
 
-    private static void adx() {
+    private static void adM() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.R("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

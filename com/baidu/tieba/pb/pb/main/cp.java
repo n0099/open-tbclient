@@ -6,39 +6,31 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements View.OnClickListener {
-    final /* synthetic */ ci bMm;
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(ci ciVar) {
-        this.bMm = ciVar;
+    public cp(cj cjVar) {
+        this.bMC = cjVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        be beVar;
-        be beVar2;
         Dialog dialog2;
         Dialog dialog3;
         PbActivity pbActivity;
-        dialog = this.bMm.bLs;
+        dialog = this.bMC.bLI;
         if (dialog != null) {
-            dialog2 = this.bMm.bLs;
+            dialog2 = this.bMC.bLI;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.bMm.bLs;
-                pbActivity = this.bMm.bIF;
+                dialog3 = this.bMC.bLI;
+                pbActivity = this.bMC.bIT;
                 com.baidu.adp.lib.g.k.b(dialog3, pbActivity.getPageContext());
             }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
+        if (sparseArray != null) {
+            this.bMC.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
         }
-        beVar = this.bMm.bMi;
-        if (beVar == null) {
-            return;
-        }
-        beVar2 = this.bMm.bMi;
-        beVar2.c(new Object[]{sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity), sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name), sparseArray.get(com.baidu.tieba.v.tag_forbid_user_post_id)});
     }
 }

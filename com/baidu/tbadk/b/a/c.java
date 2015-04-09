@@ -4,7 +4,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class c {
-    public HeadImageView ahq;
-    public TextView ahr;
-    public TextView ahs;
+    public TextView ahA;
+    public HeadImageView ahy;
+    public TextView ahz;
 }

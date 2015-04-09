@@ -7,30 +7,30 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends AuthorizationListener {
-    final /* synthetic */ LoginActivity aar;
+    final /* synthetic */ LoginActivity aat;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LoginActivity loginActivity) {
-        this.aar = loginActivity;
+        this.aat = loginActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
-        this.aar.uq();
+        this.aat.uq();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         if (TextUtils.isEmpty(str)) {
-            this.aar.showToast(y.data_load_error);
+            this.aat.showToast(y.data_load_error);
         } else {
-            this.aar.showToast(str);
+            this.aat.showToast(str);
         }
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public boolean onForgetPwd() {
-        this.aar.startActivity(new Intent(this.aar.getPageContext().getPageActivity(), ForgetPwdActivity.class));
+        this.aat.startActivity(new Intent(this.aat.getPageContext().getPageActivity(), ForgetPwdActivity.class));
         return true;
     }
 }

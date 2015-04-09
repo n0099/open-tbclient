@@ -45,13 +45,13 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<k> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.gb(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.cS(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.cT(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.cR(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.ga(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.gd(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.cQ(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.cR(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.cP(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.gc(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.cU(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.cS(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -65,7 +65,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<k> {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.aF(linkedList);
+            this.selfData.aH(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -75,7 +75,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<k> {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.aG(linkedList2);
+            this.selfData.aI(linkedList2);
             List<ActivityInfo> list3 = this.mResData.data.activity;
             if (list3 != null && list3.size() > 0 && (activityInfo = list3.get(0)) != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();

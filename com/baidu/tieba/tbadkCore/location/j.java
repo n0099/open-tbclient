@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore.location;
 /* loaded from: classes.dex */
 public interface j {
-    void IQ();
+    void IW();
 
     void a(a aVar);
 
-    void fE(String str);
+    void fH(String str);
 }

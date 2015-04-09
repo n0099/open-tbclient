@@ -1,21 +1,21 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class z extends y {
-    public String Gw;
-    public long Gx;
-    public boolean apl;
+    public String Gy;
+    public long Gz;
+    public boolean apu;
     public boolean isSuccess;
 
-    public void CC() {
+    public void CI() {
         aj ajVar;
-        if (ah.CK().CL() && (ajVar = (aj) ah.CK().ed(this.mSubType)) != null) {
+        if (ah.CQ().CR() && (ajVar = (aj) ah.CQ().ed(this.mSubType)) != null) {
             ajVar.a(this, "head");
         }
     }
 
-    public void CD() {
+    public void CJ() {
         aj ajVar;
-        if (ah.CK().CL() && (ajVar = (aj) ah.CK().ed(this.mSubType)) != null) {
+        if (ah.CQ().CR() && (ajVar = (aj) ah.CQ().ed(this.mSubType)) != null) {
             ajVar.a(this, "img");
         }
     }

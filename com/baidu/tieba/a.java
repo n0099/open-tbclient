@@ -10,31 +10,31 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class a {
-    private d atn = null;
+    private d atv = null;
     private Handler mHandler = new Handler();
-    private Object ato = null;
-    private final int atp = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    private Object atw = null;
+    private final int atx = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
     private final int MIN_SHOW_TIME = 1000;
     private Runnable mRunnable = new b(this);
 
     public void a(d dVar) {
-        this.atn = dVar;
+        this.atv = dVar;
     }
 
     public void a(Activity activity, Object obj) {
-        com.baidu.tbadk.performanceLog.ai.CQ().z(System.currentTimeMillis());
-        this.ato = obj;
-        String Da = com.baidu.tbadk.util.a.CV().Da();
-        long CZ = com.baidu.tbadk.util.a.CV().CZ();
-        boolean CX = com.baidu.tbadk.util.a.CV().CX();
-        if (TextUtils.isEmpty(Da) || !CX || CZ <= 0) {
-            if (this.atn != null) {
-                this.atn.C(obj);
+        com.baidu.tbadk.performanceLog.ai.CW().z(System.currentTimeMillis());
+        this.atw = obj;
+        String Dg = com.baidu.tbadk.util.a.Db().Dg();
+        long Df = com.baidu.tbadk.util.a.Db().Df();
+        boolean Dd = com.baidu.tbadk.util.a.Db().Dd();
+        if (TextUtils.isEmpty(Dg) || !Dd || Df <= 0) {
+            if (this.atv != null) {
+                this.atv.C(obj);
                 return;
             }
             return;
         }
-        long j = CZ >= 1000 ? CZ : 1000L;
+        long j = Df >= 1000 ? Df : 1000L;
         long j2 = j <= 3000 ? j : 3000L;
         TbImageView tbImageView = new TbImageView(activity);
         tbImageView.setDefaultResource(0);
@@ -44,7 +44,7 @@ public class a {
         View findViewById = activity.getWindow().getDecorView().findViewById(16908290);
         TiebaStatic.eventStat(activity, "lpage_tg_pic_load", null);
         tbImageView.setEvent(new c(this, tbImageView, findViewById, activity));
-        tbImageView.c(Da, 10, false);
+        tbImageView.c(Dg, 10, false);
         this.mHandler.postDelayed(this.mRunnable, j2);
     }
 }

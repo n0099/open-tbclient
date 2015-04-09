@@ -21,16 +21,16 @@ class v extends CustomMessageListener {
         ai aiVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            aiVar = this.this$0.cqV;
+            aiVar = this.this$0.crl;
             if (booleanValue) {
-                aiVar2 = this.this$0.cqV;
-                if (aiVar2.aof()) {
+                aiVar2 = this.this$0.crl;
+                if (aiVar2.aou()) {
                     z = true;
-                    aiVar.eY(z);
+                    aiVar.eW(z);
                 }
             }
             z = false;
-            aiVar.eY(z);
+            aiVar.eW(z);
         }
     }
 }

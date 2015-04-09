@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<Object, s, s> {
-    private com.baidu.tbadk.core.util.aa Oi;
-    final /* synthetic */ s cwS;
+    private com.baidu.tbadk.core.util.aa Ok;
+    final /* synthetic */ s cxl;
 
     private t(s sVar) {
-        this.cwS = sVar;
+        this.cxl = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,11 +24,11 @@ public class t extends BdAsyncTask<Object, s, s> {
     public s doInBackground(Object... objArr) {
         WriteActivity writeActivity;
         String obj = objArr[0].toString();
-        this.Oi = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-        this.Oi.o("kw", obj);
-        String rO = this.Oi.rO();
-        if (this.Oi.sp().tq().pv()) {
-            writeActivity = this.cwS.cwR;
+        this.Ok = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.Ok.o("kw", obj);
+        String rO = this.Ok.rO();
+        if (this.Ok.sp().tq().pv()) {
+            writeActivity = this.cxl.cxk;
             s sVar = new s(writeActivity);
             sVar.parserJson(rO);
             return sVar;
@@ -43,17 +43,17 @@ public class t extends BdAsyncTask<Object, s, s> {
     public void onPostExecute(s sVar) {
         com.baidu.adp.base.i iVar;
         super.onPostExecute(sVar);
-        this.cwS.cwP = null;
-        iVar = this.cwS.mLoadDataCallBack;
+        this.cxl.cxi = null;
+        iVar = this.cxl.mLoadDataCallBack;
         iVar.c(sVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.cwS.cwP = null;
-        if (this.Oi != null) {
-            this.Oi.hh();
+        this.cxl.cxi = null;
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
     }
 }

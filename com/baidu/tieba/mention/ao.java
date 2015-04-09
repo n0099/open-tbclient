@@ -12,11 +12,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ ai bDw;
+    final /* synthetic */ ai bDJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(ai aiVar) {
-        this.bDw = aiVar;
+        this.bDJ = aiVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -30,27 +30,27 @@ public class ao implements com.baidu.tbadk.core.dialog.h {
         WriteImagesInfo writeImagesInfo6;
         eVar.dismiss();
         if (i == 0) {
-            writeImagesInfo4 = this.bDw.aHD;
+            writeImagesInfo4 = this.bDJ.aHL;
             if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.bDw.aHD;
+                writeImagesInfo5 = this.bDJ.aHL;
                 int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.bDw.aHD;
+                writeImagesInfo6 = this.bDJ.aHL;
                 if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.bDw.getPageContext().showToast(String.format(this.bDw.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                    this.bDJ.getPageContext().showToast(String.format(this.bDJ.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            this.bDw.aHA = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.bDw.getPageContext();
-            str = this.bDw.aHA;
+            this.bDJ.aHI = String.valueOf(System.currentTimeMillis());
+            TbPageContext pageContext = this.bDJ.getPageContext();
+            str = this.bDJ.aHI;
             az.a(pageContext, str);
         } else if (i == 1) {
-            writeImagesInfo = this.bDw.aHD;
+            writeImagesInfo = this.bDJ.aHL;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bDw.aHD;
+                writeImagesInfo2 = this.bDJ.aHL;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    Activity activity = this.bDw.getActivity();
-                    writeImagesInfo3 = this.bDw.aHD;
+                    Activity activity = this.bDJ.getActivity();
+                    writeImagesInfo3 = this.bDJ.aHL;
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(activity, writeImagesInfo3.toJsonString());
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));

@@ -14,11 +14,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ FrsCommonImageLayout ckH;
+    final /* synthetic */ FrsCommonImageLayout ckX;
     private final int mIndex;
 
     private l(FrsCommonImageLayout frsCommonImageLayout, int i) {
-        this.ckH = frsCommonImageLayout;
+        this.ckX = frsCommonImageLayout;
         this.mIndex = i;
     }
 
@@ -43,25 +43,25 @@ public class l implements View.OnClickListener {
         boolean z2;
         MediaData[] mediaDataArr5;
         m mVar2;
-        mVar = this.ckH.ckv;
+        mVar = this.ckX.ckL;
         if (mVar != null) {
-            mVar2 = this.ckH.ckv;
+            mVar2 = this.ckX.ckL;
             mVar2.onChildClickCallback(this.mIndex);
             return;
         }
-        mediaDataArr = this.ckH.Xr;
+        mediaDataArr = this.ckX.Xt;
         if (mediaDataArr[this.mIndex].getType() != 5) {
-            mediaDataArr2 = this.ckH.Xr;
+            mediaDataArr2 = this.ckX.Xt;
             if (mediaDataArr2 != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-                mediaDataArr3 = this.ckH.Xr;
+                mediaDataArr3 = this.ckX.Xt;
                 for (MediaData mediaData : mediaDataArr3) {
                     if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
                         arrayList.add(mediaData.getSrc_pic());
                         if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
                             ImageUrlData imageUrlData = new ImageUrlData();
-                            z2 = this.ckH.mIsFromCDN;
+                            z2 = this.ckX.mIsFromCDN;
                             imageUrlData.urlType = z2 ? 13 : 14;
                             imageUrlData.imageUrl = mediaData.getPicUrl();
                             hashMap.put(mediaData.getSrc_pic(), imageUrlData);
@@ -69,7 +69,7 @@ public class l implements View.OnClickListener {
                     }
                 }
                 if (arrayList.size() <= 0) {
-                    mediaDataArr4 = this.ckH.Xr;
+                    mediaDataArr4 = this.ckX.Xt;
                     for (MediaData mediaData2 : mediaDataArr4) {
                         if (!TextUtils.isEmpty(mediaData2.getPicUrl())) {
                             arrayList.add(mediaData2.getPicUrl());
@@ -77,26 +77,26 @@ public class l implements View.OnClickListener {
                     }
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                if (this.ckH.ckA == null) {
-                    pageActivity = this.ckH.mContext;
+                if (this.ckX.ckQ == null) {
+                    pageActivity = this.ckX.mContext;
                 } else {
-                    pageActivity = this.ckH.ckA.getPageActivity();
+                    pageActivity = this.ckX.ckQ.getPageActivity();
                 }
                 ImageViewerConfig imageViewerConfig = new ImageViewerConfig(pageActivity);
                 int i = this.mIndex;
-                str = this.ckH.mForumName;
-                str2 = this.ckH.mForumId;
-                str3 = this.ckH.mThreadId;
-                z = this.ckH.mIsFromCDN;
+                str = this.ckX.mForumName;
+                str2 = this.ckX.mForumId;
+                str3 = this.ckX.mThreadId;
+                z = this.ckX.mIsFromCDN;
                 messageManager.sendMessage(new CustomMessage(2010000, imageViewerConfig.createConfig(arrayList, i, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "", true, hashMap)));
-                context = this.ckH.mContext;
+                context = this.ckX.mContext;
                 TiebaStatic.eventStat(context, "pic_frs", "");
                 return;
             }
             return;
         }
-        Context pageActivity2 = this.ckH.ckA == null ? this.ckH.mContext : this.ckH.ckA.getPageActivity();
-        mediaDataArr5 = this.ckH.Xr;
+        Context pageActivity2 = this.ckX.ckQ == null ? this.ckX.mContext : this.ckX.ckQ.getPageActivity();
+        mediaDataArr5 = this.ckX.Xt;
         com.baidu.tbadk.browser.f.x(pageActivity2, mediaDataArr5[this.mIndex].getVideoUrl());
     }
 }

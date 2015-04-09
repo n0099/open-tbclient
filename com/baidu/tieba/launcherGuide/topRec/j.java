@@ -1,34 +1,34 @@
 package com.baidu.tieba.launcherGuide.topRec;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.f<TopRecActivity> {
-    private boolean aDr;
-    k byh;
-    l byi;
+    private boolean aDz;
+    k byx;
+    l byy;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TopRecActivity topRecActivity) {
         super(topRecActivity.getPageContext());
-        this.aDr = false;
+        this.aDz = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        this.byh = new k(this, null);
-        this.byh.execute(new Object[0]);
+        this.byx = new k(this, null);
+        this.byx.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.byh != null) {
-            this.byh.cancel();
+        if (this.byx != null) {
+            this.byx.cancel();
             return false;
         }
         return false;
     }
 
     public void a(l lVar) {
-        this.byi = lVar;
+        this.byy = lVar;
     }
 }

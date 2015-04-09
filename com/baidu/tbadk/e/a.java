@@ -151,13 +151,13 @@ public class a extends com.baidu.adp.framework.a.d {
         if (sI != null) {
             httpMessage.addParam("stTime", String.valueOf(sI.mTime));
             httpMessage.addParam("stSize", String.valueOf(sI.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(sI.UI));
+            httpMessage.addParam("stTimesNum", String.valueOf(sI.UK));
             httpMessage.addParam("stMode", String.valueOf(sI.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(sI.UH));
+            httpMessage.addParam("stMethod", String.valueOf(sI.UJ));
         }
         int bY = al.bY(0);
         if (bY == 0 && sI != null) {
-            bY = sI.UI;
+            bY = sI.UK;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(bY));
     }

@@ -11,19 +11,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class k {
-    private static k bcu;
+    private static k bcK;
 
-    public static synchronized k PT() {
+    public static synchronized k Qg() {
         k kVar;
         synchronized (k.class) {
-            if (bcu == null) {
+            if (bcK == null) {
                 synchronized (k.class) {
-                    if (bcu == null) {
-                        bcu = new k();
+                    if (bcK == null) {
+                        bcK = new k();
                     }
                 }
             }
-            kVar = bcu;
+            kVar = bcK;
         }
         return kVar;
     }
@@ -33,7 +33,7 @@ public class k {
 
     public boolean y(String str, int i) {
         try {
-            return g.PO().a("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            return g.Qb().a("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
@@ -41,9 +41,9 @@ public class k {
         }
     }
 
-    public LinkedList<ImMessageCenterPojo> PU() {
+    public LinkedList<ImMessageCenterPojo> Qh() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        Cursor rawQuery = g.PO().rawQuery("SELECT * FROM tb_message_center", null);
+        Cursor rawQuery = g.Qb().rawQuery("SELECT * FROM tb_message_center", null);
         if (rawQuery != null) {
             while (rawQuery.moveToNext()) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -68,9 +68,9 @@ public class k {
         return linkedList;
     }
 
-    public LinkedList<ImMessageCenterPojo> PV() {
+    public LinkedList<ImMessageCenterPojo> Qi() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        Cursor rawQuery = g.PO().rawQuery("SELECT * FROM tb_message_center", null);
+        Cursor rawQuery = g.Qb().rawQuery("SELECT * FROM tb_message_center", null);
         if (rawQuery != null) {
             while (rawQuery.moveToNext()) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -103,7 +103,7 @@ public class k {
         ImMessageCenterPojo imMessageCenterPojo;
         Exception e;
         try {
-            cursor = g.PO().rawQuery("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            cursor = g.Qb().rawQuery("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         } catch (Exception e2) {
             cursor = null;
             imMessageCenterPojo = null;
@@ -162,12 +162,12 @@ public class k {
         return imMessageCenterPojo;
     }
 
-    public LinkedList<ImMessageCenterPojo> PW() {
+    public LinkedList<ImMessageCenterPojo> Qj() {
         Cursor cursor;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
         try {
             try {
-                cursor = g.PO().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(1), String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
+                cursor = g.Qb().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(1), String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -233,7 +233,7 @@ public class k {
                 contentValues.put("unread_count", Integer.valueOf(unread_count));
             } else if (i == 3 && unread_count > 0) {
                 try {
-                    cursor = g.PO().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+                    cursor = g.Qb().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
                     if (cursor != null) {
                         try {
                             try {
@@ -266,7 +266,7 @@ public class k {
                                 }
                                 contentValues.put(OfficalBarChatActivityConfig.USER_TYPE, Integer.valueOf(imMessageCenterPojo.getUserType()));
                                 BdLog.i("sql-" + contentValues);
-                                if (g.PO().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+                                if (g.Qb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
                                 }
                             }
                         } catch (Throwable th) {
@@ -311,9 +311,9 @@ public class k {
             }
             contentValues.put(OfficalBarChatActivityConfig.USER_TYPE, Integer.valueOf(imMessageCenterPojo.getUserType()));
             BdLog.i("sql-" + contentValues);
-            if (g.PO().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+            if (g.Qb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
                 BdLog.i("insert");
-                g.PO().insert("tb_message_center", null, contentValues);
+                g.Qb().insert("tb_message_center", null, contentValues);
             }
         }
     }
@@ -353,7 +353,7 @@ public class k {
                     try {
                         if (unread_count > 0) {
                             try {
-                                cursor = g.PO().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+                                cursor = g.Qb().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
                                 if (cursor != null) {
                                     try {
                                         if (cursor.moveToNext()) {
@@ -380,7 +380,7 @@ public class k {
                                         if (imMessageCenterPojo.getPulled_msgId() != 0) {
                                         }
                                         BdLog.i("sql-" + contentValues);
-                                        if (g.PO().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+                                        if (g.Qb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
                                         }
                                     }
                                 }
@@ -418,9 +418,9 @@ public class k {
                 contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
             }
             BdLog.i("sql-" + contentValues);
-            if (g.PO().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
+            if (g.Qb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
                 BdLog.i("insert");
-                g.PO().insert("tb_message_center", null, contentValues);
+                g.Qb().insert("tb_message_center", null, contentValues);
             }
         }
     }
@@ -429,7 +429,7 @@ public class k {
         if (!TextUtils.isEmpty(str)) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("unread_count", (Integer) 0);
-            g.PO().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            g.Qb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         }
     }
 }

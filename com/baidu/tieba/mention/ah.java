@@ -17,7 +17,7 @@ public class ah extends u implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Aw() {
+    public byte[] AC() {
         return null;
     }
 

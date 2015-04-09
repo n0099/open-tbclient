@@ -9,12 +9,12 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ b bqs;
+    final /* synthetic */ b bqI;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(b bVar) {
         super(2016003);
-        this.bqs = bVar;
+        this.bqI = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class h extends CustomMessageListener {
         int i;
         a aVar;
         a aVar2;
-        if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.vq().vH()) {
-            z = this.bqs.isBackground;
-            if (!z && com.baidu.tbadk.coreExtra.messageCenter.c.vq().vt() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.vq().vy()) {
+        if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.vw().vN()) {
+            z = this.bqI.isBackground;
+            if (!z && com.baidu.tbadk.coreExtra.messageCenter.c.vw().vz() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.vw().vE()) {
                 ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
                 if (2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) {
-                    arrayList = this.bqs.bqj;
+                    arrayList = this.bqI.bqz;
                     if (!arrayList.contains(data.getGid())) {
-                        if ((com.baidu.tbadk.coreExtra.messageCenter.c.vq().vu() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.Tq().aF(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
+                        if ((com.baidu.tbadk.coreExtra.messageCenter.c.vw().vA() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.TD().aF(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
                             if (2 == data.getCustomGroupType()) {
-                                aVar2 = this.bqs.bqi;
+                                aVar2 = this.bqI.bqy;
                                 i = aVar2.u(data);
                             } else if (-7 == data.getCustomGroupType()) {
-                                aVar = this.bqs.bqi;
+                                aVar = this.bqI.bqy;
                                 i = aVar.v(data);
                             } else {
                                 i = 0;
                             }
                             if (i != 0 && i != 3) {
-                                this.bqs.dj(true);
+                                this.bqI.dh(true);
                             }
                         }
                     }

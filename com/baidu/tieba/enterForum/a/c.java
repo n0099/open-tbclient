@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.a;
 public interface c {
     void G(int i, int i2);
 
-    void Gl();
+    void Gr();
 
     void eq(int i);
 }

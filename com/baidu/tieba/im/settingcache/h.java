@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h bnb = new h();
+    private static h bnr = new h();
 
     private h() {
     }
 
-    public static h Tp() {
-        return bnb;
+    public static h TC() {
+        return bnr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ public class h extends a {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bmT) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bmT.get(str3);
+        synchronized (this.bnj) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bnj.get(str3);
             officialSettingItemData = (aVar == null || !(aVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) aVar;
         }
         if (officialSettingItemData == null) {
@@ -44,7 +44,7 @@ public class h extends a {
         return officialSettingItemData;
     }
 
-    public void PJ() {
+    public void PW() {
         super.s(OfficialSettingItemData.class);
     }
 
@@ -59,7 +59,7 @@ public class h extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public t<String> Tm() {
+    public t<String> Tz() {
         return com.baidu.tbadk.core.b.a.rc().bX("tb.im_official_chat_setting");
     }
 
@@ -75,13 +75,13 @@ public class h extends a {
                 }
                 return;
             }
-            t<String> Tm = Tm();
+            t<String> Tz = Tz();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.bmT) {
-                this.bmT.put(str, officialSettingItemData);
+            synchronized (this.bnj) {
+                this.bnj.put(str, officialSettingItemData);
             }
-            Tm.f(str, jsonStrWithObject);
+            Tz.f(str, jsonStrWithObject);
         }
     }
 
@@ -98,8 +98,8 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.bmT) {
-                this.bmT.put(str, officialSettingItemData);
+            synchronized (this.bnj) {
+                this.bnj.put(str, officialSettingItemData);
             }
             com.baidu.tieba.im.l.a(new i(this, officialSettingItemData, str), gVar);
         }

@@ -3,11 +3,11 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import android.support.v4.view.ViewPager;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity bxy;
+    final /* synthetic */ GuideActivity bxO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.bxy = guideActivity;
+        this.bxO = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.base.g<OfficialBarTipActivity> {
-    private OfficialBarTipListAdapter aZH;
-    private OfficialBarTipActivity aZI;
+    private OfficialBarTipListAdapter aZX;
+    private OfficialBarTipActivity aZY;
     private BdListView mBdListView;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.s mNoDataView;
@@ -17,7 +17,7 @@ public class ap extends com.baidu.adp.base.g<OfficialBarTipActivity> {
     public ap(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity.getPageContext());
         officialBarTipActivity.setContentView(com.baidu.tieba.w.officialbar_msg_activity);
-        this.aZI = officialBarTipActivity;
+        this.aZY = officialBarTipActivity;
         d(officialBarTipActivity);
         e(officialBarTipActivity);
     }
@@ -30,18 +30,18 @@ public class ap extends com.baidu.adp.base.g<OfficialBarTipActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.aZI.getLayoutMode().X(i == 1);
-        this.aZI.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.aZI.getPageContext(), i);
+        this.aZY.getLayoutMode().X(i == 1);
+        this.aZY.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.aZY.getPageContext(), i);
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.aZI.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.aZY.getPageContext(), i);
         }
     }
 
     private void e(OfficialBarTipActivity officialBarTipActivity) {
         this.mBdListView = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.v.msg_list);
-        this.aZH = new OfficialBarTipListAdapter(officialBarTipActivity);
-        this.mBdListView.setAdapter((ListAdapter) this.aZH);
+        this.aZX = new OfficialBarTipListAdapter(officialBarTipActivity);
+        this.mBdListView.setAdapter((ListAdapter) this.aZX);
         this.mNoDataView = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.official_message_activity_no_data), null);
     }
 
@@ -49,7 +49,7 @@ public class ap extends com.baidu.adp.base.g<OfficialBarTipActivity> {
         return this.mBdListView;
     }
 
-    public OfficialBarTipListAdapter Of() {
-        return this.aZH;
+    public OfficialBarTipListAdapter Os() {
+        return this.aZX;
     }
 }

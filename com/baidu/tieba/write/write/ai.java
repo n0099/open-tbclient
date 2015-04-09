@@ -3,19 +3,19 @@ package com.baidu.tieba.write.write;
 import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
 class ai implements com.baidu.tieba.tbadkCore.b.h {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
     public void mM() {
         TbEditorToolButtonContainer tbEditorToolButtonContainer;
-        this.cyc.bzO = null;
-        this.cyc.fk(false);
-        tbEditorToolButtonContainer = this.cyc.cxK;
-        tbEditorToolButtonContainer.yS();
+        this.cyx.bAb = null;
+        this.cyx.fj(false);
+        tbEditorToolButtonContainer = this.cyx.cyf;
+        tbEditorToolButtonContainer.yY();
     }
 }

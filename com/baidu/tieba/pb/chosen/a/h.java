@@ -6,32 +6,32 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ e bGv;
+    final /* synthetic */ e bGI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.bGv = eVar;
+        this.bGI = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         ImageView imageView;
-        Animation YF;
+        Animation YR;
         i iVar;
         i iVar2;
         boolean z2;
-        z = this.bGv.bGu;
+        z = this.bGI.bGH;
         if (!z) {
-            this.bGv.bGu = true;
-            imageView = this.bGv.bGn;
-            YF = this.bGv.YF();
-            imageView.startAnimation(YF);
-            iVar = this.bGv.bGr;
+            this.bGI.bGH = true;
+            imageView = this.bGI.bGA;
+            YR = this.bGI.YR();
+            imageView.startAnimation(YR);
+            iVar = this.bGI.bGE;
             if (iVar != null) {
-                iVar2 = this.bGv.bGr;
-                z2 = this.bGv.bGs;
-                iVar2.dC(z2);
+                iVar2 = this.bGI.bGE;
+                z2 = this.bGI.bGF;
+                iVar2.dA(z2);
             }
         }
     }

@@ -10,12 +10,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.aa Oi;
-    final /* synthetic */ ActivationActivity avm;
+    private com.baidu.tbadk.core.util.aa Ok;
+    final /* synthetic */ ActivationActivity avu;
 
     private aa(ActivationActivity activationActivity) {
-        this.avm = activationActivity;
-        this.Oi = null;
+        this.avu = activationActivity;
+        this.Ok = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,16 +28,16 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.avm.ava = null;
-        progressBar = this.avm.auU;
+        this.avu.avi = null;
+        progressBar = this.avu.avc;
         progressBar.setVisibility(8);
-        editText = this.avm.auX;
+        editText = this.avu.avf;
         if (editText.length() == 6) {
-            relativeLayout = this.avm.auY;
+            relativeLayout = this.avu.avg;
             relativeLayout.setEnabled(true);
         }
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
         super.cancel(true);
     }
@@ -50,12 +50,12 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.Oi = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            com.baidu.tbadk.core.util.aa aaVar = this.Oi;
-            registData = this.avm.avd;
+            this.Ok = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            com.baidu.tbadk.core.util.aa aaVar = this.Ok;
+            registData = this.avu.avl;
             aaVar.o("phonenum", registData.getPhone());
-            this.Oi.rO();
-            if (this.Oi.sp().tq().pv()) {
+            this.Ok.rO();
+            if (this.Ok.sp().tq().pv()) {
                 z = true;
             }
         } catch (Exception e) {
@@ -75,23 +75,23 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.avm.ava = null;
-        progressBar = this.avm.auU;
+        this.avu.avi = null;
+        progressBar = this.avu.avc;
         progressBar.setVisibility(8);
-        editText = this.avm.auX;
+        editText = this.avu.avf;
         if (editText.length() == 6) {
-            relativeLayout = this.avm.auY;
+            relativeLayout = this.avu.avg;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.avm.Ek();
+            this.avu.Eq();
             return;
         }
-        String errorString = this.Oi.getErrorString();
+        String errorString = this.Ok.getErrorString();
         if (errorString != null && errorString.length() > 0) {
-            textView = this.avm.aeO;
+            textView = this.avu.aeW;
             textView.setVisibility(0);
-            textView2 = this.avm.aeO;
+            textView2 = this.avu.aeW;
             textView2.setText(errorString);
         }
     }
@@ -103,13 +103,13 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.avm.auU;
+        progressBar = this.avu.avc;
         progressBar.setVisibility(0);
-        textView = this.avm.aeO;
+        textView = this.avu.aeW;
         textView.setVisibility(4);
-        textView2 = this.avm.aeO;
+        textView2 = this.avu.aeW;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.avm.auY;
+        relativeLayout = this.avu.avg;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

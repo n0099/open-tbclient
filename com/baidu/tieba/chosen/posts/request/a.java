@@ -9,27 +9,27 @@ public class a extends com.baidu.tbadk.mvc.model.a<d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<d> zO() {
+    public Class<d> zU() {
         return d.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String zR() {
+    public String zX() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zP() {
+    public int zV() {
         return 2001319;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zQ() {
+    public int zW() {
         return 2001320;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean AJ() {
+    protected boolean AP() {
         return false;
     }
 }

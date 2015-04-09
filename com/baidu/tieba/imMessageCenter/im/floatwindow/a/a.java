@@ -4,23 +4,23 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class a {
-    private static a bqF;
-    private final b bqG = new b(this, Looper.getMainLooper());
+    private static a bqV;
+    private final b bqW = new b(this, Looper.getMainLooper());
 
     private a() {
     }
 
-    public static a UD() {
-        if (bqF == null) {
-            bqF = new a();
+    public static a UQ() {
+        if (bqV == null) {
+            bqV = new a();
         }
-        return bqF;
+        return bqV;
     }
 
     public void a(c cVar) {
         Message obtain = Message.obtain();
         obtain.what = 1;
         obtain.obj = cVar;
-        this.bqG.sendMessage(obtain);
+        this.bqW.sendMessage(obtain);
     }
 }

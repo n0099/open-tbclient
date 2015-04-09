@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ d bpB;
+    final /* synthetic */ d bpR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.bpB = dVar;
+        this.bpR = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InviteFriendListActivityConfig((Context) this.bpB.getPageContext().getPageActivity(), true, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InviteFriendListActivityConfig((Context) this.bpR.getPageContext().getPageActivity(), true, true)));
         }
     }
 }

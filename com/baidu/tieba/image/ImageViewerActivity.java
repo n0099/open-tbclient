@@ -29,39 +29,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
-    private NavigationBar aPk;
-    private boolean aWh;
-    private boolean aeu;
-    private String aev;
-    private boolean aex;
-    private AlphaAnimation atw;
-    private HashMap<String, ImageUrlData> bgT;
-    private String btQ;
-    private MultiImageView buA;
-    private o buB;
-    private a buC;
-    private HashMap<String, Boolean> buE;
-    private String buF;
-    private String buG;
-    private String buH;
-    private boolean buI;
-    private ArrayList<String> but;
-    private String buu;
-    private p buw;
-    private View bux;
-    private View buy;
-    private TextView buz;
-    private int bus = 0;
+    private NavigationBar aPB;
+    private boolean aWx;
+    private boolean aeC;
+    private String aeD;
+    private boolean aeF;
+    private AlphaAnimation atE;
+    private HashMap<String, ImageUrlData> bhj;
+    private ArrayList<String> buJ;
+    private String buK;
+    private p buM;
+    private View buN;
+    private View buO;
+    private TextView buP;
+    private MultiImageView buQ;
+    private o buR;
+    private a buS;
+    private HashMap<String, Boolean> buU;
+    private String buV;
+    private String buW;
+    private String buX;
+    private boolean buY;
+    private String buh;
+    private int buI = 0;
     private int mIndex = -1;
     private int mCount = -1;
-    private boolean buv = true;
-    private boolean aWg = true;
-    private long buD = 0;
-    private com.baidu.tbadk.core.dialog.h buJ = new f(this);
-    private View.OnClickListener buK = new g(this);
-    private View.OnLongClickListener buL = new i(this);
-    private com.baidu.tbadk.core.view.a buM = new j(this);
-    private ViewPager.OnPageChangeListener buN = new k(this);
+    private boolean buL = true;
+    private boolean aWw = true;
+    private long buT = 0;
+    private com.baidu.tbadk.core.dialog.h buZ = new f(this);
+    private View.OnClickListener bva = new g(this);
+    private View.OnLongClickListener bvb = new i(this);
+    private com.baidu.tbadk.core.view.a bvc = new j(this);
+    private ViewPager.OnPageChangeListener bvd = new k(this);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -70,17 +70,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         TbadkCoreApplication.m411getInst().addRemoteActivity(this);
         setContentView(w.image_activity_2);
         initData(bundle);
-        Nl();
-        Jm();
-        if (!this.buI) {
-            String hp = hp(this.buu);
-            if (hp == null) {
-                this.aPk.setVisibility(8);
+        Ny();
+        Js();
+        if (!this.buY) {
+            String hs = hs(this.buK);
+            if (hs == null) {
+                this.aPB.setVisibility(8);
             }
-            this.buC = new a(this.but, this.buG, this.btQ, hp);
-            this.buC.dm(this.buv);
-            this.buC.a(new l(this));
-            this.buC.VK();
+            this.buS = new a(this.buJ, this.buW, this.buh, hs);
+            this.buS.dk(this.buL);
+            this.buS.a(new l(this));
+            this.buS.VX();
         }
     }
 
@@ -94,13 +94,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         overridePendingTransition(com.baidu.tieba.p.fade_in, com.baidu.tieba.p.big_imageview_out);
     }
 
-    public void Re() {
+    public void Rr() {
         try {
-            byte[] currentImageData = this.buA.getCurrentImageData();
+            byte[] currentImageData = this.buQ.getCurrentImageData();
             if (currentImageData != null) {
-                this.buw = new p(this, this.buA.getCurrentImageUrl(), currentImageData);
-                this.buw.execute(new String[0]);
-                this.bux.setClickable(false);
+                this.buM = new p(this, this.buQ.getCurrentImageUrl(), currentImageData);
+                this.buM.execute(new String[0]);
+                this.buN.setClickable(false);
             } else {
                 showToast(getPageContext().getString(y.no_data));
             }
@@ -112,58 +112,58 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.buA.setBackgroundColor(ba.ce(i));
+            this.buQ.setBackgroundColor(ba.ce(i));
         } else {
-            this.buA.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.buQ.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
-        VQ();
+        Wd();
     }
 
-    private void VQ() {
-        ba.j(this.aPk, s.alpha80_black);
-        getLayoutMode().h(this.buy);
-        getLayoutMode().h(this.buz);
-        getLayoutMode().h(this.bux);
+    private void Wd() {
+        ba.j(this.aPB, s.alpha80_black);
+        getLayoutMode().h(this.buO);
+        getLayoutMode().h(this.buP);
+        getLayoutMode().h(this.buN);
     }
 
-    private void Jm() {
-        if (this.buI) {
-            this.buB = new o(this, null);
+    private void Js() {
+        if (this.buY) {
+            this.buR = new o(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionPageAdded());
-            registerReceiver(this.buB, intentFilter);
+            registerReceiver(this.buR, intentFilter);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.buA.onPause();
+        this.buQ.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.buA.onResume();
+        this.buQ.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.buA.onDestroy();
+        this.buQ.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkCoreApplication.m411getInst().delRemoteActivity(this);
         O(this.mIndex, this.mIndex);
-        VS();
-        this.buA.onDestroy();
-        if (this.buw != null) {
-            this.buw.cancel();
-            this.buw = null;
+        Wf();
+        this.buQ.onDestroy();
+        if (this.buM != null) {
+            this.buM.cancel();
+            this.buM = null;
         }
-        if (this.buI) {
-            unregisterReceiver(this.buB);
+        if (this.buY) {
+            unregisterReceiver(this.buR);
         }
         super.onDestroy();
     }
@@ -180,64 +180,64 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void Nl() {
-        Lv();
+    private void Ny() {
+        LH();
         initViewPager();
-        VR();
+        We();
         O(this.mIndex, this.mIndex);
     }
 
-    private void Lv() {
-        this.aPk = (NavigationBar) findViewById(v.navigation_bar);
-        this.buz = this.aPk.setTitleText("");
-        this.buy = this.aPk.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new m(this));
-        this.bux = this.aPk.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.image_activity_save_button, (View.OnClickListener) null);
-        this.bux.setOnClickListener(new n(this));
-        this.aPk.findViewById(v.navBottomLine).setVisibility(8);
+    private void LH() {
+        this.aPB = (NavigationBar) findViewById(v.navigation_bar);
+        this.buP = this.aPB.setTitleText("");
+        this.buO = this.aPB.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new m(this));
+        this.buN = this.aPB.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.image_activity_save_button, (View.OnClickListener) null);
+        this.buN.setOnClickListener(new n(this));
+        this.aPB.findViewById(v.navBottomLine).setVisibility(8);
     }
 
-    public void VR() {
+    public void We() {
         String str;
-        if (this.but != null) {
-            String str2 = String.valueOf(String.valueOf(this.mIndex + 1 + this.bus)) + "/";
+        if (this.buJ != null) {
+            String str2 = String.valueOf(String.valueOf(this.mIndex + 1 + this.buI)) + "/";
             if (this.mCount > 0) {
                 str = String.valueOf(str2) + this.mCount;
-            } else if (!this.buI) {
+            } else if (!this.buY) {
                 str = String.valueOf(str2) + "...";
             } else {
-                str = String.valueOf(str2) + this.but.size();
+                str = String.valueOf(str2) + this.buJ.size();
             }
-            if (this.buA.getHasNext() && this.mIndex == this.buA.getItemNum() - 1) {
-                this.buz.setText(getPageContext().getString(y.image_recommend));
-                this.bux.setClickable(false);
-                this.bux.setVisibility(8);
+            if (this.buQ.getHasNext() && this.mIndex == this.buQ.getItemNum() - 1) {
+                this.buP.setText(getPageContext().getString(y.image_recommend));
+                this.buN.setClickable(false);
+                this.buN.setVisibility(8);
                 return;
             }
-            this.buz.setText(str);
-            this.bux.setClickable(true);
-            this.bux.setVisibility(0);
+            this.buP.setText(str);
+            this.buN.setClickable(true);
+            this.buN.setVisibility(0);
         }
     }
 
     private void initViewPager() {
-        this.buA = (MultiImageView) findViewById(v.viewpager);
-        this.buA.setIsFromCDN(this.aex);
-        this.buA.setPageMargin(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.buA.v(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.buA.setOnPageChangeListener(this.buN);
-        this.buA.setUrlData(this.but);
-        this.buA.setAssistUrls(this.bgT);
-        this.buA.setItemOnclickListener(this.buK);
-        this.buA.setItemOnLongClickListener(this.buL);
-        this.buA.setCurrentItem(Nr(), false);
-        this.buA.setOnScrollOutListener(this.buM);
-        this.buA.setHasNext(this.aeu);
-        this.buA.setNextTitle(this.aev);
+        this.buQ = (MultiImageView) findViewById(v.viewpager);
+        this.buQ.setIsFromCDN(this.aeF);
+        this.buQ.setPageMargin(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.buQ.v(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.buQ.setOnPageChangeListener(this.bvd);
+        this.buQ.setUrlData(this.buJ);
+        this.buQ.setAssistUrls(this.bhj);
+        this.buQ.setItemOnclickListener(this.bva);
+        this.buQ.setItemOnLongClickListener(this.bvb);
+        this.buQ.setCurrentItem(NE(), false);
+        this.buQ.setOnScrollOutListener(this.bvc);
+        this.buQ.setHasNext(this.aeC);
+        this.buQ.setNextTitle(this.aeD);
     }
 
-    public int Nr() {
-        if (this.but != null && this.but.size() > 0) {
-            int size = this.but.size();
+    public int NE() {
+        if (this.buJ != null && this.buJ.size() > 0) {
+            int size = this.buJ.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -252,111 +252,111 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.but = bundle.getStringArrayList(ImageViewerConfig.URL);
+            this.buJ = bundle.getStringArrayList(ImageViewerConfig.URL);
             this.mIndex = bundle.getInt(ImageViewerConfig.INDEX, -1);
             this.mCount = bundle.getInt(ImageViewerConfig.COUNT, -1);
-            this.aeu = bundle.getBoolean(ImageViewerConfig.HAS_NEXT, false);
-            this.aev = bundle.getString(ImageViewerConfig.NEXT_TILE);
-            this.buF = bundle.getString(ImageViewerConfig.FORUM_ID);
-            this.btQ = bundle.getString("tid");
-            this.buG = bundle.getString(ImageViewerConfig.FORUM_NAME);
-            this.buH = bundle.getString(ImageViewerConfig.PV_TYPE);
-            this.aex = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
-            this.buu = bundle.getString(ImageViewerConfig.LAST_ID);
-            this.buv = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
+            this.aeC = bundle.getBoolean(ImageViewerConfig.HAS_NEXT, false);
+            this.aeD = bundle.getString(ImageViewerConfig.NEXT_TILE);
+            this.buV = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.buh = bundle.getString("tid");
+            this.buW = bundle.getString(ImageViewerConfig.FORUM_NAME);
+            this.buX = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.aeF = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
+            this.buK = bundle.getString(ImageViewerConfig.LAST_ID);
+            this.buL = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
             Serializable serializable = bundle.getSerializable(ImageViewerConfig.ASSIST_URLS);
             if (serializable instanceof HashMap) {
-                this.bgT = (HashMap) serializable;
+                this.bhj = (HashMap) serializable;
             }
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.but = intent.getStringArrayListExtra(ImageViewerConfig.URL);
+                this.buJ = intent.getStringArrayListExtra(ImageViewerConfig.URL);
                 this.mIndex = intent.getIntExtra(ImageViewerConfig.INDEX, -1);
                 this.mCount = intent.getIntExtra(ImageViewerConfig.COUNT, -1);
-                this.aeu = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
-                this.aev = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
-                this.buF = intent.getStringExtra(ImageViewerConfig.FORUM_ID);
-                this.btQ = intent.getStringExtra("tid");
-                this.buG = intent.getStringExtra(ImageViewerConfig.FORUM_NAME);
-                this.buH = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
-                this.aex = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
-                this.buu = intent.getStringExtra(ImageViewerConfig.LAST_ID);
-                this.buv = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
+                this.aeC = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
+                this.aeD = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
+                this.buV = intent.getStringExtra(ImageViewerConfig.FORUM_ID);
+                this.buh = intent.getStringExtra("tid");
+                this.buW = intent.getStringExtra(ImageViewerConfig.FORUM_NAME);
+                this.buX = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+                this.aeF = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
+                this.buK = intent.getStringExtra(ImageViewerConfig.LAST_ID);
+                this.buL = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
                 Serializable serializableExtra = intent.getSerializableExtra(ImageViewerConfig.ASSIST_URLS);
                 if (serializableExtra instanceof HashMap) {
-                    this.bgT = (HashMap) serializableExtra;
+                    this.bhj = (HashMap) serializableExtra;
                 }
             }
         }
         if (getIntent() != null) {
-            this.buI = getIntent().getBooleanExtra(ImageViewerConfig.NEED_BROADCAST, false);
+            this.buY = getIntent().getBooleanExtra(ImageViewerConfig.NEED_BROADCAST, false);
         }
-        this.buE = new HashMap<>();
-        if (this.but != null) {
-            this.mCount = this.but.size();
+        this.buU = new HashMap<>();
+        if (this.buJ != null) {
+            this.mCount = this.buJ.size();
         }
-        if (this.buu == null) {
-            this.buu = this.mCount > 0 ? this.but.get(this.mCount - 1) : "";
+        if (this.buK == null) {
+            this.buK = this.mCount > 0 ? this.buJ.get(this.mCount - 1) : "";
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList(ImageViewerConfig.URL, this.but);
+        bundle.putStringArrayList(ImageViewerConfig.URL, this.buJ);
         bundle.putInt(ImageViewerConfig.INDEX, this.mIndex);
         bundle.putInt(ImageViewerConfig.COUNT, this.mCount);
-        bundle.putBoolean(ImageViewerConfig.HAS_NEXT, this.aeu);
-        bundle.putString(ImageViewerConfig.NEXT_TILE, this.aev);
-        bundle.putString(ImageViewerConfig.FORUM_ID, this.buF);
-        bundle.putString("tid", this.btQ);
-        bundle.putString(ImageViewerConfig.FORUM_NAME, this.buG);
-        bundle.putString(ImageViewerConfig.PV_TYPE, this.buH);
+        bundle.putBoolean(ImageViewerConfig.HAS_NEXT, this.aeC);
+        bundle.putString(ImageViewerConfig.NEXT_TILE, this.aeD);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.buV);
+        bundle.putString("tid", this.buh);
+        bundle.putString(ImageViewerConfig.FORUM_NAME, this.buW);
+        bundle.putString(ImageViewerConfig.PV_TYPE, this.buX);
         bundle.putBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
-        bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.buv);
-        bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, this.bgT);
+        bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.buL);
+        bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, this.bhj);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.buA.setCurrentItem(this.mIndex, false);
+        this.buQ.setCurrentItem(this.mIndex, false);
     }
 
     public void O(int i, int i2) {
-        synchronized (this.buE) {
-            if (System.nanoTime() - this.buD > 300000000 && this.but != null && i < this.but.size()) {
-                this.buE.put(this.but.get(i), true);
+        synchronized (this.buU) {
+            if (System.nanoTime() - this.buT > 300000000 && this.buJ != null && i < this.buJ.size()) {
+                this.buU.put(this.buJ.get(i), true);
             }
-            this.buD = System.nanoTime();
-            if (this.but != null && i2 < this.but.size() && this.buE.get(this.but.get(i2)) == null) {
-                this.buE.put(this.but.get(i2), false);
+            this.buT = System.nanoTime();
+            if (this.buJ != null && i2 < this.buJ.size() && this.buU.get(this.buJ.get(i2)) == null) {
+                this.buU.put(this.buJ.get(i2), false);
             }
         }
-        if (this.buE.size() >= 100) {
-            VS();
+        if (this.buU.size() >= 100) {
+            Wf();
         }
     }
 
-    private void VS() {
-        if (this.buE != null) {
-            synchronized (this.buE) {
-                if (this.buE.size() > 0) {
+    private void Wf() {
+        if (this.buU != null) {
+            synchronized (this.buU) {
+                if (this.buU.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.buE.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.buU.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.m411getInst().sendImagePv(i, this.buE.size(), this.buH);
-                    this.buE.clear();
+                    TbadkCoreApplication.m411getInst().sendImagePv(i, this.buU.size(), this.buX);
+                    this.buU.clear();
                 }
             }
         }
     }
 
-    private String hp(String str) {
+    private String hs(String str) {
         int lastIndexOf;
         int indexOf;
         String aN = bd.aN(str);

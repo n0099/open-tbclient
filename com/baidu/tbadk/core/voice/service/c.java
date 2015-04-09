@@ -9,15 +9,15 @@ import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private aa ZD;
-    private d ZE;
-    private com.baidu.tbadk.coreExtra.data.c ZF;
-    private String ZG;
-    private String ZH;
+    private aa ZF;
+    private d ZG;
+    private com.baidu.tbadk.coreExtra.data.c ZH;
+    private String ZI;
+    private String ZJ;
 
     public c(String str, String str2) {
-        this.ZG = str;
-        this.ZH = str2;
+        this.ZI = str;
+        this.ZJ = str2;
     }
 
     public com.baidu.tbadk.coreExtra.data.c df(String str) {
@@ -26,7 +26,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZG);
+            this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZI);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -47,33 +47,33 @@ public class c {
             ci.cy(0);
             ci.s(file.length());
         }
-        this.ZE = new d(this, str, ci, String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZG, e);
-        this.ZF = this.ZE.ue();
-        if (this.ZF.isSuccess() && (a = a(e, ci)) != null && !a.equals("")) {
+        this.ZG = new d(this, str, ci, String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZI, e);
+        this.ZH = this.ZG.ue();
+        if (this.ZH.isSuccess() && (a = a(e, ci)) != null && !a.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
                 ci.di(audioInfoData.getVoiceId());
-                this.ZF.b(ci);
+                this.ZH.b(ci);
             } else {
-                this.ZF.setErrorCode(audioInfoData.getErrorCode());
-                this.ZF.setErrorString(audioInfoData.getErrorMsg());
-                this.ZF.af(false);
+                this.ZH.setErrorCode(audioInfoData.getErrorCode());
+                this.ZH.setErrorString(audioInfoData.getErrorMsg());
+                this.ZH.af(false);
             }
         }
-        return this.ZF;
+        return this.ZH;
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZH);
-        this.ZD.o("voice_md5", bVar.ux());
-        String rO = this.ZD.rO();
-        if (rO == null || !this.ZD.sp().tq().pv()) {
+        this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ZJ);
+        this.ZF.o("voice_md5", bVar.ux());
+        String rO = this.ZF.rO();
+        if (rO == null || !this.ZF.sp().tq().pv()) {
             bVar.cy((int) r(bVar.getTotalLength()));
             com.baidu.tbadk.core.util.e.a(bVar);
-            this.ZF.setErrorCode(this.ZD.st());
-            this.ZF.setErrorString(this.ZD.getErrorString());
-            this.ZF.af(false);
+            this.ZH.setErrorCode(this.ZF.st());
+            this.ZH.setErrorString(this.ZF.getErrorString());
+            this.ZH.af(false);
             return null;
         }
         com.baidu.tbadk.core.util.e.ch(str);

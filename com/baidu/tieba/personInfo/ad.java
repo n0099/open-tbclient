@@ -9,29 +9,29 @@ import com.baidu.tbadk.newFriends.RequestApplyLocalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ UserData aYW;
-    final /* synthetic */ z bTT;
-    private final /* synthetic */ EditText bTU;
+    private final /* synthetic */ UserData aZm;
+    final /* synthetic */ z bUj;
+    private final /* synthetic */ EditText bUk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar, EditText editText, UserData userData) {
-        this.bTT = zVar;
-        this.bTU = editText;
-        this.aYW = userData;
+        this.bUj = zVar;
+        this.bUk = editText;
+        this.aZm = userData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        String trim = this.bTU.getText().toString().trim();
+        String trim = this.bUk.getText().toString().trim();
         if (!TextUtils.isEmpty(trim)) {
             RequestApplyLocalMessage requestApplyLocalMessage = new RequestApplyLocalMessage();
             requestApplyLocalMessage.setUid(Long.valueOf(TbadkCoreApplication.getCurrentAccount()).longValue());
-            requestApplyLocalMessage.setFriendId(this.aYW.getUserIdLong());
+            requestApplyLocalMessage.setFriendId(this.aZm.getUserIdLong());
             requestApplyLocalMessage.setMessage(trim);
             requestApplyLocalMessage.setContent(trim);
-            requestApplyLocalMessage.setName(this.aYW.getName_show());
-            requestApplyLocalMessage.setPortrait(this.aYW.getPortrait());
-            requestApplyLocalMessage.setId(this.aYW.getUserIdLong());
+            requestApplyLocalMessage.setName(this.aZm.getName_show());
+            requestApplyLocalMessage.setPortrait(this.aZm.getPortrait());
+            requestApplyLocalMessage.setId(this.aZm.getUserIdLong());
             MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
             aVar.dismiss();
         }

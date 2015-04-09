@@ -8,71 +8,71 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.ImageUploadResult;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.f {
-    public static int cpR = 10;
-    private f cpS;
-    private b cpT;
-    private WriteData cpU;
-    private String cpV;
-    private String cpW;
-    private byte[] cpX;
-    private c cpY;
-    private d cpZ;
-    private e cqa;
-    private boolean cqb;
+    public static int cqh = 10;
+    private f cqi;
+    private b cqj;
+    private WriteData cqk;
+    private String cql;
+    private String cqm;
+    private byte[] cqn;
+    private c cqo;
+    private d cqp;
+    private e cqq;
+    private boolean cqr;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cpS = null;
-        this.cpT = null;
-        this.cpU = null;
-        this.cpV = null;
-        this.cpW = null;
-        this.cpX = null;
-        this.cpZ = null;
-        this.cqa = null;
-        this.cqb = false;
+        this.cqi = null;
+        this.cqj = null;
+        this.cqk = null;
+        this.cql = null;
+        this.cqm = null;
+        this.cqn = null;
+        this.cqp = null;
+        this.cqq = null;
+        this.cqr = false;
     }
 
     public a(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar.getPageContext());
-        this.cpS = null;
-        this.cpT = null;
-        this.cpU = null;
-        this.cpV = null;
-        this.cpW = null;
-        this.cpX = null;
-        this.cpZ = null;
-        this.cqa = null;
-        this.cqb = false;
+        this.cqi = null;
+        this.cqj = null;
+        this.cqk = null;
+        this.cql = null;
+        this.cqm = null;
+        this.cqn = null;
+        this.cqp = null;
+        this.cqq = null;
+        this.cqr = false;
     }
 
-    public void eS(boolean z) {
-        this.cqb = z;
+    public void eQ(boolean z) {
+        this.cqr = z;
     }
 
     public void a(e eVar) {
-        this.cqa = eVar;
+        this.cqq = eVar;
     }
 
     public void a(d dVar) {
-        this.cpZ = dVar;
+        this.cqp = dVar;
     }
 
     public void c(WriteData writeData) {
-        this.cpU = writeData;
+        this.cqk = writeData;
     }
 
-    public WriteData IM() {
-        return this.cpU;
+    public WriteData IS() {
+        return this.cqk;
     }
 
-    public boolean anA() {
-        if (this.cpU == null) {
+    public boolean anP() {
+        if (this.cqk == null) {
             return false;
         }
-        if (this.cpS == null) {
-            this.cpS = new f(this);
-            this.cpS.execute(new Integer[0]);
+        if (this.cqi == null) {
+            this.cqi = new f(this);
+            this.cqi.execute(new Integer[0]);
         }
         return true;
     }
@@ -84,44 +84,44 @@ public class a extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.cpS != null && !this.cpS.isCancelled()) {
-            this.cpS.cancel();
+        if (this.cqi != null && !this.cqi.isCancelled()) {
+            this.cqi.cancel();
             return false;
         }
         return false;
     }
 
-    public void anB() {
-        if (this.cpT != null && !this.cpT.isCancelled()) {
-            this.cpT.cancel();
+    public void anQ() {
+        if (this.cqj != null && !this.cqj.isCancelled()) {
+            this.cqj.cancel();
         }
     }
 
-    public boolean anC() {
-        if (this.cpU == null) {
+    public boolean anR() {
+        if (this.cqk == null) {
             return true;
         }
-        int size = (!this.cpU.getIsBaobao() || this.cpU.getBaobaoImagesInfo() == null) ? 0 : this.cpU.getBaobaoImagesInfo().size() + 0;
-        if (this.cpU.getWriteImagesInfo() != null) {
-            size += this.cpU.getWriteImagesInfo().size();
+        int size = (!this.cqk.getIsBaobao() || this.cqk.getBaobaoImagesInfo() == null) ? 0 : this.cqk.getBaobaoImagesInfo().size() + 0;
+        if (this.cqk.getWriteImagesInfo() != null) {
+            size += this.cqk.getWriteImagesInfo().size();
         }
-        return size <= cpR;
+        return size <= cqh;
     }
 
-    public void Ie() {
-        if (this.cpT == null) {
-            this.cpT = new b(this);
-            this.cpT.execute(new Void[0]);
+    public void Ik() {
+        if (this.cqj == null) {
+            this.cqj = new b(this);
+            this.cqj.execute(new Void[0]);
         }
     }
 
     public void c(byte[] bArr, String str) {
-        this.cpX = bArr;
-        this.cpW = str;
+        this.cqn = bArr;
+        this.cqm = str;
     }
 
     public void a(c cVar) {
-        this.cpY = cVar;
+        this.cqo = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

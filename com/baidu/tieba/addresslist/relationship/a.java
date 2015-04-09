@@ -8,14 +8,14 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes.dex */
 public class a {
-    private List<f> azC;
-    private List<f> azD;
+    private List<f> azK;
+    private List<f> azL;
 
     public List<f> getAddressList() {
-        if (this.azC == null) {
-            this.azC = new ArrayList();
+        if (this.azK == null) {
+            this.azK = new ArrayList();
         }
-        return this.azC;
+        return this.azK;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.azD = new ArrayList();
+            this.azL = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     f fVar = new f();
                     fVar.a(robotslist);
-                    this.azD.add(fVar);
+                    this.azL.add(fVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.azC = new ArrayList();
+            this.azK = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     fVar2.a(listdata);
                     if (fVar2.getContacts() != null) {
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar : fVar2.getContacts()) {
-                            if (a(this.azD, aVar)) {
+                            if (a(this.azL, aVar)) {
                                 aVar.setUserType(1);
                             } else {
                                 aVar.setUserType(0);
                             }
                         }
                     }
-                    this.azC.add(fVar2);
+                    this.azK.add(fVar2);
                 }
             }
             return z3;

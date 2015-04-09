@@ -17,12 +17,12 @@ public class al implements View.OnClickListener {
         boolean z;
         boolean z2;
         boolean z3;
-        abVar = this.this$0.auk;
-        abVar.DW();
+        abVar = this.this$0.aus;
+        abVar.Ec();
         UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.auf;
-        z2 = this.this$0.aug;
-        z3 = this.this$0.auh;
+        z = this.this$0.aun;
+        z2 = this.this$0.auo;
+        z3 = this.this$0.aup;
         updateDialog.b(z, z2, z3);
     }
 }

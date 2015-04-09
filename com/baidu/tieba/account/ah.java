@@ -10,12 +10,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n> {
-    private com.baidu.tbadk.core.util.aa Oi;
-    final /* synthetic */ Register2Activity awc;
+    private com.baidu.tbadk.core.util.aa Ok;
+    final /* synthetic */ Register2Activity awk;
 
     private ah(Register2Activity register2Activity) {
-        this.awc = register2Activity;
-        this.Oi = null;
+        this.awk = register2Activity;
+        this.Ok = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,13 +26,13 @@ public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
-        this.awc.avY = null;
-        progressBar = this.awc.mProgressBar;
+        this.awk.awg = null;
+        progressBar = this.awk.mProgressBar;
         progressBar.setVisibility(8);
-        this.awc.Ep();
+        this.awk.Ev();
         super.cancel(true);
     }
 
@@ -41,22 +41,22 @@ public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: l */
     public com.baidu.tbadk.core.data.n doInBackground(String... strArr) {
-        RegistData Eq;
+        RegistData Ew;
         com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
         try {
-            Eq = this.awc.Eq();
-            this.Oi = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            this.Oi.o("un", Eq.getName());
-            this.Oi.o("phonenum", Eq.getPhone());
-            this.Oi.o("passwd", Eq.getPsw());
-            if (Eq.getVcode() != null) {
-                this.Oi.o("vcode", Eq.getVcode());
+            Ew = this.awk.Ew();
+            this.Ok = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            this.Ok.o("un", Ew.getName());
+            this.Ok.o("phonenum", Ew.getPhone());
+            this.Ok.o("passwd", Ew.getPsw());
+            if (Ew.getVcode() != null) {
+                this.Ok.o("vcode", Ew.getVcode());
             }
-            if (Eq.getVcodeMd5() != null) {
-                this.Oi.o("vcode_md5", Eq.getVcodeMd5());
+            if (Ew.getVcodeMd5() != null) {
+                this.Ok.o("vcode_md5", Ew.getVcodeMd5());
             }
-            String rO = this.Oi.rO();
-            if ((this.Oi.ss() && (this.Oi.st() == 0 || this.Oi.st() == 36)) || this.Oi.st() == 5) {
+            String rO = this.Ok.rO();
+            if ((this.Ok.ss() && (this.Ok.st() == 0 || this.Ok.st() == 36)) || this.Ok.st() == 5) {
                 com.baidu.tbadk.core.data.n nVar2 = new com.baidu.tbadk.core.data.n();
                 nVar2.parserJson(rO);
                 return nVar2;
@@ -74,42 +74,42 @@ public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n
     /* renamed from: b */
     public void onPostExecute(com.baidu.tbadk.core.data.n nVar) {
         ProgressBar progressBar;
-        RegistData Eq;
+        RegistData Ew;
         int i;
         int i2;
         int i3;
         super.onPostExecute(nVar);
-        this.awc.avY = null;
-        progressBar = this.awc.mProgressBar;
+        this.awk.awg = null;
+        progressBar = this.awk.mProgressBar;
         progressBar.setVisibility(8);
-        this.awc.Ep();
-        this.awc.avZ = nVar;
-        if (!this.Oi.ss()) {
-            this.awc.avV = -1;
-            this.awc.mErrorString = this.Oi.getErrorString();
-            this.awc.Eo();
-        } else if (this.Oi.st() == 36) {
-            this.awc.r(nVar.qf());
-            Register2Activity register2Activity = this.awc;
-            i3 = Register2Activity.avr;
-            register2Activity.avV = i3;
-            this.awc.mErrorString = this.Oi.getErrorString();
-            this.awc.Eo();
-        } else if (this.Oi.st() == 5) {
-            Register2Activity register2Activity2 = this.awc;
-            i2 = Register2Activity.avu;
-            register2Activity2.avV = i2;
-            this.awc.bl(true);
-        } else if (this.Oi.st() == 0) {
-            Eq = this.awc.Eq();
-            Activity pageActivity = this.awc.getPageContext().getPageActivity();
-            i = Register2Activity.avq;
-            ActivationActivity.a(pageActivity, Eq, i);
-            this.awc.bl(false);
+        this.awk.Ev();
+        this.awk.awh = nVar;
+        if (!this.Ok.ss()) {
+            this.awk.awd = -1;
+            this.awk.mErrorString = this.Ok.getErrorString();
+            this.awk.Eu();
+        } else if (this.Ok.st() == 36) {
+            this.awk.r(nVar.qf());
+            Register2Activity register2Activity = this.awk;
+            i3 = Register2Activity.avz;
+            register2Activity.awd = i3;
+            this.awk.mErrorString = this.Ok.getErrorString();
+            this.awk.Eu();
+        } else if (this.Ok.st() == 5) {
+            Register2Activity register2Activity2 = this.awk;
+            i2 = Register2Activity.avC;
+            register2Activity2.awd = i2;
+            this.awk.bl(true);
+        } else if (this.Ok.st() == 0) {
+            Ew = this.awk.Ew();
+            Activity pageActivity = this.awk.getPageContext().getPageActivity();
+            i = Register2Activity.avy;
+            ActivationActivity.a(pageActivity, Ew, i);
+            this.awk.bl(false);
         } else {
-            this.awc.avV = this.Oi.st();
-            this.awc.mErrorString = this.Oi.getErrorString();
-            this.awc.Eo();
+            this.awk.awd = this.Ok.st();
+            this.awk.mErrorString = this.Ok.getErrorString();
+            this.awk.Eu();
         }
     }
 
@@ -120,17 +120,17 @@ public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.awc.mProgressBar;
+        progressBar = this.awk.mProgressBar;
         progressBar.setVisibility(0);
-        this.awc.Em();
-        this.awc.avV = -1;
-        this.awc.mErrorString = null;
-        this.awc.Eo();
-        linearLayout = this.awc.avN;
+        this.awk.Es();
+        this.awk.awd = -1;
+        this.awk.mErrorString = null;
+        this.awk.Eu();
+        linearLayout = this.awk.avV;
         linearLayout.setVisibility(8);
-        textView = this.awc.avG;
+        textView = this.awk.avO;
         textView.setVisibility(4);
-        textView2 = this.awc.avG;
+        textView2 = this.awk.avO;
         textView2.setText((CharSequence) null);
         super.onPreExecute();
     }

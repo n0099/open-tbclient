@@ -53,7 +53,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(bj.bQI);
+            boolean z = tag != null && tag.equals(bj.bQY);
             String str = new String(bArr);
             com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.my_pages");
             if (bX != null) {

@@ -15,42 +15,42 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private static TbPageContext<BaseFragmentActivity> XE;
-    private String bRe;
-    private bo bRk;
-    private PersonPostModel bRl;
-    private final bo bRm = new h(this);
-    private final b bRn = new i(this);
+    private static TbPageContext<BaseFragmentActivity> XG;
+    private bo bRA;
+    private PersonPostModel bRB;
+    private final bo bRC = new h(this);
+    private final b bRD = new i(this);
+    private String bRu;
     private final String mUid;
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2) {
-        XE = tbPageContext;
+        XG = tbPageContext;
         this.mUid = str;
     }
 
     public void a(bo boVar) {
-        this.bRk = boVar;
+        this.bRA = boVar;
     }
 
-    public void eg(boolean z) {
-        if (this.bRl == null) {
-            this.bRl = new PersonPostModel(XE);
+    public void ee(boolean z) {
+        if (this.bRB == null) {
+            this.bRB = new PersonPostModel(XG);
         }
-        this.bRl.fetchPost(XE, this.bRm, z, this.mUid, false);
+        this.bRB.fetchPost(XG, this.bRC, z, this.mUid, false);
     }
 
-    public void ads() {
-        if (this.bRl != null) {
-            this.bRl.cancelLoadData();
+    public void adH() {
+        if (this.bRB != null) {
+            this.bRB.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bRl == null || this.bRl.post_list == null) {
+        if (this.bRB == null || this.bRB.post_list == null) {
             return 0;
         }
-        return this.bRl.post_list.size();
+        return this.bRB.post_list.size();
     }
 
     @Override // android.widget.Adapter
@@ -74,54 +74,54 @@ public class g extends BaseAdapter {
             jVar = (j) view.getTag();
         }
         if (i == 0) {
-            jVar.bRa.setVisibility(0);
+            jVar.bRq.setVisibility(0);
         } else {
-            jVar.bRa.setVisibility(8);
+            jVar.bRq.setVisibility(8);
         }
         a(i, jVar, viewGroup);
         return view;
     }
 
-    public PersonPostModel.PostList hB(int i) {
-        return this.bRl.post_list.get(i);
+    public PersonPostModel.PostList hE(int i) {
+        return this.bRB.post_list.get(i);
     }
 
     private void a(int i, j jVar, ViewGroup viewGroup) {
-        PersonPostModel.PostList hB = hB(i);
-        if (this.bRe == null) {
-            this.bRe = hB.user_portrait;
+        PersonPostModel.PostList hE = hE(i);
+        if (this.bRu == null) {
+            this.bRu = hE.user_portrait;
         }
-        jVar.a(hB, false, this.bRe);
+        jVar.a(hE, false, this.bRu);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = hB.content.length;
+        int length = hE.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (hB.content[i2].post_content.length != 0) {
+            if (hE.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!hB.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!hE.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = hB.content[i2].post_content.length;
+                int length2 = hE.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(hB.content[i2].post_content[i3].text);
+                    stringBuffer.append(hE.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(hB.thread_id), String.valueOf(hB.content[i2].post_id), String.valueOf(hB.content[i2].post_type), bd.n(hB.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(hE.thread_id), String.valueOf(hE.content[i2].post_id), String.valueOf(hE.content[i2].post_type), bd.n(hE.content[i2].create_time * 1000)});
             }
         }
-        jVar.bRp.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(hB.title).find()) {
-            jVar.bRq.setText(hB.title.replaceFirst("回复：", "原贴："));
+        jVar.bRF.setContent(arrayList);
+        if (Pattern.compile("^回复：").matcher(hE.title).find()) {
+            jVar.bRG.setText(hE.title.replaceFirst("回复：", "原贴："));
         } else {
-            jVar.bRq.setText(hB.title);
+            jVar.bRG.setText(hE.title);
         }
-        TextView textView = jVar.bRq;
+        TextView textView = jVar.bRG;
         String[] strArr = new String[3];
-        strArr[0] = String.valueOf(hB.thread_id);
+        strArr[0] = String.valueOf(hE.thread_id);
         textView.setTag(strArr);
-        ba.i((View) jVar.bRq, com.baidu.tieba.u.person_post_line);
-        ba.b(jVar.bRq, com.baidu.tieba.s.person_post_content_ori, 1);
+        ba.i((View) jVar.bRG, com.baidu.tieba.u.person_post_line);
+        ba.b(jVar.bRG, com.baidu.tieba.s.person_post_content_ori, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_post_reply_ori_padding);
-        jVar.bRq.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        jVar.a(this.bRn);
+        jVar.bRG.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        jVar.a(this.bRD);
         jVar.ct(TbadkCoreApplication.m411getInst().getSkinType());
     }
 }

@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ FloatingPersonalChatActivity brH;
+    final /* synthetic */ FloatingPersonalChatActivity brX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
         super(i);
-        this.brH = floatingPersonalChatActivity;
+        this.brX = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ class w extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         FloatingPersonalChatView floatingPersonalChatView;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003) {
-            floatingPersonalChatView = this.brH.brF;
+            floatingPersonalChatView = this.brX.brV;
             floatingPersonalChatView.g(customResponsedMessage);
         }
     }

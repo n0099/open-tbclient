@@ -6,23 +6,23 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ QuickSearchActivity axA;
+    final /* synthetic */ QuickSearchActivity axI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(QuickSearchActivity quickSearchActivity) {
-        this.axA = quickSearchActivity;
+        this.axI = quickSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        editText = this.axA.axv;
+        editText = this.axI.axD;
         if (editText.hasFocus()) {
-            Activity pageActivity = this.axA.getPageContext().getPageActivity();
-            editText2 = this.axA.axv;
+            Activity pageActivity = this.axI.getPageContext().getPageActivity();
+            editText2 = this.axI.axD;
             com.baidu.adp.lib.util.n.c(pageActivity, editText2);
         }
-        this.axA.closeActivity();
+        this.axI.closeActivity();
     }
 }

@@ -6,45 +6,45 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends FragmentPagerAdapter {
-    public static int blr = 1;
-    private int[] bls;
-    private ArrayList<m> blt;
+    public static int blH = 1;
+    private int[] blI;
+    private ArrayList<m> blJ;
 
     public i(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.blt = new ArrayList<>();
+        this.blJ = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         m mVar = new m();
         mVar.setArguments(bundle);
-        this.blt.add(mVar);
+        this.blJ.add(mVar);
         if (z) {
-            this.bls = new int[1];
+            this.blI = new int[1];
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             m mVar2 = new m();
             mVar2.setArguments(bundle2);
-            this.blt.add(mVar2);
-            this.bls = new int[]{0, 1};
+            this.blJ.add(mVar2);
+            this.blI = new int[]{0, 1};
         }
-        blr = this.bls.length;
+        blH = this.blI.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= blr || i < 0) {
+        if (i >= blH || i < 0) {
             return null;
         }
-        return this.blt.get(i);
+        return this.blJ.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return blr;
+        return blH;
     }
 
-    public int gi(int i) {
-        return this.bls[i];
+    public int gk(int i) {
+        return this.blI[i];
     }
 }

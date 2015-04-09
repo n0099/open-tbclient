@@ -7,33 +7,33 @@ import com.baidu.tieba.friendFeed.data.FriendFeedThreadData;
 import com.baidu.tieba.tbadkCore.at;
 /* loaded from: classes.dex */
 class m implements at {
-    final /* synthetic */ FriendFeedActivity aHM;
+    final /* synthetic */ FriendFeedActivity aHU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FriendFeedActivity friendFeedActivity) {
-        this.aHM = friendFeedActivity;
+        this.aHU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.at
-    public void fc(String str) {
+    public void ff(String str) {
         boolean z;
         FriendFeedThreadData friendFeedThreadData;
-        z = this.aHM.aHy;
+        z = this.aHU.aHG;
         if (z) {
-            friendFeedThreadData = this.aHM.aHx;
-            this.aHM.eE(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
+            friendFeedThreadData = this.aHU.aHF;
+            this.aHU.eE(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
         }
-        this.aHM.aHw = false;
+        this.aHU.aHE = false;
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
     }
 
     @Override // com.baidu.tieba.tbadkCore.at
-    public void fd(String str) {
+    public void fg(String str) {
         boolean z;
-        z = this.aHM.aHy;
+        z = this.aHU.aHG;
         if (z && !TextUtils.isEmpty(str)) {
-            this.aHM.showToast(str);
+            this.aHU.showToast(str);
         }
-        this.aHM.aHw = false;
+        this.aHU.aHE = false;
     }
 }

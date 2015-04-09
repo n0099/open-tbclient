@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
+class n {
     private int mCount;
     private boolean mIsRunning;
     private long mLastLogTime;

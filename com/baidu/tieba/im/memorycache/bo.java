@@ -24,7 +24,7 @@ public class bo extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ImMessageCenterPojo)) {
             ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData();
-            c.Sd().g(imMessageCenterPojo);
+            c.Sq().g(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bp(this, imMessageCenterPojo));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

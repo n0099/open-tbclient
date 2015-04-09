@@ -2,11 +2,11 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
-    final /* synthetic */ BdListView Ib;
+    final /* synthetic */ BdListView Id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdListView bdListView) {
-        this.Ib = bdListView;
+        this.Id = bdListView;
     }
 
     @Override // java.lang.Runnable
@@ -22,38 +22,38 @@ public class k implements Runnable {
         g gVar7;
         int i = 0;
         int i2 = -1;
-        wVar = this.Ib.HJ;
+        wVar = this.Id.HL;
         if (wVar != null) {
-            int firstVisiblePosition = this.Ib.getFirstVisiblePosition();
-            int lastVisiblePosition = this.Ib.getLastVisiblePosition();
-            gVar = this.Ib.HC;
+            int firstVisiblePosition = this.Id.getFirstVisiblePosition();
+            int lastVisiblePosition = this.Id.getLastVisiblePosition();
+            gVar = this.Id.HE;
             if (gVar != null) {
-                gVar2 = this.Ib.HC;
+                gVar2 = this.Id.HE;
                 if (gVar2.getWrappedAdapter() != null) {
-                    gVar3 = this.Ib.HC;
+                    gVar3 = this.Id.HE;
                     if (gVar3.mS() > 0) {
-                        gVar4 = this.Ib.HC;
+                        gVar4 = this.Id.HE;
                         i2 = firstVisiblePosition - gVar4.getHeadersCount();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        gVar5 = this.Ib.HC;
+                        gVar5 = this.Id.HE;
                         int headersCount = lastVisiblePosition - gVar5.getHeadersCount();
-                        gVar6 = this.Ib.HC;
+                        gVar6 = this.Id.HE;
                         if (headersCount >= gVar6.mS()) {
-                            gVar7 = this.Ib.HC;
+                            gVar7 = this.Id.HE;
                             headersCount = gVar7.mS() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;
                         }
-                        wVar2 = this.Ib.HJ;
+                        wVar2 = this.Id.HL;
                         wVar2.g(i2, i);
                     }
                 }
             }
             i = -1;
-            wVar2 = this.Ib.HJ;
+            wVar2 = this.Id.HL;
             wVar2.g(i2, i);
         }
     }

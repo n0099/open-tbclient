@@ -4,12 +4,12 @@ import com.baidu.tieba.im.model.UpdatesModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ UpdatesActivity biy;
+    final /* synthetic */ UpdatesActivity biO;
     private final /* synthetic */ com.baidu.tieba.im.g val$getDataCallBackWithBroadcast;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(UpdatesActivity updatesActivity, com.baidu.tieba.im.g gVar) {
-        this.biy = updatesActivity;
+        this.biO = updatesActivity;
         this.val$getDataCallBackWithBroadcast = gVar;
     }
 
@@ -18,11 +18,11 @@ public class d implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         UpdatesModel updatesModel;
         s sVar;
-        updatesModel = this.biy.bix;
+        updatesModel = this.biO.biN;
         updatesModel.clearSelect();
-        sVar = this.biy.biv;
+        sVar = this.biO.biL;
         sVar.cancelEditMode();
-        this.biy.setEditMode(false);
+        this.biO.setEditMode(false);
         UpdatesModel.requestUpdatesDataFromDB(this.val$getDataCallBackWithBroadcast);
     }
 }

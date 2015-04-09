@@ -17,7 +17,7 @@ public class b {
         return this.xa;
     }
 
-    public void aQ(List<Content> list) {
+    public void aT(List<Content> list) {
         if (list != null && !list.isEmpty()) {
             f fVar = null;
             for (Content content : list) {
@@ -26,7 +26,7 @@ public class b {
                         if (fVar == null) {
                             fVar = new f();
                         }
-                        fVar.d(e.d(content).acw());
+                        fVar.d(e.d(content).acL());
                     } else {
                         if (fVar != null) {
                             this.xa.add(fVar);

@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity auu;
+    final /* synthetic */ AccountActivity auC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.auu = accountActivity;
+        this.auC = accountActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -23,21 +23,21 @@ public class e implements AdapterView.OnItemClickListener {
         m mVar;
         m mVar2;
         m mVar3;
-        mVar = this.auu.auo;
+        mVar = this.auC.auw;
         if (mVar.getItemId(i) >= 0) {
-            mVar2 = this.auu.auo;
-            if (!mVar2.Ei()) {
-                mVar3 = this.auu.auo;
+            mVar2 = this.auC.auw;
+            if (!mVar2.Eo()) {
+                mVar3 = this.auC.auw;
                 AccountData accountData = (AccountData) mVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
-                    this.auu.l(accountData);
+                    this.auC.l(accountData);
                     return;
                 }
                 return;
             }
             return;
         }
-        this.auu.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.auu.getPageContext().getPageActivity())));
+        this.auC.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.auC.getPageContext().getPageActivity())));
     }
 }

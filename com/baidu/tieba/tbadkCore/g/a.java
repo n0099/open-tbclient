@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public interface a {
-    int Xu();
+    int XG();
 
     Bitmap aw(Context context);
 }

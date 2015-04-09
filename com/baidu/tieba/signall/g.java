@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cdN;
+    final /* synthetic */ f cec;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cdN = fVar;
+        this.cec = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,16 +30,16 @@ public class g extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 String errorString = httpResponsedMessage.getErrorString();
-                hVar5 = this.cdN.cdI;
-                hVar5.gy(errorString);
+                hVar5 = this.cec.cdX;
+                hVar5.gB(errorString);
             } else if (error == 0) {
-                this.cdN.cdH = ((GetForumResponsed) httpResponsedMessage).listData;
-                hVar2 = this.cdN.cdI;
+                this.cec.cdW = ((GetForumResponsed) httpResponsedMessage).listData;
+                hVar2 = this.cec.cdX;
                 if (hVar2 != null) {
-                    cVar = this.cdN.cdH;
+                    cVar = this.cec.cdW;
                     if (cVar != null) {
-                        hVar4 = this.cdN.cdI;
-                        cVar2 = this.cdN.cdH;
+                        hVar4 = this.cec.cdX;
+                        cVar2 = this.cec.cdW;
                         hVar4.a(cVar2);
                     }
                 }
@@ -47,14 +47,14 @@ public class g extends HttpMessageListener {
                 if (StringUtils.isNull(errorString2)) {
                     errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.neterror);
                 }
-                hVar3 = this.cdN.cdI;
-                hVar3.gy(errorString2);
+                hVar3 = this.cec.cdX;
+                hVar3.gB(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                hVar = this.cdN.cdI;
-                hVar.gy(errorString3);
+                hVar = this.cec.cdX;
+                hVar.gB(errorString3);
             }
-            this.cdN.cdJ = null;
+            this.cec.cdY = null;
         }
     }
 }

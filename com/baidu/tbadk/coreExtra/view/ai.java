@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr afj;
+    final /* synthetic */ LivePlayingStatusMgr afr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
         super(i);
-        this.afj = livePlayingStatusMgr;
+        this.afr = livePlayingStatusMgr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class ai extends CustomMessageListener {
         LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus5;
         if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
             if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
-                livePlayingStatus = this.afj.afg;
+                livePlayingStatus = this.afr.afo;
                 if (livePlayingStatus != LivePlayingStatusMgr.LivePlayingStatus.IDEL) {
-                    livePlayingStatus2 = this.afj.afg;
+                    livePlayingStatus2 = this.afr.afo;
                     if (livePlayingStatus2 != LivePlayingStatusMgr.LivePlayingStatus.JOINED) {
-                        livePlayingStatus3 = this.afj.afg;
+                        livePlayingStatus3 = this.afr.afo;
                         if (livePlayingStatus3 != LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER) {
                             return;
                         }
                     }
                 }
-                this.afj.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                this.afr.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
             } else if (data.status == 0) {
-                livePlayingStatus4 = this.afj.afg;
+                livePlayingStatus4 = this.afr.afo;
                 if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {
-                    livePlayingStatus5 = this.afj.afg;
+                    livePlayingStatus5 = this.afr.afo;
                     if (livePlayingStatus5 != LivePlayingStatusMgr.LivePlayingStatus.PLAYING) {
                         return;
                     }
                 }
-                this.afj.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+                this.afr.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
             }
         }
     }

@@ -14,7 +14,7 @@ public class ah implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ab abVar;
-        abVar = this.this$0.auk;
+        abVar = this.this$0.aus;
         abVar.dismiss();
         this.this$0.finish();
     }

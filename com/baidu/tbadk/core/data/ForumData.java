@@ -599,8 +599,8 @@ public class ForumData implements as, Serializable {
     public ArrayList<ar> getImages() {
         ArrayList<ar> arrayList = new ArrayList<>();
         ar arVar = new ar();
-        arVar.QK = this.image_url;
-        arVar.UU = 10;
+        arVar.QM = this.image_url;
+        arVar.UW = 10;
         arrayList.add(arVar);
         return arrayList;
     }

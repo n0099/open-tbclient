@@ -118,7 +118,8 @@ public class t extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
-        builder.rn = Integer.valueOf(this.rn);
+        builder.rn = 90;
+        builder.rn_need = 30;
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -141,12 +142,12 @@ public class t extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String zR() {
+    public String zX() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ax() {
+    public boolean AD() {
         return false;
     }
 

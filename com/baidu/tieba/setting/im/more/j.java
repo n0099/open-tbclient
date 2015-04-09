@@ -5,13 +5,13 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 public interface j {
     void a(BdSwitchView.SwitchState switchState);
 
-    void agb();
+    void agq();
 
-    void agc();
+    void agr();
 
-    void agd();
+    void ags();
 
-    void age();
+    void agt();
 
     void onBackPressed();
 }

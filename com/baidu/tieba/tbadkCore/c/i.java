@@ -4,170 +4,170 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class i extends j implements g {
-    private int OV;
-    public String aNi;
-    private a cnN;
-    public boolean cnO = false;
-    public String cnP;
+    private int OX;
+    public String aNz;
+    private a cod;
+    public boolean coe = false;
+    public String cof;
     public long threadId;
 
     public void b(App app) {
-        this.cnN = new a(app);
+        this.cod = new a(app);
     }
 
-    public a amq() {
-        return this.cnN;
+    public a amF() {
+        return this.cod;
     }
 
-    public String amr() {
-        return this.cnN == null ? "" : this.cnN.id;
+    public String amG() {
+        return this.cod == null ? "" : this.cod.id;
     }
 
-    public int ams() {
-        return this.OV;
+    public int amH() {
+        return this.OX;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
-    public void ik(int i) {
-        this.OV = i;
+    public void in(int i) {
+        this.OX = i;
     }
 
     public boolean pO() {
-        if (this.cnN == null) {
+        if (this.cod == null) {
             return false;
         }
-        return this.cnN.pO();
+        return this.cod.pO();
     }
 
-    public boolean amt() {
-        if (this.cnN == null) {
+    public boolean amI() {
+        if (this.cod == null) {
             return false;
         }
-        return this.cnN.pP();
+        return this.cod.pP();
     }
 
-    public boolean amu() {
-        if (this.cnN == null) {
+    public boolean amJ() {
+        if (this.cod == null) {
             return false;
         }
-        return this.cnN.pQ();
+        return this.cod.pQ();
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getPkgName() {
-        if (this.cnN == null) {
+        if (this.cod == null) {
             return null;
         }
-        return this.cnN.apk_name;
+        return this.cod.apk_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getDownloadUrl() {
-        if (this.cnN == null) {
+        if (this.cod == null) {
             return null;
         }
-        return this.cnN.apk_url;
+        return this.cod.apk_url;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getAppName() {
-        return this.cnN == null ? "" : this.cnN.name;
+        return this.cod == null ? "" : this.cod.name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.c.h
-    public String aml() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+    public String amA() {
+        if (this.cod == null || this.cod.cnW == null) {
             return null;
         }
-        return this.cnN.cnG.user_name;
+        return this.cod.cnW.user_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.c.h
-    public String amm() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+    public String amB() {
+        if (this.cod == null || this.cod.cnW == null) {
             return null;
         }
-        return this.cnN.cnG.user_portrait;
+        return this.cod.cnW.user_portrait;
     }
 
     @Override // com.baidu.tieba.tbadkCore.c.h
-    public String amn() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+    public String amC() {
+        if (this.cod == null || this.cod.cnW == null) {
             return null;
         }
-        return this.cnN.cnG.thread_title;
+        return this.cod.cnW.thread_title;
     }
 
     @Override // com.baidu.tieba.tbadkCore.c.h
-    public String amo() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+    public String amD() {
+        if (this.cod == null || this.cod.cnW == null) {
             return null;
         }
-        return this.cnN.cnG.thread_pic;
+        return this.cod.cnW.thread_pic;
     }
 
     @Override // com.baidu.tieba.tbadkCore.c.h
-    public long amp() {
-        if (this.cnN == null) {
+    public long amE() {
+        if (this.cod == null) {
             return 0L;
         }
-        return this.cnN.cnE * 1000;
+        return this.cod.cnU * 1000;
     }
 
     public int getShowType() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+        if (this.cod == null || this.cod.cnW == null) {
             return -1;
         }
-        return this.cnN.cnG.cnH;
+        return this.cod.cnW.cnX;
     }
 
     public int getPosition() {
-        int i = this.cnN != null ? com.baidu.adp.lib.g.c.toInt(this.cnN.pos_name, 0) : 0;
+        int i = this.cod != null ? com.baidu.adp.lib.g.c.toInt(this.cod.pos_name, 0) : 0;
         if (i < 2 || i > 30) {
             return 7;
         }
         return i;
     }
 
-    public String amv() {
-        if (this.cnN == null || this.cnN.cnG == null) {
+    public String amK() {
+        if (this.cod == null || this.cod.cnW == null) {
             return null;
         }
-        return this.cnN.cnG.pop_window_text;
+        return this.cod.cnW.pop_window_text;
     }
 
-    public com.baidu.tbadk.core.data.c amw() {
+    public com.baidu.tbadk.core.data.c amL() {
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        if (this.cnN != null) {
-            cVar.OW = this.cnN.id;
-            cVar.OX = this.cnN.name;
-            cVar.OY = this.cnN.cnC;
-            cVar.OZ = this.cnN.url;
-            cVar.Pa = this.cnN.apk_url;
-            cVar.Pb = this.cnN.apk_name;
+        if (this.cod != null) {
+            cVar.OY = this.cod.id;
+            cVar.OZ = this.cod.name;
+            cVar.Pa = this.cod.cnS;
+            cVar.Pb = this.cod.url;
+            cVar.Pc = this.cod.apk_url;
+            cVar.Pd = this.cod.apk_name;
             try {
-                cVar.Pc = Integer.parseInt(this.cnN.pos_name.trim());
+                cVar.Pe = Integer.parseInt(this.cod.pos_name.trim());
             } catch (Exception e) {
-                cVar.Pc = -1;
+                cVar.Pe = -1;
             }
-            cVar.Pd = this.cnN.first_name;
-            cVar.Pe = this.cnN.second_name;
-            cVar.Pf = this.cnN.Pf;
-            cVar.abtest = this.cnN.abtest;
-            cVar.Pg = this.cnN.cnD;
-            cVar.userId = this.cnN.user_id;
-            cVar.Ph = this.cnN.verify;
-            cVar.price = this.cnN.price;
-            cVar.Pi = this.cnN.ext_info;
-            cVar.Pj = this.cnN.cnE * 1000;
-            if (this.cnN.cnG != null) {
-                cVar.Pk.Pp = this.cnN.cnG.pop_window_text;
-                cVar.Pk.Pm = this.cnN.cnG.id;
-                cVar.Pk.Po = this.cnN.cnG.thread_pic;
-                cVar.Pk.Pq = this.cnN.cnG.cnH;
-                cVar.Pk.Pn = this.cnN.cnG.thread_title;
-                cVar.Pk.userName = this.cnN.cnG.user_name;
-                cVar.Pk.userPortrait = this.cnN.cnG.user_portrait;
+            cVar.Pf = this.cod.first_name;
+            cVar.Pg = this.cod.second_name;
+            cVar.Ph = this.cod.Ph;
+            cVar.abtest = this.cod.abtest;
+            cVar.Pi = this.cod.cnT;
+            cVar.userId = this.cod.user_id;
+            cVar.Pj = this.cod.verify;
+            cVar.price = this.cod.price;
+            cVar.Pk = this.cod.ext_info;
+            cVar.Pl = this.cod.cnU * 1000;
+            if (this.cod.cnW != null) {
+                cVar.Pm.Pr = this.cod.cnW.pop_window_text;
+                cVar.Pm.Po = this.cod.cnW.id;
+                cVar.Pm.Pq = this.cod.cnW.thread_pic;
+                cVar.Pm.Ps = this.cod.cnW.cnX;
+                cVar.Pm.Pp = this.cod.cnW.thread_title;
+                cVar.Pm.userName = this.cod.cnW.user_name;
+                cVar.Pm.userPortrait = this.cod.cnW.user_portrait;
             }
         }
         return cVar;
@@ -175,6 +175,6 @@ public class i extends j implements g {
 
     @Override // com.baidu.tieba.tbadkCore.c.j, com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return getShowType() == 2 ? com.baidu.tbadk.core.data.c.OQ : com.baidu.tbadk.core.data.c.OP;
+        return getShowType() == 2 ? com.baidu.tbadk.core.data.c.OS : com.baidu.tbadk.core.data.c.OR;
     }
 }

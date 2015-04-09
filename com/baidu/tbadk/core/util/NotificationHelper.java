@@ -100,11 +100,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.UK) {
+            if (!switchData.UM) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.UJ) {
+            if (!switchData.UL) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -112,7 +112,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.UL) {
+            if (switchData.UN) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -130,32 +130,32 @@ public class NotificationHelper {
 
     private static an getSwitchData(Context context) {
         an anVar = new an();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.uV() && com.baidu.tbadk.coreExtra.messageCenter.a.uU()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.vb() && com.baidu.tbadk.coreExtra.messageCenter.a.va()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.m411getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vz()) {
-                    anVar.UJ = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.vw().vF()) {
+                    anVar.UL = true;
                     if (z || z2) {
-                        anVar.UJ = false;
+                        anVar.UL = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vC()) {
-                    anVar.UK = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.vw().vI()) {
+                    anVar.UM = true;
                     if (z) {
-                        anVar.UK = false;
+                        anVar.UM = false;
                     }
                     if (z2) {
-                        anVar.UK = true;
+                        anVar.UM = true;
                     }
                 }
                 TbadkCoreApplication.m411getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.vq().vA()) {
-            anVar.UL = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.vw().vG()) {
+            anVar.UN = true;
         }
         return anVar;
     }

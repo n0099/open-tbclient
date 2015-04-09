@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ UpdatesActivity biy;
+    final /* synthetic */ UpdatesActivity biO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UpdatesActivity updatesActivity) {
-        this.biy = updatesActivity;
+        this.biO = updatesActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -19,10 +19,10 @@ public class f implements com.baidu.tbadk.core.dialog.h {
         eVar.dismiss();
         switch (i) {
             case 0:
-                sVar = this.biy.biv;
+                sVar = this.biO.biL;
                 sVar.setLoadProgressBarVisable(true);
-                UpdatesActivity updatesActivity = this.biy;
-                updatesItemData = this.biy.pendingToDel;
+                UpdatesActivity updatesActivity = this.biO;
+                updatesItemData = this.biO.pendingToDel;
                 updatesActivity.processDel(updatesItemData);
                 return;
             default:

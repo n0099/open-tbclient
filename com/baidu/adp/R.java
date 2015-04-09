@@ -117,11 +117,11 @@ public final class R {
         public static final int manualOnly = 0x7f060006;
         public static final int pullFromEnd = 0x7f060004;
         public static final int pullFromStart = 0x7f060003;
-        public static final int pull_content = 0x7f060c23;
-        public static final int pull_image = 0x7f060c22;
-        public static final int pull_root = 0x7f060c21;
-        public static final int pull_text = 0x7f060c24;
-        public static final int pull_time = 0x7f060c25;
+        public static final int pull_content = 0x7f060c27;
+        public static final int pull_image = 0x7f060c26;
+        public static final int pull_root = 0x7f060c25;
+        public static final int pull_text = 0x7f060c28;
+        public static final int pull_time = 0x7f060c29;
         public static final int shader = 0x7f060001;
     }
 
@@ -130,7 +130,7 @@ public final class R {
         public static final int adp_default_header_layout = 0x7f030021;
         public static final int adp_detault_footer_layout = 0x7f030022;
         public static final int adp_pull_refresh_scroll_view = 0x7f030023;
-        public static final int pull_view = 0x7f03025f;
+        public static final int pull_view = 0x7f030260;
     }
 
     /* loaded from: classes.dex */

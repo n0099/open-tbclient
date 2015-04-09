@@ -7,31 +7,31 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class g implements com.baidu.tieba.pb.chosen.a.i {
-    final /* synthetic */ PbChosenActivity bFY;
+    final /* synthetic */ PbChosenActivity bGl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PbChosenActivity pbChosenActivity) {
-        this.bFY = pbChosenActivity;
+        this.bGl = pbChosenActivity;
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.i
     public void b(long j, String str) {
         if (!StringUtils.isNull(str)) {
-            this.bFY.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bFY.getPageContext().getPageActivity()).createNormalCfg(str, null, null)));
-            TiebaStatic.eventStat(this.bFY.getPageContext().getPageActivity(), "pb_new_detail_btn", null);
+            this.bGl.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bGl.getPageContext().getPageActivity()).createNormalCfg(str, null, null)));
+            TiebaStatic.eventStat(this.bGl.getPageContext().getPageActivity(), "pb_new_detail_btn", null);
         }
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.i
-    public void hy(String str) {
+    public void hB(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bFY.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bFY.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
-            TiebaStatic.eventStat(this.bFY.getPageContext().getPageActivity(), "pb_new_sourcefid", null);
+            this.bGl.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bGl.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
+            TiebaStatic.eventStat(this.bGl.getPageContext().getPageActivity(), "pb_new_sourcefid", null);
         }
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.i
-    public void dC(boolean z) {
+    public void dA(boolean z) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.zan.a aVar3;
@@ -39,26 +39,26 @@ class g implements com.baidu.tieba.pb.chosen.a.i {
         com.baidu.tieba.pb.chosen.net.a aVar5;
         com.baidu.tieba.pb.chosen.net.zan.a aVar6;
         com.baidu.tieba.pb.chosen.net.a aVar7;
-        aVar = this.bFY.chosenData;
+        aVar = this.bGl.chosenData;
         if (aVar != null) {
-            aVar2 = this.bFY.chosenData;
+            aVar2 = this.bGl.chosenData;
             if (aVar2.getForumInfo() != null) {
-                aVar3 = this.bFY.bFP;
+                aVar3 = this.bGl.bGc;
                 if (aVar3 == null) {
-                    this.bFY.bFP = new com.baidu.tieba.pb.chosen.net.zan.a();
+                    this.bGl.bGc = new com.baidu.tieba.pb.chosen.net.zan.a();
                 }
                 if (z) {
-                    aVar6 = this.bFY.bFP;
-                    PbChosenActivity pbChosenActivity = this.bFY;
-                    aVar7 = this.bFY.chosenData;
+                    aVar6 = this.bGl.bGc;
+                    PbChosenActivity pbChosenActivity = this.bGl;
+                    aVar7 = this.bGl.chosenData;
                     aVar6.a(pbChosenActivity, aVar7.getForumInfo().ftid.longValue(), "unlike");
                 } else {
-                    aVar4 = this.bFY.bFP;
-                    PbChosenActivity pbChosenActivity2 = this.bFY;
-                    aVar5 = this.bFY.chosenData;
+                    aVar4 = this.bGl.bGc;
+                    PbChosenActivity pbChosenActivity2 = this.bGl;
+                    aVar5 = this.bGl.chosenData;
                     aVar4.a(pbChosenActivity2, aVar5.getForumInfo().ftid.longValue(), "like");
                 }
-                TiebaStatic.eventStat(this.bFY.getPageContext().getPageActivity(), "pb_new_like", null);
+                TiebaStatic.eventStat(this.bGl.getPageContext().getPageActivity(), "pb_new_like", null);
             }
         }
     }

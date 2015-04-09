@@ -20,43 +20,43 @@ public class c {
                 if (StringUtils.isNull(loadString)) {
                     inst.saveString("launch_config_md5", optString2);
                     inst.saveString("launch_config_remote_url", optString);
-                    dt(optString);
+                    dw(optString);
                 } else if (!TextUtils.equals(loadString, optString2)) {
                     inst.saveString("launch_config_md5", optString2);
                     inst.saveString("launch_config_remote_url", optString);
-                    dt(optString);
+                    dw(optString);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vK() {
+    public void vQ() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String vL() {
+    public String vR() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void dt(String str) {
-        String vL = vL();
-        if (!TextUtils.equals(vL, str) || !du(vL)) {
-            ae(str, vL);
+    public void dw(String str) {
+        String vR = vR();
+        if (!TextUtils.equals(vR, str) || !dx(vR)) {
+            ae(str, vR);
         }
     }
 
-    public void vM() {
+    public void vS() {
         if (k.iI()) {
             TbadkSettings inst = TbadkSettings.getInst();
             ae(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
         }
     }
 
-    private boolean du(String str) {
+    private boolean dx(String str) {
         File cm = o.cm(bf.cN(str));
         return cm != null && cm.exists() && cm.isFile();
     }

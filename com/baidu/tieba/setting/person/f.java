@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PersonChangeActivity ccF;
+    final /* synthetic */ PersonChangeActivity ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PersonChangeActivity personChangeActivity) {
-        this.ccF = personChangeActivity;
+        this.ccU = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -19,19 +19,19 @@ public class f implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.coreExtra.c.f fVar2;
         com.baidu.tbadk.coreExtra.c.f fVar3;
         aVar.dismiss();
-        fVar = this.ccF.ccw;
-        if (fVar.vR().getPhotoChanged()) {
+        fVar = this.ccU.ccL;
+        if (fVar.vX().getPhotoChanged()) {
             Intent intent = new Intent();
-            bool = this.ccF.cck;
+            bool = this.ccU.ccz;
             if (bool.booleanValue()) {
-                fVar3 = this.ccF.ccw;
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.vR());
+                fVar3 = this.ccU.ccL;
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.vX());
             } else {
-                fVar2 = this.ccF.ccw;
-                intent.putExtra("data", fVar2.vR());
+                fVar2 = this.ccU.ccL;
+                intent.putExtra("data", fVar2.vX());
             }
-            this.ccF.setResult(-1, intent);
+            this.ccU.setResult(-1, intent);
         }
-        this.ccF.finish();
+        this.ccU.finish();
     }
 }

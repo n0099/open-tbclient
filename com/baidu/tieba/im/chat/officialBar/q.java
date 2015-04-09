@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.chat.officialBar;
 /* loaded from: classes.dex */
 public class q {
-    public String aYK;
-    public long aYL;
-    public String aYM;
-    public long aYN;
-    public String aYz;
+    public String aYP;
+    public String aZa;
+    public long aZb;
+    public String aZc;
+    public long aZd;
     public String fid;
     public long picId;
     public String src;

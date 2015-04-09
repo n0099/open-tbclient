@@ -21,12 +21,12 @@ public class o extends CustomMessageListener {
         ai aiVar2;
         ai aiVar3;
         boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : false;
-        aiVar = this.this$0.cqV;
-        aiVar.eX(booleanValue);
-        aiVar2 = this.this$0.cqV;
-        if (aiVar2.aoq() != null) {
-            aiVar3 = this.this$0.cqV;
-            aiVar3.aoq().setEnabled(booleanValue ? false : true);
+        aiVar = this.this$0.crl;
+        aiVar.eV(booleanValue);
+        aiVar2 = this.this$0.crl;
+        if (aiVar2.aoF() != null) {
+            aiVar3 = this.this$0.crl;
+            aiVar3.aoF().setEnabled(booleanValue ? false : true);
         }
     }
 }

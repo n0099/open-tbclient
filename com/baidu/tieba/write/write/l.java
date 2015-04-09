@@ -11,13 +11,13 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
-    private com.baidu.tbadk.core.util.aa ZD;
-    final /* synthetic */ AtListActivity cwI;
+    private com.baidu.tbadk.core.util.aa ZF;
+    final /* synthetic */ AtListActivity cxb;
     private String mString;
 
     private l(AtListActivity atListActivity) {
-        this.cwI = atListActivity;
-        this.ZD = null;
+        this.cxb = atListActivity;
+        this.ZF = null;
         this.mString = null;
     }
 
@@ -30,7 +30,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cwI.mProgress;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -38,9 +38,9 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.cwI.cwy = null;
+        this.cxb.cwR = null;
         this.mString = null;
-        progressBar = this.cwI.mProgress;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -52,18 +52,18 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     public com.baidu.tieba.write.a.b doInBackground(String... strArr) {
         com.baidu.tieba.write.b.a aVar;
         this.mString = strArr[0];
-        this.ZD = new com.baidu.tbadk.core.util.aa();
+        this.ZF = new com.baidu.tbadk.core.util.aa();
         if (this.mString != null && this.mString.length() > 0) {
-            this.ZD.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
-            this.ZD.o(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-            this.ZD.o("q", this.mString);
-            String rO = this.ZD.rO();
-            if (this.ZD.sp().tq().pv()) {
+            this.ZF.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
+            this.ZF.o(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+            this.ZF.o("q", this.mString);
+            String rO = this.ZF.rO();
+            if (this.ZF.sp().tq().pv()) {
                 com.baidu.tieba.write.a.b bVar = new com.baidu.tieba.write.a.b();
-                aVar = this.cwI.cwA;
-                com.baidu.tieba.write.a.a aqh = aVar.aqh();
-                if (aqh != null) {
-                    bVar.a(rO, aqh.apX());
+                aVar = this.cxb.cwT;
+                com.baidu.tieba.write.a.a aqw = aVar.aqw();
+                if (aqw != null) {
+                    bVar.a(rO, aqw.aqm());
                     return bVar;
                 }
                 bVar.a(rO, (HashMap<String, String>) null);
@@ -84,29 +84,29 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
         n nVar;
         n nVar2;
         BdListView bdListView;
-        this.cwI.cwy = null;
-        progressBar = this.cwI.mProgress;
+        this.cxb.cwR = null;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(8);
-        if (this.ZD.sp().tq().pv() && this.mString != null) {
-            editText = this.cwI.mEditText;
+        if (this.ZF.sp().tq().pv() && this.mString != null) {
+            editText = this.cxb.mEditText;
             if (com.baidu.adp.lib.util.m.a(editText.getText(), "").equals(this.mString)) {
-                if (bVar == null || bVar.apY().isEmpty()) {
-                    this.cwI.jb(1);
+                if (bVar == null || bVar.aqn().isEmpty()) {
+                    this.cxb.je(1);
                 } else {
-                    this.cwI.jb(0);
+                    this.cxb.je(0);
                 }
-                aVar = this.cwI.cwA;
+                aVar = this.cxb.cwT;
                 aVar.a(bVar);
-                nVar = this.cwI.cwB;
-                nVar.p(bVar.apY());
-                nVar2 = this.cwI.cwB;
+                nVar = this.cxb.cwU;
+                nVar.p(bVar.aqn());
+                nVar2 = this.cxb.cwU;
                 nVar2.notifyDataSetInvalidated();
-                bdListView = this.cwI.mListView;
+                bdListView = this.cxb.mListView;
                 bdListView.setSelection(0);
                 super.onPostExecute(bVar);
             }
         }
-        this.cwI.showToast(this.ZD.getErrorString());
+        this.cxb.showToast(this.ZF.getErrorString());
         super.onPostExecute(bVar);
     }
 }

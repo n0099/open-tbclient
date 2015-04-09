@@ -6,13 +6,13 @@ import tbclient.Bigvip.UserInfoBigVip;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ c bmb;
+    final /* synthetic */ c bmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.bmb = cVar;
+        this.bmr = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class e extends CustomMessageListener {
         g gVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserInfoBigVip)) {
             UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-            gVar = this.bmb.blX;
+            gVar = this.bmr.bmn;
             if (gVar != null && userInfoBigVip != null) {
-                this.bmb.aQr = true;
-                gVar2 = this.bmb.blX;
+                this.bmr.aQI = true;
+                gVar2 = this.bmr.bmn;
                 gVar2.a(userInfoBigVip, false);
             }
-            this.bmb.Tc();
+            this.bmr.Tp();
             return;
         }
-        this.bmb.Tc();
+        this.bmr.Tp();
     }
 }

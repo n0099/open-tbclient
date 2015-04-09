@@ -5,10 +5,10 @@ import android.os.Message;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class ab extends Handler {
-    final /* synthetic */ u Ly;
+    final /* synthetic */ u LA;
 
     private ab(u uVar) {
-        this.Ly = uVar;
+        this.LA = uVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,21 +19,21 @@ class ab extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 1) {
-            if (u.a(this.Ly) < 360.0f) {
+            if (u.a(this.LA) < 360.0f) {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                u.a(this.Ly, uptimeMillis);
-                u.b(this.Ly, uptimeMillis + 200);
-                u uVar = this.Ly;
-                u.a(uVar, u.a(uVar) + ((((float) (uptimeMillis - u.b(this.Ly))) / 1000.0f) * u.c(this.Ly)));
-                sendEmptyMessageAtTime(1, u.d(this.Ly));
-                u uVar2 = this.Ly;
+                u.a(this.LA, uptimeMillis);
+                u.b(this.LA, uptimeMillis + 200);
+                u uVar = this.LA;
+                u.a(uVar, u.a(uVar) + ((((float) (uptimeMillis - u.b(this.LA))) / 1000.0f) * u.c(this.LA)));
+                sendEmptyMessageAtTime(1, u.d(this.LA));
+                u uVar2 = this.LA;
                 u.a(uVar2, u.e(uVar2) + 1);
             } else {
-                u.a(this.Ly, 360.0f);
-                u.a(this.Ly, 0);
+                u.a(this.LA, 360.0f);
+                u.a(this.LA, 0);
             }
-            u.b(this.Ly, u.e(this.Ly) % 6);
-            this.Ly.invalidate();
+            u.b(this.LA, u.e(this.LA) % 6);
+            this.LA.invalidate();
         }
     }
 }

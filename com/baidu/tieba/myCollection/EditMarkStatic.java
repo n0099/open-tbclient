@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class EditMarkStatic {
-    private static com.baidu.tbadk.mainTab.e bDN;
+    private static com.baidu.tbadk.mainTab.e bEa;
     private static int msgCount = 0;
 
     static {

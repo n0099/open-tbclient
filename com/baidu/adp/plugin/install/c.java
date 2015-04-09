@@ -104,7 +104,7 @@ public class c {
         if (lastIndexOf + 1 < lastIndexOf2) {
             String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
             PluginSetting bi = PluginPackageManager.ls().bi(substring);
-            if (substring != null && substring.length() > 0 && bi != null) {
+            if (substring != null && substring.length() > 0 && bi != null && bi.apkPath != null) {
                 File file = new File(bi.apkPath);
                 if (file.exists() && file.isFile() && file.length() > 0) {
                     try {

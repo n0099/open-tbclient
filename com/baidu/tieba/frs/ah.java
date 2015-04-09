@@ -16,16 +16,16 @@ class ah extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivityStatic.aJP = true;
+                FrsActivityStatic.aJZ = true;
             } else if (intValue == 2) {
-                FrsActivityStatic.aJQ = true;
+                FrsActivityStatic.aKa = true;
             }
             boolean z = intValue == 3;
-            boolean JF = FrsActivityStatic.JF();
-            if (z && JF) {
-                FrsActivityStatic.aJO = false;
+            boolean JM = FrsActivityStatic.JM();
+            if (z && JM) {
+                FrsActivityStatic.aJY = false;
             } else {
-                FrsActivityStatic.aJO = true;
+                FrsActivityStatic.aJY = true;
             }
         }
     }

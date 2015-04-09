@@ -17,17 +17,17 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
     private int BQ;
-    private int bnR;
-    private int bnS;
-    private c bnT;
-    private int bnU;
-    private int bnV;
-    private e bnW;
+    private int boh;
+    private int boi;
+    private c boj;
+    private int bok;
+    private int bol;
+    private e bom;
     private Context mContext;
     private int mWidth;
 
     public void setOnItemClickListener(e eVar) {
-        this.bnW = eVar;
+        this.bom = eVar;
     }
 
     public a(Context context) {
@@ -39,8 +39,8 @@ public class a extends RelativeLayout {
         layoutParams.bottomMargin = i.j(this.mContext, t.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(u.bg_bottombar_meun_float);
-        this.bnR = i.j(this.mContext, t.ds36);
-        this.bnS = i.j(this.mContext, t.ds200);
+        this.boh = i.j(this.mContext, t.ds36);
+        this.boi = i.j(this.mContext, t.ds200);
         this.BQ = i.j(this.mContext, t.ds504);
     }
 
@@ -50,23 +50,23 @@ public class a extends RelativeLayout {
         listView.setCacheColorHint(this.mContext.getResources().getColor(17170445));
         listView.setDivider(null);
         listView.setDividerHeight(0);
-        this.bnT = new c(this.mContext, list);
-        listView.setAdapter((ListAdapter) this.bnT);
+        this.boj = new c(this.mContext, list);
+        listView.setAdapter((ListAdapter) this.boj);
         listView.setOnItemClickListener(new b(this));
         return listView;
     }
 
     public void a(int i, int i2, List<com.baidu.tieba.im.data.d> list) {
         if (list != null) {
-            this.bnV = i;
-            this.bnU = i2;
-            this.mWidth = aI(list);
+            this.bol = i;
+            this.bok = i2;
+            this.mWidth = aK(list);
             removeAllViews();
             addView(e(list, this.mWidth));
         }
     }
 
-    private int aI(List<com.baidu.tieba.im.data.d> list) {
+    private int aK(List<com.baidu.tieba.im.data.d> list) {
         Paint paint = new Paint(1);
         paint.setColor(this.mContext.getResources().getColor(17170443));
         paint.setTextSize(i.j(this.mContext, t.ds32));
@@ -81,7 +81,7 @@ public class a extends RelativeLayout {
                 }
                 i = i2 + 1;
             } else {
-                return (int) Math.min(Math.max((this.bnR * 2) + f, this.bnS), this.BQ);
+                return (int) Math.min(Math.max((this.boh * 2) + f, this.boi), this.BQ);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a extends RelativeLayout {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.mWidth / 2);
-            if (this.bnU == this.bnV - 1) {
+            if (this.bok == this.bol - 1) {
                 width = ((iArr[0] + view.getWidth()) - i.j(this.mContext, t.ds20)) - this.mWidth;
             }
             if (width <= 0) {
@@ -101,20 +101,20 @@ public class a extends RelativeLayout {
             layoutParams.leftMargin = width;
             setLayoutParams(layoutParams);
             setVisibility(0);
-            cY(true);
+            cW(true);
         }
     }
 
-    public void TF() {
+    public void TS() {
         setVisibility(8);
-        cY(false);
+        cW(false);
     }
 
-    public void TG() {
+    public void TT() {
         setVisibility(8);
     }
 
-    public void cY(boolean z) {
+    public void cW(boolean z) {
         if (z) {
             startAnimation(AnimationUtils.loadAnimation(this.mContext, p.sub_menu_up));
         } else {

@@ -29,20 +29,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    public BdListView blD = null;
+    public BdListView blT = null;
     private ag mPullView = null;
-    private k blE = null;
-    private com.baidu.tbadk.core.view.s anM = null;
-    private View blF = null;
-    private int blH = 0;
-    private final com.baidu.adp.framework.listener.e blI = new n(this, 0);
-    private final com.baidu.adp.framework.listener.e blJ = new o(this, 0);
-    private final com.baidu.adp.framework.listener.e blK = new p(this, 0);
-    private final CustomMessageListener blL = new q(this, 0);
-    private final CustomMessageListener Os = new r(this, 0);
-    public boolean blG = false;
+    private k blU = null;
+    private com.baidu.tbadk.core.view.s anU = null;
+    private View blV = null;
+    private int blX = 0;
+    private final com.baidu.adp.framework.listener.e blY = new n(this, 0);
+    private final com.baidu.adp.framework.listener.e blZ = new o(this, 0);
+    private final com.baidu.adp.framework.listener.e bma = new p(this, 0);
+    private final CustomMessageListener bmb = new q(this, 0);
+    private final CustomMessageListener Ou = new r(this, 0);
+    public boolean blW = false;
 
-    public PersonGroupActivity SW() {
+    public PersonGroupActivity Tj() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonGroupActivity) {
             return (PersonGroupActivity) baseFragmentActivity;
@@ -53,54 +53,54 @@ public class m extends BaseFragment implements View.OnClickListener, AdapterView
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.blG) {
-            this.blD.mX();
+        if (this.blW) {
+            this.blT.mX();
         }
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        MessageManager.getInstance().unRegisterListener(this.blK);
-        MessageManager.getInstance().unRegisterListener(this.blJ);
-        MessageManager.getInstance().unRegisterListener(this.Os);
-        MessageManager.getInstance().unRegisterListener(this.blI);
+        MessageManager.getInstance().unRegisterListener(this.bma);
+        MessageManager.getInstance().unRegisterListener(this.blZ);
+        MessageManager.getInstance().unRegisterListener(this.Ou);
+        MessageManager.getInstance().unRegisterListener(this.blY);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(103003, this.blK);
-        registerListener(2001106, this.blL);
-        registerListener(103101, this.blJ);
-        registerListener(103112, this.blJ);
-        registerListener(103102, this.blJ);
-        registerListener(2001109, this.blJ);
-        registerListener(103104, this.blJ);
-        registerListener(103105, this.blJ);
-        registerListener(2001130, this.blI);
-        registerListener(2001132, this.blI);
-        registerListener(2001136, this.blI);
-        registerListener(2001137, this.blI);
-        registerListener(2001134, this.blI);
-        registerListener(2001138, this.blI);
-        registerListener(2001141, this.Os);
+        registerListener(103003, this.bma);
+        registerListener(2001106, this.bmb);
+        registerListener(103101, this.blZ);
+        registerListener(103112, this.blZ);
+        registerListener(103102, this.blZ);
+        registerListener(2001109, this.blZ);
+        registerListener(103104, this.blZ);
+        registerListener(103105, this.blZ);
+        registerListener(2001130, this.blY);
+        registerListener(2001132, this.blY);
+        registerListener(2001136, this.blY);
+        registerListener(2001137, this.blY);
+        registerListener(2001134, this.blY);
+        registerListener(2001138, this.blY);
+        registerListener(2001141, this.Ou);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        if (this.anM != null) {
-            this.anM.e(SW().getPageContext());
+        if (this.anU != null) {
+            this.anU.e(Tj().getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.anM != null) {
-            this.anM.onActivityStop();
+        if (this.anU != null) {
+            this.anU.onActivityStop();
         }
     }
 
@@ -108,52 +108,52 @@ public class m extends BaseFragment implements View.OnClickListener, AdapterView
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         int i;
         w wVar;
-        this.blH = getArguments().getInt("page_type", 0);
+        this.blX = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(com.baidu.tieba.w.person_group_fragment, viewGroup, false);
-        PersonGroupActivity SW = SW();
-        if (SW != null && !SW.SR()) {
+        PersonGroupActivity Tj = Tj();
+        if (Tj != null && !Tj.Te()) {
             i = (int) getResources().getDimension(t.ds80);
-            if (this.blH == 0) {
-                wVar = w.cZ(String.format(getString(y.person_group_no_personal_info), SW.SQ()));
+            if (this.blX == 0) {
+                wVar = w.cZ(String.format(getString(y.person_group_no_personal_info), Tj.Td()));
             } else {
                 wVar = w.cZ(getString(y.person_group_no_common_info));
             }
-        } else if (SW == null || !SW.SR()) {
+        } else if (Tj == null || !Tj.Te()) {
             i = 0;
             wVar = null;
         } else {
             i = (int) getResources().getDimension(t.ds160);
             wVar = w.ac(getString(y.group_no_data_tip), getString(y.group_no_data_tip_1));
         }
-        this.anM = NoDataViewFactory.a(getActivity(), inflate, v.a(NoDataViewFactory.ImgType.NODATA, i), wVar, null);
-        this.blD = (BdListView) inflate.findViewById(com.baidu.tieba.v.person_group_list);
+        this.anU = NoDataViewFactory.a(getActivity(), inflate, v.a(NoDataViewFactory.ImgType.NODATA, i), wVar, null);
+        this.blT = (BdListView) inflate.findViewById(com.baidu.tieba.v.person_group_list);
         this.mPullView = new ag(getPageContext());
-        this.blE = new k(this);
+        this.blU = new k(this);
         this.mPullView.a(new s(this));
-        this.blD.setPullRefresh(this.mPullView);
-        this.blD.setAdapter((ListAdapter) this.blE);
-        this.blD.setOnItemClickListener(this);
-        this.anM.setVisibility(8);
-        this.blF = inflate.findViewById(com.baidu.tieba.v.group_fragment_parent);
-        if (SW() != null && this.blH == SW().SP()) {
-            this.blD.mX();
+        this.blT.setPullRefresh(this.mPullView);
+        this.blT.setAdapter((ListAdapter) this.blU);
+        this.blT.setOnItemClickListener(this);
+        this.anU.setVisibility(8);
+        this.blV = inflate.findViewById(com.baidu.tieba.v.group_fragment_parent);
+        if (Tj() != null && this.blX == Tj().Tc()) {
+            this.blT.mX();
         }
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GroupInfoData item = this.blE.getItem(i);
-        PersonGroupActivity SW = SW();
-        if (SW != null && !SW.b(item) && item != null) {
-            if (this.blH == 1 || SW.SR()) {
-                if (SW.SR()) {
+        GroupInfoData item = this.blU.getItem(i);
+        PersonGroupActivity Tj = Tj();
+        if (Tj != null && !Tj.b(item) && item != null) {
+            if (this.blX == 1 || Tj.Te()) {
+                if (Tj.Te()) {
                     TiebaStatic.eventStat(getActivity(), "my_group_item", "click", 1, new Object[0]);
                 } else {
                     TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
-            } else if (SW.gh(item.getGroupId())) {
+            } else if (Tj.gj(item.getGroupId())) {
                 TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
             } else {
@@ -171,8 +171,8 @@ public class m extends BaseFragment implements View.OnClickListener, AdapterView
             if (view.getTag() instanceof GroupInfoData) {
                 groupInfoData = (GroupInfoData) view.getTag();
             }
-            PersonGroupActivity SW = SW();
-            if (SW != null && !SW.b(groupInfoData) && groupInfoData != null) {
+            PersonGroupActivity Tj = Tj();
+            if (Tj != null && !Tj.b(groupInfoData) && groupInfoData != null) {
                 sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getActivity(), groupInfoData.getGroupId(), 1)));
             }
         }
@@ -181,11 +181,11 @@ public class m extends BaseFragment implements View.OnClickListener, AdapterView
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.anM != null) {
-            ba.j(this.anM, com.baidu.tieba.s.cp_bg_line_d);
+        if (this.anU != null) {
+            ba.j(this.anU, com.baidu.tieba.s.cp_bg_line_d);
         }
         if (isAdded()) {
-            SW().getLayoutMode().h(this.blF);
+            Tj().getLayoutMode().h(this.blV);
             this.mPullView.ct(i);
         }
     }
@@ -195,7 +195,7 @@ public class m extends BaseFragment implements View.OnClickListener, AdapterView
         if (groupNewsPojo != null) {
             try {
                 if ("107".equals(new JSONObject(groupNewsPojo.getContent()).getString("eventId")) && com.baidu.adp.lib.util.k.iH()) {
-                    this.blG = true;
+                    this.blW = true;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

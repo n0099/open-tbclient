@@ -6,13 +6,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ j cms;
-    private final /* synthetic */ FrameLayout cmu;
+    final /* synthetic */ j cmI;
+    private final /* synthetic */ FrameLayout cmK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar, FrameLayout frameLayout) {
-        this.cms = jVar;
-        this.cmu = frameLayout;
+        this.cmI = jVar;
+        this.cmK = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,67 +45,67 @@ class m implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer20;
         com.baidu.tbadk.editortool.v vVar2;
         EditorToolComponetContainer editorToolComponetContainer21;
-        writeImagesInfo = this.cms.cmr;
-        editorToolComponetContainer = this.cms.cmo;
-        writeImagesInfo2 = editorToolComponetContainer.cmm;
+        writeImagesInfo = this.cmI.cmH;
+        editorToolComponetContainer = this.cmI.cmE;
+        writeImagesInfo2 = editorToolComponetContainer.cmC;
         if (writeImagesInfo == writeImagesInfo2) {
-            editorToolComponetContainer14 = this.cms.cmo;
-            if (!editorToolComponetContainer14.cmb.amS()) {
-                editorToolComponetContainer15 = this.cms.cmo;
-                editorToolComponetContainer15.clZ.ab(this.cmu);
-                editorToolComponetContainer16 = this.cms.cmo;
-                int ac = editorToolComponetContainer16.cmb.ac(this.cmu);
-                editorToolComponetContainer17 = this.cms.cmo;
-                writeImagesInfo5 = editorToolComponetContainer17.cmm;
+            editorToolComponetContainer14 = this.cmI.cmE;
+            if (!editorToolComponetContainer14.cms.anh()) {
+                editorToolComponetContainer15 = this.cmI.cmE;
+                editorToolComponetContainer15.cmq.ab(this.cmK);
+                editorToolComponetContainer16 = this.cmI.cmE;
+                int ac = editorToolComponetContainer16.cms.ac(this.cmK);
+                editorToolComponetContainer17 = this.cmI.cmE;
+                writeImagesInfo5 = editorToolComponetContainer17.cmC;
                 ImageFileInfo remove = writeImagesInfo5.getChosedFiles().remove(ac);
                 if (remove.isTempFile()) {
-                    this.cms.iC(remove.getFilePath());
+                    this.cmI.iF(remove.getFilePath());
                 }
-                editorToolComponetContainer18 = this.cms.cmo;
-                editorToolComponetContainer18.clQ.yW();
-                editorToolComponetContainer19 = this.cms.cmo;
-                editorToolComponetContainer19.cmc.setText("");
-                editorToolComponetContainer20 = this.cms.cmo;
-                vVar2 = editorToolComponetContainer20.aip;
+                editorToolComponetContainer18 = this.cmI.cmE;
+                editorToolComponetContainer18.cmh.zc();
+                editorToolComponetContainer19 = this.cmI.cmE;
+                editorToolComponetContainer19.cmt.setText("");
+                editorToolComponetContainer20 = this.cmI.cmE;
+                vVar2 = editorToolComponetContainer20.aix;
                 vVar2.handleAction(51, null);
-                editorToolComponetContainer21 = this.cms.cmo;
-                editorToolComponetContainer21.all();
+                editorToolComponetContainer21 = this.cmI.cmE;
+                editorToolComponetContainer21.alA();
                 return;
             }
             return;
         }
-        editorToolComponetContainer2 = this.cms.cmo;
-        if (!editorToolComponetContainer2.clY.amS()) {
-            editorToolComponetContainer3 = this.cms.cmo;
-            editorToolComponetContainer3.clW.ab(this.cmu);
-            editorToolComponetContainer4 = this.cms.cmo;
-            int ac2 = editorToolComponetContainer4.clY.ac(this.cmu);
-            editorToolComponetContainer5 = this.cms.cmo;
-            writeImagesInfo3 = editorToolComponetContainer5.cml;
+        editorToolComponetContainer2 = this.cmI.cmE;
+        if (!editorToolComponetContainer2.cmp.anh()) {
+            editorToolComponetContainer3 = this.cmI.cmE;
+            editorToolComponetContainer3.cmn.ab(this.cmK);
+            editorToolComponetContainer4 = this.cmI.cmE;
+            int ac2 = editorToolComponetContainer4.cmp.ac(this.cmK);
+            editorToolComponetContainer5 = this.cmI.cmE;
+            writeImagesInfo3 = editorToolComponetContainer5.cmB;
             ImageFileInfo remove2 = writeImagesInfo3.getChosedFiles().remove(ac2);
             if (remove2.isTempFile()) {
-                this.cms.iC(remove2.getFilePath());
+                this.cmI.iF(remove2.getFilePath());
             }
-            editorToolComponetContainer6 = this.cms.cmo;
-            int maxItemNum = editorToolComponetContainer6.clY.getMaxItemNum();
-            editorToolComponetContainer7 = this.cms.cmo;
-            writeImagesInfo4 = editorToolComponetContainer7.cml;
+            editorToolComponetContainer6 = this.cmI.cmE;
+            int maxItemNum = editorToolComponetContainer6.cmp.getMaxItemNum();
+            editorToolComponetContainer7 = this.cmI.cmE;
+            writeImagesInfo4 = editorToolComponetContainer7.cmB;
             int size = writeImagesInfo4.size();
-            editorToolComponetContainer8 = this.cms.cmo;
+            editorToolComponetContainer8 = this.cmI.cmE;
             String string = editorToolComponetContainer8.getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
-            editorToolComponetContainer9 = this.cms.cmo;
-            editorToolComponetContainer9.cme.setText(string);
-            editorToolComponetContainer10 = this.cms.cmo;
-            editorToolComponetContainer10.clQ.ei(new StringBuilder(String.valueOf(size)).toString());
+            editorToolComponetContainer9 = this.cmI.cmE;
+            editorToolComponetContainer9.cmu.setText(string);
+            editorToolComponetContainer10 = this.cmI.cmE;
+            editorToolComponetContainer10.cmh.el(new StringBuilder(String.valueOf(size)).toString());
             if (size == 0) {
-                editorToolComponetContainer13 = this.cms.cmo;
-                editorToolComponetContainer13.clQ.yP();
+                editorToolComponetContainer13 = this.cmI.cmE;
+                editorToolComponetContainer13.cmh.yV();
             }
-            editorToolComponetContainer11 = this.cms.cmo;
-            vVar = editorToolComponetContainer11.aip;
+            editorToolComponetContainer11 = this.cmI.cmE;
+            vVar = editorToolComponetContainer11.aix;
             vVar.handleAction(13, null);
-            editorToolComponetContainer12 = this.cms.cmo;
-            editorToolComponetContainer12.all();
+            editorToolComponetContainer12 = this.cmI.cmE;
+            editorToolComponetContainer12.alA();
         }
     }
 }

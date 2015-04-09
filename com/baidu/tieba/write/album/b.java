@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class b extends BaseFragment {
-    private View bTX;
-    private n ctp;
-    private com.baidu.tbadk.img.e cts;
-    private AlbumActivity ctu;
-    private h ctv;
-    private ImageView ctw;
-    private View ctx;
+    private View bUn;
+    private n ctF;
+    private com.baidu.tbadk.img.e ctI;
+    private AlbumActivity ctK;
+    private h ctL;
+    private ImageView ctM;
+    private View ctN;
     private int mCurrentIndex = -1;
     private NavigationBar mNavigationBar;
     private View mRoot;
@@ -31,23 +31,23 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ctu = (AlbumActivity) getBaseFragmentActivity();
-        this.ctp = this.ctu.apx();
+        this.ctK = (AlbumActivity) getBaseFragmentActivity();
+        this.ctF = this.ctK.apM();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRoot = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_view, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.navigation_bar);
-        this.bTX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.ctu);
+        this.bUn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.ctK);
         this.mTitle = this.mNavigationBar.setTitleText("");
         View inflate = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_choose, (ViewGroup) null);
-        this.ctw = (ImageView) inflate.findViewById(com.baidu.tieba.v.img_choose);
+        this.ctM = (ImageView) inflate.findViewById(com.baidu.tieba.v.img_choose);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new c(this));
         this.mViewPager = (ViewPager) this.mRoot.findViewById(com.baidu.tieba.v.viewPager);
-        this.cts = this.ctu.apy();
+        this.ctI = this.ctK.apN();
         this.mViewPager.setOnPageChangeListener(new d(this));
-        this.ctx = this.mRoot.findViewById(com.baidu.tieba.v.album_no_data);
+        this.ctN = this.mRoot.findViewById(com.baidu.tieba.v.album_no_data);
         return this.mRoot;
     }
 
@@ -55,35 +55,35 @@ public class b extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            apE();
+            apT();
         }
     }
 
-    private void apD() {
-        if (this.ctp == null && this.ctu != null) {
-            this.ctp = this.ctu.apx();
+    private void apS() {
+        if (this.ctF == null && this.ctK != null) {
+            this.ctF = this.ctK.apM();
         }
-        if (this.ctp != null && this.ctp.apK() != null) {
-            int currentIndex = this.ctp.getCurrentIndex();
+        if (this.ctF != null && this.ctF.apZ() != null) {
+            int currentIndex = this.ctF.getCurrentIndex();
             if (currentIndex >= 0) {
                 this.mCurrentIndex = currentIndex;
-                if (this.mCurrentIndex > this.ctp.apK().size() - 1) {
-                    this.mCurrentIndex = this.ctp.apK().size() - 1;
+                if (this.mCurrentIndex > this.ctF.apZ().size() - 1) {
+                    this.mCurrentIndex = this.ctF.apZ().size() - 1;
                 }
-                this.ctp.setCurrentIndex(-1);
-                iM(this.mCurrentIndex + 1);
-                this.ctv = null;
-                this.ctv = new h(this.ctu, this.cts);
-                this.mViewPager.setAdapter(this.ctv);
-                if (this.mCurrentIndex == 0 && this.ctp.apK() != null) {
-                    if (this.ctp.isAdded(this.ctp.apK().get(this.mCurrentIndex))) {
-                        b(this.ctw, true);
+                this.ctF.setCurrentIndex(-1);
+                iP(this.mCurrentIndex + 1);
+                this.ctL = null;
+                this.ctL = new h(this.ctK, this.ctI);
+                this.mViewPager.setAdapter(this.ctL);
+                if (this.mCurrentIndex == 0 && this.ctF.apZ() != null) {
+                    if (this.ctF.isAdded(this.ctF.apZ().get(this.mCurrentIndex))) {
+                        b(this.ctM, true);
                     } else {
-                        b(this.ctw, false);
+                        b(this.ctM, false);
                     }
                 }
             }
-            this.ctv.setData(this.ctp.apK());
+            this.ctL.setData(this.ctF.apZ());
             this.mViewPager.setCurrentItem(this.mCurrentIndex, false);
         }
     }
@@ -91,22 +91,22 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-        if (z && this.ctv != null) {
-            this.ctv.setData(null);
+        if (z && this.ctL != null) {
+            this.ctL.setData(null);
         }
     }
 
-    public View aes() {
-        return this.bTX;
+    public View aeH() {
+        return this.bUn;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ctu.getLayoutMode().X(i == 1);
-        this.ctu.getLayoutMode().h(this.mRoot);
+        this.ctK.getLayoutMode().X(i == 1);
+        this.ctK.getLayoutMode().h(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.ctu.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.ctK.getPageContext(), i);
         }
     }
 
@@ -123,9 +123,9 @@ public class b extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iM(int i) {
-        if (this.ctp != null && this.ctp.apK() != null) {
-            String string = this.ctu.getPageContext().getContext().getString(com.baidu.tieba.y.album_big_image_title, Integer.valueOf(i), Integer.valueOf(this.ctp.apK().size()));
+    public void iP(int i) {
+        if (this.ctF != null && this.ctF.apZ() != null) {
+            String string = this.ctK.getPageContext().getContext().getString(com.baidu.tieba.y.album_big_image_title, Integer.valueOf(i), Integer.valueOf(this.ctF.apZ().size()));
             if (TextUtils.isEmpty(string)) {
                 string = "";
             }
@@ -134,17 +134,17 @@ public class b extends BaseFragment {
     }
 
     public void e(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo iN;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.ctv != null && (iN = this.ctv.iN(this.mCurrentIndex)) != null && iN.getFilePath() != null && iN.getFilePath().equals(imageFileInfo.getFilePath())) {
-            b(this.ctw, z);
+        ImageFileInfo iQ;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.ctL != null && (iQ = this.ctL.iQ(this.mCurrentIndex)) != null && iQ.getFilePath() != null && iQ.getFilePath().equals(imageFileInfo.getFilePath())) {
+            b(this.ctM, z);
         }
     }
 
-    private void apE() {
+    private void apT() {
         if (!isHidden()) {
-            this.ctx.setVisibility(8);
+            this.ctN.setVisibility(8);
             this.mViewPager.setVisibility(0);
-            apD();
+            apS();
         }
     }
 }

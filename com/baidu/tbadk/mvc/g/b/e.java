@@ -6,8 +6,8 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public abstract class e extends f {
-    protected NavigationBar anm;
-    protected com.baidu.tbadk.mvc.g.a.d anr;
+    protected NavigationBar anu;
+    protected com.baidu.tbadk.mvc.g.a.d anz;
 
     protected abstract com.baidu.tbadk.mvc.g.a.d a(NavigationBar navigationBar);
 
@@ -18,13 +18,13 @@ public abstract class e extends f {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void ov() {
-        this.anm = (NavigationBar) getView().findViewById(v.view_navigation_bar);
-        this.anr = a(this.anm);
+        this.anu = (NavigationBar) getView().findViewById(v.view_navigation_bar);
+        this.anz = a(this.anu);
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.f, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.anr.a(tbPageContext, i);
+        this.anz.a(tbPageContext, i);
         super.a(tbPageContext, i);
         return true;
     }

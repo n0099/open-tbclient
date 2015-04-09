@@ -7,7 +7,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d extends ImageSpan {
-    private WeakReference<Drawable> Fm;
+    private WeakReference<Drawable> Fo;
 
     public d(Drawable drawable, int i) {
         super(drawable, i);
@@ -24,14 +24,14 @@ public class d extends ImageSpan {
     }
 
     private Drawable md() {
-        WeakReference<Drawable> weakReference = this.Fm;
+        WeakReference<Drawable> weakReference = this.Fo;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Fm = new WeakReference<>(drawable2);
+            this.Fo = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

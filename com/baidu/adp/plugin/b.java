@@ -394,7 +394,7 @@ public class b {
                     }
                     this.Cy = 1;
                     com.baidu.adp.plugin.util.b a = com.baidu.adp.plugin.util.a.a(classLoader, this.CA, String.valueOf(this.mPackageName) + ".Static");
-                    if (a != null && !a.EN) {
+                    if (a != null && !a.EP) {
                         if (PluginPackageManager.ls().lA()) {
                             com.baidu.adp.plugin.b.a.lh().be("plugin_inject_failed");
                         }
@@ -425,10 +425,10 @@ public class b {
                             str = sb2.substring(0, sb2.length() - 1);
                         }
                         com.baidu.adp.plugin.util.b a2 = com.baidu.adp.plugin.util.a.a(this.mContext, new DexClassLoader(str2, this.CF.getAbsolutePath(), str, classLoader), String.valueOf(this.mPackageName) + ".Static");
-                        if (a2 != null && !a2.EN && PluginPackageManager.ls().lA()) {
+                        if (a2 != null && !a2.EP && PluginPackageManager.ls().lA()) {
                             com.baidu.adp.plugin.b.a.lh().d("plugin_load", "replaceparent_failed", this.mPackageName, a2.mErrMsg);
                             return false;
-                        } else if (a2 != null && a2.EN) {
+                        } else if (a2 != null && a2.EP) {
                             com.baidu.adp.plugin.b.a.lh().be("plugin_second_inject_succ");
                         }
                     }

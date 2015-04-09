@@ -10,7 +10,7 @@ import com.baidu.tieba.friendFeed.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.friendFeed.message.RequestFriendFeedMessage;
 /* loaded from: classes.dex */
 public class a extends f {
-    private boolean aIE;
+    private boolean aIM;
     private Context mContext;
     private String timeline;
 
@@ -28,11 +28,11 @@ public class a extends f {
     }
 
     public boolean isUseCache() {
-        return this.aIE;
+        return this.aIM;
     }
 
     public void setUseCache(boolean z) {
-        this.aIE = z;
+        this.aIM = z;
     }
 
     @Override // com.baidu.adp.base.f

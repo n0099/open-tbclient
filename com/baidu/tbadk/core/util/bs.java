@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bs {
-    private static int VJ = -1;
-    private static int VK = -1;
-    private static boolean VL = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> VM = new com.baidu.adp.lib.e.a<>(500);
+    private static int VL = -1;
+    private static int VM = -1;
+    private static boolean VN = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> VO = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     public static void ab(Context context) {
         mAppContext = context;
-        VL = true;
+        VN = true;
     }
 
     private static void tm() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            VK = mAppContext.getResources().getColor(com.baidu.tieba.s.more_color);
-            VJ = mAppContext.getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
+            VM = mAppContext.getResources().getColor(com.baidu.tieba.s.more_color);
+            VL = mAppContext.getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
         }
     }
 
@@ -33,11 +33,11 @@ public class bs {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int aj(boolean z) {
-        if (VL) {
-            VL = false;
+        if (VN) {
+            VN = false;
             tm();
         }
-        return z ? VJ : VK;
+        return z ? VL : VM;
     }
 
     public static void m(View view) {
@@ -48,16 +48,16 @@ public class bs {
 
     public static void n(View view) {
         if (view != null) {
-            VM.remove(Integer.valueOf(System.identityHashCode(view)));
+            VO.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = VM.get(Integer.valueOf(identityHashCode));
+        Integer num = VO.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            VM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            VO.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

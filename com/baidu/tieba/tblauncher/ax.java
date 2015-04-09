@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aBl;
-    private final /* synthetic */ int aYD;
-    final /* synthetic */ ai crN;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aBt;
+    private final /* synthetic */ int aYT;
+    final /* synthetic */ ai csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(ai aiVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.crN = aiVar;
-        this.aBl = aVar;
-        this.aYD = i;
+        this.csd = aiVar;
+        this.aBt = aVar;
+        this.aYT = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -23,15 +23,15 @@ public class ax implements com.baidu.tbadk.core.dialog.d {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        this.aBl.dismiss();
+        this.aBt.dismiss();
         MessageManager messageManager = MessageManager.getInstance();
-        mainTabActivity = this.crN.crH;
+        mainTabActivity = this.csd.crX;
         messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(mainTabActivity.getPageContext().getPageActivity(), 2)));
-        if (this.aYD == 0) {
-            mainTabActivity3 = this.crN.crH;
+        if (this.aYT == 0) {
+            mainTabActivity3 = this.csd.crX;
             TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.aYD == 1) {
-            mainTabActivity2 = this.crN.crH;
+        } else if (this.aYT == 1) {
+            mainTabActivity2 = this.csd.crX;
             TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
         }
     }

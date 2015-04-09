@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.httpNet;
 /* loaded from: classes.dex */
 public class a {
-    private b VQ = new b();
-    private c VR = new c();
-    private d VS = new d();
+    private b VS = new b();
+    private c VT = new c();
+    private d VU = new d();
 
     public b tp() {
-        return this.VQ;
+        return this.VS;
     }
 
     public c tq() {
-        return this.VR;
+        return this.VT;
     }
 
     public d tr() {
-        return this.VS;
+        return this.VU;
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ HaloView XR;
+    final /* synthetic */ HaloView XT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(HaloView haloView) {
-        this.XR = haloView;
+        this.XT = haloView;
     }
 
     @Override // java.lang.Runnable
@@ -14,19 +14,19 @@ public class l implements Runnable {
         boolean z;
         boolean z2;
         int i;
-        z = this.XR.XQ;
+        z = this.XT.XS;
         if (!z) {
-            z2 = this.XR.XO;
+            z2 = this.XT.XQ;
             if (!z2) {
-                HaloView haloView = this.XR;
-                HaloView haloView2 = this.XR;
-                i = haloView2.XP;
+                HaloView haloView = this.XT;
+                HaloView haloView2 = this.XT;
+                i = haloView2.XR;
                 int i2 = i + 1;
-                haloView2.XP = i2;
-                haloView.XP = i2 % 4;
+                haloView2.XR = i2;
+                haloView.XR = i2 % 4;
             }
-            this.XR.postDelayed(this, 800L);
-            this.XR.invalidate();
+            this.XT.postDelayed(this, 800L);
+            this.XT.invalidate();
         }
     }
 }

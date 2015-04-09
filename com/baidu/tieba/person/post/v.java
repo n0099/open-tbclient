@@ -7,13 +7,13 @@ import com.baidu.tieba.person.UserPostPageRequestMessage;
 import com.baidu.tieba.person.bo;
 /* loaded from: classes.dex */
 class v extends HttpMessageListener {
-    final /* synthetic */ t bRL;
+    final /* synthetic */ t bSb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(t tVar, int i) {
         super(i);
-        this.bRL = tVar;
+        this.bSb = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ class v extends HttpMessageListener {
         if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
             UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
             if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.bRL.b(null, false);
+                this.bSb.b(null, false);
                 return;
             }
             UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();

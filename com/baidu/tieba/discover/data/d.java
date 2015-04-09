@@ -14,7 +14,7 @@ public class d {
         this.type = i;
     }
 
-    public List<c> Gk() {
+    public List<c> Gq() {
         return this.menu_list;
     }
 

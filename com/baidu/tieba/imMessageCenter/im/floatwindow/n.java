@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow;
 public interface n {
     void U(int i, int i2);
 
-    void Uv();
+    void UI();
 
-    void Uw();
+    void UJ();
 
     void V(int i, int i2);
 }

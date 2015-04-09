@@ -4,7 +4,7 @@ import com.baidu.tbadk.mvc.b.i;
 import com.baidu.tbadk.mvc.b.k;
 /* loaded from: classes.dex */
 public abstract class b<T extends i, R extends k> extends d<T, R> {
-    protected abstract boolean AH();
+    protected abstract boolean AN();
 
     public b(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
@@ -15,8 +15,8 @@ public abstract class b<T extends i, R extends k> extends d<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Az() == 16777219) {
-            if (AH()) {
+        if (bVar.AF() == 16777219) {
+            if (AN()) {
                 dI(33554440);
                 return true;
             }

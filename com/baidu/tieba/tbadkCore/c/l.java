@@ -6,15 +6,15 @@ import com.baidu.adp.widget.p;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ TbPageContext Nn;
-    final /* synthetic */ k coe;
-    private final /* synthetic */ p cof;
+    private final /* synthetic */ TbPageContext Np;
+    final /* synthetic */ k cou;
+    private final /* synthetic */ p cov;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar, p pVar, TbPageContext tbPageContext) {
-        this.coe = kVar;
-        this.cof = pVar;
-        this.Nn = tbPageContext;
+        this.cou = kVar;
+        this.cov = pVar;
+        this.Np = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,9 +24,9 @@ class l extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         j jVar;
         super.onLoaded((l) aVar, str, i);
         if (aVar != null && aVar.mA()) {
-            jVar = this.coe.coc;
-            this.cof.setDrawable(jVar.f(aVar));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004005, this.Nn));
+            jVar = this.cou.cos;
+            this.cov.setDrawable(jVar.f(aVar));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004005, this.Np));
         }
     }
 }

@@ -6,22 +6,22 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 class ag {
-    TextView aXK;
-    StringBuffer bPL;
-    TextView bPM;
-    TextView bPN;
-    ImageView bPO;
-    TextView bPP;
-    TextView bPQ;
-    TextView bPR;
-    Button bPS;
-    ImageView bPT;
-    final /* synthetic */ af bPU;
-    ImageView blB;
-    BarImageView bxR;
+    TextView aYa;
+    StringBuffer bQb;
+    TextView bQc;
+    TextView bQd;
+    ImageView bQe;
+    TextView bQf;
+    TextView bQg;
+    TextView bQh;
+    Button bQi;
+    ImageView bQj;
+    final /* synthetic */ af bQk;
+    ImageView blR;
+    BarImageView byh;
 
     private ag(af afVar) {
-        this.bPU = afVar;
+        this.bQk = afVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

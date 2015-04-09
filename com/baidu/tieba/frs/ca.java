@@ -6,8 +6,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ca {
-    FrameLayout aMo;
-    LinearLayout aMp;
-    TextView aMq;
-    ProgressBar aMr;
+    LinearLayout aMA;
+    TextView aMB;
+    ProgressBar aMC;
+    FrameLayout aMz;
 }

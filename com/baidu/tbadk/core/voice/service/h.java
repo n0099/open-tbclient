@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ MyAudioRecorder aaa;
+    final /* synthetic */ MyAudioRecorder aac;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(MyAudioRecorder myAudioRecorder) {
-        this.aaa = myAudioRecorder;
+        this.aac = myAudioRecorder;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aaa.tZ();
+        this.aac.tZ();
     }
 }

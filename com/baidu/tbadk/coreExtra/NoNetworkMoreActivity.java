@@ -15,8 +15,8 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
-    private TextView aah;
-    private TextView aai;
+    private TextView aaj;
+    private TextView aak;
     private View mBack;
     private NavigationBar mNavigationBar;
 
@@ -33,14 +33,14 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mBack.setOnClickListener(this);
         this.mNavigationBar.setTitleText(y.no_network);
-        this.aah = (TextView) findViewById(v.more_item1);
+        this.aaj = (TextView) findViewById(v.more_item1);
         SpannableString spannableString = new SpannableString(getPageContext().getString(y.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.aah.setText(spannableString);
-        this.aai = (TextView) findViewById(v.more_item2);
+        this.aaj.setText(spannableString);
+        this.aak = (TextView) findViewById(v.more_item2);
         SpannableString spannableString2 = new SpannableString(getPageContext().getString(y.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.aai.setText(spannableString2);
+        this.aak.setText(spannableString2);
         ((Button) findViewById(v.network_setting_btn)).setOnClickListener(this);
     }
 

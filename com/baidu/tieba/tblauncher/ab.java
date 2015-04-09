@@ -32,6 +32,6 @@ public class ab extends BroadcastReceiver {
         } else {
             this.this$0.mHasNewVersion = false;
         }
-        this.this$0.eU(false);
+        this.this$0.eS(false);
     }
 }

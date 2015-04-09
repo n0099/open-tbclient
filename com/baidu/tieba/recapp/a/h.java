@@ -9,18 +9,18 @@ import com.baidu.tieba.recapp.view.BaseAppViewHolder;
 import com.baidu.tieba.tbadkCore.c.i;
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    private static h bXr;
+    private static h bXH;
 
-    public static final h afs() {
-        if (bXr != null) {
-            return bXr;
+    public static final h afH() {
+        if (bXH != null) {
+            return bXH;
         }
         synchronized (h.class) {
-            if (bXr == null) {
-                bXr = new h();
+            if (bXH == null) {
+                bXH = new h();
             }
         }
-        return bXr;
+        return bXH;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,10 +29,10 @@ public class h implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof BaseAppViewHolder) {
                 i appData = ((BaseAppViewHolder) tag).getAppData();
-                if (!bd.isEmpty(appData.amq().url)) {
-                    com.baidu.tbadk.distribute.a.ye().a(view.getContext(), appData.amw(), "area_click", "pb", appData.cnP, appData.threadId);
-                    com.baidu.tbadk.distribute.a.ye().a(appData.amw(), appData.cnP, appData.threadId, "PB", "click");
-                    bk.tl().b((TbPageContext) m.D(view.getContext()), new String[]{appData.amq().url});
+                if (!bd.isEmpty(appData.amF().url)) {
+                    com.baidu.tbadk.distribute.a.yk().a(view.getContext(), appData.amL(), "area_click", "pb", appData.cof, appData.threadId);
+                    com.baidu.tbadk.distribute.a.yk().a(appData.amL(), appData.cof, appData.threadId, "PB", "click");
+                    bk.tl().b((TbPageContext) m.D(view.getContext()), new String[]{appData.amF().url});
                 }
             }
         }

@@ -1,11 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import android.text.TextUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    public String userId;
-    public String userName;
+    private int aaY;
+    private String link;
+    private String title;
 
-    public h(String str, String str2) {
-        this.userId = str;
-        this.userName = str2;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.aaY = jSONObject.optInt("offline");
+            this.title = jSONObject.optString("title");
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
+            }
+        }
     }
 }

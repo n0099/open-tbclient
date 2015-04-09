@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private int abN;
-    private int abO;
-    private int abP;
-    private int[] abQ;
+    private int abV;
+    private int abW;
+    private int abX;
+    private int[] abY;
     private int lcsTimeout2G;
     private int lcsTimeout3G;
     private int lcsTimeoutwifi;
@@ -23,38 +23,38 @@ public class e {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.abN = jSONObject.optInt("conn_conf");
-            this.abO = jSONObject.optInt("continuous_fail_count");
-            this.abP = jSONObject.optInt("restart_time_interval");
+            this.abV = jSONObject.optInt("conn_conf");
+            this.abW = jSONObject.optInt("continuous_fail_count");
+            this.abX = jSONObject.optInt("restart_time_interval");
             this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
             this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
             this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.abQ = new int[optJSONArray.length()];
+                this.abY = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.abQ[i] = optJSONArray.optInt(i);
+                    this.abY[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.abQ = new int[0];
+            this.abY = new int[0];
         }
     }
 
-    public int vN() {
-        return this.abN;
+    public int vT() {
+        return this.abV;
     }
 
-    public int vO() {
-        return this.abO;
+    public int vU() {
+        return this.abW;
     }
 
-    public int vP() {
-        return this.abP;
+    public int vV() {
+        return this.abX;
     }
 
-    public int[] vQ() {
-        return this.abQ;
+    public int[] vW() {
+        return this.abY;
     }
 
     public int getLcsTimeout2G() {

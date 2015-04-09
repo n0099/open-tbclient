@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ MediaService ZL;
+    final /* synthetic */ MediaService ZN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MediaService mediaService) {
-        this.ZL = mediaService;
+        this.ZN = mediaService;
     }
 
     @Override // java.lang.Runnable
@@ -19,18 +19,18 @@ class f implements Runnable {
         Runnable runnable;
         int i2;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.ZL.mStartRecorderTime;
+        j = this.ZN.mStartRecorderTime;
         int i3 = (int) (currentTimeMillis - j);
-        i = this.ZL.mElapsedTime;
+        i = this.ZN.mElapsedTime;
         if (i != i3) {
-            this.ZL.mElapsedTime = i3 / 1000;
+            this.ZN.mElapsedTime = i3 / 1000;
             Intent intent = new Intent("com.baidu.recordElapsedTime");
-            i2 = this.ZL.mElapsedTime;
+            i2 = this.ZN.mElapsedTime;
             intent.putExtra("com.baidu.msg.recordElapsedTime", i2);
-            this.ZL.sendBroadcast(intent);
+            this.ZN.sendBroadcast(intent);
         }
-        handler = this.ZL.mHandler;
-        runnable = this.ZL.mRecordTimeThread;
+        handler = this.ZN.mHandler;
+        runnable = this.ZN.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);
     }
 }

@@ -11,14 +11,14 @@ import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.lib.util.m {
-    private static long Vm = 86400000;
-    private static long Vn = 3600000;
-    private static long Vo = TbConfig.USE_TIME_INTERVAL;
-    private static long Vp = 1000;
-    private static String Vq = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_hour_before);
-    private static String Vr = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_min_before);
-    private static String Vs = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_sec_before);
-    private static Date Vt = new Date();
+    private static long Vo = 86400000;
+    private static long Vp = 3600000;
+    private static long Vq = TbConfig.USE_TIME_INTERVAL;
+    private static long Vr = 1000;
+    private static String Vs = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_hour_before);
+    private static String Vt = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_min_before);
+    private static String Vu = TbadkCoreApplication.m411getInst().getApp().getString(com.baidu.tieba.y.time_sec_before);
+    private static Date Vv = new Date();
 
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
@@ -182,15 +182,15 @@ public class bd extends com.baidu.adp.lib.util.m {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / Vm != 0) {
-            if (abs / Vm > 30) {
+        if (abs / Vo != 0) {
+            if (abs / Vo > 30) {
                 return "一个月前";
             }
-            return String.valueOf(abs / Vm) + "天前";
-        } else if (abs / Vn != 0) {
-            return String.valueOf(abs / Vn) + "小时前";
+            return String.valueOf(abs / Vo) + "天前";
+        } else if (abs / Vp != 0) {
+            return String.valueOf(abs / Vp) + "小时前";
         } else {
-            return String.valueOf(abs / Vo) + "分钟前";
+            return String.valueOf(abs / Vq) + "分钟前";
         }
     }
 
@@ -219,9 +219,9 @@ public class bd extends com.baidu.adp.lib.util.m {
 
     public static String n(long j) {
         String g;
-        synchronized (Vt) {
-            Vt.setTime(j);
-            g = g(Vt);
+        synchronized (Vv) {
+            Vv.setTime(j);
+            g = g(Vv);
         }
         return g;
     }
@@ -231,18 +231,18 @@ public class bd extends com.baidu.adp.lib.util.m {
             return "";
         }
         long time = new Date().getTime() - date.getTime();
-        if (time < Vm && time > 0) {
-            if (time < Vn) {
-                if (time < Vo) {
-                    long j = time / Vp;
+        if (time < Vo && time > 0) {
+            if (time < Vp) {
+                if (time < Vq) {
+                    long j = time / Vr;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(String.valueOf(j)) + Vs;
+                    return String.valueOf(String.valueOf(j)) + Vu;
                 }
-                return String.valueOf(String.valueOf(time / Vo)) + Vr;
+                return String.valueOf(String.valueOf(time / Vq)) + Vt;
             }
-            return String.valueOf(String.valueOf(time / Vn)) + Vq;
+            return String.valueOf(String.valueOf(time / Vp)) + Vs;
         }
         return d(date);
     }

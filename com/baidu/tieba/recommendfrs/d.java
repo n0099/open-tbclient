@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ae {
-    final /* synthetic */ b bXH;
+    final /* synthetic */ b bXW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.bXH = bVar;
+        this.bXW = bVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ae
@@ -17,14 +17,14 @@ public class d implements ae {
         boolean z2;
         com.baidu.tieba.recommendfrs.a.b bVar;
         com.baidu.tieba.recommendfrs.a.b bVar2;
-        TiebaStatic.eventStat(this.bXH.getFragmentActivity(), "kantie_update", null);
-        z2 = this.bXH.aBE;
+        TiebaStatic.eventStat(this.bXW.getFragmentActivity(), "kantie_update", null);
+        z2 = this.bXW.aBM;
         if (z2) {
-            bVar2 = this.bXH.bXA;
-            bVar2.hM(0);
+            bVar2 = this.bXW.bXQ;
+            bVar2.hP(0);
             return;
         }
-        bVar = this.bXH.bXA;
-        bVar.FY();
+        bVar = this.bXW.bXQ;
+        bVar.Ge();
     }
 }

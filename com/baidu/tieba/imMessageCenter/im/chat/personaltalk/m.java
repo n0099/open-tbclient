@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* loaded from: classes.dex */
 class m implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ k bpL;
+    final /* synthetic */ k bqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.bpL = kVar;
+        this.bqb = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ class m implements com.baidu.tieba.im.g<Boolean> {
         long j;
         PersonalTalkSettingActivity personalTalkSettingActivity4;
         long j2;
-        personalTalkSettingActivity = this.bpL.bpK;
+        personalTalkSettingActivity = this.bqb.bqa;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.bpL.bpK;
+        personalTalkSettingActivity2 = this.bqb.bqa;
         personalTalkSettingActivity2.showToast(com.baidu.tieba.y.cash_del_suc, false);
-        personalTalkSettingActivity3 = this.bpL.bpK;
+        personalTalkSettingActivity3 = this.bqb.bqa;
         j = personalTalkSettingActivity3.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(j), 2, null, 1)));
         StringBuilder sb = new StringBuilder("clear cache by person:");
-        personalTalkSettingActivity4 = this.bpL.bpK;
+        personalTalkSettingActivity4 = this.bqb.bqa;
         j2 = personalTalkSettingActivity4.userId;
         BdSocketLinkService.startService(true, sb.append(j2).toString());
     }

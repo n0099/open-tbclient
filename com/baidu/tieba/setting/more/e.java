@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d bZW;
-    private final /* synthetic */ q bZX;
+    final /* synthetic */ d cal;
+    private final /* synthetic */ q cam;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, q qVar) {
-        this.bZW = dVar;
-        this.bZX = qVar;
+        this.cal = dVar;
+        this.cam = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,38 +23,38 @@ public class e implements View.OnClickListener {
         TextView textView;
         long j;
         int i;
-        settingTextTestNewView = this.bZW.bZS;
+        settingTextTestNewView = this.cal.cah;
         if (view == settingTextTestNewView) {
-            this.bZX.hT(1);
+            this.cam.hW(1);
             return;
         }
-        tbSettingTextTipView = this.bZW.bZT;
+        tbSettingTextTipView = this.cal.cai;
         if (view == tbSettingTextTipView) {
-            this.bZX.hT(2);
+            this.cam.hW(2);
             return;
         }
-        settingTextFunctionIntroView = this.bZW.bZU;
+        settingTextFunctionIntroView = this.cal.caj;
         if (view == settingTextFunctionIntroView) {
-            this.bZX.hT(3);
+            this.cam.hW(3);
             return;
         }
-        textView = this.bZW.bZP;
+        textView = this.cal.cae;
         if (view == textView) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.bZW.bZN;
+            j = this.cal.cac;
             if (currentTimeMillis - j >= 2000) {
-                this.bZW.bZM = 0;
+                this.cal.cab = 0;
             } else {
-                d dVar = this.bZW;
-                i = dVar.bZM;
+                d dVar = this.cal;
+                i = dVar.cab;
                 int i2 = i + 1;
-                dVar.bZM = i2;
+                dVar.cab = i2;
                 if (i2 >= 14) {
-                    this.bZX.hT(4);
-                    this.bZW.bZM = 0;
+                    this.cam.hW(4);
+                    this.cal.cab = 0;
                 }
             }
-            this.bZW.bZN = System.currentTimeMillis();
+            this.cal.cac = System.currentTimeMillis();
         }
     }
 }

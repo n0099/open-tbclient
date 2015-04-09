@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private com.baidu.adp.lib.c.b aXd;
-    private TbImageView aYx;
-    private int aYy;
-    private String aYz;
+    private com.baidu.adp.lib.c.b aXt;
+    private TbImageView aYN;
+    private int aYO;
+    private String aYP;
     private Context mContext;
     private int mPosition;
     private TextView mTitle;
@@ -26,7 +26,7 @@ public class d extends LinearLayout {
 
     public d(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aXd = null;
+        this.aXt = null;
         this.mContext = context;
         initView();
         setOnLongClickListener(new e(this));
@@ -35,8 +35,8 @@ public class d extends LinearLayout {
     private void initView() {
         setOrientation(0);
         com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_bottom_view, this, true);
-        this.aYx = (TbImageView) findViewById(com.baidu.tieba.v.bottom_content_pic);
-        this.aYx.setAutoChangeStyle(false);
+        this.aYN = (TbImageView) findViewById(com.baidu.tieba.v.bottom_content_pic);
+        this.aYN.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(com.baidu.tieba.v.bottom_title);
     }
 
@@ -51,20 +51,20 @@ public class d extends LinearLayout {
                 setOnClickListener(new f(this, tbPageContext, qVar, i));
             }
             if (!TextUtils.isEmpty(qVar.src)) {
-                this.aYx.setTag(qVar.src);
-                this.aYx.c(qVar.src, 10, false);
+                this.aYN.setTag(qVar.src);
+                this.aYN.c(qVar.src, 10, false);
             }
         }
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.aYx.setBackgroundDrawable(null);
-        this.aYx.setImageDrawable(null);
+        this.aYN.setBackgroundDrawable(null);
+        this.aYN.setImageDrawable(null);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aXd = bVar;
+        this.aXt = bVar;
     }
 
     public void setPosition(int i) {
@@ -72,19 +72,19 @@ public class d extends LinearLayout {
     }
 
     public void setStPosition(int i) {
-        this.aYy = i;
+        this.aYO = i;
     }
 
     public void setTaskInfo(String str) {
-        this.aYz = str;
+        this.aYP = str;
     }
 
-    public void ct(boolean z) {
+    public void cr(boolean z) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.aYx.setAutoChangeStyle(z);
+        this.aYN.setAutoChangeStyle(z);
         ba.a(this.mTitle, com.baidu.tieba.s.official_msg_bottom_text, 1, skinType);
     }
 }

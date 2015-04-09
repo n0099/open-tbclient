@@ -22,7 +22,7 @@ public class p extends com.baidu.adp.framework.listener.e {
             long friendId = responseAddFriendMessage.getFriendId();
             com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
             bVar.setId(friendId);
-            bVar.fF(0);
+            bVar.fH(0);
             bVar.setContent(requestAddFriendMessage.getMessage());
             if (error == 0) {
                 bVar.setStatus(3);

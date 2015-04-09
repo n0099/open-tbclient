@@ -38,9 +38,9 @@ public class TbJsBridge {
         com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
         fVar.title = str;
         fVar.content = str2;
-        fVar.adm = str4;
+        fVar.adu = str4;
         if (!bd.isEmpty(str3)) {
-            fVar.adn = Uri.parse(str3);
+            fVar.adv = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.mActivity, fVar, true)));
     }

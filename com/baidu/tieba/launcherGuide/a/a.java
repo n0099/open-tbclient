@@ -6,39 +6,39 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 /* loaded from: classes.dex */
 public class a extends f<BaseFragmentActivity> {
-    private static final String bxi = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
-    private boolean bxj;
-    private InterestFrsData bxk;
-    private b bxl;
+    private static final String bxy = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private InterestFrsData bxA;
+    private b bxB;
+    private boolean bxz;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean Wg() {
-        return this.bxj;
+    public boolean Wt() {
+        return this.bxz;
     }
 
-    public void dr(boolean z) {
-        this.bxj = z;
+    public void dp(boolean z) {
+        this.bxz = z;
     }
 
-    public InterestFrsData Wh() {
-        return this.bxk;
+    public InterestFrsData Wu() {
+        return this.bxA;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.bxk = interestFrsData;
+        this.bxA = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, c cVar) {
-        this.bxl = new b(i, i2, i3, cVar);
-        this.bxl.execute(new Void[0]);
+        this.bxB = new b(i, i2, i3, cVar);
+        this.bxB.execute(new Void[0]);
     }
 
-    public void Wi() {
-        if (this.bxl != null) {
-            this.bxl.cancel();
+    public void Wv() {
+        if (this.bxB != null) {
+            this.bxB.cancel();
         }
     }
 

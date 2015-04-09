@@ -7,19 +7,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.l;
+import com.baidu.tbadk.coreExtra.data.m;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int abY = 0;
-    private VersionData abS = new VersionData();
-    private com.baidu.tbadk.coreExtra.data.d abT = new com.baidu.tbadk.coreExtra.data.d();
-    private com.baidu.tbadk.coreExtra.data.e abU = new com.baidu.tbadk.coreExtra.data.e();
-    private CombineDownload abV = new CombineDownload();
-    private com.baidu.tbadk.coreExtra.data.g abW = new com.baidu.tbadk.coreExtra.data.g();
-    private l abX = new l();
+    private int acg = 0;
+    private VersionData aca = new VersionData();
+    private com.baidu.tbadk.coreExtra.data.d acb = new com.baidu.tbadk.coreExtra.data.d();
+    private com.baidu.tbadk.coreExtra.data.e acc = new com.baidu.tbadk.coreExtra.data.e();
+    private CombineDownload acd = new CombineDownload();
+    private com.baidu.tbadk.coreExtra.data.h ace = new com.baidu.tbadk.coreExtra.data.h();
+    private m acf = new m();
 
     public void parserJson(String str) {
         try {
@@ -32,16 +32,16 @@ public class g {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.abS.parserJson(jSONObject.optJSONObject("version"));
-                this.abT.parserJson(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.util.a.CV().parserJson(jSONObject.optJSONObject("ad_config"));
+                this.aca.parserJson(jSONObject.optJSONObject("version"));
+                this.acb.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.util.a.Db().parserJson(jSONObject.optJSONObject("ad_config"));
                 com.baidu.tbadk.core.util.f.setIp(jSONObject.optString("client_ip", null));
-                this.abU.parserJson(jSONObject.optJSONObject("config"));
-                this.abX.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.acc.parserJson(jSONObject.optJSONObject("config"));
+                this.acf.parserJson(jSONObject.optJSONObject("wl_config"));
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.abV.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.abW.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.abY = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.acd.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.ace.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.acg = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001145, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.m411getInst().getFaceShopVersion()) {
@@ -59,27 +59,27 @@ public class g {
         }
     }
 
-    public com.baidu.tbadk.coreExtra.data.e vS() {
-        return this.abU;
+    public com.baidu.tbadk.coreExtra.data.e vY() {
+        return this.acc;
     }
 
-    public String vT() {
+    public String vZ() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload vU() {
-        return this.abV;
+    public CombineDownload wa() {
+        return this.acd;
     }
 
-    public VersionData vV() {
-        return this.abS;
+    public VersionData wb() {
+        return this.aca;
     }
 
-    public com.baidu.tbadk.coreExtra.data.d vW() {
-        return this.abT;
+    public com.baidu.tbadk.coreExtra.data.d wc() {
+        return this.acb;
     }
 
-    public l vX() {
-        return this.abX;
+    public m wd() {
+        return this.acf;
     }
 }

@@ -12,27 +12,27 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa extends BaseAdapter {
-    private com.baidu.tbadk.img.e cts;
-    private AlbumActivity ctu;
-    private n cuo;
-    private boolean cup;
-    private boolean cuq;
-    private y cur;
-    private x cus;
-    private z cut;
+    private com.baidu.tbadk.img.e ctI;
+    private AlbumActivity ctK;
+    private n cuE;
+    private boolean cuF;
+    private boolean cuG;
+    private y cuH;
+    private x cuI;
+    private z cuJ;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public aa(AlbumActivity albumActivity, n nVar) {
-        this.ctu = albumActivity;
-        this.cts = albumActivity.apy();
-        this.cuo = nVar;
-        this.mWidth = (int) this.ctu.getResources().getDimension(com.baidu.tieba.t.album_gridview_item_height);
+        this.ctK = albumActivity;
+        this.ctI = albumActivity.apN();
+        this.cuE = nVar;
+        this.mWidth = (int) this.ctK.getResources().getDimension(com.baidu.tieba.t.album_gridview_item_height);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.cup = z;
+        this.cuF = z;
         notifyDataSetChanged();
     }
 
@@ -68,7 +68,7 @@ public class aa extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iN */
+    /* renamed from: iQ */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -83,7 +83,7 @@ public class aa extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.cup && i == 0) ? 1 : 0;
+        return (this.cuF && i == 0) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -98,14 +98,14 @@ public class aa extends BaseAdapter {
         if (view == null) {
             agVar = new ag(this, null);
             if (itemViewType == 0) {
-                view = com.baidu.adp.lib.g.b.hH().a(this.ctu.getPageContext().getPageActivity(), com.baidu.tieba.w.album_image_item_view, viewGroup, false);
-                agVar.cuA = (HeadImageView) view.findViewById(com.baidu.tieba.v.pic);
-                agVar.bwy = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
-                agVar.bwz = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
+                view = com.baidu.adp.lib.g.b.hH().a(this.ctK.getPageContext().getPageActivity(), com.baidu.tieba.w.album_image_item_view, viewGroup, false);
+                agVar.cuQ = (HeadImageView) view.findViewById(com.baidu.tieba.v.pic);
+                agVar.bwO = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
+                agVar.bwP = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
                 view.setTag(agVar);
             } else {
-                view = com.baidu.adp.lib.g.b.hH().a(this.ctu.getPageContext().getPageActivity(), com.baidu.tieba.w.album_image_item_view_camera, viewGroup, false);
-                agVar.cuB = (ViewGroup) view.findViewById(com.baidu.tieba.v.item_camera);
+                view = com.baidu.adp.lib.g.b.hH().a(this.ctK.getPageContext().getPageActivity(), com.baidu.tieba.w.album_image_item_view_camera, viewGroup, false);
+                agVar.cuR = (ViewGroup) view.findViewById(com.baidu.tieba.v.item_camera);
                 view.setTag(agVar);
             }
         } else {
@@ -113,68 +113,68 @@ public class aa extends BaseAdapter {
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            agVar.cuA.setTag(null);
-            agVar.cuA.setRadius(1);
-            agVar.cuA.setDefaultResource(com.baidu.tieba.u.img_default_100);
-            agVar.cuA.c(null, 12, false);
-            agVar.cuA.invalidate();
+            agVar.cuQ.setTag(null);
+            agVar.cuQ.setRadius(1);
+            agVar.cuQ.setDefaultResource(com.baidu.tieba.u.img_default_100);
+            agVar.cuQ.c(null, 12, false);
+            agVar.cuQ.invalidate();
             af afVar = new af(this, null);
-            afVar.cuz = true;
+            afVar.cuP = true;
             if (item != null) {
                 item.clearPageActions();
                 item.addPageAction(com.baidu.tbadk.img.effect.d.x(this.mWidth, this.mWidth));
-                agVar.cuA.setTag(item.toCachedKey(false));
-                if (this.cts.a(item, false) != null) {
-                    agVar.cuA.invalidate();
+                agVar.cuQ.setTag(item.toCachedKey(false));
+                if (this.ctI.a(item, false) != null) {
+                    agVar.cuQ.invalidate();
                 } else {
-                    this.cts.a(item, new ab(this, viewGroup, afVar), false, this.cuq);
+                    this.ctI.a(item, new ab(this, viewGroup, afVar), false, this.cuG);
                 }
             } else {
-                afVar.cuz = false;
+                afVar.cuP = false;
             }
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-            if (this.cuo != null) {
-                if (this.cuo.isAdded(item)) {
-                    ba.i(agVar.bwy, com.baidu.tieba.u.chx_camera_pic_s);
+            if (this.cuE != null) {
+                if (this.cuE.isAdded(item)) {
+                    ba.i(agVar.bwO, com.baidu.tieba.u.chx_camera_pic_s);
                 } else {
-                    ba.i(agVar.bwy, com.baidu.tieba.u.chx_camera_pic_n);
+                    ba.i(agVar.bwO, com.baidu.tieba.u.chx_camera_pic_n);
                 }
-                a(agVar, afVar, i, item, skinType, this.cuo);
+                a(agVar, afVar, i, item, skinType, this.cuE);
             }
-            agVar.cuA.setOnClickListener(new ac(this, afVar, i, item));
+            agVar.cuQ.setOnClickListener(new ac(this, afVar, i, item));
         } else {
-            agVar.cuB.setOnClickListener(new ad(this, i, item));
+            agVar.cuR.setOnClickListener(new ad(this, i, item));
         }
         applyNightMode(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.cuq;
+        return this.cuG;
     }
 
-    public void ff(boolean z) {
-        this.cuq = z;
+    public void fd(boolean z) {
+        this.cuG = z;
     }
 
     private void applyNightMode(View view) {
-        this.ctu.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.ctu.getLayoutMode().h(view);
+        this.ctK.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.ctK.getLayoutMode().h(view);
     }
 
     public void a(y yVar) {
-        this.cur = yVar;
+        this.cuH = yVar;
     }
 
     public void a(z zVar) {
-        this.cut = zVar;
+        this.cuJ = zVar;
     }
 
     public void a(x xVar) {
-        this.cus = xVar;
+        this.cuI = xVar;
     }
 
     private void a(ag agVar, af afVar, int i, ImageFileInfo imageFileInfo, int i2, n nVar) {
-        agVar.bwz.setOnClickListener(new ae(this, afVar, nVar, imageFileInfo, i, agVar));
+        agVar.bwP.setOnClickListener(new ae(this, afVar, nVar, imageFileInfo, i, agVar));
     }
 }

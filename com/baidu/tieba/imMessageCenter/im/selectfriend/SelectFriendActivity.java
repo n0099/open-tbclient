@@ -25,15 +25,15 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    private LinearLayout MG;
-    NavigationBar anm;
-    BdListView ann;
-    h btb;
-    private CustomMessageListener btc;
+    private LinearLayout MI;
+    NavigationBar anu;
+    BdListView anv;
+    h bts;
+    private CustomMessageListener btt;
     private s mNoDataView;
-    private HttpMessageListener bsZ = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
-    private int bta = -1;
-    private CustomMessageListener btd = new b(this, 2001188);
+    private HttpMessageListener btq = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
+    private int btr = -1;
+    private CustomMessageListener btu = new b(this, 2001188);
     private AdapterView.OnItemClickListener itemClickListener = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,27 +41,27 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.select_friend_main);
-        this.MG = (LinearLayout) findViewById(v.select_friend_root_view);
-        this.anm = (NavigationBar) findViewById(v.select_friend_nevigation_bar);
-        this.anm.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.anm.setTitleText(y.select_friend_title);
-        this.ann = (BdListView) findViewById(v.select_friend_listview);
-        this.btb = new h(getPageContext().getPageActivity());
-        this.ann.setAdapter((ListAdapter) this.btb);
-        this.ann.setOnItemClickListener(this.itemClickListener);
-        registerListener(this.btd);
-        registerListener(this.bsZ);
+        this.MI = (LinearLayout) findViewById(v.select_friend_root_view);
+        this.anu = (NavigationBar) findViewById(v.select_friend_nevigation_bar);
+        this.anu.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.anu.setTitleText(y.select_friend_title);
+        this.anv = (BdListView) findViewById(v.select_friend_listview);
+        this.bts = new h(getPageContext().getPageActivity());
+        this.anv.setAdapter((ListAdapter) this.bts);
+        this.anv.setOnItemClickListener(this.itemClickListener);
+        registerListener(this.btu);
+        registerListener(this.btq);
         if (TbadkCoreApplication.m411getInst().getIntentClass(AddressListActivityConfig.class) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_LIST));
         } else {
             MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
         }
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(y.select_friend_no_data_tip), null);
-        this.MG.addView(this.mNoDataView, 1);
+        this.MI.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.bta = bundle.getInt("key_from_where");
+            this.btr = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.bta = getIntent().getIntExtra("key_from_where", -1);
+            this.btr = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
@@ -69,15 +69,15 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.btc != null) {
-            this.btc = null;
+        if (this.btt != null) {
+            this.btt = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.anm.onChangeSkinType(getPageContext(), i);
+        this.anu.onChangeSkinType(getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }

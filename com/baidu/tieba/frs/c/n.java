@@ -6,24 +6,24 @@ import com.baidu.tieba.frs.bf;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.i.b {
-    private bf aIS;
-    private Runnable aNE;
-    private FrsActivity aNb;
+    private bf aJa;
+    private Runnable aNV;
+    private FrsActivity aNs;
 
     public n(FrsActivity frsActivity) {
-        this.aNb = frsActivity;
+        this.aNs = frsActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void Aa() {
-        super.Aa();
+    public void Ag() {
+        super.Ag();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void Ac() {
-        super.Ac();
+    public void Ai() {
+        super.Ai();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
@@ -41,9 +41,9 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void ov() {
-        this.aIS = new bf(this.aNb, this.aNb.aJs);
-        this.aNb.a(this.aIS);
-        BD();
+        this.aJa = new bf(this.aNs, this.aNs.aJC);
+        this.aNs.a(this.aJa);
+        BJ();
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
@@ -52,11 +52,11 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bm() {
+    protected void Bs() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bn() {
+    protected void Bt() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
@@ -73,15 +73,15 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityDestroy() {
         super.onActivityDestroy();
-        if (this.aNE != null) {
-            com.baidu.adp.lib.g.i.hI().removeCallbacks(this.aNE);
+        if (this.aNV != null) {
+            com.baidu.adp.lib.g.i.hI().removeCallbacks(this.aNV);
         }
     }
 
-    public void Ko() {
-        if (this.aNE == null) {
-            this.aNE = new o(this);
+    public void Kv() {
+        if (this.aNV == null) {
+            this.aNV = new o(this);
         }
-        com.baidu.adp.lib.g.i.hI().postDelayed(this.aNE, 2000L);
+        com.baidu.adp.lib.g.i.hI().postDelayed(this.aNV, 2000L);
     }
 }

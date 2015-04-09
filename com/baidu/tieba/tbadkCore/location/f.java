@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ e cpv;
+    final /* synthetic */ e cpL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i, boolean z) {
         super(i, z);
-        this.cpv = eVar;
+        this.cpL = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,18 +21,18 @@ public class f extends com.baidu.adp.framework.listener.e {
         j jVar2;
         if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
             BdLog.i("mLocationListener response error!");
-            jVar = this.cpv.cpo;
+            jVar = this.cpL.cpE;
             if (jVar != null) {
                 String str = null;
                 if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
                     str = socketResponsedMessage.getErrorString();
                 }
-                jVar2 = this.cpv.cpo;
-                jVar2.fE(str);
+                jVar2 = this.cpL.cpE;
+                jVar2.fH(str);
                 return;
             }
             return;
         }
-        this.cpv.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
+        this.cpL.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
     }
 }

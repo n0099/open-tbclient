@@ -95,7 +95,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            Qa();
+            Qn();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -113,7 +113,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void Qa() {
+    private void Qn() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

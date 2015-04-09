@@ -3,13 +3,13 @@ package com.baidu.tbadk.newFriends;
 import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class a {
-    private static a anW = new a();
+    private static a aoe = new a();
 
     private a() {
     }
 
-    public static a Ca() {
-        return anW;
+    public static a Cg() {
+        return aoe;
     }
 
     public void a(long j, long j2, String str) {

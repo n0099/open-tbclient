@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.g.j;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean RI = false;
+    private static boolean RK = false;
     private static Handler ot = new b();
 
     static {
@@ -24,6 +24,6 @@ public class ImagesInvalidServiceStatic {
     }
 
     public static void af(boolean z) {
-        RI = z;
+        RK = z;
     }
 }

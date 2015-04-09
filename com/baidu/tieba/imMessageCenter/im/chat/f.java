@@ -11,13 +11,13 @@ import com.baidu.tieba.im.model.PersonalMsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalChatActivity boY;
+    final /* synthetic */ PersonalChatActivity bpo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonalChatActivity personalChatActivity, int i, boolean z) {
         super(i, z);
-        this.boY = personalChatActivity;
+        this.bpo = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,32 +35,32 @@ class f extends com.baidu.adp.framework.listener.e {
         Runnable runnable;
         long j2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.boY.boP = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.boY.boP;
+            this.bpo.bpf = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.bpo.bpf;
             if (bVar != null) {
-                msglistModel = this.boY.mListModel;
+                msglistModel = this.bpo.mListModel;
                 UserData user = ((PersonalMsglistModel) msglistModel).getUser();
                 if (user != null) {
-                    absMsglistView = this.boY.mListView;
+                    absMsglistView = this.bpo.mListView;
                     String userName = user.getUserName();
-                    bVar2 = this.boY.boP;
+                    bVar2 = this.bpo.bpf;
                     absMsglistView.refreshPersonalHeadFooter(userName, bVar2);
-                    PersonalChatActivity personalChatActivity = this.boY;
-                    PersonalChatActivity personalChatActivity2 = this.boY;
-                    bVar3 = this.boY.boP;
-                    personalChatActivity.boO = personalChatActivity2.gX(bd.m(bVar3.getTime()));
-                    j = this.boY.boO;
+                    PersonalChatActivity personalChatActivity = this.bpo;
+                    PersonalChatActivity personalChatActivity2 = this.bpo;
+                    bVar3 = this.bpo.bpf;
+                    personalChatActivity.bpe = personalChatActivity2.ha(bd.m(bVar3.getTime()));
+                    j = this.bpo.bpe;
                     if (j != 0) {
-                        handler = this.boY.mHandler;
-                        runnable = this.boY.boT;
-                        j2 = this.boY.boO;
+                        handler = this.bpo.mHandler;
+                        runnable = this.bpo.bpj;
+                        j2 = this.bpo.bpe;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f TQ = PersonalChatActivityStatic.TQ();
-                    str = this.boY.boQ;
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f Ud = PersonalChatActivityStatic.Ud();
+                    str = this.bpo.bpg;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
-                    bVar4 = this.boY.boP;
-                    TQ.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    bVar4 = this.bpo.bpf;
+                    Ud.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }

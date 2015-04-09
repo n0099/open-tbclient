@@ -14,64 +14,64 @@ import com.baidu.tieba.y;
 import tbclient.FinePbPage.ForumInfo;
 /* loaded from: classes.dex */
 public class e {
-    private TextView aBo;
-    private View bGl;
-    private TextView bGm;
-    private ImageView bGn;
-    private TextView bGo;
-    private TextView bGp;
-    private TextView bGq;
-    private i bGr;
-    private boolean bGs;
-    private Animation bGt;
+    private TextView aBw;
+    private ImageView bGA;
+    private TextView bGB;
+    private TextView bGC;
+    private TextView bGD;
+    private i bGE;
+    private boolean bGF;
+    private Animation bGG;
+    private View bGy;
+    private TextView bGz;
     private Context context;
-    private long aYN = 0;
-    private boolean bGu = false;
+    private long aZd = 0;
+    private boolean bGH = false;
 
     public e(Context context, View view) {
         this.context = context;
-        this.bGl = view;
-        this.bGm = (TextView) view.findViewById(v.chosen_post_info_copyright);
-        this.bGn = (ImageView) view.findViewById(v.chosen_post_info_praise_icon);
-        this.bGo = (TextView) view.findViewById(v.chosen_post_info_praise_num);
-        this.bGp = (TextView) view.findViewById(v.chosen_post_info_bar);
-        this.bGq = (TextView) view.findViewById(v.chosen_post_info_original_post);
-        this.aBo = (TextView) view.findViewById(v.chosen_post_info_comment);
+        this.bGy = view;
+        this.bGz = (TextView) view.findViewById(v.chosen_post_info_copyright);
+        this.bGA = (ImageView) view.findViewById(v.chosen_post_info_praise_icon);
+        this.bGB = (TextView) view.findViewById(v.chosen_post_info_praise_num);
+        this.bGC = (TextView) view.findViewById(v.chosen_post_info_bar);
+        this.bGD = (TextView) view.findViewById(v.chosen_post_info_original_post);
+        this.aBw = (TextView) view.findViewById(v.chosen_post_info_comment);
     }
 
     public void a(i iVar) {
-        this.bGr = iVar;
+        this.bGE = iVar;
     }
 
-    public void hc(int i) {
-        if (this.bGm != null) {
-            this.bGm.setText(i);
+    public void he(int i) {
+        if (this.bGz != null) {
+            this.bGz.setText(i);
         }
     }
 
     public void aj(long j) {
-        if (j > 0 && this.aBo != null) {
-            this.aBo.setText(this.context.getString(y.chosen_post_follow_post, Long.valueOf(j)));
+        if (j > 0 && this.aBw != null) {
+            this.aBw.setText(this.context.getString(y.chosen_post_follow_post, Long.valueOf(j)));
         }
     }
 
-    public void hB(String str) {
-        if (this.bGp != null) {
-            this.bGp.setText(this.context.getString(y.chosen_pb_original_bar, str));
+    public void hE(String str) {
+        if (this.bGC != null) {
+            this.bGC.setText(this.context.getString(y.chosen_pb_original_bar, str));
         }
     }
 
-    public void s(View.OnClickListener onClickListener) {
-        if (this.bGq != null) {
-            this.bGq.setOnClickListener(onClickListener);
+    public void t(View.OnClickListener onClickListener) {
+        if (this.bGD != null) {
+            this.bGD.setOnClickListener(onClickListener);
         }
     }
 
     public void ak(long j) {
         if (j >= 0) {
-            this.aYN = j;
-            if (this.bGo != null) {
-                this.bGo.setText(new StringBuilder(String.valueOf(j)).toString());
+            this.aZd = j;
+            if (this.bGB != null) {
+                this.bGB.setText(new StringBuilder(String.valueOf(j)).toString());
             }
         }
     }
@@ -79,44 +79,44 @@ public class e {
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
             aj(forumInfo.threadsnum.longValue());
-            hB(forumInfo.fromfname);
-            hc(y.chosen_pb_copyright);
+            hE(forumInfo.fromfname);
+            he(y.chosen_pb_copyright);
             ak(forumInfo.zan.zansum.longValue());
-            dE(forumInfo.zan.is_zan.booleanValue());
-            s(new f(this, forumInfo));
-            this.bGp.setOnClickListener(new g(this, forumInfo));
-            this.bGn.setOnClickListener(new h(this));
+            dC(forumInfo.zan.is_zan.booleanValue());
+            t(new f(this, forumInfo));
+            this.bGC.setOnClickListener(new g(this, forumInfo));
+            this.bGA.setOnClickListener(new h(this));
         }
     }
 
-    public void YE() {
-        this.bGu = false;
+    public void YQ() {
+        this.bGH = false;
     }
 
-    public void dD(boolean z) {
-        dE(z);
+    public void dB(boolean z) {
+        dC(z);
         if (z) {
-            this.aYN++;
+            this.aZd++;
         } else {
-            this.aYN--;
+            this.aZd--;
         }
-        ak(this.aYN);
+        ak(this.aZd);
     }
 
-    private void dE(boolean z) {
-        this.bGs = z;
+    private void dC(boolean z) {
+        this.bGF = z;
         if (z) {
-            ba.c(this.bGn, u.icon_hand_yes_s);
+            ba.c(this.bGA, u.icon_hand_yes_s);
         } else {
-            ba.c(this.bGn, u.icon_hand_yes_n);
+            ba.c(this.bGA, u.icon_hand_yes_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation YF() {
-        if (this.bGt == null) {
-            this.bGt = AnimationUtils.loadAnimation(this.context, p.praise_animation_scale3);
+    public Animation YR() {
+        if (this.bGG == null) {
+            this.bGG = AnimationUtils.loadAnimation(this.context, p.praise_animation_scale3);
         }
-        return this.bGt;
+        return this.bGG;
     }
 }

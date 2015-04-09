@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.data.ErrorData;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.mvc.c.a {
-    b alZ;
-    private com.baidu.tbadk.mvc.c.c ama;
-    protected e<?, ?, ?> amb;
+    b amh;
+    private com.baidu.tbadk.mvc.c.c ami;
+    protected e<?, ?, ?> amj;
 
     public a(e<?, ?, ?> eVar) {
         super(eVar.getPageContext());
-        this.amb = eVar;
+        this.amj = eVar;
     }
 
     public void f(Bundle bundle) {
@@ -24,15 +24,15 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(e<?, ?, ?> eVar) {
-        this.amb = eVar;
+        this.amj = eVar;
     }
 
-    public final e<?, ?, ?> zS() {
-        return this.amb;
+    public final e<?, ?, ?> zY() {
+        return this.amj;
     }
 
-    public final ViewEventCenter zT() {
-        return this.amb.zT();
+    public final ViewEventCenter zZ() {
+        return this.amj.zZ();
     }
 
     @Override // com.baidu.adp.base.f
@@ -48,7 +48,7 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean zU() {
+    public boolean Aa() {
         return true;
     }
 
@@ -68,25 +68,25 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c zV() {
-        if (this.ama == null) {
-            this.ama = new com.baidu.tbadk.mvc.c.c(this.unique_id);
+    public com.baidu.tbadk.mvc.c.c Ab() {
+        if (this.ami == null) {
+            this.ami = new com.baidu.tbadk.mvc.c.c(this.unique_id);
         }
-        return this.ama;
+        return this.ami;
     }
 
     public boolean dI(int i) {
-        return dispatchMvcEvent(zV().dM(i));
+        return dispatchMvcEvent(Ab().dM(i));
     }
 
     public boolean g(int i, boolean z) {
-        return dispatchMvcEvent(zV().i(i, z));
+        return dispatchMvcEvent(Ab().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return zT().dispatchMvcEvent(bVar);
+        return zZ().dispatchMvcEvent(bVar);
     }
 }

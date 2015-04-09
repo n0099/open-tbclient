@@ -1,16 +1,15 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
 import android.view.animation.Animation;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm implements Animation.AnimationListener {
-    final /* synthetic */ ci bMm;
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(ci ciVar) {
-        this.bMm = ciVar;
+    public cm(cj cjVar) {
+        this.bMC = cjVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,20 +18,9 @@ public class cm implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        View view;
-        PbEditor pbEditor;
-        View view2;
-        PbEditor pbEditor2;
-        ci ciVar = this.bMm;
-        view = this.bMm.bLT;
-        ciVar.bLW = view.getVisibility() == 0;
-        pbEditor = this.bMm.bLR;
-        if (pbEditor != null) {
-            pbEditor2 = this.bMm.bLR;
-            pbEditor2.setVisibility(8);
-        }
-        view2 = this.bMm.bLT;
-        view2.setVisibility(8);
+        RelativeLayout relativeLayout;
+        relativeLayout = this.bMC.bLw;
+        relativeLayout.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

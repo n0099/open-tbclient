@@ -21,10 +21,10 @@ public class c extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         d dVar;
         d dVar2;
-        dVar = this.this$0.bZI;
+        dVar = this.this$0.bZX;
         if (dVar != null) {
-            dVar2 = this.this$0.bZI;
-            dVar2.agk();
+            dVar2 = this.this$0.bZX;
+            dVar2.agz();
         }
     }
 }

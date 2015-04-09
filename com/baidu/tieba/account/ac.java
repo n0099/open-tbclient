@@ -6,11 +6,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class ac implements TextWatcher {
-    final /* synthetic */ Register2Activity awc;
+    final /* synthetic */ Register2Activity awk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(Register2Activity register2Activity) {
-        this.awc = register2Activity;
+        this.awk = register2Activity;
     }
 
     @Override // android.text.TextWatcher
@@ -61,88 +61,88 @@ class ac implements TextWatcher {
         RelativeLayout relativeLayout2;
         EditText editText9;
         RelativeLayout relativeLayout3;
-        editText = this.awc.avJ;
+        editText = this.awk.avR;
         if (editable == editText.getEditableText()) {
-            this.awc.bl(false);
+            this.awk.bl(false);
         }
-        editText2 = this.awc.avH;
+        editText2 = this.awk.avP;
         if (editText2.length() > 0) {
-            editText7 = this.awc.avI;
+            editText7 = this.awk.avQ;
             if (editText7.length() >= 6) {
-                editText8 = this.awc.avJ;
+                editText8 = this.awk.avR;
                 if (editText8.length() > 0) {
-                    z = this.awc.avT;
+                    z = this.awk.awb;
                     if (z) {
-                        editText9 = this.awc.avK;
+                        editText9 = this.awk.avS;
                         if (editText9.length() <= 0) {
-                            relativeLayout3 = this.awc.avL;
+                            relativeLayout3 = this.awk.avT;
                             relativeLayout3.setEnabled(false);
-                            i = this.awc.avV;
-                            i2 = Register2Activity.avr;
+                            i = this.awk.awd;
+                            i2 = Register2Activity.avz;
                             if (i == i2) {
-                                editText6 = this.awc.avH;
+                                editText6 = this.awk.avP;
                             }
-                            i3 = this.awc.avV;
-                            i4 = Register2Activity.avs;
+                            i3 = this.awk.awd;
+                            i4 = Register2Activity.avA;
                             if (i3 == i4) {
-                                editText5 = this.awc.avI;
+                                editText5 = this.awk.avQ;
                             }
-                            i5 = this.awc.avV;
-                            i6 = Register2Activity.avt;
+                            i5 = this.awk.awd;
+                            i6 = Register2Activity.avB;
                             if (i5 == i6) {
-                                editText4 = this.awc.avJ;
+                                editText4 = this.awk.avR;
                             }
-                            i7 = this.awc.avV;
-                            i8 = Register2Activity.avu;
+                            i7 = this.awk.awd;
+                            i8 = Register2Activity.avC;
                             if (i7 == i8) {
-                                editText3 = this.awc.avK;
+                                editText3 = this.awk.avS;
                                 if (editable != editText3.getEditableText()) {
                                     return;
                                 }
-                                this.awc.avV = -1;
-                                this.awc.Eo();
+                                this.awk.awd = -1;
+                                this.awk.Eu();
                                 return;
                             }
                             return;
                         }
                     }
-                    relativeLayout2 = this.awc.avL;
+                    relativeLayout2 = this.awk.avT;
                     relativeLayout2.setEnabled(true);
-                    i = this.awc.avV;
-                    i2 = Register2Activity.avr;
+                    i = this.awk.awd;
+                    i2 = Register2Activity.avz;
                     if (i == i2) {
                     }
-                    i3 = this.awc.avV;
-                    i4 = Register2Activity.avs;
+                    i3 = this.awk.awd;
+                    i4 = Register2Activity.avA;
                     if (i3 == i4) {
                     }
-                    i5 = this.awc.avV;
-                    i6 = Register2Activity.avt;
+                    i5 = this.awk.awd;
+                    i6 = Register2Activity.avB;
                     if (i5 == i6) {
                     }
-                    i7 = this.awc.avV;
-                    i8 = Register2Activity.avu;
+                    i7 = this.awk.awd;
+                    i8 = Register2Activity.avC;
                     if (i7 == i8) {
                     }
                 }
             }
         }
-        relativeLayout = this.awc.avL;
+        relativeLayout = this.awk.avT;
         relativeLayout.setEnabled(false);
-        i = this.awc.avV;
-        i2 = Register2Activity.avr;
+        i = this.awk.awd;
+        i2 = Register2Activity.avz;
         if (i == i2) {
         }
-        i3 = this.awc.avV;
-        i4 = Register2Activity.avs;
+        i3 = this.awk.awd;
+        i4 = Register2Activity.avA;
         if (i3 == i4) {
         }
-        i5 = this.awc.avV;
-        i6 = Register2Activity.avt;
+        i5 = this.awk.awd;
+        i6 = Register2Activity.avB;
         if (i5 == i6) {
         }
-        i7 = this.awc.avV;
-        i8 = Register2Activity.avu;
+        i7 = this.awk.awd;
+        i8 = Register2Activity.avC;
         if (i7 == i8) {
         }
     }

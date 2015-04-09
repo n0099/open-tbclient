@@ -13,7 +13,7 @@ class a implements q {
     }
 
     @Override // com.baidu.tieba.setting.more.q
-    public void hT(int i) {
+    public void hW(int i) {
         String str;
         if (i == 0) {
             this.this$0.finish();
@@ -21,10 +21,10 @@ class a implements q {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.rB().putBoolean(SettingTextFunctionIntroView.cbU, true);
+                com.baidu.tbadk.core.sharedPref.b.rB().putBoolean(SettingTextFunctionIntroView.ccj, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(com.baidu.tieba.y.setting_funtion_intro);
-                str = this.this$0.bZL;
+                str = this.this$0.caa;
                 com.baidu.tbadk.browser.f.a(pageActivity, string, str, true, false, false);
             } else if (i == 4) {
                 this.this$0.sendMessage(new CustomMessage(2902050, new com.baidu.tbadk.core.frameworkData.a(this.this$0.getPageContext().getPageActivity())));

@@ -4,7 +4,7 @@ import com.baidu.adp.base.f;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class MoreModel extends f {
-    private boolean bZG;
+    private boolean bZV;
     private PersonChangeData mPersonChangeData;
 
     /* loaded from: classes.dex */
@@ -12,7 +12,7 @@ public class MoreModel extends f {
         DO_CACHE_CLEAR,
         GET_SIZE;
 
-        /* JADX DEBUG: Replace access to removed values field (bZH) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (bZW) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TaskType[] valuesCustom() {
             TaskType[] valuesCustom = values();
@@ -26,7 +26,7 @@ public class MoreModel extends f {
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
         this.mPersonChangeData = null;
-        this.bZG = false;
+        this.bZV = false;
         this.mPersonChangeData = personChangeData;
         if (this.mPersonChangeData == null) {
             this.mPersonChangeData = new PersonChangeData();
@@ -37,12 +37,12 @@ public class MoreModel extends f {
         this.mPersonChangeData = personChangeData;
     }
 
-    public void er(boolean z) {
-        this.bZG = z;
+    public void ep(boolean z) {
+        this.bZV = z;
     }
 
-    public boolean agi() {
-        return this.bZG;
+    public boolean agx() {
+        return this.bZV;
     }
 
     @Override // com.baidu.adp.base.f

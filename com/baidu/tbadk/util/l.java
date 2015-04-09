@@ -7,7 +7,7 @@ public class l {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int eL(String str) {
+    public static int eO(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }

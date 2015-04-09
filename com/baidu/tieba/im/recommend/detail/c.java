@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.f<RecommendDetailActivity> {
-    private TbPageContext<RecommendDetailActivity> LN;
-    private boolean aQr;
-    private long acN;
-    private g blX;
-    private boolean blY;
-    private com.baidu.adp.framework.listener.a blZ;
-    private CustomMessageListener bma;
+    private TbPageContext<RecommendDetailActivity> LP;
+    private boolean aQI;
+    private long acV;
+    private g bmn;
+    private boolean bmo;
+    private com.baidu.adp.framework.listener.a bmp;
+    private CustomMessageListener bmq;
 
     public c(TbPageContext<RecommendDetailActivity> tbPageContext, g gVar) {
         super(tbPageContext);
-        this.aQr = false;
-        this.blY = false;
-        this.blZ = new d(this, CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
-        this.bma = new e(this, 2001313);
-        this.LN = tbPageContext;
-        this.blX = gVar;
-        registerListener(this.blZ);
-        registerListener(this.bma);
-        Qh();
+        this.aQI = false;
+        this.bmo = false;
+        this.bmp = new d(this, CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
+        this.bmq = new e(this, 2001313);
+        this.LP = tbPageContext;
+        this.bmn = gVar;
+        registerListener(this.bmp);
+        registerListener(this.bmq);
+        Qu();
     }
 
     public void ad(long j) {
-        this.acN = j;
-        sendMessage(new CustomMessage(2001313, Integer.valueOf((int) this.acN)));
+        this.acV = j;
+        sendMessage(new CustomMessage(2001313, Integer.valueOf((int) this.acV)));
     }
 
-    private void Qh() {
+    private void Qu() {
         registerListener(new f(this, 104102));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tc() {
+    public void Tp() {
         RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
-        recommendDetailRequestMessage.setUserId((int) this.acN);
+        recommendDetailRequestMessage.setUserId((int) this.acV);
         sendMessage(recommendDetailRequestMessage);
     }
 
-    public void cX(boolean z) {
+    public void cV(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         if (z) {
             requestUpdateMaskInfoMessage.setIsMask(0);
@@ -55,12 +55,12 @@ public class c extends com.baidu.adp.base.f<RecommendDetailActivity> {
         sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public boolean Td() {
-        return this.aQr;
+    public boolean Tq() {
+        return this.aQI;
     }
 
-    public boolean Te() {
-        return this.blY;
+    public boolean Tr() {
+        return this.bmo;
     }
 
     @Override // com.baidu.adp.base.f

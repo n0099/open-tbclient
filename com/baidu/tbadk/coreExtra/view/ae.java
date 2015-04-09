@@ -8,15 +8,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ae {
-    private static ae afb;
+    private static ae afj;
     private static Handler mHandler = new af();
     private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
-    public static ae xb() {
-        if (afb == null) {
-            afb = new ae();
+    public static ae xh() {
+        if (afj == null) {
+            afj = new ae();
         }
-        return afb;
+        return afj;
     }
 
     private ae() {

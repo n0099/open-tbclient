@@ -34,43 +34,43 @@ class l extends CustomMessageListener {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int msgBookmark = newsNotifyMessage.getMsgBookmark();
-            i = this.this$0.cqZ;
+            i = this.this$0.crp;
             boolean z = msgBookmark == i;
             int msgFans = newsNotifyMessage.getMsgFans();
-            i2 = this.this$0.cqX;
+            i2 = this.this$0.crn;
             boolean z2 = msgFans == i2;
             int msgGiftNum = newsNotifyMessage.getMsgGiftNum();
-            i3 = this.this$0.cqY;
+            i3 = this.this$0.cro;
             boolean z3 = msgGiftNum == i3;
             if (!z || !z2 || !z3) {
                 MainTabActivity mainTabActivity = this.this$0;
                 int msgBookmark2 = newsNotifyMessage.getMsgBookmark();
-                i4 = this.this$0.cqZ;
-                mainTabActivity.crf = msgBookmark2 > i4 ? true : this.this$0.crf;
+                i4 = this.this$0.crp;
+                mainTabActivity.crv = msgBookmark2 > i4 ? true : this.this$0.crv;
                 MainTabActivity mainTabActivity2 = this.this$0;
                 int msgFans2 = newsNotifyMessage.getMsgFans();
-                i5 = this.this$0.cqX;
-                mainTabActivity2.crd = msgFans2 > i5 ? true : this.this$0.crd;
+                i5 = this.this$0.crn;
+                mainTabActivity2.crt = msgFans2 > i5 ? true : this.this$0.crt;
                 MainTabActivity mainTabActivity3 = this.this$0;
                 int msgGiftNum2 = newsNotifyMessage.getMsgGiftNum();
-                i6 = this.this$0.cqY;
-                mainTabActivity3.cre = msgGiftNum2 <= i6 ? this.this$0.cre : true;
-                this.this$0.cqZ = newsNotifyMessage.getMsgBookmark();
-                this.this$0.cqX = newsNotifyMessage.getMsgFans();
-                this.this$0.cqY = newsNotifyMessage.getMsgGiftNum();
-                i7 = this.this$0.cqX;
+                i6 = this.this$0.cro;
+                mainTabActivity3.cru = msgGiftNum2 <= i6 ? this.this$0.cru : true;
+                this.this$0.crp = newsNotifyMessage.getMsgBookmark();
+                this.this$0.crn = newsNotifyMessage.getMsgFans();
+                this.this$0.cro = newsNotifyMessage.getMsgGiftNum();
+                i7 = this.this$0.crn;
                 if (i7 <= 0) {
-                    this.this$0.crd = false;
+                    this.this$0.crt = false;
                 }
-                i8 = this.this$0.cqY;
+                i8 = this.this$0.cro;
                 if (i8 <= 0) {
-                    this.this$0.cre = false;
+                    this.this$0.cru = false;
                 }
-                i9 = this.this$0.cqZ;
+                i9 = this.this$0.crp;
                 if (i9 <= 0) {
-                    this.this$0.crf = false;
+                    this.this$0.crv = false;
                 }
-                this.this$0.eU(false);
+                this.this$0.eS(false);
             }
         }
     }

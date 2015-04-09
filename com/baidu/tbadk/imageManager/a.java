@@ -3,5 +3,5 @@ package com.baidu.tbadk.imageManager;
 import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
 public interface a {
-    ImageSpan eo(String str);
+    ImageSpan er(String str);
 }

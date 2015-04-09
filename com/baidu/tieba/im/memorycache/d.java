@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c bjh;
+    final /* synthetic */ c bjx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.bjh = cVar;
+        this.bjx = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,32 +31,32 @@ public class d extends CustomMessageListener {
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                        if (imMessageCenterPojo != null && bx.fZ(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bjh.c(imMessageCenterPojo);
+                        if (imMessageCenterPojo != null && bx.gb(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                            this.bjx.c(imMessageCenterPojo);
                         }
                     }
                 }
-                this.bjh.bjb.set(true);
-                this.bjh.Sh();
+                this.bjx.bjr.set(true);
+                this.bjx.Su();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    j = this.bjh.j(imMessageCenterPojo2);
+                    j = this.bjx.j(imMessageCenterPojo2);
                     if (!j || imMessageCenterPojo2.getPulled_msgId() > 0) {
-                        this.bjh.c(imMessageCenterPojo2);
+                        this.bjx.c(imMessageCenterPojo2);
                     }
                 }
-                this.bjh.cP(false);
-                this.bjh.cQ(false);
-                this.bjh.Se();
-                this.bjh.Sf();
-                this.bjh.Sg();
+                this.bjx.cN(false);
+                this.bjx.cO(false);
+                this.bjx.Sr();
+                this.bjx.Ss();
+                this.bjx.St();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.bjh.bjb.set(true);
-            this.bjh.Sh();
+            this.bjx.bjr.set(true);
+            this.bjx.Su();
         }
     }
 }

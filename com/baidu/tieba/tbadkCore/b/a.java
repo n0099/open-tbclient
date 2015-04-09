@@ -22,7 +22,7 @@ import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static com.baidu.adp.lib.guide.d cnx;
+    private static com.baidu.adp.lib.guide.d cnN;
 
     public static void a(BaseActivity<?> baseActivity, View view, boolean z, h hVar) {
         int defaultBubbleEndTime;
@@ -78,7 +78,7 @@ public class a {
                 gVar.a(new d(baseActivity, z, spannableString, i4));
                 gVar.u(true);
                 gVar.w(false);
-                cnx = gVar.gV();
+                cnN = gVar.gV();
                 new Handler().postDelayed(new f(baseActivity, z), 300L);
                 com.baidu.tbadk.core.sharedPref.b.rB().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
@@ -87,8 +87,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Activity activity, boolean z) {
-        if (cnx != null) {
-            cnx.i(activity);
+        if (cnN != null) {
+            cnN.i(activity);
         }
         if (!z) {
             new Handler().postDelayed(new g(), TbConfig.NOTIFY_SOUND_INTERVAL);

@@ -6,8 +6,8 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai {
-    boolean aZw;
-    LinearLayout aZx;
-    TextView aZy;
-    ImageView aZz;
+    boolean aZM;
+    LinearLayout aZN;
+    TextView aZO;
+    ImageView aZP;
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.im.c;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ b bmD;
-    private final /* synthetic */ PersonalChatMessage bmF;
+    final /* synthetic */ b bmT;
+    private final /* synthetic */ PersonalChatMessage bmV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar, PersonalChatMessage personalChatMessage) {
-        this.bmD = bVar;
-        this.bmF = personalChatMessage;
+        this.bmT = bVar;
+        this.bmV = personalChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     public void onReturnDataInUI(Boolean bool) {
-        a.i(this.bmF);
+        a.i(this.bmV);
     }
 }

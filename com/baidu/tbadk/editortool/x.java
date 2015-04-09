@@ -22,12 +22,12 @@ public class x extends ad {
     @Override // com.baidu.tbadk.editortool.ad
     public String dz(int i) {
         int i2;
-        if (i < 0 || i >= t.ajb.size()) {
+        if (i < 0 || i >= t.ajj.size()) {
             i2 = 0;
         } else {
-            i2 = t.ajb.get(i).intValue();
+            i2 = t.ajj.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : t.ajc.entrySet()) {
+        for (Map.Entry<String, Integer> entry : t.ajk.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -36,14 +36,14 @@ public class x extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean ed(String str) {
-        return t.ajc.get(str) != null;
+    public boolean eg(String str) {
+        return t.ajk.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a ee(String str) {
+    public com.baidu.adp.widget.a.a eh(String str) {
         Bitmap b;
-        Integer num = t.ajc.get(str);
+        Integer num = t.ajk.get(str);
         if (num != null && (b = com.baidu.adp.lib.util.e.it().b(TbadkCoreApplication.m411getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(b, false, str);
         }
@@ -52,16 +52,16 @@ public class x extends ad {
 
     @Override // com.baidu.tbadk.editortool.ad
     public int getEmotionsCount() {
-        return t.ajb.size();
+        return t.ajj.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a ef(String str) {
-        return ee(str);
+    public com.baidu.adp.widget.a.a ei(String str) {
+        return eh(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType yI() {
+    public EmotionGroupType yO() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -86,7 +86,7 @@ public class x extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean yJ() {
+    public boolean yP() {
         return true;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
 public class d implements c {
-    private long bOm;
+    private long bOC;
     private String big_cdn_src;
     private String big_src;
     private String cdn_src;
@@ -17,7 +17,7 @@ public class d implements c {
             this.src = content.src;
             this.big_src = content.big_src;
             this.big_cdn_src = content.big_cdn_src;
-            this.bOm = content.type.longValue();
+            this.bOC = content.type.longValue();
             String str = content.bsize;
             if (str != null) {
                 try {

@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c {
-    public boolean alR = true;
-    public int alS;
-    public int alT;
-    public FragmentTabIndicator alU;
+    public boolean alZ = true;
+    public int ama;
+    public int amb;
+    public FragmentTabIndicator amc;
     public int vf;
     public View view;
 
     public void cu(int i) {
-        if (this.alS != 0) {
-            ba.i(this.view, this.alS);
+        if (this.ama != 0) {
+            ba.i(this.view, this.ama);
         }
         if (this.view instanceof TextView) {
-            if (this.alT != 0) {
-                ba.b((TextView) this.view, this.alT, 1);
+            if (this.amb != 0) {
+                ba.b((TextView) this.view, this.amb, 1);
             }
             int b = b((TextView) this.view);
             if (b > 0 && b < 10) {

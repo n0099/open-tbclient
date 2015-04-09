@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class p extends com.baidu.tbadk.core.a.a {
-    private static p auI = null;
-    private u auJ = null;
-    private final com.baidu.tbadk.core.a.b auK = new q(this);
-    private final com.baidu.tieba.a.b auL = new s(this);
+    private static p auQ = null;
+    private u auR = null;
+    private final com.baidu.tbadk.core.a.b auS = new q(this);
+    private final com.baidu.tieba.a.b auT = new s(this);
     private Activity mActivity;
 
     private p() {
     }
 
-    public static p Ej() {
-        if (auI == null) {
-            auI = new p();
+    public static p Ep() {
+        if (auQ == null) {
+            auQ = new p();
         }
-        return auI;
+        return auQ;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -34,7 +34,7 @@ public class p extends com.baidu.tbadk.core.a.a {
                     try {
                         cVar.xh = split[0];
                         if (split.length >= 2) {
-                            cVar.OD = split[1];
+                            cVar.OF = split[1];
                             return cVar;
                         }
                         return cVar;
@@ -59,7 +59,7 @@ public class p extends com.baidu.tbadk.core.a.a {
             this.mActivity = activity;
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null && (bN = bN(currentAccountObj.getBDUSS())) != null) {
-                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), bN.xh, bN.OD, this.auK);
+                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), bN.xh, bN.OF, this.auS);
             }
         }
     }

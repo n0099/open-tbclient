@@ -242,7 +242,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.zC();
+        return this.loadingView.zI();
     }
 
     protected void hideLoadingView(View view) {

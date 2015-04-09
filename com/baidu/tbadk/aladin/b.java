@@ -14,14 +14,14 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class b extends Thread {
-    private AladinServer MU;
-    private Socket MX;
-    private a MY;
+    private AladinServer MW;
+    private Socket MZ;
+    private a Na;
 
     public b(Socket socket, AladinServer aladinServer, a aVar) {
-        this.MX = socket;
-        this.MU = aladinServer;
-        this.MY = aVar;
+        this.MZ = socket;
+        this.MW = aladinServer;
+        this.Na = aVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [148=6, 150=6, 151=6, 153=6, 154=6, 157=6, 158=6, 160=6, 161=6, 164=6, 165=6, 167=6, 168=6] */
@@ -29,31 +29,31 @@ public class b extends Thread {
     public void run() {
         String readLine;
         com.baidu.tbadk.aladin.a.a oM;
-        if (this.MX == null) {
+        if (this.MZ == null) {
             return;
         }
         try {
-            if (this.MU == null || this.MY == null) {
-                if (this.MX != null) {
+            if (this.MW == null || this.Na == null) {
+                if (this.MZ != null) {
                     try {
-                        if (!this.MX.isInputShutdown()) {
-                            this.MX.shutdownInput();
+                        if (!this.MZ.isInputShutdown()) {
+                            this.MZ.shutdownInput();
                         }
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                     try {
-                        if (!this.MX.isOutputShutdown()) {
-                            this.MX.shutdownOutput();
+                        if (!this.MZ.isOutputShutdown()) {
+                            this.MZ.shutdownOutput();
                         }
                     } catch (Throwable th2) {
                         th2.printStackTrace();
                     }
                     try {
-                        if (this.MX.isClosed()) {
+                        if (this.MZ.isClosed()) {
                             return;
                         }
-                        this.MX.close();
+                        this.MZ.close();
                         return;
                     } catch (Throwable th3) {
                         th3.printStackTrace();
@@ -62,30 +62,30 @@ public class b extends Thread {
                 }
                 return;
             }
-            this.MX.setSoTimeout(1000);
-            this.MX.setTcpNoDelay(true);
-            InputStream inputStream = this.MX.getInputStream();
+            this.MZ.setSoTimeout(1000);
+            this.MZ.setTcpNoDelay(true);
+            InputStream inputStream = this.MZ.getInputStream();
             if (inputStream == null) {
-                if (this.MX != null) {
+                if (this.MZ != null) {
                     try {
-                        if (!this.MX.isInputShutdown()) {
-                            this.MX.shutdownInput();
+                        if (!this.MZ.isInputShutdown()) {
+                            this.MZ.shutdownInput();
                         }
                     } catch (Throwable th4) {
                         th4.printStackTrace();
                     }
                     try {
-                        if (!this.MX.isOutputShutdown()) {
-                            this.MX.shutdownOutput();
+                        if (!this.MZ.isOutputShutdown()) {
+                            this.MZ.shutdownOutput();
                         }
                     } catch (Throwable th5) {
                         th5.printStackTrace();
                     }
                     try {
-                        if (this.MX.isClosed()) {
+                        if (this.MZ.isClosed()) {
                             return;
                         }
-                        this.MX.close();
+                        this.MZ.close();
                         return;
                     } catch (Throwable th6) {
                         th6.printStackTrace();
@@ -116,8 +116,8 @@ public class b extends Thread {
                         response = bVar.getResponse();
                     } else if (new com.baidu.tbadk.aladin.b.a().G(intent)) {
                         try {
-                            intent.setClass(this.MU.getApplicationContext(), WebNativeReceiver.class);
-                            this.MU.sendBroadcast(intent);
+                            intent.setClass(this.MW.getApplicationContext(), WebNativeReceiver.class);
+                            this.MW.sendBroadcast(intent);
                         } catch (Exception e) {
                             bVar.setErrorCode(1);
                             response = bVar.getResponse();
@@ -134,28 +134,28 @@ public class b extends Thread {
                 cVar.O("Connection", "Close");
                 cVar.setContent(response);
                 String oK = cVar.oK();
-                OutputStream outputStream = this.MX.getOutputStream();
+                OutputStream outputStream = this.MZ.getOutputStream();
                 if (outputStream == null) {
-                    if (this.MX != null) {
+                    if (this.MZ != null) {
                         try {
-                            if (!this.MX.isInputShutdown()) {
-                                this.MX.shutdownInput();
+                            if (!this.MZ.isInputShutdown()) {
+                                this.MZ.shutdownInput();
                             }
                         } catch (Throwable th7) {
                             th7.printStackTrace();
                         }
                         try {
-                            if (!this.MX.isOutputShutdown()) {
-                                this.MX.shutdownOutput();
+                            if (!this.MZ.isOutputShutdown()) {
+                                this.MZ.shutdownOutput();
                             }
                         } catch (Throwable th8) {
                             th8.printStackTrace();
                         }
                         try {
-                            if (this.MX.isClosed()) {
+                            if (this.MZ.isClosed()) {
                                 return;
                             }
-                            this.MX.close();
+                            this.MZ.close();
                             return;
                         } catch (Throwable th9) {
                             th9.printStackTrace();
@@ -168,49 +168,49 @@ public class b extends Thread {
                 bufferedWriter.write(oK);
                 bufferedWriter.flush();
             }
-            if (this.MX != null) {
+            if (this.MZ != null) {
                 try {
-                    if (!this.MX.isInputShutdown()) {
-                        this.MX.shutdownInput();
+                    if (!this.MZ.isInputShutdown()) {
+                        this.MZ.shutdownInput();
                     }
                 } catch (Throwable th10) {
                     th10.printStackTrace();
                 }
                 try {
-                    if (!this.MX.isOutputShutdown()) {
-                        this.MX.shutdownOutput();
+                    if (!this.MZ.isOutputShutdown()) {
+                        this.MZ.shutdownOutput();
                     }
                 } catch (Throwable th11) {
                     th11.printStackTrace();
                 }
                 try {
-                    if (this.MX.isClosed()) {
+                    if (this.MZ.isClosed()) {
                         return;
                     }
-                    this.MX.close();
+                    this.MZ.close();
                 } catch (Throwable th12) {
                     th12.printStackTrace();
                 }
             }
         } catch (Throwable th13) {
-            if (this.MX != null) {
+            if (this.MZ != null) {
                 try {
-                    if (!this.MX.isInputShutdown()) {
-                        this.MX.shutdownInput();
+                    if (!this.MZ.isInputShutdown()) {
+                        this.MZ.shutdownInput();
                     }
                 } catch (Throwable th14) {
                     th14.printStackTrace();
                 }
                 try {
-                    if (!this.MX.isOutputShutdown()) {
-                        this.MX.shutdownOutput();
+                    if (!this.MZ.isOutputShutdown()) {
+                        this.MZ.shutdownOutput();
                     }
                 } catch (Throwable th15) {
                     th15.printStackTrace();
                 }
                 try {
-                    if (!this.MX.isClosed()) {
-                        this.MX.close();
+                    if (!this.MZ.isClosed()) {
+                        this.MZ.close();
                     }
                 } catch (Throwable th16) {
                     th16.printStackTrace();

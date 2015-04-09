@@ -18,9 +18,9 @@ class h extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ai aiVar;
         if (customResponsedMessage != null) {
-            aiVar = this.this$0.cqV;
-            aiVar.iE(0);
-            MainTabActivity.cqO = false;
+            aiVar = this.this$0.crl;
+            aiVar.iH(0);
+            MainTabActivity.cre = false;
         }
     }
 }

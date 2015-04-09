@@ -25,7 +25,7 @@ import tbclient.Voice;
 /* loaded from: classes.dex */
 public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = -8881889728582490817L;
-    private transient SpannableString Qv;
+    private transient SpannableString Qx;
     private String abstract_text;
     private String authorId;
     private String fid;
@@ -56,7 +56,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
     }
 
     public SpannableString getSpan_str() {
-        return this.Qv;
+        return this.Qx;
     }
 
     public String getFname() {
@@ -271,7 +271,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.Qv = spannableString;
+            this.Qx = spannableString;
         }
     }
 

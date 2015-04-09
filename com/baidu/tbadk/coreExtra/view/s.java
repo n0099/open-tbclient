@@ -15,66 +15,66 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class s extends PagerAdapter {
-    private ArrayList<String> aeo;
-    private HashMap<String, ImageUrlData> aep;
-    private com.baidu.tbadk.widget.g aes;
-    private boolean aez;
+    private com.baidu.tbadk.widget.g aeA;
+    private boolean aeH;
+    private ArrayList<String> aew;
+    private HashMap<String, ImageUrlData> aex;
     private Context mContext;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener aeq = null;
-    private com.baidu.tbadk.widget.h aer = null;
-    private int aet = 0;
-    private boolean aeu = false;
-    private String aev = null;
-    private int aew = 0;
-    private boolean aex = false;
-    private boolean aey = false;
+    private View.OnLongClickListener aey = null;
+    private com.baidu.tbadk.widget.h aez = null;
+    private int aeB = 0;
+    private boolean aeC = false;
+    private String aeD = null;
+    private int aeE = 0;
+    private boolean aeF = false;
+    private boolean aeG = false;
 
     public s(Context context, ArrayList<String> arrayList, com.baidu.tbadk.widget.g gVar) {
         this.mContext = null;
-        this.aeo = null;
-        this.aes = null;
+        this.aew = null;
+        this.aeA = null;
         this.mContext = context;
-        this.aeo = arrayList;
-        this.aes = gVar;
+        this.aew = arrayList;
+        this.aeA = gVar;
     }
 
     public void p(ArrayList<String> arrayList) {
-        this.aeo = arrayList;
+        this.aew = arrayList;
         notifyDataSetChanged();
     }
 
     public void setAssistUrls(HashMap<String, ImageUrlData> hashMap) {
-        this.aep = hashMap;
+        this.aex = hashMap;
     }
 
     public void setNextTitle(String str) {
-        this.aev = str;
+        this.aeD = str;
     }
 
     public void setHasNext(boolean z) {
-        this.aeu = z;
+        this.aeC = z;
         notifyDataSetChanged();
     }
 
     public boolean getHasNext() {
-        return this.aeu;
+        return this.aeC;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.aeo != null) {
-            i = this.aeo.size();
-            if (this.aeu) {
+        if (this.aew != null) {
+            i = this.aew.size();
+            if (this.aeC) {
                 i++;
             }
         }
-        return i + this.aew;
+        return i + this.aeE;
     }
 
     public void setTempSize(int i) {
-        this.aew = i;
+        this.aeE = i;
         notifyDataSetChanged();
     }
 
@@ -83,15 +83,15 @@ public class s extends PagerAdapter {
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.aeq = onLongClickListener;
+        this.aey = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.aet = i;
+        this.aeB = i;
     }
 
     public void a(com.baidu.tbadk.widget.h hVar) {
-        this.aer = hVar;
+        this.aez = hVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -109,28 +109,28 @@ public class s extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i == this.aeo.size()) {
+        if (i == this.aew.size()) {
             View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.big_image_next, null);
             ((ImageView) inflate.findViewById(com.baidu.tieba.v.image)).setImageDrawable(ba.getDrawable(com.baidu.tieba.u.big_image_next_default));
-            ((TextView) inflate.findViewById(com.baidu.tieba.v.thread_name)).setText(this.aev);
+            ((TextView) inflate.findViewById(com.baidu.tieba.v.thread_name)).setText(this.aeD);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
         }
         at atVar = new at(this.mContext);
-        String str = i < this.aeo.size() ? this.aeo.get(i) : null;
+        String str = i < this.aew.size() ? this.aew.get(i) : null;
         atVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         atVar.setImageOnClickListener(this.mOnClickListener);
-        atVar.setImageOnLongClickListener(this.aeq);
-        atVar.setIsCdn(this.aex);
-        atVar.setOnSizeChangedListener(this.aer);
+        atVar.setImageOnLongClickListener(this.aey);
+        atVar.setIsCdn(this.aeF);
+        atVar.setOnSizeChangedListener(this.aez);
         ((ViewPager) viewGroup).addView(atVar, 0);
-        atVar.setAssistUrl(dM(str));
-        atVar.n(str, this.aey);
-        atVar.setGifMaxUseableMem(this.aet);
+        atVar.setAssistUrl(dP(str));
+        atVar.n(str, this.aeG);
+        atVar.setGifMaxUseableMem(this.aeB);
         atVar.setTag(String.valueOf(i));
-        atVar.setGifSetListener(this.aes);
-        atVar.setHeadImage(this.aez);
+        atVar.setGifSetListener(this.aeA);
+        atVar.setHeadImage(this.aeH);
         return atVar;
     }
 
@@ -148,35 +148,35 @@ public class s extends PagerAdapter {
                 }
             }
             com.baidu.tbadk.widget.a currentView = pVar.getCurrentView();
-            if (imageView != currentView || i == this.aeo.size() - 1) {
+            if (imageView != currentView || i == this.aew.size() - 1) {
                 if (currentView != null) {
                     currentView.restoreSize();
                 }
-                ((at) obj).aH(this.aey);
+                ((at) obj).aH(this.aeG);
                 pVar.setCurrentView(imageView);
                 if (((at) obj).getImageType() == 1) {
-                    this.aes.a(imageView);
+                    this.aeA.a(imageView);
                 }
             }
         }
     }
 
-    private ImageUrlData dM(String str) {
-        if (TextUtils.isEmpty(str) || this.aep == null) {
+    private ImageUrlData dP(String str) {
+        if (TextUtils.isEmpty(str) || this.aex == null) {
             return null;
         }
-        return this.aep.get(str);
+        return this.aex.get(str);
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.aey = z;
+        this.aeG = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.aex = z;
+        this.aeF = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.aez = z;
+        this.aeH = z;
     }
 }

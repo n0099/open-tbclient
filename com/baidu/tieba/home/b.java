@@ -10,11 +10,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ CreateBarActivity aVR;
+    final /* synthetic */ CreateBarActivity aWh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(CreateBarActivity createBarActivity) {
-        this.aVR = createBarActivity;
+        this.aWh = createBarActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -40,28 +40,28 @@ public class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.aVR.aVF;
+        editText = this.aWh.aVV;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.aVR.avK;
+            editText2 = this.aWh.avS;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.aVR.aVG;
+                relativeLayout2 = this.aWh.aVW;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.aVR.aVM;
-                    textView3.setText(this.aVR.getPageContext().getString(y.bar_name_long));
-                    textView4 = this.aVR.aVM;
+                    textView3 = this.aWh.aWc;
+                    textView3.setText(this.aWh.getPageContext().getString(y.bar_name_long));
+                    textView4 = this.aWh.aWc;
                     textView4.setTextColor(SupportMenu.CATEGORY_MASK);
                     return;
                 }
-                textView = this.aVR.aVM;
-                textView.setText(this.aVR.getPageContext().getString(y.bar_name_rule));
-                textView2 = this.aVR.aVM;
+                textView = this.aWh.aWc;
+                textView.setText(this.aWh.getPageContext().getString(y.bar_name_rule));
+                textView2 = this.aWh.aWc;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.aVR.aVG;
+        relativeLayout = this.aWh.aVW;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }

@@ -4,31 +4,31 @@ import android.graphics.Point;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.imMessageCenter.im.floatwindow.a.e {
-    final /* synthetic */ a bri;
+    final /* synthetic */ a bry;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bri = aVar;
+        this.bry = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e
-    public void Ux() {
+    public void UK() {
         e eVar;
         e eVar2;
-        this.bri.brf = false;
-        this.bri.setTouchable(true);
-        eVar = this.bri.bqq;
+        this.bry.brv = false;
+        this.bry.setTouchable(true);
+        eVar = this.bry.bqG;
         if (eVar != null) {
-            eVar2 = this.bri.bqq;
-            eVar2.Ux();
+            eVar2 = this.bry.bqG;
+            eVar2.UK();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e
     public void a(Point point) {
         int i;
-        a aVar = this.bri;
-        i = this.bri.bqy;
+        a aVar = this.bry;
+        i = this.bry.bqO;
         aVar.Y(i - point.x, point.y);
     }
 }

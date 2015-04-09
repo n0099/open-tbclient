@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<com.baidu.tbadk.core.data.w> cwQ;
+    private ArrayList<com.baidu.tbadk.core.data.w> cxj;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -23,7 +23,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.cwQ = null;
+        this.cxj = null;
         this.mSkinType = -1;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
@@ -39,14 +39,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.cwQ = new ArrayList<>(arrayList.subList(0, 3));
+            this.cxj = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.cwQ = arrayList;
+            this.cxj = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.cwQ.size()) {
-                addView(b(this.cwQ.get(i2), i2));
+            if (i2 < this.cxj.size()) {
+                addView(b(this.cxj.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;

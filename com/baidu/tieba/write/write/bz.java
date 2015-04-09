@@ -7,14 +7,14 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements View.OnClickListener {
-    private final /* synthetic */ String bPd;
+    private final /* synthetic */ String bPt;
     final /* synthetic */ WriteImageActivity this$0;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(WriteImageActivity writeImageActivity, String str, int i) {
         this.this$0 = writeImageActivity;
-        this.bPd = str;
+        this.bPt = str;
         this.val$id = i;
     }
 
@@ -25,12 +25,12 @@ public class bz implements View.OnClickListener {
         Bitmap bitmap;
         progressBar = this.this$0.mProgress;
         if (progressBar.getVisibility() != 0) {
-            imageView = this.this$0.atv;
+            imageView = this.this$0.atD;
             bitmap = this.this$0.mBitmap;
             imageView.setImageBitmap(bitmap);
-            this.this$0.bOY = false;
-            this.this$0.hU(this.bPd);
-            this.this$0.bOU = this.val$id;
+            this.this$0.bPo = false;
+            this.this$0.hX(this.bPt);
+            this.this$0.bPk = this.val$id;
         }
     }
 }

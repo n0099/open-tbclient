@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class b implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ PbHistoryActivity bEA;
+    final /* synthetic */ PbHistoryActivity bEN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbHistoryActivity pbHistoryActivity) {
-        this.bEA = pbHistoryActivity;
+        this.bEN = pbHistoryActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -20,16 +20,16 @@ class b implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.myCollection.base
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.bEA.aO(readCacheRespMsg.getData());
+        this.bEN.aR(readCacheRespMsg.getData());
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.bEA.Vn();
+                this.bEN.VA();
             } else {
-                this.bEA.aO(new ArrayList());
+                this.bEN.aR(new ArrayList());
             }
         }
     }

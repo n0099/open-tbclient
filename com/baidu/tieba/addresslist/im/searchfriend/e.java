@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ SearchFriendActivity ayX;
+    final /* synthetic */ SearchFriendActivity azf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.ayX = searchFriendActivity;
+        this.azf = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,18 +30,18 @@ class e extends CustomMessageListener {
             if ((customMessage.getData() instanceof SearchFriendResult.UserInfo) && (userInfo = (SearchFriendResult.UserInfo) customMessage.getData()) != null) {
                 ArrayList arrayList = (ArrayList) customResponsedMessage.getData();
                 if (arrayList == null || arrayList.size() == 0) {
-                    this.ayX.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.ayX.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
+                    this.azf.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.azf.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
                     return;
                 }
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if ((next instanceof com.baidu.tbadk.coreExtra.relationship.a) && userInfo.getUserId() == ((com.baidu.tbadk.coreExtra.relationship.a) next).getUserId()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.ayX.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.azf.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
                 }
-                this.ayX.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.ayX.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
+                this.azf.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.azf.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
             }
         }
     }

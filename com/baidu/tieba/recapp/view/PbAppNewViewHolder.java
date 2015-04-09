@@ -19,99 +19,99 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PbAppNewViewHolder extends BaseAppViewHolder {
-    protected TbImageView bXx;
-    protected TextView bXy;
-    protected ViewGroup bXz;
+    protected TbImageView bXN;
+    protected TextView bXO;
+    protected ViewGroup bXP;
 
     public PbAppNewViewHolder(View view) {
         super(view);
-        this.bXt = (TextView) view.findViewById(v.recommend_title);
-        this.bXv = (HeadImageView) view.findViewById(v.recommend_icon);
-        this.bXs = (TextView) view.findViewById(v.recommend_btn);
-        this.bXu = (TextView) view.findViewById(v.recommend_content);
-        this.bXx = (TbImageView) view.findViewById(v.recommend_img);
-        this.bXy = (TextView) view.findViewById(v.recommend_time);
-        this.bXw = view.findViewById(v.divider_line);
-        this.bXz = (ViewGroup) view.findViewById(v.layout);
-        this.bXv.setClickable(false);
+        this.bXJ = (TextView) view.findViewById(v.recommend_title);
+        this.bXL = (HeadImageView) view.findViewById(v.recommend_icon);
+        this.bXI = (TextView) view.findViewById(v.recommend_btn);
+        this.bXK = (TextView) view.findViewById(v.recommend_content);
+        this.bXN = (TbImageView) view.findViewById(v.recommend_img);
+        this.bXO = (TextView) view.findViewById(v.recommend_time);
+        this.bXM = view.findViewById(v.divider_line);
+        this.bXP = (ViewGroup) view.findViewById(v.layout);
+        this.bXL.setClickable(false);
     }
 
     @Override // com.baidu.tieba.recapp.PbRecBaseViewHolder
     public void update(i iVar, int i, boolean z) {
         super.update(iVar, i, z);
         if (iVar != null) {
-            this.bXt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ba.getDrawable(u.icon_extend), (Drawable) null);
-            this.bXt.setText(iVar.aml());
+            this.bXJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ba.getDrawable(u.icon_extend), (Drawable) null);
+            this.bXJ.setText(iVar.amA());
             if (!n.px().pz()) {
-                ViewGroup.LayoutParams layoutParams = this.bXv.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.bXL.getLayoutParams();
                 layoutParams.width = (int) this.rootView.getResources().getDimension(t.ds30);
-                this.bXv.setLayoutParams(layoutParams);
-                this.bXv.setVisibility(4);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bXz.getLayoutParams();
+                this.bXL.setLayoutParams(layoutParams);
+                this.bXL.setVisibility(4);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bXP.getLayoutParams();
                 marginLayoutParams.leftMargin = (int) this.rootView.getResources().getDimension(t.ds50);
-                this.bXz.setLayoutParams(marginLayoutParams);
+                this.bXP.setLayoutParams(marginLayoutParams);
             } else {
-                ViewGroup.LayoutParams layoutParams2 = this.bXv.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.bXL.getLayoutParams();
                 layoutParams2.width = (int) this.rootView.getResources().getDimension(t.ds60);
-                this.bXv.setLayoutParams(layoutParams2);
-                this.bXv.setVisibility(0);
-                if (!TextUtils.isEmpty(iVar.amm())) {
-                    this.bXv.c(iVar.amm(), z ? 17 : 18, false);
+                this.bXL.setLayoutParams(layoutParams2);
+                this.bXL.setVisibility(0);
+                if (!TextUtils.isEmpty(iVar.amB())) {
+                    this.bXL.c(iVar.amB(), z ? 17 : 18, false);
                 }
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bXz.getLayoutParams();
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bXP.getLayoutParams();
                 marginLayoutParams2.leftMargin = (int) this.rootView.getResources().getDimension(t.ds80);
-                this.bXz.setLayoutParams(marginLayoutParams2);
+                this.bXP.setLayoutParams(marginLayoutParams2);
             }
-            String n = bd.n(iVar.amp());
+            String n = bd.n(iVar.amE());
             if (n == null) {
                 n = "";
             }
-            this.bXy.setText(n);
-            if (StringUtils.isNull(iVar.amn())) {
-                this.bXu.setVisibility(8);
+            this.bXO.setText(n);
+            if (StringUtils.isNull(iVar.amC())) {
+                this.bXK.setVisibility(8);
             } else {
-                this.bXu.setVisibility(0);
-                this.bXu.setText(getFixedChineseString(iVar.amn()));
+                this.bXK.setVisibility(0);
+                this.bXK.setText(getFixedChineseString(iVar.amC()));
             }
-            ViewGroup.LayoutParams layoutParams3 = this.bXx.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.bXN.getLayoutParams();
             layoutParams3.width = (int) (this.rootView.getResources().getDimension(t.ds594) - this.rootView.getResources().getDimension(t.ds20));
             layoutParams3.height = (int) (this.rootView.getResources().getDimension(t.ds260) - this.rootView.getResources().getDimension(t.ds10));
-            this.bXx.setLayoutParams(layoutParams3);
-            if (!StringUtils.isNull(iVar.amo()) && n.px().pB()) {
-                this.bXx.setVisibility(0);
-                this.bXx.c(iVar.amo(), z ? 17 : 18, false);
+            this.bXN.setLayoutParams(layoutParams3);
+            if (!StringUtils.isNull(iVar.amD()) && n.px().pB()) {
+                this.bXN.setVisibility(0);
+                this.bXN.c(iVar.amD(), z ? 17 : 18, false);
             } else {
-                this.bXx.setVisibility(8);
+                this.bXN.setVisibility(8);
             }
-            this.bXs.setTag(this);
+            this.bXI.setTag(this);
             this.rootView.setBackgroundDrawable(null);
-            aft();
-            if (iVar.amu()) {
-                this.bXs.setVisibility(8);
+            afI();
+            if (iVar.amJ()) {
+                this.bXI.setVisibility(8);
             } else {
-                this.bXs.setVisibility(0);
+                this.bXI.setVisibility(0);
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected void afu() {
-        if (this.bXs != null && this.rootView != null) {
-            ba.i((View) this.bXs, u.btn_appdownload);
-            ba.b(this.bXs, s.cp_cont_i, 1);
+    protected void afJ() {
+        if (this.bXI != null && this.rootView != null) {
+            ba.i((View) this.bXI, u.btn_appdownload);
+            ba.b(this.bXI, s.cp_cont_i, 1);
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected void afv() {
-        if (this.bXs != null && this.rootView != null) {
-            ba.i((View) this.bXs, u.btn_content_download_d);
-            ba.b(this.bXs, s.faceshop_downloaded_text, 1);
+    protected void afK() {
+        if (this.bXI != null && this.rootView != null) {
+            ba.i((View) this.bXI, u.btn_content_download_d);
+            ba.b(this.bXI, s.faceshop_downloaded_text, 1);
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected int afw() {
+    protected int afL() {
         return y.pb_app_download;
     }
 }

@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.k;
+import com.baidu.tbadk.coreExtra.data.l;
 import com.baidu.tieba.y;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Integer, Integer, g> {
-    final /* synthetic */ a cqe;
-    private com.baidu.tieba.tbadkCore.d.a cqd = null;
-    private String axc = null;
-    private boolean cqc = false;
+    final /* synthetic */ a cqu;
+    private com.baidu.tieba.tbadkCore.d.a cqt = null;
+    private String axk = null;
+    private boolean cqs = false;
 
     public f(a aVar) {
-        this.cqe = aVar;
+        this.cqu = aVar;
         setPriority(3);
     }
 
@@ -52,49 +52,49 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        if (this.cqc) {
+        if (this.cqs) {
             return null;
         }
-        this.cqd = new com.baidu.tieba.tbadkCore.d.a();
-        com.baidu.tieba.tbadkCore.d.a aVar = this.cqd;
-        writeData = this.cqe.cpU;
-        z = this.cqe.cqb;
-        this.axc = aVar.a(writeData, z);
-        ErrorData amK = this.cqd.amK();
-        if (this.cqd.pv() && this.axc != null) {
-            AntiData amJ = this.cqd.amJ();
-            String error_msg = amK.getError_msg();
+        this.cqt = new com.baidu.tieba.tbadkCore.d.a();
+        com.baidu.tieba.tbadkCore.d.a aVar = this.cqt;
+        writeData = this.cqu.cqk;
+        z = this.cqu.cqr;
+        this.axk = aVar.a(writeData, z);
+        ErrorData amZ = this.cqt.amZ();
+        if (this.cqt.pv() && this.axk != null) {
+            AntiData amY = this.cqt.amY();
+            String error_msg = amZ.getError_msg();
             if (m.isEmpty(error_msg)) {
                 error_msg = TbadkCoreApplication.m411getInst().getApp().getString(y.send_success);
             }
-            g gVar2 = new g(amK.getError_code(), error_msg, amJ);
-            writeData2 = this.cqe.cpU;
+            g gVar2 = new g(amZ.getError_code(), error_msg, amY);
+            writeData2 = this.cqu.cqk;
             if (writeData2 != null) {
-                writeData3 = this.cqe.cpU;
+                writeData3 = this.cqu.cqk;
                 if (!writeData3.isHasImages()) {
-                    writeData5 = this.cqe.cpU;
+                    writeData5 = this.cqu.cqk;
                 }
                 if (!gVar2.hasError()) {
-                    writeData4 = this.cqe.cpU;
+                    writeData4 = this.cqu.cqk;
                     writeData4.deleteUploadedTempImages();
                     gVar = gVar2;
                 }
             }
             gVar = gVar2;
-        } else if (amK != null && !StringUtils.isNull(amK.getError_msg())) {
-            gVar = new g(amK.getError_code(), amK.getError_msg(), null);
+        } else if (amZ != null && !StringUtils.isNull(amZ.getError_msg())) {
+            gVar = new g(amZ.getError_code(), amZ.getError_msg(), null);
         } else {
             gVar = new g(-17, TbadkCoreApplication.m411getInst().getApp().getString(y.neterror), null);
         }
         if (!gVar.hasError()) {
             try {
-                String optString2 = new JSONObject(this.axc).optString(AddFriendActivityConfig.MSG);
+                String optString2 = new JSONObject(this.axk).optString(AddFriendActivityConfig.MSG);
                 try {
-                    String optString3 = new JSONObject(this.axc).optString("pre_msg");
+                    String optString3 = new JSONObject(this.axk).optString("pre_msg");
                     try {
-                        String optString4 = new JSONObject(this.axc).optString("color_msg");
+                        String optString4 = new JSONObject(this.axk).optString("color_msg");
                         try {
-                            optString = new JSONObject(this.axc).optString("tid");
+                            optString = new JSONObject(this.axk).optString("tid");
                         } catch (JSONException e) {
                             str = optString4;
                             str2 = optString3;
@@ -103,7 +103,7 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
                             str4 = null;
                         }
                         try {
-                            str6 = new JSONObject(this.axc).optString("pid");
+                            str6 = new JSONObject(this.axk).optString("pid");
                             str5 = optString;
                             str = optString4;
                             str2 = optString3;
@@ -171,22 +171,22 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         e eVar2;
         WriteData writeData2;
         super.onPostExecute(gVar);
-        this.cqe.cpS = null;
-        if (!this.cqc && gVar != null) {
+        this.cqu.cqi = null;
+        if (!this.cqs && gVar != null) {
             if (!gVar.hasError()) {
-                writeData = this.cqe.cpU;
+                writeData = this.cqu.cqk;
                 if (writeData != null) {
-                    writeData2 = this.cqe.cpU;
+                    writeData2 = this.cqu.cqk;
                     if (writeData2.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.akY();
+                        com.baidu.tieba.tbadkCore.PbEditor.a.aln();
                     }
                 }
-                eVar = this.cqe.cqa;
+                eVar = this.cqu.cqq;
                 if (eVar == null) {
-                    dVar = this.cqe.cpZ;
+                    dVar = this.cqu.cqp;
                     if (dVar != null) {
-                        dVar2 = this.cqe.cpZ;
-                        dVar2.a(true, gVar.getErrorString(), null, null, gVar.Zc());
+                        dVar2 = this.cqu.cqp;
+                        dVar2.a(true, gVar.getErrorString(), null, null, gVar.Zp());
                         return;
                     }
                     return;
@@ -194,8 +194,8 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
                 PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(gVar.getErrorString(), gVar.getPreMsg(), gVar.getColorMsg());
                 postWriteCallBackData.setThreadId(gVar.getThreadId());
                 postWriteCallBackData.setPostId(gVar.getPostId());
-                eVar2 = this.cqe.cqa;
-                eVar2.a(true, postWriteCallBackData, null, null, gVar.Zc());
+                eVar2 = this.cqu.cqq;
+                eVar2.a(true, postWriteCallBackData, null, null, gVar.Zp());
                 return;
             }
             b(gVar);
@@ -208,23 +208,23 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         d dVar;
         d dVar2;
         e eVar2;
-        this.cqc = true;
-        if (this.cqd != null) {
-            this.cqd.cancel();
+        this.cqs = true;
+        if (this.cqt != null) {
+            this.cqt.cancel();
         }
-        eVar = this.cqe.cqa;
+        eVar = this.cqu.cqq;
         if (eVar == null) {
-            dVar = this.cqe.cpZ;
+            dVar = this.cqu.cqp;
             if (dVar != null) {
-                dVar2 = this.cqe.cpZ;
+                dVar2 = this.cqu.cqp;
                 dVar2.a(false, null, null, null, null);
             }
         } else {
-            eVar2 = this.cqe.cqa;
+            eVar2 = this.cqu.cqq;
             eVar2.a(false, null, null, null, null);
         }
         super.cancel(true);
-        this.cqe.cpS = null;
+        this.cqu.cqi = null;
     }
 
     private void b(g gVar) {
@@ -241,48 +241,48 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         WriteData writeData4;
         e eVar4;
         WriteData writeData5;
-        AntiData Zc = gVar.Zc();
-        if (!gVar.anD()) {
-            eVar = this.cqe.cqa;
+        AntiData Zp = gVar.Zp();
+        if (!gVar.anS()) {
+            eVar = this.cqu.cqq;
             if (eVar == null) {
-                dVar = this.cqe.cpZ;
+                dVar = this.cqu.cqp;
                 if (dVar != null) {
-                    dVar2 = this.cqe.cpZ;
-                    dVar2.a(false, gVar.getErrorString(), null, null, gVar.Zc());
+                    dVar2 = this.cqu.cqp;
+                    dVar2.a(false, gVar.getErrorString(), null, null, gVar.Zp());
                     return;
                 }
                 return;
             }
             PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(gVar.getErrorString(), null, null);
-            eVar2 = this.cqe.cqa;
-            eVar2.a(false, postWriteCallBackData, null, null, gVar.Zc());
+            eVar2 = this.cqu.cqq;
+            eVar2.a(false, postWriteCallBackData, null, null, gVar.Zp());
             return;
         }
-        k kVar = new k();
-        kVar.parserJson(this.axc);
-        if (kVar.getVcode_pic_url() != null) {
-            writeData = this.cqe.cpU;
+        l lVar = new l();
+        lVar.parserJson(this.axk);
+        if (lVar.getVcode_pic_url() != null) {
+            writeData = this.cqu.cqk;
             if (writeData != null) {
-                writeData2 = this.cqe.cpU;
-                writeData2.setVcodeMD5(kVar.getVcode_md5());
-                writeData3 = this.cqe.cpU;
-                writeData3.setVcodeUrl(kVar.getVcode_pic_url());
-                eVar3 = this.cqe.cqa;
+                writeData2 = this.cqu.cqk;
+                writeData2.setVcodeMD5(lVar.getVcode_md5());
+                writeData3 = this.cqu.cqk;
+                writeData3.setVcodeUrl(lVar.getVcode_pic_url());
+                eVar3 = this.cqu.cqq;
                 if (eVar3 == null) {
-                    dVar3 = this.cqe.cpZ;
+                    dVar3 = this.cqu.cqp;
                     if (dVar3 != null) {
-                        dVar4 = this.cqe.cpZ;
+                        dVar4 = this.cqu.cqp;
                         String errorString = gVar.getErrorString();
-                        writeData4 = this.cqe.cpU;
-                        dVar4.a(false, errorString, kVar, writeData4, Zc);
+                        writeData4 = this.cqu.cqk;
+                        dVar4.a(false, errorString, lVar, writeData4, Zp);
                         return;
                     }
                     return;
                 }
                 PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(gVar.getErrorString(), null, null);
-                eVar4 = this.cqe.cqa;
-                writeData5 = this.cqe.cpU;
-                eVar4.a(false, postWriteCallBackData2, kVar, writeData5, Zc);
+                eVar4 = this.cqu.cqq;
+                writeData5 = this.cqu.cqk;
+                eVar4.a(false, postWriteCallBackData2, lVar, writeData5, Zp);
             }
         }
     }

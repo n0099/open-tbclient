@@ -13,24 +13,24 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Dialog {
-    private TextView aKt;
-    private LinearLayout atV;
-    private TextView axw;
-    private TextView bUA;
-    private TextView bUB;
-    private TextView bUC;
-    private TextView bUD;
-    private TextView bUE;
-    private TextView bUF;
-    private TextView bUG;
-    private TextView bUH;
-    final /* synthetic */ PluginDownloadActivity bUy;
-    private LinearLayout bUz;
+    private TextView aKD;
+    private LinearLayout aud;
+    private TextView axE;
+    final /* synthetic */ PluginDownloadActivity bUO;
+    private LinearLayout bUP;
+    private TextView bUQ;
+    private TextView bUR;
+    private TextView bUS;
+    private TextView bUT;
+    private TextView bUU;
+    private TextView bUV;
+    private TextView bUW;
+    private TextView bUX;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PluginDownloadActivity pluginDownloadActivity, Context context, int i) {
         super(context, i);
-        this.bUy = pluginDownloadActivity;
+        this.bUO = pluginDownloadActivity;
     }
 
     @Override // android.app.Dialog
@@ -48,63 +48,63 @@ public class g extends Dialog {
         findViewById(v.warning).setVisibility(8);
         findViewById(v.incremental_button).setVisibility(8);
         findViewById(v.incremental_size).setVisibility(8);
-        this.bUz = (LinearLayout) findViewById(v.down_dialog);
-        this.bUG = (TextView) findViewById(v.update_tip);
-        this.bUA = (TextView) findViewById(v.newversion);
-        this.aKt = (TextView) findViewById(v.desc);
-        this.bUB = (TextView) findViewById(v.update_button);
-        this.bUB.setText(this.bUy.getPageContext().getString(y.plugin_download_immediately));
-        this.axw = (TextView) findViewById(v.update_cancel);
-        this.bUC = (TextView) findViewById(v.downloading);
-        this.bUH = (TextView) findViewById(v.otherApp);
-        this.bUH.setVisibility(8);
-        this.bUD = (TextView) findViewById(v.app_size);
-        this.atV = (LinearLayout) findViewById(v.cancel_dialog);
-        this.bUE = (TextView) findViewById(v.sure_cancel);
-        this.bUF = (TextView) findViewById(v.cancel_button);
-        this.bUE.setOnClickListener(new h(this));
-        this.bUF.setOnClickListener(new i(this));
-        pluginConfig = this.bUy.bUu;
+        this.bUP = (LinearLayout) findViewById(v.down_dialog);
+        this.bUW = (TextView) findViewById(v.update_tip);
+        this.bUQ = (TextView) findViewById(v.newversion);
+        this.aKD = (TextView) findViewById(v.desc);
+        this.bUR = (TextView) findViewById(v.update_button);
+        this.bUR.setText(this.bUO.getPageContext().getString(y.plugin_download_immediately));
+        this.axE = (TextView) findViewById(v.update_cancel);
+        this.bUS = (TextView) findViewById(v.downloading);
+        this.bUX = (TextView) findViewById(v.otherApp);
+        this.bUX.setVisibility(8);
+        this.bUT = (TextView) findViewById(v.app_size);
+        this.aud = (LinearLayout) findViewById(v.cancel_dialog);
+        this.bUU = (TextView) findViewById(v.sure_cancel);
+        this.bUV = (TextView) findViewById(v.cancel_button);
+        this.bUU.setOnClickListener(new h(this));
+        this.bUV.setOnClickListener(new i(this));
+        pluginConfig = this.bUO.bUK;
         if (TextUtils.isEmpty(pluginConfig.display_name)) {
-            this.bUG.setText("");
+            this.bUW.setText("");
         } else {
-            TextView textView = this.bUG;
-            pluginConfig2 = this.bUy.bUu;
+            TextView textView = this.bUW;
+            pluginConfig2 = this.bUO.bUK;
             textView.setText(pluginConfig2.display_name);
         }
-        pluginConfig3 = this.bUy.bUu;
+        pluginConfig3 = this.bUO.bUK;
         if (pluginConfig3.newest != null) {
-            pluginConfig4 = this.bUy.bUu;
+            pluginConfig4 = this.bUO.bUK;
             if (TextUtils.isEmpty(pluginConfig4.newest.version)) {
-                this.bUA.setText("");
+                this.bUQ.setText("");
             } else {
-                TextView textView2 = this.bUA;
+                TextView textView2 = this.bUQ;
                 StringBuilder sb = new StringBuilder("版本：");
-                pluginConfig5 = this.bUy.bUu;
+                pluginConfig5 = this.bUO.bUK;
                 textView2.setText(sb.append(pluginConfig5.newest.version).toString());
             }
-            pluginConfig6 = this.bUy.bUu;
+            pluginConfig6 = this.bUO.bUK;
             if (TextUtils.isEmpty(pluginConfig6.newest.change_log)) {
-                this.aKt.setText("");
+                this.aKD.setText("");
             } else {
-                TextView textView3 = this.aKt;
-                pluginConfig7 = this.bUy.bUu;
+                TextView textView3 = this.aKD;
+                pluginConfig7 = this.bUO.bUK;
                 textView3.setText(pluginConfig7.newest.change_log);
             }
-            pluginConfig8 = this.bUy.bUu;
+            pluginConfig8 = this.bUO.bUK;
             String valueOf = String.valueOf(pluginConfig8.newest.size / 1024);
             if (valueOf != null && !"".equals(valueOf)) {
-                this.bUD.setVisibility(0);
-                this.bUD.setText(((Object) this.bUD.getText()) + valueOf + "KB");
+                this.bUT.setVisibility(0);
+                this.bUT.setText(((Object) this.bUT.getText()) + valueOf + "KB");
             } else {
-                this.bUD.setVisibility(8);
+                this.bUT.setVisibility(8);
             }
         } else {
-            this.bUA.setText("");
-            this.aKt.setText("");
-            this.bUD.setText("");
+            this.bUQ.setText("");
+            this.aKD.setText("");
+            this.bUT.setText("");
         }
-        this.bUB.setOnClickListener(new j(this));
-        this.axw.setOnClickListener(new l(this));
+        this.bUR.setOnClickListener(new j(this));
+        this.axE.setOnClickListener(new l(this));
     }
 }

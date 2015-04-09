@@ -11,11 +11,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements com.baidu.tbadk.editortool.v {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(WriteActivity writeActivity) {
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.v
@@ -32,98 +32,98 @@ public class bh implements com.baidu.tbadk.editortool.v {
         String str2;
         String str3;
         String str4;
-        boolean Jc;
+        boolean Ji;
         if (i == 38) {
-            this.cyc.je(38);
+            this.cyx.jh(38);
         } else if (i == 39) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 2) {
-            this.cyc.je(2);
+            this.cyx.jh(2);
         } else if (i == 3) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 56) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 59) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 0) {
-            Jc = this.cyc.Jc();
-            if (Jc) {
-                this.cyc.showToast(com.baidu.tieba.y.over_limit_tip);
+            Ji = this.cyx.Ji();
+            if (Ji) {
+                this.cyx.showToast(com.baidu.tieba.y.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cyc.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cyx.getPageContext().getPageActivity(), 12004, true)));
             }
         } else if (i == 8) {
-            this.cyc.je(8);
+            this.cyx.jh(8);
         } else if (i == 9) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 4) {
-            str2 = this.cyc.bHS;
+            str2 = this.cyx.bIf;
             if (str2 != null) {
-                str3 = this.cyc.bHS;
+                str3 = this.cyx.bIf;
                 if (str3.length() > 0) {
-                    WriteActivity writeActivity = this.cyc;
-                    str4 = this.cyc.bHS;
+                    WriteActivity writeActivity = this.cyx;
+                    str4 = this.cyx.bIf;
                     writeActivity.showToast(str4);
                 }
             }
         } else if (i == 5) {
-            this.cyc.je(5);
+            this.cyx.jh(5);
         } else if (i == 6) {
-            this.cyc.ark();
+            this.cyx.arz();
         } else if (i == 22) {
-            writeImagesInfo4 = this.cyc.writeImagesInfo;
+            writeImagesInfo4 = this.cyx.writeImagesInfo;
             int size = writeImagesInfo4.size();
-            writeImagesInfo5 = this.cyc.writeImagesInfo;
+            writeImagesInfo5 = this.cyx.writeImagesInfo;
             if (size < writeImagesInfo5.getMaxImagesAllowed()) {
-                this.cyc.aHA = String.valueOf(System.currentTimeMillis());
-                TbPageContext pageContext = this.cyc.getPageContext();
-                str = this.cyc.aHA;
+                this.cyx.aHI = String.valueOf(System.currentTimeMillis());
+                TbPageContext pageContext = this.cyx.getPageContext();
+                str = this.cyx.aHI;
                 com.baidu.tbadk.core.util.az.a(pageContext, str);
                 return;
             }
-            this.cyc.showToast(String.format(this.cyc.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+            this.cyx.showToast(String.format(this.cyx.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
         } else if (i != 23) {
             if (i == 44) {
-                this.cyc.je(i);
+                this.cyx.jh(i);
             } else if (i == 45) {
-                this.cyc.ark();
+                this.cyx.arz();
             } else if (i != 48) {
                 if (i == 50) {
-                    editorToolComponetContainer3 = this.cyc.cmz;
-                    if (editorToolComponetContainer3.alF()) {
-                        this.cyc.je(i);
+                    editorToolComponetContainer3 = this.cyx.cmP;
+                    if (editorToolComponetContainer3.alU()) {
+                        this.cyx.jh(i);
                     }
                 } else if (i == 49) {
-                    this.cyc.ark();
+                    this.cyx.arz();
                 } else if (i != 55 && i != 58) {
                     if (i == 59) {
-                        this.cyc.je(i);
+                        this.cyx.jh(i);
                     } else if (i == 60) {
-                        this.cyc.je(60);
+                        this.cyx.jh(60);
                     } else if (i == 57) {
-                        writeImagesInfo = this.cyc.writeImagesInfo;
+                        writeImagesInfo = this.cyx.writeImagesInfo;
                         if (writeImagesInfo != null) {
-                            writeImagesInfo3 = this.cyc.writeImagesInfo;
+                            writeImagesInfo3 = this.cyx.writeImagesInfo;
                             if (writeImagesInfo3.size() > 0) {
-                                this.cyc.je(57);
+                                this.cyx.jh(57);
                                 return;
                             }
                         }
-                        editorToolComponetContainer = this.cyc.cmz;
-                        if (editorToolComponetContainer.alv()) {
-                            editorToolComponetContainer2 = this.cyc.cmz;
+                        editorToolComponetContainer = this.cyx.cmP;
+                        if (editorToolComponetContainer.alK()) {
+                            editorToolComponetContainer2 = this.cyx.cmP;
                             editorToolComponetContainer2.hideAll();
                         }
                         String valueOf = String.valueOf(System.currentTimeMillis());
-                        Activity pageActivity = this.cyc.getPageContext().getPageActivity();
-                        writeImagesInfo2 = this.cyc.writeImagesInfo;
+                        Activity pageActivity = this.cyx.getPageContext().getPageActivity();
+                        writeImagesInfo2 = this.cyx.writeImagesInfo;
                         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo2.toJsonString(), valueOf);
                         albumActivityConfig.setRequestCode(12002);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                     }
                 }
             } else {
-                this.cyc.jg(i);
+                this.cyx.jj(i);
             }
         }
     }

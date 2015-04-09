@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, InterestFrsData> {
-    private WeakReference<c> awu;
+    private WeakReference<c> awC;
     private int limit;
     private int offset;
     private int userType;
@@ -22,7 +22,7 @@ public class b extends BdAsyncTask<Void, Void, InterestFrsData> {
         this.userType = i;
         this.offset = i2;
         this.limit = i3;
-        this.awu = new WeakReference<>(cVar);
+        this.awC = new WeakReference<>(cVar);
         setPriority(3);
     }
 
@@ -32,7 +32,7 @@ public class b extends BdAsyncTask<Void, Void, InterestFrsData> {
     /* renamed from: g */
     public InterestFrsData doInBackground(Void... voidArr) {
         String str;
-        str = a.bxi;
+        str = a.bxy;
         aa aaVar = new aa(str);
         aaVar.o(OfficalBarChatActivityConfig.USER_TYPE, String.valueOf(this.userType));
         aaVar.o("offset", String.valueOf(this.offset));
@@ -61,7 +61,7 @@ public class b extends BdAsyncTask<Void, Void, InterestFrsData> {
     /* renamed from: f */
     public void onPostExecute(InterestFrsData interestFrsData) {
         super.onPostExecute(interestFrsData);
-        c cVar = this.awu.get();
+        c cVar = this.awC.get();
         if (cVar != null) {
             if (interestFrsData.getErrno() == 0) {
                 cVar.a(interestFrsData);

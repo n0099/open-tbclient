@@ -17,52 +17,52 @@ import com.baidu.tieba.y;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements i {
-    private d cqf;
-    private j cqg;
-    private long cqh;
+    private d cqv;
+    private j cqw;
+    private long cqx;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cqh = bundle.getLong(BuyTBeanActivityConfig.GIFT_TBEAN);
+            this.cqx = bundle.getLong(BuyTBeanActivityConfig.GIFT_TBEAN);
         }
         W(getIntent());
         showLoadingDialog(getPageContext().getString(y.flist_loading));
-        this.cqg = new j(this);
-        this.cqf = new d(this, this);
-        this.cqf.anH();
-        this.cqf.anI();
-        this.cqf.anJ();
-        this.cqf.anG();
+        this.cqw = new j(this);
+        this.cqv = new d(this, this);
+        this.cqv.anW();
+        this.cqv.anX();
+        this.cqv.anY();
+        this.cqv.anV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.cqg.onChangeSkinType(i);
+        this.cqw.onChangeSkinType(i);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong(BuyTBeanActivityConfig.GIFT_TBEAN, this.cqh);
+        bundle.putLong(BuyTBeanActivityConfig.GIFT_TBEAN, this.cqx);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        int anN;
+        int aoc;
         IconInfo iconInfo;
-        if (this.cqg != null && this.cqf != null && this.cqf.getIconInfoList() != null && (anN = this.cqg.anN()) >= 0 && anN < this.cqf.getIconInfoList().size() && (iconInfo = this.cqf.getIconInfoList().get(anN)) != null) {
+        if (this.cqw != null && this.cqv != null && this.cqv.getIconInfoList() != null && (aoc = this.cqw.aoc()) >= 0 && aoc < this.cqv.getIconInfoList().size() && (iconInfo = this.cqv.getIconInfoList().get(aoc)) != null) {
             if (view.getId() == v.buy_btn_tv) {
-                if (this.cqg.anP() <= 0) {
+                if (this.cqw.aoe() <= 0) {
                     showToast(y.buy_num_zeor_tip);
                     return;
                 }
                 String str = iconInfo.iconId;
-                String sb = new StringBuilder(String.valueOf(this.cqg.anO())).toString();
-                String sb2 = new StringBuilder(String.valueOf(this.cqg.anP())).toString();
+                String sb = new StringBuilder(String.valueOf(this.cqw.aod())).toString();
+                String sb2 = new StringBuilder(String.valueOf(this.cqw.aoe())).toString();
                 Intent intent = new Intent(getPageContext().getPageActivity(), DealIntentService.class);
                 intent.putExtra("class", 15);
                 intent.putExtra("pay_type", "2");
@@ -77,37 +77,37 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     private void W(Intent intent) {
-        this.cqh = intent.getLongExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0L);
+        this.cqx = intent.getLongExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0L);
     }
 
-    public long anE() {
-        return this.cqh;
+    public long anT() {
+        return this.cqx;
     }
 
     @Override // com.baidu.tieba.tbean.i
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        this.cqg.anL();
+        this.cqw.aoa();
     }
 
     @Override // com.baidu.tieba.tbean.i
     public void onSuccess() {
         closeLoadingDialog();
-        this.cqg.e(this.cqf);
+        this.cqw.e(this.cqv);
     }
 
     public void refresh() {
-        if (this.cqf != null) {
+        if (this.cqv != null) {
             showLoadingDialog(getPageContext().getString(y.flist_loading));
-            this.cqf.anG();
+            this.cqv.anV();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.cqg.eT(false);
+            this.cqw.eR(false);
             this.mHandler.postDelayed(new a(this), 100L);
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -116,8 +116,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.cqg.anR()) {
-                this.cqg.anQ();
+            if (this.cqw.aog()) {
+                this.cqw.aof();
             } else {
                 finish();
             }

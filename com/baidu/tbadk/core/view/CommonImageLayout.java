@@ -12,105 +12,105 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
-    public TbImageView Xo;
-    public TbImageView Xp;
     public TbImageView Xq;
-    private MediaData[] Xr;
-    private boolean Xs;
+    public TbImageView Xr;
+    public TbImageView Xs;
+    private MediaData[] Xt;
+    private boolean Xu;
     private final Context mContext;
     private boolean mIsFromCDN;
     private int mPadding;
-    private static float[] Xj = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static float[] Xk = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static int Xl = 2;
-    private static int Xm = 4;
-    private static int Xn = 0;
-    public static float Ic = -1.0f;
+    private static float[] Xl = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static float[] Xm = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static int Xn = 2;
+    private static int Xo = 4;
+    private static int Xp = 0;
+    public static float Ie = -1.0f;
 
     public CommonImageLayout(Context context) {
         this(context, null);
     }
 
     private void initData() {
-        if (Ic < 0.0f) {
-            Ic = com.baidu.adp.lib.util.n.M(this.mContext) / 320.0f;
-            for (int i = 0; i < Xj.length; i++) {
-                float[] fArr = Xj;
-                fArr[i] = fArr[i] * Ic;
-                float[] fArr2 = Xk;
-                fArr2[i] = fArr2[i] * Ic;
+        if (Ie < 0.0f) {
+            Ie = com.baidu.adp.lib.util.n.M(this.mContext) / 320.0f;
+            for (int i = 0; i < Xl.length; i++) {
+                float[] fArr = Xl;
+                fArr[i] = fArr[i] * Ie;
+                float[] fArr2 = Xm;
+                fArr2[i] = fArr2[i] * Ie;
             }
-            Xl = (int) (Xl * Ic);
-            Xm = (int) (Xm * Ic);
+            Xn = (int) (Xn * Ie);
+            Xo = (int) (Xo * Ie);
         }
     }
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mPadding = 7;
-        this.Xs = false;
+        this.Xu = false;
         this.mIsFromCDN = false;
         this.mContext = context;
         initData();
         TbadkCoreApplication.m411getInst().getSkinType();
         Drawable drawable = ba.getDrawable(com.baidu.tieba.s.pb_default_image_bg);
-        this.Xo = new TbImageView(context);
-        this.Xp = new TbImageView(context);
         this.Xq = new TbImageView(context);
-        this.Xo.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.Xp.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.Xr = new TbImageView(context);
+        this.Xs = new TbImageView(context);
         this.Xq.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.Xo.setDefaultBg(drawable);
-        this.Xp.setDefaultBg(drawable);
+        this.Xr.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.Xs.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.Xq.setDefaultBg(drawable);
-        addView(this.Xo);
-        addView(this.Xp);
+        this.Xr.setDefaultBg(drawable);
+        this.Xs.setDefaultBg(drawable);
         addView(this.Xq);
-        this.mPadding = (int) (this.mPadding * Ic);
+        addView(this.Xr);
+        addView(this.Xs);
+        this.mPadding = (int) (this.mPadding * Ie);
     }
 
     public void setShowBig(boolean z) {
-        this.Xs = z;
+        this.Xu = z;
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.Xr = mediaDataArr;
-        if (this.Xr == null || this.Xr.length <= 0) {
-            if (this.Xo != null) {
-                this.Xo.setTag(null);
-            }
-            if (this.Xp != null) {
-                this.Xp.setTag(null);
-            }
+        this.Xt = mediaDataArr;
+        if (this.Xt == null || this.Xt.length <= 0) {
             if (this.Xq != null) {
                 this.Xq.setTag(null);
+            }
+            if (this.Xr != null) {
+                this.Xr.setTag(null);
+            }
+            if (this.Xs != null) {
+                this.Xs.setTag(null);
             }
             requestLayout();
             invalidate();
             return;
         }
-        int length = this.Xr.length;
+        int length = this.Xt.length;
         if (length == 1) {
-            a(this.Xo, this.Xr[0]);
-            if (this.Xp != null) {
-                this.Xp.setTag(null);
-                this.Xp.setClickable(false);
+            a(this.Xq, this.Xt[0]);
+            if (this.Xr != null) {
+                this.Xr.setTag(null);
+                this.Xr.setClickable(false);
             }
-            if (this.Xq != null) {
-                this.Xq.setTag(null);
-                this.Xq.setClickable(false);
+            if (this.Xs != null) {
+                this.Xs.setTag(null);
+                this.Xs.setClickable(false);
             }
         } else if (length == 2) {
-            a(this.Xo, this.Xr[0]);
-            a(this.Xp, this.Xr[1]);
-            if (this.Xq != null) {
-                this.Xq.setTag(null);
-                this.Xq.setClickable(false);
+            a(this.Xq, this.Xt[0]);
+            a(this.Xr, this.Xt[1]);
+            if (this.Xs != null) {
+                this.Xs.setTag(null);
+                this.Xs.setClickable(false);
             }
         } else if (length == 3) {
-            a(this.Xo, this.Xr[0]);
-            a(this.Xp, this.Xr[1]);
-            a(this.Xq, this.Xr[2]);
+            a(this.Xq, this.Xt[0]);
+            a(this.Xr, this.Xt[1]);
+            a(this.Xs, this.Xt[2]);
         }
         requestLayout();
         invalidate();
@@ -121,54 +121,54 @@ public class CommonImageLayout extends ViewGroup {
         int i3;
         int i4;
         int i5 = 1073741823 & i;
-        if (Xn == 0) {
-            Xn = i5;
+        if (Xp == 0) {
+            Xp = i5;
         }
-        if (this.Xr == null || this.Xr.length == 0) {
+        if (this.Xt == null || this.Xt.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        if (this.Xs) {
-            setMeasuredDimension(Xn, (int) (Xk[this.Xr.length - 1] + 0.5f));
+        if (this.Xu) {
+            setMeasuredDimension(Xp, (int) (Xm[this.Xt.length - 1] + 0.5f));
         } else {
-            setMeasuredDimension(Xn, (int) (Xk[4] + 0.5f));
+            setMeasuredDimension(Xp, (int) (Xm[4] + 0.5f));
         }
-        switch (this.Xr.length) {
+        switch (this.Xt.length) {
             case 1:
-                if (this.Xs) {
-                    measureChild(this.Xo, Xn + 1073741824, ((int) (Xk[0] + 0.5f)) + 1073741824);
+                if (this.Xu) {
+                    measureChild(this.Xq, Xp + 1073741824, ((int) (Xm[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.Xo, ((int) (Xj[4] + 0.5f)) + 1073741824, ((int) (Xk[4] + 0.5f)) + 1073741824);
+                    measureChild(this.Xq, ((int) (Xl[4] + 0.5f)) + 1073741824, ((int) (Xm[4] + 0.5f)) + 1073741824);
                 }
-                measureChild(this.Xp, 0, 0);
-                measureChild(this.Xq, 0, 0);
+                measureChild(this.Xr, 0, 0);
+                measureChild(this.Xs, 0, 0);
                 return;
             case 2:
-                if (this.Xs) {
-                    i3 = ((int) (Xj[1] + 0.5f)) + 1073741824;
-                    i4 = ((int) (Xk[1] + 0.5f)) + 1073741824;
+                if (this.Xu) {
+                    i3 = ((int) (Xl[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (Xm[1] + 0.5f)) + 1073741824;
                 } else {
-                    i3 = ((int) (Xj[4] + 0.5f)) + 1073741824;
-                    i4 = ((int) (Xk[4] + 0.5f)) + 1073741824;
+                    i3 = ((int) (Xl[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (Xm[4] + 0.5f)) + 1073741824;
                 }
-                measureChild(this.Xo, i3, i4);
-                measureChild(this.Xp, i3, i4);
-                measureChild(this.Xq, 0, 0);
+                measureChild(this.Xq, i3, i4);
+                measureChild(this.Xr, i3, i4);
+                measureChild(this.Xs, 0, 0);
                 return;
             case 3:
-                if (this.Xs) {
-                    int i6 = ((int) (Xj[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (Xk[3] + 0.5f)) + 1073741824;
-                    measureChild(this.Xo, ((int) (Xj[2] + 0.5f)) + 1073741824, ((int) (Xk[2] + 0.5f)) + 1073741824);
-                    measureChild(this.Xp, i6, i7);
-                    measureChild(this.Xq, i6, i7);
+                if (this.Xu) {
+                    int i6 = ((int) (Xl[3] + 0.5f)) + 1073741824;
+                    int i7 = ((int) (Xm[3] + 0.5f)) + 1073741824;
+                    measureChild(this.Xq, ((int) (Xl[2] + 0.5f)) + 1073741824, ((int) (Xm[2] + 0.5f)) + 1073741824);
+                    measureChild(this.Xr, i6, i7);
+                    measureChild(this.Xs, i6, i7);
                     return;
                 }
-                int i8 = ((int) (Xj[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (Xk[4] + 0.5f)) + 1073741824;
-                measureChild(this.Xo, i8, i9);
-                measureChild(this.Xp, i8, i9);
+                int i8 = ((int) (Xl[4] + 0.5f)) + 1073741824;
+                int i9 = ((int) (Xm[4] + 0.5f)) + 1073741824;
                 measureChild(this.Xq, i8, i9);
+                measureChild(this.Xr, i8, i9);
+                measureChild(this.Xs, i8, i9);
                 return;
             default:
                 return;
@@ -177,43 +177,43 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.Xr != null && this.Xr.length != 0) {
-            switch (this.Xr.length) {
+        if (this.Xt != null && this.Xt.length != 0) {
+            switch (this.Xt.length) {
                 case 1:
-                    if (this.Xs) {
-                        int i5 = (int) (Xj[0] + 0.5f);
-                        this.Xo.layout(0, 0, i3, i4 - i2);
+                    if (this.Xu) {
+                        int i5 = (int) (Xl[0] + 0.5f);
+                        this.Xq.layout(0, 0, i3, i4 - i2);
                     } else {
-                        this.Xo.layout(this.mPadding, 0, ((int) (Xj[4] + 0.5f)) + this.mPadding, i4 - i2);
+                        this.Xq.layout(this.mPadding, 0, ((int) (Xl[4] + 0.5f)) + this.mPadding, i4 - i2);
                     }
-                    this.Xp.layout(0, 0, 0, 0);
-                    this.Xq.layout(0, 0, 0, 0);
+                    this.Xr.layout(0, 0, 0, 0);
+                    this.Xs.layout(0, 0, 0, 0);
                     return;
                 case 2:
-                    if (this.Xs) {
-                        int i6 = (int) (Xj[1] + 0.5f);
-                        this.Xo.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
-                        this.Xp.layout(i6 + this.mPadding + Xm, 0, (i3 - this.mPadding) - i, i4 - i2);
+                    if (this.Xu) {
+                        int i6 = (int) (Xl[1] + 0.5f);
+                        this.Xq.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
+                        this.Xr.layout(i6 + this.mPadding + Xo, 0, (i3 - this.mPadding) - i, i4 - i2);
                     } else {
-                        int i7 = (int) (Xj[4] + 0.5f);
-                        this.Xo.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
-                        this.Xp.layout(this.mPadding + i7 + Xl, 0, (i7 * 2) + this.mPadding + Xl, i4 - i2);
+                        int i7 = (int) (Xl[4] + 0.5f);
+                        this.Xq.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
+                        this.Xr.layout(this.mPadding + i7 + Xn, 0, (i7 * 2) + this.mPadding + Xn, i4 - i2);
                     }
-                    this.Xq.layout(0, 0, 0, 0);
+                    this.Xs.layout(0, 0, 0, 0);
                     return;
                 case 3:
-                    if (this.Xs) {
-                        int i8 = (int) (Xj[2] + 0.5f);
-                        int i9 = (int) (Xj[3] + 0.5f);
-                        this.Xo.layout(0, 0, i8, i4 - i2);
-                        this.Xp.layout(Xl + i8, 0, i3, i9);
-                        this.Xq.layout(i8 + Xl, i9 + Xl, i3, i4 - i2);
+                    if (this.Xu) {
+                        int i8 = (int) (Xl[2] + 0.5f);
+                        int i9 = (int) (Xl[3] + 0.5f);
+                        this.Xq.layout(0, 0, i8, i4 - i2);
+                        this.Xr.layout(Xn + i8, 0, i3, i9);
+                        this.Xs.layout(i8 + Xn, i9 + Xn, i3, i4 - i2);
                         return;
                     }
-                    int i10 = (int) (Xj[4] + 0.5f);
-                    this.Xo.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
-                    this.Xp.layout(this.mPadding + i10 + Xl, 0, (i10 * 2) + this.mPadding + Xl, i4 - i2);
-                    this.Xq.layout((i10 * 2) + this.mPadding + (Xl * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
+                    int i10 = (int) (Xl[4] + 0.5f);
+                    this.Xq.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
+                    this.Xr.layout(this.mPadding + i10 + Xn, 0, (i10 * 2) + this.mPadding + Xn, i4 - i2);
+                    this.Xs.layout((i10 * 2) + this.mPadding + (Xn * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
                     return;
                 default:
                     return;
@@ -223,20 +223,20 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.Xr != null && this.Xr.length != 0) {
+        if (this.Xt != null && this.Xt.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.Xr.length) {
+            switch (this.Xt.length) {
                 case 1:
-                    drawChild(canvas, this.Xo, drawingTime);
+                    drawChild(canvas, this.Xq, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.Xo, drawingTime);
-                    drawChild(canvas, this.Xp, drawingTime);
+                    drawChild(canvas, this.Xq, drawingTime);
+                    drawChild(canvas, this.Xr, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.Xo, drawingTime);
-                    drawChild(canvas, this.Xp, drawingTime);
                     drawChild(canvas, this.Xq, drawingTime);
+                    drawChild(canvas, this.Xr, drawingTime);
+                    drawChild(canvas, this.Xs, drawingTime);
                     return;
                 default:
                     return;

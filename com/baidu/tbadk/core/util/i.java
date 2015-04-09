@@ -10,11 +10,11 @@ public class i {
     private static Toast yQ;
     private static Handler mHandler = new Handler();
     private static String mText = null;
-    private static Runnable Th = new j();
+    private static Runnable Tj = new j();
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(Th);
+            mHandler.removeCallbacks(Tj);
             if (yQ != null) {
                 if (!str.equals(mText)) {
                     mText = str;
@@ -25,7 +25,7 @@ public class i {
                 yQ = Toast.makeText(TbadkCoreApplication.m411getInst(), str, 0);
                 yQ.setGravity(17, 0, com.baidu.adp.lib.util.n.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(Th, i);
+            mHandler.postDelayed(Tj, i);
             yQ.show();
         }
     }

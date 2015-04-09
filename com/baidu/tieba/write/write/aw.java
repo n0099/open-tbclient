@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,16 +21,16 @@ public class aw implements View.OnClickListener {
         InputMethodManager inputMethodManager2;
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.cyc;
-        inputMethodManager = this.cyc.mInputManager;
-        editText = this.cyc.cvO;
+        WriteActivity writeActivity = this.cyx;
+        inputMethodManager = this.cyx.mInputManager;
+        editText = this.cyx.cwe;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cyc;
-        inputMethodManager2 = this.cyc.mInputManager;
-        editText2 = this.cyc.cvS;
+        WriteActivity writeActivity2 = this.cyx;
+        inputMethodManager2 = this.cyx.mInputManager;
+        editText2 = this.cyx.cwi;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.cyc.cmz;
+        editorToolComponetContainer = this.cyx.cmP;
         editorToolComponetContainer.hideAll();
-        this.cyc.aqv();
+        this.cyx.aqK();
     }
 }

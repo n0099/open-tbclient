@@ -7,18 +7,18 @@ import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ci extends PagerAdapter {
-    private ArrayList<LiveBroadcastCard> PL;
+    private ArrayList<LiveBroadcastCard> PN;
 
     public ci(ArrayList<LiveBroadcastCard> arrayList) {
-        this.PL = arrayList;
+        this.PN = arrayList;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.PL == null) {
+        if (this.PN == null) {
             return 0;
         }
-        return this.PL.size();
+        return this.PN.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -28,21 +28,21 @@ public class ci extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.PL == null || i < 0 || i >= this.PL.size()) {
+        if (this.PN == null || i < 0 || i >= this.PN.size()) {
             return null;
         }
-        LiveBroadcastCard liveBroadcastCard = this.PL.get(i);
+        LiveBroadcastCard liveBroadcastCard = this.PN.get(i);
         if (liveBroadcastCard != null && liveBroadcastCard.getParent() != null && (liveBroadcastCard.getParent() instanceof ViewGroup)) {
             ((ViewGroup) liveBroadcastCard.getParent()).removeView(liveBroadcastCard);
         }
         viewGroup.addView(liveBroadcastCard);
-        return this.PL.get(i);
+        return this.PN.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (this.PL != null && i >= 0 && i < this.PL.size()) {
-            viewGroup.removeView(this.PL.get(i));
+        if (this.PN != null && i >= 0 && i < this.PN.size()) {
+            viewGroup.removeView(this.PN.get(i));
         }
     }
 }

@@ -1,22 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class cy implements View.OnFocusChangeListener {
-    final /* synthetic */ ci bMm;
+class cy implements Runnable {
+    final /* synthetic */ cx bMI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(ci ciVar) {
-        this.bMm = ciVar;
+    public cy(cx cxVar) {
+        this.bMI = cxVar;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    @Override // java.lang.Runnable
+    public void run() {
+        cj cjVar;
         PbActivity pbActivity;
-        if (!z) {
-            pbActivity = this.bMm.bIF;
-            com.baidu.adp.lib.util.n.c(pbActivity.getPageContext().getPageActivity(), view);
-        }
+        cj cjVar2;
+        RelativeLayout relativeLayout;
+        cjVar = this.bMI.bMC;
+        pbActivity = cjVar.bIT;
+        Activity pageActivity = pbActivity.getPageContext().getPageActivity();
+        cjVar2 = this.bMI.bMC;
+        relativeLayout = cjVar2.bEL;
+        com.baidu.adp.lib.util.n.c(pageActivity, relativeLayout);
     }
 }

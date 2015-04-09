@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements View.OnClickListener {
-    final /* synthetic */ MsgrightView aYa;
+    final /* synthetic */ MsgrightView aYq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(MsgrightView msgrightView) {
-        this.aYa = msgrightView;
+        this.aYq = msgrightView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aYa.aXc.onItemViewClick(view, 1, this.aYa.mPosition, 0L);
+        this.aYq.aXs.onItemViewClick(view, 1, this.aYq.mPosition, 0L);
     }
 }

@@ -8,10 +8,10 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, u, Void> {
-    private int bDm;
-    final /* synthetic */ e ckm;
-    FRSPageRequestMessage ckt;
-    private final WeakReference<BaseActivity> cku;
+    private int bDz;
+    final /* synthetic */ e ckC;
+    FRSPageRequestMessage ckJ;
+    private final WeakReference<BaseActivity> ckK;
     private String mName;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -19,10 +19,10 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public void onPreExecute() {
         aa aaVar;
         aa aaVar2;
-        aaVar = this.ckm.cke;
+        aaVar = this.ckC.cku;
         if (aaVar != null) {
-            aaVar2 = this.ckm.cke;
-            aaVar2.eG(this.bDm);
+            aaVar2 = this.ckC.cku;
+            aaVar2.eG(this.bDz);
         }
     }
 
@@ -32,14 +32,14 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public Void doInBackground(Object... objArr) {
         boolean z;
         try {
-            z = this.ckm.ckj;
-            if (z && d.ako().is(this.mName)) {
-                if (!d.ako().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
-                    d.ako().getResponseData().YO().getSignData().setIsSigned(0);
+            z = this.ckC.ckz;
+            if (z && d.akD().iv(this.mName)) {
+                if (!d.akD().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
+                    d.akD().getResponseData().Za().getSignData().setIsSigned(0);
                 }
-                publishProgress(d.ako().getResponseData());
+                publishProgress(d.akD().getResponseData());
             }
-            this.ckm.aDj = System.currentTimeMillis();
+            this.ckC.aDr = System.currentTimeMillis();
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -54,9 +54,9 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public void onProgressUpdate(u... uVarArr) {
         aa aaVar;
         aa aaVar2;
-        aaVar = this.ckm.cke;
+        aaVar = this.ckC.cku;
         if (aaVar != null) {
-            aaVar2 = this.ckm.cke;
+            aaVar2 = this.ckC.cku;
             aaVar2.b(uVarArr.length > 0 ? uVarArr[0] : null);
         }
     }
@@ -67,14 +67,14 @@ public class i extends BdAsyncTask<Object, u, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r3) {
         boolean z;
-        this.ckt.setUpdateType(this.bDm);
-        FRSPageRequestMessage fRSPageRequestMessage = this.ckt;
-        z = this.ckm.ckj;
+        this.ckJ.setUpdateType(this.bDz);
+        FRSPageRequestMessage fRSPageRequestMessage = this.ckJ;
+        z = this.ckC.ckz;
         fRSPageRequestMessage.setNeedCache(z);
-        if (this.cku != null && this.cku.get() != null) {
-            this.cku.get().sendMessage(this.ckt);
+        if (this.ckK != null && this.ckK.get() != null) {
+            this.ckK.get().sendMessage(this.ckJ);
         }
-        this.ckm.ckh = null;
+        this.ckC.ckx = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,10 +88,10 @@ public class i extends BdAsyncTask<Object, u, Void> {
         aa aaVar;
         aa aaVar2;
         super.cancel(true);
-        aaVar = this.ckm.cke;
+        aaVar = this.ckC.cku;
         if (aaVar != null) {
-            aaVar2 = this.ckm.cke;
-            aaVar2.a(this.bDm, true, null);
+            aaVar2 = this.ckC.cku;
+            aaVar2.a(this.bDz, true, null);
         }
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Integer, Bitmap> {
-    aa Oi;
-    final /* synthetic */ Login2Activity awY;
+    aa Ok;
+    final /* synthetic */ Login2Activity axg;
     private volatile boolean wb;
 
     private k(Login2Activity login2Activity) {
-        this.awY = login2Activity;
-        this.Oi = null;
+        this.axg = login2Activity;
+        this.Ok = null;
         this.wb = false;
     }
 
@@ -24,10 +24,10 @@ public class k extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        Login2Activity.a(this.awY, (k) null);
-        if (this.Oi != null) {
-            this.Oi.hh();
-            this.Oi = null;
+        Login2Activity.a(this.axg, (k) null);
+        if (this.Ok != null) {
+            this.Ok.hh();
+            this.Ok = null;
         }
         this.wb = true;
         super.cancel(true);
@@ -36,7 +36,7 @@ public class k extends BdAsyncTask<String, Integer, Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        Login2Activity.l(this.awY).setImageDrawable(null);
+        Login2Activity.l(this.axg).setImageDrawable(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,21 +48,21 @@ public class k extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.wb) {
             return null;
         }
-        this.Oi = new aa(str);
-        return com.baidu.tbadk.core.util.c.w(this.Oi.rP());
+        this.Ok = new aa(str);
+        return com.baidu.tbadk.core.util.c.w(this.Ok.rP());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Bitmap bitmap) {
-        Login2Activity.a(this.awY, (k) null);
+        Login2Activity.a(this.axg, (k) null);
         if (bitmap != null) {
-            Login2Activity.l(this.awY).setImageBitmap(bitmap);
+            Login2Activity.l(this.axg).setImageBitmap(bitmap);
         } else {
-            Login2Activity.l(this.awY).setImageResource(u.background);
+            Login2Activity.l(this.axg).setImageResource(u.background);
         }
-        Login2Activity.m(this.awY).setVisibility(8);
+        Login2Activity.m(this.axg).setVisibility(8);
         super.onPostExecute((k) bitmap);
     }
 }

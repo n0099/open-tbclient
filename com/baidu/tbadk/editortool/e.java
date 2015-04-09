@@ -14,31 +14,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    final /* synthetic */ EmotionTabContentView ais;
-    private final u ait;
+    final /* synthetic */ EmotionTabContentView aiA;
+    private final u aiB;
 
     public e(EmotionTabContentView emotionTabContentView, u uVar) {
-        this.ais = emotionTabContentView;
-        this.ait = uVar;
+        this.aiA = emotionTabContentView;
+        this.aiB = uVar;
     }
 
-    public int yw() {
-        if (this.ait == null) {
+    public int yC() {
+        if (this.aiB == null) {
             return 0;
         }
-        return this.ait.yG();
+        return this.aiB.yM();
     }
 
-    public u yx() {
-        return this.ait;
+    public u yD() {
+        return this.aiB;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ait == null) {
+        if (this.aiB == null) {
             return 0;
         }
-        return this.ait.yF();
+        return this.aiB.yL();
     }
 
     @Override // android.widget.Adapter
@@ -61,25 +61,25 @@ public class e extends BaseAdapter {
         int i7;
         int color;
         LinearLayout linearLayout = (LinearLayout) (view == null ? (LinearLayout) com.baidu.adp.lib.g.b.hH().inflate(TbadkCoreApplication.m411getInst().getContext(), com.baidu.tieba.w.emotion_tab_content_item, null) : view);
-        if (this.ait != null) {
-            int yG = this.ait.yG() + i;
+        if (this.aiB != null) {
+            int yM = this.aiB.yM() + i;
             int measuredWidth = viewGroup.getMeasuredWidth();
             int measuredHeight = viewGroup.getMeasuredHeight();
-            int yC = measuredWidth / this.ait.yC();
-            int row = measuredHeight / this.ait.getRow();
-            i2 = this.ais.aie;
-            i3 = this.ais.aie;
-            i4 = this.ais.aie;
-            i5 = this.ais.aie;
+            int yI = measuredWidth / this.aiB.yI();
+            int row = measuredHeight / this.aiB.getRow();
+            i2 = this.aiA.aim;
+            i3 = this.aiA.aim;
+            i4 = this.aiA.aim;
+            i5 = this.aiA.aim;
             linearLayout.setPadding(i2 * 2, i3 * 2, i4 * 2, i5 * 2);
-            linearLayout.setLayoutParams(new AbsListView.LayoutParams(yC, row));
+            linearLayout.setLayoutParams(new AbsListView.LayoutParams(yI, row));
             TbImageView tbImageView = (TbImageView) linearLayout.findViewById(com.baidu.tieba.v.emotion_tab_content_img);
             tbImageView.setAutoChangeStyle(false);
             int i8 = com.baidu.tieba.u.btn_choose_face_selector;
-            i6 = this.ais.aiq;
+            i6 = this.aiA.aiy;
             ba.c(tbImageView, i8, i6);
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            String dz = this.ait.yA().dz(yG);
+            String dz = this.aiB.yG().dz(yM);
             tbImageView.setTag(dz);
             Object a = com.baidu.adp.lib.f.d.hB().a(dz, 20, new f(this), 0, 0, null, null, dz, false, null);
             com.baidu.adp.widget.a.a aVar = (a == null || !(a instanceof com.baidu.adp.widget.a.a)) ? null : (com.baidu.adp.widget.a.a) a;
@@ -88,12 +88,12 @@ public class e extends BaseAdapter {
                 tbImageView.setTag(null);
             }
             TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.v.emotion_tab_content_tip);
-            if (this.ait.yB() == EmotionGroupType.BIG_EMOTION) {
-                String dz2 = this.ait.yA().dz(yG);
+            if (this.aiB.yH() == EmotionGroupType.BIG_EMOTION) {
+                String dz2 = this.aiB.yG().dz(yM);
                 if (!TextUtils.isEmpty(dz2)) {
-                    i7 = this.ais.aiq;
+                    i7 = this.aiA.aiy;
                     if (i7 == 0) {
-                        color = this.ais.getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_c);
+                        color = this.aiA.getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_c);
                     } else {
                         color = ba.getColor(com.baidu.tieba.s.cp_cont_c);
                     }

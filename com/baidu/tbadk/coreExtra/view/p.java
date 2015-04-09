@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p extends BaseViewPager {
-    private PointF ael;
-    private com.baidu.tbadk.widget.a aem;
-    private com.baidu.tbadk.widget.a aen;
+    private PointF aet;
+    private com.baidu.tbadk.widget.a aeu;
+    private com.baidu.tbadk.widget.a aev;
 
     public p(Context context) {
         super(context);
     }
 
     public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.aem = aVar;
+        this.aeu = aVar;
     }
 
     public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.aem;
+        return this.aeu;
     }
 
     private float[] i(MotionEvent motionEvent) {
@@ -28,9 +28,9 @@ public class p extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.ael.x, pointF.y - this.ael.y};
+                return new float[]{pointF.x - this.aet.x, pointF.y - this.aet.y};
             case 0:
-                this.ael = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.aet = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -40,25 +40,25 @@ public class p extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.aem != null) {
-                this.aem.actionUp();
+            if (this.aeu != null) {
+                this.aeu.actionUp();
             }
         }
-        if (this.aem == null) {
+        if (this.aeu == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] i = i(motionEvent);
-        if (this.aem.pagerCantScroll()) {
+        if (this.aeu.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (i != null && this.aem.onRightSide() && i[0] < 0.0f) {
+        if (i != null && this.aeu.onRightSide() && i[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (i != null && this.aem.onLeftSide() && i[0] > 0.0f) {
+        if (i != null && this.aeu.onLeftSide() && i[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (i == null) {
-            if (this.aem.onLeftSide() || this.aem.onRightSide()) {
+            if (this.aeu.onLeftSide() || this.aeu.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -72,20 +72,20 @@ public class p extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] i = i(motionEvent);
-        if (this.aem == null) {
+        if (this.aeu == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.aem.pagerCantScroll()) {
+        if (this.aeu.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (i != null && this.aem.onRightSide() && i[0] < 0.0f) {
+        if (i != null && this.aeu.onRightSide() && i[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (i != null && this.aem.onLeftSide() && i[0] > 0.0f) {
+        if (i != null && this.aeu.onLeftSide() && i[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (i == null) {
-            if (this.aem.onLeftSide() || this.aem.onRightSide()) {
+            if (this.aeu.onLeftSide() || this.aeu.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -94,10 +94,10 @@ public class p extends BaseViewPager {
     }
 
     public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.aen = aVar;
+        this.aev = aVar;
     }
 
     public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.aen;
+        return this.aev;
     }
 }

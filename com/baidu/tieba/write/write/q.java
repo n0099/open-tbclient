@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class q implements View.OnClickListener {
-    final /* synthetic */ AtSelectFriendList cwO;
+    final /* synthetic */ AtSelectFriendList cxh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(AtSelectFriendList atSelectFriendList) {
-        this.cwO = atSelectFriendList;
+        this.cxh = atSelectFriendList;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        boolean Vq;
+        boolean VD;
         r rVar;
         r rVar2;
-        linearLayout = this.cwO.bsl;
+        linearLayout = this.cxh.bsB;
         linearLayout.removeView(view);
-        Vq = this.cwO.Vq();
-        if (!Vq) {
-            this.cwO.Vo();
+        VD = this.cxh.VD();
+        if (!VD) {
+            this.cxh.VB();
         }
-        rVar = this.cwO.cwN;
+        rVar = this.cxh.cxg;
         if (rVar != null) {
-            rVar2 = this.cwO.cwN;
+            rVar2 = this.cxh.cxg;
             rVar2.a(view, view.getTag());
         }
     }

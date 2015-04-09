@@ -18,10 +18,10 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
-    private SapiWebView aam;
-    private boolean aaq = false;
-    private com.baidu.tbadk.coreExtra.view.t aan = null;
-    private final com.baidu.tbadk.core.a.b Sj = new m(this);
+    private SapiWebView aao;
+    private boolean aas = false;
+    private com.baidu.tbadk.coreExtra.view.t aap = null;
+    private final com.baidu.tbadk.core.a.b Sl = new m(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,22 +29,22 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(w.layout_sapi_webview_login);
-        this.aaq = getIntent().getBooleanExtra(LoginActivityConfig.CLOSE, false);
+        this.aas = getIntent().getBooleanExtra(LoginActivityConfig.CLOSE, false);
         uo();
     }
 
     protected void uo() {
-        this.aam = (SapiWebView) findViewById(v.sapi_webview);
-        com.baidu.tbadk.core.a.f.a(getPageContext().getPageActivity(), this.aam);
-        this.aam.setOnFinishCallback(new p(this));
-        this.aam.setAuthorizationListener(new q(this));
-        this.aam.loadLogin();
+        this.aao = (SapiWebView) findViewById(v.sapi_webview);
+        com.baidu.tbadk.core.a.f.a(getPageContext().getPageActivity(), this.aao);
+        this.aao.setOnFinishCallback(new p(this));
+        this.aao.setAuthorizationListener(new q(this));
+        this.aao.loadLogin();
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.aam.onAuthorizedResult(i, i2, intent);
+        this.aao.onAuthorizedResult(i, i2, intent);
         if (i2 == -1 && i == 11003) {
             us();
         }
@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void up() {
         int i = 1;
         TbadkCoreApplication.m411getInst().onUserChanged();
-        if (this.aaq) {
+        if (this.aas) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
@@ -75,19 +75,19 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.pD().a(session.username, session.bduss, session.ptoken, this.Sj);
+            com.baidu.tbadk.core.a.a.pD().a(session.username, session.bduss, session.ptoken, this.Sl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AccountData accountData) {
-        if (this.aan == null) {
-            this.aan = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
-            this.aan.a(new r(this));
+        if (this.aap == null) {
+            this.aap = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
+            this.aap.a(new r(this));
         }
-        this.aan.xa();
-        this.aan.k(accountData);
-        this.aan.wW();
+        this.aap.xg();
+        this.aap.k(accountData);
+        this.aap.xc();
     }
 
     private void us() {

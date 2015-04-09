@@ -10,9 +10,9 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.g<StrangerListActivity> {
-    private StrangerListActivity btA;
-    private StrangerListAdapter btG;
-    private View btH;
+    private StrangerListActivity btQ;
+    private StrangerListAdapter btW;
+    private View btX;
     private BdListView mBdListView;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
@@ -20,7 +20,7 @@ public class j extends com.baidu.adp.base.g<StrangerListActivity> {
     public j(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(w.officialbar_msg_activity);
-        this.btA = strangerListActivity;
+        this.btQ = strangerListActivity;
         f(strangerListActivity);
         g(strangerListActivity);
     }
@@ -29,29 +29,29 @@ public class j extends com.baidu.adp.base.g<StrangerListActivity> {
         this.mNavigationBar = (NavigationBar) strangerListActivity.findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(strangerListActivity.getPageContext().getString(y.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.btH = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.stranger_delete, this.btA);
+        this.btX = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.stranger_delete, this.btQ);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(v.root_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.btA.getLayoutMode().X(i == 1);
-        this.btA.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.btA.getPageContext(), i);
+        this.btQ.getLayoutMode().X(i == 1);
+        this.btQ.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.btQ.getPageContext(), i);
     }
 
     private void g(StrangerListActivity strangerListActivity) {
         this.mBdListView = (BdListView) strangerListActivity.findViewById(v.msg_list);
         this.mBdListView.setOnItemClickListener(strangerListActivity);
         this.mBdListView.setOnItemLongClickListener(strangerListActivity);
-        this.btG = new StrangerListAdapter(strangerListActivity);
-        this.mBdListView.setAdapter((ListAdapter) this.btG);
+        this.btW = new StrangerListAdapter(strangerListActivity);
+        this.mBdListView.setAdapter((ListAdapter) this.btW);
     }
 
-    public StrangerListAdapter VI() {
-        return this.btG;
+    public StrangerListAdapter VV() {
+        return this.btW;
     }
 
-    public View VJ() {
-        return this.btH;
+    public View VW() {
+        return this.btX;
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.j.a<Integer, com.baidu.tbadk.mvc.e.c> {
-    private TextView aYn;
+    private TextView aYD;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aYn = (TextView) view.findViewById(v.time);
+        this.aYD = (TextView) view.findViewById(v.time);
         a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
     }
 
@@ -22,7 +22,7 @@ public class e extends com.baidu.tbadk.mvc.j.a<Integer, com.baidu.tbadk.mvc.e.c>
     public void A(Integer num) {
         super.A(num);
         if (num != null) {
-            this.aYn.setText(com.baidu.tieba.recommendfrs.a.b.hN(num.intValue()));
+            this.aYD.setText(com.baidu.tieba.recommendfrs.a.b.hQ(num.intValue()));
         }
     }
 

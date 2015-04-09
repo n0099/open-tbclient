@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class r extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aYU;
+    final /* synthetic */ OfficialBarChatActivity aZk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aYU = officialBarChatActivity;
+        this.aZk = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,44 +26,44 @@ class r extends com.baidu.adp.framework.listener.e {
         OfficialBarMsglistView officialBarMsglistView4;
         OfficialBarMsglistModel officialBarMsglistModel2;
         OfficialBarMsglistView officialBarMsglistView5;
-        officialBarMsglistView = this.aYU.aYO;
-        officialBarMsglistView.cv(false);
+        officialBarMsglistView = this.aZk.aZe;
+        officialBarMsglistView.ct(false);
         if (!(socketResponsedMessage instanceof ResponseOfficialBarMenuMessage)) {
-            this.aYU.showToast(com.baidu.tieba.y.neterror);
+            this.aZk.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseOfficialBarMenuMessage responseOfficialBarMenuMessage = (ResponseOfficialBarMenuMessage) socketResponsedMessage;
         if (responseOfficialBarMenuMessage.hasError()) {
             if (responseOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseOfficialBarMenuMessage.getErrorString())) {
-                this.aYU.showToast(StringUtils.isNull(responseOfficialBarMenuMessage.getErrorString()) ? this.aYU.getResources().getString(com.baidu.tieba.y.neterror) : responseOfficialBarMenuMessage.getErrorString());
+                this.aZk.showToast(StringUtils.isNull(responseOfficialBarMenuMessage.getErrorString()) ? this.aZk.getResources().getString(com.baidu.tieba.y.neterror) : responseOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aYU.showToast(com.baidu.tieba.y.neterror);
+                this.aZk.showToast(com.baidu.tieba.y.neterror);
             }
-            officialBarMsglistModel2 = this.aYU.aYP;
+            officialBarMsglistModel2 = this.aZk.aZf;
             com.baidu.tieba.im.data.e officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
-            if (officialBarMenuDatas == null || officialBarMenuDatas.PF() == null || officialBarMenuDatas.PF().size() == 0) {
-                officialBarMsglistView5 = this.aYU.aYO;
-                officialBarMsglistView5.cu(true);
+            if (officialBarMenuDatas == null || officialBarMenuDatas.PS() == null || officialBarMenuDatas.PS().size() == 0) {
+                officialBarMsglistView5 = this.aZk.aZe;
+                officialBarMsglistView5.cs(true);
                 return;
             }
             return;
         }
         com.baidu.tieba.im.data.e officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
         if (officialBarMenuDatas2 != null) {
-            if (officialBarMenuDatas2.PD()) {
-                officialBarMsglistView3 = this.aYU.aYO;
-                officialBarMsglistView3.cu(false);
-                if (officialBarMenuDatas2.PF() != null && officialBarMenuDatas2.PF().size() > 0) {
-                    officialBarMsglistModel = this.aYU.aYP;
+            if (officialBarMenuDatas2.PQ()) {
+                officialBarMsglistView3 = this.aZk.aZe;
+                officialBarMsglistView3.cs(false);
+                if (officialBarMenuDatas2.PS() != null && officialBarMenuDatas2.PS().size() > 0) {
+                    officialBarMsglistModel = this.aZk.aZf;
                     officialBarMsglistModel.setOfficialBarMenuDatas(officialBarMenuDatas2);
-                    officialBarMsglistView4 = this.aYU.aYO;
-                    officialBarMsglistView4.aw(officialBarMenuDatas2.PF());
+                    officialBarMsglistView4 = this.aZk.aZe;
+                    officialBarMsglistView4.ay(officialBarMenuDatas2.PS());
                     return;
                 }
                 return;
             }
-            officialBarMsglistView2 = this.aYU.aYO;
-            officialBarMsglistView2.cu(true);
+            officialBarMsglistView2 = this.aZk.aZe;
+            officialBarMsglistView2.cs(true);
         }
     }
 }

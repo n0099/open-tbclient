@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ j aej;
+    final /* synthetic */ j aer;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.aej = jVar;
+        this.aer = jVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.aej.mContext;
+        context = this.aer.mContext;
         messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(context, PluginCenter.NAME_MOTUSDK)));
         aVar.dismiss();
     }

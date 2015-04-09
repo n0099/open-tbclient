@@ -1,37 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SquareSearchActivity bzG;
+class aa extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ SquareSearchActivity bzT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(SquareSearchActivity squareSearchActivity) {
-        this.bzG = squareSearchActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(SquareSearchActivity squareSearchActivity, int i, boolean z) {
+        super(i, z);
+        this.bzT = squareSearchActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int i2;
-        boolean z;
-        c cVar;
-        i2 = this.bzG.mMode;
-        if (i2 == 0) {
-            z = this.bzG.bzt;
-            if (z) {
-                cVar = this.bzG.bzd;
-                e item = cVar.getItem(i);
-                if (item != null) {
-                    String forumName = item.getForumName();
-                    TiebaStatic.eventStat(this.bzG.getPageContext().getPageActivity(), "search_hot_word", "click", 1, "loc", Integer.valueOf(i));
-                    this.bzG.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bzG.getPageContext().getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SEARCH)));
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        this.bzT.bzH = true;
+        if (!(socketResponsedMessage instanceof FRSPageSocketResponsedMessage)) {
+            return;
         }
+        this.bzT.a(socketResponsedMessage, !((FRSPageSocketResponsedMessage) socketResponsedMessage).hasNetworkError());
     }
 }

@@ -61,10 +61,10 @@ public class h {
                 aaVar.o("lat", String.valueOf(z.getLatitude()));
                 aaVar.o("lng", String.valueOf(z.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.anb().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.anq().getLocationData();
             if (locationData != null) {
-                aaVar.o("name", locationData.amX());
-                aaVar.o("sn", locationData.amZ());
+                aaVar.o("name", locationData.anm());
+                aaVar.o("sn", locationData.ano());
             }
         }
     }

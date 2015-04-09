@@ -20,96 +20,96 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private TbPageContext LN;
-    private c crZ;
-    private com.baidu.tbadk.mvc.j.d<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c, b> csa;
-    private o csb;
+    private TbPageContext LP;
+    private c csp;
+    private com.baidu.tbadk.mvc.j.d<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c, b> csq;
+    private o csr;
     private View mView;
-    private final CustomMessageListener cci = new e(this, 2001274);
-    private View.OnClickListener csc = new g(this);
+    private final CustomMessageListener ccx = new e(this, 2001274);
+    private View.OnClickListener css = new g(this);
 
     public d() {
-        anT();
+        aoi();
     }
 
-    private void anT() {
-        MessageManager.getInstance().registerListener(this.cci);
+    private void aoi() {
+        MessageManager.getInstance().registerListener(this.ccx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alU() {
-        if (this.LN != null) {
-            p.aoB().l(this.LN);
-            p.aoB().b(new h(this));
+    public void amj() {
+        if (this.LP != null) {
+            p.aoQ().l(this.LP);
+            p.aoQ().b(new h(this));
         }
     }
 
     private void j(TbPageContext tbPageContext) {
-        this.LN = tbPageContext;
-        this.csa = new com.baidu.tbadk.mvc.j.d<>(tbPageContext, b.class, w.left_navi_item, null);
-        this.csa.bb(false);
-        p.aoB().l(tbPageContext);
-        p.aoB().b(new i(this));
+        this.LP = tbPageContext;
+        this.csq = new com.baidu.tbadk.mvc.j.d<>(tbPageContext, b.class, w.left_navi_item, null);
+        this.csq.bb(false);
+        p.aoQ().l(tbPageContext);
+        p.aoQ().b(new i(this));
     }
 
     public c k(TbPageContext tbPageContext) {
         if (tbPageContext == null) {
             return null;
         }
-        this.crZ = new c(tbPageContext.getPageActivity());
+        this.csp = new c(tbPageContext.getPageActivity());
         j(tbPageContext);
-        this.crZ.setListAdapter(this.csa);
-        this.crZ.setOnPersonInfoViewClicked(this.csc);
-        this.crZ.setOnListItemClicked(this);
-        this.crZ.setOnSettingViewClicked(this);
-        this.crZ.setOnDayNightModeViewClicked(this);
-        this.crZ.setOnVipIconLoadListener(new j(this));
+        this.csp.setListAdapter(this.csq);
+        this.csp.setOnPersonInfoViewClicked(this.css);
+        this.csp.setOnListItemClicked(this);
+        this.csp.setOnSettingViewClicked(this);
+        this.csp.setOnDayNightModeViewClicked(this);
+        this.csp.setOnVipIconLoadListener(new j(this));
         f(tbPageContext);
-        return this.crZ;
+        return this.csp;
     }
 
-    public void aov() {
+    public void aoK() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null && this.crZ != null) {
-            this.crZ.iQ(currentAccountObj.getPortrait());
-            this.crZ.setUserName(currentAccountObj.getAccount());
-            this.crZ.iR(currentAccountObj.getMemberIconUrl());
-            this.crZ.setUserSexIcon(currentAccountObj.getSex());
+        if (currentAccountObj != null && this.csp != null) {
+            this.csp.iT(currentAccountObj.getPortrait());
+            this.csp.setUserName(currentAccountObj.getAccount());
+            this.csp.iU(currentAccountObj.getMemberIconUrl());
+            this.csp.setUserSexIcon(currentAccountObj.getSex());
         }
     }
 
-    public void aow() {
+    public void aoL() {
         al(4, com.baidu.tbadk.core.sharedPref.b.rB().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m411getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
     }
 
     public void al(int i, int i2) {
-        p.aoB().b(new k(this, i, i2));
+        p.aoQ().b(new k(this, i, i2));
     }
 
-    public void fa(boolean z) {
-        if (this.crZ != null) {
-            this.crZ.fa(z);
+    public void eY(boolean z) {
+        if (this.csp != null) {
+            this.csp.eY(z);
         }
     }
 
-    public void fb(boolean z) {
-        if (this.crZ != null) {
-            this.crZ.fb(z);
+    public void eZ(boolean z) {
+        if (this.csp != null) {
+            this.csp.eZ(z);
         }
     }
 
-    public View aox() {
-        p.aoB().b(new l(this));
+    public View aoM() {
+        p.aoQ().b(new l(this));
         return this.mView;
     }
 
     public void a(o oVar) {
-        this.csb = oVar;
+        this.csr = oVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.tbadkCore.f.a item = this.csa.getItem(i);
+        com.baidu.tieba.tbadkCore.f.a item = this.csq.getItem(i);
         if (item != null) {
             switch (item.getType()) {
                 case 0:
@@ -117,7 +117,7 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(view.getContext())));
                     return;
                 case 1:
-                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.amW() == 0 ? 0 : 1, new Object[0]);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.anl() == 0 ? 0 : 1, new Object[0]);
                     al(1, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(view.getContext())));
@@ -140,7 +140,7 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
                 case 6:
                 default:
                     item.onClick();
-                    p.aoB().b(new m(this));
+                    p.aoQ().b(new m(this));
                     return;
                 case 7:
                     aG(view.getContext()).re();
@@ -160,29 +160,29 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.crZ.getSettingView()) {
+        if (view == this.csp.getSettingView()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001271));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015004, new com.baidu.tbadk.core.frameworkData.a(view.getContext())));
-        } else if (view == this.crZ.getDayNightView()) {
-            aoA();
+        } else if (view == this.csp.getDayNightView()) {
+            aoP();
         }
     }
 
-    private void aoy() {
-        if (this.crZ != null) {
+    private void aoN() {
+        if (this.csp != null) {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                this.crZ.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(y.skin_mode_day));
+                this.csp.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(y.skin_mode_day));
             } else {
-                this.crZ.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(y.skin_mode_night));
+                this.csp.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(y.skin_mode_night));
             }
         }
     }
 
-    public c aoz() {
-        return this.crZ;
+    public c aoO() {
+        return this.csp;
     }
 
-    public void aoA() {
+    public void aoP() {
         int i = 1;
         if (TbadkCoreApplication.m411getInst().getSkinType() == 0) {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
@@ -190,20 +190,20 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
             i = 0;
         }
         TbadkCoreApplication.m411getInst().setSkinType(i);
-        if (this.csb != null) {
-            this.csb.iF(i);
+        if (this.csr != null) {
+            this.csr.iI(i);
         }
         com.baidu.tbadk.core.util.c.iu();
     }
 
     public void f(TbPageContext tbPageContext) {
-        if (this.crZ != null) {
-            this.crZ.f(tbPageContext);
-            aoy();
+        if (this.csp != null) {
+            this.csp.f(tbPageContext);
+            aoN();
         }
-        if (this.csa != null) {
-            this.csa.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
-            this.csa.notifyDataSetChanged();
+        if (this.csq != null) {
+            this.csq.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
+            this.csq.notifyDataSetChanged();
         }
     }
 }

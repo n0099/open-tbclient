@@ -16,10 +16,10 @@ class ar extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bc)) {
             bc bcVar = (bc) customResponsedMessage.getData();
-            if (bcVar.aXi != null && bcVar.context != null) {
+            if (bcVar.aXy != null && bcVar.context != null) {
                 MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(bcVar.context, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
-                msgMultiImageTextViewItemAdapter.cp(true);
-                bcVar.aXi.add(msgMultiImageTextViewItemAdapter);
+                msgMultiImageTextViewItemAdapter.cn(true);
+                bcVar.aXy.add(msgMultiImageTextViewItemAdapter);
             }
         }
     }

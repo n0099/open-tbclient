@@ -4,6 +4,6 @@ package com.baidu.tbadk.gif;
 public class d implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        GifView.akB = null;
+        GifView.akJ = null;
     }
 }

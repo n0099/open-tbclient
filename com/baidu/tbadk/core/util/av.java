@@ -4,17 +4,17 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements Runnable {
-    final /* synthetic */ at Vb;
-    private final /* synthetic */ String Vc;
-    private final /* synthetic */ int Vd;
+    final /* synthetic */ at Vd;
     private final /* synthetic */ String Ve;
+    private final /* synthetic */ int Vf;
+    private final /* synthetic */ String Vg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(at atVar, String str, int i, String str2) {
-        this.Vb = atVar;
-        this.Vc = str;
-        this.Vd = i;
-        this.Ve = str2;
+        this.Vd = atVar;
+        this.Ve = str;
+        this.Vf = i;
+        this.Vg = str2;
     }
 
     @Override // java.lang.Runnable
@@ -22,17 +22,17 @@ public class av implements Runnable {
         File sP;
         boolean c;
         boolean cc;
-        sP = this.Vb.sP();
-        c = this.Vb.c(sP, this.Vc);
+        sP = this.Vd.sP();
+        c = this.Vd.c(sP, this.Ve);
         if (c) {
-            this.Vb.o(sP);
-            cc = this.Vb.cc(this.Vd);
+            this.Vd.o(sP);
+            cc = this.Vd.cc(this.Vf);
             if (cc) {
-                this.Vb.sN();
+                this.Vd.sN();
                 return;
             }
         }
-        this.Vb.sR();
-        this.Vb.d(this.Ve, this.Vc, this.Vd);
+        this.Vd.sR();
+        this.Vd.d(this.Vg, this.Ve, this.Vf);
     }
 }

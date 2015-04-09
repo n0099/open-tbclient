@@ -5,5 +5,5 @@ import com.baidu.tbadk.core.data.AccountData;
 public interface b {
     void a(AccountData accountData);
 
-    void eR(String str);
+    void eU(String str);
 }

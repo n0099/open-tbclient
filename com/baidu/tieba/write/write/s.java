@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.f<WriteActivity> {
-    private t cwP;
-    private ArrayList<com.baidu.tbadk.core.data.w> cwQ;
-    private WriteActivity cwR;
+    private t cxi;
+    private ArrayList<com.baidu.tbadk.core.data.w> cxj;
+    private WriteActivity cxk;
     private int mErrCode;
 
     public s(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.cwP = null;
-        this.cwQ = null;
+        this.cxi = null;
+        this.cxj = null;
         this.mErrCode = 0;
-        this.cwR = writeActivity;
-        this.cwQ = new ArrayList<>();
+        this.cxk = writeActivity;
+        this.cxj = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.w> aqM() {
-        return this.cwQ;
+    public ArrayList<com.baidu.tbadk.core.data.w> arb() {
+        return this.cxj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,11 +31,11 @@ public class s extends com.baidu.adp.base.f<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jh(String str) {
-        if (this.cwP == null) {
-            this.cwP = new t(this, null);
-            this.cwP.setPriority(3);
-            this.cwP.execute(str);
+    public void jk(String str) {
+        if (this.cxi == null) {
+            this.cxi = new t(this, null);
+            this.cxi.setPriority(3);
+            this.cxi.execute(str);
         }
     }
 
@@ -59,7 +59,7 @@ public class s extends com.baidu.adp.base.f<WriteActivity> {
                         if (jSONObject2 != null) {
                             com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
                             wVar.parserJson(jSONObject2);
-                            this.cwQ.add(wVar);
+                            this.cxj.add(wVar);
                         }
                     }
                 }
@@ -76,8 +76,8 @@ public class s extends com.baidu.adp.base.f<WriteActivity> {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.cwP != null) {
-            this.cwP.cancel();
+        if (this.cxi != null) {
+            this.cxi.cancel();
             return true;
         }
         return true;

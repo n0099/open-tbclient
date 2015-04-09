@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity avm;
+    final /* synthetic */ ActivationActivity avu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ActivationActivity activationActivity) {
-        this.avm = activationActivity;
+        this.avu = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,30 +29,30 @@ class w implements View.OnClickListener {
         aa aaVar4;
         z zVar3;
         z zVar4;
-        view2 = this.avm.mBack;
+        view2 = this.avu.mBack;
         if (view != view2) {
-            relativeLayout = this.avm.auY;
+            relativeLayout = this.avu.avg;
             if (view != relativeLayout) {
-                relativeLayout2 = this.avm.auZ;
+                relativeLayout2 = this.avu.avh;
                 if (view != relativeLayout2) {
-                    imageView = this.avm.auT;
+                    imageView = this.avu.avb;
                     if (view == imageView) {
-                        editText = this.avm.auX;
+                        editText = this.avu.avf;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.avm.avc;
+                z = this.avu.avk;
                 if (z) {
-                    aaVar = this.avm.ava;
+                    aaVar = this.avu.avi;
                     if (aaVar == null) {
-                        zVar = this.avm.avb;
+                        zVar = this.avu.avj;
                         if (zVar == null) {
-                            this.avm.ava = new aa(this.avm, null);
-                            aaVar2 = this.avm.ava;
+                            this.avu.avi = new aa(this.avu, null);
+                            aaVar2 = this.avu.avi;
                             aaVar2.setPriority(3);
-                            aaVar3 = this.avm.ava;
+                            aaVar3 = this.avu.avi;
                             aaVar3.execute(new String[0]);
                             return;
                         }
@@ -62,14 +62,14 @@ class w implements View.OnClickListener {
                 }
                 return;
             }
-            zVar2 = this.avm.avb;
+            zVar2 = this.avu.avj;
             if (zVar2 == null) {
-                aaVar4 = this.avm.ava;
+                aaVar4 = this.avu.avi;
                 if (aaVar4 == null) {
-                    this.avm.avb = new z(this.avm, null);
-                    zVar3 = this.avm.avb;
+                    this.avu.avj = new z(this.avu, null);
+                    zVar3 = this.avu.avj;
                     zVar3.setPriority(3);
-                    zVar4 = this.avm.avb;
+                    zVar4 = this.avu.avj;
                     zVar4.execute(new String[0]);
                     return;
                 }
@@ -77,7 +77,7 @@ class w implements View.OnClickListener {
             }
             return;
         }
-        this.avm.setResult(0);
-        this.avm.finish();
+        this.avu.setResult(0);
+        this.avu.finish();
     }
 }

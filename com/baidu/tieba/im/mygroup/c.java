@@ -10,13 +10,13 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ PersonGroupActivity bln;
+    final /* synthetic */ PersonGroupActivity blD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonGroupActivity personGroupActivity, int i) {
         super(i);
-        this.bln = personGroupActivity;
+        this.blD = personGroupActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,20 +28,20 @@ class c extends HttpMessageListener {
         int[] iArr3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonGroupActivity.blk;
-                com.baidu.tbadk.core.a.j.l(3, iArr[this.bln.blb]);
-                imageView = this.bln.ble;
-                iArr2 = PersonGroupActivity.bli;
-                ba.c(imageView, iArr2[this.bln.blb]);
-                PersonGroupActivity personGroupActivity = this.bln;
-                Context context = this.bln.getPageContext().getContext();
-                iArr3 = PersonGroupActivity.blj;
-                personGroupActivity.showToastWithIcon(context.getString(iArr3[this.bln.blb]), u.icon_toast_info);
+                iArr = PersonGroupActivity.blA;
+                com.baidu.tbadk.core.a.j.l(3, iArr[this.blD.blr]);
+                imageView = this.blD.blu;
+                iArr2 = PersonGroupActivity.bly;
+                ba.c(imageView, iArr2[this.blD.blr]);
+                PersonGroupActivity personGroupActivity = this.blD;
+                Context context = this.blD.getPageContext().getContext();
+                iArr3 = PersonGroupActivity.blz;
+                personGroupActivity.showToastWithIcon(context.getString(iArr3[this.blD.blr]), u.icon_toast_info);
                 return;
             }
-            this.bln.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bln.getResources().getString(y.neterror) : httpResponsedMessage.getErrorString());
+            this.blD.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.blD.getResources().getString(y.neterror) : httpResponsedMessage.getErrorString());
             return;
         }
-        this.bln.showToast(this.bln.getPageContext().getContext().getString(y.neterror));
+        this.blD.showToast(this.blD.getPageContext().getContext().getString(y.neterror));
     }
 }

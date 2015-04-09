@@ -58,8 +58,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         }
         c cVar = new c();
         cVar.limit = 20;
-        cVar.bks = null;
-        cVar.bkt = null;
+        cVar.bkI = null;
+        cVar.bkJ = null;
         cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
         LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(cVar);
         loadGroupHistoryMessage.setCallback(axVar);
@@ -80,8 +80,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            cVar.bks = String.valueOf(j);
-            cVar.bkt = String.valueOf(j2);
+            cVar.bkI = String.valueOf(j);
+            cVar.bkJ = String.valueOf(j2);
             cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
             super.sendMessage(new LoadGroupHistoryMessage(cVar));
         }

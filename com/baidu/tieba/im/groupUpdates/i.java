@@ -17,93 +17,93 @@ import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.e<UpdatesActivity> {
-    private TextView Yr;
-    private View aCi;
-    private HeadImageView biA;
-    private TextView biB;
-    private TextView biC;
-    private TextView biD;
-    private ImageView biE;
-    private RelativeLayout biF;
-    private RelativeLayout biG;
-    private UpdatesActivity biz;
+    private TextView Yt;
+    private View aCq;
+    private UpdatesActivity biP;
+    private HeadImageView biQ;
+    private TextView biR;
+    private TextView biS;
+    private TextView biT;
+    private ImageView biU;
+    private RelativeLayout biV;
+    private RelativeLayout biW;
     private UpdatesItemData data;
 
     public i(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), w.updates_item);
-        this.biz = updatesActivity;
+        this.biP = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.aCi = this.mConvertView.findViewById(v.root_view);
-        this.biA = (HeadImageView) this.aCi.findViewById(v.iv_head);
-        this.biB = (TextView) this.aCi.findViewById(v.tv_group_name);
-        this.biC = (TextView) this.aCi.findViewById(v.tv_content);
-        this.Yr = (TextView) this.aCi.findViewById(v.tv_title);
-        this.biD = (TextView) this.aCi.findViewById(v.tv_time);
-        this.biE = (ImageView) this.aCi.findViewById(v.cb_select);
-        this.biF = (RelativeLayout) this.aCi.findViewById(v.layout_body);
-        this.biG = (RelativeLayout) this.aCi.findViewById(v.layout_title);
-        this.biA.setOnClickListener(new j(this));
-        this.biF.setClickable(true);
-        this.biF.setLongClickable(true);
-        this.biG.setClickable(true);
-        this.biG.setLongClickable(true);
-        this.biF.setOnClickListener(new k(this));
-        this.biF.setOnLongClickListener(new l(this));
-        this.biG.setOnClickListener(new m(this));
-        this.biG.setOnLongClickListener(new n(this));
-        this.biE.setOnClickListener(new o(this));
+        this.aCq = this.mConvertView.findViewById(v.root_view);
+        this.biQ = (HeadImageView) this.aCq.findViewById(v.iv_head);
+        this.biR = (TextView) this.aCq.findViewById(v.tv_group_name);
+        this.biS = (TextView) this.aCq.findViewById(v.tv_content);
+        this.Yt = (TextView) this.aCq.findViewById(v.tv_title);
+        this.biT = (TextView) this.aCq.findViewById(v.tv_time);
+        this.biU = (ImageView) this.aCq.findViewById(v.cb_select);
+        this.biV = (RelativeLayout) this.aCq.findViewById(v.layout_body);
+        this.biW = (RelativeLayout) this.aCq.findViewById(v.layout_title);
+        this.biQ.setOnClickListener(new j(this));
+        this.biV.setClickable(true);
+        this.biV.setLongClickable(true);
+        this.biW.setClickable(true);
+        this.biW.setLongClickable(true);
+        this.biV.setOnClickListener(new k(this));
+        this.biV.setOnLongClickListener(new l(this));
+        this.biW.setOnClickListener(new m(this));
+        this.biW.setOnLongClickListener(new n(this));
+        this.biU.setOnClickListener(new o(this));
     }
 
     public void refresh() {
         if (this.data != null) {
-            if (this.biz.isEditMode()) {
-                this.biE.setVisibility(0);
+            if (this.biP.isEditMode()) {
+                this.biU.setVisibility(0);
             } else {
-                this.biE.setVisibility(8);
-                this.biF.setSelected(false);
+                this.biU.setVisibility(8);
+                this.biV.setSelected(false);
             }
             String groupHeadUrl = this.data.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.biA.setTag(groupHeadUrl);
-                this.biA.c(groupHeadUrl, 10, false);
+                this.biQ.setTag(groupHeadUrl);
+                this.biQ.c(groupHeadUrl, 10, false);
             } else {
-                this.biA.setTag(null);
+                this.biQ.setTag(null);
             }
-            this.biA.setClickable(false);
+            this.biQ.setClickable(false);
             if (!TextUtils.isEmpty(this.data.getTitle())) {
-                this.Yr.setText(this.data.getTitle());
+                this.Yt.setText(this.data.getTitle());
             } else {
-                this.Yr.setText(this.biz.getPageContext().getString(y.alert_title));
+                this.Yt.setText(this.biP.getPageContext().getString(y.alert_title));
             }
             Date date = new Date();
             date.setTime(this.data.getTime());
-            this.biD.setText(bd.e(date));
+            this.biT.setText(bd.e(date));
             if (!TextUtils.isEmpty(this.data.getContent())) {
-                this.biC.setText(this.data.getContent());
+                this.biS.setText(this.data.getContent());
             } else {
-                this.biC.setText("");
+                this.biS.setText("");
             }
             if (!TextUtils.isEmpty(this.data.getGroupName())) {
-                this.biB.setText(this.data.getGroupName());
+                this.biR.setText(this.data.getGroupName());
             } else {
-                this.biB.setText("");
+                this.biR.setText("");
             }
-            int paddingLeft = this.biF.getPaddingLeft();
-            int paddingTop = this.biF.getPaddingTop();
-            int paddingRight = this.biF.getPaddingRight();
-            int paddingBottom = this.biF.getPaddingBottom();
-            this.biz.getLayoutMode().X(TbadkApplication.getInst().getSkinType() == 1);
-            this.biz.getLayoutMode().h(this.mConvertView);
-            this.biE.setSelected(this.data.isSelected());
+            int paddingLeft = this.biV.getPaddingLeft();
+            int paddingTop = this.biV.getPaddingTop();
+            int paddingRight = this.biV.getPaddingRight();
+            int paddingBottom = this.biV.getPaddingBottom();
+            this.biP.getLayoutMode().X(TbadkApplication.getInst().getSkinType() == 1);
+            this.biP.getLayoutMode().h(this.mConvertView);
+            this.biU.setSelected(this.data.isSelected());
             if (this.data.isSelected()) {
-                ba.i(this.biF, u.bg_information_down_s);
+                ba.i(this.biV, u.bg_information_down_s);
             } else {
-                ba.i(this.biF, u.selector_group_updates_bottom_bg);
+                ba.i(this.biV, u.selector_group_updates_bottom_bg);
             }
-            this.biF.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.biV.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 

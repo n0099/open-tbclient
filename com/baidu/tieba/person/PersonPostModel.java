@@ -14,8 +14,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int bQN = 0;
-    private static String bQO = "";
+    private static int bRd = 0;
+    private static String bRe = "";
     public int hide_post;
     public List<PostList> post_list;
 
@@ -41,18 +41,18 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, bo boVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(bQO)) {
-            bQN = 1;
-            bQO = str;
+        if (z || !str.equals(bRe)) {
+            bRd = 1;
+            bRe = str;
         } else {
-            bQN++;
+            bRd++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(bQO);
-        userPostPageRequestMessage.setPn(bQN);
+        userPostPageRequestMessage.setUid(bRe);
+        userPostPageRequestMessage.setPn(bRd);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
@@ -165,8 +165,8 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
             for (Media media : this.media) {
                 if (media.big_pic != null) {
                     com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar();
-                    arVar.QK = media.big_pic;
-                    arVar.UU = 10;
+                    arVar.QM = media.big_pic;
+                    arVar.UW = 10;
                     arrayList.add(arVar);
                 }
             }

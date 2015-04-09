@@ -7,15 +7,15 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements Animation.AnimationListener {
-    final /* synthetic */ OfficialBarMsglistView aZt;
-    private final /* synthetic */ boolean aZu;
-    private final /* synthetic */ Animation aZv;
+    final /* synthetic */ OfficialBarMsglistView aZJ;
+    private final /* synthetic */ boolean aZK;
+    private final /* synthetic */ Animation aZL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(OfficialBarMsglistView officialBarMsglistView, boolean z, Animation animation) {
-        this.aZt = officialBarMsglistView;
-        this.aZu = z;
-        this.aZv = animation;
+        this.aZJ = officialBarMsglistView;
+        this.aZK = z;
+        this.aZL = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -36,31 +36,31 @@ public class ah implements Animation.AnimationListener {
         LinearLayout linearLayout2;
         FrameLayout frameLayout2;
         ImageView imageView2;
-        if (this.aZu) {
-            linearLayout2 = this.aZt.aZo;
+        if (this.aZK) {
+            linearLayout2 = this.aZJ.aZE;
             linearLayout2.setVisibility(0);
-            frameLayout2 = this.aZt.mInputControl;
+            frameLayout2 = this.aZJ.mInputControl;
             frameLayout2.setVisibility(8);
-            imageView2 = this.aZt.aZn;
+            imageView2 = this.aZJ.aZD;
             imageView2.setImageResource(com.baidu.tieba.u.btn_bottombar_keyboard_above);
         } else {
-            linearLayout = this.aZt.aZo;
+            linearLayout = this.aZJ.aZE;
             linearLayout.setVisibility(8);
-            frameLayout = this.aZt.mInputControl;
+            frameLayout = this.aZJ.mInputControl;
             frameLayout.setVisibility(0);
-            imageView = this.aZt.aZn;
+            imageView = this.aZJ.aZD;
             imageView.setImageResource(com.baidu.tieba.u.btn_bottombar_keyboard_below);
             for (int i = 0; i < 3; i++) {
-                aiVarArr = this.aZt.aZs;
+                aiVarArr = this.aZJ.aZI;
                 ai aiVar = aiVarArr[i];
-                if (aiVar.aZw) {
-                    aiVar.aZw = false;
-                    this.aZt.m(i, aiVar.aZw);
-                    aVar = this.aZt.aZr;
-                    aVar.TF();
+                if (aiVar.aZM) {
+                    aiVar.aZM = false;
+                    this.aZJ.m(i, aiVar.aZM);
+                    aVar = this.aZJ.aZH;
+                    aVar.TS();
                 }
             }
         }
-        this.aZt.getLayoutBottom().startAnimation(this.aZv);
+        this.aZJ.getLayoutBottom().startAnimation(this.aZL);
     }
 }

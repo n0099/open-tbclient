@@ -17,16 +17,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
-    private String aWi;
-    private HashMap<String, ImageUrlData> bgT;
+    private String aWy;
+    private HashMap<String, ImageUrlData> bhj;
     private Context mContext;
     private ProgressBar mProgress = null;
-    private ay bQn = null;
-    private MultiImageView aWe = null;
+    private ay bQD = null;
+    private MultiImageView aWu = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener aeq = null;
-    private com.baidu.tbadk.core.dialog.h buJ = null;
-    private com.baidu.tbadk.core.view.a aWf = null;
+    private View.OnLongClickListener aey = null;
+    private com.baidu.tbadk.core.dialog.h buZ = null;
+    private com.baidu.tbadk.core.view.a aWv = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -39,12 +39,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         initUI();
         ArrayList<String> arrayList = new ArrayList<>();
         this.mContext = getPageContext().getPageActivity();
-        arrayList.add(this.aWi);
-        this.aWe.setIsFromCDN(true);
-        this.aWe.setAllowLocalUrl(true);
-        this.aWe.setAssistUrls(this.bgT);
-        this.aWe.setUrlData(arrayList);
-        this.aWe.setCurrentItem(0, false);
+        arrayList.add(this.aWy);
+        this.aWu.setIsFromCDN(true);
+        this.aWu.setAllowLocalUrl(true);
+        this.aWu.setAssistUrls(this.bhj);
+        this.aWu.setUrlData(arrayList);
+        this.aWu.setCurrentItem(0, false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -62,9 +62,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.aWe.setBackgroundColor(com.baidu.tbadk.core.util.ba.ce(i));
+            this.aWu.setBackgroundColor(com.baidu.tbadk.core.util.ba.ce(i));
         } else {
-            this.aWe.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.aWu.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
     }
 
@@ -72,29 +72,29 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.aWe.onPause();
+        this.aWu.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aWe.onResume();
+        this.aWu.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.aWe.onDestroy();
+        this.aWu.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkCoreApplication.m411getInst().delRemoteActivity(this);
-        this.aWe.onDestroy();
-        if (this.bQn != null) {
-            this.bQn.cancel();
-            this.bQn = null;
+        this.aWu.onDestroy();
+        if (this.bQD != null) {
+            this.bQD.cancel();
+            this.bQD = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -113,44 +113,44 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
     private void initUI() {
         this.mOnClickListener = new au(this);
-        this.aeq = new av(this);
-        this.buJ = new aw(this);
-        this.aWf = new ax(this);
+        this.aey = new av(this);
+        this.buZ = new aw(this);
+        this.aWv = new ax(this);
         this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.aWe = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
-        this.aWe.setPageMargin(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.aWe.v(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.aWe.setItemOnclickListener(this.mOnClickListener);
-        this.aWe.setItemOnLongClickListener(this.aeq);
-        this.aWe.setCurrentItem(0, false);
-        this.aWe.setOnScrollOutListener(this.aWf);
-        this.aWe.setHasNext(false);
-        this.aWe.setNextTitle("mNextTitle");
-        this.aWe.setHeadImage(true);
+        this.aWu = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.aWu.setPageMargin(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.aWu.v(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.aWu.setItemOnclickListener(this.mOnClickListener);
+        this.aWu.setItemOnLongClickListener(this.aey);
+        this.aWu.setCurrentItem(0, false);
+        this.aWu.setOnScrollOutListener(this.aWv);
+        this.aWu.setHasNext(false);
+        this.aWu.setNextTitle("mNextTitle");
+        this.aWu.setHeadImage(true);
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.aWi = bundle.getString("curImgUrl");
-            this.bgT = (HashMap) bundle.getSerializable("assistUrls");
+            this.aWy = bundle.getString("curImgUrl");
+            this.bhj = (HashMap) bundle.getSerializable("assistUrls");
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
-            this.aWi = intent.getStringExtra("curImgUrl");
-            this.bgT = (HashMap) intent.getSerializableExtra("assistUrls");
+            this.aWy = intent.getStringExtra("curImgUrl");
+            this.bhj = (HashMap) intent.getSerializableExtra("assistUrls");
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("curImgUrl", this.aWi);
+        bundle.putString("curImgUrl", this.aWy);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.aWe.setCurrentItem(0, true);
+        this.aWu.setCurrentItem(0, true);
     }
 }

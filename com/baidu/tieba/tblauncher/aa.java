@@ -16,7 +16,7 @@ class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.crf = false;
-        this.this$0.eU(false);
+        this.this$0.crv = false;
+        this.this$0.eS(false);
     }
 }

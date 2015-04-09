@@ -19,54 +19,54 @@ public abstract class e extends c {
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void ot() {
-        BI();
+        BO();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void os() {
-        BJ();
+        BP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BH() {
+    public void BN() {
         BdListView listView = getListView();
         if (listView != null) {
-            listView.setPullRefresh(BM());
+            listView.setPullRefresh(BS());
         }
-        zT().setListPullRefreshListener(BM(), zV());
+        zZ().setListPullRefreshListener(BS(), Ab());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ba(boolean z) {
-        zT().addEventDelegate(this);
+        zZ().addEventDelegate(this);
         g(16777217, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BI() {
+    public void BO() {
         BdListView listView = getListView();
-        BM().a((af) null);
+        BS().a((af) null);
         listView.mX();
-        zT().setListPullRefreshListener(BM(), zV());
+        zZ().setListPullRefreshListener(BS(), Ab());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BJ() {
+    public void BP() {
         getListView().mW();
     }
 
-    protected void BK() {
-        BI();
+    protected void BQ() {
+        BO();
     }
 
-    protected void BL() {
-        BJ();
+    protected void BR() {
+        BP();
     }
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
-        BM().ct(i);
+        BS().ct(i);
         return true;
     }
 
@@ -75,11 +75,11 @@ public abstract class e extends c {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Az() == 33554437) {
-            BK();
+        if (bVar.AF() == 33554437) {
+            BQ();
             return true;
-        } else if (bVar.Az() == 33554438) {
-            BL();
+        } else if (bVar.AF() == 33554438) {
+            BR();
             return true;
         } else {
             return false;
@@ -87,7 +87,7 @@ public abstract class e extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ag BM() {
+    public ag BS() {
         if (this.mPullView == null) {
             this.mPullView = new ag(getPageContext());
         }

@@ -14,7 +14,7 @@ public class MsgLeftViewItemAdapter extends bd<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void cr(boolean z) {
+    public void cp(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -31,17 +31,17 @@ public class MsgLeftViewItemAdapter extends bd<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.bd
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<MsgleftView> beVar) {
         super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        MsgleftView NS = beVar.NS();
-        NS.fy(this.aXl);
-        NS.cr(this.mNeedShowName);
+        MsgleftView Of = beVar.Of();
+        Of.fA(this.aXB);
+        Of.cp(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        NS.a(this.aXc);
-        NS.setOnItemViewLongClickListener(this.aXd);
-        NS.setPosition(i);
-        NS.U(this.mCurrentTime);
-        NS.T(chatMessage.getCacheData().getLastMsgTime());
-        NS.a(viewGroup, chatMessage);
-        NS.b(viewGroup, chatMessage);
+        Of.a(this.aXs);
+        Of.setOnItemViewLongClickListener(this.aXt);
+        Of.setPosition(i);
+        Of.U(this.mCurrentTime);
+        Of.T(chatMessage.getCacheData().getLastMsgTime());
+        Of.a(viewGroup, chatMessage);
+        Of.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().X(false);
         this.mPageContext.getLayoutMode().h(view);
         return view;

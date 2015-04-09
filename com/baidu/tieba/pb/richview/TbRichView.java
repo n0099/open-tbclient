@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class TbRichView extends LinearLayout {
-    private c bOh;
+    private c bOx;
 
     public TbRichView(Context context) {
         super(context);
@@ -26,17 +26,17 @@ public class TbRichView extends LinearLayout {
     }
 
     public void setViewProxy(c cVar) {
-        this.bOh = cVar;
+        this.bOx = cVar;
     }
 
-    public void N(ArrayList<com.baidu.tieba.pb.richview.a.c> arrayList) {
+    public void P(ArrayList<com.baidu.tieba.pb.richview.a.c> arrayList) {
         View a;
         removeAllViews();
-        if (arrayList != null && arrayList.size() > 0 && this.bOh != null) {
+        if (arrayList != null && arrayList.size() > 0 && this.bOx != null) {
             Iterator<com.baidu.tieba.pb.richview.a.c> it = arrayList.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.pb.richview.a.c next = it.next();
-                if (next != null && (a = this.bOh.a(next)) != null) {
+                if (next != null && (a = this.bOx.a(next)) != null) {
                     addView(a);
                 }
             }

@@ -14,31 +14,31 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private boolean aGI = false;
-    private s aRH;
-    private com.baidu.tieba.tbadkCore.location.l cvj;
-    private SearchLocationActivity cvk;
+    private boolean aGQ = false;
+    private s aRX;
+    private SearchLocationActivity cvA;
+    private com.baidu.tieba.tbadkCore.location.l cvz;
 
     public g(SearchLocationActivity searchLocationActivity) {
-        this.cvk = searchLocationActivity;
+        this.cvA = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cvj == null || this.cvj.ank() == null || this.cvj.ank().isEmpty()) {
-            this.aGI = false;
+        if (this.cvz == null || this.cvz.anz() == null || this.cvz.anz().isEmpty()) {
+            this.aGQ = false;
             return 1;
         }
-        this.aGI = true;
-        return this.cvj.ank().size();
+        this.aGQ = true;
+        return this.cvz.anz().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cvj == null || this.cvj.ank() == null || this.cvj.ank().isEmpty()) {
+        if (this.cvz == null || this.cvz.anz() == null || this.cvz.anz().isEmpty()) {
             return null;
         }
-        return this.cvj.ank().get(i);
+        return this.cvz.anz().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -48,7 +48,7 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.aGI) {
+        if (!this.aGQ) {
             return t(viewGroup);
         }
         h hVar = null;
@@ -56,38 +56,38 @@ public class g extends BaseAdapter {
             hVar = (h) view.getTag();
         }
         if (hVar == null) {
-            view = com.baidu.adp.lib.g.b.hH().a(this.cvk.getPageContext().getPageActivity(), w.location_search_item_layout, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.hH().a(this.cvA.getPageContext().getPageActivity(), w.location_search_item_layout, viewGroup, false);
             hVar = ad(view);
             view.setTag(hVar);
         }
         h hVar2 = hVar;
-        hVar2.cvl.setText(this.cvj.ank().get(i).getName());
+        hVar2.cvB.setText(this.cvz.anz().get(i).getName());
         ba.j(hVar2.line, com.baidu.tieba.s.cp_bg_line_b);
-        ba.b(hVar2.cvl, com.baidu.tieba.s.cp_cont_b, 1);
+        ba.b(hVar2.cvB, com.baidu.tieba.s.cp_cont_b, 1);
         ba.i(view, u.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.tbadkCore.location.l lVar) {
-        this.cvj = lVar;
+        this.cvz = lVar;
     }
 
-    public boolean aql() {
-        return this.aGI;
+    public boolean aqA() {
+        return this.aGQ;
     }
 
     public h ad(View view) {
         h hVar = new h(this, null);
-        hVar.cvl = (TextView) view.findViewById(v.location_search_address_name);
+        hVar.cvB = (TextView) view.findViewById(v.location_search_address_name);
         hVar.line = view.findViewById(v.location_search_line);
         return hVar;
     }
 
     public View t(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.aRH = NoDataViewFactory.a(this.cvk.getPageContext().getPageActivity(), viewGroup, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(y.text_try_to_chage_location), null);
-        this.aRH.onChangeSkinType(this.cvk.getPageContext(), skinType);
-        this.aRH.setVisibility(0);
-        return this.aRH;
+        this.aRX = NoDataViewFactory.a(this.cvA.getPageContext().getPageActivity(), viewGroup, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(y.text_try_to_chage_location), null);
+        this.aRX.onChangeSkinType(this.cvA.getPageContext(), skinType);
+        this.aRX.setVisibility(0);
+        return this.aRX;
     }
 }

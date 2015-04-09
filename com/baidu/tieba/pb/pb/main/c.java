@@ -4,62 +4,62 @@ import android.widget.AbsListView;
 import com.baidu.location.BDLocationStatusCodes;
 /* loaded from: classes.dex */
 class c implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity bIv;
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbActivity pbActivity) {
-        this.bIv = pbActivity;
+        this.bIJ = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        ci ciVar;
-        ci ciVar2;
+        cj cjVar;
+        cj cjVar2;
         boolean z;
-        ci ciVar3;
+        cj cjVar3;
         com.baidu.tbadk.performanceLog.h hVar;
         com.baidu.tbadk.performanceLog.h hVar2;
         com.baidu.tbadk.performanceLog.h hVar3;
-        ci ciVar4;
+        cj cjVar4;
         com.baidu.tbadk.performanceLog.h hVar4;
-        ci ciVar5;
+        cj cjVar5;
         com.baidu.tbadk.performanceLog.h hVar5;
         com.baidu.tbadk.performanceLog.h hVar6;
         if (i == 2 || i == 1) {
-            ciVar = this.bIv.bHY;
-            ciVar.abo();
-            ciVar2 = this.bIv.bHY;
-            ciVar2.aas();
-            this.bIv.Zj();
-            z = this.bIv.bHQ;
+            cjVar = this.bIJ.bIl;
+            cjVar.abC();
+            cjVar2 = this.bIJ.bIl;
+            cjVar2.aaF();
+            this.bIJ.Zw();
+            z = this.bIJ.bId;
             if (!z) {
-                this.bIv.bHQ = true;
-                ciVar3 = this.bIv.bHY;
-                ciVar3.abv();
+                this.bIJ.bId = true;
+                cjVar3 = this.bIJ.bIl;
+                cjVar3.abK();
             }
         }
-        hVar = this.bIv.bHR;
+        hVar = this.bIJ.bIe;
         if (hVar == null) {
-            this.bIv.bHR = new com.baidu.tbadk.performanceLog.h();
-            hVar5 = this.bIv.bHR;
+            this.bIJ.bIe = new com.baidu.tbadk.performanceLog.h();
+            hVar5 = this.bIJ.bIe;
             hVar5.eb(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            hVar6 = this.bIv.bHR;
-            hVar6.apk = this.bIv.aJi;
+            hVar6 = this.bIJ.bIe;
+            hVar6.apt = this.bIJ.aJq;
         }
         if (i == 0) {
-            ciVar4 = this.bIv.bHY;
-            if (ciVar4.aaE() != null) {
-                ciVar5 = this.bIv.bHY;
-                ciVar5.aaE().notifyDataSetChanged();
+            cjVar4 = this.bIJ.bIl;
+            if (cjVar4.aaR() != null) {
+                cjVar5 = this.bIJ.bIl;
+                cjVar5.aaR().notifyDataSetChanged();
             }
-            hVar4 = this.bIv.bHR;
-            hVar4.Cn();
+            hVar4 = this.bIJ.bIe;
+            hVar4.Ct();
         } else if (i == 1) {
-            hVar3 = this.bIv.bHR;
-            hVar3.Cn();
+            hVar3 = this.bIJ.bIe;
+            hVar3.Ct();
         } else {
-            hVar2 = this.bIv.bHR;
-            hVar2.Cn();
+            hVar2 = this.bIJ.bIe;
+            hVar2.Ct();
         }
     }
 

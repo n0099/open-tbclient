@@ -18,20 +18,20 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView boE;
-    private FragmentTransaction boF;
+    private ImageView boU;
+    private FragmentTransaction boV;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Os = new a(this, 2008002);
+    private CustomMessageListener Ou = new a(this, 2008002);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Os);
+        registerListener(this.Ou);
         sendMessage(new CustomMessage(2008002));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 1));
     }
@@ -51,6 +51,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(y.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.boE = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_addchat, this.mOnClickListener);
+        this.boU = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

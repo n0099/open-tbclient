@@ -10,27 +10,27 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, e> {
-    private aa Oi = null;
-    private String btQ;
-    private String bua;
-    private int bub;
-    private int buc;
-    final /* synthetic */ a bud;
+    private aa Ok = null;
+    private String buh;
+    private String bur;
+    private int bus;
+    private int but;
+    final /* synthetic */ a buu;
 
     public b(a aVar, String str, String str2, int i, int i2) {
-        this.bud = aVar;
-        this.btQ = null;
-        this.bua = null;
-        this.bub = 0;
-        this.buc = 0;
-        this.bua = str2;
-        this.btQ = str;
-        this.bub = i;
-        this.buc = i2;
+        this.buu = aVar;
+        this.buh = null;
+        this.bur = null;
+        this.bus = 0;
+        this.but = 0;
+        this.bur = str2;
+        this.buh = str;
+        this.bus = i;
+        this.but = i2;
     }
 
     public String getPicId() {
-        return this.bua;
+        return this.bur;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,30 +42,30 @@ public class b extends BdAsyncTask<Object, Integer, e> {
         boolean z;
         boolean z2;
         boolean z3;
-        this.Oi = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
-        aa aaVar = this.Oi;
-        str = this.bud.aIK;
+        this.Ok = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
+        aa aaVar = this.Ok;
+        str = this.buu.aIS;
         aaVar.o("kw", str);
-        this.Oi.o("tid", this.btQ);
-        if (this.bua != null) {
-            this.Oi.o("pic_id", this.bua);
+        this.Ok.o("tid", this.buh);
+        if (this.bur != null) {
+            this.Ok.o("pic_id", this.bur);
         }
-        this.Oi.o("next", String.valueOf(this.bub));
-        this.Oi.o("prev", String.valueOf(this.buc));
-        z = this.bud.btW;
+        this.Ok.o("next", String.valueOf(this.bus));
+        this.Ok.o("prev", String.valueOf(this.but));
+        z = this.buu.bun;
         if (!z) {
-            this.Oi.o("not_see_lz", String.valueOf(1));
+            this.Ok.o("not_see_lz", String.valueOf(1));
         }
         StringBuilder sb = new StringBuilder("mIsReserver=");
-        z2 = this.bud.btT;
+        z2 = this.buu.buk;
         BdLog.d(sb.append(z2).toString());
-        z3 = this.bud.btT;
+        z3 = this.buu.buk;
         if (!z3) {
-            this.Oi.o("r", String.valueOf(1));
+            this.Ok.o("r", String.valueOf(1));
         }
-        this.Oi.sp().tp().VU = false;
-        String rO = this.Oi.rO();
-        if (!this.Oi.sp().tq().pv()) {
+        this.Ok.sp().tp().VW = false;
+        String rO = this.Ok.rO();
+        if (!this.Ok.sp().tq().pv()) {
             return null;
         }
         e eVar = new e();
@@ -75,10 +75,10 @@ public class b extends BdAsyncTask<Object, Integer, e> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
-        this.bud.btU = null;
+        this.buu.bul = null;
         super.cancel(true);
     }
 
@@ -107,7 +107,7 @@ public class b extends BdAsyncTask<Object, Integer, e> {
         String str3;
         int i3;
         String a;
-        String hp;
+        String hs;
         HashMap hashMap;
         ArrayList arrayList2;
         HashMap hashMap2;
@@ -118,63 +118,63 @@ public class b extends BdAsyncTask<Object, Integer, e> {
         String str4;
         c cVar4;
         super.onPostExecute(eVar);
-        this.bud.btU = null;
+        this.buu.bul = null;
         if (eVar != null) {
-            this.bud.btV = eVar.VP();
-            this.bud.aev = eVar.VN();
-            this.bud.btP = eVar.VM();
-            if (this.bua == null) {
-                arrayList3 = this.bud.btO;
+            this.buu.bum = eVar.Wc();
+            this.buu.aeD = eVar.Wa();
+            this.buu.bug = eVar.VZ();
+            if (this.bur == null) {
+                arrayList3 = this.buu.bue;
                 arrayList3.clear();
-                hashMap3 = this.bud.btZ;
+                hashMap3 = this.buu.buq;
                 hashMap3.clear();
             }
-            LinkedList<d> VO = eVar.VO();
-            int size = VO.size();
+            LinkedList<d> Wb = eVar.Wb();
+            int size = Wb.size();
             if (size <= 0) {
-                this.bud.btS = true;
+                this.buu.buj = true;
             } else {
                 for (int i5 = 0; i5 < size; i5++) {
-                    a = this.bud.a(VO.get(i5));
-                    hp = this.bud.hp(a);
-                    hashMap = this.bud.btZ;
-                    if (!hashMap.containsKey(hp)) {
-                        arrayList2 = this.bud.btO;
+                    a = this.buu.a(Wb.get(i5));
+                    hs = this.buu.hs(a);
+                    hashMap = this.buu.buq;
+                    if (!hashMap.containsKey(hs)) {
+                        arrayList2 = this.buu.bue;
                         arrayList2.add(a);
-                        hashMap2 = this.bud.btZ;
-                        hashMap2.put(hp, a);
+                        hashMap2 = this.buu.buq;
+                        hashMap2.put(hs, a);
                     }
                 }
-                d dVar = VO.get(size - 1);
-                this.bud.btR = dVar.getImageID();
-                i3 = this.bud.btV;
+                d dVar = Wb.get(size - 1);
+                this.buu.bui = dVar.getImageID();
+                i3 = this.buu.bum;
                 if (i3 == dVar.getIndex()) {
-                    this.bud.btS = true;
+                    this.buu.buj = true;
                 } else {
-                    this.bud.btS = false;
+                    this.buu.buj = false;
                 }
             }
-            z = this.bud.btS;
+            z = this.buu.buj;
             if (z) {
-                str2 = this.bud.btP;
+                str2 = this.buu.bug;
                 if (str2 != null) {
-                    str3 = this.bud.btP;
+                    str3 = this.buu.bug;
                     if (str3.length() > 0) {
                         z2 = true;
-                        if (this.bua != null) {
-                            this.bud.btQ = this.btQ;
+                        if (this.bur != null) {
+                            this.buu.buh = this.buh;
                             z3 = true;
                             i = 0;
                         } else {
                             z3 = false;
                             i = -1;
                         }
-                        cVar = this.bud.btY;
+                        cVar = this.buu.bup;
                         if (cVar == null) {
-                            cVar2 = this.bud.btY;
-                            arrayList = this.bud.btO;
-                            i2 = this.bud.btV;
-                            str = this.bud.aev;
+                            cVar2 = this.buu.bup;
+                            arrayList = this.buu.bue;
+                            i2 = this.buu.bum;
+                            str = this.buu.aeD;
                             cVar2.a(arrayList, i, i2, z2, str, z3);
                             return;
                         }
@@ -183,22 +183,22 @@ public class b extends BdAsyncTask<Object, Integer, e> {
                 }
             }
             z2 = false;
-            if (this.bua != null) {
+            if (this.bur != null) {
             }
-            cVar = this.bud.btY;
+            cVar = this.buu.bup;
             if (cVar == null) {
             }
         } else {
-            cVar3 = this.bud.btY;
+            cVar3 = this.buu.bup;
             if (cVar3 != null) {
-                if (this.Oi != null) {
-                    i4 = this.Oi.st();
-                    str4 = this.bua == null ? this.Oi.getErrorString() : null;
+                if (this.Ok != null) {
+                    i4 = this.Ok.st();
+                    str4 = this.bur == null ? this.Ok.getErrorString() : null;
                 } else {
                     i4 = -1;
                     str4 = null;
                 }
-                cVar4 = this.bud.btY;
+                cVar4 = this.buu.bup;
                 cVar4.x(i4, str4);
             }
         }

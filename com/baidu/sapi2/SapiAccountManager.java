@@ -1,8 +1,11 @@
 package com.baidu.sapi2;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Looper;
+import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.sapi2.shell.SapiAccountService;
 import com.baidu.sapi2.utils.L;
@@ -20,7 +23,7 @@ public final class SapiAccountManager {
     public static final String SESSION_STOKEN = "stoken";
     public static final String SESSION_UID = "uid";
     public static final int VERSION_CODE = 52;
-    public static final String VERSION_NAME = "6.7.9";
+    public static final String VERSION_NAME = "6.7.10";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static c c;
@@ -65,26 +68,28 @@ public final class SapiAccountManager {
             b = sapiConfiguration;
             c = c.a(sapiConfiguration.context);
             d = new SapiAccountService(sapiConfiguration.context);
-            new Thread(new Runnable() { // from class: com.baidu.sapi2.SapiAccountManager.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    Looper.prepare();
-                    sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
-                    sapiConfiguration.clientIp = SapiUtils.getLocalIpAddress();
-                    com.baidu.sapi2.share.c.c();
-                    if (sapiConfiguration.syncCacheOnInit) {
-                        SapiCache.init(sapiConfiguration.context);
+            if (c(sapiConfiguration.context)) {
+                new Thread(new Runnable() { // from class: com.baidu.sapi2.SapiAccountManager.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Looper.prepare();
+                        sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
+                        sapiConfiguration.clientIp = SapiUtils.getLocalIpAddress();
+                        com.baidu.sapi2.share.c.c();
+                        if (sapiConfiguration.syncCacheOnInit) {
+                            SapiCache.init(sapiConfiguration.context);
+                        }
+                        if (!TextUtils.isEmpty(sapiConfiguration.deviceLoginSignKey)) {
+                            SapiAccountManager.d.n();
+                        }
+                        com.baidu.sapi2.utils.b.a();
+                        SapiAccountManager.c.b(SapiAccountManager.VERSION_NAME);
+                        SapiAccountManager.c.a(sapiConfiguration.loginShareStrategy());
+                        com.baidu.sapi2.utils.c.a(sapiConfiguration.context);
+                        Looper.loop();
                     }
-                    if (!TextUtils.isEmpty(sapiConfiguration.deviceLoginSignKey)) {
-                        SapiAccountManager.d.n();
-                    }
-                    com.baidu.sapi2.utils.b.a();
-                    SapiAccountManager.c.b(SapiAccountManager.VERSION_NAME);
-                    SapiAccountManager.c.a(sapiConfiguration.loginShareStrategy());
-                    com.baidu.sapi2.utils.c.a(sapiConfiguration.context);
-                    Looper.loop();
-                }
-            }).start();
+                }).start();
+            }
         } else {
             L.d(getClass().getSimpleName() + " had already been initialized", new Object[0]);
         }
@@ -211,5 +216,34 @@ public final class SapiAccountManager {
 
     public static ReceiveShareListener getReceiveShareListener() {
         return f;
+    }
+
+    static String a(Context context) {
+        try {
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+        } catch (Throwable th) {
+            L.e(th);
+        }
+        return "";
+    }
+
+    static String b(Context context) {
+        try {
+            return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).processName;
+        } catch (Throwable th) {
+            L.e(th);
+            return "";
+        }
+    }
+
+    static boolean c(Context context) {
+        String a2 = a(context);
+        String b2 = b(context);
+        return TextUtils.isEmpty(a2) || TextUtils.isEmpty(b2) || a2.equals(b2);
     }
 }

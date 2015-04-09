@@ -9,32 +9,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ah {
-    private static String apO = "tb_perfor_samllflow_time";
-    private static volatile ah apR;
-    private long apQ;
-    private boolean apM = false;
-    private long apP = 86400;
-    private long apN = com.baidu.tbadk.core.sharedPref.b.rB().getLong(apO, 0);
+    private static String apW = "tb_perfor_samllflow_time";
+    private static volatile ah apZ;
+    private long apY;
+    private boolean apU = false;
+    private long apX = 86400;
+    private long apV = com.baidu.tbadk.core.sharedPref.b.rB().getLong(apW, 0);
 
-    public static ah CK() {
-        if (apR == null) {
+    public static ah CQ() {
+        if (apZ == null) {
             synchronized (ah.class) {
-                if (apR == null) {
-                    apR = new ah();
+                if (apZ == null) {
+                    apZ = new ah();
                 }
             }
         }
-        return apR;
+        return apZ;
     }
 
     private ah() {
-        this.apQ = 0L;
-        this.apQ = this.apP;
+        this.apY = 0L;
+        this.apY = this.apX;
     }
 
-    public boolean CL() {
-        if (!this.apM || (System.currentTimeMillis() - this.apN) / 1000 <= this.apQ) {
-            return this.apM;
+    public boolean CR() {
+        if (!this.apU || (System.currentTimeMillis() - this.apV) / 1000 <= this.apY) {
+            return this.apU;
         }
         return false;
     }
@@ -42,18 +42,18 @@ public class ah {
     public void bd(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.apN || currentTimeMillis - this.apN >= this.apQ) {
-                this.apN = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.rB().putLong(apO, this.apN);
+            if (0 == this.apV || currentTimeMillis - this.apV >= this.apY) {
+                this.apV = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.rB().putLong(apW, this.apV);
             }
         } else {
-            this.apN = 0L;
-            com.baidu.tbadk.core.sharedPref.b.rB().putLong(apO, this.apN);
+            this.apV = 0L;
+            com.baidu.tbadk.core.sharedPref.b.rB().putLong(apW, this.apV);
         }
-        this.apM = z;
+        this.apU = z;
     }
 
-    public String CM() {
+    public String CS() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -67,7 +67,7 @@ public class ah {
         }
     }
 
-    public final String CN() {
+    public final String CT() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -112,7 +112,7 @@ public class ah {
     }
 
     public ag ed(int i) {
-        if (CL()) {
+        if (CR()) {
             switch (i) {
                 case 1000:
                     aj ajVar = new aj();
@@ -139,7 +139,7 @@ public class ah {
 
     public void v(long j) {
         if (j > 0) {
-            this.apQ = j;
+            this.apY = j;
         }
     }
 
@@ -158,7 +158,7 @@ public class ah {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int CO() {
+    public int CU() {
         BufferedReader bufferedReader;
         Process process;
         String str;

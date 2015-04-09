@@ -5,11 +5,11 @@ import com.baidu.tieba.person.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements bo {
-    final /* synthetic */ g bRo;
+    final /* synthetic */ g bRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.bRo = gVar;
+        this.bRE = gVar;
     }
 
     @Override // com.baidu.tieba.person.bo
@@ -19,19 +19,19 @@ public class h implements bo {
         bo boVar;
         bo boVar2;
         if (z) {
-            this.bRo.bRl = personPostModel;
+            this.bRE.bRB = personPostModel;
         } else {
-            personPostModel2 = this.bRo.bRl;
+            personPostModel2 = this.bRE.bRB;
             if (personPostModel2 != null) {
-                personPostModel3 = this.bRo.bRl;
+                personPostModel3 = this.bRE.bRB;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        boVar = this.bRo.bRk;
+        boVar = this.bRE.bRA;
         if (boVar != null) {
-            boVar2 = this.bRo.bRk;
+            boVar2 = this.bRE.bRA;
             boVar2.a(personPostModel, z);
         }
-        this.bRo.notifyDataSetChanged();
+        this.bRE.notifyDataSetChanged();
     }
 }

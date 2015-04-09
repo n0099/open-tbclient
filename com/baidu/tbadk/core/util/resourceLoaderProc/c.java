@@ -88,7 +88,7 @@ public class c implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
         } else {
             Bitmap w = com.baidu.tbadk.core.util.c.w(l);
             if (z && w == null) {
-                TiebaStatic.imgError(hVar.Wx, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str3);
+                TiebaStatic.imgError(hVar.Wz, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str3);
                 TbadkCoreApplication.m411getInst().incWebpFailureCount();
                 bArr = hVar.l(str4, !booleanValue);
                 bitmap = (bArr == null || !hVar.tw()) ? w : com.baidu.tbadk.core.util.c.w(bArr);
@@ -97,7 +97,7 @@ public class c implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 bitmap = w;
             }
         }
-        if (!hVar.WD) {
+        if (!hVar.WF) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.a.a(bitmap, com.baidu.adp.lib.util.n.n(bArr), str, bArr);
@@ -198,7 +198,7 @@ public class c implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.g.eH(str)) {
+        if (com.baidu.tbadk.util.g.eK(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -223,7 +223,7 @@ public class c implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
 
     private static boolean cY(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.g.eH(str)) {
+        if (str != null && com.baidu.tbadk.util.g.eK(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

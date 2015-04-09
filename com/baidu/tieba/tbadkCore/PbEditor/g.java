@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ EditorToolComponetContainer cmo;
+    final /* synthetic */ EditorToolComponetContainer cmE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EditorToolComponetContainer editorToolComponetContainer) {
-        this.cmo = editorToolComponetContainer;
+        this.cmE = editorToolComponetContainer;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,27 +20,27 @@ public class g implements View.OnClickListener {
         com.baidu.tbadk.editortool.v vVar5;
         com.baidu.tbadk.editortool.v vVar6;
         com.baidu.tbadk.editortool.v vVar7;
-        if (view == this.cmo.clQ.getmFace()) {
-            vVar7 = this.cmo.aip;
+        if (view == this.cmE.cmh.getmFace()) {
+            vVar7 = this.cmE.aix;
             vVar7.handleAction(2, null);
-        } else if (view == this.cmo.clQ.getmImage() || view == this.cmo.clQ.getmIVImage()) {
-            this.cmo.clQ.setmImagetype(2);
-            vVar = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getmImage() || view == this.cmE.cmh.getmIVImage()) {
+            this.cmE.cmh.setmImagetype(2);
+            vVar = this.cmE.aix;
             vVar.handleAction(23, null);
-        } else if (view == this.cmo.clQ.getmAt()) {
-            vVar6 = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getmAt()) {
+            vVar6 = this.cmE.aix;
             vVar6.handleAction(0, null);
-        } else if (view == this.cmo.clQ.getmPrivilege()) {
-            vVar5 = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getmPrivilege()) {
+            vVar5 = this.cmE.aix;
             vVar5.handleAction(44, null);
-        } else if (view == this.cmo.clQ.getBaobao()) {
-            vVar4 = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getBaobao()) {
+            vVar4 = this.cmE.aix;
             vVar4.handleAction(48, null);
-        } else if (view == this.cmo.clQ.getRecordButton()) {
-            vVar3 = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getRecordButton()) {
+            vVar3 = this.cmE.aix;
             vVar3.handleAction(4, null);
-        } else if (view == this.cmo.clQ.getLocation()) {
-            vVar2 = this.cmo.aip;
+        } else if (view == this.cmE.cmh.getLocation()) {
+            vVar2 = this.cmE.aix;
             vVar2.handleAction(52, null);
         }
     }

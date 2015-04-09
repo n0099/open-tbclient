@@ -83,7 +83,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    com.baidu.tieba.im.db.g.PO().PP();
+                    com.baidu.tieba.im.db.g.Qb().Qc();
                     ImMessageCenterPojo imMessageCenterPojo = null;
                     Iterator<GroupMsgData> it = groupMsg.iterator();
                     ImMessageCenterPojo imMessageCenterPojo2 = null;
@@ -96,12 +96,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 String valueOf = String.valueOf(i3.getGroupInfo().getGroupId());
                                 int customType = i3.getGroupInfo().getCustomType();
                                 int userType = i3.getGroupInfo().getUserType();
-                                ImMessageCenterPojo z = com.baidu.tieba.im.db.k.PT().z(valueOf, customType);
+                                ImMessageCenterPojo z = com.baidu.tieba.im.db.k.Qg().z(valueOf, customType);
                                 if (z != null) {
                                     z.setUserType(userType);
                                 }
                                 if (customType == 4 && imMessageCenterPojo == null) {
-                                    ImMessageCenterPojo z2 = com.baidu.tieba.im.db.k.PT().z("-1000", -8);
+                                    ImMessageCenterPojo z2 = com.baidu.tieba.im.db.k.Qg().z("-1000", -8);
                                     if (z2 == null) {
                                         ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                                         imMessageCenterPojo3.setGid("-1000");
@@ -112,7 +112,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         imMessageCenterPojo = z2;
                                     }
                                 }
-                                if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(i3) && (imMessageCenterPojo2 = com.baidu.tieba.im.db.k.PT().z("-1001", -7)) == null) {
+                                if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(i3) && (imMessageCenterPojo2 = com.baidu.tieba.im.db.k.Qg().z("-1001", -7)) == null) {
                                     imMessageCenterPojo2 = new ImMessageCenterPojo();
                                     imMessageCenterPojo2.setGid("-1001");
                                     imMessageCenterPojo2.setCustomGroupType(-7);
@@ -130,12 +130,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     if (i3.getListMessage() != null && i3.getListMessage().size() != 0) {
                                         ChatMessage chatMessage = i3.getListMessage().get(0);
                                         ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
-                                        imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.c.a.bmu));
+                                        imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.c.a.bmK));
                                         imMessageCenterPojo4.setCustomGroupType(-1);
                                         imMessageCenterPojo4.setIs_hidden(1);
                                         imMessageCenterPojo4.setPulled_msgId(chatMessage.getMsgId());
-                                        com.baidu.tieba.im.db.k.PT().a(imMessageCenterPojo4);
-                                        i3 = new StringBuilder("pullMessage insertMessagecent personal_Group gid = ").append(com.baidu.tieba.im.c.a.bmu).append(" msgid = ");
+                                        com.baidu.tieba.im.db.k.Qg().a(imMessageCenterPojo4);
+                                        i3 = new StringBuilder("pullMessage insertMessagecent personal_Group gid = ").append(com.baidu.tieba.im.c.a.bmK).append(" msgid = ");
                                         BdLog.i(i3.append(chatMessage.getMsgId()).toString());
                                     }
                                 } else if (i3.getCmd() == 2013009) {
@@ -146,7 +146,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         imMessageCenterPojo5.setCustomGroupType(-9);
                                         imMessageCenterPojo5.setIs_hidden(1);
                                         imMessageCenterPojo5.setPulled_msgId(chatMessage2.getMsgId());
-                                        com.baidu.tieba.im.db.k.PT().a(imMessageCenterPojo5);
+                                        com.baidu.tieba.im.db.k.Qg().a(imMessageCenterPojo5);
                                         i3 = new StringBuilder("pullMessage insertMessagecent offical_Group gid = ").append(i3.getGroupInfo().getGroupId()).append(" msgid = ");
                                         BdLog.i(i3.append(chatMessage2.getMsgId()).toString());
                                     }
@@ -156,10 +156,10 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     if (i3.getGroupInfo().getGroupId() == 10) {
                                         s.a(i3, z, new p(this));
                                     } else {
-                                        long[] b = s.Og().b(i3);
+                                        long[] b = s.Ot().b(i3);
                                         if (b != null) {
                                             long ag = com.baidu.tieba.im.util.h.ag(b[1]);
-                                            i3 = s.Og();
+                                            i3 = s.Ot();
                                             i3.f(String.valueOf(b[0]), ag);
                                         }
                                     }
@@ -171,53 +171,53 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             e = e;
                             i3 = i2;
                             BdLog.e(e.getMessage());
-                            com.baidu.tieba.im.db.g.PO().endTransaction();
+                            com.baidu.tieba.im.db.g.Qb().endTransaction();
                             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.performanceLog.r rVar = new com.baidu.tbadk.performanceLog.r();
-                            rVar.aoV = getCmd();
+                            rVar.apd = getCmd();
                             i3 = i3;
                             if (this.performanceData != null) {
                                 rVar.vy = this.performanceData.qw;
-                                rVar.aoW = getDownSize();
-                                rVar.aoX = currentTimeMillis2;
-                                rVar.aoY = i3;
+                                rVar.ape = getDownSize();
+                                rVar.apf = currentTimeMillis2;
+                                rVar.apg = i3;
                                 ?? r2 = this.performanceData.qv;
-                                rVar.Gx = r2;
+                                rVar.Gz = r2;
                                 rVar.eb(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
-                                rVar.Cw();
+                                rVar.CC();
                                 i3 = r2;
                             }
                         } catch (Throwable th) {
                             th = th;
-                            com.baidu.tieba.im.db.g.PO().endTransaction();
+                            com.baidu.tieba.im.db.g.Qb().endTransaction();
                             long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.performanceLog.r rVar2 = new com.baidu.tbadk.performanceLog.r();
-                            rVar2.aoV = getCmd();
+                            rVar2.apd = getCmd();
                             if (this.performanceData != null) {
                                 rVar2.vy = this.performanceData.qw;
-                                rVar2.aoW = getDownSize();
-                                rVar2.aoX = currentTimeMillis3;
-                                rVar2.aoY = i2;
-                                rVar2.Gx = this.performanceData.qv;
+                                rVar2.ape = getDownSize();
+                                rVar2.apf = currentTimeMillis3;
+                                rVar2.apg = i2;
+                                rVar2.Gz = this.performanceData.qv;
                                 rVar2.eb(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
-                                rVar2.Cw();
+                                rVar2.CC();
                             }
                             throw th;
                         }
                     }
-                    com.baidu.tieba.im.db.g.PO().endTransaction();
+                    com.baidu.tieba.im.db.g.Qb().endTransaction();
                     long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                     com.baidu.tbadk.performanceLog.r rVar3 = new com.baidu.tbadk.performanceLog.r();
-                    rVar3.aoV = getCmd();
+                    rVar3.apd = getCmd();
                     i3 = i3;
                     if (this.performanceData != null) {
                         rVar3.vy = this.performanceData.qw;
-                        rVar3.aoW = getDownSize();
-                        rVar3.aoX = currentTimeMillis4;
-                        rVar3.aoY = i2;
-                        rVar3.Gx = this.performanceData.qv;
+                        rVar3.ape = getDownSize();
+                        rVar3.apf = currentTimeMillis4;
+                        rVar3.apg = i2;
+                        rVar3.Gz = this.performanceData.qv;
                         rVar3.eb(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
-                        rVar3.Cw();
+                        rVar3.CC();
                         i3 = i3;
                     }
                 } catch (Throwable th2) {

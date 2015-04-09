@@ -3,51 +3,51 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class j {
-    public static j aYI = new j();
-    private final int aYF = 9;
-    private final int aYG = 1;
-    private final int aYH = 1;
-    private com.baidu.adp.lib.e.b<g> aYr;
-    private com.baidu.adp.lib.e.b<d> aYs;
-    private com.baidu.adp.lib.e.b<av> aYt;
+    public static j aYY = new j();
+    private com.baidu.adp.lib.e.b<g> aYH;
+    private com.baidu.adp.lib.e.b<d> aYI;
+    private com.baidu.adp.lib.e.b<av> aYJ;
+    private final int aYV = 9;
+    private final int aYW = 1;
+    private final int aYX = 1;
 
-    public static j NV() {
-        return aYI;
+    public static j Oi() {
+        return aYY;
     }
 
     private j() {
     }
 
     private void ao(Context context) {
-        this.aYr = new l(this, new k(this, context), 1, 0);
+        this.aYH = new l(this, new k(this, context), 1, 0);
     }
 
     private void ap(Context context) {
-        this.aYs = new n(this, new m(this, context), 9, 0);
+        this.aYI = new n(this, new m(this, context), 9, 0);
     }
 
     private void aq(Context context) {
-        this.aYt = new com.baidu.adp.lib.e.b<>(new o(this, context), 1, 0);
+        this.aYJ = new com.baidu.adp.lib.e.b<>(new o(this, context), 1, 0);
     }
 
     public com.baidu.adp.lib.e.b<g> ar(Context context) {
-        if (this.aYr == null) {
+        if (this.aYH == null) {
             ao(context);
         }
-        return this.aYr;
+        return this.aYH;
     }
 
     public com.baidu.adp.lib.e.b<d> as(Context context) {
-        if (this.aYs == null) {
+        if (this.aYI == null) {
             ap(context);
         }
-        return this.aYs;
+        return this.aYI;
     }
 
     public com.baidu.adp.lib.e.b<av> at(Context context) {
-        if (this.aYt == null) {
+        if (this.aYJ == null) {
             aq(context);
         }
-        return this.aYt;
+        return this.aYJ;
     }
 }

@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class bc extends CustomMessageListener {
-    final /* synthetic */ bb ccj;
+    final /* synthetic */ bb ccy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(bb bbVar, int i) {
         super(i);
-        this.ccj = bbVar;
+        this.ccy = bbVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

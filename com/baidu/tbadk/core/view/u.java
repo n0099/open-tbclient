@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 public class u {
-    t YB;
-    t YC;
+    t YD;
+    t YE;
 
     private u() {
     }
 
     public static u a(t tVar) {
         u uVar = new u();
-        uVar.YB = tVar;
+        uVar.YD = tVar;
         return uVar;
     }
 }

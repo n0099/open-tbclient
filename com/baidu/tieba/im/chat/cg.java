@@ -30,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class cg {
-    public static boolean aYc = com.baidu.tbadk.util.g.Df();
+    public static boolean aYs = com.baidu.tbadk.util.g.Dl();
 
     public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
         if (chatMessage != null) {
@@ -78,7 +78,7 @@ public class cg {
                         aVar = null;
                     } else {
                         try {
-                            aVar = com.baidu.tbadk.imageManager.e.zs().er(a);
+                            aVar = com.baidu.tbadk.imageManager.e.zy().eu(a);
                             try {
                                 if (aVar == null) {
                                     Bitmap f = ao.sJ().f(com.baidu.adp.lib.util.e.it().ay(a));
@@ -90,7 +90,7 @@ public class cg {
                                             chatMessage.setWidth(aVar.getWidth());
                                             chatMessage.setHeight(aVar.getHeight());
                                         }
-                                        com.baidu.tbadk.imageManager.e.zs().c(a, aVar);
+                                        com.baidu.tbadk.imageManager.e.zy().c(a, aVar);
                                     }
                                 } else if (chatMessage.getWidth() < 1) {
                                     chatMessage.setWidth(aVar.getWidth());
@@ -123,7 +123,7 @@ public class cg {
                     if (aVar != null) {
                         chatImageWithTailView.getImage().reset();
                         if (chatImageWithTailView.getImage() instanceof ChatClipImageItemView) {
-                            chatImageWithTailView.getImage().Oh();
+                            chatImageWithTailView.getImage().Ou();
                         }
                         aVar.a(chatImageWithTailView.getImage());
                     } else {
@@ -211,12 +211,12 @@ public class cg {
         gifView.setVisibility(0);
         com.baidu.tbadk.gif.a gifInfo = chatMessage.getGifInfo();
         if (chatMessage.getGifInfo() != null) {
-            gifInfo.ako = gifInfo.ako > 0 ? gifInfo.ako : i;
-            if (gifInfo.akp > 0) {
-                i2 = gifInfo.akp;
+            gifInfo.akw = gifInfo.akw > 0 ? gifInfo.akw : i;
+            if (gifInfo.akx > 0) {
+                i2 = gifInfo.akx;
             }
-            gifInfo.akp = i2;
-            gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.ako, gifInfo.akp));
+            gifInfo.akx = i2;
+            gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.akw, gifInfo.akx));
             gifView.a(gifInfo);
             gifView.setVisibility(0);
             return;
@@ -228,15 +228,15 @@ public class cg {
         if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
             com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
             int aJ = aVar.aJ(chatMessage.getContent(), str);
-            if (1 == aVar.TH() && aVar.TI() != null) {
+            if (1 == aVar.TU() && aVar.TV() != null) {
                 if (aJ == 0) {
                     shareFromPBView.setVisibility(0);
-                    shareFromPBView.setData((ShareFromPBMsgData) aVar.TI());
+                    shareFromPBView.setData((ShareFromPBMsgData) aVar.TV());
                 } else if (aJ == 1) {
                     shareFromGameCenter.setVisibility(0);
                     ShareFromGameCenterMsgData shareFromGameCenterMsgData = null;
-                    if (aVar.TI() instanceof ShareFromGameCenterMsgData) {
-                        shareFromGameCenterMsgData = (ShareFromGameCenterMsgData) aVar.TI();
+                    if (aVar.TV() instanceof ShareFromGameCenterMsgData) {
+                        shareFromGameCenterMsgData = (ShareFromGameCenterMsgData) aVar.TV();
                     }
                     if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
                         shareFromGameCenter.a(shareFromGameCenterMsgData, false);

@@ -4,17 +4,17 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* loaded from: classes.dex */
 class ae implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ ac ayg;
+    final /* synthetic */ ac ayo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar) {
-        this.ayg = acVar;
+        this.ayo = acVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     /* renamed from: d */
     public void onReturnDataInUI(Void r4) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(this.ayg.num, false));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(this.ayo.num, false));
     }
 }

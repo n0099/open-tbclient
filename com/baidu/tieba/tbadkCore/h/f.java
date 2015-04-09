@@ -12,25 +12,25 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, String, Boolean> {
-    private aa ZD = null;
-    String bLJ;
-    final /* synthetic */ a cpB;
-    ArrayList<l> cpD;
+    private aa ZF = null;
+    String bLZ;
+    final /* synthetic */ a cpR;
+    ArrayList<l> cpT;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
     private int mType;
 
     public f(a aVar, String str, String str2, String str3, int i, String str4) {
-        this.cpB = aVar;
-        this.cpD = null;
-        this.bLJ = null;
+        this.cpR = aVar;
+        this.cpT = null;
+        this.bLZ = null;
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
         this.mType = i;
-        this.bLJ = str4;
-        this.cpD = new ArrayList<>();
+        this.bLZ = str4;
+        this.cpT = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,32 +38,32 @@ public class f extends BdAsyncTask<String, String, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        this.ZD = new aa(strArr[0]);
-        this.ZD.o("word", this.mForumName);
+        this.ZF = new aa(strArr[0]);
+        this.ZF.o("word", this.mForumName);
         if (this.mType != 6) {
-            this.ZD.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-            this.ZD.o("z", this.mThreadId);
+            this.ZF.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+            this.ZF.o("z", this.mThreadId);
             if (this.mType == 4) {
-                this.ZD.o("ntn", "set");
+                this.ZF.o("ntn", "set");
             } else if (this.mType == 5) {
-                this.ZD.o("ntn", "");
+                this.ZF.o("ntn", "");
             } else if (this.mType == 2) {
-                this.ZD.o("ntn", "set");
-                this.ZD.o("cid", this.bLJ);
+                this.ZF.o("ntn", "set");
+                this.ZF.o("cid", this.bLZ);
             } else {
-                this.ZD.o("ntn", "");
+                this.ZF.o("ntn", "");
             }
         }
-        this.ZD.sp().tp().mIsNeedTbs = true;
-        String rO = this.ZD.rO();
-        if (this.ZD.sp().tq().pv()) {
+        this.ZF.sp().tp().mIsNeedTbs = true;
+        String rO = this.ZF.rO();
+        if (this.ZF.sp().tq().pv()) {
             if (this.mType == 6) {
                 try {
                     JSONArray optJSONArray = new JSONObject(rO).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         l lVar = new l();
                         lVar.parserJson(optJSONArray.optJSONObject(i));
-                        this.cpD.add(lVar);
+                        this.cpT.add(lVar);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -83,34 +83,34 @@ public class f extends BdAsyncTask<String, String, Boolean> {
         i iVar;
         i iVar2;
         super.onPostExecute(bool);
-        this.cpB.cpz = null;
-        if (this.ZD == null) {
-            iVar2 = this.cpB.mLoadDataCallBack;
+        this.cpR.cpP = null;
+        if (this.ZF == null) {
+            iVar2 = this.cpR.mLoadDataCallBack;
             iVar2.c(null);
             return;
         }
-        g gVar = new g(this.cpB);
+        g gVar = new g(this.cpR);
         gVar.AM = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.mType == 6) {
-                gVar.cpE = this.cpD;
+                gVar.cpU = this.cpT;
             }
         } else {
-            gVar.cpC = this.ZD.getErrorString();
+            gVar.cpS = this.ZF.getErrorString();
         }
-        iVar = this.cpB.mLoadDataCallBack;
+        iVar = this.cpR.mLoadDataCallBack;
         iVar.c(gVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         i iVar;
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        this.cpB.cpz = null;
+        this.cpR.cpP = null;
         super.cancel(true);
-        iVar = this.cpB.mLoadDataCallBack;
+        iVar = this.cpR.mLoadDataCallBack;
         iVar.c(null);
     }
 }

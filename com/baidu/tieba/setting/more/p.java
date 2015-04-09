@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class p implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ k caA;
+    final /* synthetic */ k caP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(k kVar) {
-        this.caA = kVar;
+        this.caP = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -25,6 +25,6 @@ class p implements com.baidu.tbadk.core.dialog.h {
                 TbadkCoreApplication.m411getInst().setFontSize(3);
                 break;
         }
-        this.caA.agD();
+        this.caP.agS();
     }
 }

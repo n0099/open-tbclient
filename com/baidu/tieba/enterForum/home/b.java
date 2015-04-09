@@ -8,13 +8,13 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a aCT;
+    final /* synthetic */ a aDb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.aCT = aVar;
+        this.aDb = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,27 +26,27 @@ public class b extends com.baidu.adp.framework.listener.a {
         String errorString;
         BaseFragmentActivity baseFragmentActivity;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = this.aCT.aCC;
+            cVar = this.aDb.aCK;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                eVar = this.aCT.aCB;
-                eVar.Hr();
+                eVar = this.aDb.aCJ;
+                eVar.Hx();
                 if (responsedMessage.getError() == 1) {
                     ReloginManager.rw().e(null);
                 } else if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        baseFragmentActivity = this.aCT.aCF;
+                        baseFragmentActivity = this.aDb.aCN;
                         errorString = baseFragmentActivity.getResources().getString(y.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    this.aCT.showToast(errorString);
+                    this.aDb.showToast(errorString);
                 } else {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        cVar3 = this.aCT.aCC;
+                        cVar3 = this.aDb.aCK;
                         cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        cVar2 = this.aCT.aCC;
+                        cVar2 = this.aDb.aCK;
                         cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }

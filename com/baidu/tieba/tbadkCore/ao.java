@@ -14,7 +14,7 @@ public class ao {
             }
             return;
         }
-        new aq(iE(str), apVar).execute(new String[0]);
+        new aq(iH(str), apVar).execute(new String[0]);
     }
 
     public static void b(String str, ap apVar) {
@@ -25,19 +25,19 @@ public class ao {
             }
             return;
         }
-        new aq(iF(str), apVar).execute(new String[0]);
+        new aq(iI(str), apVar).execute(new String[0]);
     }
 
     public static void a(int i, ap apVar) {
-        new aq(ip(i), apVar).execute(new String[0]);
+        new aq(is(i), apVar).execute(new String[0]);
     }
 
     public static void a(int i, WriteData writeData) {
         com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
-            bX.b(ip(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            bX.b(is(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
         } else {
-            bX.ac(ip(i));
+            bX.ac(is(i));
         }
     }
 
@@ -45,9 +45,9 @@ public class ao {
         if (!bd.isEmpty(str)) {
             com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                bX.b(iF(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                bX.b(iI(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                bX.ac(iF(str));
+                bX.ac(iI(str));
             }
         }
     }
@@ -56,22 +56,22 @@ public class ao {
         if (!bd.isEmpty(str)) {
             com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                bX.b(iE(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                bX.b(iH(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                bX.ac(iE(str));
+                bX.ac(iH(str));
             }
         }
     }
 
-    protected static String iE(String str) {
+    protected static String iH(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
     }
 
-    protected static String iF(String str) {
+    protected static String iI(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
     }
 
-    protected static String ip(int i) {
+    protected static String is(int i) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@live" + i;
     }
 }

@@ -6,13 +6,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
 public class q extends FragmentPagerAdapter {
-    private final BaseFragment[] bxb;
+    private final BaseFragment[] bxr;
     private final int mCount;
 
     public q(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.bxb = new BaseFragment[]{new j(), new m()};
-        this.mCount = this.bxb.length;
+        this.bxr = new BaseFragment[]{new j(), new m()};
+        this.mCount = this.bxr.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -20,7 +20,7 @@ public class q extends FragmentPagerAdapter {
         if (i < 0 || i >= this.mCount) {
             return null;
         }
-        return this.bxb[i];
+        return this.bxr[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter

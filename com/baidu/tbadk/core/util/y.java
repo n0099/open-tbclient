@@ -6,11 +6,11 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class y implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection TV;
-    private String[] TW;
-    private String[] TX;
-    private boolean TY;
-    private z TZ;
+    private MediaScannerConnection TX;
+    private String[] TY;
+    private String[] TZ;
+    private boolean Ua;
+    private z Ub;
     private int length;
     private Context mContext;
     private String mMimeType;
@@ -18,7 +18,7 @@ public class y implements MediaScannerConnection.MediaScannerConnectionClient {
 
     public y(Context context) {
         this.mContext = context;
-        this.TV = new MediaScannerConnection(this.mContext, this);
+        this.TX = new MediaScannerConnection(this.mContext, this);
     }
 
     public void cC(String str) {
@@ -28,18 +28,18 @@ public class y implements MediaScannerConnection.MediaScannerConnectionClient {
         if (substring.equals(".gif")) {
             this.mMimeType = "image/gif";
         }
-        this.TV.connect();
+        this.TX.connect();
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
         if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType)) {
-            this.TV.scanFile(this.mPath, this.mMimeType);
+            this.TX.scanFile(this.mPath, this.mMimeType);
         }
-        if (this.TW != null && this.TX != null && this.TW.length == this.TX.length) {
-            int length = this.TW.length;
+        if (this.TY != null && this.TZ != null && this.TY.length == this.TZ.length) {
+            int length = this.TY.length;
             for (int i = 0; i < length; i++) {
-                this.TV.scanFile(this.TW[i], this.TX[i]);
+                this.TX.scanFile(this.TY[i], this.TZ[i]);
             }
         }
     }
@@ -47,23 +47,23 @@ public class y implements MediaScannerConnection.MediaScannerConnectionClient {
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
         if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType) && str.equals(this.mPath)) {
-            this.TV.disconnect();
+            this.TX.disconnect();
             this.mPath = null;
             this.mMimeType = null;
-            this.TY = true;
-        } else if (this.TW != null && this.TX != null && this.TW.length == this.TX.length) {
+            this.Ua = true;
+        } else if (this.TY != null && this.TZ != null && this.TY.length == this.TZ.length) {
             this.length--;
             if (this.length == 0) {
-                this.TV.disconnect();
-                this.TW = null;
-                this.TX = null;
-                this.TY = true;
+                this.TX.disconnect();
+                this.TY = null;
+                this.TZ = null;
+                this.Ua = true;
             } else {
-                this.TY = false;
+                this.Ua = false;
             }
         }
-        if (this.TY && this.TZ != null) {
-            this.TZ.sn();
+        if (this.Ua && this.Ub != null) {
+            this.Ub.sn();
         }
     }
 }

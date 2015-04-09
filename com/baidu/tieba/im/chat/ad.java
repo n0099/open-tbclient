@@ -15,11 +15,11 @@ class ad extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bc)) {
             bc bcVar = (bc) customResponsedMessage.getData();
-            if (bcVar.aXi != null && bcVar.context != null) {
+            if (bcVar.aXy != null && bcVar.context != null) {
                 MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(bcVar.context, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
-                msgActivityViewItemAdapter.cq(true);
-                msgActivityViewItemAdapter.cp(true);
-                bcVar.aXi.add(msgActivityViewItemAdapter);
+                msgActivityViewItemAdapter.co(true);
+                msgActivityViewItemAdapter.cn(true);
+                bcVar.aXy.add(msgActivityViewItemAdapter);
             }
         }
     }

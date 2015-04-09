@@ -17,7 +17,7 @@ public class d {
         aaVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
         aaVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
         aaVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        aaVar.sp().tp().VU = false;
+        aaVar.sp().tp().VW = false;
         String rO = aaVar.rO();
         if (aaVar.sp().tq().pv() && rO != null) {
             n nVar = new n();

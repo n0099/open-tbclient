@@ -205,7 +205,7 @@ public final class SapiCache {
     static void b() {
         if (SapiUtils.hasActiveNetwork(d)) {
             RequestParams c2 = c();
-            c2.put("cdnversion", String.valueOf((int) (System.currentTimeMillis() / 90000.0d)));
+            c2.put("cdnversion", String.valueOf((int) (System.currentTimeMillis() / 300000)));
             try {
                 new AsyncHttpClient().get(d, d(), c2, new b());
             } catch (Throwable th) {
@@ -381,7 +381,7 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [487=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [488=4] */
     static void a(android.content.Context r3, java.lang.String r4, byte[] r5) {
         /*
             r0 = 0
@@ -426,7 +426,7 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [520=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;

@@ -24,12 +24,12 @@ public final class SettingTextTestNewView extends SettingTextVersionView {
             z = true;
         }
         if (z) {
-            com.baidu.tbadk.core.util.ba.i((View) this.afy, com.baidu.tieba.u.icon_news_head_new);
-            this.afy.setText((CharSequence) null);
+            com.baidu.tbadk.core.util.ba.i((View) this.afG, com.baidu.tieba.u.icon_news_head_new);
+            this.afG.setText((CharSequence) null);
             return;
         }
-        this.afy.setText((TbConfig.getVersionType() != 1 || bd.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
-        this.afy.setBackgroundDrawable(null);
-        this.afy.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
+        this.afG.setText((TbConfig.getVersionType() != 1 || bd.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
+        this.afG.setBackgroundDrawable(null);
+        this.afG.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
     }
 }

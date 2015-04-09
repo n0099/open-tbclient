@@ -28,10 +28,10 @@ public class bt extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.tieba.im.message.h hVar : data.datas) {
-                c.Sd().d(hVar.id, hVar.customGroupType, hVar.ahV);
+                c.Sq().d(hVar.id, hVar.customGroupType, hVar.aid);
             }
             if (memoryClearStrangerItemsMessage.isAllClear()) {
-                c.Sd().e("-1001", -7, false);
+                c.Sq().e("-1001", -7, false);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bu(this, arrayList, memoryClearStrangerItemsMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());

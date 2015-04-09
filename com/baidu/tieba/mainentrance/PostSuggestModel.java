@@ -8,11 +8,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PostSuggestModel implements Serializable {
     private static final long serialVersionUID = 1;
-    private ArrayList<l> datas;
-    private int totalCount = 0;
+    private ArrayList<k> datas;
     private int currentPage = 0;
-    private int totalPage = 0;
-    private boolean hasPre = false;
     private boolean hasMore = false;
 
     public PostSuggestModel() {
@@ -20,7 +17,7 @@ public class PostSuggestModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<l> getData() {
+    public ArrayList<k> getData() {
         return this.datas;
     }
 
@@ -28,20 +25,8 @@ public class PostSuggestModel implements Serializable {
         return this.hasMore;
     }
 
-    public boolean hasPre() {
-        return this.hasPre;
-    }
-
     public int getCurrentPage() {
         return this.currentPage;
-    }
-
-    public int getTotalCount() {
-        return this.totalCount;
-    }
-
-    public int getTotalPage() {
-        return this.totalPage;
     }
 
     public void parserJson(String str) {
@@ -60,14 +45,11 @@ public class PostSuggestModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    l lVar = new l();
-                    lVar.parserJson(optJSONObject2);
-                    this.datas.add(lVar);
+                    k kVar = new k();
+                    kVar.parserJson(optJSONObject2);
+                    this.datas.add(kVar);
                 }
-                this.totalCount = optJSONObject.optInt("total_count");
-                this.totalPage = optJSONObject.optInt("total_page");
                 this.hasMore = optJSONObject.optInt("has_more") != 0;
-                this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
                 BdLog.detailException(e);

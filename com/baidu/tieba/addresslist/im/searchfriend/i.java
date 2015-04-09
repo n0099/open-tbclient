@@ -5,19 +5,19 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class i implements AbsListView.OnScrollListener {
-    final /* synthetic */ SearchFriendActivity ayX;
+    final /* synthetic */ SearchFriendActivity azf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(SearchFriendActivity searchFriendActivity) {
-        this.ayX = searchFriendActivity;
+        this.azf = searchFriendActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         View view;
         if (i == 1) {
-            this.ayX.HidenSoftKeyPad((InputMethodManager) this.ayX.getSystemService("input_method"), this.ayX.getActivity().getWindow().getDecorView());
-            view = this.ayX.ayQ;
+            this.azf.HidenSoftKeyPad((InputMethodManager) this.azf.getSystemService("input_method"), this.azf.getActivity().getWindow().getDecorView());
+            view = this.azf.ayY;
             view.clearFocus();
         }
     }

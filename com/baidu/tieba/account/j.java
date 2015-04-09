@@ -9,11 +9,11 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AccountActivity auu;
+    final /* synthetic */ AccountActivity auC;
     private AccountData mAccount;
 
     public j(AccountActivity accountActivity, AccountData accountData) {
-        this.auu = accountActivity;
+        this.auC = accountActivity;
         this.mAccount = null;
         this.mAccount = accountData;
     }
@@ -51,14 +51,14 @@ public class j extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.auu.getBaseContext());
+        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.auC.getBaseContext());
         if (this.mAccount != null) {
-            new k(this.auu, this.mAccount.getBDUSS()).start();
+            new k(this.auC, this.mAccount.getBDUSS()).start();
         }
-        this.auu.closeLoadingDialog();
+        this.auC.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         TbadkCoreApplication.m411getInst().onUserChanged();
-        com.baidu.tbadk.core.c.b.a(this.auu.getPageContext().getPageActivity(), 1, false);
-        this.auu.aus = null;
+        com.baidu.tbadk.core.c.b.a(this.auC.getPageContext().getPageActivity(), 1, false);
+        this.auC.auA = null;
     }
 }

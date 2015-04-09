@@ -8,31 +8,31 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.e.c> {
-    private ViewEventCenter aCK;
-    private View aEa;
-    private TextView aEb;
-    private TextView aEc;
-    private TextView aEd;
-    private ImageView aEe;
-    private View aEf;
-    private TextView aEg;
-    private TextView aEh;
-    private TextView aEi;
-    private ImageView aEj;
+    private ViewEventCenter aCS;
+    private View aEi;
+    private TextView aEj;
+    private TextView aEk;
+    private TextView aEl;
+    private ImageView aEm;
+    private View aEn;
+    private TextView aEo;
+    private TextView aEp;
+    private TextView aEq;
+    private ImageView aEr;
 
     public n(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aCK = viewEventCenter;
-        this.aEa = view.findViewById(com.baidu.tieba.v.left_container);
-        this.aEb = (TextView) this.aEa.findViewById(com.baidu.tieba.v.sign);
-        this.aEc = (TextView) this.aEa.findViewById(com.baidu.tieba.v.name);
-        this.aEd = (TextView) this.aEa.findViewById(com.baidu.tieba.v.grade);
-        this.aEe = (ImageView) this.aEa.findViewById(com.baidu.tieba.v.add);
-        this.aEf = view.findViewById(com.baidu.tieba.v.right_container);
-        this.aEg = (TextView) this.aEf.findViewById(com.baidu.tieba.v.sign);
-        this.aEh = (TextView) this.aEf.findViewById(com.baidu.tieba.v.name);
-        this.aEi = (TextView) this.aEf.findViewById(com.baidu.tieba.v.grade);
-        this.aEj = (ImageView) this.aEf.findViewById(com.baidu.tieba.v.add);
+        this.aCS = viewEventCenter;
+        this.aEi = view.findViewById(com.baidu.tieba.v.left_container);
+        this.aEj = (TextView) this.aEi.findViewById(com.baidu.tieba.v.sign);
+        this.aEk = (TextView) this.aEi.findViewById(com.baidu.tieba.v.name);
+        this.aEl = (TextView) this.aEi.findViewById(com.baidu.tieba.v.grade);
+        this.aEm = (ImageView) this.aEi.findViewById(com.baidu.tieba.v.add);
+        this.aEn = view.findViewById(com.baidu.tieba.v.right_container);
+        this.aEo = (TextView) this.aEn.findViewById(com.baidu.tieba.v.sign);
+        this.aEp = (TextView) this.aEn.findViewById(com.baidu.tieba.v.name);
+        this.aEq = (TextView) this.aEn.findViewById(com.baidu.tieba.v.grade);
+        this.aEr = (ImageView) this.aEn.findViewById(com.baidu.tieba.v.add);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,20 +41,20 @@ public class n extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.enterForum.b.a, c
     public void A(com.baidu.tieba.enterForum.b.a aVar) {
         super.A(aVar);
         if (aVar != null) {
-            a(aVar.Gm(), true);
-            a(aVar.Gn(), false);
-            b(aVar.Gm(), true);
-            b(aVar.Gn(), false);
+            a(aVar.Gs(), true);
+            a(aVar.Gt(), false);
+            b(aVar.Gs(), true);
+            b(aVar.Gt(), false);
         }
     }
 
     private void a(com.baidu.tieba.tbadkCore.ae aeVar, boolean z) {
         if (aeVar != null) {
-            View view = z ? this.aEa : this.aEf;
-            TextView textView = z ? this.aEb : this.aEg;
-            TextView textView2 = z ? this.aEc : this.aEh;
-            TextView textView3 = z ? this.aEd : this.aEi;
-            ImageView imageView = z ? this.aEe : this.aEj;
+            View view = z ? this.aEi : this.aEn;
+            TextView textView = z ? this.aEj : this.aEo;
+            TextView textView2 = z ? this.aEk : this.aEp;
+            TextView textView3 = z ? this.aEl : this.aEq;
+            ImageView imageView = z ? this.aEm : this.aEr;
             switch (aeVar.getType()) {
                 case 1:
                     view.setVisibility(0);
@@ -71,7 +71,7 @@ public class n extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.enterForum.b.a, c
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
                     textView2.setText(aeVar.getName());
-                    if (aeVar.akO() == 0) {
+                    if (aeVar.ald() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
@@ -90,9 +90,9 @@ public class n extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.enterForum.b.a, c
     private void b(com.baidu.tieba.tbadkCore.ae aeVar, boolean z) {
         View view;
         if (z) {
-            view = this.aEa;
+            view = this.aEi;
         } else {
-            view = this.aEf;
+            view = this.aEn;
         }
         view.setOnClickListener(new o(this, aeVar));
         view.setOnLongClickListener(new p(this));
@@ -101,13 +101,13 @@ public class n extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.enterForum.b.a, c
     @Override // com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
-        this.aEa.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.home_like_item_bg));
-        this.aEf.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.home_like_item_bg));
-        if (this.aEd.getVisibility() == 0 && getData() != null && getData().Gm() != null) {
-            ba.i((View) this.aEd, com.baidu.tbadk.core.util.c.bQ(getData().Gm().getLevel()));
+        this.aEi.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.home_like_item_bg));
+        this.aEn.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.home_like_item_bg));
+        if (this.aEl.getVisibility() == 0 && getData() != null && getData().Gs() != null) {
+            ba.i((View) this.aEl, com.baidu.tbadk.core.util.c.bQ(getData().Gs().getLevel()));
         }
-        if (this.aEi.getVisibility() == 0 && getData() != null && getData().Gn() != null) {
-            ba.i((View) this.aEi, com.baidu.tbadk.core.util.c.bQ(getData().Gn().getLevel()));
+        if (this.aEq.getVisibility() == 0 && getData() != null && getData().Gt() != null) {
+            ba.i((View) this.aEq, com.baidu.tbadk.core.util.c.bQ(getData().Gt().getLevel()));
             return true;
         }
         return true;

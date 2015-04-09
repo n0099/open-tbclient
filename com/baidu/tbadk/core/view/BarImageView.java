@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 /* loaded from: classes.dex */
 public class BarImageView extends TbClipImageView {
-    private int WY;
-    private int WZ;
+    private int Xa;
+    private int Xb;
 
     public BarImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +18,8 @@ public class BarImageView extends TbClipImageView {
 
     public BarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.WY = com.baidu.tieba.u.icon_default_ba_120;
-        this.WZ = com.baidu.tieba.s.cp_cont_e;
+        this.Xa = com.baidu.tieba.u.icon_default_ba_120;
+        this.Xb = com.baidu.tieba.s.cp_cont_e;
         init();
     }
 
@@ -27,7 +27,7 @@ public class BarImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.WY);
-        setDefaultBgResource(this.WZ);
+        setDefaultResource(this.Xa);
+        setDefaultBgResource(this.Xb);
     }
 }

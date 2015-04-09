@@ -5,14 +5,14 @@ import com.baidu.tieba.tbadkCore.af;
 import com.baidu.tieba.tbadkCore.ah;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.i {
-    private final /* synthetic */ int Rx;
-    final /* synthetic */ TopRecActivity bxJ;
+    private final /* synthetic */ int Rz;
+    final /* synthetic */ TopRecActivity bxZ;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(TopRecActivity topRecActivity, int i, int i2) {
-        this.bxJ = topRecActivity;
-        this.Rx = i;
+        this.bxZ = topRecActivity;
+        this.Rz = i;
         this.val$id = i2;
     }
 
@@ -25,30 +25,30 @@ class c extends com.baidu.adp.base.i {
         TRForumListData tRForumListData3;
         TRForumListData tRForumListData4;
         e eVar;
-        tRForumListData = this.bxJ.bxD;
+        tRForumListData = this.bxZ.bxT;
         if (tRForumListData != null) {
-            tRForumListData2 = this.bxJ.bxD;
-            if (tRForumListData2.forum_list[this.Rx] != null) {
-                afVar = this.bxJ.LO;
+            tRForumListData2 = this.bxZ.bxT;
+            if (tRForumListData2.forum_list[this.Rz] != null) {
+                afVar = this.bxZ.LQ;
                 if (afVar.getErrorCode() != 22) {
-                    afVar2 = this.bxJ.LO;
+                    afVar2 = this.bxZ.LQ;
                     if (afVar2.getErrorCode() != 0) {
-                        this.bxJ.ab(this.Rx, this.val$id);
+                        this.bxZ.ab(this.Rz, this.val$id);
                         return;
                     } else if (((ah) obj) == null) {
-                        this.bxJ.ab(this.Rx, this.val$id);
+                        this.bxZ.ab(this.Rz, this.val$id);
                         return;
                     } else {
-                        this.bxJ.Wq();
+                        this.bxZ.WD();
                         TbadkApplication inst = TbadkApplication.getInst();
-                        tRForumListData3 = this.bxJ.bxD;
-                        inst.addLikeForum(tRForumListData3.forum_list[this.Rx].forum_name);
+                        tRForumListData3 = this.bxZ.bxT;
+                        inst.addLikeForum(tRForumListData3.forum_list[this.Rz].forum_name);
                         return;
                     }
                 }
-                tRForumListData4 = this.bxJ.bxD;
-                tRForumListData4.forum_list[this.Rx].is_like = 1;
-                eVar = this.bxJ.bxA;
+                tRForumListData4 = this.bxZ.bxT;
+                tRForumListData4.forum_list[this.Rz].is_like = 1;
+                eVar = this.bxZ.bxQ;
                 eVar.notifyDataSetChanged();
             }
         }

@@ -11,11 +11,11 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l bOf;
+    final /* synthetic */ l bOv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bOf = lVar;
+        this.bOv = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -29,53 +29,53 @@ public class m implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        this.bOf.bOd = true;
-        arrayList = this.bOf.bNY;
+        this.bOv.bOt = true;
+        arrayList = this.bOv.bOo;
         if (arrayList != null) {
-            arrayList2 = this.bOf.bNY;
+            arrayList2 = this.bOv.bOo;
             if (i < arrayList2.size()) {
-                arrayList3 = this.bOf.bNY;
+                arrayList3 = this.bOv.bOo;
                 if (arrayList3.get(i) != null) {
-                    l lVar = this.bOf;
-                    arrayList4 = this.bOf.bNY;
-                    lVar.bNZ = ((com.baidu.tieba.tbadkCore.c.j) arrayList4.get(i)).getId();
+                    l lVar = this.bOv;
+                    arrayList4 = this.bOv.bOo;
+                    lVar.bOp = ((com.baidu.tieba.tbadkCore.c.j) arrayList4.get(i)).getId();
                     sparseArray = (SparseArray) view.getTag();
                     if (sparseArray == null && (str = (String) sparseArray.get(com.baidu.tieba.v.tag_photo_username)) != null) {
-                        String editable = this.bOf.aIy.getEditText().getText().toString();
-                        String string = this.bOf.mActivity.getResources().getString(y.reply_sub_floor);
+                        String editable = this.bOv.aIG.getEditText().getText().toString();
+                        String string = this.bOv.mActivity.getResources().getString(y.reply_sub_floor);
                         String str5 = "^" + string.replace("%s", ".+") + "$";
                         if (bd.isEmpty(editable) || editable.matches(str5)) {
-                            str2 = this.bOf.bOa;
+                            str2 = this.bOv.bOq;
                             if (str2 != null) {
                                 Pattern compile = Pattern.compile(string.replace("%s", str));
-                                str3 = this.bOf.bOa;
+                                str3 = this.bOv.bOq;
                                 if (compile.matcher(str3).lookingAt()) {
-                                    l lVar2 = this.bOf;
-                                    str4 = this.bOf.bOa;
-                                    lVar2.hR(str4);
+                                    l lVar2 = this.bOv;
+                                    str4 = this.bOv.bOq;
+                                    lVar2.hU(str4);
                                 } else {
-                                    this.bOf.hQ(str);
+                                    this.bOv.hT(str);
                                 }
                             } else {
-                                this.bOf.hQ(str);
+                                this.bOv.hT(str);
                             }
-                            this.bOf.b(i, view);
+                            this.bOv.b(i, view);
                             return;
                         }
                         Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(editable);
-                        this.bOf.bOa = editable;
+                        this.bOv.bOq = editable;
                         if (!matcher.lookingAt()) {
-                            this.bOf.hQ(str);
+                            this.bOv.hT(str);
                         } else {
-                            this.bOf.hR(editable);
+                            this.bOv.hU(editable);
                         }
-                        this.bOf.b(i, view);
+                        this.bOv.b(i, view);
                         return;
                     }
                 }
             }
         }
-        this.bOf.bNZ = null;
+        this.bOv.bOp = null;
         sparseArray = (SparseArray) view.getTag();
         if (sparseArray == null) {
         }

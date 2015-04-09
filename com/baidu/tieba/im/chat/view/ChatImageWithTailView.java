@@ -11,10 +11,10 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private TbImageView aER;
-    private ChatClipImageItemView aZY;
-    private LinearLayout aZZ;
-    private TextView baa;
+    private TbImageView aEZ;
+    private ChatClipImageItemView bao;
+    private LinearLayout bap;
+    private TextView baq;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -28,48 +28,48 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void au(Context context) {
         b.hH().inflate(context, w.chat_image_with_tail_item, this);
-        this.aZY = (ChatClipImageItemView) findViewById(v.img_msgitem_image_new);
-        this.aZY.setDefaultResource(u.pic_image_h_not);
-        this.aZZ = (LinearLayout) findViewById(v.small_tail);
-        this.aER = (TbImageView) findViewById(v.tail_icon);
-        this.aER.setDefaultResource(u.icon);
-        this.aER.setAutoChangeStyle(false);
-        this.baa = (TextView) findViewById(v.tail_game_from);
+        this.bao = (ChatClipImageItemView) findViewById(v.img_msgitem_image_new);
+        this.bao.setDefaultResource(u.pic_image_h_not);
+        this.bap = (LinearLayout) findViewById(v.small_tail);
+        this.aEZ = (TbImageView) findViewById(v.tail_icon);
+        this.aEZ.setDefaultResource(u.icon);
+        this.aEZ.setAutoChangeStyle(false);
+        this.baq = (TextView) findViewById(v.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.aZY;
+        return this.bao;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.aZY = chatClipImageItemView;
+        this.bao = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.aZZ;
+        return this.bap;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.aZZ = linearLayout;
+        this.bap = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.aER;
+        return this.aEZ;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.aER = tbImageView;
+        this.aEZ = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.baa;
+        return this.baq;
     }
 
     public void setFromSource(TextView textView) {
-        this.baa = textView;
+        this.baq = textView;
     }
 
     public void setIsSupportNight(boolean z) {
-        this.aER.setAutoChangeStyle(z);
+        this.aEZ.setAutoChangeStyle(z);
     }
 }

@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ ItemFootNavView bcX;
-    private final /* synthetic */ ForumDetailActivity bcY;
+    final /* synthetic */ ItemFootNavView bdn;
+    private final /* synthetic */ ForumDetailActivity bdo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ItemFootNavView itemFootNavView, ForumDetailActivity forumDetailActivity) {
-        this.bcX = itemFootNavView;
-        this.bcY = forumDetailActivity;
+        this.bdn = itemFootNavView;
+        this.bdo = forumDetailActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bcX.d(this.bcY);
+        this.bdn.d(this.bdo);
     }
 }

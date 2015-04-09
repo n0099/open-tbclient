@@ -11,17 +11,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private static final String[] UB = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
-    private static List<Integer> UC = new LinkedList();
-    private static ai UD;
-    private static aj UE;
+    private static final String[] UD = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
+    private static List<Integer> UE = new LinkedList();
+    private static ai UF;
+    private static aj UG;
 
     private ai() {
-        UE = new aj(this, null);
+        UG = new aj(this, null);
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            TbadkCoreApplication.m411getInst().getApp().registerReceiver(UE, intentFilter);
+            TbadkCoreApplication.m411getInst().getApp().registerReceiver(UG, intentFilter);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
@@ -29,25 +29,25 @@ public class ai {
 
     private static synchronized void sD() {
         synchronized (ai.class) {
-            if (UD == null) {
-                UD = new ai();
+            if (UF == null) {
+                UF = new ai();
             }
         }
     }
 
     public static ai sE() {
-        if (UD == null) {
+        if (UF == null) {
             sD();
         }
-        return UD;
+        return UF;
     }
 
     public static int cG(String str) {
         if (bd.isEmpty(str)) {
             return -1;
         }
-        for (int i = 0; i < UB.length; i++) {
-            if (str.contains(UB[i])) {
+        for (int i = 0; i < UD.length; i++) {
+            if (str.contains(UD[i])) {
                 return i + 1;
             }
         }
@@ -97,20 +97,20 @@ public class ai {
     }
 
     public synchronized void sF() {
-        for (Integer num : UC) {
+        for (Integer num : UE) {
             m(num.intValue(), 2);
         }
     }
 
     public synchronized void bW(int i) {
         if (i > 0) {
-            UC.add(Integer.valueOf(i));
+            UE.add(Integer.valueOf(i));
         }
     }
 
     public synchronized void bX(int i) {
         if (i > 0) {
-            UC.remove(Integer.valueOf(i));
+            UE.remove(Integer.valueOf(i));
         }
     }
 

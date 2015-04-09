@@ -4,29 +4,29 @@ import android.support.v4.view.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
 class bb implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ba aKO;
-    private final /* synthetic */ bd aKP;
-    private final /* synthetic */ ViewPager aKQ;
-    private final /* synthetic */ IndicatorView aKR;
+    final /* synthetic */ ba aKY;
+    private final /* synthetic */ bd aKZ;
+    private final /* synthetic */ ViewPager aLa;
+    private final /* synthetic */ IndicatorView aLb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ba baVar, bd bdVar, ViewPager viewPager, IndicatorView indicatorView) {
-        this.aKO = baVar;
-        this.aKP = bdVar;
-        this.aKQ = viewPager;
-        this.aKR = indicatorView;
+        this.aKY = baVar;
+        this.aKZ = bdVar;
+        this.aLa = viewPager;
+        this.aLb = indicatorView;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int eK;
         int eL;
-        eK = this.aKP.eK(i);
+        eK = this.aKZ.eK(i);
         if (eK != i) {
-            this.aKQ.setCurrentItem(eK, false);
-        } else if (this.aKR != null) {
-            IndicatorView indicatorView = this.aKR;
-            eL = this.aKP.eL(i);
+            this.aLa.setCurrentItem(eK, false);
+        } else if (this.aLb != null) {
+            IndicatorView indicatorView = this.aLb;
+            eL = this.aKZ.eL(i);
             indicatorView.setPosition(eL);
         }
     }

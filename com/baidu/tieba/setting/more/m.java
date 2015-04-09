@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ k caA;
+    final /* synthetic */ k caP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.caA = kVar;
+        this.caP = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -31,7 +31,7 @@ public class m implements com.baidu.tbadk.core.dialog.h {
                 com.baidu.tbadk.core.n.px().Y(false);
                 break;
         }
-        this.caA.agA();
-        this.caA.agz();
+        this.caP.agP();
+        this.caP.agO();
     }
 }

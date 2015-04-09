@@ -10,14 +10,14 @@ import tbclient.FineFrsPage.DataReq;
 import tbclient.FineFrsPage.FinefrspageReqIdl;
 /* loaded from: classes.dex */
 public class d implements i {
-    private int bXP;
+    private int bYe;
 
-    public void hL(int i) {
-        this.bXP = i;
+    public void hO(int i) {
+        this.bYe = i;
     }
 
-    public int afH() {
-        return this.bXP;
+    public int afW() {
+        return this.bYe;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -28,7 +28,7 @@ public class d implements i {
     @Override // com.baidu.tbadk.mvc.b.l
     public Object V(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.publish_time = Integer.valueOf(this.bXP);
+        builder.publish_time = Integer.valueOf(this.bYe);
         builder.scr_w = Integer.valueOf(n.M(TbadkCoreApplication.m411getInst()));
         builder.scr_h = Integer.valueOf(n.N(TbadkCoreApplication.m411getInst()));
         builder.scr_dip = Double.valueOf(n.O(TbadkCoreApplication.m411getInst()));

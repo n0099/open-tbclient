@@ -14,8 +14,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.g<UpdatesActivity> {
     private View back;
-    private h biI;
-    private UpdatesActivity biz;
+    private UpdatesActivity biP;
+    private h biY;
     private Button btn_cancel;
     private Button btn_delete;
     private Button btn_edit;
@@ -28,30 +28,30 @@ public class s extends com.baidu.adp.base.g<UpdatesActivity> {
 
     public s(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext());
-        this.biz = updatesActivity;
+        this.biP = updatesActivity;
         initView();
-        this.biI = new h(this.biz);
-        this.updates_list.setAdapter((ListAdapter) this.biI);
-        this.updates_list.setOnScrollListener(this.biz);
+        this.biY = new h(this.biP);
+        this.updates_list.setAdapter((ListAdapter) this.biY);
+        this.updates_list.setOnScrollListener(this.biP);
     }
 
     void initView() {
-        this.parent = View.inflate(this.biz.getPageContext().getPageActivity(), w.updates_activity, null);
-        this.biz.setContentView(this.parent);
-        this.mNavigationBar = (NavigationBar) this.biz.findViewById(v.view_navigation_bar);
+        this.parent = View.inflate(this.biP.getPageContext().getPageActivity(), w.updates_activity, null);
+        this.biP.setContentView(this.parent);
+        this.mNavigationBar = (NavigationBar) this.biP.findViewById(v.view_navigation_bar);
         this.back = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.biz.getPageContext().getString(y.updates_activity_title));
+        this.mNavigationBar.setTitleText(this.biP.getPageContext().getString(y.updates_activity_title));
         this.leftView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.updates_activity_nav_left, (View.OnClickListener) null);
         this.rightView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.updates_activity_nav_right, (View.OnClickListener) null);
         this.btn_delete = (Button) this.leftView.findViewById(v.btn_delete);
-        this.btn_delete.setOnClickListener(this.biz);
-        this.back.setOnClickListener(this.biz);
+        this.btn_delete.setOnClickListener(this.biP);
+        this.back.setOnClickListener(this.biP);
         this.updates_list = (BdListView) this.parent.findViewById(v.updates_list);
         this.pro_load = (ProgressBar) this.parent.findViewById(v.pro_load);
         this.btn_edit = (Button) this.rightView.findViewById(v.btn_edit);
-        this.btn_edit.setOnClickListener(this.biz);
+        this.btn_edit.setOnClickListener(this.biP);
         this.btn_cancel = (Button) this.rightView.findViewById(v.btn_cancel);
-        this.btn_cancel.setOnClickListener(this.biz);
+        this.btn_cancel.setOnClickListener(this.biP);
         setDelCount(0);
         setLoadProgressBarVisable(false);
     }
@@ -59,15 +59,15 @@ public class s extends com.baidu.adp.base.g<UpdatesActivity> {
     @Override // com.baidu.adp.base.g
     public void destroy() {
         super.destroy();
-        if (this.biI != null) {
-            this.biI.destroy();
-            this.biI = null;
+        if (this.biY != null) {
+            this.biY.destroy();
+            this.biY = null;
         }
-        this.biz = null;
+        this.biP = null;
     }
 
-    public h RJ() {
-        return this.biI;
+    public h RW() {
+        return this.biY;
     }
 
     public void changeToEditMode() {
@@ -88,20 +88,20 @@ public class s extends com.baidu.adp.base.g<UpdatesActivity> {
     }
 
     public void refreshList() {
-        if (this.biI != null) {
-            this.biI.notifyDataSetChanged();
+        if (this.biY != null) {
+            this.biY.notifyDataSetChanged();
         }
     }
 
     public void setData(List<UpdatesItemData> list) {
-        if (this.biI != null) {
-            this.biI.setData(list);
+        if (this.biY != null) {
+            this.biY.setData(list);
         }
     }
 
     public void setDelCount(int i) {
-        if (this.btn_delete != null && this.biz != null) {
-            this.btn_delete.setText(String.format(this.biz.getPageContext().getString(y.del_count), Integer.valueOf(i)));
+        if (this.btn_delete != null && this.biP != null) {
+            this.btn_delete.setText(String.format(this.biP.getPageContext().getString(y.del_count), Integer.valueOf(i)));
             if (i == 0) {
                 this.btn_delete.setEnabled(false);
             } else {
@@ -115,9 +115,9 @@ public class s extends com.baidu.adp.base.g<UpdatesActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.biz.getLayoutMode().X(i == 1);
-        this.biz.getLayoutMode().h(this.parent);
-        this.mNavigationBar.onChangeSkinType(this.biz.getPageContext(), i);
+        this.biP.getLayoutMode().X(i == 1);
+        this.biP.getLayoutMode().h(this.parent);
+        this.mNavigationBar.onChangeSkinType(this.biP.getPageContext(), i);
     }
 
     public View getBack() {

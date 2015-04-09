@@ -1,72 +1,84 @@
 package com.baidu.tieba.mainentrance;
 
-import android.graphics.Color;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bd;
-import org.json.JSONObject;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.ba;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class l {
-    private String bul;
-    private String tid = null;
-    private String aaR = null;
-    private String title = null;
-    private boolean byL = false;
-    private long time = 0;
-    private final UserData byK = new UserData();
-    private String content = null;
-    private boolean byM = true;
+public class l extends BaseAdapter {
+    private final String aIS;
+    private final BaseActivity auI;
+    private ArrayList<String> auK;
+    private boolean byI = true;
 
-    public boolean WG() {
-        return this.byM;
+    public l(BaseActivity baseActivity, ArrayList<String> arrayList) {
+        this.auI = baseActivity;
+        this.auK = arrayList;
+        this.aIS = this.auI.getPageContext().getPageActivity().getText(com.baidu.tieba.y.forum).toString();
     }
 
-    public String getPid() {
-        return this.aaR;
+    public void p(ArrayList<String> arrayList) {
+        this.auK = arrayList;
     }
 
-    public String getTid() {
-        return this.tid;
+    public void dq(boolean z) {
+        this.byI = z;
     }
 
-    public String WH() {
-        return this.bul;
+    public void gO(int i) {
+        this.auK.remove(i);
+        this.auK.add(0, this.auK.get(i));
     }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public long getTime() {
-        return this.time;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.tid = jSONObject.optString("tid");
-                this.title = jSONObject.optString("title");
-                this.aaR = jSONObject.optString("pid");
-                this.byL = jSONObject.optInt("is_floor", 0) != 0;
-                this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.byK.parserJson(jSONObject.optJSONObject("author"));
-                this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                this.bul = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.title = bd.a(this.title, (Color) null);
-                String a = bd.a(this.content, (Color) null);
-                if (!a.equals(this.content)) {
-                    this.content = a;
-                    this.byM = false;
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.auK == null) {
+            return 0;
         }
+        return this.auK.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        int count = getCount();
+        if (count <= 0 || i >= count) {
+            return null;
+        }
+        return this.auK.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        m mVar;
+        if (view == null) {
+            view = com.baidu.adp.lib.g.b.hH().inflate(this.auI.getPageContext().getPageActivity(), com.baidu.tieba.w.home_dialog_search_item, null);
+            mVar = new m(this, null);
+            mVar.aED = (TextView) view.findViewById(com.baidu.tieba.v.home_lv_search_forum);
+            mVar.byZ = view.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
+            view.setTag(mVar);
+        } else {
+            mVar = (m) view.getTag();
+        }
+        Object item = getItem(i);
+        if (item != null) {
+            String str = (String) item;
+            if (this.byI) {
+                mVar.aED.setText(str.concat(this.aIS));
+            } else {
+                mVar.aED.setText(str);
+            }
+            ba.b(mVar.aED, com.baidu.tieba.s.cp_cont_b, 1);
+            ba.j(mVar.byZ, com.baidu.tieba.s.cp_bg_line_b);
+            ba.i(view, com.baidu.tieba.u.addresslist_item_bg);
+        }
+        return view;
     }
 }

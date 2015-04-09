@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class aj extends CustomMessageListener {
-    final /* synthetic */ OfficialBarTipActivity aZE;
+    final /* synthetic */ OfficialBarTipActivity aZU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(OfficialBarTipActivity officialBarTipActivity, int i) {
         super(i);
-        this.aZE = officialBarTipActivity;
+        this.aZU = officialBarTipActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ class aj extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            officialBarTipModel = this.aZE.aZA;
-                            aVar = this.aZE.aZD;
+                            officialBarTipModel = this.aZU.aZQ;
+                            aVar = this.aZU.aZT;
                             officialBarTipModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            apVar = this.aZE.aZB;
+                            apVar = this.aZU.aZR;
                             if (apVar != null) {
-                                apVar2 = this.aZE.aZB;
-                                if (apVar2.Of() != null) {
-                                    apVar3 = this.aZE.aZB;
-                                    apVar3.Of().notifyDataSetChanged();
+                                apVar2 = this.aZU.aZR;
+                                if (apVar2.Os() != null) {
+                                    apVar3 = this.aZU.aZR;
+                                    apVar3.Os().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -47,13 +47,13 @@ class aj extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.aZE.e(customResponsedMessage);
+                    this.aZU.e(customResponsedMessage);
                     return;
                 }
-                this.aZE.d(customResponsedMessage);
+                this.aZU.d(customResponsedMessage);
                 return;
             }
-            this.aZE.c(customResponsedMessage);
+            this.aZU.c(customResponsedMessage);
         }
     }
 }

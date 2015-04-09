@@ -10,11 +10,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ j azd;
+    final /* synthetic */ j azl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.azd = jVar;
+        this.azl = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,29 +24,29 @@ public class k implements View.OnClickListener {
         EditText editText;
         TextView textView2;
         TbPageContext tbPageContext;
-        textView = this.azd.ayZ;
+        textView = this.azl.azh;
         if (view == textView) {
-            editText = this.azd.ayY;
+            editText = this.azl.azg;
             String a = com.baidu.adp.lib.util.m.a(editText.getText(), null);
             if (!StringUtils.isNULL(a)) {
                 if (a.trim().length() == 0) {
                     if (a.length() > 0) {
-                        tbPageContext = this.azd.mPageContext;
+                        tbPageContext = this.azl.mPageContext;
                         tbPageContext.showToast(y.input_content);
                         return;
                     }
                     return;
                 }
-                this.azd.fg(a.trim());
-                textView2 = this.azd.ayZ;
+                this.azl.fj(a.trim());
+                textView2 = this.azl.azh;
                 textView2.setClickable(false);
                 return;
             }
             return;
         }
-        imageView = this.azd.aza;
+        imageView = this.azl.azi;
         if (view == imageView) {
-            this.azd.ff("");
+            this.azl.fi("");
         }
     }
 }

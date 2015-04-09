@@ -4,24 +4,24 @@ import android.media.MediaPlayer;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class l extends MediaPlayer implements i {
-    private static Object aac = new Object();
-    private static l aad = null;
-    private boolean aae = false;
-    private boolean aaf = true;
-    private int aag = -1;
+    private static Object aae = new Object();
+    private static l aaf = null;
+    private boolean aag = false;
+    private boolean aah = true;
+    private int aai = -1;
 
     private l() {
     }
 
     public static l ul() {
-        if (aad == null) {
-            synchronized (aac) {
-                if (aad == null) {
-                    aad = new l();
+        if (aaf == null) {
+            synchronized (aae) {
+                if (aaf == null) {
+                    aaf = new l();
                 }
             }
         }
-        return aad;
+        return aaf;
     }
 
     public void setStreamType(int i) {
@@ -30,9 +30,9 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public boolean dh(String str) {
-        this.aag = -1;
-        if (!this.aae) {
-            this.aaf = true;
+        this.aai = -1;
+        if (!this.aag) {
+            this.aah = true;
             reset();
             try {
                 setDataSource(str);
@@ -41,39 +41,39 @@ public class l extends MediaPlayer implements i {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.aag = 2;
+                    this.aai = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.aag = 1;
+                    this.aai = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.aag = 2;
+                this.aai = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.aag = 0;
+                this.aai = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.aag = 1;
+                this.aai = 1;
                 return false;
             }
         }
-        this.aae = true;
+        this.aag = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public void uh() {
         start();
-        this.aaf = false;
+        this.aah = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public void ub() {
-        if (!this.aaf) {
+        if (!this.aah) {
             stop();
-            this.aaf = true;
-            this.aae = false;
+            this.aah = true;
+            this.aag = false;
         }
     }
 
@@ -85,9 +85,9 @@ public class l extends MediaPlayer implements i {
     @Override // com.baidu.tbadk.core.voice.service.i
     public void uj() {
         reset();
-        this.aae = false;
-        this.aaf = true;
-        this.aag = -1;
+        this.aag = false;
+        this.aah = true;
+        this.aai = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
@@ -97,7 +97,7 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public boolean uk() {
-        return this.aae;
+        return this.aag;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
@@ -114,6 +114,6 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public int getErrorNo() {
-        return this.aag;
+        return this.aai;
     }
 }

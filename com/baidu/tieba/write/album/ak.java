@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ak implements x {
-    final /* synthetic */ ah cuH;
+    final /* synthetic */ ah cuX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ah ahVar) {
-        this.cuH = ahVar;
+        this.cuX = ahVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -19,21 +19,21 @@ class ak implements x {
         n nVar3;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        nVar = this.cuH.ctp;
+        nVar = this.cuX.ctF;
         int maxImagesAllowed = nVar.getMaxImagesAllowed();
-        nVar2 = this.cuH.ctp;
+        nVar2 = this.cuX.ctF;
         if (nVar2.size() < maxImagesAllowed) {
-            nVar3 = this.cuH.ctp;
-            String apN = nVar3.apN();
-            if (!TextUtils.isEmpty(apN)) {
-                albumActivity2 = this.cuH.ctu;
-                az.a(albumActivity2.getPageContext(), apN);
+            nVar3 = this.cuX.ctF;
+            String aqc = nVar3.aqc();
+            if (!TextUtils.isEmpty(aqc)) {
+                albumActivity2 = this.cuX.ctK;
+                az.a(albumActivity2.getPageContext(), aqc);
                 return;
             }
-            albumActivity = this.cuH.ctu;
+            albumActivity = this.cuX.ctK;
             az.d(albumActivity.getPageContext());
             return;
         }
-        this.cuH.showToast(String.format(this.cuH.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.cuX.showToast(String.format(this.cuX.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

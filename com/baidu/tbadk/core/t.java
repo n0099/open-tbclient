@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ TbadkCoreApplication Ox;
+    final /* synthetic */ TbadkCoreApplication Oz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(TbadkCoreApplication tbadkCoreApplication) {
-        this.Ox = tbadkCoreApplication;
+        this.Oz = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -20,9 +20,9 @@ public class t implements com.baidu.adp.lib.d.d {
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
                 if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    this.Ox.setLocationLat(valueOf);
-                    this.Ox.setLocationLng(valueOf2);
-                    this.Ox.setLocationPos(address.getAddressLine(0));
+                    this.Oz.setLocationLat(valueOf);
+                    this.Oz.setLocationLng(valueOf2);
+                    this.Oz.setLocationPos(address.getAddressLine(0));
                 }
             } catch (IllegalStateException e) {
                 BdLog.e(e.getMessage());

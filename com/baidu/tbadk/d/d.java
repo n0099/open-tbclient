@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
-    private static final String aqk = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a aql;
-    private boolean aqm;
+    private static final String aqs = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a aqt;
+    private boolean aqu;
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
     public void a(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
@@ -20,9 +20,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             }
             return;
         }
-        this.aql = aVar;
-        if (!this.aqm) {
-            this.aqm = true;
+        this.aqt = aVar;
+        if (!this.aqu) {
+            this.aqu = true;
             new f(this, cVar).execute(new Void[0]);
         }
         try {

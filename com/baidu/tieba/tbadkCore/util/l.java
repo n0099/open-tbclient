@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int bVX;
-    private volatile HashMap<Long, Integer> cpL = new HashMap<>();
-    private volatile int cpK = 0;
+    private volatile int bWn;
+    private volatile HashMap<Long, Integer> cqb = new HashMap<>();
+    private volatile int cqa = 0;
 
     public l(int i) {
-        this.bVX = i;
+        this.bWn = i;
     }
 
-    public void iN(String str) {
+    public void iQ(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cpL.size() >= this.bVX) {
-                    anv();
+                if (this.cqb.size() >= this.bWn) {
+                    anK();
                 }
-                this.cpK++;
-                this.cpL.put(valueOf, Integer.valueOf(this.cpK));
+                this.cqa++;
+                this.cqb.put(valueOf, Integer.valueOf(this.cqa));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void anv() {
+    public void anK() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.cpL.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.cqb.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.cpL.remove(l);
+                this.cqb.remove(l);
             } else {
-                this.cpL.clear();
+                this.cqb.clear();
             }
         }
     }
 
-    public boolean iO(String str) {
+    public boolean iR(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cpL.get(valueOf) != null) {
+                if (this.cqb.get(valueOf) != null) {
                     z = true;
                 }
             }

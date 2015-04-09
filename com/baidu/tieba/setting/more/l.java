@@ -4,16 +4,16 @@ import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
 class l implements com.baidu.adp.widget.BdSwitchView.b {
-    final /* synthetic */ k caA;
+    final /* synthetic */ k caP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.caA = kVar;
+        this.caP = kVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.b
     public void a(View view, BdSwitchView.SwitchState switchState) {
         com.baidu.tbadk.core.n.px().Z(switchState == BdSwitchView.SwitchState.ON);
-        this.caA.agy();
+        this.caP.agN();
     }
 }

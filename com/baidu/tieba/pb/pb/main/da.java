@@ -1,33 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.View;
+import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements com.baidu.tieba.pb.b.c {
-    final /* synthetic */ ci bMm;
+public class da implements View.OnClickListener {
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(ci ciVar) {
-        this.bMm = ciVar;
+    public da(cj cjVar) {
+        this.bMC = cjVar;
     }
 
-    @Override // com.baidu.tieba.pb.b.c
-    public void Kr() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        if (!this.bMm.aaT()) {
-            bdTypeListView = this.bMm.aJU;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.bMm.aJU;
-                bdTypeListView2.setSelection(0);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbListView pbListView;
+        boolean z;
+        pbListView = this.bMC.bMq;
+        pbListView.startLoadData();
+        if (this.bMC.bIA != null) {
+            bg bgVar = this.bMC.bIA;
+            z = this.bMC.bJc;
+            bgVar.dF(z);
         }
-    }
-
-    @Override // com.baidu.tieba.pb.b.c
-    public void Kq() {
-        PbActivity pbActivity;
-        pbActivity = this.bMm.bIF;
-        pbActivity.Jt();
+        this.bMC.abt();
     }
 }

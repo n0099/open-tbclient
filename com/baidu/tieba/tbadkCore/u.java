@@ -22,37 +22,38 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.mvc.b.c {
-    private AntiData PN;
-    protected com.baidu.tbadk.core.data.q bDc;
-    protected ForumData bHb;
-    private UserData bHh;
-    protected ArrayList<com.baidu.adp.widget.ListView.ai> ckR;
-    private v ckS;
-    protected boolean ckT;
-    protected String ckU;
-    protected x ckV;
-    private b ckW;
-    private boolean ckX;
-    private ArrayList<LiveCardData> cla;
-    private String clb;
+    private AntiData PP;
+    protected com.baidu.tbadk.core.data.q bDp;
+    protected ForumData bHo;
+    private UserData bHu;
+    protected List<Long> clh;
+    private v cli;
+    protected boolean clj;
+    protected String clk;
+    protected x cll;
+    private b clm;
+    private boolean cln;
+    private ArrayList<LiveCardData> clq;
+    private String clr;
     private String gameName;
+    protected ArrayList<com.baidu.adp.widget.ListView.ai> threadList;
     private HashMap<String, MetaData> userMap;
-    private List<o> ckY = new ArrayList();
-    private int ckZ = 0;
-    private ArrayList<com.baidu.tbadk.core.data.i> clc = new ArrayList<>();
+    private List<o> clo = new ArrayList();
+    private int clp = 0;
+    private ArrayList<com.baidu.tbadk.core.data.i> cls = new ArrayList<>();
 
     public u() {
         initData();
     }
 
     private void initData() {
-        this.bHb = new ForumData();
-        this.ckR = new ArrayList<>();
+        this.bHo = new ForumData();
+        this.threadList = new ArrayList<>();
         this.userMap = new HashMap<>();
-        this.bDc = new com.baidu.tbadk.core.data.q();
-        this.ckS = new v();
-        this.bHh = new UserData();
-        this.ckV = new x();
+        this.bDp = new com.baidu.tbadk.core.data.q();
+        this.cli = new v();
+        this.bHu = new UserData();
+        this.cll = new x();
         b(new AntiData());
         a(new b());
     }
@@ -83,7 +84,7 @@ public class u implements com.baidu.tbadk.mvc.b.c {
                         if (colorEgg != null && colorEgg.holiday_words != null && colorEgg.holiday_words.size() > 0) {
                             com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
                             if (iVar.a(colorEgg)) {
-                                this.clc.add(iVar);
+                                this.cls.add(iVar);
                             }
                         }
                     }
@@ -99,25 +100,25 @@ public class u implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
-                gE(dataRes.is_new_url.intValue());
-                this.ckT = dataRes.fortune_bag.intValue() == 1;
-                this.ckU = dataRes.fortune_desc;
+                gG(dataRes.is_new_url.intValue());
+                this.clj = dataRes.fortune_bag.intValue() == 1;
+                this.clk = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
-                    this.ckX = dataRes.forum.has_game.intValue() == 1;
-                    this.clb = dataRes.forum.game_url;
+                    this.cln = dataRes.forum.has_game.intValue() == 1;
+                    this.clr = dataRes.forum.game_url;
                     this.gameName = dataRes.forum.game_name;
                 }
                 List<StarEnter> list2 = dataRes.star_enter;
-                this.ckY.clear();
+                this.clo.clear();
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
                         o oVar = new o();
                         oVar.a(list2.get(i2));
-                        this.ckY.add(oVar);
+                        this.clo.add(oVar);
                     }
                 }
-                this.ckV.a(dataRes.gcon_account);
-                this.bHb.parserProtobuf(dataRes.forum);
+                this.cll.a(dataRes.gcon_account);
+                this.bHo.parserProtobuf(dataRes.forum);
                 List<ThreadInfo> list3 = dataRes.thread_list;
                 if (list3 != null) {
                     for (int i3 = 0; i3 < list3.size(); i3++) {
@@ -125,22 +126,23 @@ public class u implements com.baidu.tbadk.mvc.b.c {
                         wVar.setUserMap(this.userMap);
                         wVar.a(list3.get(i3));
                         wVar.parser_title();
-                        wVar.m(this.clc);
-                        this.ckR.add(wVar);
+                        wVar.m(this.cls);
+                        this.threadList.add(wVar);
                     }
                 }
-                this.PN.parserProtobuf(dataRes.anti);
-                this.ckW.a(dataRes.group);
-                this.bDc.a(dataRes.page);
-                this.ckS.a(dataRes.frs_star);
-                this.bHh.parserProtobuf(dataRes.user);
+                this.clh = dataRes.thread_id_list;
+                this.PP.parserProtobuf(dataRes.anti);
+                this.clm.a(dataRes.group);
+                this.bDp.a(dataRes.page);
+                this.cli.a(dataRes.frs_star);
+                this.bHu.parserProtobuf(dataRes.user);
                 List<AnchorInfo> list4 = dataRes.forum_livegroup_list;
-                this.cla = new ArrayList<>();
+                this.clq = new ArrayList<>();
                 if (list4 != null) {
                     for (int i4 = 0; i4 < list4.size(); i4++) {
                         LiveCardData liveCardData = new LiveCardData();
                         liveCardData.parserProtobuf(list4.get(i4));
-                        this.cla.add(liveCardData);
+                        this.clq.add(liveCardData);
                     }
                 }
             } catch (Exception e) {
@@ -150,7 +152,7 @@ public class u implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Aw() {
+    public byte[] AC() {
         return null;
     }
 
@@ -172,92 +174,100 @@ public class u implements com.baidu.tbadk.mvc.b.c {
     public void a(Message message) {
     }
 
-    public ForumData YO() {
-        return this.bHb;
+    public ForumData Za() {
+        return this.bHo;
     }
 
     public void c(ForumData forumData) {
-        this.bHb = forumData;
+        this.bHo = forumData;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.ai> akp() {
-        return this.ckR;
+    public ArrayList<com.baidu.adp.widget.ListView.ai> getThreadList() {
+        return this.threadList;
     }
 
-    public void T(ArrayList<com.baidu.adp.widget.ListView.ai> arrayList) {
-        this.ckR = arrayList;
+    public List<Long> akE() {
+        return this.clh;
+    }
+
+    public void aY(List<Long> list) {
+        this.clh = list;
+    }
+
+    public void V(ArrayList<com.baidu.adp.widget.ListView.ai> arrayList) {
+        this.threadList = arrayList;
     }
 
     public AntiData qe() {
-        return this.PN;
+        return this.PP;
     }
 
     public void b(AntiData antiData) {
-        this.PN = antiData;
+        this.PP = antiData;
     }
 
-    public com.baidu.tbadk.core.data.q XE() {
-        return this.bDc;
+    public com.baidu.tbadk.core.data.q XQ() {
+        return this.bDp;
     }
 
     public void b(com.baidu.tbadk.core.data.q qVar) {
-        this.bDc = qVar;
+        this.bDp = qVar;
     }
 
-    public v akq() {
-        return this.ckS;
+    public v akF() {
+        return this.cli;
     }
 
     public void a(v vVar) {
-        this.ckS = vVar;
+        this.cli = vVar;
     }
 
-    public boolean akr() {
-        return this.ckT;
+    public boolean akG() {
+        return this.clj;
     }
 
-    public void eK(boolean z) {
-        this.ckT = z;
+    public void eI(boolean z) {
+        this.clj = z;
     }
 
-    public String aks() {
-        return this.ckU;
+    public String akH() {
+        return this.clk;
     }
 
-    public void iu(String str) {
-        this.ckU = str;
+    public void ix(String str) {
+        this.clk = str;
     }
 
-    public x akt() {
-        return this.ckV;
+    public x akI() {
+        return this.cll;
     }
 
     public void a(x xVar) {
-        this.ckV = xVar;
+        this.cll = xVar;
     }
 
     public UserData getUserData() {
-        return this.bHh;
+        return this.bHu;
     }
 
     public void k(UserData userData) {
-        this.bHh = userData;
+        this.bHu = userData;
     }
 
-    public b aku() {
-        return this.ckW;
+    public b akJ() {
+        return this.clm;
     }
 
     public void a(b bVar) {
-        this.ckW = bVar;
+        this.clm = bVar;
     }
 
-    public boolean akv() {
-        return this.ckX;
+    public boolean akK() {
+        return this.cln;
     }
 
-    public void eL(boolean z) {
-        this.ckX = z;
+    public void eJ(boolean z) {
+        this.cln = z;
     }
 
     public String getGameName() {
@@ -268,12 +278,12 @@ public class u implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<o> akw() {
-        return this.ckY;
+    public List<o> akL() {
+        return this.clo;
     }
 
-    public void aV(List<o> list) {
-        this.ckY = list;
+    public void aZ(List<o> list) {
+        this.clo = list;
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -284,27 +294,27 @@ public class u implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int YT() {
-        return this.ckZ;
+    public int Zf() {
+        return this.clp;
     }
 
-    public void gE(int i) {
-        this.ckZ = i;
+    public void gG(int i) {
+        this.clp = i;
     }
 
-    public ArrayList<LiveCardData> akx() {
-        return this.cla;
+    public ArrayList<LiveCardData> akM() {
+        return this.clq;
     }
 
-    public void U(ArrayList<LiveCardData> arrayList) {
-        this.cla = arrayList;
+    public void W(ArrayList<LiveCardData> arrayList) {
+        this.clq = arrayList;
     }
 
-    public String aky() {
-        return this.clb;
+    public String akN() {
+        return this.clr;
     }
 
-    public void iv(String str) {
-        this.clb = str;
+    public void iy(String str) {
+        this.clr = str;
     }
 }

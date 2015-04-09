@@ -13,11 +13,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity ccF;
+    final /* synthetic */ PersonChangeActivity ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonChangeActivity personChangeActivity) {
-        this.ccF = personChangeActivity;
+        this.ccU = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -31,23 +31,23 @@ public class d implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.ccF.mEdit;
+        editText = this.ccU.mEdit;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.ccF.ccs;
+        textView = this.ccU.ccH;
         textView.setText(String.valueOf(length));
-        linearLayout = this.ccF.ccr;
+        linearLayout = this.ccU.ccG;
         linearLayout.setVisibility(0);
-        this.ccF.hW(0);
-        this.ccF.ahX();
+        this.ccU.hZ(0);
+        this.ccU.aim();
         if (length > 50) {
-            this.ccF.showToast(y.over_limit_tip);
+            this.ccU.showToast(y.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.ccF.mEdit;
+            editText2 = this.ccU.mEdit;
             editText2.setText(substring);
-            editText3 = this.ccF.mEdit;
+            editText3 = this.ccU.mEdit;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -63,11 +63,11 @@ public class d implements TextWatcher {
         View view;
         TextView textView;
         String replaceAll = editable.toString().replaceAll("\\s*", "");
-        fVar = this.ccF.ccw;
-        if (!replaceAll.equals(fVar.vR().getIntro())) {
-            view = this.ccF.ccl;
+        fVar = this.ccU.ccL;
+        if (!replaceAll.equals(fVar.vX().getIntro())) {
+            view = this.ccU.ccA;
             view.setEnabled(true);
-            textView = this.ccF.bgV;
+            textView = this.ccU.bhl;
             ba.b(textView, s.cp_link_tip_a, 1);
         }
     }

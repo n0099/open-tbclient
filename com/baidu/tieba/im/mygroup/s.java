@@ -3,18 +3,18 @@ package com.baidu.tieba.im.mygroup;
 import com.baidu.tbadk.core.view.ae;
 /* loaded from: classes.dex */
 class s implements ae {
-    final /* synthetic */ m blM;
+    final /* synthetic */ m bmc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(m mVar) {
-        this.blM = mVar;
+        this.bmc = mVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ae
     public void onListPullRefresh(boolean z) {
-        PersonGroupActivity SW = this.blM.SW();
-        if (SW != null) {
-            SW.SS().update();
+        PersonGroupActivity Tj = this.bmc.Tj();
+        if (Tj != null) {
+            Tj.Tf().update();
         }
     }
 }

@@ -24,22 +24,22 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class at {
-    private static at Va;
-    private Drawable[] UW;
-    private int UX = -1315344;
-    private int UY = -14670029;
-    private PorterDuffColorFilter UZ = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private static at Vc;
+    private Drawable[] UY;
+    private int UZ = -1315344;
+    private int Va = -14670029;
+    private PorterDuffColorFilter Vb = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
 
     private at() {
     }
 
     public static at sL() {
         synchronized (at.class) {
-            if (Va == null) {
-                Va = new at();
+            if (Vc == null) {
+                Vc = new at();
             }
         }
-        return Va;
+        return Vc;
     }
 
     public void c(String str, String str2, String str3, String str4, String str5) {
@@ -62,8 +62,8 @@ public class at {
             if (i3 != i || i2 != i4) {
                 com.baidu.tbadk.core.sharedPref.b.rB().putInt("pullview_background_color_day", i);
                 com.baidu.tbadk.core.sharedPref.b.rB().putInt("pullview_background_color_night", i2);
-                this.UX = i;
-                this.UY = i2;
+                this.UZ = i;
+                this.Va = i2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
             }
         }
@@ -94,11 +94,11 @@ public class at {
 
     public AnimationDrawable ca(int i) {
         Drawable[] drawableArr;
-        if (this.UW != null) {
+        if (this.UY != null) {
             boolean z = i == 1;
             AnimationDrawable animationDrawable = new AnimationDrawable();
-            animationDrawable.setColorFilter(z ? this.UZ : null);
-            for (Drawable drawable : this.UW) {
+            animationDrawable.setColorFilter(z ? this.Vb : null);
+            for (Drawable drawable : this.UY) {
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
                 }
@@ -110,9 +110,9 @@ public class at {
 
     public int cb(int i) {
         if (i == 1) {
-            return this.UY;
+            return this.Va;
         }
-        return this.UX;
+        return this.UZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -120,21 +120,21 @@ public class at {
         boolean z = false;
         String string = com.baidu.tbadk.core.sharedPref.b.rB().getString("pull_image_url", "");
         int i = com.baidu.tbadk.core.sharedPref.b.rB().getInt("pull_image_num", 0);
-        this.UX = com.baidu.tbadk.core.sharedPref.b.rB().getInt("pullview_background_color_day", -1315344);
-        this.UY = com.baidu.tbadk.core.sharedPref.b.rB().getInt("pullview_background_color_night", -14670029);
+        this.UZ = com.baidu.tbadk.core.sharedPref.b.rB().getInt("pullview_background_color_day", -1315344);
+        this.Va = com.baidu.tbadk.core.sharedPref.b.rB().getInt("pullview_background_color_night", -14670029);
         if (!TextUtils.isEmpty(string)) {
             if (i > 0 && cc(i)) {
-                this.UW = new Drawable[i];
+                this.UY = new Drawable[i];
                 File sO = sO();
                 if (sO != null) {
                     File[] listFiles = sO.listFiles();
                     for (int i2 = 1; i2 <= i; i2++) {
-                        this.UW[i2 - 1] = a(listFiles, String.valueOf(i2) + ".");
+                        this.UY[i2 - 1] = a(listFiles, String.valueOf(i2) + ".");
                     }
                 }
             }
-            if (this.UW != null) {
-                Drawable[] drawableArr = this.UW;
+            if (this.UY != null) {
+                Drawable[] drawableArr = this.UY;
                 int length = drawableArr.length;
                 int i3 = 0;
                 while (true) {
@@ -149,10 +149,10 @@ public class at {
                 }
             }
             if (!z) {
-                this.UW = null;
+                this.UY = null;
             }
         } else {
-            this.UW = null;
+            this.UY = null;
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016203, true));
     }

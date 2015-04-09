@@ -7,8 +7,8 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class e {
-    private Queue<f> alf = new ConcurrentLinkedQueue();
-    private volatile g alg;
+    private Queue<f> aln = new ConcurrentLinkedQueue();
+    private volatile g alo;
     public Context mContext;
 
     public e(Context context) {
@@ -19,7 +19,7 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.e.zs().er(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.e.zy().eu(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2) {
@@ -29,11 +29,11 @@ public class e {
                 return null;
             }
             f fVar = new f(this, null);
-            fVar.ali = dVar;
-            fVar.alh = imageFileInfo;
-            fVar.alj = z;
-            this.alf.add(fVar);
-            zz();
+            fVar.alq = dVar;
+            fVar.alp = imageFileInfo;
+            fVar.alr = z;
+            this.aln.add(fVar);
+            zF();
             return null;
         }
         return a;
@@ -44,18 +44,18 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void zz() {
-        if (this.alg == null && !this.alf.isEmpty()) {
-            this.alg = new g(this, this.alf);
-            this.alg.execute(new Void[0]);
+    public void zF() {
+        if (this.alo == null && !this.aln.isEmpty()) {
+            this.alo = new g(this, this.aln);
+            this.alo.execute(new Void[0]);
         }
     }
 
-    public void zA() {
-        this.alf = new ConcurrentLinkedQueue();
-        if (this.alg != null) {
-            this.alg.cancel(true);
-            this.alg = null;
+    public void zG() {
+        this.aln = new ConcurrentLinkedQueue();
+        if (this.alo != null) {
+            this.alo.cancel(true);
+            this.alo = null;
         }
     }
 
@@ -72,14 +72,14 @@ public class e {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.zB().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
+                return com.baidu.tbadk.img.effect.c.zH().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.zB().b(imageFileInfo.getFilePath(), linkedList);
+                return com.baidu.tbadk.img.effect.c.zH().b(imageFileInfo.getFilePath(), linkedList);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

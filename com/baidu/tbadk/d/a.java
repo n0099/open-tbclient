@@ -12,17 +12,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b {
-    private static a aqg = new a();
-    private static BdFileDownloadData aqh = null;
-    private static List<BdFileDownloadData> ahK = new LinkedList();
-    private c aqi = null;
-    private Handler ahS = new b(this);
+    private static a aqo = new a();
+    private static BdFileDownloadData aqp = null;
+    private static List<BdFileDownloadData> ahS = new LinkedList();
+    private c aqq = null;
+    private Handler aia = new b(this);
 
     private a() {
     }
 
-    public static a CT() {
-        return aqg;
+    public static a CZ() {
+        return aqo;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
@@ -42,8 +42,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < ahK.size()) {
-                    BdFileDownloadData bdFileDownloadData2 = ahK.get(i3);
+                if (i3 < ahS.size()) {
+                    BdFileDownloadData bdFileDownloadData2 = ahS.get(i3);
                     if (bdFileDownloadData2 == null || !bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) || !bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
                         i2 = i3 + 1;
                     } else {
@@ -51,8 +51,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     }
                 } else {
                     bdFileDownloadData.setStatus(1);
-                    ahK.add(bdFileDownloadData);
-                    yq();
+                    ahS.add(bdFileDownloadData);
+                    yw();
                     return;
                 }
             }
@@ -60,12 +60,12 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yq() {
-        if (aqh == null && !ahK.isEmpty()) {
-            aqh = ahK.get(0);
-            if (aqh != null) {
-                this.aqi = new c(this);
-                this.aqi.execute(aqh);
+    public void yw() {
+        if (aqp == null && !ahS.isEmpty()) {
+            aqp = ahS.get(0);
+            if (aqp != null) {
+                this.aqq = new c(this);
+                this.aqq.execute(aqp);
             }
         }
     }
@@ -73,12 +73,12 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public void bs(String str) {
         if (!TextUtils.isEmpty(str)) {
-            if (aqh != null && aqh.getId().equals(str)) {
-                this.aqi.cancel(true);
+            if (aqp != null && aqp.getId().equals(str)) {
+                this.aqq.cancel(true);
                 return;
             }
             LinkedList<BdFileDownloadData> linkedList = new LinkedList();
-            Iterator<BdFileDownloadData> it = ahK.iterator();
+            Iterator<BdFileDownloadData> it = ahS.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -94,14 +94,14 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 }
             }
             for (BdFileDownloadData bdFileDownloadData : linkedList) {
-                ahK.remove(bdFileDownloadData);
+                ahS.remove(bdFileDownloadData);
             }
         }
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public List<BdFileDownloadData> lG() {
-        return ahK;
+        return ahS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

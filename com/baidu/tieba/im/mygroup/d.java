@@ -10,13 +10,13 @@ import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonGroupActivity bln;
+    final /* synthetic */ PersonGroupActivity blD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PersonGroupActivity personGroupActivity, int i) {
         super(i);
-        this.bln = personGroupActivity;
+        this.blD = personGroupActivity;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=4] */
@@ -27,20 +27,20 @@ class d extends com.baidu.adp.framework.listener.e {
             try {
                 ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.bln.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.bln.getResources().getString(y.neterror) : responseUserPermissionMessage.getErrorString());
+                    this.blD.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.blD.getResources().getString(y.neterror) : responseUserPermissionMessage.getErrorString());
                     return;
                 }
                 GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
                 if (groupPermData != null) {
                     if (groupPermData.isCreatePersonal()) {
-                        this.bln.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.bln.getPageContext().getContext(), 2, 0, CreateGroupStepActivityConfig.SOURCE_FROM_MY, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+                        this.blD.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.blD.getPageContext().getContext(), 2, 0, CreateGroupStepActivityConfig.SOURCE_FROM_MY, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
                     } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                        this.bln.showToast(groupPermData.getCreatePersonalTip());
+                        this.blD.showToast(groupPermData.getCreatePersonalTip());
                     }
                 }
             } catch (Exception e) {
             } finally {
-                this.bln.hideProgressBar();
+                this.blD.hideProgressBar();
             }
         }
     }

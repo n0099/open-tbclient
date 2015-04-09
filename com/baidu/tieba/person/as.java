@@ -7,18 +7,18 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class as {
-    TextView aHg;
-    HeadImageView aIi;
-    TextView aXK;
-    ImageView bQj;
-    LinearLayout bQk;
-    TextView bQl;
-    final /* synthetic */ ar bQm;
-    ImageView blB;
+    TextView aHo;
+    HeadImageView aIq;
+    TextView aYa;
+    LinearLayout bQA;
+    TextView bQB;
+    final /* synthetic */ ar bQC;
+    ImageView bQz;
+    ImageView blR;
     ProgressBar mProgress;
 
     private as(ar arVar) {
-        this.bQm = arVar;
+        this.bQC = arVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -7,45 +7,45 @@ import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class o extends WebViewClient {
-    final /* synthetic */ TbWebViewActivity Nq;
+    final /* synthetic */ TbWebViewActivity Ns;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public o(TbWebViewActivity tbWebViewActivity) {
-        this.Nq = tbWebViewActivity;
+        this.Ns = tbWebViewActivity;
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        if (this.Nq.mWebView != null) {
-            this.Nq.mUrl = str;
-            if (StringUtils.isNull(this.Nq.mUrlTitle)) {
-                this.Nq.mUrlTitle = this.Nq.mWebView.getTitle();
+        if (this.Ns.mWebView != null) {
+            this.Ns.mUrl = str;
+            if (StringUtils.isNull(this.Ns.mUrlTitle)) {
+                this.Ns.mUrlTitle = this.Ns.mWebView.getTitle();
             }
-            this.Nq.mView.bJ(this.Nq.mUrlTitle);
-            this.Nq.mView.setNavBarVisibility(this.Nq.mIsShowNavBar);
-            this.Nq.hideProgressBar();
-            this.Nq.stopLoadTimer();
+            this.Ns.mView.bJ(this.Ns.mUrlTitle);
+            this.Ns.mView.setNavBarVisibility(this.Ns.mIsShowNavBar);
+            this.Ns.hideProgressBar();
+            this.Ns.stopLoadTimer();
         }
     }
 
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         super.onReceivedError(webView, i, str, str2);
-        if (this.Nq.mWebView != null) {
-            this.Nq.mWebView.stopLoading();
-            this.Nq.stopLoadTimer();
-            this.Nq.onReceivedError(i);
+        if (this.Ns.mWebView != null) {
+            this.Ns.mWebView.stopLoading();
+            this.Ns.stopLoadTimer();
+            this.Ns.onReceivedError(i);
         }
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         super.onPageStarted(webView, str, bitmap);
-        if (this.Nq.mWebView != null) {
-            this.Nq.mUrl = str;
-            this.Nq.showProgressBar();
-            this.Nq.startLoadTimer();
+        if (this.Ns.mWebView != null) {
+            this.Ns.mUrl = str;
+            this.Ns.showProgressBar();
+            this.Ns.startLoadTimer();
         }
     }
 
@@ -54,11 +54,11 @@ public class o extends WebViewClient {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.tbadk.util.n.a(this.Nq, str)) {
+        if (com.baidu.tbadk.util.n.a(this.Ns, str)) {
             return true;
         }
-        this.Nq.mUrl = str;
-        this.Nq.refresh();
+        this.Ns.mUrl = str;
+        this.Ns.refresh();
         return true;
     }
 }

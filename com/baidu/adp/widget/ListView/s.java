@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class s implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView Ib;
+    final /* synthetic */ BdListView Id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(BdListView bdListView) {
-        this.Ib = bdListView;
+        this.Id = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -18,16 +18,16 @@ class s implements AdapterView.OnItemSelectedListener {
         g gVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        gVar = this.Ib.HC;
+        gVar = this.Id.HE;
         int headersCount = gVar.getHeadersCount();
         if (i >= headersCount) {
             int i2 = i - headersCount;
-            gVar2 = this.Ib.HC;
+            gVar2 = this.Id.HE;
             ListAdapter wrappedAdapter = gVar2.getWrappedAdapter();
             if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.Ib.HF;
+                onItemSelectedListener = this.Id.HH;
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.Ib.HF;
+                    onItemSelectedListener2 = this.Id.HH;
                     onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
                 }
             }
@@ -38,9 +38,9 @@ class s implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.Ib.HF;
+        onItemSelectedListener = this.Id.HH;
         if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.Ib.HF;
+            onItemSelectedListener2 = this.Id.HH;
             onItemSelectedListener2.onNothingSelected(adapterView);
         }
     }

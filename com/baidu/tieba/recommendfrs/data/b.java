@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.FineFrsPage.FineThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int bXK;
-    private int bXL;
-    private boolean bXM;
+    private int bXZ;
+    private int bYa;
+    private boolean bYb;
     private String desc;
     private long ftid;
     private String tag;
@@ -30,14 +30,14 @@ public class b {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.bXK = fineThreadInfo.publish_time.intValue();
+                this.bXZ = fineThreadInfo.publish_time.intValue();
             }
             this.tag = fineThreadInfo.tag;
         }
         return this;
     }
 
-    public long afA() {
+    public long afP() {
         return this.ftid;
     }
 
@@ -53,31 +53,31 @@ public class b {
         return this.desc;
     }
 
-    public List<String> afB() {
+    public List<String> afQ() {
         return this.thumbnail;
     }
 
-    public int afC() {
-        return this.bXK;
+    public int afR() {
+        return this.bXZ;
     }
 
     public String getTag() {
         return this.tag;
     }
 
-    public int afD() {
-        return this.bXL;
+    public int afS() {
+        return this.bYa;
     }
 
-    public void hK(int i) {
-        this.bXL = i;
+    public void hN(int i) {
+        this.bYa = i;
     }
 
-    public boolean afE() {
-        return this.bXM;
+    public boolean afT() {
+        return this.bYb;
     }
 
-    public void en(boolean z) {
-        this.bXM = z;
+    public void el(boolean z) {
+        this.bYb = z;
     }
 }

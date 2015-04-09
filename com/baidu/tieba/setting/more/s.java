@@ -19,15 +19,15 @@ public class s extends com.baidu.adp.base.i {
         w wVar4;
         w wVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        wVar = this.this$0.caD;
+        wVar = this.this$0.caS;
         if (wVar.getUser() != null) {
-            wVar2 = this.this$0.caD;
+            wVar2 = this.this$0.caS;
             personChangeData.setName(wVar2.getUser().getName_show());
-            wVar3 = this.this$0.caD;
+            wVar3 = this.this$0.caS;
             personChangeData.setIntro(wVar3.getUser().getIntro());
-            wVar4 = this.this$0.caD;
+            wVar4 = this.this$0.caS;
             personChangeData.setPortrait(wVar4.getUser().getPortrait());
-            wVar5 = this.this$0.caD;
+            wVar5 = this.this$0.caS;
             personChangeData.setSex(wVar5.getUser().getSex());
             this.this$0.b(personChangeData);
         }

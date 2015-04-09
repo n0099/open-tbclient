@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> {
-    final /* synthetic */ b aBg;
+    final /* synthetic */ b aBo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aBg = bVar;
+        this.aBo = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -24,11 +24,11 @@ public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.pos
             List<com.baidu.tieba.chosen.posts.request.d> data = readCacheRespMsg.getData();
             if (data != null && !data.isEmpty() && (dVar = data.get(0)) != null) {
                 com.baidu.tbadk.mvc.c.b bVar2 = new com.baidu.tbadk.mvc.c.b(FragmentTransaction.TRANSIT_FRAGMENT_FADE, dVar, null, null);
-                bVar2.setUniqueId(this.aBg.getUniqueId());
-                this.aBg.zT().dispatchMvcEvent(bVar2);
+                bVar2.setUniqueId(this.aBo.getUniqueId());
+                this.aBo.zZ().dispatchMvcEvent(bVar2);
             }
-            bVar = this.aBg.aBc;
-            bVar.AT();
+            bVar = this.aBo.aBk;
+            bVar.AZ();
         }
     }
 

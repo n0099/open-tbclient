@@ -5,11 +5,11 @@ import android.widget.Scroller;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements Runnable {
-    final /* synthetic */ x ceN;
+    final /* synthetic */ x cfc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.ceN = xVar;
+        this.cfc = xVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,38 +25,38 @@ public class y implements Runnable {
         int i;
         Scroller scroller4;
         Runnable runnable2;
-        scroller = this.ceN.mScroller;
+        scroller = this.cfc.mScroller;
         if (!scroller.computeScrollOffset()) {
-            progressBar = this.ceN.mProgress;
+            progressBar = this.cfc.mProgress;
             int progress = progressBar.getProgress();
-            progressBar2 = this.ceN.mProgress;
+            progressBar2 = this.cfc.mProgress;
             int max = (progressBar2.getMax() * 9) / 10;
             if (progress < max) {
-                scroller2 = this.ceN.mScroller;
+                scroller2 = this.cfc.mScroller;
                 scroller2.startScroll(progress, 0, max - progress, 0, 5000);
-                this.ceN.post(this);
+                this.cfc.post(this);
                 return;
             }
             return;
         }
-        scroller3 = this.ceN.mScroller;
+        scroller3 = this.cfc.mScroller;
         int currX = scroller3.getCurrX();
-        progressBar3 = this.ceN.mProgress;
+        progressBar3 = this.cfc.mProgress;
         if (currX >= (progressBar3.getMax() * 9) / 10) {
-            i = this.ceN.ceG;
+            i = this.cfc.ceV;
             if (i != 2) {
-                scroller4 = this.ceN.mScroller;
+                scroller4 = this.cfc.mScroller;
                 scroller4.forceFinished(true);
-                x xVar = this.ceN;
-                runnable2 = this.ceN.ceL;
+                x xVar = this.cfc;
+                runnable2 = this.cfc.cfa;
                 xVar.postDelayed(runnable2, 2000L);
                 return;
             }
         }
-        progressBar4 = this.ceN.mProgress;
+        progressBar4 = this.cfc.mProgress;
         progressBar4.setProgress(currX);
-        x xVar2 = this.ceN;
-        runnable = this.ceN.ceK;
+        x xVar2 = this.cfc;
+        runnable = this.cfc.ceZ;
         xVar2.postDelayed(runnable, 16L);
     }
 }

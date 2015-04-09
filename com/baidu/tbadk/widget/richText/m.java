@@ -13,7 +13,7 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: DP */
+    /* renamed from: DV */
     public TextView hA() {
         return new com.baidu.tbadk.widget.o(this.val$context);
     }

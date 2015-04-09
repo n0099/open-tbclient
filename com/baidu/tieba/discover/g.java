@@ -9,7 +9,7 @@ public class g implements CustomMessageTask.CustomRunnable<Void> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
         if (customMessage != null) {
-            a.aBv = true;
+            a.aBD = true;
             return new CustomResponsedMessage<>(2012119);
         }
         return null;

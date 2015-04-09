@@ -5,25 +5,25 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<Class<?>, Class<?>> EO = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> EQ = new HashMap<>();
 
     static {
-        EO.put(Boolean.class, Boolean.TYPE);
-        EO.put(Byte.class, Byte.TYPE);
-        EO.put(Character.class, Character.TYPE);
-        EO.put(Short.class, Short.TYPE);
-        EO.put(Integer.class, Integer.TYPE);
-        EO.put(Float.class, Float.TYPE);
-        EO.put(Long.class, Long.TYPE);
-        EO.put(Double.class, Double.TYPE);
-        EO.put(Boolean.TYPE, Boolean.TYPE);
-        EO.put(Byte.TYPE, Byte.TYPE);
-        EO.put(Character.TYPE, Character.TYPE);
-        EO.put(Short.TYPE, Short.TYPE);
-        EO.put(Integer.TYPE, Integer.TYPE);
-        EO.put(Float.TYPE, Float.TYPE);
-        EO.put(Long.TYPE, Long.TYPE);
-        EO.put(Double.TYPE, Double.TYPE);
+        EQ.put(Boolean.class, Boolean.TYPE);
+        EQ.put(Byte.class, Byte.TYPE);
+        EQ.put(Character.class, Character.TYPE);
+        EQ.put(Short.class, Short.TYPE);
+        EQ.put(Integer.class, Integer.TYPE);
+        EQ.put(Float.class, Float.TYPE);
+        EQ.put(Long.class, Long.TYPE);
+        EQ.put(Double.class, Double.TYPE);
+        EQ.put(Boolean.TYPE, Boolean.TYPE);
+        EQ.put(Byte.TYPE, Byte.TYPE);
+        EQ.put(Character.TYPE, Character.TYPE);
+        EQ.put(Short.TYPE, Short.TYPE);
+        EQ.put(Integer.TYPE, Integer.TYPE);
+        EQ.put(Float.TYPE, Float.TYPE);
+        EQ.put(Long.TYPE, Long.TYPE);
+        EQ.put(Double.TYPE, Double.TYPE);
     }
 
     public static Method a(Object obj, String str, Class<?>[] clsArr) {

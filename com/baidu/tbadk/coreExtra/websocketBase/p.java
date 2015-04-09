@@ -7,10 +7,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private boolean ago = false;
-    private int agp = 0;
+    private boolean agw = false;
+    private int agx = 0;
 
-    public void dT(String str) {
+    public void dW(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -18,8 +18,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.ago = false;
-        this.agp = 0;
+        this.agw = false;
+        this.agx = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -48,7 +48,7 @@ public class p {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.ago = true;
+                                this.agw = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,19 +82,19 @@ public class p {
                         throw th;
                     }
                 }
-                if (this.ago && i3 > 0) {
-                    this.agp = i5 / i3;
+                if (this.agw && i3 > 0) {
+                    this.agx = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.ago;
+        return this.agw;
     }
 
-    public int xC() {
-        return this.agp;
+    public int xI() {
+        return this.agx;
     }
 
     private int getTimeout() {

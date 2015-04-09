@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.lib.g.e {
-    final /* synthetic */ PbChosenActivity bFY;
+    final /* synthetic */ PbChosenActivity bGl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbChosenActivity pbChosenActivity) {
-        this.bFY = pbChosenActivity;
+        this.bGl = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.lib.g.e
@@ -25,35 +25,35 @@ class f extends com.baidu.adp.lib.g.e {
         View view3;
         View view4;
         com.baidu.tieba.pb.chosen.net.a aVar4;
-        animation2 = this.bFY.bFN;
+        animation2 = this.bGl.bGa;
         if (animation == animation2) {
-            aVar3 = this.bFY.chosenData;
+            aVar3 = this.bGl.chosenData;
             if (aVar3 != null) {
-                PbChosenActivity pbChosenActivity = this.bFY;
-                view3 = this.bFY.rootView;
+                PbChosenActivity pbChosenActivity = this.bGl;
+                view3 = this.bGl.rootView;
                 pbChosenActivity.showLoadingView(view3, true);
-                view4 = this.bFY.bFI;
+                view4 = this.bGl.bFV;
                 view4.setVisibility(8);
-                PbChosenActivity pbChosenActivity2 = this.bFY;
-                aVar4 = this.bFY.chosenData;
+                PbChosenActivity pbChosenActivity2 = this.bGl;
+                aVar4 = this.bGl.chosenData;
                 pbChosenActivity2.ai(aVar4.getPreTid());
                 return;
             }
             return;
         }
-        animation3 = this.bFY.bFO;
+        animation3 = this.bGl.bGb;
         if (animation == animation3) {
-            aVar = this.bFY.chosenData;
+            aVar = this.bGl.chosenData;
             if (aVar != null) {
-                PbChosenActivity pbChosenActivity3 = this.bFY;
-                view = this.bFY.rootView;
+                PbChosenActivity pbChosenActivity3 = this.bGl;
+                view = this.bGl.rootView;
                 pbChosenActivity3.showLoadingView(view, true);
-                view2 = this.bFY.bFI;
+                view2 = this.bGl.bFV;
                 view2.setVisibility(8);
-                PbChosenActivity pbChosenActivity4 = this.bFY;
-                aVar2 = this.bFY.chosenData;
+                PbChosenActivity pbChosenActivity4 = this.bGl;
+                aVar2 = this.bGl.chosenData;
                 pbChosenActivity4.ai(aVar2.getNextTid());
-                scrollView = this.bFY.bFH;
+                scrollView = this.bGl.bFU;
                 scrollView.scrollTo(0, 0);
             }
         }

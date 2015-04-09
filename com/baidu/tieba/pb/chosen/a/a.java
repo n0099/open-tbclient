@@ -8,59 +8,59 @@ import com.baidu.tieba.v;
 import tbclient.FinePbPage.User_Info;
 /* loaded from: classes.dex */
 public class a {
-    private TextView aFs;
-    private HeadImageView azr;
-    private View bGg;
-    private TextView bGh;
-    private d bGi;
+    private TextView aFA;
+    private HeadImageView azz;
+    private View bGt;
+    private TextView bGu;
+    private d bGv;
 
     public a(View view) {
-        this.bGg = view;
-        this.azr = (HeadImageView) view.findViewById(v.chosen_pb_person_info_head);
-        this.aFs = (TextView) view.findViewById(v.chosen_pb_person_info_name);
-        this.bGh = (TextView) view.findViewById(v.chosen_pb_person_info_tag);
+        this.bGt = view;
+        this.azz = (HeadImageView) view.findViewById(v.chosen_pb_person_info_head);
+        this.aFA = (TextView) view.findViewById(v.chosen_pb_person_info_name);
+        this.bGu = (TextView) view.findViewById(v.chosen_pb_person_info_tag);
     }
 
     public void a(d dVar) {
-        this.bGi = dVar;
+        this.bGv = dVar;
     }
 
-    public void hz(String str) {
-        if (!StringUtils.isNull(str) && this.azr != null) {
-            this.azr.c(str, 12, false);
+    public void hC(String str) {
+        if (!StringUtils.isNull(str) && this.azz != null) {
+            this.azz.c(str, 12, false);
         }
     }
 
     public void setName(String str) {
-        if (this.aFs != null) {
-            this.aFs.setText(str);
+        if (this.aFA != null) {
+            this.aFA.setText(str);
         }
     }
 
-    public void hA(String str) {
-        if (this.bGh != null) {
+    public void hD(String str) {
+        if (this.bGu != null) {
             if (StringUtils.isNull(str)) {
-                this.bGh.setVisibility(8);
+                this.bGu.setVisibility(8);
                 return;
             }
-            this.bGh.setVisibility(0);
-            this.bGh.setText(str);
+            this.bGu.setVisibility(0);
+            this.bGu.setText(str);
         }
     }
 
     public void a(User_Info user_Info) {
         if (user_Info != null) {
             setName(user_Info.name);
-            hz(user_Info.portrait);
-            this.azr.setOnClickListener(new b(this, user_Info));
-            this.aFs.setOnClickListener(new c(this, user_Info));
+            hC(user_Info.portrait);
+            this.azz.setOnClickListener(new b(this, user_Info));
+            this.aFA.setOnClickListener(new c(this, user_Info));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(long j, String str) {
-        if (this.bGi != null) {
-            this.bGi.aP(String.valueOf(j), str);
+        if (this.bGv != null) {
+            this.bGv.aP(String.valueOf(j), str);
         }
     }
 }

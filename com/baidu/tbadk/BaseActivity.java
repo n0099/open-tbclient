@@ -808,7 +808,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.zC();
+        return this.loadingView.zI();
     }
 
     public void hideLoadingView(View view) {
@@ -821,18 +821,18 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.ew(str);
+        this.refreshView.ez(str);
         this.refreshView.b(view, z);
-        this.refreshView.zI();
+        this.refreshView.zO();
     }
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.ew(str);
+        this.refreshView.ez(str);
         this.refreshView.b(view, z);
-        this.refreshView.zJ();
+        this.refreshView.zP();
     }
 
     public void showNetRefreshView(View view, String str) {

@@ -15,13 +15,13 @@ public class MsgActivityViewItemAdapter extends bd<MsgActivityView> {
     @Override // com.baidu.tieba.im.chat.bd
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<MsgActivityView> beVar) {
         super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        MsgActivityView NS = beVar.NS();
-        NS.setPosition(i);
-        NS.setData(chatMessage);
-        NS.a(this.aXc);
-        NS.setOnItemViewLongClickListener(this.aXd);
-        NS.U(this.mCurrentTime);
-        NS.T(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView Of = beVar.Of();
+        Of.setPosition(i);
+        Of.setData(chatMessage);
+        Of.a(this.aXs);
+        Of.setOnItemViewLongClickListener(this.aXt);
+        Of.U(this.mCurrentTime);
+        Of.T(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().X(false);
         this.mPageContext.getLayoutMode().h(view);
         return view;

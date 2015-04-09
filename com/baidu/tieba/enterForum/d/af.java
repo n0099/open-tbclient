@@ -7,51 +7,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class af {
-    private ViewEventCenter aCK;
-    private List<com.baidu.tieba.enterForum.b.d> aEB = new ArrayList();
-    private SoftReference<ac> aED;
-    private int aEE;
+    private ViewEventCenter aCS;
+    private List<com.baidu.tieba.enterForum.b.d> aEJ = new ArrayList();
+    private SoftReference<ac> aEL;
+    private int aEM;
 
     public af(ViewEventCenter viewEventCenter) {
-        this.aCK = viewEventCenter;
+        this.aCS = viewEventCenter;
     }
 
     public void b(Context context, List<com.baidu.tieba.enterForum.b.d> list) {
         ac acVar;
-        this.aEB.clear();
+        this.aEJ.clear();
         if (list != null) {
-            this.aEB.addAll(list);
+            this.aEJ.addAll(list);
         }
-        if (this.aED != null && this.aED.get() != null) {
-            acVar = this.aED.get();
+        if (this.aEL != null && this.aEL.get() != null) {
+            acVar = this.aEL.get();
         } else if (context != null) {
             acVar = new ac(context);
-            this.aED = new SoftReference<>(acVar);
-            acVar.setEventCenter(this.aCK);
+            this.aEL = new SoftReference<>(acVar);
+            acVar.setEventCenter(this.aCS);
         } else {
             return;
         }
-        this.aEE -= acVar.getItemViewCount();
-        acVar.setDataAndRefreshView(HD());
+        this.aEM -= acVar.getItemViewCount();
+        acVar.setDataAndRefreshView(HJ());
     }
 
-    public void HC() {
-        if (this.aED != null && this.aED.get() != null) {
-            this.aED.get().setDataAndRefreshView(HD());
+    public void HI() {
+        if (this.aEL != null && this.aEL.get() != null) {
+            this.aEL.get().setDataAndRefreshView(HJ());
         }
     }
 
-    private List<com.baidu.tieba.enterForum.b.d> HD() {
+    private List<com.baidu.tieba.enterForum.b.d> HJ() {
         ArrayList arrayList = new ArrayList();
-        if (this.aEE < 0 || this.aEE >= this.aEB.size()) {
-            this.aEE = 0;
+        if (this.aEM < 0 || this.aEM >= this.aEJ.size()) {
+            this.aEM = 0;
         }
-        int i = this.aEE;
-        int size = this.aEB.size();
+        int i = this.aEM;
+        int size = this.aEJ.size();
         for (int i2 = i; i2 < size; i2++) {
-            if (this.aEB.get(i2) != null && arrayList.size() < 3) {
-                arrayList.add(this.aEB.get(i2));
-                this.aEE++;
+            if (this.aEJ.get(i2) != null && arrayList.size() < 3) {
+                arrayList.add(this.aEJ.get(i2));
+                this.aEM++;
             }
         }
         for (int size2 = arrayList.size(); size2 < 3; size2++) {
@@ -62,10 +62,10 @@ public class af {
         return arrayList;
     }
 
-    public ac HE() {
-        if (this.aED == null) {
+    public ac HK() {
+        if (this.aEL == null) {
             return null;
         }
-        return this.aED.get();
+        return this.aEL.get();
     }
 }

@@ -7,17 +7,17 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Animation.AnimationListener {
-    private final /* synthetic */ String aXg;
-    final /* synthetic */ PersonalChatView bpk;
-    private final /* synthetic */ Animation bpl;
-    private final /* synthetic */ String bpm;
+    private final /* synthetic */ String aXw;
+    final /* synthetic */ PersonalChatView bpA;
+    private final /* synthetic */ Animation bpB;
+    private final /* synthetic */ String bpC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.bpk = personalChatView;
-        this.aXg = str;
-        this.bpm = str2;
-        this.bpl = animation;
+        this.bpA = personalChatView;
+        this.aXw = str;
+        this.bpC = str2;
+        this.bpB = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class v implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.bpk.bpe;
+        linearLayout = this.bpA.bpu;
         linearLayout.clearAnimation();
-        textView = this.bpk.bpf;
-        personalChatActivity = this.bpk.bpc;
-        textView.setText(personalChatActivity.getResources().getString(y.add_friend_agree_title, this.aXg));
-        textView2 = this.bpk.bpg;
-        textView2.setText(this.bpm);
-        linearLayout2 = this.bpk.bpe;
-        linearLayout2.setAnimation(this.bpl);
+        textView = this.bpA.bpv;
+        personalChatActivity = this.bpA.bps;
+        textView.setText(personalChatActivity.getResources().getString(y.add_friend_agree_title, this.aXw));
+        textView2 = this.bpA.bpw;
+        textView2.setText(this.bpC);
+        linearLayout2 = this.bpA.bpu;
+        linearLayout2.setAnimation(this.bpB);
     }
 }

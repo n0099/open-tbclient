@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class w {
-    private static w TT;
-    private long TO = 0;
-    private long TP = 0;
-    private String TQ = "";
-    private String TR = "";
-    private final long TS = 120000;
+    private static w TV;
+    private long TQ = 0;
+    private long TR = 0;
+    private String TS = "";
+    private String TT = "";
+    private final long TU = 120000;
 
     public static w sh() {
-        if (TT == null) {
+        if (TV == null) {
             synchronized (w.class) {
-                if (TT == null) {
-                    TT = new w();
+                if (TV == null) {
+                    TV = new w();
                 }
             }
         }
-        return TT;
+        return TV;
     }
 
     public String si() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.TO > 120000) {
+        if (currentTimeMillis - this.TQ > 120000) {
             if (com.baidu.adp.lib.util.n.iW()) {
                 return "";
             }
-            this.TO = currentTimeMillis;
-            this.TQ = UtilHelper.getIpFromDomain("tieba.baidu.com");
+            this.TQ = currentTimeMillis;
+            this.TS = UtilHelper.getIpFromDomain("tieba.baidu.com");
         }
-        return this.TQ;
+        return this.TS;
     }
 
     public String cB(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.TP > 120000) {
+        if (currentTimeMillis - this.TR > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.n.iW()) {
                 return "";
             }
-            this.TP = currentTimeMillis;
-            this.TR = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
-            return this.TR;
+            this.TR = currentTimeMillis;
+            this.TT = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            return this.TT;
         }
-        return this.TR;
+        return this.TT;
     }
 }

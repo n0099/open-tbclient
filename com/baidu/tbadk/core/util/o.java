@@ -24,7 +24,7 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class o {
     public static final File yl = Environment.getExternalStorageDirectory();
-    private static final File Tl = TbadkCoreApplication.m411getInst().getApp().getCacheDir();
+    private static final File Tn = TbadkCoreApplication.m411getInst().getApp().getCacheDir();
 
     public static boolean fj() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -919,10 +919,10 @@ public class o {
     }
 
     private static String b(int i, String str, boolean z) {
-        if (Tl == null) {
+        if (Tn == null) {
             return null;
         }
-        File[] listFiles = Tl.listFiles();
+        File[] listFiles = Tn.listFiles();
         String bS = bS(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(bS)) {

@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class t extends CustomMessageListener {
-    final /* synthetic */ OfficialBarChatActivity aYU;
+    final /* synthetic */ OfficialBarChatActivity aZk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aYU = officialBarChatActivity;
+        this.aZk = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ class t extends CustomMessageListener {
         OfficialBarMsglistModel officialBarMsglistModel5;
         OfficialBarMsglistView officialBarMsglistView3;
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseOfficialBarMenuLocalMessage)) {
-            this.aYU.showToast(com.baidu.tieba.y.neterror);
+            this.aZk.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         com.baidu.tieba.im.data.e officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
         if (officialBarMenuDatas != null) {
-            officialBarMsglistView2 = this.aYU.aYO;
-            officialBarMsglistView2.cu(false);
-            officialBarMsglistModel3 = this.aYU.aYP;
+            officialBarMsglistView2 = this.aZk.aZe;
+            officialBarMsglistView2.cs(false);
+            officialBarMsglistModel3 = this.aZk.aZf;
             officialBarMsglistModel3.setOfficialBarMenuDatas(officialBarMenuDatas);
-            officialBarMsglistModel4 = this.aYU.aYP;
-            officialBarMsglistModel5 = this.aYU.aYP;
-            officialBarMsglistModel4.sendGetMenuNetMessage(officialBarMsglistModel5.getForumId(), officialBarMenuDatas.PE());
-            officialBarMsglistView3 = this.aYU.aYO;
-            officialBarMsglistView3.aw(officialBarMenuDatas.PF());
+            officialBarMsglistModel4 = this.aZk.aZf;
+            officialBarMsglistModel5 = this.aZk.aZf;
+            officialBarMsglistModel4.sendGetMenuNetMessage(officialBarMsglistModel5.getForumId(), officialBarMenuDatas.PR());
+            officialBarMsglistView3 = this.aZk.aZe;
+            officialBarMsglistView3.ay(officialBarMenuDatas.PS());
             return;
         }
-        officialBarMsglistView = this.aYU.aYO;
-        officialBarMsglistView.cu(true);
-        officialBarMsglistModel = this.aYU.aYP;
-        officialBarMsglistModel2 = this.aYU.aYP;
+        officialBarMsglistView = this.aZk.aZe;
+        officialBarMsglistView.cs(true);
+        officialBarMsglistModel = this.aZk.aZf;
+        officialBarMsglistModel2 = this.aZk.aZf;
         officialBarMsglistModel.sendGetMenuNetMessage(officialBarMsglistModel2.getForumId(), 0L);
     }
 }

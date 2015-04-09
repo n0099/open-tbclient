@@ -11,12 +11,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cn extends BdAsyncTask<Object, Integer, SignData> {
-    private volatile com.baidu.tbadk.core.util.aa ZD;
-    final /* synthetic */ cm aMV;
+    private volatile com.baidu.tbadk.core.util.aa ZF;
+    final /* synthetic */ cm aNg;
 
     private cn(cm cmVar) {
-        this.aMV = cmVar;
-        this.ZD = null;
+        this.aNg = cmVar;
+        this.ZF = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -56,21 +56,21 @@ public class cn extends BdAsyncTask<Object, Integer, SignData> {
         Object obj2 = null;
         try {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            this.ZD = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-            com.baidu.tbadk.core.util.aa aaVar = this.ZD;
-            str = this.aMV.mForumName;
+            this.ZF = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
+            com.baidu.tbadk.core.util.aa aaVar = this.ZF;
+            str = this.aNg.mForumName;
             aaVar.o("kw", str);
-            com.baidu.tbadk.core.util.aa aaVar2 = this.ZD;
-            str2 = this.aMV.mForumId;
+            com.baidu.tbadk.core.util.aa aaVar2 = this.ZF;
+            str2 = this.aNg.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
-            this.ZD.sp().tp().mIsNeedTbs = true;
-            rO = this.ZD.rO();
+            this.ZF.sp().tp().mIsNeedTbs = true;
+            rO = this.ZF.rO();
         } catch (Exception e2) {
             obj = obj2;
             e = e2;
         }
-        if (this.ZD.ss()) {
-            obj = this.ZD.sp().tq().pv();
+        if (this.ZF.ss()) {
+            obj = this.ZF.sp().tq().pv();
             try {
                 if (obj != 0) {
                     SignData signData = new SignData();
@@ -99,12 +99,12 @@ public class cn extends BdAsyncTask<Object, Integer, SignData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.base.i iVar;
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        this.aMV.aMU = null;
+        this.aNg.aNf = null;
         super.cancel(true);
-        iVar = this.aMV.mLoadDataCallBack;
+        iVar = this.aNg.mLoadDataCallBack;
         iVar.c(null);
     }
 
@@ -115,13 +115,13 @@ public class cn extends BdAsyncTask<Object, Integer, SignData> {
     public void onPostExecute(SignData signData) {
         com.baidu.adp.base.i iVar;
         TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        this.aMV.aMU = null;
+        this.aNg.aNf = null;
         TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        if (signData == null && this.ZD != null) {
-            this.aMV.mErrorCode = this.ZD.st();
-            this.aMV.mErrorString = this.ZD.getErrorString();
+        if (signData == null && this.ZF != null) {
+            this.aNg.mErrorCode = this.ZF.st();
+            this.aNg.mErrorString = this.ZF.getErrorString();
         }
-        iVar = this.aMV.mLoadDataCallBack;
+        iVar = this.aNg.mLoadDataCallBack;
         iVar.c(signData);
     }
 }

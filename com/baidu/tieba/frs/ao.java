@@ -10,17 +10,17 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ao {
-    private TbPageContext<FrsActivity> LN;
-    private Animation aKm;
+    private TbPageContext<FrsActivity> LP;
+    private Animation aKw;
 
     public ao(TbPageContext<FrsActivity> tbPageContext) {
-        this.LN = tbPageContext;
-        this.aKm = AnimationUtils.loadAnimation(this.LN.getPageActivity(), com.baidu.tieba.p.frs_like);
+        this.LP = tbPageContext;
+        this.aKw = AnimationUtils.loadAnimation(this.LP.getPageActivity(), com.baidu.tieba.p.frs_like);
     }
 
     public void t(View view) {
-        if (!this.LN.getPageActivity().isFinishing()) {
-            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.LN.getPageActivity(), com.baidu.tieba.w.frs_like_cover, null);
+        if (!this.LP.getPageActivity().isFinishing()) {
+            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.LP.getPageActivity(), com.baidu.tieba.w.frs_like_cover, null);
             Button button = (Button) inflate.findViewById(com.baidu.tieba.v.btn_love);
             TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.tv_love);
             textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
@@ -33,8 +33,8 @@ public class ao {
             gVar.P(com.baidu.tieba.v.love).O(0).v(true);
             gVar.a(new ap(this, inflate));
             com.baidu.adp.lib.guide.d gV = gVar.gV();
-            gV.i(this.LN.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.LN.getOrignalPage(), inflate, this.aKm, new aq(this, gV));
+            gV.i(this.LP.getPageActivity());
+            com.baidu.tieba.tbadkCore.a.a(this.LP.getOrignalPage(), inflate, this.aKw, new aq(this, gV));
         }
     }
 }

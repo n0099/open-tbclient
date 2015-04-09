@@ -1,45 +1,45 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class ab extends ag {
-    public static int apA = 100;
-    public static int apB = 10;
+    public static int apI = 100;
+    public static int apJ = 10;
 
-    public static void CI() {
-        if (ah.CK().CL()) {
-            if (ad.apF > apB) {
-                ad.Cx();
+    public static void CO() {
+        if (ah.CQ().CR()) {
+            if (ad.apN > apJ) {
+                ad.CD();
             }
-            if (ac.apC > apB) {
-                ac.Cx();
+            if (ac.apK > apJ) {
+                ac.CD();
             }
         }
     }
 
     public static void a(boolean z, boolean z2, boolean z3) {
-        ac.apC++;
+        ac.apK++;
         if (z2) {
-            ac.apD++;
+            ac.apL++;
         } else if (z3) {
-            ac.apE++;
+            ac.apM++;
         }
-        if (ac.apC > apA) {
-            ac.Cx();
+        if (ac.apK > apI) {
+            ac.CD();
         }
     }
 
     public void c(r rVar) {
-        if (ah.CK().CL()) {
-            if (ad.apF < apA) {
-                ad.apG += rVar.vy;
-                ad.apH += rVar.aoW;
-                ad.apI += rVar.aoX;
-                ad.apJ += rVar.aoY;
-                ad.apL += rVar.Gx;
-                ad.apK += rVar.aoN;
-                ad.apF++;
+        if (ah.CQ().CR()) {
+            if (ad.apN < apI) {
+                ad.apO += rVar.vy;
+                ad.apP += rVar.ape;
+                ad.apQ += rVar.apf;
+                ad.apR += rVar.apg;
+                ad.apT += rVar.Gz;
+                ad.apS += rVar.aoV;
+                ad.apN++;
                 return;
             }
-            ad.Cx();
+            ad.CD();
         }
     }
 }

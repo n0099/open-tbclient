@@ -49,7 +49,7 @@ public class CustomTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         d c = c(spannableStringBuilder, i, i2);
-        if (c.arW) {
+        if (c.ase) {
             a(i, i2, spannableStringBuilder, c);
         } else {
             B(i, i2);
@@ -78,7 +78,7 @@ public class CustomTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return d.apu();
+        return d.apJ();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -91,7 +91,7 @@ public class CustomTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, d dVar) {
-        for (Object obj : dVar.arY) {
+        for (Object obj : dVar.asg) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -101,7 +101,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : dVar.arX) {
+        for (Object obj2 : dVar.asf) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {

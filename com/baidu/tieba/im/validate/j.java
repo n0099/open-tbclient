@@ -6,11 +6,11 @@ import com.baidu.tieba.im.data.ValidateItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ i bnM;
+    final /* synthetic */ i boc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.bnM = iVar;
+        this.boc = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,9 +18,9 @@ public class j implements View.OnClickListener {
         ValidateActivity validateActivity;
         TextView textView;
         ValidateItemData validateItemData;
-        validateActivity = this.bnM.bnH;
-        textView = this.bnM.bnK;
-        validateItemData = this.bnM.bnL;
+        validateActivity = this.boc.bnX;
+        textView = this.boc.boa;
+        validateItemData = this.boc.bob;
         validateActivity.a(textView, 100, 0, 0L, validateItemData);
     }
 }

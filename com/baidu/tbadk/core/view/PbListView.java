@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.e {
-    private LinearLayout XG;
-    private String YO;
-    private ImageView YP;
-    private int YQ;
+    private LinearLayout XI;
+    private String YQ;
+    private ImageView YR;
+    private int YS;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private ProgressBar mProgressBar;
@@ -26,7 +26,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
         ICON_DOWN_WARD,
         ICON_UP_WARD;
 
-        /* JADX DEBUG: Replace access to removed values field (YR) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (YT) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static IconType[] valuesCustom() {
             IconType[] valuesCustom = values();
@@ -43,11 +43,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.YO = null;
-        this.XG = null;
+        this.YQ = null;
+        this.XI = null;
         this.mTextColor = 0;
-        this.YP = null;
-        this.YQ = 0;
+        this.YR = null;
+        this.YS = 0;
         this.mContext = context;
     }
 
@@ -58,15 +58,15 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
     @Override // com.baidu.adp.widget.ListView.e
     public View mN() {
         this.mRoot = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.new_pb_list_more, null);
-        this.XG = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.v.pb_more_view);
+        this.XI = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.v.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.pb_more_text);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.v.progress);
-        this.YP = (ImageView) this.mRoot.findViewById(com.baidu.tieba.v.pb_more_view_top_line);
+        this.YR = (ImageView) this.mRoot.findViewById(com.baidu.tieba.v.pb_more_view_top_line);
         return this.mRoot;
     }
 
     public void tN() {
-        this.YP.setVisibility(0);
+        this.YR.setVisibility(0);
     }
 
     public void startLoadData() {
@@ -77,8 +77,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
 
     public void tO() {
         this.mProgressBar.setVisibility(8);
-        if (this.YO != null) {
-            this.mTextView.setText(this.YO);
+        if (this.YQ != null) {
+            this.mTextView.setText(this.YQ);
         } else {
             this.mTextView.setText(this.mContext.getText(com.baidu.tieba.y.pb_load_more));
         }
@@ -86,17 +86,21 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
     }
 
     public void cr(int i) {
-        ba.i(this.XG, i);
+        ba.i(this.XI, i);
     }
 
     public void setText(String str) {
-        this.YO = str;
+        this.YQ = str;
         this.mTextView.setText(str);
         ct(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 
     @Override // com.baidu.adp.widget.ListView.e
@@ -107,7 +111,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
     }
 
     public void cs(int i) {
-        this.YQ = i;
+        this.YS = i;
     }
 
     public void ct(int i) {
@@ -117,7 +121,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
             i2 = ba.getColor(com.baidu.tieba.s.pb_more_txt);
         } else if (charSequence.equals(this.mContext.getText(com.baidu.tieba.y.loading))) {
             i2 = ba.getColor(com.baidu.tieba.s.pb_more_txt);
-        } else if (charSequence.equals(this.mContext.getText(com.baidu.tieba.y.no_more_to_load))) {
+        } else if (charSequence.equals(this.mContext.getText(com.baidu.tieba.y.list_no_more))) {
             i2 = ba.getColor(com.baidu.tieba.s.pb_list_morebutton_nomore_text);
         }
         if (this.mTextColor != 0) {
@@ -126,11 +130,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
         if (i2 != 0) {
             this.mTextView.setTextColor(i2);
         }
-        ba.c(this.YP, com.baidu.tieba.s.cp_bg_line_b);
-        if (this.YQ == 0) {
-            ba.i(this.XG, com.baidu.tieba.s.cp_bg_line_d);
-        } else if (this.YQ > 0) {
-            ba.i(this.XG, this.YQ);
+        ba.c(this.YR, com.baidu.tieba.s.cp_bg_line_b);
+        if (this.YS == 0) {
+            ba.i(this.XI, com.baidu.tieba.s.cp_bg_line_d);
+        } else if (this.YS > 0) {
+            ba.i(this.XI, this.YS);
         }
     }
 }

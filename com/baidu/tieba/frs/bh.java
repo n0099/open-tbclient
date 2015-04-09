@@ -6,17 +6,17 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ bf aLR;
+    final /* synthetic */ bf aMc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(bf bfVar) {
-        this.aLR = bfVar;
+        this.aMc = bfVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         FrsActivity frsActivity;
-        frsActivity = this.aLR.aJT;
+        frsActivity = this.aMc.aKd;
         ImageView imageView = new ImageView(frsActivity.getPageContext().getPageActivity());
         imageView.setImageResource(com.baidu.tieba.u.tips_swipe_back);
         return imageView;

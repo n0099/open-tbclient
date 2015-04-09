@@ -1,9 +1,9 @@
 package com.baidu.tieba.tblauncher.a;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.tbadkCore.f.a {
-    private int crP;
-    private int crQ;
-    private int crR;
+    private int csf;
+    private int csg;
+    private int csh;
     private int mType;
 
     public a(int i, int i2, int i3) {
@@ -11,21 +11,21 @@ public class a implements com.baidu.tieba.tbadkCore.f.a {
     }
 
     public a(int i, int i2, int i3, int i4) {
-        this.crR = 0;
-        this.crQ = i;
-        this.crP = i2;
+        this.csh = 0;
+        this.csg = i;
+        this.csf = i2;
         this.mType = i3;
-        this.crR = i4;
+        this.csh = i4;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.a
-    public int amV() {
-        return this.crP;
+    public int ank() {
+        return this.csf;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.a
-    public int amU() {
-        return this.crQ;
+    public int anj() {
+        return this.csg;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.a
@@ -34,12 +34,12 @@ public class a implements com.baidu.tieba.tbadkCore.f.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.a
-    public int amW() {
-        return this.crR;
+    public int anl() {
+        return this.csh;
     }
 
-    public void iG(int i) {
-        this.crR = i;
+    public void iJ(int i) {
+        this.csh = i;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.a

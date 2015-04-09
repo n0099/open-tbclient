@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Integer, Boolean> {
-    private aa Oi;
-    final /* synthetic */ TiebaUpdateService bZe;
+    private aa Ok;
+    final /* synthetic */ TiebaUpdateService bZt;
     private volatile boolean wb;
 
     private n(TiebaUpdateService tiebaUpdateService) {
-        this.bZe = tiebaUpdateService;
-        this.Oi = null;
+        this.bZt = tiebaUpdateService;
+        this.Ok = null;
         this.wb = false;
     }
 
@@ -25,25 +25,25 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0090, code lost:
-        r0 = r7.bZe.mHasTieba;
+        r0 = r7.bZt.mHasTieba;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0096, code lost:
         if (r0 != false) goto L36;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0098, code lost:
-        r0 = r7.bZe.mHasAs;
+        r0 = r7.bZt.mHasAs;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x009e, code lost:
         if (r0 == false) goto L26;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a0, code lost:
-        r0 = r7.bZe.mIsMainApkDone;
+        r0 = r7.bZt.mIsMainApkDone;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00a6, code lost:
         if (r0 == false) goto L26;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00a8, code lost:
-        r7.bZe.sendBroadcast("action_update_progress_interrupted", true);
+        r7.bZt.sendBroadcast("action_update_progress_interrupted", true);
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b0, code lost:
         r0 = r1;
@@ -68,20 +68,20 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
                 if (this.wb) {
                     break;
                 }
-                str2 = this.bZe.mOtherApkUrl;
-                this.Oi = new aa(str2);
-                aa aaVar = this.Oi;
-                str3 = this.bZe.mOtherApkFileName;
+                str2 = this.bZt.mOtherApkUrl;
+                this.Ok = new aa(str2);
+                aa aaVar = this.Ok;
+                str3 = this.bZt.mOtherApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.bZe.mOtherApkHandler;
+                handler = this.bZt.mOtherApkHandler;
                 bool2 = Boolean.valueOf(aaVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
-                } else if (this.Oi.st() == -2) {
+                } else if (this.Ok.st() == -2) {
                     bool = bool2;
                     break;
                 } else {
-                    if (!this.Oi.sp().tq().hi()) {
+                    if (!this.Ok.sp().tq().hi()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e2) {
@@ -90,7 +90,7 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
                     z = TiebaUpdateService.sHasStart;
                     if (z) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        j = this.bZe.mOtherTaskWaitingTimestamp;
+                        j = this.bZt.mOtherTaskWaitingTimestamp;
                         if (currentTimeMillis - j > 20000) {
                             break;
                         }
@@ -104,8 +104,8 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.bZe;
-                str = this.bZe.mOtherApkFileName;
+                TiebaUpdateService tiebaUpdateService = this.bZt;
+                str = this.bZt.mOtherApkFileName;
                 tiebaUpdateService.renameFile(str);
             }
         } catch (Exception e4) {
@@ -121,17 +121,17 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
         boolean z;
         boolean z2;
         super.cancel(true);
-        this.bZe.mDowndOtherApkTask = null;
+        this.bZt.mDowndOtherApkTask = null;
         this.wb = true;
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
-        z = this.bZe.mHasTieba;
+        z = this.bZt.mHasTieba;
         if (!z) {
-            z2 = this.bZe.mHasAs;
+            z2 = this.bZt.mHasAs;
             if (!z2) {
                 TiebaUpdateService.sHasStart = false;
-                this.bZe.stopSelf();
+                this.bZt.stopSelf();
             }
         }
     }
@@ -147,26 +147,26 @@ public class n extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler2;
         boolean z3;
         super.onPostExecute(bool);
-        this.bZe.mDowndOtherApkTask = null;
+        this.bZt.mDowndOtherApkTask = null;
         if (bool.booleanValue()) {
-            this.bZe.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
+            this.bZt.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
         }
-        z = this.bZe.mHasTieba;
+        z = this.bZt.mHasTieba;
         if (!z) {
-            z3 = this.bZe.mHasAs;
+            z3 = this.bZt.mHasAs;
             if (!z3) {
                 TiebaUpdateService.sHasStart = false;
-                this.bZe.stopSelf();
+                this.bZt.stopSelf();
                 return;
             }
         }
-        z2 = this.bZe.mMainApkInstallEnable;
+        z2 = this.bZt.mMainApkInstallEnable;
         if (!z2) {
-            this.bZe.mMainApkInstallEnable = true;
+            this.bZt.mMainApkInstallEnable = true;
             return;
         }
-        handler = this.bZe.mOtherApkHandler;
-        handler2 = this.bZe.mOtherApkHandler;
+        handler = this.bZt.mOtherApkHandler;
+        handler2 = this.bZt.mOtherApkHandler;
         handler.sendMessageDelayed(handler2.obtainMessage(2, null), 100L);
     }
 }

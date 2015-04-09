@@ -16,7 +16,7 @@ public class ForumDetailActivityConfig extends a {
         BAR_RANK,
         BAR_SQUARE;
 
-        /* JADX DEBUG: Replace access to removed values field (OI) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (OL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();

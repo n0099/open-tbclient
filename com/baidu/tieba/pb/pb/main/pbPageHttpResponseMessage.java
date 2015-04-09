@@ -73,10 +73,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bo.ZJ().a(this.cacheKey, this.isFromMark, bArr);
+                bp.ZW().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bo.ZJ().l(this.cacheKey, bArr);
+                bp.ZW().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

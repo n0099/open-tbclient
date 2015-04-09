@@ -5,78 +5,100 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ae implements am {
-    final /* synthetic */ MsgRemindActivity cbb;
+    final /* synthetic */ MsgRemindActivity cbq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(MsgRemindActivity msgRemindActivity) {
-        this.cbb = msgRemindActivity;
+        this.cbq = msgRemindActivity;
     }
 
     @Override // com.baidu.tieba.setting.more.am
     public void a(int i, boolean z, boolean z2) {
+        ar arVar;
+        ar arVar2;
+        ar arVar3;
+        ar arVar4;
+        ar arVar5;
+        ar arVar6;
+        ar arVar7;
+        ar arVar8;
+        ar arVar9;
+        ar arVar10;
+        ar arVar11;
         if (i == 14) {
-            BdSwitchView ahm = this.cbb.caY.ahm();
+            arVar9 = this.cbq.cbn;
+            BdSwitchView ahB = arVar9.ahB();
             if (z) {
                 if (z2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.vq().cE(300);
-                    this.cbb.caY.ew(true);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.vw().cE(300);
+                    arVar11 = this.cbq.cbn;
+                    arVar11.eu(true);
                     MsgRemindStatic.s(0, true);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.vq().cE(0);
-                    this.cbb.caY.ew(false);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.vw().cE(0);
+                    arVar10 = this.cbq.cbn;
+                    arVar10.eu(false);
                     MsgRemindStatic.s(0, false);
                 }
-                if (ahm != null) {
-                    com.baidu.adp.lib.g.i.hI().postDelayed(new af(this, z2, ahm), 500L);
+                if (ahB != null) {
+                    com.baidu.adp.lib.g.i.hI().postDelayed(new af(this, z2, ahB), 500L);
                 }
-            } else if (ahm != null) {
-                com.baidu.adp.lib.g.i.hI().postDelayed(new ag(this, z2, ahm), 500L);
+            } else if (ahB != null) {
+                com.baidu.adp.lib.g.i.hI().postDelayed(new ag(this, z2, ahB), 500L);
             }
         } else if (i == 2) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().aA(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().aA(z2);
             }
-            this.cbb.caY.ahG();
+            arVar8 = this.cbq.cbn;
+            arVar8.ahV();
         } else if (i == 3) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().aB(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().aB(z2);
             }
-            this.cbb.caY.ahH();
+            arVar7 = this.cbq.cbn;
+            arVar7.ahW();
         } else if (i == 4) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().aq(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().aq(z2);
                 if (!z2) {
-                    TiebaStatic.eventStat(this.cbb.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.cbq.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                 }
             }
-            this.cbb.caY.ahJ();
+            arVar6 = this.cbq.cbn;
+            arVar6.ahY();
         } else if (i == 5) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().ap(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().ap(z2);
                 MsgRemindStatic.s(1, z2);
             }
-            this.cbb.caY.ahI();
+            arVar5 = this.cbq.cbn;
+            arVar5.ahX();
         } else if (i == 1) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().az(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().az(z2);
             }
-            this.cbb.caY.ahE();
+            arVar4 = this.cbq.cbn;
+            arVar4.ahT();
         } else if (i == 13) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().ar(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().ar(z2);
             }
-            this.cbb.caY.ahF();
+            arVar3 = this.cbq.cbn;
+            arVar3.ahU();
         } else if (i == 23) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.vq().as(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.vw().as(z2);
                 MsgRemindStatic.s(2, z2);
             }
-            this.cbb.caY.ahK();
+            arVar2 = this.cbq.cbn;
+            arVar2.ahZ();
         } else if (i == 6) {
             if (!z) {
-                BdSwitchView ahk = this.cbb.caY.ahk();
-                if (ahk != null) {
-                    com.baidu.adp.lib.g.i.hI().postDelayed(new ah(this, z2, ahk), 500L);
+                arVar = this.cbq.cbn;
+                BdSwitchView ahz = arVar.ahz();
+                if (ahz != null) {
+                    com.baidu.adp.lib.g.i.hI().postDelayed(new ah(this, z2, ahz), 500L);
                     return;
                 }
                 return;

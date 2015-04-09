@@ -7,11 +7,11 @@ import com.baidu.tieba.friendFeed.data.FriendFeedThreadData;
 import com.baidu.tieba.tbadkCore.ar;
 /* loaded from: classes.dex */
 class l implements v {
-    final /* synthetic */ FriendFeedActivity aHM;
+    final /* synthetic */ FriendFeedActivity aHU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FriendFeedActivity friendFeedActivity) {
-        this.aHM = friendFeedActivity;
+        this.aHU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.friendFeed.v
@@ -21,20 +21,20 @@ class l implements v {
         y yVar3;
         boolean z;
         ar arVar;
-        yVar = this.aHM.aHt;
-        if (i != yVar.Jb().IW() || view2 == null || view == null) {
-            yVar2 = this.aHM.aHt;
-            if (i != yVar2.Jb().IV()) {
-                yVar3 = this.aHM.aHt;
-                yVar3.Jb().IX();
+        yVar = this.aHU.aHB;
+        if (i != yVar.Jh().Jc() || view2 == null || view == null) {
+            yVar2 = this.aHU.aHB;
+            if (i != yVar2.Jh().Jb()) {
+                yVar3 = this.aHU.aHB;
+                yVar3.Jh().Jd();
                 return;
             }
-            this.aHM.aHx = friendFeedThreadData;
-            z = this.aHM.aHw;
+            this.aHU.aHF = friendFeedThreadData;
+            z = this.aHU.aHE;
             if (!z) {
-                this.aHM.aHw = true;
+                this.aHU.aHE = true;
                 int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                arVar = this.aHM.aHL;
+                arVar = this.aHU.aHT;
                 arVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
                 return;
             }
@@ -43,6 +43,6 @@ class l implements v {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.aHM.a(i2, friendFeedThreadData, rect.bottom);
+        this.aHU.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

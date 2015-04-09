@@ -13,7 +13,7 @@ class f implements Parcelable.Creator<RandChatRoomData> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: fJ */
+    /* renamed from: fL */
     public RandChatRoomData[] newArray(int i) {
         return new RandChatRoomData[i];
     }

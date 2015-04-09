@@ -13,9 +13,9 @@ public class au {
             if (!(!TextUtils.isEmpty(yVar.getPkgName()))) {
                 com.baidu.adp.lib.util.n.showToast(context, com.baidu.tieba.y.pb_app_error);
             } else if (com.baidu.adp.lib.util.k.iH()) {
-                yVar.ik(1);
+                yVar.in(1);
                 TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", yVar.getPkgName());
-                com.baidu.tbadk.download.b.yl().a(yVar.getPkgName(), yVar.getDownloadUrl(), yVar.getAppName(), i, 0);
+                com.baidu.tbadk.download.b.yr().a(yVar.getPkgName(), yVar.getDownloadUrl(), yVar.getAppName(), i, 0);
             } else {
                 com.baidu.adp.lib.util.n.showToast(context, com.baidu.tieba.y.neterror);
             }

@@ -1,38 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import android.view.View;
 /* loaded from: classes.dex */
-public class de implements com.baidu.tbadk.editortool.v {
-    final /* synthetic */ ci bMm;
+class de implements View.OnClickListener {
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(ci ciVar) {
-        this.bMm = ciVar;
+    public de(cj cjVar) {
+        this.bMC = cjVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.v
-    public void handleAction(int i, Object obj) {
-        com.baidu.tbadk.editortool.v vVar;
-        com.baidu.tbadk.editortool.v vVar2;
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        PbActivity pbActivity;
-        if (i == 35) {
-            pbEditor = this.bMm.bLR;
-            if (!pbEditor.alv()) {
-                pbEditor2 = this.bMm.bLR;
-                if (!pbEditor2.alJ()) {
-                    pbActivity = this.bMm.bIF;
-                    TiebaStatic.eventStat(pbActivity.getPageContext().getPageActivity(), "pb_reply", "pbclick", 1, new Object[0]);
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.v.tag_del_post_id))) {
+                this.bMC.M(view);
+            } else {
+                this.bMC.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
             }
-        }
-        vVar = this.bMm.bLS;
-        if (vVar != null) {
-            vVar2 = this.bMm.bLS;
-            vVar2.handleAction(i, obj);
         }
     }
 }

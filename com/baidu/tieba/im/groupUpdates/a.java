@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.ResponseDelSystemMessage;
 import com.baidu.tieba.im.model.UpdatesModel;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ UpdatesActivity biy;
+    final /* synthetic */ UpdatesActivity biO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UpdatesActivity updatesActivity, int i) {
         super(i);
-        this.biy = updatesActivity;
+        this.biO = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,25 +28,25 @@ class a extends com.baidu.adp.framework.listener.e {
         com.baidu.tieba.im.g<Boolean> gVar;
         UpdatesItemData updatesItemData2;
         com.baidu.tieba.im.g gVar2;
-        sVar = this.biy.biv;
+        sVar = this.biO.biL;
         sVar.setLoadProgressBarVisable(false);
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
             ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
             RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
             if (responseDelSystemMessage.getError() == 0) {
-                updatesItemData = this.biy.pendingToDel;
+                updatesItemData = this.biO.pendingToDel;
                 if (updatesItemData != null) {
-                    updatesItemData2 = this.biy.pendingToDel;
-                    gVar2 = this.biy.delDataCallBack;
+                    updatesItemData2 = this.biO.pendingToDel;
+                    gVar2 = this.biO.delDataCallBack;
                     UpdatesModel.deleteUpdatesData(updatesItemData2, gVar2);
-                    this.biy.pendingToDel = null;
+                    this.biO.pendingToDel = null;
                 }
-                updatesModel = this.biy.bix;
+                updatesModel = this.biO.biN;
                 if (updatesModel != null) {
-                    updatesModel2 = this.biy.bix;
+                    updatesModel2 = this.biO.biN;
                     if (updatesModel2.getDeleteSize() > 0) {
-                        updatesModel3 = this.biy.bix;
-                        gVar = this.biy.delDataCallBack;
+                        updatesModel3 = this.biO.biN;
+                        gVar = this.biO.delDataCallBack;
                         updatesModel3.deleteDatas(gVar);
                     }
                 }

@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class bd {
-    final /* synthetic */ ba aKO;
-    private List<LiveCardData> aKT;
-    private List<LiveCardData> aKU;
-    private final boolean aKV;
+    final /* synthetic */ ba aKY;
+    private List<LiveCardData> aLd;
+    private List<LiveCardData> aLe;
+    private final boolean aLf;
 
     public bd(ba baVar, List<LiveCardData> list) {
-        this.aKO = baVar;
-        this.aKT = list;
+        this.aKY = baVar;
+        this.aLd = list;
         if (list != null && list.size() > 1) {
-            this.aKV = true;
+            this.aLf = true;
         } else {
-            this.aKV = false;
+            this.aLf = false;
         }
-        this.aKU = T(this.aKT);
+        this.aLe = T(this.aLd);
     }
 
     private List<LiveCardData> T(List<LiveCardData> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null) {
             arrayList.addAll(list);
-            if (this.aKV && list.size() >= 1) {
+            if (this.aLf && list.size() >= 1) {
                 arrayList.add(0, list.get(list.size() - 1));
                 arrayList.add(list.get(0));
             }
@@ -35,8 +35,8 @@ class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int eK(int i) {
-        if (this.aKV) {
-            int size = this.aKU.size();
+        if (this.aLf) {
+            int size = this.aLe.size();
             if (i == 0) {
                 return size - 2;
             }
@@ -50,25 +50,25 @@ class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int eL(int i) {
-        if (this.aKV) {
+        if (this.aLf) {
             return i - 1;
         }
         return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int JM() {
-        if (this.aKT == null) {
+    public int JT() {
+        if (this.aLd == null) {
             return 0;
         }
-        return this.aKT.size();
+        return this.aLd.size();
     }
 
-    public int JN() {
-        return this.aKV ? 1 : 0;
+    public int JU() {
+        return this.aLf ? 1 : 0;
     }
 
-    public List<LiveCardData> JO() {
-        return this.aKU;
+    public List<LiveCardData> JV() {
+        return this.aLe;
     }
 }

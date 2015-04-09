@@ -5,12 +5,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, List<a>> {
-    private final m ctC;
-    final /* synthetic */ e ctD;
+    private final m ctS;
+    final /* synthetic */ e ctT;
 
     public f(e eVar, m mVar) {
-        this.ctD = eVar;
-        this.ctC = mVar;
+        this.ctT = eVar;
+        this.ctS = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,17 +18,17 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: D */
     public List<a> doInBackground(Object... objArr) {
-        List<a> apH;
-        apH = this.ctD.apH();
-        return apH;
+        List<a> apW;
+        apW = this.ctT.apW();
+        return apW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        if (this.ctC != null) {
-            this.ctC.mU();
+        if (this.ctS != null) {
+            this.ctS.mU();
         }
     }
 
@@ -38,8 +38,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     /* renamed from: n */
     public void onPostExecute(List<a> list) {
         super.onPostExecute(list);
-        if (this.ctC != null) {
-            this.ctC.aX(list);
+        if (this.ctS != null) {
+            this.ctS.bb(list);
         }
     }
 }

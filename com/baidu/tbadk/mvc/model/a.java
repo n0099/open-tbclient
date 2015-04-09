@@ -10,71 +10,71 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends com.baidu.adp.base.f<ActivityType> implements com.baidu.tbadk.mvc.a.b<T> {
     private boolean Eq;
-    private MessageListener<CustomResponsedMessage<?>> amB;
-    private MessageListener<CustomResponsedMessage<?>> amC;
-    private d<T> amD;
-    private boolean amE;
-    private boolean amF;
-    private boolean amG;
-    private boolean amH;
-    private boolean amI;
+    private MessageListener<CustomResponsedMessage<?>> amJ;
+    private MessageListener<CustomResponsedMessage<?>> amK;
+    private d<T> amL;
+    private boolean amM;
+    private boolean amN;
+    private boolean amO;
+    private boolean amP;
+    private boolean amQ;
 
     public a(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.amE = false;
-        this.amF = false;
-        this.amG = false;
-        this.amH = false;
+        this.amM = false;
+        this.amN = false;
+        this.amO = false;
+        this.amP = false;
         this.Eq = false;
-        this.amI = false;
+        this.amQ = false;
     }
 
-    protected boolean AJ() {
+    protected boolean AP() {
         return true;
     }
 
     protected void a(ReadCacheMessage<T> readCacheMessage) {
     }
 
-    public boolean AK() {
+    public boolean AQ() {
         return this.Eq;
     }
 
-    public final void AL() {
+    public final void AR() {
         this.Eq = true;
-        AO();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(zP());
+        AU();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(zV());
         readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setNeedUid(AJ());
+        readCacheMessage.setNeedUid(AP());
         a(readCacheMessage);
-        AQ();
+        AW();
         sendMessage(readCacheMessage);
         this.Eq = true;
     }
 
     public final void a(com.baidu.tbadk.mvc.b.e eVar) {
         this.Eq = true;
-        AO();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(zP());
+        AU();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(zV());
         readCacheMessage.setTag(getUniqueId());
         readCacheMessage.setRequestData(eVar);
-        readCacheMessage.setNeedUid(AJ());
+        readCacheMessage.setNeedUid(AP());
         a(readCacheMessage);
-        AQ();
+        AW();
         sendMessage(readCacheMessage);
     }
 
-    public final void AM() {
-        this.amI = true;
-        AP();
-        AN();
+    public final void AS() {
+        this.amQ = true;
+        AV();
+        AT();
     }
 
-    private final void AN() {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(zQ());
+    private final void AT() {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(zW());
         writeCacheMessage.setClear(true);
         writeCacheMessage.setTag(getUniqueId());
-        AR();
+        AX();
         sendMessage(writeCacheMessage);
     }
 
@@ -83,48 +83,48 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     private final void b(T t) {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(zQ());
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(zW());
         writeCacheMessage.setTag(getUniqueId());
         writeCacheMessage.setData(t);
-        AR();
+        AX();
         sendMessage(writeCacheMessage);
     }
 
-    private void AO() {
-        if (!this.amG) {
-            if (this.amB == null) {
-                this.amB = new b(this, zP());
-                this.amB.setSelfListener(true);
-                this.amB.setTag(this.unique_id);
+    private void AU() {
+        if (!this.amO) {
+            if (this.amJ == null) {
+                this.amJ = new b(this, zV());
+                this.amJ.setSelfListener(true);
+                this.amJ.setTag(this.unique_id);
             }
-            registerListener(this.amB);
-            this.amG = true;
+            registerListener(this.amJ);
+            this.amO = true;
         }
     }
 
-    private void AP() {
-        if (!this.amH) {
-            if (this.amC == null) {
-                this.amC = new c(this, zQ());
-                this.amC.setSelfListener(true);
-                this.amC.setTag(this.unique_id);
+    private void AV() {
+        if (!this.amP) {
+            if (this.amK == null) {
+                this.amK = new c(this, zW());
+                this.amK.setSelfListener(true);
+                this.amK.setTag(this.unique_id);
             }
-            registerListener(this.amC);
-            this.amH = true;
+            registerListener(this.amK);
+            this.amP = true;
         }
     }
 
-    private void AQ() {
-        if (!this.amE && MessageManager.getInstance().findTask(zP()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(zP(), new com.baidu.tbadk.mvc.f.c(zP(), zR(), zO())));
-            this.amE = true;
+    private void AW() {
+        if (!this.amM && MessageManager.getInstance().findTask(zV()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(zV(), new com.baidu.tbadk.mvc.f.c(zV(), zX(), zU())));
+            this.amM = true;
         }
     }
 
-    private void AR() {
-        if (!this.amF && MessageManager.getInstance().findTask(zQ()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(zQ(), new com.baidu.tbadk.mvc.f.d(zQ(), zR(), zO())));
-            this.amF = true;
+    private void AX() {
+        if (!this.amN && MessageManager.getInstance().findTask(zW()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(zW(), new com.baidu.tbadk.mvc.f.d(zW(), zX(), zU())));
+            this.amN = true;
         }
     }
 
@@ -141,6 +141,6 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     public void a(d<T> dVar) {
-        this.amD = dVar;
+        this.amL = dVar;
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ GuideActivity bxy;
+    final /* synthetic */ GuideActivity bxO;
 
     private f(GuideActivity guideActivity) {
-        this.bxy = guideActivity;
+        this.bxO = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(GuideActivity.f(this.bxy));
+        return Boolean.valueOf(GuideActivity.f(this.bxO));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         if (!bool.booleanValue()) {
-            GuideActivity.g(this.bxy);
+            GuideActivity.g(this.bxO);
         }
     }
 }

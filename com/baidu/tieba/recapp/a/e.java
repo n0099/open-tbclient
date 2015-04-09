@@ -6,27 +6,27 @@ import com.baidu.tieba.tbadkCore.au;
 import com.baidu.tieba.tbadkCore.c.i;
 /* loaded from: classes.dex */
 class e implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ int Rx;
-    private final /* synthetic */ View auw;
-    private final /* synthetic */ i bXm;
-    private final /* synthetic */ BaseAppViewHolder bXn;
-    final /* synthetic */ d bXp;
+    private final /* synthetic */ int Rz;
+    private final /* synthetic */ View auE;
+    private final /* synthetic */ i bXC;
+    private final /* synthetic */ BaseAppViewHolder bXD;
+    final /* synthetic */ d bXF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, View view, i iVar, int i, BaseAppViewHolder baseAppViewHolder) {
-        this.bXp = dVar;
-        this.auw = view;
-        this.bXm = iVar;
-        this.Rx = i;
-        this.bXn = baseAppViewHolder;
+        this.bXF = dVar;
+        this.auE = view;
+        this.bXC = iVar;
+        this.Rz = i;
+        this.bXD = baseAppViewHolder;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        com.baidu.tbadk.distribute.a.ye().a(this.auw.getContext(), this.bXm.amw(), "btn_download", "pb", this.bXm.cnP, this.bXm.threadId);
-        com.baidu.tbadk.distribute.a.ye().a(this.bXm.amw(), this.bXm.cnP, this.bXm.threadId, "PB", "download");
-        au.a(this.auw.getContext(), this.bXm, this.Rx);
-        this.bXn.refresh();
+        com.baidu.tbadk.distribute.a.yk().a(this.auE.getContext(), this.bXC.amL(), "btn_download", "pb", this.bXC.cof, this.bXC.threadId);
+        com.baidu.tbadk.distribute.a.yk().a(this.bXC.amL(), this.bXC.cof, this.bXC.threadId, "PB", "download");
+        au.a(this.auE.getContext(), this.bXC, this.Rz);
+        this.bXD.refresh();
     }
 }

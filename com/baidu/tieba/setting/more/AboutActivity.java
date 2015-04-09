@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private d bZI;
-    private com.baidu.tieba.setting.model.a bZJ;
-    private c bZK = null;
-    private String bZL = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private d bZX;
+    private com.baidu.tieba.setting.model.a bZY;
+    private c bZZ = null;
+    private String caa = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bZI = new d(this, new a(this));
-        this.bZI.agk();
+        this.bZX = new d(this, new a(this));
+        this.bZX.agz();
         regReceiver();
     }
 
@@ -28,8 +28,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bZI != null) {
-            this.bZI.agk();
+        if (this.bZX != null) {
+            this.bZX.agz();
         }
     }
 
@@ -38,11 +38,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onDestroy() {
         super.onDestroy();
         unregReceiver();
-        if (this.bZJ != null) {
-            this.bZJ.cancelLoadData();
+        if (this.bZY != null) {
+            this.bZY.cancelLoadData();
         }
-        if (this.bZI != null) {
-            this.bZI.hideProgress();
+        if (this.bZX != null) {
+            this.bZX.hideProgress();
         }
     }
 
@@ -50,47 +50,47 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bZI != null) {
-            this.bZI.dc(i);
+        if (this.bZX != null) {
+            this.bZX.dc(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.bZJ == null) {
-            this.bZJ = new com.baidu.tieba.setting.model.a(this, new b(this));
+        if (this.bZY == null) {
+            this.bZY = new com.baidu.tieba.setting.model.a(this, new b(this));
         } else {
-            this.bZJ.cancelLoadData();
+            this.bZY.cancelLoadData();
         }
-        this.bZJ.agh();
-        if (this.bZI != null) {
-            this.bZI.agj();
+        this.bZY.agw();
+        if (this.bZX != null) {
+            this.bZX.agy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(Object obj) {
-        if (this.bZI != null) {
-            this.bZI.hideProgress();
+        if (this.bZX != null) {
+            this.bZX.hideProgress();
         }
         com.baidu.tbadk.coreExtra.c.g gVar = obj != null ? (com.baidu.tbadk.coreExtra.c.g) obj : null;
         if (gVar != null) {
-            TbadkCoreApplication.m411getInst().setVersionData(gVar.vV());
+            TbadkCoreApplication.m411getInst().setVersionData(gVar.wb());
             TbadkCoreApplication.m411getInst().refreshNewVersion(false);
-            if (gVar.vV().hasNewVer()) {
-                if (gVar.vV().forceUpdate()) {
-                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.vV(), gVar.vU())));
+            if (gVar.wb().hasNewVer()) {
+                if (gVar.wb().forceUpdate()) {
+                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.wb(), gVar.wa())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.vV(), gVar.vU()));
+                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.wb(), gVar.wa()));
                     TbadkCoreApplication.m411getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             } else {
                 showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
             }
-            if (this.bZI != null) {
-                this.bZI.agk();
+            if (this.bZX != null) {
+                this.bZX.agz();
                 return;
             }
             return;
@@ -99,15 +99,15 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     private void regReceiver() {
-        this.bZK = new c(this, null);
+        this.bZZ = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.bZK, intentFilter);
+        registerReceiver(this.bZZ, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.bZK != null) {
-            unregisterReceiver(this.bZK);
+        if (this.bZZ != null) {
+            unregisterReceiver(this.bZZ);
         }
     }
 }

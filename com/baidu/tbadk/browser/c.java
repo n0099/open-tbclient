@@ -6,11 +6,11 @@ import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends TimerTask {
-    final /* synthetic */ BaseWebViewActivity Nl;
+    final /* synthetic */ BaseWebViewActivity Nn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebViewActivity baseWebViewActivity) {
-        this.Nl = baseWebViewActivity;
+        this.Nn = baseWebViewActivity;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -19,10 +19,10 @@ public class c extends TimerTask {
         Timer timer2;
         Message message = new Message();
         message.what = BaseWebViewActivity.TIME_OUT_MSG_CODE;
-        this.Nl.mHandler.sendMessage(message);
-        timer = this.Nl.mTimer;
+        this.Nn.mHandler.sendMessage(message);
+        timer = this.Nn.mTimer;
         timer.cancel();
-        timer2 = this.Nl.mTimer;
+        timer2 = this.Nn.mTimer;
         timer2.purge();
     }
 }

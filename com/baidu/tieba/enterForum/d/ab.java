@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class ab extends LinearLayout implements View.OnClickListener {
-    private ViewEventCenter aCK;
-    private com.baidu.tieba.enterForum.b.d aEA;
-    private BarImageView aEu;
-    private TextView aEv;
-    private TextView aEw;
-    private TextView aEx;
-    private TextView aEy;
-    private TextView aEz;
+    private ViewEventCenter aCS;
+    private BarImageView aEC;
+    private TextView aED;
+    private TextView aEE;
+    private TextView aEF;
+    private TextView aEG;
+    private TextView aEH;
+    private com.baidu.tieba.enterForum.b.d aEI;
 
     public ab(Context context) {
         this(context, null);
@@ -32,13 +32,13 @@ public class ab extends LinearLayout implements View.OnClickListener {
     }
 
     private void init() {
-        this.aEv = (TextView) findViewById(com.baidu.tieba.v.forum_name);
-        this.aEw = (TextView) findViewById(com.baidu.tieba.v.forum_follows_count);
-        this.aEx = (TextView) findViewById(com.baidu.tieba.v.forum_thread_count);
-        this.aEy = (TextView) findViewById(com.baidu.tieba.v.forum_intro);
-        this.aEu = (BarImageView) findViewById(com.baidu.tieba.v.forum_avatar);
-        this.aEz = (TextView) findViewById(com.baidu.tieba.v.tv_add_love);
-        this.aEz.setOnClickListener(this);
+        this.aED = (TextView) findViewById(com.baidu.tieba.v.forum_name);
+        this.aEE = (TextView) findViewById(com.baidu.tieba.v.forum_follows_count);
+        this.aEF = (TextView) findViewById(com.baidu.tieba.v.forum_thread_count);
+        this.aEG = (TextView) findViewById(com.baidu.tieba.v.forum_intro);
+        this.aEC = (BarImageView) findViewById(com.baidu.tieba.v.forum_avatar);
+        this.aEH = (TextView) findViewById(com.baidu.tieba.v.tv_add_love);
+        this.aEH.setOnClickListener(this);
         setOnClickListener(this);
     }
 
@@ -48,15 +48,15 @@ public class ab extends LinearLayout implements View.OnClickListener {
 
     public void setData(com.baidu.tieba.enterForum.b.d dVar) {
         if (dVar != null) {
-            this.aEA = dVar;
+            this.aEI = dVar;
             if (dVar.getType() == 0) {
                 setVisibility(0);
-                this.aEv.setText(dVar.getForumName());
-                this.aEw.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(com.baidu.tieba.y.attention_n)) + ex(dVar.Gy()));
-                this.aEx.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(com.baidu.tieba.y.text_post)) + ex(dVar.Gz()));
-                this.aEy.setText(dVar.getSlogan());
+                this.aED.setText(dVar.getForumName());
+                this.aEE.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(com.baidu.tieba.y.attention_n)) + ex(dVar.GE()));
+                this.aEF.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(com.baidu.tieba.y.text_post)) + ex(dVar.GF()));
+                this.aEG.setText(dVar.getSlogan());
                 if (!StringUtils.isNULL(dVar.getAvatar())) {
-                    this.aEu.c(dVar.getAvatar(), 10, false);
+                    this.aEC.c(dVar.getAvatar(), 10, false);
                     return;
                 }
                 return;
@@ -66,22 +66,22 @@ public class ab extends LinearLayout implements View.OnClickListener {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aCK = viewEventCenter;
+        this.aCS = viewEventCenter;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aCK != null) {
-            if (view == this.aEz) {
-                this.aCK.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(10, this.aEA, null, null));
+        if (this.aCS != null) {
+            if (view == this.aEH) {
+                this.aCS.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(10, this.aEI, null, null));
             } else if (view == this) {
-                this.aCK.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(11, this.aEA, null, null));
+                this.aCS.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(11, this.aEI, null, null));
             }
         }
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.f.a.a(tbPageContext, this);
-        this.aEu.invalidate();
+        this.aEC.invalidate();
     }
 }

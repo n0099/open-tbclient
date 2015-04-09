@@ -4,10 +4,10 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class o extends Handler {
-    final /* synthetic */ n GN;
+    final /* synthetic */ n GQ;
 
     private o(n nVar) {
-        this.GN = nVar;
+        this.GQ = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class o extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1000:
-                n.a(this.GN);
+                n.a(this.GQ);
                 return;
             default:
                 return;

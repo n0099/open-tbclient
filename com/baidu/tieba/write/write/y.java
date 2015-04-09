@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ x cxf;
+    final /* synthetic */ x cxy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.cxf = xVar;
+        this.cxy = xVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,12 +17,12 @@ public class y implements View.OnClickListener {
         w wVar;
         v vVar2;
         w wVar2;
-        vVar = this.cxf.cxe;
-        wVar = vVar.cwW;
+        vVar = this.cxy.cxx;
+        wVar = vVar.cxp;
         if (wVar != null) {
-            vVar2 = this.cxf.cxe;
-            wVar2 = vVar2.cwW;
-            wVar2.aqP();
+            vVar2 = this.cxy.cxx;
+            wVar2 = vVar2.cxp;
+            wVar2.are();
         }
     }
 }

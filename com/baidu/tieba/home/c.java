@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
-    private aa ZD = null;
-    private String aVP;
-    final /* synthetic */ CreateBarActivity aVR;
+    private aa ZF = null;
+    private String aWf;
+    final /* synthetic */ CreateBarActivity aWh;
     private String mVcode;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        progressBar = this.aVR.mProgress;
+        progressBar = this.aWh.mProgress;
         progressBar.setVisibility(8);
-        this.aVR.aVJ = null;
+        this.aWh.aVZ = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.aVR = createBarActivity;
-        this.aVP = null;
+        this.aWh = createBarActivity;
+        this.aWf = null;
         this.mVcode = null;
-        this.aVP = str;
+        this.aWf = str;
         this.mVcode = str2;
     }
 
@@ -39,14 +39,14 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         try {
-            this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
-            this.ZD.sp().tp().mIsNeedTbs = true;
-            this.ZD.o("kw", this.aVP);
-            this.ZD.o("vcode", this.mVcode);
-            aa aaVar = this.ZD;
-            str = this.aVR.aVL;
+            this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
+            this.ZF.sp().tp().mIsNeedTbs = true;
+            this.ZF.o("kw", this.aWf);
+            this.ZF.o("vcode", this.mVcode);
+            aa aaVar = this.ZF;
+            str = this.aWh.aWb;
             aaVar.o("vcode_md5", str);
-            this.ZD.rO();
+            this.ZF.rO();
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -60,17 +60,17 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         ProgressBar progressBar;
         super.onPostExecute((c) str);
-        progressBar = this.aVR.mProgress;
+        progressBar = this.aWh.mProgress;
         progressBar.setVisibility(8);
-        this.aVR.aVJ = null;
-        if (this.ZD.sp().tq().pv()) {
-            CreateBarSuccessActivity.J(this.aVR.getPageContext().getPageActivity(), this.aVP);
-            this.aVR.finish();
+        this.aWh.aVZ = null;
+        if (this.ZF.sp().tq().pv()) {
+            CreateBarSuccessActivity.J(this.aWh.getPageContext().getPageActivity(), this.aWf);
+            this.aWh.finish();
             return;
         }
-        this.aVR.showToast(this.ZD.getErrorString());
-        if (this.ZD.ss()) {
-            this.aVR.Nj();
+        this.aWh.showToast(this.ZF.getErrorString());
+        if (this.ZF.ss()) {
+            this.aWh.Nw();
         }
     }
 
@@ -79,7 +79,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public void onPreExecute() {
         ProgressBar progressBar;
         super.onPreExecute();
-        progressBar = this.aVR.mProgress;
+        progressBar = this.aWh.mProgress;
         progressBar.setVisibility(0);
     }
 }

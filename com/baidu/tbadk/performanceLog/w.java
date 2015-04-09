@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ u aph;
+    final /* synthetic */ u apr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(u uVar, int i) {
         super(i);
-        this.aph = uVar;
+        this.apr = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,15 +20,15 @@ class w extends CustomMessageListener {
         x xVar;
         ArrayList arrayList;
         ArrayList arrayList2;
-        if (customResponsedMessage != null && (xVar = (x) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aph.mId) {
-            this.aph.eC(xVar.aoM);
-            this.aph.ea(xVar.aoN);
-            this.aph.eD(xVar.apj);
-            arrayList = this.aph.aoC;
+        if (customResponsedMessage != null && (xVar = (x) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.apr.mId) {
+            this.apr.eF(xVar.aoU);
+            this.apr.ea(xVar.aoV);
+            this.apr.eG(xVar.aps);
+            arrayList = this.apr.aoK;
             if (arrayList != null) {
-                arrayList2 = this.aph.aoC;
+                arrayList2 = this.apr.aoK;
                 if (arrayList2.size() >= 20) {
-                    this.aph.Cz();
+                    this.apr.CF();
                 }
             }
         }

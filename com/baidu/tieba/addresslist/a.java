@@ -7,13 +7,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ AddressListActivity axr;
+    final /* synthetic */ AddressListActivity axz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddressListActivity addressListActivity, int i) {
         super(i);
-        this.axr = addressListActivity;
+        this.axz = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ class a extends CustomMessageListener {
         BdListView bdListView;
         if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
             if (((NetWorkChangeMessage) customResponsedMessage).mState == 0 || !BdSocketLinkService.isAvailable()) {
-                bdListView = this.axr.axm;
+                bdListView = this.axz.axu;
                 bdListView.mW();
             }
         }

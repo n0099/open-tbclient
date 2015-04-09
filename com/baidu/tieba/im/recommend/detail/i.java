@@ -17,54 +17,54 @@ import com.baidu.tieba.w;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes.dex */
 public class i {
-    private TextView aVe;
-    private RecommendDetailActivity bmc;
-    private HeadImageView bmd;
-    private TextView bme;
-    private TextView bmf;
-    private SettingTextSwitchView bmg;
-    private LinearLayout bmh;
+    private TextView aVt;
+    private RecommendDetailActivity bms;
+    private HeadImageView bmt;
+    private TextView bmu;
+    private TextView bmv;
+    private SettingTextSwitchView bmw;
+    private LinearLayout bmx;
     private NavigationBar mNavigationBar;
     private s mNoDataView;
     private NoNetworkView mNoNetworkView;
     private View mRootView;
 
     public i(RecommendDetailActivity recommendDetailActivity) {
-        this.bmc = recommendDetailActivity;
+        this.bms = recommendDetailActivity;
         initView();
     }
 
     private void initView() {
-        if (this.bmc != null) {
-            this.bmc.setContentView(w.recommend_detail_activity);
-            this.mRootView = this.bmc.findViewById(v.root_view);
-            this.mNavigationBar = (NavigationBar) this.bmc.findViewById(v.view_navigation_bar);
+        if (this.bms != null) {
+            this.bms.setContentView(w.recommend_detail_activity);
+            this.mRootView = this.bms.findViewById(v.root_view);
+            this.mNavigationBar = (NavigationBar) this.bms.findViewById(v.view_navigation_bar);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNoNetworkView = (NoNetworkView) this.bmc.findViewById(v.view_no_network);
-            this.bmh = (LinearLayout) this.bmc.findViewById(v.content_view);
-            this.bmd = (HeadImageView) this.bmc.findViewById(v.user_image);
-            this.aVe = (TextView) this.bmc.findViewById(v.user_name);
-            this.bme = (TextView) this.bmc.findViewById(v.user_type);
-            this.bmf = (TextView) this.bmc.findViewById(v.intro_content);
-            this.bmg = (SettingTextSwitchView) this.bmc.findViewById(v.switch_view);
-            this.bmg.setSwitchStateChangeListener(this.bmc);
-            this.bmg.setVisibility(8);
-            this.bmh.setVisibility(8);
+            this.mNoNetworkView = (NoNetworkView) this.bms.findViewById(v.view_no_network);
+            this.bmx = (LinearLayout) this.bms.findViewById(v.content_view);
+            this.bmt = (HeadImageView) this.bms.findViewById(v.user_image);
+            this.aVt = (TextView) this.bms.findViewById(v.user_name);
+            this.bmu = (TextView) this.bms.findViewById(v.user_type);
+            this.bmv = (TextView) this.bms.findViewById(v.intro_content);
+            this.bmw = (SettingTextSwitchView) this.bms.findViewById(v.switch_view);
+            this.bmw.setSwitchStateChangeListener(this.bms);
+            this.bmw.setVisibility(8);
+            this.bmx.setVisibility(8);
         }
     }
 
-    public void gN(String str) {
+    public void gQ(String str) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.setTitleText(str);
         }
     }
 
     public void b(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (userInfoBigVip != null && this.bmc != null) {
-            this.bmd.c(userInfoBigVip.portraith, 12, false);
-            this.aVe.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-            this.bme.setText(userInfoBigVip.user_type);
-            this.bmf.setText(userInfoBigVip.user_detail);
+        if (userInfoBigVip != null && this.bms != null) {
+            this.bmt.c(userInfoBigVip.portraith, 12, false);
+            this.aVt.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
+            this.bmu.setText(userInfoBigVip.user_type);
+            this.bmv.setText(userInfoBigVip.user_detail);
             if (z) {
                 if (userInfoBigVip.message_accept.intValue() == 1) {
                     setSwitch(true);
@@ -78,34 +78,34 @@ public class i {
             } else {
                 setSwitch(false);
             }
-            this.bmg.setVisibility(0);
+            this.bmw.setVisibility(0);
         }
     }
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.bmg.getSwitchView().lY();
+            this.bmw.getSwitchView().lY();
         } else {
-            this.bmg.getSwitchView().lZ();
+            this.bmw.getSwitchView().lZ();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bmc != null && this.bmc.getPageContext() != null && this.bmc.getPageContext().getLayoutMode() != null) {
+        if (this.bms != null && this.bms.getPageContext() != null && this.bms.getPageContext().getLayoutMode() != null) {
             if (this.mNavigationBar != null) {
-                this.mNavigationBar.onChangeSkinType(this.bmc.getPageContext(), i);
+                this.mNavigationBar.onChangeSkinType(this.bms.getPageContext(), i);
             }
             if (this.mNoNetworkView != null) {
-                this.mNoNetworkView.onChangeSkinType(this.bmc.getPageContext(), i);
+                this.mNoNetworkView.onChangeSkinType(this.bms.getPageContext(), i);
             }
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.bmc.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.bms.getPageContext(), i);
             }
-            if (this.bmg != null) {
-                this.bmg.dc(i);
+            if (this.bmw != null) {
+                this.bmw.dc(i);
             }
-            this.bmc.getPageContext().getLayoutMode().X(i == 1);
-            this.bmc.getPageContext().getLayoutMode().h(this.mRootView);
+            this.bms.getPageContext().getLayoutMode().X(i == 1);
+            this.bms.getPageContext().getLayoutMode().h(this.mRootView);
         }
     }
 
@@ -113,16 +113,16 @@ public class i {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
-        this.bmh.setVisibility(0);
+        this.bmx.setVisibility(0);
     }
 
-    public void fg(int i) {
+    public void fh(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.bmc.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.bms.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(i), null);
         }
         this.mNoDataView.setTextOption(com.baidu.tbadk.core.view.w.cq(i));
-        this.mNoDataView.onChangeSkinType(this.bmc.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.bmh.setVisibility(8);
+        this.mNoDataView.onChangeSkinType(this.bms.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.bmx.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 }

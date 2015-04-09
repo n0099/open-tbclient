@@ -17,16 +17,16 @@ import com.baidu.tbadk.plugins.MotuPlugin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cb extends BdAsyncTask<String, Void, Bitmap> {
-    private Boolean bPe;
-    private Boolean bPf;
+    private Boolean bPu;
+    private Boolean bPv;
     private Bitmap bitmap;
     private String mLabel;
     final /* synthetic */ WriteImageActivity this$0;
 
     private cb(WriteImageActivity writeImageActivity) {
         this.this$0 = writeImageActivity;
-        this.bPe = false;
-        this.bPf = false;
+        this.bPu = false;
+        this.bPv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,7 +43,7 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        z = this.this$0.bOV;
+        z = this.this$0.bPl;
         if (z) {
             PluginPackageManager.PluginStatus br = PluginPackageManager.ls().br(PluginCenter.NAME_MOTUSDK);
             if (!PluginCenter.getInstance().isEnable(PluginCenter.NAME_MOTUSDK) && br != PluginPackageManager.PluginStatus.NROMAL) {
@@ -71,7 +71,7 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         }
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.cyj;
+        view = this.this$0.cyF;
         view.setEnabled(false);
     }
 
@@ -95,17 +95,17 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         this.mLabel = strArr[0];
         bitmap = this.this$0.mBitmap;
         if (bitmap == null) {
-            bitmap12 = this.this$0.bOR;
+            bitmap12 = this.this$0.bPh;
             if (bitmap12 == null) {
                 return null;
             }
         }
         if (this.mLabel.equals(GameInfoData.NOT_FROM_DETAIL) || this.mLabel.equals("1")) {
-            this.bPe = true;
+            this.bPu = true;
         } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-            this.bPf = true;
+            this.bPv = true;
         }
-        if (!this.bPe.booleanValue() && !this.bPf.booleanValue()) {
+        if (!this.bPu.booleanValue() && !this.bPv.booleanValue()) {
             bitmap9 = this.this$0.mBitmap;
             if (!bitmap9.isRecycled()) {
                 bitmap10 = this.this$0.mBitmap;
@@ -113,12 +113,12 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
                 this.bitmap = bitmap10.copy(bitmap11.getConfig(), true);
             }
         } else {
-            bitmap2 = this.this$0.bOR;
+            bitmap2 = this.this$0.bPh;
             if (bitmap2 != null) {
-                bitmap6 = this.this$0.bOR;
+                bitmap6 = this.this$0.bPh;
                 if (!bitmap6.isRecycled()) {
-                    bitmap7 = this.this$0.bOR;
-                    bitmap8 = this.this$0.bOR;
+                    bitmap7 = this.this$0.bPh;
+                    bitmap8 = this.this$0.bPh;
                     this.bitmap = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
@@ -133,9 +133,9 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
             if (this.bitmap.getWidth() > 900 || this.bitmap.getHeight() > 900) {
                 this.bitmap = com.baidu.tbadk.core.util.c.d(this.bitmap, TbConfig.POST_IMAGE_BIG);
             }
-            if (this.bPe.booleanValue()) {
+            if (this.bPu.booleanValue()) {
                 this.bitmap = com.baidu.tbadk.core.util.c.g(this.bitmap, Integer.parseInt(this.mLabel));
-            } else if (this.bPf.booleanValue()) {
+            } else if (this.bPv.booleanValue()) {
                 this.bitmap = com.baidu.tbadk.core.util.c.i(this.bitmap, Integer.parseInt(this.mLabel));
             } else {
                 MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -154,7 +154,7 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         View view;
         Bitmap bitmap;
         if (this.bitmap != null && !this.bitmap.isRecycled()) {
-            bitmap = this.this$0.bOR;
+            bitmap = this.this$0.bPh;
             if (bitmap != this.bitmap) {
                 this.bitmap.recycle();
             }
@@ -162,7 +162,7 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         this.bitmap = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.cyj;
+        view = this.this$0.cyF;
         view.setEnabled(true);
         super.cancel(true);
     }
@@ -191,14 +191,14 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap10;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.cyj;
+        view = this.this$0.cyF;
         view.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.this$0.bOY = true;
-            imageView = this.this$0.atv;
+            this.this$0.bPo = true;
+            imageView = this.this$0.atD;
             imageView.setImageBitmap(bitmap);
             bitmap2 = this.this$0.mBitmap;
-            if (bitmap2 != null && (this.bPe.booleanValue() || this.bPf.booleanValue())) {
+            if (bitmap2 != null && (this.bPu.booleanValue() || this.bPv.booleanValue())) {
                 bitmap6 = this.this$0.mBitmap;
                 if (bitmap6.getWidth() <= 900) {
                     bitmap10 = this.this$0.mBitmap;
@@ -206,25 +206,25 @@ public class cb extends BdAsyncTask<String, Void, Bitmap> {
                 WriteImageActivity writeImageActivity = this.this$0;
                 bitmap7 = this.this$0.mBitmap;
                 writeImageActivity.mBitmap = com.baidu.tbadk.core.util.c.d(bitmap7, TbConfig.POST_IMAGE_BIG);
-                if (this.bPe.booleanValue()) {
+                if (this.bPu.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = this.this$0;
                     bitmap9 = this.this$0.mBitmap;
                     writeImageActivity2.mBitmap = com.baidu.tbadk.core.util.c.g(bitmap9, Integer.parseInt(this.mLabel));
-                } else if (this.bPf.booleanValue()) {
+                } else if (this.bPv.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = this.this$0;
                     bitmap8 = this.this$0.mBitmap;
                     writeImageActivity3.mBitmap = com.baidu.tbadk.core.util.c.i(bitmap8, Integer.parseInt(this.mLabel));
                 }
             }
-            bitmap3 = this.this$0.bOR;
+            bitmap3 = this.this$0.bPh;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.bOR;
+                bitmap4 = this.this$0.bPh;
                 if (!bitmap4.isRecycled()) {
-                    bitmap5 = this.this$0.bOR;
+                    bitmap5 = this.this$0.bPh;
                     bitmap5.recycle();
                 }
             }
-            this.this$0.bOR = bitmap;
+            this.this$0.bPh = bitmap;
         }
     }
 }

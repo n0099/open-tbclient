@@ -16,14 +16,14 @@ import com.baidu.tieba.tbadkCore.w;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.BdSwitchView.b {
-    private FrsActivity aNb;
-    private SlidingMenu aNA = null;
-    private cj aNB = null;
-    private final View.OnClickListener aJs = new l(this);
-    private final SlidingMenu.OnClosedListener aNC = new m(this);
+    private FrsActivity aNs;
+    private SlidingMenu aNR = null;
+    private cj aNS = null;
+    private final View.OnClickListener aJC = new l(this);
+    private final SlidingMenu.OnClosedListener aNT = new m(this);
 
     public k(FrsActivity frsActivity) {
-        this.aNb = frsActivity;
+        this.aNs = frsActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
@@ -40,7 +40,7 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
 
     @Override // com.baidu.tbadk.mvc.core.c, com.baidu.adp.base.g
     public TbPageContext<?> getPageContext() {
-        return this.aNb.getPageContext();
+        return this.aNs.getPageContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,20 +55,20 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.aNB != null) {
-            this.aNB.changeSkinType(i);
+        if (this.aNS != null) {
+            this.aNS.changeSkinType(i);
             return true;
         }
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    public boolean Af() {
+    public boolean Al() {
         if (getSlidingMenu().isMenuShowing()) {
             getSlidingMenu().toggle(true);
-            if (Lh().Kx()) {
-                Lh().bX(false);
-                this.aNb.refresh();
+            if (Lt().KH()) {
+                Lt().bV(false);
+                this.aNs.refresh();
                 return true;
             }
             return true;
@@ -76,66 +76,66 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
         return false;
     }
 
-    public void Lg() {
+    public void Ls() {
         if (getSlidingMenu().isMenuShowing()) {
             getSlidingMenu().toggle(true);
         }
     }
 
-    public cj Lh() {
-        if (this.aNB == null) {
-            this.aNB = new cj(this.aNb.getPageContext());
-            getSlidingMenu().setMenu(this.aNB.getView());
-            this.aNB.n(this.aJs);
-            this.aNB.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            this.aNB.init();
-            this.aNB.Kw().setOnSwitchStateChangeListener(this);
+    public cj Lt() {
+        if (this.aNS == null) {
+            this.aNS = new cj(this.aNs.getPageContext());
+            getSlidingMenu().setMenu(this.aNS.getView());
+            this.aNS.n(this.aJC);
+            this.aNS.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+            this.aNS.init();
+            this.aNS.KG().setOnSwitchStateChangeListener(this);
         }
-        return this.aNB;
+        return this.aNS;
     }
 
     public SlidingMenu getSlidingMenu() {
-        if (this.aNA == null) {
-            this.aNA = new SlidingMenu(getPageContext().getPageActivity());
-            this.aNA.setMode(1);
-            this.aNA.setTouchModeAbove(1);
-            this.aNA.setBehindOffset(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 48.0f));
-            this.aNA.setBehindScrollScale(0.5f);
-            this.aNA.setFadeDegree(0.35f);
-            this.aNA.attachToActivity(getPageContext().getPageActivity(), 1);
-            this.aNA.setOnClosedListener(this.aNC);
+        if (this.aNR == null) {
+            this.aNR = new SlidingMenu(getPageContext().getPageActivity());
+            this.aNR.setMode(1);
+            this.aNR.setTouchModeAbove(1);
+            this.aNR.setBehindOffset(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 48.0f));
+            this.aNR.setBehindScrollScale(0.5f);
+            this.aNR.setFadeDegree(0.35f);
+            this.aNR.attachToActivity(getPageContext().getPageActivity(), 1);
+            this.aNR.setOnClosedListener(this.aNT);
         }
-        return this.aNA;
+        return this.aNR;
     }
 
     public void showMenu(boolean z) {
         getSlidingMenu().showMenu(z);
     }
 
-    public void bZ(boolean z) {
-        Lh().bW(z);
+    public void bX(boolean z) {
+        Lt().bU(z);
     }
 
     public void setIsManager(boolean z) {
-        Lh().setIsManager(z);
+        Lt().setIsManager(z);
     }
 
     public void e(w wVar) {
-        if (wVar != null && wVar.YO() != null) {
-            Lh().y(wVar.YO().getRecommendForumData());
+        if (wVar != null && wVar.Za() != null) {
+            Lt().z(wVar.Za().getRecommendForumData());
         }
     }
 
     public void a(cf cfVar) {
-        if (this.aNB != null) {
-            Lh().a(cfVar, FrsActivityStatic.aJP, FrsActivityStatic.aJQ);
+        if (this.aNS != null) {
+            Lt().a(cfVar, FrsActivityStatic.aJZ, FrsActivityStatic.aKa);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.b
     public void a(View view, BdSwitchView.SwitchState switchState) {
         int i = 1;
-        if (view == Lh().Kw()) {
+        if (view == Lt().KG()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkCoreApplication.m411getInst().getSkinType() != 1) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);
@@ -150,7 +150,7 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
             } else {
                 return;
             }
-            this.aNb.onChangeSkinType(i);
+            this.aNs.onChangeSkinType(i);
             com.baidu.tbadk.core.util.c.iu();
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
         }

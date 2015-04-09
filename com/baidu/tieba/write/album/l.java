@@ -5,13 +5,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class l {
-    final /* synthetic */ j ctN;
-    HeadImageView ctO;
-    TextView ctP;
-    ImageView ctQ;
+    final /* synthetic */ j cud;
+    HeadImageView cue;
+    TextView cuf;
+    ImageView cug;
 
     private l(j jVar) {
-        this.ctN = jVar;
+        this.cud = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

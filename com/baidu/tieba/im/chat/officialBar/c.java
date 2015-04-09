@@ -5,11 +5,11 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ MultiContentView aYw;
+    final /* synthetic */ MultiContentView aYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MultiContentView multiContentView) {
-        this.aYw = multiContentView;
+        this.aYM = multiContentView;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -18,13 +18,13 @@ public class c implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.e.b bVar2;
         com.baidu.adp.lib.e.b bVar3;
         if (view2 instanceof g) {
-            bVar3 = this.aYw.aYr;
+            bVar3 = this.aYM.aYH;
             bVar3.j((g) view2);
         } else if (view2 instanceof d) {
-            bVar2 = this.aYw.aYs;
+            bVar2 = this.aYM.aYI;
             bVar2.j((d) view2);
         } else if (view2 instanceof av) {
-            bVar = this.aYw.aYt;
+            bVar = this.aYM.aYJ;
             bVar.j((av) view2);
         }
     }

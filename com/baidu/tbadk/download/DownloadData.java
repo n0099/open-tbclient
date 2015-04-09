@@ -12,7 +12,7 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private transient f ahO;
+    private transient f ahW;
     private String check;
     private String description;
     private int errorCode;
@@ -47,7 +47,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ahO = null;
+        this.ahW = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -61,7 +61,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ahO = null;
+        this.ahW = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -76,13 +76,13 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ahO = null;
+        this.ahW = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.ahO = fVar;
+        this.ahW = fVar;
         this.status = 5;
     }
 
@@ -183,11 +183,11 @@ public class DownloadData implements Serializable {
     }
 
     public f getCallback() {
-        return this.ahO;
+        return this.ahW;
     }
 
     public void setCallback(f fVar) {
-        this.ahO = fVar;
+        this.ahW = fVar;
     }
 
     public String getStatusMsg() {

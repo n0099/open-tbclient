@@ -3,26 +3,26 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class av {
-    private static volatile av cnh;
-    private boolean cng = false;
+    private static volatile av cnx;
+    private boolean cnw = false;
 
-    public static av ame() {
-        if (cnh == null) {
+    public static av amt() {
+        if (cnx == null) {
             synchronized (av.class) {
-                if (cnh == null) {
-                    cnh = new av();
+                if (cnx == null) {
+                    cnx = new av();
                 }
             }
         }
-        return cnh;
+        return cnx;
     }
 
-    public void eO(boolean z) {
-        this.cng = z;
+    public void eM(boolean z) {
+        this.cnw = z;
         TbadkSettings.getInst().saveBoolean("has_show_mutiimage_tip", z);
     }
 
-    public boolean amf() {
-        return this.cng;
+    public boolean amu() {
+        return this.cnw;
     }
 }

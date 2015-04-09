@@ -21,11 +21,11 @@ public class l extends CustomMessageListener {
         if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
             NetWorkChangeMessage netWorkChangeMessage = (NetWorkChangeMessage) customResponsedMessage;
             if (netWorkChangeMessage.mState == 0) {
-                this.this$0.amU = false;
+                this.this$0.anc = false;
             } else if (netWorkChangeMessage.mState == -1) {
-                this.this$0.amU = false;
+                this.this$0.anc = false;
             } else {
-                this.this$0.amU = true;
+                this.this$0.anc = true;
             }
         }
     }

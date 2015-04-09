@@ -10,67 +10,67 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x {
-    private ProgressBar byG;
-    private FrameLayout cxb;
-    private TbImageView cxc;
-    private com.baidu.tbadk.img.e cxd;
-    final /* synthetic */ v cxe;
+    private ProgressBar cij;
+    private FrameLayout cxu;
+    private TbImageView cxv;
+    private com.baidu.tbadk.img.e cxw;
+    final /* synthetic */ v cxx;
     private int index;
 
     public x(v vVar, int i) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        this.cxe = vVar;
-        this.byG = null;
+        this.cxx = vVar;
+        this.cij = null;
         this.index = -1;
         this.index = i;
         com.baidu.adp.lib.g.b hH = com.baidu.adp.lib.g.b.hH();
-        baseActivity = vVar.auA;
-        this.cxb = (FrameLayout) hH.inflate(baseActivity.getPageContext().getContext(), com.baidu.tieba.w.progress_tb_imageview, null);
-        this.cxc = (TbImageView) this.cxb.findViewById(com.baidu.tieba.v.progress_tb_imageview);
-        this.cxc.setClickable(true);
-        this.cxc.setDefaultResource(0);
-        this.cxc.setDefaultBgResource(0);
-        this.cxc.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        baseActivity2 = vVar.auA;
-        this.cxd = new com.baidu.tbadk.img.e(baseActivity2.getPageContext().getContext());
-        this.cxc.setOnClickListener(new y(this));
-        this.byG = (ProgressBar) this.cxb.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
-        this.byG.setVisibility(8);
+        baseActivity = vVar.auI;
+        this.cxu = (FrameLayout) hH.inflate(baseActivity.getPageContext().getContext(), com.baidu.tieba.w.progress_tb_imageview, null);
+        this.cxv = (TbImageView) this.cxu.findViewById(com.baidu.tieba.v.progress_tb_imageview);
+        this.cxv.setClickable(true);
+        this.cxv.setDefaultResource(0);
+        this.cxv.setDefaultBgResource(0);
+        this.cxv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        baseActivity2 = vVar.auI;
+        this.cxw = new com.baidu.tbadk.img.e(baseActivity2.getPageContext().getContext());
+        this.cxv.setOnClickListener(new y(this));
+        this.cij = (ProgressBar) this.cxu.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
+        this.cij.setVisibility(8);
     }
 
     public View getView() {
-        return this.cxb;
+        return this.cxu;
     }
 
     public void i(ImageFileInfo imageFileInfo) {
-        anB();
-        this.cxc.setDefaultResource(0);
-        this.cxc.setDefaultBgResource(0);
-        com.baidu.adp.widget.a.a a = this.cxd.a(imageFileInfo, false);
+        anQ();
+        this.cxv.setDefaultResource(0);
+        this.cxv.setDefaultBgResource(0);
+        com.baidu.adp.widget.a.a a = this.cxw.a(imageFileInfo, false);
         if (a != null) {
-            a.a(this.cxc);
+            a.a(this.cxv);
             return;
         }
-        fj(false);
-        this.cxd.a(imageFileInfo, new z(this), false);
+        fi(false);
+        this.cxw.a(imageFileInfo, new z(this), false);
     }
 
-    public void anB() {
-        if (this.cxd != null) {
-            this.cxd.zA();
+    public void anQ() {
+        if (this.cxw != null) {
+            this.cxw.zG();
         }
-        if (this.cxc != null) {
-            this.cxc.setImageDrawable(null);
+        if (this.cxv != null) {
+            this.cxv.setImageDrawable(null);
         }
     }
 
-    public boolean aqS() {
-        return this.byG.getVisibility() != 0;
+    public boolean arh() {
+        return this.cij.getVisibility() != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fj(boolean z) {
+    public void fi(boolean z) {
         w wVar;
         com.baidu.tbadk.coreExtra.view.j[] jVarArr;
         w wVar2;
@@ -78,24 +78,24 @@ public class x {
         com.baidu.tbadk.coreExtra.view.j[] jVarArr2;
         w wVar4;
         if (z) {
-            if (this.byG.getVisibility() != 8) {
-                wVar3 = this.cxe.cwW;
+            if (this.cij.getVisibility() != 8) {
+                wVar3 = this.cxx.cxp;
                 if (wVar3 != null) {
-                    wVar4 = this.cxe.cwW;
-                    wVar4.aqR();
+                    wVar4 = this.cxx.cxp;
+                    wVar4.arg();
                 }
-                this.byG.setVisibility(8);
-                jVarArr2 = this.cxe.cwY;
+                this.cij.setVisibility(8);
+                jVarArr2 = this.cxx.cxr;
                 jVarArr2[this.index].setCanbeClick(true);
             }
-        } else if (this.byG.getVisibility() != 0) {
-            wVar = this.cxe.cwW;
+        } else if (this.cij.getVisibility() != 0) {
+            wVar = this.cxx.cxp;
             if (wVar != null) {
-                wVar2 = this.cxe.cwW;
-                wVar2.aqQ();
+                wVar2 = this.cxx.cxp;
+                wVar2.arf();
             }
-            this.byG.setVisibility(0);
-            jVarArr = this.cxe.cwY;
+            this.cij.setVisibility(0);
+            jVarArr = this.cxx.cxr;
             jVarArr[this.index].setCanbeClick(false);
         }
     }

@@ -18,11 +18,11 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
-    private SapiWebView aam;
+    private SapiWebView aao;
     private String bduss;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.t aan = null;
-    private final com.baidu.tbadk.core.a.b Sj = new c(this);
+    private com.baidu.tbadk.coreExtra.view.t aap = null;
+    private final com.baidu.tbadk.core.a.b Sl = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -42,12 +42,12 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.aam = (SapiWebView) findViewById(v.sapi_webview);
-        com.baidu.tbadk.core.a.f.a(getPageContext().getPageActivity(), this.aam);
-        this.aam.setOnBackCallback(new e(this));
-        this.aam.setOnFinishCallback(new f(this));
-        this.aam.setAuthorizationListener(new g(this));
-        this.aam.loadFillUProfile(this.bduss);
+        this.aao = (SapiWebView) findViewById(v.sapi_webview);
+        com.baidu.tbadk.core.a.f.a(getPageContext().getPageActivity(), this.aao);
+        this.aao.setOnBackCallback(new e(this));
+        this.aao.setOnFinishCallback(new f(this));
+        this.aao.setAuthorizationListener(new g(this));
+        this.aao.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,18 +71,18 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.pD().a(session.username, session.bduss, session.ptoken, this.Sj);
+            com.baidu.tbadk.core.a.a.pD().a(session.username, session.bduss, session.ptoken, this.Sl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AccountData accountData) {
-        if (this.aan == null) {
-            this.aan = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
-            this.aan.a(new h(this));
+        if (this.aap == null) {
+            this.aap = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
+            this.aap.a(new h(this));
         }
-        this.aan.xa();
-        this.aan.k(accountData);
-        this.aan.wW();
+        this.aap.xg();
+        this.aap.k(accountData);
+        this.aap.xc();
     }
 }

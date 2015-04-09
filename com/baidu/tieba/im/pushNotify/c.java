@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b blO;
+    final /* synthetic */ b bme;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.blO = bVar;
+        this.bme = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,34 +27,34 @@ public class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            list2 = this.blO.mList;
+                            list2 = this.bme.mList;
                             if (list2 != null) {
-                                list3 = this.blO.mList;
+                                list3 = this.bme.mList;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().c(new h());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().vl();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.uT().vh();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uZ().c(new h());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uZ().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uZ().vr();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.uZ().vn();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.blO.mList;
+                            list = this.bme.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.blO.bF(false);
+                            this.bme.bF(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.blO.e(customResponsedMessage);
+                    this.bme.e(customResponsedMessage);
                     return;
                 }
-                this.blO.d(customResponsedMessage);
+                this.bme.d(customResponsedMessage);
                 return;
             }
-            this.blO.c(customResponsedMessage);
+            this.bme.c(customResponsedMessage);
         }
     }
 }

@@ -29,7 +29,7 @@ public class ServiceProxy extends Service implements b {
             }
             try {
                 this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kh().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
-                this.mEntity.setServiceProxy(this);
+                this.mEntity.a(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
             } catch (ClassNotFoundException e) {
@@ -147,7 +147,6 @@ public class ServiceProxy extends Service implements b {
         return false;
     }
 
-    @Override // com.baidu.adp.plugin.a.b
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.dump(fileDescriptor, printWriter, strArr);
     }
@@ -177,7 +176,6 @@ public class ServiceProxy extends Service implements b {
         super.onLowMemory();
     }
 
-    @Override // com.baidu.adp.plugin.a.b
     public void proxyOnRebind(Intent intent) {
         super.onRebind(intent);
     }

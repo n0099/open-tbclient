@@ -7,5 +7,5 @@ public interface y {
 
     String getPkgName();
 
-    void ik(int i);
+    void in(int i);
 }

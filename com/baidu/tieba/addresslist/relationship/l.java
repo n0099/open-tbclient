@@ -19,11 +19,11 @@ class l extends CustomMessageListener {
             ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
             if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                 com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                aVar.dG(responseNewFriendUpdateUiMsg.getKey());
+                aVar.dJ(responseNewFriendUpdateUiMsg.getKey());
                 aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                 aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                 aVar.setUserName(responseNewFriendUpdateUiMsg.getName());
-                aVar.dF(responseNewFriendUpdateUiMsg.getPortrait());
+                aVar.dI(responseNewFriendUpdateUiMsg.getPortrait());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001183, aVar));
             } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                 com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();

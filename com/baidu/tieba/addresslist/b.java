@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ AddressListActivity axr;
+    final /* synthetic */ AddressListActivity axz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AddressListActivity addressListActivity) {
-        this.axr = addressListActivity;
+        this.axz = addressListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.axr.closeActivity();
+        this.axz.closeActivity();
     }
 }

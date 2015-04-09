@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class bc {
-    private static bc Vl;
+    private static bc Vn;
 
     public static synchronized bc sT() {
         bc bcVar;
         synchronized (bc.class) {
-            if (Vl == null) {
-                Vl = new bc();
+            if (Vn == null) {
+                Vn = new bc();
             }
-            bcVar = Vl;
+            bcVar = Vn;
         }
         return bcVar;
     }

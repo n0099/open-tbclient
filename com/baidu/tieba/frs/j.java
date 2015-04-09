@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class j implements com.baidu.tbadk.core.view.y {
-    final /* synthetic */ FrsActivity aJG;
+    final /* synthetic */ FrsActivity aJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.aJG = frsActivity;
+        this.aJQ = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.y
@@ -18,27 +18,27 @@ class j implements com.baidu.tbadk.core.view.y {
         bf bfVar4;
         com.baidu.tieba.tbadkCore.w wVar2;
         if (z) {
-            bfVar = this.aJG.aIS;
-            if (!bfVar.Jv()) {
-                wVar = this.aJG.aIV;
+            bfVar = this.aJQ.aJa;
+            if (!bfVar.JB()) {
+                wVar = this.aJQ.aJd;
                 if (wVar != null) {
-                    wVar2 = this.aJG.aIV;
-                    if (wVar2.akp().size() != 0) {
+                    wVar2 = this.aJQ.aJd;
+                    if (wVar2.getThreadList().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aJG;
-                bfVar2 = this.aJG.aIS;
-                frsActivity.hideNetRefreshView(bfVar2.Kl());
-                z2 = this.aJG.aII;
+                FrsActivity frsActivity = this.aJQ;
+                bfVar2 = this.aJQ.aJa;
+                frsActivity.hideNetRefreshView(bfVar2.Ks());
+                z2 = this.aJQ.aIQ;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.aJG;
-                    bfVar3 = this.aJG.aIS;
+                    FrsActivity frsActivity2 = this.aJQ;
+                    bfVar3 = this.aJQ.aJa;
                     frsActivity2.showLoadingView(bfVar3.getRootView(), true);
-                    bfVar4 = this.aJG.aIS;
-                    bfVar4.Kj();
+                    bfVar4 = this.aJQ.aJa;
+                    bfVar4.Kq();
                 }
-                this.aJG.refresh();
+                this.aJQ.refresh();
             }
         }
     }

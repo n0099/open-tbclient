@@ -20,7 +20,7 @@ public class FoundNewHttpResponsedMessage extends MvcProtobufHttpResponsedMessag
         t<byte[]> bW;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if ((mvcNetMessage.getRequestData() instanceof b) && ((a) getData()).Gb() > ((b) mvcNetMessage.getRequestData()).Gb() && (bW = com.baidu.tbadk.core.b.a.rc().bW("FoundNewCache")) != null) {
+            if ((mvcNetMessage.getRequestData() instanceof b) && ((a) getData()).Gh() > ((b) mvcNetMessage.getRequestData()).Gh() && (bW = com.baidu.tbadk.core.b.a.rc().bW("FoundNewCache")) != null) {
                 bW.f("FoundNewData", bArr);
             }
         }

@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m extends w {
-    public static final BdUniqueId PK = BdUniqueId.gen();
-    private ArrayList<LiveCardData> PL;
+    public static final BdUniqueId PM = BdUniqueId.gen();
+    private ArrayList<LiveCardData> PN;
 
     public ArrayList<LiveCardData> qd() {
-        return this.PL;
+        return this.PN;
     }
 
     public void k(ArrayList<LiveCardData> arrayList) {
-        this.PL = arrayList;
+        this.PN = arrayList;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return PK;
+        return PM;
     }
 }

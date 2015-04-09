@@ -7,13 +7,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class ah extends HttpMessageListener {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ah(WriteActivity writeActivity, int i) {
         super(i);
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,22 +25,22 @@ class ah extends HttpMessageListener {
         if (httpResponsedMessage.getError() == 0) {
             String str4 = (String) MessageManager.getInstance().runTask(2001291, String.class, httpResponsedMessage).getData();
             if (TextUtils.isEmpty(str4)) {
-                str3 = this.cyc.bzO;
+                str3 = this.cyx.bAb;
                 if (!TextUtils.isEmpty(str3)) {
-                    this.cyc.bzO = str4;
+                    this.cyx.bAb = str4;
                     TbadkCoreApplication.m411getInst().setDefaultBubble(str4);
-                    this.cyc.fk(true);
+                    this.cyx.fj(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(str4)) {
-                str = this.cyc.bzO;
+                str = this.cyx.bAb;
                 if (!str4.equals(str)) {
-                    this.cyc.bzO = str4;
+                    this.cyx.bAb = str4;
                     TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                    str2 = this.cyc.bzO;
+                    str2 = this.cyx.bAb;
                     m411getInst.setDefaultBubble(str2);
-                    this.cyc.fk(true);
+                    this.cyx.fj(true);
                 }
             }
         }

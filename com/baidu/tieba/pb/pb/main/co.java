@@ -1,36 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
+import android.view.animation.Animation;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements View.OnClickListener {
-    final /* synthetic */ ci bMm;
+public class co implements Animation.AnimationListener {
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(ci ciVar) {
-        this.bMm = ciVar;
+    public co(cj cjVar) {
+        this.bMC = cjVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.bMm.bLs;
-        if (dialog != null) {
-            dialog2 = this.bMm.bLs;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.bMm.bLs;
-                pbActivity = this.bMm.bIF;
-                com.baidu.adp.lib.g.k.b(dialog3, pbActivity.getPageContext());
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        View view;
+        z = this.bMC.bMm;
+        if (!z) {
+            pbEditor = this.bMC.bMh;
+            if (pbEditor != null) {
+                pbEditor2 = this.bMC.bMh;
+                pbEditor2.setVisibility(0);
+                return;
             }
+            return;
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.bMm.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
-        }
+        view = this.bMC.bMj;
+        view.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -9,13 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ m blM;
+    final /* synthetic */ m bmc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(m mVar, int i) {
         super(i);
-        this.blM = mVar;
+        this.bmc = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,47 +26,47 @@ public class p extends com.baidu.adp.framework.listener.e {
         k kVar2;
         com.baidu.tbadk.core.view.s sVar;
         com.baidu.tbadk.core.view.s sVar2;
-        PersonGroupActivity SW = this.blM.SW();
-        if (this.blM.getActivity() != null && this.blM.blD != null && SW != null && SW.SS() != null) {
+        PersonGroupActivity Tj = this.bmc.Tj();
+        if (this.bmc.getActivity() != null && this.bmc.blT != null && Tj != null && Tj.Tf() != null) {
             if (socketResponsedMessage.getCmd() == 103003) {
-                this.blM.blD.mW();
+                this.bmc.blT.mW();
             }
             ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
             if (responseGroupsByUidMessage.getError() != 0) {
                 if (responseGroupsByUidMessage.getError() != 0) {
-                    this.blM.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.blM.getResources().getString(y.neterror) : responseGroupsByUidMessage.getErrorString());
+                    this.bmc.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.bmc.getResources().getString(y.neterror) : responseGroupsByUidMessage.getErrorString());
                     return;
                 }
                 return;
             }
             List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
-            i = this.blM.blH;
+            i = this.bmc.blX;
             if (i == 1) {
                 groups = responseGroupsByUidMessage.getCommonGroups();
             }
-            if (!SW.SR()) {
-                SW.setGroups(responseGroupsByUidMessage.getGroups());
-                SW.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+            if (!Tj.Te()) {
+                Tj.setGroups(responseGroupsByUidMessage.getGroups());
+                Tj.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
             }
-            SW.R(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+            Tj.R(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
             if (groups != null) {
-                kVar = this.blM.blE;
-                kVar.aH(groups);
-                kVar2 = this.blM.blE;
+                kVar = this.bmc.blU;
+                kVar.aJ(groups);
+                kVar2 = this.bmc.blU;
                 kVar2.notifyDataSetChanged();
                 if (groups.size() > 0) {
-                    sVar2 = this.blM.anM;
+                    sVar2 = this.bmc.anU;
                     sVar2.setVisibility(8);
                 } else {
-                    sVar = this.blM.anM;
+                    sVar = this.bmc.anU;
                     sVar.setVisibility(0);
                 }
-                this.blM.blD.setVisibility(0);
+                this.bmc.blT.setVisibility(0);
             }
             if (socketResponsedMessage.getCmd() == 103003) {
-                this.blM.blG = false;
-            } else if (socketResponsedMessage.getCmd() == 2001106 && SW.SS() != null) {
-                SW.SS().update();
+                this.bmc.blW = false;
+            } else if (socketResponsedMessage.getCmd() == 2001106 && Tj.Tf() != null) {
+                Tj.Tf().update();
             }
         }
     }

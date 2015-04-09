@@ -12,43 +12,43 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    private static aa ajs = new aa();
-    private static BdAsyncTaskParallel ajv = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ad> ajt = new ArrayList<>();
-    private final List<a> aju = new ArrayList();
+    private static aa ajA = new aa();
+    private static BdAsyncTaskParallel ajD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private ArrayList<ad> ajB = new ArrayList<>();
+    private final List<a> ajC = new ArrayList();
 
-    public static aa yL() {
-        return ajs;
+    public static aa yR() {
+        return ajA;
     }
 
     private aa() {
     }
 
     public void b(a aVar) {
-        synchronized (this.aju) {
-            if (!this.aju.contains(aVar)) {
-                this.aju.add(aVar);
-                Collections.sort(this.aju);
+        synchronized (this.ajC) {
+            if (!this.ajC.contains(aVar)) {
+                this.ajC.add(aVar);
+                Collections.sort(this.ajC);
             }
         }
     }
 
-    public void yM() {
+    public void yS() {
         new ab(this).execute(new Void[0]);
     }
 
-    public boolean ed(String str) {
-        Iterator<ad> it = this.ajt.iterator();
+    public boolean eg(String str) {
+        Iterator<ad> it = this.ajB.iterator();
         while (it.hasNext()) {
-            if (it.next().ed(str)) {
+            if (it.next().eg(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public com.baidu.adp.widget.a.a eg(String str) {
-        return com.baidu.tbadk.imageManager.e.zs().er(str);
+    public com.baidu.adp.widget.a.a ej(String str) {
+        return com.baidu.tbadk.imageManager.e.zy().eu(str);
     }
 
     public String q(String str, boolean z) {
@@ -62,19 +62,19 @@ public class aa {
     public com.baidu.adp.widget.a.a ag(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
         Bitmap ah;
-        com.baidu.adp.widget.a.a er = com.baidu.tbadk.imageManager.e.zs().er(str2);
-        if (er != null) {
-            return er;
+        com.baidu.adp.widget.a.a eu = com.baidu.tbadk.imageManager.e.zy().eu(str2);
+        if (eu != null) {
+            return eu;
         }
-        Iterator<ad> it = this.ajt.iterator();
+        Iterator<ad> it = this.ajB.iterator();
         while (true) {
             if (!it.hasNext()) {
-                aVar = er;
+                aVar = eu;
                 break;
             }
             ad next = it.next();
-            if (next.ed(str2)) {
-                aVar = next.ee(str2);
+            if (next.eg(str2)) {
+                aVar = next.eh(str2);
                 break;
             }
         }
@@ -86,11 +86,11 @@ public class aa {
     }
 
     public String m(String str, boolean z) {
-        if (!y.yK().isEmpty()) {
-            List<ad> groups = y.yK().getGroups();
+        if (!y.yQ().isEmpty()) {
+            List<ad> groups = y.yQ().getGroups();
             if (z) {
                 for (ad adVar : groups) {
-                    if (adVar.ed(str)) {
+                    if (adVar.eg(str)) {
                         return str;
                     }
                 }
@@ -104,19 +104,19 @@ public class aa {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.zs().c(m(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.zy().c(m(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.zs().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.zy().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ad> yN() {
-        return this.ajt;
+    public ArrayList<ad> yT() {
+        return this.ajB;
     }
 
-    public ad eh(String str) {
-        Iterator<ad> it = this.ajt.iterator();
+    public ad ek(String str) {
+        Iterator<ad> it = this.ajB.iterator();
         while (it.hasNext()) {
             ad next = it.next();
             if (next.getGroupId().equals(str)) {

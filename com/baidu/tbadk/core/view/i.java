@@ -7,21 +7,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext Nn;
-    final /* synthetic */ h XL;
-    private final /* synthetic */ int XM;
-    private final /* synthetic */ String XN;
+    private final /* synthetic */ TbPageContext Np;
+    final /* synthetic */ h XN;
+    private final /* synthetic */ int XO;
+    private final /* synthetic */ String XP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, TbPageContext tbPageContext, int i, String str) {
-        this.XL = hVar;
-        this.Nn = tbPageContext;
-        this.XM = i;
-        this.XN = str;
+        this.XN = hVar;
+        this.Np = tbPageContext;
+        this.XO = i;
+        this.XP = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.Nn.getPageActivity(), this.XM, this.XN, 11003)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.Np.getPageActivity(), this.XO, this.XP, 11003)));
     }
 }

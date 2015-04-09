@@ -11,7 +11,7 @@ public class a extends com.baidu.tbadk.mvc.c.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.c.b
-    /* renamed from: AG */
+    /* renamed from: AM */
     public ErrorData getExtra() {
         Object extra = super.getExtra();
         if (extra instanceof ErrorData) {

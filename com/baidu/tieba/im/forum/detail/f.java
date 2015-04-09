@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.forum.detail;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.core.view.y {
-    final /* synthetic */ ForumDetailActivity bcD;
+    final /* synthetic */ ForumDetailActivity bcT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ForumDetailActivity forumDetailActivity) {
-        this.bcD = forumDetailActivity;
+        this.bcT = forumDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.y
@@ -16,21 +16,21 @@ class f implements com.baidu.tbadk.core.view.y {
         m mVar4;
         h hVar;
         String str;
-        if (!this.bcD.aQr) {
+        if (!this.bcT.aQI) {
             if (z) {
-                mVar3 = this.bcD.bcy;
+                mVar3 = this.bcT.bcO;
                 mVar3.hideNoDataView();
-                mVar4 = this.bcD.bcy;
+                mVar4 = this.bcT.bcO;
                 mVar4.showLoading();
-                hVar = this.bcD.bcz;
-                str = this.bcD.mForumId;
-                hVar.gz(str);
+                hVar = this.bcT.bcP;
+                str = this.bcT.mForumId;
+                hVar.gC(str);
                 return;
             }
-            mVar = this.bcD.bcy;
-            mVar.Qj();
-            mVar2 = this.bcD.bcy;
-            mVar2.fg(com.baidu.tieba.y.game_index_no_network_text);
+            mVar = this.bcT.bcO;
+            mVar.Qw();
+            mVar2 = this.bcT.bcO;
+            mVar2.fh(com.baidu.tieba.y.game_index_no_network_text);
         }
     }
 }

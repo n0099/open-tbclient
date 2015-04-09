@@ -1,9 +1,9 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class g implements c {
-    private int bqS;
-    private int bqT;
-    private h bqU;
+    private int bri;
+    private int brj;
+    private h brk;
     private final int speed;
     private int start;
 
@@ -13,33 +13,33 @@ public class g implements c {
 
     public void setStart(int i) {
         this.start = i;
-        this.bqT = i;
+        this.brj = i;
     }
 
-    public void gu(int i) {
-        this.bqS = i;
+    public void gw(int i) {
+        this.bri = i;
     }
 
     public void a(h hVar) {
-        this.bqU = hVar;
+        this.brk = hVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c
     public boolean execute() {
-        if (this.bqT != this.bqS) {
-            if (this.bqS > this.start) {
-                this.bqT += this.speed;
-                if (this.bqT > this.bqS) {
-                    this.bqT = this.bqS;
+        if (this.brj != this.bri) {
+            if (this.bri > this.start) {
+                this.brj += this.speed;
+                if (this.brj > this.bri) {
+                    this.brj = this.bri;
                 }
             } else {
-                this.bqT -= this.speed;
-                if (this.bqT < this.bqS) {
-                    this.bqT = this.bqS;
+                this.brj -= this.speed;
+                if (this.brj < this.bri) {
+                    this.brj = this.bri;
                 }
             }
-            if (this.bqU != null) {
-                this.bqU.dY(this.bqT);
+            if (this.brk != null) {
+                this.brk.dY(this.brj);
             }
             return false;
         }

@@ -2,40 +2,40 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c {
-    private boolean adA = true;
-    private b adB;
-    private com.baidu.tbadk.coreExtra.share.a adj;
+    private boolean adI = true;
+    private b adJ;
+    private com.baidu.tbadk.coreExtra.share.a adr;
 
     public c(com.baidu.tbadk.coreExtra.share.a aVar) {
-        this.adj = aVar;
+        this.adr = aVar;
     }
 
     public void aE(boolean z) {
-        this.adA = z;
+        this.adI = z;
     }
 
     public void a(b bVar) {
-        this.adB = bVar;
+        this.adJ = bVar;
     }
 
-    public void wN() {
-        if (this.adA) {
-            this.adj.wF();
-            this.adB.onSuccess();
+    public void wT() {
+        if (this.adI) {
+            this.adr.wL();
+            this.adJ.onSuccess();
             return;
         }
-        this.adj.wH();
+        this.adr.wN();
     }
 
-    public void wO() {
-        this.adj.wG();
+    public void wU() {
+        this.adr.wM();
     }
 
-    public void wP() {
-        if (this.adA) {
-            this.adj.wI();
+    public void wV() {
+        if (this.adI) {
+            this.adr.wO();
         } else {
-            this.adj.wI();
+            this.adr.wO();
         }
     }
 }

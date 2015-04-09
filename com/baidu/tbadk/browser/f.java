@@ -143,7 +143,7 @@ public class f {
         if (bN != null) {
             cookieManager.setAcceptCookie(true);
             cookieManager.setCookie("baidu.com", "BDUSS=" + bN.xh + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + bN.OD + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + bN.OF + "; domain=.baidu.com;");
         } else {
             cookieManager.removeAllCookie();
         }

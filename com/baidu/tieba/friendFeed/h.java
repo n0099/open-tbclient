@@ -13,15 +13,15 @@ import com.baidu.tieba.tbadkCore.ao;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class h implements com.baidu.tieba.tbadkCore.writeModel.d {
-    final /* synthetic */ FriendFeedActivity aHM;
+    final /* synthetic */ FriendFeedActivity aHU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FriendFeedActivity friendFeedActivity) {
-        this.aHM = friendFeedActivity;
+        this.aHU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.d
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.k kVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
         y yVar;
         y yVar2;
         WriteImagesInfo writeImagesInfo;
@@ -33,45 +33,45 @@ class h implements com.baidu.tieba.tbadkCore.writeModel.d {
         FriendFeedThreadData friendFeedThreadData2;
         FriendFeedThreadData friendFeedThreadData3;
         y yVar4;
-        this.aHM.stopVoice();
-        yVar = this.aHM.aHt;
+        this.aHU.stopVoice();
+        yVar = this.aHU.aHB;
         yVar.bK(z);
-        yVar2 = this.aHM.aHt;
-        writeImagesInfo = this.aHM.aHD;
+        yVar2 = this.aHU.aHB;
+        writeImagesInfo = this.aHU.aHL;
         yVar2.a(writeImagesInfo, true);
         if (z) {
-            yVar3 = this.aHM.aHt;
-            yVar3.Ja();
+            yVar3 = this.aHU.aHB;
+            yVar3.Jg();
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
-            aVar = this.aHM.aHC;
-            aVar.IM();
-            aVar2 = this.aHM.aHC;
+            aVar = this.aHU.aHK;
+            aVar.IS();
+            aVar2 = this.aHU.aHK;
             aVar2.c((WriteData) null);
-            aVar3 = this.aHM.aHC;
-            aVar3.eS(false);
-            this.aHM.a(antiData, str);
-            friendFeedThreadData = this.aHM.aHB;
+            aVar3 = this.aHU.aHK;
+            aVar3.eQ(false);
+            this.aHU.a(antiData, str);
+            friendFeedThreadData = this.aHU.aHJ;
             ao.b(friendFeedThreadData.getTid(), (WriteData) null);
-            friendFeedThreadData2 = this.aHM.aHB;
-            friendFeedThreadData3 = this.aHM.aHB;
+            friendFeedThreadData2 = this.aHU.aHJ;
+            friendFeedThreadData3 = this.aHU.aHJ;
             friendFeedThreadData2.setReply_num(friendFeedThreadData3.getReply_num() + 1);
-            yVar4 = this.aHM.aHt;
-            yVar4.Jd();
-        } else if (kVar != null && writeData != null && kVar.getVcode_pic_url() != null) {
+            yVar4 = this.aHU.aHB;
+            yVar4.Jj();
+        } else if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
-                writeData.setVcodeMD5(kVar.getVcode_md5());
-                writeData.setVcodeUrl(kVar.getVcode_pic_url());
-                if (kVar.uI().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aHM.getPageContext().getPageActivity(), 12006, writeData, false)));
+                writeData.setVcodeMD5(lVar.getVcode_md5());
+                writeData.setVcodeUrl(lVar.getVcode_pic_url());
+                if (lVar.uL().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aHU.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aHM.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aHU.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.aHM.a(antiData, str);
+            this.aHU.a(antiData, str);
         } else {
-            this.aHM.a(antiData, str);
+            this.aHU.a(antiData, str);
         }
     }
 }

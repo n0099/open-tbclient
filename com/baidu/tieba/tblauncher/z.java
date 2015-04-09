@@ -26,17 +26,17 @@ class z extends CustomMessageListener {
         ai aiVar;
         ai aiVar2;
         int i2;
-        this.this$0.cre = false;
-        i = this.this$0.cqX;
+        this.this$0.cru = false;
+        i = this.this$0.crn;
         if (i <= 0) {
-            i2 = this.this$0.cqZ;
+            i2 = this.this$0.crp;
             if (i2 <= 0) {
                 z = false;
                 if (z) {
-                    aiVar = this.this$0.cqV;
-                    aiVar.eW(false);
-                    aiVar2 = this.this$0.cqV;
-                    aiVar2.aor().fa(false);
+                    aiVar = this.this$0.crl;
+                    aiVar.eU(false);
+                    aiVar2 = this.this$0.crl;
+                    aiVar2.aoG().eY(false);
                     return;
                 }
                 return;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes.dex */
 public class v {
-    NoDataViewFactory.ImgType YD = NoDataViewFactory.ImgType.NONE;
+    NoDataViewFactory.ImgType YF = NoDataViewFactory.ImgType.NONE;
     int mHeight = -1;
 
     private v() {
@@ -11,14 +11,14 @@ public class v {
 
     public static v a(NoDataViewFactory.ImgType imgType, int i) {
         v vVar = new v();
-        vVar.YD = imgType;
+        vVar.YF = imgType;
         vVar.mHeight = i;
         return vVar;
     }
 
     public static v a(NoDataViewFactory.ImgType imgType) {
         v vVar = new v();
-        vVar.YD = imgType;
+        vVar.YF = imgType;
         return vVar;
     }
 }

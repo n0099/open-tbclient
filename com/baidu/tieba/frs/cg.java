@@ -26,14 +26,14 @@ public class cg extends av<com.baidu.tbadk.core.data.w, ch> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, ch chVar) {
         BitmapDrawable bitmapDrawable;
         super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) chVar);
-        this.aJT.getLayoutMode().X(this.mSkinType == 1);
-        this.aJT.getLayoutMode().h(view);
+        this.aKd.getLayoutMode().X(this.mSkinType == 1);
+        this.aKd.getLayoutMode().h(view);
         if (wVar == null) {
             return null;
         }
         chVar.mTitle.setText(wVar.getTitle());
         com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.iO(wVar.getId())) {
+        if (readThreadHistory != null && readThreadHistory.iR(wVar.getId())) {
             com.baidu.tbadk.core.util.ba.b(chVar.mTitle, com.baidu.tieba.s.listview_item_thread_read, 1);
         }
         if (wVar.getIs_top() == 1) {
@@ -41,7 +41,7 @@ public class cg extends av<com.baidu.tbadk.core.data.w, ch> {
         } else {
             bitmapDrawable = wVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_notice) : null;
         }
-        com.baidu.tbadk.core.util.ba.i(chVar.aKq, com.baidu.tieba.u.frs_top_item_bg);
+        com.baidu.tbadk.core.util.ba.i(chVar.aKA, com.baidu.tieba.u.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

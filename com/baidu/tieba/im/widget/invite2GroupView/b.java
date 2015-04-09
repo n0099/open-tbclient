@@ -11,13 +11,13 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext Nn;
-    final /* synthetic */ Invite2GroupView boC;
+    private final /* synthetic */ TbPageContext Np;
+    final /* synthetic */ Invite2GroupView boS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.boC = invite2GroupView;
-        this.Nn = tbPageContext;
+        this.boS = invite2GroupView;
+        this.Np = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,16 +25,16 @@ public class b implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        Context context = this.boC.getContext();
-        inviteMsgData = this.boC.boB;
-        inviteMsgData2 = this.boC.boB;
+        Context context = this.boS.getContext();
+        inviteMsgData = this.boS.boR;
+        inviteMsgData2 = this.boS.boR;
         String text = inviteMsgData2.getText();
-        inviteMsgData3 = this.boC.boB;
+        inviteMsgData3 = this.boS.boR;
         GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
-        if (this.Nn.getOrignalPage() instanceof BaseActivity) {
-            this.Nn.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
-        } else if (this.Nn.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.Nn.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+        if (this.Np.getOrignalPage() instanceof BaseActivity) {
+            this.Np.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+        } else if (this.Np.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.Np.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
         }
     }
 }

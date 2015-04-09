@@ -34,7 +34,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
                         if (forumInfo != null) {
                             e eVar = new e();
                             eVar.a(forumInfo);
-                            if (!eVar.WA()) {
+                            if (!eVar.WN()) {
                                 this.forumInfoList.add(eVar);
                             }
                         }

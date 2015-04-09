@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class j {
-    View axK;
-    TextView axO;
-    final /* synthetic */ h bti;
+    View axS;
+    TextView axW;
+    final /* synthetic */ h btz;
 
     private j(h hVar) {
-        this.bti = hVar;
+        this.btz = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

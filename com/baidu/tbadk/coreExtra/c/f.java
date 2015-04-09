@@ -3,19 +3,19 @@ package com.baidu.tbadk.coreExtra.c;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f {
-    PersonChangeData abR;
+    PersonChangeData abZ;
 
     public f(PersonChangeData personChangeData) {
         super(null);
-        this.abR = null;
-        this.abR = personChangeData;
-        if (this.abR == null) {
-            this.abR = new PersonChangeData();
+        this.abZ = null;
+        this.abZ = personChangeData;
+        if (this.abZ == null) {
+            this.abZ = new PersonChangeData();
         }
     }
 
-    public PersonChangeData vR() {
-        return this.abR;
+    public PersonChangeData vX() {
+        return this.abZ;
     }
 
     @Override // com.baidu.adp.base.f

@@ -11,10 +11,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
-    final /* synthetic */ b ahL;
+    final /* synthetic */ b ahT;
 
     private c(b bVar) {
-        this.ahL = bVar;
+        this.ahT = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,12 +33,12 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         String name = eVar.getName();
         String url = eVar.getUrl();
         int position = eVar.getPosition();
-        int yo = eVar.yo();
+        int yu = eVar.yu();
         if (bd.isEmpty(key) || bd.isEmpty(name)) {
             return null;
         }
         String str = String.valueOf(key.replace(".", "_")) + ".apk";
-        aA = this.ahL.aA(str);
+        aA = this.ahT.aA(str);
         if (o.cm(str) != null) {
             DownloadData downloadData = new DownloadData(key);
             downloadData.setName(str);
@@ -48,7 +48,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             return downloadData;
         }
         DownloadData downloadData2 = new DownloadData(key, name, url, new a());
-        downloadData2.setNotifyId(yo);
+        downloadData2.setNotifyId(yu);
         downloadData2.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
         downloadData2.setType(12);
         downloadData2.setPath(aA);
@@ -64,23 +64,23 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         List list;
         List list2;
         super.onPostExecute(downloadData);
-        this.ahL.ahH = null;
+        this.ahT.ahP = null;
         if (downloadData != null) {
             if (downloadData.getStatus() == 3) {
-                this.ahL.e(downloadData);
+                this.ahT.e(downloadData);
                 UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
             } else {
                 downloadData.setStatus(1);
-                this.ahL.e(downloadData);
-                g.yp().a(downloadData, 5);
+                this.ahT.e(downloadData);
+                g.yv().a(downloadData, 5);
                 NotificationHelper.showProgressNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId(), null, 0, TbadkCoreApplication.m411getInst().getApp().getString(y.download_will_begin), downloadData.getName(), true);
             }
-            b.ahJ = null;
-            list = b.ahK;
+            b.ahR = null;
+            list = b.ahS;
             if (!list.isEmpty()) {
-                list2 = b.ahK;
+                list2 = b.ahS;
                 list2.remove(0);
-                this.ahL.ym();
+                this.ahT.ys();
             }
         }
     }

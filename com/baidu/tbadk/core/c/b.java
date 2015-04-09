@@ -3,50 +3,50 @@ package com.baidu.tbadk.core.c;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a Sd = null;
+    private static a Sf = null;
 
     public static void e(Context context, int i) {
-        if (Sd != null) {
-            Sd.e(context, i);
+        if (Sf != null) {
+            Sf.e(context, i);
         }
     }
 
     public static void Y(Context context) {
-        if (Sd != null) {
-            Sd.Y(context);
+        if (Sf != null) {
+            Sf.Y(context);
         }
     }
 
     public static void a(Context context, int i, boolean z) {
-        if (Sd != null) {
-            Sd.a(context, i, z);
+        if (Sf != null) {
+            Sf.a(context, i, z);
         }
     }
 
     public static Class<?> ru() {
-        if (Sd == null) {
+        if (Sf == null) {
             return null;
         }
-        return Sd.ru();
+        return Sf.ru();
     }
 
     public static String rv() {
-        if (Sd == null) {
+        if (Sf == null) {
             return null;
         }
-        return Sd.rv();
+        return Sf.rv();
     }
 
     public static void a(a aVar) {
         if (aVar != null) {
-            Sd = aVar;
+            Sf = aVar;
         }
     }
 
     public static int getCurrentTabType() {
-        if (Sd == null) {
+        if (Sf == null) {
             return -1;
         }
-        return Sd.getCurrentTabType();
+        return Sf.getCurrentTabType();
     }
 }

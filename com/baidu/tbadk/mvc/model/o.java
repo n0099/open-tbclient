@@ -24,18 +24,18 @@ public class o extends HttpMessageListener {
         r rVar;
         r rVar2;
         Runnable runnable2;
-        this.this$0.amT = false;
-        runnable = this.this$0.amV;
+        this.this$0.anb = false;
+        runnable = this.this$0.and;
         if (runnable != null) {
             com.baidu.adp.lib.g.i hI = com.baidu.adp.lib.g.i.hI();
-            runnable2 = this.this$0.amV;
+            runnable2 = this.this$0.and;
             hI.removeCallbacks(runnable2);
         }
         if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
             if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                rVar = this.this$0.amK;
+                rVar = this.this$0.amS;
                 if (rVar != null) {
-                    rVar2 = this.this$0.amK;
+                    rVar2 = this.this$0.amS;
                     rVar2.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {

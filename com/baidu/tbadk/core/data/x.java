@@ -5,16 +5,16 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class x {
-    private String QK;
-    private String QL;
     private String QM;
-    private int QN;
+    private String QN;
     private String QO;
-    private long QP;
+    private int QP;
+    private String QR;
+    private long QS;
     private String summary;
 
     public String qA() {
-        return this.QK;
+        return this.QM;
     }
 
     public String getSummary() {
@@ -22,29 +22,29 @@ public class x {
     }
 
     public String qV() {
-        return this.QM;
+        return this.QO;
     }
 
     public int qW() {
-        return this.QN;
+        return this.QP;
     }
 
     public String qX() {
-        return this.QO;
+        return this.QR;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
-            this.QK = topCode.img_url;
-            this.QL = topCode.game_link;
+            this.QM = topCode.img_url;
+            this.QN = topCode.game_link;
             this.summary = topCode.summary;
-            this.QM = topCode.code_link;
-            this.QN = topCode.get_type.intValue();
-            this.QO = topCode.surplusgift;
+            this.QO = topCode.code_link;
+            this.QP = topCode.get_type.intValue();
+            this.QR = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.QP = 0L;
+                this.QS = 0L;
             } else {
-                this.QP = topCode.giftworth.longValue();
+                this.QS = topCode.giftworth.longValue();
             }
         }
     }
@@ -52,13 +52,13 @@ public class x {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.QK = jSONObject.optString("img_url");
-                this.QL = jSONObject.optString("game_link");
+                this.QM = jSONObject.optString("img_url");
+                this.QN = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.QM = jSONObject.optString("code_link");
-                this.QN = jSONObject.optInt("get_type", 1);
-                this.QO = jSONObject.optString("surplusgift");
-                this.QP = jSONObject.optLong("giftworth", 0L);
+                this.QO = jSONObject.optString("code_link");
+                this.QP = jSONObject.optInt("get_type", 1);
+                this.QR = jSONObject.optString("surplusgift");
+                this.QS = jSONObject.optLong("giftworth", 0L);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

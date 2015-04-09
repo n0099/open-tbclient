@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ h bcG;
+    final /* synthetic */ h bcW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, int i, int i2) {
         super(i, i2);
-        this.bcG = hVar;
+        this.bcW = hVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,24 +22,24 @@ public class i extends com.baidu.adp.framework.listener.a {
         l lVar5;
         l lVar6;
         if (responsedMessage == null) {
-            lVar5 = this.bcG.bcF;
+            lVar5 = this.bcW.bcV;
             if (lVar5 != null) {
-                lVar6 = this.bcG.bcF;
-                lVar6.gy(null);
+                lVar6 = this.bcW.bcV;
+                lVar6.gB(null);
             }
         } else if (responsedMessage.hasError()) {
-            lVar3 = this.bcG.bcF;
+            lVar3 = this.bcW.bcV;
             if (lVar3 != null) {
-                lVar4 = this.bcG.bcF;
-                lVar4.gy(responsedMessage.getErrorString());
+                lVar4 = this.bcW.bcV;
+                lVar4.gB(responsedMessage.getErrorString());
             }
         } else {
             if (responsedMessage instanceof ForumDetailHttpResponse) {
-                lVar2 = this.bcG.bcF;
+                lVar2 = this.bcW.bcV;
                 lVar2.a((ForumDetailHttpResponse) responsedMessage);
             }
             if (responsedMessage instanceof ForumDetailSocketResponse) {
-                lVar = this.bcG.bcF;
+                lVar = this.bcW.bcV;
                 lVar.a((ForumDetailSocketResponse) responsedMessage);
             }
         }

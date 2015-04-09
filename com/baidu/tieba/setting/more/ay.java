@@ -8,38 +8,38 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ay extends com.baidu.adp.base.f {
-    private BaseActivity.LoadDataCallBack bEn;
-    private az cbZ;
-    private ba cca;
+    private BaseActivity.LoadDataCallBack bEA;
+    private az cco;
+    private ba ccp;
     private Context mContext;
 
     public ay(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.cbZ = null;
-        this.cca = null;
+        this.cco = null;
+        this.ccp = null;
         this.mContext = null;
-        this.bEn = null;
+        this.bEA = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void ahN() {
-        if (this.cbZ == null) {
-            this.cbZ = new az(this, null);
-            this.cbZ.execute(new String[0]);
+    public void aic() {
+        if (this.cco == null) {
+            this.cco = new az(this, null);
+            this.cco.execute(new String[0]);
         }
     }
 
-    public void ahO() {
+    public void aid() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void ahP() {
-        if (this.cca == null) {
-            this.cca = new ba(this, null);
-            this.cca.execute(new String[0]);
+    public void aie() {
+        if (this.ccp == null) {
+            this.ccp = new ba(this, null);
+            this.ccp.execute(new String[0]);
         }
     }
 
@@ -58,6 +58,6 @@ public class ay extends com.baidu.adp.base.f {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.bEn = loadDataCallBack;
+        this.bEA = loadDataCallBack;
     }
 }

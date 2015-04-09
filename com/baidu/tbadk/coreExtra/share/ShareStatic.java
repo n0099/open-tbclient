@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class ShareStatic {
-    private static d adt = null;
+    private static d adB = null;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001283, new g());

@@ -3,32 +3,32 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class u {
-    private EmotionGroupType aje;
-    private int ajf;
-    private int ajg;
-    private int ajh;
-    private int aji;
-    private ad ajj;
-    private int ajk;
-    private int ajl;
+    private EmotionGroupType ajm;
+    private int ajn;
+    private int ajo;
+    private int ajp;
+    private int ajq;
+    private ad ajr;
+    private int ajs;
+    private int ajt;
     private int column;
     private int index;
     private int row;
 
     public void e(ad adVar) {
-        this.ajj = adVar;
+        this.ajr = adVar;
     }
 
-    public ad yA() {
-        return this.ajj;
+    public ad yG() {
+        return this.ajr;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.aje = emotionGroupType;
+        this.ajm = emotionGroupType;
     }
 
-    public EmotionGroupType yB() {
-        return this.aje;
+    public EmotionGroupType yH() {
+        return this.ajm;
     }
 
     public void ds(int i) {
@@ -43,44 +43,44 @@ public class u {
         this.column = i;
     }
 
-    public int yC() {
+    public int yI() {
         return this.column;
     }
 
     public void du(int i) {
-        this.ajl = i;
+        this.ajt = i;
     }
 
-    public int yD() {
-        return this.ajl;
+    public int yJ() {
+        return this.ajt;
     }
 
     public void dv(int i) {
-        this.ajk = i;
+        this.ajs = i;
     }
 
-    public int yE() {
-        return this.ajk;
+    public int yK() {
+        return this.ajs;
     }
 
     public void dw(int i) {
-        this.ajf = i;
+        this.ajn = i;
     }
 
-    public int yF() {
-        return this.ajf;
+    public int yL() {
+        return this.ajn;
     }
 
     public void dx(int i) {
-        this.ajh = i;
+        this.ajp = i;
     }
 
-    public int yG() {
-        return this.ajh;
+    public int yM() {
+        return this.ajp;
     }
 
     public void setEndIndex(int i) {
-        this.aji = i;
+        this.ajq = i;
     }
 
     public void setIndex(int i) {
@@ -92,10 +92,10 @@ public class u {
     }
 
     public void dy(int i) {
-        this.ajg = i;
+        this.ajo = i;
     }
 
-    public int yH() {
-        return this.ajg;
+    public int yN() {
+        return this.ajo;
     }
 }

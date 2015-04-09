@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
@@ -35,26 +36,30 @@ public final class ShareReceiver extends BroadcastReceiver {
             a(context);
         }
         if (e && b != LoginShareStrategy.DISABLED) {
-            String action = intent.getAction();
-            if ("baidu.intent.action.SHARE_V6".equals(action)) {
-                ShareModel shareModel = (ShareModel) intent.getParcelableExtra("LOGIN_SHARE_MODEL");
-                if (shareModel != null) {
-                    String b2 = com.baidu.sapi2.share.a.b(context, shareModel.c());
-                    if (TextUtils.isEmpty(b2) || !b2.equals(context.getPackageName())) {
-                        if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                            g.post(new a(context, intent, shareModel));
+            try {
+                String action = intent.getAction();
+                if ("baidu.intent.action.SHARE_V6".equals(action)) {
+                    ShareModel shareModel = (ShareModel) intent.getParcelableExtra("LOGIN_SHARE_MODEL");
+                    if (shareModel != null) {
+                        String b2 = com.baidu.sapi2.share.a.b(context, shareModel.c());
+                        if (TextUtils.isEmpty(b2) || !b2.equals(context.getPackageName())) {
+                            if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
+                                g.post(new a(context, intent, shareModel));
+                            } else {
+                                return;
+                            }
                         } else {
                             return;
                         }
                     } else {
                         return;
                     }
-                } else {
-                    return;
                 }
-            }
-            if ("baidu.intent.action.SHARE".equals(action) || "baidu.intent.action.NEWSHARE".equals(action)) {
-                com.baidu.sapi2.share.d.a(context, intent, b, d);
+                if ("baidu.intent.action.SHARE".equals(action) || "baidu.intent.action.NEWSHARE".equals(action)) {
+                    com.baidu.sapi2.share.d.a(context, intent, b, d);
+                }
+            } catch (Throwable th) {
+                L.e(th);
             }
         }
     }

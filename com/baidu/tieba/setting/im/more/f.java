@@ -4,27 +4,27 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ SecretSettingActivity bZp;
-    private final /* synthetic */ String bZs;
+    final /* synthetic */ SecretSettingActivity bZE;
+    private final /* synthetic */ String bZH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SecretSettingActivity secretSettingActivity, String str) {
-        this.bZp = secretSettingActivity;
-        this.bZs = str;
+        this.bZE = secretSettingActivity;
+        this.bZH = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
     public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        this.bZp.showProgressBar();
+        this.bZE.showProgressBar();
         switch (i) {
             case 0:
-                this.bZp.S(this.bZs, 1);
+                this.bZE.S(this.bZH, 1);
                 break;
             case 1:
-                this.bZp.S(this.bZs, 2);
+                this.bZE.S(this.bZH, 2);
                 break;
             case 2:
-                this.bZp.S(this.bZs, 3);
+                this.bZE.S(this.bZH, 3);
                 break;
         }
         eVar.dismiss();
