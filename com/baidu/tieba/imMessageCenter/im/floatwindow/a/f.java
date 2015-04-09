@@ -4,171 +4,171 @@ import android.graphics.Point;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 public class f implements c {
-    private e bqN;
-    private int bqO;
-    private float bqP;
-    private float bqQ;
-    private final long bqR;
+    private e brd;
+    private int bre;
+    private float brf;
+    private float brg;
+    private final long brh;
     private float k;
     private long startTime;
-    private Point bqI = new Point();
-    private Point bqK = new Point();
-    private Point bqJ = new Point();
+    private Point bqY = new Point();
+    private Point bra = new Point();
+    private Point bqZ = new Point();
 
     public f(long j) {
-        this.bqR = j;
+        this.brh = j;
     }
 
     public void a(e eVar) {
-        this.bqN = eVar;
+        this.brd = eVar;
     }
 
     public void a(Point point, Point point2) {
-        this.bqI.x = point.x;
-        this.bqI.y = point.y;
-        this.bqK.x = point.x;
-        this.bqK.y = point.y;
-        this.bqJ.x = point2.x;
-        this.bqJ.y = point2.y;
+        this.bqY.x = point.x;
+        this.bqY.y = point.y;
+        this.bra.x = point.x;
+        this.bra.y = point.y;
+        this.bqZ.x = point2.x;
+        this.bqZ.y = point2.y;
         b(point, point2);
         this.startTime = SystemClock.elapsedRealtime();
     }
 
     private void b(Point point, Point point2) {
         if (point.x == point2.x) {
-            this.bqQ = Math.abs(point2.y - point.y) / ((float) this.bqR);
+            this.brg = Math.abs(point2.y - point.y) / ((float) this.brh);
             if (point2.y > point.y) {
-                this.bqO = 0;
+                this.bre = 0;
             } else {
-                this.bqO = 1;
+                this.bre = 1;
             }
         } else if (point.y == point2.y) {
-            this.bqP = Math.abs(point2.x - point.x) / ((float) this.bqR);
+            this.brf = Math.abs(point2.x - point.x) / ((float) this.brh);
             if (point2.x > point.x) {
-                this.bqO = 2;
+                this.bre = 2;
             } else {
-                this.bqO = 3;
+                this.bre = 3;
             }
         } else {
             float f = point2.x - point.x;
             this.k = (point2.y - point.y) / f;
-            this.bqP = Math.abs(f) / ((float) this.bqR);
+            this.brf = Math.abs(f) / ((float) this.brh);
             if (f > 0.0f) {
-                this.bqO = 5;
+                this.bre = 5;
             } else {
-                this.bqO = 4;
+                this.bre = 4;
             }
         }
     }
 
-    private int gt(int i) {
-        return (int) (((this.k * i) + this.bqI.y) - (this.k * this.bqI.x));
+    private int gv(int i) {
+        return (int) (((this.k * i) + this.bqY.y) - (this.k * this.bqY.x));
     }
 
-    private long UK() {
+    private long UX() {
         return SystemClock.elapsedRealtime() - this.startTime;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c
     public boolean execute() {
-        if (!this.bqK.equals(this.bqJ)) {
-            switch (this.bqO) {
+        if (!this.bra.equals(this.bqZ)) {
+            switch (this.bre) {
                 case 0:
-                    UE();
+                    UR();
                     break;
                 case 1:
-                    UG();
+                    UT();
                     break;
                 case 2:
-                    UF();
+                    US();
                     break;
                 case 3:
-                    UH();
+                    UU();
                     break;
                 case 4:
-                    UI();
+                    UV();
                     break;
                 case 5:
-                    UJ();
+                    UW();
                     break;
             }
             return false;
         }
-        if (this.bqN != null) {
-            this.bqN.Ux();
+        if (this.brd != null) {
+            this.brd.UK();
         }
         return true;
     }
 
-    private void UE() {
-        this.bqK.y = (int) (this.bqI.y + (this.bqQ * ((float) UK())));
-        if (this.bqK.y > this.bqJ.y) {
-            this.bqK.y = this.bqJ.y;
+    private void UR() {
+        this.bra.y = (int) (this.bqY.y + (this.brg * ((float) UX())));
+        if (this.bra.y > this.bqZ.y) {
+            this.bra.y = this.bqZ.y;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
-        }
-    }
-
-    private void UF() {
-        this.bqK.x = (int) (this.bqI.x + (this.bqP * ((float) UK())));
-        if (this.bqK.x > this.bqJ.x) {
-            this.bqK.x = this.bqJ.x;
-        }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UG() {
-        this.bqK.y = (int) (this.bqI.y - (this.bqQ * ((float) UK())));
-        if (this.bqK.y < this.bqJ.y) {
-            this.bqK.y = this.bqJ.y;
+    private void US() {
+        this.bra.x = (int) (this.bqY.x + (this.brf * ((float) UX())));
+        if (this.bra.x > this.bqZ.x) {
+            this.bra.x = this.bqZ.x;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
-        }
-    }
-
-    private void UH() {
-        this.bqK.x = (int) (this.bqI.x - (this.bqP * ((float) UK())));
-        if (this.bqK.x < this.bqJ.x) {
-            this.bqK.x = this.bqJ.x;
-        }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UI() {
+    private void UT() {
+        this.bra.y = (int) (this.bqY.y - (this.brg * ((float) UX())));
+        if (this.bra.y < this.bqZ.y) {
+            this.bra.y = this.bqZ.y;
+        }
+        if (this.brd != null) {
+            this.brd.a(this.bra);
+        }
+    }
+
+    private void UU() {
+        this.bra.x = (int) (this.bqY.x - (this.brf * ((float) UX())));
+        if (this.bra.x < this.bqZ.x) {
+            this.bra.x = this.bqZ.x;
+        }
+        if (this.brd != null) {
+            this.brd.a(this.bra);
+        }
+    }
+
+    private void UV() {
         boolean z = true;
-        this.bqK.x = (int) (this.bqI.x - (this.bqP * ((float) UK())));
-        this.bqK.y = gt(this.bqK.x);
-        if (this.bqI.y <= this.bqJ.y ? this.bqK.y <= this.bqJ.y : this.bqK.y >= this.bqJ.y) {
+        this.bra.x = (int) (this.bqY.x - (this.brf * ((float) UX())));
+        this.bra.y = gv(this.bra.x);
+        if (this.bqY.y <= this.bqZ.y ? this.bra.y <= this.bqZ.y : this.bra.y >= this.bqZ.y) {
             z = false;
         }
-        if (this.bqK.x < this.bqJ.x || z) {
-            this.bqK.x = this.bqJ.x;
-            this.bqK.y = this.bqJ.y;
+        if (this.bra.x < this.bqZ.x || z) {
+            this.bra.x = this.bqZ.x;
+            this.bra.y = this.bqZ.y;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UJ() {
+    private void UW() {
         boolean z = true;
-        this.bqK.x = (int) (this.bqI.x + (this.bqP * ((float) UK())));
-        this.bqK.y = gt(this.bqK.x);
-        if (this.bqI.y <= this.bqJ.y ? this.bqK.y <= this.bqJ.y : this.bqK.y >= this.bqJ.y) {
+        this.bra.x = (int) (this.bqY.x + (this.brf * ((float) UX())));
+        this.bra.y = gv(this.bra.x);
+        if (this.bqY.y <= this.bqZ.y ? this.bra.y <= this.bqZ.y : this.bra.y >= this.bqZ.y) {
             z = false;
         }
-        if (this.bqK.x > this.bqJ.x || z) {
-            this.bqK.x = this.bqJ.x;
-            this.bqK.y = this.bqJ.y;
+        if (this.bra.x > this.bqZ.x || z) {
+            this.bra.x = this.bqZ.x;
+            this.bra.y = this.bqZ.y;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 }

@@ -159,7 +159,7 @@ public class a {
 
     private static b a(boolean z, Throwable th) {
         b bVar = new b();
-        bVar.EN = z;
+        bVar.EP = z;
         bVar.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return bVar;
     }

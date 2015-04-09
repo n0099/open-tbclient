@@ -14,11 +14,11 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class MsgReplyCardView extends bk {
-    private LinearLayout btj;
-    private TextView btk;
-    private TextView btl;
-    private TextView btm;
-    private TextView bto;
+    private LinearLayout btA;
+    private TextView btB;
+    private TextView btC;
+    private TextView btD;
+    private TextView btE;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, w.msg_reply_card_view);
@@ -26,57 +26,57 @@ public class MsgReplyCardView extends bk {
     }
 
     private void init() {
-        this.btj = (LinearLayout) findViewById(v.reply_card);
-        this.btk = (TextView) findViewById(v.reply_title);
-        this.btl = (TextView) findViewById(v.reply_content);
-        this.btm = (TextView) findViewById(v.reply_quote_content);
-        this.bto = (TextView) findViewById(v.reply_frs_name);
-        this.btj.setOnClickListener(new a(this));
+        this.btA = (LinearLayout) findViewById(v.reply_card);
+        this.btB = (TextView) findViewById(v.reply_title);
+        this.btC = (TextView) findViewById(v.reply_content);
+        this.btD = (TextView) findViewById(v.reply_quote_content);
+        this.btE = (TextView) findViewById(v.reply_frs_name);
+        this.btA.setOnClickListener(new a(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            d ho = c.ho(chatMessage.getContent());
+            d hr = c.hr(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.btk.setText(a(ho, valueOf));
-            this.btl.setText(ho.replyContent);
-            this.btm.setText(b(ho, valueOf));
-            this.bto.setText(String.valueOf(ho.btx) + this.mContext.getString(y.bar));
+            this.btB.setText(a(hr, valueOf));
+            this.btC.setText(hr.replyContent);
+            this.btD.setText(b(hr, valueOf));
+            this.btE.setText(String.valueOf(hr.btN) + this.mContext.getString(y.bar));
         }
     }
 
     private String a(d dVar, String str) {
         String string;
-        String gD;
+        String gF;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = gD(dVar.btr);
-            gD = this.mContext.getString(y.you);
+            string = gF(dVar.btH);
+            gF = this.mContext.getString(y.you);
         } else {
             string = this.mContext.getString(y.you);
-            gD = gD(dVar.btr);
+            gF = gF(dVar.btH);
         }
-        return String.format(this.mContext.getString(y.add_friend_card_title), string, getType(dVar.type), gD);
+        return String.format(this.mContext.getString(y.add_friend_card_title), string, getType(dVar.type), gF);
     }
 
     private String b(d dVar, String str) {
-        String gD;
+        String gF;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            gD = this.mContext.getString(y.me);
+            gF = this.mContext.getString(y.me);
         } else {
-            gD = gD(dVar.btr);
+            gF = gF(dVar.btH);
         }
         if (dVar.type == 1) {
-            sb.append(String.format(this.mContext.getString(y.add_friend_card_quote_comment), gD));
-            sb.append(dVar.btv);
+            sb.append(String.format(this.mContext.getString(y.add_friend_card_quote_comment), gF));
+            sb.append(dVar.btL);
         } else {
-            sb.append(String.format(this.mContext.getString(y.add_friend_card_quote_thread), gD));
+            sb.append(String.format(this.mContext.getString(y.add_friend_card_quote_thread), gF));
             sb.append(dVar.title);
         }
         return sb.toString();
     }
 
-    private String gD(int i) {
+    private String gF(int i) {
         if (i == 1) {
             return this.mContext.getResources().getString(y.he);
         }

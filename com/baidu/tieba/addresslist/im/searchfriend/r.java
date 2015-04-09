@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ n azf;
+    final /* synthetic */ n azn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(n nVar) {
-        this.azf = nVar;
+        this.azn = nVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,8 +19,8 @@ public class r implements View.OnClickListener {
         SearchFriendActivity searchFriendActivity2;
         com.baidu.tieba.addresslist.im.searchfriend.a.b bVar = (com.baidu.tieba.addresslist.im.searchfriend.a.b) view.getTag(com.baidu.tieba.v.tag_first);
         int intValue = ((Integer) view.getTag(com.baidu.tieba.v.tag_second)).intValue();
-        searchFriendActivity = this.azf.aze;
-        searchFriendActivity2 = this.azf.aze;
+        searchFriendActivity = this.azn.azm;
+        searchFriendActivity2 = this.azn.azm;
         searchFriendActivity.sendMessage(new CustomMessage(2010000, new ImageViewerConfig(searchFriendActivity2.getPageContext().getPageActivity()).createConfig(bVar.qs(), intValue, bVar.qo(), "", "", true, bVar.qs().get(bVar.qs().size() - 1), true, bVar.getAssistUrls())));
     }
 }

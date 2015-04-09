@@ -9,28 +9,28 @@ import java.net.ServerSocket;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private AladinServer MU;
-    private ServerSocket MT = null;
-    private boolean MV = false;
-    private boolean MW = false;
+    private AladinServer MW;
+    private ServerSocket MV = null;
+    private boolean MX = false;
+    private boolean MY = false;
     private int mPort = 6257;
 
     public a(AladinServer aladinServer) {
-        this.MU = aladinServer;
+        this.MW = aladinServer;
     }
 
     private void init(int i) {
-        this.MT = new ServerSocket();
-        this.MT.setReuseAddress(true);
-        this.MT.setSoTimeout(0);
-        this.MT.bind(new InetSocketAddress(i));
+        this.MV = new ServerSocket();
+        this.MV.setReuseAddress(true);
+        this.MV.setSoTimeout(0);
+        this.MV.bind(new InetSocketAddress(i));
     }
 
     public void quit() {
-        this.MW = true;
+        this.MY = true;
         try {
-            if (!this.MT.isClosed()) {
-                this.MT.close();
+            if (!this.MV.isClosed()) {
+                this.MV.close();
             }
         } catch (Throwable th) {
         }
@@ -46,8 +46,8 @@ public class a extends Thread {
             init(this.mPort);
             while (true) {
                 try {
-                    this.MV = true;
-                    Socket accept = this.MT.accept();
+                    this.MX = true;
+                    Socket accept = this.MV.accept();
                     if (accept != null) {
                         if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
                             try {
@@ -57,50 +57,50 @@ public class a extends Thread {
                             } catch (Throwable th) {
                             }
                         } else {
-                            new b(accept, this.MU, this).start();
+                            new b(accept, this.MW, this).start();
                         }
                     }
                 } catch (Throwable th2) {
                     try {
                         BdLog.detailException(th2);
-                        this.MV = false;
-                        if (this.MT != null) {
+                        this.MX = false;
+                        if (this.MV != null) {
                             try {
-                                if (!this.MT.isClosed()) {
-                                    this.MT.close();
+                                if (!this.MV.isClosed()) {
+                                    this.MV.close();
                                 }
                             } catch (Throwable th3) {
                                 BdLog.detailException(th3);
                             }
                         }
-                        if (!this.MW && this.MU != null) {
+                        if (!this.MY && this.MW != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            this.MU.reStartListener();
+                            this.MW.reStartListener();
                             return;
                         }
                         return;
                     } catch (Throwable th4) {
-                        this.MV = false;
-                        if (this.MT != null) {
+                        this.MX = false;
+                        if (this.MV != null) {
                             try {
-                                if (!this.MT.isClosed()) {
-                                    this.MT.close();
+                                if (!this.MV.isClosed()) {
+                                    this.MV.close();
                                 }
                             } catch (Throwable th5) {
                                 BdLog.detailException(th5);
                             }
                         }
-                        if (!this.MW && this.MU != null) {
+                        if (!this.MY && this.MW != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            this.MU.reStartListener();
+                            this.MW.reStartListener();
                         }
                         throw th4;
                     }
@@ -109,13 +109,13 @@ public class a extends Thread {
         } catch (Throwable th6) {
             BdLog.detailException(th6);
             TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.mPort)).toString());
-            if (this.MU != null) {
-                this.MU.stopSelf();
+            if (this.MW != null) {
+                this.MW.stopSelf();
             }
-            if (this.MT != null) {
+            if (this.MV != null) {
                 try {
-                    if (!this.MT.isClosed()) {
-                        this.MT.close();
+                    if (!this.MV.isClosed()) {
+                        this.MV.close();
                     }
                 } catch (Throwable th7) {
                     BdLog.detailException(th7);
@@ -125,6 +125,6 @@ public class a extends Thread {
     }
 
     public boolean oG() {
-        return this.MV;
+        return this.MX;
     }
 }

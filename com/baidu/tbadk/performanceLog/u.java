@@ -9,14 +9,14 @@ import com.baidu.location.a0;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class u extends y {
-    public static int ape = 0;
-    public static int apf = 1;
-    public static int apg = 2;
+    public static int apn = 0;
+    public static int apo = 1;
+    public static int apq = 2;
     private static CustomMessageTask customNormalTask = new CustomMessageTask(2016103, new v());
-    private ArrayList<String> aoB;
-    private ArrayList<String> aoC;
-    private ArrayList<String> apc;
-    private boolean apd;
+    private ArrayList<String> aoJ;
+    private ArrayList<String> aoK;
+    private ArrayList<String> apl;
+    private boolean apm;
     private CustomMessageListener customNormalListener = new w(this, 2016103);
 
     static {
@@ -25,106 +25,106 @@ public class u extends y {
     }
 
     public u() {
-        Co();
+        Cu();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean Cy() {
-        return this.apd;
+    public boolean CE() {
+        return this.apm;
     }
 
     public void bc(boolean z) {
-        this.apd = z;
+        this.apm = z;
     }
 
-    public void Cn() {
-        Cp();
+    public void Ct() {
+        Cv();
     }
 
     public void z(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(ape, 6);
-            sparseArray.put(apf, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(apg, Integer.valueOf(i));
+            sparseArray.put(apn, 6);
+            sparseArray.put(apo, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(apq, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage(2905002, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(ape, 6);
-            sparseArray2.put(apf, Integer.valueOf((int) a0.t));
-            sparseArray2.put(apg, Integer.valueOf(i2));
+            sparseArray2.put(apn, 6);
+            sparseArray2.put(apo, Integer.valueOf((int) a0.t));
+            sparseArray2.put(apq, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage(2905002, sparseArray2));
         }
     }
 
-    public void Cz() {
-        CB();
-        if (this.aoC != null) {
-            this.aoC.clear();
+    public void CF() {
+        CH();
+        if (this.aoK != null) {
+            this.aoK.clear();
         }
-        if (this.aoB != null) {
-            this.aoB.clear();
+        if (this.aoJ != null) {
+            this.aoJ.clear();
         }
-        if (this.apc != null) {
-            this.apc.clear();
+        if (this.apl != null) {
+            this.apl.clear();
         }
     }
 
-    private void Co() {
+    private void Cu() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Cp() {
+    private void Cv() {
         CustomMessage customMessage = new CustomMessage(2016103, new x(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eC(String str) {
-        if (this.aoB == null) {
-            this.aoB = new ArrayList<>();
+    public void eF(String str) {
+        if (this.aoJ == null) {
+            this.aoJ = new ArrayList<>();
         }
         if (str != null) {
-            this.aoB.add(str);
+            this.aoJ.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eD(String str) {
-        if (this.apc == null) {
-            this.apc = new ArrayList<>();
+    public void eG(String str) {
+        if (this.apl == null) {
+            this.apl = new ArrayList<>();
         }
         if (str != null) {
-            this.apc.add(str);
+            this.apl.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ea(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aoC == null) {
-            this.aoC = new ArrayList<>();
+        if (this.aoK == null) {
+            this.aoK = new ArrayList<>();
         }
-        this.aoC.add(valueOf);
+        this.aoK.add(valueOf);
     }
 
-    public String CA() {
-        return t(this.apc);
+    public String CG() {
+        return t(this.apl);
     }
 
-    public String Cs() {
-        return t(this.aoB);
+    public String Cy() {
+        return t(this.aoJ);
     }
 
     public String getCpuString() {
-        return t(this.aoC);
+        return t(this.aoK);
     }
 
     private String t(ArrayList<String> arrayList) {
@@ -146,9 +146,9 @@ public class u extends y {
         return stringBuffer.toString();
     }
 
-    private void CB() {
+    private void CH() {
         af afVar;
-        if (this.aoB != null && this.aoB.size() > 0 && this.aoC != null && this.aoC.size() > 0 && this.apc != null && this.apc.size() > 0 && (afVar = (af) ah.CK().ed(this.mSubType)) != null) {
+        if (this.aoJ != null && this.aoJ.size() > 0 && this.aoK != null && this.aoK.size() > 0 && this.apl != null && this.apl.size() > 0 && (afVar = (af) ah.CQ().ed(this.mSubType)) != null) {
             afVar.b(this);
         }
     }

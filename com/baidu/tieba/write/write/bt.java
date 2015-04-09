@@ -22,23 +22,23 @@ class bt implements View.OnClickListener {
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean ji;
-        z = this.this$0.bJj;
+        boolean jl;
+        z = this.this$0.bJy;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 progressBar = this.this$0.mProgress;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.bOY;
+                    z2 = this.this$0.bPo;
                     if (z2) {
-                        bitmap = this.this$0.bOR;
+                        bitmap = this.this$0.bPh;
                         if (bitmap != null) {
-                            bitmap2 = this.this$0.bOR;
+                            bitmap2 = this.this$0.bPh;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                ji = this.this$0.ji(str);
-                                if (ji) {
+                                jl = this.this$0.jl(str);
+                                if (jl) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {

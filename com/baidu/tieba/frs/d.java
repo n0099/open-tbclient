@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class d implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aJG;
+    final /* synthetic */ FrsActivity aJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsActivity frsActivity) {
-        this.aJG = frsActivity;
+        this.aJQ = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -25,38 +25,38 @@ class d implements AbsListView.OnScrollListener {
         com.baidu.adp.widget.ListView.ak akVar;
         bf bfVar5;
         com.baidu.tieba.frs.c.a aVar2;
-        aVar = this.aJG.aJl;
+        aVar = this.aJQ.aJt;
         if (aVar != null) {
-            aVar2 = this.aJG.aJl;
+            aVar2 = this.aJQ.aJt;
             aVar2.setScrollState(i);
         }
         if (i == 2 || i == 1) {
-            z = this.aJG.aJe;
+            z = this.aJQ.aJm;
             if (!z) {
-                this.aJG.aJe = true;
-                bfVar = this.aJG.aIS;
-                bfVar.Km();
+                this.aJQ.aJm = true;
+                bfVar = this.aJQ.aJa;
+                bfVar.Kt();
             }
         }
-        if (this.aJG.aJf == null) {
-            this.aJG.aJf = new com.baidu.tbadk.performanceLog.h();
-            this.aJG.aJf.eb(1000);
-            this.aJG.aJf.apk = this.aJG.aJi;
+        if (this.aJQ.aJn == null) {
+            this.aJQ.aJn = new com.baidu.tbadk.performanceLog.h();
+            this.aJQ.aJn.eb(1000);
+            this.aJQ.aJn.apt = this.aJQ.aJq;
         }
         if (i == 0) {
-            bfVar4 = this.aJG.aIS;
-            akVar = this.aJG.aJC;
+            bfVar4 = this.aJQ.aJa;
+            akVar = this.aJQ.aJM;
             bfVar4.a(akVar);
-            bfVar5 = this.aJG.aIS;
-            bfVar5.bV(false);
-            this.aJG.Jm = false;
+            bfVar5 = this.aJQ.aJa;
+            bfVar5.bT(false);
+            this.aJQ.Jo = false;
         } else {
-            bfVar2 = this.aJG.aIS;
+            bfVar2 = this.aJQ.aJa;
             bfVar2.a((com.baidu.adp.widget.ListView.ak) null);
-            bfVar3 = this.aJG.aIS;
-            bfVar3.bV(true);
-            this.aJG.Jm = true;
+            bfVar3 = this.aJQ.aJa;
+            bfVar3.bT(true);
+            this.aJQ.Jo = true;
         }
-        this.aJG.aJf.Cn();
+        this.aJQ.aJn.Ct();
     }
 }

@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements s {
-    final /* synthetic */ a aBK;
+    final /* synthetic */ a aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.aBK = aVar;
+        this.aBS = aVar;
     }
 
     @Override // com.baidu.tieba.discover.s
@@ -19,44 +19,44 @@ public class l implements s {
         List list2;
         List list3;
         List list4;
-        bdListView = this.aBK.aBx;
+        bdListView = this.aBS.aBF;
         bdListView.mW();
         if (aVar != null) {
             if (!z) {
-                this.aBK.aBE = true;
+                this.aBS.aBM = true;
             } else {
-                this.aBK.aBF = true;
+                this.aBS.aBN = true;
             }
             if (z2) {
-                list = this.aBK.aBC;
+                list = this.aBS.aBK;
                 list.clear();
-                list2 = this.aBK.aBD;
+                list2 = this.aBS.aBL;
                 list2.clear();
-                if (aVar.Gd() != null && !aVar.Gd().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.Gd()) {
-                        if (dVar != null && dVar.Gk() != null) {
+                if (aVar.Gj() != null && !aVar.Gj().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.Gj()) {
+                        if (dVar != null && dVar.Gq() != null) {
                             if (dVar.getType() == 1) {
-                                list3 = this.aBK.aBC;
+                                list3 = this.aBS.aBK;
                                 if (list3.isEmpty()) {
-                                    this.aBK.aBC = dVar.Gk();
+                                    this.aBS.aBK = dVar.Gq();
                                 }
                             } else {
-                                list4 = this.aBK.aBD;
+                                list4 = this.aBS.aBL;
                                 list4.add(dVar);
                             }
                         }
                     }
                 }
-                this.aBK.a(aVar.Gc());
-                this.aBK.br(true);
+                this.aBS.a(aVar.Gi());
+                this.aBS.br(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.s
-    public void FV() {
+    public void Gb() {
         BdListView bdListView;
-        bdListView = this.aBK.aBx;
+        bdListView = this.aBS.aBF;
         bdListView.mW();
     }
 }

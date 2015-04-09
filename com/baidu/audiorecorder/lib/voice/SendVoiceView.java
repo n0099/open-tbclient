@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.chat.aw;
 /* loaded from: classes.dex */
 public class SendVoiceView implements aw {
-    private TextView KA;
+    private TextView KC;
     protected ImageView mBtnMsgSendMore1;
     protected ImageView mBtnMsgSendSoftkey;
     private RelativeLayout mBtnMsgSendVoice;
@@ -21,7 +21,7 @@ public class SendVoiceView implements aw {
         this.mBtnMsgSendSoftkey = null;
         this.mBtnMsgSendMore1 = null;
         this.mBtnMsgSendVoice = null;
-        this.KA = null;
+        this.KC = null;
         if (viewGroup != null) {
             View inflate = com.baidu.adp.lib.g.b.hH().inflate(viewGroup.getContext(), com.baidu.tieba.w.send_voice_view, viewGroup);
             this.mLayMsgSendVoice = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.lay_msgsend_voice);
@@ -29,7 +29,7 @@ public class SendVoiceView implements aw {
             this.mBtnMsgSendSoftkey = (ImageView) inflate.findViewById(com.baidu.tieba.v.btn_msgsend_softkey);
             this.mBtnMsgSendMore1 = (ImageView) inflate.findViewById(com.baidu.tieba.v.btn_msgsend_more1);
             this.mBtnMsgSendVoice = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.btn_msgsend_voice);
-            this.KA = (TextView) inflate.findViewById(com.baidu.tieba.v.tex_send_voice);
+            this.KC = (TextView) inflate.findViewById(com.baidu.tieba.v.tex_send_voice);
         }
     }
 
@@ -37,11 +37,11 @@ public class SendVoiceView implements aw {
     public void refreshSendVoiceText(boolean z) {
         if (z) {
             this.mBtnMsgSendVoice.setBackgroundResource(com.baidu.tieba.u.but_talk_s);
-            this.KA.setText(TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.msglist_no_push));
+            this.KC.setText(TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.msglist_no_push));
             return;
         }
         this.mBtnMsgSendVoice.setBackgroundResource(com.baidu.tieba.u.but_talk_n);
-        this.KA.setText(TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.msglist_push_talk));
+        this.KC.setText(TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.msglist_push_talk));
     }
 
     @Override // com.baidu.tieba.im.chat.aw

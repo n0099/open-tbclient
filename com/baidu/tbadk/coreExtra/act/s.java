@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s implements l {
-    private static s aau;
+    private static s aaw;
 
     private s() {
     }
@@ -16,10 +16,10 @@ public class s implements l {
     public static synchronized s ut() {
         s sVar;
         synchronized (s.class) {
-            if (aau == null) {
-                aau = new s();
+            if (aaw == null) {
+                aaw = new s();
             }
-            sVar = aau;
+            sVar = aaw;
         }
         return sVar;
     }

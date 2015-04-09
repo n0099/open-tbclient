@@ -6,18 +6,18 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 /* loaded from: classes.dex */
 class ce implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ cb cyq;
+    final /* synthetic */ cb cyM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(cb cbVar) {
-        this.cyq = cbVar;
+        this.cyM = cbVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteImageActivity writeImageActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        writeImageActivity = this.cyq.this$0;
+        writeImageActivity = this.cyM.this$0;
         messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
         aVar.dismiss();
     }

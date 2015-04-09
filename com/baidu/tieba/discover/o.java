@@ -16,9 +16,9 @@ class o extends CustomMessageListener {
         ImageView imageView;
         Boolean bool;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            DiscoverDelegateStatic.aBN = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).alH);
-            imageView = DiscoverDelegateStatic.aBM;
-            bool = DiscoverDelegateStatic.aBN;
+            DiscoverDelegateStatic.aBV = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).alP);
+            imageView = DiscoverDelegateStatic.aBU;
+            bool = DiscoverDelegateStatic.aBV;
             imageView.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }

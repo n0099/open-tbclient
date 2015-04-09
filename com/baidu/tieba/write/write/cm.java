@@ -11,10 +11,10 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class cm extends PopupWindow {
-    private LinearLayout afw;
+    private LinearLayout afE;
     private Context context;
     private int count;
-    private cn cyG;
+    private cn czc;
     private int mCurrentIndex;
     private int maxHeight;
 
@@ -27,13 +27,15 @@ public class cm extends PopupWindow {
 
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
-        this.afw = new LinearLayout(context);
-        this.afw.setOrientation(1);
-        this.afw.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.afw);
+        scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+        this.afE = new LinearLayout(context);
+        this.afE.setOrientation(1);
+        this.afE.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.afE);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, com.baidu.adp.lib.util.n.dip2px(context, 1.0f), com.baidu.adp.lib.util.n.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
+        scrollView.setScrollbarFadingEnabled(false);
         try {
             Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
             declaredMethod.setAccessible(true);
@@ -60,8 +62,8 @@ public class cm extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new co(this.count, this.cyG));
-        this.afw.addView(view);
+        view.setOnClickListener(new co(this.count, this.czc));
+        this.afE.addView(view);
         this.count++;
     }
 
@@ -71,13 +73,13 @@ public class cm extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.mCurrentIndex != -1) {
-            this.afw.getChildAt(this.mCurrentIndex).setSelected(false);
+            this.afE.getChildAt(this.mCurrentIndex).setSelected(false);
         }
         this.mCurrentIndex = i;
-        this.afw.getChildAt(this.mCurrentIndex).setSelected(true);
+        this.afE.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(cn cnVar) {
-        this.cyG = cnVar;
+        this.czc = cnVar;
     }
 }

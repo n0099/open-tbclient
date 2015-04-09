@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.widget.n {
-    final /* synthetic */ d csd;
+    final /* synthetic */ d cst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(d dVar) {
-        this.csd = dVar;
+        this.cst = dVar;
     }
 
     @Override // com.baidu.tbadk.widget.n
@@ -17,8 +17,8 @@ public class j implements com.baidu.tbadk.widget.n {
         AccountData currentAccountObj;
         c cVar;
         if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
-            cVar = this.csd.crZ;
-            cVar.eZ(true);
+            cVar = this.cst.csp;
+            cVar.eX(true);
         }
     }
 

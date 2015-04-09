@@ -6,11 +6,11 @@ import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ ad Um;
+    final /* synthetic */ ad Uo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar) {
-        this.Um = adVar;
+        this.Uo = adVar;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
@@ -27,7 +27,7 @@ public class ae implements com.baidu.adp.lib.network.willdelete.d {
                     if (headerField == null || headerField.length() <= 0) {
                         z = false;
                     }
-                    aVar = this.Um.Ua;
+                    aVar = this.Uo.Uc;
                     if (aVar.tp().ts().mIsBDImage || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
@@ -36,14 +36,14 @@ public class ae implements com.baidu.adp.lib.network.willdelete.d {
                         }
                     }
                     String headerField2 = httpURLConnection.getHeaderField("Src-Content-Type");
-                    aVar2 = this.Um.Ua;
+                    aVar2 = this.Uo.Uc;
                     aVar2.tq().mHeader = httpURLConnection.getHeaderFields();
                     if ("image/gif".equalsIgnoreCase(headerField2)) {
-                        aVar4 = this.Um.Ua;
+                        aVar4 = this.Uo.Uc;
                         aVar4.tq().rC = true;
                         return;
                     }
-                    aVar3 = this.Um.Ua;
+                    aVar3 = this.Uo.Uc;
                     aVar3.tq().rC = false;
                 }
             } catch (IOException e) {

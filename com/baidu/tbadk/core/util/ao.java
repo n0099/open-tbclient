@@ -5,16 +5,16 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao UM;
-    private static final BdUniqueId UN = BdUniqueId.gen();
+    private static ao UO;
+    private static final BdUniqueId UQ = BdUniqueId.gen();
 
     public static synchronized ao sJ() {
         ao aoVar;
         synchronized (ao.class) {
-            if (UM == null) {
-                UM = new ao();
+            if (UO == null) {
+                UO = new ao();
             }
-            aoVar = UM;
+            aoVar = UO;
         }
         return aoVar;
     }
@@ -24,12 +24,12 @@ public class ao {
             String cN = bf.cN(str);
             bc.sT().copyFile(str2, cN);
             if (z || z2 || z3) {
-                synchronized (c.Gs) {
+                synchronized (c.Gu) {
                     int cM = bc.sT().cM(cN);
                     if (cM > 0) {
                         if (z) {
                             Bitmap image = bc.sT().getImage(cN);
-                            com.baidu.tbadk.imageManager.e.zs().dE(cM);
+                            com.baidu.tbadk.imageManager.e.zy().dE(cM);
                             if (image != null) {
                                 a(str, image, z2, bc.sT().cL(cN), z3, cN);
                             }
@@ -72,7 +72,7 @@ public class ao {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.e.zs().c(str, aVar);
+        com.baidu.tbadk.imageManager.e.zy().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

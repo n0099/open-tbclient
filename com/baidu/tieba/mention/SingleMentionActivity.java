@@ -20,52 +20,52 @@ import com.baidu.tbadk.mvc.core.MvcActivity;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.core.b, SingleMentionActivity> implements com.baidu.tbadk.core.voice.j {
-    private n bDx;
-    private ai bDy;
-    private j bDz;
-    private com.baidu.tbadk.mvc.core.b bdu;
-    private BdUniqueId[] bdv;
+    private n bDK;
+    private ai bDL;
+    private j bDM;
+    private com.baidu.tbadk.mvc.core.b bdK;
+    private BdUniqueId[] bdL;
     VoiceManager mVoiceManager;
 
-    private BdUniqueId dx(boolean z) {
-        if (this.bdv == null) {
-            this.bdv = new BdUniqueId[2];
-            this.bdv[0] = BdUniqueId.gen();
-            this.bdv[1] = BdUniqueId.gen();
+    private BdUniqueId dv(boolean z) {
+        if (this.bdL == null) {
+            this.bdL = new BdUniqueId[2];
+            this.bdL[0] = BdUniqueId.gen();
+            this.bdL[1] = BdUniqueId.gen();
         }
-        return z ? this.bdv[0] : this.bdv[1];
+        return z ? this.bdL[0] : this.bdL[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: Qm */
+    /* renamed from: Qz */
     public com.baidu.tbadk.mvc.core.b oi() {
-        if (this.bdu == null) {
-            this.bdu = new com.baidu.tbadk.mvc.core.b(this);
+        if (this.bdK == null) {
+            this.bdK = new com.baidu.tbadk.mvc.core.b(this);
             ae aeVar = new ae(this);
-            aeVar.setUniqueId(dx(true));
-            this.bdu.a(aeVar);
+            aeVar.setUniqueId(dv(true));
+            this.bdK.a(aeVar);
             f fVar = new f(this);
-            fVar.setUniqueId(dx(false));
-            this.bdu.a(fVar);
+            fVar.setUniqueId(dv(false));
+            this.bdK.a(fVar);
         }
-        return this.bdu;
+        return this.bdK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: XJ */
+    /* renamed from: XV */
     public n ok() {
-        if (this.bDx == null) {
-            this.bDx = new n(this);
-            this.bDy = new ai(this);
-            this.bDy.setUniqueId(dx(true));
-            this.bDx.a(this.bDy);
-            this.bDz = new j(this);
-            this.bDz.setUniqueId(dx(false));
-            this.bDx.a(this.bDz);
+        if (this.bDK == null) {
+            this.bDK = new n(this);
+            this.bDL = new ai(this);
+            this.bDL.setUniqueId(dv(true));
+            this.bDK.a(this.bDL);
+            this.bDM = new j(this);
+            this.bDM.setUniqueId(dv(false));
+            this.bDK.a(this.bDM);
         }
-        return this.bDx;
+        return this.bDK;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -74,7 +74,7 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
         super.onCreate(bundle);
         UtilHelper.startHardAccelerated(getWindow());
         MentionActivityConfig.newJumpIn = true;
-        zT().addEventDelegate(this);
+        zZ().addEventDelegate(this);
         this.mVoiceManager = getVoiceManager();
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onCreate(getPageContext());
@@ -139,10 +139,10 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bDy == null) {
+            if (this.bDL == null) {
                 finish();
                 return true;
-            } else if (this.bDy.Af()) {
+            } else if (this.bDL.Al()) {
                 return true;
             } else {
                 finish();
@@ -206,23 +206,23 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Az() == 9485) {
-            com.baidu.tbadk.mvc.b.a AA = bVar.AA();
-            if (AA instanceof FeedData) {
-                return d((FeedData) AA);
+        if (bVar.AF() == 9485) {
+            com.baidu.tbadk.mvc.b.a AG = bVar.AG();
+            if (AG instanceof FeedData) {
+                return d((FeedData) AG);
             }
-        } else if (bVar.Az() == 9484) {
-            com.baidu.tbadk.mvc.b.a AA2 = bVar.AA();
-            if (AA2 instanceof FeedData) {
-                return e((FeedData) AA2);
+        } else if (bVar.AF() == 9484) {
+            com.baidu.tbadk.mvc.b.a AG2 = bVar.AG();
+            if (AG2 instanceof FeedData) {
+                return e((FeedData) AG2);
             }
-        } else if (bVar.Az() == 9483) {
-            com.baidu.tbadk.mvc.b.a AA3 = bVar.AA();
-            if (AA3 instanceof FeedData) {
-                return f((FeedData) AA3);
+        } else if (bVar.AF() == 9483) {
+            com.baidu.tbadk.mvc.b.a AG3 = bVar.AG();
+            if (AG3 instanceof FeedData) {
+                return f((FeedData) AG3);
             }
-        } else if (bVar.Az() == 9486) {
-            this.bDy.c(bVar);
+        } else if (bVar.AF() == 9486) {
+            this.bDL.c(bVar);
             return true;
         }
         return false;
@@ -236,7 +236,7 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
                     return false;
                 }
                 k kVar = praiseList.get(0);
-                return MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getActivity(), kVar.getId(), kVar.Xy(), kVar.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
+                return MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getActivity(), kVar.getId(), kVar.XK(), kVar.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
             } else if (ok().getCurrentTabType() == 1) {
                 TiebaStatic.eventStat(getActivity(), "chat_2_aio", "click", 1, new Object[0]);
                 return MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getActivity(), com.baidu.adp.lib.g.c.a(feedData.getReplyer().getUserId(), 0L), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), 0, feedData.getReplyer().getIsMyFriend(), feedData.toJson())));

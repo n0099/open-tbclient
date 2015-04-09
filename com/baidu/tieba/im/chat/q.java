@@ -7,11 +7,11 @@ import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AbsListView.RecyclerListener {
-    final /* synthetic */ AbsMsglistView aWs;
+    final /* synthetic */ AbsMsglistView aWI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(AbsMsglistView absMsglistView) {
-        this.aWs = absMsglistView;
+        this.aWI = absMsglistView;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

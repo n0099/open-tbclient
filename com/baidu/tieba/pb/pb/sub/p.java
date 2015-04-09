@@ -5,18 +5,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements com.baidu.tieba.pb.b.e {
-    final /* synthetic */ l bOf;
+    final /* synthetic */ l bOv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(l lVar) {
-        this.bOf = lVar;
+        this.bOv = lVar;
     }
 
     @Override // com.baidu.tieba.pb.b.e
     public boolean a(View view, MotionEvent motionEvent) {
-        this.bOf.dT(false);
-        this.bOf.L(view);
-        this.bOf.dT(true);
+        this.bOv.dR(false);
+        this.bOv.L(view);
+        this.bOv.dR(true);
         return true;
     }
 
@@ -28,12 +28,12 @@ public class p implements com.baidu.tieba.pb.b.e {
     @Override // com.baidu.tieba.pb.b.e
     public boolean c(View view, MotionEvent motionEvent) {
         boolean z;
-        z = this.bOf.bOd;
+        z = this.bOv.bOt;
         if (!z) {
-            this.bOf.acm();
+            this.bOv.acB();
             return true;
         }
-        this.bOf.bOd = false;
+        this.bOv.bOt = false;
         return true;
     }
 }

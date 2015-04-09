@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aJG;
+    final /* synthetic */ FrsActivity aJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(FrsActivity frsActivity, int i) {
         super(i);
-        this.aJG = frsActivity;
+        this.aJQ = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,34 +31,34 @@ class l extends CustomMessageListener {
         String str3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            bfVar = this.aJG.aIS;
+            bfVar = this.aJQ.aJa;
             if (bfVar != null) {
-                wVar = this.aJG.aIV;
+                wVar = this.aJQ.aJd;
                 if (wVar != null) {
-                    wVar2 = this.aJG.aIV;
-                    if (wVar2.YO() != null) {
+                    wVar2 = this.aJQ.aJd;
+                    if (wVar2.Za() != null) {
                         if (booleanValue) {
-                            aVar2 = this.aJG.aJl;
-                            wVar4 = this.aJG.aIV;
+                            aVar2 = this.aJQ.aJt;
+                            wVar4 = this.aJQ.aJd;
                             aVar2.a(wVar4, false);
-                            kVar2 = this.aJG.aJm;
-                            kVar2.bZ(true);
+                            kVar2 = this.aJQ.aJu;
+                            kVar2.bX(true);
                             TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                            str3 = this.aJG.aIK;
+                            str3 = this.aJQ.aIS;
                             m411getInst.addLikeForum(str3);
                             return;
                         }
-                        com.baidu.tieba.tbadkCore.d ako = com.baidu.tieba.tbadkCore.d.ako();
-                        str = this.aJG.aIK;
-                        ako.D(str, false);
-                        wVar3 = this.aJG.aIV;
-                        wVar3.YO().setLike(0);
-                        aVar = this.aJG.aJl;
-                        aVar.KS();
-                        kVar = this.aJG.aJm;
-                        kVar.bZ(false);
+                        com.baidu.tieba.tbadkCore.d akD = com.baidu.tieba.tbadkCore.d.akD();
+                        str = this.aJQ.aIS;
+                        akD.D(str, false);
+                        wVar3 = this.aJQ.aJd;
+                        wVar3.Za().setLike(0);
+                        aVar = this.aJQ.aJt;
+                        aVar.Le();
+                        kVar = this.aJQ.aJu;
+                        kVar.bX(false);
                         TbadkCoreApplication m411getInst2 = TbadkCoreApplication.m411getInst();
-                        str2 = this.aJG.aIK;
+                        str2 = this.aJQ.aIS;
                         m411getInst2.delLikeForum(str2);
                     }
                 }

@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tbadk.mvc.i.b.b {
-    private com.baidu.tbadk.mvc.k.a ano;
-    private boolean bCS;
-    private boolean bCT;
+    private com.baidu.tbadk.mvc.k.a anw;
+    private boolean bDf;
+    private boolean bDg;
 
     public l(MvcActivity<?, ?, ?> mvcActivity) {
         super(mvcActivity);
-        this.bCS = true;
-        this.bCT = false;
+        this.bDf = true;
+        this.bDg = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,22 +21,22 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
         super.b(cVar);
         if (cVar instanceof com.baidu.tbadk.mvc.e.b) {
             com.baidu.tbadk.mvc.e.b bVar = (com.baidu.tbadk.mvc.e.b) cVar;
-            if (bVar.Bj()) {
-                this.ano.BZ();
-                if (bVar.Bh()) {
-                    this.ano.dT(com.baidu.tieba.y.loading);
-                } else if (bVar.Bi()) {
-                    this.ano.dV(com.baidu.tieba.y.refresh);
+            if (bVar.Bp()) {
+                this.anw.Cf();
+                if (bVar.Bn()) {
+                    this.anw.dT(com.baidu.tieba.y.loading);
+                } else if (bVar.Bo()) {
+                    this.anw.dT(com.baidu.tieba.y.loading);
                 } else {
-                    this.ano.dU(com.baidu.tieba.y.no_more_msg);
+                    this.anw.dU(com.baidu.tieba.y.list_no_more);
                 }
             } else {
-                this.ano.hide();
+                this.anw.hide();
             }
-            if (bVar.Bf()) {
-                BI();
+            if (bVar.Bl()) {
+                BO();
             } else {
-                BJ();
+                BP();
             }
         }
     }
@@ -45,9 +45,9 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        BJ();
-        if (this.ano != null) {
-            this.ano.dU(com.baidu.tieba.y.no_more_msg);
+        BP();
+        if (this.anw != null) {
+            this.anw.dU(com.baidu.tieba.y.no_more_msg);
         }
     }
 
@@ -56,25 +56,25 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     public void ov() {
         getListView().setDividerHeight(0);
         getListView().setExOnSrollToBottomListener(new m(this));
-        BH();
-        this.ano = new com.baidu.tbadk.mvc.k.a(zS());
-        this.ano.mN();
-        getListView().setNextPage(this.ano);
+        BN();
+        this.anw = new com.baidu.tbadk.mvc.k.a(zY());
+        this.anw.mN();
+        getListView().setNextPage(this.anw);
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getView());
-        this.ano.a(tbPageContext, i);
+        this.anw.a(tbPageContext, i);
         return super.a(tbPageContext, i);
     }
 
     @Override // com.baidu.tbadk.mvc.i.b.b
     public void onPrimary() {
-        if (this.bCS || this.bCT) {
-            this.bCS = false;
-            this.bCT = false;
-            BD();
+        if (this.bDf || this.bDg) {
+            this.bDf = false;
+            this.bDg = false;
+            BJ();
         }
     }
 
@@ -82,7 +82,7 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     public void a(com.baidu.tbadk.mvc.i.b.a aVar) {
     }
 
-    public void dv(boolean z) {
-        this.bCT = z;
+    public void dt(boolean z) {
+        this.bDg = z;
     }
 }

@@ -15,39 +15,39 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private b bmi = null;
-    private SearchGroupModel bmj = null;
-    private e bmk = new a(this, 103007);
+    private b bmy = null;
+    private SearchGroupModel bmz = null;
+    private e bmA = new a(this, 103007);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bmi = new b(this);
-        this.bmj = new SearchGroupModel(this);
-        registerListener(this.bmk);
+        this.bmy = new b(this);
+        this.bmz = new SearchGroupModel(this);
+        registerListener(this.bmA);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bmi.changeSkinType(i);
+        this.bmy.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bmi.Th()) {
+        if (view == this.bmy.Tu()) {
             finish();
-        } else if (view == this.bmi.Tg()) {
+        } else if (view == this.bmy.Tt()) {
             k.A(getPageContext().getContext(), "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                gO((String) view.getTag());
+                gR((String) view.getTag());
             }
-        } else if (view == this.bmi.OT()) {
-            this.bmi.Tj();
-        } else if (view == this.bmi.Ti()) {
+        } else if (view == this.bmy.Pg()) {
+            this.bmy.Tw();
+        } else if (view == this.bmy.Tv()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new com.baidu.tbadk.core.frameworkData.a(getPageContext().getPageActivity())));
         }
     }
@@ -65,20 +65,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.bmj != null) {
-            this.bmj.cancelLoadData();
+        if (this.bmz != null) {
+            this.bmz.cancelLoadData();
         }
     }
 
-    public void gO(String str) {
+    public void gR(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.bmi.cK(true);
-                this.bmj.sendMessage(Integer.parseInt(str));
+                this.bmy.cI(true);
+                this.bmz.sendMessage(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.bmi.cK(false);
+                this.bmy.cI(false);
                 showToast(y.groupid_error);
                 return;
             }
@@ -87,7 +87,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tf() {
+    public void Ts() {
         showToast(y.add_group_toast_noresult);
     }
 

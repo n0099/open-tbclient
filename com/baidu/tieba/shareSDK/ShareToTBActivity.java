@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
-    private String ccI;
-    private String ccJ;
-    private String ccK;
-    private String ccL;
-    private String ccM;
-    private PackageManager ccN;
-    private PackageInfo ccO;
-    private final CustomMessageListener ccP = new a(this, 2001256);
+    private String ccX;
+    private String ccY;
+    private String ccZ;
+    private String cda;
+    private String cdb;
+    private PackageManager cdc;
+    private PackageInfo cdd;
+    private final CustomMessageListener cde = new a(this, 2001256);
     private String mAppName;
     private String mShareContent;
     private String mShareTitle;
@@ -39,53 +39,53 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.ccN = getPageContext().getPageActivity().getPackageManager();
-        aib();
-        aic();
+        this.cdc = getPageContext().getPageActivity().getPackageManager();
+        aiq();
+        air();
         k.A(getPageContext().getPageActivity(), "share4sdk");
-        registerListener(this.ccP);
+        registerListener(this.cde);
     }
 
-    private void aib() {
+    private void aiq() {
         this.packageName = getCallingPackage();
-        if (this.ccN != null && this.packageName != null) {
+        if (this.cdc != null && this.packageName != null) {
             try {
-                this.ccO = this.ccN.getPackageInfo(this.packageName, 64);
-                if (this.ccO != null) {
-                    if (this.ccO.applicationInfo != null && this.ccO.applicationInfo.loadLabel(this.ccN) != null) {
-                        this.mAppName = this.ccO.applicationInfo.loadLabel(this.ccN).toString();
+                this.cdd = this.cdc.getPackageInfo(this.packageName, 64);
+                if (this.cdd != null) {
+                    if (this.cdd.applicationInfo != null && this.cdd.applicationInfo.loadLabel(this.cdc) != null) {
+                        this.mAppName = this.cdd.applicationInfo.loadLabel(this.cdc).toString();
                     }
-                    if (this.ccO.signatures != null && this.ccO.signatures.length > 0 && this.ccO.signatures[0] != null) {
-                        this.ccM = bf.y(this.ccO.signatures[0].toByteArray());
+                    if (this.cdd.signatures != null && this.cdd.signatures.length > 0 && this.cdd.signatures[0] != null) {
+                        this.cdb = bf.y(this.cdd.signatures[0].toByteArray());
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.e(e.getMessage());
                 this.mAppName = null;
-                this.ccM = null;
+                this.cdb = null;
             }
         }
         try {
             Bundle extras = getIntent().getExtras();
-            this.ccI = extras.getString("ShareUrl");
-            this.ccJ = extras.getString("ShareImageUrl");
+            this.ccX = extras.getString("ShareUrl");
+            this.ccY = extras.getString("ShareImageUrl");
             this.mShareTitle = extras.getString("ShareTitle");
             this.mShareContent = extras.getString("ShareContent");
-            this.ccK = extras.getString("mShareTargetBaName");
+            this.ccZ = extras.getString("mShareTargetBaName");
             if (TextUtils.isEmpty(this.mAppName)) {
                 this.mAppName = extras.getString("appName");
             }
-            if (TextUtils.isEmpty(this.ccM)) {
-                this.ccM = extras.getString("appSign");
+            if (TextUtils.isEmpty(this.cdb)) {
+                this.cdb = extras.getString("appSign");
             }
-            this.ccL = extras.getString("appKey");
+            this.cda = extras.getString("appKey");
         } catch (Exception e2) {
         }
     }
 
-    private void aic() {
+    private void air() {
         if (TbadkApplication.isLogin()) {
-            aid();
+            ais();
             return;
         }
         TbadkApplication.isSDKLogin = true;
@@ -105,8 +105,8 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         if (i == 23008) {
             if (i2 == -1) {
                 if (intent != null) {
-                    this.ccK = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
-                    aie();
+                    this.ccZ = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
+                    ait();
                     return;
                 }
                 finish();
@@ -116,25 +116,25 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         } else if (i == 11003) {
             TbadkApplication.isSDKLogin = false;
             if (i2 == -1) {
-                aid();
+                ais();
             } else {
                 finish();
             }
         }
     }
 
-    private void aid() {
-        if (TextUtils.isEmpty(this.ccK)) {
+    private void ais() {
+        if (TextUtils.isEmpty(this.ccZ)) {
             sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentAccount(), 0, true, 23008)));
         } else {
-            aie();
+            ait();
         }
     }
 
-    private void aie() {
-        if (this.ccI == null) {
-            this.ccI = "";
+    private void ait() {
+        if (this.ccX == null) {
+            this.ccX = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.ccK, this.mShareTitle, this.mShareContent, this.ccJ, this.ccI, this.ccL, this.mAppName, this.ccM)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.ccZ, this.mShareTitle, this.mShareContent, this.ccY, this.ccX, this.cda, this.mAppName, this.cdb)));
     }
 }

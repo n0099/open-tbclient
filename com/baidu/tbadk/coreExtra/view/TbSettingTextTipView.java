@@ -10,37 +10,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    private boolean afA;
-    protected ImageView afB;
-    protected LinearLayout afw;
-    protected TextView afx;
-    protected TextView afy;
+    protected LinearLayout afE;
+    protected TextView afF;
+    protected TextView afG;
+    private boolean afI;
+    protected ImageView afJ;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.afA = true;
+        this.afI = true;
         this.mContext = context;
-        xj();
+        xp();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.afA = true;
+        this.afI = true;
         this.mContext = context;
-        xj();
+        xp();
     }
 
     public void displayTip() {
-        if (this.afy != null) {
-            this.afy.setVisibility(0);
+        if (this.afG != null) {
+            this.afG.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.afy != null) {
-            this.afy.setTextColor(i);
+        if (this.afG != null) {
+            this.afG.setTextColor(i);
         }
     }
 
@@ -51,35 +51,35 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.afB.setVisibility(8);
+        this.afJ.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.afx.setText(str);
+        this.afF.setText(str);
     }
 
     public void setText(int i) {
-        this.afx.setText(i);
+        this.afF.setText(i);
     }
 
     public void setTip(String str) {
-        this.afy.setText(str);
+        this.afG.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.afy.getText();
+        return this.afG.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.afy.setBackgroundDrawable(drawable);
+        this.afG.setBackgroundDrawable(drawable);
     }
 
-    protected void xj() {
+    protected void xp() {
         com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.tb_setting_text_tip_view, this, true);
-        this.afw = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.afx = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.afy = (TextView) findViewById(com.baidu.tieba.v.tip);
-        this.afB = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
+        this.afE = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.afF = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.afG = (TextView) findViewById(com.baidu.tieba.v.tip);
+        this.afJ = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -87,17 +87,17 @@ public class TbSettingTextTipView extends FrameLayout {
         String string = obtainStyledAttributes.getString(0);
         String string2 = obtainStyledAttributes.getString(3);
         if (string != null) {
-            this.afx.setText(string);
+            this.afF.setText(string);
         }
         if (string2 != null) {
-            this.afy.setText(string2);
+            this.afG.setText(string2);
         }
-        this.afA = obtainStyledAttributes.getBoolean(5, true);
+        this.afI = obtainStyledAttributes.getBoolean(5, true);
         obtainStyledAttributes.recycle();
-        this.afw.setClickable(false);
-        this.afw.setFocusable(false);
-        if (!this.afA) {
-            this.afB.setVisibility(4);
+        this.afE.setClickable(false);
+        this.afE.setFocusable(false);
+        if (!this.afI) {
+            this.afJ.setVisibility(4);
         }
     }
 }

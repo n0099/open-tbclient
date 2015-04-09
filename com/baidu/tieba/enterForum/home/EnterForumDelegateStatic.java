@@ -9,12 +9,12 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d zK() {
+    public com.baidu.tbadk.mainTab.d zQ() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.alV = new a();
+        dVar.amd = new a();
         dVar.type = 1;
-        dVar.alW = y.home;
-        dVar.alM = u.icon_tabbar_enterforum;
+        dVar.ame = y.home;
+        dVar.alU = u.icon_tabbar_enterforum;
         return dVar;
     }
 
@@ -26,7 +26,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator af(Context context) {
-        this.alJ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
-        return this.alJ;
+        this.alR = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
+        return this.alR;
     }
 }

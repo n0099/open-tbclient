@@ -1,24 +1,16 @@
 package com.baidu.tieba.mainentrance;
-
-import android.app.Activity;
-import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements Runnable {
-    final /* synthetic */ SquareSearchActivity bzG;
+public class r implements com.baidu.tieba.view.e {
+    final /* synthetic */ SquareSearchActivity bzT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SquareSearchActivity squareSearchActivity) {
-        this.bzG = squareSearchActivity;
+        this.bzT = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditText editText2;
-        editText = this.bzG.byS;
-        editText.requestFocus();
-        Activity pageActivity = this.bzG.getPageContext().getPageActivity();
-        editText2 = this.bzG.byS;
-        com.baidu.adp.lib.util.n.d(pageActivity, editText2);
+    @Override // com.baidu.tieba.view.e
+    public void dr(boolean z) {
+        this.bzT.bzP = z;
     }
 }

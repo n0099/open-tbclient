@@ -55,7 +55,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
                         friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                         friendFeedThreadData.parserProtobuf(list2.get(i3));
                         friendFeedThreadData.parser_title();
-                        getFriendFeedData().Ji().add(friendFeedThreadData);
+                        getFriendFeedData().Jo().add(friendFeedThreadData);
                     }
                 }
                 getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());

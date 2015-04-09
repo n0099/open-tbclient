@@ -8,13 +8,13 @@ import tbclient.FrsPage.TopNews;
 import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class aa implements ai {
-    public static final BdUniqueId QT = BdUniqueId.gen();
-    private String QU;
+    public static final BdUniqueId QV = BdUniqueId.gen();
+    private String QW;
     private int position = 0;
     private String summary;
 
     public String rb() {
-        return this.QU;
+        return this.QW;
     }
 
     public String getSummary() {
@@ -23,14 +23,14 @@ public class aa implements ai {
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.QU = topNews.news_link;
+            this.QW = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
 
     public void a(NewsInfo newsInfo) {
         if (newsInfo != null) {
-            this.QU = newsInfo.news_link;
+            this.QW = newsInfo.news_link;
             this.summary = newsInfo.summary;
             this.position = newsInfo.position.intValue();
         }
@@ -39,7 +39,7 @@ public class aa implements ai {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.QU = jSONObject.optString("news_link");
+                this.QW = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
                 this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
@@ -50,6 +50,6 @@ public class aa implements ai {
 
     @Override // com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return QT;
+        return QV;
     }
 }

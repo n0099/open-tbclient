@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.util.t;
 /* loaded from: classes.dex */
 public class o extends a {
-    private boolean WF;
+    private boolean WH;
 
     public o(boolean z) {
-        this.WF = true;
-        this.WF = z;
+        this.WH = true;
+        this.WH = z;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -28,7 +28,7 @@ public class o extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.WF;
+        return this.WH;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a

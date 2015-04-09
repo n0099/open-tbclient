@@ -21,7 +21,7 @@ public class am implements ag {
     public void bi(boolean z) {
         boolean z2;
         CombineDownload combineDownload;
-        this.this$0.atI = true;
+        this.this$0.atQ = true;
         UpdateDialog updateDialog = this.this$0;
         if (z) {
             Activity pageActivity = this.this$0.getPageContext().getPageActivity();
@@ -43,7 +43,7 @@ public class am implements ag {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void bj(boolean z) {
-        boolean Ec;
+        boolean Ei;
         boolean z2;
         CombineDownload combineDownload;
         VersionData versionData;
@@ -51,16 +51,16 @@ public class am implements ag {
         CombineDownload combineDownload2;
         ab abVar2;
         boolean z3 = true;
-        Ec = this.this$0.Ec();
-        if (Ec) {
-            abVar2 = this.this$0.auk;
+        Ei = this.this$0.Ei();
+        if (Ei) {
+            abVar2 = this.this$0.aus;
             abVar2.dismiss();
             this.this$0.finish();
         } else if (ao.a(this.this$0.getPageContext().getPageActivity().getPackageManager())) {
             Activity pageActivity = this.this$0.getPageContext().getPageActivity();
-            versionData = this.this$0.aui;
+            versionData = this.this$0.auq;
             ao.a(pageActivity, versionData);
-            abVar = this.this$0.auk;
+            abVar = this.this$0.aus;
             abVar.dismiss();
             this.this$0.finish();
             UpdateDialog updateDialog = this.this$0;
@@ -86,20 +86,20 @@ public class am implements ag {
     }
 
     @Override // com.baidu.tieba.ag
-    public void DY() {
+    public void Ee() {
         ab abVar;
-        abVar = this.this$0.auk;
+        abVar = this.this$0.aus;
         abVar.dismiss();
         this.this$0.finish();
     }
 
     @Override // com.baidu.tieba.ag
     public void stopService() {
-        this.this$0.Eb();
+        this.this$0.Eh();
     }
 
     @Override // com.baidu.tieba.ag
-    public void DX() {
+    public void Ed() {
         this.this$0.finish();
     }
 }

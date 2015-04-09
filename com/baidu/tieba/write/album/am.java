@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class am implements com.baidu.tieba.write.view.e {
-    final /* synthetic */ ah cuH;
+    final /* synthetic */ ah cuX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ah ahVar) {
-        this.cuH = ahVar;
+        this.cuX = ahVar;
     }
 
     @Override // com.baidu.tieba.write.view.e
@@ -26,13 +26,13 @@ class am implements com.baidu.tieba.write.view.e {
         String albumId = aVar.getAlbumId();
         String name = aVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            nVar = this.cuH.ctp;
-            if (!albumId.equals(nVar.apJ())) {
-                nVar2 = this.cuH.ctp;
-                List<ImageFileInfo> apM = nVar2.apM();
+            nVar = this.cuX.ctF;
+            if (!albumId.equals(nVar.apY())) {
+                nVar2 = this.cuX.ctF;
+                List<ImageFileInfo> aqb = nVar2.aqb();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : apM) {
+                    for (ImageFileInfo imageFileInfo : aqb) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -40,14 +40,14 @@ class am implements com.baidu.tieba.write.view.e {
                     z = false;
                 } else {
                     z = true;
-                    list = apM;
+                    list = aqb;
                 }
-                nVar3 = this.cuH.ctp;
-                nVar3.aY(list);
-                nVar4 = this.cuH.ctp;
-                nVar4.jb(albumId);
-                this.cuH.setData(list, z);
-                textView = this.cuH.mTitleText;
+                nVar3 = this.cuX.ctF;
+                nVar3.bc(list);
+                nVar4 = this.cuX.ctF;
+                nVar4.je(albumId);
+                this.cuX.setData(list, z);
+                textView = this.cuX.mTitleText;
                 textView.setText(name);
             }
         }

@@ -8,18 +8,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.coreExtra.data.k;
+import com.baidu.tbadk.coreExtra.data.l;
 import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
-    private aa ZD;
-    final /* synthetic */ CreateBarActivity aVR;
+    private aa ZF;
+    final /* synthetic */ CreateBarActivity aWh;
     private volatile boolean wb;
 
     private d(CreateBarActivity createBarActivity) {
-        this.aVR = createBarActivity;
-        this.ZD = null;
+        this.aWh = createBarActivity;
+        this.ZF = null;
         this.wb = false;
     }
 
@@ -33,12 +33,12 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         super.cancel(true);
         this.wb = true;
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        progressBar = this.aVR.aVI;
+        progressBar = this.aWh.aVY;
         progressBar.setVisibility(8);
-        this.aVR.aVK = null;
+        this.aWh.aWa = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,24 +47,24 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: m */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            this.ZD.o(ImageViewerConfig.FORUM_ID, GameInfoData.NOT_FROM_DETAIL);
-            this.ZD.o("pub_type", GameInfoData.NOT_FROM_DETAIL);
-            this.ZD.o(ImageViewerConfig.FORUM_NAME, "");
-            this.ZD.o("tid", GameInfoData.NOT_FROM_DETAIL);
-            String rO = this.ZD.rO();
-            if (this.ZD.sp().tq().pv()) {
-                k kVar = new k();
-                kVar.parserJson(rO);
-                if (kVar.getVcode_pic_url() == null || kVar.getVcode_pic_url().length() <= 0) {
+            this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.ZF.o(ImageViewerConfig.FORUM_ID, GameInfoData.NOT_FROM_DETAIL);
+            this.ZF.o("pub_type", GameInfoData.NOT_FROM_DETAIL);
+            this.ZF.o(ImageViewerConfig.FORUM_NAME, "");
+            this.ZF.o("tid", GameInfoData.NOT_FROM_DETAIL);
+            String rO = this.ZF.rO();
+            if (this.ZF.sp().tq().pv()) {
+                l lVar = new l();
+                lVar.parserJson(rO);
+                if (lVar.getVcode_pic_url() == null || lVar.getVcode_pic_url().length() <= 0) {
                     return null;
                 }
-                this.aVR.aVL = kVar.getVcode_md5();
+                this.aWh.aWb = lVar.getVcode_md5();
                 if (this.wb) {
                     return null;
                 }
-                this.ZD = new aa(kVar.getVcode_pic_url());
-                return com.baidu.tbadk.core.util.c.w(this.ZD.rP());
+                this.ZF = new aa(lVar.getVcode_pic_url());
+                return com.baidu.tbadk.core.util.c.w(this.ZF.rP());
             }
             return null;
         } catch (Exception e) {
@@ -80,11 +80,11 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((d) bitmap);
-        progressBar = this.aVR.aVI;
+        progressBar = this.aWh.aVY;
         progressBar.setVisibility(8);
-        this.aVR.aVK = null;
+        this.aWh.aWa = null;
         if (bitmap != null) {
-            imageView = this.aVR.atv;
+            imageView = this.aWh.atD;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -95,10 +95,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.aVR.aVL = null;
-        progressBar = this.aVR.aVI;
+        this.aWh.aWb = null;
+        progressBar = this.aWh.aVY;
         progressBar.setVisibility(0);
-        imageView = this.aVR.atv;
+        imageView = this.aWh.atD;
         imageView.setImageDrawable(null);
     }
 }

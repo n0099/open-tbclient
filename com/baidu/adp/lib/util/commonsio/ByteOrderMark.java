@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util.commonsio;
 
 import android.support.v4.view.MotionEventCompat;
+import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ByteOrderMark implements Serializable {
@@ -8,10 +9,10 @@ public class ByteOrderMark implements Serializable {
     private final int[] bytes;
     private final String charsetName;
     public static final ByteOrderMark UTF_8 = new ByteOrderMark("UTF-8", 239, 187, 191);
-    public static final ByteOrderMark UTF_16BE = new ByteOrderMark("UTF-16BE", 254, MotionEventCompat.ACTION_MASK);
-    public static final ByteOrderMark UTF_16LE = new ByteOrderMark("UTF-16LE", MotionEventCompat.ACTION_MASK, 254);
-    public static final ByteOrderMark UTF_32BE = new ByteOrderMark("UTF-32BE", 0, 0, 254, MotionEventCompat.ACTION_MASK);
-    public static final ByteOrderMark UTF_32LE = new ByteOrderMark("UTF-32LE", MotionEventCompat.ACTION_MASK, 254, 0, 0);
+    public static final ByteOrderMark UTF_16BE = new ByteOrderMark("UTF-16BE", TbConfig.BUILD_NUMBER, MotionEventCompat.ACTION_MASK);
+    public static final ByteOrderMark UTF_16LE = new ByteOrderMark("UTF-16LE", MotionEventCompat.ACTION_MASK, TbConfig.BUILD_NUMBER);
+    public static final ByteOrderMark UTF_32BE = new ByteOrderMark("UTF-32BE", 0, 0, TbConfig.BUILD_NUMBER, MotionEventCompat.ACTION_MASK);
+    public static final ByteOrderMark UTF_32LE = new ByteOrderMark("UTF-32LE", MotionEventCompat.ACTION_MASK, TbConfig.BUILD_NUMBER, 0, 0);
 
     public ByteOrderMark(String str, int... iArr) {
         if (str == null || str.length() == 0) {

@@ -73,7 +73,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (Zp) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Zr) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();
@@ -449,16 +449,18 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void forceStop() {
-        unRegistPlugin(this.context.getPageActivity());
-        if (bUseMedaiPlayer) {
-            if (this.mCurPlayModel != null) {
-                setStatusWaiting(this.mCurPlayModel);
-                this.mCurPlayModel = null;
+        if (this.context != null) {
+            unRegistPlugin(this.context.getPageActivity());
+            if (bUseMedaiPlayer) {
+                if (this.mCurPlayModel != null) {
+                    setStatusWaiting(this.mCurPlayModel);
+                    this.mCurPlayModel = null;
+                }
+                MediaService.stopPlay(this.context.getPageActivity());
+                return;
             }
-            MediaService.stopPlay(this.context.getPageActivity());
-            return;
+            stopPlay();
         }
-        stopPlay();
     }
 
     public void onSaveInstanceState(Activity activity) {

@@ -6,18 +6,18 @@ import com.baidu.tbadk.TbadkSettings;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a aqs = null;
+    private static a aqA = null;
 
     private a() {
     }
 
-    public static synchronized a CV() {
+    public static synchronized a Db() {
         a aVar;
         synchronized (a.class) {
-            if (aqs == null) {
-                aqs = new a();
+            if (aqA == null) {
+                aqA = new a();
             }
-            aVar = aqs;
+            aVar = aqA;
         }
         return aVar;
     }
@@ -27,13 +27,13 @@ public class a {
             if (jSONObject == null) {
                 E(0L);
                 bf(false);
-                eE(null);
+                eH(null);
                 setStartTime(0);
                 ee(0);
             } else {
                 E(jSONObject.optLong("ad_time"));
                 bf(jSONObject.optInt("ad_enabled") == 1);
-                eE(jSONObject.getString("ad_url"));
+                eH(jSONObject.getString("ad_url"));
                 setStartTime(jSONObject.getInt("start_time"));
                 ee(jSONObject.getInt("end_time"));
             }
@@ -42,20 +42,20 @@ public class a {
         }
     }
 
-    public void CW() {
-        String Da = Da();
-        if (!TextUtils.isEmpty(Da)) {
-            com.baidu.adp.lib.f.d.hB().a(Da, 10, null, 0, 0, null, new Object[0]);
+    public void Dc() {
+        String Dg = Dg();
+        if (!TextUtils.isEmpty(Dg)) {
+            com.baidu.adp.lib.f.d.hB().a(Dg, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public boolean CX() {
-        if (!Db()) {
+    public boolean Dd() {
+        if (!Dh()) {
             return false;
         }
-        long CY = CY() * 1000;
+        long De = De() * 1000;
         long currentTimeMillis = System.currentTimeMillis();
-        if (getStartTime() * 1000 > currentTimeMillis || currentTimeMillis > CY) {
+        if (getStartTime() * 1000 > currentTimeMillis || currentTimeMillis > De) {
             return false;
         }
         return true;
@@ -65,19 +65,19 @@ public class a {
         return TbadkSettings.getInst().loadInt("ad_start_time", 0);
     }
 
-    public int CY() {
+    public int De() {
         return TbadkSettings.getInst().loadInt("ad_end_time", 0);
     }
 
-    public long CZ() {
+    public long Df() {
         return TbadkSettings.getInst().loadLong("ad_time", 0L);
     }
 
-    public String Da() {
+    public String Dg() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 
-    public boolean Db() {
+    public boolean Dh() {
         return TbadkSettings.getInst().loadBoolean("ad_enabled", false);
     }
 
@@ -85,7 +85,7 @@ public class a {
         TbadkSettings.getInst().saveLong("ad_time", j);
     }
 
-    public void eE(String str) {
+    public void eH(String str) {
         TbadkSettings.getInst().saveString("ad_url", str);
     }
 

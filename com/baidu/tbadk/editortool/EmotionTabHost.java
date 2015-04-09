@@ -13,53 +13,53 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabHost extends LinearLayout implements j, s {
-    private CustomMessageListener Os;
-    private EmotionTabContentView aiM;
-    private EmotionTabWidgetView aiN;
-    private View aiO;
-    private ArrayList<ad> aiP;
-    private String aiQ;
-    private boolean aiR;
-    private boolean aiS;
-    private int aiT;
-    private int aiq;
+    private CustomMessageListener Ou;
+    private EmotionTabContentView aiU;
+    private EmotionTabWidgetView aiV;
+    private View aiW;
+    private ArrayList<ad> aiX;
+    private String aiY;
+    private boolean aiZ;
+    private int aiy;
+    private boolean aja;
+    private int ajb;
     private int mCurrentIndex;
 
     public EmotionTabHost(Context context) {
         super(context);
-        this.aiP = new ArrayList<>();
+        this.aiX = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.aiQ = null;
-        this.aiq = -1;
-        this.aiS = true;
-        this.aiT = 0;
-        this.Os = new q(this, 2001120);
+        this.aiY = null;
+        this.aiy = -1;
+        this.aja = true;
+        this.ajb = 0;
+        this.Ou = new q(this, 2001120);
         init(context);
     }
 
     public EmotionTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiP = new ArrayList<>();
+        this.aiX = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.aiQ = null;
-        this.aiq = -1;
-        this.aiS = true;
-        this.aiT = 0;
-        this.Os = new q(this, 2001120);
+        this.aiY = null;
+        this.aiy = -1;
+        this.aja = true;
+        this.ajb = 0;
+        this.Ou = new q(this, 2001120);
         init(context);
     }
 
     private void init(Context context) {
         removeAllViews();
         com.baidu.adp.lib.g.b.hH().a(context, com.baidu.tieba.w.emotion_tab_host, this, true);
-        this.aiM = (EmotionTabContentView) findViewById(com.baidu.tieba.v.face_tab_content);
-        this.aiN = (EmotionTabWidgetView) findViewById(com.baidu.tieba.v.face_tab_widget);
-        this.aiO = findViewById(com.baidu.tieba.v.emotion_tab_widget_div_line);
-        this.aiN.setOnTabSelectedListener(this);
-        this.aiM.setOnEmotionSwitchedListener(this);
+        this.aiU = (EmotionTabContentView) findViewById(com.baidu.tieba.v.face_tab_content);
+        this.aiV = (EmotionTabWidgetView) findViewById(com.baidu.tieba.v.face_tab_widget);
+        this.aiW = findViewById(com.baidu.tieba.v.emotion_tab_widget_div_line);
+        this.aiV.setOnTabSelectedListener(this);
+        this.aiU.setOnEmotionSwitchedListener(this);
         setOrientation(1);
-        this.aiq = TbadkCoreApplication.m411getInst().getSkinType();
-        onChangeSkinType(this.aiq);
+        this.aiy = TbadkCoreApplication.m411getInst().getSkinType();
+        onChangeSkinType(this.aiy);
         setup();
     }
 
@@ -70,25 +70,25 @@ public class EmotionTabHost extends LinearLayout implements j, s {
     }
 
     public void setFrom(int i) {
-        if (this.aiN != null) {
-            this.aiN.setFrom(i);
+        if (this.aiV != null) {
+            this.aiV.setFrom(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.aiP = aa.yL().yN();
-        if ((this.aiP == null || this.aiP.size() <= 0) && this.aiT < 3) {
-            this.aiT++;
-            aa.yL().yM();
+        this.aiX = aa.yR().yT();
+        if ((this.aiX == null || this.aiX.size() <= 0) && this.ajb < 3) {
+            this.ajb++;
+            aa.yR().yS();
             return;
         }
-        this.aiN.setDatas(this.aiP);
-        int size = this.aiP.size();
+        this.aiV.setDatas(this.aiX);
+        int size = this.aiX.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            ad adVar = this.aiP.get(i2);
-            if (this.aiQ != null && this.aiQ.equals(adVar.getGroupId())) {
+            ad adVar = this.aiX.get(i2);
+            if (this.aiY != null && this.aiY.equals(adVar.getGroupId())) {
                 i = i2;
             }
             d(adVar);
@@ -99,91 +99,91 @@ public class EmotionTabHost extends LinearLayout implements j, s {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.Os);
+        MessageManager.getInstance().registerListener(this.Ou);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.Os);
+        MessageManager.getInstance().unRegisterListener(this.Ou);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.aiq) {
-            this.aiq = skinType;
-            onChangeSkinType(this.aiq);
+        if (skinType != this.aiy) {
+            this.aiy = skinType;
+            onChangeSkinType(this.aiy);
         }
     }
 
     private void d(ad adVar) {
-        this.aiN.c(adVar);
+        this.aiV.c(adVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
-        if (i >= 0 && i < this.aiP.size() && i != this.mCurrentIndex) {
-            ad adVar = this.aiP.get(i);
-            this.aiM.b(this.aiP, i);
-            if (this.aiR) {
-                if (adVar.yI() == EmotionGroupType.LOCAL) {
-                    this.aiN.setShowDelete(true);
+        if (i >= 0 && i < this.aiX.size() && i != this.mCurrentIndex) {
+            ad adVar = this.aiX.get(i);
+            this.aiU.b(this.aiX, i);
+            if (this.aiZ) {
+                if (adVar.yO() == EmotionGroupType.LOCAL) {
+                    this.aiV.setShowDelete(true);
                 } else {
-                    this.aiN.setShowDelete(false);
+                    this.aiV.setShowDelete(false);
                 }
             }
-            this.aiN.setCurrentTab(i);
+            this.aiV.setCurrentTab(i);
             this.mCurrentIndex = i;
-            this.aiQ = adVar.getGroupId();
+            this.aiY = adVar.getGroupId();
         }
     }
 
     public void reset() {
         this.mCurrentIndex = -1;
-        this.aiP.clear();
-        this.aiM.reset();
-        this.aiN.reset();
+        this.aiX.clear();
+        this.aiU.reset();
+        this.aiV.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.aiR = z;
-        this.aiN.setIsInChat(z);
+        this.aiZ = z;
+        this.aiV.setIsInChat(z);
     }
 
     public void setShowBigEmotion(boolean z) {
-        this.aiS = z;
-        if (!this.aiS) {
-            int size = this.aiP.size();
+        this.aja = z;
+        if (!this.aja) {
+            int size = this.aiX.size();
             for (int i = 0; i < size; i++) {
-                this.aiN.f(i, z);
+                this.aiV.f(i, z);
             }
         }
     }
 
     @Override // com.baidu.tbadk.editortool.s
     public void dr(int i) {
-        if (i >= 0 && i < this.aiP.size() && i != this.mCurrentIndex && this.aiM != null) {
-            this.aiM.dp(i);
+        if (i >= 0 && i < this.aiX.size() && i != this.mCurrentIndex && this.aiU != null) {
+            this.aiU.dp(i);
             this.mCurrentIndex = i;
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.aiN.onChangeSkinType(i);
-        this.aiM.onChangeSkinType(i);
-        ba.d(this.aiO, com.baidu.tieba.s.emotion_tab_div_line_color, i);
+        this.aiV.onChangeSkinType(i);
+        this.aiU.onChangeSkinType(i);
+        ba.d(this.aiW, com.baidu.tieba.s.emotion_tab_div_line_color, i);
     }
 
     public void setOnDataSelected(v vVar) {
-        this.aiM.setOnDataSelected(vVar);
-        this.aiN.setOnDataSelected(vVar);
+        this.aiU.setOnDataSelected(vVar);
+        this.aiV.setOnDataSelected(vVar);
     }
 
     @Override // com.baidu.tbadk.editortool.j
     public void dq(int i) {
-        if (this.aiN != null && i != this.mCurrentIndex) {
-            this.aiN.setCurrentTab(i);
+        if (this.aiV != null && i != this.mCurrentIndex) {
+            this.aiV.setCurrentTab(i);
             this.mCurrentIndex = i;
         }
     }

@@ -1,35 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.FileDownloader;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bIv;
+class ao implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.bIv = pbActivity;
+        this.bIJ = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.bIv.bHG;
-        aVar2.dismiss();
-        if (com.baidu.tbadk.core.util.o.fj()) {
-            str = this.bIv.mDownloadUrl;
-            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.k.iI()) {
-                Activity pageActivity = this.bIv.getPageContext().getPageActivity();
-                str2 = this.bIv.mDownloadUrl;
-                FileDownloader.download(pageActivity, str2, null, this.bIv.getPageContext().getString(com.baidu.tieba.y.download_iqiyi_app));
-                return;
-            }
-            return;
-        }
-        this.bIv.showToast(com.baidu.tbadk.core.util.o.rI());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: ZO */
+    public View hA() {
+        return new PlayVoiceBnt(this.bIJ.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: I */
+    public void k(View view) {
+        ((PlayVoiceBnt) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: J */
+    public View l(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: K */
+    public View m(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

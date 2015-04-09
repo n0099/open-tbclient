@@ -3,111 +3,111 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class d implements c {
-    private Point bqI;
-    private Point bqJ;
-    private Point bqK;
-    private final int bqL;
-    private final int bqM;
-    private e bqN;
-    private int bqO;
+    private Point bqY;
+    private Point bqZ;
+    private Point bra;
+    private final int brb;
+    private final int brc;
+    private e brd;
+    private int bre;
     private float k;
 
-    private int gt(int i) {
-        return (int) (((this.k * i) + this.bqI.y) - (this.k * this.bqI.x));
+    private int gv(int i) {
+        return (int) (((this.k * i) + this.bqY.y) - (this.k * this.bqY.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c
     public boolean execute() {
-        if (!this.bqK.equals(this.bqJ)) {
-            switch (this.bqO) {
+        if (!this.bra.equals(this.bqZ)) {
+            switch (this.bre) {
                 case 0:
-                    UE();
+                    UR();
                     break;
                 case 1:
-                    UG();
+                    UT();
                     break;
                 case 2:
-                    UF();
+                    US();
                     break;
                 case 3:
-                    UH();
+                    UU();
                     break;
                 case 4:
-                    UI();
+                    UV();
                     break;
                 case 5:
-                    UJ();
+                    UW();
                     break;
             }
             return false;
         }
-        if (this.bqN != null) {
-            this.bqN.Ux();
+        if (this.brd != null) {
+            this.brd.UK();
         }
         return true;
     }
 
-    private void UE() {
-        this.bqK.y += this.bqM;
-        if (this.bqK.y > this.bqJ.y) {
-            this.bqK.y = this.bqJ.y;
+    private void UR() {
+        this.bra.y += this.brc;
+        if (this.bra.y > this.bqZ.y) {
+            this.bra.y = this.bqZ.y;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
-        }
-    }
-
-    private void UF() {
-        this.bqK.x += this.bqL;
-        if (this.bqK.x > this.bqJ.x) {
-            this.bqK.x = this.bqJ.x;
-        }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UG() {
-        this.bqK.y -= this.bqM;
-        if (this.bqK.y < this.bqJ.y) {
-            this.bqK.y = this.bqJ.y;
+    private void US() {
+        this.bra.x += this.brb;
+        if (this.bra.x > this.bqZ.x) {
+            this.bra.x = this.bqZ.x;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
-        }
-    }
-
-    private void UH() {
-        this.bqK.x -= this.bqL;
-        if (this.bqK.x < this.bqJ.x) {
-            this.bqK.x = this.bqJ.x;
-        }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UI() {
-        this.bqK.x -= this.bqL;
-        this.bqK.y = gt(this.bqK.x);
-        if (this.bqK.x < this.bqJ.x && this.bqK.y < this.bqJ.y) {
-            this.bqK.x = this.bqJ.x;
-            this.bqK.y = this.bqJ.y;
+    private void UT() {
+        this.bra.y -= this.brc;
+        if (this.bra.y < this.bqZ.y) {
+            this.bra.y = this.bqZ.y;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 
-    private void UJ() {
-        this.bqK.x += this.bqL;
-        this.bqK.y = gt(this.bqK.x);
-        if (this.bqK.x > this.bqJ.x && this.bqK.y > this.bqJ.y) {
-            this.bqK.x = this.bqJ.x;
-            this.bqK.y = this.bqJ.y;
+    private void UU() {
+        this.bra.x -= this.brb;
+        if (this.bra.x < this.bqZ.x) {
+            this.bra.x = this.bqZ.x;
         }
-        if (this.bqN != null) {
-            this.bqN.a(this.bqK);
+        if (this.brd != null) {
+            this.brd.a(this.bra);
+        }
+    }
+
+    private void UV() {
+        this.bra.x -= this.brb;
+        this.bra.y = gv(this.bra.x);
+        if (this.bra.x < this.bqZ.x && this.bra.y < this.bqZ.y) {
+            this.bra.x = this.bqZ.x;
+            this.bra.y = this.bqZ.y;
+        }
+        if (this.brd != null) {
+            this.brd.a(this.bra);
+        }
+    }
+
+    private void UW() {
+        this.bra.x += this.brb;
+        this.bra.y = gv(this.bra.x);
+        if (this.bra.x > this.bqZ.x && this.bra.y > this.bqZ.y) {
+            this.bra.x = this.bqZ.x;
+            this.bra.y = this.bqZ.y;
+        }
+        if (this.brd != null) {
+            this.brd.a(this.bra);
         }
     }
 }

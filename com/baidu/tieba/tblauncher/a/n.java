@@ -3,11 +3,11 @@ package com.baidu.tieba.tblauncher.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class n implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ d csd;
+    final /* synthetic */ d cst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(d dVar) {
-        this.csd = dVar;
+        this.cst = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

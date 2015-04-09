@@ -9,34 +9,34 @@ import tbclient.RecommendForumInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.i {
-    final /* synthetic */ ItemFootNavView bcX;
-    private final /* synthetic */ ForumDetailActivity bcY;
-    private final /* synthetic */ af bcZ;
+    final /* synthetic */ ItemFootNavView bdn;
+    private final /* synthetic */ ForumDetailActivity bdo;
+    private final /* synthetic */ af bdp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ItemFootNavView itemFootNavView, af afVar, ForumDetailActivity forumDetailActivity) {
-        this.bcX = itemFootNavView;
-        this.bcZ = afVar;
-        this.bcY = forumDetailActivity;
+        this.bdn = itemFootNavView;
+        this.bdp = afVar;
+        this.bdo = forumDetailActivity;
     }
 
     @Override // com.baidu.adp.base.i
     public void c(Object obj) {
         RecommendForumInfo recommendForumInfo;
-        if (this.bcZ.getErrorCode() == 22) {
-            this.bcX.cE(true);
-            this.bcX.cF(true);
-        } else if (this.bcZ.getErrorCode() != 0) {
-            this.bcY.showToast(this.bcZ.getErrorString());
+        if (this.bdp.getErrorCode() == 22) {
+            this.bdn.cC(true);
+            this.bdn.cD(true);
+        } else if (this.bdp.getErrorCode() != 0) {
+            this.bdo.showToast(this.bdp.getErrorString());
         } else if (((ah) obj) != null) {
-            this.bcX.cE(true);
+            this.bdn.cC(true);
             TbadkApplication inst = TbadkApplication.getInst();
-            recommendForumInfo = this.bcX.bcA;
+            recommendForumInfo = this.bdn.bcQ;
             inst.addLikeForum(recommendForumInfo.forum_name);
-            this.bcX.cF(true);
+            this.bdn.cD(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001273, true));
         } else {
-            this.bcY.showToast(this.bcY.getPageContext().getString(com.baidu.tieba.y.neterror));
+            this.bdo.showToast(this.bdo.getPageContext().getString(com.baidu.tieba.y.neterror));
         }
     }
 }

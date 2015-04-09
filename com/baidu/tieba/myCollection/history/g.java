@@ -12,19 +12,19 @@ import com.baidu.tieba.v;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.e.c> {
-    private View acX;
-    private TextView bEC;
-    private TextView bED;
-    private TextView bEE;
+    private View adg;
+    private TextView bEP;
+    private TextView bEQ;
+    private TextView bER;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.bEC = (TextView) view.findViewById(v.title);
-        this.bED = (TextView) view.findViewById(v.content);
-        this.bEE = (TextView) view.findViewById(v.time);
-        this.acX = view.findViewById(v.line);
+        this.bEP = (TextView) view.findViewById(v.title);
+        this.bEQ = (TextView) view.findViewById(v.content);
+        this.bER = (TextView) view.findViewById(v.time);
+        this.adg = view.findViewById(v.line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,18 +33,18 @@ public class g extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.myCollection.base
     public void A(com.baidu.tieba.myCollection.baseHistory.b bVar) {
         super.A(bVar);
         if (bVar != null) {
-            if (this.bEC != null && bVar.Yc() != null) {
-                this.bEC.setText(bVar.Yc());
+            if (this.bEP != null && bVar.Yo() != null) {
+                this.bEP.setText(bVar.Yo());
             }
-            if (this.bED != null && bVar.getForumName() != null) {
-                this.bED.setText(bVar.getForumName());
+            if (this.bEQ != null && bVar.getForumName() != null) {
+                this.bEQ.setText(bVar.getForumName());
             }
-            if (this.bEE != null) {
+            if (this.bER != null) {
                 String e = bd.e(new Date(bVar.getTime()));
                 if (e == null) {
                     e = "";
                 }
-                this.bEE.setText(e);
+                this.bER.setText(e);
             }
         }
     }
@@ -52,10 +52,10 @@ public class g extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.myCollection.base
     @Override // com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         ba.i(this.mRootView, u.list_item_selector);
-        ba.i(this.acX, s.cp_bg_line_b);
-        ba.b(this.bEC, s.cp_cont_b, 1);
-        ba.b(this.bED, s.cp_cont_d, 1);
-        ba.b(this.bEE, s.cp_cont_d, 1);
+        ba.i(this.adg, s.cp_bg_line_b);
+        ba.b(this.bEP, s.cp_cont_b, 1);
+        ba.b(this.bEQ, s.cp_cont_d, 1);
+        ba.b(this.bER, s.cp_cont_d, 1);
         return true;
     }
 }

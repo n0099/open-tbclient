@@ -1,69 +1,74 @@
 package com.baidu.tieba.mention;
 
 import android.os.Bundle;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tbadk.mvc.d.d<h, i> implements com.baidu.tbadk.mvc.model.d<i> {
-    private com.baidu.tbadk.mvc.e.b aBe;
-    private SingleMentionActivity bCI;
-    private h bCJ;
-    private g bCK;
-    private a bCL;
-    private FeedData bCM;
-    private q bCN;
+    private com.baidu.tbadk.mvc.e.b aBm;
+    private SingleMentionActivity bCV;
+    private h bCW;
+    private g bCX;
+    private a bCY;
+    private FeedData bCZ;
+    private q bDa;
 
     public f(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity);
-        this.bCI = singleMentionActivity;
+        this.bCV = singleMentionActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        this.bCJ = new h();
-        this.bCK = new g(this.bCI.getPageContext(), this.bCJ);
-        this.bCK.a((com.baidu.tbadk.mvc.model.q) this);
-        this.bCK.setUniqueId(getUniqueId());
-        this.bCL = new a(this.bCI.getPageContext());
-        this.bCL.a(this);
-        this.bCL.setUniqueId(getUniqueId());
-        this.bCN = new q();
-        this.aBe = new com.baidu.tbadk.mvc.e.b();
+        this.bCW = new h();
+        this.bCX = new g(this.bCV.getPageContext(), this.bCW);
+        this.bCX.a((com.baidu.tbadk.mvc.model.q) this);
+        this.bCX.setUniqueId(getUniqueId());
+        this.bCY = new a(this.bCV.getPageContext());
+        this.bCY.a(this);
+        this.bCY.setUniqueId(getUniqueId());
+        this.bDa = new q();
+        this.aBm = new com.baidu.tbadk.mvc.e.b();
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    protected boolean AI() {
-        if (this.bCK.isLoading() || !this.aBe.Bi()) {
+    protected boolean AO() {
+        if (this.bCX.isLoading() || !this.aBm.Bo()) {
             return false;
         }
-        this.aBe.aW(true);
-        this.aBe.aY(true);
-        this.bCJ.b(this.bCM);
-        this.bCK.setNeedCache(false);
-        this.bCK.AT();
-        a(this.aBe);
+        if (I(this.bDa.XP())) {
+            b(this.bDa);
+        }
+        this.aBm.aW(true);
+        this.aBm.aY(true);
+        this.bCW.b(this.bCZ);
+        this.bCX.setNeedCache(false);
+        this.bCX.AZ();
+        a(this.aBm);
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.e
     protected boolean aU(boolean z) {
-        if (this.bCK.isLoading()) {
+        if (this.bCX.isLoading()) {
             return false;
         }
-        this.bCM = null;
-        this.bCJ.reset();
-        this.bCK.setNeedCache(true);
-        this.bCK.AT();
+        this.bCZ = null;
+        this.bCW.reset();
+        this.bCX.setNeedCache(true);
+        this.bCX.AZ();
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean ow() {
-        this.bCL.a((com.baidu.tbadk.mvc.b.e) this.bCJ);
+        this.bCY.a((com.baidu.tbadk.mvc.b.e) this.bCW);
         return true;
     }
 
@@ -73,44 +78,57 @@ public class f extends com.baidu.tbadk.mvc.d.d<h, i> implements com.baidu.tbadk.
     public boolean a(h hVar, i iVar) {
         boolean a = super.a((f) hVar, (h) iVar);
         if (hVar.getUpdateType() != 4) {
-            this.bCN.XD().clear();
+            this.bDa.XP().clear();
         }
-        this.bCN.a(iVar);
-        if (iVar != null && iVar.XD() != null && iVar.XD().size() > 0) {
-            this.bCM = iVar.XD().get(iVar.XD().size() - 1);
-            if (this.bCN.XE() != null) {
-                this.aBe.aX(this.bCN.XE().ql() == 1);
+        this.bDa.a(iVar);
+        if (iVar != null && iVar.XP() != null && iVar.XP().size() > 0) {
+            this.bCZ = iVar.XP().get(iVar.XP().size() - 1);
+            if (this.bDa.XQ() != null) {
+                this.aBm.aX(this.bDa.XQ().ql() == 1);
             } else {
-                this.aBe.aX(true);
+                this.aBm.aX(true);
             }
             if (hVar != null) {
-                hVar.Qq();
+                hVar.QD();
             }
-            this.aBe.aY(true);
+            this.aBm.aY(true);
         } else {
-            this.bCM = null;
-            this.aBe.aX(false);
-            this.aBe.aY(false);
+            this.bCZ = null;
+            this.aBm.aX(false);
+            this.aBm.aY(false);
         }
-        this.aBe.aW(false);
-        this.aBe.aV(false);
-        b(this.bCN);
-        a(this.aBe);
+        this.aBm.aW(false);
+        this.aBm.aV(false);
+        b(this.bDa);
+        a(this.aBm);
         return a;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
     public void a(ReadCacheRespMsg<List<i>> readCacheRespMsg, ReadCacheMessage<i> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.bCJ, readCacheRespMsg.getData().get(0));
+            a(this.bCW, readCacheRespMsg.getData().get(0));
         }
-        this.bCM = null;
-        this.bCJ.reset();
-        this.bCK.setNeedCache(true);
-        this.bCK.AT();
+        this.bCZ = null;
+        this.bCW.reset();
+        this.bCX.setNeedCache(true);
+        this.bCX.AZ();
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
     public void a(WriteCacheRespMsg<List<i>> writeCacheRespMsg, WriteCacheMessage<i> writeCacheMessage) {
+    }
+
+    private boolean I(ArrayList<FeedData> arrayList) {
+        if (arrayList == null || arrayList.size() == 0) {
+            return false;
+        }
+        int size = (arrayList.size() + 20) - TbadkCoreApplication.m411getInst().getListItemRule().uF();
+        if (size > 0 && arrayList.size() > size) {
+            for (int i = 0; i < size; i++) {
+                arrayList.remove(0);
+            }
+        }
+        return size > 0;
     }
 }

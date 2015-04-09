@@ -87,7 +87,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (VH) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (VJ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -105,7 +105,7 @@ public class UtilHelper {
         TwoG,
         ThreeG;
 
-        /* JADX DEBUG: Replace access to removed values field (VI) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (VK) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetworkStateInfo[] valuesCustom() {
             NetworkStateInfo[] valuesCustom = values();
@@ -493,7 +493,7 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("live_notify_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                com.baidu.tbadk.coreExtra.messageCenter.a.uT().a(com.baidu.tbadk.coreExtra.messageCenter.a.uT().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.uT().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.uT().vm(), com.baidu.tbadk.coreExtra.messageCenter.a.uT().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.uT().getMsgGiftNum());
+                com.baidu.tbadk.coreExtra.messageCenter.a.uZ().a(com.baidu.tbadk.coreExtra.messageCenter.a.uZ().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.uZ().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.uZ().vs(), com.baidu.tbadk.coreExtra.messageCenter.a.uZ().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.uZ().getMsgGiftNum());
                 boolean z3 = intExtra3 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra4 > 0 || intExtra8 > 0 || intExtra7 > 0;
                 if (intExtra9 == 24 && intExtra2 > 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SingleMentionActivityConfig(context, intExtra9, false)));
@@ -771,7 +771,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     brVar.id = group;
-                    brVar.VG = NativePageType.PB;
+                    brVar.VI = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -805,7 +805,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str2)) {
                     brVar.id = str2;
-                    brVar.VG = NativePageType.PB;
+                    brVar.VI = NativePageType.PB;
                 }
             }
         }
@@ -833,7 +833,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     brVar.id = str3;
-                    brVar.VG = NativePageType.FRS;
+                    brVar.VI = NativePageType.FRS;
                 }
             }
         }

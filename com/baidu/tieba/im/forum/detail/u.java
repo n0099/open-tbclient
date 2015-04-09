@@ -8,13 +8,13 @@ import com.baidu.tieba.tbadkCore.ay;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 class u implements ay {
-    private final /* synthetic */ BaseActivity bda;
-    final /* synthetic */ t bdb;
+    private final /* synthetic */ BaseActivity bdq;
+    final /* synthetic */ t bdr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, BaseActivity baseActivity) {
-        this.bdb = tVar;
-        this.bda = baseActivity;
+        this.bdr = tVar;
+        this.bdq = baseActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ay
@@ -27,21 +27,21 @@ class u implements ay {
         RecommendForumInfo recommendForumInfo2;
         ItemFootNavView itemFootNavView5;
         RecommendForumInfo recommendForumInfo3;
-        itemFootNavView = this.bdb.bcX;
-        itemFootNavView.cE(false);
-        itemFootNavView2 = this.bdb.bcX;
-        itemFootNavView2.cF(false);
-        itemFootNavView3 = this.bdb.bcX;
-        recommendForumInfo = itemFootNavView3.bcA;
+        itemFootNavView = this.bdr.bdn;
+        itemFootNavView.cC(false);
+        itemFootNavView2 = this.bdr.bdn;
+        itemFootNavView2.cD(false);
+        itemFootNavView3 = this.bdr.bdn;
+        recommendForumInfo = itemFootNavView3.bcQ;
         if (recommendForumInfo != null) {
-            itemFootNavView4 = this.bdb.bcX;
-            recommendForumInfo2 = itemFootNavView4.bcA;
+            itemFootNavView4 = this.bdr.bdn;
+            recommendForumInfo2 = itemFootNavView4.bcQ;
             if (recommendForumInfo2.forum_id.longValue() != 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001273, false));
                 MessageManager messageManager = MessageManager.getInstance();
                 StringBuilder sb = new StringBuilder();
-                itemFootNavView5 = this.bdb.bcX;
-                recommendForumInfo3 = itemFootNavView5.bcA;
+                itemFootNavView5 = this.bdr.bdn;
+                recommendForumInfo3 = itemFootNavView5.bcQ;
                 messageManager.sendMessage(new CustomMessage(2003004, sb.append(recommendForumInfo3.forum_id).toString()));
             }
         }
@@ -49,6 +49,6 @@ class u implements ay {
 
     @Override // com.baidu.tieba.tbadkCore.ay
     public void e(String str, long j) {
-        this.bda.showToast(this.bda.getPageContext().getString(com.baidu.tieba.y.unlike_failure));
+        this.bdq.showToast(this.bdq.getPageContext().getString(com.baidu.tieba.y.unlike_failure));
     }
 }

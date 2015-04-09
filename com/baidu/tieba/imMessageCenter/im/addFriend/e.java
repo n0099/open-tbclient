@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnFocusChangeListener {
-    final /* synthetic */ AddFriendActivity boM;
+    final /* synthetic */ AddFriendActivity bpc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AddFriendActivity addFriendActivity) {
-        this.boM = addFriendActivity;
+        this.bpc = addFriendActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -20,15 +20,15 @@ public class e implements View.OnFocusChangeListener {
         InputMethodManager inputMethodManager2;
         EditText editText2;
         if (z) {
-            AddFriendActivity addFriendActivity = this.boM;
-            inputMethodManager2 = this.boM.aUy;
-            editText2 = this.boM.boH;
+            AddFriendActivity addFriendActivity = this.bpc;
+            inputMethodManager2 = this.bpc.aUN;
+            editText2 = this.bpc.boX;
             addFriendActivity.ShowSoftKeyPad(inputMethodManager2, editText2);
             return;
         }
-        AddFriendActivity addFriendActivity2 = this.boM;
-        inputMethodManager = this.boM.aUy;
-        editText = this.boM.boH;
+        AddFriendActivity addFriendActivity2 = this.bpc;
+        inputMethodManager = this.bpc.aUN;
+        editText = this.bpc.boX;
         addFriendActivity2.HidenSoftKeyPad(inputMethodManager, editText);
     }
 }

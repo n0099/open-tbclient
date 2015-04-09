@@ -22,13 +22,13 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class q {
-    private BaseWebViewActivity Nr;
-    private LinearLayout Ns;
-    private TextView Nt;
-    private View.OnClickListener Nu;
-    protected View Nv;
-    private View Nw;
-    private View Nx;
+    private BaseWebViewActivity Nt;
+    private LinearLayout Nu;
+    private TextView Nv;
+    private View.OnClickListener Nw;
+    protected View Nx;
+    private View Ny;
+    private View Nz;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.s mNoDataView;
     private MorePopupWindow mPopWindow;
@@ -36,43 +36,43 @@ public class q {
     private ProgressBar mProgressBar = null;
 
     public q(BaseWebViewActivity baseWebViewActivity) {
-        this.Nr = baseWebViewActivity;
+        this.Nt = baseWebViewActivity;
         initUI();
     }
 
     private void initUI() {
-        this.Nr.setContentView(w.base_webview_activity);
-        this.mRoot = this.Nr.findViewById(v.root_view);
-        this.mNavigationBar = (NavigationBar) this.Nr.findViewById(v.view_navigation_bar);
-        this.Ns = (LinearLayout) this.Nr.findViewById(v.webview_container);
-        this.Nt = (TextView) this.Nr.findViewById(v.webview_crash_tip);
-        this.mProgressBar = (ProgressBar) this.Nr.findViewById(v.webview_progress);
-        this.mNavigationBar = (NavigationBar) this.Nr.findViewById(v.view_navigation_bar);
+        this.Nt.setContentView(w.base_webview_activity);
+        this.mRoot = this.Nt.findViewById(v.root_view);
+        this.mNavigationBar = (NavigationBar) this.Nt.findViewById(v.view_navigation_bar);
+        this.Nu = (LinearLayout) this.Nt.findViewById(v.webview_container);
+        this.Nv = (TextView) this.Nt.findViewById(v.webview_crash_tip);
+        this.mProgressBar = (ProgressBar) this.Nt.findViewById(v.webview_progress);
+        this.mNavigationBar = (NavigationBar) this.Nt.findViewById(v.view_navigation_bar);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.widget_nb_item_finish, new r(this));
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_more, new s(this));
-        View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.Nr.getPageContext().getPageActivity(), w.tb_webview_pop_more, null);
-        this.mPopWindow = new MorePopupWindow(this.Nr.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.Nr.getPageContext().getResources().getDrawable(u.bg_pull_down_right_n), new t(this));
-        this.Nv = inflate.findViewById(v.webview_more_pop_item_share_friend_layout);
-        this.Nv.setOnClickListener(this.Nr);
-        if (com.baidu.tbadk.coreExtra.share.i.ae(this.Nr.getPageContext().getPageActivity())) {
-            this.Nv.setVisibility(0);
+        View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.Nt.getPageContext().getPageActivity(), w.tb_webview_pop_more, null);
+        this.mPopWindow = new MorePopupWindow(this.Nt.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.Nt.getPageContext().getResources().getDrawable(u.bg_pull_down_right_n), new t(this));
+        this.Nx = inflate.findViewById(v.webview_more_pop_item_share_friend_layout);
+        this.Nx.setOnClickListener(this.Nt);
+        if (com.baidu.tbadk.coreExtra.share.i.ae(this.Nt.getPageContext().getPageActivity())) {
+            this.Nx.setVisibility(0);
         } else {
-            this.Nv.setVisibility(8);
+            this.Nx.setVisibility(8);
         }
         this.mPopWindow.refresh();
-        this.Nx = inflate.findViewById(v.webview_more_pop_item_open_browser_layout);
-        this.Nx.setOnClickListener(this.Nr);
-        this.Nw = inflate.findViewById(v.webview_more_pop_item_copy_link_layout);
-        this.Nw.setOnClickListener(this.Nr);
+        this.Nz = inflate.findViewById(v.webview_more_pop_item_open_browser_layout);
+        this.Nz.setOnClickListener(this.Nt);
+        this.Ny = inflate.findViewById(v.webview_more_pop_item_copy_link_layout);
+        this.Ny.setOnClickListener(this.Nt);
     }
 
     public boolean oU() {
         try {
-            this.Ns.addView(this.Nr.createWebView());
-            this.Nt.setVisibility(8);
+            this.Nu.addView(this.Nt.createWebView());
+            this.Nv.setVisibility(8);
             return true;
         } catch (Exception e) {
-            this.Nt.setVisibility(0);
+            this.Nv.setVisibility(0);
             BdLog.e(e.getMessage());
             return false;
         }
@@ -91,7 +91,7 @@ public class q {
     }
 
     public void oW() {
-        com.baidu.adp.lib.g.k.a(this.mPopWindow, this.Nr.getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.k.a(this.mPopWindow, this.Nt.getPageContext().getPageActivity());
     }
 
     public void showProgressBar() {
@@ -103,11 +103,11 @@ public class q {
     }
 
     public void showCrashTip() {
-        this.Nt.setVisibility(0);
+        this.Nv.setVisibility(0);
     }
 
     public void hideCrashTip() {
-        this.Nt.setVisibility(8);
+        this.Nv.setVisibility(8);
     }
 
     public void bJ(String str) {
@@ -116,8 +116,8 @@ public class q {
 
     public void a(com.baidu.tbadk.coreExtra.share.f fVar) {
         if (fVar != null) {
-            TiebaStatic.eventStat(this.Nr.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.Nr.getPageContext().getPageActivity(), fVar, true, oX())));
+            TiebaStatic.eventStat(this.Nt.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.Nt.getPageContext().getPageActivity(), fVar, true, oX())));
         }
     }
 
@@ -137,33 +137,33 @@ public class q {
 
     public void onChangeSkinType(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.Nr.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.Nt.getPageContext(), i);
         }
         if (this.mPopWindow != null) {
-            this.mPopWindow.onChangeSkinType(this.Nr, i, ba.getDrawable(u.bg_pull_down_right_n));
+            this.mPopWindow.onChangeSkinType(this.Nt, i, ba.getDrawable(u.bg_pull_down_right_n));
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.Nr.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.Nt.getPageContext(), i);
         }
     }
 
     public void hideNoDataView() {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
-            this.Ns.setVisibility(0);
+            this.Nu.setVisibility(0);
         }
     }
 
     public void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.Nr.getPageContext().getPageActivity(), this.mRoot, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.WEBVIEW), com.baidu.tbadk.core.view.w.ac(null, this.Nr.getPageContext().getString(y.url_not_found)), com.baidu.tbadk.core.view.u.a(new com.baidu.tbadk.core.view.t(this.Nr.getResources().getString(y.refresh), this.Nu)));
+            this.mNoDataView = NoDataViewFactory.a(this.Nt.getPageContext().getPageActivity(), this.mRoot, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.WEBVIEW), com.baidu.tbadk.core.view.w.ac(null, this.Nt.getPageContext().getString(y.url_not_found)), com.baidu.tbadk.core.view.u.a(new com.baidu.tbadk.core.view.t(this.Nt.getResources().getString(y.refresh), this.Nw)));
         }
-        this.mNoDataView.onChangeSkinType(this.Nr.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.Ns.setVisibility(8);
+        this.mNoDataView.onChangeSkinType(this.Nt.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.Nu.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.Nu = onClickListener;
+        this.Nw = onClickListener;
     }
 }

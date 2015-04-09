@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class a extends Handler {
-    final /* synthetic */ AccountActivity auu;
+    final /* synthetic */ AccountActivity auC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AccountActivity accountActivity) {
-        this.auu = accountActivity;
+        this.auC = accountActivity;
     }
 
     @Override // android.os.Handler
@@ -16,10 +16,10 @@ class a extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                this.auu.Eg();
+                this.auC.Em();
                 return;
             case 2:
-                this.auu.Ef();
+                this.auC.El();
                 return;
             default:
                 return;

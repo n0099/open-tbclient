@@ -27,24 +27,24 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
-    private String Rb;
-    private String Rc;
     private String Rd;
-    private d Re;
-    private d Rf;
+    private String Re;
+    private String Rf;
     private d Rg;
-    private DialogInterface.OnCancelListener Rh;
-    private ViewGroup Ri;
-    private Object Rl;
+    private d Rh;
+    private d Ri;
+    private DialogInterface.OnCancelListener Rj;
+    private ViewGroup Rk;
+    private Object Rn;
     protected final Activity mActivity;
     private View mContentView;
     private AlertDialog mDialog;
     private String mMessage;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int Ra = -1;
-    private boolean Rj = false;
-    private boolean Rk = true;
+    private int Rc = -1;
+    private boolean Rl = false;
+    private boolean Rm = true;
 
     public a bZ(String str) {
         this.mTitle = str;
@@ -67,20 +67,20 @@ public class a {
     }
 
     public a a(String str, d dVar) {
-        this.Rb = str;
-        this.Re = dVar;
+        this.Rd = str;
+        this.Rg = dVar;
         return this;
     }
 
     public a b(String str, d dVar) {
-        this.Rc = str;
-        this.Rf = dVar;
+        this.Re = str;
+        this.Rh = dVar;
         return this;
     }
 
     public a c(String str, d dVar) {
-        this.Rd = str;
-        this.Rg = dVar;
+        this.Rf = str;
+        this.Ri = dVar;
         return this;
     }
 
@@ -93,39 +93,39 @@ public class a {
 
     public a a(int i, d dVar) {
         if (this.mActivity != null) {
-            this.Rb = this.mActivity.getResources().getString(i);
-            this.Re = dVar;
+            this.Rd = this.mActivity.getResources().getString(i);
+            this.Rg = dVar;
         }
         return this;
     }
 
     public a b(int i, d dVar) {
         if (this.mActivity != null) {
-            this.Rc = this.mActivity.getResources().getString(i);
-            this.Rf = dVar;
+            this.Re = this.mActivity.getResources().getString(i);
+            this.Rh = dVar;
         }
         return this;
     }
 
     public a ac(boolean z) {
-        this.Rk = z;
+        this.Rm = z;
         return this;
     }
 
     public a ad(boolean z) {
-        this.Rk = z;
+        this.Rm = z;
         return this;
     }
 
     public a(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.hH().inflate(activity, w.dialog_bdalert, null);
-        this.Ri = (ViewGroup) this.mRootView.findViewById(v.real_view);
+        this.Rk = (ViewGroup) this.mRootView.findViewById(v.real_view);
     }
 
     public void a(LinearLayout.LayoutParams layoutParams) {
-        if (this.Ri != null) {
-            this.Ri.setLayoutParams(layoutParams);
+        if (this.Rk != null) {
+            this.Rk.setLayoutParams(layoutParams);
         }
     }
 
@@ -133,8 +133,8 @@ public class a {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (!this.Rj) {
-            this.Rj = true;
+        if (!this.Rl) {
+            this.Rl = true;
             c(jVar);
             TextView textView = (TextView) this.mRootView.findViewById(v.title);
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(v.content);
@@ -155,31 +155,31 @@ public class a {
                 linearLayout.setBackgroundDrawable(ba.getDrawable(u.bg_dailog));
                 textView2.setText(this.mMessage);
             }
-            if (TextUtils.isEmpty(this.Rb)) {
+            if (TextUtils.isEmpty(this.Rd)) {
                 z = false;
             } else {
-                button.setText(this.Rb);
-                button.setTag(this.Rl);
-                if (this.Re != null) {
-                    button.setOnClickListener(new c(this, this, this.Re));
+                button.setText(this.Rd);
+                button.setTag(this.Rn);
+                if (this.Rg != null) {
+                    button.setOnClickListener(new c(this, this, this.Rg));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.Rc)) {
+            if (TextUtils.isEmpty(this.Re)) {
                 z2 = false;
             } else {
-                button2.setText(this.Rc);
-                if (this.Rf != null) {
-                    button2.setOnClickListener(new c(this, this, this.Rf));
+                button2.setText(this.Re);
+                if (this.Rh != null) {
+                    button2.setOnClickListener(new c(this, this, this.Rh));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.Rd)) {
+            if (TextUtils.isEmpty(this.Rf)) {
                 z3 = false;
             } else {
-                button3.setText(this.Rd);
-                if (this.Rg != null) {
-                    button3.setOnClickListener(new c(this, this, this.Rg));
+                button3.setText(this.Rf);
+                if (this.Ri != null) {
+                    button3.setOnClickListener(new c(this, this, this.Ri));
                 }
             }
             a(z, z2, z3, button, button2, button3);
@@ -254,7 +254,7 @@ public class a {
     }
 
     private a ae(boolean z) {
-        if (!this.Rj) {
+        if (!this.Rl) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -265,9 +265,9 @@ public class a {
             }
         } else {
             this.mDialog = new AlertDialog.Builder(this.mActivity).create();
-            this.mDialog.setCanceledOnTouchOutside(this.Rk);
-            if (this.Rh != null) {
-                this.mDialog.setOnCancelListener(this.Rh);
+            this.mDialog.setCanceledOnTouchOutside(this.Rm);
+            if (this.Rj != null) {
+                this.mDialog.setOnCancelListener(this.Rj);
             }
             if (z) {
                 k.a(this.mDialog, this.mActivity);
@@ -275,10 +275,10 @@ public class a {
                 this.mDialog.show();
             }
             Window window = this.mDialog.getWindow();
-            if (this.Ra == -1) {
-                this.Ra = 17;
+            if (this.Rc == -1) {
+                this.Rc = 17;
             }
-            window.setGravity(this.Ra);
+            window.setGravity(this.Rc);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
@@ -309,10 +309,10 @@ public class a {
     }
 
     public void v(Object obj) {
-        this.Rl = obj;
+        this.Rn = obj;
     }
 
     public Object rf() {
-        return this.Rl;
+        return this.Rn;
     }
 }

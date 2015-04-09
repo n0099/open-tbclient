@@ -9,12 +9,12 @@ import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 public class s extends a {
-    View axK;
-    TripleTbImageView bRD;
-    View bRE;
-    LinearLayout bRF;
-    LiveBroadcastCard bRG;
-    TextView byI;
+    View axS;
+    TripleTbImageView bRT;
+    View bRU;
+    LinearLayout bRV;
+    LiveBroadcastCard bRW;
+    TextView byT;
     View mContentView;
     TextView mTitle;
 
@@ -44,19 +44,19 @@ public class s extends a {
         baseFragmentActivity = q.mActivity;
         this.mContentView = view.findViewById(com.baidu.tieba.v.item_content);
         this.mTitle = (TextView) view.findViewById(com.baidu.tieba.v.title);
-        this.byI = (TextView) view.findViewById(com.baidu.tieba.v.content);
-        this.bRD = (TripleTbImageView) view.findViewById(com.baidu.tieba.v.images);
-        this.bRE = view.findViewById(com.baidu.tieba.v.post_line);
-        this.bRF = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_post_item_live_card);
-        this.bRG = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.v.person_post_item_feed_item_card);
-        this.axK = view.findViewById(com.baidu.tieba.v.person_post_thread_item_divider_1);
+        this.byT = (TextView) view.findViewById(com.baidu.tieba.v.content);
+        this.bRT = (TripleTbImageView) view.findViewById(com.baidu.tieba.v.images);
+        this.bRU = view.findViewById(com.baidu.tieba.v.post_line);
+        this.bRV = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_post_item_live_card);
+        this.bRW = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.v.person_post_item_feed_item_card);
+        this.axS = view.findViewById(com.baidu.tieba.v.person_post_thread_item_divider_1);
     }
 
     @Override // com.baidu.tieba.person.post.a
     public void ct(int i) {
         super.ct(i);
         ba.b(this.mTitle, com.baidu.tieba.s.cp_cont_b, 1);
-        ba.b(this.byI, com.baidu.tieba.s.cp_cont_f, 1);
-        ba.i(this.bRE, com.baidu.tieba.s.cp_bg_line_b);
+        ba.b(this.byT, com.baidu.tieba.s.cp_cont_f, 1);
+        ba.i(this.bRU, com.baidu.tieba.s.cp_bg_line_b);
     }
 }

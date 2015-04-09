@@ -18,7 +18,7 @@ public class AntiHelper {
         LIKE,
         REPLY;
 
-        /* JADX DEBUG: Replace access to removed values field (cpH) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (cpX) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OperationType[] valuesCustom() {
             OperationType[] valuesCustom = values();
@@ -31,7 +31,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            ann();
+            anC();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -168,7 +168,7 @@ public class AntiHelper {
         }
     }
 
-    private static void ann() {
+    private static void anC() {
         com.baidu.tbadk.core.sharedPref.b.rB().remove("anti_vcode_no_longer_tip");
     }
 }

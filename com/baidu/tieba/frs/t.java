@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.base.i {
-    final /* synthetic */ FrsActivity aJG;
+    final /* synthetic */ FrsActivity aJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.aJG = frsActivity;
+        this.aJQ = frsActivity;
     }
 
     @Override // com.baidu.adp.base.i
@@ -16,10 +16,10 @@ class t extends com.baidu.adp.base.i {
             z = ((Boolean) obj).booleanValue();
         }
         if (z) {
-            kVar = this.aJG.aJm;
-            kVar.bZ(true);
+            kVar = this.aJQ.aJu;
+            kVar.bX(true);
             return;
         }
-        this.aJG.refresh();
+        this.aJQ.refresh();
     }
 }

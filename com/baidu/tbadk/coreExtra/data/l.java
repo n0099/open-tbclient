@@ -1,51 +1,48 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
-    private String aaX;
-    private String aaY;
-    private String aaZ;
-    private String aba;
-    private String abb;
-    private String abc;
+    private String vcode_md5 = null;
+    private String vcode_pic_url = null;
+    private String abb = null;
+
+    public String getVcode_md5() {
+        return this.vcode_md5;
+    }
+
+    public String getVcode_pic_url() {
+        return this.vcode_pic_url;
+    }
+
+    public String uL() {
+        return this.abb;
+    }
+
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject("anti");
+            }
+            parserJson(optJSONObject);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aaX = jSONObject.optString("drop_pic");
-                this.aaY = jSONObject.optString("drop_pic_md5");
-                this.aaZ = jSONObject.optString("drop_pic_num");
-                this.aba = jSONObject.optString("drop_bg_color_day");
-                this.abb = jSONObject.optString("drop_bg_color_night");
-                this.abc = jSONObject.optString("apply_vip_live_room_pid");
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.abb = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                e.printStackTrace();
+                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public String uK() {
-        return this.abc;
-    }
-
-    public String uL() {
-        return this.aaX;
-    }
-
-    public String uM() {
-        return this.aaY;
-    }
-
-    public String uN() {
-        return this.aaZ;
-    }
-
-    public String uO() {
-        return this.aba;
-    }
-
-    public String uP() {
-        return this.abb;
     }
 }

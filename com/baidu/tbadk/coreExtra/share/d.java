@@ -22,6 +22,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.coreExtra.data.j;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 import com.baidu.tieba.s;
 import com.baidu.tieba.t;
@@ -34,49 +35,49 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private final Button acW;
-    private final LinearLayout acY;
-    private final LinearLayout acZ;
-    private View.OnClickListener adb;
-    private final LinearLayout adc;
-    private SparseArray<String> adh;
-    private SparseArray<com.baidu.tbadk.coreExtra.data.i> adi;
+    private final Button adf;
+    private final LinearLayout adh;
+    private final LinearLayout adi;
+    private View.OnClickListener adk;
+    private final LinearLayout adl;
+    private SparseArray<String> adp;
+    private SparseArray<j> adq;
     private final Context mContext;
     private AlertDialog mDialog;
-    private final SparseArray<f> ade = new SparseArray<>(7);
-    private boolean adf = false;
-    private final int adg = 8;
-    private a adj = new e(this);
-    private final List<TextView> ada = new ArrayList();
+    private final SparseArray<f> adm = new SparseArray<>(7);
+    private boolean adn = false;
+    private final int ado = 8;
+    private a adr = new e(this);
+    private final List<TextView> adj = new ArrayList();
     private final View mRootView = com.baidu.adp.lib.g.b.hH().inflate(TbadkCoreApplication.m411getInst().getContext(), w.share_dialog_content, null);
-    private final TextView acT = (TextView) this.mRootView.findViewById(v.share_dialog_title);
-    private final View acU = this.mRootView.findViewById(v.share_dialog_content);
-    private final View acX = this.mRootView.findViewById(v.line);
-    private final Button acV = (Button) this.mRootView.findViewById(v.btnShareCancel);
+    private final TextView adb = (TextView) this.mRootView.findViewById(v.share_dialog_title);
+    private final View adc = this.mRootView.findViewById(v.share_dialog_content);
+    private final View adg = this.mRootView.findViewById(v.line);
+    private final Button ade = (Button) this.mRootView.findViewById(v.btnShareCancel);
 
     public d(Context context) {
         this.mContext = context;
-        this.acV.setOnClickListener(this);
-        this.acW = (Button) this.mRootView.findViewById(v.btnCopy);
-        this.acW.setOnClickListener(this);
+        this.ade.setOnClickListener(this);
+        this.adf = (Button) this.mRootView.findViewById(v.btnCopy);
+        this.adf.setOnClickListener(this);
         t(y.share_weixin_timeline, u.icon_unite_share_friend);
         t(y.share_weixin, u.icon_unite_share_weixin);
         t(y.share_qzone, u.icon_unite_share_qqzon);
         t(y.share_qweibo, u.icon_unite_share_tencent);
         t(y.share_sina_weibo, u.icon_unite_share_sina);
         t(y.share_renren, u.icon_unite_share_renren);
-        this.adc = (LinearLayout) this.mRootView.findViewById(v.customViewBox);
-        this.acY = (LinearLayout) this.mRootView.findViewById(v.share_dialog_line_1);
-        this.acZ = (LinearLayout) this.mRootView.findViewById(v.share_dialog_line_2);
+        this.adl = (LinearLayout) this.mRootView.findViewById(v.customViewBox);
+        this.adh = (LinearLayout) this.mRootView.findViewById(v.share_dialog_line_1);
+        this.adi = (LinearLayout) this.mRootView.findViewById(v.share_dialog_line_2);
         if (((BdSocialShareSdkDelegate) PluginCenter.getInstance().getSocialShareClassInstance()) == null) {
-            this.acY.setVisibility(8);
-            this.acZ.setVisibility(8);
+            this.adh.setVisibility(8);
+            this.adi.setVisibility(8);
         }
     }
 
     public void d(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.acV.setOnClickListener(onClickListener);
+            this.ade.setOnClickListener(onClickListener);
         }
     }
 
@@ -84,10 +85,10 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) com.baidu.adp.lib.g.b.hH().inflate(TbadkCoreApplication.m411getInst().getContext(), w.share_icon_text, null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(wJ());
+        textView.setLayoutParams(wP());
         textView.setTag(Integer.valueOf(i2));
         textView.setOnClickListener(this);
-        this.ada.add(textView);
+        this.adj.add(textView);
         return textView;
     }
 
@@ -95,12 +96,12 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) com.baidu.adp.lib.g.b.hH().inflate(TbadkCoreApplication.m411getInst().getContext(), w.share_icon_text, null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(wJ());
+        textView.setLayoutParams(wP());
         textView.setTag(Integer.valueOf(i2));
         return textView;
     }
 
-    public LinearLayout.LayoutParams wJ() {
+    public LinearLayout.LayoutParams wP() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.gravity = 17;
@@ -108,50 +109,50 @@ public class d implements View.OnClickListener {
     }
 
     public void a(TextView textView) {
-        this.ada.add(0, textView);
+        this.adj.add(0, textView);
     }
 
     public void setIsCopyLink(boolean z) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, n.d(this.mContext, t.ds100));
         if (z) {
-            this.acW.setVisibility(0);
+            this.adf.setVisibility(0);
             int d = n.d(this.mContext, t.ds50);
             int d2 = n.d(this.mContext, t.ds40);
             layoutParams.setMargins(d2, n.d(this.mContext, t.ds20), d2, d);
-            this.acV.setLayoutParams(layoutParams);
+            this.ade.setLayoutParams(layoutParams);
             return;
         }
-        this.acW.setVisibility(8);
+        this.adf.setVisibility(8);
         int d3 = n.d(this.mContext, t.ds50);
         int d4 = n.d(this.mContext, t.ds40);
         layoutParams.setMargins(d4, d3, d4, d3);
-        this.acV.setLayoutParams(layoutParams);
+        this.ade.setLayoutParams(layoutParams);
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            this.adj = aVar;
+            this.adr = aVar;
         }
     }
 
     public void a(SparseArray<String> sparseArray) {
-        this.adh = sparseArray;
+        this.adp = sparseArray;
     }
 
     public void a(f fVar, boolean z) {
         Location location;
         if (z && (location = getLocation()) != null) {
-            fVar.ado = location;
+            fVar.adw = location;
         }
-        this.ade.put(1, fVar);
+        this.adm.put(1, fVar);
     }
 
     public void a(int i, f fVar, boolean z) {
         Location location;
         if (z && (location = getLocation()) != null) {
-            fVar.ado = location;
+            fVar.adw = location;
         }
-        this.ade.put(i, fVar);
+        this.adm.put(i, fVar);
     }
 
     private Location getLocation() {
@@ -171,24 +172,24 @@ public class d implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.adb = onClickListener;
+            this.adk = onClickListener;
         }
     }
 
-    public void wK() {
-        int size = this.ada.size();
+    public void wQ() {
+        int size = this.adj.size();
         if (size < 8) {
             for (int i = 0; i < 8 - size; i++) {
                 TextView u = u(y.share_weixin_timeline, u.icon_unite_share_friend);
                 u.setVisibility(4);
-                this.ada.add(u);
+                this.adj.add(u);
             }
         }
         for (int i2 = 0; i2 < 8; i2++) {
             if (i2 < 4) {
-                this.acY.addView(this.ada.get(i2));
+                this.adh.addView(this.adj.get(i2));
             } else {
-                this.acZ.addView(this.ada.get(i2));
+                this.adi.addView(this.adj.get(i2));
             }
         }
     }
@@ -198,7 +199,7 @@ public class d implements View.OnClickListener {
             n.showToast(TbadkCoreApplication.m411getInst().getContext(), y.share_on_no_network);
             return;
         }
-        wK();
+        wQ();
         this.mDialog = new AlertDialog.Builder(this.mContext).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         if (this.mContext instanceof Activity) {
@@ -208,9 +209,9 @@ public class d implements View.OnClickListener {
         window.setWindowAnimations(z.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
-        a(this.adj);
+        a(this.adr);
         window.setContentView(this.mRootView);
-        wL();
+        wR();
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -219,7 +220,7 @@ public class d implements View.OnClickListener {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            this.adf = false;
+            this.adn = false;
             if (this.mContext instanceof Activity) {
                 com.baidu.adp.lib.g.k.b(this.mDialog, (Activity) this.mContext);
             }
@@ -234,19 +235,19 @@ public class d implements View.OnClickListener {
             i = ((Integer) view.getTag()).intValue();
         }
         dismiss();
-        if (this.ade.size() != 0) {
-            if (view.getId() == v.btnShareCancel || !this.adf) {
-                this.adf = true;
-                i iVar = new i(this.mContext, this.adj);
+        if (this.adm.size() != 0) {
+            if (view.getId() == v.btnShareCancel || !this.adn) {
+                this.adn = true;
+                i iVar = new i(this.mContext, this.adr);
                 f cZ = cZ(1);
                 if (id == v.btnShareCancel) {
                     c("share_cancel", new Object[0]);
-                    this.adj.wG();
+                    this.adr.wM();
                 } else if (id == v.btnCopy) {
-                    if (this.adb != null) {
-                        this.adb.onClick(this.acW);
+                    if (this.adk != null) {
+                        this.adk.onClick(this.adf);
                     }
-                    if (cZ != null && cZ.adl) {
+                    if (cZ != null && cZ.adt) {
                         db(8);
                     }
                 }
@@ -256,7 +257,7 @@ public class d implements View.OnClickListener {
                     f cZ2 = cZ(3);
                     if (cZ2 != null) {
                         iVar.b(cZ2);
-                        if (cZ2.adl) {
+                        if (cZ2.adt) {
                             db(3);
                         }
                     }
@@ -266,7 +267,7 @@ public class d implements View.OnClickListener {
                     f cZ3 = cZ(2);
                     if (cZ3 != null) {
                         iVar.c(cZ3);
-                        if (cZ3.adl) {
+                        if (cZ3.adt) {
                             db(2);
                         }
                     }
@@ -276,7 +277,7 @@ public class d implements View.OnClickListener {
                     f cZ4 = cZ(4);
                     if (cZ4 != null) {
                         iVar.d(cZ4);
-                        if (cZ4.adl) {
+                        if (cZ4.adt) {
                             db(4);
                         }
                     }
@@ -286,7 +287,7 @@ public class d implements View.OnClickListener {
                     f cZ5 = cZ(5);
                     if (cZ5 != null) {
                         iVar.e(cZ5);
-                        if (cZ5.adl) {
+                        if (cZ5.adt) {
                             db(5);
                         }
                     }
@@ -296,7 +297,7 @@ public class d implements View.OnClickListener {
                     f cZ6 = cZ(6);
                     if (cZ6 != null) {
                         iVar.f(cZ6);
-                        if (cZ6.adl) {
+                        if (cZ6.adt) {
                             db(6);
                         }
                     }
@@ -306,7 +307,7 @@ public class d implements View.OnClickListener {
                     f cZ7 = cZ(7);
                     if (cZ7 != null) {
                         iVar.g(cZ7);
-                        if (cZ7.adl) {
+                        if (cZ7.adt) {
                             db(7);
                         }
                     }
@@ -316,25 +317,25 @@ public class d implements View.OnClickListener {
     }
 
     private f cZ(int i) {
-        f fVar = this.ade.get(i);
+        f fVar = this.adm.get(i);
         if (fVar == null) {
-            return this.ade.get(1);
+            return this.adm.get(1);
         }
         return fVar;
     }
 
     private void da(int i) {
         if (i <= 7 && i > 0) {
-            this.adf = true;
-            if (this.adi != null) {
-                com.baidu.tbadk.coreExtra.data.i iVar = this.adi.get(i);
-                if (!StringUtils.isNull(iVar.uF()) && iVar.uG() != null && iVar.uG().size() > 0) {
-                    c(iVar.uF(), iVar.uG());
+            this.adn = true;
+            if (this.adq != null) {
+                j jVar = this.adq.get(i);
+                if (!StringUtils.isNull(jVar.uI()) && jVar.uJ() != null && jVar.uJ().size() > 0) {
+                    c(jVar.uI(), jVar.uJ());
                     return;
                 }
             }
-            if (this.adh != null) {
-                String str = this.adh.get(i);
+            if (this.adp != null) {
+                String str = this.adp.get(i);
                 if (!bd.isEmpty(str)) {
                     c(str, new Object[0]);
                 }
@@ -350,22 +351,22 @@ public class d implements View.OnClickListener {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", "loc", i, new Object[0]);
     }
 
-    private void wL() {
-        int size = this.ada.size();
+    private void wR() {
+        int size = this.adj.size();
         for (int i = 0; i < size; i++) {
-            TextView textView = this.ada.get(i);
+            TextView textView = this.adj.get(i);
             a(textView, ((Integer) textView.getTag()).intValue(), s.cp_cont_f);
         }
-        int paddingLeft = this.acT.getPaddingLeft();
-        ba.i(this.acU, u.bg_dailog);
-        ba.i((View) this.acT, u.bg_unite_popup_share_up);
-        ba.b(this.acT, s.share_to, 1);
-        ba.i((View) this.acV, u.btn_w_square);
-        ba.b(this.acV, s.share_to, 3);
-        ba.i((View) this.acW, u.btn_blue_bg);
-        ba.b(this.acW, s.cp_cont_g, 3);
-        ba.i(this.acX, s.cp_bg_line_b);
-        this.acT.setPadding(paddingLeft, 0, 0, 0);
+        int paddingLeft = this.adb.getPaddingLeft();
+        ba.i(this.adc, u.bg_dailog);
+        ba.i((View) this.adb, u.bg_unite_popup_share_up);
+        ba.b(this.adb, s.share_to, 1);
+        ba.i((View) this.ade, u.btn_w_square);
+        ba.b(this.ade, s.share_to, 3);
+        ba.i((View) this.adf, u.btn_blue_bg);
+        ba.b(this.adf, s.cp_cont_g, 3);
+        ba.i(this.adg, s.cp_bg_line_b);
+        this.adb.setPadding(paddingLeft, 0, 0, 0);
     }
 
     private void a(TextView textView, int i, int i2) {
@@ -375,7 +376,7 @@ public class d implements View.OnClickListener {
         ba.b(textView, i2, 1);
     }
 
-    public void b(SparseArray<com.baidu.tbadk.coreExtra.data.i> sparseArray) {
-        this.adi = sparseArray;
+    public void b(SparseArray<j> sparseArray) {
+        this.adq = sparseArray;
     }
 }

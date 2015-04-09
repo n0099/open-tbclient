@@ -1,24 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
-public class ai implements AbsListView.OnScrollListener {
-    final /* synthetic */ SquareSearchActivity bzG;
+class ai extends HttpMessageListener {
+    final /* synthetic */ SquareSearchActivity bzT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(SquareSearchActivity squareSearchActivity) {
-        this.bzG = squareSearchActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(SquareSearchActivity squareSearchActivity, int i, boolean z) {
+        super(i, z);
+        this.bzT = squareSearchActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.n.c(this.bzG.getPageContext().getPageActivity(), absListView);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        this.bzT.bzH = true;
+        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
+            this.bzT.a(httpResponsedMessage, !((FrsPageHttpResponseMessage) httpResponsedMessage).hasNetworkError());
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

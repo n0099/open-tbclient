@@ -10,11 +10,11 @@ import com.baidu.tieba.person.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements bo {
-    final /* synthetic */ k bRB;
+    final /* synthetic */ k bRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bRB = kVar;
+        this.bRR = kVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0038, code lost:
@@ -35,55 +35,55 @@ public class l implements bo {
         BdListView bdListView3;
         BdListView bdListView4;
         boolean z2;
-        if (this.bRB.isAdded()) {
-            progressBar = this.bRB.mProgressBar;
+        if (this.bRR.isAdded()) {
+            progressBar = this.bRR.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.bRB.bRs;
+            bdListView = this.bRR.bRI;
             bdListView.mW();
             if (personPostModel != null) {
-                if (k.aR(personPostModel.post_list) == 0) {
-                    z2 = this.bRB.bRy;
+                if (k.aU(personPostModel.post_list) == 0) {
+                    z2 = this.bRR.bRO;
                     if (z2) {
                     }
                 }
                 if (!StringUtils.isNull(personPostModel.getErrorString())) {
-                    if (k.aR(personPostModel.post_list) == 0) {
-                        this.bRB.mNoDataView.setVisibility(0);
-                        bdListView4 = this.bRB.bRs;
+                    if (k.aU(personPostModel.post_list) == 0) {
+                        this.bRR.mNoDataView.setVisibility(0);
+                        bdListView4 = this.bRR.bRI;
                         bdListView4.setVisibility(0);
                     } else {
-                        this.bRB.mNoDataView.setVisibility(8);
-                        bdListView3 = this.bRB.bRs;
+                        this.bRR.mNoDataView.setVisibility(8);
+                        bdListView3 = this.bRR.bRI;
                         bdListView3.setVisibility(0);
                     }
                     if (personPostModel.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.n.showToast(this.bRB.getActivity(), personPostModel.getErrorString());
+                        com.baidu.adp.lib.util.n.showToast(this.bRR.getActivity(), personPostModel.getErrorString());
                     }
                 }
-                if (k.aR(personPostModel.post_list) < 20) {
+                if (k.aU(personPostModel.post_list) < 20) {
                     if (!com.baidu.adp.lib.util.k.iH()) {
-                        view = this.bRB.bRw;
+                        view = this.bRR.bRM;
                         view.setVisibility(8);
                     } else {
-                        this.bRB.bRx = false;
-                        pbListView2 = this.bRB.bRv;
-                        pbListView2.setText(this.bRB.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
-                        view2 = this.bRB.bRw;
+                        this.bRR.bRN = false;
+                        pbListView2 = this.bRR.bRL;
+                        pbListView2.setText(this.bRR.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
+                        view2 = this.bRR.bRM;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.bRB.bRv;
+                pbListView = this.bRR.bRL;
                 pbListView.tO();
                 if (z) {
-                    this.bRB.bRx = true;
-                    this.bRB.mLastCount = 0;
-                    this.bRB.bRy = false;
+                    this.bRR.bRN = true;
+                    this.bRR.mLastCount = 0;
+                    this.bRR.bRO = false;
                     return;
                 }
                 return;
             }
-            this.bRB.mNoDataView.setVisibility(0);
-            bdListView2 = this.bRB.bRs;
+            this.bRR.mNoDataView.setVisibility(0);
+            bdListView2 = this.bRR.bRI;
             bdListView2.setVisibility(0);
         }
     }

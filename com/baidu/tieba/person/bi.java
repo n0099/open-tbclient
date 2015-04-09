@@ -8,19 +8,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class bi {
-    TextView aHg;
-    HeadImageView aIi;
-    TextView aXK;
-    ViewGroup bQE;
-    TextView bQF;
-    final /* synthetic */ bh bQG;
-    ImageView bQj;
-    LinearLayout bQk;
-    TextView bQl;
+    TextView aHo;
+    HeadImageView aIq;
+    TextView aYa;
+    LinearLayout bQA;
+    TextView bQB;
+    ViewGroup bQU;
+    TextView bQV;
+    final /* synthetic */ bh bQW;
+    ImageView bQz;
     ProgressBar mProgress;
 
     private bi(bh bhVar) {
-        this.bQG = bhVar;
+        this.bQW = bhVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

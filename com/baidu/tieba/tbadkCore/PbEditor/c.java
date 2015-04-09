@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class c extends RelativeLayout {
-    private int clO;
-    private boolean clP;
+    private int cmf;
+    private boolean cmg;
     private Context mContext;
     private Paint paint;
 
@@ -25,24 +25,24 @@ public class c extends RelativeLayout {
 
     public c(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.clP = true;
+        this.cmg = true;
         this.mContext = context;
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
-        this.clO = com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
+        this.cmf = com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.clP) {
+        if (this.cmg) {
             this.paint.setColor(ba.getColor(com.baidu.tieba.s.cp_bg_line_b));
-            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.clO, this.paint);
+            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.cmf, this.paint);
         }
     }
 
     public void setDrawTop(boolean z) {
-        this.clP = z;
+        this.cmg = z;
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
@@ -78,7 +78,7 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void alc() {
+    public void alr() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -88,7 +88,7 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void ald() {
+    public void als() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -98,12 +98,12 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void ale() {
+    public void alt() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).alb();
+                ((EditorToolButton) childAt).alq();
             }
         }
     }

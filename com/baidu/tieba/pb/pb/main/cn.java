@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cn implements Animation.AnimationListener {
-    final /* synthetic */ ci bMm;
+    final /* synthetic */ cj bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(ci ciVar) {
-        this.bMm = ciVar;
+    public cn(cj cjVar) {
+        this.bMC = cjVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,22 +19,20 @@ public class cn implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        boolean z;
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
         View view;
-        z = this.bMm.bLW;
-        if (!z) {
-            pbEditor = this.bMm.bLR;
-            if (pbEditor != null) {
-                pbEditor2 = this.bMm.bLR;
-                pbEditor2.setVisibility(0);
-                return;
-            }
-            return;
+        PbEditor pbEditor;
+        View view2;
+        PbEditor pbEditor2;
+        cj cjVar = this.bMC;
+        view = this.bMC.bMj;
+        cjVar.bMm = view.getVisibility() == 0;
+        pbEditor = this.bMC.bMh;
+        if (pbEditor != null) {
+            pbEditor2 = this.bMC.bMh;
+            pbEditor2.setVisibility(8);
         }
-        view = this.bMm.bLT;
-        view.setVisibility(0);
+        view2 = this.bMC.bMj;
+        view2.setVisibility(8);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

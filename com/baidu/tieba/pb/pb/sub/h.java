@@ -4,52 +4,52 @@ import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends a {
-    private String bNB;
-    private int bNC;
-    private boolean bND;
-    private boolean bNE;
+    private String bNR;
+    private int bNS;
+    private boolean bNT;
+    private boolean bNU;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
-        this.bNB = null;
-        this.bNC = 0;
-        this.bND = false;
-        this.bNE = false;
+        this.bNR = null;
+        this.bNS = 0;
+        this.bNT = false;
+        this.bNU = false;
     }
 
-    public void ec(boolean z) {
-        this.bNE = z;
+    public void ea(boolean z) {
+        this.bNU = z;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.a, android.widget.Adapter
     public int getCount() {
-        if (this.auC == null) {
+        if (this.auK == null) {
             return 0;
         }
-        return (this.bND ? 1 : 0) + this.auC.size();
+        return (this.bNT ? 1 : 0) + this.auK.size();
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.a, android.widget.Adapter
     public Object getItem(int i) {
-        if (this.auC == null || i < 0 || i >= this.auC.size()) {
+        if (this.auK == null || i < 0 || i >= this.auK.size()) {
             return null;
         }
-        return this.auC.get(i);
+        return this.auK.get(i);
     }
 
     public void P(String str, int i) {
-        this.bNB = str;
-        this.bNC = i;
+        this.bNR = str;
+        this.bNS = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.a
-    public int hM(String str) {
-        if (this.auC == null) {
+    public int hP(String str) {
+        if (this.auK == null) {
             return -1;
         }
-        int size = this.auC.size();
+        int size = this.auK.size();
         for (int i = 0; i < size; i++) {
-            if (this.auC.get(i).getId().equals(str)) {
+            if (this.auK.get(i).getId().equals(str)) {
                 return i;
             }
         }

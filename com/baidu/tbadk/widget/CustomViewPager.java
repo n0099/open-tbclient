@@ -19,6 +19,10 @@ public class CustomViewPager extends ViewPager {
         if (getCurrentItem() != 0) {
             getParent().requestDisallowInterceptTouchEvent(true);
         }
-        return super.onInterceptTouchEvent(motionEvent);
+        try {
+            return super.onInterceptTouchEvent(motionEvent);
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

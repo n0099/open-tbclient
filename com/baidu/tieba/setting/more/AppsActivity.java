@@ -15,13 +15,13 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 public class AppsActivity extends BaseActivity<AppsActivity> {
     private String mUrl = null;
     private BaseWebView mWebView = null;
-    private ImageView bZY = null;
-    private i bZZ = null;
-    private LinearLayout caa = null;
-    private ProgressBar cab = null;
-    private ImageView cac = null;
-    private RelativeLayout aWN = null;
-    private RelativeLayout cad = null;
+    private ImageView can = null;
+    private i cao = null;
+    private LinearLayout cap = null;
+    private ProgressBar caq = null;
+    private ImageView car = null;
+    private RelativeLayout aXd = null;
+    private RelativeLayout cas = null;
     private TextView mTitleText = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,7 +29,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.app_activity);
-        Ee();
+        Ek();
         l(bundle);
     }
 
@@ -41,55 +41,55 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
         if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.rB().getLong("app_inverval", 0L) > 86400000) {
             refresh();
-        } else if (!agl()) {
+        } else if (!agA()) {
             refresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
-        if (this.bZZ != null) {
-            this.bZZ.cancel();
+        if (this.cao != null) {
+            this.cao.cancel();
         }
-        this.bZZ = new i(this, this.mUrl);
-        this.bZZ.setPriority(3);
-        this.bZZ.execute(new Object[0]);
+        this.cao = new i(this, this.mUrl);
+        this.cao.setPriority(3);
+        this.cao.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.ba.e(this.aWN, i);
+        com.baidu.tbadk.core.util.ba.e(this.aXd, i);
         com.baidu.tbadk.core.util.ba.e(this.mWebView, i);
-        com.baidu.tbadk.core.util.ba.h(this.cad, i);
-        com.baidu.tbadk.core.util.ba.a(this.bZY, i);
+        com.baidu.tbadk.core.util.ba.h(this.cas, i);
+        com.baidu.tbadk.core.util.ba.a(this.can, i);
         com.baidu.tbadk.core.util.ba.e(this.mTitleText, i);
-        com.baidu.tbadk.core.util.ba.b(this.cac, i);
+        com.baidu.tbadk.core.util.ba.b(this.car, i);
     }
 
-    private void Ee() {
-        this.aWN = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.cad = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
+    private void Ek() {
+        this.aXd = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
+        this.cas = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
         this.mTitleText = (TextView) findViewById(com.baidu.tieba.v.title_text);
         this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.v.app_webView);
         this.mWebView.setDownloadEnabled(true);
-        this.cab = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
-        this.caa = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
-        this.caa.setOnClickListener(new f(this));
-        this.cac = (ImageView) findViewById(com.baidu.tieba.v.refresh);
-        this.cac.setOnClickListener(new g(this));
-        this.bZY = (ImageView) findViewById(com.baidu.tieba.v.back);
-        this.bZY.setOnClickListener(new h(this));
+        this.caq = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
+        this.cap = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
+        this.cap.setOnClickListener(new f(this));
+        this.car = (ImageView) findViewById(com.baidu.tieba.v.refresh);
+        this.car.setOnClickListener(new g(this));
+        this.can = (ImageView) findViewById(com.baidu.tieba.v.back);
+        this.can.setOnClickListener(new h(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean agl() {
+    public boolean agA() {
         String noAccountData = TbadkCoreApplication.m411getInst().getNoAccountData(7);
         if (noAccountData == null || noAccountData.length() <= 1) {
             return false;
         }
-        this.cab.setVisibility(8);
+        this.caq.setVisibility(8);
         this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, noAccountData, "text/html", "utf-8", "");
         return true;
     }

@@ -8,8 +8,8 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
-    private int aIM = 1;
-    private int bDm;
+    private int aIU = 1;
+    private int bDz;
     private String ids;
 
     public void b(FeedData feedData) {
@@ -18,27 +18,27 @@ public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
         }
     }
 
-    public void Qq() {
-        this.aIM++;
-        this.bDm = 4;
+    public void QD() {
+        this.aIU++;
+        this.bDz = 4;
     }
 
     public void reset() {
-        this.aIM = 1;
-        this.bDm = 1;
+        this.aIU = 1;
+        this.bDz = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.bDm;
+        return this.bDz;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
     public HashMap<String, Object> oC() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.aIM));
-        if (this.bDm == 4 && !TextUtils.isEmpty(this.ids)) {
+        hashMap.put("pn", String.valueOf(this.aIU));
+        if (this.bDz == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -48,7 +48,7 @@ public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
     public Object V(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.aIM);
+            builder.pn = Integer.valueOf(this.aIU);
             builder.ids = this.ids;
             if (z) {
                 com.baidu.tbadk.util.j.a(builder, true);
@@ -67,12 +67,12 @@ public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String zR() {
+    public String zX() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ax() {
+    public boolean AD() {
         return true;
     }
 

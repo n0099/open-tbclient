@@ -10,9 +10,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     private String AE;
-    private String acM;
-    private WeakReference<j> awu;
-    private String bFE;
+    private String acU;
+    private WeakReference<j> awC;
+    private String bFR;
     private String mForumId;
     private String mForumName;
     private String mPostId;
@@ -22,11 +22,11 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
-        this.acM = str4;
-        this.bFE = str6;
+        this.acU = str4;
+        this.bFR = str6;
         this.AE = str7;
         this.mPostId = str5;
-        this.awu = new WeakReference<>(jVar);
+        this.awC = new WeakReference<>(jVar);
         setPriority(3);
     }
 
@@ -36,10 +36,10 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: t */
     public ForbidResultData doInBackground(String... strArr) {
         String str;
-        str = h.bFD;
+        str = h.bFQ;
         aa aaVar = new aa(str);
-        aaVar.o("day", this.bFE);
-        aaVar.o("un", this.acM);
+        aaVar.o("day", this.bFR);
+        aaVar.o("un", this.acU);
         aaVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
         aaVar.o("word", this.mForumName);
         aaVar.o("z", this.mThreadId);
@@ -70,7 +70,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: c */
     public void onPostExecute(ForbidResultData forbidResultData) {
         super.onPostExecute(forbidResultData);
-        j jVar = this.awu.get();
+        j jVar = this.awC.get();
         if (jVar != null) {
             if (forbidResultData.error_code == 0 && bd.isEmpty(forbidResultData.error_msg)) {
                 jVar.a(forbidResultData);

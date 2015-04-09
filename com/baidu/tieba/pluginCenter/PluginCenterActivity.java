@@ -21,7 +21,7 @@ import com.baidu.tieba.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> {
-    private a bUj;
+    private a bUz;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private s mNoDataView;
@@ -43,7 +43,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> {
     protected void onStart() {
         PluginSetting findPluginSetting;
         super.onStart();
-        this.bUj = new a(this);
+        this.bUz = new a(this);
         PluginNetConfigInfos lK = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.lJ().lK();
         if (lK != null && lK.getConfigs() != null && lK.getConfigs().size() > 0) {
             ArrayList arrayList = new ArrayList();
@@ -52,10 +52,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> {
                     arrayList.add(pluginConfig);
                 }
             }
-            this.bUj.addAll(arrayList);
+            this.bUz.addAll(arrayList);
             PluginPackageManager.ls().lC();
         }
-        this.mListView.setAdapter((ListAdapter) this.bUj);
+        this.mListView.setAdapter((ListAdapter) this.bUz);
         this.mListView.setOnItemClickListener(this);
     }
 
@@ -64,7 +64,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bUj.notifyDataSetChanged();
+        this.bUz.notifyDataSetChanged();
         getLayoutMode().h(findViewById(16908290));
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
@@ -73,6 +73,6 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), this.bUj.getItem(i).package_name)));
+        sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), this.bUz.getItem(i).package_name)));
     }
 }

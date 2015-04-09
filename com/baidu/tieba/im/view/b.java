@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ a bnX;
+    final /* synthetic */ a bon;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bnX = aVar;
+        this.bon = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,14 +18,14 @@ public class b implements AdapterView.OnItemClickListener {
         e eVar;
         e eVar2;
         int i2;
-        cVar = this.bnX.bnT;
+        cVar = this.bon.boj;
         Object item = cVar.getItem(i);
         if (item instanceof com.baidu.tieba.im.data.d) {
             com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) item;
-            eVar = this.bnX.bnW;
+            eVar = this.bon.bom;
             if (eVar != null) {
-                eVar2 = this.bnX.bnW;
-                i2 = this.bnX.bnU;
+                eVar2 = this.bon.bom;
+                i2 = this.bon.bok;
                 eVar2.a(i2, dVar);
             }
         }

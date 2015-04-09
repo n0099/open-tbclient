@@ -28,32 +28,32 @@ public class a extends av<com.baidu.tbadk.core.data.c, b> {
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) bVar);
-        bVar.aMW.setPadding(0, i - this.aKD == 0 ? this.aHT : this.aHU, 0, 0);
-        this.aJT.getLayoutMode().X(this.mSkinType == 1);
-        this.aJT.getLayoutMode().h(view);
-        if (!cVar.Pl) {
-            cVar.Pl = true;
-            this.aJT.a(cVar, "show");
-            this.aJT.b(cVar, "show");
+        bVar.aNn.setPadding(0, i - this.aKN == 0 ? this.aIb : this.aIc, 0, 0);
+        this.aKd.getLayoutMode().X(this.mSkinType == 1);
+        this.aKd.getLayoutMode().h(view);
+        if (!cVar.Pn) {
+            cVar.Pn = true;
+            this.aKd.a(cVar, "show");
+            this.aKd.b(cVar, "show");
         }
         if (n.px().pz()) {
-            bVar.azr.setVisibility(0);
-            bVar.azr.c(cVar.Pk.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            bVar.azz.setVisibility(0);
+            bVar.azz.c(cVar.Pm.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            bVar.azr.setVisibility(8);
+            bVar.azz.setVisibility(8);
         }
-        if (n.px().pB() && !TextUtils.isEmpty(cVar.Pk.Po)) {
-            bVar.aMY.setVisibility(0);
-            bVar.aMY.c(cVar.Pk.Po, this.mIsFromCDN ? 30 : 31, false);
+        if (n.px().pB() && !TextUtils.isEmpty(cVar.Pm.Pq)) {
+            bVar.aNp.setVisibility(0);
+            bVar.aNp.c(cVar.Pm.Pq, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            bVar.aMY.setVisibility(8);
+            bVar.aNp.setVisibility(8);
         }
-        bVar.aFs.setText(cVar.Pk.userName);
-        if (StringUtils.isNull(cVar.Pk.Pn)) {
-            bVar.ahr.setVisibility(8);
+        bVar.aFA.setText(cVar.Pm.userName);
+        if (StringUtils.isNull(cVar.Pm.Pp)) {
+            bVar.ahz.setVisibility(8);
         } else {
-            bVar.ahr.setVisibility(0);
-            bVar.ahr.setText(cVar.Pk.Pn);
+            bVar.ahz.setVisibility(0);
+            bVar.ahz.setText(cVar.Pm.Pp);
         }
         return view;
     }

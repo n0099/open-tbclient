@@ -8,9 +8,9 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public abstract class c extends a {
-    protected NavigationBar anm;
-    protected com.baidu.tbadk.mvc.g.a.d anr;
-    private NoNetworkView ans;
+    private NoNetworkView anA;
+    protected NavigationBar anu;
+    protected com.baidu.tbadk.mvc.g.a.d anz;
 
     protected abstract com.baidu.tbadk.mvc.g.a.d a(NavigationBar navigationBar);
 
@@ -21,24 +21,24 @@ public abstract class c extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.g.b.a, com.baidu.tbadk.mvc.core.c
     public void ov() {
-        this.anm = (NavigationBar) getView().findViewById(v.view_navigation_bar);
-        this.anr = a(this.anm);
-        if (BB()) {
+        this.anu = (NavigationBar) getView().findViewById(v.view_navigation_bar);
+        this.anz = a(this.anu);
+        if (BH()) {
             ViewGroup viewGroup = (ViewGroup) getView();
-            this.ans = new NoNetworkView(getActivity());
-            this.ans.a(new d(this));
-            int indexOfChild = viewGroup.indexOfChild(this.anm);
-            this.ans.setVisibility(8);
-            viewGroup.addView(this.ans, indexOfChild + 1);
+            this.anA = new NoNetworkView(getActivity());
+            this.anA.a(new d(this));
+            int indexOfChild = viewGroup.indexOfChild(this.anu);
+            this.anA.setVisibility(8);
+            viewGroup.addView(this.anA, indexOfChild + 1);
         }
         super.ov();
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.a, com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.anr.a(tbPageContext, i);
-        if (this.ans != null) {
-            this.ans.onChangeSkinType(tbPageContext, i);
+        this.anz.a(tbPageContext, i);
+        if (this.anA != null) {
+            this.anA.onChangeSkinType(tbPageContext, i);
         }
         super.a(tbPageContext, i);
         return true;
@@ -49,7 +49,7 @@ public abstract class c extends a {
         return w.mvc_template_navi_list;
     }
 
-    protected boolean BB() {
+    protected boolean BH() {
         return true;
     }
 

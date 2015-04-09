@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Boolean> {
-    private aa Oi = null;
-    private final String SB;
-    private final String abL;
-    private final String abM;
+    private aa Ok = null;
+    private final String SD;
+    private final String abT;
+    private final String abU;
 
     public d(String str, String str2, String str3) {
-        this.abL = str;
-        this.SB = str2;
-        this.abM = str3;
+        this.abT = str;
+        this.SD = str2;
+        this.abU = str3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,14 +29,14 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public Boolean doInBackground(String... strArr) {
         Boolean bool = false;
         try {
-            this.Oi = new aa(this.abL);
-            bool = Boolean.valueOf(this.Oi.a(String.valueOf(this.SB) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+            this.Ok = new aa(this.abT);
+            bool = Boolean.valueOf(this.Ok.a(String.valueOf(this.SD) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
             if (bool != null && bool.booleanValue()) {
-                if (!StringUtils.isNull(o.e(null, String.valueOf(this.SB) + ".tmp", null, this.SB))) {
-                    o.cs(bf.cN(this.abM));
+                if (!StringUtils.isNull(o.e(null, String.valueOf(this.SD) + ".tmp", null, this.SD))) {
+                    o.cs(bf.cN(this.abU));
                 }
             } else {
-                o.cs(String.valueOf(this.SB) + ".tmp");
+                o.cs(String.valueOf(this.SD) + ".tmp");
             }
         } catch (Exception e) {
         }
@@ -50,7 +50,7 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         if (bool != null && bool.booleanValue()) {
-            new c().vK();
+            new c().vQ();
         }
     }
 }

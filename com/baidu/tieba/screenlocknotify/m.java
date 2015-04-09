@@ -15,8 +15,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
     private Context mContext;
-    private boolean bYI = false;
-    private List<r> bYH = new ArrayList();
+    private boolean bYX = false;
+    private List<r> bYW = new ArrayList();
 
     public m(Context context) {
         this.mContext = context;
@@ -24,15 +24,15 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bYH != null) {
-            return this.bYH.size();
+        if (this.bYW != null) {
+            return this.bYW.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bYH.get(i);
+        return this.bYW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,8 +42,8 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        r rVar = this.bYH.get(i);
-        if (this.bYI) {
+        r rVar = this.bYW.get(i);
+        if (this.bYX) {
             return a(rVar, view, viewGroup, true);
         }
         if (i == 0) {
@@ -62,14 +62,14 @@ public class m extends BaseAdapter {
             nVar = T(view);
             view.setTag(nVar);
         }
-        nVar.bYJ.setText(rVar.content);
-        nVar.bYg.setText(rVar.groupName);
-        nVar.bYK.setText(hO(rVar.bYQ));
-        nVar.bYh.setText(am(rVar.Uw));
+        nVar.bYY.setText(rVar.content);
+        nVar.bYv.setText(rVar.groupName);
+        nVar.bYZ.setText(hR(rVar.bZf));
+        nVar.bYw.setText(am(rVar.Uy));
         if (z) {
-            nVar.acX.setVisibility(0);
+            nVar.adg.setVisibility(0);
         } else {
-            nVar.acX.setVisibility(8);
+            nVar.adg.setVisibility(8);
         }
         return view;
     }
@@ -84,7 +84,7 @@ public class m extends BaseAdapter {
             oVar = U(view);
             view.setTag(oVar);
         }
-        oVar.bYJ.setText(rVar.content);
+        oVar.bYY.setText(rVar.content);
         return view;
     }
 
@@ -98,7 +98,7 @@ public class m extends BaseAdapter {
             pVar = V(view);
             view.setTag(pVar);
         }
-        pVar.bYM.setText(rVar.content);
+        pVar.bZb.setText(rVar.content);
         return view;
     }
 
@@ -107,37 +107,37 @@ public class m extends BaseAdapter {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String hO(int i) {
+    public String hR(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public void setData(List<r> list) {
-        this.bYH = list;
+        this.bYW = list;
     }
 
     private n T(View view) {
         n nVar = new n(this, null);
-        nVar.bYg = (TextView) view.findViewById(v.friend_name_show1);
-        nVar.bYh = (TextView) view.findViewById(v.last_msg_time_show1);
-        nVar.bYJ = (TextView) view.findViewById(v.one_msg_content_show1);
-        nVar.bYK = (TextView) view.findViewById(v.unread_msg_count_show1);
-        nVar.acX = view.findViewById(v.line);
+        nVar.bYv = (TextView) view.findViewById(v.friend_name_show1);
+        nVar.bYw = (TextView) view.findViewById(v.last_msg_time_show1);
+        nVar.bYY = (TextView) view.findViewById(v.one_msg_content_show1);
+        nVar.bYZ = (TextView) view.findViewById(v.unread_msg_count_show1);
+        nVar.adg = view.findViewById(v.line);
         return nVar;
     }
 
     private o U(View view) {
         o oVar = new o(this, null);
-        oVar.bYJ = (TextView) view.findViewById(v.msg_content_2);
+        oVar.bYY = (TextView) view.findViewById(v.msg_content_2);
         return oVar;
     }
 
     private p V(View view) {
         p pVar = new p(this, null);
-        pVar.bYM = (TextView) view.findViewById(v.one_msg_content);
+        pVar.bZb = (TextView) view.findViewById(v.one_msg_content);
         return pVar;
     }
 
-    public void eo(boolean z) {
-        this.bYI = z;
+    public void em(boolean z) {
+        this.bYX = z;
     }
 }

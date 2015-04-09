@@ -29,7 +29,7 @@ public class a {
             aaVar.o("isphone", GameInfoData.NOT_FROM_DETAIL);
             aaVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             aaVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            aaVar.sp().tp().ts().Wp = true;
+            aaVar.sp().tp().ts().Wr = true;
             aaVar.sp().tp().mIsNeedAddCommenParam = false;
             aaVar.sp().tp().mIsUseCurrentBDUSS = false;
             rO = aaVar.rO();

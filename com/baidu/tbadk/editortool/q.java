@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ EmotionTabHost aiU;
+    final /* synthetic */ EmotionTabHost ajc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(EmotionTabHost emotionTabHost, int i) {
         super(i);
-        this.aiU = emotionTabHost;
+        this.ajc = emotionTabHost;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class q extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         switch (customResponsedMessage.getCmd()) {
             case 2001120:
-                this.aiU.reset();
-                this.aiU.setup();
+                this.ajc.reset();
+                this.ajc.setup();
                 return;
             default:
                 return;

@@ -17,7 +17,7 @@ class w extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
-            this.this$0.alU();
+            this.this$0.amj();
         }
     }
 }

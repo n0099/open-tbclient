@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.RequestApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bSh;
+    final /* synthetic */ PersonInfoActivity bSx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bSh = personInfoActivity;
+        this.bSx = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ class l extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof ResponseApplyMessage) {
             ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
             if (responseApplyMessage.getError() != 0) {
-                this.bSh.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.bSh.getResources().getString(com.baidu.tieba.y.neterror) : socketResponsedMessage.getErrorString());
+                this.bSx.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.bSx.getResources().getString(com.baidu.tieba.y.neterror) : socketResponsedMessage.getErrorString());
                 return;
             }
             RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
@@ -31,10 +31,10 @@ class l extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            vVar = this.bSh.bRW;
-            vVar.aed().getReplyInfo().add(replyInfo);
-            aeVar = this.bSh.bRX;
-            aeVar.aep();
+            vVar = this.bSx.bSm;
+            vVar.aes().getReplyInfo().add(replyInfo);
+            aeVar = this.bSx.bSn;
+            aeVar.aeE();
         }
     }
 }

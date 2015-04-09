@@ -46,75 +46,75 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> implements View.OnClickListener, com.baidu.tbadk.core.voice.j, ap, com.baidu.tieba.tbadkCore.n {
-    private String aHA;
-    private FriendFeedThreadData aHB;
-    private com.baidu.tieba.tbadkCore.writeModel.a aHC;
-    private ag aHs;
-    private y aHt;
-    private com.baidu.tieba.friendFeed.a.a aHu;
-    private com.baidu.tieba.tbadkCore.location.e aHv;
-    private FriendFeedThreadData aHx;
-    private boolean aHy;
-    private String aHz;
+    private ag aHA;
+    private y aHB;
+    private com.baidu.tieba.friendFeed.a.a aHC;
+    private com.baidu.tieba.tbadkCore.location.e aHD;
+    private FriendFeedThreadData aHF;
+    private boolean aHG;
+    private String aHH;
+    private String aHI;
+    private FriendFeedThreadData aHJ;
+    private com.baidu.tieba.tbadkCore.writeModel.a aHK;
     VoiceManager mVoiceManager;
-    private boolean aHw = false;
-    private WriteImagesInfo aHD = new WriteImagesInfo();
-    private final com.baidu.adp.lib.e.b<TbImageView> aHE = FrsCommonImageLayout.l(getPageContext().getPageActivity(), 6);
-    private CustomMessageListener aHF = new a(this, 2004004);
-    private final com.baidu.tieba.tbadkCore.writeModel.d aHG = new h(this);
-    private com.baidu.tieba.tbadkCore.location.j aHH = new i(this);
-    private com.baidu.tieba.tbadkCore.location.k aHI = new j(this);
-    private final AbsListView.OnScrollListener aHJ = new k(this);
-    private final v aHK = new l(this);
-    private final ar aHL = new ar(getPageContext(), new m(this));
+    private boolean aHE = false;
+    private WriteImagesInfo aHL = new WriteImagesInfo();
+    private final com.baidu.adp.lib.e.b<TbImageView> aHM = FrsCommonImageLayout.l(getPageContext().getPageActivity(), 6);
+    private CustomMessageListener aHN = new a(this, 2004004);
+    private final com.baidu.tieba.tbadkCore.writeModel.d aHO = new h(this);
+    private com.baidu.tieba.tbadkCore.location.j aHP = new i(this);
+    private com.baidu.tieba.tbadkCore.location.k aHQ = new j(this);
+    private final AbsListView.OnScrollListener aHR = new k(this);
+    private final v aHS = new l(this);
+    private final ar aHT = new ar(getPageContext(), new m(this));
     private final com.baidu.adp.framework.listener.e mListener = new n(this, 303003);
     private final CustomMessageListener mLoadCacheListener = new o(this, 2001172);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void II() {
+    public void IO() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(getPageContext().getPageActivity())));
     }
 
-    public void IJ() {
+    public void IP() {
         if (!UtilHelper.isSystemLocationProviderEnabled(getPageContext().getPageActivity())) {
             showToast(com.baidu.tieba.y.location_system_permission_prompt);
         } else if (!TbadkApplication.getInst().getLocationShared()) {
-            IK();
-        } else if (this.aHv.ang()) {
-            II();
+            IQ();
+        } else if (this.aHD.anv()) {
+            IO();
         } else {
-            this.aHv.eR(false);
-            if (this.aHt.IY() != null) {
-                this.aHt.IY().setLocationViewVisibility(0);
-                this.aHt.IY().setLocationInfoViewState(1);
+            this.aHD.eP(false);
+            if (this.aHB.Je() != null) {
+                this.aHB.Je().setLocationViewVisibility(0);
+                this.aHB.Je().setLocationInfoViewState(1);
             }
-            this.aHv.ane();
+            this.aHD.ant();
         }
     }
 
-    private void IK() {
+    private void IQ() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.bx(com.baidu.tieba.y.location_app_permission_prompt).a(com.baidu.tieba.y.isopen, new b(this)).b(com.baidu.tieba.y.cancel, new c(this)).b(getPageContext());
         aVar.re();
     }
 
-    private void IL() {
-        if (this.aHt.IY() != null) {
-            if (this.aHv.ani()) {
-                this.aHt.IY().setLocationViewVisibility(0);
-                if (this.aHv.ang()) {
-                    this.aHH.a(com.baidu.tieba.tbadkCore.location.d.anb().getLocationData());
+    private void IR() {
+        if (this.aHB.Je() != null) {
+            if (this.aHD.anx()) {
+                this.aHB.Je().setLocationViewVisibility(0);
+                if (this.aHD.anv()) {
+                    this.aHP.a(com.baidu.tieba.tbadkCore.location.d.anq().getLocationData());
                     return;
                 } else if (com.baidu.adp.lib.util.n.isNetOk()) {
-                    this.aHt.IY().setLocationInfoViewState(1);
-                    this.aHv.ane();
+                    this.aHB.Je().setLocationInfoViewState(1);
+                    this.aHD.ant();
                     return;
                 } else {
-                    this.aHt.IY().setLocationInfoViewState(0);
+                    this.aHB.Je().setLocationInfoViewState(0);
                     return;
                 }
             }
-            this.aHt.IY().setLocationViewVisibility(8);
+            this.aHB.Je().setLocationViewVisibility(8);
         }
     }
 
@@ -130,21 +130,21 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.aHu.saveInstance(bundle);
+        this.aHC.saveInstance(bundle);
         this.mVoiceManager = getVoiceManager();
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onSaveInstanceState(getPageContext().getPageActivity());
         }
-        bundle.putSerializable(WriteActivityConfig.WRITE_IMAGES, this.aHD);
-        bundle.putString(WriteActivityConfig.PHOTO_NAME, this.aHA);
-        bundle.putSerializable("reply_thread", this.aHB);
+        bundle.putSerializable(WriteActivityConfig.WRITE_IMAGES, this.aHL);
+        bundle.putString(WriteActivityConfig.PHOTO_NAME, this.aHI);
+        bundle.putSerializable("reply_thread", this.aHJ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aHy = true;
+        this.aHG = true;
         this.mVoiceManager = getVoiceManager();
         this.mVoiceManager.onResume(getPageContext());
     }
@@ -153,7 +153,7 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.aHy = false;
+        this.aHG = false;
         this.mVoiceManager = getVoiceManager();
         this.mVoiceManager.onPause(getPageContext());
     }
@@ -179,23 +179,23 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aHC != null) {
-            this.aHC.cancelLoadData();
+        if (this.aHK != null) {
+            this.aHK.cancelLoadData();
         }
         this.mVoiceManager = getVoiceManager();
         this.mVoiceManager.onDestory(getPageContext());
     }
 
     private void initUI() {
-        this.aHt = new y(getPageContext());
-        BdListView bdListView = this.aHt.getBdListView();
-        this.aHs = new ag(getPageContext());
-        this.aHs.a(new d(this));
-        bdListView.setPullRefresh(this.aHs);
-        bdListView.setOnScrollListener(this.aHJ);
+        this.aHB = new y(getPageContext());
+        BdListView bdListView = this.aHB.getBdListView();
+        this.aHA = new ag(getPageContext());
+        this.aHA.a(new d(this));
+        bdListView.setPullRefresh(this.aHA);
+        bdListView.setOnScrollListener(this.aHR);
         bdListView.setOnItemClickListener(new e(this));
-        this.aHt.Jb().a(this.aHK);
-        this.aHt.setOnActionListener(new f(this));
+        this.aHB.Jh().a(this.aHS);
+        this.aHB.setOnActionListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -215,10 +215,10 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AntiData antiData, String str) {
         if (AntiHelper.c(antiData) || AntiHelper.d(antiData) || AntiHelper.e(antiData) || AntiHelper.f(antiData)) {
-            antiData.setBlock_forum_name(this.aHB.getFname());
-            antiData.setBlock_forum_id(this.aHB.getFid());
-            antiData.setUser_name(this.aHB.getAuthor().getUserName());
-            antiData.setUser_id(this.aHB.getAuthor().getUserId());
+            antiData.setBlock_forum_name(this.aHJ.getFname());
+            antiData.setBlock_forum_id(this.aHJ.getFid());
+            antiData.setUser_name(this.aHJ.getAuthor().getUserName());
+            antiData.setUser_id(this.aHJ.getAuthor().getUserId());
             AntiHelper.a(getPageContext().getPageActivity(), antiData, AntiHelper.OperationType.REPLY, PageType.PB);
             return;
         }
@@ -226,44 +226,44 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fD(String str) {
-        if (this.aHC.IM() == null) {
-            WriteData IM = IM();
-            IM.setWriteImagesInfo(this.aHD);
-            this.aHC.eS(this.aHD.size() > 0);
-            this.aHC.c(IM);
+    public void fG(String str) {
+        if (this.aHK.IS() == null) {
+            WriteData IS = IS();
+            IS.setWriteImagesInfo(this.aHL);
+            this.aHK.eQ(this.aHL.size() > 0);
+            this.aHK.c(IS);
         }
-        if (this.aHC.IM() != null) {
-            if (this.aHt.IY() != null) {
-                this.aHC.IM().setHasLocationData(this.aHt.IY().getLocationInfoViewState() == 2);
+        if (this.aHK.IS() != null) {
+            if (this.aHB.Je() != null) {
+                this.aHK.IS().setHasLocationData(this.aHB.Je().getLocationInfoViewState() == 2);
             }
-            this.aHC.IM().setIsFrsReply(true);
-            this.aHC.IM().setContent(this.aHt.Jf());
-            VoiceData.VoiceModel audioData = this.aHt.getAudioData();
-            this.aHt.Jh();
+            this.aHK.IS().setIsFrsReply(true);
+            this.aHK.IS().setContent(this.aHB.Jl());
+            VoiceData.VoiceModel audioData = this.aHB.getAudioData();
+            this.aHB.Jn();
             if (audioData != null) {
                 if (audioData.getId() != null) {
-                    this.aHC.IM().setVoice(audioData.getId());
-                    this.aHC.IM().setVoiceDuringTime(audioData.duration);
+                    this.aHK.IS().setVoice(audioData.getId());
+                    this.aHK.IS().setVoiceDuringTime(audioData.duration);
                 } else {
-                    this.aHC.IM().setVoice(null);
-                    this.aHC.IM().setVoiceDuringTime(-1);
+                    this.aHK.IS().setVoice(null);
+                    this.aHK.IS().setVoiceDuringTime(-1);
                 }
             } else {
-                this.aHC.IM().setVoice(null);
-                this.aHC.IM().setVoiceDuringTime(-1);
+                this.aHK.IS().setVoice(null);
+                this.aHK.IS().setVoiceDuringTime(-1);
             }
-            if (this.aHC.anA()) {
-                this.aHt.Je();
+            if (this.aHK.anP()) {
+                this.aHB.Jk();
             }
         }
     }
 
-    public WriteData IM() {
+    public WriteData IS() {
         WriteData writeData = new WriteData();
-        writeData.setForumId(this.aHB.getFid());
-        writeData.setForumName(this.aHB.getFname());
-        writeData.setThreadId(this.aHB.getTid());
+        writeData.setForumId(this.aHJ.getFid());
+        writeData.setForumName(this.aHJ.getFname());
+        writeData.setThreadId(this.aHJ.getTid());
         writeData.setIsAd(false);
         writeData.setType(1);
         return writeData;
@@ -287,23 +287,23 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
                 case 12004:
                     ArrayList<String> V = com.baidu.tieba.tbadkCore.util.i.V(intent);
                     if (V != null) {
-                        this.aHt.v(V);
+                        this.aHB.v(V);
                         return;
                     }
                     return;
                 case 12006:
-                    WriteData IM = this.aHC.IM();
-                    if (IM != null) {
-                        IM.deleteUploadedTempImages();
+                    WriteData IS = this.aHK.IS();
+                    if (IS != null) {
+                        IS.deleteUploadedTempImages();
                     }
-                    this.aHC.c((WriteData) null);
-                    this.aHC.eS(false);
-                    this.aHt.bK(true);
-                    ao.b(this.aHB.getTid(), (WriteData) null);
-                    this.aHt.a(this.aHD, true);
-                    this.aHB.setReply_num(this.aHB.getReply_num() + 1);
-                    this.aHt.Jd();
-                    this.aHt.Ja();
+                    this.aHK.c((WriteData) null);
+                    this.aHK.eQ(false);
+                    this.aHB.bK(true);
+                    ao.b(this.aHJ.getTid(), (WriteData) null);
+                    this.aHB.a(this.aHL, true);
+                    this.aHJ.setReply_num(this.aHJ.getReply_num() + 1);
+                    this.aHB.Jj();
+                    this.aHB.Jg();
                     return;
                 case 12012:
                     K(intent);
@@ -314,11 +314,11 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
         } else if (i2 == 0) {
             switch (i) {
                 case 12001:
-                    IN();
+                    IT();
                     return;
                 case 12002:
                     if (intent != null && intent.hasExtra(AlbumActivityConfig.LAST_ALBUM_ID)) {
-                        this.aHD.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
+                        this.aHL.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
                         return;
                     }
                     return;
@@ -336,9 +336,9 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     private void J(Intent intent) {
         int size;
         L(intent);
-        int size2 = this.aHD.size() - 1;
-        if (size2 > -1 && this.aHD != null && this.aHD.getChosedFiles() != null && (size = this.aHD.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), 12012, this.aHD, size2)));
+        int size2 = this.aHL.size() - 1;
+        if (size2 > -1 && this.aHL != null && this.aHL.getChosedFiles() != null && (size = this.aHL.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), 12012, this.aHL, size2)));
         }
     }
 
@@ -346,13 +346,13 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
         a(intent, false);
     }
 
-    private void IN() {
+    private void IT() {
         new g(this).execute(new Void[0]);
     }
 
     private void L(Intent intent) {
-        this.aHA = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
-        String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.aHA;
+        this.aHI = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
+        String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.aHI;
         if (!TextUtils.isEmpty(str)) {
             try {
                 int cf = com.baidu.tbadk.core.util.c.cf(str);
@@ -362,7 +362,7 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
                     if (b != h) {
                         b.recycle();
                     }
-                    com.baidu.tbadk.core.util.o.a(TbConfig.LOCAL_CAMERA_DIR, this.aHA, h, 100);
+                    com.baidu.tbadk.core.util.o.a(TbConfig.LOCAL_CAMERA_DIR, this.aHI, h, 100);
                     h.recycle();
                 }
             } catch (Exception e) {
@@ -370,12 +370,12 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(str);
             imageFileInfo.setTempFile(true);
-            this.aHD.addChooseFile(imageFileInfo);
-            this.aHD.updateQuality();
-            this.aHt.a(this.aHD, true);
+            this.aHL.addChooseFile(imageFileInfo);
+            this.aHL.updateQuality();
+            this.aHB.a(this.aHL, true);
         }
-        if (this.aHt.IY() != null && this.aHD.getChosedFiles() != null && this.aHD.getChosedFiles().size() > 0) {
-            this.aHt.IY().io(23);
+        if (this.aHB.Je() != null && this.aHL.getChosedFiles() != null && this.aHL.getChosedFiles().size() > 0) {
+            this.aHB.Je().ir(23);
         }
     }
 
@@ -383,39 +383,39 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
         if (intent != null) {
             String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
             if (stringExtra != null) {
-                this.aHD.parseJson(stringExtra);
-                this.aHD.updateQuality();
-                if (this.aHD.getChosedFiles() != null) {
-                    this.aHt.a(this.aHD, z);
+                this.aHL.parseJson(stringExtra);
+                this.aHL.updateQuality();
+                if (this.aHL.getChosedFiles() != null) {
+                    this.aHB.a(this.aHL, z);
                 }
             }
-            if (this.aHt.IY() != null && this.aHD.getChosedFiles() != null && this.aHD.getChosedFiles().size() > 0) {
-                this.aHt.IY().io(23);
+            if (this.aHB.Je() != null && this.aHL.getChosedFiles() != null && this.aHL.getChosedFiles().size() > 0) {
+                this.aHB.Je().ir(23);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eE(int i) {
-        ArrayList<FriendFeedThreadData> IS = this.aHt.Jb().IS();
-        if (IS != null) {
-            Iterator<FriendFeedThreadData> it = IS.iterator();
+        ArrayList<FriendFeedThreadData> IY = this.aHB.Jh().IY();
+        if (IY != null) {
+            Iterator<FriendFeedThreadData> it = IY.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 FriendFeedThreadData next = it.next();
-                if (next == this.aHx) {
+                if (next == this.aHF) {
                     a(next, i);
-                    this.aHx = null;
+                    this.aHF = null;
                     break;
-                } else if (next.getId() != null && next.getId().equals(this.aHz)) {
+                } else if (next.getId() != null && next.getId().equals(this.aHH)) {
                     a(next, i);
-                    this.aHz = null;
+                    this.aHH = null;
                     break;
                 }
             }
-            this.aHt.Jb().notifyDataSetChanged();
+            this.aHB.Jh().notifyDataSetChanged();
         }
     }
 
@@ -460,9 +460,9 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.aHt.IY() != null && this.aHt.IY().isVisible()) {
-                IO();
-                this.aHt.Ja();
+            if (this.aHB.Je() != null && this.aHB.Je().isVisible()) {
+                IU();
+                this.aHB.Jg();
             } else {
                 closeActivity();
             }
@@ -477,42 +477,42 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
             sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(com.baidu.tieba.y.login_to_use), true, 0)));
             return;
         }
-        if (this.aHB != friendFeedThreadData && this.aHB != null) {
-            IO();
-            this.aHt.fG(null);
-            this.aHD = new WriteImagesInfo();
-            this.aHD.setMaxImagesAllowed(10);
-            this.aHt.a(this.aHD, true);
-            this.aHC.c((WriteData) null);
-            this.aHC.eS(false);
-            this.aHt.Jg();
+        if (this.aHJ != friendFeedThreadData && this.aHJ != null) {
+            IU();
+            this.aHB.fJ(null);
+            this.aHL = new WriteImagesInfo();
+            this.aHL.setMaxImagesAllowed(10);
+            this.aHB.a(this.aHL, true);
+            this.aHK.c((WriteData) null);
+            this.aHK.eQ(false);
+            this.aHB.Jm();
         }
         if (friendFeedThreadData != null) {
             ao.a(friendFeedThreadData.getTid(), this);
         }
-        this.aHB = friendFeedThreadData;
-        this.aHt.a(i, friendFeedThreadData, i2);
-        IL();
+        this.aHJ = friendFeedThreadData;
+        this.aHB.a(i, friendFeedThreadData, i2);
+        IR();
     }
 
-    private void IO() {
-        if (this.aHB != null) {
-            WriteData IM = this.aHC.IM();
-            if (IM == null) {
-                IM = new WriteData(1);
-                IM.setThreadId(this.aHB.getTid());
-                IM.setWriteImagesInfo(this.aHD);
+    private void IU() {
+        if (this.aHJ != null) {
+            WriteData IS = this.aHK.IS();
+            if (IS == null) {
+                IS = new WriteData(1);
+                IS.setThreadId(this.aHJ.getTid());
+                IS.setWriteImagesInfo(this.aHL);
             }
-            IM.setContent(this.aHt.Jf());
-            ao.b(this.aHB.getTid(), IM);
+            IS.setContent(this.aHB.Jl());
+            ao.b(this.aHJ.getTid(), IS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(boolean z, String str) {
-        this.aHt.Jb().reset(z);
-        this.aHt.getBdListView().mX();
-        this.aHu.setTimeline(null);
+        this.aHB.Jh().reset(z);
+        this.aHB.getBdListView().mX();
+        this.aHC.setTimeline(null);
         if (z) {
             sendMessage(false);
         } else {
@@ -523,80 +523,80 @@ public class FriendFeedActivity extends BaseActivity<FriendFeedActivity> impleme
     /* JADX INFO: Access modifiers changed from: private */
     public void sendMessage(boolean z) {
         if (z) {
-            this.aHu.s(60, this.aHu.getTimeline());
+            this.aHC.s(60, this.aHC.getTimeline());
         } else {
-            this.aHu.t(60, this.aHu.getTimeline());
+            this.aHC.t(60, this.aHC.getTimeline());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideProgress() {
         if (isFirstLoad()) {
-            this.aHt.hideProgress();
+            this.aHB.hideProgress();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isFirstLoad() {
-        return TextUtils.isEmpty(this.aHu.getTimeline());
+        return TextUtils.isEmpty(this.aHC.getTimeline());
     }
 
     public void initData(Bundle bundle) {
-        this.aHu = new com.baidu.tieba.friendFeed.a.a(this);
-        this.aHu.setUniqueId(getUniqueId());
+        this.aHC = new com.baidu.tieba.friendFeed.a.a(this);
+        this.aHC.setUniqueId(getUniqueId());
         if (bundle != null) {
-            this.aHu.initWithBundle(bundle);
+            this.aHC.initWithBundle(bundle);
         }
         this.mVoiceManager = getVoiceManager();
         this.mVoiceManager.onCreate(getPageContext());
-        this.aHu.registerListener(this.mListener);
-        this.aHu.registerListener(this.mLoadCacheListener);
-        this.aHu.registerListener(this.aHF);
-        this.aHL.setUniqueId(getUniqueId());
-        this.aHL.registerListener();
+        this.aHC.registerListener(this.mListener);
+        this.aHC.registerListener(this.mLoadCacheListener);
+        this.aHC.registerListener(this.aHN);
+        this.aHT.setUniqueId(getUniqueId());
+        this.aHT.registerListener();
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = (WriteImagesInfo) bundle.getSerializable(WriteActivityConfig.WRITE_IMAGES);
             if (writeImagesInfo != null) {
-                this.aHD = writeImagesInfo;
+                this.aHL = writeImagesInfo;
             }
-            this.aHB = (FriendFeedThreadData) bundle.getSerializable("reply_thread");
-            this.aHA = bundle.getString(WriteActivityConfig.PHOTO_NAME);
+            this.aHJ = (FriendFeedThreadData) bundle.getSerializable("reply_thread");
+            this.aHI = bundle.getString(WriteActivityConfig.PHOTO_NAME);
         }
-        this.aHD.setMaxImagesAllowed(10);
-        this.aHC = new com.baidu.tieba.tbadkCore.writeModel.a(this);
-        this.aHC.a(this.aHG);
-        this.aHv = new com.baidu.tieba.tbadkCore.location.e(this);
-        this.aHv.a(this.aHH);
-        this.aHv.a(this.aHI);
+        this.aHL.setMaxImagesAllowed(10);
+        this.aHK = new com.baidu.tieba.tbadkCore.writeModel.a(this);
+        this.aHK.a(this.aHO);
+        this.aHD = new com.baidu.tieba.tbadkCore.location.e(this);
+        this.aHD.a(this.aHP);
+        this.aHD.a(this.aHQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aHt.onChangeSkinType(i);
-        this.aHs.ct(i);
+        this.aHB.onChangeSkinType(i);
+        this.aHA.ct(i);
     }
 
     public void loadMore() {
-        if (this.aHt.Jb().IT()) {
-            this.aHu.s(60, this.aHu.getTimeline());
+        if (this.aHB.Jh().IZ()) {
+            this.aHC.s(60, this.aHC.getTimeline());
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.n
-    public com.baidu.adp.lib.e.b<TbImageView> IP() {
-        return this.aHE;
+    public com.baidu.adp.lib.e.b<TbImageView> IV() {
+        return this.aHM;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ap
     public void a(WriteData writeData) {
-        if (writeData != null && this.aHB != null && writeData.getThreadId().equals(this.aHB.getTid())) {
+        if (writeData != null && this.aHJ != null && writeData.getThreadId().equals(this.aHJ.getTid())) {
             if (!bd.isEmpty(writeData.getContent())) {
-                this.aHt.fG(writeData.getContent());
+                this.aHB.fJ(writeData.getContent());
             }
-            if (writeData.getWriteImagesInfo() != null && this.aHD.size() == 0) {
-                this.aHD.copyFrom(writeData.getWriteImagesInfo());
-                this.aHt.a(this.aHD, true);
+            if (writeData.getWriteImagesInfo() != null && this.aHL.size() == 0) {
+                this.aHL.copyFrom(writeData.getWriteImagesInfo());
+                this.aHB.a(this.aHL, true);
             }
         }
     }

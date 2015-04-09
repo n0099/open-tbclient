@@ -1,36 +1,35 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> {
-    private ChosenPostActivity aBb;
-    private com.baidu.tieba.chosen.posts.request.b aBc;
-    private com.baidu.tieba.chosen.posts.request.a aBd;
-    private com.baidu.tbadk.mvc.e.b aBe;
-    private com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> aBf;
+    private ChosenPostActivity aBj;
+    private com.baidu.tieba.chosen.posts.request.b aBk;
+    private com.baidu.tieba.chosen.posts.request.a aBl;
+    private com.baidu.tbadk.mvc.e.b aBm;
+    private com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> aBn;
 
     public b(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity);
-        this.aBe = new com.baidu.tbadk.mvc.e.b();
-        this.aBf = new c(this);
-        this.aBb = chosenPostActivity;
-        zT().addEventDelegate(this);
+        this.aBm = new com.baidu.tbadk.mvc.e.b();
+        this.aBn = new c(this);
+        this.aBj = chosenPostActivity;
+        zZ().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.d, com.baidu.tbadk.mvc.d.e, com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.Az() == 4100) {
-            this.aBc.AT();
+        if (bVar.AF() == 4100) {
+            this.aBk.AZ();
         }
         return super.a(bVar);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
     protected boolean ow() {
-        this.aBd.AL();
+        this.aBl.AR();
         return true;
     }
 
@@ -41,9 +40,9 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
         b(dVar);
         BdLog.e("processResponse:  stopPullRefreshing");
         if (dVar != null) {
-            this.aBe.aV(false);
-            this.aBe.aW(false);
-            a(this.aBe);
+            this.aBm.aV(false);
+            this.aBm.aW(false);
+            a(this.aBm);
             return true;
         }
         return true;
@@ -52,39 +51,39 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        this.aBc = new com.baidu.tieba.chosen.posts.request.b(this.aBb.getPageContext(), new com.baidu.tieba.chosen.posts.request.c(20));
-        this.aBc.a((q) this);
-        this.aBd = new com.baidu.tieba.chosen.posts.request.a(this.aBb.getPageContext());
-        this.aBd.a(this.aBf);
+        this.aBk = new com.baidu.tieba.chosen.posts.request.b(this.aBj.getPageContext(), new com.baidu.tieba.chosen.posts.request.c(20));
+        this.aBk.a((q) this);
+        this.aBl = new com.baidu.tieba.chosen.posts.request.a(this.aBj.getPageContext());
+        this.aBl.a(this.aBn);
     }
 
     @Override // com.baidu.tbadk.mvc.d.e
     protected boolean aU(boolean z) {
-        this.aBe.aV(true);
-        a(this.aBe);
+        this.aBm.aV(true);
+        a(this.aBm);
         bp(true);
-        this.aBc.AT();
+        this.aBk.AZ();
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    protected boolean AI() {
-        this.aBc.AT();
-        this.aBe.aW(true);
-        this.aBe.aY(true);
+    protected boolean AO() {
+        this.aBk.AZ();
+        this.aBm.aW(true);
+        this.aBm.aY(true);
         bp(false);
-        a(this.aBe);
+        a(this.aBm);
         return true;
     }
 
     private void bp(boolean z) {
         com.baidu.tbadk.mvc.c.b bVar;
         if (z) {
-            bVar = new com.baidu.tbadk.mvc.c.b(FragmentTransaction.TRANSIT_FRAGMENT_OPEN, null, null, null);
+            bVar = new com.baidu.tbadk.mvc.c.b(4097, null, null, null);
         } else {
             bVar = new com.baidu.tbadk.mvc.c.b(4098, null, null, null);
         }
         bVar.setUniqueId(getUniqueId());
-        zT().dispatchMvcEvent(bVar);
+        zZ().dispatchMvcEvent(bVar);
     }
 }

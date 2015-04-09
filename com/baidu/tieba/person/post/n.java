@@ -8,13 +8,13 @@ import com.baidu.tieba.person.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends HttpMessageListener {
-    final /* synthetic */ k bRB;
+    final /* synthetic */ k bRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(k kVar, int i) {
         super(i);
-        this.bRB = kVar;
+        this.bRR = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class n extends HttpMessageListener {
         if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
             UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
             if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                boVar2 = this.bRB.bRk;
+                boVar2 = this.bRR.bRA;
                 boVar2.a(null, false);
                 return;
             }

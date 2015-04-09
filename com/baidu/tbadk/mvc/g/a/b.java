@@ -11,24 +11,24 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends d {
-    private MorePopupWindow ank;
+    private MorePopupWindow ans;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.anm.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, new c(this));
+        this.anu.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, new c(this));
     }
 
     public void a(View view, Drawable drawable, q qVar) {
-        this.ank = new MorePopupWindow(getActivity(), view, this.anm, drawable, qVar);
+        this.ans = new MorePopupWindow(getActivity(), view, this.anu, drawable, qVar);
     }
 
     @Override // com.baidu.tbadk.mvc.g.a.d, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this.ank.getContentView());
+        com.baidu.tbadk.f.a.a(tbPageContext, this.ans.getContentView());
         return super.a(tbPageContext, i);
     }
 
-    public void Bl() {
-        k.a(this.ank, getActivity());
+    public void Br() {
+        k.a(this.ans, getActivity());
     }
 }

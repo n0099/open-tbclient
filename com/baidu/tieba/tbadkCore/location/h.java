@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ e cpv;
+    final /* synthetic */ e cpL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(e eVar, int i) {
         super(i);
-        this.cpv = eVar;
+        this.cpL = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,21 +24,21 @@ public class h extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.cpv.eR(false);
-                this.cpv.aX(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                kVar3 = this.cpv.cpp;
+                this.cpL.eP(false);
+                this.cpL.aX(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                kVar3 = this.cpL.cpF;
                 if (kVar3 != null) {
-                    kVar4 = this.cpv.cpp;
-                    kVar4.fF(responsedSelectLocation.getName());
+                    kVar4 = this.cpL.cpF;
+                    kVar4.fI(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.cpv.eR(true);
-            kVar = this.cpv.cpp;
+            this.cpL.eP(true);
+            kVar = this.cpL.cpF;
             if (kVar != null) {
-                kVar2 = this.cpv.cpp;
-                kVar2.IR();
+                kVar2 = this.cpL.cpF;
+                kVar2.IX();
             }
         }
     }

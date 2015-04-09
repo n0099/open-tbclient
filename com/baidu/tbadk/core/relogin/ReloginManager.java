@@ -25,15 +25,15 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ReloginManager {
-    private static ReloginManager Sg = new ReloginManager();
-    private boolean Sf;
-    private final ArrayList<HttpMessage> Sh = new ArrayList<>();
-    private final HttpMessageListener Si = new a(this, CmdConfigHttp.BG_LOGIN_HTTP_CMD);
-    private final com.baidu.tbadk.core.a.b Sj = new b(this);
+    private static ReloginManager Si = new ReloginManager();
+    private boolean Sh;
+    private final ArrayList<HttpMessage> Sj = new ArrayList<>();
+    private final HttpMessageListener Sk = new a(this, CmdConfigHttp.BG_LOGIN_HTTP_CMD);
+    private final com.baidu.tbadk.core.a.b Sl = new b(this);
 
     private ReloginManager() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.Si);
+        messageManager.registerListener(this.Sk);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.BG_LOGIN_HTTP_CMD, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -44,13 +44,13 @@ public class ReloginManager {
     }
 
     public static ReloginManager rw() {
-        return Sg;
+        return Si;
     }
 
     public void a(HttpMessage httpMessage) {
         b(httpMessage);
-        if (!this.Sf) {
-            this.Sf = true;
+        if (!this.Sh) {
+            this.Sh = true;
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
                 currentAccountObj = d.pG();
@@ -58,7 +58,7 @@ public class ReloginManager {
             if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
                 e(currentAccountObj);
             } else if (rA()) {
-                a(this.Sj);
+                a(this.Sl);
             } else {
                 d(currentAccountObj);
             }
@@ -88,8 +88,8 @@ public class ReloginManager {
     }
 
     private void b(HttpMessage httpMessage) {
-        if (!this.Sh.contains(httpMessage)) {
-            this.Sh.add(httpMessage);
+        if (!this.Sj.contains(httpMessage)) {
+            this.Sj.add(httpMessage);
         }
     }
 
@@ -98,7 +98,7 @@ public class ReloginManager {
     }
 
     public void d(int i, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.Sh.iterator();
+        Iterator<HttpMessage> it = this.Sj.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -112,19 +112,19 @@ public class ReloginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void rx() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.Sh.iterator();
+        Iterator<HttpMessage> it = this.Sj.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.Sh.clear();
+        this.Sj.clear();
     }
 
     public boolean ry() {
-        return this.Sf;
+        return this.Sh;
     }
 
     public void ag(boolean z) {
-        this.Sf = z;
+        this.Sh = z;
     }
 
     /* loaded from: classes.dex */

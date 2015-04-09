@@ -6,12 +6,12 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    private final int Tc;
-    final /* synthetic */ EmotionTabHorizonScrollView aiJ;
+    private final int Te;
+    final /* synthetic */ EmotionTabHorizonScrollView aiR;
 
     private n(EmotionTabHorizonScrollView emotionTabHorizonScrollView, int i) {
-        this.aiJ = emotionTabHorizonScrollView;
-        this.Tc = i;
+        this.aiR = emotionTabHorizonScrollView;
+        this.Te = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,25 +29,25 @@ public class n implements View.OnClickListener {
         TbImageView tbImageView4;
         if (view instanceof TbImageView) {
             TbImageView tbImageView5 = (TbImageView) view;
-            tbImageView = this.aiJ.aiH;
+            tbImageView = this.aiR.aiP;
             if (tbImageView5 != tbImageView) {
                 ((TbImageView) view).setForegroundColor(ba.getColor(com.baidu.tieba.s.transparent));
-                tbImageView2 = this.aiJ.aiH;
+                tbImageView2 = this.aiR.aiP;
                 if (tbImageView2 != null) {
-                    z = this.aiJ.aiI;
+                    z = this.aiR.aiQ;
                     if (!z) {
-                        tbImageView4 = this.aiJ.aiH;
+                        tbImageView4 = this.aiR.aiP;
                         tbImageView4.setForegroundColor(ba.getColor(com.baidu.tieba.s.emotion_tab_widget_foreground_color));
                     } else {
-                        tbImageView3 = this.aiJ.aiH;
-                        tbImageView3.setForegroundColor(this.aiJ.getResources().getColor(com.baidu.tieba.s.emotion_tab_widget_foreground_color));
+                        tbImageView3 = this.aiR.aiP;
+                        tbImageView3.setForegroundColor(this.aiR.getResources().getColor(com.baidu.tieba.s.emotion_tab_widget_foreground_color));
                     }
                 }
-                this.aiJ.aiH = (TbImageView) view;
+                this.aiR.aiP = (TbImageView) view;
             }
         }
-        this.aiJ.setCurrentTab(this.Tc);
-        sVar = this.aiJ.aiy;
-        sVar.dr(this.Tc);
+        this.aiR.setCurrentTab(this.Te);
+        sVar = this.aiR.aiG;
+        sVar.dr(this.Te);
     }
 }

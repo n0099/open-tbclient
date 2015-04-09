@@ -5,18 +5,18 @@ import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements TextWatcher {
-    final /* synthetic */ Login2Activity awY;
+    final /* synthetic */ Login2Activity axg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Login2Activity login2Activity) {
-        this.awY = login2Activity;
+        this.axg = login2Activity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.awY.awC = true;
-        this.awY.EH();
-        this.awY.EI();
+        this.axg.awK = true;
+        this.axg.EN();
+        this.axg.EO();
     }
 
     @Override // android.text.TextWatcher
@@ -25,6 +25,6 @@ public class f implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.awY.Ey();
+        this.axg.EE();
     }
 }

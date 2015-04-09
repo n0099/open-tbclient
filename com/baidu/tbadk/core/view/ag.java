@@ -8,31 +8,31 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class ag extends ac {
-    private boolean Zb;
-    private boolean Zc;
-    private CustomMessageListener Zd;
-    private CustomMessageListener Ze;
+    private boolean Zd;
+    private boolean Ze;
+    private CustomMessageListener Zf;
+    private CustomMessageListener Zg;
 
     public ag(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.Zc = true;
-        this.Zd = new ah(this, 2016203);
-        this.Ze = new ai(this, 2016204);
+        this.Ze = true;
+        this.Zf = new ah(this, 2016203);
+        this.Zg = new ai(this, 2016204);
         e(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f
     public void P(boolean z) {
-        this.YW.setBackgroundDrawable(null);
+        this.YY.setBackgroundDrawable(null);
         super.P(z);
-        this.Zc = true;
+        this.Ze = true;
     }
 
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f
     public void O(boolean z) {
         super.O(z);
-        this.Zc = false;
-        if (!this.Zb) {
+        this.Ze = false;
+        if (!this.Zd) {
             ct(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }
@@ -40,31 +40,31 @@ public class ag extends ac {
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f
     public void mP() {
         super.mP();
-        this.Zc = false;
+        this.Ze = false;
     }
 
     public void ct(int i) {
-        if (this.YV != null && this.YW != null) {
-            this.Zb = false;
-            this.YZ = com.baidu.tbadk.core.util.at.sL().ca(i);
-            if (this.YZ != null) {
-                this.Zb = true;
+        if (this.YX != null && this.YY != null) {
+            this.Zd = false;
+            this.Zb = com.baidu.tbadk.core.util.at.sL().ca(i);
+            if (this.Zb != null) {
+                this.Zd = true;
             } else {
-                this.YZ = new AnimationDrawable();
+                this.Zb = new AnimationDrawable();
             }
-            this.YV.setBackgroundColor(com.baidu.tbadk.core.util.at.sL().cb(i));
-            if (!this.Zb) {
+            this.YX.setBackgroundColor(com.baidu.tbadk.core.util.at.sL().cb(i));
+            if (!this.Zd) {
                 Drawable drawable = ba.getDrawable(com.baidu.tieba.u.listview_pull_refresh02);
                 if (drawable != null) {
-                    this.YZ.addFrame(drawable, 100);
+                    this.Zb.addFrame(drawable, 100);
                 }
                 Drawable drawable2 = ba.getDrawable(com.baidu.tieba.u.listview_pull_refresh01);
                 if (drawable2 != null) {
-                    this.YZ.addFrame(drawable2, 100);
+                    this.Zb.addFrame(drawable2, 100);
                 }
             }
-            this.YZ.setOneShot(false);
-            this.YW.setBackgroundDrawable(this.YZ);
+            this.Zb.setOneShot(false);
+            this.YY.setBackgroundDrawable(this.Zb);
         }
     }
 
@@ -75,7 +75,7 @@ public class ag extends ac {
     }
 
     private void e(TbPageContext<?> tbPageContext) {
-        tbPageContext.registerListener(this.Zd);
-        tbPageContext.registerListener(this.Ze);
+        tbPageContext.registerListener(this.Zf);
+        tbPageContext.registerListener(this.Zg);
     }
 }

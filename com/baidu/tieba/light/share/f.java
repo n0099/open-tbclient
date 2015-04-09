@@ -4,20 +4,20 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements DialogInterface.OnDismissListener {
-    final /* synthetic */ LightappGameShare byr;
+    final /* synthetic */ LightappGameShare byH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(LightappGameShare lightappGameShare) {
-        this.byr = lightappGameShare;
+        this.byH = lightappGameShare;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         com.baidu.tbadk.coreExtra.share.d dVar;
-        dVar = this.byr.aQg;
+        dVar = this.byH.aQx;
         if (dVar != null) {
-            this.byr.aQg = null;
+            this.byH.aQx = null;
         }
-        this.byr.finish();
+        this.byH.finish();
     }
 }

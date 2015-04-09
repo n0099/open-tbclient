@@ -4,9 +4,9 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aBX;
-    private boolean aBY;
-    private int aBZ;
+    private boolean aCf;
+    private boolean aCg;
+    private int aCh;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -31,11 +31,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aBX = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aCf = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aBY = z;
+        this.aCg = z;
         return this;
     }
 
@@ -47,39 +47,39 @@ public class c {
         return this.title;
     }
 
-    public String Ge() {
+    public String Gk() {
         return this.link_url;
     }
 
-    public String Gf() {
+    public String Gl() {
         return this.describe;
     }
 
-    public String Gg() {
+    public String Gm() {
         return this.statistics;
     }
 
-    public boolean Gh() {
-        return this.aBX;
+    public boolean Gn() {
+        return this.aCf;
     }
 
     public void bt(boolean z) {
-        this.aBX = z;
+        this.aCf = z;
     }
 
-    public boolean Gi() {
-        return this.aBY;
+    public boolean Go() {
+        return this.aCg;
     }
 
     public void bu(boolean z) {
-        this.aBY = z;
+        this.aCg = z;
     }
 
-    public int Gj() {
-        return this.aBZ;
+    public int Gp() {
+        return this.aCh;
     }
 
     public void ep(int i) {
-        this.aBZ = i;
+        this.aCh = i;
     }
 }

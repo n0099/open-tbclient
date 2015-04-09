@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 class am implements View.OnClickListener {
-    final /* synthetic */ aj bQe;
+    final /* synthetic */ aj bQu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(aj ajVar) {
-        this.bQe = ajVar;
+        this.bQu = ajVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bQe.bPY = ((Integer) view.getTag()).intValue();
+        this.bQu.bQo = ((Integer) view.getTag()).intValue();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.bQe.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bQe.getBaseFragmentActivity().getPageContext().getPageActivity(), this.bQe.getString(com.baidu.tieba.y.login_to_chat), true, 11028)));
+            this.bQu.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bQu.getBaseFragmentActivity().getPageContext().getPageActivity(), this.bQu.getString(com.baidu.tieba.y.login_to_chat), true, 11028)));
         } else {
-            this.bQe.add();
+            this.bQu.ads();
         }
     }
 }

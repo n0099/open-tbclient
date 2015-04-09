@@ -8,11 +8,11 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.tbadkCore.an;
 /* loaded from: classes.dex */
 class u extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ l bOf;
+    final /* synthetic */ l bOv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(l lVar) {
-        this.bOf = lVar;
+        this.bOv = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,14 +20,14 @@ class u extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.c
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         TbRichTextView tbRichTextView;
-        if (aVar != null && !TextUtils.isEmpty(str) && (tbRichTextView = (TbRichTextView) this.bOf.bNK.findViewWithTag(str)) != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(this.bOf.mActivity.getResources(), aVar.mz(), aVar.mz().getNinePatchChunk(), aVar.mD(), null);
+        if (aVar != null && !TextUtils.isEmpty(str) && (tbRichTextView = (TbRichTextView) this.bOv.bOa.findViewWithTag(str)) != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(this.bOv.mActivity.getResources(), aVar.mz(), aVar.mz().getNinePatchChunk(), aVar.mD(), null);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(an.mAlpha);
             }
             if (tbRichTextView instanceof TbRichTextView) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                layoutParams.bottomMargin = (int) this.bOf.mActivity.getResources().getDimension(com.baidu.tieba.t.ds20);
+                layoutParams.bottomMargin = (int) this.bOv.mActivity.getResources().getDimension(com.baidu.tieba.t.ds20);
                 tbRichTextView.setLayoutParams(layoutParams);
                 tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
             }

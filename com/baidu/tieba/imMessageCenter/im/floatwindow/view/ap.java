@@ -10,24 +10,24 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ap {
-    private ar brZ;
-    private final CustomMessageListener brY = new aq(this, 2001312);
-    private final HashMap<String, Integer> brX = new HashMap<>();
+    private ar bsp;
+    private final CustomMessageListener bso = new aq(this, 2001312);
+    private final HashMap<String, Integer> bsn = new HashMap<>();
 
     public void a(ar arVar) {
-        this.brZ = arVar;
+        this.bsp = arVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.brY);
+        commonPersonalChatActivity.registerListener(this.bso);
     }
 
-    public void aK(List<UserData> list) {
+    public void aM(List<UserData> list) {
         if (list != null && !list.isEmpty()) {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.brX.put(userData.getUserId(), 1);
+                        this.bsn.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -40,24 +40,24 @@ public class ap {
         if (userData == null) {
             return 0;
         }
-        return hl(userData.getUserId());
+        return ho(userData.getUserId());
     }
 
-    public boolean hj(String str) {
-        int hl = hl(str);
-        return hl == 1 || hl == 3;
+    public boolean hm(String str) {
+        int ho = ho(str);
+        return ho == 1 || ho == 3;
     }
 
-    public int hl(String str) {
-        if (!StringUtils.isNull(str) && this.brX.containsKey(str)) {
-            return this.brX.get(str).intValue();
+    public int ho(String str) {
+        if (!StringUtils.isNull(str) && this.bsn.containsKey(str)) {
+            return this.bsn.get(str).intValue();
         }
         return 0;
     }
 
     public void L(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.brX.put(str, Integer.valueOf(i));
+            this.bsn.put(str, Integer.valueOf(i));
         }
     }
 
@@ -79,9 +79,9 @@ public class ap {
             i = 4;
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.brX.put(String.valueOf(bVar.getId()), Integer.valueOf(i));
-            if (this.brZ != null) {
-                this.brZ.Vi();
+            this.bsn.put(String.valueOf(bVar.getId()), Integer.valueOf(i));
+            if (this.bsp != null) {
+                this.bsp.Vv();
             }
         }
     }

@@ -1,24 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-class o implements dg {
-    final /* synthetic */ PbActivity bIv;
+class o extends com.baidu.adp.base.i {
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PbActivity pbActivity) {
-        this.bIv = pbActivity;
+        this.bIJ = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dg
-    public void a(com.baidu.tieba.pb.a.c cVar) {
-        com.baidu.tieba.pb.pb.sub.e eVar;
-        com.baidu.tieba.pb.pb.sub.e eVar2;
-        ci ciVar;
-        eVar = this.bIv.bHW;
-        if (eVar != null) {
-            eVar2 = this.bIv.bHW;
-            if (eVar2.AT()) {
-                ciVar = this.bIv.bHY;
-                ciVar.aaR();
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        cj cjVar;
+        com.baidu.tieba.tbadkCore.writeModel.a aVar;
+        if (obj instanceof Bitmap) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (obj != null) {
+                cjVar = this.bIJ.bIl;
+                cjVar.k(bitmap);
+                aVar = this.bIJ.aHK;
+                aVar.eQ(true);
             }
         }
     }

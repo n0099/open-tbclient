@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class b extends TextView {
-    private int aiq;
-    private GradientDrawable clF;
-    protected int clG;
-    protected int clH;
+    private int aiy;
+    private GradientDrawable clV;
+    protected int clW;
+    protected int clX;
 
     public b(Context context) {
         this(context, null);
@@ -23,10 +23,10 @@ public class b extends TextView {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiq = -1;
-        this.clG = (int) context.getResources().getDimension(com.baidu.tieba.t.ds18);
-        this.clH = (int) context.getResources().getDimension(com.baidu.tieba.t.ds6);
-        setPadding(this.clG, this.clH, this.clG, this.clH);
+        this.aiy = -1;
+        this.clW = (int) context.getResources().getDimension(com.baidu.tieba.t.ds18);
+        this.clX = (int) context.getResources().getDimension(com.baidu.tieba.t.ds6);
+        setPadding(this.clW, this.clX, this.clW, this.clX);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(com.baidu.tieba.t.ds24));
@@ -40,20 +40,20 @@ public class b extends TextView {
 
     public void tP() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.aiq) {
-            this.aiq = skinType;
+        if (skinType != this.aiy) {
+            this.aiy = skinType;
             rk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void rk() {
-        if (this.clF == null) {
-            this.clF = new GradientDrawable();
-            this.clF.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.t.ds24));
+        if (this.clV == null) {
+            this.clV = new GradientDrawable();
+            this.clV.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.t.ds24));
         }
         ba.b(this, com.baidu.tieba.s.cp_cont_c, 1);
-        this.clF.setColor(ba.getColor(com.baidu.tieba.s.cp_bg_line_e));
-        setBackgroundDrawable(this.clF);
+        this.clV.setColor(ba.getColor(com.baidu.tieba.s.cp_bg_line_e));
+        setBackgroundDrawable(this.clV);
     }
 }

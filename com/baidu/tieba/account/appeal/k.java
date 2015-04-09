@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
-    private String awq;
-    private String awr;
-    private WeakReference<l> awu;
+    private WeakReference<l> awC;
+    private String awy;
+    private String awz;
 
     public k(String str, String str2, l lVar) {
-        this.awq = str;
-        this.awr = str2;
-        this.awu = new WeakReference<>(lVar);
+        this.awy = str;
+        this.awz = str2;
+        this.awC = new WeakReference<>(lVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: o */
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
-        str = j.awv;
+        str = j.awD;
         aa aaVar = new aa(str);
-        aaVar.o("forum_id", this.awq);
-        aaVar.o("user_id", this.awr);
+        aaVar.o("forum_id", this.awy);
+        aaVar.o("user_id", this.awz);
         String rO = aaVar.rO();
         if (aaVar.sp().tq().pv()) {
             try {
@@ -54,7 +54,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: c */
     public void onPostExecute(ForbidReasonData forbidReasonData) {
         super.onPostExecute(forbidReasonData);
-        l lVar = this.awu.get();
+        l lVar = this.awC.get();
         if (lVar != null) {
             if (forbidReasonData.error.errno == 0 && bd.isEmpty(forbidReasonData.error.errMsg)) {
                 lVar.a(forbidReasonData);

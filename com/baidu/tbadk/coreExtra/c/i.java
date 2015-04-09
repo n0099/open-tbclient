@@ -1,9 +1,9 @@
 package com.baidu.tbadk.coreExtra.c;
 /* loaded from: classes.dex */
 public class i {
-    public String acJ;
-    public String acK;
-    public int acL;
+    public String acR;
+    public String acS;
+    public int acT;
     public String content;
     public int gid;
     public String title;

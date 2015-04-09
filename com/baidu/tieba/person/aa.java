@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    final /* synthetic */ v bPF;
+    final /* synthetic */ v bPV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(v vVar) {
-        this.bPF = vVar;
+        this.bPV = vVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,37 +30,37 @@ class aa implements View.OnClickListener {
         ForumData forumData5;
         String str;
         ForumData forumData6;
-        this.bPF.bDK = ((Integer) view.getTag()).intValue();
-        i = this.bPF.bDK;
+        this.bPV.bDX = ((Integer) view.getTag()).intValue();
+        i = this.bPV.bDX;
         if (i >= 0) {
-            i2 = this.bPF.bDK;
-            afVar = this.bPF.bPt;
+            i2 = this.bPV.bDX;
+            afVar = this.bPV.bPJ;
             if (i2 < afVar.getCount()) {
-                z = this.bPF.bPz;
+                z = this.bPV.bPP;
                 if (!z) {
-                    v vVar = this.bPF;
-                    afVar2 = this.bPF.bPt;
-                    i3 = this.bPF.bDK;
-                    vVar.bPy = (ForumData) afVar2.getItem(i3);
-                    forumData = this.bPF.bPy;
+                    v vVar = this.bPV;
+                    afVar2 = this.bPV.bPJ;
+                    i3 = this.bPV.bDX;
+                    vVar.bPO = (ForumData) afVar2.getItem(i3);
+                    forumData = this.bPV.bPO;
                     if (forumData != null) {
-                        forumData2 = this.bPF.bPy;
+                        forumData2 = this.bPV.bPO;
                         if (forumData2.getId() != null) {
-                            forumData3 = this.bPF.bPy;
+                            forumData3 = this.bPV.bPO;
                             if (forumData3.getName() != null) {
-                                v vVar2 = this.bPF;
-                                forumData4 = this.bPF.bPy;
-                                vVar2.bPu = forumData4.getName();
-                                this.bPF.bPz = true;
+                                v vVar2 = this.bPV;
+                                forumData4 = this.bPV.bPO;
+                                vVar2.bPK = forumData4.getName();
+                                this.bPV.bPP = true;
                                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-                                forumData5 = this.bPF.bPy;
+                                forumData5 = this.bPV.bPO;
                                 httpMessage.addParam(ImageViewerConfig.FORUM_ID, forumData5.getId());
-                                str = this.bPF.bPu;
+                                str = this.bPV.bPK;
                                 httpMessage.addParam("kw", str);
-                                forumData6 = this.bPF.bPy;
+                                forumData6 = this.bPV.bPO;
                                 httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
                                 httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
-                                this.bPF.sendMessage(httpMessage);
+                                this.bPV.sendMessage(httpMessage);
                             }
                         }
                     }

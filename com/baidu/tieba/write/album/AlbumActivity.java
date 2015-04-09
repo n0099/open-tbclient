@@ -13,124 +13,124 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private n ctp;
-    private t ctq;
-    private com.baidu.tbadk.img.e cts;
-    private int aUl = 0;
-    private boolean ctr = false;
+    private n ctF;
+    private t ctG;
+    private com.baidu.tbadk.img.e ctI;
+    private int aUA = 0;
+    private boolean ctH = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cts = new com.baidu.tbadk.img.e(getPageContext().getPageActivity());
+        this.ctI = new com.baidu.tbadk.img.e(getPageContext().getPageActivity());
         initView();
         initData(bundle);
-        apv();
-        iL(0);
-        apw();
+        apK();
+        iO(0);
+        apL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.ctp.getWriteImagesInfo().toJsonString());
+        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.ctF.getWriteImagesInfo().toJsonString());
     }
 
     private void initData(Bundle bundle) {
-        this.ctp = new n();
+        this.ctF = new n();
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString(AlbumActivityConfig.WRITE_IMAGES_INFO));
-            this.ctp.setWriteImagesInfo(writeImagesInfo);
-            this.ctp.jc(bundle.getString(AlbumActivityConfig.CAMERA_PHOTO_NAME));
+            this.ctF.setWriteImagesInfo(writeImagesInfo);
+            this.ctF.jf(bundle.getString(AlbumActivityConfig.CAMERA_PHOTO_NAME));
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
             WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
             writeImagesInfo2.parseJson(intent.getStringExtra(AlbumActivityConfig.WRITE_IMAGES_INFO));
-            this.ctp.setWriteImagesInfo(writeImagesInfo2);
-            this.ctp.jc(intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME));
+            this.ctF.setWriteImagesInfo(writeImagesInfo2);
+            this.ctF.jf(intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME));
         }
     }
 
     private void initView() {
-        this.ctq = new t(this);
-        this.ctq.apP();
+        this.ctG = new t(this);
+        this.ctG.aqe();
     }
 
-    private void apv() {
-        if (this.ctq != null && this.ctp != null) {
-            this.ctq.iQ(this.ctp.getMaxImagesAllowed());
-            if (this.ctp.apI() != null) {
-                for (ImageFileInfo imageFileInfo : this.ctp.apI()) {
-                    this.ctq.f(imageFileInfo);
+    private void apK() {
+        if (this.ctG != null && this.ctF != null) {
+            this.ctG.iT(this.ctF.getMaxImagesAllowed());
+            if (this.ctF.apX() != null) {
+                for (ImageFileInfo imageFileInfo : this.ctF.apX()) {
+                    this.ctG.f(imageFileInfo);
                 }
             }
-            apA();
+            apP();
         }
     }
 
-    private void apw() {
-        int size = this.ctp.size();
-        this.ctq.k(size != 0, getPageContext().getPageActivity().getString(com.baidu.tieba.y.album_finish_btn, new Object[]{Integer.valueOf(size)}));
+    private void apL() {
+        int size = this.ctF.size();
+        this.ctG.k(size != 0, getPageContext().getPageActivity().getString(com.baidu.tieba.y.album_finish_btn, new Object[]{Integer.valueOf(size)}));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.ctq.onChangeSkinType(i);
+        this.ctG.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ctq.apQ()) {
+        if (view == this.ctG.aqf()) {
             Intent intent = new Intent();
-            intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.ctp.getWriteImagesInfo().toJsonString());
+            intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.ctF.getWriteImagesInfo().toJsonString());
             setResult(-1, intent);
             finish();
-        } else if (view == this.ctq.apR()) {
-            if (this.ctp != null) {
-                this.ctp.setLastAlbumId(null);
+        } else if (view == this.ctG.aqg()) {
+            if (this.ctF != null) {
+                this.ctF.setLastAlbumId(null);
             }
-            apz();
-        } else if (view == this.ctq.apS()) {
-            iL(0);
+            apO();
+        } else if (view == this.ctG.aqh()) {
+            iO(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n apx() {
-        return this.ctp;
+    public n apM() {
+        return this.ctF;
     }
 
-    public com.baidu.tbadk.img.e apy() {
-        return this.cts;
+    public com.baidu.tbadk.img.e apN() {
+        return this.ctI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void iL(int i) {
-        if (!this.ctr) {
+    public void iO(int i) {
+        if (!this.ctH) {
             if (i == 0) {
                 setSwipeBackEnabled(true);
             } else {
                 setSwipeBackEnabled(false);
             }
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.ctq.iS(this.aUl));
+            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.ctG.iV(this.aUA));
             if (findFragmentByTag != null) {
                 beginTransaction.hide(findFragmentByTag);
-                this.cts.zA();
+                this.ctI.zG();
             }
-            this.aUl = i;
-            if (this.ctq != null) {
-                this.ctq.iT(this.aUl);
+            this.aUA = i;
+            if (this.ctG != null) {
+                this.ctG.iW(this.aUA);
             }
-            if (getSupportFragmentManager().findFragmentByTag(this.ctq.iS(i)) != null) {
-                beginTransaction.show(this.ctq.iR(i));
+            if (getSupportFragmentManager().findFragmentByTag(this.ctG.iV(i)) != null) {
+                beginTransaction.show(this.ctG.iU(i));
             } else {
-                beginTransaction.add(com.baidu.tieba.v.fragment, this.ctq.iR(i), this.ctq.iS(i));
+                beginTransaction.add(com.baidu.tieba.v.fragment, this.ctG.iU(i), this.ctG.iV(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -142,15 +142,15 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (imageFileInfo == null) {
             return false;
         }
-        int maxImagesAllowed = this.ctp.getMaxImagesAllowed();
-        if (this.ctp.size() < maxImagesAllowed) {
+        int maxImagesAllowed = this.ctF.getMaxImagesAllowed();
+        if (this.ctF.size() < maxImagesAllowed) {
             ImageFileInfo imageFileInfo2 = new ImageFileInfo();
             imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
             imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
-            this.ctp.addChooseFile(imageFileInfo2);
-            apw();
-            apA();
-            this.ctq.f(imageFileInfo2);
+            this.ctF.addChooseFile(imageFileInfo2);
+            apL();
+            apP();
+            this.ctG.f(imageFileInfo2);
             return true;
         }
         showToast(String.format(getPageContext().getContext().getString(com.baidu.tieba.y.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
@@ -162,24 +162,24 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (imageFileInfo == null) {
             return false;
         }
-        this.ctp.delChooseFile(imageFileInfo);
-        apw();
-        apA();
-        this.ctq.g(imageFileInfo);
+        this.ctF.delChooseFile(imageFileInfo);
+        apL();
+        apP();
+        this.ctG.g(imageFileInfo);
         return true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.aUl == 0) {
-                if (this.ctp != null) {
-                    this.ctp.setLastAlbumId(null);
+            if (this.aUA == 0) {
+                if (this.ctF != null) {
+                    this.ctF.setLastAlbumId(null);
                 }
-                apz();
+                apO();
                 return true;
-            } else if (this.aUl == 1) {
-                iL(0);
+            } else if (this.aUA == 1) {
+                iO(0);
                 return true;
             } else {
                 return true;
@@ -190,31 +190,31 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void t(int i, boolean z) {
-        Fragment iR;
-        if (this.ctq != null && (iR = this.ctq.iR(0)) != null && (iR instanceof ah)) {
-            ((ah) iR).u(i, z);
+        Fragment iU;
+        if (this.ctG != null && (iU = this.ctG.iU(0)) != null && (iU instanceof ah)) {
+            ((ah) iU).u(i, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment iR;
-        if (this.ctq != null && (iR = this.ctq.iR(0)) != null && (iR instanceof ah)) {
-            ((ah) iR).e(imageFileInfo, z);
+        Fragment iU;
+        if (this.ctG != null && (iU = this.ctG.iU(0)) != null && (iU instanceof ah)) {
+            ((ah) iU).e(imageFileInfo, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment iR;
-        if (this.ctq != null && (iR = this.ctq.iR(1)) != null && (iR instanceof b)) {
-            ((b) iR).e(imageFileInfo, z);
+        Fragment iU;
+        if (this.ctG != null && (iU = this.ctG.iU(1)) != null && (iU instanceof b)) {
+            ((b) iU).e(imageFileInfo, z);
         }
     }
 
-    private void apz() {
+    private void apO() {
         Intent intent = new Intent();
-        String lastAlbumId = this.ctp.getLastAlbumId();
+        String lastAlbumId = this.ctF.getLastAlbumId();
         if (TextUtils.isEmpty(lastAlbumId)) {
             lastAlbumId = "";
         }
@@ -223,12 +223,12 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         finish();
     }
 
-    private void apA() {
-        if (this.ctp != null && this.ctq != null) {
-            if (this.ctp.size() == this.ctp.getMaxImagesAllowed()) {
-                this.ctq.fe(false);
+    private void apP() {
+        if (this.ctF != null && this.ctG != null) {
+            if (this.ctF.size() == this.ctF.getMaxImagesAllowed()) {
+                this.ctG.fc(false);
             } else {
-                this.ctq.fe(true);
+                this.ctG.fc(true);
             }
         }
     }
@@ -239,9 +239,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12001) {
             Intent intent2 = new Intent();
-            intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.ctp.getWriteImagesInfo().toJsonString());
+            intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.ctF.getWriteImagesInfo().toJsonString());
             intent2.putExtra(AlbumActivityConfig.CAMERA_RESULT, true);
-            intent2.putExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME, this.ctp.apN());
+            intent2.putExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME, this.ctF.aqc());
             setResult(-1, intent2);
             finish();
         }
@@ -251,11 +251,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ctr = true;
-        if (this.ctq != null) {
-            this.ctq.onDestroy();
+        this.ctH = true;
+        if (this.ctG != null) {
+            this.ctG.onDestroy();
         }
-        this.cts.zA();
-        o.apO().destory();
+        this.ctI.zG();
+        o.aqd().destory();
     }
 }

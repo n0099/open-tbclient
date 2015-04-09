@@ -18,31 +18,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private m blw;
-    private List<GroupInfoData> blx = new ArrayList();
+    private m blM;
+    private List<GroupInfoData> blN = new ArrayList();
 
-    public void aH(List<GroupInfoData> list) {
-        this.blx = list;
+    public void aJ(List<GroupInfoData> list) {
+        this.blN = list;
     }
 
     public k(m mVar) {
-        this.blw = mVar;
+        this.blM = mVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.blx.size();
+        return this.blN.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gj */
+    /* renamed from: gl */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.blx.size()) {
+        if (itemId < 0 || itemId >= this.blN.size()) {
             return null;
         }
-        return this.blx.get(itemId);
+        return this.blN.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -54,60 +54,60 @@ public class k extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         l lVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof l)) {
-            view = com.baidu.adp.lib.g.b.hH().a(this.blw.getActivity(), w.tab_my_group_item, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.hH().a(this.blM.getActivity(), w.tab_my_group_item, viewGroup, false);
             lVar = new l();
-            lVar.bly = (LinearLayout) view.findViewById(v.click_head);
-            lVar.blA = (ImageView) view.findViewById(v.diver_top);
-            lVar.blB = (ImageView) view.findViewById(v.diver_buttom_px);
-            lVar.blC = (ImageView) view.findViewById(v.diver_top_px);
-            lVar.bdB = (GroupImageView) view.findViewById(v.item_head);
+            lVar.blO = (LinearLayout) view.findViewById(v.click_head);
+            lVar.blQ = (ImageView) view.findViewById(v.diver_top);
+            lVar.blR = (ImageView) view.findViewById(v.diver_buttom_px);
+            lVar.blS = (ImageView) view.findViewById(v.diver_top_px);
+            lVar.bdR = (GroupImageView) view.findViewById(v.item_head);
             lVar.nameText = (TextView) view.findViewById(v.item_group_name);
-            lVar.bdD = (TextView) view.findViewById(v.item_group_num);
-            lVar.bdE = (TextView) view.findViewById(v.item_introduce);
-            lVar.blz = (TextView) view.findViewById(v.isCreator);
-            lVar.bdF = (ImageView) view.findViewById(v.item_grade1);
-            lVar.bdG = (ImageView) view.findViewById(v.item_grade2);
-            lVar.bdH = (ImageView) view.findViewById(v.item_grade3);
-            lVar.bdI = new ImageView[4];
-            lVar.bdI[1] = lVar.bdF;
-            lVar.bdI[2] = lVar.bdG;
-            lVar.bdI[3] = lVar.bdH;
+            lVar.bdT = (TextView) view.findViewById(v.item_group_num);
+            lVar.bdU = (TextView) view.findViewById(v.item_introduce);
+            lVar.blP = (TextView) view.findViewById(v.isCreator);
+            lVar.bdV = (ImageView) view.findViewById(v.item_grade1);
+            lVar.bdW = (ImageView) view.findViewById(v.item_grade2);
+            lVar.bdX = (ImageView) view.findViewById(v.item_grade3);
+            lVar.bdY = new ImageView[4];
+            lVar.bdY[1] = lVar.bdV;
+            lVar.bdY[2] = lVar.bdW;
+            lVar.bdY[3] = lVar.bdX;
             view.setTag(lVar);
         } else {
             lVar = (l) view.getTag();
         }
-        GroupInfoData groupInfoData = this.blx.get(i);
-        lVar.bdB.setTag(null);
-        lVar.bdB.setDrawBorder(true);
+        GroupInfoData groupInfoData = this.blN.get(i);
+        lVar.bdR.setTag(null);
+        lVar.bdR.setDrawBorder(true);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                lVar.bdB.c(portrait, 10, false);
+                lVar.bdR.c(portrait, 10, false);
             } else {
-                lVar.bdB.c("", 10, false);
+                lVar.bdR.c("", 10, false);
             }
-            lVar.bly.setOnClickListener(this.blw);
-            lVar.bly.setTag(groupInfoData);
-            lVar.blA.setVisibility(8);
-            lVar.blC.setVisibility(8);
-            lVar.blB.setVisibility(0);
+            lVar.blO.setOnClickListener(this.blM);
+            lVar.blO.setTag(groupInfoData);
+            lVar.blQ.setVisibility(8);
+            lVar.blS.setVisibility(8);
+            lVar.blR.setVisibility(0);
             lVar.nameText.setText(groupInfoData.getName());
-            lVar.bdD.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
-            lVar.bdE.setText(groupInfoData.getIntro());
+            lVar.bdT.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
+            lVar.bdU.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                lVar.blz.setVisibility(0);
+                lVar.blP.setVisibility(0);
             } else {
-                lVar.blz.setVisibility(8);
+                lVar.blP.setVisibility(8);
             }
-            a(lVar.bdI, groupInfoData.getGrade());
+            a(lVar.bdY, groupInfoData.getGrade());
         }
-        this.blw.getBaseFragmentActivity().getLayoutMode().X(TbadkApplication.getInst().getSkinType() == 1);
-        this.blw.getBaseFragmentActivity().getLayoutMode().h(view);
+        this.blM.getBaseFragmentActivity().getLayoutMode().X(TbadkApplication.getInst().getSkinType() == 1);
+        this.blM.getBaseFragmentActivity().getLayoutMode().h(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
             ba.b(lVar.nameText, com.baidu.tieba.s.im_group_vip_text, 1);
-            ba.c(lVar.bdF, u.icon_vip_grade_big_small_s);
-            ba.c(lVar.bdG, u.icon_vip_grade_big_small_s);
-            ba.c(lVar.bdH, u.icon_vip_grade_big_small_s);
+            ba.c(lVar.bdV, u.icon_vip_grade_big_small_s);
+            ba.c(lVar.bdW, u.icon_vip_grade_big_small_s);
+            ba.c(lVar.bdX, u.icon_vip_grade_big_small_s);
         }
         return view;
     }

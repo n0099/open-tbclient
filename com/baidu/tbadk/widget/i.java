@@ -14,9 +14,9 @@ import com.baidu.tieba.y;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class i implements DialogInterface.OnCancelListener, View.OnClickListener {
-    private Dialog arA;
-    private LinearLayout arB;
-    private GiftGifView arC;
+    private Dialog arI;
+    private LinearLayout arJ;
+    private GiftGifView arK;
     private Activity mActivity;
     private ProgressDialog mWaitingDialog;
 
@@ -26,27 +26,27 @@ public class i implements DialogInterface.OnCancelListener, View.OnClickListener
     }
 
     private void init() {
-        this.arA = Ds();
-        this.arB = (LinearLayout) this.arA.findViewById(v.gift_gif_ll);
-        this.arC = (GiftGifView) this.arA.findViewById(v.gift_gif_view);
-        this.arB.setOnClickListener(this);
-        this.arC.setOnClickListener(this);
-        this.arC.setAutoPlay(true);
-        this.arC.setPlayCallback(new j(this));
+        this.arI = Dy();
+        this.arJ = (LinearLayout) this.arI.findViewById(v.gift_gif_ll);
+        this.arK = (GiftGifView) this.arI.findViewById(v.gift_gif_view);
+        this.arJ.setOnClickListener(this);
+        this.arK.setOnClickListener(this);
+        this.arK.setAutoPlay(true);
+        this.arK.setPlayCallback(new j(this));
     }
 
     public void play(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-            aVar.akk = str;
-            aVar.akm = str;
-            this.arC.setIsHide(false);
-            this.arC.a(aVar);
+            aVar.aks = str;
+            aVar.aku = str;
+            this.arK.setIsHide(false);
+            this.arK.a(aVar);
             this.mWaitingDialog = com.baidu.adp.lib.util.n.a(this.mActivity, this.mActivity.getString(y.loading), this);
         }
     }
 
-    private Dialog Ds() {
+    private Dialog Dy() {
         Dialog dialog = new Dialog(this.mActivity, z.dialog_full_screen);
         dialog.setContentView(w.gif_play_dialog);
         dialog.setOnDismissListener(new k(this));
@@ -55,13 +55,13 @@ public class i implements DialogInterface.OnCancelListener, View.OnClickListener
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.arC.zq();
-        com.baidu.adp.lib.g.k.b(this.arA, this.mActivity);
+        this.arK.zw();
+        com.baidu.adp.lib.g.k.b(this.arI, this.mActivity);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.arC.stop();
-        com.baidu.adp.lib.g.k.b(this.arA, this.mActivity);
+        this.arK.stop();
+        com.baidu.adp.lib.g.k.b(this.arI, this.mActivity);
     }
 }

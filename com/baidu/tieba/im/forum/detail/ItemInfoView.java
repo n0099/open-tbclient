@@ -15,7 +15,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView bdo;
+    private TextView bdE;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -31,14 +31,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         com.baidu.adp.lib.g.b.hH().a(context, com.baidu.tieba.w.forum_detail_info, this, true);
         setVisibility(8);
-        this.bdo = (TextView) findViewById(com.baidu.tieba.v.info_brief_content);
+        this.bdE = (TextView) findViewById(com.baidu.tieba.v.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || !bd.isEmpty(recommendForumInfo.slogan)) {
-            this.bdo.setText(b(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.bdE.setText(b(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.bdo.setText(getResources().getString(com.baidu.tieba.y.forum_detail_info_no_brief));
+            this.bdE.setText(getResources().getString(com.baidu.tieba.y.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -51,7 +51,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap bO = com.baidu.tbadk.core.util.c.bO(tVar.ea(pbContent.text));
+                    Bitmap bO = com.baidu.tbadk.core.util.c.bO(tVar.ed(pbContent.text));
                     if (bO != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bO);
                         bitmapDrawable.setBounds(0, 0, bO.getWidth(), bO.getHeight());
@@ -68,7 +68,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        ba.b(this.bdo, com.baidu.tieba.s.forum_detail_brief_txt_color, 1);
+        ba.b(this.bdE, com.baidu.tieba.s.forum_detail_brief_txt_color, 1);
         forumDetailActivity.getLayoutMode().X(i == 1);
         forumDetailActivity.getLayoutMode().h(this);
     }

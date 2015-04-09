@@ -9,11 +9,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.adp.lib.e.c<TextView> {
-    final /* synthetic */ e bOs;
+    final /* synthetic */ e bOI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bOs = eVar;
+        this.bOI = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,16 +31,16 @@ public class f implements com.baidu.adp.lib.e.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: DP */
+    /* renamed from: DV */
     public TextView hA() {
         Context context;
         Context context2;
         float f;
-        context = this.bOs.context;
+        context = this.bOI.context;
         TextView textView = new TextView(context);
-        context2 = this.bOs.context;
+        context2 = this.bOI.context;
         textView.setTextSize(0, context2.getResources().getDimensionPixelSize(t.fontsize32));
-        f = this.bOs.asH;
+        f = this.bOI.asP;
         textView.setLineSpacing(0.0f, f);
         ba.b(textView, s.cp_cont_b, 1);
         textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));

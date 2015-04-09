@@ -9,27 +9,27 @@ public class a extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.recommendfrs.
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<com.baidu.tieba.recommendfrs.data.c> zO() {
+    public Class<com.baidu.tieba.recommendfrs.data.c> zU() {
         return com.baidu.tieba.recommendfrs.data.c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String zR() {
+    public String zX() {
         return "RecommendFrsCache";
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zP() {
+    public int zV() {
         return 2001322;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zQ() {
+    public int zW() {
         return 2001323;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean AJ() {
+    protected boolean AP() {
         return false;
     }
 }

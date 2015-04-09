@@ -7,60 +7,60 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class at extends RelativeLayout {
-    private boolean aex;
-    protected com.baidu.tbadk.widget.a afC;
-    private aw afD;
-    private boolean afE;
-    private boolean afF;
-    private ImageUrlData afG;
+    private boolean aeF;
+    protected com.baidu.tbadk.widget.a afK;
+    private aw afL;
+    private boolean afM;
+    private boolean afN;
+    private ImageUrlData afO;
     protected Context mContext;
     protected ProgressBar mProgressBar;
 
     public void setHeadImage(boolean z) {
-        if (this.afC != null) {
-            this.afC.setIsHeadImage(z);
+        if (this.afK != null) {
+            this.afK.setIsHeadImage(z);
         }
     }
 
     public void setCallback(aw awVar) {
-        this.afD = awVar;
+        this.afL = awVar;
     }
 
     public at(Context context) {
         super(context);
         this.mProgressBar = null;
-        this.afC = null;
+        this.afK = null;
         this.mContext = null;
-        this.afD = null;
-        this.aex = false;
+        this.afL = null;
+        this.aeF = false;
         this.mContext = context;
         init();
     }
 
     public com.baidu.tbadk.widget.a getImageView() {
-        return this.afC;
+        return this.afK;
     }
 
     public void setGifSetListener(com.baidu.tbadk.widget.g gVar) {
-        this.afC.setGifSetListener(gVar);
+        this.afK.setGifSetListener(gVar);
     }
 
     public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.afC.setImageOnClickListener(onClickListener);
+        this.afK.setImageOnClickListener(onClickListener);
     }
 
     public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.afC.setImageOnLongClickListener(onLongClickListener);
+        this.afK.setImageOnLongClickListener(onLongClickListener);
     }
 
     public void setOnSizeChangedListener(com.baidu.tbadk.widget.h hVar) {
-        this.afC.setOnSizeChangedListener(hVar);
+        this.afK.setOnSizeChangedListener(hVar);
     }
 
     protected void init() {
-        this.afC = new com.baidu.tbadk.widget.a(this.mContext);
-        this.afC.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        addView(this.afC);
+        this.afK = new com.baidu.tbadk.widget.a(this.mContext);
+        this.afK.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        addView(this.afK);
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
         this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.u.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -71,29 +71,29 @@ public class at extends RelativeLayout {
     }
 
     public void n(String str, boolean z) {
-        this.afC.setTag(str);
-        this.afC.setLoadBigImage(false);
-        this.afC.setImageDrawable(null);
-        this.afE = false;
-        this.afF = false;
-        boolean dO = dO(str);
-        o(str, dO);
-        if (dO) {
+        this.afK.setTag(str);
+        this.afK.setLoadBigImage(false);
+        this.afK.setImageDrawable(null);
+        this.afM = false;
+        this.afN = false;
+        boolean dR = dR(str);
+        o(str, dR);
+        if (dR) {
             p(str, z);
         }
     }
 
-    private boolean dO(String str) {
+    private boolean dR(String str) {
         return com.baidu.adp.lib.util.k.iH() || com.baidu.tbadk.core.util.resourceLoaderProc.c.checkFileExist(str);
     }
 
     private void o(String str, boolean z) {
-        if (this.afG == null) {
+        if (this.afO == null) {
             aG(z);
         } else if (com.baidu.tbadk.core.util.resourceLoaderProc.c.checkFileExist(str)) {
             aG(z);
-        } else if (!TextUtils.isEmpty(this.afG.imageUrl)) {
-            com.baidu.adp.lib.f.d.hB().a(this.afG.imageUrl, this.afG.urlType, new au(this, z), 0, 0, true, null, new Object[0]);
+        } else if (!TextUtils.isEmpty(this.afO.imageUrl)) {
+            com.baidu.adp.lib.f.d.hB().a(this.afO.imageUrl, this.afO.urlType, new au(this, z), 0, 0, true, null, new Object[0]);
         } else {
             aG(z);
         }
@@ -108,60 +108,60 @@ public class at extends RelativeLayout {
 
     private void p(String str, boolean z) {
         this.mProgressBar.setVisibility(0);
-        com.baidu.adp.lib.f.d.hB().a(str, 27, new av(this), 0, 0, false, null, Boolean.valueOf(z), this.afC.getImageData(), Boolean.valueOf(this.aex));
+        com.baidu.adp.lib.f.d.hB().a(str, 27, new av(this), 0, 0, false, null, Boolean.valueOf(z), this.afK.getImageData(), Boolean.valueOf(this.aeF));
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.afC.setGifMaxUseableMem(i);
+        this.afK.setGifMaxUseableMem(i);
     }
 
     public void onDestroy() {
-        if (this.afC != null) {
-            this.afC.onDestroy();
+        if (this.afK != null) {
+            this.afK.onDestroy();
         }
         this.mProgressBar.setVisibility(8);
     }
 
     public void release() {
-        if (this.afC != null) {
-            this.afC.release();
+        if (this.afK != null) {
+            this.afK.release();
         }
         this.mProgressBar.setVisibility(8);
     }
 
-    public void xk() {
-        if (this.afC != null && this.afC.getImageType() == 1) {
-            this.afC.stop();
+    public void xq() {
+        if (this.afK != null && this.afK.getImageType() == 1) {
+            this.afK.stop();
         }
     }
 
     public void aH(boolean z) {
         String str;
-        if (this.afC != null && (str = (String) this.afC.getTag()) != null && com.baidu.adp.lib.util.k.iH() && this.afC != null) {
-            if (this.afC.getImageType() == 1) {
-                if (this.afC.getGifCache() == null || !this.afC.Dq()) {
+        if (this.afK != null && (str = (String) this.afK.getTag()) != null && com.baidu.adp.lib.util.k.iH() && this.afK != null) {
+            if (this.afK.getImageType() == 1) {
+                if (this.afK.getGifCache() == null || !this.afK.Dw()) {
                     p(str, z);
                 }
-            } else if (this.afC.getImageType() == 2) {
+            } else if (this.afK.getImageType() == 2) {
                 p(str, z);
-            } else if (this.afC.getImageBitmap() == null || !this.afC.Dq()) {
+            } else if (this.afK.getImageBitmap() == null || !this.afK.Dw()) {
                 p(str, z);
             }
         }
     }
 
     public int getImageType() {
-        if (this.afC != null) {
-            return this.afC.getImageType();
+        if (this.afK != null) {
+            return this.afK.getImageType();
         }
         return 0;
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        this.afG = imageUrlData;
+        this.afO = imageUrlData;
     }
 
     public void setIsCdn(boolean z) {
-        this.aex = z;
+        this.aeF = z;
     }
 }

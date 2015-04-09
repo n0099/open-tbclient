@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.i.b;
 /* loaded from: classes.dex */
 public class c {
-    private int anA;
-    private int anB;
-    private com.baidu.tbadk.mainTab.c anC;
-    private String anD;
+    private int anI;
+    private int anJ;
+    private com.baidu.tbadk.mainTab.c anK;
+    private String anL;
     private String title;
 
     public String getTitle() {
@@ -15,31 +15,31 @@ public class c {
         this.title = str;
     }
 
-    public int BQ() {
-        return this.anB;
+    public int BW() {
+        return this.anJ;
     }
 
-    public com.baidu.tbadk.mainTab.c BR() {
-        return this.anC;
+    public com.baidu.tbadk.mainTab.c BX() {
+        return this.anK;
     }
 
     public void a(com.baidu.tbadk.mainTab.c cVar) {
-        this.anC = cVar;
+        this.anK = cVar;
     }
 
-    public String BS() {
-        return this.anD;
+    public String BY() {
+        return this.anL;
     }
 
-    public void ez(String str) {
-        this.anD = str;
+    public void eC(String str) {
+        this.anL = str;
     }
 
-    public int BT() {
-        return this.anA;
+    public int BZ() {
+        return this.anI;
     }
 
     public void dR(int i) {
-        this.anA = i;
+        this.anI = i;
     }
 }

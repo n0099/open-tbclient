@@ -1,81 +1,42 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import android.widget.EditText;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity bzG;
+public class y implements com.baidu.tbadk.core.tabHost.c {
+    final /* synthetic */ SquareSearchActivity bzT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(SquareSearchActivity squareSearchActivity) {
-        this.bzG = squareSearchActivity;
+        this.bzT = squareSearchActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        String str;
-        int i4;
-        int i5;
-        boolean z;
-        int i6;
-        int i7;
-        String str2;
-        this.bzG.bzm = charSequence.toString();
-        str = this.bzG.bzm;
-        if (str.trim().length() > 0) {
-            i6 = this.bzG.mMode;
-            if (i6 != 0) {
-                i7 = this.bzG.mMode;
-                if (i7 == 1) {
-                    SquareSearchActivity squareSearchActivity = this.bzG;
-                    str2 = this.bzG.bzm;
-                    squareSearchActivity.y(1, str2);
-                    return;
-                }
-                return;
-            }
-            this.bzG.WP();
-            return;
+    @Override // com.baidu.tbadk.core.tabHost.c
+    public void c(int i, boolean z) {
+        EditText editText;
+        FragmentTabWidget fragmentTabWidget;
+        FragmentTabWidget fragmentTabWidget2;
+        FragmentTabWidget fragmentTabWidget3;
+        if (i == 0) {
+            this.bzT.gP(0);
+            fragmentTabWidget3 = this.bzT.bzQ;
+            fragmentTabWidget3.d(i, true);
         }
-        this.bzG.EI();
-        i4 = this.bzG.mMode;
-        if (i4 != 0) {
-            i5 = this.bzG.mMode;
-            if (i5 != 3) {
-                this.bzG.WN();
-                return;
-            } else {
-                this.bzG.WO();
-                return;
-            }
+        if (i == 1) {
+            this.bzT.gP(1);
+            fragmentTabWidget2 = this.bzT.bzQ;
+            fragmentTabWidget2.d(i, true);
         }
-        z = this.bzG.bzr;
-        if (!z) {
-            return;
+        if (i == 2) {
+            this.bzT.gP(3);
+            fragmentTabWidget = this.bzT.bzQ;
+            fragmentTabWidget.d(i, true);
         }
-        this.bzG.WM();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        if (editable.toString().trim().length() == 0) {
-            textView3 = this.bzG.byT;
-            textView3.setVisibility(8);
-        } else {
-            textView = this.bzG.byT;
-            textView.setVisibility(0);
+        if (i == 3) {
+            editText = this.bzT.bze;
+            UtilHelper.startBaiDuBar(this.bzT.getPageContext().getPageActivity(), editText.getText().toString().trim());
         }
-        textView2 = this.bzG.byU;
-        ba.b(textView2, com.baidu.tieba.s.cp_cont_i, 1);
     }
 }

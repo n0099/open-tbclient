@@ -7,22 +7,22 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.t;
 /* loaded from: classes.dex */
 public class SquareViewPager extends ViewPager {
-    private boolean Ye;
-    private t Yg;
+    private boolean Yg;
+    private t Yi;
 
     public SquareViewPager(Context context) {
         super(context);
-        this.Ye = true;
+        this.Yg = true;
     }
 
     public SquareViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ye = true;
+        this.Yg = true;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Ye) {
+        if (this.Yg) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -30,28 +30,28 @@ public class SquareViewPager extends ViewPager {
         }
         int action = motionEvent.getAction();
         if (action == 3 || action == 1) {
-            if (this.Yg != null) {
-                this.Yg.nD();
+            if (this.Yi != null) {
+                this.Yi.nD();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (action) {
             case 0:
-                if (this.Yg != null) {
-                    this.Yg.nE();
+                if (this.Yi != null) {
+                    this.Yi.nE();
                     break;
                 }
                 break;
             case 1:
             default:
-                if (this.Yg != null) {
-                    this.Yg.nD();
+                if (this.Yi != null) {
+                    this.Yi.nD();
                     break;
                 }
                 break;
             case 2:
-                if (this.Yg != null) {
-                    this.Yg.nE();
+                if (this.Yi != null) {
+                    this.Yi.nE();
                     break;
                 }
                 break;
@@ -61,7 +61,7 @@ public class SquareViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Ye) {
+        if (this.Yg) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -69,26 +69,26 @@ public class SquareViewPager extends ViewPager {
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.Yg != null) {
-                    this.Yg.nE();
+                if (this.Yi != null) {
+                    this.Yi.nE();
                     break;
                 }
                 break;
             case 1:
-                if (this.Yg != null) {
-                    this.Yg.nD();
+                if (this.Yi != null) {
+                    this.Yi.nD();
                     break;
                 }
                 break;
             case 2:
-                if (this.Yg != null) {
-                    this.Yg.nE();
+                if (this.Yi != null) {
+                    this.Yi.nE();
                     break;
                 }
                 break;
             default:
-                if (this.Yg != null) {
-                    this.Yg.nD();
+                if (this.Yi != null) {
+                    this.Yi.nD();
                     break;
                 }
                 break;
@@ -97,10 +97,10 @@ public class SquareViewPager extends ViewPager {
     }
 
     public void setSwipeControlInterface(t tVar) {
-        this.Yg = tVar;
+        this.Yi = tVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.Ye = z;
+        this.Yg = z;
     }
 }

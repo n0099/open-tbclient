@@ -15,8 +15,8 @@ public abstract class e<T extends i, R extends k> extends c<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Az() == 16777217) {
-            if (aU(bVar.AD())) {
+        if (bVar.AF() == 16777217) {
+            if (aU(bVar.AJ())) {
                 dI(33554437);
                 return true;
             }

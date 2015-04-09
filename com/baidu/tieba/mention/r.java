@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class r {
-    private static r bCX = null;
-    private final HttpMessageListener bCY = new s(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long bCZ = 0;
+    private static r bDk = null;
+    private final HttpMessageListener bDl = new s(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long bDm = 0;
     private final Handler mHandler = new t(this);
 
     static {
@@ -23,23 +23,23 @@ public class r {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized r XA() {
+    public static synchronized r XM() {
         r rVar;
         synchronized (r.class) {
-            if (bCX == null) {
-                bCX = new r();
+            if (bDk == null) {
+                bDk = new r();
             }
-            rVar = bCX;
+            rVar = bDk;
         }
         return rVar;
     }
 
     public r() {
-        MessageManager.getInstance().registerListener(this.bCY);
+        MessageManager.getInstance().registerListener(this.bDl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XB() {
+    public void XN() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
@@ -48,21 +48,21 @@ public class r {
         return UtilHelper.getNetStatusInfo(TbadkCoreApplication.m411getInst().getApp().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
-    public void XC() {
-        this.bCZ = 0L;
+    public void XO() {
+        this.bDm = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.bCZ;
+        long currentTimeMillis = System.currentTimeMillis() - this.bDm;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.bCZ = System.currentTimeMillis();
+        this.bDm = System.currentTimeMillis();
     }
 
     public void destroy() {

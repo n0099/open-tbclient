@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 class w implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t bRL;
+    final /* synthetic */ t bSb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar) {
-        this.bRL = tVar;
+        this.bSb = tVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,14 +21,14 @@ class w implements AdapterView.OnItemClickListener {
         q qVar2;
         q qVar3;
         if (i >= 0) {
-            qVar = this.bRL.bRI;
+            qVar = this.bSb.bRY;
             if (qVar != null) {
-                qVar2 = this.bRL.bRI;
+                qVar2 = this.bSb.bRY;
                 if (i < qVar2.getCount()) {
-                    qVar3 = this.bRL.bRI;
+                    qVar3 = this.bSb.bRY;
                     PersonPostModel.PostList postList = (PersonPostModel.PostList) qVar3.getItem(i);
                     if (postList != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bRL.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bSb.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
                     }
                 }
             }

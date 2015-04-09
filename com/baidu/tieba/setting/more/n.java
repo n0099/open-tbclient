@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ k caA;
+    final /* synthetic */ k caP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.caA = kVar;
+        this.caP = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -31,8 +31,8 @@ public class n implements com.baidu.tbadk.core.dialog.h {
                 break;
         }
         com.baidu.tbadk.core.n.px().bj(i2);
-        this.caA.hV(i2);
-        this.caA.agz();
+        this.caP.hY(i2);
+        this.caP.agO();
         be.sY().th();
     }
 }

@@ -4,19 +4,19 @@ import android.text.SpannableStringBuilder;
 import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
 public class f implements b {
-    private SpannableStringBuilder bOn = new SpannableStringBuilder();
+    private SpannableStringBuilder bOD = new SpannableStringBuilder();
 
     public f() {
     }
 
     public f(Content content) {
         if (content != null) {
-            this.bOn.append((CharSequence) content.text);
+            this.bOD.append((CharSequence) content.text);
         }
     }
 
     public void d(CharSequence charSequence) {
-        this.bOn.append(charSequence);
+        this.bOD.append(charSequence);
     }
 
     @Override // com.baidu.tieba.pb.richview.a.c
@@ -25,7 +25,7 @@ public class f implements b {
     }
 
     @Override // com.baidu.tieba.pb.richview.a.b
-    public CharSequence acw() {
-        return this.bOn.toString();
+    public CharSequence acL() {
+        return this.bOD.toString();
     }
 }

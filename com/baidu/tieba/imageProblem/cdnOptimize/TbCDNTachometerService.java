@@ -46,31 +46,31 @@ public class TbCDNTachometerService extends BdBaseService {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.buU == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.bvk == null) {
                         return null;
                     }
                     String str = "";
-                    if (data.buR == null) {
-                        if (data.pos < data.ipListData.buU.size()) {
-                            ArrayList<String> arrayList = data.ipListData.buU.get(data.pos);
+                    if (data.bvh == null) {
+                        if (data.pos < data.ipListData.bvk.size()) {
+                            ArrayList<String> arrayList = data.ipListData.bvk.get(data.pos);
                             if (arrayList.size() > 0) {
                                 z = false;
                                 str = arrayList.get(0);
                             }
                         }
                         z = false;
-                    } else if (data.buR.length() <= 0) {
+                    } else if (data.bvh.length() <= 0) {
                         return null;
                     } else {
-                        str = data.buR;
+                        str = data.bvh;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.buW, data.ipListData.buT, data.isNormal);
-                        data.Gx = System.currentTimeMillis() - currentTimeMillis;
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.bvm, data.ipListData.bvj, data.isNormal);
+                        data.Gz = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.buR = str;
+                            data.bvh = str;
                         }
                         return new CustomResponsedMessage<>(2017000, data);
                     }
@@ -110,9 +110,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData != null) {
                         String str = customMsgData.cdnIp;
                         boolean z = customMsgData.isSuccess;
-                        long j = customMsgData.Gx;
+                        long j = customMsgData.Gz;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.buR != null && customMsgData.buR.length() > 0) {
+                        if (customMsgData.bvh != null && customMsgData.bvh.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -269,30 +269,30 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData == null || tbCdnIpListData.buS != 0) {
+        if (tbCdnIpListData == null || tbCdnIpListData.bvi != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.buV) {
+        } else if (!tbCdnIpListData.bvl) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.buU.size() == 0) {
+        } else if (tbCdnIpListData.bvk.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.buU);
+            breakUpIpList(tbCdnIpListData.bvk);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.buW;
-            String str3 = tbCdnIpListData.buT;
+            String str2 = tbCdnIpListData.bvm;
+            String str3 = tbCdnIpListData.bvj;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.buU.size();
+                int size = tbCdnIpListData.bvk.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.buR = "c.hiphotos.baidu.com";
+                    customMsgData.bvh = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.buU.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.bvk.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -410,14 +410,14 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class CustomMsgData {
-        public long Gx;
+        public long Gz;
         public String cdnIp;
         public TbCdnTachometerModel cdnTachometerModel;
         public TbCdnIpListData ipListData;
         public boolean isSuccess;
         public int pos;
         private boolean isNormal = false;
-        private String buR = null;
+        private String bvh = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

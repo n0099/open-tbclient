@@ -16,7 +16,7 @@ class i implements View.OnLongClickListener {
         com.baidu.tbadk.core.dialog.h hVar;
         String[] strArr = {this.this$0.getPageContext().getString(y.save)};
         ImageViewerActivity imageViewerActivity = this.this$0;
-        hVar = this.this$0.buJ;
+        hVar = this.this$0.buZ;
         imageViewerActivity.createListMenu(strArr, hVar);
         this.this$0.showListMenu();
         return false;

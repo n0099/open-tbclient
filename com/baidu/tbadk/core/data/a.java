@@ -4,7 +4,7 @@ import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private Date OJ;
+    private Date OM;
     private int errorCode;
     private String errorMsg;
 
@@ -52,7 +52,7 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.OJ = new Date(optLong * 1000);
+                this.OM = new Date(optLong * 1000);
             }
             d(jSONObject);
         } catch (Exception e) {

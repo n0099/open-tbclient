@@ -5,11 +5,11 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic axU;
+    final /* synthetic */ NewFriendDbManagerStatic ayc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewFriendDbManagerStatic newFriendDbManagerStatic) {
-        this.axU = newFriendDbManagerStatic;
+        this.ayc = newFriendDbManagerStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

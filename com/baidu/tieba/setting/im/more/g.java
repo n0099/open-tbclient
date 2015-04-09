@@ -14,28 +14,28 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.g<SecretSettingActivity> {
-    private View.OnClickListener aBr;
-    private LinearLayout axj;
-    private View bZA;
-    private String[] bZB;
-    private com.baidu.adp.widget.BdSwitchView.b bZC;
-    private j bZm;
-    private TbSettingTextTipView bZt;
-    private TbSettingTextTipView bZu;
-    private TbSettingTextTipView bZv;
-    private View bZw;
-    private TbSettingTextTipView bZx;
-    private MsgSettingItemView bZy;
-    private SecretSettingActivity bZz;
+    private View.OnClickListener aBz;
+    private LinearLayout axr;
+    private j bZB;
+    private TbSettingTextTipView bZI;
+    private TbSettingTextTipView bZJ;
+    private TbSettingTextTipView bZK;
+    private View bZL;
+    private TbSettingTextTipView bZM;
+    private MsgSettingItemView bZN;
+    private SecretSettingActivity bZO;
+    private View bZP;
+    private String[] bZQ;
+    private com.baidu.adp.widget.BdSwitchView.b bZR;
     private View mBack;
     private NavigationBar mNavigationBar;
 
     public g(SecretSettingActivity secretSettingActivity) {
         super(secretSettingActivity.getPageContext());
         this.mNavigationBar = null;
-        this.aBr = new h(this);
-        this.bZC = new i(this);
-        this.bZz = secretSettingActivity;
+        this.aBz = new h(this);
+        this.bZR = new i(this);
+        this.bZO = secretSettingActivity;
         secretSettingActivity.setContentView(w.secret_setting_activity);
         d(secretSettingActivity);
     }
@@ -43,99 +43,99 @@ public class g extends com.baidu.adp.base.g<SecretSettingActivity> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.baidu.tieba.setting.im.more.SecretSettingActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
-        this.bZz.getLayoutMode().X(i == 1);
-        this.bZz.getLayoutMode().h(this.axj);
-        this.mNavigationBar.onChangeSkinType(this.bZz.getPageContext(), i);
-        this.bZy.onChangeSkinType(this.bZz.getPageContext(), i);
+        this.bZO.getLayoutMode().X(i == 1);
+        this.bZO.getLayoutMode().h(this.axr);
+        this.mNavigationBar.onChangeSkinType(this.bZO.getPageContext(), i);
+        this.bZN.onChangeSkinType(this.bZO.getPageContext(), i);
     }
 
     private void d(SecretSettingActivity secretSettingActivity) {
-        this.axj = (LinearLayout) secretSettingActivity.findViewById(v.parent);
+        this.axr = (LinearLayout) secretSettingActivity.findViewById(v.parent);
         this.mNavigationBar = (NavigationBar) secretSettingActivity.findViewById(v.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(secretSettingActivity.getPageContext().getString(y.secretSetting_title));
-        this.bZt = (TbSettingTextTipView) secretSettingActivity.findViewById(v.black_address_list);
-        this.bZu = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_bar);
-        this.bZx = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_group);
-        this.bZw = secretSettingActivity.findViewById(v.divide_line_under_privacy_attention_group);
-        this.bZv = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_forum);
-        this.mBack.setOnClickListener(this.aBr);
-        this.bZt.setOnClickListener(this.aBr);
-        this.bZx.setOnClickListener(this.aBr);
-        this.bZu.setOnClickListener(this.aBr);
-        this.bZv.setOnClickListener(this.aBr);
-        this.bZA = this.bZz.findViewById(v.privacy_setting_container);
-        this.bZB = this.bZz.getResources().getStringArray(q.privacy_setting_config);
-        this.bZy = (MsgSettingItemView) this.bZz.findViewById(v.sv_shared_location);
-        this.bZy.setText(y.privacy_setting_shared_location);
-        this.bZy.setOnSwitchStateChangeListener(this.bZC);
-        this.bZy.setLineVisibility(false);
+        this.bZI = (TbSettingTextTipView) secretSettingActivity.findViewById(v.black_address_list);
+        this.bZJ = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_bar);
+        this.bZM = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_group);
+        this.bZL = secretSettingActivity.findViewById(v.divide_line_under_privacy_attention_group);
+        this.bZK = (TbSettingTextTipView) secretSettingActivity.findViewById(v.privacy_attention_forum);
+        this.mBack.setOnClickListener(this.aBz);
+        this.bZI.setOnClickListener(this.aBz);
+        this.bZM.setOnClickListener(this.aBz);
+        this.bZJ.setOnClickListener(this.aBz);
+        this.bZK.setOnClickListener(this.aBz);
+        this.bZP = this.bZO.findViewById(v.privacy_setting_container);
+        this.bZQ = this.bZO.getResources().getStringArray(q.privacy_setting_config);
+        this.bZN = (MsgSettingItemView) this.bZO.findViewById(v.sv_shared_location);
+        this.bZN.setText(y.privacy_setting_shared_location);
+        this.bZN.setOnSwitchStateChangeListener(this.bZR);
+        this.bZN.setLineVisibility(false);
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
-            this.bZx.setVisibility(0);
-            this.bZw.setVisibility(0);
+            this.bZM.setVisibility(0);
+            this.bZL.setVisibility(0);
             return;
         }
-        this.bZx.setVisibility(8);
-        this.bZw.setVisibility(8);
+        this.bZM.setVisibility(8);
+        this.bZL.setVisibility(8);
     }
 
     public void a(j jVar) {
-        this.bZm = jVar;
+        this.bZB = jVar;
     }
 
-    public void agf() {
-        this.bZt.recycle();
+    public void agu() {
+        this.bZI.recycle();
     }
 
-    public void ep(boolean z) {
+    public void en(boolean z) {
         if (z) {
-            this.bZA.setVisibility(0);
+            this.bZP.setVisibility(0);
         } else {
-            this.bZA.setVisibility(8);
+            this.bZP.setVisibility(8);
         }
     }
 
     public void T(String str, int i) {
         int i2 = i - 1;
-        if (this.bZB != null && i2 < this.bZB.length && i2 >= 0) {
+        if (this.bZQ != null && i2 < this.bZQ.length && i2 >= 0) {
             if (TextUtils.equals(str, "like")) {
-                this.bZu.setTip(this.bZB[i2]);
+                this.bZJ.setTip(this.bZQ[i2]);
             } else if (TextUtils.equals(str, "post")) {
-                this.bZv.setTip(this.bZB[i2]);
+                this.bZK.setTip(this.bZQ[i2]);
             } else if (TextUtils.equals(str, "group")) {
-                this.bZx.setTip(this.bZB[i2]);
+                this.bZM.setTip(this.bZQ[i2]);
             }
         }
     }
 
     public void b(a aVar) {
-        if (aVar != null && this.bZB != null) {
-            int length = this.bZB.length;
-            int xY = aVar.xY() - 1;
-            if (xY < length && xY >= 0) {
-                this.bZx.setTip(this.bZB[xY]);
+        if (aVar != null && this.bZQ != null) {
+            int length = this.bZQ.length;
+            int ye = aVar.ye() - 1;
+            if (ye < length && ye >= 0) {
+                this.bZM.setTip(this.bZQ[ye]);
             }
-            int afY = aVar.afY() - 1;
-            if (afY < length && afY >= 0) {
-                this.bZu.setTip(this.bZB[afY]);
+            int agn = aVar.agn() - 1;
+            if (agn < length && agn >= 0) {
+                this.bZJ.setTip(this.bZQ[agn]);
             }
-            int afW = aVar.afW() - 1;
-            if (afW < length && afW >= 0) {
-                this.bZv.setTip(this.bZB[afW]);
+            int agl = aVar.agl() - 1;
+            if (agl < length && agl >= 0) {
+                this.bZK.setTip(this.bZQ[agl]);
             }
-            eq(aVar.afZ());
+            eo(aVar.ago());
         }
     }
 
-    public void eq(boolean z) {
+    public void eo(boolean z) {
         if (z) {
-            this.bZy.getSwitchView().lY();
+            this.bZN.getSwitchView().lY();
         } else {
-            this.bZy.getSwitchView().lZ();
+            this.bZN.getSwitchView().lZ();
         }
     }
 
-    public boolean agg() {
-        return this.bZy.getSwitchView().hZ();
+    public boolean agv() {
+        return this.bZN.getSwitchView().hZ();
     }
 }

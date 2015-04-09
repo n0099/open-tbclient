@@ -21,35 +21,35 @@ class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
         d dVar7;
         if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
             ShareDialogConfig data = customMessage.getData();
-            ShareStatic.adt = new d(data.getContext());
-            dVar = ShareStatic.adt;
+            ShareStatic.adB = new d(data.getContext());
+            dVar = ShareStatic.adB;
             dVar.a(data.shareItem, data.showLocation);
             if (data.mtjStatistics != null) {
-                dVar7 = ShareStatic.adt;
+                dVar7 = ShareStatic.adB;
                 dVar7.a(data.mtjStatistics);
             }
             if (data.isSetCopyLink) {
-                dVar6 = ShareStatic.adt;
+                dVar6 = ShareStatic.adB;
                 dVar6.setIsCopyLink(data.isCopyLink);
             }
             if (data.copyLinkListener != null) {
-                dVar5 = ShareStatic.adt;
+                dVar5 = ShareStatic.adB;
                 dVar5.setCopyLinkListener(data.copyLinkListener);
             }
             if (data.textViewList != null && data.textViewList.size() > 0) {
                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                 while (it.hasNext()) {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    dVar3 = ShareStatic.adt;
+                    dVar3 = ShareStatic.adB;
                     TextView u = dVar3.u(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
-                    dVar4 = ShareStatic.adt;
+                    dVar4 = ShareStatic.adB;
                     dVar4.a(u);
                     if (((Pair) next.second).second != null) {
                         u.setOnClickListener((View.OnClickListener) ((Pair) next.second).second);
                     }
                 }
             }
-            dVar2 = ShareStatic.adt;
+            dVar2 = ShareStatic.adB;
             dVar2.show();
         }
         return null;

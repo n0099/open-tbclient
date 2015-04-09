@@ -12,17 +12,17 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c> {
-    private ImageView aCa;
-    private ImageView aCf;
-    private TextView aEp;
-    private View axK;
+    private ImageView aCi;
+    private ImageView aCn;
+    private TextView aEx;
+    private View axS;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aEp = (TextView) view.findViewById(v.textview);
-        this.aCa = (ImageView) view.findViewById(v.red_tip);
-        this.aCf = (ImageView) view.findViewById(v.red_new_tip);
-        this.axK = view.findViewById(v.divider);
+        this.aEx = (TextView) view.findViewById(v.textview);
+        this.aCi = (ImageView) view.findViewById(v.red_tip);
+        this.aCn = (ImageView) view.findViewById(v.red_new_tip);
+        this.axS = view.findViewById(v.divider);
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab
@@ -37,45 +37,45 @@ public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.tbadkCore.f.a, co
     public void A(com.baidu.tieba.tbadkCore.f.a aVar) {
         super.A(aVar);
         if (aVar != null) {
-            if (this.aEp != null) {
+            if (this.aEx != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.amU());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.anj());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.aEp.setText(str);
-                this.aEp.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(aVar.amV()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aEx.setText(str);
+                this.aEx.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(aVar.ank()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.amW()) {
+            switch (aVar.anl()) {
                 case 1:
-                    this.aCa.setImageDrawable(null);
-                    this.aCa.setVisibility(8);
-                    ba.c(this.aCf, u.icon_news_head_new);
-                    this.aCf.setVisibility(0);
+                    this.aCi.setImageDrawable(null);
+                    this.aCi.setVisibility(8);
+                    ba.c(this.aCn, u.icon_news_head_new);
+                    this.aCn.setVisibility(0);
                     break;
                 case 2:
-                    ba.c(this.aCa, u.icon_news_down_bar_one);
-                    this.aCa.setVisibility(0);
-                    this.aCf.setImageDrawable(null);
-                    this.aCf.setVisibility(8);
+                    ba.c(this.aCi, u.icon_news_down_bar_one);
+                    this.aCi.setVisibility(0);
+                    this.aCn.setImageDrawable(null);
+                    this.aCn.setVisibility(8);
                     break;
                 default:
-                    this.aCa.setImageDrawable(null);
-                    this.aCa.setVisibility(8);
-                    this.aCf.setImageDrawable(null);
-                    this.aCf.setVisibility(8);
+                    this.aCi.setImageDrawable(null);
+                    this.aCi.setVisibility(8);
+                    this.aCn.setImageDrawable(null);
+                    this.aCn.setVisibility(8);
                     break;
             }
             if (aVar.getType() == 4) {
-                this.axK.setVisibility(0);
+                this.axS.setVisibility(0);
             } else {
-                this.axK.setVisibility(8);
+                this.axS.setVisibility(8);
             }
         }
     }
 
-    public TextView aot() {
-        return this.aEp;
+    public TextView aoI() {
+        return this.aEx;
     }
 }

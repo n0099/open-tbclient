@@ -9,27 +9,27 @@ import com.baidu.tieba.tbadkCore.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements ay {
-    final /* synthetic */ a aNz;
+    final /* synthetic */ a aNQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.aNz = aVar;
+        this.aNQ = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ay
     public void d(String str, long j) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.aNz.aNb;
-        w Ju = frsActivity.Ju();
-        if (Ju != null && Ju.YO() != null) {
-            com.baidu.tieba.tbadkCore.d.ako().D(Ju.YO().getName(), false);
-            Ju.YO().setLike(0);
-            this.aNz.eT(0);
-            frsActivity2 = this.aNz.aNb;
-            frsActivity2.aJE.c(true);
+        frsActivity = this.aNQ.aNs;
+        w JA = frsActivity.JA();
+        if (JA != null && JA.Za() != null) {
+            com.baidu.tieba.tbadkCore.d.akD().D(JA.Za().getName(), false);
+            JA.Za().setLike(0);
+            this.aNQ.eU(0);
+            frsActivity2 = this.aNQ.aNs;
+            frsActivity2.aJO.c(true);
             TbadkCoreApplication.m411getInst().delLikeForum(str);
-            this.aNz.f(false, new StringBuilder(String.valueOf(j)).toString());
+            this.aNQ.f(false, new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().sendMessage(new CustomMessage(2003004, new StringBuilder(String.valueOf(j)).toString()));
         }
     }

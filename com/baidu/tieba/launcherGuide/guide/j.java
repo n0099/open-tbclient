@@ -18,20 +18,20 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.launcherGuide.view.GoOnAnimView;
 /* loaded from: classes.dex */
 public class j extends BaseFragment {
-    private NewUserGuideActivity bwE;
-    private ImageView bwF;
-    private ImageView bwG;
-    private ImageView bwH;
-    private GoOnAnimView bwI;
+    private NewUserGuideActivity bwU;
+    private ImageView bwV;
+    private ImageView bwW;
+    private ImageView bwX;
+    private GoOnAnimView bwY;
     private ViewGroup mRootView;
     private boolean isInit = false;
-    private Bitmap XI = null;
+    private Bitmap XK = null;
     private Handler mHandler = new k(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bwE = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.bwU = (NewUserGuideActivity) getBaseFragmentActivity();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -40,19 +40,19 @@ public class j extends BaseFragment {
             ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.w.guide_introduce, (ViewGroup) null);
             this.isInit = true;
             this.mRootView = (ViewGroup) viewGroup2.findViewById(com.baidu.tieba.v.root_view);
-            this.bwF = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_1);
-            this.bwG = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_2);
-            this.bwH = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_3);
-            this.XI = com.baidu.tbadk.core.util.c.b(this.bwE.getPageContext().getPageActivity(), com.baidu.tieba.u.pic_bg_startpage);
-            if (this.XI != null) {
-                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.bwE.getResources(), this.XI));
+            this.bwV = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_1);
+            this.bwW = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_2);
+            this.bwX = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_3);
+            this.XK = com.baidu.tbadk.core.util.c.b(this.bwU.getPageContext().getPageActivity(), com.baidu.tieba.u.pic_bg_startpage);
+            if (this.XK != null) {
+                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.bwU.getResources(), this.XK));
             }
-            this.bwI = (GoOnAnimView) viewGroup2.findViewById(com.baidu.tieba.v.tip_go_on);
+            this.bwY = (GoOnAnimView) viewGroup2.findViewById(com.baidu.tieba.v.tip_go_on);
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(0, 750L);
             this.mHandler.sendEmptyMessageDelayed(1, 70L);
-            this.bwI.setOnClickListener(new l(this));
+            this.bwY.setOnClickListener(new l(this));
             return viewGroup2;
         } catch (InflateException e) {
             this.isInit = false;
@@ -60,20 +60,20 @@ public class j extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.bwE.Wb();
+            this.bwU.Wo();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Wc() {
-        this.bwF.setImageResource(com.baidu.tieba.u.pic_startpage1_one);
-        this.bwG.setImageResource(com.baidu.tieba.u.pic_startpage1_two);
-        this.bwH.setImageResource(com.baidu.tieba.u.pic_startpage1_three);
-        a(this.bwF, true, 0L);
-        a(this.bwG, false, 100L);
-        a(this.bwH, true, 250L);
+    public void Wp() {
+        this.bwV.setImageResource(com.baidu.tieba.u.pic_startpage1_one);
+        this.bwW.setImageResource(com.baidu.tieba.u.pic_startpage1_two);
+        this.bwX.setImageResource(com.baidu.tieba.u.pic_startpage1_three);
+        a(this.bwV, true, 0L);
+        a(this.bwW, false, 100L);
+        a(this.bwX, true, 250L);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -82,35 +82,35 @@ public class j extends BaseFragment {
         stop();
     }
 
-    public void Wd() {
-        if (this.bwI != null) {
-            this.bwI.onStart();
+    public void Wq() {
+        if (this.bwY != null) {
+            this.bwY.onStart();
         }
     }
 
-    public void We() {
-        if (this.bwI != null) {
-            this.bwI.onStop();
+    public void Wr() {
+        if (this.bwY != null) {
+            this.bwY.onStop();
         }
     }
 
     private void stop() {
         if (this.isInit) {
             this.mRootView.setBackgroundDrawable(null);
-            if (this.XI != null) {
-                if (!this.XI.isRecycled()) {
-                    this.XI.recycle();
+            if (this.XK != null) {
+                if (!this.XK.isRecycled()) {
+                    this.XK.recycle();
                 }
-                this.XI = null;
+                this.XK = null;
             }
-            this.bwF.clearAnimation();
-            this.bwF.setImageDrawable(null);
-            this.bwG.clearAnimation();
-            this.bwG.setImageDrawable(null);
-            this.bwH.clearAnimation();
-            this.bwH.setImageDrawable(null);
-            if (this.bwI != null) {
-                this.bwI.onDestroy();
+            this.bwV.clearAnimation();
+            this.bwV.setImageDrawable(null);
+            this.bwW.clearAnimation();
+            this.bwW.setImageDrawable(null);
+            this.bwX.clearAnimation();
+            this.bwX.setImageDrawable(null);
+            if (this.bwY != null) {
+                this.bwY.onDestroy();
             }
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);

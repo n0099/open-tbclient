@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements View.OnClickListener {
-    final /* synthetic */ ai crN;
+    final /* synthetic */ ai csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(ai aiVar) {
-        this.crN = aiVar;
+        this.csd = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.crN.crH;
-        mainTabActivity2 = this.crN.crH;
+        mainTabActivity = this.csd.crX;
+        mainTabActivity2 = this.csd.crX;
         mainTabActivity.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity2.getPageContext().getPageActivity())));
     }
 }

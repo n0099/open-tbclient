@@ -14,14 +14,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bk {
-    private static bk VC = new bl();
-    private static final Pattern VE = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private bn VD;
+    private static bk VE = new bl();
+    private static final Pattern VG = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private bn VF;
     private List<bm> mListeners;
 
     private bk() {
         this.mListeners = new LinkedList();
-        this.VD = null;
+        this.VF = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class bk {
 
     public static SpannableString C(Context context, String str) {
         int start;
-        Matcher matcher = VE.matcher(str);
+        Matcher matcher = VG.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -46,7 +46,7 @@ public class bk {
     }
 
     public static bk tl() {
-        return VC;
+        return VE;
     }
 
     public void a(bm bmVar) {
@@ -56,7 +56,7 @@ public class bk {
     }
 
     public void a(bn bnVar) {
-        this.VD = bnVar;
+        this.VF = bnVar;
     }
 
     public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, bo boVar) {
@@ -77,7 +77,7 @@ public class bk {
                     break;
                 }
             }
-            if (!z2 && this.VD != null && tbPageContext != null) {
+            if (!z2 && this.VF != null && tbPageContext != null) {
                 b(tbPageContext, "", strArr[0], z, boVar);
             }
         }
@@ -101,7 +101,7 @@ public class bk {
                     break;
                 }
             }
-            if (!z2 && this.VD != null) {
+            if (!z2 && this.VF != null) {
                 b(tbPageContext, str, strArr[0], z, boVar);
             }
         }
@@ -142,8 +142,8 @@ public class bk {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bo boVar) {
-        if (VE.matcher(str2).find()) {
-            this.VD.a(tbPageContext, str, str2, z, boVar);
+        if (VG.matcher(str2).find()) {
+            this.VF.a(tbPageContext, str, str2, z, boVar);
         }
     }
 }

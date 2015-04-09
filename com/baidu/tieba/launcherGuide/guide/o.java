@@ -3,19 +3,19 @@ package com.baidu.tieba.launcherGuide.guide;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements p {
-    final /* synthetic */ n bxa;
+    final /* synthetic */ n bxq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.bxa = nVar;
+        this.bxq = nVar;
     }
 
     @Override // com.baidu.tieba.launcherGuide.guide.p
-    public void Wf() {
+    public void Ws() {
         m mVar;
         View view;
-        mVar = this.bxa.bwZ;
-        view = mVar.bwL;
+        mVar = this.bxq.bxp;
+        view = mVar.bxb;
         view.setVisibility(8);
     }
 }

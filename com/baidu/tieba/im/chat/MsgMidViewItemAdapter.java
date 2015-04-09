@@ -15,7 +15,7 @@ public class MsgMidViewItemAdapter extends bd<bg> {
     @Override // com.baidu.tieba.im.chat.bd
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<bg> beVar) {
         super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        beVar.NS().setData(chatMessage);
+        beVar.Of().setData(chatMessage);
         this.mPageContext.getLayoutMode().X(false);
         this.mPageContext.getLayoutMode().h(view);
         return view;

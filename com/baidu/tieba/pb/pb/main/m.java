@@ -4,32 +4,32 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class m extends CustomMessageListener {
-    final /* synthetic */ PbActivity bIv;
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(PbActivity pbActivity, int i) {
         super(i);
-        this.bIv = pbActivity;
+        this.bIJ = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ci ciVar;
-        ci ciVar2;
-        ci ciVar3;
+        cj cjVar;
+        cj cjVar2;
+        cj cjVar3;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            ciVar = this.bIv.bHY;
-            if (ciVar != null) {
+            cjVar = this.bIJ.bIl;
+            if (cjVar != null) {
                 if (booleanValue) {
-                    ciVar3 = this.bIv.bHY;
-                    ciVar3.RD();
+                    cjVar3 = this.bIJ.bIl;
+                    cjVar3.RQ();
                     return;
                 }
-                ciVar2 = this.bIv.bHY;
-                ciVar2.RC();
+                cjVar2 = this.bIJ.bIl;
+                cjVar2.RP();
             }
         }
     }

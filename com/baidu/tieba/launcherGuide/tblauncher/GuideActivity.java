@@ -37,92 +37,97 @@ import com.baidu.tieba.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class GuideActivity extends BaseActivity<GuideActivity> {
-    private ArrayList<View> bxo;
-    private ArrayList<ImageView> bxp;
-    private g bxq;
-    private BaseViewPager bxr;
-    private View bxs;
-    private f bxm = null;
-    private String bxn = null;
-    private boolean bxt = true;
-    public boolean bxu = true;
-    private final com.baidu.tbadk.core.view.a Xb = new a(this);
-    public View.OnClickListener bxv = new b(this);
-    private final ViewPager.OnPageChangeListener bxw = new c(this);
-    private final HttpMessageListener bxx = new d(this, CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
+    private ArrayList<View> bxE;
+    private ArrayList<ImageView> bxF;
+    private g bxG;
+    private BaseViewPager bxH;
+    private View bxI;
+    private f bxC = null;
+    private String bxD = null;
+    private boolean bxJ = true;
+    public boolean bxK = true;
+    private final com.baidu.tbadk.core.view.a Xd = new a(this);
+    public View.OnClickListener bxL = new b(this);
+    private final ViewPager.OnPageChangeListener bxM = new c(this);
+    private final HttpMessageListener bxN = new d(this, CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         if (bundle != null) {
-            this.bxn = bundle.getString(GuildActivityConfig.FROM_PAGE);
+            this.bxD = bundle.getString(GuildActivityConfig.FROM_PAGE);
         } else {
-            this.bxn = getIntent().getStringExtra(GuildActivityConfig.FROM_PAGE);
+            this.bxD = getIntent().getStringExtra(GuildActivityConfig.FROM_PAGE);
         }
-        if (TextUtils.isEmpty(this.bxn)) {
-            this.bxn = "";
+        if (TextUtils.isEmpty(this.bxD)) {
+            this.bxD = "";
+        }
+        if (this.bxD != null && !this.bxD.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
+            this.bxK = false;
+            Wx();
+            return;
         }
         try {
             setContentView(w.guide_activity);
-            Qf();
-            this.bxu = com.baidu.tbadk.core.sharedPref.b.rB().getBoolean("jump_to_new_user_guide", true);
-            if (this.bxu) {
-                Wm();
+            Qs();
+            this.bxK = com.baidu.tbadk.core.sharedPref.b.rB().getBoolean("jump_to_new_user_guide", true);
+            if (this.bxK) {
+                Wz();
             }
             try {
-                Wj();
-                this.bxq = new g(this, null);
-                this.bxr = (BaseViewPager) findViewById(v.guide_pager);
-                this.bxr.setAdapter(this.bxq);
-                this.bxr.setOnFlipOutListener(this.Xb);
-                this.bxr.setOnPageChangeListener(this.bxw);
+                Ww();
+                this.bxG = new g(this, null);
+                this.bxH = (BaseViewPager) findViewById(v.guide_pager);
+                this.bxH.setAdapter(this.bxG);
+                this.bxH.setOnFlipOutListener(this.Xd);
+                this.bxH.setOnPageChangeListener(this.bxM);
                 k.A(getPageContext().getPageActivity(), "new_user_guide_pv");
-                if (this.bxn != null && this.bxn.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
-                    this.bxm = new f(this, null);
-                    this.bxm.setSelfExecute(true);
-                    this.bxm.execute(new String[0]);
+                if (this.bxD != null && this.bxD.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
+                    this.bxC = new f(this, null);
+                    this.bxC.setSelfExecute(true);
+                    this.bxC.execute(new String[0]);
                     return;
                 }
-                this.bxm = null;
+                this.bxC = null;
             } catch (OutOfMemoryError e) {
-                Wl();
+                Wy();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e);
-                this.bxt = true;
-                this.bxu = false;
-                Wk();
+                this.bxJ = true;
+                this.bxK = false;
+                Wx();
             } catch (RuntimeException e2) {
-                Wl();
+                Wy();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e2);
-                this.bxt = true;
-                this.bxu = false;
-                Wk();
+                this.bxJ = true;
+                this.bxK = false;
+                Wx();
             }
         } catch (RuntimeException e3) {
-            this.bxt = true;
-            this.bxu = false;
-            Wk();
+            this.bxJ = true;
+            this.bxK = false;
+            Wx();
         }
     }
 
-    private void Wj() {
-        this.bxo = new ArrayList<>();
-        this.bxp = new ArrayList<>();
+    private void Ww() {
+        this.bxE = new ArrayList<>();
+        this.bxF = new ArrayList<>();
         View a = com.baidu.adp.lib.g.b.hH().a(getPageContext().getPageActivity(), w.guide_page_first, null, false);
         View a2 = com.baidu.adp.lib.g.b.hH().a(getPageContext().getPageActivity(), w.guide_page_second, null, false);
-        this.bxp.add((ImageView) a.findViewById(v.image_first));
-        this.bxp.add((ImageView) a2.findViewById(v.image_second));
-        this.bxs = a2.findViewById(v.start_app);
-        this.bxs.setVisibility(0);
-        this.bxs.setOnClickListener(this.bxv);
-        this.bxo.add(a);
-        this.bxo.add(a2);
+        this.bxF.add((ImageView) a.findViewById(v.image_first));
+        this.bxF.add((ImageView) a2.findViewById(v.image_second));
+        this.bxI = a2.findViewById(v.start_app);
+        this.bxI.setVisibility(0);
+        this.bxI.setOnClickListener(this.bxL);
+        this.bxE.add(a);
+        this.bxE.add(a2);
     }
 
-    public void Wk() {
-        if (this.bxn != null && !this.bxn.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
+    public void Wx() {
+        if (this.bxD != null && !this.bxD.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
             us();
         }
         closeActivity();
@@ -131,23 +136,23 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Wl();
-        if (this.bxm != null) {
-            this.bxm.cancel(true);
-            this.bxm = null;
+        Wy();
+        if (this.bxC != null) {
+            this.bxC.cancel(true);
+            this.bxC = null;
         }
     }
 
-    protected void Wl() {
-        if (this.bxr != null) {
-            this.bxr.setBackgroundDrawable(null);
+    protected void Wy() {
+        if (this.bxH != null) {
+            this.bxH.setBackgroundDrawable(null);
         }
-        if (this.bxp != null) {
+        if (this.bxF != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.bxp.size()) {
-                    ImageView imageView = this.bxp.get(i2);
+                if (i2 < this.bxF.size()) {
+                    ImageView imageView = this.bxF.get(i2);
                     imageView.setBackgroundDrawable(null);
                     imageView.setImageBitmap(null);
                     i = i2 + 1;
@@ -172,7 +177,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                Wk();
+                Wx();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -181,8 +186,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
 
     public void us() {
         boolean isFirstUse = TbadkApplication.getInst().getIsFirstUse();
-        if (this.bxt) {
-            if (!this.bxu) {
+        if (this.bxJ) {
+            if (!this.bxK) {
                 if (!isFirstUse) {
                     sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
                 } else {
@@ -190,7 +195,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
                 }
             } else {
-                Wn();
+                WA();
                 com.baidu.tbadk.core.sharedPref.b.rB().putBoolean("jump_to_new_user_guide", false);
             }
             if (isFirstUse) {
@@ -199,30 +204,30 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 TbadkApplication.getInst().setFirstGoFrs(true);
             }
             finish();
-            this.bxt = false;
+            this.bxJ = false;
         }
     }
 
-    public void Qf() {
+    public void Qs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.JUMP_TO_NEW_USER_CHOOSE_BAR);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(ShowNewUserGuideResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        registerListener(this.bxx);
+        registerListener(this.bxN);
     }
 
-    public void Wm() {
+    public void Wz() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
         httpMessage.addParam(SapiAccountManager.SESSION_UID, currentAccount);
         sendMessage(httpMessage);
     }
 
-    public void Wn() {
+    public void WA() {
         sendMessage(new CustomMessage(2012116, new NewUserGuideActivityConfig(getPageContext().getPageActivity(), false, true)));
     }
 
-    public void Wo() {
+    public void WB() {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
@@ -236,7 +241,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         getPageContext().getPageActivity().sendBroadcast(intent2);
     }
 
-    public boolean Wp() {
+    public boolean WC() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();

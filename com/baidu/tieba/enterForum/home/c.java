@@ -2,11 +2,11 @@ package com.baidu.tieba.enterForum.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aCT;
+    final /* synthetic */ a aDb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.aCT = aVar;
+        this.aDb = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

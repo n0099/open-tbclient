@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ AbsMsgImageActivity aWp;
+    final /* synthetic */ AbsMsgImageActivity aWF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.aWp = absMsgImageActivity;
+        this.aWF = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -20,23 +20,23 @@ public class e implements com.baidu.tbadk.core.dialog.h {
         MultiImageView multiImageView2;
         h hVar;
         FrameLayout frameLayout;
-        listMenu = this.aWp.getListMenu();
+        listMenu = this.aWF.getListMenu();
         if (eVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.aWp.aWe;
+                        multiImageView = this.aWF.aWu;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.aWp.aWe;
+                            multiImageView2 = this.aWF.aWu;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.aWp.aWb = new h(this.aWp, currentImageUrl, currentImageData);
-                            hVar = this.aWp.aWb;
+                            this.aWF.aWr = new h(this.aWF, currentImageUrl, currentImageData);
+                            hVar = this.aWF.aWr;
                             hVar.execute(new String[0]);
-                            frameLayout = this.aWp.aWc;
+                            frameLayout = this.aWF.aWs;
                             frameLayout.setClickable(false);
                         } else {
-                            this.aWp.showToast(this.aWp.getPageContext().getString(com.baidu.tieba.y.no_data));
+                            this.aWF.showToast(this.aWF.getPageContext().getString(com.baidu.tieba.y.no_data));
                         }
                         break;
                     } catch (Exception e) {

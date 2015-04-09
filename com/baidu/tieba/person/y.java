@@ -7,65 +7,65 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends HttpMessageListener {
-    final /* synthetic */ v bPF;
+    final /* synthetic */ v bPV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(v vVar, int i) {
         super(i);
-        this.bPF = vVar;
+        this.bPV = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         String str;
-        PersonBarActivity acW;
+        PersonBarActivity adl;
         String str2;
-        PersonBarActivity acW2;
+        PersonBarActivity adl2;
         String str3;
         String str4;
         ah ahVar;
         ah ahVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
-            acW = this.bPF.acW();
-            if (acW != null) {
-                this.bPF.mListView.mW();
+            adl = this.bPV.adl();
+            if (adl != null) {
+                this.bPV.mListView.mW();
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                acW2 = this.bPF.acW();
-                if (tag == acW2.getUniqueId()) {
+                adl2 = this.bPV.adl();
+                if (tag == adl2.getUniqueId()) {
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {
                             u personBarData = personBarResponseMessage.getPersonBarData();
-                            ahVar = this.bPF.bPi;
-                            ahVar.hz(this.bPF.bPw);
-                            ahVar2 = this.bPF.bPi;
-                            ahVar2.hV(personBarResponseMessage.getResultString());
-                            this.bPF.a(personBarData, false);
+                            ahVar = this.bPV.bPy;
+                            ahVar.hC(this.bPV.bPM);
+                            ahVar2 = this.bPV.bPy;
+                            ahVar2.hY(personBarResponseMessage.getResultString());
+                            this.bPV.a(personBarData, false);
                             return;
                         }
-                        this.bPF.showToast(httpResponsedMessage.getErrorString());
-                        com.baidu.tieba.person.post.z zVar = this.bPF.bPs;
-                        str4 = this.bPF.bPA;
-                        zVar.hX(str4);
+                        this.bPV.showToast(httpResponsedMessage.getErrorString());
+                        com.baidu.tieba.person.post.z zVar = this.bPV.bPI;
+                        str4 = this.bPV.bPQ;
+                        zVar.ia(str4);
                         return;
                     }
-                    this.bPF.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bPF.getResources().getString(com.baidu.tieba.y.neterror) : httpResponsedMessage.getErrorString());
-                    com.baidu.tieba.person.post.z zVar2 = this.bPF.bPs;
-                    str3 = this.bPF.bPA;
-                    zVar2.hX(str3);
+                    this.bPV.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bPV.getResources().getString(com.baidu.tieba.y.neterror) : httpResponsedMessage.getErrorString());
+                    com.baidu.tieba.person.post.z zVar2 = this.bPV.bPI;
+                    str3 = this.bPV.bPQ;
+                    zVar2.ia(str3);
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.person.post.z zVar3 = this.bPF.bPs;
-            str2 = this.bPF.bPA;
-            zVar3.hX(str2);
+            com.baidu.tieba.person.post.z zVar3 = this.bPV.bPI;
+            str2 = this.bPV.bPQ;
+            zVar3.ia(str2);
             return;
         }
-        com.baidu.tieba.person.post.z zVar4 = this.bPF.bPs;
-        str = this.bPF.bPA;
-        zVar4.hX(str);
+        com.baidu.tieba.person.post.z zVar4 = this.bPV.bPI;
+        str = this.bPV.bPQ;
+        zVar4.ia(str);
     }
 }

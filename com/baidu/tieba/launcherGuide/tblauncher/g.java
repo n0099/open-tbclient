@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class g extends PagerAdapter {
-    final /* synthetic */ GuideActivity bxy;
+    final /* synthetic */ GuideActivity bxO;
 
     private g(GuideActivity guideActivity) {
-        this.bxy = guideActivity;
+        this.bxO = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +21,7 @@ class g extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         ArrayList arrayList;
-        arrayList = this.bxy.bxo;
+        arrayList = this.bxO.bxE;
         return arrayList.size();
     }
 
@@ -32,19 +32,19 @@ class g extends PagerAdapter {
         ArrayList arrayList3;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        arrayList = this.bxy.bxo;
+        arrayList = this.bxO.bxE;
         if (i < arrayList.size()) {
-            arrayList2 = this.bxy.bxo;
+            arrayList2 = this.bxO.bxE;
             ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            arrayList3 = this.bxy.bxo;
+            arrayList3 = this.bxO.bxE;
             if (i == arrayList3.size() - 1) {
-                arrayList5 = this.bxy.bxo;
-                ((View) arrayList5.get(i)).setOnClickListener(this.bxy.bxv);
+                arrayList5 = this.bxO.bxE;
+                ((View) arrayList5.get(i)).setOnClickListener(this.bxO.bxL);
             }
-            arrayList4 = this.bxy.bxo;
+            arrayList4 = this.bxO.bxE;
             return arrayList4.get(i);
         }
-        View view2 = new View(this.bxy.getPageContext().getPageActivity());
+        View view2 = new View(this.bxO.getPageContext().getPageActivity());
         view2.setBackgroundColor(-1);
         ((ViewPager) view).addView(view2, 0);
         return view2;

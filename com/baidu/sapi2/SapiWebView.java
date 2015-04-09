@@ -436,7 +436,11 @@ public final class SapiWebView extends WebView {
     }
 
     private void b() {
-        getSettings().setJavaScriptEnabled(true);
+        try {
+            getSettings().setJavaScriptEnabled(true);
+        } catch (NullPointerException e2) {
+            L.e(e2);
+        }
         setScrollBarStyle(0);
         getSettings().setSaveFormData(false);
         getSettings().setSavePassword(false);

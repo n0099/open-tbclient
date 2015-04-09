@@ -17,11 +17,11 @@ class y extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> zN;
+        ArrayList<com.baidu.tbadk.mainTab.b> zT;
         ai aiVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (zN = ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).zN()) != null && zN.size() != 0) {
-            aiVar = this.this$0.cqV;
-            aiVar.X(zN);
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (zT = ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).zT()) != null && zT.size() != 0) {
+            aiVar = this.this$0.crl;
+            aiVar.Z(zT);
             this.this$0.X(this.this$0.getIntent());
         }
     }

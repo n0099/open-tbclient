@@ -5,13 +5,13 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView bpk;
-    private final /* synthetic */ Animation bpl;
+    final /* synthetic */ PersonalChatView bpA;
+    private final /* synthetic */ Animation bpB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PersonalChatView personalChatView, Animation animation) {
-        this.bpk = personalChatView;
-        this.bpl = animation;
+        this.bpA = personalChatView;
+        this.bpB = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,9 +26,9 @@ public class u implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         TextView textView;
         TextView textView2;
-        textView = this.bpk.bph;
+        textView = this.bpA.bpx;
         textView.setVisibility(0);
-        textView2 = this.bpk.bph;
-        textView2.setAnimation(this.bpl);
+        textView2 = this.bpA.bpx;
+        textView2.setAnimation(this.bpB);
     }
 }

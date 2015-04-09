@@ -14,18 +14,18 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Object, Integer, n> {
-    final /* synthetic */ Login2Activity awY;
-    ArrayList<BasicNameValuePair> axb;
+    final /* synthetic */ Login2Activity axg;
+    ArrayList<BasicNameValuePair> axj;
     private String mUrl;
-    private aa ZD = null;
-    private String axc = null;
+    private aa ZF = null;
+    private String axk = null;
 
     public l(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.awY = login2Activity;
+        this.axg = login2Activity;
         this.mUrl = null;
-        this.axb = null;
+        this.axj = null;
         this.mUrl = str;
-        this.axb = arrayList;
+        this.axj = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,19 +36,19 @@ public class l extends BdAsyncTask<Object, Integer, n> {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
-        Login2Activity login2Activity = this.awY;
-        InputMethodManager inputMethodManager = this.awY.mInputManager;
-        editText = this.awY.awD;
+        Login2Activity login2Activity = this.axg;
+        InputMethodManager inputMethodManager = this.axg.mInputManager;
+        editText = this.axg.awL;
         login2Activity.HidenSoftKeyPad(inputMethodManager, editText);
-        Login2Activity login2Activity2 = this.awY;
-        InputMethodManager inputMethodManager2 = this.awY.mInputManager;
-        editText2 = this.awY.awE;
+        Login2Activity login2Activity2 = this.axg;
+        InputMethodManager inputMethodManager2 = this.axg.mInputManager;
+        editText2 = this.axg.awM;
         login2Activity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        progressBar = this.awY.awI;
+        progressBar = this.axg.awQ;
         progressBar.setVisibility(0);
-        textView = this.awY.avG;
+        textView = this.axg.avO;
         textView.setVisibility(4);
-        textView2 = this.awY.awS;
+        textView2 = this.axg.axa;
         textView2.setText(y.account_login_loading);
     }
 
@@ -60,15 +60,15 @@ public class l extends BdAsyncTask<Object, Integer, n> {
         n nVar;
         Exception e;
         try {
-            this.ZD = new aa(this.mUrl);
-            this.ZD.o(this.axb);
-            this.axc = this.ZD.rO();
-            if (!this.ZD.sp().tq().pv() || this.axc == null) {
+            this.ZF = new aa(this.mUrl);
+            this.ZF.o(this.axj);
+            this.axk = this.ZF.rO();
+            if (!this.ZF.sp().tq().pv() || this.axk == null) {
                 return null;
             }
             nVar = new n();
             try {
-                nVar.parserJson(this.axc);
+                nVar.parserJson(this.axk);
                 return nVar;
             } catch (Exception e2) {
                 e = e2;
@@ -96,48 +96,48 @@ public class l extends BdAsyncTask<Object, Integer, n> {
         TextView textView7;
         String str;
         EditText editText;
-        progressBar = this.awY.awI;
+        progressBar = this.axg.awQ;
         progressBar.setVisibility(8);
-        textView = this.awY.awS;
+        textView = this.axg.axa;
         textView.setText(y.account_login);
-        this.awY.EG();
+        this.axg.EM();
         if (nVar != null) {
-            this.awY.awW = nVar;
-            this.awY.uq();
-        } else if (this.ZD != null) {
-            if ((!this.ZD.ss() || this.ZD.st() != 5) && this.ZD.st() != 6) {
-                textView2 = this.awY.avG;
+            this.axg.axe = nVar;
+            this.axg.uq();
+        } else if (this.ZF != null) {
+            if ((!this.ZF.ss() || this.ZF.st() != 5) && this.ZF.st() != 6) {
+                textView2 = this.axg.avO;
                 textView2.setVisibility(0);
-                textView3 = this.awY.avG;
-                textView3.setText(this.ZD.getErrorString());
-                textView4 = this.awY.awR;
+                textView3 = this.axg.avO;
+                textView3.setText(this.ZF.getErrorString());
+                textView4 = this.axg.awZ;
                 textView4.setVisibility(8);
-                this.awY.EC();
+                this.axg.EI();
             } else {
-                com.baidu.tbadk.coreExtra.data.k kVar = new com.baidu.tbadk.coreExtra.data.k();
-                kVar.parserJson(this.axc);
-                if (kVar.getVcode_pic_url() == null) {
-                    textView5 = this.awY.avG;
+                com.baidu.tbadk.coreExtra.data.l lVar = new com.baidu.tbadk.coreExtra.data.l();
+                lVar.parserJson(this.axk);
+                if (lVar.getVcode_pic_url() == null) {
+                    textView5 = this.axg.avO;
                     textView5.setVisibility(0);
-                    textView6 = this.awY.avG;
-                    textView6.setText(this.ZD.getErrorString());
-                    textView7 = this.awY.awR;
+                    textView6 = this.axg.avO;
+                    textView6.setText(this.ZF.getErrorString());
+                    textView7 = this.axg.awZ;
                     textView7.setVisibility(8);
-                    this.awY.EC();
+                    this.axg.EI();
                 } else {
-                    this.awY.awy = kVar.getVcode_md5();
-                    this.awY.mVcodeUrl = kVar.getVcode_pic_url();
-                    Login2Activity login2Activity = this.awY;
-                    str = this.awY.mVcodeUrl;
-                    login2Activity.eS(str);
-                    this.awY.ED();
-                    Login2Activity login2Activity2 = this.awY;
-                    editText = this.awY.awD;
+                    this.axg.awG = lVar.getVcode_md5();
+                    this.axg.mVcodeUrl = lVar.getVcode_pic_url();
+                    Login2Activity login2Activity = this.axg;
+                    str = this.axg.mVcodeUrl;
+                    login2Activity.eV(str);
+                    this.axg.EJ();
+                    Login2Activity login2Activity2 = this.axg;
+                    editText = this.axg.awL;
                     login2Activity2.mAccount = editText.getText().toString();
                 }
             }
         }
-        this.awY.awV = null;
+        this.axg.axd = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -145,14 +145,14 @@ public class l extends BdAsyncTask<Object, Integer, n> {
         ProgressBar progressBar;
         TextView textView;
         super.cancel(true);
-        if (this.ZD != null) {
-            this.ZD.hh();
-            this.ZD = null;
+        if (this.ZF != null) {
+            this.ZF.hh();
+            this.ZF = null;
         }
-        progressBar = this.awY.awI;
+        progressBar = this.axg.awQ;
         progressBar.setVisibility(8);
-        textView = this.awY.awS;
+        textView = this.axg.axa;
         textView.setText(y.account_login);
-        this.awY.EG();
+        this.axg.EM();
     }
 }

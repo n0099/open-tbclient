@@ -10,8 +10,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
-    private TextView auE = null;
-    private RelativeLayout aup = null;
+    private TextView auM = null;
+    private RelativeLayout aux = null;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,13 +34,13 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     */
     private void initUI() {
         BufferedReader bufferedReader;
-        this.aup = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.aux = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar = this.mNavigationBar;
         String string = getPageContext().getString(com.baidu.tieba.y.account_protocol);
         navigationBar.setTitleText(string);
-        this.auE = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.auM = (TextView) findViewById(com.baidu.tieba.v.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
@@ -64,7 +64,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
                                 e2.printStackTrace();
                             }
                         }
-                        this.auE.setText(sb.toString());
+                        this.auM.setText(sb.toString());
                     }
                 }
                 if (bufferedReader != null) {
@@ -95,7 +95,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
             }
             throw th;
         }
-        this.auE.setText(sb.toString());
+        this.auM.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,7 +103,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ba.g(this.aup, i);
-        ba.c(this.auE, i);
+        ba.g(this.aux, i);
+        ba.c(this.auM, i);
     }
 }

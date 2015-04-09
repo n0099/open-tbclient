@@ -14,19 +14,19 @@ import com.baidu.tieba.tbadkCore.util.l;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.recommendfrs.data.b, com.baidu.tbadk.mvc.e.c> {
-    private TextView aCe;
-    private View aDG;
-    private TextView ahr;
-    private TextView bGh;
-    private TbImageView bXV;
+    private TextView aCm;
+    private View aDO;
+    private TextView ahz;
+    private TextView bGu;
+    private TbImageView bYk;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bXV = (TbImageView) view.findViewById(v.img);
-        this.ahr = (TextView) view.findViewById(v.title);
-        this.aCe = (TextView) view.findViewById(v.desc);
-        this.bGh = (TextView) view.findViewById(v.tag);
-        this.aDG = view.findViewById(v.divider_line);
+        this.bYk = (TbImageView) view.findViewById(v.img);
+        this.ahz = (TextView) view.findViewById(v.title);
+        this.aCm = (TextView) view.findViewById(v.desc);
+        this.bGu = (TextView) view.findViewById(v.tag);
+        this.aDO = view.findViewById(v.divider_line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,24 +36,24 @@ public class a extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.recommendfrs.data
         super.A(bVar);
         if (bVar != null) {
             String str = null;
-            if (bVar.afB() != null && bVar.afB().size() > 0) {
-                str = bVar.afB().get(0);
+            if (bVar.afQ() != null && bVar.afQ().size() > 0) {
+                str = bVar.afQ().get(0);
             }
-            this.bXV.c(str, 10, false);
-            this.ahr.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
-            this.aCe.setText(UtilHelper.getFixedText(bVar.qa(), 24, true));
+            this.bYk.c(str, 10, false);
+            this.ahz.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
+            this.aCm.setText(UtilHelper.getFixedText(bVar.qa(), 24, true));
             if (StringUtils.isNull(bVar.getTag())) {
-                this.bGh.setVisibility(8);
+                this.bGu.setVisibility(8);
             } else {
-                this.bGh.setVisibility(0);
-                this.bGh.setText(UtilHelper.getFixedText(bVar.getTag(), 4, false));
+                this.bGu.setVisibility(0);
+                this.bGu.setText(UtilHelper.getFixedText(bVar.getTag(), 4, false));
             }
-            this.aDG.setVisibility(bVar.afE() ? 0 : 4);
+            this.aDO.setVisibility(bVar.afT() ? 0 : 4);
             l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.iO(String.valueOf(bVar.afA()))) {
-                ba.b(this.ahr, s.cp_cont_d, 1);
+            if (readThreadHistory != null && readThreadHistory.iR(String.valueOf(bVar.afP()))) {
+                ba.b(this.ahz, s.cp_cont_d, 1);
             } else {
-                ba.b(this.ahr, s.cp_cont_b, 1);
+                ba.b(this.ahz, s.cp_cont_b, 1);
             }
         }
     }

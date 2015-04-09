@@ -16,45 +16,45 @@ import com.baidu.tieba.aa;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public abstract class b<T extends View> extends LinearLayout {
-    private int Hm;
-    private float bGH;
-    private float bGI;
-    private float bGJ;
-    private boolean bGK;
-    private int bGL;
-    private boolean bGM;
-    T bGN;
-    private boolean bGO;
-    private a bGP;
-    private a bGQ;
-    private int bGR;
-    private c bGS;
-    private b<T>.d bGT;
+    private int Ho;
+    private float bGU;
+    private float bGV;
+    private float bGW;
+    private boolean bGX;
+    private int bGY;
+    private boolean bGZ;
+    T bHa;
+    private boolean bHb;
+    private a bHc;
+    private a bHd;
+    private int bHe;
+    private c bHf;
+    private b<T>.d bHg;
     private final Handler handler;
     private int mode;
     private int state;
 
-    protected abstract boolean YI();
+    protected abstract boolean YU();
 
-    protected abstract boolean YJ();
+    protected abstract boolean YV();
 
     protected abstract T c(Context context, AttributeSet attributeSet);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public final class d implements Runnable {
-        private final int bGU;
-        private final int bGV;
+        private final int bHh;
+        private final int bHi;
         private final Handler handler;
-        private boolean bGW = true;
+        private boolean bHj = true;
         private long startTime = -1;
-        private int bGX = -1;
-        private final Interpolator bGE = new AccelerateDecelerateInterpolator();
+        private int bHk = -1;
+        private final Interpolator bGR = new AccelerateDecelerateInterpolator();
 
         public d(Handler handler, int i, int i2) {
             this.handler = handler;
-            this.bGV = i;
-            this.bGU = i2;
+            this.bHi = i;
+            this.bHh = i2;
         }
 
         @Override // java.lang.Runnable
@@ -62,38 +62,38 @@ public abstract class b<T extends View> extends LinearLayout {
             if (this.startTime == -1) {
                 this.startTime = System.currentTimeMillis();
             } else {
-                this.bGX = this.bGV - Math.round(this.bGE.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.startTime) * 1000) / 190, 1000L), 0L)) / 1000.0f) * (this.bGV - this.bGU));
-                b.this.setHeaderScroll(this.bGX);
+                this.bHk = this.bHi - Math.round(this.bGR.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.startTime) * 1000) / 190, 1000L), 0L)) / 1000.0f) * (this.bHi - this.bHh));
+                b.this.setHeaderScroll(this.bHk);
             }
-            if (this.bGW && this.bGU != this.bGX) {
+            if (this.bHj && this.bHh != this.bHk) {
                 this.handler.postDelayed(this, 16L);
             }
         }
 
         public void stop() {
-            this.bGW = false;
+            this.bHj = false;
             this.handler.removeCallbacks(this);
         }
     }
 
     public b(Context context) {
         super(context);
-        this.bGK = false;
+        this.bGX = false;
         this.state = 0;
         this.mode = 1;
-        this.bGM = true;
-        this.bGO = true;
+        this.bGZ = true;
+        this.bHb = true;
         this.handler = new Handler();
         init(context, null);
     }
 
     public b(Context context, int i) {
         super(context);
-        this.bGK = false;
+        this.bGX = false;
         this.state = 0;
         this.mode = 1;
-        this.bGM = true;
-        this.bGO = true;
+        this.bGZ = true;
+        this.bHb = true;
         this.handler = new Handler();
         this.mode = i;
         init(context, null);
@@ -101,74 +101,74 @@ public abstract class b<T extends View> extends LinearLayout {
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bGK = false;
+        this.bGX = false;
         this.state = 0;
         this.mode = 1;
-        this.bGM = true;
-        this.bGO = true;
+        this.bGZ = true;
+        this.bHb = true;
         this.handler = new Handler();
         init(context, attributeSet);
     }
 
     public final T getAdapterView() {
-        return this.bGN;
+        return this.bHa;
     }
 
     public final T getRefreshableView() {
-        return this.bGN;
+        return this.bHa;
     }
 
-    public final boolean YG() {
+    public final boolean YS() {
         return this.state == 2 || this.state == 3;
     }
 
     public final void setDisableScrollingWhileRefreshing(boolean z) {
-        this.bGM = z;
+        this.bGZ = z;
     }
 
-    public final void YH() {
+    public final void YT() {
         if (this.state != 0) {
-            YK();
+            YW();
         }
     }
 
     public final void setOnRefreshListener(c cVar) {
-        this.bGS = cVar;
+        this.bHf = cVar;
     }
 
     public final void setPullToRefreshEnabled(boolean z) {
-        this.bGO = z;
+        this.bHb = z;
     }
 
     public void setReleaseLabel(String str) {
-        if (this.bGP != null) {
-            this.bGP.setReleaseLabel(str);
+        if (this.bHc != null) {
+            this.bHc.setReleaseLabel(str);
         }
-        if (this.bGQ != null) {
-            this.bGQ.setReleaseLabel(str);
+        if (this.bHd != null) {
+            this.bHd.setReleaseLabel(str);
         }
     }
 
     public void setPullLabel(String str) {
-        if (this.bGP != null) {
-            this.bGP.setPullLabel(str);
+        if (this.bHc != null) {
+            this.bHc.setPullLabel(str);
         }
-        if (this.bGQ != null) {
-            this.bGQ.setPullLabel(str);
+        if (this.bHd != null) {
+            this.bHd.setPullLabel(str);
         }
     }
 
     public void setRefreshingLabel(String str) {
-        if (this.bGP != null) {
-            this.bGP.setRefreshingLabel(str);
+        if (this.bHc != null) {
+            this.bHc.setRefreshingLabel(str);
         }
-        if (this.bGQ != null) {
-            this.bGQ.setRefreshingLabel(str);
+        if (this.bHd != null) {
+            this.bHd.setRefreshingLabel(str);
         }
     }
 
     public final void setRefreshing(boolean z) {
-        if (!YG()) {
+        if (!YS()) {
             setRefreshingInternal(z);
             this.state = 3;
         }
@@ -176,8 +176,8 @@ public abstract class b<T extends View> extends LinearLayout {
 
     @Override // android.view.View
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bGO) {
-            if (YG() && this.bGM) {
+        if (this.bHb) {
+            if (YS() && this.bGZ) {
                 return true;
             }
             if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
@@ -185,28 +185,28 @@ public abstract class b<T extends View> extends LinearLayout {
                     case 0:
                         if (nj()) {
                             float y = motionEvent.getY();
-                            this.bGH = y;
-                            this.bGJ = y;
+                            this.bGU = y;
+                            this.bGW = y;
                             return true;
                         }
                         return false;
                     case 1:
                     case 3:
-                        if (this.bGK) {
-                            this.bGK = false;
-                            if (this.state == 1 && this.bGS != null) {
+                        if (this.bGX) {
+                            this.bGX = false;
+                            if (this.state == 1 && this.bHf != null) {
                                 setRefreshingInternal(true);
-                                this.bGS.hb(this.bGL);
+                                this.bHf.hd(this.bGY);
                             } else {
-                                he(0);
+                                hg(0);
                             }
                             return true;
                         }
                         return false;
                     case 2:
-                        if (this.bGK) {
-                            this.bGJ = motionEvent.getY();
-                            YL();
+                        if (this.bGX) {
+                            this.bGW = motionEvent.getY();
+                            YX();
                             return true;
                         }
                         return false;
@@ -221,45 +221,45 @@ public abstract class b<T extends View> extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bGO) {
-            if (YG() && this.bGM) {
+        if (this.bHb) {
+            if (YS() && this.bGZ) {
                 return true;
             }
             int action = motionEvent.getAction();
             if (action == 3 || action == 1) {
-                this.bGK = false;
+                this.bGX = false;
                 return false;
-            } else if (action == 0 || !this.bGK) {
+            } else if (action == 0 || !this.bGX) {
                 switch (action) {
                     case 0:
                         if (nj()) {
                             float y = motionEvent.getY();
-                            this.bGH = y;
-                            this.bGJ = y;
-                            this.bGI = motionEvent.getX();
-                            this.bGK = false;
+                            this.bGU = y;
+                            this.bGW = y;
+                            this.bGV = motionEvent.getX();
+                            this.bGX = false;
                             break;
                         }
                         break;
                     case 2:
                         if (nj()) {
                             float y2 = motionEvent.getY();
-                            float f = y2 - this.bGJ;
+                            float f = y2 - this.bGW;
                             float abs = Math.abs(f);
-                            float abs2 = Math.abs(motionEvent.getX() - this.bGI);
-                            if (abs > this.Hm && abs > abs2) {
-                                if ((this.mode == 1 || this.mode == 3) && f >= 1.0E-4f && YI()) {
-                                    this.bGJ = y2;
-                                    this.bGK = true;
+                            float abs2 = Math.abs(motionEvent.getX() - this.bGV);
+                            if (abs > this.Ho && abs > abs2) {
+                                if ((this.mode == 1 || this.mode == 3) && f >= 1.0E-4f && YU()) {
+                                    this.bGW = y2;
+                                    this.bGX = true;
                                     if (this.mode == 3) {
-                                        this.bGL = 1;
+                                        this.bGY = 1;
                                         break;
                                     }
-                                } else if ((this.mode == 2 || this.mode == 3) && f <= 1.0E-4f && YJ()) {
-                                    this.bGJ = y2;
-                                    this.bGK = true;
+                                } else if ((this.mode == 2 || this.mode == 3) && f <= 1.0E-4f && YV()) {
+                                    this.bGW = y2;
+                                    this.bGX = true;
                                     if (this.mode == 3) {
-                                        this.bGL = 2;
+                                        this.bGY = 2;
                                         break;
                                     }
                                 }
@@ -267,7 +267,7 @@ public abstract class b<T extends View> extends LinearLayout {
                         }
                         break;
                 }
-                return this.bGK;
+                return this.bGX;
             } else {
                 return true;
             }
@@ -280,47 +280,47 @@ public abstract class b<T extends View> extends LinearLayout {
     }
 
     protected final int getCurrentMode() {
-        return this.bGL;
+        return this.bGY;
     }
 
     protected final a getFooterLayout() {
-        return this.bGQ;
+        return this.bHd;
     }
 
     protected final a getHeaderLayout() {
-        return this.bGP;
+        return this.bHc;
     }
 
     protected final int getHeaderHeight() {
-        return this.bGR;
+        return this.bHe;
     }
 
     protected final int getMode() {
         return this.mode;
     }
 
-    protected void YK() {
+    protected void YW() {
         this.state = 0;
-        this.bGK = false;
-        if (this.bGP != null) {
-            this.bGP.reset();
+        this.bGX = false;
+        if (this.bHc != null) {
+            this.bHc.reset();
         }
-        if (this.bGQ != null) {
-            this.bGQ.reset();
+        if (this.bHd != null) {
+            this.bHd.reset();
         }
-        he(0);
+        hg(0);
     }
 
     protected void setRefreshingInternal(boolean z) {
         this.state = 2;
-        if (this.bGP != null) {
-            this.bGP.mP();
+        if (this.bHc != null) {
+            this.bHc.mP();
         }
-        if (this.bGQ != null) {
-            this.bGQ.mP();
+        if (this.bHd != null) {
+            this.bHd.mP();
         }
         if (z) {
-            he(this.bGL == 1 ? -this.bGR : this.bGR);
+            hg(this.bGY == 1 ? -this.bHe : this.bHe);
         }
     }
 
@@ -328,69 +328,69 @@ public abstract class b<T extends View> extends LinearLayout {
         scrollTo(0, i);
     }
 
-    public final void he(int i) {
-        if (this.bGT != null) {
-            this.bGT.stop();
+    public final void hg(int i) {
+        if (this.bHg != null) {
+            this.bHg.stop();
         }
         if (getScrollY() != i) {
-            this.bGT = new d(this.handler, getScrollY(), i);
-            this.handler.post(this.bGT);
+            this.bHg = new d(this.handler, getScrollY(), i);
+            this.handler.post(this.bHg);
         }
     }
 
     private void init(Context context, AttributeSet attributeSet) {
         setOrientation(1);
-        this.Hm = ViewConfiguration.getTouchSlop();
+        this.Ho = ViewConfiguration.getTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aa.PullToRefresh);
         if (obtainStyledAttributes.hasValue(3)) {
             this.mode = obtainStyledAttributes.getInteger(3, 1);
         }
-        this.bGN = c(context, attributeSet);
-        f(context, this.bGN);
+        this.bHa = c(context, attributeSet);
+        f(context, this.bHa);
         String string = context.getString(y.chosen_pull_refresh);
         String string2 = context.getString(y.chosen_drag_refresh);
         String string3 = context.getString(y.chosen_release_refresh);
         if (this.mode == 1 || this.mode == 3) {
-            this.bGP = new a(context, 1, string3, string, string2);
-            addView(this.bGP, 0, new LinearLayout.LayoutParams(-1, -2));
-            e(this.bGP);
-            this.bGR = this.bGP.getMeasuredHeight();
+            this.bHc = new a(context, 1, string3, string, string2);
+            addView(this.bHc, 0, new LinearLayout.LayoutParams(-1, -2));
+            e(this.bHc);
+            this.bHe = this.bHc.getMeasuredHeight();
         }
         if (this.mode == 2 || this.mode == 3) {
-            this.bGQ = new a(context, 2, string3, string, string2);
-            addView(this.bGQ, new LinearLayout.LayoutParams(-1, -2));
-            e(this.bGQ);
-            this.bGR = this.bGQ.getMeasuredHeight();
+            this.bHd = new a(context, 2, string3, string, string2);
+            addView(this.bHd, new LinearLayout.LayoutParams(-1, -2));
+            e(this.bHd);
+            this.bHe = this.bHd.getMeasuredHeight();
         }
         if (obtainStyledAttributes.hasValue(2)) {
             int color = obtainStyledAttributes.getColor(2, ViewCompat.MEASURED_STATE_MASK);
-            if (this.bGP != null) {
-                this.bGP.setTextColor(color);
+            if (this.bHc != null) {
+                this.bHc.setTextColor(color);
             }
-            if (this.bGQ != null) {
-                this.bGQ.setTextColor(color);
+            if (this.bHd != null) {
+                this.bHd.setTextColor(color);
             }
         }
         if (obtainStyledAttributes.hasValue(1)) {
             setBackgroundResource(obtainStyledAttributes.getResourceId(1, -1));
         }
         if (obtainStyledAttributes.hasValue(0)) {
-            this.bGN.setBackgroundResource(obtainStyledAttributes.getResourceId(0, -1));
+            this.bHa.setBackgroundResource(obtainStyledAttributes.getResourceId(0, -1));
         }
         obtainStyledAttributes.recycle();
         switch (this.mode) {
             case 2:
-                setPadding(0, 0, 0, -this.bGR);
+                setPadding(0, 0, 0, -this.bHe);
                 break;
             case 3:
-                setPadding(0, -this.bGR, 0, -this.bGR);
+                setPadding(0, -this.bHe, 0, -this.bHe);
                 break;
             default:
-                setPadding(0, -this.bGR, 0, 0);
+                setPadding(0, -this.bHe, 0, 0);
                 break;
         }
         if (this.mode != 3) {
-            this.bGL = this.mode;
+            this.bGY = this.mode;
         }
     }
 
@@ -410,38 +410,38 @@ public abstract class b<T extends View> extends LinearLayout {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    private boolean YL() {
+    private boolean YX() {
         int round;
         int scrollY = getScrollY();
-        switch (this.bGL) {
+        switch (this.bGY) {
             case 2:
-                round = Math.round(Math.max(this.bGH - this.bGJ, 0.0f) / 2.0f);
+                round = Math.round(Math.max(this.bGU - this.bGW, 0.0f) / 2.0f);
                 break;
             default:
-                round = Math.round(Math.min(this.bGH - this.bGJ, 0.0f) / 2.0f);
+                round = Math.round(Math.min(this.bGU - this.bGW, 0.0f) / 2.0f);
                 break;
         }
         setHeaderScroll(round);
         if (round != 0) {
-            if (this.state == 0 && this.bGR < Math.abs(round)) {
+            if (this.state == 0 && this.bHe < Math.abs(round)) {
                 this.state = 1;
-                switch (this.bGL) {
+                switch (this.bGY) {
                     case 1:
-                        this.bGP.mO();
+                        this.bHc.mO();
                         break;
                     case 2:
-                        this.bGQ.mO();
+                        this.bHd.mO();
                         break;
                 }
                 return true;
-            } else if (this.state == 1 && this.bGR >= Math.abs(round)) {
+            } else if (this.state == 1 && this.bHe >= Math.abs(round)) {
                 this.state = 0;
-                switch (this.bGL) {
+                switch (this.bGY) {
                     case 1:
-                        this.bGP.ne();
+                        this.bHc.ne();
                         break;
                     case 2:
-                        this.bGQ.ne();
+                        this.bHd.ne();
                         break;
                 }
                 return true;
@@ -453,11 +453,11 @@ public abstract class b<T extends View> extends LinearLayout {
     private boolean nj() {
         switch (this.mode) {
             case 1:
-                return YI();
+                return YU();
             case 2:
-                return YJ();
+                return YV();
             case 3:
-                return YJ() || YI();
+                return YV() || YU();
             default:
                 return false;
         }
@@ -468,12 +468,12 @@ public abstract class b<T extends View> extends LinearLayout {
         getRefreshableView().setLongClickable(z);
     }
 
-    public void YM() {
-        if (this.bGP != null) {
-            this.bGP.rk();
+    public void YY() {
+        if (this.bHc != null) {
+            this.bHc.rk();
         }
-        if (this.bGQ != null) {
-            this.bGQ.rk();
+        if (this.bHd != null) {
+            this.bHd.rk();
         }
     }
 }

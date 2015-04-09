@@ -50,7 +50,7 @@ public class c<T> extends e<t, u, T> {
     }
 
     public void a(t tVar) {
-        this.amM = tVar;
+        this.amU = tVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

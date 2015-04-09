@@ -14,7 +14,7 @@ class as extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            LivePlayingStatusMgr.xd().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+            LivePlayingStatusMgr.xj().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
         }
     }
 }

@@ -16,12 +16,12 @@ import com.baidu.tieba.tbadkCore.PbEditor.p;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class EditorInfoContainer extends LinearLayout {
-    private final CustomMessageListener Zd;
-    protected p cuM;
-    private com.baidu.tieba.tbadkCore.PbEditor.b cuN;
-    private com.baidu.tieba.tbadkCore.PbEditor.b cuO;
-    private com.baidu.tieba.tbadkCore.PbEditor.b cuP;
-    private com.baidu.tieba.tbadkCore.PbEditor.b cuQ;
+    private final CustomMessageListener Zf;
+    protected p cvc;
+    private com.baidu.tieba.tbadkCore.PbEditor.b cvd;
+    private com.baidu.tieba.tbadkCore.PbEditor.b cve;
+    private com.baidu.tieba.tbadkCore.PbEditor.b cvf;
+    private com.baidu.tieba.tbadkCore.PbEditor.b cvg;
 
     public EditorInfoContainer(Context context) {
         this(context, null);
@@ -29,29 +29,29 @@ public class EditorInfoContainer extends LinearLayout {
 
     public EditorInfoContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Zd = new a(this, 2010041);
+        this.Zf = new a(this, 2010041);
         setOrientation(0);
         int dimension = (int) context.getResources().getDimension(t.ds36);
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
-        this.cuM = new p(context);
-        this.cuN = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.cuO = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.cuP = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.cuP.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.cuQ = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.cuQ.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.cvc = new p(context);
+        this.cvd = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.cve = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.cvf = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.cvf.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.cvg = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.cvg.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(t.ds16);
-        addView(this.cuM, layoutParams);
-        addView(this.cuN, layoutParams);
-        addView(this.cuO, layoutParams);
-        addView(this.cuP, layoutParams);
-        addView(this.cuQ, layoutParams);
-        this.cuN.setVisibility(8);
-        this.cuO.setVisibility(8);
-        this.cuP.setVisibility(8);
-        this.cuQ.setVisibility(8);
+        addView(this.cvc, layoutParams);
+        addView(this.cvd, layoutParams);
+        addView(this.cve, layoutParams);
+        addView(this.cvf, layoutParams);
+        addView(this.cvg, layoutParams);
+        this.cvd.setVisibility(8);
+        this.cve.setVisibility(8);
+        this.cvf.setVisibility(8);
+        this.cvg.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -59,16 +59,16 @@ public class EditorInfoContainer extends LinearLayout {
         super.onAttachedToWindow();
         l B = m.B(getContext());
         if (B != null) {
-            this.Zd.setTag(B.getUniqueId());
+            this.Zf.setTag(B.getUniqueId());
         }
-        this.Zd.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.Zd);
+        this.Zf.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.Zf);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.Zd);
+        MessageManager.getInstance().unRegisterListener(this.Zf);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -78,56 +78,56 @@ public class EditorInfoContainer extends LinearLayout {
     }
 
     public p getLocationInfoView() {
-        return this.cuM;
+        return this.cvc;
     }
 
     public void a(af afVar) {
         if (afVar != null) {
-            if (afVar.cmX > 0) {
-                this.cuN.setVisibility(0);
-                this.cuN.setText(String.valueOf(afVar.cmX));
+            if (afVar.cnn > 0) {
+                this.cvd.setVisibility(0);
+                this.cvd.setText(String.valueOf(afVar.cnn));
             } else {
-                this.cuN.setVisibility(8);
+                this.cvd.setVisibility(8);
             }
-            if (afVar.cmY > 0) {
-                this.cuO.setVisibility(0);
-                this.cuO.setText(String.valueOf(afVar.cmX));
+            if (afVar.cno > 0) {
+                this.cve.setVisibility(0);
+                this.cve.setText(String.valueOf(afVar.cnn));
             } else {
-                this.cuO.setVisibility(8);
+                this.cve.setVisibility(8);
             }
-            if (afVar.cmZ > 0 || afVar.cnb > 0) {
-                this.cuP.setVisibility(0);
-                this.cuP.setText(String.valueOf(afVar.cmZ + afVar.cnb));
+            if (afVar.cnp > 0 || afVar.cnr > 0) {
+                this.cvf.setVisibility(0);
+                this.cvf.setText(String.valueOf(afVar.cnp + afVar.cnr));
             } else {
-                this.cuP.setVisibility(8);
+                this.cvf.setVisibility(8);
             }
-            if (afVar.cna > 0) {
-                this.cuQ.setVisibility(0);
-                this.cuQ.setText(String.valueOf(afVar.cna));
+            if (afVar.cnq > 0) {
+                this.cvg.setVisibility(0);
+                this.cvg.setText(String.valueOf(afVar.cnq));
                 return;
             }
-            this.cuQ.setVisibility(8);
+            this.cvg.setVisibility(8);
         }
     }
 
     public void rk() {
         TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.cuM != null) {
-            this.cuM.tP();
+        if (this.cvc != null) {
+            this.cvc.tP();
         }
-        if (this.cuN != null) {
-            this.cuN.tP();
+        if (this.cvd != null) {
+            this.cvd.tP();
         }
-        if (this.cuO != null) {
-            this.cuO.tP();
+        if (this.cve != null) {
+            this.cve.tP();
         }
-        if (this.cuP != null) {
-            this.cuP.tP();
-            this.cuP.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.cvf != null) {
+            this.cvf.tP();
+            this.cvf.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (this.cuQ != null) {
-            this.cuQ.tP();
-            this.cuQ.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.cvg != null) {
+            this.cvg.tP();
+            this.cvg.setCompoundDrawablesWithIntrinsicBounds(ba.getDrawable(u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

@@ -5,22 +5,22 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.adp.widget.BdSwitchView.b {
-    final /* synthetic */ g bZD;
+    final /* synthetic */ g bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.bZD = gVar;
+        this.bZS = gVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.b
     public void a(View view, BdSwitchView.SwitchState switchState) {
         j jVar;
         j jVar2;
-        jVar = this.bZD.bZm;
+        jVar = this.bZS.bZB;
         if (jVar == null) {
             return;
         }
-        jVar2 = this.bZD.bZm;
+        jVar2 = this.bZS.bZB;
         jVar2.a(switchState);
     }
 }

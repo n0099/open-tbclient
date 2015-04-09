@@ -25,21 +25,21 @@ class ac extends CustomMessageListener {
         com.baidu.tbadk.b.d dVar5;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009501 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.b.a)) {
             SignAllForumStatic.mContext = ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).getContext();
-            SignAllForumStatic.bFf = new com.baidu.tbadk.b.d();
+            SignAllForumStatic.bFs = new com.baidu.tbadk.b.d();
             context = SignAllForumStatic.mContext;
             if (context != null) {
-                dVar = SignAllForumStatic.bFf;
+                dVar = SignAllForumStatic.bFs;
                 onClickListener = SignAllForumStatic.mClickListener;
                 dVar.e(onClickListener);
-                dVar2 = SignAllForumStatic.bFf;
+                dVar2 = SignAllForumStatic.bFs;
                 dVar2.setPosition(4);
-                dVar3 = SignAllForumStatic.bFf;
+                dVar3 = SignAllForumStatic.bFs;
                 context2 = SignAllForumStatic.mContext;
                 dVar3.setIcon(context2.getResources().getDrawable(com.baidu.tieba.u.icon_all_sign_dis));
-                dVar4 = SignAllForumStatic.bFf;
+                dVar4 = SignAllForumStatic.bFs;
                 context3 = SignAllForumStatic.mContext;
                 dVar4.setTitle(context3.getResources().getString(com.baidu.tieba.y.ba_all_sign));
-                dVar5 = SignAllForumStatic.bFf;
+                dVar5 = SignAllForumStatic.bFs;
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).a(dVar5);
             }
         }

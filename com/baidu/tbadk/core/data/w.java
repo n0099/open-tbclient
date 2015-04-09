@@ -30,60 +30,60 @@ import tbclient.ThreadInfo;
 import tbclient.Voice;
 /* loaded from: classes.dex */
 public class w implements ai, as {
-    private int QB;
-    private int QC;
     private int QD;
-    private String QE;
-    private long QG;
-    private SpannableString Qv;
+    private int QE;
+    private int QF;
+    private String QG;
+    private long QI;
+    private SpannableString Qx;
     private String address;
     private String authorId;
     private String first_post_id;
     private String latitude;
     private HashMap<String, MetaData> userMap;
-    public static final BdUniqueId Qm = BdUniqueId.gen();
-    public static final BdUniqueId Qn = BdUniqueId.gen();
-    private static HashMap<Point, Integer> QJ = new HashMap<>();
-    private String Qz = null;
-    private int PD = 0;
-    private String QH = "";
+    public static final BdUniqueId Qo = BdUniqueId.gen();
+    public static final BdUniqueId Qp = BdUniqueId.gen();
+    private static HashMap<Point, Integer> QL = new HashMap<>();
+    private String QC = null;
+    private int PF = 0;
+    private String QJ = "";
     private String id = null;
     private String tid = null;
     private String title = null;
     private int reply_num = 0;
-    private int Qo = 0;
-    private int Qp = 0;
+    private int Qq = 0;
+    private int Qr = 0;
     private String last_time = null;
     private long last_time_int = 0;
     private int is_top = 0;
     private int is_good = 0;
-    private int Qq = 0;
-    private z Qr = new z();
+    private int Qs = 0;
+    private z Qt = new z();
     private MetaData author = new MetaData();
     private String forum_name = null;
-    ArrayList<MediaData> Qw = new ArrayList<>();
-    ArrayList<VoiceData.VoiceModel> Qx = new ArrayList<>();
-    private int Qs = 0;
-    private int Qt = 0;
-    private String Qu = null;
+    ArrayList<MediaData> Qy = new ArrayList<>();
+    ArrayList<VoiceData.VoiceModel> Qz = new ArrayList<>();
+    private int Qu = 0;
+    private int Qv = 0;
+    private String Qw = null;
     private String abstract_text = null;
     private String from = null;
-    private int Qy = 0;
+    private int QB = 0;
     private PraiseData praise = new PraiseData();
     private AnchorInfoData anchorInfoData = new AnchorInfoData();
     private long time = 0;
-    private int QF = 0;
-    private ArrayList<b> QI = new ArrayList<>();
+    private int QH = 0;
+    private ArrayList<b> QK = new ArrayList<>();
 
     static {
-        QJ.put(new Point(1, 1), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_ing));
-        QJ.put(new Point(1, 2), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_over));
-        QJ.put(new Point(1, 3), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_off));
-        QJ.put(new Point(1, 4), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_d));
-        QJ.put(new Point(2, 1), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shaiing));
-        QJ.put(new Point(2, 2), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_over));
-        QJ.put(new Point(2, 3), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_off));
-        QJ.put(new Point(2, 4), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_d));
+        QL.put(new Point(1, 1), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_ing));
+        QL.put(new Point(1, 2), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_over));
+        QL.put(new Point(1, 3), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_off));
+        QL.put(new Point(1, 4), Integer.valueOf(com.baidu.tieba.u.label_frs_lottery_d));
+        QL.put(new Point(2, 1), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shaiing));
+        QL.put(new Point(2, 2), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_over));
+        QL.put(new Point(2, 3), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_off));
+        QL.put(new Point(2, 4), Integer.valueOf(com.baidu.tieba.u.label_frs_activity_shai_d));
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -95,7 +95,7 @@ public class w implements ai, as {
     }
 
     public long getCreateTime() {
-        return this.QG;
+        return this.QI;
     }
 
     public PraiseData getPraise() {
@@ -163,11 +163,11 @@ public class w implements ai, as {
     }
 
     public int qC() {
-        return this.Qq;
+        return this.Qs;
     }
 
     public z qD() {
-        return this.Qr;
+        return this.Qt;
     }
 
     public MetaData getAuthor() {
@@ -175,11 +175,11 @@ public class w implements ai, as {
     }
 
     public int qE() {
-        return this.Qt;
+        return this.Qv;
     }
 
     public String qF() {
-        return this.Qu;
+        return this.Qw;
     }
 
     public String qG() {
@@ -187,39 +187,39 @@ public class w implements ai, as {
     }
 
     public int qH() {
-        return this.Qy;
+        return this.QB;
     }
 
     public void bv(int i) {
-        this.Qy = i;
+        this.QB = i;
     }
 
     public String qI() {
-        return this.Qz;
+        return this.QC;
     }
 
     public void bV(String str) {
-        this.Qz = str;
+        this.QC = str;
     }
 
     public ArrayList<MediaData> getMedias() {
-        return this.Qw;
+        return this.Qy;
     }
 
     public ArrayList<b> qJ() {
-        return this.QI;
+        return this.QK;
     }
 
     public void l(ArrayList<b> arrayList) {
-        this.QI = arrayList;
+        this.QK = arrayList;
     }
 
     public ArrayList<VoiceData.VoiceModel> qK() {
-        return this.Qx;
+        return this.Qz;
     }
 
     public int qL() {
-        return this.QD;
+        return this.QF;
     }
 
     public String getAddress() {
@@ -227,7 +227,7 @@ public class w implements ai, as {
     }
 
     public String qM() {
-        return this.QH;
+        return this.QJ;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0021: IGET  (r2v0 java.lang.Long A[REMOVE]) = (r8v0 tbclient.ThreadInfo) tbclient.ThreadInfo.id java.lang.Long)] */
@@ -240,39 +240,39 @@ public class w implements ai, as {
             try {
                 if (threadInfo.location != null) {
                     this.latitude = threadInfo.location.lat;
-                    this.QE = threadInfo.location.lng;
+                    this.QG = threadInfo.location.lng;
                     this.address = threadInfo.location.name;
                 }
                 this.id = new StringBuilder().append(threadInfo.id).toString();
                 this.tid = new StringBuilder().append(threadInfo.tid).toString();
                 this.title = threadInfo.title;
-                this.QG = threadInfo.create_time.intValue() * 1000;
+                this.QI = threadInfo.create_time.intValue() * 1000;
                 this.reply_num = threadInfo.reply_num.intValue();
-                this.Qo = threadInfo.repost_num.intValue();
-                this.Qp = threadInfo.view_num.intValue();
+                this.Qq = threadInfo.repost_num.intValue();
+                this.Qr = threadInfo.view_num.intValue();
                 this.last_time = threadInfo.last_time;
                 this.last_time_int = threadInfo.last_time_int.intValue();
                 this.is_top = threadInfo.is_top.intValue();
                 this.is_good = threadInfo.is_good.intValue();
-                this.Qq = threadInfo.is_livepost.intValue();
-                this.Qr.a(threadInfo.topic);
+                this.Qs = threadInfo.is_livepost.intValue();
+                this.Qt.a(threadInfo.topic);
                 this.author.parserProtobuf(threadInfo.author);
                 this.authorId = threadInfo.author_id.toString();
                 this.forum_name = threadInfo.fname;
-                this.Qs = threadInfo.has_commented.intValue();
-                this.Qt = threadInfo.show_commented.intValue();
-                this.Qu = threadInfo.click_url;
+                this.Qu = threadInfo.has_commented.intValue();
+                this.Qv = threadInfo.show_commented.intValue();
+                this.Qw = threadInfo.click_url;
                 this.from = threadInfo.from;
-                this.Qy = threadInfo.collect_status.intValue();
-                this.Qz = threadInfo.collect_mark_pid;
-                this.QB = threadInfo.is_voice_thread.intValue();
-                this.QC = threadInfo.thread_type.intValue();
+                this.QB = threadInfo.collect_status.intValue();
+                this.QC = threadInfo.collect_mark_pid;
+                this.QD = threadInfo.is_voice_thread.intValue();
+                this.QE = threadInfo.thread_type.intValue();
                 this.first_post_id = new StringBuilder().append(threadInfo.first_post_id).toString();
-                this.QH = new StringBuilder().append(threadInfo.post_id).toString();
+                this.QJ = new StringBuilder().append(threadInfo.post_id).toString();
                 this.time = threadInfo.time.intValue() * 1000;
-                this.QD = threadInfo.is_ntitle.intValue();
-                this.QF = threadInfo.is_activity.intValue();
-                if ((this.author == null || this.author.getUserId().equals(GameInfoData.NOT_FROM_DETAIL)) && this.authorId != null && !this.authorId.equals(GameInfoData.NOT_FROM_DETAIL) && (metaData = this.userMap.get(this.authorId)) != null) {
+                this.QF = threadInfo.is_ntitle.intValue();
+                this.QH = threadInfo.is_activity.intValue();
+                if ((this.author == null || this.author.getUserId() == null || this.author.getUserId().equals(GameInfoData.NOT_FROM_DETAIL)) && this.authorId != null && !this.authorId.equals(GameInfoData.NOT_FROM_DETAIL) && (metaData = this.userMap.get(this.authorId)) != null) {
                     this.author = metaData;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -294,7 +294,7 @@ public class w implements ai, as {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserProtobuf(list2.get(i2));
-                        this.Qw.add(mediaData);
+                        this.Qy.add(mediaData);
                     }
                 }
                 List<Voice> list3 = threadInfo.voice_info;
@@ -306,7 +306,7 @@ public class w implements ai, as {
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = voice.voice_md5;
                         voiceModel.duration = voice.during_time.intValue() / 1000;
-                        this.Qx.add(voiceModel);
+                        this.Qz.add(voiceModel);
                     }
                 }
                 List<ActInfo> list4 = threadInfo.act_info;
@@ -315,7 +315,7 @@ public class w implements ai, as {
                     for (int i4 = 0; i4 < size2; i4++) {
                         b bVar = new b();
                         bVar.a(list4.get(i4));
-                        this.QI.add(bVar);
+                        this.QK.add(bVar);
                     }
                 }
                 this.praise.setUserMap(this.userMap);
@@ -338,31 +338,31 @@ public class w implements ai, as {
                 this.id = jSONObject.optString("id");
                 this.tid = jSONObject.optString("tid");
                 this.title = jSONObject.optString("title");
-                this.QG = jSONObject.optLong("create_time", 0L) * 1000;
+                this.QI = jSONObject.optLong("create_time", 0L) * 1000;
                 this.reply_num = jSONObject.optInt("reply_num", 0);
-                this.Qo = jSONObject.optInt("repost_num", 0);
-                this.Qp = jSONObject.optInt("view_num", 0);
+                this.Qq = jSONObject.optInt("repost_num", 0);
+                this.Qr = jSONObject.optInt("view_num", 0);
                 this.last_time = jSONObject.optString("last_time");
                 this.last_time_int = jSONObject.optLong("last_time_int", 0L);
                 this.is_top = jSONObject.optInt(PbActivityConfig.KEY_IS_TOP, 0);
                 this.is_good = jSONObject.optInt(PbActivityConfig.KEY_IS_GOOD, 0);
-                this.Qq = jSONObject.optInt("is_livepost", 0);
-                this.Qr.parserJson(jSONObject.optJSONObject("topic"));
+                this.Qs = jSONObject.optInt("is_livepost", 0);
+                this.Qt.parserJson(jSONObject.optJSONObject("topic"));
                 this.authorId = jSONObject.optString("author_id");
                 this.author.parserJson(jSONObject.optJSONObject("author"));
                 this.forum_name = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.Qs = jSONObject.optInt("has_commented", 0);
-                this.Qt = jSONObject.optInt("show_commented", 0);
-                this.Qu = jSONObject.optString("click_url");
+                this.Qu = jSONObject.optInt("has_commented", 0);
+                this.Qv = jSONObject.optInt("show_commented", 0);
+                this.Qw = jSONObject.optString("click_url");
                 this.from = jSONObject.optString("from");
-                this.Qy = jSONObject.optInt("collect_status");
-                this.Qz = jSONObject.optString("collect_mark_pid");
-                this.QB = jSONObject.optInt("is_voice_thread");
-                this.QC = jSONObject.optInt("thread_type");
+                this.QB = jSONObject.optInt("collect_status");
+                this.QC = jSONObject.optString("collect_mark_pid");
+                this.QD = jSONObject.optInt("is_voice_thread");
+                this.QE = jSONObject.optInt("thread_type");
                 this.first_post_id = jSONObject.optString("first_post_id", GameInfoData.NOT_FROM_DETAIL);
-                this.QH = jSONObject.optString("post_id", GameInfoData.NOT_FROM_DETAIL);
+                this.QJ = jSONObject.optString("post_id", GameInfoData.NOT_FROM_DETAIL);
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.QD = jSONObject.optInt("is_ntitle");
+                this.QF = jSONObject.optInt("is_ntitle");
                 if (this.author == null || this.author.getUserId() == null) {
                     this.author = this.userMap.get(this.authorId);
                 }
@@ -385,7 +385,7 @@ public class w implements ai, as {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.Qw.add(mediaData);
+                        this.Qy.add(mediaData);
                     }
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
@@ -397,7 +397,7 @@ public class w implements ai, as {
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = jSONObject2.optString("voice_md5");
                         voiceModel.duration = jSONObject2.optInt("during_time") / 1000;
-                        this.Qx.add(voiceModel);
+                        this.Qz.add(voiceModel);
                     }
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("act_info");
@@ -405,7 +405,7 @@ public class w implements ai, as {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                         b bVar = new b();
                         bVar.parserJson(optJSONArray4.getJSONObject(i4));
-                        this.QI.add(bVar);
+                        this.QK.add(bVar);
                     }
                 }
                 this.praise.setUserMap(this.userMap);
@@ -423,7 +423,7 @@ public class w implements ai, as {
     }
 
     public SpannableString getSpan_str() {
-        return this.Qv;
+        return this.Qx;
     }
 
     public boolean qN() {
@@ -431,8 +431,8 @@ public class w implements ai, as {
     }
 
     public int qO() {
-        if (qQ() && this.QI.size() >= 1) {
-            b bVar = this.QI.get(0);
+        if (qQ() && this.QK.size() >= 1) {
+            b bVar = this.QK.get(0);
             int status = bVar.getStatus();
             if (status == 3) {
                 return status;
@@ -449,18 +449,18 @@ public class w implements ai, as {
     }
 
     public int qP() {
-        if (!qQ() || this.QI.size() < 1 || this.QI.get(0) == null) {
+        if (!qQ() || this.QK.size() < 1 || this.QK.get(0) == null) {
             return -1;
         }
-        return this.QI.get(0).pK();
+        return this.QK.get(0).pK();
     }
 
     public boolean qQ() {
-        return this.QF == 1;
+        return this.QH == 1;
     }
 
     public String qR() {
-        return (!qQ() || this.QI.size() < 1 || this.QI.get(0) == null) ? "" : this.QI.get(0).getUrl();
+        return (!qQ() || this.QK.size() < 1 || this.QK.get(0) == null) ? "" : this.QK.get(0).getUrl();
     }
 
     private void ab(boolean z) {
@@ -472,13 +472,13 @@ public class w implements ai, as {
             } else if (getIs_top() == 2) {
                 arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_notice));
             }
-            if (qC() == 1 || this.Qr.qZ() != 0) {
+            if (qC() == 1 || this.Qt.qZ() != 0) {
                 arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live));
             }
             if (getIs_good() == 1 && !qN()) {
                 arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_elite));
             }
-            if (this.QB == 1 || this.QC == 11) {
+            if (this.QD == 1 || this.QE == 11) {
                 arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice));
             }
             if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
@@ -488,7 +488,7 @@ public class w implements ai, as {
                 arrayList.add(Integer.valueOf(com.baidu.tieba.u.frs_post_ding));
             }
             if (z) {
-                Integer num = QJ.get(new Point(qP(), qO()));
+                Integer num = QL.get(new Point(qP(), qO()));
                 if (num != null) {
                     arrayList.add(num);
                 }
@@ -517,7 +517,7 @@ public class w implements ai, as {
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.Qv = spannableString;
+            this.Qx = spannableString;
         }
     }
 
@@ -548,16 +548,16 @@ public class w implements ai, as {
             }
             if (medias.get(i2).getType() == 3) {
                 ar arVar = new ar();
-                arVar.QK = medias.get(i2).getPicUrl();
-                arVar.UU = 13;
+                arVar.QM = medias.get(i2).getPicUrl();
+                arVar.UW = 13;
                 arrayList.add(arVar);
             }
             i = i2 + 1;
         }
         if (this.author != null) {
             ar arVar2 = new ar();
-            arVar2.QK = this.author.getPortrait();
-            arVar2.UU = 28;
+            arVar2.QM = this.author.getPortrait();
+            arVar2.UW = 28;
             arrayList.add(arVar2);
         }
         return arrayList;
@@ -570,20 +570,20 @@ public class w implements ai, as {
 
     @Override // com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return (getIs_top() == 2 || getIs_top() == 1) ? Qm : Qn;
+        return (getIs_top() == 2 || getIs_top() == 1) ? Qo : Qp;
     }
 
     public int qU() {
-        return this.PD;
+        return this.PF;
     }
 
     public void m(ArrayList<i> arrayList) {
-        if (this.QD == 1) {
-            this.PD = 0;
+        if (this.QF == 1) {
+            this.PF = 0;
         } else if (arrayList == null || arrayList.size() <= 0) {
-            this.PD = 0;
+            this.PF = 0;
         } else {
-            this.PD = 0;
+            this.PF = 0;
             Iterator<i> it = arrayList.iterator();
             while (it.hasNext()) {
                 i next = it.next();
@@ -593,7 +593,7 @@ public class w implements ai, as {
                         if (it2.hasNext()) {
                             String next2 = it2.next();
                             if (!StringUtils.isNull(next2) && this.title.contains(next2)) {
-                                this.PD = next.pX();
+                                this.PF = next.pX();
                                 break;
                             }
                         }

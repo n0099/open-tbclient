@@ -68,7 +68,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
         } else {
             string = resources.getString(y.register_tip);
         }
-        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.act.b.aal).registMode(RegistMode.FAST).initialShareStrategy(LoginShareStrategy.CHOICE).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).build());
+        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.act.b.aan).registMode(RegistMode.FAST).initialShareStrategy(LoginShareStrategy.CHOICE).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).build());
     }
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -80,7 +80,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             initSapi();
         }
         init(getContext());
-        PluginPackageManager.ls().a(a.CT(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
+        PluginPackageManager.ls().a(a.CZ(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
         ab.sy();
         initSettings();
         if (isMainProcess(true)) {
@@ -93,9 +93,9 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             initSignedForum();
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
-        ai.CQ().x(System.currentTimeMillis());
+        ai.CW().x(System.currentTimeMillis());
         if (this.isRemoteProcess) {
-            ai.CQ().D(System.currentTimeMillis() - this.processCreateTime);
+            ai.CW().D(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             com.baidu.adp.lib.asyncTask.f.fR();
             com.baidu.tbadk.core.sharedPref.b.fR();
             GifView.releaseBitmap();
-            e.zs().zu();
+            e.zy().zA();
             getApp().getResources().updateConfiguration(getApp().getResources().getConfiguration(), getApp().getResources().getDisplayMetrics());
         }
     }

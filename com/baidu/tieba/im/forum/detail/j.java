@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h bcG;
+    final /* synthetic */ h bcW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(h hVar, int i) {
         super(i);
-        this.bcG = hVar;
+        this.bcW = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,26 +35,26 @@ public class j extends com.baidu.adp.framework.listener.e {
                 if (requestUpdateMaskInfoMessage.getMaskType() == 12) {
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            forumDetailActivity2 = this.bcG.bcE;
+                            forumDetailActivity2 = this.bcW.bcU;
                             errorString = forumDetailActivity2.getResources().getString(com.baidu.tieba.y.neterror);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        forumDetailActivity = this.bcG.bcE;
+                        forumDetailActivity = this.bcW.bcU;
                         forumDetailActivity.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            lVar4 = this.bcG.bcF;
-                            lVar4.cA(false);
+                            lVar4 = this.bcW.bcV;
+                            lVar4.cy(false);
                             return;
                         }
-                        lVar3 = this.bcG.bcF;
-                        lVar3.cB(false);
+                        lVar3 = this.bcW.bcV;
+                        lVar3.cz(false);
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        lVar2 = this.bcG.bcF;
-                        lVar2.cA(true);
+                        lVar2 = this.bcW.bcV;
+                        lVar2.cy(true);
                     } else {
-                        lVar = this.bcG.bcF;
-                        lVar.cB(true);
+                        lVar = this.bcW.bcV;
+                        lVar.cz(true);
                     }
                 }
             }

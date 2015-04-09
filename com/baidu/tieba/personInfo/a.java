@@ -8,13 +8,13 @@ import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PersonInfoActivity bSh;
+    final /* synthetic */ PersonInfoActivity bSx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonInfoActivity personInfoActivity, int i, int i2) {
         super(i, i2);
-        this.bSh = personInfoActivity;
+        this.bSx = personInfoActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -40,9 +40,9 @@ class a extends com.baidu.adp.framework.listener.a {
         v vVar10;
         if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
             if (responsedMessage.getOrginalMessage() != null) {
-                vVar9 = this.bSh.bRW;
+                vVar9 = this.bSx.bSm;
                 if (vVar9.getUniqueId() != null) {
-                    vVar10 = this.bSh.bRW;
+                    vVar10 = this.bSx.bSm;
                     if (vVar10.getUniqueId() != responsedMessage.getOrginalMessage().getTag()) {
                         return;
                     }
@@ -50,48 +50,48 @@ class a extends com.baidu.adp.framework.listener.a {
             }
             if (responsedMessage instanceof ProfileSocketResponseMessage) {
                 ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                aVar3 = this.bSh.aDi;
+                aVar3 = this.bSx.aDq;
                 if (aVar3 != null) {
                     long downSize = profileSocketResponseMessage.getDownSize();
                     long costTime = profileSocketResponseMessage.getCostTime();
-                    aVar4 = this.bSh.aDi;
+                    aVar4 = this.bSx.aDq;
                     aVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.bSh.aDi = null;
+                    this.bSx.aDq = null;
                 }
                 if (profileSocketResponseMessage.getError() == 0) {
-                    vVar8 = this.bSh.bRW;
+                    vVar8 = this.bSx.bSm;
                     vVar8.a(profileSocketResponseMessage);
                 } else {
-                    aeVar2 = this.bSh.bRX;
+                    aeVar2 = this.bSx.bSn;
                     aeVar2.hideProgress();
-                    this.bSh.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bSh.getResources().getString(com.baidu.tieba.y.neterror) : responsedMessage.getErrorString());
+                    this.bSx.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bSx.getResources().getString(com.baidu.tieba.y.neterror) : responsedMessage.getErrorString());
                 }
             }
             if (responsedMessage instanceof ProfileHttpResponseMessage) {
                 ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                aVar = this.bSh.aDi;
+                aVar = this.bSx.aDq;
                 if (aVar != null) {
                     long downSize2 = profileHttpResponseMessage.getDownSize();
                     long costTime2 = profileHttpResponseMessage.getCostTime();
-                    aVar2 = this.bSh.aDi;
+                    aVar2 = this.bSx.aDq;
                     aVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.bSh.aDi = null;
+                    this.bSx.aDq = null;
                 }
                 if (profileHttpResponseMessage.getError() == 0) {
-                    vVar7 = this.bSh.bRW;
+                    vVar7 = this.bSx.bSm;
                     vVar7.a(profileHttpResponseMessage);
                 } else {
-                    aeVar = this.bSh.bRX;
+                    aeVar = this.bSx.bSn;
                     aeVar.hideProgress();
-                    this.bSh.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bSh.getResources().getString(com.baidu.tieba.y.neterror) : responsedMessage.getErrorString());
+                    this.bSx.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bSx.getResources().getString(com.baidu.tieba.y.neterror) : responsedMessage.getErrorString());
                 }
             }
-            vVar = this.bSh.bRW;
+            vVar = this.bSx.bSm;
             if (vVar != null) {
-                vVar5 = this.bSh.bRW;
+                vVar5 = this.bSx.bSm;
                 if (vVar5.getUserData() != null) {
-                    blackListModel = this.bSh.bRV;
-                    vVar6 = this.bSh.bRW;
+                    blackListModel = this.bSx.bSl;
+                    vVar6 = this.bSx.bSm;
                     if (vVar6.getUserData().isMask()) {
                         i = 1;
                     } else {
@@ -100,17 +100,17 @@ class a extends com.baidu.adp.framework.listener.a {
                     blackListModel.setMaskType(i);
                 }
             }
-            vVar2 = this.bSh.bRW;
+            vVar2 = this.bSx.bSm;
             if (vVar2 != null) {
-                vVar3 = this.bSh.bRW;
+                vVar3 = this.bSx.bSm;
                 if (vVar3.getIsSelf()) {
-                    vVar4 = this.bSh.bRW;
+                    vVar4 = this.bSx.bSm;
                     UserData userData = vVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
-                        com.baidu.tbadk.core.a.j.l(5, personPrivate.ya());
-                        com.baidu.tbadk.core.a.j.l(3, personPrivate.xY());
-                        com.baidu.tbadk.core.a.j.l(4, personPrivate.xZ());
-                        com.baidu.tbadk.core.a.j.l(2, personPrivate.xX());
+                        com.baidu.tbadk.core.a.j.l(5, personPrivate.yg());
+                        com.baidu.tbadk.core.a.j.l(3, personPrivate.ye());
+                        com.baidu.tbadk.core.a.j.l(4, personPrivate.yf());
+                        com.baidu.tbadk.core.a.j.l(2, personPrivate.yd());
                     }
                 }
             }

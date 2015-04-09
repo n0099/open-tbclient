@@ -10,13 +10,13 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ c bmb;
+    final /* synthetic */ c bmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c cVar, int i) {
         super(i);
-        this.bmb = cVar;
+        this.bmr = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,31 +36,31 @@ public class f extends com.baidu.adp.framework.listener.e {
             if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
                 if (requestUpdateMaskInfoMessage.getMaskType() == 6) {
-                    tbPageContext = this.bmb.LN;
+                    tbPageContext = this.bmr.LP;
                     if (tbPageContext != null) {
-                        gVar = this.bmb.blX;
+                        gVar = this.bmr.bmn;
                         if (gVar != null) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                                    tbPageContext3 = this.bmb.LN;
+                                    tbPageContext3 = this.bmr.LP;
                                     tbPageContext3.showToast(y.neterror);
                                 } else {
-                                    tbPageContext2 = this.bmb.LN;
+                                    tbPageContext2 = this.bmr.LP;
                                     tbPageContext2.showToast(responseUpdateMaskInfoMessage.getErrorString());
                                 }
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    gVar5 = this.bmb.blX;
-                                    gVar5.cV(false);
+                                    gVar5 = this.bmr.bmn;
+                                    gVar5.cT(false);
                                     return;
                                 }
-                                gVar4 = this.bmb.blX;
-                                gVar4.cW(false);
+                                gVar4 = this.bmr.bmn;
+                                gVar4.cU(false);
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                gVar3 = this.bmb.blX;
-                                gVar3.cV(true);
+                                gVar3 = this.bmr.bmn;
+                                gVar3.cT(true);
                             } else {
-                                gVar2 = this.bmb.blX;
-                                gVar2.cW(true);
+                                gVar2 = this.bmr.bmn;
+                                gVar2.cU(true);
                             }
                         }
                     }

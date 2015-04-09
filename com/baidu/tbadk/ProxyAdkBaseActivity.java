@@ -739,7 +739,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.zC();
+        return this.loadingView.zI();
     }
 
     public void hideLoadingView(View view) {
@@ -752,7 +752,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.ew(str);
+        this.refreshView.ez(str);
         this.refreshView.b(view, z);
     }
 

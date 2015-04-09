@@ -50,8 +50,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<u, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.YO() != null) {
-            d.ako().a(this.responseData.YO().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.Za() != null) {
+            d.akD().a(this.responseData.Za().getName(), bArr, true);
         }
     }
 

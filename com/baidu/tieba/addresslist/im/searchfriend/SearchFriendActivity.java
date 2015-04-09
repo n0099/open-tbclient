@@ -24,25 +24,25 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements ao {
-    private NavigationBar anm;
-    private View axu;
-    private j ayN;
-    private BdListView ayO;
-    private n ayP;
-    private View ayQ;
-    private m ayR = new a(this);
-    private com.baidu.adp.framework.listener.e ayS = new b(this, 304106);
-    private CustomMessageListener ayT = new c(this, 2001197);
-    private CustomMessageListener ayU = new d(this, 2001199);
-    private CustomMessageListener ayV = new e(this, 2001272);
-    private final HttpMessageListener ayW = new f(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
+    private NavigationBar anu;
+    private View axC;
+    private j ayV;
+    private BdListView ayW;
+    private n ayX;
+    private View ayY;
+    private m ayZ = new a(this);
+    private com.baidu.adp.framework.listener.e aza = new b(this, 304106);
+    private CustomMessageListener azb = new c(this, 2001197);
+    private CustomMessageListener azc = new d(this, 2001199);
+    private CustomMessageListener azd = new e(this, 2001272);
+    private final HttpMessageListener aze = new f(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
 
-    private void Fe() {
+    private void Fk() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SEARCH_FRIEND);
         tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.ayW);
+        registerListener(this.aze);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,32 +50,32 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.activity_search_friend);
-        this.axu = findViewById(com.baidu.tieba.v.new_search_friend_root_view);
+        this.axC = findViewById(com.baidu.tieba.v.new_search_friend_root_view);
         g gVar = new g(this);
-        this.axu.setOnClickListener(gVar);
-        this.anm = (NavigationBar) findViewById(com.baidu.tieba.v.new_search_friend_navigation_bar);
-        this.anm.setTitleText(y.find_friend);
-        this.anm.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new h(this));
-        this.ayO = (BdListView) findViewById(com.baidu.tieba.v.new_search_friend_recommend);
-        this.ayO.setOnScrollListener(new i(this));
-        this.ayQ = com.baidu.adp.lib.g.b.hH().a(getPageContext().getPageActivity(), w.add_friend_recommend_header, null, false);
-        this.ayN = new j(getPageContext(), this.ayQ);
-        this.ayQ.setOnClickListener(gVar);
-        this.ayN.a(this.ayR);
-        this.ayO.addHeaderView(this.ayQ);
-        this.ayP = new n(this);
-        this.ayO.setAdapter((ListAdapter) this.ayP);
+        this.axC.setOnClickListener(gVar);
+        this.anu = (NavigationBar) findViewById(com.baidu.tieba.v.new_search_friend_navigation_bar);
+        this.anu.setTitleText(y.find_friend);
+        this.anu.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new h(this));
+        this.ayW = (BdListView) findViewById(com.baidu.tieba.v.new_search_friend_recommend);
+        this.ayW.setOnScrollListener(new i(this));
+        this.ayY = com.baidu.adp.lib.g.b.hH().a(getPageContext().getPageActivity(), w.add_friend_recommend_header, null, false);
+        this.ayV = new j(getPageContext(), this.ayY);
+        this.ayY.setOnClickListener(gVar);
+        this.ayV.a(this.ayZ);
+        this.ayW.addHeaderView(this.ayY);
+        this.ayX = new n(this);
+        this.ayW.setAdapter((ListAdapter) this.ayX);
         com.baidu.tbadk.core.k.B(TbadkCoreApplication.m411getInst().getApplicationContext(), "add_new");
-        registerListener(this.ayS);
-        registerListener(this.ayT);
-        registerListener(this.ayU);
-        registerListener(this.ayV);
+        registerListener(this.aza);
+        registerListener(this.azb);
+        registerListener(this.azc);
+        registerListener(this.azd);
         sendMessage(new RequestRecommendReadMessage());
-        MessageManager.getInstance().registerTask(yk());
-        Fe();
+        MessageManager.getInstance().registerTask(yq());
+        Fk();
     }
 
-    private SocketMessageTask yk() {
+    private SocketMessageTask yq() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(304106);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(ResponsedRecommendMessage.class);
@@ -87,15 +87,15 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.anm.onChangeSkinType(getPageContext(), i);
-        this.ayN.ct(i);
-        getLayoutMode().h(this.ayQ);
-        getLayoutMode().h(this.axu);
+        this.anu.onChangeSkinType(getPageContext(), i);
+        this.ayV.ct(i);
+        getLayoutMode().h(this.ayY);
+        getLayoutMode().h(this.axC);
     }
 
     @Override // com.baidu.tbadk.core.view.ao
     public ListView getListView() {
-        return this.ayO;
+        return this.ayW;
     }
 
     @Override // com.baidu.tbadk.core.view.ao

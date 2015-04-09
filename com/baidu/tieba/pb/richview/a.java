@@ -5,20 +5,20 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ TbRichView bOi;
+    final /* synthetic */ TbRichView bOy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(TbRichView tbRichView) {
-        this.bOi = tbRichView;
+        this.bOy = tbRichView;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
     public void onChildViewRemoved(View view, View view2) {
         c cVar;
         c cVar2;
-        cVar = this.bOi.bOh;
+        cVar = this.bOy.bOx;
         if (cVar != null) {
-            cVar2 = this.bOi.bOh;
+            cVar2 = this.bOy.bOx;
             cVar2.O(view2);
         }
     }

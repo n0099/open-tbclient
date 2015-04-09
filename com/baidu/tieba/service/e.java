@@ -21,12 +21,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<String, Integer, String> {
-    private aa ZD = null;
-    final /* synthetic */ FatalErrorService bYZ;
+    private aa ZF = null;
+    final /* synthetic */ FatalErrorService bZo;
     Intent intent;
 
     public e(FatalErrorService fatalErrorService, Intent intent) {
-        this.bYZ = fatalErrorService;
+        this.bZo = fatalErrorService;
         this.intent = intent;
     }
 
@@ -101,12 +101,12 @@ class e extends BdAsyncTask<String, Integer, String> {
                                     }
                                     return;
                                 }
-                                this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-                                this.ZD.g("logfile", byteArray);
+                                this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+                                this.ZF.g("logfile", byteArray);
                                 if (!TextUtils.isEmpty(str2) && !GameInfoData.NOT_FROM_DETAIL.equals(str2)) {
-                                    this.ZD.o("errortype", str2);
+                                    this.ZF.o("errortype", str2);
                                 }
-                                this.ZD.rR();
+                                this.ZF.rR();
                                 if (byteArrayOutputStream2 != null) {
                                     byteArrayOutputStream2.close();
                                     byteArrayOutputStream3 = null;
@@ -175,7 +175,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                                     fileInputStream2 = fileInputStream;
                                 }
                                 try {
-                                    if (this.ZD.sp().tq().pv()) {
+                                    if (this.ZF.sp().tq().pv()) {
                                         if (z2) {
                                             t(file);
                                         }
@@ -426,12 +426,12 @@ class e extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        this.bYZ.mTask = null;
+        this.bZo.mTask = null;
         super.cancel(true);
-        this.bYZ.stopSelf();
+        this.bZo.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -439,7 +439,7 @@ class e extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((e) str);
-        this.bYZ.mTask = null;
-        this.bYZ.stopSelf();
+        this.bZo.mTask = null;
+        this.bZo.stopSelf();
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.i {
-    final /* synthetic */ t bxg;
+    final /* synthetic */ t bxw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.bxg = tVar;
+        this.bxw = tVar;
     }
 
     @Override // com.baidu.adp.base.i
@@ -19,17 +19,17 @@ public class u extends com.baidu.adp.base.i {
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;
         if (obj == null) {
-            newUserGuideActivity3 = this.bxg.bxd;
+            newUserGuideActivity3 = this.bxw.bxt;
             newUserGuideActivity3.showToast(y.neterror);
         } else if (obj instanceof ah) {
             int i = com.baidu.adp.lib.g.c.toInt(((ah) obj).getFid(), 0);
-            aVar = this.bxg.bxe;
-            aVar.gF(i);
-            this.bxg.o(i, true);
-            newUserGuideActivity = this.bxg.bxd;
-            newUserGuideActivity.dp(true);
-            newUserGuideActivity2 = this.bxg.bxd;
-            newUserGuideActivity2.dn(true);
+            aVar = this.bxw.bxu;
+            aVar.gH(i);
+            this.bxw.o(i, true);
+            newUserGuideActivity = this.bxw.bxt;
+            newUserGuideActivity.dm(true);
+            newUserGuideActivity2 = this.bxw.bxt;
+            newUserGuideActivity2.dl(true);
         }
     }
 }

@@ -28,44 +28,44 @@ public class e extends av<com.baidu.tbadk.core.data.c, f> {
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) fVar);
-        fVar.aMW.setPadding(0, i - this.aKD == 0 ? this.aHT : this.aHU, 0, 0);
-        this.aJT.getLayoutMode().X(this.mSkinType == 1);
-        this.aJT.getLayoutMode().h(view);
-        if (!cVar.Pl) {
-            cVar.Pl = true;
-            this.aJT.a(cVar, "show");
-            this.aJT.b(cVar, "show");
+        fVar.aNn.setPadding(0, i - this.aKN == 0 ? this.aIb : this.aIc, 0, 0);
+        this.aKd.getLayoutMode().X(this.mSkinType == 1);
+        this.aKd.getLayoutMode().h(view);
+        if (!cVar.Pn) {
+            cVar.Pn = true;
+            this.aKd.a(cVar, "show");
+            this.aKd.b(cVar, "show");
         }
         if (n.px().pz()) {
-            fVar.azr.setVisibility(0);
-            fVar.azr.c(cVar.Pk.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            fVar.azz.setVisibility(0);
+            fVar.azz.c(cVar.Pm.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            fVar.azr.setVisibility(8);
+            fVar.azz.setVisibility(8);
         }
-        if (n.px().pB() && !TextUtils.isEmpty(cVar.Pk.Po)) {
-            fVar.aMY.setVisibility(0);
-            fVar.aMY.c(cVar.Pk.Po, this.mIsFromCDN ? 30 : 31, false);
+        if (n.px().pB() && !TextUtils.isEmpty(cVar.Pm.Pq)) {
+            fVar.aNp.setVisibility(0);
+            fVar.aNp.c(cVar.Pm.Pq, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            fVar.aMY.setVisibility(8);
+            fVar.aNp.setVisibility(8);
         }
-        fVar.aFs.setText(cVar.Pk.userName);
-        if (StringUtils.isNull(cVar.Pk.Pn)) {
-            fVar.ahr.setVisibility(8);
+        fVar.aFA.setText(cVar.Pm.userName);
+        if (StringUtils.isNull(cVar.Pm.Pp)) {
+            fVar.ahz.setVisibility(8);
         } else {
-            fVar.ahr.setVisibility(0);
-            fVar.ahr.setText(cVar.Pk.Pn);
+            fVar.ahz.setVisibility(0);
+            fVar.ahz.setText(cVar.Pm.Pp);
         }
-        if (StringUtils.isNull(cVar.Pk.Pr)) {
-            fVar.aMZ.setVisibility(8);
+        if (StringUtils.isNull(cVar.Pm.Pt)) {
+            fVar.aNq.setVisibility(8);
         } else {
-            fVar.aMZ.setVisibility(0);
-            fVar.aMZ.setText(cVar.Pk.Pr);
+            fVar.aNq.setVisibility(0);
+            fVar.aNq.setText(cVar.Pm.Pt);
         }
-        if (StringUtils.isNull(cVar.Pk.Ps)) {
-            fVar.aNa.setVisibility(8);
+        if (StringUtils.isNull(cVar.Pm.Pu)) {
+            fVar.aNr.setVisibility(8);
         } else {
-            fVar.aNa.setVisibility(0);
-            fVar.aNa.setText(cVar.Pk.Ps);
+            fVar.aNr.setVisibility(0);
+            fVar.aNr.setText(cVar.Pm.Pu);
         }
         return view;
     }

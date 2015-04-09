@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private final Map<String, String> Nb = new HashMap(20);
+    private final Map<String, String> Nd = new HashMap(20);
     private String content = "";
 
     public String oK() {
@@ -16,7 +16,7 @@ public class c {
         sb.append(" ");
         sb.append("ok");
         sb.append("\n");
-        for (Map.Entry<String, String> entry : this.Nb.entrySet()) {
+        for (Map.Entry<String, String> entry : this.Nd.entrySet()) {
             if (entry != null) {
                 String key = entry.getKey();
                 String value = entry.getValue();
@@ -41,7 +41,7 @@ public class c {
 
     public void O(String str, String str2) {
         if (str != null && str2 != null) {
-            this.Nb.put(str, str2);
+            this.Nd.put(str, str2);
         }
     }
 }

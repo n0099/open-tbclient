@@ -19,7 +19,7 @@ public class NoDataViewFactory {
         GIFT,
         WEBVIEW;
 
-        /* JADX DEBUG: Replace access to removed values field (YE) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (YG) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();

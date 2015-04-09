@@ -18,7 +18,7 @@ public class r implements q {
     }
 
     @Override // com.baidu.tieba.setting.more.q
-    public void hT(int i) {
+    public void hW(int i) {
         aa aaVar;
         if (i != 0) {
             if (i != 1) {
@@ -33,8 +33,8 @@ public class r implements q {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                aaVar = this.this$0.caB;
-                                                aaVar.agT();
+                                                aaVar = this.this$0.caQ;
+                                                aaVar.ahi();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,31 +53,31 @@ public class r implements q {
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.agO();
+                                            this.this$0.ahd();
                                             return;
                                         }
                                     }
-                                    this.this$0.agH();
+                                    this.this$0.agW();
                                     return;
                                 }
-                                this.this$0.agG();
+                                this.this$0.agV();
                                 return;
                             }
-                            this.this$0.agI();
+                            this.this$0.agX();
                             return;
                         }
-                        this.this$0.agN();
+                        this.this$0.ahc();
                         return;
                     }
-                    this.this$0.agJ();
+                    this.this$0.agY();
                     return;
                 }
-                this.this$0.agK();
+                this.this$0.agZ();
                 return;
             }
-            this.this$0.agL();
+            this.this$0.aha();
             return;
         }
-        this.this$0.agM();
+        this.this$0.ahb();
     }
 }

@@ -19,12 +19,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-    private aa Oi = new aa();
-    final /* synthetic */ g ahT;
+    private aa Ok = new aa();
+    final /* synthetic */ g aib;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.ahT = gVar;
+        this.aib = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,25 +38,25 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData4;
         DownloadData downloadData5;
         super.onCancelled();
-        this.Oi.hh();
-        downloadData = g.ahQ;
+        this.Ok.hh();
+        downloadData = g.ahY;
         downloadData.setStatus(4);
-        downloadData2 = g.ahQ;
+        downloadData2 = g.ahY;
         downloadData2.setStatusMsg(null);
-        downloadData3 = g.ahQ;
+        downloadData3 = g.ahY;
         if (downloadData3.getCallback() != null) {
-            downloadData4 = g.ahQ;
+            downloadData4 = g.ahY;
             f callback = downloadData4.getCallback();
-            downloadData5 = g.ahQ;
+            downloadData5 = g.ahY;
             callback.a(downloadData5);
         }
-        list = g.ahK;
+        list = g.ahS;
         if (!list.isEmpty()) {
-            list2 = g.ahK;
+            list2 = g.ahS;
             list2.remove(0);
         }
-        g.ahQ = null;
-        this.ahT.yq();
+        g.ahY = null;
+        this.aib.yw();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [367=4, 369=4, 370=4, 371=4] */
@@ -82,10 +82,10 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                 file.delete();
             }
             if (!file.exists()) {
-                this.Oi.setUrl(downloadDataArr[0].getUrl());
-                aa aaVar = this.Oi;
+                this.Ok.setUrl(downloadDataArr[0].getUrl());
+                aa aaVar = this.Ok;
                 String str = String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp";
-                handler = this.ahT.ahS;
+                handler = this.aib.aia;
                 if (!Boolean.valueOf(aaVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, LocationClientOption.MIN_SCAN_SPAN_NETWORK)).booleanValue()) {
                     return 3;
                 }
@@ -204,20 +204,20 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData16;
         super.onPostExecute((i) num);
         if (num.intValue() == 0) {
-            downloadData10 = g.ahQ;
+            downloadData10 = g.ahY;
             if (downloadData10.getCallback() != null) {
-                downloadData15 = g.ahQ;
+                downloadData15 = g.ahY;
                 f callback = downloadData15.getCallback();
-                downloadData16 = g.ahQ;
+                downloadData16 = g.ahY;
                 callback.d(downloadData16);
             }
-            downloadData11 = g.ahQ;
+            downloadData11 = g.ahY;
             downloadData11.setStatus(0);
-            downloadData12 = g.ahQ;
+            downloadData12 = g.ahY;
             if (downloadData12.getCallback() != null) {
-                downloadData13 = g.ahQ;
+                downloadData13 = g.ahY;
                 f callback2 = downloadData13.getCallback();
-                downloadData14 = g.ahQ;
+                downloadData14 = g.ahY;
                 callback2.a(downloadData14);
             }
         } else {
@@ -245,33 +245,33 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     string = TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail);
                     break;
             }
-            downloadData = g.ahQ;
+            downloadData = g.ahY;
             downloadData.setStatusMsg(string);
-            downloadData2 = g.ahQ;
+            downloadData2 = g.ahY;
             downloadData2.setErrorCode(num.intValue());
-            downloadData3 = g.ahQ;
+            downloadData3 = g.ahY;
             if (downloadData3.getCallback() != null) {
-                downloadData8 = g.ahQ;
+                downloadData8 = g.ahY;
                 f callback3 = downloadData8.getCallback();
-                downloadData9 = g.ahQ;
+                downloadData9 = g.ahY;
                 callback3.a(downloadData9, num.intValue(), string);
             }
-            downloadData4 = g.ahQ;
+            downloadData4 = g.ahY;
             downloadData4.setStatus(2);
-            downloadData5 = g.ahQ;
+            downloadData5 = g.ahY;
             if (downloadData5.getCallback() != null) {
-                downloadData6 = g.ahQ;
+                downloadData6 = g.ahY;
                 f callback4 = downloadData6.getCallback();
-                downloadData7 = g.ahQ;
+                downloadData7 = g.ahY;
                 callback4.a(downloadData7);
             }
         }
-        g.ahQ = null;
-        list = g.ahK;
+        g.ahY = null;
+        list = g.ahS;
         if (!list.isEmpty()) {
-            list2 = g.ahK;
+            list2 = g.ahS;
             list2.remove(0);
-            this.ahT.yq();
+            this.aib.yw();
         }
     }
 }

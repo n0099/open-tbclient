@@ -1,68 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public final class di extends LinearLayout {
-    private TextView aCe;
-    private EditText boc;
-    private BarImageView bod;
-    private ShareFromPBMsgData boo;
-
-    public EditText getChatMsgView() {
-        return this.boc;
-    }
-
-    public void v(String str, boolean z) {
-        if (this.bod != null) {
-            this.bod.c(str, z ? 17 : 18, false);
+public class di implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
         }
-    }
-
-    public di(Context context) {
-        super(context);
-        au(context);
-    }
-
-    private void au(Context context) {
-        com.baidu.adp.lib.g.b.hH().inflate(context, com.baidu.tieba.w.thread_to_group_share_view, this);
-        setOrientation(1);
-        this.boc = (EditText) findViewById(com.baidu.tieba.v.chat_msg);
-        this.bod = (BarImageView) findViewById(com.baidu.tieba.v.chat_group_img);
-        this.aCe = (TextView) findViewById(com.baidu.tieba.v.chat_group_desc);
-        com.baidu.tbadk.core.util.ba.i((View) this.boc, com.baidu.tieba.u.inputbox_share);
-        com.baidu.tbadk.core.util.ba.b(this.boc, com.baidu.tieba.s.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.ba.b(this.aCe, com.baidu.tieba.s.dialog_bdalert_title, 1);
-        this.boc.setPadding(context.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds20), 0, 0, 0);
-    }
-
-    public String getLeaveMsg() {
-        if (this.boc != null) {
-            return com.baidu.adp.lib.util.m.a(this.boc.getText(), null);
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] x = bp.ZW().x(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(2004003, x);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
         }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.boo = shareFromPBMsgData;
-        tM();
-    }
-
-    private void tM() {
-        BdLog.e("mData.getImageUrl()的图片URL" + this.boo.getImageUrl());
-        this.bod.setTag(this.boo.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.boo.getContent());
-        this.aCe.setText(this.boo.getContent());
     }
 }

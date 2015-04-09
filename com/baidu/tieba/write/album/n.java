@@ -5,84 +5,84 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private WriteImagesInfo aHD;
-    private List<a> ctH;
-    private String ctL;
-    private List<ImageFileInfo> ctR;
-    private List<ImageFileInfo> ctS;
-    private String ctT;
+    private WriteImagesInfo aHL;
+    private List<a> ctX;
+    private String cub;
+    private List<ImageFileInfo> cuh;
+    private List<ImageFileInfo> cui;
+    private String cuj;
     private int mCurrentIndex;
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aHD == null) {
-            this.aHD = new WriteImagesInfo();
+        if (this.aHL == null) {
+            this.aHL = new WriteImagesInfo();
         }
-        this.aHD.addChooseFile(imageFileInfo);
+        this.aHL.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aHD != null) {
-            this.aHD.delChooseFile(imageFileInfo);
+        if (this.aHL != null) {
+            this.aHL.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.aHD == null) {
+        if (this.aHL == null) {
             return false;
         }
-        return this.aHD.isAdded(imageFileInfo);
+        return this.aHL.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> apI() {
-        if (this.aHD != null) {
-            return this.aHD.getChosedFiles();
+    public List<ImageFileInfo> apX() {
+        if (this.aHL != null) {
+            return this.aHL.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.aHD;
+        return this.aHL;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.aHD = writeImagesInfo;
+        this.aHL = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.aHD != null) {
-            return this.aHD.getLastAlbumId();
+        if (this.aHL != null) {
+            return this.aHL.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.aHD == null) {
-            this.aHD = new WriteImagesInfo();
+        if (this.aHL == null) {
+            this.aHL = new WriteImagesInfo();
         }
-        this.aHD.setLastAlbumId(str);
+        this.aHL.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.aHD != null) {
-            return this.aHD.getMaxImagesAllowed();
+        if (this.aHL != null) {
+            return this.aHL.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String apJ() {
-        return this.ctL;
+    public String apY() {
+        return this.cub;
     }
 
-    public void jb(String str) {
-        this.ctL = str;
+    public void je(String str) {
+        this.cub = str;
     }
 
-    public List<ImageFileInfo> apK() {
-        return this.ctR;
+    public List<ImageFileInfo> apZ() {
+        return this.cuh;
     }
 
-    public void aY(List<ImageFileInfo> list) {
-        this.ctR = list;
+    public void bc(List<ImageFileInfo> list) {
+        this.cuh = list;
     }
 
     public int getCurrentIndex() {
@@ -93,34 +93,34 @@ public class n {
         this.mCurrentIndex = i;
     }
 
-    public List<a> apL() {
-        return this.ctH;
+    public List<a> aqa() {
+        return this.ctX;
     }
 
-    public void aZ(List<a> list) {
-        this.ctH = list;
+    public void bd(List<a> list) {
+        this.ctX = list;
     }
 
-    public List<ImageFileInfo> apM() {
-        return this.ctS;
+    public List<ImageFileInfo> aqb() {
+        return this.cui;
     }
 
-    public void ba(List<ImageFileInfo> list) {
-        this.ctS = list;
+    public void be(List<ImageFileInfo> list) {
+        this.cui = list;
     }
 
     public int size() {
-        if (this.aHD == null) {
+        if (this.aHL == null) {
             return 0;
         }
-        return this.aHD.size();
+        return this.aHL.size();
     }
 
-    public String apN() {
-        return this.ctT;
+    public String aqc() {
+        return this.cuj;
     }
 
-    public void jc(String str) {
-        this.ctT = str;
+    public void jf(String str) {
+        this.cuj = str;
     }
 }

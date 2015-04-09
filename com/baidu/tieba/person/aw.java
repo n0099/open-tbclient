@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PersonImageActivity bQo;
+    final /* synthetic */ PersonImageActivity bQE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(PersonImageActivity personImageActivity) {
-        this.bQo = personImageActivity;
+        this.bQE = personImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -21,22 +21,22 @@ public class aw implements com.baidu.tbadk.core.dialog.h {
         MultiImageView multiImageView2;
         ay ayVar;
         ProgressBar progressBar;
-        listMenu = this.bQo.getListMenu();
+        listMenu = this.bQE.getListMenu();
         if (eVar == listMenu) {
             if (i == 0) {
                 try {
-                    multiImageView = this.bQo.aWe;
+                    multiImageView = this.bQE.aWu;
                     byte[] currentImageData = multiImageView.getCurrentImageData();
                     if (currentImageData != null) {
-                        multiImageView2 = this.bQo.aWe;
+                        multiImageView2 = this.bQE.aWu;
                         String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                        this.bQo.bQn = new ay(this.bQo, currentImageUrl, currentImageData);
-                        ayVar = this.bQo.bQn;
+                        this.bQE.bQD = new ay(this.bQE, currentImageUrl, currentImageData);
+                        ayVar = this.bQE.bQD;
                         ayVar.execute(new String[0]);
-                        progressBar = this.bQo.mProgress;
+                        progressBar = this.bQE.mProgress;
                         progressBar.setVisibility(0);
                     } else {
-                        this.bQo.showToast(this.bQo.getPageContext().getString(com.baidu.tieba.y.no_data));
+                        this.bQE.showToast(this.bQE.getPageContext().getString(com.baidu.tieba.y.no_data));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());

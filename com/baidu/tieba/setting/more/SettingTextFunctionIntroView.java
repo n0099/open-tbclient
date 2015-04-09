@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 /* loaded from: classes.dex */
 public class SettingTextFunctionIntroView extends SettingTextVersionView {
-    public static String cbU = "has_shown_funtion_intro";
+    public static String ccj = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);
@@ -21,12 +21,12 @@ public class SettingTextFunctionIntroView extends SettingTextVersionView {
 
     @Override // com.baidu.tieba.setting.more.SettingTextVersionView
     public void refresh() {
-        YM();
+        YY();
         VersionData versionData = TbadkCoreApplication.m411getInst().getVersionData();
         boolean z = versionData != null && versionData.hasNewVer();
-        boolean z2 = com.baidu.tbadk.core.sharedPref.b.rB().getBoolean(cbU, false);
+        boolean z2 = com.baidu.tbadk.core.sharedPref.b.rB().getBoolean(ccj, false);
         if (!z && !z2) {
-            com.baidu.tbadk.core.util.ba.i((View) this.afy, com.baidu.tieba.u.icon_news_head_new);
+            com.baidu.tbadk.core.util.ba.i((View) this.afG, com.baidu.tieba.u.icon_news_head_new);
         } else {
             hideTip();
         }

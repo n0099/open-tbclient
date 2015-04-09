@@ -10,10 +10,10 @@ import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class n {
-    private PbChosenActivity bGc;
+    private PbChosenActivity bGp;
 
     public n(PbChosenActivity pbChosenActivity) {
-        this.bGc = pbChosenActivity;
+        this.bGp = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -25,25 +25,25 @@ public class n {
             String str5 = b[0];
             Uri parse = str5 == null ? null : Uri.parse(str5);
             String str6 = b[1];
-            Resources resources = this.bGc.getPageContext().getPageActivity().getResources();
+            Resources resources = this.bGp.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(y.share_content_tpl), str3, str2, str6);
             String string = resources.getString(y.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.title = str3;
             fVar.content = format;
-            fVar.adm = str4;
-            fVar.adq = string;
-            fVar.adp = str6;
-            fVar.adl = true;
+            fVar.adu = str4;
+            fVar.ady = string;
+            fVar.adx = str6;
+            fVar.adt = true;
             if (parse != null) {
-                fVar.adn = parse;
+                fVar.adv = parse;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bGc.getPageContext().getPageActivity(), fVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bGp.getPageContext().getPageActivity(), fVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(y.share_tieba_qunzu, u.icon_unite_share_qunzu, new o(this));
             shareDialogConfig.addOutsideTextView(y.forum_friend, u.icon_unite_share_baf, new p(this));
             shareDialogConfig.setCopyLinkListener(new q(this, fVar));
-            this.bGc.sendMessage(new CustomMessage(2001283, shareDialogConfig));
+            this.bGp.sendMessage(new CustomMessage(2001283, shareDialogConfig));
         }
     }
 

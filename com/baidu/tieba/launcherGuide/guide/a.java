@@ -6,9 +6,9 @@ import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 public interface a {
     void a(InterestFrsData.Tag tag);
 
-    void gF(int i);
+    void gH(int i);
 
-    void gG(int i);
+    void gI(int i);
 
     View getRootView();
 

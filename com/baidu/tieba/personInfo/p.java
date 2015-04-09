@@ -7,22 +7,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private PersonInfoActivity bSi;
-    private z bSj;
-    private q bSk;
-    private r bSl;
-    private t bSm;
-    private x bSn;
+    private q bSA;
+    private r bSB;
+    private t bSC;
+    private x bSD;
+    private PersonInfoActivity bSy;
+    private z bSz;
     private boolean mIsHost;
 
     public p(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bSi = personInfoActivity;
+        this.bSy = personInfoActivity;
         this.mIsHost = z;
-        this.bSj = new z(this.bSi, this.mIsHost);
-        this.bSk = new q(this.bSi, this.mIsHost);
-        this.bSl = new r(this.bSi, this.mIsHost);
-        this.bSm = new t(this.bSi, this.mIsHost);
-        this.bSn = new x(this.bSi, this.mIsHost);
+        this.bSz = new z(this.bSy, this.mIsHost);
+        this.bSA = new q(this.bSy, this.mIsHost);
+        this.bSB = new r(this.bSy, this.mIsHost);
+        this.bSC = new t(this.bSy, this.mIsHost);
+        this.bSD = new x(this.bSy, this.mIsHost);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -79,74 +79,74 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.bSj.adR();
-            return this.bSj.getRootView();
+            this.bSz.aeg();
+            return this.bSz.getRootView();
         } else if (itemViewType == 1) {
-            this.bSk.adR();
-            return this.bSk.getRootView();
+            this.bSA.aeg();
+            return this.bSA.getRootView();
         } else if (itemViewType == 2) {
-            this.bSl.adR();
-            return this.bSl.getRootView();
+            this.bSB.aeg();
+            return this.bSB.getRootView();
         } else if (itemViewType == 3) {
-            this.bSm.adR();
-            return this.bSm.getRootView();
+            this.bSC.aeg();
+            return this.bSC.getRootView();
         } else if (itemViewType == 4) {
-            this.bSn.adR();
-            return this.bSn.getRootView();
+            this.bSD.aeg();
+            return this.bSD.getRootView();
         } else {
             return null;
         }
     }
 
-    public RelativeLayout adF() {
-        return this.bSl.adF();
+    public RelativeLayout adU() {
+        return this.bSB.adU();
     }
 
-    public void adG() {
-        this.bSl.adG();
+    public void adV() {
+        this.bSB.adV();
     }
 
-    public RelativeLayout adH() {
-        return this.bSk.adQ();
+    public RelativeLayout adW() {
+        return this.bSA.aef();
     }
 
-    public RelativeLayout adI() {
-        return this.bSk.adI();
+    public RelativeLayout adX() {
+        return this.bSA.adX();
     }
 
-    public TextView adJ() {
-        return this.bSl.adJ();
+    public TextView adY() {
+        return this.bSB.adY();
     }
 
-    public RelativeLayout adK() {
-        return this.bSk.adK();
+    public RelativeLayout adZ() {
+        return this.bSA.adZ();
     }
 
-    public RelativeLayout adL() {
-        return this.bSl.adL();
+    public RelativeLayout aea() {
+        return this.bSB.aea();
     }
 
-    public RelativeLayout adM() {
-        return this.bSl.adM();
+    public RelativeLayout aeb() {
+        return this.bSB.aeb();
     }
 
-    public RelativeLayout adN() {
-        return this.bSm.adN();
+    public RelativeLayout aec() {
+        return this.bSC.aec();
     }
 
-    public RelativeLayout adO() {
-        return this.bSm.adI();
+    public RelativeLayout aed() {
+        return this.bSC.adX();
     }
 
-    public RelativeLayout adP() {
-        return this.bSn.adP();
+    public RelativeLayout aee() {
+        return this.bSD.aee();
     }
 
-    public void eh(boolean z) {
-        this.bSl.eh(z);
+    public void ef(boolean z) {
+        this.bSB.ef(z);
     }
 
-    public void hD(int i) {
-        this.bSl.hD(i);
+    public void hG(int i) {
+        this.bSB.hG(i);
     }
 }

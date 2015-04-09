@@ -9,13 +9,13 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements u<byte[]> {
-    final /* synthetic */ c aDn;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aDo;
+    final /* synthetic */ c aDv;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aDw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aDn = cVar;
-        this.aDo = bVar;
+        this.aDv = cVar;
+        this.aDw = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,22 +24,22 @@ public class d implements u<byte[]> {
     public void onItemGet(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.aDo.af(true);
+            this.aDw.af(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.aDo.a(forumRecommendResIdl.data);
-                    this.aDo.bw(true);
+                    this.aDw.a(forumRecommendResIdl.data);
+                    this.aDw.bw(true);
                 }
             } catch (Exception e) {
-                this.aDo.af(false);
+                this.aDw.af(false);
             }
-            if (this.aDo.isSuccess() && !this.aDo.Gu()) {
-                this.aDo.Gt().Gx();
+            if (this.aDw.isSuccess() && !this.aDw.GA()) {
+                this.aDw.Gz().GD();
             }
-            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.aDo.isEmpty());
-            handler = this.aDn.mUIHandler;
-            handler.post(new e(this, this.aDo));
+            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.aDw.isEmpty());
+            handler = this.aDv.mUIHandler;
+            handler.post(new e(this, this.aDw));
         }
     }
 }

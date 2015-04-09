@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ ai crN;
+    final /* synthetic */ ai csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ai aiVar) {
-        this.crN = aiVar;
+        this.csd = aiVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.crN.crH;
+        mainTabActivity = this.csd.crX;
         TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
         textView.setText(com.baidu.tieba.y.first_enter_addresslist_tip);
         textView.setBackgroundResource(com.baidu.tieba.u.tips_home_help);

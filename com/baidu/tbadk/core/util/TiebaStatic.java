@@ -59,19 +59,19 @@ public class TiebaStatic {
         if (aVar != null && aVar.tr().wo.vJ <= 180000) {
             try {
                 if (aVar.tr().wo.vJ >= 0 && aVar.tr().wo.vG >= 0 && aVar.tr().wo.vH >= 0) {
-                    int i = aVar.tq().VZ;
+                    int i = aVar.tq().Wb;
                     if (!aVar.tq().ss()) {
-                        i = aVar.tq().VY;
+                        i = aVar.tq().Wa;
                     }
                     String str = null;
                     String tj = bi.tj();
                     if (i != 0) {
                         str = aVar.tq().mErrorString;
                     }
-                    if (aVar.tp().VW) {
-                        com.baidu.adp.lib.stats.f.hP().a(i == 0 ? null : aVar.tp().tt(), aVar.tp().VV, tj, aVar.tr().wo.vF, aVar.tr().wo.vE, aVar.tr().wo.vJ, aVar.tr().wo.vG, aVar.tr().wo.vH, aVar.tr().wo.vI, i, str, new Object[0]);
+                    if (aVar.tp().VY) {
+                        com.baidu.adp.lib.stats.f.hP().a(i == 0 ? null : aVar.tp().tt(), aVar.tp().VX, tj, aVar.tr().wo.vF, aVar.tr().wo.vE, aVar.tr().wo.vJ, aVar.tr().wo.vG, aVar.tr().wo.vH, aVar.tr().wo.vI, i, str, new Object[0]);
                     } else {
-                        com.baidu.adp.lib.stats.f.hP().b(aVar.tp().tt(), aVar.tp().VV, tj, aVar.tr().wo.vF, aVar.tr().wo.vE, aVar.tr().wo.vJ, aVar.tr().wo.vG, aVar.tr().wo.vH, aVar.tr().wo.vI, i, str, new Object[0]);
+                        com.baidu.adp.lib.stats.f.hP().b(aVar.tp().tt(), aVar.tp().VX, tj, aVar.tr().wo.vF, aVar.tr().wo.vE, aVar.tr().wo.vJ, aVar.tr().wo.vG, aVar.tr().wo.vH, aVar.tr().wo.vI, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -357,7 +357,7 @@ public class TiebaStatic {
             t.rS();
             t.rT();
             t.rU();
-            com.baidu.tbadk.performanceLog.ab.CI();
+            com.baidu.tbadk.performanceLog.ab.CO();
             com.baidu.adp.lib.f.f.hD();
             com.baidu.adp.lib.stats.f.hP().save();
             sendMultiProcessBroadcast();

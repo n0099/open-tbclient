@@ -8,22 +8,22 @@ public class a extends com.baidu.tbadk.mvc.model.a<i, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<i> zO() {
+    public Class<i> zU() {
         return i.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zP() {
+    public int zV() {
         return 2001265;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int zQ() {
+    public int zW() {
         return 2001265;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String zR() {
+    public String zX() {
         return "tb_user_atme";
     }
 }

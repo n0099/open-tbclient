@@ -10,14 +10,14 @@ public abstract class d extends e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aZ(boolean z) {
-        zT().addEventDelegate(this);
+        zZ().addEventDelegate(this);
         dI(16777218);
     }
 
-    protected void BF() {
+    protected void BL() {
     }
 
-    protected void BG() {
+    protected void BM() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.i.a, com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.mvc.c.a
@@ -25,11 +25,11 @@ public abstract class d extends e {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Az() == 33554439) {
-            BF();
+        if (bVar.AF() == 33554439) {
+            BL();
             return true;
-        } else if (bVar.Az() == 33554440) {
-            BG();
+        } else if (bVar.AF() == 33554440) {
+            BM();
             return true;
         } else {
             return false;

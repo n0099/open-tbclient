@@ -7,11 +7,11 @@ import com.baidu.tieba.frs.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Runnable {
-    final /* synthetic */ n aNF;
+    final /* synthetic */ n aNW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aNF = nVar;
+        this.aNW = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,13 +19,13 @@ public class o implements Runnable {
         FrsActivity frsActivity;
         bf bfVar;
         boolean isShowSwipeBackGuide = TbadkCoreApplication.m411getInst().isShowSwipeBackGuide();
-        boolean loadBoolean = TbadkSettings.getInst().loadBoolean(FrsActivity.aIF, false);
+        boolean loadBoolean = TbadkSettings.getInst().loadBoolean(FrsActivity.aIN, false);
         if (isShowSwipeBackGuide && loadBoolean) {
-            frsActivity = this.aNF.aNb;
+            frsActivity = this.aNW.aNs;
             if (!frsActivity.isMenuShowing()) {
                 TbadkCoreApplication.m411getInst().setShowSwipeBackGuide(false);
-                bfVar = this.aNF.aIS;
-                bfVar.Ko();
+                bfVar = this.aNW.aJa;
+                bfVar.Kv();
             }
         }
     }

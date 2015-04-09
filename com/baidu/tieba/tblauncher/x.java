@@ -19,14 +19,14 @@ class x extends CustomMessageListener {
         ai aiVar;
         ai aiVar2;
         if (customResponsedMessage != null) {
-            this.this$0.anV();
+            this.this$0.aok();
             if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
                 this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
             }
-            aiVar = this.this$0.cqV;
-            aiVar.aor().aov();
-            aiVar2 = this.this$0.cqV;
-            aiVar2.aol();
+            aiVar = this.this$0.crl;
+            aiVar.aoG().aoK();
+            aiVar2 = this.this$0.crl;
+            aiVar2.aoA();
         }
     }
 }

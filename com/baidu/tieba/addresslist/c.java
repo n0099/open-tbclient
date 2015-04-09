@@ -10,12 +10,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddressListActivity axr;
+    final /* synthetic */ AddressListActivity axz;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(AddressListActivity addressListActivity) {
         super(304001);
-        this.axr = addressListActivity;
+        this.axz = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,10 +24,10 @@ public class c extends com.baidu.adp.framework.listener.e {
         BdListView bdListView;
         com.baidu.tieba.addresslist.c.a aVar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            bdListView = this.axr.axm;
+            bdListView = this.axz.axu;
             bdListView.mW();
             if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                this.axr.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.axr.getResources().getString(y.neterror) : socketResponsedMessage.getErrorString(), false);
+                this.axz.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.axz.getResources().getString(y.neterror) : socketResponsedMessage.getErrorString(), false);
                 return;
             }
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
@@ -37,7 +37,7 @@ public class c extends com.baidu.adp.framework.listener.e {
                     List<com.baidu.tbadk.coreExtra.relationship.a> contacts = fVar.getContacts();
                     if (contacts.size() > 0) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar2.dG(fVar.getKey());
+                        aVar2.dJ(fVar.getKey());
                         arrayList.add(aVar2);
                     }
                     for (com.baidu.tbadk.coreExtra.relationship.a aVar3 : contacts) {
@@ -45,7 +45,7 @@ public class c extends com.baidu.adp.framework.listener.e {
                     }
                 }
             }
-            aVar = this.axr.axd;
+            aVar = this.axz.axl;
             aVar.z(arrayList);
         }
     }

@@ -4,15 +4,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.message.b {
-    final /* synthetic */ d csd;
-    private final /* synthetic */ int cse;
-    private final /* synthetic */ int csf;
+    final /* synthetic */ d cst;
+    private final /* synthetic */ int csu;
+    private final /* synthetic */ int csv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(d dVar, int i, int i2) {
-        this.csd = dVar;
-        this.cse = i;
-        this.csf = i2;
+        this.cst = dVar;
+        this.csu = i;
+        this.csv = i2;
     }
 
     @Override // com.baidu.tbadk.core.message.b
@@ -28,16 +28,16 @@ public class k implements com.baidu.tbadk.core.message.b {
             }
             if (list.get(i) instanceof a) {
                 aVar = (a) list.get(i);
-                if (aVar.getType() == this.cse) {
-                    aVar.iG(this.csf);
+                if (aVar.getType() == this.csu) {
+                    aVar.iJ(this.csv);
                     break;
                 }
             }
             i++;
         }
-        dVar = this.csd.csa;
+        dVar = this.cst.csq;
         if (dVar != null && aVar != null) {
-            dVar2 = this.csd.csa;
+            dVar2 = this.cst.csq;
             dVar2.y(aVar);
         }
     }

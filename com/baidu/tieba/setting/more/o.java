@@ -3,11 +3,11 @@ package com.baidu.tieba.setting.more;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ k caA;
+    final /* synthetic */ k caP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(k kVar) {
-        this.caA = kVar;
+        this.caP = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -24,7 +24,7 @@ class o implements com.baidu.tbadk.core.dialog.h {
                 com.baidu.tbadk.core.n.px().bi(2);
                 break;
         }
-        this.caA.agC();
-        this.caA.agz();
+        this.caP.agR();
+        this.caP.agO();
     }
 }

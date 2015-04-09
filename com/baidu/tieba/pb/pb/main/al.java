@@ -1,77 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ PbActivity bIv;
+public class al implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bIJ;
+    private final /* synthetic */ MarkData bIN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PbActivity pbActivity) {
-        this.bIv = pbActivity;
+    public al(PbActivity pbActivity, MarkData markData) {
+        this.bIJ = pbActivity;
+        this.bIN = markData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Zz */
-    public ImageView hA() {
-        TbImageView tbImageView = new TbImageView(this.bIv.getPageContext().getPageActivity());
-        boolean pB = com.baidu.tbadk.core.n.px().pB();
-        tbImageView.setDefaultBg(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.s.pb_default_image_bg));
-        if (pB) {
-            tbImageView.setAdjustViewBounds(false);
-            tbImageView.setInterceptOnClick(false);
-        } else {
-            tbImageView.setDefaultResource(com.baidu.tieba.u.icon_click);
-            tbImageView.setAdjustViewBounds(true);
-            tbImageView.setInterceptOnClick(true);
-        }
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public void k(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof TbImageView) {
-            ((TbImageView) imageView).stopLoading();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public ImageView l(ImageView imageView) {
-        if (imageView instanceof TbImageView) {
-            TbImageView tbImageView = (TbImageView) imageView;
-            tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.n.px().pB()) {
-                tbImageView.setAdjustViewBounds(false);
-                tbImageView.setInterceptOnClick(false);
-            } else {
-                tbImageView.setDefaultResource(com.baidu.tieba.u.icon_click);
-                tbImageView.setAdjustViewBounds(true);
-                tbImageView.setInterceptOnClick(true);
-            }
-        }
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public ImageView m(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof TbImageView) {
-            ((TbImageView) imageView).stopLoading();
-        }
-        return imageView;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bIN);
+        this.bIJ.setResult(-1, intent);
+        this.bIJ.ZB();
     }
 }

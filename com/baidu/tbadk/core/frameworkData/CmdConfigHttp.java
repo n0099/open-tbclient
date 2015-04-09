@@ -28,6 +28,7 @@ public class CmdConfigHttp {
     private static final int FRS_BASE_CMD = 1001700;
     public static final int FRS_HTTP_CMD = 1001703;
     public static final int FRS_LIST = 1001700;
+    public static final int FRS_LOAD_MORE_CMD = 1001704;
     public static final int FRS_WATER_FALL_LIST_HTTP_CMD = 1001701;
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
     public static final int GETPAYINFO_CMD = 1001505;

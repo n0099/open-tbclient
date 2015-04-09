@@ -16,13 +16,13 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ValidateActivity bnG;
+    final /* synthetic */ ValidateActivity bnW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ValidateActivity validateActivity, int i) {
         super(i);
-        this.bnG = validateActivity;
+        this.bnW = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,15 +35,15 @@ class a extends com.baidu.adp.framework.listener.e {
         int i2;
         p pVar2;
         ValidateItemData validateItemData2;
-        ValidateItemData gW;
+        ValidateItemData gZ;
         com.baidu.tieba.im.g gVar2;
         p pVar3;
-        ValidateItemData gW2;
+        ValidateItemData gZ2;
         com.baidu.tieba.im.g gVar3;
         p pVar4;
-        pVar = this.bnG.bnA;
+        pVar = this.bnW.bnQ;
         pVar.setLoadProgressBarVisable(false);
-        this.bnG.bnD = false;
+        this.bnW.bnT = false;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
             int cmd = socketResponsedMessage.getCmd();
             if (cmd == 103111) {
@@ -53,67 +53,67 @@ class a extends com.baidu.adp.framework.listener.e {
                         socketResponsedMessage.getError();
                         String errorString = socketResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
-                            this.bnG.showToast(y.validate_fail);
+                            this.bnW.showToast(y.validate_fail);
                         } else {
-                            this.bnG.showToast(errorString);
+                            this.bnW.showToast(errorString);
                         }
-                        gW2 = this.bnG.gW(requestAddGroupUserMessage.getNotice_id());
-                        if (gW2 != null) {
-                            gW2.setPass(false);
-                            gW2.setShown(true);
-                            gVar3 = this.bnG.bnB;
-                            ValidateModel.updateValidateData(gVar3, gW2);
-                            pVar4 = this.bnG.bnA;
-                            pVar4.TE().notifyDataSetChanged();
+                        gZ2 = this.bnW.gZ(requestAddGroupUserMessage.getNotice_id());
+                        if (gZ2 != null) {
+                            gZ2.setPass(false);
+                            gZ2.setShown(true);
+                            gVar3 = this.bnW.bnR;
+                            ValidateModel.updateValidateData(gVar3, gZ2);
+                            pVar4 = this.bnW.bnQ;
+                            pVar4.TR().notifyDataSetChanged();
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                gW = this.bnG.gW(requestAddGroupUserMessage.getNotice_id());
-                if (gW != null) {
-                    gW.setPass(true);
-                    gW.setShown(true);
-                    gVar2 = this.bnG.bnB;
-                    ValidateModel.updateValidateData(gVar2, gW);
+                gZ = this.bnW.gZ(requestAddGroupUserMessage.getNotice_id());
+                if (gZ != null) {
+                    gZ.setPass(true);
+                    gZ.setShown(true);
+                    gVar2 = this.bnW.bnR;
+                    ValidateModel.updateValidateData(gVar2, gZ);
                     if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                        this.bnG.showToast(y.validate_succ);
+                        this.bnW.showToast(y.validate_succ);
                     } else {
-                        this.bnG.showToast(socketResponsedMessage.getErrorString());
+                        this.bnW.showToast(socketResponsedMessage.getErrorString());
                     }
-                    pVar3 = this.bnG.bnA;
-                    pVar3.TE().notifyDataSetChanged();
+                    pVar3 = this.bnW.bnQ;
+                    pVar3.TR().notifyDataSetChanged();
                 }
             } else if (202004 == cmd) {
                 ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                 RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
                 if (responseDelSystemMessage.getError() == 0) {
-                    validateItemData = this.bnG.bnC;
-                    gVar = this.bnG.bnB;
+                    validateItemData = this.bnW.bnS;
+                    gVar = this.bnW.bnR;
                     ValidateModel.deleteValidateData(validateItemData, gVar);
-                    ValidateActivity validateActivity = this.bnG;
+                    ValidateActivity validateActivity = this.bnW;
                     i = validateActivity.offset;
                     validateActivity.offset = i - 1;
-                    ValidateActivity validateActivity2 = this.bnG;
+                    ValidateActivity validateActivity2 = this.bnW;
                     i2 = validateActivity2.totalCount;
                     validateActivity2.totalCount = i2 - 1;
-                    pVar2 = this.bnG.bnA;
-                    h TE = pVar2.TE();
-                    List<ValidateItemData> datas = TE.getDatas();
-                    validateItemData2 = this.bnG.bnC;
+                    pVar2 = this.bnW.bnQ;
+                    h TR = pVar2.TR();
+                    List<ValidateItemData> datas = TR.getDatas();
+                    validateItemData2 = this.bnW.bnS;
                     datas.remove(validateItemData2);
                     ImMessageCenterPojo imMessageCenterPojo = null;
-                    if (TE.getDatas().size() > 0) {
+                    if (TR.getDatas().size() > 0) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-                        imMessageCenterPojo2.setLast_content(String.valueOf(TE.getDatas().get(0).getUserName()) + TbadkApplication.getInst().getApp().getApplicationContext().getString(y.validate_im_apply_prefix1) + TE.getDatas().get(0).getGroupName());
-                        imMessageCenterPojo2.setLast_content_time(TE.getDatas().get(0).getApplyTime());
+                        imMessageCenterPojo2.setLast_content(String.valueOf(TR.getDatas().get(0).getUserName()) + TbadkApplication.getInst().getApp().getApplicationContext().getString(y.validate_im_apply_prefix1) + TR.getDatas().get(0).getGroupName());
+                        imMessageCenterPojo2.setLast_content_time(TR.getDatas().get(0).getApplyTime());
                         imMessageCenterPojo = imMessageCenterPojo2;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001217, imMessageCenterPojo));
-                    TE.notifyDataSetChanged();
-                    if (TE != null && TE.getDatas() != null && TE.getDatas().size() == 0) {
-                        this.bnG.finish();
+                    TR.notifyDataSetChanged();
+                    if (TR != null && TR.getDatas() != null && TR.getDatas().size() == 0) {
+                        this.bnW.finish();
                     }
                 }
             }

@@ -5,83 +5,83 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class v {
-    private int cld = 0;
-    private int cle = 0;
-    private String clf = null;
-    private String clg = null;
-    private int clh = 0;
-    private int cli = 0;
-    private int clj = 0;
-    private int clk = 0;
-    private int cll = 0;
-    private int clm = 0;
-    private long cln = 0;
-    private long clo = 0;
-    private boolean clp = false;
-    private long clq = 0;
-    private String clr = null;
+    private int clt = 0;
+    private int clu = 0;
+    private String clv = null;
+    private String clw = null;
+    private int clx = 0;
+    private int cly = 0;
+    private int clz = 0;
+    private int clA = 0;
+    private int clB = 0;
+    private int clC = 0;
+    private long clD = 0;
+    private long clE = 0;
+    private boolean clF = false;
+    private long clG = 0;
+    private String clH = null;
 
-    public int akz() {
-        return this.cld;
+    public int akO() {
+        return this.clt;
     }
 
-    public String akA() {
-        return this.clf;
+    public String akP() {
+        return this.clv;
     }
 
-    public String akB() {
-        return this.clg;
+    public String akQ() {
+        return this.clw;
     }
 
-    public int akC() {
-        return this.clj;
+    public int akR() {
+        return this.clz;
     }
 
-    public int akD() {
-        return this.clk;
+    public int akS() {
+        return this.clA;
     }
 
-    public boolean akE() {
-        return this.clp;
+    public boolean akT() {
+        return this.clF;
     }
 
-    public long akF() {
-        return this.clq;
+    public long akU() {
+        return this.clG;
     }
 
-    public String akG() {
-        return this.clr;
+    public String akV() {
+        return this.clH;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.cld = starInfo.has_frs_star.intValue();
-            if (this.cld == 1) {
-                this.clf = starInfo.top;
-                this.clg = starInfo.head;
+            this.clt = starInfo.has_frs_star.intValue();
+            if (this.clt == 1) {
+                this.clv = starInfo.top;
+                this.clw = starInfo.head;
                 Fans fans = starInfo.fans;
-                this.clh = fans.is_get.intValue();
-                this.cli = fans.num.intValue();
-                this.cle = fans.open.intValue();
-                this.cln = fans.left_time.intValue();
-                this.clo = this.cln;
+                this.clx = fans.is_get.intValue();
+                this.cly = fans.num.intValue();
+                this.clu = fans.open.intValue();
+                this.clD = fans.left_time.intValue();
+                this.clE = this.clD;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.clj = size.width.intValue();
-                    this.clk = size.height.intValue();
+                    this.clz = size.width.intValue();
+                    this.clA = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.cll = size2.width.intValue();
-                    this.clm = size2.height.intValue();
+                    this.clB = size2.width.intValue();
+                    this.clC = size2.height.intValue();
                 }
             }
-            this.clp = starInfo.trade != null;
-            if (this.clp) {
+            this.clF = starInfo.trade != null;
+            if (this.clF) {
                 if (starInfo.trade.time != null) {
-                    this.clq = starInfo.trade.time.intValue();
+                    this.clG = starInfo.trade.time.intValue();
                 }
-                this.clr = starInfo.trade.url;
+                this.clH = starInfo.trade.url;
             }
         }
     }

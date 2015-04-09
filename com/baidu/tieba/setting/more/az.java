@@ -10,10 +10,10 @@ import com.baidu.tieba.setting.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ ay ccb;
+    final /* synthetic */ ay ccq;
 
     private az(ay ayVar) {
-        this.ccb = ayVar;
+        this.ccq = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,12 +28,12 @@ public class az extends BdAsyncTask<String, Integer, String> {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         BaseActivity.LoadDataCallBack loadDataCallBack2;
         super.onPostExecute((az) str);
-        this.ccb.cbZ = null;
-        loadDataCallBack = this.ccb.bEn;
+        this.ccq.cco = null;
+        loadDataCallBack = this.ccq.bEA;
         if (loadDataCallBack == null) {
             return;
         }
-        loadDataCallBack2 = this.ccb.bEn;
+        loadDataCallBack2 = this.ccq.bEA;
         loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
     }
 

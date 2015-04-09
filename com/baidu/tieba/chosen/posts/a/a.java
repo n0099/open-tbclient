@@ -9,19 +9,19 @@ import com.baidu.tieba.v;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
-    private TextView aBm;
-    private TextView aBn;
-    private TextView aBo;
-    private TextView aBp;
-    private TextView alE;
+    private TextView aBu;
+    private TextView aBv;
+    private TextView aBw;
+    private TextView aBx;
+    private TextView alM;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aBm = (TextView) view.findViewById(v.chosen_no_picture_title);
-        this.aBn = (TextView) view.findViewById(v.chosen_no_picture_praise);
-        this.aBo = (TextView) view.findViewById(v.chosen_no_picture_comment);
-        this.aBp = (TextView) view.findViewById(v.chosen_no_picture_head);
-        this.alE = (TextView) view.findViewById(v.chosen_no_picture_sub);
+        this.aBu = (TextView) view.findViewById(v.chosen_no_picture_title);
+        this.aBv = (TextView) view.findViewById(v.chosen_no_picture_praise);
+        this.aBw = (TextView) view.findViewById(v.chosen_no_picture_comment);
+        this.aBx = (TextView) view.findViewById(v.chosen_no_picture_head);
+        this.alM = (TextView) view.findViewById(v.chosen_no_picture_sub);
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab
@@ -40,34 +40,34 @@ public class a extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
     public void A(tinfo tinfoVar) {
         super.A(tinfoVar);
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.aBm.setVisibility(8);
+            this.aBu.setVisibility(8);
         } else {
-            this.aBm.setVisibility(0);
-            this.aBm.setText(tinfoVar.forum_name);
+            this.aBu.setVisibility(0);
+            this.aBu.setText(tinfoVar.forum_name);
         }
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.aBp.setVisibility(8);
+            this.aBx.setVisibility(8);
         } else {
-            this.aBp.setVisibility(0);
-            this.aBp.setText(tinfoVar.title);
+            this.aBx.setVisibility(0);
+            this.aBx.setText(tinfoVar.title);
         }
         if (tinfoVar.zan_num == null) {
-            this.aBn.setVisibility(8);
+            this.aBv.setVisibility(8);
         } else {
-            this.aBn.setVisibility(0);
-            this.aBn.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
+            this.aBv.setVisibility(0);
+            this.aBv.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
         }
         if (tinfoVar.reply_num == null) {
-            this.aBo.setVisibility(8);
+            this.aBw.setVisibility(8);
         } else {
-            this.aBo.setVisibility(0);
-            this.aBo.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
+            this.aBw.setVisibility(0);
+            this.aBw.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.alE.setVisibility(8);
+            this.alM.setVisibility(8);
             return;
         }
-        this.alE.setVisibility(0);
-        this.alE.setText(tinfoVar._abstract);
+        this.alM.setVisibility(0);
+        this.alM.setText(tinfoVar._abstract);
     }
 }

@@ -13,24 +13,24 @@ import tbclient.FoundNew.Menu;
 import tbclient.FoundNew.Module;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.mvc.b.b, k {
-    private long aBU;
-    private Banner aBV;
-    private List<d> aBW;
+    private long aCc;
+    private Banner aCd;
+    private List<d> aCe;
 
-    public long Gb() {
-        return this.aBU;
+    public long Gh() {
+        return this.aCc;
     }
 
-    public Banner Gc() {
-        return this.aBV;
+    public Banner Gi() {
+        return this.aCd;
     }
 
-    public List<d> Gd() {
-        return this.aBW;
+    public List<d> Gj() {
+        return this.aCe;
     }
 
     public void D(List<d> list) {
-        this.aBW = list;
+        this.aCe = list;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -48,11 +48,11 @@ public class a implements com.baidu.tbadk.mvc.b.b, k {
             FoundNewResIdl foundNewResIdl = (FoundNewResIdl) message;
             if (foundNewResIdl.error.errorno.intValue() == 0 && foundNewResIdl.data != null) {
                 if (foundNewResIdl.data.timestamp != null) {
-                    this.aBU = foundNewResIdl.data.timestamp.longValue();
+                    this.aCc = foundNewResIdl.data.timestamp.longValue();
                 }
-                this.aBV = foundNewResIdl.data.banner;
+                this.aCd = foundNewResIdl.data.banner;
                 List<Module> list = foundNewResIdl.data.module;
-                this.aBW = new ArrayList(0);
+                this.aCe = new ArrayList(0);
                 if (list != null && !list.isEmpty()) {
                     for (Module module : list) {
                         if (module != null && module.menu_list != null && module.menu_list.size() > 0) {
@@ -65,7 +65,7 @@ public class a implements com.baidu.tbadk.mvc.b.b, k {
                                     arrayList.add(new c().a(menu));
                                 }
                             }
-                            this.aBW.add(dVar);
+                            this.aCe.add(dVar);
                         }
                     }
                 }
@@ -74,7 +74,7 @@ public class a implements com.baidu.tbadk.mvc.b.b, k {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Aw() {
+    public byte[] AC() {
         return null;
     }
 

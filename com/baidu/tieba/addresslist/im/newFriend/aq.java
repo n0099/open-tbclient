@@ -2,13 +2,13 @@ package com.baidu.tieba.addresslist.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements com.baidu.tieba.im.g<Boolean> {
-    private final /* synthetic */ com.baidu.tieba.im.data.b axV;
-    final /* synthetic */ NewFriendsActivity ayz;
+    final /* synthetic */ NewFriendsActivity ayH;
+    private final /* synthetic */ com.baidu.tieba.im.data.b ayd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.b bVar) {
-        this.ayz = newFriendsActivity;
-        this.axV = bVar;
+        this.ayH = newFriendsActivity;
+        this.ayd = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,8 +16,8 @@ public class aq implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         bb bbVar;
         if (bool.booleanValue()) {
-            bbVar = this.ayz.ays;
-            bbVar.a(this.axV);
+            bbVar = this.ayH.ayA;
+            bbVar.a(this.ayd);
         }
     }
 }

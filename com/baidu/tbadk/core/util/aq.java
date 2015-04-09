@@ -34,24 +34,24 @@ public class aq {
                         int i7 = i2;
                         while (it.hasNext()) {
                             ar next = it.next();
-                            if (com.baidu.adp.lib.f.d.hB().X(next.UU)) {
-                                if (12 == next.UU) {
+                            if (com.baidu.adp.lib.f.d.hB().X(next.UW)) {
+                                if (12 == next.UW) {
                                     int i8 = i5 + 1;
-                                    if (i8 > 30 || i4 <= lastVisiblePosition || TextUtils.isEmpty(next.QK)) {
+                                    if (i8 > 30 || i4 <= lastVisiblePosition || TextUtils.isEmpty(next.QM)) {
                                         i5 = i8;
                                     } else {
-                                        com.baidu.adp.lib.f.d.hB().a(next.QK, 12, null, bdUniqueId);
+                                        com.baidu.adp.lib.f.d.hB().a(next.QM, 12, null, bdUniqueId);
                                         i5 = i8;
                                     }
                                 } else {
                                     int i9 = next.width * next.height;
                                     if (i9 > 0) {
-                                        if (next.UV != null) {
+                                        if (next.UX != null) {
                                             pbImageSize = i7 + (i9 * 4);
                                         } else {
                                             pbImageSize = i7 + (i9 * 2);
                                         }
-                                    } else if (next.UV != null) {
+                                    } else if (next.UX != null) {
                                         BdLog.e("missing big emotion image width and height!");
                                         pbImageSize = i7 + TbConfig.getBigEmotionsSize();
                                     } else {
@@ -59,18 +59,18 @@ public class aq {
                                     }
                                     int i10 = i6 + 1;
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
-                                        if (next.UV != null) {
-                                            com.baidu.tbadk.widget.richText.e eVar = next.UV;
-                                            String str = ti ? eVar.akK.akm : eVar.akK.akl;
+                                        if (next.UX != null) {
+                                            com.baidu.tbadk.widget.richText.e eVar = next.UX;
+                                            String str = ti ? eVar.akS.aku : eVar.akS.akt;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.d.hB().a(eVar.akK.akk, next.UU, null, 0, 0, bdUniqueId, eVar.akK.akn, eVar.akK.akk, Boolean.valueOf(ti), str);
+                                                com.baidu.adp.lib.f.d.hB().a(eVar.akS.aks, next.UW, null, 0, 0, bdUniqueId, eVar.akS.akv, eVar.akS.aks, Boolean.valueOf(ti), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }
                                         } else {
-                                            String str2 = next.QK;
+                                            String str2 = next.QM;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.d.hB().a(str2, next.UU, null, bdUniqueId);
+                                                com.baidu.adp.lib.f.d.hB().a(str2, next.UW, null, bdUniqueId);
                                             }
                                         }
                                     }

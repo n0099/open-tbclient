@@ -20,7 +20,7 @@ public class RecommendFrsSocketResponsedMessage extends MvcSocketResponsedMessag
         t<byte[]> bW;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if ((mvcNetMessage.getRequestData() instanceof d) && ((d) mvcNetMessage.getRequestData()).afH() == 0 && (bW = com.baidu.tbadk.core.b.a.rc().bW("RecommendFrsCache")) != null) {
+            if ((mvcNetMessage.getRequestData() instanceof d) && ((d) mvcNetMessage.getRequestData()).afW() == 0 && (bW = com.baidu.tbadk.core.b.a.rc().bW("RecommendFrsCache")) != null) {
                 bW.f("RecommendFrsData", bArr);
             }
         }

@@ -5,8 +5,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    TextView ahr;
-    ImageView cvu;
+    TextView ahz;
+    ImageView cvK;
     View line;
 
     private n() {

@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class bi {
-    private static String VA;
-    private static final HashMap<String, String> VB = new HashMap<>();
-    private static String Vz;
+    private static String VB;
+    private static String VC;
+    private static final HashMap<String, String> VD = new HashMap<>();
 
     public static void cO(String str) {
-        VA = str;
+        VC = str;
         if (TextUtils.isEmpty(str)) {
-            Vz = str;
+            VB = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -19,17 +19,17 @@ public class bi {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (VB != null) {
-            str2 = VB.get(str);
+        if (VD != null) {
+            str2 = VD.get(str);
         }
         if (str2 == null) {
             str2 = cP(str);
-            if (VB != null) {
-                VB.put(str, str2);
+            if (VD != null) {
+                VD.put(str, str2);
             }
         }
         if (str2 != null) {
-            Vz = String.valueOf(str2) + System.currentTimeMillis();
+            VB = String.valueOf(str2) + System.currentTimeMillis();
         }
     }
 
@@ -45,10 +45,10 @@ public class bi {
     }
 
     public static String tj() {
-        return Vz;
+        return VB;
     }
 
     public static String tk() {
-        return VA;
+        return VC;
     }
 }

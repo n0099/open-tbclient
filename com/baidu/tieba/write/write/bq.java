@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
 class bq implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(WriteActivity writeActivity) {
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -39,50 +39,50 @@ class bq implements View.OnFocusChangeListener {
         EditText editText7;
         View view2;
         TextView textView2;
-        editText = this.cyc.cvO;
+        editText = this.cyx.cwe;
         if (view != editText) {
-            view2 = this.cyc.mBack;
+            view2 = this.cyx.mBack;
             if (view != view2) {
-                textView2 = this.cyc.cvT;
+                textView2 = this.cyx.cwj;
             }
         }
         if (!z) {
-            editText2 = this.cyc.cvO;
+            editText2 = this.cyx.cwe;
             if (view == editText2) {
-                textView = this.cyc.cvU;
+                textView = this.cyx.cwk;
                 textView.setVisibility(0);
             }
         } else {
-            this.cyc.cya = true;
-            this.cyc.ara();
-            tbEditorToolButtonContainer = this.cyc.cxK;
-            tbEditorToolButtonContainer.ale();
-            editorToolComponetContainer = this.cyc.cmz;
-            editText3 = this.cyc.cvO;
+            this.cyx.cyv = true;
+            this.cyx.arp();
+            tbEditorToolButtonContainer = this.cyx.cyf;
+            tbEditorToolButtonContainer.alt();
+            editorToolComponetContainer = this.cyx.cmP;
+            editText3 = this.cyx.cwe;
             editorToolComponetContainer.aa(editText3);
         }
-        editText4 = this.cyc.cvS;
+        editText4 = this.cyx.cwi;
         if (view == editText4) {
             if (!z) {
-                writeData = this.cyc.cpU;
+                writeData = this.cyx.cqk;
                 if (writeData.getType() == 0) {
-                    editText5 = this.cyc.cvS;
+                    editText5 = this.cyx.cwi;
                     editText5.setHint(com.baidu.tieba.y.content);
                     return;
                 }
                 return;
             }
-            this.cyc.cya = false;
-            writeData2 = this.cyc.cpU;
+            this.cyx.cyv = false;
+            writeData2 = this.cyx.cqk;
             if (writeData2.getType() == 0) {
-                editText7 = this.cyc.cvS;
+                editText7 = this.cyx.cwi;
                 editText7.setHint((CharSequence) null);
             }
-            this.cyc.ara();
-            tbEditorToolButtonContainer2 = this.cyc.cxK;
-            tbEditorToolButtonContainer2.ale();
-            editorToolComponetContainer2 = this.cyc.cmz;
-            editText6 = this.cyc.cvS;
+            this.cyx.arp();
+            tbEditorToolButtonContainer2 = this.cyx.cyf;
+            tbEditorToolButtonContainer2.alt();
+            editorToolComponetContainer2 = this.cyx.cmP;
+            editText6 = this.cyx.cwi;
             editorToolComponetContainer2.aa(editText6);
         }
     }

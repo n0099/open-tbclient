@@ -4,14 +4,14 @@ import android.view.View;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 class j implements Runnable {
-    private final /* synthetic */ int Rx;
-    final /* synthetic */ i bNJ;
+    private final /* synthetic */ int Rz;
+    final /* synthetic */ i bNZ;
     private final /* synthetic */ View yS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, int i, View view) {
-        this.bNJ = iVar;
-        this.Rx = i;
+        this.bNZ = iVar;
+        this.Rz = i;
         this.yS = view;
     }
 
@@ -19,10 +19,10 @@ class j implements Runnable {
     public void run() {
         NavigationBar navigationBar;
         int[] iArr = new int[2];
-        this.bNJ.aIy.getLocationInWindow(iArr);
+        this.bNZ.aIG.getLocationInWindow(iArr);
         int height = iArr[1] - this.yS.getHeight();
-        navigationBar = this.bNJ.mNavigationBar;
-        this.bNJ.mListView.setSelectionFromTop(this.Rx + 1, height - navigationBar.getHeight());
-        this.bNJ.mListView.invalidate();
+        navigationBar = this.bNZ.mNavigationBar;
+        this.bNZ.mListView.setSelectionFromTop(this.Rz + 1, height - navigationBar.getHeight());
+        this.bNZ.mListView.invalidate();
     }
 }

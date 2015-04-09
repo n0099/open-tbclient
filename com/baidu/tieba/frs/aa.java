@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aJG;
+    final /* synthetic */ FrsActivity aJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(FrsActivity frsActivity, int i) {
         super(i);
-        this.aJG = frsActivity;
+        this.aJQ = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,18 +20,18 @@ class aa extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivityStatic.aJP = true;
+                FrsActivityStatic.aJZ = true;
             } else if (intValue == 2) {
-                FrsActivityStatic.aJQ = true;
+                FrsActivityStatic.aKa = true;
             }
             boolean z = intValue == 3;
-            boolean JF = FrsActivityStatic.JF();
-            if (z && JF) {
-                FrsActivityStatic.aJO = false;
+            boolean JM = FrsActivityStatic.JM();
+            if (z && JM) {
+                FrsActivityStatic.aJY = false;
             } else {
-                FrsActivityStatic.aJO = true;
+                FrsActivityStatic.aJY = true;
             }
-            this.aJG.Jk();
+            this.aJQ.Jq();
         }
     }
 }

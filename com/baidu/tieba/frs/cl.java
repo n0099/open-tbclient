@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class cl {
-    final /* synthetic */ cj aMS;
-    public String aMT;
+    final /* synthetic */ cj aNd;
+    public String aNe;
     public String name;
 
     public cl(cj cjVar) {
-        this.aMS = cjVar;
+        this.aNd = cjVar;
     }
 }

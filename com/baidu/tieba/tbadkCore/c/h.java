@@ -1,13 +1,13 @@
 package com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public interface h {
-    String aml();
+    String amA();
 
-    String amm();
+    String amB();
 
-    String amn();
+    String amC();
 
-    String amo();
+    String amD();
 
-    long amp();
+    long amE();
 }

@@ -6,12 +6,12 @@ import java.util.Queue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Void, f, f> {
-    final /* synthetic */ e alm;
-    final Queue<f> aln;
+    final /* synthetic */ e alu;
+    final Queue<f> alv;
 
     public g(e eVar, Queue<f> queue) {
-        this.alm = eVar;
-        this.aln = queue;
+        this.alu = eVar;
+        this.alv = queue;
         super.setPriority(2);
     }
 
@@ -21,21 +21,21 @@ public class g extends BdAsyncTask<Void, f, f> {
     /* renamed from: c */
     public f doInBackground(Void... voidArr) {
         while (true) {
-            f poll = this.aln.poll();
+            f poll = this.alv.poll();
             if (poll == null) {
                 break;
             } else if (isCancelled()) {
-                this.aln.add(poll);
+                this.alv.add(poll);
                 break;
             } else {
-                com.baidu.adp.widget.a.a er = com.baidu.tbadk.imageManager.e.zs().er(poll.alh.toCachedKey(poll.alj));
-                if (er != null) {
-                    poll.alk = er;
-                    poll.all = true;
+                com.baidu.adp.widget.a.a eu = com.baidu.tbadk.imageManager.e.zy().eu(poll.alp.toCachedKey(poll.alr));
+                if (eu != null) {
+                    poll.als = eu;
+                    poll.alt = true;
                 } else {
-                    Bitmap b = this.alm.b(poll.alh, poll.alj);
+                    Bitmap b = this.alu.b(poll.alp, poll.alr);
                     if (b != null) {
-                        poll.alk = new com.baidu.adp.widget.a.a(b, false, poll.alh.getFilePath());
+                        poll.als = new com.baidu.adp.widget.a.a(b, false, poll.alp.getFilePath());
                     }
                 }
                 publishProgress(poll);
@@ -50,8 +50,8 @@ public class g extends BdAsyncTask<Void, f, f> {
     /* renamed from: a */
     public void onPostExecute(f fVar) {
         super.onPostExecute(fVar);
-        this.alm.alg = null;
-        this.alm.zz();
+        this.alu.alo = null;
+        this.alu.zF();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,12 +61,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     public void onProgressUpdate(f... fVarArr) {
         if (fVarArr != null) {
             for (f fVar : fVarArr) {
-                com.baidu.adp.widget.a.a aVar = fVar.alk;
-                if (aVar != null && !fVar.all) {
-                    com.baidu.tbadk.imageManager.e.zs().c(fVar.alh.toCachedKey(fVar.alj), aVar);
+                com.baidu.adp.widget.a.a aVar = fVar.als;
+                if (aVar != null && !fVar.alt) {
+                    com.baidu.tbadk.imageManager.e.zy().c(fVar.alp.toCachedKey(fVar.alr), aVar);
                 }
-                if (fVar.ali != null) {
-                    fVar.ali.a(aVar, fVar.alh.toCachedKey(fVar.alj), fVar.all);
+                if (fVar.alq != null) {
+                    fVar.alq.a(aVar, fVar.alp.toCachedKey(fVar.alr), fVar.alt);
                 }
             }
         }
@@ -76,12 +76,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
         super.onCancelled();
-        this.alm.alg = null;
+        this.alu.alo = null;
         while (true) {
-            f poll = this.aln.poll();
+            f poll = this.alv.poll();
             if (poll != null) {
-                if (poll.ali != null) {
-                    poll.ali.a(null, poll.alh.toCachedKey(poll.alj), false);
+                if (poll.alq != null) {
+                    poll.alq.a(null, poll.alp.toCachedKey(poll.alr), false);
                 }
             } else {
                 return;

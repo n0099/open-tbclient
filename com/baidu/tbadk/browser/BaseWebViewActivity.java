@@ -177,7 +177,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (StringUtils.isNull(this.mUrlTitle, true)) {
                 fVar.title = getResources().getString(y.share_from_tieba);
             }
-            fVar.adm = this.mUrl;
+            fVar.adu = this.mUrl;
             if (fVar != null) {
                 this.mView.a(fVar);
             }
@@ -291,9 +291,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (bN.xh != null) {
                 str3 = bN.xh;
             }
-            if (bN.OD != null) {
+            if (bN.OF != null) {
                 str = str3;
-                str2 = bN.OD;
+                str2 = bN.OF;
                 com.baidu.tbadk.util.o oVar = new com.baidu.tbadk.util.o(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(oVar))) {
                     z = true;

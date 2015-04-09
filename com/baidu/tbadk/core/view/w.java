@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.view;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class w {
-    String YF;
-    String YG;
+    String YH;
+    String YI;
     String mTitle;
 
     private w() {
@@ -20,22 +20,22 @@ public class w {
 
     public static w cZ(String str) {
         w wVar = new w();
-        wVar.YF = str;
+        wVar.YH = str;
         return wVar;
     }
 
     public static w ac(String str, String str2) {
         w wVar = new w();
         wVar.mTitle = str2;
-        wVar.YF = str;
+        wVar.YH = str;
         return wVar;
     }
 
     public static w k(String str, String str2, String str3) {
         w wVar = new w();
         wVar.mTitle = str2;
-        wVar.YF = str;
-        wVar.YG = str3;
+        wVar.YH = str;
+        wVar.YI = str3;
         return wVar;
     }
 }

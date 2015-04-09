@@ -10,19 +10,19 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.tbadk.mvc.i.b {
-    protected BdListView ann;
-    protected com.baidu.tbadk.mvc.k.a ano;
-    protected com.baidu.tbadk.mvc.k.b anp;
+    protected BdListView anv;
+    protected com.baidu.tbadk.mvc.k.a anw;
+    protected com.baidu.tbadk.mvc.k.b anx;
 
-    protected abstract com.baidu.tbadk.mvc.j.c<?, ?, ?> Bo();
+    protected abstract com.baidu.tbadk.mvc.j.c<?, ?, ?> Bu();
 
-    protected abstract boolean Bp();
+    protected abstract boolean Bv();
 
-    protected abstract boolean Bq();
+    protected abstract boolean Bw();
 
-    protected abstract boolean Br();
+    protected abstract boolean Bx();
 
-    protected abstract boolean Bs();
+    protected abstract boolean By();
 
     protected abstract List<View> t(BdListView bdListView);
 
@@ -36,8 +36,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void or() {
         super.or();
-        if (Bo() != null) {
-            Bo().or();
+        if (Bu() != null) {
+            Bu().or();
         }
     }
 
@@ -45,8 +45,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityStop() {
         super.onActivityStop();
-        if (Bo() != null) {
-            Bo().onActivityStop();
+        if (Bu() != null) {
+            Bu().onActivityStop();
         }
     }
 
@@ -60,51 +60,51 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
         super.b(cVar);
         if (cVar instanceof com.baidu.tbadk.mvc.e.b) {
             com.baidu.tbadk.mvc.e.b bVar = (com.baidu.tbadk.mvc.e.b) cVar;
-            if (Bp() && bVar.Bg()) {
-                if (bVar.Bf()) {
-                    BI();
+            if (Bv() && bVar.Bm()) {
+                if (bVar.Bl()) {
+                    BO();
                 } else {
-                    BJ();
+                    BP();
                 }
             }
-            if (Bq() && this.ano != null) {
-                boolean z2 = Bo() == null || Bo().BV() != 0;
-                if (bVar.Bj() && z2) {
-                    this.ano.BZ();
-                    if (bVar.Bh()) {
-                        this.ano.dT(Bt());
-                    } else if (bVar.Bi()) {
-                        this.ano.dV(Bu());
-                    } else if (Bw()) {
-                        this.ano.hide();
+            if (Bw() && this.anw != null) {
+                boolean z2 = Bu() == null || Bu().Cb() != 0;
+                if (bVar.Bp() && z2) {
+                    this.anw.Cf();
+                    if (bVar.Bn()) {
+                        this.anw.dT(Bz());
+                    } else if (bVar.Bo()) {
+                        this.anw.dV(BA());
+                    } else if (BC()) {
+                        this.anw.hide();
                     } else {
-                        this.ano.dU(Bv());
+                        this.anw.dU(BB());
                     }
                 } else {
-                    this.ano.hide();
+                    this.anw.hide();
                 }
             }
-            if (Br() && this.anp != null) {
-                if (Bo() != null && Bo().BV() == 0) {
+            if (Bx() && this.anx != null) {
+                if (Bu() != null && Bu().Cb() == 0) {
                     z = false;
                 }
-                if (bVar.Be() && z) {
-                    this.anp.BZ();
-                    if (bVar.Bc()) {
-                        this.anp.dW(Bx());
+                if (bVar.Bk() && z) {
+                    this.anx.Cf();
+                    if (bVar.Bi()) {
+                        this.anx.dW(BD());
                         return;
-                    } else if (bVar.Bd()) {
-                        this.anp.dV(By());
+                    } else if (bVar.Bj()) {
+                        this.anx.dV(BE());
                         return;
-                    } else if (BA()) {
-                        this.anp.hide();
+                    } else if (BG()) {
+                        this.anx.hide();
                         return;
                     } else {
-                        this.anp.dX(Bz());
+                        this.anx.dX(BF());
                         return;
                     }
                 }
-                this.anp.hide();
+                this.anx.hide();
             }
         }
     }
@@ -113,21 +113,21 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        if (Bp()) {
-            BJ();
+        if (Bv()) {
+            BP();
         }
-        if (Bq() && this.ano != null) {
-            if (Bw()) {
-                this.ano.hide();
+        if (Bw() && this.anw != null) {
+            if (BC()) {
+                this.anw.hide();
             } else {
-                this.ano.dU(Bv());
+                this.anw.dU(BB());
             }
         }
-        if (Br() && this.anp != null) {
-            if (BA()) {
-                this.anp.hide();
+        if (Bx() && this.anx != null) {
+            if (BG()) {
+                this.anx.hide();
             } else {
-                this.anp.dX(Bz());
+                this.anx.dX(BF());
             }
         }
     }
@@ -143,40 +143,40 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void ov() {
-        this.ann = (BdListView) getView().findViewById(v.view_list);
-        t(this.ann);
-        u(this.ann);
-        if (Bp()) {
-            BH();
+        this.anv = (BdListView) getView().findViewById(v.view_list);
+        t(this.anv);
+        u(this.anv);
+        if (Bv()) {
+            BN();
         }
-        if (Bq()) {
-            this.ano = new com.baidu.tbadk.mvc.k.a(zS());
-            this.ann.setNextPage(this.ano);
-            this.ano.hide();
+        if (Bw()) {
+            this.anw = new com.baidu.tbadk.mvc.k.a(zY());
+            this.anv.setNextPage(this.anw);
+            this.anw.hide();
         }
-        if (Br()) {
-            this.anp = new com.baidu.tbadk.mvc.k.b(zS());
-            this.ann.setPrePage(this.anp);
-            this.anp.hide();
+        if (Bx()) {
+            this.anx = new com.baidu.tbadk.mvc.k.b(zY());
+            this.anv.setPrePage(this.anx);
+            this.anx.hide();
         }
-        if (Bs()) {
-            this.ann.setExOnSrollToBottomListener(new b(this));
+        if (By()) {
+            this.anv.setExOnSrollToBottomListener(new b(this));
         }
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (Bo() != null) {
-            Bo().a(tbPageContext, i);
+        if (Bu() != null) {
+            Bu().a(tbPageContext, i);
         }
-        if (Bp()) {
-            BM().ct(i);
+        if (Bv()) {
+            BS().ct(i);
         }
-        if (Bq() && this.ano != null) {
-            this.ano.a(tbPageContext, i);
+        if (Bw() && this.anw != null) {
+            this.anw.a(tbPageContext, i);
         }
-        if (Br() && this.anp != null) {
-            this.anp.a(tbPageContext, i);
+        if (Bx() && this.anx != null) {
+            this.anx.a(tbPageContext, i);
         }
         super.a(tbPageContext, i);
         return true;
@@ -188,47 +188,47 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bm() {
+    protected void Bs() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bn() {
+    protected void Bt() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
     public BdListView getListView() {
-        return this.ann;
-    }
-
-    protected int Bt() {
-        return y.loading;
-    }
-
-    protected int Bu() {
-        return y.click_load_more;
-    }
-
-    protected int Bv() {
-        return 0;
-    }
-
-    protected boolean Bw() {
-        return false;
-    }
-
-    protected int Bx() {
-        return y.loading;
-    }
-
-    protected int By() {
-        return y.click_load_more;
+        return this.anv;
     }
 
     protected int Bz() {
+        return y.loading;
+    }
+
+    protected int BA() {
+        return y.click_load_more;
+    }
+
+    protected int BB() {
         return 0;
     }
 
-    protected boolean BA() {
+    protected boolean BC() {
+        return false;
+    }
+
+    protected int BD() {
+        return y.loading;
+    }
+
+    protected int BE() {
+        return y.click_load_more;
+    }
+
+    protected int BF() {
+        return 0;
+    }
+
+    protected boolean BG() {
         return false;
     }
 }

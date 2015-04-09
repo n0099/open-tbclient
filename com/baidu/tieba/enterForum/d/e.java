@@ -16,157 +16,157 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private BdListView aBx;
-    private ViewEventCenter aCK;
-    private final com.baidu.tieba.enterForum.home.a aDF;
-    private View aDG;
-    private com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> aDH;
-    private q aDI;
-    private af aDJ;
-    private com.baidu.tieba.enterForum.c.i aDK;
-    private ViewGroup aDL;
-    private boolean aDM;
-    private List<com.baidu.tieba.tbadkCore.ae> aDN;
-    private NoNetworkView aDO;
-    private int aDw = 0;
+    private BdListView aBF;
+    private ViewEventCenter aCS;
+    private int aDE = 0;
+    private final com.baidu.tieba.enterForum.home.a aDN;
+    private View aDO;
+    private com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> aDP;
+    private q aDQ;
+    private af aDR;
+    private com.baidu.tieba.enterForum.c.i aDS;
+    private ViewGroup aDT;
+    private boolean aDU;
+    private List<com.baidu.tieba.tbadkCore.ae> aDV;
+    private NoNetworkView aDW;
     private ag mPullView;
 
     public e(com.baidu.tieba.enterForum.home.a aVar, ViewEventCenter viewEventCenter) {
-        this.aDF = aVar;
-        this.aCK = viewEventCenter;
-        this.aDJ = new af(viewEventCenter);
-        this.aDK = new com.baidu.tieba.enterForum.c.i(aVar.getPageContext(), viewEventCenter);
-        s(this.aDF.getView());
-        Hk();
-        this.aBx.setAdapter((ListAdapter) this.aDH);
+        this.aDN = aVar;
+        this.aCS = viewEventCenter;
+        this.aDR = new af(viewEventCenter);
+        this.aDS = new com.baidu.tieba.enterForum.c.i(aVar.getPageContext(), viewEventCenter);
+        s(this.aDN.getView());
+        Hq();
+        this.aBF.setAdapter((ListAdapter) this.aDP);
     }
 
     private void s(View view) {
-        this.aDO = (NoNetworkView) view.findViewById(com.baidu.tieba.v.view_no_network);
-        this.aDL = (ViewGroup) view.findViewById(com.baidu.tieba.v.container);
-        this.aBx = (BdListView) view.findViewById(com.baidu.tieba.v.listview);
-        this.mPullView = new ag(this.aDF.getPageContext());
-        this.aBx.setPullRefresh(this.mPullView);
-        this.aDI = new q(this.aDF.getFragmentActivity());
-        this.aDI.setEventCenter(this.aCK);
-        this.aDG = this.aDI.findViewById(com.baidu.tieba.v.divider_line);
-        this.aBx.addHeaderView(this.aDI);
+        this.aDW = (NoNetworkView) view.findViewById(com.baidu.tieba.v.view_no_network);
+        this.aDT = (ViewGroup) view.findViewById(com.baidu.tieba.v.container);
+        this.aBF = (BdListView) view.findViewById(com.baidu.tieba.v.listview);
+        this.mPullView = new ag(this.aDN.getPageContext());
+        this.aBF.setPullRefresh(this.mPullView);
+        this.aDQ = new q(this.aDN.getFragmentActivity());
+        this.aDQ.setEventCenter(this.aCS);
+        this.aDO = this.aDQ.findViewById(com.baidu.tieba.v.divider_line);
+        this.aBF.addHeaderView(this.aDQ);
     }
 
-    public int Hf() {
-        return this.aDw;
+    public int Hl() {
+        return this.aDE;
     }
 
-    public int Hj() {
-        return this.aDK.Hf();
+    public int Hp() {
+        return this.aDS.Hl();
     }
 
-    private void Hk() {
-        this.aDH = new f(this, this.aDF.getPageContext(), new Class[]{y.class, v.class, n.class}, new int[]{com.baidu.tieba.w.home_like_item_with_portrait, com.baidu.tieba.w.home_like_item_extra_with_text, com.baidu.tieba.w.home_like_two_column_item}, this.aCK);
-        this.aDH.bb(false);
+    private void Hq() {
+        this.aDP = new f(this, this.aDN.getPageContext(), new Class[]{y.class, v.class, n.class}, new int[]{com.baidu.tieba.w.home_like_item_with_portrait, com.baidu.tieba.w.home_like_item_extra_with_text, com.baidu.tieba.w.home_like_two_column_item}, this.aCS);
+        this.aDP.bb(false);
     }
 
     public void b(com.baidu.tieba.tbadkCore.ae aeVar) {
-        this.aDK.b(aeVar);
+        this.aDS.b(aeVar);
     }
 
     public void K(List<com.baidu.tieba.tbadkCore.ae> list) {
-        this.aDK.J(list);
+        this.aDS.J(list);
     }
 
-    public List<com.baidu.tieba.tbadkCore.ae> Hl() {
-        return this.aDK.BU();
+    public List<com.baidu.tieba.tbadkCore.ae> Hr() {
+        return this.aDS.Ca();
     }
 
-    public int Hm() {
-        return this.aBx.getFirstVisiblePosition() - this.aBx.getHeaderViewsCount();
+    public int Hs() {
+        return this.aBF.getFirstVisiblePosition() - this.aBF.getHeaderViewsCount();
     }
 
-    public void Hn() {
-        this.aDK.Hg();
+    public void Ht() {
+        this.aDS.Hm();
     }
 
-    public boolean Ho() {
-        return this.aDM;
+    public boolean Hu() {
+        return this.aDU;
     }
 
-    public void Hp() {
-        this.aDw = this.aDK.Hf();
-        O(this.aDK.BU());
+    public void Hv() {
+        this.aDE = this.aDS.Hl();
+        O(this.aDS.Ca());
     }
 
     public void bB(boolean z) {
-        this.aDM = z;
+        this.aDU = z;
         if (z) {
-            if (this.aDK.Hd() == null) {
-                this.aDK.He();
+            if (this.aDS.Hj() == null) {
+                this.aDS.Hk();
             }
-            i Hd = this.aDK.Hd();
-            Hd.f(this.aDF.getPageContext());
-            if (Hd.getParent() == null) {
-                this.aDL.addView(Hd, new FrameLayout.LayoutParams(-1, -1));
+            i Hj = this.aDS.Hj();
+            Hj.f(this.aDN.getPageContext());
+            if (Hj.getParent() == null) {
+                this.aDT.addView(Hj, new FrameLayout.LayoutParams(-1, -1));
             }
-            this.aDK.a(this.aDw, this.aDN);
+            this.aDS.a(this.aDE, this.aDV);
             com.baidu.adp.lib.g.i.hI().post(new g(this));
             return;
         }
-        this.aBx.setVisibility(0);
-        if (this.aDK.Hd() != null) {
-            this.aDL.removeView(this.aDK.Hd());
+        this.aBF.setVisibility(0);
+        if (this.aDS.Hj() != null) {
+            this.aDT.removeView(this.aDS.Hj());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hq() {
-        int Hm;
-        if (this.aDK.Hd() != null) {
-            if (this.aDw == 2) {
-                Hm = Hm() * 2;
+    public void Hw() {
+        int Hs;
+        if (this.aDS.Hj() != null) {
+            if (this.aDE == 2) {
+                Hs = Hs() * 2;
             } else {
-                Hm = Hm();
+                Hs = Hs();
             }
-            this.aDK.Hd().setSelection(Hm);
+            this.aDS.Hj().setSelection(Hs);
         }
     }
 
     public void mX() {
-        this.aBx.mX();
+        this.aBF.mX();
     }
 
-    public void Hr() {
-        this.aBx.mW();
+    public void Hx() {
+        this.aBF.mW();
     }
 
     public void bC(boolean z) {
-        this.aDI.a(this.aDF.getPageContext(), z);
+        this.aDQ.a(this.aDN.getPageContext(), z);
     }
 
     public void a(TbPageContext<?> tbPageContext, com.baidu.tbadk.core.data.u uVar) {
-        this.aDI.b(tbPageContext, uVar);
+        this.aDQ.b(tbPageContext, uVar);
     }
 
     public void L(List<com.baidu.tieba.enterForum.b.d> list) {
         if (list == null || list.isEmpty()) {
-            Hv();
+            HB();
             return;
         }
-        this.aDJ.b(this.aDF.getFragmentActivity(), list);
-        if (this.aBx.getFooterViewsCount() < 1) {
-            this.aBx.addFooterView(this.aDJ.HE());
-            com.baidu.tbadk.f.a.a(this.aDF.getPageContext(), this.aDJ.HE());
+        this.aDR.b(this.aDN.getFragmentActivity(), list);
+        if (this.aBF.getFooterViewsCount() < 1) {
+            this.aBF.addFooterView(this.aDR.HK());
+            com.baidu.tbadk.f.a.a(this.aDN.getPageContext(), this.aDR.HK());
         }
     }
 
-    public List<com.baidu.tieba.tbadkCore.ae> Hs() {
-        return this.aDN;
+    public List<com.baidu.tieba.tbadkCore.ae> Hy() {
+        return this.aDV;
     }
 
-    public List<com.baidu.tieba.tbadkCore.ae> Ht() {
-        return this.aDK.BU();
+    public List<com.baidu.tieba.tbadkCore.ae> Hz() {
+        return this.aDS.Ca();
     }
 
     public void ew(int i) {
-        this.aDw = i;
+        this.aDE = i;
     }
 
     private List<Object> M(List<com.baidu.tieba.tbadkCore.ae> list) {
@@ -213,69 +213,69 @@ public class e {
     }
 
     public void notifyDataSetChanged() {
-        this.aDH.notifyDataSetChanged();
+        this.aDP.notifyDataSetChanged();
     }
 
     public void O(List<com.baidu.tieba.tbadkCore.ae> list) {
-        this.aDN = list;
-        if (this.aDw == 2) {
-            this.aDG.setVisibility(8);
-            this.aDH.r(N(list));
+        this.aDV = list;
+        if (this.aDE == 2) {
+            this.aDO.setVisibility(8);
+            this.aDP.r(N(list));
             return;
         }
-        this.aDG.setVisibility(0);
-        this.aDH.r(M(list));
+        this.aDO.setVisibility(0);
+        this.aDP.r(M(list));
     }
 
-    public void Hu() {
-        if (this.aDJ != null) {
-            this.aDJ.HC();
+    public void HA() {
+        if (this.aDR != null) {
+            this.aDR.HI();
         }
     }
 
-    public void Hv() {
-        if (this.aDJ != null && this.aDJ.HE() != null) {
-            this.aBx.removeFooterView(this.aDJ.HE());
+    public void HB() {
+        if (this.aDR != null && this.aDR.HK() != null) {
+            this.aBF.removeFooterView(this.aDR.HK());
         }
     }
 
     public void onResume() {
         NetworkInfo activeNetworkInfo;
-        if (this.aDO != null && this.aDO.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.aDF.getFragmentActivity().getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.aDO.am(false);
+        if (this.aDW != null && this.aDW.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.aDN.getFragmentActivity().getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.aDW.am(false);
         }
     }
 
     public void onStop() {
     }
 
-    public void Hw() {
-        if (this.aDO != null) {
-            this.aDO.am(true);
+    public void HC() {
+        if (this.aDW != null) {
+            this.aDW.am(true);
         }
     }
 
     public void c(com.baidu.tbadk.core.view.y yVar) {
-        this.aDO.a(yVar);
+        this.aDW.a(yVar);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.f.a.a(this.aDF.getPageContext(), this.aDF.getView());
-        this.aDH.a(this.aDF.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        if (this.aDO != null) {
-            this.aDO.onChangeSkinType(this.aDF.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        com.baidu.tbadk.f.a.a(this.aDN.getPageContext(), this.aDN.getView());
+        this.aDP.a(this.aDN.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        if (this.aDW != null) {
+            this.aDW.onChangeSkinType(this.aDN.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         }
         if (this.mPullView != null) {
             this.mPullView.ct(TbadkCoreApplication.m411getInst().getSkinType());
         }
-        if (this.aDJ.HE() != null) {
-            this.aDJ.HE().f(this.aDF.getPageContext());
+        if (this.aDR.HK() != null) {
+            this.aDR.HK().f(this.aDN.getPageContext());
         }
-        if (this.aDI != null) {
-            this.aDI.f(this.aDF.getPageContext());
+        if (this.aDQ != null) {
+            this.aDQ.f(this.aDN.getPageContext());
         }
-        if (this.aDK.Hd() != null && this.aDK.Hd().getVisibility() == 0) {
-            this.aDK.f(this.aDF.getPageContext());
+        if (this.aDS.Hj() != null && this.aDS.Hj().getVisibility() == 0) {
+            this.aDS.f(this.aDN.getPageContext());
         }
     }
 

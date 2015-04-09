@@ -1,21 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bGe;
-    final /* synthetic */ PbActivity bIv;
+    final /* synthetic */ PbActivity bIJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.bIv = pbActivity;
-        this.bGe = fVar;
+    public av(PbActivity pbActivity) {
+        this.bIJ = pbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.a.copyToClipboard(this.bGe.adm);
-        com.baidu.adp.lib.util.n.showToast(this.bIv.getPageContext().getPageActivity(), view.getResources().getString(com.baidu.tieba.y.copy_pb_url_success));
+        this.bIJ.sendMessage(new CustomMessage(2001284));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bIJ.getPageContext().getPageActivity(), 23007)));
     }
 }

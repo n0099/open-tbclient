@@ -5,52 +5,52 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean HW;
-    private boolean arE;
-    private l arF;
+    private boolean HY;
+    private boolean arM;
+    private l arN;
     private int mHeight;
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.arE = false;
+        this.arM = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.arE = false;
+        this.arM = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.arE = false;
+        this.arM = false;
     }
 
     public void setOnkbdStateListener(l lVar) {
-        this.arF = lVar;
+        this.arN = lVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.arE) {
-            this.arE = true;
+        if (!this.arM) {
+            this.arM = true;
             this.mHeight = i4;
-            if (this.arF != null) {
-                this.arF.onKeyBoardStateChange(-1);
+            if (this.arN != null) {
+                this.arN.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
-        if (this.arE && this.mHeight > i4) {
-            this.HW = true;
-            if (this.arF != null) {
-                this.arF.onKeyBoardStateChange(-3);
+        if (this.arM && this.mHeight > i4) {
+            this.HY = true;
+            if (this.arN != null) {
+                this.arN.onKeyBoardStateChange(-3);
             }
         }
-        if (this.arE && this.HW && this.mHeight == i4) {
-            this.HW = false;
-            if (this.arF != null) {
-                this.arF.onKeyBoardStateChange(-2);
+        if (this.arM && this.HY && this.mHeight == i4) {
+            this.HY = false;
+            if (this.arN != null) {
+                this.arN.onKeyBoardStateChange(-2);
             }
         }
     }

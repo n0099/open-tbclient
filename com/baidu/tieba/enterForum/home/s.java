@@ -14,14 +14,14 @@ import com.baidu.tieba.tbadkCore.ae;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class s extends BdAsyncTask<ae, Integer, String> {
-    private aa ZD = null;
-    final /* synthetic */ a aCT;
-    private ae aCX;
+    private aa ZF = null;
+    final /* synthetic */ a aDb;
+    private ae aDf;
 
     public s(a aVar, ae aeVar) {
-        this.aCT = aVar;
-        this.aCX = null;
-        this.aCX = aeVar;
+        this.aDb = aVar;
+        this.aDf = null;
+        this.aDf = aeVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,15 +29,15 @@ class s extends BdAsyncTask<ae, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(ae... aeVarArr) {
-        ae aeVar = this.aCX;
+        ae aeVar = this.aDf;
         if (aeVar != null) {
             try {
                 if (aeVar.getId() != null && aeVar.getName() != null) {
-                    this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
-                    this.ZD.o(ImageViewerConfig.FORUM_ID, aeVar.getId());
-                    this.ZD.o("kw", aeVar.getName());
-                    this.ZD.sp().tp().mIsNeedTbs = true;
-                    this.ZD.rO();
+                    this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
+                    this.ZF.o(ImageViewerConfig.FORUM_ID, aeVar.getId());
+                    this.ZF.o("kw", aeVar.getName());
+                    this.ZF.sp().tp().mIsNeedTbs = true;
+                    this.ZF.rO();
                     return null;
                 }
                 return null;
@@ -58,23 +58,23 @@ class s extends BdAsyncTask<ae, Integer, String> {
         BaseFragmentActivity baseFragmentActivity3;
         com.baidu.tieba.enterForum.d.e eVar;
         super.onPostExecute((s) str);
-        this.aCT.bx(false);
-        if (this.ZD != null) {
-            if (this.ZD.sp().tq().pv()) {
-                this.aCT.aCI = true;
-                baseFragmentActivity3 = this.aCT.aCF;
-                baseFragmentActivity3.showToast(this.aCT.getString(y.delete_like_success));
+        this.aDb.bx(false);
+        if (this.ZF != null) {
+            if (this.ZF.sp().tq().pv()) {
+                this.aDb.aCQ = true;
+                baseFragmentActivity3 = this.aDb.aCN;
+                baseFragmentActivity3.showToast(this.aDb.getString(y.delete_like_success));
                 TbadkCoreApplication.m411getInst().setLikeBarChanged(true);
-                this.aCT.f(false, this.aCX.getId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aCX.getId()));
-                eVar = this.aCT.aCB;
-                eVar.b(this.aCX);
-            } else if (!StringUtils.isNull(this.ZD.getErrorString())) {
-                baseFragmentActivity2 = this.aCT.aCF;
-                baseFragmentActivity2.showToast(this.ZD.getErrorString());
+                this.aDb.f(false, this.aDf.getId());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aDf.getId()));
+                eVar = this.aDb.aCJ;
+                eVar.b(this.aDf);
+            } else if (!StringUtils.isNull(this.ZF.getErrorString())) {
+                baseFragmentActivity2 = this.aDb.aCN;
+                baseFragmentActivity2.showToast(this.ZF.getErrorString());
             } else {
-                baseFragmentActivity = this.aCT.aCF;
-                baseFragmentActivity.showToast(this.aCT.getString(y.delete_like_fail));
+                baseFragmentActivity = this.aDb.aCN;
+                baseFragmentActivity.showToast(this.aDb.getString(y.delete_like_fail));
             }
         }
     }
@@ -82,14 +82,14 @@ class s extends BdAsyncTask<ae, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.aCT.bx(true);
+        this.aDb.bx(true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.ZD != null) {
-            this.ZD.hh();
-            this.ZD = null;
+        if (this.ZF != null) {
+            this.ZF.hh();
+            this.ZF = null;
         }
         super.cancel(true);
     }

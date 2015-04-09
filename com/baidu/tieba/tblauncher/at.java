@@ -4,11 +4,11 @@ import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 class at implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ ai crN;
+    final /* synthetic */ ai csd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(ai aiVar) {
-        this.crN = aiVar;
+        this.csd = aiVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer

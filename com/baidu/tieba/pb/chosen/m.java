@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity bFY;
+    final /* synthetic */ PbChosenActivity bGl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PbChosenActivity pbChosenActivity) {
-        this.bFY = pbChosenActivity;
+        this.bGl = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,13 +17,13 @@ public class m implements View.OnClickListener {
         n nVar2;
         com.baidu.tieba.pb.chosen.net.a aVar;
         String str;
-        nVar = this.bFY.bFQ;
+        nVar = this.bGl.bGd;
         if (nVar == null) {
-            this.bFY.bFQ = new n(this.bFY);
+            this.bGl.bGd = new n(this.bGl);
         }
-        nVar2 = this.bFY.bFQ;
-        aVar = this.bFY.chosenData;
-        str = this.bFY.shareUrl;
+        nVar2 = this.bGl.bGd;
+        aVar = this.bGl.chosenData;
+        str = this.bGl.shareUrl;
         nVar2.a(aVar, str);
     }
 }

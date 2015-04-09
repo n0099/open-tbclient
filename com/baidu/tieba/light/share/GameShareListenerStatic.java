@@ -10,17 +10,17 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class GameShareListenerStatic {
     public static Context mContext = TbadkApplication.getInst().getContext();
-    private static final com.baidu.adp.framework.listener.e byl = new a(205001);
-    private static final com.baidu.adp.framework.listener.e bym = new b(202001);
+    private static final com.baidu.adp.framework.listener.e byB = new a(205001);
+    private static final com.baidu.adp.framework.listener.e byC = new b(202001);
 
     static {
-        MessageManager.getInstance().registerListener(byl);
-        MessageManager.getInstance().registerListener(bym);
+        MessageManager.getInstance().registerListener(byB);
+        MessageManager.getInstance().registerListener(byC);
     }
 
     public GameShareListenerStatic() {
-        MessageManager.getInstance().registerListener(byl);
-        MessageManager.getInstance().registerListener(bym);
+        MessageManager.getInstance().registerListener(byB);
+        MessageManager.getInstance().registerListener(byC);
     }
 
     public static int A(ChatMessage chatMessage) {

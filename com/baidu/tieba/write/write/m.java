@@ -10,12 +10,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
-    private com.baidu.tbadk.core.util.aa ZD;
-    final /* synthetic */ AtListActivity cwI;
+    private com.baidu.tbadk.core.util.aa ZF;
+    final /* synthetic */ AtListActivity cxb;
 
     private m(AtListActivity atListActivity) {
-        this.cwI = atListActivity;
-        this.ZD = null;
+        this.cxb = atListActivity;
+        this.ZF = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cwI.mProgress;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -35,11 +35,11 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.ZD != null) {
-            this.ZD.hh();
+        if (this.ZF != null) {
+            this.ZF.hh();
         }
-        this.cwI.cwz = null;
-        progressBar = this.cwI.mProgress;
+        this.cxb.cwS = null;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -49,14 +49,14 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: B */
     public com.baidu.tieba.write.a.a doInBackground(String... strArr) {
-        this.ZD = new com.baidu.tbadk.core.util.aa();
-        this.ZD.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
-        String rO = this.ZD.rO();
-        if (!this.ZD.sp().tq().pv()) {
+        this.ZF = new com.baidu.tbadk.core.util.aa();
+        this.ZF.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
+        String rO = this.ZF.rO();
+        if (!this.ZF.sp().tq().pv()) {
             return null;
         }
         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-        aVar.je(rO);
+        aVar.jh(rO);
         return aVar;
     }
 
@@ -78,53 +78,53 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
         BdListView bdListView;
         LinearLayout linearLayout2;
         View view;
-        this.cwI.cwz = null;
-        progressBar = this.cwI.mProgress;
+        this.cxb.cwS = null;
+        progressBar = this.cxb.mProgress;
         progressBar.setVisibility(8);
-        linearLayout = this.cwI.bsM;
+        linearLayout = this.cxb.btc;
         if (linearLayout != null) {
-            linearLayout2 = this.cwI.bsM;
+            linearLayout2 = this.cxb.btc;
             if (linearLayout2.getVisibility() == 0) {
-                view = this.cwI.cwD;
+                view = this.cxb.cwW;
                 view.setVisibility(0);
             }
         }
-        if (this.ZD.sp().tq().pv()) {
-            aVar2 = this.cwI.cwA;
+        if (this.ZF.sp().tq().pv()) {
+            aVar2 = this.cxb.cwT;
             aVar2.a(aVar);
-            nVar = this.cwI.cwB;
+            nVar = this.cxb.cwU;
             if (nVar != null) {
-                editText = this.cwI.mEditText;
+                editText = this.cxb.mEditText;
                 if (com.baidu.adp.lib.util.m.a(editText.getText(), "").length() != 0) {
-                    aVar3 = this.cwI.cwA;
-                    if (aVar3.aqi() != null) {
-                        if (aVar != null && aVar.apX() != null && !aVar.apX().isEmpty()) {
-                            this.cwI.jb(2);
+                    aVar3 = this.cxb.cwT;
+                    if (aVar3.aqx() != null) {
+                        if (aVar != null && aVar.aqm() != null && !aVar.aqm().isEmpty()) {
+                            this.cxb.je(2);
                         }
-                        aVar4 = this.cwI.cwA;
-                        aVar4.aqi().f(aVar.apX());
-                        nVar2 = this.cwI.cwB;
+                        aVar4 = this.cxb.cwT;
+                        aVar4.aqx().f(aVar.aqm());
+                        nVar2 = this.cxb.cwU;
                         nVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    if (aVar == null || aVar.apW() == null || !aVar.apW().isEmpty()) {
-                        this.cwI.jb(0);
+                    if (aVar == null || aVar.aql() == null || !aVar.aql().isEmpty()) {
+                        this.cxb.je(0);
                     } else {
-                        this.cwI.jb(2);
+                        this.cxb.je(2);
                     }
-                    this.cwI.cwv = aVar.apW();
-                    nVar3 = this.cwI.cwB;
-                    nVar3.p(this.cwI.cwv);
-                    nVar4 = this.cwI.cwB;
+                    this.cxb.cwO = aVar.aql();
+                    nVar3 = this.cxb.cwU;
+                    nVar3.p(this.cxb.cwO);
+                    nVar4 = this.cxb.cwU;
                     nVar4.notifyDataSetInvalidated();
-                    bdListView = this.cwI.mListView;
+                    bdListView = this.cxb.mListView;
                     bdListView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.cwI.showToast(this.ZD.getErrorString());
+            this.cxb.showToast(this.ZF.getErrorString());
         }
         super.onPostExecute(aVar);
     }

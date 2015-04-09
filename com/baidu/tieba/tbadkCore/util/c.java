@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.data.AntiData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ AntiData cpG;
+    private final /* synthetic */ AntiData cpW;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context, AntiData antiData) {
         this.val$context = context;
-        this.cpG = antiData;
+        this.cpW = antiData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AppealActivityConfig(this.val$context, this.cpG.getBlock_forum_id(), this.cpG.getUser_id(), this.cpG.getUser_name())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AppealActivityConfig(this.val$context, this.cpW.getBlock_forum_id(), this.cpW.getUser_id(), this.cpW.getUser_name())));
     }
 }

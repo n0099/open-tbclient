@@ -12,82 +12,82 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b extends g<AddGroupActivity> {
-    private NavigationBar anm;
-    private ProgressBar baW;
-    private View bmm;
-    private EditText bmn;
-    private ImageButton bmo;
-    private View bmp;
-    private View bmq;
-    private AddGroupActivity bmr;
+    private NavigationBar anu;
+    private ProgressBar bbm;
+    private View bmC;
+    private EditText bmD;
+    private ImageButton bmE;
+    private View bmF;
+    private View bmG;
+    private AddGroupActivity bmH;
     private View uy;
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity.getPageContext());
-        this.bmm = null;
-        this.anm = null;
+        this.bmC = null;
+        this.anu = null;
         this.uy = null;
-        this.bmn = null;
-        this.bmo = null;
-        this.baW = null;
-        this.bmp = null;
-        this.bmr = null;
-        this.bmr = addGroupActivity;
+        this.bmD = null;
+        this.bmE = null;
+        this.bbm = null;
+        this.bmF = null;
+        this.bmH = null;
+        this.bmH = addGroupActivity;
         initUI();
     }
 
-    public View OT() {
-        return this.bmo;
+    public View Pg() {
+        return this.bmE;
     }
 
-    public View Tg() {
-        return this.bmp;
+    public View Tt() {
+        return this.bmF;
     }
 
-    public View Th() {
+    public View Tu() {
         return this.uy;
     }
 
-    public View Ti() {
-        return this.bmq;
+    public View Tv() {
+        return this.bmG;
     }
 
-    public void Tj() {
-        if (this.bmn != null) {
-            this.bmn.setText("");
+    public void Tw() {
+        if (this.bmD != null) {
+            this.bmD.setText("");
         }
     }
 
-    public void cK(boolean z) {
-        this.baW.setVisibility(z ? 0 : 8);
+    public void cI(boolean z) {
+        this.bbm.setVisibility(z ? 0 : 8);
     }
 
     public void changeSkinType(int i) {
-        this.bmr.getLayoutMode().X(i == 1);
-        this.bmr.getLayoutMode().h(this.bmm);
-        this.anm.onChangeSkinType(this.bmr.getPageContext(), i);
+        this.bmH.getLayoutMode().X(i == 1);
+        this.bmH.getLayoutMode().h(this.bmC);
+        this.anu.onChangeSkinType(this.bmH.getPageContext(), i);
     }
 
     private void initUI() {
-        this.bmr.setContentView(w.im_add_group_activity);
-        this.bmm = this.bmr.findViewById(v.addgroup_rootlayout);
-        this.anm = (NavigationBar) this.bmr.findViewById(v.addgroup_navigationbar);
-        this.uy = this.anm.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.anm.setTitleText(this.bmr.getResources().getString(y.add_group_title_main));
-        this.bmn = (EditText) this.bmr.findViewById(v.addgroup_input);
-        this.bmn.setInputType(2);
-        this.bmo = (ImageButton) this.bmr.findViewById(v.addgroup_delbtn);
-        this.bmp = this.bmr.findViewById(v.addgroup_searchbutton);
-        this.bmq = this.bmr.findViewById(v.addgroup_vcode);
-        this.bmn.addTextChangedListener(new c(this));
-        this.bmp = this.bmr.findViewById(v.addgroup_searchbutton);
-        this.baW = (ProgressBar) this.bmr.findViewById(v.addgroup_progress);
-        this.uy.setOnClickListener(this.bmr);
-        this.bmo.setOnClickListener(this.bmr);
-        this.bmp.setOnClickListener(this.bmr);
-        this.bmq.setOnClickListener(this.bmr);
+        this.bmH.setContentView(w.im_add_group_activity);
+        this.bmC = this.bmH.findViewById(v.addgroup_rootlayout);
+        this.anu = (NavigationBar) this.bmH.findViewById(v.addgroup_navigationbar);
+        this.uy = this.anu.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.anu.setTitleText(this.bmH.getResources().getString(y.add_group_title_main));
+        this.bmD = (EditText) this.bmH.findViewById(v.addgroup_input);
+        this.bmD.setInputType(2);
+        this.bmE = (ImageButton) this.bmH.findViewById(v.addgroup_delbtn);
+        this.bmF = this.bmH.findViewById(v.addgroup_searchbutton);
+        this.bmG = this.bmH.findViewById(v.addgroup_vcode);
+        this.bmD.addTextChangedListener(new c(this));
+        this.bmF = this.bmH.findViewById(v.addgroup_searchbutton);
+        this.bbm = (ProgressBar) this.bmH.findViewById(v.addgroup_progress);
+        this.uy.setOnClickListener(this.bmH);
+        this.bmE.setOnClickListener(this.bmH);
+        this.bmF.setOnClickListener(this.bmH);
+        this.bmG.setOnClickListener(this.bmH);
         if (!TbadkCoreApplication.m411getInst().appResponseToCmd(2902030)) {
-            this.bmq.setVisibility(8);
+            this.bmG.setVisibility(8);
         }
     }
 }

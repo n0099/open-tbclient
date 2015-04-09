@@ -7,11 +7,11 @@ import android.webkit.WebStorage;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 class n extends WebChromeClient {
-    final /* synthetic */ TbWebViewActivity Nq;
+    final /* synthetic */ TbWebViewActivity Ns;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TbWebViewActivity tbWebViewActivity) {
-        this.Nq = tbWebViewActivity;
+        this.Ns = tbWebViewActivity;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -22,7 +22,7 @@ class n extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.Nq.getPageContext().getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.Ns.getPageContext().getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }

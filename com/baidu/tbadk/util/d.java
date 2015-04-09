@@ -4,28 +4,28 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class d {
-    private static d aqv = new d();
-    private f aqw;
-    private e aqx;
+    private static d aqD = new d();
+    private f aqE;
+    private e aqF;
 
     private d() {
     }
 
-    public static d Dd() {
-        return aqv;
+    public static d Dj() {
+        return aqD;
     }
 
     public void a(e eVar) {
-        this.aqx = eVar;
-        if (this.aqw != null) {
-            this.aqw.cancel();
+        this.aqF = eVar;
+        if (this.aqE != null) {
+            this.aqE.cancel();
         }
-        this.aqw = new f(this, null);
-        this.aqw.setPriority(4);
-        this.aqw.execute(new String[0]);
+        this.aqE = new f(this, null);
+        this.aqE.setPriority(4);
+        this.aqE.execute(new String[0]);
     }
 
-    public boolean De() {
+    public boolean Dk() {
         int i;
         long j = 0;
         byte[] aE = com.baidu.adp.lib.util.f.aE("crash_hour_record.log");

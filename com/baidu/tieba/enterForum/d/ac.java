@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac extends LinearLayout {
-    private View YU;
-    private ViewEventCenter aCK;
-    private List<com.baidu.tieba.enterForum.b.d> aEB;
+    private View YW;
+    private ViewEventCenter aCS;
+    private List<com.baidu.tieba.enterForum.b.d> aEJ;
 
     public ac(Context context) {
         this(context, null);
@@ -21,17 +21,17 @@ public class ac extends LinearLayout {
     public ac(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setOrientation(1);
-        this.aEB = new ArrayList();
-        FU();
-        addView(this.YU);
+        this.aEJ = new ArrayList();
+        Ga();
+        addView(this.YW);
     }
 
     public int getItemViewCount() {
-        return this.aEB.size();
+        return this.aEJ.size();
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aCK = viewEventCenter;
+        this.aCS = viewEventCenter;
     }
 
     public void setDataAndRefreshView(List<com.baidu.tieba.enterForum.b.d> list) {
@@ -40,33 +40,33 @@ public class ac extends LinearLayout {
     }
 
     private void setData(List<com.baidu.tieba.enterForum.b.d> list) {
-        this.aEB.clear();
+        this.aEJ.clear();
         if (list != null) {
-            this.aEB.addAll(list);
+            this.aEJ.addAll(list);
         }
     }
 
     private void a(com.baidu.tieba.enterForum.b.d dVar) {
         if (dVar != null) {
             ab abVar = new ab(getContext());
-            abVar.setEventCenter(this.aCK);
+            abVar.setEventCenter(this.aCS);
             abVar.setData(dVar);
             addView(abVar);
         }
     }
 
-    private void FU() {
-        this.YU = com.baidu.adp.lib.g.b.hH().inflate(getContext(), com.baidu.tieba.w.enter_forum_recommendinfo_notice, null);
-        this.YU.findViewById(com.baidu.tieba.v.iv_dismiss).setOnClickListener(new ad(this));
-        this.YU.findViewById(com.baidu.tieba.v.enterforum_forumrecommendinfo_change).setOnClickListener(new ae(this));
+    private void Ga() {
+        this.YW = com.baidu.adp.lib.g.b.hH().inflate(getContext(), com.baidu.tieba.w.enter_forum_recommendinfo_notice, null);
+        this.YW.findViewById(com.baidu.tieba.v.iv_dismiss).setOnClickListener(new ad(this));
+        this.YW.findViewById(com.baidu.tieba.v.enterforum_forumrecommendinfo_change).setOnClickListener(new ae(this));
     }
 
     private void refreshView() {
-        int size = this.aEB.size();
+        int size = this.aEJ.size();
         int i = 0;
         int i2 = 1;
         while (i < size) {
-            com.baidu.tieba.enterForum.b.d dVar = this.aEB.get(i);
+            com.baidu.tieba.enterForum.b.d dVar = this.aEJ.get(i);
             if (i2 < getChildCount()) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof ab) {
@@ -81,7 +81,7 @@ public class ac extends LinearLayout {
     }
 
     public void f(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this.YU);
+        com.baidu.tbadk.f.a.a(tbPageContext, this.YW);
         int i = 0;
         while (true) {
             int i2 = i;

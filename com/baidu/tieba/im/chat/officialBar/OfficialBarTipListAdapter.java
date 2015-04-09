@@ -15,7 +15,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.vq().vy()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.vw().vE()) {
             str = "";
             i = 0;
         }
@@ -29,13 +29,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected void f(com.baidu.tieba.im.chat.notify.c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        cVar.Ml.setTag(null);
-        cVar.Ml.setDrawBorder(true);
-        cVar.Ml.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        cVar.Ml.setDefaultResource(com.baidu.tieba.u.icon_default_ba_120);
+        cVar.Mn.setTag(null);
+        cVar.Mn.setDrawBorder(true);
+        cVar.Mn.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        cVar.Mn.setDefaultResource(com.baidu.tieba.u.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            cVar.Ml.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            cVar.Ml.c(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            cVar.Mn.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            cVar.Mn.c(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -51,14 +51,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected void a(com.baidu.tieba.im.chat.notify.c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        cVar.Mm.setText(this.mContext.getString(com.baidu.tieba.y.official_msg_list_name, imMessageCenterShowItemData.getFriendName()));
+        cVar.Mo.setText(this.mContext.getString(com.baidu.tieba.y.official_msg_list_name, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) ba.getDrawable(com.baidu.tieba.u.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            cVar.Mm.setCompoundDrawables(null, null, bitmapDrawable, null);
-            cVar.Mm.setCompoundDrawablePadding(com.baidu.adp.lib.util.n.dip2px(this.mContext, this.mContext.getResources().getDimension(com.baidu.tieba.t.ds8)));
+            cVar.Mo.setCompoundDrawables(null, null, bitmapDrawable, null);
+            cVar.Mo.setCompoundDrawablePadding(com.baidu.adp.lib.util.n.dip2px(this.mContext, this.mContext.getResources().getDimension(com.baidu.tieba.t.ds8)));
             return;
         }
-        cVar.Mm.setCompoundDrawables(null, null, null, null);
+        cVar.Mo.setCompoundDrawables(null, null, null, null);
     }
 }

@@ -17,12 +17,12 @@ import com.baidu.tieba.tbadkCore.ai;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.g<FriendFeedActivity> {
-    TbPageContext<FriendFeedActivity> aIu;
-    private FriendFeedActivity aIv;
-    private p aIw;
-    private ViewGroup aIx;
-    private PbEditor aIy;
-    private ai aIz;
+    TbPageContext<FriendFeedActivity> aIC;
+    private FriendFeedActivity aID;
+    private p aIE;
+    private ViewGroup aIF;
+    private PbEditor aIG;
+    private ai aIH;
     private Handler handler;
     private BdListView mBdListView;
     private NavigationBar mNavigationBar;
@@ -33,88 +33,88 @@ public class y extends com.baidu.adp.base.g<FriendFeedActivity> {
     public y(TbPageContext<FriendFeedActivity> tbPageContext) {
         super(tbPageContext);
         this.handler = null;
-        this.aIz = null;
-        this.aIu = tbPageContext;
-        this.aIv = tbPageContext.getOrignalPage();
-        this.aIv.setContentView(com.baidu.tieba.w.friend_feed_view);
+        this.aIH = null;
+        this.aIC = tbPageContext;
+        this.aID = tbPageContext.getOrignalPage();
+        this.aID.setContentView(com.baidu.tieba.w.friend_feed_view);
         this.handler = new Handler();
         initHeader();
-        IZ();
+        Jf();
     }
 
-    public PbEditor IY() {
-        return this.aIy;
+    public PbEditor Je() {
+        return this.aIG;
     }
 
     private void initHeader() {
-        this.mRootView = (ViewGroup) this.aIv.findViewById(com.baidu.tieba.v.content);
-        this.mNavigationBar = (NavigationBar) this.aIv.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.aIv.getPageContext().getString(com.baidu.tieba.y.friendfeed_title));
+        this.mRootView = (ViewGroup) this.aID.findViewById(com.baidu.tieba.v.content);
+        this.mNavigationBar = (NavigationBar) this.aID.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.aID.getPageContext().getString(com.baidu.tieba.y.friendfeed_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void IZ() {
-        this.mNoNetworkView = (NoNetworkView) this.aIv.findViewById(com.baidu.tieba.v.view_no_network);
-        this.aIx = (ViewGroup) this.aIv.findViewById(com.baidu.tieba.v.content_with_data);
-        this.mNoDataView = NoDataViewFactory.a(this.aIv.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.friendfeed__no_data), null);
-        this.mBdListView = (BdListView) this.aIv.findViewById(com.baidu.tieba.v.friend_feed_list);
-        this.aIw = new p(this.aIv, com.baidu.adp.lib.util.n.M(this.aIv.getPageContext().getPageActivity()), be.sY().ta());
-        this.mBdListView.setAdapter((ListAdapter) this.aIw);
-        this.aIy = (PbEditor) this.aIv.findViewById(com.baidu.tieba.v.friendfeed_editor);
-        this.aIy.setHideBaobao(true);
-        this.aIy.aQ(false);
+    private void Jf() {
+        this.mNoNetworkView = (NoNetworkView) this.aID.findViewById(com.baidu.tieba.v.view_no_network);
+        this.aIF = (ViewGroup) this.aID.findViewById(com.baidu.tieba.v.content_with_data);
+        this.mNoDataView = NoDataViewFactory.a(this.aID.getPageContext().getPageActivity(), this.mRootView, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cq(com.baidu.tieba.y.friendfeed__no_data), null);
+        this.mBdListView = (BdListView) this.aID.findViewById(com.baidu.tieba.v.friend_feed_list);
+        this.aIE = new p(this.aID, com.baidu.adp.lib.util.n.M(this.aID.getPageContext().getPageActivity()), be.sY().ta());
+        this.mBdListView.setAdapter((ListAdapter) this.aIE);
+        this.aIG = (PbEditor) this.aID.findViewById(com.baidu.tieba.v.friendfeed_editor);
+        this.aIG.setHideBaobao(true);
+        this.aIG.aQ(false);
     }
 
     public void onChangeSkinType(int i) {
-        this.aIu.getLayoutMode().X(i == 1);
-        this.aIu.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.aIu, i);
-        this.mNoNetworkView.onChangeSkinType(this.aIu, i);
-        if (this.aIy != null) {
-            this.aIy.b(this.aIu, i);
+        this.aIC.getLayoutMode().X(i == 1);
+        this.aIC.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.aIC, i);
+        this.mNoNetworkView.onChangeSkinType(this.aIC, i);
+        if (this.aIG != null) {
+            this.aIG.b(this.aIC, i);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.aIu, i);
+            this.mNoDataView.onChangeSkinType(this.aIC, i);
         }
     }
 
-    public void Ja() {
-        this.aIy.Z(this.aIy.getEditText());
-        this.aIy.hide();
+    public void Jg() {
+        this.aIG.Z(this.aIG.getEditText());
+        this.aIG.hide();
     }
 
     public void a(int i, FriendFeedThreadData friendFeedThreadData, int i2) {
-        this.aIy.BZ();
-        this.aIy.refresh();
-        if (this.aIy.alv()) {
-            this.aIy.acj();
+        this.aIG.Cf();
+        this.aIG.refresh();
+        if (this.aIG.alK()) {
+            this.aIG.acy();
         } else {
-            this.aIy.getEditText().requestFocus();
-            this.aIy.Y(this.aIy.getEditText());
+            this.aIG.getEditText().requestFocus();
+            this.aIG.Y(this.aIG.getEditText());
         }
         K(i, i2);
     }
 
     protected void K(int i, int i2) {
-        this.aIz = new ai(this.aIv.getPageContext().getPageActivity(), i, i2, this.aIy, this.mBdListView, this.mNavigationBar.getHeight());
-        this.handler.postDelayed(this.aIz, 300L);
+        this.aIH = new ai(this.aID.getPageContext().getPageActivity(), i, i2, this.aIG, this.mBdListView, this.mNavigationBar.getHeight());
+        this.handler.postDelayed(this.aIH, 300L);
     }
 
     public void hideProgress() {
         this.mBdListView.mW();
     }
 
-    public p Jb() {
-        return this.aIw;
+    public p Jh() {
+        return this.aIE;
     }
 
     public void showNoDataTip(boolean z) {
         if (z) {
-            this.aIx.setVisibility(8);
+            this.aIF.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
-        this.aIx.setVisibility(0);
+        this.aIF.setVisibility(0);
         this.mNoDataView.setVisibility(8);
     }
 
@@ -122,60 +122,60 @@ public class y extends com.baidu.adp.base.g<FriendFeedActivity> {
         return this.mBdListView;
     }
 
-    public boolean Jc() {
-        return this.aIy.Jc();
+    public boolean Ji() {
+        return this.aIG.Ji();
     }
 
-    public void Jd() {
-        if (this.aIw != null) {
-            this.aIw.notifyDataSetChanged();
+    public void Jj() {
+        if (this.aIE != null) {
+            this.aIE.notifyDataSetChanged();
         }
     }
 
     public void bK(boolean z) {
-        this.aIv.hideProgressBar();
+        this.aID.hideProgressBar();
         if (z) {
-            this.aIy.getEditText().setText("");
-            this.aIy.alO();
-            this.aIy.clearData();
+            this.aIG.getEditText().setText("");
+            this.aIG.amd();
+            this.aIG.clearData();
         }
     }
 
-    public void fG(String str) {
-        this.aIy.setContent(str);
+    public void fJ(String str) {
+        this.aIG.setContent(str);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.aIy.cmz.a(writeImagesInfo, z);
+        this.aIG.cmP.a(writeImagesInfo, z);
     }
 
-    public void Je() {
-        this.aIv.showProgressBar();
+    public void Jk() {
+        this.aID.showProgressBar();
     }
 
     public void v(ArrayList<String> arrayList) {
-        this.aIy.v(arrayList);
+        this.aIG.v(arrayList);
     }
 
-    public String Jf() {
-        return this.aIy.getContent();
+    public String Jl() {
+        return this.aIG.getContent();
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        return this.aIy.getAudioData();
+        return this.aIG.getAudioData();
     }
 
-    public void Jg() {
-        this.aIy.Jg();
+    public void Jm() {
+        this.aIG.Jm();
     }
 
-    public void Jh() {
-        this.aIy.Jh();
+    public void Jn() {
+        this.aIG.Jn();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
         if (vVar != null) {
-            this.aIy.a(this.aIu, new z(this, vVar));
+            this.aIG.a(this.aIC, new z(this, vVar));
         }
     }
 }

@@ -12,30 +12,30 @@ import com.baidu.tieba.v;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
-    private TextView aBm;
-    private TextView aBn;
-    private TextView aBo;
-    private TextView aBp;
-    private RelativeLayout aBq;
-    private View.OnClickListener aBr;
-    private TbImageView azm;
-    private TbImageView azn;
-    private TbImageView azo;
+    private TextView aBu;
+    private TextView aBv;
+    private TextView aBw;
+    private TextView aBx;
+    private RelativeLayout aBy;
+    private View.OnClickListener aBz;
+    private TbImageView azu;
+    private TbImageView azv;
+    private TbImageView azw;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aBr = new c(this);
-        this.aBm = (TextView) view.findViewById(v.chosen_picture_title);
-        this.aBn = (TextView) view.findViewById(v.chosen_picture_praise);
-        this.aBo = (TextView) view.findViewById(v.chosen_picture_comment);
-        this.aBp = (TextView) view.findViewById(v.chosen_picture_head);
-        this.aBq = (RelativeLayout) view.findViewById(v.chosen_picture_pic_container);
-        this.azm = (TbImageView) view.findViewById(v.chosen_picture_pic_one);
-        this.azn = (TbImageView) view.findViewById(v.chosen_picture_pic_two);
-        this.azo = (TbImageView) view.findViewById(v.chosen_picture_pic_thr);
-        this.azm.setOnClickListener(this.aBr);
-        this.azn.setOnClickListener(this.aBr);
-        this.azo.setOnClickListener(this.aBr);
+        this.aBz = new c(this);
+        this.aBu = (TextView) view.findViewById(v.chosen_picture_title);
+        this.aBv = (TextView) view.findViewById(v.chosen_picture_praise);
+        this.aBw = (TextView) view.findViewById(v.chosen_picture_comment);
+        this.aBx = (TextView) view.findViewById(v.chosen_picture_head);
+        this.aBy = (RelativeLayout) view.findViewById(v.chosen_picture_pic_container);
+        this.azu = (TbImageView) view.findViewById(v.chosen_picture_pic_one);
+        this.azv = (TbImageView) view.findViewById(v.chosen_picture_pic_two);
+        this.azw = (TbImageView) view.findViewById(v.chosen_picture_pic_thr);
+        this.azu.setOnClickListener(this.aBz);
+        this.azv.setOnClickListener(this.aBz);
+        this.azw.setOnClickListener(this.aBz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,28 +47,28 @@ public class b extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
         super.A(tinfoVar);
         if (tinfoVar != null) {
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.aBm.setVisibility(8);
+                this.aBu.setVisibility(8);
             } else {
-                this.aBm.setVisibility(0);
-                this.aBm.setText(tinfoVar.forum_name);
+                this.aBu.setVisibility(0);
+                this.aBu.setText(tinfoVar.forum_name);
             }
             if (StringUtils.isNull(tinfoVar.title)) {
-                this.aBp.setVisibility(8);
+                this.aBx.setVisibility(8);
             } else {
-                this.aBp.setVisibility(0);
-                this.aBp.setText(tinfoVar.title);
+                this.aBx.setVisibility(0);
+                this.aBx.setText(tinfoVar.title);
             }
             if (tinfoVar.zan_num == null) {
-                this.aBn.setVisibility(8);
+                this.aBv.setVisibility(8);
             } else {
-                this.aBn.setVisibility(0);
-                this.aBn.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
+                this.aBv.setVisibility(0);
+                this.aBv.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
             }
             if (tinfoVar.reply_num == null) {
-                this.aBo.setVisibility(8);
+                this.aBw.setVisibility(8);
             } else {
-                this.aBo.setVisibility(0);
-                this.aBo.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
+                this.aBw.setVisibility(0);
+                this.aBw.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
             }
             b(tinfoVar);
         }
@@ -77,7 +77,7 @@ public class b extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
     private void b(tinfo tinfoVar) {
         if (tinfoVar != null) {
             if (n.px().pB() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
-                this.aBq.setVisibility(0);
+                this.aBy.setVisibility(0);
                 switch (tinfoVar.pics.size()) {
                     case 0:
                     default:
@@ -86,23 +86,23 @@ public class b extends com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c> {
                         break;
                     case 3:
                         String str = tinfoVar.pics.get(2).small_pic;
-                        this.azo.setVisibility(0);
-                        this.azo.c(str, 10, false);
-                        this.azo.setTag(2);
+                        this.azw.setVisibility(0);
+                        this.azw.c(str, 10, false);
+                        this.azw.setTag(2);
                     case 2:
                         String str2 = tinfoVar.pics.get(1).small_pic;
-                        this.azn.setVisibility(0);
-                        this.azn.c(str2, 10, false);
-                        this.azn.setTag(1);
+                        this.azv.setVisibility(0);
+                        this.azv.c(str2, 10, false);
+                        this.azv.setTag(1);
                         break;
                 }
                 String str3 = tinfoVar.pics.get(0).small_pic;
-                this.azm.setVisibility(0);
-                this.azm.c(str3, 10, false);
-                this.azm.setTag(0);
+                this.azu.setVisibility(0);
+                this.azu.c(str3, 10, false);
+                this.azu.setTag(0);
                 return;
             }
-            this.aBq.setVisibility(8);
+            this.aBy.setVisibility(8);
         }
     }
 

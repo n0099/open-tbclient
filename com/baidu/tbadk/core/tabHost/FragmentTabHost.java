@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageChangeListener, c {
-    private FragmentTabWidget SH;
-    private int SI;
-    private b SJ;
-    private final List<b> SL;
-    private a SM;
+    private FragmentTabWidget SJ;
+    private int SL;
+    private b SM;
+    private final List<b> SO;
+    private a SP;
     private Context mContext;
     private FragmentManager mFragmentManager;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
@@ -29,14 +29,14 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
 
     public FragmentTabHost(Context context) {
         super(context);
-        this.SL = new ArrayList();
+        this.SO = new ArrayList();
         this.mOnPageChangeListener = null;
         init(context);
     }
 
     public FragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.SL = new ArrayList();
+        this.SO = new ArrayList();
         this.mOnPageChangeListener = null;
         init(context);
     }
@@ -44,37 +44,37 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     private void init(Context context) {
         this.mContext = context;
         com.baidu.adp.lib.g.b.hH().a(context, w.fragment_tabhost, this, true);
-        this.SI = -1;
-        this.SJ = null;
+        this.SL = -1;
+        this.SM = null;
     }
 
     public void setTabWidgetViewHeight(int i) {
-        if (this.SH != null) {
-            this.SH.getLayoutParams().height = i;
-            this.SH.requestLayout();
+        if (this.SJ != null) {
+            this.SJ.getLayoutParams().height = i;
+            this.SJ.requestLayout();
         }
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
-        if (this.SH != null) {
-            this.SH.setShouldDrawIndicatorLine(z);
+        if (this.SJ != null) {
+            this.SJ.setShouldDrawIndicatorLine(z);
         }
     }
 
     public void setTabWidgetBackgroundRes(int i) {
-        if (this.SH != null) {
-            this.SH.setBackGroundDrawableResId(i);
+        if (this.SJ != null) {
+            this.SJ.setBackGroundDrawableResId(i);
         }
     }
 
     public void setup(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
-        this.SH = (FragmentTabWidget) findViewById(v.tabcontainer);
-        this.SH.setTabSelectionListener(this);
+        this.SJ = (FragmentTabWidget) findViewById(v.tabcontainer);
+        this.SJ.setTabSelectionListener(this);
     }
 
     public void d(int i, int i2, int i3, int i4) {
-        this.SH.setPadding(i, i2, i3, i4);
+        this.SJ.setPadding(i, i2, i3, i4);
     }
 
     public void a(b bVar) {
@@ -82,21 +82,21 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void a(b bVar, int i) {
-        if (bVar.SP == null) {
+        if (bVar.SR == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
-        if (bVar.SQ == null) {
+        if (bVar.SS == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (!this.SL.contains(bVar)) {
-            this.SH.addView(bVar.SP, i);
+        if (!this.SO.contains(bVar)) {
+            this.SJ.addView(bVar.SR, i);
             if (i == -1) {
-                this.SL.add(bVar);
+                this.SO.add(bVar);
             } else {
-                this.SL.add(i, bVar);
+                this.SO.add(i, bVar);
             }
-            if (this.SI != -1 && i <= this.SI) {
-                this.SI++;
+            if (this.SL != -1 && i <= this.SL) {
+                this.SL++;
             }
         }
     }
@@ -117,10 +117,10 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         } else {
             addView(this.mViewPager);
         }
-        this.mViewPager.setOffscreenPageLimit(this.SL.size() - 1);
+        this.mViewPager.setOffscreenPageLimit(this.SO.size() - 1);
         this.mViewPager.setOnPageChangeListener(this);
-        this.SM = new a(this.mFragmentManager, this.SL);
-        this.mViewPager.setAdapter(this.SM);
+        this.SP = new a(this.mFragmentManager, this.SO);
+        this.mViewPager.setAdapter(this.SP);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
@@ -128,23 +128,25 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.SL.size() && i != this.SI) {
-            this.SI = i;
-            this.SJ = this.SL.get(this.SI);
-            this.SH.d(this.SI, true);
-            this.mViewPager.setCurrentItem(this.SI, false);
+        if (i >= 0 && i < this.SO.size() && i != this.SL) {
+            this.SL = i;
+            this.SM = this.SO.get(this.SL);
+            this.SJ.d(this.SL, true);
+            if (this.mViewPager != null) {
+                this.mViewPager.setCurrentItem(this.SL, false);
+            }
         }
     }
 
     public void setCurrentTabByType(int i) {
         int i2;
-        int size = this.SL.size();
+        int size = this.SO.size();
         int i3 = 0;
         while (true) {
             if (i3 >= size) {
                 i2 = -1;
                 break;
-            } else if (i == this.SL.get(i3).mType) {
+            } else if (i == this.SO.get(i3).mType) {
                 i2 = i3;
                 break;
             } else {
@@ -153,7 +155,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         }
         if (i2 != -1) {
             setCurrentTab(i2);
-        } else if (this.SI == -1) {
+        } else if (this.SL == -1) {
             setCurrentTab(0);
         }
     }
@@ -164,33 +166,33 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void setTabWidgetBackgroundColor(int i) {
-        this.SH.setBackgroundColor(i);
+        this.SJ.setBackgroundColor(i);
     }
 
     public int getCurrentTabIndex() {
-        return this.SI;
+        return this.SL;
     }
 
     public int getCurrentTabType() {
-        if (this.SI < 0 || this.SI >= this.SL.size()) {
+        if (this.SL < 0 || this.SL >= this.SO.size()) {
             return -1;
         }
-        return this.SL.get(this.SI).mType;
+        return this.SO.get(this.SL).mType;
     }
 
     public Fragment getCurrentFragment() {
-        if (this.SJ != null) {
-            return this.SJ.SQ;
+        if (this.SM != null) {
+            return this.SM.SS;
         }
         return null;
     }
 
     public FragmentTabWidget getFragmentTabWidget() {
-        return this.SH;
+        return this.SJ;
     }
 
     public b bN(int i) {
-        for (b bVar : this.SL) {
+        for (b bVar : this.SO) {
             if (i == bVar.mType) {
                 return bVar;
             }
@@ -200,18 +202,18 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
 
     public void reset() {
         FragmentTransaction beginTransaction = this.mFragmentManager.beginTransaction();
-        int size = this.SL.size();
+        int size = this.SO.size();
         for (int i = 0; i < size; i++) {
-            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.mViewPager.getId(), this.SM.getItemId(i)));
+            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.mViewPager.getId(), this.SP.getItemId(i)));
             if (findFragmentByTag != null) {
                 beginTransaction.remove(findFragmentByTag);
             }
         }
         beginTransaction.commitAllowingStateLoss();
-        this.SL.clear();
-        this.SJ = null;
-        this.SI = -1;
-        this.SH.reset();
+        this.SO.clear();
+        this.SM = null;
+        this.SL = -1;
+        this.SJ.reset();
     }
 
     private static String makeFragmentName(int i, long j) {
@@ -219,14 +221,14 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void onChangeSkinType(int i) {
-        this.SH.onChangeSkinType(i);
-        for (b bVar : this.SL) {
-            bVar.SP.cu(i);
+        this.SJ.onChangeSkinType(i);
+        for (b bVar : this.SO) {
+            bVar.SR.cu(i);
         }
-        if (this.SM != null) {
-            int count = this.SM.getCount();
+        if (this.SP != null) {
+            int count = this.SP.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.SM.getItem(i2);
+                Fragment item = this.SP.getItem(i2);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -243,7 +245,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        this.SH.a(i, f);
+        this.SJ.a(i, f);
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageScrolled(i, f, i2);
         }
@@ -254,10 +256,10 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageSelected(i);
         }
-        this.SI = i;
-        this.SJ = this.SL.get(i);
-        this.SH.d(this.SI, false);
-        ViewGroup viewGroup = (ViewGroup) this.SJ.SQ.getView();
+        this.SL = i;
+        this.SM = this.SO.get(i);
+        this.SJ.d(this.SL, false);
+        ViewGroup viewGroup = (ViewGroup) this.SM.SS.getView();
         if (viewGroup != null && viewGroup.getChildCount() > 0) {
             View childAt = viewGroup.getChildAt(0);
             if (childAt instanceof FragmentTabRootView) {

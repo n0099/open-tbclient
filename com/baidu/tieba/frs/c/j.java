@@ -7,16 +7,16 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ a aNz;
+    final /* synthetic */ a aNQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.aNz = aVar;
+        this.aNQ = aVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.aNz.getPageContext().getPageActivity());
+        ImageView imageView = new ImageView(this.aNQ.getPageContext().getPageActivity());
         imageView.setBackgroundResource(u.good_threads_tip);
         return imageView;
     }
@@ -33,7 +33,7 @@ class j implements com.baidu.adp.lib.guide.b {
 
     @Override // com.baidu.adp.lib.guide.b
     public int getXOffset() {
-        return (int) ((this.aNz.getResources().getDimensionPixelSize(t.ds80) - 0.5f) / this.aNz.getResources().getDisplayMetrics().density);
+        return (int) ((this.aNQ.getResources().getDimensionPixelSize(t.ds80) - 0.5f) / this.aNQ.getResources().getDisplayMetrics().density);
     }
 
     @Override // com.baidu.adp.lib.guide.b

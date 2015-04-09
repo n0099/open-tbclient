@@ -8,7 +8,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b implements a<View> {
-    private com.baidu.adp.lib.e.b<TbImageView> bOo = new com.baidu.adp.lib.e.b<>(new c(this), 12, 0);
+    private com.baidu.adp.lib.e.b<TbImageView> bOE = new com.baidu.adp.lib.e.b<>(new c(this), 12, 0);
     private Context context;
     private int margin;
     private int maxWidth;
@@ -22,7 +22,7 @@ public class b implements a<View> {
     }
 
     @Override // com.baidu.tieba.pb.richview.b.a
-    public int acx() {
+    public int acM() {
         return 3;
     }
 
@@ -31,7 +31,7 @@ public class b implements a<View> {
         if (!(cVar instanceof com.baidu.tieba.pb.richview.a.d)) {
             return null;
         }
-        TbImageView hz = this.bOo.hz();
+        TbImageView hz = this.bOE.hz();
         hz.setSupportNoImage(true);
         hz.c(((com.baidu.tieba.pb.richview.a.d) cVar).getSrc(), 17, false);
         hz.setEvent(new d(this, hz));
@@ -48,7 +48,7 @@ public class b implements a<View> {
     @Override // com.baidu.tieba.pb.richview.b.a
     public void O(View view) {
         if (view instanceof TbImageView) {
-            this.bOo.j((TbImageView) view);
+            this.bOE.j((TbImageView) view);
         }
     }
 

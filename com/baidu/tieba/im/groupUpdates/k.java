@@ -6,11 +6,11 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ i biH;
+    final /* synthetic */ i biX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.biH = iVar;
+        this.biX = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,15 +20,15 @@ public class k implements View.OnClickListener {
         View view2;
         UpdatesItemData updatesItemData;
         ImageView imageView;
-        updatesActivity = this.biH.biz;
+        updatesActivity = this.biX.biP;
         if (updatesActivity.isEditMode()) {
-            imageView = this.biH.biE;
+            imageView = this.biX.biU;
             imageView.performClick();
             return;
         }
-        updatesActivity2 = this.biH.biz;
-        view2 = this.biH.aCi;
-        updatesItemData = this.biH.data;
+        updatesActivity2 = this.biX.biP;
+        view2 = this.biX.aCq;
+        updatesItemData = this.biX.data;
         updatesActivity2.onItemViewClick(view2, 101, 0, 0L, updatesItemData);
     }
 }

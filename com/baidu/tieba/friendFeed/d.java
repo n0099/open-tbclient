@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ae {
-    final /* synthetic */ FriendFeedActivity aHM;
+    final /* synthetic */ FriendFeedActivity aHU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FriendFeedActivity friendFeedActivity) {
-        this.aHM = friendFeedActivity;
+        this.aHU = friendFeedActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ae
@@ -16,6 +16,6 @@ public class d implements ae {
         if (z) {
             return;
         }
-        this.aHM.g(false, null);
+        this.aHU.g(false, null);
     }
 }

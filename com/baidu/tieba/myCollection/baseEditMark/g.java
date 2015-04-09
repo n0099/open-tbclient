@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Boolean, Integer, Boolean> {
-    private aa Oi = null;
-    private boolean aBi;
-    private i bEo;
-    final /* synthetic */ f bEx;
+    private aa Ok = null;
+    private boolean aBq;
+    private i bEB;
+    final /* synthetic */ f bEK;
 
     public g(f fVar, boolean z) {
-        this.bEx = fVar;
-        this.aBi = true;
-        this.bEo = null;
-        this.aBi = z;
-        this.bEo = new i();
+        this.bEK = fVar;
+        this.aBq = true;
+        this.bEB = null;
+        this.aBq = z;
+        this.bEB = new i();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,24 +34,24 @@ public class g extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData;
         MarkData markData2;
         MarkData markData3;
-        if (this.aBi) {
-            this.Oi = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
+        if (this.aBq) {
+            this.Ok = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
             a aVar = new a();
-            markData3 = this.bEx.bEu;
+            markData3 = this.bEK.bEH;
             aVar.b(markData3);
-            this.Oi.o("data", aVar.ad(0, 1));
+            this.Ok.o("data", aVar.ad(0, 1));
         } else {
-            this.Oi = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
-            aa aaVar = this.Oi;
-            markData = this.bEx.bEu;
+            this.Ok = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
+            aa aaVar = this.Ok;
+            markData = this.bEK.bEH;
             aaVar.o("user_id", markData.getAccount());
-            aa aaVar2 = this.Oi;
-            markData2 = this.bEx.bEu;
+            aa aaVar2 = this.Ok;
+            markData2 = this.bEK.bEH;
             aaVar2.o("tid", markData2.getId());
         }
-        this.bEo.parserJson(this.Oi.rO());
-        boolean z = this.bEo.getErrorCode() == 0;
-        if (this.Oi.sp().tq().pv() && z) {
+        this.bEB.parserJson(this.Ok.rO());
+        boolean z = this.bEB.getErrorCode() == 0;
+        if (this.Ok.sp().tq().pv() && z) {
             return true;
         }
         return false;
@@ -60,10 +60,10 @@ public class g extends BdAsyncTask<Boolean, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
-        this.bEx.bEv = null;
+        this.bEK.bEI = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,24 +78,24 @@ public class g extends BdAsyncTask<Boolean, Integer, Boolean> {
         com.baidu.tbadk.baseEditMark.b bVar5;
         try {
             if (bool.booleanValue()) {
-                bVar4 = this.bEx.bEw;
+                bVar4 = this.bEK.bEJ;
                 if (bVar4 != null) {
-                    bVar5 = this.bEx.bEw;
-                    bVar5.a(true, this.aBi, null);
+                    bVar5 = this.bEK.bEJ;
+                    bVar5.a(true, this.aBq, null);
                 }
             } else {
-                bVar = this.bEx.bEw;
+                bVar = this.bEK.bEJ;
                 if (bVar != null) {
-                    if (this.Oi == null || this.Oi.sp().tq().pv()) {
-                        bVar2 = this.bEx.bEw;
-                        bVar2.a(false, this.aBi, this.bEo.getErrorString());
+                    if (this.Ok == null || this.Ok.sp().tq().pv()) {
+                        bVar2 = this.bEK.bEJ;
+                        bVar2.a(false, this.aBq, this.bEB.getErrorString());
                     } else {
-                        bVar3 = this.bEx.bEw;
-                        bVar3.a(false, this.aBi, this.Oi.getErrorString());
+                        bVar3 = this.bEK.bEJ;
+                        bVar3.a(false, this.aBq, this.Ok.getErrorString());
                     }
                 }
             }
-            this.bEx.bEv = null;
+            this.bEK.bEI = null;
         } catch (Throwable th) {
             BdLog.e(th.toString());
         }

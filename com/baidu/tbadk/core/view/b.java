@@ -9,17 +9,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private TbPageContext<?> LN;
-    private CoverFlowView<com.baidu.tieba.square.a> Xh;
+    private TbPageContext<?> LP;
+    private CoverFlowView<com.baidu.tieba.square.a> Xj;
     private ArrayList<com.baidu.tieba.square.a> datas = new ArrayList<>();
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> RR = new c(this);
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> RT = new c(this);
 
     public b(TbPageContext<?> tbPageContext) {
-        this.Xh = null;
-        this.LN = tbPageContext;
-        this.Xh = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.Xh.setCoverFlowFactory(new d(this, tbPageContext));
-        this.Xh.setCallback(this.RR);
+        this.Xj = null;
+        this.LP = tbPageContext;
+        this.Xj = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.Xj.setCoverFlowFactory(new d(this, tbPageContext));
+        this.Xj.setCallback(this.RT);
     }
 
     public void p(ArrayList<com.baidu.tbadk.core.data.u> arrayList) {
@@ -32,7 +32,7 @@ public class b extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.Xh.setData(arrayList2);
+        this.Xj.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -53,16 +53,16 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.Xh;
+        return this.Xj;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.Xh != null) {
-            this.Xh.rk();
+        if (this.Xj != null) {
+            this.Xj.rk();
         }
     }
 
     public CoverFlowView<com.baidu.tieba.square.a> tE() {
-        return this.Xh;
+        return this.Xj;
     }
 }

@@ -5,12 +5,12 @@ import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Void, Boolean> {
-    Process age;
-    final /* synthetic */ j agf;
+    Process agm;
+    final /* synthetic */ j agn;
 
     private k(j jVar) {
-        this.agf = jVar;
-        this.age = null;
+        this.agn = jVar;
+        this.agm = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,19 +28,19 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         if (strArr != null && strArr.length >= 1) {
             try {
                 try {
-                    this.age = Runtime.getRuntime().exec(strArr[0]);
-                    boolean z2 = this.age.waitFor() == 0;
-                    this.age.destroy();
+                    this.agm = Runtime.getRuntime().exec(strArr[0]);
+                    boolean z2 = this.agm.waitFor() == 0;
+                    this.agm.destroy();
                     z = z2;
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.age.destroy();
+                    this.agm.destroy();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
-                    this.age.destroy();
+                    this.agm.destroy();
                 }
             } catch (Throwable th) {
-                this.age.destroy();
+                this.agm.destroy();
                 throw th;
             }
         }
@@ -55,21 +55,21 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         m mVar2;
         l lVar2;
         super.onCancelled();
-        if (this.age != null) {
+        if (this.agm != null) {
             try {
-                this.age.destroy();
+                this.agm.destroy();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        lVar = this.agf.agc;
+        lVar = this.agn.agk;
         if (lVar != null) {
-            lVar2 = this.agf.agc;
+            lVar2 = this.agn.agk;
             lVar2.aJ(false);
         }
-        mVar = this.agf.agb;
+        mVar = this.agn.agj;
         if (mVar != null) {
-            mVar2 = this.agf.agb;
+            mVar2 = this.agn.agj;
             mVar2.removeMessages(0);
         }
     }
@@ -83,14 +83,14 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         m mVar;
         m mVar2;
         l lVar2;
-        lVar = this.agf.agc;
+        lVar = this.agn.agk;
         if (lVar != null) {
-            lVar2 = this.agf.agc;
+            lVar2 = this.agn.agk;
             lVar2.aJ(bool == null ? false : bool.booleanValue());
         }
-        mVar = this.agf.agb;
+        mVar = this.agn.agj;
         if (mVar != null) {
-            mVar2 = this.agf.agb;
+            mVar2 = this.agn.agj;
             mVar2.removeMessages(0);
         }
     }

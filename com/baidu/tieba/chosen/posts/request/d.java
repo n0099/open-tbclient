@@ -14,7 +14,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> FO() {
+    public List<tinfo> FU() {
         return this.list;
     }
 
@@ -48,7 +48,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Aw() {
+    public byte[] AC() {
         return null;
     }
 }

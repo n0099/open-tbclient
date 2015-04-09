@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public interface am {
-    void Kq();
+    void KA();
 
-    void Kr();
+    void KB();
 }

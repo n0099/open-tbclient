@@ -17,27 +17,27 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private List<com.baidu.tieba.im.data.d> bnY;
+    private List<com.baidu.tieba.im.data.d> boo;
     private Context mContext;
 
     public c(Context context, List<com.baidu.tieba.im.data.d> list) {
         this.mContext = context;
-        this.bnY = list;
+        this.boo = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bnY == null) {
+        if (this.boo == null) {
             return 0;
         }
-        return (this.bnY.size() * 2) - 1;
+        return (this.boo.size() * 2) - 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (this.bnY != null && itemId >= 0 && itemId < this.bnY.size()) {
-            return this.bnY.get(itemId);
+        if (this.boo != null && itemId >= 0 && itemId < this.boo.size()) {
+            return this.boo.get(itemId);
         }
         return null;
     }
@@ -76,7 +76,7 @@ public class c extends BaseAdapter {
                 textView.setBackgroundResource(u.official_bar_menu_text_bg);
                 textView.setSingleLine();
                 textView.setEllipsize(TextUtils.TruncateAt.END);
-                dVar.bnZ = textView;
+                dVar.bop = textView;
                 linearLayout = textView;
             } else {
                 linearLayout = view;
@@ -97,7 +97,7 @@ public class c extends BaseAdapter {
         }
         d dVar2 = (d) view2.getTag();
         if (itemViewType == 0) {
-            dVar2.bnZ.setText(((com.baidu.tieba.im.data.d) getItem(i)).getName());
+            dVar2.bop.setText(((com.baidu.tieba.im.data.d) getItem(i)).getName());
         }
         return view2;
     }

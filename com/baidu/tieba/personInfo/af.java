@@ -5,11 +5,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements AbsListView.OnScrollListener {
-    final /* synthetic */ ae bUi;
+    final /* synthetic */ ae bUy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar) {
-        this.bUi = aeVar;
+        this.bUy = aeVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -19,17 +19,17 @@ public class af implements AbsListView.OnScrollListener {
         View view3;
         View view4;
         if (i == 0) {
-            view3 = this.bUi.line;
+            view3 = this.bUy.line;
             if (view3 != null) {
-                view4 = this.bUi.line;
+                view4 = this.bUy.line;
                 view4.setVisibility(0);
                 return;
             }
             return;
         }
-        view = this.bUi.line;
+        view = this.bUy.line;
         if (view != null) {
-            view2 = this.bUi.line;
+            view2 = this.bUy.line;
             view2.setVisibility(8);
         }
     }

@@ -8,31 +8,29 @@ import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: com  reason: collision with root package name */
-    private q f127com;
-    private final int con = 10;
-    private final int coo = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String cop = null;
-    public boolean Wq = false;
+    private q coC;
+    private final int coD = 10;
+    private final int coE = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String coF = null;
+    public boolean Ws = false;
 
     public a(String str) {
         E(str, false);
     }
 
     public void E(String str, boolean z) {
-        this.cop = str;
-        this.Wq = z;
-        this.f127com = new q("dbg");
+        this.coF = str;
+        this.Ws = z;
+        this.coC = new q("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.f127com.il();
+        this.coC.il();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long im = this.f127com.im();
+        long im = this.coC.im();
         long j2 = 0;
         long j3 = 0;
         if (z) {
@@ -44,38 +42,38 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e amL;
-        if (this.f127com != null && (amL = amL()) != null) {
+        e ana;
+        if (this.coC != null && (ana = ana()) != null) {
             if (z) {
-                if (amL.cou != null) {
-                    amL.cou.num++;
+                if (ana.coK != null) {
+                    ana.coK.num++;
                     if (z2) {
-                        amL.cou.cor += j2;
-                        amL.cou.size += j;
+                        ana.coK.coH += j2;
+                        ana.coK.size += j;
                     } else {
-                        amL.cou.cos++;
+                        ana.coK.coI++;
                     }
                 } else {
                     return;
                 }
-            } else if (amL.cov != null) {
-                amL.cov.num++;
+            } else if (ana.coL != null) {
+                ana.coL.num++;
                 if (z2) {
-                    amL.cov.cor += j3;
-                    amL.cov.size += j;
+                    ana.coL.coH += j3;
+                    ana.coL.size += j;
                     j2 = j3;
                 } else {
-                    amL.cov.cos++;
+                    ana.coL.coI++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.f127com = null;
+            this.coC = null;
             if (z2) {
-                b.a(amL, 10);
+                b.a(ana, 10);
             }
-            if (this.cop == "frsStat") {
+            if (this.coF == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.r("act", "frs");
@@ -92,20 +90,20 @@ public class a {
     }
 
     public void destory() {
-        e amL;
-        if (this.f127com != null && (amL = amL()) != null && amL.cow != null) {
-            long im = this.f127com.im();
+        e ana;
+        if (this.coC != null && (ana = ana()) != null && ana.coM != null) {
+            long im = this.coC.im();
             if (im > 3000) {
-                d dVar = amL.cow;
-                dVar.cor = im + dVar.cor;
-                amL.cow.num++;
-                b.a(amL, 10);
+                d dVar = ana.coM;
+                dVar.coH = im + dVar.coH;
+                ana.coM.num++;
+                b.a(ana, 10);
             }
         }
     }
 
-    private e amL() {
-        return b.h(this.cop, getNetType(), this.Wq);
+    private e ana() {
+        return b.h(this.coF, getNetType(), this.Ws);
     }
 
     private String getNetType() {

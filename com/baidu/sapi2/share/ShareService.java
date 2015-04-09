@@ -12,6 +12,7 @@ import android.os.Parcel;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
@@ -51,6 +52,8 @@ public final class ShareService extends Service {
 
         @Override // android.os.Binder
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+            Bundle readBundle;
+            ShareModel shareModel;
             String e = com.baidu.sapi2.share.b.e(ShareService.this);
             if (!com.baidu.sapi2.share.b.d(ShareService.this)) {
                 return false;
@@ -67,8 +70,12 @@ public final class ShareService extends Service {
             if (!ShareService.d || ShareService.b == LoginShareStrategy.DISABLED) {
                 return true;
             }
-            Bundle readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
-            ShareModel shareModel = (ShareModel) readBundle.getParcelable("LOGIN_SHARE_MODEL");
+            try {
+                readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
+                shareModel = (ShareModel) readBundle.getParcelable("LOGIN_SHARE_MODEL");
+            } catch (Throwable th) {
+                L.e(th);
+            }
             if (shareModel == null) {
                 return true;
             }

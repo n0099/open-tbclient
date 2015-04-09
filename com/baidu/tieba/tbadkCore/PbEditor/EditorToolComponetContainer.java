@@ -29,601 +29,601 @@ import com.baidu.tieba.tbadkCore.imgView.DragLayer;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorToolComponetContainer extends RelativeLayout implements com.baidu.tieba.tbadkCore.imgView.d {
-    protected LinearLayout XG;
-    private com.baidu.tbadk.editortool.v aip;
-    private boolean ajV;
-    protected ToolMoreView clQ;
-    protected EmotionTabHost clR;
-    protected com.baidu.tieba.tbadkCore.voice.b clS;
-    protected com.baidu.tieba.tbadkCore.voice.c clT;
-    protected View clU;
-    protected View clV;
-    protected DragContainer clW;
-    protected DragLayer clX;
-    protected DragHorizonScrollView clY;
-    protected DragContainer clZ;
-    protected DragLayer cma;
-    protected DragHorizonScrollView cmb;
-    protected TextView cmc;
-    protected TextView cme;
-    protected o cmf;
-    protected boolean cmg;
-    private final boolean cmh;
-    private boolean cmi;
-    private int cmj;
-    protected final af cmk;
-    private WriteImagesInfo cml;
-    private WriteImagesInfo cmm;
-    private com.baidu.tbadk.img.e cmn;
+    protected LinearLayout XI;
+    private com.baidu.tbadk.editortool.v aix;
+    private boolean akd;
+    protected final af cmA;
+    private WriteImagesInfo cmB;
+    private WriteImagesInfo cmC;
+    private com.baidu.tbadk.img.e cmD;
+    protected ToolMoreView cmh;
+    protected EmotionTabHost cmi;
+    protected com.baidu.tieba.tbadkCore.voice.b cmj;
+    protected com.baidu.tieba.tbadkCore.voice.c cmk;
+    protected View cml;
+    protected View cmm;
+    protected DragContainer cmn;
+    protected DragLayer cmo;
+    protected DragHorizonScrollView cmp;
+    protected DragContainer cmq;
+    protected DragLayer cmr;
+    protected DragHorizonScrollView cms;
+    protected TextView cmt;
+    protected TextView cmu;
+    protected o cmv;
+    protected boolean cmw;
+    private final boolean cmx;
+    private boolean cmy;
+    private int cmz;
     protected Context mContext;
     private int padding;
 
     public EditorToolComponetContainer(Context context) {
         super(context);
-        this.cmg = false;
-        this.cmh = true;
-        this.ajV = false;
-        this.cmk = new af();
+        this.cmw = false;
+        this.cmx = true;
+        this.akd = false;
+        this.cmA = new af();
         this.mContext = context;
         initialize();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cmg = false;
-        this.cmh = true;
-        this.ajV = false;
-        this.cmk = new af();
+        this.cmw = false;
+        this.cmx = true;
+        this.akd = false;
+        this.cmA = new af();
         this.mContext = context;
         initialize();
     }
 
     protected void initialize() {
         com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.editor_tool_container, this, true);
-        this.XG = (LinearLayout) findViewById(com.baidu.tieba.v.tools_container);
-        this.clQ = (ToolMoreView) findViewById(com.baidu.tieba.v.tool_view);
-        this.clV = findViewById(com.baidu.tieba.v.pb_foot_down_shadow);
-        if (a.akW() && this.clQ.getBaobao() != null && this.clQ.getBaobao().isShown()) {
-            this.clQ.ek("N");
+        this.XI = (LinearLayout) findViewById(com.baidu.tieba.v.tools_container);
+        this.cmh = (ToolMoreView) findViewById(com.baidu.tieba.v.tool_view);
+        this.cmm = findViewById(com.baidu.tieba.v.pb_foot_down_shadow);
+        if (a.all() && this.cmh.getBaobao() != null && this.cmh.getBaobao().isShown()) {
+            this.cmh.en("N");
         }
     }
 
-    private void alf() {
-        if (this.clS == null) {
+    private void alu() {
+        if (this.cmj == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, com.baidu.tieba.tbadkCore.voice.b.class, this.mContext);
             if (runTask != null && runTask.getData() != null) {
-                this.clS = (com.baidu.tieba.tbadkCore.voice.b) runTask.getData();
+                this.cmj = (com.baidu.tieba.tbadkCore.voice.b) runTask.getData();
             }
-            if (this.clS != null) {
-                this.XG.addView(this.clS, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
-                this.clS.setVisibility(8);
-                ba.i(this.clS, com.baidu.tieba.s.record_voice_container_bg);
-                if (this.clT != null) {
-                    this.clS.setCallback(this.clT);
+            if (this.cmj != null) {
+                this.XI.addView(this.cmj, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
+                this.cmj.setVisibility(8);
+                ba.i(this.cmj, com.baidu.tieba.s.record_voice_container_bg);
+                if (this.cmk != null) {
+                    this.cmj.setCallback(this.cmk);
                 }
-                if (this.aip != null) {
-                    this.aip.handleAction(54, null);
+                if (this.aix != null) {
+                    this.aix.handleAction(54, null);
                 }
             }
         }
     }
 
-    private void alg() {
-        if (this.clR == null) {
-            this.clR = new EmotionTabHost(this.mContext);
-            this.XG.addView(this.clR, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
-            this.clR.setVisibility(8);
-            this.clR.setShowBigEmotion(!this.cmi);
-            this.clR.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            this.clR.setOnDataSelected(new d(this));
+    private void alv() {
+        if (this.cmi == null) {
+            this.cmi = new EmotionTabHost(this.mContext);
+            this.XI.addView(this.cmi, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
+            this.cmi.setVisibility(8);
+            this.cmi.setShowBigEmotion(!this.cmy);
+            this.cmi.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+            this.cmi.setOnDataSelected(new d(this));
         }
     }
 
-    private void alh() {
-        if (this.clW == null) {
-            com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.editor_tool_container_image, this.XG);
-            this.clW = (DragContainer) findViewById(com.baidu.tieba.v.muti_image_upload);
-            this.clX = (DragLayer) findViewById(com.baidu.tieba.v.muti_image_upload_draglayer);
-            this.clY = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.muti_image_upload_dragscrollview);
+    private void alw() {
+        if (this.cmn == null) {
+            com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.editor_tool_container_image, this.XI);
+            this.cmn = (DragContainer) findViewById(com.baidu.tieba.v.muti_image_upload);
+            this.cmo = (DragLayer) findViewById(com.baidu.tieba.v.muti_image_upload_draglayer);
+            this.cmp = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.muti_image_upload_dragscrollview);
             com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(getContext());
-            aVar.a(this.clX);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.clY);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.clY);
-            this.cme = (TextView) findViewById(com.baidu.tieba.v.muti_image_tips);
-            this.cmj = getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_muti_image_upload_scrollview_paddingleft);
+            aVar.a(this.cmo);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cmp);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cmp);
+            this.cmu = (TextView) findViewById(com.baidu.tieba.v.muti_image_tips);
+            this.cmz = getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_muti_image_upload_scrollview_paddingleft);
             this.padding = getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_24);
-            this.clY.setAddView(im(7));
-            this.clY.setOnSwapDataListener(this);
-            this.clY.setMaxItemNum(10);
-            if (this.cmn == null) {
-                this.cmn = new com.baidu.tbadk.img.e(this.mContext);
+            this.cmp.setAddView(ip(7));
+            this.cmp.setOnSwapDataListener(this);
+            this.cmp.setMaxItemNum(10);
+            if (this.cmD == null) {
+                this.cmD = new com.baidu.tbadk.img.e(this.mContext);
             }
-            ba.b(this.cme, com.baidu.tieba.s.cp_cont_c, 1);
+            ba.b(this.cmu, com.baidu.tieba.s.cp_cont_c, 1);
         }
     }
 
-    private void ali() {
-        if (this.clZ == null) {
-            com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.editor_tool_container_baobao, this.XG);
-            this.clZ = (DragContainer) findViewById(com.baidu.tieba.v.baobao_image_upload);
-            this.cma = (DragLayer) findViewById(com.baidu.tieba.v.baobao_image_upload_draglayer);
-            this.cmb = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.baobao_image_upload_dragscrollview);
-            this.cmc = (TextView) findViewById(com.baidu.tieba.v.baobao_image_tips);
+    private void alx() {
+        if (this.cmq == null) {
+            com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.editor_tool_container_baobao, this.XI);
+            this.cmq = (DragContainer) findViewById(com.baidu.tieba.v.baobao_image_upload);
+            this.cmr = (DragLayer) findViewById(com.baidu.tieba.v.baobao_image_upload_draglayer);
+            this.cms = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.baobao_image_upload_dragscrollview);
+            this.cmt = (TextView) findViewById(com.baidu.tieba.v.baobao_image_tips);
             com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(getContext());
-            aVar.a(this.cma);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cmb);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cmb);
-            this.cmb.setAddView(im(48));
-            this.cmb.setOnSwapDataListener(this);
-            this.cmb.setMaxItemNum(1);
-            this.cmb.setCenterStart(true);
-            if (this.cmn == null) {
-                this.cmn = new com.baidu.tbadk.img.e(this.mContext);
+            aVar.a(this.cmr);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cms);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cms);
+            this.cms.setAddView(ip(48));
+            this.cms.setOnSwapDataListener(this);
+            this.cms.setMaxItemNum(1);
+            this.cms.setCenterStart(true);
+            if (this.cmD == null) {
+                this.cmD = new com.baidu.tbadk.img.e(this.mContext);
             }
         }
     }
 
-    private void alj() {
-        if (this.cmf == null) {
+    private void aly() {
+        if (this.cmv == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001289, o.class, this.mContext);
             if (runTask != null && runTask.getData() != null) {
-                this.cmf = (o) runTask.getData();
+                this.cmv = (o) runTask.getData();
             }
-            if (this.cmf != null) {
-                this.XG.addView(this.cmf, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
-                this.cmf.setVisibility(8);
-                this.cmf.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-                this.cmf.setOnDataSelected(new e(this));
+            if (this.cmv != null) {
+                this.XI.addView(this.cmv, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.pb_editor_faceview_height)));
+                this.cmv.setVisibility(8);
+                this.cmv.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+                this.cmv.setOnDataSelected(new e(this));
             }
         }
     }
 
-    protected void alk() {
+    protected void alz() {
         com.baidu.adp.base.l B = com.baidu.adp.base.m.B(this.mContext);
         if (B != null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2010041, this.cmk);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2010041, this.cmA);
             customResponsedMessage.setOrginalMessage(new CustomMessage(2010041, B.getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessageToUI(customResponsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void all() {
-        if (alG()) {
-            this.cmk.cna = 1;
+    public void alA() {
+        if (alV()) {
+            this.cmA.cnq = 1;
         } else {
-            this.cmk.cna = 0;
+            this.cmA.cnq = 0;
         }
-        if (this.cml != null && this.cml.getChosedFiles() != null && this.cml.getChosedFiles().size() > 0) {
-            this.cmk.cmZ = this.cml.getChosedFiles().size();
+        if (this.cmB != null && this.cmB.getChosedFiles() != null && this.cmB.getChosedFiles().size() > 0) {
+            this.cmA.cnp = this.cmB.getChosedFiles().size();
         } else {
-            this.cmk.cmZ = 0;
+            this.cmA.cnp = 0;
         }
-        if (this.cmm != null && this.cmm.getChosedFiles() != null && this.cmm.getChosedFiles().size() > 0) {
-            this.cmk.cnb = this.cmm.getChosedFiles().size();
+        if (this.cmC != null && this.cmC.getChosedFiles() != null && this.cmC.getChosedFiles().size() > 0) {
+            this.cmA.cnr = this.cmC.getChosedFiles().size();
         } else {
-            this.cmk.cnb = 0;
+            this.cmA.cnr = 0;
         }
-        alk();
+        alz();
     }
 
     public void setHideBaobao(boolean z) {
-        this.ajV = z;
-        if (this.clQ != null) {
-            this.clQ.setHideBaobao(z);
-            if (z && a.akW()) {
-                this.clQ.yW();
+        this.akd = z;
+        if (this.cmh != null) {
+            this.cmh.setHideBaobao(z);
+            if (z && a.all()) {
+                this.cmh.zc();
             }
         }
     }
 
     public void setShadowBackground(int i) {
-        if (this.clV != null) {
-            ba.j(this.clV, i);
+        if (this.cmm != null) {
+            ba.j(this.cmm, i);
         }
     }
 
     public void setShadowHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (i > 0 && (layoutParams = this.clV.getLayoutParams()) != null) {
+        if (i > 0 && (layoutParams = this.cmm.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.clV.setLayoutParams(layoutParams);
+            this.cmm.setLayoutParams(layoutParams);
         }
     }
 
     public void setFrom(int i) {
-        if (this.clR != null) {
-            this.clR.setFrom(i);
+        if (this.cmi != null) {
+            this.cmi.setFrom(i);
         }
     }
 
-    protected void alm() {
-        alg();
-        this.clV.setVisibility(0);
+    protected void alB() {
+        alv();
+        this.cmm.setVisibility(0);
         if (TbadkCoreApplication.m411getInst().getKeyboardHeight() > 0) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.clR.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmi.getLayoutParams();
             layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.clR.setLayoutParams(layoutParams);
+            this.cmi.setLayoutParams(layoutParams);
         }
-        this.clR.setVisibility(0);
+        this.cmi.setVisibility(0);
     }
 
-    protected void aln() {
-        if (this.clR != null) {
-            this.clR.setVisibility(8);
+    protected void alC() {
+        if (this.cmi != null) {
+            this.cmi.setVisibility(8);
         }
     }
 
-    protected void aaZ() {
-        alf();
-        if (this.clS != null) {
-            this.clV.setVisibility(0);
+    protected void abn() {
+        alu();
+        if (this.cmj != null) {
+            this.cmm.setVisibility(0);
             if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.clS.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmj.getLayoutParams();
                 layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-                this.clS.setLayoutParams(layoutParams);
+                this.cmj.setLayoutParams(layoutParams);
             }
-            this.clS.setVisibility(0);
+            this.cmj.setVisibility(0);
         }
     }
 
-    protected void aaY() {
-        if (this.clS != null) {
-            this.clS.setVisibility(8);
+    protected void abm() {
+        if (this.cmj != null) {
+            this.cmj.setVisibility(8);
         }
     }
 
-    protected void alo() {
-        this.clV.setVisibility(0);
+    protected void alD() {
+        this.cmm.setVisibility(0);
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.clQ.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmh.getLayoutParams();
             layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.clQ.setLayoutParams(layoutParams);
+            this.cmh.setLayoutParams(layoutParams);
         }
-        this.clQ.setVisibility(0);
+        this.cmh.setVisibility(0);
     }
 
-    public void alp() {
-        if (this.clW != null) {
-            this.clW.setVisibility(8);
+    public void alE() {
+        if (this.cmn != null) {
+            this.cmn.setVisibility(8);
         }
     }
 
-    public void alq() {
-        alh();
-        this.clV.setVisibility(0);
+    public void alF() {
+        alw();
+        this.cmm.setVisibility(0);
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.clW.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmn.getLayoutParams();
             layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.clW.setLayoutParams(layoutParams);
+            this.cmn.setLayoutParams(layoutParams);
         }
-        this.clW.setVisibility(0);
+        this.cmn.setVisibility(0);
     }
 
-    public void alr() {
-        if (this.clZ != null) {
-            this.clZ.setVisibility(8);
-        }
-    }
-
-    public void yW() {
-        this.clQ.yW();
-    }
-
-    public void ei(String str) {
-        if (this.clQ != null) {
-            this.clQ.ei(str);
+    public void alG() {
+        if (this.cmq != null) {
+            this.cmq.setVisibility(8);
         }
     }
 
-    public void yP() {
-        if (this.clQ != null) {
-            this.clQ.yP();
-        }
+    public void zc() {
+        this.cmh.zc();
     }
 
-    public void yX() {
-        if (this.clQ != null) {
-            this.clQ.yX();
-        }
-    }
-
-    public void yY() {
-        if (this.clQ != null) {
-            this.clQ.yY();
-        }
-    }
-
-    public boolean yT() {
-        if (this.clQ == null) {
-            return false;
-        }
-        return this.clQ.yT();
-    }
-
-    public void yU() {
-        if (this.clQ != null) {
-            this.clQ.yU();
+    public void el(String str) {
+        if (this.cmh != null) {
+            this.cmh.el(str);
         }
     }
 
     public void yV() {
-        if (this.clQ != null) {
-            this.clQ.yV();
+        if (this.cmh != null) {
+            this.cmh.yV();
         }
     }
 
-    public void als() {
-        ali();
-        this.clV.setVisibility(0);
-        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.clZ.getLayoutParams();
-            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.clZ.setLayoutParams(layoutParams);
+    public void zd() {
+        if (this.cmh != null) {
+            this.cmh.zd();
         }
-        this.clZ.setVisibility(0);
-        if (TextUtils.isEmpty(this.cmc.getText())) {
-            this.cmc.setText(com.baidu.tieba.y.baobao_remind);
+    }
+
+    public void ze() {
+        if (this.cmh != null) {
+            this.cmh.ze();
+        }
+    }
+
+    public boolean yZ() {
+        if (this.cmh == null) {
+            return false;
+        }
+        return this.cmh.yZ();
+    }
+
+    public void za() {
+        if (this.cmh != null) {
+            this.cmh.za();
+        }
+    }
+
+    public void zb() {
+        if (this.cmh != null) {
+            this.cmh.zb();
+        }
+    }
+
+    public void alH() {
+        alx();
+        this.cmm.setVisibility(0);
+        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmq.getLayoutParams();
+            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+            this.cmq.setLayoutParams(layoutParams);
+        }
+        this.cmq.setVisibility(0);
+        if (TextUtils.isEmpty(this.cmt.getText())) {
+            this.cmt.setText(com.baidu.tieba.y.baobao_remind);
         }
     }
 
     protected void hideMore() {
-        this.clQ.setVisibility(8);
+        this.cmh.setVisibility(8);
     }
 
-    protected void alt() {
-        alj();
-        this.clV.setVisibility(0);
+    protected void alI() {
+        aly();
+        this.cmm.setVisibility(0);
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmf.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmv.getLayoutParams();
             layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.cmf.setLayoutParams(layoutParams);
+            this.cmv.setLayoutParams(layoutParams);
         }
-        this.cmf.setVisibility(0);
+        this.cmv.setVisibility(0);
     }
 
-    protected void alu() {
-        if (this.cmf != null) {
-            this.cmf.setVisibility(8);
+    protected void alJ() {
+        if (this.cmv != null) {
+            this.cmv.setVisibility(8);
         }
     }
 
     public void Y(View view) {
         if (view != null) {
             com.baidu.adp.lib.util.n.d(this.mContext, view);
-            this.cmg = true;
+            this.cmw = true;
         }
     }
 
     public void Z(View view) {
         if (view != null) {
             com.baidu.adp.lib.util.n.c(this.mContext, view);
-            this.cmg = false;
+            this.cmw = false;
         }
     }
 
-    public boolean alv() {
-        return this.clQ.getVisibility() == 0 || (this.clS != null && this.clS.getVisibility() == 0) || ((this.clR != null && this.clR.getVisibility() == 0) || ((this.clW != null && this.clW.getVisibility() == 0) || ((this.cmf != null && this.cmf.getVisibility() == 0) || (this.clZ != null && this.clZ.getVisibility() == 0))));
+    public boolean alK() {
+        return this.cmh.getVisibility() == 0 || (this.cmj != null && this.cmj.getVisibility() == 0) || ((this.cmi != null && this.cmi.getVisibility() == 0) || ((this.cmn != null && this.cmn.getVisibility() == 0) || ((this.cmv != null && this.cmv.getVisibility() == 0) || (this.cmq != null && this.cmq.getVisibility() == 0))));
     }
 
     public void hideAll() {
-        alw();
-        Z(this.clU);
+        alL();
+        Z(this.cml);
     }
 
-    public void alw() {
-        this.clV.setVisibility(8);
+    public void alL() {
+        this.cmm.setVisibility(8);
         hideMore();
-        aaY();
-        aln();
-        alp();
-        alu();
-        alr();
+        abm();
+        alC();
+        alE();
+        alJ();
+        alG();
     }
 
-    public void alx() {
+    public void alM() {
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            if (this.clQ != null && this.clQ.getVisibility() == 0) {
-                alo();
-            } else if (this.clR != null && this.clR.getVisibility() == 0) {
-                alm();
-            } else if (this.clS != null && this.clS.getVisibility() == 0) {
-                aaZ();
-            } else if (this.clW != null && this.clW.getVisibility() == 0) {
-                alq();
-            } else if (this.cmf != null && this.cmf.getVisibility() == 0) {
-                alt();
-            } else if (this.clZ != null && this.clZ.getVisibility() == 0) {
-                als();
+            if (this.cmh != null && this.cmh.getVisibility() == 0) {
+                alD();
+            } else if (this.cmi != null && this.cmi.getVisibility() == 0) {
+                alB();
+            } else if (this.cmj != null && this.cmj.getVisibility() == 0) {
+                abn();
+            } else if (this.cmn != null && this.cmn.getVisibility() == 0) {
+                alF();
+            } else if (this.cmv != null && this.cmv.getVisibility() == 0) {
+                alI();
+            } else if (this.cmq != null && this.cmq.getVisibility() == 0) {
+                alH();
             }
         }
     }
 
-    public void aly() {
+    public void alN() {
         hideAll();
-        alo();
+        alD();
     }
 
-    public void alz() {
+    public void alO() {
         hideAll();
-        alm();
+        alB();
     }
 
-    public void alA() {
+    public void alP() {
         hideAll();
-        aaZ();
+        abn();
     }
 
-    public void alB() {
+    public void alQ() {
         hideAll();
-        alq();
+        alF();
     }
 
-    public void alC() {
+    public void alR() {
         hideAll();
-        alt();
+        alI();
     }
 
-    public void alD() {
+    public void alS() {
         hideAll();
-        als();
+        alH();
     }
 
     public void aa(View view) {
-        if (!this.cmg) {
+        if (!this.cmw) {
             hideAll();
-            this.clU = view;
+            this.cml = view;
             Y(view);
         }
     }
 
-    public boolean alE() {
+    public boolean alT() {
         BaseAdapter adapter;
-        return (this.clY == null || (adapter = this.clY.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
+        return (this.cmp == null || (adapter = this.cmp.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
     }
 
-    public boolean alF() {
+    public boolean alU() {
         BaseAdapter adapter;
-        return (this.cmb == null || (adapter = this.cmb.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
+        return (this.cms == null || (adapter = this.cms.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
     }
 
-    public boolean alG() {
+    public boolean alV() {
         VoiceData.VoiceModel voiceModel;
-        return (this.clS == null || (voiceModel = this.clS.getVoiceModel()) == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
+        return (this.cmj == null || (voiceModel = this.cmj.getVoiceModel()) == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        if (this.clS == null) {
+        if (this.cmj == null) {
             return null;
         }
-        return this.clS.getVoiceModel();
+        return this.cmj.getVoiceModel();
     }
 
-    public void alH() {
-        if (this.clT != null) {
-            this.clT.alL();
+    public void alW() {
+        if (this.cmk != null) {
+            this.cmk.ama();
         }
     }
 
     public void setAudioData(VoiceData.VoiceModel voiceModel) {
-        if (this.clS != null && voiceModel != null) {
-            this.clS.a(voiceModel);
+        if (this.cmj != null && voiceModel != null) {
+            this.cmj.a(voiceModel);
         }
     }
 
-    public void Jg() {
-        if (this.clS != null) {
-            this.clS.of();
+    public void Jm() {
+        if (this.cmj != null) {
+            this.cmj.of();
         }
     }
 
     public void clearData() {
-        if (this.clS != null) {
-            this.clS.reset();
+        if (this.cmj != null) {
+            this.cmj.reset();
             setImage(null);
-            this.clQ.yW();
+            this.cmh.zc();
         }
     }
 
-    public void Jh() {
-        if (this.clS != null) {
-            this.clS.onStopingRecorder();
+    public void Jn() {
+        if (this.cmj != null) {
+            this.cmj.onStopingRecorder();
         }
     }
 
-    public void alI() {
-        Jh();
+    public void alX() {
+        Jn();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
-        this.aip = new f(this, vVar);
-        this.clQ.setOnClickListener(new g(this));
-        this.clT = new h(this);
-        if (this.clS != null) {
-            this.clS.setCallback(this.clT);
+        this.aix = new f(this, vVar);
+        this.cmh.setOnClickListener(new g(this));
+        this.cmk = new h(this);
+        if (this.cmj != null) {
+            this.cmj.setCallback(this.cmk);
         }
     }
 
-    public boolean alJ() {
-        return this.cmg;
+    public boolean alY() {
+        return this.cmw;
     }
 
     public void setImage(Bitmap bitmap) {
         if (bitmap == null) {
-            this.clQ.setmImagetype(0);
+            this.cmh.setmImagetype(0);
         }
-        this.clQ.setImage(bitmap);
+        this.cmh.setImage(bitmap);
     }
 
     public void aQ(boolean z) {
-        this.cmi = z;
-        this.clQ.aQ(z);
-        if (this.clR != null) {
-            this.clR.setShowBigEmotion(!z);
+        this.cmy = z;
+        this.cmh.aQ(z);
+        if (this.cmi != null) {
+            this.cmi.setShowBigEmotion(!z);
         }
     }
 
-    public void zb() {
-        this.clQ.zb();
+    public void zh() {
+        this.cmh.zh();
     }
 
-    public void za() {
-        this.clQ.za();
+    public void zg() {
+        this.cmh.zg();
     }
 
-    public void zc() {
-        this.clQ.zc();
+    public void zi() {
+        this.cmh.zi();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.clR != null) {
-            this.clR.onChangeSkinType(i);
+        if (this.cmi != null) {
+            this.cmi.onChangeSkinType(i);
         }
-        this.clQ.onChangeSkinType(i);
-        if (this.cmf != null) {
-            this.cmf.onChangeSkinType(i);
+        this.cmh.onChangeSkinType(i);
+        if (this.cmv != null) {
+            this.cmv.onChangeSkinType(i);
         }
-        if (this.clS != null) {
-            ba.i(this.clS, com.baidu.tieba.s.record_voice_container_bg);
+        if (this.cmj != null) {
+            ba.i(this.cmj, com.baidu.tieba.s.record_voice_container_bg);
         }
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        alh();
-        this.cml = writeImagesInfo;
-        this.clY.a(new j(this, writeImagesInfo), z);
-        int maxItemNum = this.clY.getMaxItemNum();
+        alw();
+        this.cmB = writeImagesInfo;
+        this.cmp.a(new j(this, writeImagesInfo), z);
+        int maxItemNum = this.cmp.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!av.ame().amf() && size > 1) {
-            this.cme.setText(com.baidu.tieba.y.editor_mutiiamge_drag_tip);
-            av.ame().eO(true);
+        if (!av.amt().amu() && size > 1) {
+            this.cmu.setText(com.baidu.tieba.y.editor_mutiiamge_drag_tip);
+            av.amt().eM(true);
         } else {
-            this.cme.setText(getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.cmu.setText(getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
-            this.clQ.ei(new StringBuilder(String.valueOf(size)).toString());
+            this.cmh.el(new StringBuilder(String.valueOf(size)).toString());
         } else {
-            this.clQ.yP();
+            this.cmh.yV();
         }
-        this.aip.handleAction(13, null);
-        all();
+        this.aix.handleAction(13, null);
+        alA();
     }
 
     public void setBaobaoUris(WriteImagesInfo writeImagesInfo) {
-        ali();
-        this.cmm = writeImagesInfo;
-        this.cmb.a((BaseAdapter) new j(this, this.cmm), false);
-        this.aip.handleAction(51, null);
-        if (this.cmm.size() > 0) {
-            this.clQ.ek("1");
+        alx();
+        this.cmC = writeImagesInfo;
+        this.cms.a((BaseAdapter) new j(this, this.cmC), false);
+        this.aix.handleAction(51, null);
+        if (this.cmC.size() > 0) {
+            this.cmh.en("1");
         } else {
-            this.clQ.yW();
+            this.cmh.zc();
         }
-        this.aip.handleAction(51, null);
-        all();
+        this.aix.handleAction(51, null);
+        alA();
     }
 
-    private View im(int i) {
+    private View ip(int i) {
         TbadkCoreApplication.m411getInst().getSkinType();
         ImageView imageView = new ImageView(getContext());
         ba.c(imageView, com.baidu.tieba.u.btn_add_photo_selector);
@@ -635,19 +635,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return imageView;
     }
 
-    public void alK() {
-        if (this.clY != null) {
-            this.clY.notifyDataSetChanged();
+    public void alZ() {
+        if (this.cmp != null) {
+            this.cmp.notifyDataSetChanged();
         }
-        if (this.cmb != null) {
-            this.cmb.notifyDataSetChanged();
+        if (this.cms != null) {
+            this.cms.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
     public void af(int i, int i2) {
-        if (i != i2 && this.cml != null && this.cml.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.cml.getChosedFiles();
+        if (i != i2 && this.cmB != null && this.cmB.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.cmB.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }
@@ -659,12 +659,12 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     public void refresh() {
-        if (this.cmi) {
-            this.clQ.yS();
-        } else if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cmi) {
-            this.clQ.yS();
+        if (this.cmy) {
+            this.cmh.yY();
+        } else if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cmy) {
+            this.cmh.yY();
         } else {
-            this.clQ.yR();
+            this.cmh.yX();
         }
     }
 }

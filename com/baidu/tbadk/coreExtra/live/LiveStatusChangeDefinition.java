@@ -9,6 +9,7 @@ public class LiveStatusChangeDefinition {
     public static final String ERROR_PROMPT_PLAY_FILE_ERROR = "Play file error";
     public static final String ERROR_PROMPT_PLAY_INVALID_CODEC = "Play invalid codec";
     public static final String ERROR_PROMPT_PLAY_NET_ERROR = "Play network error";
+    public static final String ERROR_PROMPT_PLUGIN_ERROR = "live Plugin not loaded";
     public static final String ERROR_PROMPT_SERVICE_CRASHED = "Service crashed or killed";
     public static final String ERROR_PROMPT_START_PUB = "Publish failed";
     public static final String ERROR_PROMPT_TOKEN_EXPIRED = "Token expired";

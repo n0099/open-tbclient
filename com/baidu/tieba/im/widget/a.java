@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T bob;
+    private T bor;
     private int subType;
     private String title;
 
@@ -37,7 +37,7 @@ public class a<T> {
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            this.bob = r2;
+                            this.bor = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -52,7 +52,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.bob = r1;
+                            this.bor = r1;
                             i = 1;
                         }
                     }
@@ -63,11 +63,11 @@ public class a<T> {
         return i;
     }
 
-    public int TH() {
+    public int TU() {
         return this.subType;
     }
 
-    public T TI() {
-        return this.bob;
+    public T TV() {
+        return this.bor;
     }
 }

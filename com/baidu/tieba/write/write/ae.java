@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity cxw;
+    final /* synthetic */ VcodeActivity cxP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(VcodeActivity vcodeActivity) {
-        this.cxw = vcodeActivity;
+        this.cxP = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cxw.eS(null);
+        this.cxP.eV(null);
     }
 }

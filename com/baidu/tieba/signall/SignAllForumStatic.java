@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class SignAllForumStatic {
-    private static com.baidu.tbadk.b.d bFf;
+    private static com.baidu.tbadk.b.d bFs;
     private static View.OnClickListener mClickListener = new ab();
     private static Context mContext;
 
     static {
-        zn();
+        zt();
         ac acVar = new ac(2009501);
         acVar.setPriority(3);
         MessageManager.getInstance().registerListener(acVar);
@@ -25,7 +25,7 @@ public class SignAllForumStatic {
         }
     }
 
-    private static void zn() {
+    private static void zt() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010030, new ad());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

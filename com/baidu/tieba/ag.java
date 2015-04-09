@@ -2,9 +2,9 @@ package com.baidu.tieba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public interface ag {
-    void DX();
+    void Ed();
 
-    void DY();
+    void Ee();
 
     void bi(boolean z);
 

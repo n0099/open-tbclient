@@ -26,11 +26,11 @@ public class ah extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.live.message.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016005 && (customResponsedMessage instanceof MemoryClearUnreadCountMessage) && (data = ((MemoryClearUnreadCountMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo D = c.Sd().D(data.id, data.customGroupType);
+            ImMessageCenterPojo D = c.Sq().D(data.id, data.customGroupType);
             if (D == null) {
                 BdLog.e("ClearUnreadCountMessage:  not find memery pojo");
             } else if (D.getUnread_count() != 0) {
-                c.Sd().G(data.id, data.customGroupType);
+                c.Sq().G(data.id, data.customGroupType);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ai(this));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

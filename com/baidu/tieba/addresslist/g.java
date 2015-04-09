@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.a.j {
-    private boolean axs;
+    private boolean axA;
 
     public g() {
         super(304001);
@@ -19,13 +19,13 @@ public class g extends com.baidu.adp.framework.a.j {
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            this.axs = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
+            this.axA = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
             if (addressListData != null) {
                 for (com.baidu.tieba.addresslist.relationship.f fVar : addressListData.getAddressList()) {
                     List<com.baidu.tbadk.coreExtra.relationship.a> contacts = fVar.getContacts();
                     ArrayList arrayList = new ArrayList();
                     for (com.baidu.tbadk.coreExtra.relationship.a aVar : contacts) {
-                        if (!this.axs && aVar.getUserType() == 1) {
+                        if (!this.axA && aVar.getUserType() == 1) {
                             arrayList.add(aVar);
                         }
                     }

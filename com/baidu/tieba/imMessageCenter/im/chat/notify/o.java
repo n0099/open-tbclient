@@ -14,14 +14,14 @@ public class o extends ag {
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f
     public View mN() {
         View mN = super.mN();
-        this.YW.setVisibility(4);
+        this.YY.setVisibility(4);
         return mN;
     }
 
     @Override // com.baidu.tbadk.core.view.ag
     public void ct(int i) {
         super.ct(i);
-        ba.j(this.YV, s.cp_bg_line_d);
+        ba.j(this.YX, s.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.ag, com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f

@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import java.io.ByteArrayInputStream;
@@ -342,7 +341,7 @@ public class b extends Thread {
             this.ui = new byte[4096];
         }
         if (this.uj == null) {
-            this.uj = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
+            this.uj = new byte[4097];
         }
         int read = read();
         int i11 = 1 << read;

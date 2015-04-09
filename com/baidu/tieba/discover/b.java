@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a aBK;
+    final /* synthetic */ a aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.aBK = aVar;
+        this.aBS = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,13 +22,13 @@ public class b extends CustomMessageListener {
         com.baidu.tbadk.mvc.j.d dVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            dVar = this.aBK.aBB;
-            List<D> BU = dVar.BU();
-            if (BU != 0 && !BU.isEmpty()) {
-                for (D d : BU) {
-                    if (d != null && "discover_game_center".equals(d.Gg())) {
+            dVar = this.aBS.aBJ;
+            List<D> Ca = dVar.Ca();
+            if (Ca != 0 && !Ca.isEmpty()) {
+                for (D d : Ca) {
+                    if (d != null && "discover_game_center".equals(d.Gm())) {
                         d.bu(booleanValue);
-                        dVar2 = this.aBK.aBB;
+                        dVar2 = this.aBS.aBJ;
                         dVar2.y(d);
                         return;
                     }

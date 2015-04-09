@@ -13,7 +13,7 @@ public class af implements CustomMessageTask.CustomRunnable<Game> {
             return null;
         }
         if (customMessage.getData() != null) {
-            MainTabActivityStatic.crz = customMessage.getData();
+            MainTabActivityStatic.crP = customMessage.getData();
         }
         return new CustomResponsedMessage<>(2001258);
     }

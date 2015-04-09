@@ -29,7 +29,7 @@ public class m {
         return this.screatString;
     }
 
-    public void iI(String str) {
+    public void iL(String str) {
         this.screatString = str;
     }
 }

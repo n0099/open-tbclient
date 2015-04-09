@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ae extends BaseAdapter {
-    private View.OnClickListener aZh = new af(this);
+    private View.OnClickListener aZx = new af(this);
     BaseActivity mActivity;
     Context mContext;
     private List<au> mList;
@@ -105,7 +105,7 @@ public class ae extends BaseAdapter {
                     chatMessage2.setMsgType(auVar.type);
                     cg.a(this.mContext, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
-                    aVar4.getImageView().setOnClickListener(this.aZh);
+                    aVar4.getImageView().setOnClickListener(this.aZx);
                     return aVar3;
                 case 2:
                     View aVar5 = view == null ? new a(this.mContext) : view;

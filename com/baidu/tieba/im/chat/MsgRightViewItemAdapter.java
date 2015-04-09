@@ -7,15 +7,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends bd<MsgrightView> {
-    private boolean aXu;
+    private boolean aXK;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.aXu = false;
+        this.aXK = false;
     }
 
-    public void cs(boolean z) {
-        this.aXu = z;
+    public void cq(boolean z) {
+        this.aXK = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,17 +31,17 @@ public class MsgRightViewItemAdapter extends bd<MsgrightView> {
     @Override // com.baidu.tieba.im.chat.bd
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<MsgrightView> beVar) {
         super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        MsgrightView NS = beVar.NS();
-        NS.fy(this.aXl);
-        NS.cs(this.aXu);
+        MsgrightView Of = beVar.Of();
+        Of.fA(this.aXB);
+        Of.cq(this.aXK);
         chatMessage.getCacheData().setIs_left(0);
-        NS.a(this.aXc);
-        NS.setOnItemViewLongClickListener(this.aXd);
-        NS.setPosition(i);
-        NS.U(this.mCurrentTime);
-        NS.T(chatMessage.getCacheData().getLastMsgTime());
-        NS.a(viewGroup, chatMessage);
-        NS.b(viewGroup, chatMessage);
+        Of.a(this.aXs);
+        Of.setOnItemViewLongClickListener(this.aXt);
+        Of.setPosition(i);
+        Of.U(this.mCurrentTime);
+        Of.T(chatMessage.getCacheData().getLastMsgTime());
+        Of.a(viewGroup, chatMessage);
+        Of.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().X(false);
         this.mPageContext.getLayoutMode().h(view);
         return view;

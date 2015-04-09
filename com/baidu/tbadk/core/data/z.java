@@ -5,16 +5,16 @@ import org.json.JSONObject;
 import tbclient.Topic;
 /* loaded from: classes.dex */
 public class z {
-    private int QR = 0;
-    private int QS = 0;
+    private int QT = 0;
+    private int QU = 0;
     private String link = "";
 
     public int qZ() {
-        return this.QR;
+        return this.QT;
     }
 
     public int ra() {
-        return this.QS;
+        return this.QU;
     }
 
     public String getLink() {
@@ -24,8 +24,8 @@ public class z {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.QR = jSONObject.optInt("is_lpost", 0);
-                this.QS = jSONObject.optInt("topic_type", 0);
+                this.QT = jSONObject.optInt("is_lpost", 0);
+                this.QU = jSONObject.optInt("topic_type", 0);
                 this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -35,8 +35,8 @@ public class z {
 
     public void a(Topic topic) {
         if (topic != null) {
-            this.QR = topic.is_lpost.intValue();
-            this.QS = topic.topic_type.intValue();
+            this.QT = topic.is_lpost.intValue();
+            this.QU = topic.topic_type.intValue();
             this.link = topic.link;
         }
     }

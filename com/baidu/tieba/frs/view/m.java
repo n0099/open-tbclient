@@ -6,18 +6,18 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aOU;
-    private final /* synthetic */ PopupWindow aOV;
+    final /* synthetic */ FrsHeaderView aPl;
+    private final /* synthetic */ PopupWindow aPm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
-        this.aOU = frsHeaderView;
-        this.aOV = popupWindow;
+        this.aPl = frsHeaderView;
+        this.aPm = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aOV.dismiss();
-        com.baidu.tbadk.browser.f.a(this.aOU.LN.getPageActivity(), this.aOU.LN.getResources().getString(y.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+        this.aPm.dismiss();
+        com.baidu.tbadk.browser.f.a(this.aPl.LP.getPageActivity(), this.aPl.LP.getResources().getString(y.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
     }
 }

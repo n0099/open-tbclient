@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements aq {
-    final /* synthetic */ ah cuH;
-    private final /* synthetic */ String cuI;
+    final /* synthetic */ ah cuX;
+    private final /* synthetic */ String cuY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ah ahVar, String str) {
-        this.cuH = ahVar;
-        this.cuI = str;
+        this.cuX = ahVar;
+        this.cuY = str;
     }
 
     @Override // com.baidu.tieba.write.album.aq
@@ -27,18 +27,18 @@ public class an implements aq {
         TextView textView2;
         n nVar;
         n nVar2;
-        if (!this.cuI.equals("-1")) {
-            textView = this.cuH.mTitleText;
+        if (!this.cuY.equals("-1")) {
+            textView = this.cuX.mTitleText;
             textView.setText(str);
-            this.cuH.apU();
+            this.cuX.aqj();
             z = false;
         } else {
             a aVar = new a();
-            aVar.iX("-1");
-            albumActivity = this.cuH.ctu;
+            aVar.ja("-1");
+            albumActivity = this.cuX.ctK;
             String string = albumActivity.getPageContext().getString(com.baidu.tieba.y.write_album_all);
             aVar.setName(string);
-            aVar.iY(String.valueOf(list2.size()));
+            aVar.jb(String.valueOf(list2.size()));
             if (list2.size() > 0) {
                 aVar.e(list2.get(0));
             }
@@ -46,14 +46,14 @@ public class an implements aq {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             list2.add(0, imageFileInfo);
-            textView2 = this.cuH.mTitleText;
+            textView2 = this.cuX.mTitleText;
             textView2.setText(string);
-            nVar = this.cuH.ctp;
-            nVar.aZ(list);
-            nVar2 = this.cuH.ctp;
-            nVar2.ba(list2);
+            nVar = this.cuX.ctF;
+            nVar.bd(list);
+            nVar2 = this.cuX.ctF;
+            nVar2.be(list2);
             z = true;
         }
-        this.cuH.setData(list2, z);
+        this.cuX.setData(list2, z);
     }
 }

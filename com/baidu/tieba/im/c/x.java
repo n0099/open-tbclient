@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bmC;
-    private final /* synthetic */ ad bmL;
+    final /* synthetic */ a bmS;
+    private final /* synthetic */ ad bnb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(a aVar, ad adVar) {
-        this.bmC = aVar;
-        this.bmL = adVar;
+        this.bmS = aVar;
+        this.bnb = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,6 +48,6 @@ public class x implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
                 }
             }
         }
-        this.bmL.a(linkedHashMap2, hashMap);
+        this.bnb.a(linkedHashMap2, hashMap);
     }
 }

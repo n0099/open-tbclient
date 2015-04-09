@@ -18,14 +18,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends BaseActivity<AccountActivity> {
     private NavigationBar mNavigationBar;
-    private ArrayList<AccountData> aun = null;
-    private m auo = null;
+    private ArrayList<AccountData> auv = null;
+    private m auw = null;
     private ListView mList = null;
-    private RelativeLayout aup = null;
-    private TextView auq = null;
-    private View.OnClickListener aur = null;
-    private j aus = null;
-    private h aut = null;
+    private RelativeLayout aux = null;
+    private TextView auy = null;
+    private View.OnClickListener auz = null;
+    private j auA = null;
+    private h auB = null;
     private Handler mHandler = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,8 +33,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.account_activity);
-        Ed();
-        Ee();
+        Ej();
+        Ek();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,82 +43,82 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         getLayoutMode().X(i == 1);
-        getLayoutMode().h(this.aup);
-        this.auo.notifyDataSetChanged();
+        getLayoutMode().h(this.aux);
+        this.auw.notifyDataSetChanged();
     }
 
-    private void Ed() {
-        this.aun = com.baidu.tbadk.core.a.d.pH();
+    private void Ej() {
+        this.auv = com.baidu.tbadk.core.a.d.pH();
     }
 
-    private void Ee() {
-        this.aup = (RelativeLayout) findViewById(com.baidu.tieba.v.account_container);
-        this.aur = new b(this);
+    private void Ek() {
+        this.aux = (RelativeLayout) findViewById(com.baidu.tieba.v.account_container);
+        this.auz = new b(this);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.y.account_manager));
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.navigation_right_button_layout, (View.OnClickListener) null);
-        this.auq = (TextView) addCustomView.findViewById(com.baidu.tieba.v.right_textview);
-        this.auq.setText(getPageContext().getString(com.baidu.tieba.y.edit));
-        ba.b(this.auq, com.baidu.tieba.s.navi_op_text, 1);
+        this.auy = (TextView) addCustomView.findViewById(com.baidu.tieba.v.right_textview);
+        this.auy.setText(getPageContext().getString(com.baidu.tieba.y.edit));
+        ba.b(this.auy, com.baidu.tieba.s.navi_op_text, 1);
         addCustomView.setOnClickListener(new d(this));
-        this.auo = new m(this, this.aur);
-        this.auo.p(this.aun);
+        this.auw = new m(this, this.auz);
+        this.auw.p(this.auv);
         this.mList = (ListView) findViewById(com.baidu.tieba.v.list);
-        this.mList.setAdapter((ListAdapter) this.auo);
+        this.mList.setAdapter((ListAdapter) this.auw);
         this.mList.setOnItemClickListener(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(AccountData accountData) {
-        if (this.aus == null) {
-            eP("account changed");
+        if (this.auA == null) {
+            eS("account changed");
             showLoadingDialog(getPageContext().getString(com.baidu.tieba.y.account_logining), new f(this));
-            this.aus = new j(this, accountData);
-            this.aus.setPriority(3);
-            Ef();
+            this.auA = new j(this, accountData);
+            this.auA.setPriority(3);
+            El();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ef() {
-        if (this.aus != null) {
-            if (Eh()) {
+    public void El() {
+        if (this.auA != null) {
+            if (En()) {
                 this.mHandler.removeMessages(2);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), 200L);
                 return;
             }
-            this.aus.execute(new Object[0]);
+            this.auA.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, AccountData accountData) {
-        if (this.aut == null) {
+        if (this.auB == null) {
             boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
-                eP("account delete");
+                eS("account delete");
             }
             showLoadingDialog(getPageContext().getString(com.baidu.tieba.y.deleting), new g(this, z2));
-            this.aut = new h(this, z, accountData);
-            this.aut.setPriority(3);
-            Eg();
+            this.auB = new h(this, z, accountData);
+            this.auB.setPriority(3);
+            Em();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Eg() {
-        if (this.aut != null) {
-            if (Eh()) {
+    public void Em() {
+        if (this.auB != null) {
+            if (En()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
             }
-            this.aut.execute(new Object[0]);
+            this.auB.execute(new Object[0]);
         }
     }
 
-    private void eP(String str) {
+    private void eS(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().es();
         BdSocketLinkService.setAvailable(false);
@@ -126,13 +126,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eQ(String str) {
+    public void eT(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);
     }
 
-    private boolean Eh() {
+    private boolean En() {
         return MessageManager.getInstance().getSocketClient().ev() > 0;
     }
 

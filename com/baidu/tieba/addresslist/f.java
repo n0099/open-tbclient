@@ -7,12 +7,12 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ AddressListActivity axr;
+    final /* synthetic */ AddressListActivity axz;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(AddressListActivity addressListActivity) {
         super(2001180);
-        this.axr = addressListActivity;
+        this.axz = addressListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,14 +23,14 @@ public class f extends CustomMessageListener {
         com.baidu.tieba.addresslist.a.a aVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (customResponsedMessage.getError() != 0) {
-                this.axr.showToast(customResponsedMessage.getErrorString());
+                this.axz.showToast(customResponsedMessage.getErrorString());
                 return;
             }
-            this.axr.axq = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-            aVar = this.axr.axn;
-            i = this.axr.axq;
+            this.axz.axy = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+            aVar = this.axz.axv;
+            i = this.axz.axy;
             aVar.en(i);
-            aVar2 = this.axr.axn;
+            aVar2 = this.axz.axv;
             aVar2.notifyDataSetChanged();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001189));
         }

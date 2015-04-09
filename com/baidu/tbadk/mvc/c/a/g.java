@@ -3,11 +3,11 @@ package com.baidu.tbadk.mvc.c.a;
 import android.view.View;
 /* loaded from: classes.dex */
 class g implements View.OnLongClickListener {
-    final /* synthetic */ e amA;
+    final /* synthetic */ e amI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.amA = eVar;
+        this.amI = eVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -15,7 +15,7 @@ class g implements View.OnLongClickListener {
         com.baidu.tbadk.mvc.c.b r = com.baidu.tbadk.mvc.h.a.r(view);
         if (r != null) {
             r.setView(view);
-            if (this.amA.dispatchMvcEvent(r)) {
+            if (this.amI.dispatchMvcEvent(r)) {
                 return true;
             }
         }

@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 class b implements Animation.AnimationListener {
-    final /* synthetic */ a aWq;
+    final /* synthetic */ a aWG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aWq = aVar;
+        this.aWG = aVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,15 +19,15 @@ class b implements Animation.AnimationListener {
         AbsMsgImageActivity absMsgImageActivity3;
         AbsMsgImageActivity absMsgImageActivity4;
         NavigationBar navigationBar;
-        absMsgImageActivity = this.aWq.aWp;
-        absMsgImageActivity.aWg = true;
-        absMsgImageActivity2 = this.aWq.aWp;
-        z = absMsgImageActivity2.aWh;
+        absMsgImageActivity = this.aWG.aWF;
+        absMsgImageActivity.aWw = true;
+        absMsgImageActivity2 = this.aWG.aWF;
+        z = absMsgImageActivity2.aWx;
         if (z) {
-            absMsgImageActivity3 = this.aWq.aWp;
-            absMsgImageActivity3.aWh = false;
-            absMsgImageActivity4 = this.aWq.aWp;
-            navigationBar = absMsgImageActivity4.aWd;
+            absMsgImageActivity3 = this.aWG.aWF;
+            absMsgImageActivity3.aWx = false;
+            absMsgImageActivity4 = this.aWG.aWF;
+            navigationBar = absMsgImageActivity4.aWt;
             navigationBar.setVisibility(8);
         }
     }

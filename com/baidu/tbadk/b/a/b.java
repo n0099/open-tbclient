@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a> ahp;
+    private ArrayList<a> ahx;
     private Context mContext;
 
     public Context getContext() {
@@ -15,25 +15,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        if (this.ahp != null && aVar != null) {
-            this.ahp.add(aVar);
+        if (this.ahx != null && aVar != null) {
+            this.ahx.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ahp == null) {
+        if (this.ahx == null) {
             return 0;
         }
-        return this.ahp.size();
+        return this.ahx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: di */
     public a getItem(int i) {
-        if (this.ahp != null && i < this.ahp.size()) {
-            return this.ahp.get(i);
+        if (this.ahx != null && i < this.ahx.size()) {
+            return this.ahx.get(i);
         }
         return null;
     }
@@ -47,9 +47,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             c cVar = (c) view.getTag();
-            cVar.ahq.setImageResource(this.ahp.get(i).yc());
-            cVar.ahr.setText(this.ahp.get(i).yd());
-            cVar.ahs.setText(i);
+            cVar.ahy.setImageResource(this.ahx.get(i).yi());
+            cVar.ahz.setText(this.ahx.get(i).yj());
+            cVar.ahA.setText(i);
             return view;
         }
         return null;

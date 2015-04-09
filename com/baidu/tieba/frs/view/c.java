@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a aON;
+    final /* synthetic */ a aPe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.aON = aVar;
+        this.aPe = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bk.tl().b(this.aON.LN, new String[]{(String) view.getTag()});
+        bk.tl().b(this.aPe.LP, new String[]{(String) view.getTag()});
     }
 }

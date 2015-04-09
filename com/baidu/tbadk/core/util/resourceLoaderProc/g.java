@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends a {
-    private final boolean WF = false;
-    private final boolean WG = false;
     private final boolean WH = false;
+    private final boolean WI = false;
+    private final boolean WJ = false;
     private int height;
     private int width;
 

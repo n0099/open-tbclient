@@ -6,18 +6,18 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class k {
-    private int PF;
-    private String PG;
-    private String PH;
+    private int PH;
+    private String PJ;
+    private String PK;
     private int mType;
     private String mValue;
 
     public int pY() {
-        return this.PF;
+        return this.PH;
     }
 
     public String pZ() {
-        return this.PG;
+        return this.PJ;
     }
 
     public String getValue() {
@@ -29,17 +29,17 @@ public class k {
     }
 
     public String qa() {
-        return this.PH;
+        return this.PK;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.PF = jSONObject.optInt("bannerType");
-                this.PG = jSONObject.optString("bannerUrl");
+                this.PH = jSONObject.optInt("bannerType");
+                this.PJ = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.PH = jSONObject.optString("desc");
+                this.PK = jSONObject.optString("desc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -48,11 +48,11 @@ public class k {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.PF = banner.banner_type.intValue();
-            this.PG = banner.banner_url;
+            this.PH = banner.banner_type.intValue();
+            this.PJ = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.PH = banner.desc;
+            this.PK = banner.desc;
         }
     }
 
@@ -60,6 +60,6 @@ public class k {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.PF == 1 || this.PF == 4 || this.PF == 2 || this.PF == 3 : this.mType == 2 && !StringUtils.isNull(this.PH);
+        return this.mType == 1 ? this.PH == 1 || this.PH == 4 || this.PH == 2 || this.PH == 3 : this.mType == 2 && !StringUtils.isNull(this.PK);
     }
 }

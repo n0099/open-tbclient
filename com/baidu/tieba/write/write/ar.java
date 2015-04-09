@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import java.util.Date;
 /* loaded from: classes.dex */
 class ar implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ WriteActivity cyc;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.cyc = writeActivity;
+        this.cyx = writeActivity;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -23,21 +23,21 @@ class ar implements TimePickerDialog.OnTimeSetListener {
         TextView textView;
         WriteData writeData5;
         WriteData writeData6;
-        writeData = this.cyc.cpU;
+        writeData = this.cyx.cqk;
         if (writeData.getLiveCardData() != null) {
             Date date = new Date();
             Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.cyc.cpU;
+            writeData2 = this.cyx.cqk;
             long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.cyc.cpU;
+            writeData3 = this.cyx.cqk;
             writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.cyc.cpU;
+            writeData4 = this.cyx.cqk;
             if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                writeData6 = this.cyc.cpU;
+                writeData6 = this.cyx.cqk;
                 writeData6.getLiveCardData().setModifyTime(true);
             }
-            textView = this.cyc.cxT;
-            writeData5 = this.cyc.cpU;
+            textView = this.cyx.cyo;
+            writeData5 = this.cyx.cqk;
             textView.setText(com.baidu.tbadk.core.util.bd.o(writeData5.getLiveCardData().getStartTime() * 1000));
         }
     }

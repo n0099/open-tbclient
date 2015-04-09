@@ -8,8 +8,8 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView aBM;
-    private static Boolean aBN = false;
+    private static ImageView aBU;
+    private static Boolean aBV = false;
 
     static {
         n nVar = new n(2007002);
@@ -21,30 +21,30 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d zK() {
+    public com.baidu.tbadk.mainTab.d zQ() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.alV = new a();
+        dVar.amd = new a();
         dVar.type = 6;
-        dVar.alW = y.discover;
-        dVar.alM = com.baidu.tieba.u.icon_tabbar_discover;
+        dVar.ame = y.discover;
+        dVar.alU = com.baidu.tieba.u.icon_tabbar_discover;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator af(Context context) {
-        this.alJ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
-        aBM = new ImageView(context);
+        this.alR = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
+        aBU = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.alU = this.alJ;
+        cVar.amc = this.alR;
         cVar.vf = com.baidu.adp.lib.util.n.dip2px(context, 3.0f);
-        cVar.view = aBM;
-        cVar.alS = com.baidu.tieba.u.icon_news_down_bar_one;
-        if (aBN.booleanValue()) {
-            aBM.setVisibility(0);
+        cVar.view = aBU;
+        cVar.ama = com.baidu.tieba.u.icon_news_down_bar_one;
+        if (aBV.booleanValue()) {
+            aBU.setVisibility(0);
         } else {
-            aBM.setVisibility(8);
+            aBU.setVisibility(8);
         }
-        this.alJ.a("emotion", cVar);
-        return this.alJ;
+        this.alR.a("emotion", cVar);
+        return this.alR;
     }
 }

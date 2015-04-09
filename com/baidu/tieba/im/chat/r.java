@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ AbsMsglistView aWs;
+    final /* synthetic */ AbsMsglistView aWI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(AbsMsglistView absMsglistView) {
-        this.aWs = absMsglistView;
+        this.aWI = absMsglistView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aWs.sendSoftkeyEvent();
+        this.aWI.sendSoftkeyEvent();
     }
 }

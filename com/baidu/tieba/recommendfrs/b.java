@@ -30,25 +30,25 @@ import tbclient.FineFrsPage.EverydayThread;
 import tbclient.FineFrsPage.FineThreadInfo;
 /* loaded from: classes.dex */
 public class b extends BaseFragment implements x {
-    private boolean aBE;
-    private boolean aBF;
-    private BdListView aBx;
-    private NoNetworkView aBy;
-    private boolean aHV;
-    private com.baidu.tieba.recommendfrs.a.b bXA;
-    private com.baidu.tieba.recommendfrs.b.c bXB;
-    private PbListView bXC;
-    private TextView bXD;
-    private com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> bXE;
-    private int[] bXF;
-    private long bXG;
+    private BdListView aBF;
+    private NoNetworkView aBG;
+    private boolean aBM;
+    private boolean aBN;
+    private boolean aId;
+    private PbListView aLV;
+    private com.baidu.tieba.recommendfrs.a.b bXQ;
+    private com.baidu.tieba.recommendfrs.b.c bXR;
+    private TextView bXS;
+    private com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> bXT;
+    private int[] bXU;
+    private long bXV;
     private boolean mHasMore;
     private ag mPullView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        FS();
+        FY();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -60,85 +60,85 @@ public class b extends BaseFragment implements x {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.bXG = System.currentTimeMillis();
+            this.bXV = System.currentTimeMillis();
             TiebaStatic.eventStat(getFragmentActivity(), "kantie_entry", null);
-            if (!this.aBF) {
-                if (!this.aBE || n.isNetOk()) {
-                    this.aBx.mX();
+            if (!this.aBN) {
+                if (!this.aBM || n.isNetOk()) {
+                    this.aBF.mX();
                     return;
                 }
                 return;
             }
             return;
         }
-        TiebaStatic.eventStat(getFragmentActivity(), "kantie_duration", String.valueOf((System.currentTimeMillis() - this.bXG) / 1000));
+        TiebaStatic.eventStat(getFragmentActivity(), "kantie_duration", String.valueOf((System.currentTimeMillis() - this.bXV) / 1000));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         s(getView());
-        this.bXF = new int[2];
-        this.bXF[0] = n.M(getFragmentActivity());
-        this.bXF[1] = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.ds60);
-        this.bXE = new c(this, getPageContext(), new Class[]{com.baidu.tieba.recommendfrs.b.a.class, com.baidu.tieba.recommendfrs.b.b.class, com.baidu.tieba.recommendfrs.b.e.class}, new int[]{w.recommend_frs_item_pic, w.recommend_frs_item_pics, w.recommend_frs_item_time_divider}, null);
-        this.aBx.setAdapter((ListAdapter) this.bXE);
+        this.bXU = new int[2];
+        this.bXU[0] = n.M(getFragmentActivity());
+        this.bXU[1] = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.ds60);
+        this.bXT = new c(this, getPageContext(), new Class[]{com.baidu.tieba.recommendfrs.b.a.class, com.baidu.tieba.recommendfrs.b.b.class, com.baidu.tieba.recommendfrs.b.e.class}, new int[]{w.recommend_frs_item_pic, w.recommend_frs_item_pics, w.recommend_frs_item_time_divider}, null);
+        this.aBF.setAdapter((ListAdapter) this.bXT);
     }
 
     private void s(View view) {
-        this.aBy = (NoNetworkView) view.findViewById(v.view_no_network);
-        this.bXD = (TextView) view.findViewById(v.time);
-        this.bXD.setVisibility(8);
-        this.aBx = (BdListView) view.findViewById(v.listview);
+        this.aBG = (NoNetworkView) view.findViewById(v.view_no_network);
+        this.bXS = (TextView) view.findViewById(v.time);
+        this.bXS.setVisibility(8);
+        this.aBF = (BdListView) view.findViewById(v.listview);
         this.mPullView = new ag(getPageContext());
-        this.aBx.setPullRefresh(this.mPullView);
-        this.bXC = new PbListView(getFragmentActivity());
-        this.bXC.mN();
+        this.aBF.setPullRefresh(this.mPullView);
+        this.aLV = new PbListView(getFragmentActivity());
+        this.aLV.mN();
         this.mPullView.a(new d(this));
-        this.aBx.setOnSrollToBottomListener(this);
-        this.aBx.setOnItemClickListener(this);
-        this.aBx.setOnScrollListener(this);
+        this.aBF.setOnSrollToBottomListener(this);
+        this.aBF.setOnItemClickListener(this);
+        this.aBF.setOnScrollListener(this);
     }
 
-    private int afx() {
+    private int afM() {
         com.baidu.tieba.recommendfrs.data.b bVar;
-        if (this.bXE == null) {
+        if (this.bXT == null) {
             return 0;
         }
-        Object item = this.bXE.getItem(this.bXE.getCount() - 1);
+        Object item = this.bXT.getItem(this.bXT.getCount() - 1);
         if (!(item instanceof com.baidu.tieba.recommendfrs.data.b) || (bVar = (com.baidu.tieba.recommendfrs.data.b) item) == null) {
             return 0;
         }
-        return bVar.afC();
+        return bVar.afR();
     }
 
-    private void FS() {
-        this.bXA = new com.baidu.tieba.recommendfrs.a.b(getPageContext());
-        this.bXA.a(new e(this));
+    private void FY() {
+        this.bXQ = new com.baidu.tieba.recommendfrs.a.b(getPageContext());
+        this.bXQ.a(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aU(List<com.baidu.tieba.recommendfrs.data.a> list) {
+    public void aX(List<com.baidu.tieba.recommendfrs.data.a> list) {
         if (list == null || list.isEmpty()) {
-            if (this.bXB != null) {
-                this.aBx.removeHeaderView(this.bXB);
-                this.bXB = null;
+            if (this.bXR != null) {
+                this.aBF.removeHeaderView(this.bXR);
+                this.bXR = null;
                 return;
             }
             return;
         }
-        if (this.bXB == null) {
-            afy();
-            this.bXB.setTitle(UtilHelper.getFixedText(list.get(0).afz(), 14, true));
-            this.aBx.addHeaderView(this.bXB);
+        if (this.bXR == null) {
+            afN();
+            this.bXR.setTitle(UtilHelper.getFixedText(list.get(0).afO(), 14, true));
+            this.aBF.addHeaderView(this.bXR);
         }
-        this.bXB.setData(list);
+        this.bXR.setData(list);
     }
 
-    private void afy() {
-        this.bXB = new com.baidu.tieba.recommendfrs.b.c(getFragmentActivity());
-        this.bXB.f(getPageContext());
-        this.bXB.setCoverFlowViewCallBack(new f(this));
+    private void afN() {
+        this.bXR = new com.baidu.tieba.recommendfrs.b.c(getFragmentActivity());
+        this.bXR.f(getPageContext());
+        this.bXR.setCoverFlowViewCallBack(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -149,10 +149,10 @@ public class b extends BaseFragment implements x {
     /* JADX INFO: Access modifiers changed from: private */
     public List<Object> a(boolean z, com.baidu.tieba.recommendfrs.data.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar == null || cVar.afG() == null) {
+        if (cVar == null || cVar.afV() == null) {
             return arrayList;
         }
-        for (EverydayThread everydayThread : cVar.afG()) {
+        for (EverydayThread everydayThread : cVar.afV()) {
             if (z || !arrayList.isEmpty()) {
                 arrayList.add(everydayThread.show_time);
             }
@@ -166,8 +166,8 @@ public class b extends BaseFragment implements x {
                     if (fineThreadInfo != null) {
                         com.baidu.tieba.recommendfrs.data.b bVar = new com.baidu.tieba.recommendfrs.data.b();
                         bVar.a(fineThreadInfo);
-                        bVar.hK(intValue);
-                        bVar.en(i != size + (-1));
+                        bVar.hN(intValue);
+                        bVar.el(i != size + (-1));
                         arrayList.add(bVar);
                     }
                     i++;
@@ -175,7 +175,7 @@ public class b extends BaseFragment implements x {
             }
         }
         if (!arrayList.isEmpty() && (arrayList.get(arrayList.size() - 1) instanceof com.baidu.tieba.recommendfrs.data.b)) {
-            ((com.baidu.tieba.recommendfrs.data.b) arrayList.get(arrayList.size() - 1)).en(true);
+            ((com.baidu.tieba.recommendfrs.data.b) arrayList.get(arrayList.size() - 1)).el(true);
         }
         return arrayList;
     }
@@ -185,17 +185,17 @@ public class b extends BaseFragment implements x {
         String str = null;
         super.onItemClick(adapterView, view, i, j);
         TiebaStatic.eventStat(getFragmentActivity(), "kantie_card", null);
-        Object item = this.bXE.getItem(i);
+        Object item = this.bXT.getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
             com.baidu.tieba.recommendfrs.data.b bVar = (com.baidu.tieba.recommendfrs.data.b) item;
-            if (bVar.afB() != null && !bVar.afB().isEmpty()) {
-                str = bVar.afB().get(0);
+            if (bVar.afQ() != null && !bVar.afQ().isEmpty()) {
+                str = bVar.afQ().get(0);
             }
-            aS(String.valueOf(bVar.afA()), str);
+            aS(String.valueOf(bVar.afP()), str);
             l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.iO(String.valueOf(bVar.afA()))) {
-                readThreadHistory.iN(String.valueOf(bVar.afA()));
-                this.bXE.y(item);
+            if (readThreadHistory != null && !readThreadHistory.iR(String.valueOf(bVar.afP()))) {
+                readThreadHistory.iQ(String.valueOf(bVar.afP()));
+                this.bXT.y(item);
             }
         }
     }
@@ -203,40 +203,40 @@ public class b extends BaseFragment implements x {
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (i == 1) {
-            this.bXD.setVisibility(8);
+            this.bXS.setVisibility(8);
             return;
         }
-        Object item = this.bXE.getItem(i - this.aBx.getHeaderViewsCount());
+        Object item = this.bXT.getItem(i - this.aBF.getHeaderViewsCount());
         if (item instanceof Integer) {
-            this.bXD.setText(com.baidu.tieba.recommendfrs.a.b.hN(((Integer) item).intValue()));
-            this.bXD.setVisibility(0);
+            this.bXS.setText(com.baidu.tieba.recommendfrs.a.b.hQ(((Integer) item).intValue()));
+            this.bXS.setVisibility(0);
         }
-        if (this.bXE.getItem(this.aBx.pointToPosition(0, this.bXD.getBottom() + 5) - this.aBx.getHeaderViewsCount()) instanceof Integer) {
+        if (this.bXT.getItem(this.aBF.pointToPosition(0, this.bXS.getBottom() + 5) - this.aBF.getHeaderViewsCount()) instanceof Integer) {
             if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
-                this.bXD.setText(com.baidu.tieba.recommendfrs.a.b.hN(((com.baidu.tieba.recommendfrs.data.b) item).afD()));
+                this.bXS.setText(com.baidu.tieba.recommendfrs.a.b.hQ(((com.baidu.tieba.recommendfrs.data.b) item).afS()));
             }
-            em(true);
+            ek(true);
             return;
         }
-        em(false);
+        ek(false);
     }
 
-    private void em(boolean z) {
-        View childAt = this.aBx.getChildAt(0);
+    private void ek(boolean z) {
+        View childAt = this.aBF.getChildAt(0);
         int bottom = childAt != null ? childAt.getBottom() : 0;
-        if (z && bottom < this.bXF[1]) {
-            this.bXD.layout(0, bottom - this.bXF[1], this.bXF[0], bottom);
+        if (z && bottom < this.bXU[1]) {
+            this.bXS.layout(0, bottom - this.bXU[1], this.bXU[0], bottom);
         } else {
-            this.bXD.layout(0, 0, this.bXF[0], this.bXF[1]);
+            this.bXS.layout(0, 0, this.bXU[0], this.bXU[1]);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.x
     public void onScrollToBottom() {
-        if (this.mHasMore && n.isNetOk() && !this.aHV) {
-            this.aHV = true;
-            this.bXC.startLoadData();
-            this.bXA.hM(afx());
+        if (this.mHasMore && n.isNetOk() && !this.aId) {
+            this.aId = true;
+            this.aLV.startLoadData();
+            this.bXQ.hP(afM());
         }
     }
 
@@ -244,20 +244,20 @@ public class b extends BaseFragment implements x {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         com.baidu.tbadk.f.a.a(getPageContext(), getView());
-        if (this.bXE != null) {
-            this.bXE.a(getPageContext(), i);
+        if (this.bXT != null) {
+            this.bXT.a(getPageContext(), i);
         }
-        if (this.bXB != null) {
-            this.bXB.f(getPageContext());
+        if (this.bXR != null) {
+            this.bXR.f(getPageContext());
         }
-        if (this.aBy != null) {
-            this.aBy.onChangeSkinType(getPageContext(), i);
+        if (this.aBG != null) {
+            this.aBG.onChangeSkinType(getPageContext(), i);
         }
         if (this.mPullView != null) {
             this.mPullView.ct(i);
         }
-        if (this.bXC != null) {
-            this.bXC.ct(i);
+        if (this.aLV != null) {
+            this.aLV.ct(i);
         }
     }
 }

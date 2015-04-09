@@ -6,11 +6,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class x implements TextWatcher {
-    final /* synthetic */ ActivationActivity avm;
+    final /* synthetic */ ActivationActivity avu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(ActivationActivity activationActivity) {
-        this.avm = activationActivity;
+        this.avu = activationActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -23,20 +23,20 @@ class x implements TextWatcher {
         int i3;
         RelativeLayout relativeLayout2;
         if (editable.length() == 6) {
-            relativeLayout2 = this.avm.auY;
+            relativeLayout2 = this.avu.avg;
             relativeLayout2.setEnabled(true);
         } else {
-            relativeLayout = this.avm.auY;
+            relativeLayout = this.avu.avg;
             relativeLayout.setEnabled(false);
         }
-        i = this.avm.avj;
+        i = this.avu.avr;
         if (i != 0) {
-            this.avm.avj = 0;
-            linearLayout = this.avm.auS;
+            this.avu.avr = 0;
+            linearLayout = this.avu.ava;
             linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
-            linearLayout2 = this.avm.auS;
-            i2 = this.avm.avh;
-            i3 = this.avm.avi;
+            linearLayout2 = this.avu.ava;
+            i2 = this.avu.avp;
+            i3 = this.avu.avq;
             linearLayout2.setPadding(i2, 0, i3, 0);
         }
     }

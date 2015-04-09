@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends Handler {
-    final /* synthetic */ ak clE;
+    final /* synthetic */ ak clU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.clE = akVar;
+        this.clU = akVar;
     }
 
     @Override // android.os.Handler
@@ -18,20 +18,20 @@ public class al extends Handler {
         am amVar;
         am amVar2;
         if (message.what == 2) {
-            this.clE.count = 0;
-            this.clE.bHv = 0L;
-            this.clE.bHw = 0L;
+            this.clU.count = 0;
+            this.clU.bHI = 0L;
+            this.clU.bHJ = 0L;
         } else if (message.what == 1) {
-            i = this.clE.count;
+            i = this.clU.count;
             if (i == 1) {
-                amVar = this.clE.clD;
+                amVar = this.clU.clT;
                 if (amVar != null) {
-                    amVar2 = this.clE.clD;
-                    amVar2.Kq();
+                    amVar2 = this.clU.clT;
+                    amVar2.KA();
                 }
-                this.clE.count = 0;
-                this.clE.bHv = 0L;
-                this.clE.bHw = 0L;
+                this.clU.count = 0;
+                this.clU.bHI = 0L;
+                this.clU.bHJ = 0L;
             }
         }
     }

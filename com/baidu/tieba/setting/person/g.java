@@ -7,15 +7,15 @@ import com.baidu.tieba.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PersonChangeActivity ccF;
-    private final /* synthetic */ String ccG;
-    private final /* synthetic */ String ccH;
+    final /* synthetic */ PersonChangeActivity ccU;
+    private final /* synthetic */ String ccV;
+    private final /* synthetic */ String ccW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.ccF = personChangeActivity;
-        this.ccG = str;
-        this.ccH = str2;
+        this.ccU = personChangeActivity;
+        this.ccV = str;
+        this.ccW = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -28,21 +28,21 @@ public class g implements com.baidu.tbadk.core.dialog.h {
         TextView textView3;
         eVar.dismiss();
         if (i == 0) {
-            this.ccF.mSex = 1;
-            textView3 = this.ccF.ccp;
-            textView3.setText(this.ccG);
+            this.ccU.mSex = 1;
+            textView3 = this.ccU.ccE;
+            textView3.setText(this.ccV);
         } else if (i == 1) {
-            this.ccF.mSex = 2;
-            textView = this.ccF.ccp;
-            textView.setText(this.ccH);
+            this.ccU.mSex = 2;
+            textView = this.ccU.ccE;
+            textView.setText(this.ccW);
         }
-        this.ccF.ahW();
-        i2 = this.ccF.mSex;
-        fVar = this.ccF.ccw;
-        if (i2 != fVar.vR().getSex()) {
-            view2 = this.ccF.ccl;
+        this.ccU.ail();
+        i2 = this.ccU.mSex;
+        fVar = this.ccU.ccL;
+        if (i2 != fVar.vX().getSex()) {
+            view2 = this.ccU.ccA;
             view2.setEnabled(true);
-            textView2 = this.ccF.bgV;
+            textView2 = this.ccU.bhl;
             ba.b(textView2, s.cp_link_tip_a, 1);
         }
     }

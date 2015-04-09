@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class t extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ s auP;
-    private final /* synthetic */ AccountData auQ;
+    final /* synthetic */ s auX;
+    private final /* synthetic */ AccountData auY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, AccountData accountData) {
-        this.auP = sVar;
-        this.auQ = accountData;
+        this.auX = sVar;
+        this.auY = accountData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,12 @@ class t extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         p pVar;
         Activity activity;
-        if (this.auQ != null) {
-            com.baidu.tbadk.core.a.d.b(this.auQ);
-            com.baidu.tbadk.core.a.d.c(this.auQ);
-            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(this.auQ, this.auQ.getBDUSS(), this.auQ.getTbs());
-            AccountData accountData = this.auQ;
-            pVar = this.auP.auM;
+        if (this.auY != null) {
+            com.baidu.tbadk.core.a.d.b(this.auY);
+            com.baidu.tbadk.core.a.d.c(this.auY);
+            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(this.auY, this.auY.getBDUSS(), this.auY.getTbs());
+            AccountData accountData = this.auY;
+            pVar = this.auX.auU;
             activity = pVar.mActivity;
             TbadkCoreApplication.setCurrentAccount(accountData, activity);
         }

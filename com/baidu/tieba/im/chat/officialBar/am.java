@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ OfficialBarTipActivity aZE;
+    final /* synthetic */ OfficialBarTipActivity aZU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(OfficialBarTipActivity officialBarTipActivity) {
-        this.aZE = officialBarTipActivity;
+        this.aZU = officialBarTipActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ap apVar;
-        apVar = this.aZE.aZB;
-        ImMessageCenterShowItemData fA = apVar.Of().getItem(i);
-        if (fA != null) {
-            com.baidu.tbadk.coreExtra.util.a.a(this.aZE.getPageContext().getContext(), new an(this, fA));
+        apVar = this.aZU.aZR;
+        ImMessageCenterShowItemData fC = apVar.Os().getItem(i);
+        if (fC != null) {
+            com.baidu.tbadk.coreExtra.util.a.a(this.aZU.getPageContext().getContext(), new an(this, fC));
             return true;
         }
         return true;

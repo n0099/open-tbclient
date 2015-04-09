@@ -10,7 +10,7 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SubPbLoadPreviousView extends LinearLayout {
-    private TextView bNq;
+    private TextView bNG;
     private Context mContext;
     private ProgressBar mProgress;
 
@@ -30,22 +30,22 @@ public class SubPbLoadPreviousView extends LinearLayout {
         setOrientation(0);
         setClickable(true);
         com.baidu.adp.lib.g.b.hH().a(this.mContext, w.sub_pb_load_previous, this, true);
-        this.bNq = (TextView) findViewById(com.baidu.tieba.v.btn_loadprevious);
+        this.bNG = (TextView) findViewById(com.baidu.tieba.v.btn_loadprevious);
         this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bNq.setOnClickListener(onClickListener);
+        this.bNG.setOnClickListener(onClickListener);
     }
 
-    public void aaK() {
-        this.bNq.setText(y.loading);
+    public void aaX() {
+        this.bNG.setText(y.loading);
         this.mProgress.setVisibility(0);
     }
 
-    public void abO() {
-        this.bNq.setText(y.view_previous_floor);
+    public void acd() {
+        this.bNG.setText(y.view_previous_floor);
         this.mProgress.setVisibility(8);
     }
 
@@ -56,7 +56,7 @@ public class SubPbLoadPreviousView extends LinearLayout {
         setVisibility(8);
     }
 
-    public void BZ() {
+    public void Cf() {
         setVisibility(0);
     }
 }

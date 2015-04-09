@@ -8,16 +8,16 @@ import com.baidu.tieba.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private long aYN;
-    private String bbZ;
+    private long aZd;
+    private String bcp;
     List<q> list;
 
     public c(List<q> list) {
         this.list = list;
-        PA();
+        PN();
     }
 
-    private void PA() {
+    private void PN() {
         List<q> list = this.list;
         if (list != null && !list.isEmpty()) {
             long j = 0;
@@ -27,18 +27,18 @@ public class c {
             for (q qVar : list) {
                 if (qVar != null) {
                     if (str2 == null) {
-                        str2 = qVar.aYK;
+                        str2 = qVar.aZa;
                     }
                     if (str == null) {
-                        str = qVar.aYM;
+                        str = qVar.aZc;
                     }
-                    j2 += qVar.aYL;
-                    j += qVar.aYN;
+                    j2 += qVar.aZb;
+                    j += qVar.aZd;
                 }
             }
-            this.aYN = j;
+            this.aZd = j;
             if (j2 == 0) {
-                this.bbZ = null;
+                this.bcp = null;
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -49,12 +49,12 @@ public class c {
             if (!StringUtils.isNull(str)) {
                 sb.append(str);
             }
-            this.bbZ = sb.toString();
+            this.bcp = sb.toString();
         }
     }
 
     public boolean isShow() {
-        return (!StringUtils.isNull(this.bbZ)) || ((this.aYN > 0L ? 1 : (this.aYN == 0L ? 0 : -1)) > 0);
+        return (!StringUtils.isNull(this.bcp)) || ((this.aZd > 0L ? 1 : (this.aZd == 0L ? 0 : -1)) > 0);
     }
 
     public void E(View view) {
@@ -65,17 +65,17 @@ public class c {
             return;
         }
         view.setVisibility(0);
-        if (StringUtils.isNull(this.bbZ)) {
+        if (StringUtils.isNull(this.bcp)) {
             textView.setVisibility(4);
         } else {
             textView.setVisibility(0);
-            textView.setText(this.bbZ);
+            textView.setText(this.bcp);
         }
-        if (this.aYN <= 0) {
+        if (this.aZd <= 0) {
             textView2.setVisibility(4);
             return;
         }
         textView2.setVisibility(0);
-        textView2.setText(new StringBuilder(String.valueOf(this.aYN)).toString());
+        textView2.setText(new StringBuilder(String.valueOf(this.aZd)).toString());
     }
 }

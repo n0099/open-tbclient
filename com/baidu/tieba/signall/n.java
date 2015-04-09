@@ -2,11 +2,11 @@ package com.baidu.tieba.signall;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ SignAllForumActivity cdX;
+    final /* synthetic */ SignAllForumActivity cem;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(SignAllForumActivity signAllForumActivity) {
-        this.cdX = signAllForumActivity;
+        this.cem = signAllForumActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

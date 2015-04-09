@@ -11,17 +11,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.mvc.b.k {
-    protected boolean abe;
-    protected ArrayList<FeedData> bDb = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.q bDc = new com.baidu.tbadk.core.data.q();
-    protected com.baidu.tbadk.data.e bDd = new com.baidu.tbadk.data.e();
+    protected boolean abm;
+    protected ArrayList<FeedData> bDo = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.q bDp = new com.baidu.tbadk.core.data.q();
+    protected com.baidu.tbadk.data.e bDq = new com.baidu.tbadk.data.e();
 
-    public ArrayList<FeedData> XD() {
-        return this.bDb;
+    public ArrayList<FeedData> XP() {
+        return this.bDo;
     }
 
-    public com.baidu.tbadk.core.data.q XE() {
-        return this.bDc;
+    public com.baidu.tbadk.core.data.q XQ() {
+        return this.bDp;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -33,14 +33,14 @@ public class u implements com.baidu.tbadk.mvc.b.k {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.bDb.add(feedData);
+                    this.bDo.add(feedData);
                 }
             }
-            this.bDd.parserJson(jSONObject.optJSONObject("message"));
-            this.bDc.parserJson(jSONObject.optJSONObject("page"));
-            this.abe = true;
+            this.bDq.parserJson(jSONObject.optJSONObject("message"));
+            this.bDp.parserJson(jSONObject.optJSONObject("page"));
+            this.abm = true;
         } catch (Exception e) {
-            this.abe = false;
+            this.abm = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -55,13 +55,13 @@ public class u implements com.baidu.tbadk.mvc.b.k {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.bDb.add(feedData);
+                        this.bDo.add(feedData);
                     }
                 }
-                this.bDc.a(dataRes.page);
-                this.abe = true;
+                this.bDp.a(dataRes.page);
+                this.abm = true;
             } catch (Exception e) {
-                this.abe = false;
+                this.abm = false;
                 BdLog.e(e.getMessage());
             }
         }

@@ -9,12 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ b ahL;
-    ArrayList<com.baidu.tbadk.core.data.c> ahM;
+    final /* synthetic */ b ahT;
+    ArrayList<com.baidu.tbadk.core.data.c> ahU;
 
     private d(b bVar) {
-        this.ahL = bVar;
-        this.ahM = null;
+        this.ahT = bVar;
+        this.ahU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,12 +32,12 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (arrayList == null) {
             return linkedList;
         }
-        this.ahM = arrayList;
+        this.ahU = arrayList;
         Iterator<com.baidu.tbadk.core.data.c> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.core.data.c next = it.next();
-            String str = next.Pb;
-            if (o.cm(this.ahL.getFileOfUrl(next.Pa)) != null) {
+            String str = next.Pd;
+            if (o.cm(this.ahT.getFileOfUrl(next.Pc)) != null) {
                 DownloadData downloadData = new DownloadData(str);
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
@@ -55,14 +55,14 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : g.yp().lG()) {
-            Iterator<com.baidu.tbadk.core.data.c> it = this.ahM.iterator();
+        for (DownloadData downloadData : g.yv().lG()) {
+            Iterator<com.baidu.tbadk.core.data.c> it = this.ahU.iterator();
             while (it.hasNext()) {
-                if (TextUtils.equals(it.next().Pb, downloadData.getId())) {
+                if (TextUtils.equals(it.next().Pd, downloadData.getId())) {
                     list.add(downloadData);
                 }
             }
         }
-        this.ahL.m(list);
+        this.ahT.m(list);
     }
 }

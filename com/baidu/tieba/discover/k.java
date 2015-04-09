@@ -2,11 +2,11 @@ package com.baidu.tieba.discover;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aBK;
+    final /* synthetic */ a aBS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar) {
-        this.aBK = aVar;
+        this.aBS = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

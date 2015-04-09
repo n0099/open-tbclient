@@ -59,8 +59,8 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements as, com.b
     public ArrayList<ar> getImages() {
         ArrayList<ar> arrayList = new ArrayList<>();
         ar arVar = new ar();
-        arVar.QK = getPortrait();
-        arVar.UU = 12;
+        arVar.QM = getPortrait();
+        arVar.UW = 12;
         arrayList.add(arVar);
         return arrayList;
     }

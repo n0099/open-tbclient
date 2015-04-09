@@ -13,23 +13,23 @@ import com.baidu.tieba.launcherGuide.view.RightSlideViewPager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
-    private com.baidu.tieba.launcherGuide.a.a bwg;
-    private boolean bwi;
-    private RightSlideViewPager bwk;
-    private boolean bwh = false;
-    private boolean bwj = false;
-    private com.baidu.tieba.launcherGuide.a.c bwl = new b(this);
+    private RightSlideViewPager bwA;
+    private com.baidu.tieba.launcherGuide.a.a bww;
+    private boolean bwy;
+    private boolean bwx = false;
+    private boolean bwz = false;
+    private com.baidu.tieba.launcherGuide.a.c bwB = new b(this);
 
-    public void dn(boolean z) {
-        this.bwj = z;
+    public void dl(boolean z) {
+        this.bwz = z;
     }
 
-    public boolean VX() {
-        return this.bwj;
+    public boolean Wk() {
+        return this.bwz;
     }
 
-    public RightSlideViewPager VY() {
-        return this.bwk;
+    public RightSlideViewPager Wl() {
+        return this.bwA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,42 +37,42 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        Wa();
+        Wn();
         setContentView(com.baidu.tieba.w.guide_activity_interestfrs);
         initUI();
         initData();
     }
 
-    public void dp(boolean z) {
-        this.bwh = z;
+    public void dm(boolean z) {
+        this.bwx = z;
     }
 
     private void initData() {
-        this.bwi = getIntent().getBooleanExtra("is_new_user", false);
-        this.bwh = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
-        int i = this.bwi ? 1 : 2;
-        this.bwg = new com.baidu.tieba.launcherGuide.a.a(this);
-        this.bwg.a(i, 0, 100, this.bwl);
+        this.bwy = getIntent().getBooleanExtra("is_new_user", false);
+        this.bwx = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
+        int i = this.bwy ? 1 : 2;
+        this.bww = new com.baidu.tieba.launcherGuide.a.a(this);
+        this.bww.a(i, 0, 100, this.bwB);
     }
 
     private void initUI() {
-        this.bwk = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
-        this.bwk.setAdapter(new q(getSupportFragmentManager()));
-        this.bwk.setTag("canScroll");
-        this.bwk.setOnPageChangeListener(new c(this));
+        this.bwA = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
+        this.bwA.setAdapter(new q(getSupportFragmentManager()));
+        this.bwA.setTag("canScroll");
+        this.bwA.setOnPageChangeListener(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bwg != null) {
-            this.bwg.Wi();
+        if (this.bww != null) {
+            this.bww.Wv();
         }
     }
 
-    public com.baidu.tieba.launcherGuide.a.a VZ() {
-        return this.bwg;
+    public com.baidu.tieba.launcherGuide.a.a Wm() {
+        return this.bww;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,13 +83,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            Wb();
+            Wo();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void Wa() {
+    private void Wn() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -102,8 +102,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void Wb() {
-        sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.bwi)));
+    public void Wo() {
+        sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.bwy)));
         finish();
     }
 }

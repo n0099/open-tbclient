@@ -11,10 +11,10 @@ import com.baidu.tieba.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ PersonChangeActivity ccF;
+    final /* synthetic */ PersonChangeActivity ccU;
 
     private p(PersonChangeActivity personChangeActivity) {
-        this.ccF = personChangeActivity;
+        this.ccU = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,14 +28,14 @@ public class p extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         View view;
         TextView textView;
-        progressBar = this.ccF.avR;
+        progressBar = this.ccU.avZ;
         progressBar.setVisibility(0);
-        view = this.ccF.ccl;
+        view = this.ccU.ccA;
         view.setEnabled(false);
-        textView = this.ccF.bgV;
+        textView = this.ccU.bhl;
         ba.b(textView, s.navi_op_text, 1);
-        this.ccF.ccx.setImageDrawable(null);
-        this.ccF.baJ = null;
+        this.ccU.ccM.setImageDrawable(null);
+        this.ccU.baZ = null;
         super.onPreExecute();
     }
 
@@ -52,12 +52,12 @@ public class p extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         View view;
         TextView textView;
-        this.ccF.ccy = null;
-        progressBar = this.ccF.avR;
+        this.ccU.ccN = null;
+        progressBar = this.ccU.avZ;
         progressBar.setVisibility(8);
-        view = this.ccF.ccl;
+        view = this.ccU.ccA;
         view.setEnabled(true);
-        textView = this.ccF.bgV;
+        textView = this.ccU.bhl;
         ba.b(textView, s.cp_link_tip_a, 1);
         super.cancel(true);
     }
@@ -79,22 +79,22 @@ public class p extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.tbadk.coreExtra.c.f fVar;
         com.baidu.adp.widget.a.a aVar2;
         super.onPostExecute((p) bitmap);
-        this.ccF.ccy = null;
-        view = this.ccF.ccl;
+        this.ccU.ccN = null;
+        view = this.ccU.ccA;
         view.setEnabled(true);
-        textView = this.ccF.bgV;
+        textView = this.ccU.bhl;
         ba.b(textView, s.cp_link_tip_a, 1);
-        progressBar = this.ccF.avR;
+        progressBar = this.ccU.avZ;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.ccF.baJ = new com.baidu.adp.widget.a.a(bitmap, false, null);
-            aVar = this.ccF.baJ;
-            aVar.a(this.ccF.ccx);
-            com.baidu.tbadk.imageManager.e zs = com.baidu.tbadk.imageManager.e.zs();
-            fVar = this.ccF.ccw;
-            String portrait = fVar.vR().getPortrait();
-            aVar2 = this.ccF.baJ;
-            zs.b(portrait, aVar2, true);
+            this.ccU.baZ = new com.baidu.adp.widget.a.a(bitmap, false, null);
+            aVar = this.ccU.baZ;
+            aVar.a(this.ccU.ccM);
+            com.baidu.tbadk.imageManager.e zy = com.baidu.tbadk.imageManager.e.zy();
+            fVar = this.ccU.ccL;
+            String portrait = fVar.vX().getPortrait();
+            aVar2 = this.ccU.baZ;
+            zy.b(portrait, aVar2, true);
         }
     }
 }

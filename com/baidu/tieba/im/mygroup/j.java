@@ -7,15 +7,15 @@ import com.baidu.tieba.im.message.GroupsByUidMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.f<BaseFragmentActivity> {
-    private RequestUserPermissionMessage blu;
-    private boolean blv;
+    private RequestUserPermissionMessage blK;
+    private boolean blL;
     public long friendUid;
     public int mImageHeight;
     public int mImageWidth;
 
     public j(PersonGroupActivity personGroupActivity) {
         super(personGroupActivity.getPageContext());
-        this.blv = false;
+        this.blL = false;
         this.mImageWidth = com.baidu.adp.lib.util.n.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = com.baidu.adp.lib.util.n.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
@@ -23,7 +23,7 @@ public class j extends com.baidu.adp.base.f<BaseFragmentActivity> {
 
     public j(PersonGroupActivity personGroupActivity, long j) {
         super(personGroupActivity.getPageContext());
-        this.blv = false;
+        this.blL = false;
         this.mImageWidth = com.baidu.adp.lib.util.n.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = com.baidu.adp.lib.util.n.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
@@ -31,11 +31,11 @@ public class j extends com.baidu.adp.base.f<BaseFragmentActivity> {
 
     public void update() {
         if (this.friendUid == 0) {
-            if (this.blv) {
+            if (this.blL) {
                 super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                 return;
             }
-            this.blv = true;
+            this.blL = true;
             super.sendMessage(new GroupsByUidLocalMessage());
             return;
         }
@@ -43,8 +43,8 @@ public class j extends com.baidu.adp.base.f<BaseFragmentActivity> {
     }
 
     public void ab(long j) {
-        this.blu = ac(j);
-        super.sendMessage(this.blu);
+        this.blK = ac(j);
+        super.sendMessage(this.blK);
     }
 
     private RequestUserPermissionMessage ac(long j) {
@@ -66,6 +66,6 @@ public class j extends com.baidu.adp.base.f<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.f
     public void cancelMessage() {
         super.cancelMessage();
-        this.blu = null;
+        this.blK = null;
     }
 }

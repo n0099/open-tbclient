@@ -12,7 +12,7 @@ class ag implements CustomMessageTask.CustomRunnable<Integer> {
         if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
             int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
             if (intValue == 2) {
-                MainTabActivity.cqO = true;
+                MainTabActivity.cre = true;
             }
             return new NewMsgArriveResponsedMessage(intValue);
         }

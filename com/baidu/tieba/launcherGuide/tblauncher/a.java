@@ -6,11 +6,11 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 class a implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ GuideActivity bxy;
+    final /* synthetic */ GuideActivity bxO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(GuideActivity guideActivity) {
-        this.bxy = guideActivity;
+        this.bxO = guideActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.a
@@ -19,17 +19,17 @@ class a implements com.baidu.tbadk.core.view.a {
         String str;
         BaseViewPager baseViewPager2;
         if (i == 0) {
-            baseViewPager = this.bxy.bxr;
+            baseViewPager = this.bxO.bxH;
             if (baseViewPager != null) {
-                baseViewPager2 = this.bxy.bxr;
+                baseViewPager2 = this.bxO.bxH;
                 baseViewPager2.setOnScrollOutListener(null);
             }
-            str = this.bxy.bxn;
+            str = this.bxO.bxD;
             if (!str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                this.bxy.us();
+                this.bxO.us();
             }
-            CompatibleUtile.setAnim(this.bxy.getPageContext().getPageActivity(), 0, p.left);
-            this.bxy.closeActivity();
+            CompatibleUtile.setAnim(this.bxO.getPageContext().getPageActivity(), 0, p.left);
+            this.bxO.closeActivity();
         }
     }
 }

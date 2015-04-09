@@ -13,36 +13,36 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b ahF = null;
-    private static e ahJ = null;
-    private static List<e> ahK = new LinkedList();
+    private static b ahN = null;
+    private static e ahR = null;
+    private static List<e> ahS = new LinkedList();
     private final int max = 5;
-    private int ahG = 0;
-    private c ahH = null;
-    private d ahI = null;
+    private int ahO = 0;
+    private c ahP = null;
+    private d ahQ = null;
     private int progress = 0;
     private String schedule = null;
 
     private b() {
     }
 
-    public static b yl() {
+    public static b yr() {
         synchronized (b.class) {
-            if (ahF == null) {
-                ahF = new b();
+            if (ahN == null) {
+                ahN = new b();
             }
         }
-        return ahF;
+        return ahN;
     }
 
     public void a(String str, String str2, String str3, int i, int i2) {
-        if (this.ahG >= 5) {
+        if (this.ahO >= 5) {
             Toast.makeText(TbadkCoreApplication.m411getInst(), y.download_fail_over_max, 0).show();
             return;
         }
         DownloadData downloadData = new DownloadData(str);
         downloadData.setType(12);
-        this.ahG++;
+        this.ahO++;
         downloadData.setStatus(1);
         downloadData.setStatusMsg(null);
         downloadData.setNotifyId(i2);
@@ -53,18 +53,18 @@ public class b {
         eVar.setName(str3);
         eVar.setPosition(i);
         eVar.dl(i2);
-        ahK.add(eVar);
-        ym();
+        ahS.add(eVar);
+        ys();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ym() {
-        if (ahJ == null && !ahK.isEmpty()) {
-            ahJ = ahK.get(0);
-            if (ahJ != null) {
-                this.ahH = new c(this, null);
-                this.ahH.setPriority(3);
-                this.ahH.execute(ahJ);
+    public void ys() {
+        if (ahR == null && !ahS.isEmpty()) {
+            ahR = ahS.get(0);
+            if (ahR != null) {
+                this.ahP = new c(this, null);
+                this.ahP.setPriority(3);
+                this.ahP.execute(ahR);
             }
         }
     }
@@ -82,7 +82,7 @@ public class b {
 
     public void e(DownloadData downloadData) {
         if (downloadData.getStatus() != 1 && downloadData.getStatus() != 5) {
-            this.ahG--;
+            this.ahO--;
         }
         LinkedList linkedList = new LinkedList();
         linkedList.add(downloadData);
@@ -94,8 +94,8 @@ public class b {
     }
 
     public void s(ArrayList<com.baidu.tbadk.core.data.c> arrayList) {
-        this.ahI = new d(this, null);
-        this.ahI.execute(arrayList);
+        this.ahQ = new d(this, null);
+        this.ahQ.execute(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -144,8 +144,8 @@ public class b {
         }
     }
 
-    public boolean dX(String str) {
-        for (DownloadData downloadData : g.yp().lG()) {
+    public boolean ea(String str) {
+        for (DownloadData downloadData : g.yv().lG()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }
@@ -153,7 +153,7 @@ public class b {
         return false;
     }
 
-    public boolean dY(String str) {
+    public boolean eb(String str) {
         return (TextUtils.isEmpty(str) || o.cm(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 }

@@ -2,16 +2,16 @@ package com.baidu.tbadk.browser;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.view.q {
-    final /* synthetic */ q Ny;
+    final /* synthetic */ q NA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.Ny = qVar;
+        this.NA = qVar;
     }
 
     @Override // com.baidu.tbadk.core.view.q
     public void oY() {
-        this.Ny.oV();
+        this.NA.oV();
     }
 
     @Override // com.baidu.tbadk.core.view.q

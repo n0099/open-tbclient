@@ -6,86 +6,86 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private String aIK;
-    private ArrayList<String> btO;
-    private String btQ;
-    private String btR;
-    private boolean btX;
-    private String btP = null;
-    private String aev = null;
-    private boolean btS = false;
-    private boolean btT = true;
-    private b btU = null;
-    private int btV = 0;
-    private boolean btW = false;
-    private c btY = null;
-    private HashMap<String, String> btZ = new HashMap<>();
+    private String aIS;
+    private ArrayList<String> bue;
+    private String buh;
+    private String bui;
+    private boolean buo;
+    private String bug = null;
+    private String aeD = null;
+    private boolean buj = false;
+    private boolean buk = true;
+    private b bul = null;
+    private int bum = 0;
+    private boolean bun = false;
+    private c bup = null;
+    private HashMap<String, String> buq = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.btO = null;
-        this.btQ = null;
-        this.aIK = null;
-        this.btR = null;
-        this.btX = false;
-        this.btO = arrayList;
-        if (this.btO == null) {
-            this.btO = new ArrayList<>();
+        this.bue = null;
+        this.buh = null;
+        this.aIS = null;
+        this.bui = null;
+        this.buo = false;
+        this.bue = arrayList;
+        if (this.bue == null) {
+            this.bue = new ArrayList<>();
         }
-        int size = this.btO.size();
+        int size = this.bue.size();
         for (int i = 0; i < size; i++) {
-            String str4 = this.btO.get(i);
-            this.btZ.put(hp(str4), str4);
+            String str4 = this.bue.get(i);
+            this.buq.put(hs(str4), str4);
         }
-        this.btQ = str2;
-        this.aIK = str;
-        this.btR = str3;
-        if (this.btR == null) {
-            this.btX = true;
-        }
-    }
-
-    public void dm(boolean z) {
-        this.btT = z;
-    }
-
-    public void VK() {
-        if (!this.btS && !this.btX) {
-            c(this.btQ, this.btR, 10, 0);
+        this.buh = str2;
+        this.aIS = str;
+        this.bui = str3;
+        if (this.bui == null) {
+            this.buo = true;
         }
     }
 
-    public void VL() {
-        if (!this.btX) {
-            if (!this.btS) {
-                VK();
-            } else if (this.btP != null && this.btP.length() > 0) {
-                this.btT = true;
-                c(this.btP, null, 0, 10);
+    public void dk(boolean z) {
+        this.buk = z;
+    }
+
+    public void VX() {
+        if (!this.buj && !this.buo) {
+            c(this.buh, this.bui, 10, 0);
+        }
+    }
+
+    public void VY() {
+        if (!this.buo) {
+            if (!this.buj) {
+                VX();
+            } else if (this.bug != null && this.bug.length() > 0) {
+                this.buk = true;
+                c(this.bug, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.btU != null) {
-            if (str2 == null || !str2.equals(this.btU.getPicId())) {
-                this.btU.cancel();
+        if (this.bul != null) {
+            if (str2 == null || !str2.equals(this.bul.getPicId())) {
+                this.bul.cancel();
             } else {
                 return;
             }
         }
-        this.btU = new b(this, str, str2, i, i2);
-        this.btU.setPriority(3);
-        this.btU.execute(new Object[0]);
+        this.bul = new b(this, str, str2, i, i2);
+        this.bul.setPriority(3);
+        this.bul.execute(new Object[0]);
     }
 
     public void a(c cVar) {
-        this.btY = cVar;
+        this.bup = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(d dVar) {
-        if (dVar.DG() != null && dVar.DG().length() > 0) {
-            return dVar.DG();
+        if (dVar.DM() != null && dVar.DM().length() > 0) {
+            return dVar.DM();
         }
         StringBuilder sb = new StringBuilder(150);
         if (dVar.getHeight() * dVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
@@ -106,7 +106,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String hp(String str) {
+    public String hs(String str) {
         int lastIndexOf;
         int indexOf;
         String aN = bd.aN(str);

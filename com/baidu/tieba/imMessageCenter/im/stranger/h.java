@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 /* loaded from: classes.dex */
 class h implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ StrangerListActivity btE;
+    final /* synthetic */ StrangerListActivity btU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(StrangerListActivity strangerListActivity) {
-        this.btE = strangerListActivity;
+        this.btU = strangerListActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -16,20 +16,20 @@ class h implements com.baidu.tieba.im.chat.notify.a {
         StrangerListModel strangerListModel2;
         j jVar3;
         StrangerListModel strangerListModel3;
-        jVar = this.btE.bty;
+        jVar = this.btU.btO;
         if (jVar != null) {
-            jVar2 = this.btE.bty;
-            if (jVar2.VI() != null) {
-                strangerListModel = this.btE.btz;
+            jVar2 = this.btU.btO;
+            if (jVar2.VV() != null) {
+                strangerListModel = this.btU.btP;
                 if (strangerListModel != null) {
-                    strangerListModel2 = this.btE.btz;
+                    strangerListModel2 = this.btU.btP;
                     if (strangerListModel2.getData().size() == 0) {
-                        this.btE.finish();
+                        this.btU.finish();
                     }
-                    jVar3 = this.btE.bty;
-                    StrangerListAdapter VI = jVar3.VI();
-                    strangerListModel3 = this.btE.btz;
-                    VI.setData(strangerListModel3.getData());
+                    jVar3 = this.btU.btO;
+                    StrangerListAdapter VV = jVar3.VV();
+                    strangerListModel3 = this.btU.btP;
+                    VV.setData(strangerListModel3.getData());
                 }
             }
         }

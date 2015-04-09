@@ -7,7 +7,7 @@ public interface a<T extends View> {
 
     boolean P(View view);
 
-    int acx();
+    int acM();
 
     T b(com.baidu.tieba.pb.richview.a.c cVar);
 }

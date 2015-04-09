@@ -4,12 +4,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class o {
-    final /* synthetic */ QuickSearchActivity axA;
-    public HeadImageView axC;
-    public TextView axD;
+    final /* synthetic */ QuickSearchActivity axI;
+    public HeadImageView axK;
+    public TextView axL;
 
     private o(QuickSearchActivity quickSearchActivity) {
-        this.axA = quickSearchActivity;
+        this.axI = quickSearchActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

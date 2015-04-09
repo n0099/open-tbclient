@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk extends HttpMessageListener {
-    final /* synthetic */ bj bQM;
+    final /* synthetic */ bj bRc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bk(bj bjVar, int i) {
         super(i);
-        this.bQM = bjVar;
+        this.bRc = bjVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,26 +28,26 @@ public class bk extends HttpMessageListener {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode != 200 || error != 0) {
-                bmVar = this.bQM.bQy;
+                bmVar = this.bRc.bQO;
                 if (bmVar != null) {
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        personListActivity = this.bQM.bQK;
+                        personListActivity = this.bRc.bRa;
                         errorString = personListActivity.getResources().getString(com.baidu.tieba.y.neterror);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
-                    bmVar2 = this.bQM.bQy;
+                    bmVar2 = this.bRc.bQO;
                     bmVar2.A(errorString, false);
                     return;
                 }
                 return;
             }
             ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
-            responseNetPersonListMessage.setModel(this.bQM);
+            responseNetPersonListMessage.setModel(this.bRc);
             com.baidu.tieba.person.a.a data = responseNetPersonListMessage.getData();
-            bmVar3 = this.bQM.bQy;
+            bmVar3 = this.bRc.bQO;
             if (bmVar3 != null) {
-                bmVar4 = this.bQM.bQy;
+                bmVar4 = this.bRc.bQO;
                 bmVar4.d(data, false);
             }
         }

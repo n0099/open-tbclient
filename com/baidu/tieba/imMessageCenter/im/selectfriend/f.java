@@ -6,33 +6,33 @@ import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ ShareFromGameCenterMsgData blp;
-    private final /* synthetic */ com.baidu.tieba.im.widget.b blq;
-    final /* synthetic */ SelectFriendActivity bte;
-    private final /* synthetic */ long btg;
-    private final /* synthetic */ String bth;
+    private final /* synthetic */ ShareFromGameCenterMsgData blF;
+    private final /* synthetic */ com.baidu.tieba.im.widget.b blG;
+    final /* synthetic */ SelectFriendActivity btv;
+    private final /* synthetic */ long btx;
+    private final /* synthetic */ String bty;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SelectFriendActivity selectFriendActivity, long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, String str, String str2, com.baidu.tieba.im.widget.b bVar) {
-        this.bte = selectFriendActivity;
-        this.btg = j;
-        this.blp = shareFromGameCenterMsgData;
+        this.btv = selectFriendActivity;
+        this.btx = j;
+        this.blF = shareFromGameCenterMsgData;
         this.val$name = str;
-        this.bth = str2;
-        this.blq = bVar;
+        this.bty = str2;
+        this.blG = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        long I = com.baidu.tieba.im.memorycache.c.Sd().I(String.valueOf(this.btg), 2);
-        MessageUtils.createPersonalChatMessage(I, 9, this.blp.toChatMessageContent(), this.btg, this.val$name, this.bth);
-        MessageUtils.createPersonalChatMessage(I + 1, 1, this.blq.getLeaveMsg(), this.btg, this.val$name, this.bth);
+        long I = com.baidu.tieba.im.memorycache.c.Sq().I(String.valueOf(this.btx), 2);
+        MessageUtils.createPersonalChatMessage(I, 9, this.blF.toChatMessageContent(), this.btx, this.val$name, this.bty);
+        MessageUtils.createPersonalChatMessage(I + 1, 1, this.blG.getLeaveMsg(), this.btx, this.val$name, this.bty);
         aVar.dismiss();
-        this.bte.setResult(-1);
-        if (UtilHelper.getNetStatusInfo(this.bte.getApplicationContext()) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.bte.showToast(this.bte.getPageContext().getString(y.no_network_guide));
+        this.btv.setResult(-1);
+        if (UtilHelper.getNetStatusInfo(this.btv.getApplicationContext()) == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            this.btv.showToast(this.btv.getPageContext().getString(y.no_network_guide));
         }
-        this.bte.finish();
+        this.btv.finish();
     }
 }

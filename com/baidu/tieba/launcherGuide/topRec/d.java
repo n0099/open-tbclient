@@ -10,15 +10,15 @@ import com.baidu.tieba.launcherGuide.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, String> {
-    private aa ZD;
-    final /* synthetic */ TopRecActivity bxJ;
-    TRForumListData.TRForum bxK;
+    private aa ZF;
+    final /* synthetic */ TopRecActivity bxZ;
+    TRForumListData.TRForum bya;
     int id;
     int position;
 
     private d(TopRecActivity topRecActivity) {
-        this.bxJ = topRecActivity;
-        this.ZD = null;
+        this.bxZ = topRecActivity;
+        this.ZF = null;
         this.position = -1;
         this.id = 0;
     }
@@ -33,24 +33,24 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public String doInBackground(Integer... numArr) {
-        int gH;
+        int gJ;
         TRForumListData tRForumListData;
         this.id = numArr[0].intValue();
-        gH = this.bxJ.gH(this.id);
-        this.position = gH;
+        gJ = this.bxZ.gJ(this.id);
+        this.position = gJ;
         if (this.position >= 0) {
-            tRForumListData = this.bxJ.bxD;
-            this.bxK = tRForumListData.forum_list[this.position];
+            tRForumListData = this.bxZ.bxT;
+            this.bya = tRForumListData.forum_list[this.position];
         }
         try {
-            if (this.bxK != null && this.bxK.forum_id != 0 && this.bxK.forum_name != null) {
-                this.ZD = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-                this.ZD.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.bxK.forum_id));
-                this.ZD.o("kw", this.bxK.forum_name);
-                this.ZD.o("favo_type", "1");
-                this.ZD.o("st_type", "from_topRec");
-                this.ZD.sp().tp().mIsNeedTbs = true;
-                this.ZD.rO();
+            if (this.bya != null && this.bya.forum_id != 0 && this.bya.forum_name != null) {
+                this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                this.ZF.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.bya.forum_id));
+                this.ZF.o("kw", this.bya.forum_name);
+                this.ZF.o("favo_type", "1");
+                this.ZF.o("st_type", "from_topRec");
+                this.ZF.sp().tp().mIsNeedTbs = true;
+                this.ZF.rO();
                 return null;
             }
             return null;
@@ -65,29 +65,29 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((d) str);
-        this.bxJ.bxC = null;
-        if (this.ZD == null) {
-            this.bxJ.aa(this.position, this.bxK.forum_id);
-        } else if (!this.ZD.sp().tq().pv()) {
-            this.bxJ.aa(this.position, this.bxK.forum_id);
+        this.bxZ.bxS = null;
+        if (this.ZF == null) {
+            this.bxZ.aa(this.position, this.bya.forum_id);
+        } else if (!this.ZF.sp().tq().pv()) {
+            this.bxZ.aa(this.position, this.bya.forum_id);
         } else if (str == null) {
-            this.bxJ.aa(this.position, this.bxK.forum_id);
+            this.bxZ.aa(this.position, this.bya.forum_id);
         } else {
-            TbadkApplication.getInst().delLikeForum(this.bxK.forum_name);
-            this.bxJ.Wr();
+            TbadkApplication.getInst().delLikeForum(this.bya.forum_name);
+            this.bxZ.WE();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         g gVar;
-        if (this.ZD != null) {
-            this.ZD.hh();
-            this.ZD = null;
+        if (this.ZF != null) {
+            this.ZF.hh();
+            this.ZF = null;
         }
-        gVar = this.bxJ.bxz;
-        gVar.cK(false);
-        this.bxJ.bxC = null;
+        gVar = this.bxZ.bxP;
+        gVar.cI(false);
+        this.bxZ.bxS = null;
         super.cancel(true);
     }
 }

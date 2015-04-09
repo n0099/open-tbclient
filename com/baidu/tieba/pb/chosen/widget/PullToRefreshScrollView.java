@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class PullToRefreshScrollView extends b<ScrollView> {
-    private final c bGZ;
+    private final c bHm;
 
     public PullToRefreshScrollView(Context context) {
         super(context);
-        this.bGZ = new e(this);
-        setOnRefreshListener(this.bGZ);
+        this.bHm = new e(this);
+        setOnRefreshListener(this.bHm);
     }
 
     public PullToRefreshScrollView(Context context, int i) {
         super(context, i);
-        this.bGZ = new e(this);
-        setOnRefreshListener(this.bGZ);
+        this.bHm = new e(this);
+        setOnRefreshListener(this.bHm);
     }
 
     public PullToRefreshScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bGZ = new e(this);
-        setOnRefreshListener(this.bGZ);
+        this.bHm = new e(this);
+        setOnRefreshListener(this.bHm);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,12 +37,12 @@ public class PullToRefreshScrollView extends b<ScrollView> {
     }
 
     @Override // com.baidu.tieba.pb.chosen.widget.b
-    protected boolean YI() {
-        return ((ScrollView) this.bGN).getScrollY() == 0;
+    protected boolean YU() {
+        return ((ScrollView) this.bHa).getScrollY() == 0;
     }
 
     @Override // com.baidu.tieba.pb.chosen.widget.b
-    protected boolean YJ() {
+    protected boolean YV() {
         ScrollView refreshableView = getRefreshableView();
         return (refreshableView.getScrollY() + refreshableView.getHeight()) - refreshableView.getChildAt(0).getHeight() == 0;
     }

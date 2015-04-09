@@ -5,18 +5,18 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class e implements a<View> {
-    private float asH;
-    private com.baidu.adp.lib.e.b<TextView> bOr = new com.baidu.adp.lib.e.b<>(new f(this), 8, 0);
+    private float asP;
+    private com.baidu.adp.lib.e.b<TextView> bOH = new com.baidu.adp.lib.e.b<>(new f(this), 8, 0);
     private Context context;
 
     public e(Context context) {
-        this.asH = 0.0f;
+        this.asP = 0.0f;
         this.context = context;
-        this.asH = 1.2f;
+        this.asP = 1.2f;
     }
 
     @Override // com.baidu.tieba.pb.richview.b.a
-    public int acx() {
+    public int acM() {
         return 0;
     }
 
@@ -27,15 +27,15 @@ public class e implements a<View> {
         if (!(cVar instanceof com.baidu.tieba.pb.richview.a.f)) {
             return null;
         }
-        TextView hz = this.bOr.hz();
-        hz.setText(((com.baidu.tieba.pb.richview.a.f) cVar).acw());
+        TextView hz = this.bOH.hz();
+        hz.setText(((com.baidu.tieba.pb.richview.a.f) cVar).acL());
         return hz;
     }
 
     @Override // com.baidu.tieba.pb.richview.b.a
     public void O(View view) {
         if (view instanceof TextView) {
-            this.bOr.j((TextView) view);
+            this.bOH.j((TextView) view);
         }
     }
 

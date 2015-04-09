@@ -21,44 +21,44 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout {
-    private static final Pattern cmB = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private static final Pattern cmF = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
-    private boolean ajV;
-    protected com.baidu.tbadk.editortool.v cmA;
-    private boolean cmC;
-    private final CustomMessageListener cmD;
-    protected boolean cmE;
-    private boolean cmi;
-    private int cmw;
-    private ab cmx;
-    protected PbEditorToolView cmy;
-    public EditorToolComponetContainer cmz;
+    private static final Pattern cmR = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private static final Pattern cmV = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private boolean akd;
+    private int cmM;
+    private ab cmN;
+    protected PbEditorToolView cmO;
+    public EditorToolComponetContainer cmP;
+    protected com.baidu.tbadk.editortool.v cmQ;
+    private boolean cmS;
+    private final CustomMessageListener cmT;
+    protected boolean cmU;
+    private boolean cmy;
     protected Context mContext;
     private BdUniqueId mId;
     private TbPageContext<?> mPageContext;
 
     public void setHideBaobao(boolean z) {
-        this.ajV = z;
-        if (this.cmz != null) {
-            this.cmz.setHideBaobao(z);
+        this.akd = z;
+        if (this.cmP != null) {
+            this.cmP.setHideBaobao(z);
         }
     }
 
     public EditorToolComponetContainer getEditorToolComponetContainer() {
-        return this.cmz;
+        return this.cmP;
     }
 
     public PbEditorToolView getEditorToolButtonContainer() {
-        return this.cmy;
+        return this.cmO;
     }
 
     public PbEditor(Context context) {
         super(context);
-        this.cmw = 1000;
-        this.cmi = false;
-        this.ajV = false;
-        this.cmD = new q(this, 2001310);
-        this.cmE = true;
+        this.cmM = 1000;
+        this.cmy = false;
+        this.akd = false;
+        this.cmT = new q(this, 2001310);
+        this.cmU = true;
         this.mContext = context;
         this.mId = BdUniqueId.gen();
         initialize();
@@ -66,149 +66,160 @@ public class PbEditor extends LinearLayout {
 
     public PbEditor(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cmw = 1000;
-        this.cmi = false;
-        this.ajV = false;
-        this.cmD = new q(this, 2001310);
-        this.cmE = true;
+        this.cmM = 1000;
+        this.cmy = false;
+        this.akd = false;
+        this.cmT = new q(this, 2001310);
+        this.cmU = true;
         this.mContext = context;
         this.mId = BdUniqueId.gen();
         initialize();
     }
 
     public void setFrom(int i) {
-        if (this.cmz != null) {
-            this.cmz.setFrom(i);
+        if (this.cmP != null) {
+            this.cmP.setFrom(i);
         }
     }
 
-    public void alN() {
-        this.cmy.alN();
+    public void amc() {
+        this.cmO.amc();
     }
 
-    public void alO() {
-        this.cmy.alO();
+    public void amd() {
+        this.cmO.amd();
     }
 
-    public boolean alP() {
-        Editable text = this.cmy.getEditText().getText();
-        if ((text != null && text.toString().trim().length() > 0) || this.cmz.alE() || this.cmz.alF()) {
+    public boolean ame() {
+        Editable text = this.cmO.getEditText().getText();
+        if ((text != null && text.toString().trim().length() > 0) || this.cmP.alT() || this.cmP.alU()) {
             return true;
         }
-        return this.cmz.alG();
+        return this.cmP.alV();
     }
 
     public EditText getEditText() {
-        return this.cmy.getEditText();
+        return this.cmO.getEditText();
     }
 
     public void v(ArrayList<String> arrayList) {
-        this.cmy.V(arrayList);
+        this.cmO.X(arrayList);
     }
 
     public String getContent() {
-        return this.cmy.getEditText().getText().toString();
+        return this.cmO.getEditText().getText().toString();
     }
 
     public void setContent(String str) {
-        this.cmy.getEditText().setText(str);
+        this.cmO.getEditText().setText(str);
         if (!TextUtils.isEmpty(str)) {
-            this.cmy.getEditText().setSelection(str.length());
+            this.cmO.getEditText().setSelection(str.length());
         }
     }
 
-    public void alQ() {
-        this.cmy.getEditText().requestFocus();
-        this.cmz.aa(this.cmy.getEditText());
+    public void amf() {
+        this.cmO.getEditText().requestFocus();
+        this.cmP.aa(this.cmO.getEditText());
     }
 
-    public void alR() {
-        this.cmz.hideAll();
-        this.cmy.ale();
+    public void amg() {
+        this.cmP.hideAll();
+        this.cmO.alt();
     }
 
-    public void alS() {
-        this.cmz.hideAll();
-        this.cmy.ale();
+    public void amh() {
+        this.cmP.hideAll();
+        this.cmO.alt();
     }
 
-    public void alT() {
-        if (this.cmz.alv() && !this.cmC) {
-            this.cmC = true;
+    public void ami() {
+        if (this.cmP.alK() && !this.cmS) {
+            this.cmS = true;
             ac.a(this, this.mContext, new r(this));
             return;
         }
-        alR();
+        amg();
     }
 
-    public boolean alv() {
-        return this.cmz.alv();
+    public boolean alK() {
+        return this.cmP.alK();
     }
 
     protected void initialize() {
         com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.pb_editor_view, this, true);
-        this.cmy = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
-        this.cmz = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
-        alU();
+        this.cmO = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
+        this.cmP = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
+        amj();
         MessageManager.getInstance().unRegisterListener(this.mId);
-        this.cmD.setTag(this.mId);
-        MessageManager.getInstance().registerListener(this.cmD);
+        this.cmT.setTag(this.mId);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        MessageManager.getInstance().registerListener(this.cmT);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        MessageManager.getInstance().unRegisterListener(this.cmT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alU() {
+    public void amj() {
         if (!TbadkCoreApplication.m411getInst().appResponseToCmd(2802001)) {
             setHideBaobao(true);
         }
     }
 
-    private void alV() {
-        this.cmx = new ab(this.mContext);
-        this.cmx.tP();
-        addView(this.cmx, 0);
-        this.cmx.setOnActionListener(this.cmA);
+    private void amk() {
+        this.cmN = new ab(this.mContext);
+        this.cmN.tP();
+        addView(this.cmN, 0);
+        this.cmN.setOnActionListener(this.cmQ);
     }
 
-    public boolean alJ() {
-        return this.cmz.alJ();
+    public boolean alY() {
+        return this.cmP.alY();
     }
 
     public void Y(View view) {
-        this.cmz.Y(view);
+        this.cmP.Y(view);
     }
 
     public void Z(View view) {
-        this.cmz.Z(view);
+        this.cmP.Z(view);
     }
 
-    public void acj() {
-        this.cmy.getEditText().requestFocus();
-        this.cmz.aa(this.cmy.getEditText());
-        this.cmy.getEditText().setSelection(this.cmy.getEditText().getText().length());
+    public void acy() {
+        this.cmO.getEditText().requestFocus();
+        this.cmP.aa(this.cmO.getEditText());
+        this.cmO.getEditText().setSelection(this.cmO.getEditText().getText().length());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, ae aeVar) {
-        this.cmy.getEditText().requestFocus();
-        this.cmz.Z(this.cmy.getEditText());
-        in(i);
+        this.cmO.getEditText().requestFocus();
+        this.cmP.Z(this.cmO.getEditText());
+        iq(i);
     }
 
     public void B(int i, String str) {
-        if (this.cmx != null) {
-            this.cmx.B(i, str);
-            if (i == 2 && this.cmx.getVisibility() == 0) {
-                this.cmz.yU();
-                this.cmy.amc();
+        if (this.cmN != null) {
+            this.cmN.B(i, str);
+            if (i == 2 && this.cmN.getVisibility() == 0) {
+                this.cmP.za();
+                this.cmO.amr();
                 return;
             }
-            alW();
+            aml();
         }
     }
 
-    private void alW() {
-        if (this.cmz != null) {
-            this.cmz.yV();
+    private void aml() {
+        if (this.cmP != null) {
+            this.cmP.zb();
             refresh();
         }
     }
@@ -218,105 +229,105 @@ public class PbEditor extends LinearLayout {
     }
 
     public int getLocationViewVisibility() {
-        if (this.cmx == null) {
+        if (this.cmN == null) {
             return 8;
         }
-        return this.cmx.getVisibility();
+        return this.cmN.getVisibility();
     }
 
     public int getLocationInfoViewState() {
-        if (this.cmx == null) {
+        if (this.cmN == null) {
             return 0;
         }
-        return this.cmx.getLocationInfoViewState();
+        return this.cmN.getLocationInfoViewState();
     }
 
-    protected void in(int i) {
+    protected void iq(int i) {
         if (i == 5) {
-            this.cmz.alA();
+            this.cmP.alP();
         } else if (i == 23 || i == 22) {
-            this.cmz.alB();
+            this.cmP.alQ();
         } else if (i == 2) {
-            this.cmz.alz();
+            this.cmP.alO();
         } else if (i == 38) {
-            this.cmz.aly();
+            this.cmP.alN();
         } else if (i == 44) {
-            this.cmz.alC();
+            this.cmP.alR();
         } else if (i == 50 || i == 48) {
-            this.cmz.alD();
+            this.cmP.alS();
         }
     }
 
-    public void io(int i) {
-        if (this.cmz.alv()) {
-            in(i);
-            this.cmz.Z(this.cmy.getEditText());
+    public void ir(int i) {
+        if (this.cmP.alK()) {
+            iq(i);
+            this.cmP.Z(this.cmO.getEditText());
             return;
         }
-        this.cmE = false;
-        if (this.cmz.alJ()) {
-            this.cmz.Z(this.cmy.getEditText());
+        this.cmU = false;
+        if (this.cmP.alY()) {
+            this.cmP.Z(this.cmO.getEditText());
         }
         new Handler().postDelayed(new s(this, i), 200L);
     }
 
-    public boolean Jc() {
-        Editable text = this.cmy.getEditText().getText();
-        return (text == null ? 0 : text.length()) >= this.cmw;
+    public boolean Ji() {
+        Editable text = this.cmO.getEditText().getText();
+        return (text == null ? 0 : text.length()) >= this.cmM;
     }
 
     public void a(TbPageContext<?> tbPageContext, com.baidu.tbadk.editortool.v vVar) {
         this.mPageContext = tbPageContext;
         if (vVar != null) {
-            this.cmA = vVar;
-            if (this.cmx != null) {
-                this.cmx.setOnActionListener(vVar);
+            this.cmQ = vVar;
+            if (this.cmN != null) {
+                this.cmN.setOnActionListener(vVar);
             }
-            this.cmy.setOnActionListener(new u(this, vVar));
-            this.cmz.setOnActionListener(new v(this, vVar));
+            this.cmO.setOnActionListener(new u(this, vVar));
+            this.cmP.setOnActionListener(new v(this, vVar));
         }
     }
 
-    public void alH() {
-        this.cmz.alH();
+    public void alW() {
+        this.cmP.alW();
     }
 
     public void b(TbPageContext<?> tbPageContext, int i) {
         this.mPageContext = tbPageContext;
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().X(i == 1);
-            tbPageContext.getLayoutMode().h(this.cmy);
-            tbPageContext.getLayoutMode().h(this.cmz);
+            tbPageContext.getLayoutMode().h(this.cmO);
+            tbPageContext.getLayoutMode().h(this.cmP);
         }
-        if (this.cmx != null) {
-            this.cmx.tP();
+        if (this.cmN != null) {
+            this.cmN.tP();
         }
-        this.cmy.changeSkinType(i);
-        this.cmz.onChangeSkinType(i);
+        this.cmO.changeSkinType(i);
+        this.cmP.onChangeSkinType(i);
     }
 
     public void clearData() {
-        this.cmy.clearData();
-        this.cmz.clearData();
+        this.cmO.clearData();
+        this.cmP.clearData();
     }
 
-    public void alx() {
-        this.cmz.alx();
+    public void alM() {
+        this.cmP.alM();
     }
 
-    public void BZ() {
-        if (this.cmA != null) {
-            this.cmA.handleAction(33, null);
+    public void Cf() {
+        if (this.cmQ != null) {
+            this.cmQ.handleAction(33, null);
         }
         setVisibility(0);
     }
 
     public void hide() {
-        if (this.cmA != null) {
-            this.cmA.handleAction(34, null);
+        if (this.cmQ != null) {
+            this.cmQ.handleAction(34, null);
         }
-        this.cmy.ale();
-        this.cmz.hideAll();
+        this.cmO.alt();
+        this.cmP.hideAll();
         Z(getEditText());
         setVisibility(8);
     }
@@ -326,44 +337,44 @@ public class PbEditor extends LinearLayout {
     }
 
     public void setMoreFocusable(boolean z) {
-        this.cmy.setMoreFocusable(z);
+        this.cmO.setMoreFocusable(z);
     }
 
     public void setAudioFocusable(boolean z) {
-        this.cmy.setAudioFocusable(z);
+        this.cmO.setAudioFocusable(z);
     }
 
-    public void aaY() {
-        this.cmy.aaY();
+    public void abm() {
+        this.cmO.abm();
     }
 
-    public void aaZ() {
-        this.cmy.aaZ();
+    public void abn() {
+        this.cmO.abn();
     }
 
-    public void Jh() {
-        this.cmz.Jh();
+    public void Jn() {
+        this.cmP.Jn();
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        return this.cmz.getAudioData();
+        return this.cmP.getAudioData();
     }
 
     public void setAudioData(VoiceData.VoiceModel voiceModel) {
-        this.cmz.setAudioData(voiceModel);
+        this.cmP.setAudioData(voiceModel);
     }
 
-    public void Jg() {
-        this.cmz.Jg();
+    public void Jm() {
+        this.cmP.Jm();
     }
 
     public void k(Bitmap bitmap) {
-        this.cmz.setImage(bitmap);
+        this.cmP.setImage(bitmap);
     }
 
     public void aQ(boolean z) {
-        this.cmi = z;
-        this.cmz.aQ(z);
+        this.cmy = z;
+        this.cmP.aQ(z);
         if (z) {
             setLocationViewVisibility(8);
         }
@@ -374,12 +385,12 @@ public class PbEditor extends LinearLayout {
         return true;
     }
 
-    public static int iD(String str) {
+    public static int iG(String str) {
         int i = 0;
         if (str != null && str.length() != 0) {
-            Matcher matcher = cmF.matcher(str);
+            Matcher matcher = cmV.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.aa.yL().ed(matcher.group())) {
+                if (com.baidu.tbadk.editortool.aa.yR().eg(matcher.group())) {
                     i++;
                 }
             }
@@ -388,38 +399,38 @@ public class PbEditor extends LinearLayout {
     }
 
     public void refresh() {
-        if (this.cmi) {
-            this.cmy.amd();
+        if (this.cmy) {
+            this.cmO.ams();
             return;
         }
-        if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cmi) {
-            if (!this.cmz.alE() && !this.cmz.alF() && !this.cmz.yT()) {
-                this.cmy.amd();
+        if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cmy) {
+            if (!this.cmP.alT() && !this.cmP.alU() && !this.cmP.yZ()) {
+                this.cmO.ams();
             } else {
-                this.cmy.amc();
+                this.cmO.amr();
             }
         } else {
-            this.cmy.amc();
+            this.cmO.amr();
         }
-        this.cmz.refresh();
+        this.cmP.refresh();
     }
 
     public void setMaxTextCount(int i) {
-        this.cmw = i;
+        this.cmM = i;
     }
 
     public void setLocationViewVisibility(int i) {
         if (i == 0) {
-            if (this.cmx == null) {
-                alV();
+            if (this.cmN == null) {
+                amk();
             }
-            this.cmx.setVisibility(0);
+            this.cmN.setVisibility(0);
             return;
         }
-        if (this.cmx != null) {
-            removeView(this.cmx);
-            this.cmx = null;
+        if (this.cmN != null) {
+            removeView(this.cmN);
+            this.cmN = null;
         }
-        alW();
+        aml();
     }
 }

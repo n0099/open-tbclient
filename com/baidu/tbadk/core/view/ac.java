@@ -8,81 +8,81 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.widget.ListView.f {
-    private View YU;
-    protected LinearLayout YV;
-    protected ImageView YW;
-    private ae YX;
-    private af YY;
-    protected AnimationDrawable YZ;
+    private View YW;
+    protected LinearLayout YX;
+    protected ImageView YY;
+    private ae YZ;
+    private af Za;
+    protected AnimationDrawable Zb;
 
     public ac(Context context) {
         super(context);
-        this.YU = null;
-        this.YV = null;
         this.YW = null;
         this.YX = null;
         this.YY = null;
+        this.YZ = null;
+        this.Za = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public View mN() {
         Context context = getContext();
-        this.YU = com.baidu.adp.lib.g.b.hH().inflate(getContext(), com.baidu.tieba.w.tb_pull_view, null);
-        this.YV = (LinearLayout) this.YU.findViewById(com.baidu.tieba.v.pull_root);
-        this.YW = (ImageView) this.YU.findViewById(com.baidu.tieba.v.pull_image);
-        this.YZ = new AnimationDrawable();
+        this.YW = com.baidu.adp.lib.g.b.hH().inflate(getContext(), com.baidu.tieba.w.tb_pull_view, null);
+        this.YX = (LinearLayout) this.YW.findViewById(com.baidu.tieba.v.pull_root);
+        this.YY = (ImageView) this.YW.findViewById(com.baidu.tieba.v.pull_image);
+        this.Zb = new AnimationDrawable();
         Drawable drawable = context.getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh02);
         if (drawable != null) {
-            this.YZ.addFrame(drawable, 100);
+            this.Zb.addFrame(drawable, 100);
         }
         Drawable drawable2 = context.getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh01);
         if (drawable2 != null) {
-            this.YZ.addFrame(drawable2, 100);
+            this.Zb.addFrame(drawable2, 100);
         }
-        this.YZ.setOneShot(false);
-        this.YW.setBackgroundDrawable(this.YZ);
-        return this.YU;
+        this.Zb.setOneShot(false);
+        this.YY.setBackgroundDrawable(this.Zb);
+        return this.YW;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void mO() {
-        this.YZ.stop();
-        this.YW.setBackgroundDrawable(this.YZ.getFrame(0));
+        this.Zb.stop();
+        this.YY.setBackgroundDrawable(this.Zb.getFrame(0));
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void O(boolean z) {
-        this.YZ.stop();
-        this.YW.setBackgroundDrawable(this.YZ.getFrame(0));
+        this.Zb.stop();
+        this.YY.setBackgroundDrawable(this.Zb.getFrame(0));
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void mP() {
-        this.YZ.stop();
-        this.YW.setBackgroundDrawable(this.YZ);
-        this.YW.post(new ad(this));
+        this.Zb.stop();
+        this.YY.setBackgroundDrawable(this.Zb);
+        this.YY.post(new ad(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void P(boolean z) {
-        this.YZ.stop();
+        this.Zb.stop();
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void Q(boolean z) {
-        if (this.YX != null) {
-            this.YX.onListPullRefresh(z);
+        if (this.YZ != null) {
+            this.YZ.onListPullRefresh(z);
         }
-        if (this.YY != null) {
-            this.YY.a(this.YU, z);
+        if (this.Za != null) {
+            this.Za.a(this.YW, z);
         }
     }
 
     public void a(ae aeVar) {
-        this.YX = aeVar;
+        this.YZ = aeVar;
     }
 
     public void a(af afVar) {
-        this.YY = afVar;
+        this.Za = afVar;
     }
 }

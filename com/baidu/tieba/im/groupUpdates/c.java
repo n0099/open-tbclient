@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ UpdatesActivity biy;
+    final /* synthetic */ UpdatesActivity biO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(UpdatesActivity updatesActivity) {
-        this.biy = updatesActivity;
+        this.biO = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,16 +27,16 @@ public class c implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         s sVar3;
         UpdatesModel updatesModel2;
         List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-        sVar = this.biy.biv;
+        sVar = this.biO.biL;
         sVar.setData(convertToUpdatesItemData);
-        updatesModel = this.biy.bix;
+        updatesModel = this.biO.biN;
         updatesModel.calculateSelects(convertToUpdatesItemData);
-        sVar2 = this.biy.biv;
+        sVar2 = this.biO.biL;
         sVar2.setLoadProgressBarVisable(false);
-        sVar3 = this.biy.biv;
-        updatesModel2 = this.biy.bix;
+        sVar3 = this.biO.biL;
+        updatesModel2 = this.biO.biN;
         sVar3.setDelCount(updatesModel2.getDeleteSize());
-        this.biy.loadImage();
+        this.biO.loadImage();
         ImMessageCenterPojo imMessageCenterPojo = null;
         if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() > 0) {
             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
@@ -46,7 +46,7 @@ public class c implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001216, imMessageCenterPojo));
         if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() == 0) {
-            this.biy.finish();
+            this.biO.finish();
         }
     }
 }

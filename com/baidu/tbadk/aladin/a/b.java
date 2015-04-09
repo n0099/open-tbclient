@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String Na;
+    private String Nc;
     private int errorCode = 0;
     private Intent intent;
     private String response;
@@ -32,7 +32,7 @@ public class b {
                     if ("intent".equals(key)) {
                         bF(value);
                     } else if (!"t".equals(key) && "callback".equals(key)) {
-                        this.Na = value;
+                        this.Nc = value;
                         oJ();
                     }
                 }
@@ -111,8 +111,8 @@ public class b {
     }
 
     private void oJ() {
-        if (this.Na != null) {
-            this.response = String.valueOf(this.Na) + "({\"error\":" + this.errorCode + "})";
+        if (this.Nc != null) {
+            this.response = String.valueOf(this.Nc) + "({\"error\":" + this.errorCode + "})";
         }
     }
 

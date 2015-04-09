@@ -5,40 +5,40 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.mvc.model.r;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.d.c<f, g> {
-    public final c bMN;
-    public final f bMO;
-    private d bMP;
+    public final c bNd;
+    public final f bNe;
+    private d bNf;
 
     public e(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
-        this.bMN = new c();
-        this.bMO = new f();
+        this.bNd = new c();
+        this.bNe = new f();
     }
 
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putAll(this.bMO.toBundle());
-        bundle.putInt("KeyIntentPraiseId", this.bMN.abF());
+        bundle.putAll(this.bNe.toBundle());
+        bundle.putInt("KeyIntentPraiseId", this.bNd.abU());
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
         if (bundle != null) {
-            this.bMO.j(bundle);
+            this.bNe.j(bundle);
         }
-        this.bMP = new d(zS().getPageContext(), this.bMO);
-        this.bMP.a((r) this);
+        this.bNf = new d(zY().getPageContext(), this.bNe);
+        this.bNf.a((r) this);
         if (bundle.containsKey("KeyIntentPraiseId")) {
-            this.bMN.hq(bundle.getInt("KeyIntentPraiseId"));
+            this.bNd.hs(bundle.getInt("KeyIntentPraiseId"));
         }
-        zT().addEventDelegate(this);
+        zZ().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
     protected boolean ow() {
-        this.bMP.AT();
+        this.bNf.AZ();
         return true;
     }
 
@@ -46,16 +46,16 @@ public class e extends com.baidu.tbadk.mvc.d.c<f, g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean a(f fVar, g gVar) {
-        this.bMN.a(gVar);
-        this.bMO.abJ();
-        this.bMN.setStatus(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        if (this.bMO.getPageNum() > 5) {
-            this.bMN.setStatus(1003);
+        this.bNd.a(gVar);
+        this.bNe.abY();
+        this.bNd.setStatus(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        if (this.bNe.getPageNum() > 5) {
+            this.bNd.setStatus(1003);
         }
-        if (this.bMN.abG() >= this.bMN.abF()) {
-            this.bMN.setStatus(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
+        if (this.bNd.abV() >= this.bNd.abU()) {
+            this.bNd.setStatus(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
         }
-        b(this.bMN);
+        b(this.bNd);
         return true;
     }
 }

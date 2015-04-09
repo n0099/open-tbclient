@@ -1,29 +1,29 @@
 package com.baidu.tieba.recommendfrs.data;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String bXI;
-    private String bXJ;
+    private String bXX;
+    private String bXY;
     private long ftid;
 
     public void setFtid(long j) {
         this.ftid = j;
     }
 
-    public String afz() {
-        return this.bXI;
+    public String afO() {
+        return this.bXX;
     }
 
-    public void ih(String str) {
-        this.bXI = str;
+    public void ik(String str) {
+        this.bXX = str;
     }
 
-    public void ii(String str) {
-        this.bXJ = str;
+    public void il(String str) {
+        this.bXY = str;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.bXJ;
+        return this.bXY;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a

@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.location;
 /* loaded from: classes.dex */
 public interface k {
-    void IR();
+    void IX();
 
-    void fF(String str);
+    void fI(String str);
 }

@@ -6,20 +6,20 @@ import com.baidu.tieba.imMessageCenter.im.chat.PersonalChatDisplayResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity bsz;
+    final /* synthetic */ InviteFriendListActivity bsP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.bsz = inviteFriendListActivity;
+        this.bsP = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof PersonalChatDisplayResponse) {
-            this.bsz.finish();
+            this.bsP.finish();
         }
     }
 }

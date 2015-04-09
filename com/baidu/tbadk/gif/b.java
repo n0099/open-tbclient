@@ -8,13 +8,13 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView akO;
+    final /* synthetic */ GifView akW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.akO = gifView;
+        this.akW = gifView;
     }
 
     @Override // android.os.Handler
@@ -30,42 +30,42 @@ public class b extends Handler {
         e eVar2;
         int i4;
         boolean z2;
-        weakReference = this.akO.aks;
+        weakReference = this.akW.akA;
         if (weakReference != null) {
-            weakReference2 = this.akO.aks;
+            weakReference2 = this.akW.akA;
             com.baidu.adp.gif.c cVar = (com.baidu.adp.gif.c) weakReference2.get();
             if (cVar != null && message.what == 1) {
-                GifView gifView = this.akO;
-                i = gifView.akt;
-                gifView.akt = i + 1;
-                i2 = this.akO.akt;
+                GifView gifView = this.akW;
+                i = gifView.akB;
+                gifView.akB = i + 1;
+                i2 = this.akW.akB;
                 if (i2 >= cVar.fg()) {
-                    z2 = this.akO.akJ;
+                    z2 = this.akW.akR;
                     if (z2) {
-                        this.akO.setVisibility(4);
-                        this.akO.akJ = false;
+                        this.akW.setVisibility(4);
+                        this.akW.akR = false;
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.akO.akt = 0;
+                    this.akW.akB = 0;
                 } else {
                     z = false;
                 }
-                i3 = this.akO.akt;
+                i3 = this.akW.akB;
                 cVar.C(i3);
-                bitmap = this.akO.mBitmap;
+                bitmap = this.akW.mBitmap;
                 cVar.a(bitmap, null);
-                this.akO.invalidate();
+                this.akW.invalidate();
                 removeMessages(1);
                 if (!z) {
-                    i4 = this.akO.akt;
+                    i4 = this.akW.akB;
                     sendEmptyMessageDelayed(1, cVar.D(i4));
                     return;
                 }
-                eVar = this.akO.aku;
+                eVar = this.akW.akC;
                 if (eVar != null) {
-                    eVar2 = this.akO.aku;
+                    eVar2 = this.akW.akC;
                     eVar2.onStop();
                 }
             }

@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.service.MediaService;
 /* loaded from: classes.dex */
 public class g implements com.baidu.tieba.tbadkCore.voice.a {
-    com.baidu.adp.lib.voice.j Kq;
+    com.baidu.adp.lib.voice.j Ks;
     private TbPageContext<?> context;
     private boolean isAddScreenView;
     private View screenView;
     private WindowManager windowManager;
-    private String Kr = null;
-    private com.baidu.adp.lib.voice.k Ks = null;
-    Runnable Kt = new h(this);
+    private String Kt = null;
+    private com.baidu.adp.lib.voice.k Ku = null;
+    Runnable Kv = new h(this);
     private Handler mHandle = new Handler();
 
     static {
@@ -34,26 +34,26 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
         if (jVar == null) {
             return false;
         }
-        this.Kq = jVar;
+        this.Ks = jVar;
         if (!com.baidu.tbadk.core.util.o.fj()) {
             String rI = com.baidu.tbadk.core.util.o.rI();
             if (rI == null) {
                 rI = com.baidu.adp.lib.voice.l.getString(com.baidu.tieba.y.voice_error_sdcard);
             }
-            this.Kq.onShowErr(0, rI);
+            this.Ks.onShowErr(0, rI);
             return false;
         }
         stopPlay();
-        this.Kr = com.baidu.tbadk.core.voice.l.tX();
-        String da = com.baidu.tbadk.core.voice.l.da(this.Kr);
-        if (this.Ks == null) {
-            this.Ks = new m(this, null);
+        this.Kt = com.baidu.tbadk.core.voice.l.tX();
+        String da = com.baidu.tbadk.core.voice.l.da(this.Kt);
+        if (this.Ku == null) {
+            this.Ku = new m(this, null);
         }
         a.stop();
         releaseWakeLock();
-        boolean a = a.a(da, i, this.Ks);
+        boolean a = a.a(da, i, this.Ku);
         if (a) {
-            this.Kq.onStartedRecorder(true);
+            this.Ks.onStartedRecorder(true);
             com.baidu.adp.lib.voice.l.zI = 2;
             return a;
         }
@@ -62,7 +62,7 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
         com.baidu.tbadk.core.util.n nVar = new com.baidu.tbadk.core.util.n();
         nVar.h("voiceType", Integer.valueOf(i));
         TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", nVar.toString());
-        this.Kq.onStartedRecorder(false);
+        this.Ks.onStartedRecorder(false);
         return a;
     }
 
@@ -79,8 +79,8 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
     public void bE(String str) {
         nU();
         stopPlay();
-        if (this.Kq != null) {
-            this.Kq.onDeletedVoice(str);
+        if (this.Ks != null) {
+            this.Ks.onDeletedVoice(str);
         }
         if (this.mHandle != null) {
             this.mHandle.postDelayed(new i(this, str), 200L);
@@ -107,10 +107,10 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
             MediaService.stopMy(this.context.getPageActivity());
         }
         if (this.mHandle != null) {
-            this.mHandle.removeCallbacks(this.Kt);
+            this.mHandle.removeCallbacks(this.Kv);
         }
         this.context = null;
-        this.Kq = null;
+        this.Ks = null;
         this.mHandle = null;
     }
 
@@ -118,7 +118,7 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
     public void nU() {
         a.stop();
         if (this.mHandle != null) {
-            this.mHandle.postDelayed(this.Kt, 100L);
+            this.mHandle.postDelayed(this.Kv, 100L);
         }
         releaseWakeLock();
     }

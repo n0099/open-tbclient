@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
 /* loaded from: classes.dex */
 public interface q {
-    void hT(int i);
+    void hW(int i);
 }

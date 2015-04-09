@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tieba.recommendfrs.a.e {
-    final /* synthetic */ b bXH;
+    final /* synthetic */ b bXW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.bXH = bVar;
+        this.bXW = bVar;
     }
 
     @Override // com.baidu.tieba.recommendfrs.a.e
@@ -25,47 +25,47 @@ public class e implements com.baidu.tieba.recommendfrs.a.e {
         PbListView pbListView;
         BdListView bdListView3;
         PbListView pbListView2;
-        bdListView = this.bXH.aBx;
+        bdListView = this.bXW.aBF;
         bdListView.mW();
-        this.bXH.aHV = false;
+        this.bXW.aId = false;
         if (cVar != null) {
-            this.bXH.mHasMore = cVar.getHasMore();
-            z3 = this.bXH.mHasMore;
+            this.bXW.mHasMore = cVar.getHasMore();
+            z3 = this.bXW.mHasMore;
             if (!z3) {
-                bdListView2 = this.bXH.aBx;
+                bdListView2 = this.bXW.aBF;
                 bdListView2.setNextPage(null);
             } else {
-                pbListView = this.bXH.bXC;
+                pbListView = this.bXW.aLV;
                 if (pbListView.getView().getParent() == null) {
-                    bdListView3 = this.bXH.aBx;
-                    pbListView2 = this.bXH.bXC;
+                    bdListView3 = this.bXW.aBF;
+                    pbListView2 = this.bXW.aLV;
                     bdListView3.setNextPage(pbListView2);
                 }
             }
             if (!z) {
-                this.bXH.aBE = true;
+                this.bXW.aBM = true;
             } else {
-                this.bXH.aBF = true;
+                this.bXW.aBN = true;
             }
-            a = this.bXH.a(z2, cVar);
+            a = this.bXW.a(z2, cVar);
             if (z2) {
-                bVar2 = this.bXH.bXE;
-                list = bVar2.BU();
+                bVar2 = this.bXW.bXT;
+                list = bVar2.Ca();
                 list.addAll(a);
             } else {
-                this.bXH.aU(cVar.afF());
+                this.bXW.aX(cVar.afU());
                 list = a;
             }
-            bVar = this.bXH.bXE;
+            bVar = this.bXW.bXT;
             bVar.r(list);
         }
     }
 
     @Override // com.baidu.tieba.recommendfrs.a.e
-    public void FV() {
+    public void Gb() {
         BdListView bdListView;
-        this.bXH.aHV = false;
-        bdListView = this.bXH.aBx;
+        this.bXW.aId = false;
+        bdListView = this.bXW.aBF;
         bdListView.mW();
     }
 }

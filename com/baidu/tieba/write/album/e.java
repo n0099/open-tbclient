@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class e {
-    private f ctA;
-    private g ctB;
-    private final String ctz = TbConfig.getTempDirName();
+    private final String ctP = TbConfig.getTempDirName();
+    private f ctQ;
+    private g ctR;
     private final Context mContext;
 
     public e(Context context) {
@@ -30,10 +30,10 @@ public class e {
         if (mVar == null) {
             return false;
         }
-        apF();
-        this.ctA = new f(this, mVar);
-        this.ctA.setPriority(3);
-        this.ctA.execute(new Object[0]);
+        apU();
+        this.ctQ = new f(this, mVar);
+        this.ctQ.setPriority(3);
+        this.ctQ.execute(new Object[0]);
         return true;
     }
 
@@ -41,29 +41,29 @@ public class e {
         if (aqVar == null) {
             return false;
         }
-        apG();
-        this.ctB = new g(this, str, aqVar);
-        this.ctB.setPriority(3);
-        this.ctB.execute(new Void[0]);
+        apV();
+        this.ctR = new g(this, str, aqVar);
+        this.ctR.setPriority(3);
+        this.ctR.execute(new Void[0]);
         return true;
     }
 
-    public void apF() {
-        if (this.ctA != null) {
-            this.ctA.cancel();
-            this.ctA = null;
+    public void apU() {
+        if (this.ctQ != null) {
+            this.ctQ.cancel();
+            this.ctQ = null;
         }
     }
 
-    public void apG() {
-        if (this.ctB != null) {
-            this.ctB.cancel();
-            this.ctB = null;
+    public void apV() {
+        if (this.ctR != null) {
+            this.ctR.cancel();
+            this.ctR = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<a> apH() {
+    public List<a> apW() {
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -96,8 +96,8 @@ public class e {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String iZ = iZ(file2.getAbsolutePath());
-                                    if (iZ != null && (matcher = compile.matcher(iZ)) != null && matcher.matches()) {
+                                    String jc = jc(file2.getAbsolutePath());
+                                    if (jc != null && (matcher = compile.matcher(jc)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -105,13 +105,13 @@ public class e {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 a aVar = new a();
-                                aVar.iX(string);
-                                aVar.iY(sb);
+                                aVar.ja(string);
+                                aVar.jb(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 aVar.e(imageFileInfo);
                                 aVar.setName(string2);
-                                if (string2 != null && string2.equals(this.ctz)) {
+                                if (string2 != null && string2.equals(this.ctP)) {
                                     list.add(0, aVar);
                                 } else {
                                     list.add(aVar);
@@ -145,7 +145,7 @@ public class e {
         }
     }
 
-    public String iZ(String str) {
+    public String jc(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;

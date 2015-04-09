@@ -6,18 +6,18 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab {
-    private static float Ic = 3.0f;
-    private f Id;
+    private static float Ie = 3.0f;
+    private f If;
     private BdListView mListView;
-    private boolean Ie = false;
+    private boolean Ig = false;
     private int mStartY = 0;
     protected int mState = 3;
-    private Boolean If = false;
-    private z HK = null;
-    private int Ig = 800;
+    private Boolean Ih = false;
+    private z HM = null;
+    private int Ii = 800;
 
     public ab(BdListView bdListView, f fVar) {
-        this.Id = null;
+        this.If = null;
         this.mListView = null;
         if (fVar == null) {
             throw new InvalidParameterException("PullRefresh view is null");
@@ -25,44 +25,44 @@ public class ab {
         if (bdListView == null) {
             throw new InvalidParameterException("PullRefresh listView is null");
         }
-        this.Id = fVar;
+        this.If = fVar;
         this.mListView = bdListView;
-        View view = this.Id.getView();
-        view.setPadding(0, -this.Id.mR(), 0, 0);
+        View view = this.If.getView();
+        view.setPadding(0, -this.If.mR(), 0, 0);
         view.invalidate();
         this.mListView.f(view);
     }
 
     public f mZ() {
-        return this.Id;
+        return this.If;
     }
 
     public void done() {
         this.mState = 3;
-        this.Id.setPadding(0, -this.Id.mR(), 0, 0);
-        this.Id.P(true);
-        if (this.HK != null) {
-            this.HK.R(false);
+        this.If.setPadding(0, -this.If.mR(), 0, 0);
+        this.If.P(true);
+        if (this.HM != null) {
+            this.HM.R(false);
         }
     }
 
     public void S(boolean z) {
         this.mState = 2;
-        this.Id.setPadding(0, 0, 0, 0);
-        this.Id.mP();
-        this.Id.Q(z);
+        this.If.setPadding(0, 0, 0, 0);
+        this.If.mP();
+        this.If.Q(z);
     }
 
     public void setOnScrollToPullListener(z zVar) {
-        this.HK = zVar;
+        this.HM = zVar;
     }
 
     public void a(MotionEvent motionEvent, int i) {
         if (motionEvent.getAction() == 0 && mZ().mQ()) {
-            this.Ie = false;
-            this.If = false;
-            if (i == 0 && !this.Ie) {
-                this.Ie = true;
+            this.Ig = false;
+            this.Ih = false;
+            if (i == 0 && !this.Ig) {
+                this.Ig = true;
                 this.mStartY = (int) motionEvent.getY();
             }
         }
@@ -76,22 +76,22 @@ public class ab {
                     if (this.mState != 2) {
                         if (this.mState == 1) {
                             this.mState = 3;
-                            this.Id.setPadding(0, -this.Id.mR(), 0, 0);
-                            this.Id.P(false);
-                            if (this.HK != null) {
-                                this.HK.R(true);
+                            this.If.setPadding(0, -this.If.mR(), 0, 0);
+                            this.If.P(false);
+                            if (this.HM != null) {
+                                this.HM.R(true);
                                 return;
                             }
                             return;
                         } else if (this.mState == 0) {
                             S(false);
-                            if (this.HK != null) {
-                                this.HK.R(true);
+                            if (this.HM != null) {
+                                this.HM.R(true);
                                 return;
                             }
                             return;
-                        } else if (this.mState == 3 && this.HK != null) {
-                            this.HK.R(false);
+                        } else if (this.mState == 3 && this.HM != null) {
+                            this.HM.R(false);
                             return;
                         } else {
                             return;
@@ -100,59 +100,59 @@ public class ab {
                     return;
                 case 2:
                     int y = (int) motionEvent.getY();
-                    if (!this.Ie && i == 0) {
-                        this.Ie = true;
+                    if (!this.Ig && i == 0) {
+                        this.Ig = true;
                         this.mStartY = y;
                     }
-                    if (this.mState != 2 && this.Ie) {
+                    if (this.mState != 2 && this.Ig) {
                         if (this.mState == 0) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / Ic)) < this.Id.mR() && y - this.mStartY > 0) {
+                            if (((int) ((y - this.mStartY) / Ie)) < this.If.mR() && y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.Id.O(this.If.booleanValue());
-                                this.If = false;
-                                if (this.HK != null) {
-                                    this.HK.R(true);
+                                this.If.O(this.Ih.booleanValue());
+                                this.Ih = false;
+                                if (this.HM != null) {
+                                    this.HM.R(true);
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.Id.setPadding(0, -this.Id.mR(), 0, 0);
-                                this.Id.P(false);
-                                if (this.HK != null) {
-                                    this.HK.R(true);
+                                this.If.setPadding(0, -this.If.mR(), 0, 0);
+                                this.If.P(false);
+                                if (this.HM != null) {
+                                    this.HM.R(true);
                                 }
                             }
                         } else if (this.mState == 1) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / Ic)) >= this.Id.mR()) {
+                            if (((int) ((y - this.mStartY) / Ie)) >= this.If.mR()) {
                                 this.mState = 0;
-                                this.If = true;
-                                this.Id.mO();
-                                if (this.HK != null) {
-                                    this.HK.R(true);
+                                this.Ih = true;
+                                this.If.mO();
+                                if (this.HM != null) {
+                                    this.HM.R(true);
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.Id.setPadding(0, -this.Id.mR(), 0, 0);
-                                this.Id.P(false);
-                                if (this.HK != null) {
-                                    this.HK.R(true);
+                                this.If.setPadding(0, -this.If.mR(), 0, 0);
+                                this.If.P(false);
+                                if (this.HM != null) {
+                                    this.HM.R(true);
                                 }
                             }
                         } else if (this.mState == 3) {
                             if (y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.Id.O(this.If.booleanValue());
-                                this.If = false;
-                                if (this.HK != null) {
-                                    this.HK.R(true);
+                                this.If.O(this.Ih.booleanValue());
+                                this.Ih = false;
+                                if (this.HM != null) {
+                                    this.HM.R(true);
                                 }
-                            } else if (this.HK != null) {
-                                this.HK.R(false);
+                            } else if (this.HM != null) {
+                                this.HM.R(false);
                             }
                         }
                         if (this.mState == 1 || this.mState == 0) {
-                            this.Id.setPadding(0, ((int) ((y - this.mStartY) / Ic)) - this.Id.mR(), 0, 0);
+                            this.If.setPadding(0, ((int) ((y - this.mStartY) / Ie)) - this.If.mR(), 0, 0);
                             return;
                         }
                         return;
@@ -176,7 +176,7 @@ public class ab {
         View view;
         f mZ = mZ();
         if (mZ != null && (view = mZ.getView()) != null) {
-            ad adVar = new ad(view.getContext(), 0, -mZ.mR(), this.Ig);
+            ad adVar = new ad(view.getContext(), 0, -mZ.mR(), this.Ii);
             adVar.a(new ac(this));
             adVar.g(view);
         }

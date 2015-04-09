@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class o {
-    private static o ctU;
-    private ContentObserver ctV;
+    private static o cuk;
+    private ContentObserver cul;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<s> lE = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable ctW = new p(this);
+    private Runnable cum = new p(this);
 
-    public static o apO() {
-        if (ctU == null) {
-            ctU = new o();
-            ctU.init(TbadkCoreApplication.m411getInst());
+    public static o aqd() {
+        if (cuk == null) {
+            cuk = new o();
+            cuk.init(TbadkCoreApplication.m411getInst());
         }
-        return ctU;
+        return cuk;
     }
 
     private o() {
@@ -34,7 +34,7 @@ public class o {
 
     private void init(Context context) {
         this.mReceiver = new q(this);
-        this.ctV = new r(this, this.mHandler);
+        this.cul = new r(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -43,23 +43,23 @@ public class o {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.ctV);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.cul);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Y(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            fc(true);
+            fa(true);
             return;
         }
-        this.handler.removeCallbacks(this.ctW);
-        this.handler.postDelayed(this.ctW, 2000L);
+        this.handler.removeCallbacks(this.cum);
+        this.handler.postDelayed(this.cum, 2000L);
     }
 
-    public void fc(boolean z) {
+    public void fa(boolean z) {
         Iterator<s> it = this.lE.iterator();
         while (it.hasNext()) {
-            it.next().fd(z);
+            it.next().fb(z);
         }
     }
 
@@ -83,7 +83,7 @@ public class o {
         removeAllListeners();
         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
         m411getInst.unregisterReceiver(this.mReceiver);
-        m411getInst.getContentResolver().unregisterContentObserver(this.ctV);
-        ctU = null;
+        m411getInst.getContentResolver().unregisterContentObserver(this.cul);
+        cuk = null;
     }
 }

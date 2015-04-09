@@ -7,13 +7,13 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ j cms;
-    private final /* synthetic */ ViewGroup cmt;
+    final /* synthetic */ j cmI;
+    private final /* synthetic */ ViewGroup cmJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar, ViewGroup viewGroup) {
-        this.cms = jVar;
-        this.cmt = viewGroup;
+        this.cmI = jVar;
+        this.cmJ = viewGroup;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,11 +26,11 @@ class l implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer2;
         com.baidu.tbadk.editortool.v vVar;
         EditorToolComponetContainer editorToolComponetContainer3;
-        writeImagesInfo = this.cms.cmr;
-        editorToolComponetContainer = this.cms.cmo;
-        writeImagesInfo2 = editorToolComponetContainer.cml;
-        if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.cmt.indexOfChild(view)) >= 0) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.cms.getItem(indexOfChild);
+        writeImagesInfo = this.cmI.cmH;
+        editorToolComponetContainer = this.cmI.cmE;
+        writeImagesInfo2 = editorToolComponetContainer.cmB;
+        if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.cmJ.indexOfChild(view)) >= 0) {
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.cmI.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -38,12 +38,12 @@ class l implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                editorToolComponetContainer3 = this.cms.cmo;
+                editorToolComponetContainer3 = this.cmI.cmE;
                 com.baidu.adp.lib.util.n.c(editorToolComponetContainer3.getContext(), com.baidu.tieba.y.editor_mutiiamge_image_error);
                 return;
             }
-            editorToolComponetContainer2 = this.cms.cmo;
-            vVar = editorToolComponetContainer2.aip;
+            editorToolComponetContainer2 = this.cmI.cmE;
+            vVar = editorToolComponetContainer2.aix;
             vVar.handleAction(42, Integer.valueOf(indexOfChild));
         }
     }

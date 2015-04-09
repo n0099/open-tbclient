@@ -4,9 +4,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class m {
-    TextView aFs;
-    TextView cvl;
-    ImageView cvu;
+    TextView aFA;
+    TextView cvB;
+    ImageView cvK;
 
     private m() {
     }

@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity bFY;
+    final /* synthetic */ PbChosenActivity bGl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PbChosenActivity pbChosenActivity) {
-        this.bFY = pbChosenActivity;
+        this.bGl = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bFY.finish();
+        this.bGl.finish();
     }
 }

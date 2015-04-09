@@ -8,14 +8,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<a, Integer, Boolean> {
-    private aa Oi;
-    private i bEo;
-    final /* synthetic */ a bEp;
+    private aa Ok;
+    private i bEB;
+    final /* synthetic */ a bEC;
 
     private d(a aVar) {
-        this.bEp = aVar;
-        this.Oi = null;
-        this.bEo = null;
+        this.bEC = aVar;
+        this.Ok = null;
+        this.bEB = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.bEo = new i();
+        this.bEB = new i();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,25 +36,25 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     public Boolean doInBackground(a... aVarArr) {
         a aVar = new a();
         try {
-            aVar.XZ();
-            this.Oi = new aa();
-            this.Oi.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
-            int Ya = this.bEp.Ya();
-            if (aVar.getCount() - 1 <= Ya) {
-                Ya = aVar.getCount() - 1;
+            aVar.Yl();
+            this.Ok = new aa();
+            this.Ok.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
+            int Ym = this.bEC.Ym();
+            if (aVar.getCount() - 1 <= Ym) {
+                Ym = aVar.getCount() - 1;
             }
-            while (Ya >= 0) {
-                String ad = aVar.ad(Ya, 20);
-                this.Oi.o(new ArrayList<>());
-                this.Oi.o("data", ad);
-                this.bEo.parserJson(this.Oi.rO());
-                if (!this.Oi.sp().tq().pv() || this.bEo.getErrorCode() != 0) {
+            while (Ym >= 0) {
+                String ad = aVar.ad(Ym, 20);
+                this.Ok.o(new ArrayList<>());
+                this.Ok.o("data", ad);
+                this.bEB.parserJson(this.Ok.rO());
+                if (!this.Ok.sp().tq().pv() || this.bEB.getErrorCode() != 0) {
                     break;
                 }
-                Ya -= 20;
+                Ym -= 20;
             }
-            this.bEp.gZ(Ya);
-            if (Ya >= 0) {
+            this.bEC.hb(Ym);
+            if (Ym >= 0) {
                 return false;
             }
             return true;
@@ -67,12 +67,12 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.Oi != null) {
-            this.Oi.hh();
+        if (this.Ok != null) {
+            this.Ok.hh();
         }
-        this.bEp.bEh = null;
-        if (this.bEp.bEn != null) {
-            this.bEp.bEn.callback(1, false, null, false);
+        this.bEC.bEu = null;
+        if (this.bEC.bEA != null) {
+            this.bEC.bEA.callback(1, false, null, false);
         }
     }
 
@@ -84,21 +84,21 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.bEp.bEh = null;
+        this.bEC.bEu = null;
         if (bool.booleanValue()) {
-            arrayList = this.bEp.bEj;
+            arrayList = this.bEC.bEw;
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.Oi.sp().tq().pv()) {
-            str = this.bEo.getErrorString();
+        } else if (this.Ok.sp().tq().pv()) {
+            str = this.bEB.getErrorString();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.bEp.bEn != null) {
-            this.bEp.bEn.callback(1, bool, str, Boolean.valueOf(z));
+        if (this.bEC.bEA != null) {
+            this.bEC.bEA.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

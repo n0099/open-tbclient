@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ab implements View.OnClickListener {
-    final /* synthetic */ Register2Activity awc;
+    final /* synthetic */ Register2Activity awk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(Register2Activity register2Activity) {
-        this.awc = register2Activity;
+        this.awk = register2Activity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,38 +37,38 @@ class ab implements View.OnClickListener {
         ag agVar4;
         EditText editText;
         EditText editText2;
-        view2 = this.awc.avv;
+        view2 = this.awk.avD;
         if (view != view2) {
-            textView2 = this.awc.avw;
+            textView2 = this.awk.avE;
             if (view != textView2) {
-                button = this.awc.avx;
+                button = this.awk.avF;
                 if (view != button) {
-                    imageView = this.awc.avy;
+                    imageView = this.awk.avG;
                     if (view != imageView) {
-                        imageView2 = this.awc.avz;
+                        imageView2 = this.awk.avH;
                         if (view == imageView2) {
-                            editText = this.awc.avJ;
+                            editText = this.awk.avR;
                             editText.setText((CharSequence) null);
                             return;
                         }
-                        relativeLayout = this.awc.avL;
+                        relativeLayout = this.awk.avT;
                         if (view != relativeLayout) {
-                            imageView3 = this.awc.avS;
+                            imageView3 = this.awk.awa;
                             if (view != imageView3) {
-                                button2 = this.awc.avA;
+                                button2 = this.awk.avI;
                                 if (view != button2) {
                                     return;
                                 }
                             }
-                            agVar = this.awc.avX;
+                            agVar = this.awk.awf;
                             if (agVar == null) {
-                                nVar = this.awc.avZ;
+                                nVar = this.awk.awh;
                                 if (nVar != null) {
-                                    Register2Activity register2Activity = this.awc;
-                                    Register2Activity register2Activity2 = this.awc;
-                                    nVar2 = this.awc.avZ;
-                                    register2Activity.avX = new ag(register2Activity2, nVar2.qe().getVcode_pic_url());
-                                    agVar2 = this.awc.avX;
+                                    Register2Activity register2Activity = this.awk;
+                                    Register2Activity register2Activity2 = this.awk;
+                                    nVar2 = this.awk.awh;
+                                    register2Activity.awf = new ag(register2Activity2, nVar2.qe().getVcode_pic_url());
+                                    agVar2 = this.awk.awf;
                                     agVar2.execute(new String[0]);
                                     return;
                                 }
@@ -76,34 +76,34 @@ class ab implements View.OnClickListener {
                             }
                             return;
                         }
-                        ahVar = this.awc.avY;
+                        ahVar = this.awk.awg;
                         if (ahVar == null) {
-                            agVar3 = this.awc.avX;
+                            agVar3 = this.awk.awf;
                             if (agVar3 != null) {
-                                agVar4 = this.awc.avX;
+                                agVar4 = this.awk.awf;
                                 agVar4.cancel();
                             }
-                            this.awc.avY = new ah(this.awc, null);
-                            ahVar2 = this.awc.avY;
+                            this.awk.awg = new ah(this.awk, null);
+                            ahVar2 = this.awk.awg;
                             ahVar2.setPriority(3);
-                            ahVar3 = this.awc.avY;
+                            ahVar3 = this.awk.awg;
                             ahVar3.execute(new String[0]);
                             return;
                         }
                         return;
                     }
-                    editText2 = this.awc.avH;
+                    editText2 = this.awk.avP;
                     editText2.setText((CharSequence) null);
                     return;
                 }
-                this.awc.El();
+                this.awk.Er();
                 return;
             }
         }
-        textView = this.awc.avw;
+        textView = this.awk.avE;
         if (view == textView) {
-            this.awc.setResult(0);
+            this.awk.setResult(0);
         }
-        this.awc.finish();
+        this.awk.finish();
     }
 }

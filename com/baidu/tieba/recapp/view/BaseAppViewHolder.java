@@ -15,74 +15,74 @@ import com.baidu.tieba.tbadkCore.c.i;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
-    protected int aiq;
-    protected TextView bXs;
-    protected TextView bXt;
-    protected TextView bXu;
-    protected HeadImageView bXv;
-    protected View bXw;
+    protected int aiy;
+    protected TextView bXI;
+    protected TextView bXJ;
+    protected TextView bXK;
+    protected HeadImageView bXL;
+    protected View bXM;
 
-    protected abstract void afu();
+    protected abstract void afJ();
 
-    protected abstract void afv();
+    protected abstract void afK();
 
-    protected abstract int afw();
+    protected abstract int afL();
 
     public BaseAppViewHolder(View view) {
         super(view);
         this.rootView = view;
-        this.aiq = TbadkCoreApplication.m411getInst().getSkinType();
+        this.aiy = TbadkCoreApplication.m411getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aft() {
-        if (this.bXj != null && this.bXj.pO()) {
-            boolean dX = b.yl().dX(this.bXj.getPkgName());
-            boolean dY = b.yl().dY(this.bXj.getPkgName());
-            if (dX) {
-                this.bXj.ik(1);
-            } else if (dY) {
-                this.bXj.ik(2);
+    public void afI() {
+        if (this.bXz != null && this.bXz.pO()) {
+            boolean ea = b.yr().ea(this.bXz.getPkgName());
+            boolean eb = b.yr().eb(this.bXz.getPkgName());
+            if (ea) {
+                this.bXz.in(1);
+            } else if (eb) {
+                this.bXz.in(2);
             } else {
-                this.bXj.ik(0);
+                this.bXz.in(0);
             }
-            if (this.bXj.amt()) {
-                switch (this.bXj.ams()) {
+            if (this.bXz.amI()) {
+                switch (this.bXz.amH()) {
                     case 0:
-                        afu();
-                        this.bXs.setText(afw());
-                        this.bXs.setOnClickListener(d.afq());
-                        this.rootView.setOnClickListener(a.afp());
-                        this.bXs.setEnabled(true);
+                        afJ();
+                        this.bXI.setText(afL());
+                        this.bXI.setOnClickListener(d.afF());
+                        this.rootView.setOnClickListener(a.afE());
+                        this.bXI.setEnabled(true);
                         return;
                     case 1:
-                        afv();
-                        this.bXs.setText(y.downloading2);
-                        this.bXs.setOnClickListener(null);
+                        afK();
+                        this.bXI.setText(y.downloading2);
+                        this.bXI.setOnClickListener(null);
                         this.rootView.setOnClickListener(null);
-                        this.bXs.setEnabled(false);
+                        this.bXI.setEnabled(false);
                         return;
                     case 2:
-                        afu();
-                        this.bXs.setText(y.downloaded_install);
-                        this.bXs.setOnClickListener(d.afq());
-                        this.rootView.setOnClickListener(a.afp());
-                        this.bXs.setEnabled(true);
+                        afJ();
+                        this.bXI.setText(y.downloaded_install);
+                        this.bXI.setOnClickListener(d.afF());
+                        this.rootView.setOnClickListener(a.afE());
+                        this.bXI.setEnabled(true);
                         return;
                     default:
                         return;
                 }
-            } else if (this.bXj.amu()) {
-                afu();
-                this.bXs.setText(y.view);
-                this.bXs.setOnClickListener(g.afr());
-                this.rootView.setOnClickListener(h.afs());
+            } else if (this.bXz.amJ()) {
+                afJ();
+                this.bXI.setText(y.view);
+                this.bXI.setOnClickListener(g.afG());
+                this.rootView.setOnClickListener(h.afH());
             }
         }
     }
 
     public i getAppData() {
-        return this.bXj;
+        return this.bXz;
     }
 
     public String getFixedChineseString(String str) {
@@ -97,6 +97,6 @@ public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     }
 
     public static void registerHolder(int i, Class<? extends BaseAppViewHolder> cls) {
-        com.baidu.tieba.recapp.a.afo().registerHolder(i, cls);
+        com.baidu.tieba.recapp.a.afD().registerHolder(i, cls);
     }
 }

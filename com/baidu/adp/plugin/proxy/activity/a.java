@@ -3,16 +3,16 @@ package com.baidu.adp.plugin.proxy.activity;
 import com.baidu.adp.plugin.PluginCenter;
 /* loaded from: classes.dex */
 class a implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ LoadingActivity EK;
+    final /* synthetic */ LoadingActivity EM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(LoadingActivity loadingActivity) {
-        this.EK = loadingActivity;
+        this.EM = loadingActivity;
     }
 
     @Override // com.baidu.adp.plugin.install.b
     public void C(String str, String str2) {
-        this.EK.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+        this.EM.showToast(PluginCenter.getInstance().getCommonErrorShowText());
     }
 
     @Override // com.baidu.adp.plugin.install.b

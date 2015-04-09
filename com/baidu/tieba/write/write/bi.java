@@ -5,17 +5,17 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bi extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ int bIB;
-    final /* synthetic */ WriteActivity cyc;
-    private final /* synthetic */ SpannableStringBuilder cyg;
-    private final /* synthetic */ EmotionGroupType cyh;
+    private final /* synthetic */ SpannableStringBuilder cyB;
+    private final /* synthetic */ int cyC;
+    private final /* synthetic */ EmotionGroupType cyD;
+    final /* synthetic */ WriteActivity cyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-        this.cyc = writeActivity;
-        this.cyg = spannableStringBuilder;
-        this.bIB = i;
-        this.cyh = emotionGroupType;
+        this.cyx = writeActivity;
+        this.cyB = spannableStringBuilder;
+        this.cyC = i;
+        this.cyD = emotionGroupType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public class bi extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         if (aVar == null) {
             return;
         }
-        this.cyc.a(this.cyg, this.bIB, aVar, this.cyh);
+        this.cyx.a(this.cyB, this.cyC, aVar, this.cyD);
     }
 }

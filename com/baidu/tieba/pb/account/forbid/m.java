@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Object, ForbidTplData> {
-    private String awq;
-    private String awr;
-    private WeakReference<n> awu;
+    private WeakReference<n> awC;
+    private String awy;
+    private String awz;
 
     public m(String str, String str2, n nVar) {
-        this.awq = str;
-        this.awr = str2;
-        this.awu = new WeakReference<>(nVar);
+        this.awy = str;
+        this.awz = str2;
+        this.awC = new WeakReference<>(nVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: u */
     public ForbidTplData doInBackground(String... strArr) {
         String str;
-        str = l.bFF;
+        str = l.bFS;
         aa aaVar = new aa(str);
-        aaVar.o("forum_id", this.awq);
-        aaVar.o("user_id", this.awr);
+        aaVar.o("forum_id", this.awy);
+        aaVar.o("user_id", this.awz);
         String rO = aaVar.rO();
         if (aaVar.sp().tq().pv()) {
             try {
@@ -52,7 +52,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: c */
     public void onPostExecute(ForbidTplData forbidTplData) {
         super.onPostExecute(forbidTplData);
-        n nVar = this.awu.get();
+        n nVar = this.awC.get();
         if (nVar != null) {
             if (forbidTplData.error.errno == 0 && bd.isEmpty(forbidTplData.error.errMsg)) {
                 nVar.a(forbidTplData);

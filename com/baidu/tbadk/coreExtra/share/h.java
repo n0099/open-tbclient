@@ -9,11 +9,11 @@ class h implements CustomMessageTask.CustomRunnable<Object> {
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         d dVar;
         d dVar2;
-        dVar = ShareStatic.adt;
+        dVar = ShareStatic.adB;
         if (dVar != null) {
-            dVar2 = ShareStatic.adt;
+            dVar2 = ShareStatic.adB;
             dVar2.dismiss();
-            ShareStatic.adt = null;
+            ShareStatic.adB = null;
         }
         return null;
     }

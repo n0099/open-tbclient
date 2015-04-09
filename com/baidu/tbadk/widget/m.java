@@ -5,11 +5,11 @@ import com.baidu.tbadk.performanceLog.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView arV;
+    final /* synthetic */ TbImageView asd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(TbImageView tbImageView) {
-        this.arV = tbImageView;
+        this.asd = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,32 +19,32 @@ public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         n nVar;
         long j;
         n nVar2;
-        this.arV.stopLoading();
+        this.asd.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        nVar = this.arV.arH;
+        nVar = this.asd.arP;
         if (nVar != null) {
             if (aVar != null) {
-                this.arV.arS = aVar.getWidth();
-                this.arV.arT = aVar.getHeight();
+                this.asd.asa = aVar.getWidth();
+                this.asd.asb = aVar.getHeight();
             }
-            nVar2 = this.arV.arH;
+            nVar2 = this.asd.arP;
             nVar2.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.Gu != null) {
-                this.arV.arQ.Gw = aVar.Gu.Gw;
-                this.arV.arQ.isSuccess = aVar.Gu.Gy;
-                this.arV.arQ.Gx = aVar.Gu.Gx;
+            if (aVar.Gw != null) {
+                this.asd.arY.Gy = aVar.Gw.Gy;
+                this.asd.arY.isSuccess = aVar.Gw.GA;
+                this.asd.arY.Gz = aVar.Gw.Gz;
             }
         } else {
-            this.arV.arQ.Gw = "net";
-            this.arV.arQ.isSuccess = false;
-            z zVar = this.arV.arQ;
+            this.asd.arY.Gy = "net";
+            this.asd.arY.isSuccess = false;
+            z zVar = this.asd.arY;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.arV.arR;
-            zVar.Gx = currentTimeMillis - j;
+            j = this.asd.arZ;
+            zVar.Gz = currentTimeMillis - j;
         }
-        this.arV.tK();
+        this.asd.tK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,10 +59,10 @@ public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         n nVar;
         n nVar2;
         super.onCancelled(str);
-        this.arV.stopLoading();
-        nVar = this.arV.arH;
+        this.asd.stopLoading();
+        nVar = this.asd.arP;
         if (nVar != null) {
-            nVar2 = this.arV.arH;
+            nVar2 = this.asd.arP;
             nVar2.onCancel();
         }
     }

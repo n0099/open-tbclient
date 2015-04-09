@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public abstract class a {
-    public static a OC = null;
+    public static a OE = null;
 
     public abstract void a(String str, String str2, String str3, b bVar);
 
@@ -17,13 +17,13 @@ public abstract class a {
     public abstract void p(Activity activity);
 
     public static a pD() {
-        return OC;
+        return OE;
     }
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (OC == null && (runTask = MessageManager.getInstance().runTask(2001300, a.class)) != null && runTask.getData() != null) {
-            OC = (a) runTask.getData();
+        if (OE == null && (runTask = MessageManager.getInstance().runTask(2001300, a.class)) != null && runTask.getData() != null) {
+            OE = (a) runTask.getData();
         }
     }
 }

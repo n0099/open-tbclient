@@ -18,7 +18,7 @@ class an extends com.baidu.adp.framework.listener.e {
         MaskInfo maskInfo;
         if (socketResponsedMessage != null && socketResponsedMessage.getError() == 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && (socketResponsedMessage instanceof ResponseOnlineMessage) && (maskInfo = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) != null) {
             MsgRemindStatic.maskInfo = maskInfo;
-            MsgRemindStatic.agU();
+            MsgRemindStatic.ahj();
         }
     }
 }

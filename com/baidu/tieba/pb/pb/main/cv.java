@@ -1,40 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements DialogInterface.OnKeyListener {
-    final /* synthetic */ ci bMm;
+public class cv implements Animation.AnimationListener {
+    final /* synthetic */ cj bMC;
+    private final /* synthetic */ com.baidu.tieba.pb.a.c bME;
+    private final /* synthetic */ boolean bMF;
+    private final /* synthetic */ String bMG;
+    private final /* synthetic */ String bMH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(ci ciVar) {
-        this.bMm = ciVar;
+    public cv(cj cjVar, com.baidu.tieba.pb.a.c cVar, boolean z, String str, String str2) {
+        this.bMC = cjVar;
+        this.bME = cVar;
+        this.bMF = z;
+        this.bMG = str;
+        this.bMH = str2;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        PbActivity pbActivity;
-        EditText editText;
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity2;
-        if (i == 4) {
-            pbActivity = this.bMm.bIF;
-            Activity pageActivity = pbActivity.getPageContext().getPageActivity();
-            editText = this.bMm.bLm;
-            com.baidu.adp.lib.util.n.c(pageActivity, editText);
-            dialog = this.bMm.bLj;
-            if (dialog instanceof Dialog) {
-                dialog2 = this.bMm.bLj;
-                pbActivity2 = this.bMm.bIF;
-                com.baidu.adp.lib.g.k.b(dialog2, pbActivity2.getPageContext());
-            }
-            return true;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        dh dhVar;
+        com.baidu.tieba.pb.pb.sub.l lVar;
+        dh dhVar2;
+        dhVar = this.bMC.bMa;
+        if (dhVar != null) {
+            dhVar2 = this.bMC.bMa;
+            dhVar2.a(this.bME);
         }
-        return false;
+        if (this.bMF) {
+            lVar = this.bMC.bLz;
+            lVar.aQ(this.bMG, this.bMH);
+        }
     }
 }

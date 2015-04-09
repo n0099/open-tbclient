@@ -1,35 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class bm extends bp<com.baidu.tieba.tbadkCore.c.i, PbRecBaseViewHolder> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bm(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class bm implements Comparator<Integer> {
+    final /* synthetic */ bk bJg;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(bk bkVar) {
+        this.bJg = bkVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: p */
-    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.afo().k(this.mContext, 1);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bp, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.c.i iVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.tbadkCore.c.i) pbRecBaseViewHolder);
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        com.baidu.tieba.tbadkCore.c.i iVar2 = (com.baidu.tieba.tbadkCore.c.i) aA(i);
-        this.bIF.getLayoutMode().X(this.mSkinType == 1);
-        this.bIF.getLayoutMode().h(view);
-        pbRecBaseViewHolder.update(iVar2, i, this.mIsFromCDN);
-        return view;
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(Integer num, Integer num2) {
+        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
     }
 }

@@ -12,16 +12,16 @@ import tbclient.FineFrsPage.FineBanner;
 import tbclient.FineFrsPage.FineFrsPageResIdl;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.b.b, k {
-    private List<a> bXN;
-    private List<EverydayThread> bXO;
+    private List<a> bYc;
+    private List<EverydayThread> bYd;
     private boolean mHasMore;
 
-    public List<a> afF() {
-        return this.bXN;
+    public List<a> afU() {
+        return this.bYc;
     }
 
-    public List<EverydayThread> afG() {
-        return this.bXO;
+    public List<EverydayThread> afV() {
+        return this.bYd;
     }
 
     public boolean getHasMore() {
@@ -42,7 +42,7 @@ public class c implements com.baidu.tbadk.mvc.b.b, k {
         if (message instanceof FineFrsPageResIdl) {
             FineFrsPageResIdl fineFrsPageResIdl = (FineFrsPageResIdl) message;
             if (fineFrsPageResIdl.error.errorno.intValue() == 0 && fineFrsPageResIdl.data != null) {
-                this.bXN = new ArrayList();
+                this.bYc = new ArrayList();
                 List<FineBanner> list = fineFrsPageResIdl.data.fine_banner;
                 if (list != null) {
                     for (FineBanner fineBanner : list) {
@@ -51,20 +51,20 @@ public class c implements com.baidu.tbadk.mvc.b.b, k {
                             if (fineBanner.ftid != null) {
                                 aVar.setFtid(fineBanner.ftid.longValue());
                             }
-                            aVar.ii(fineBanner.pic_url);
-                            aVar.ih(fineBanner.title);
-                            this.bXN.add(aVar);
+                            aVar.il(fineBanner.pic_url);
+                            aVar.ik(fineBanner.title);
+                            this.bYc.add(aVar);
                         }
                     }
                 }
-                this.bXO = fineFrsPageResIdl.data.everyday_thread;
+                this.bYd = fineFrsPageResIdl.data.everyday_thread;
                 this.mHasMore = fineFrsPageResIdl.data.has_more.intValue() == 1;
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Aw() {
+    public byte[] AC() {
         return null;
     }
 

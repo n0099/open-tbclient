@@ -115,7 +115,11 @@ public final class c {
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
             public void a(Intent intent, Intent intent2) {
-                c.g.context.bindService(intent, new ServiceConnectionC0011a(intent2), 1);
+                try {
+                    c.g.context.bindService(intent, new ServiceConnectionC0011a(intent2), 1);
+                } catch (Throwable th) {
+                    L.e(th);
+                }
             }
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
@@ -208,7 +212,11 @@ public final class c {
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
             public void a(Intent intent, Intent intent2) {
-                c.g.context.bindService(intent, new ServiceConnectionC0014a(intent2), 1);
+                try {
+                    c.g.context.bindService(intent, new ServiceConnectionC0014a(intent2), 1);
+                } catch (Throwable th) {
+                    L.e(th);
+                }
             }
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
@@ -309,7 +317,11 @@ public final class c {
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
             public void a(Intent intent, Intent intent2) {
-                c.g.context.bindService(intent, new ServiceConnectionC0009a(intent2), 1);
+                try {
+                    c.g.context.bindService(intent, new ServiceConnectionC0009a(intent2), 1);
+                } catch (Throwable th) {
+                    L.e(th);
+                }
             }
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
@@ -411,7 +423,11 @@ public final class c {
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b
             public void a(Intent intent, Intent intent2) {
-                c.g.context.bindService(intent, new ServiceConnectionC0016a(intent2), 1);
+                try {
+                    c.g.context.bindService(intent, new ServiceConnectionC0016a(intent2), 1);
+                } catch (Throwable th) {
+                    L.e(th);
+                }
             }
 
             @Override // com.baidu.sapi2.share.b.InterfaceC0007b

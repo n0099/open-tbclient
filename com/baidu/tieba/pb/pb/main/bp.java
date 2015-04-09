@@ -1,34 +1,107 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.am;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.location.BDLocationStatusCodes;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public abstract class bp<T, V extends com.baidu.adp.widget.ListView.am> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity bIF;
-    protected boolean mIsFromCDN;
-    protected ListView mListView;
-    protected int mSkinType;
+public class bp {
+    private static bp bJh;
+    private com.baidu.adp.lib.cache.t<byte[]> bJi = null;
+    private com.baidu.adp.lib.cache.t<byte[]> bJj = null;
+    private long bJk = 0;
+    private long bJl = 0;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bp(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        this.bIF = pbActivity;
+    public static synchronized bp ZW() {
+        bp bpVar;
+        synchronized (bp.class) {
+            if (bJh == null) {
+                bJh = new bp();
+            }
+            bpVar = bJh;
+        }
+        return bpVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.mListView = (ListView) viewGroup;
-        return null;
+    private bp() {
+        ZX();
     }
 
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
+    private void ZX() {
+        if (this.bJi == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.bJi = com.baidu.tbadk.core.b.a.rc().bW("tb.pb_mark");
+            this.bJl = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.bJj == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.bJj = com.baidu.tbadk.core.b.a.rc().bW("tb.pb_normal");
+            this.bJk = System.currentTimeMillis() - currentTimeMillis2;
+        }
+    }
+
+    public void w(String str, boolean z) {
+        if (z) {
+            if (this.bJi != null && str != null) {
+                this.bJi.b(str, new byte[0], 0L);
+            }
+        } else if (this.bJj != null && str != null) {
+            this.bJj.b(str, new byte[0], 0L);
+        }
+    }
+
+    public byte[] x(String str, boolean z) {
+        com.baidu.adp.lib.cache.v<byte[]> ab;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.bJi != null && str != null) {
+                ab = this.bJi.ab(str);
+                j = this.bJl;
+            }
+            ab = null;
+        } else {
+            if (this.bJj != null && str != null) {
+                ab = this.bJj.ab(str);
+                j = this.bJk;
+            }
+            ab = null;
+        }
+        if (ab == null || ab.sf == null) {
+            return null;
+        }
+        com.baidu.tbadk.performanceLog.aa aaVar = new com.baidu.tbadk.performanceLog.aa();
+        aaVar.eb(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        aaVar.apD = (System.currentTimeMillis() - currentTimeMillis) + j;
+        aaVar.CM();
+        return ab.sf;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ZX();
+            if (z) {
+                this.bJi.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.bJj.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.aa aaVar = new com.baidu.tbadk.performanceLog.aa();
+            aaVar.eb(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            aaVar.apE = currentTimeMillis2;
+            aaVar.CN();
+        }
+    }
+
+    public void l(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ZX();
+            this.bJi.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.aa aaVar = new com.baidu.tbadk.performanceLog.aa();
+            aaVar.eb(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            aaVar.apE = currentTimeMillis2;
+            aaVar.CN();
+        }
     }
 }

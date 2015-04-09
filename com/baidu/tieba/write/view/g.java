@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.util.bu;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class g implements bu {
-    private final /* synthetic */ AtomicBoolean Rn;
-    final /* synthetic */ f cws;
+    private final /* synthetic */ AtomicBoolean Rp;
+    final /* synthetic */ f cwI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, AtomicBoolean atomicBoolean) {
-        this.cws = fVar;
-        this.Rn = atomicBoolean;
+        this.cwI = fVar;
+        this.Rp = atomicBoolean;
     }
 
     @Override // com.baidu.tbadk.core.util.bu
     public boolean k(View view) {
         if (view instanceof EditText) {
-            this.Rn.set(true);
+            this.Rp.set(true);
             return true;
         }
         return false;

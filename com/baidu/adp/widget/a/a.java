@@ -14,107 +14,107 @@ import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
-    public static final Object Gs = new Object();
-    private volatile boolean Gk;
-    private boolean Gl;
-    private byte[] Gm;
-    private int Gn;
-    private int Go;
-    private AtomicBoolean Gp;
-    private com.baidu.adp.gif.c Gq;
-    private boolean Gr;
-    public Rect Gt;
-    public c Gu;
+    public static final Object Gu = new Object();
+    private volatile boolean Gm;
+    private boolean Gn;
+    private byte[] Go;
+    private int Gp;
+    private int Gq;
+    private AtomicBoolean Gr;
+    private com.baidu.adp.gif.c Gs;
+    private boolean Gt;
+    public Rect Gv;
+    public c Gw;
     private Bitmap tY;
     public long timeStamp;
     private String url;
 
     public a(Bitmap bitmap, boolean z) {
         this.tY = null;
-        this.Gk = false;
-        this.Gl = true;
-        this.Gm = null;
-        this.Gn = -1;
-        this.Go = -1;
-        this.Gp = new AtomicBoolean(false);
-        this.Gr = false;
+        this.Gm = false;
+        this.Gn = true;
+        this.Go = null;
+        this.Gp = -1;
+        this.Gq = -1;
+        this.Gr = new AtomicBoolean(false);
+        this.Gt = false;
         this.timeStamp = -1L;
-        this.Gu = new c();
+        this.Gw = new c();
         this.tY = bitmap;
-        this.Gk = z;
+        this.Gm = z;
     }
 
     public a(Bitmap bitmap, boolean z, String str) {
         this.tY = null;
-        this.Gk = false;
-        this.Gl = true;
-        this.Gm = null;
-        this.Gn = -1;
-        this.Go = -1;
-        this.Gp = new AtomicBoolean(false);
-        this.Gr = false;
+        this.Gm = false;
+        this.Gn = true;
+        this.Go = null;
+        this.Gp = -1;
+        this.Gq = -1;
+        this.Gr = new AtomicBoolean(false);
+        this.Gt = false;
         this.timeStamp = -1L;
-        this.Gu = new c();
+        this.Gw = new c();
         this.tY = bitmap;
-        this.Gk = z;
+        this.Gm = z;
         this.url = str;
     }
 
     public a(Bitmap bitmap, boolean z, String str, Rect rect) {
         this.tY = null;
-        this.Gk = false;
-        this.Gl = true;
-        this.Gm = null;
-        this.Gn = -1;
-        this.Go = -1;
-        this.Gp = new AtomicBoolean(false);
-        this.Gr = false;
+        this.Gm = false;
+        this.Gn = true;
+        this.Go = null;
+        this.Gp = -1;
+        this.Gq = -1;
+        this.Gr = new AtomicBoolean(false);
+        this.Gt = false;
         this.timeStamp = -1L;
-        this.Gu = new c();
+        this.Gw = new c();
         this.tY = bitmap;
-        this.Gk = z;
+        this.Gm = z;
         this.url = str;
-        this.Gt = rect;
+        this.Gv = rect;
     }
 
     public a(Bitmap bitmap, boolean z, String str, byte[] bArr) {
         this.tY = null;
-        this.Gk = false;
-        this.Gl = true;
-        this.Gm = null;
-        this.Gn = -1;
-        this.Go = -1;
-        this.Gp = new AtomicBoolean(false);
-        this.Gr = false;
+        this.Gm = false;
+        this.Gn = true;
+        this.Go = null;
+        this.Gp = -1;
+        this.Gq = -1;
+        this.Gr = new AtomicBoolean(false);
+        this.Gt = false;
         this.timeStamp = -1L;
-        this.Gu = new c();
+        this.Gw = new c();
         this.tY = bitmap;
-        this.Gk = z;
+        this.Gm = z;
         this.url = str;
-        this.Gm = bArr;
+        this.Go = bArr;
     }
 
     public a(com.baidu.adp.gif.c cVar) {
         this.tY = null;
-        this.Gk = false;
-        this.Gl = true;
-        this.Gm = null;
-        this.Gn = -1;
-        this.Go = -1;
-        this.Gp = new AtomicBoolean(false);
-        this.Gr = false;
+        this.Gm = false;
+        this.Gn = true;
+        this.Go = null;
+        this.Gp = -1;
+        this.Gq = -1;
+        this.Gr = new AtomicBoolean(false);
+        this.Gt = false;
         this.timeStamp = -1L;
-        this.Gu = new c();
-        this.Gq = cVar;
-        this.Gr = true;
+        this.Gw = new c();
+        this.Gs = cVar;
+        this.Gt = true;
     }
 
     public boolean mx() {
-        return this.Gr;
+        return this.Gt;
     }
 
     public com.baidu.adp.gif.c getGif() {
-        return this.Gq;
+        return this.Gs;
     }
 
     public int getWidth() {
@@ -133,37 +133,37 @@ public class a {
 
     public void a(Canvas canvas, Matrix matrix, Paint paint) {
         if (this.tY != null) {
-            this.Gp.set(true);
+            this.Gr.set(true);
             canvas.drawBitmap(this.tY, matrix, paint);
-            this.Gp.set(false);
+            this.Gr.set(false);
         }
     }
 
     public void a(Canvas canvas, float f, float f2, Paint paint) {
         if (this.tY != null) {
-            this.Gp.set(true);
+            this.Gr.set(true);
             canvas.drawBitmap(this.tY, f, f2, paint);
-            this.Gp.set(false);
+            this.Gr.set(false);
         }
     }
 
     public void a(Canvas canvas, Rect rect, RectF rectF, Paint paint) {
         if (this.tY != null) {
-            this.Gp.set(true);
+            this.Gr.set(true);
             canvas.drawBitmap(this.tY, rect, rectF, paint);
-            this.Gp.set(false);
+            this.Gr.set(false);
         }
     }
 
     public void a(ImageView imageView) {
         if (imageView != null && this.tY != null) {
-            this.Gl = false;
+            this.Gn = false;
             imageView.setImageBitmap(this.tY);
         }
     }
 
     public boolean fI() {
-        return this.Gk;
+        return this.Gm;
     }
 
     public int size() {
@@ -174,15 +174,15 @@ public class a {
     }
 
     public boolean my() {
-        if (this.Gl && !this.Gp.get()) {
+        if (this.Gn && !this.Gr.get()) {
             if (this.tY != null) {
                 Bitmap bitmap = this.tY;
                 this.tY = null;
                 bitmap.recycle();
             }
-            if (this.Gq != null) {
-                com.baidu.adp.gif.c cVar = this.Gq;
-                this.Gq = null;
+            if (this.Gs != null) {
+                com.baidu.adp.gif.c cVar = this.Gs;
+                this.Gs = null;
                 cVar.close();
             }
             return true;
@@ -191,7 +191,7 @@ public class a {
     }
 
     public Bitmap mz() {
-        this.Gl = false;
+        this.Gn = false;
         return this.tY;
     }
 
@@ -203,7 +203,7 @@ public class a {
         if (this.tY == null) {
             return null;
         }
-        this.Gl = false;
+        this.Gn = false;
         return new b(this, this.tY);
     }
 
@@ -216,7 +216,7 @@ public class a {
         if (this.tY == null) {
             return null;
         }
-        synchronized (Gs) {
+        synchronized (Gu) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             this.tY.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -225,22 +225,22 @@ public class a {
     }
 
     public Rect mD() {
-        return this.Gt;
+        return this.Gv;
     }
 
     public byte[] mE() {
-        return this.Gm;
+        return this.Go;
     }
 
     public BitmapShader mF() {
         if (this.tY == null) {
             return null;
         }
-        this.Gl = false;
+        this.Gn = false;
         return new BitmapShader(this.tY, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
     }
 
     public void N(boolean z) {
-        this.Gp.set(z);
+        this.Gr.set(z);
     }
 }

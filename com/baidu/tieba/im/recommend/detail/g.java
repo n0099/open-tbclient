@@ -6,9 +6,9 @@ import tbclient.Bigvip.UserInfoBigVip;
 public interface g {
     void a(UserInfoBigVip userInfoBigVip, boolean z);
 
-    void cV(boolean z);
+    void cT(boolean z);
 
-    void cW(boolean z);
+    void cU(boolean z);
 
     void onFailed(String str);
 }

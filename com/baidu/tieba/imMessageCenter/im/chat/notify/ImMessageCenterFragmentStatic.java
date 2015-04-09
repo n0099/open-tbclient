@@ -5,10 +5,10 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class ImMessageCenterFragmentStatic {
     static {
-        TW();
+        Uj();
     }
 
-    private static void TW() {
+    private static void Uj() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008002, new n());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

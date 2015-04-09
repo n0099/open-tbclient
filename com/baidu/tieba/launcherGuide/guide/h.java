@@ -7,15 +7,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class h {
-    TextView afx;
-    final /* synthetic */ g bwA;
-    FrameLayout bww;
-    TbImageView bwx;
-    ImageView bwy;
-    RelativeLayout bwz;
+    TextView afF;
+    FrameLayout bwM;
+    TbImageView bwN;
+    ImageView bwO;
+    RelativeLayout bwP;
+    final /* synthetic */ g bwQ;
 
     private h(g gVar) {
-        this.bwA = gVar;
+        this.bwQ = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

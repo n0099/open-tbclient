@@ -1,9 +1,9 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 class i {
-    public int afY;
-    public boolean afZ;
-    public long aga;
+    public int agg;
+    public boolean agh;
+    public long agi;
 
     private i() {
     }
@@ -14,18 +14,18 @@ class i {
     }
 
     public void reset() {
-        this.afY = 0;
-        if (this.afZ) {
-            this.afZ = false;
-            this.aga = 0L;
+        this.agg = 0;
+        if (this.agh) {
+            this.agh = false;
+            this.agi = 0L;
         }
     }
 
     public void onError(int i) {
-        this.afY++;
-        if (!this.afZ && this.afY >= i) {
-            this.afZ = true;
-            this.aga = System.currentTimeMillis();
+        this.agg++;
+        if (!this.agh && this.agg >= i) {
+            this.agh = true;
+            this.agi = System.currentTimeMillis();
         }
     }
 }

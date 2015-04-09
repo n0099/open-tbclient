@@ -8,11 +8,11 @@ import com.baidu.tieba.s;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.plugin.packageManager.i {
-    final /* synthetic */ PluginDetailActivity bUv;
+    final /* synthetic */ PluginDetailActivity bUL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginDetailActivity pluginDetailActivity) {
-        this.bUv = pluginDetailActivity;
+        this.bUL = pluginDetailActivity;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.i
@@ -24,15 +24,15 @@ class c implements com.baidu.adp.plugin.packageManager.i {
         TextView textView3;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bUv.bUu;
+            pluginConfig = this.bUL.bUK;
             if (id.equals(pluginConfig.package_name)) {
-                z = this.bUv.mFinished;
+                z = this.bUL.mFinished;
                 if (!z) {
-                    textView = this.bUv.bUs;
+                    textView = this.bUL.bUI;
                     ba.b(textView, s.cp_cont_d, 1);
-                    textView2 = this.bUv.bUs;
-                    textView2.setText(this.bUv.getPageContext().getResources().getString(y.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    textView3 = this.bUv.bUs;
+                    textView2 = this.bUL.bUI;
+                    textView2.setText(this.bUL.getPageContext().getResources().getString(y.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                    textView3 = this.bUL.bUI;
                     textView3.setEnabled(false);
                 }
             }
@@ -46,13 +46,13 @@ class c implements com.baidu.adp.plugin.packageManager.i {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bUv.bUu;
+            pluginConfig = this.bUL.bUK;
             if (id.equals(pluginConfig.package_name)) {
-                textView = this.bUv.bUs;
-                textView.setText(this.bUv.getPageContext().getString(y.plugin_download_finished));
-                textView2 = this.bUv.bUs;
+                textView = this.bUL.bUI;
+                textView.setText(this.bUL.getPageContext().getString(y.plugin_download_finished));
+                textView2 = this.bUL.bUI;
                 textView2.setEnabled(false);
-                this.bUv.mFinished = true;
+                this.bUL.mFinished = true;
             }
         }
     }
@@ -62,11 +62,11 @@ class c implements com.baidu.adp.plugin.packageManager.i {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bUv.bUu;
+            pluginConfig = this.bUL.bUK;
             if (id.equals(pluginConfig.package_name)) {
-                this.bUv.showToast(bdFileDownloadData.getStatusMsg());
-                this.bUv.aet();
-                this.bUv.mFinished = true;
+                this.bUL.showToast(bdFileDownloadData.getStatusMsg());
+                this.bUL.aeI();
+                this.bUL.mFinished = true;
             }
         }
     }
@@ -74,11 +74,11 @@ class c implements com.baidu.adp.plugin.packageManager.i {
     @Override // com.baidu.adp.plugin.packageManager.i
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
-            this.bUv.showToast(this.bUv.getPageContext().getString(y.plugin_installation_finished));
-            this.bUv.aet();
+            this.bUL.showToast(this.bUL.getPageContext().getString(y.plugin_installation_finished));
+            this.bUL.aeI();
             return;
         }
-        this.bUv.showToast(String.valueOf(this.bUv.getPageContext().getString(y.plugin_installation_failed)) + str);
-        this.bUv.aet();
+        this.bUL.showToast(String.valueOf(this.bUL.getPageContext().getString(y.plugin_installation_failed)) + str);
+        this.bUL.aeI();
     }
 }

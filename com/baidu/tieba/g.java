@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.view.InflateException;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -9,11 +10,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class g implements Runnable {
-    final /* synthetic */ LogoActivity atC;
+    final /* synthetic */ LogoActivity atK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(LogoActivity logoActivity) {
-        this.atC = logoActivity;
+        this.atK = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -31,50 +32,50 @@ class g implements Runnable {
         AlphaAnimation alphaAnimation2;
         Animation.AnimationListener animationListener2;
         n nVar = new n();
-        this.atC.mBitmap = nVar.am(this.atC.getPageContext().getPageActivity());
-        LogoActivity logoActivity = this.atC;
-        bitmap = this.atC.mBitmap;
+        this.atK.mBitmap = nVar.am(this.atK.getPageContext().getPageActivity());
+        LogoActivity logoActivity = this.atK;
+        bitmap = this.atK.mBitmap;
         i = logoActivity.i(bitmap);
         if (i != null) {
-            imageView3 = this.atC.atv;
+            imageView3 = this.atK.atD;
             if (imageView3 != null) {
-                imageView4 = this.atC.atv;
-                bitmap2 = this.atC.mBitmap;
+                imageView4 = this.atK.atD;
+                bitmap2 = this.atK.mBitmap;
                 imageView4.setImageBitmap(bitmap2);
-                LogoActivity logoActivity2 = this.atC;
-                imageView5 = this.atC.atv;
-                alphaAnimation2 = this.atC.atw;
-                animationListener2 = this.atC.atx;
+                LogoActivity logoActivity2 = this.atK;
+                imageView5 = this.atK.atD;
+                alphaAnimation2 = this.atK.atE;
+                animationListener2 = this.atK.atF;
                 logoActivity2.startAnimation(imageView5, alphaAnimation2, animationListener2);
                 return;
             }
         }
         try {
-            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.atC.getPageContext().getPageActivity(), w.custom_logo_view, null);
+            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.atK.getPageContext().getPageActivity(), w.custom_logo_view, null);
             if (inflate != null) {
-                imageView = this.atC.atv;
+                imageView = this.atK.atD;
                 if (imageView != null) {
-                    imageView2 = this.atC.atv;
+                    imageView2 = this.atK.atD;
                     ViewGroup viewGroup = (ViewGroup) imageView2.getParent();
                     viewGroup.removeAllViews();
                     viewGroup.addView(inflate);
                 } else {
-                    ViewGroup viewGroup2 = (ViewGroup) this.atC.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) this.atK.getWindow().getDecorView();
                     if (viewGroup2 != null) {
                         viewGroup2.removeAllViews();
                         viewGroup2.addView(inflate);
                     }
                 }
-                LogoActivity logoActivity3 = this.atC;
-                alphaAnimation = this.atC.atw;
-                animationListener = this.atC.atx;
+                LogoActivity logoActivity3 = this.atK;
+                alphaAnimation = this.atK.atE;
+                animationListener = this.atK.atF;
                 logoActivity3.startAnimation(inflate, alphaAnimation, animationListener);
                 return;
             }
-            this.atC.al(this.atC.getBaseContext());
-        } catch (OutOfMemoryError e) {
+            this.atK.al(this.atK.getBaseContext());
+        } catch (InflateException e) {
             TbadkCoreApplication.m411getInst().onLowMemory();
-            this.atC.al(this.atC.getBaseContext());
+            this.atK.al(this.atK.getBaseContext());
         }
     }
 }

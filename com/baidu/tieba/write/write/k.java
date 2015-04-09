@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements TextWatcher {
-    final /* synthetic */ AtListActivity cwI;
+    final /* synthetic */ AtListActivity cxb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(AtListActivity atListActivity) {
-        this.cwI = atListActivity;
+        this.cxb = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -25,28 +25,28 @@ public class k implements TextWatcher {
         Runnable runnable2;
         String a = com.baidu.adp.lib.util.m.a(editable, null);
         if (a != null) {
-            str = this.cwI.cwC;
+            str = this.cxb.cwV;
             if (!a.equals(str)) {
-                handler = this.cwI.mHandler;
-                runnable = this.cwI.cwH;
+                handler = this.cxb.mHandler;
+                runnable = this.cxb.cxa;
                 handler.removeCallbacks(runnable);
-                handler2 = this.cwI.mHandler;
-                runnable2 = this.cwI.cwH;
+                handler2 = this.cxb.mHandler;
+                runnable2 = this.cxb.cxa;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                textView2 = this.cwI.cww;
+                textView2 = this.cxb.cwP;
                 textView2.setVisibility(0);
                 return;
             }
-            textView = this.cwI.cww;
+            textView = this.cxb.cwP;
             textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.cwI.cwC = com.baidu.adp.lib.util.m.a(charSequence, null);
+        this.cxb.cwV = com.baidu.adp.lib.util.m.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher

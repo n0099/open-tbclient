@@ -4,11 +4,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.core.message.b {
-    final /* synthetic */ d csd;
+    final /* synthetic */ d cst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.csd = dVar;
+        this.cst = dVar;
     }
 
     @Override // com.baidu.tbadk.core.message.b
@@ -25,10 +25,10 @@ public class l implements com.baidu.tbadk.core.message.b {
                 }
             }
         }
-        dVar = this.csd.csa;
+        dVar = this.cst.csq;
         if (dVar != null && aVar != null) {
-            dVar2 = this.csd.csa;
-            this.csd.mView = ((b) dVar2.z(aVar)).aot();
+            dVar2 = this.cst.csq;
+            this.cst.mView = ((b) dVar2.z(aVar)).aoI();
         }
     }
 }

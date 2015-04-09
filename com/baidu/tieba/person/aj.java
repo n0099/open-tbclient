@@ -22,28 +22,28 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class aj extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
     public BdListView mListView = null;
-    private ar bPX = null;
-    private View bPv = null;
+    private ar bQn = null;
+    private View bPL = null;
     private com.baidu.tbadk.core.view.s mNoDataView = null;
     private com.baidu.tbadk.core.view.ag mPullView = null;
-    private at bPW = null;
-    private int bPB = 0;
-    int bPY = 0;
+    private at bQm = null;
+    private int bPR = 0;
+    int bQo = 0;
     private boolean mIsHost = true;
-    private com.baidu.tieba.person.a.a bPZ = null;
-    private boolean bQa = true;
-    private boolean bQb = false;
+    private com.baidu.tieba.person.a.a bQp = null;
+    private boolean bQq = true;
+    private boolean bQr = false;
     private int pageNum = 0;
     private int resNum = 20;
-    private final CustomMessageListener bQc = new ak(this, 2001186);
-    private HttpMessageListener bQd = new al(this, 1002000);
+    private final CustomMessageListener bQs = new ak(this, 2001186);
+    private HttpMessageListener bQt = new al(this, 1002000);
 
     static {
         com.baidu.tieba.tbadkCore.a.a.b(2001186, bq.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonFriendActivity adb() {
+    public PersonFriendActivity adq() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonFriendActivity) {
             return (PersonFriendActivity) baseFragmentActivity;
@@ -55,27 +55,27 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
     public void onResume() {
         super.onResume();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        if (adb() != null) {
-            this.bPW = adb().ada();
+        if (adq() != null) {
+            this.bQm = adq().adp();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.bPX != null) {
-            this.bPX.WK();
-            this.bPX = null;
+        if (this.bQn != null) {
+            this.bQn.WU();
+            this.bQn = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.bQd);
-        MessageManager.getInstance().unRegisterListener(this.bQc);
+        MessageManager.getInstance().unRegisterListener(this.bQt);
+        MessageManager.getInstance().unRegisterListener(this.bQs);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.bQd);
-        registerListener(this.bQc);
+        registerListener(this.bQt);
+        registerListener(this.bQs);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -96,9 +96,9 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.bPX != null) {
-            this.bPX.WK();
-            this.bPX = null;
+        if (this.bQn != null) {
+            this.bQn.WU();
+            this.bQn = null;
         }
         super.onDestroy();
     }
@@ -106,63 +106,63 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         String str;
-        this.bPB = getArguments().getInt("page_type", 0);
+        this.bPR = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(com.baidu.tieba.w.friend_fragment, viewGroup, false);
-        this.bPX = new ar(adb(), adb().SR(), this.bPB, new am(this), new an(this));
+        this.bQn = new ar(adq(), adq().Te(), this.bPR, new am(this), new an(this));
         this.mListView = (BdListView) inflate.findViewById(com.baidu.tieba.v.my_friend_list);
         this.mListView.setOnItemClickListener(new ao(this));
-        this.mListView.setAdapter((ListAdapter) this.bPX);
-        this.mPullView = new com.baidu.tbadk.core.view.ag(adb().getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.bQn);
+        this.mPullView = new com.baidu.tbadk.core.view.ag(adq().getPageContext());
         this.mPullView.a(new ap(this));
         this.mListView.setPullRefresh(this.mPullView);
-        this.mIsHost = adb().SR();
-        if (adb() == null) {
+        this.mIsHost = adq().Te();
+        if (adq() == null) {
             str = null;
         } else if (this.mIsHost) {
             str = String.format(getString(com.baidu.tieba.y.person_friend_no_personal_info), getString(com.baidu.tieba.y.you));
-        } else if (this.bPB == 0) {
-            str = String.format(getString(com.baidu.tieba.y.person_friend_no_personal_info), adb().SQ());
+        } else if (this.bPR == 0) {
+            str = String.format(getString(com.baidu.tieba.y.person_friend_no_personal_info), adq().Td());
         } else {
             str = getString(com.baidu.tieba.y.person_friend_no_common_info);
         }
         this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.v.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.w.cZ(str), null);
-        this.bPv = inflate.findViewById(com.baidu.tieba.v.friend_fragment_parent);
+        this.bPL = inflate.findViewById(com.baidu.tieba.v.friend_fragment_parent);
         this.mListView.setOnSrollToBottomListener(new aq(this));
-        if (adb() != null) {
-            this.bPW = adb().ada();
+        if (adq() != null) {
+            this.bQm = adq().adp();
             if (this.mIsHost) {
-                FY();
+                Ge();
             }
         }
-        if (this.bPB == adb().SP()) {
+        if (this.bPR == adq().Tc()) {
             this.pageNum = 0;
             this.mListView.mX();
         }
         return inflate;
     }
 
-    public void FY() {
-        if (this.bPW != null) {
-            this.bPW.FY();
+    public void Ge() {
+        if (this.bQm != null) {
+            this.bQm.Ge();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adc() {
-        if (this.bPX != null) {
-            this.bPX.ef(true);
-            this.bPX.notifyDataSetChanged();
+    public void adr() {
+        if (this.bQn != null) {
+            this.bQn.ed(true);
+            this.bQn.notifyDataSetChanged();
         }
-        this.pageNum = this.bPW.getData().XE().qj() + 1;
-        this.bPW.a(this.mIsHost, this.bPW.getId(), this.pageNum, this.resNum);
+        this.pageNum = this.bQm.getData().XQ().qj() + 1;
+        this.bQm.a(this.mIsHost, this.bQm.getId(), this.pageNum, this.resNum);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void add() {
+    public void ads() {
         UserData userData;
-        if (this.bPX != null && this.bPX.getItemViewType(this.bPY) == 0 && (userData = (UserData) this.bPX.getItem(this.bPY)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            TiebaStatic.eventStat(adb().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
-            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(adb().getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+        if (this.bQn != null && this.bQn.getItemViewType(this.bQo) == 0 && (userData = (UserData) this.bQn.getItem(this.bQo)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            TiebaStatic.eventStat(adq().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
+            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(adq().getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
         }
     }
 
@@ -170,8 +170,8 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.bPv != null && getBaseFragmentActivity() != null) {
-                getBaseFragmentActivity().getPageContext().getLayoutMode().h(this.bPv);
+            if (this.bPL != null && getBaseFragmentActivity() != null) {
+                getBaseFragmentActivity().getPageContext().getLayoutMode().h(this.bPL);
             }
             if (this.mNoDataView != null) {
                 com.baidu.tbadk.core.util.ba.i(this.mNoDataView, com.baidu.tieba.s.cp_bg_line_d);
@@ -186,26 +186,26 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
         com.baidu.tieba.person.a.a aVar2;
         if (aVar != null) {
             this.mListView.mW();
-            if (this.bPW != null && adb() != null) {
+            if (this.bQm != null && adq() != null) {
                 if (!z) {
-                    if (this.bQa) {
-                        this.bQa = false;
-                        if (this.bPB == adb().SP()) {
-                            this.bPW.setData(aVar);
+                    if (this.bQq) {
+                        this.bQq = false;
+                        if (this.bPR == adq().Tc()) {
+                            this.bQm.setData(aVar);
                             aVar2 = aVar;
                         }
                     } else {
-                        if (this.bPB == adb().SP()) {
+                        if (this.bPR == adq().Tc()) {
                             a(aVar);
                         }
-                        aVar2 = this.bPW.getData();
+                        aVar2 = this.bQm.getData();
                     }
-                    this.bPZ = aVar2;
+                    this.bQp = aVar2;
                     b(aVar2);
                     c(aVar);
                 }
                 aVar2 = aVar;
-                this.bPZ = aVar2;
+                this.bQp = aVar2;
                 b(aVar2);
                 c(aVar);
             }
@@ -213,51 +213,51 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
     }
 
     public void a(com.baidu.tieba.person.a.a aVar) {
-        if (aVar != null && this.bPW != null) {
-            this.bPW.getData().adm().addAll(aVar.adm());
-            this.bPW.getData().adn().addAll(aVar.adn());
-            this.bPW.getData().b(aVar.XE());
+        if (aVar != null && this.bQm != null) {
+            this.bQm.getData().adB().addAll(aVar.adB());
+            this.bQm.getData().adC().addAll(aVar.adC());
+            this.bQm.getData().b(aVar.XQ());
         }
     }
 
     private void b(com.baidu.tieba.person.a.a aVar) {
         boolean z = true;
-        if (this.bPX != null) {
+        if (this.bQn != null) {
             if (aVar != null) {
-                com.baidu.tbadk.core.data.q XE = aVar.XE();
-                if (this.bPB == 0) {
-                    ar arVar = this.bPX;
-                    if (XE == null || XE.ql() != 1) {
+                com.baidu.tbadk.core.data.q XQ = aVar.XQ();
+                if (this.bPR == 0) {
+                    ar arVar = this.bQn;
+                    if (XQ == null || XQ.ql() != 1) {
                         z = false;
                     }
                     arVar.setHasMore(z);
-                    this.bPX.p(aVar.adm());
+                    this.bQn.p(aVar.adB());
                 } else {
-                    if (aVar.adn().size() < this.resNum) {
-                        this.bPX.setHasMore(false);
+                    if (aVar.adC().size() < this.resNum) {
+                        this.bQn.setHasMore(false);
                     } else {
-                        this.bPX.setHasMore(true);
+                        this.bQn.setHasMore(true);
                     }
-                    this.bPX.p(aVar.adn());
+                    this.bQn.p(aVar.adC());
                 }
-                this.bPX.ef(false);
-                this.bPX.XU();
-                this.bPX.notifyDataSetChanged();
+                this.bQn.ed(false);
+                this.bQn.Yg();
+                this.bQn.notifyDataSetChanged();
                 return;
             }
-            this.bPX.setHasMore(false);
-            this.bPX.p(new ArrayList<>());
-            this.bPX.ef(false);
-            this.bPX.XU();
-            this.bPX.notifyDataSetChanged();
+            this.bQn.setHasMore(false);
+            this.bQn.p(new ArrayList<>());
+            this.bQn.ed(false);
+            this.bQn.Yg();
+            this.bQn.notifyDataSetChanged();
         }
     }
 
     private void c(com.baidu.tieba.person.a.a aVar) {
-        if (adb() != null && this.bPW != null) {
-            if (this.bPB == 0) {
-                if (this.bPW.getData().adm().size() == 0) {
-                    if (this.bPZ != null && this.bPZ.adm().size() > 0) {
+        if (adq() != null && this.bQm != null) {
+            if (this.bPR == 0) {
+                if (this.bQm.getData().adB().size() == 0) {
+                    if (this.bQp != null && this.bQp.adB().size() > 0) {
                         this.mNoDataView.setVisibility(8);
                         this.mListView.setVisibility(0);
                     } else {
@@ -268,8 +268,8 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
                     this.mNoDataView.setVisibility(8);
                     this.mListView.setVisibility(0);
                 }
-            } else if (this.bPW.getData().adn().size() == 0) {
-                if (this.bPZ != null && this.bPZ.adn().size() > 0) {
+            } else if (this.bQm.getData().adC().size() == 0) {
+                if (this.bQp != null && this.bQp.adC().size() > 0) {
                     this.mNoDataView.setVisibility(8);
                     this.mListView.setVisibility(0);
                 } else {
@@ -280,7 +280,7 @@ public class aj extends BaseFragment implements View.OnClickListener, AdapterVie
                 this.mNoDataView.setVisibility(8);
                 this.mListView.setVisibility(0);
             }
-            adb().R(this.bPW.getData().getFriendNum(), this.bPW.getData().ado());
+            adq().R(this.bQm.getData().getFriendNum(), this.bQm.getData().adD());
         }
     }
 }

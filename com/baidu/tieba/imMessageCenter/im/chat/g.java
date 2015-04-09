@@ -11,13 +11,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity boY;
+    final /* synthetic */ PersonalChatActivity bpo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.boY = personalChatActivity;
+        this.bpo = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,36 +46,36 @@ class g extends CustomMessageListener {
                         JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
                         if (optJSONObject != null) {
                             long optLong = optJSONObject.optLong("user_id");
-                            personalMsglistModel = this.boY.boR;
+                            personalMsglistModel = this.bpo.bph;
                             if (optLong == com.baidu.adp.lib.g.c.a(personalMsglistModel.getUser().getUserId(), 0L)) {
                                 String optString = optJSONObject.optString("message");
                                 if (cmd.equals("apply_new_friend")) {
-                                    personalChatView6 = this.boY.boS;
+                                    personalChatView6 = this.bpo.bpi;
                                     personalChatView6.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                                    personalMsglistModel7 = this.boY.boR;
+                                    personalMsglistModel7 = this.bpo.bph;
                                     personalMsglistModel7.setCardStatus(PersonalMsglistModel.CardStatus.AGREE);
                                 } else if (cmd.equals("passed_new_friend")) {
-                                    personalChatView4 = this.boY.boS;
+                                    personalChatView4 = this.bpo.bpi;
                                     personalChatView4.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel5 = this.boY.boR;
+                                    personalMsglistModel5 = this.bpo.bph;
                                     personalMsglistModel5.setCardStatus(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel6 = this.boY.boR;
+                                    personalMsglistModel6 = this.bpo.bph;
                                     personalMsglistModel6.setIsFriend(1);
-                                    personalChatView5 = this.boY.boS;
+                                    personalChatView5 = this.bpo.bpi;
                                     personalChatView5.getBtnGroupInfo().setVisibility(0);
                                 } else if (cmd.equals("apply_add_friend")) {
-                                    personalChatView3 = this.boY.boS;
+                                    personalChatView3 = this.bpo.bpi;
                                     personalChatView3.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                                    personalMsglistModel4 = this.boY.boR;
+                                    personalMsglistModel4 = this.bpo.bph;
                                     personalMsglistModel4.setCardStatus(PersonalMsglistModel.CardStatus.WAIT);
                                 } else if (cmd.equals("apply_pass_friend")) {
-                                    personalChatView = this.boY.boS;
+                                    personalChatView = this.bpo.bpi;
                                     personalChatView.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel2 = this.boY.boR;
+                                    personalMsglistModel2 = this.bpo.bph;
                                     personalMsglistModel2.setCardStatus(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel3 = this.boY.boR;
+                                    personalMsglistModel3 = this.bpo.bph;
                                     personalMsglistModel3.setIsFriend(1);
-                                    personalChatView2 = this.boY.boS;
+                                    personalChatView2 = this.bpo.bpi;
                                     personalChatView2.getBtnGroupInfo().setVisibility(0);
                                 }
                             }

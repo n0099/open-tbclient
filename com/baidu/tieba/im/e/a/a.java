@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.a> {
-    private com.baidu.tieba.im.settingcache.a bnk;
+    private com.baidu.tieba.im.settingcache.a bnA;
     private int mCmd;
 
     public a(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.bnk = aVar;
+        this.bnA = aVar;
         this.mCmd = i;
     }
 
@@ -21,7 +21,7 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.mCmd);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            return gn(this.mCmd);
+            return gp(this.mCmd);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
@@ -30,9 +30,9 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         com.baidu.tieba.im.message.a data = loadDraftMessage.getData();
-        com.baidu.tieba.im.pushNotify.a aE = this.bnk.aE(str, data.id);
+        com.baidu.tieba.im.pushNotify.a aE = this.bnA.aE(str, data.id);
         if (aE == null) {
-            return gn(loadDraftMessage.getCmd());
+            return gp(loadDraftMessage.getCmd());
         }
         String draft = aE.getDraft();
         com.baidu.tieba.im.message.b bVar = new com.baidu.tieba.im.message.b();
@@ -46,7 +46,7 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
         return loadDraftResponsedMessage;
     }
 
-    private LoadDraftResponsedMessage gn(int i) {
+    private LoadDraftResponsedMessage gp(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
         loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;

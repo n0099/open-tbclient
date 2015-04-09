@@ -17,6 +17,6 @@ class f extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         this.this$0.mHasNewVersion = false;
-        this.this$0.eU(false);
+        this.this$0.eS(false);
     }
 }

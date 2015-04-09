@@ -4,16 +4,16 @@ import android.app.PendingIntent;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class m implements v {
-    final /* synthetic */ SignAllForumActivity cdX;
+    final /* synthetic */ SignAllForumActivity cem;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SignAllForumActivity signAllForumActivity) {
-        this.cdX = signAllForumActivity;
+        this.cem = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.v
-    public void gy(String str) {
-        this.cdX.ik(str);
+    public void gB(String str) {
+        this.cem.in(str);
     }
 
     @Override // com.baidu.tieba.signall.v
@@ -24,42 +24,42 @@ class m implements v {
         ae aeVar3;
         com.baidu.tbadk.core.dialog.a aVar;
         boolean z2;
-        a ain = sVar.ain();
-        if (ain != null && ain.getErrorNumber() == 0) {
-            aeVar = this.cdX.cdP;
-            c aiX = aeVar.aiX();
-            aiX.a(sVar);
-            z = this.cdX.cdS;
+        a aiC = sVar.aiC();
+        if (aiC != null && aiC.getErrorNumber() == 0) {
+            aeVar = this.cem.cee;
+            c ajm = aeVar.ajm();
+            ajm.a(sVar);
+            z = this.cem.ceh;
             if (z) {
-                Intent intent = new Intent(this.cdX.getPageContext().getPageActivity(), SignAllForumActivity.class);
+                Intent intent = new Intent(this.cem.getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                this.cdX.a(this.cdX.getPageContext().getPageActivity().getString(com.baidu.tieba.y.signallforum_back_finish, new Object[]{Integer.valueOf(aiX.aiu()), Integer.valueOf(aiX.aiv())}), PendingIntent.getActivity(this.cdX.getPageContext().getPageActivity(), 0, intent, 134217728), false);
-                z2 = this.cdX.cdT;
+                this.cem.a(this.cem.getPageContext().getPageActivity().getString(com.baidu.tieba.y.signallforum_back_finish, new Object[]{Integer.valueOf(ajm.aiJ()), Integer.valueOf(ajm.aiK())}), PendingIntent.getActivity(this.cem.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                z2 = this.cem.cei;
                 if (z2) {
                     return;
                 }
             }
-            aeVar2 = this.cdX.cdP;
-            aeVar2.aiY().notifyDataSetChanged();
-            aeVar3 = this.cdX.cdP;
-            x aiV = aeVar3.aiV();
-            if (!aiX.ait()) {
-                if (sVar.aiK() == 0) {
-                    if (sVar.aiM() != 0) {
-                        this.cdX.showToast(sVar.aiN());
+            aeVar2 = this.cem.cee;
+            aeVar2.ajn().notifyDataSetChanged();
+            aeVar3 = this.cem.cee;
+            x ajk = aeVar3.ajk();
+            if (!ajm.aiI()) {
+                if (sVar.aiZ() == 0) {
+                    if (sVar.ajb() != 0) {
+                        this.cem.showToast(sVar.ajc());
                     } else {
-                        this.cdX.showToast(com.baidu.tieba.y.signallforum_error);
+                        this.cem.showToast(com.baidu.tieba.y.signallforum_error);
                     }
                 } else {
-                    this.cdX.il(sVar.ail());
-                    aVar = this.cdX.Lr;
+                    this.cem.io(sVar.aiA());
+                    aVar = this.cem.Lt;
                     aVar.re();
                 }
             }
-            aiV.aiR();
+            ajk.ajg();
             return;
         }
-        this.cdX.ik(ain.getUserMsg());
+        this.cem.in(aiC.getUserMsg());
     }
 }

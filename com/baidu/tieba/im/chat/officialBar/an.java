@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class an implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ am aZF;
-    private final /* synthetic */ ImMessageCenterShowItemData aZG;
+    final /* synthetic */ am aZV;
+    private final /* synthetic */ ImMessageCenterShowItemData aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aZF = amVar;
-        this.aZG = imMessageCenterShowItemData;
+        this.aZV = amVar;
+        this.aZW = imMessageCenterShowItemData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -21,11 +21,11 @@ class an implements com.baidu.tbadk.core.dialog.h {
         OfficialBarTipActivity officialBarTipActivity2;
         com.baidu.tieba.im.chat.notify.a aVar;
         eVar.dismiss();
-        officialBarTipActivity = this.aZF.aZE;
-        officialBarTipModel = officialBarTipActivity.aZA;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aZG;
-        officialBarTipActivity2 = this.aZF.aZE;
-        aVar = officialBarTipActivity2.aZD;
+        officialBarTipActivity = this.aZV.aZU;
+        officialBarTipModel = officialBarTipActivity.aZQ;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aZW;
+        officialBarTipActivity2 = this.aZV.aZU;
+        aVar = officialBarTipActivity2.aZT;
         officialBarTipModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

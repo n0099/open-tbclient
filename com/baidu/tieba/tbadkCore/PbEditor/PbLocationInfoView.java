@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect cmU;
+    private Rect cnk;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -23,14 +23,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.cmU = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
+        this.cnk = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
         A(0, null);
         rk();
     }
 
     public void rk() {
         setTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_c));
-        alM();
+        amb();
     }
 
     public void A(int i, String str) {
@@ -51,18 +51,18 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        alM();
+        amb();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void alM() {
+    public void amb() {
         if (this.mState == 1) {
             Drawable drawable = ba.getDrawable(com.baidu.tieba.u.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.cmU);
+                drawable.setBounds(this.cnk);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) com.baidu.adp.base.m.C(getContext()), (Animatable) drawable);
@@ -70,7 +70,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = ba.getDrawable(com.baidu.tieba.u.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.cmU);
+            drawable2.setBounds(this.cnk);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

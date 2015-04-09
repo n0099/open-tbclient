@@ -16,10 +16,10 @@ import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
-    private OfficialBarTipModel aZA;
-    private ap aZB;
-    private final CustomMessageListener aZC = new aj(this, 0);
-    private com.baidu.tieba.im.chat.notify.a aZD = new ak(this);
+    private OfficialBarTipModel aZQ;
+    private ap aZR;
+    private final CustomMessageListener aZS = new aj(this, 0);
+    private com.baidu.tieba.im.chat.notify.a aZT = new ak(this);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -30,17 +30,17 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aZC);
-        registerListener(2016006, this.aZC);
-        registerListener(2016000, this.aZC);
-        registerListener(2016011, this.aZC);
-        registerListener(2016001, this.aZC);
+        registerListener(2016003, this.aZS);
+        registerListener(2016006, this.aZS);
+        registerListener(2016000, this.aZS);
+        registerListener(2016011, this.aZS);
+        registerListener(2016001, this.aZS);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aZB.Of().notifyDataSetChanged();
+        this.aZR.Os().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1000", -8)));
     }
 
@@ -50,7 +50,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initData() {
-        this.aZA = new OfficialBarTipModel(getPageContext());
+        this.aZQ = new OfficialBarTipModel(getPageContext());
     }
 
     @Override // android.app.Activity
@@ -73,14 +73,14 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     private void initUI() {
-        this.aZB = new ap(this);
-        this.aZB.getBdListView().setOnItemClickListener(new al(this));
-        this.aZB.getBdListView().setOnItemLongClickListener(new am(this));
+        this.aZR = new ap(this);
+        this.aZR.getBdListView().setOnItemClickListener(new al(this));
+        this.aZR.getBdListView().setOnItemLongClickListener(new am(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aZB.onChangeSkinType(i);
+        this.aZR.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,11 +96,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.aZA != null) {
-                    this.aZA.insertOrUpdate(data, this.aZD);
+                if (this.aZQ != null) {
+                    this.aZQ.insertOrUpdate(data, this.aZT);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.aZA != null) {
-                this.aZA.remove(data, this.aZD);
+            } else if (memoryChangedMessage.getType() == 2 && this.aZQ != null) {
+                this.aZQ.remove(data, this.aZT);
             }
         }
     }
@@ -110,8 +110,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.aZA != null) {
-                this.aZA.setData(data, this.aZD);
+            if (responsedMemoryListMessage.getType() == 2 && this.aZQ != null) {
+                this.aZQ.setData(data, this.aZT);
             }
         }
     }

@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
-    final /* synthetic */ ab auc;
+    final /* synthetic */ ab auk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ab abVar) {
-        this.auc = abVar;
+        this.auk = abVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,10 +16,10 @@ class ad implements View.OnClickListener {
         TextView textView;
         ag agVar;
         boolean z;
-        textView = this.auc.atS;
+        textView = this.auk.aua;
         textView.setEnabled(false);
-        agVar = this.auc.atZ;
-        z = this.auc.atH;
+        agVar = this.auk.auh;
+        z = this.auk.atP;
         agVar.bj(z);
     }
 }

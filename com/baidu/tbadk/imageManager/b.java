@@ -5,11 +5,11 @@ import android.content.Context;
 public interface b {
     c D(Context context, String str);
 
-    int ea(String str);
+    int ed(String str);
 
-    int eb(String str);
+    int ee(String str);
 
-    String ec(String str);
+    String ef(String str);
 
-    int yz();
+    int yF();
 }

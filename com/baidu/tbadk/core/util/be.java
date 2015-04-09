@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class be {
-    private static be Vu = null;
-    private boolean Vv = false;
-    private boolean Vw = false;
-    private int Vx = TbConfig.POST_IMAGE_SMALL;
-    private String Vy = String.valueOf(45);
+    private static be Vw = null;
+    private boolean Vx = false;
+    private boolean Vy = false;
+    private int Vz = TbConfig.POST_IMAGE_SMALL;
+    private String VA = String.valueOf(45);
 
     public static be sY() {
-        if (Vu == null) {
+        if (Vw == null) {
             synchronized (be.class) {
-                Vu = new be();
+                Vw = new be();
             }
         }
-        return Vu;
+        return Vw;
     }
 
     public be() {
@@ -30,38 +30,38 @@ public class be {
     }
 
     public void ah(boolean z) {
-        this.Vw = z;
+        this.Vy = z;
     }
 
     public boolean ta() {
-        return this.Vw;
+        return this.Vy;
     }
 
     public void ai(boolean z) {
-        this.Vv = z;
+        this.Vx = z;
         sZ();
     }
 
     private void tb() {
-        this.Vv = com.baidu.adp.lib.util.k.iI();
+        this.Vx = com.baidu.adp.lib.util.k.iI();
     }
 
     public boolean tc() {
-        return this.Vv;
+        return this.Vx;
     }
 
     public String td() {
-        return this.Vy;
+        return this.VA;
     }
 
     public int te() {
         th();
-        return this.Vx;
+        return this.Vz;
     }
 
     public void tf() {
         boolean z = true;
-        if (com.baidu.tbadk.core.n.px().getViewImageQuality() != 0 ? com.baidu.tbadk.core.n.px().getViewImageQuality() != 1 : !this.Vv) {
+        if (com.baidu.tbadk.core.n.px().getViewImageQuality() != 0 ? com.baidu.tbadk.core.n.px().getViewImageQuality() != 1 : !this.Vx) {
             z = false;
         }
         ah(z);
@@ -76,7 +76,7 @@ public class be {
         } else if (com.baidu.tbadk.core.n.px().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.Vy = valueOf;
+        this.VA = valueOf;
     }
 
     public void th() {
@@ -100,7 +100,7 @@ public class be {
                 i = 750;
                 break;
         }
-        this.Vx = i;
+        this.Vz = i;
     }
 
     public static boolean ti() {

@@ -17,10 +17,10 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
-            this.this$0.crc = false;
-            this.this$0.cra = 0;
-            this.this$0.anW();
-            this.this$0.eU(false);
+            this.this$0.crs = false;
+            this.this$0.crq = 0;
+            this.this$0.aol();
+            this.this$0.eS(false);
         }
     }
 }

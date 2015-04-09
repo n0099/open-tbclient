@@ -14,16 +14,16 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
-    final /* synthetic */ e ctD;
-    private final aq ctE;
-    private final String ctF;
-    private String ctG;
-    private List<a> ctH;
+    final /* synthetic */ e ctT;
+    private final aq ctU;
+    private final String ctV;
+    private String ctW;
+    private List<a> ctX;
 
     public g(e eVar, String str, aq aqVar) {
-        this.ctD = eVar;
-        this.ctE = aqVar;
-        this.ctF = str;
+        this.ctT = eVar;
+        this.ctU = aqVar;
+        this.ctV = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,35 +31,35 @@ public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: k */
     public List<ImageFileInfo> doInBackground(Void... voidArr) {
-        List<a> apH;
-        List<ImageFileInfo> ja;
-        if (TextUtils.isEmpty(this.ctF)) {
+        List<a> apW;
+        List<ImageFileInfo> jd;
+        if (TextUtils.isEmpty(this.ctV)) {
             return null;
         }
-        if (!this.ctF.equals("-1")) {
-            return ja(this.ctF);
+        if (!this.ctV.equals("-1")) {
+            return jd(this.ctV);
         }
         ArrayList arrayList = new ArrayList();
-        apH = this.ctD.apH();
-        this.ctH = apH;
-        if (this.ctH != null) {
-            for (a aVar : this.ctH) {
+        apW = this.ctT.apW();
+        this.ctX = apW;
+        if (this.ctX != null) {
+            for (a aVar : this.ctX) {
                 String albumId = aVar.getAlbumId();
-                if (!TextUtils.isEmpty(albumId) && (ja = ja(albumId)) != null && ja.size() > 0) {
-                    arrayList.addAll(ja);
+                if (!TextUtils.isEmpty(albumId) && (jd = jd(albumId)) != null && jd.size() > 0) {
+                    arrayList.addAll(jd);
                 }
             }
         }
         return arrayList;
     }
 
-    private List<ImageFileInfo> ja(String str) {
+    private List<ImageFileInfo> jd(String str) {
         Context context;
         Context context2;
-        context = this.ctD.mContext;
+        context = this.ctT.mContext;
         List<ImageFileInfo> a = a(str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         if (a == null || a.size() <= 0) {
-            context2 = this.ctD.mContext;
+            context2 = this.ctT.mContext;
             return a(str, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         }
         return a;
@@ -69,8 +69,8 @@ public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        if (this.ctE != null) {
-            this.ctE.mU();
+        if (this.ctU != null) {
+            this.ctU.mU();
         }
     }
 
@@ -80,8 +80,8 @@ public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
     /* renamed from: n */
     public void onPostExecute(List<ImageFileInfo> list) {
         super.onPostExecute(list);
-        if (this.ctE != null) {
-            this.ctE.a(this.ctH, list, this.ctG);
+        if (this.ctU != null) {
+            this.ctU.a(this.ctX, list, this.ctW);
         }
     }
 
@@ -117,7 +117,7 @@ public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
             int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
             do {
                 String string = cursor.getString(columnIndex);
-                this.ctG = cursor.getString(columnIndex2);
+                this.ctW = cursor.getString(columnIndex2);
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(str);
                 imageFileInfo.setFilePath(string);

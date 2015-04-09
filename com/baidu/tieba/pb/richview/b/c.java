@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.e.c<TbImageView> {
-    final /* synthetic */ b bOp;
+    final /* synthetic */ b bOF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bOp = bVar;
+        this.bOF = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class c implements com.baidu.adp.lib.e.c<TbImageView> {
     /* renamed from: tR */
     public TbImageView hA() {
         Context context;
-        context = this.bOp.context;
+        context = this.bOF.context;
         return new TbImageView(context);
     }
 

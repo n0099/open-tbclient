@@ -6,11 +6,11 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj implements View.OnTouchListener {
-    final /* synthetic */ bf aLR;
+    final /* synthetic */ bf aMc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(bf bfVar) {
-        this.aLR = bfVar;
+        this.aMc = bfVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -19,11 +19,11 @@ public class bj implements View.OnTouchListener {
         ImageView imageView2;
         if (view.getId() == com.baidu.tieba.v.refresh_layout) {
             if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                imageView = this.aLR.aLi;
+                imageView = this.aMc.aLs;
                 com.baidu.tbadk.core.util.ba.c(imageView, com.baidu.tieba.u.pic_fresh_n);
             }
             if (motionEvent.getAction() == 0) {
-                imageView2 = this.aLR.aLi;
+                imageView2 = this.aMc.aLs;
                 com.baidu.tbadk.core.util.ba.c(imageView2, com.baidu.tieba.u.pic_fresh_s);
                 return false;
             }

@@ -4,18 +4,18 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ at afH;
+    final /* synthetic */ at afP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(at atVar) {
-        this.afH = atVar;
+        this.afP = atVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
     public void onCancelled(String str) {
-        this.afH.afC.setVisibility(0);
-        this.afH.mProgressBar.setVisibility(8);
+        this.afP.afK.setVisibility(0);
+        this.afP.mProgressBar.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,30 +25,30 @@ public class av extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         aw awVar;
         boolean z;
         aw awVar2;
-        this.afH.afF = true;
-        this.afH.mProgressBar.setVisibility(8);
+        this.afP.afN = true;
+        this.afP.mProgressBar.setVisibility(8);
         if (aVar != null) {
-            awVar = this.afH.afD;
+            awVar = this.afP.afL;
             if (awVar != null) {
-                awVar2 = this.afH.afD;
+                awVar2 = this.afP.afL;
                 awVar2.i(aVar.getUrl(), aVar.mE());
             }
             Bitmap mz = aVar.mz();
             if (mz == null) {
-                z = this.afH.afE;
+                z = this.afP.afM;
                 if (!z) {
-                    this.afH.afC.setDefaultBitmap();
+                    this.afP.afK.setDefaultBitmap();
                     return;
                 }
                 return;
             }
             if (aVar.fI()) {
-                this.afH.afC.a(aVar.mE(), mz);
+                this.afP.afK.a(aVar.mE(), mz);
             } else {
-                this.afH.afC.setImageBitmap(mz);
-                this.afH.afC.setImageData(aVar.mE());
+                this.afP.afK.setImageBitmap(mz);
+                this.afP.afK.setImageData(aVar.mE());
             }
-            this.afH.afC.setLoadBigImage(true);
+            this.afP.afK.setLoadBigImage(true);
         }
     }
 }
