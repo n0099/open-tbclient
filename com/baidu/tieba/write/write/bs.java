@@ -1,26 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bs extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ WriteActivity cyx;
-
-    private bs(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
-    }
+class bs extends CustomMessageListener {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bs(WriteActivity writeActivity, bs bsVar) {
-        this(writeActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs(WriteActivity writeActivity, int i) {
+        super(i);
+        this.cCP = writeActivity;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (WriteActivity.h(this.cyx).alY()) {
-            WriteActivity.h(this.cyx).Z(this.cyx.getCurrentFocus());
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.cCP.anV();
         }
-        return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 }

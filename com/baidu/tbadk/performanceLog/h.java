@@ -9,108 +9,108 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends y {
     private static CustomMessageTask customNormalTask = new CustomMessageTask(2016100, new k());
-    private ArrayList<String> aoI;
-    private ArrayList<String> aoJ;
-    private ArrayList<String> aoK;
-    private n aoO;
-    private a aoP;
-    private int aoQ;
-    private int aoL = 0;
-    private int aoM = 3;
-    private int aoN = 0;
-    private int aoR = 0;
-    private q aoS = new i(this);
-    private c aox = new j(this);
+    private ArrayList<String> apN;
+    private ArrayList<String> apO;
+    private ArrayList<String> apP;
+    private n apT;
+    private a apU;
+    private int apV;
+    private int apQ = 0;
+    private int apR = 3;
+    private int apS = 0;
+    private int apW = 0;
+    private q apX = new i(this);
+    private c apC = new j(this);
     private CustomMessageListener customNormalListener = new l(this, 2016100);
 
     public h() {
-        Cu();
+        Df();
     }
 
     public void onDestroy() {
-        if (this.aoO != null) {
-            this.aoO.a((q) null);
+        if (this.apT != null) {
+            this.apT.a((q) null);
         }
-        if (this.aoP != null) {
-            this.aoP.a((c) null);
+        if (this.apU != null) {
+            this.apU.a((c) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void Ct() {
-        if (this.aoL < this.aoM) {
-            this.aoL++;
-            Cv();
-            if (this.aoO == null) {
-                this.aoO = new n();
-                this.aoO.a(this.aoS);
-                this.aoO.start();
+    public void De() {
+        if (this.apQ < this.apR) {
+            this.apQ++;
+            Dg();
+            if (this.apT == null) {
+                this.apT = new n();
+                this.apT.a(this.apX);
+                this.apT.start();
             }
-            if (this.aoP == null) {
-                this.aoP = new a(TbadkCoreApplication.m411getInst().getContext());
-                this.aoP.a(this.aox);
-                this.aoP.start();
+            if (this.apU == null) {
+                this.apU = new a(TbadkCoreApplication.m411getInst().getContext());
+                this.apU.a(this.apC);
+                this.apU.start();
             }
         }
     }
 
-    private void Cu() {
+    private void Df() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Cv() {
+    private void Dg() {
         CustomMessage customMessage = new CustomMessage(2016100, new m(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZ(int i) {
+    public void ej(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aoI == null) {
-            this.aoI = new ArrayList<>();
+        if (this.apN == null) {
+            this.apN = new ArrayList<>();
         }
-        this.aoI.add(valueOf);
+        this.apN.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eF(String str) {
-        if (this.aoJ == null) {
-            this.aoJ = new ArrayList<>();
+    public void eW(String str) {
+        if (this.apO == null) {
+            this.apO = new ArrayList<>();
         }
         if (str != null) {
-            this.aoJ.add(str);
+            this.apO.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ea(int i) {
+    public void ek(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aoK == null) {
-            this.aoK = new ArrayList<>();
+        if (this.apP == null) {
+            this.apP = new ArrayList<>();
         }
-        this.aoK.add(valueOf);
+        this.apP.add(valueOf);
     }
 
-    public String Cw() {
-        return t(this.aoI);
+    public String Dh() {
+        return r(this.apN);
     }
 
-    public String Cx() {
-        return String.valueOf(this.aoQ);
+    public String Di() {
+        return String.valueOf(this.apV);
     }
 
-    public String Cy() {
-        return t(this.aoJ);
+    public String Dj() {
+        return r(this.apO);
     }
 
     public String getCpuString() {
-        return t(this.aoK);
+        return r(this.apP);
     }
 
-    private String t(ArrayList<String> arrayList) {
+    private String r(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -130,9 +130,9 @@ public class h extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cz() {
+    public void Dk() {
         aj ajVar;
-        if (this.aoN == this.aoM && this.aoM == this.aoR && (ajVar = (aj) ah.CQ().ed(this.mSubType)) != null) {
+        if (this.apS == this.apR && this.apR == this.apW && (ajVar = (aj) ah.DB().en(this.mSubType)) != null) {
             ajVar.g(this);
         }
     }

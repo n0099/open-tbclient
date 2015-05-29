@@ -3,28 +3,27 @@ package com.baidu.tieba.im.db;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.v;
-import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class n extends a {
-    private static a bcL;
-    public static String bcw = "tb_private_msg_";
+    public static String bfa = "tb_private_msg_";
+    private static a bfp;
 
     private n() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized n Qm() {
+    public static synchronized n RB() {
         n nVar;
         synchronized (n.class) {
-            if (bcL == null) {
-                bcL = new n();
+            if (bfp == null) {
+                bfp = new n();
             }
-            nVar = (n) bcL;
+            nVar = (n) bfp;
         }
         return nVar;
     }
@@ -49,18 +48,18 @@ public class n extends a {
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(bcw);
+            ?? valueOf = String.valueOf(bfa);
             try {
                 try {
-                    cursor = g.Qb().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.Rq().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
-                            v.b(cursor);
+                            w.b(cursor);
                             valueOf = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
-                            commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex(SapiAccountManager.SESSION_UID)));
+                            commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
                             commonMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
                             commonMsgPojo2.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
                             commonMsgPojo2.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
@@ -74,7 +73,7 @@ public class n extends a {
                             commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            v.b(cursor);
+                            w.b(cursor);
                             commonMsgPojo = commonMsgPojo2;
                             valueOf = cursor;
                         }
@@ -82,21 +81,21 @@ public class n extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        gu(str);
-                        v.b(cursor);
+                        gW(str);
+                        w.b(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        v.b(cursor);
+                        w.b(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    v.b((Cursor) valueOf);
+                    w.b((Cursor) valueOf);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -108,7 +107,7 @@ public class n extends a {
             } catch (Throwable th3) {
                 valueOf = 0;
                 th = th3;
-                v.b((Cursor) valueOf);
+                w.b((Cursor) valueOf);
                 throw th;
             }
         }

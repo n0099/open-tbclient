@@ -71,6 +71,10 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
             i = 2001226;
         } else if (cmd.equals("apply_pass_friend")) {
             i = 2001227;
+        } else if (cmd.equals("live_v_notify")) {
+            i = 2016206;
+        } else if (cmd.equals("upload_stat")) {
+            i = 2001327;
         } else {
             return null;
         }

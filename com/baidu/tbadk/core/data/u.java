@@ -8,11 +8,11 @@ public class u {
     protected String img_url = null;
     protected String link = null;
 
-    public String qA() {
+    public String rg() {
         return this.img_url;
     }
 
-    public void bT(String str) {
+    public void cg(String str) {
         this.img_url = str;
     }
 
@@ -33,7 +33,7 @@ public class u {
     public void a(Banner banner, Context context) {
         if (banner != null) {
             try {
-                bT(banner.pic_url);
+                cg(banner.pic_url);
                 setLink(banner.link);
             } catch (Exception e) {
                 BdLog.detailException(e);

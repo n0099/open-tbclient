@@ -1,36 +1,38 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cyx;
+public class aw extends com.baidu.adp.base.i {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+        this.cCP = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.cyx;
-        inputMethodManager = this.cyx.mInputManager;
-        editText = this.cyx.cwe;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cyx;
-        inputMethodManager2 = this.cyx.mInputManager;
-        editText2 = this.cyx.cwi;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.cyx.cmP;
-        editorToolComponetContainer.hideAll();
-        this.cyx.aqK();
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        FeedBackTopListView feedBackTopListView2;
+        FeedBackTopListView feedBackTopListView3;
+        this.cCP.hideProgressBar();
+        if (obj == null || !(obj instanceof t)) {
+            feedBackTopListView = this.cCP.cCn;
+            feedBackTopListView.setVisibility(8);
+            this.cCP.showToast(com.baidu.tieba.t.neterror);
+            return;
+        }
+        t tVar = (t) obj;
+        if (tVar.getErrCode() != 0) {
+            feedBackTopListView2 = this.cCP.cCn;
+            feedBackTopListView2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.w> asR = tVar.asR();
+        feedBackTopListView3 = this.cCP.cCn;
+        feedBackTopListView3.a(asR, this.cCP.getPageContext());
     }
 }

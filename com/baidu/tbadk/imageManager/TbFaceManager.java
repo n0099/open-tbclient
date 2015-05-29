@@ -12,9 +12,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager alb = null;
+    private static TbFaceManager amc = null;
     private Context mContext = null;
-    private b alc = null;
+    private b amd = null;
 
     /* loaded from: classes.dex */
     public class RichUnit extends i implements Serializable {
@@ -24,11 +24,11 @@ public class TbFaceManager {
         public Integer type;
     }
 
-    public static TbFaceManager zx() {
-        if (alb == null) {
-            alb = new TbFaceManager();
+    public static TbFaceManager Ak() {
+        if (amc == null) {
+            amc = new TbFaceManager();
         }
-        return alb;
+        return amc;
     }
 
     private TbFaceManager() {
@@ -39,47 +39,47 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.alc = bVar;
+        this.amd = bVar;
     }
 
-    public com.baidu.adp.widget.a.a ep(String str) {
-        return o(ed(str), str);
+    public com.baidu.adp.widget.a.a eG(String str) {
+        return p(eu(str), str);
     }
 
-    private com.baidu.adp.widget.a.a o(int i, String str) {
+    private com.baidu.adp.widget.a.a p(int i, String str) {
         Bitmap b;
-        com.baidu.adp.widget.a.a eu = e.zy().eu(str);
-        if (eu == null && (b = com.baidu.adp.lib.util.e.it().b(this.mContext, i)) != null) {
+        com.baidu.adp.widget.a.a eL = e.Al().eL(str);
+        if (eL == null && (b = com.baidu.adp.lib.util.e.iK().b(this.mContext, i)) != null) {
             com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(b, false, str);
-            e.zy().c(str, aVar);
+            e.Al().c(str, aVar);
             return aVar;
         }
-        return eu;
+        return eL;
     }
 
-    public int ed(String str) {
-        return this.alc.ed(str);
+    public int eu(String str) {
+        return this.amd.eu(str);
     }
 
-    public c eq(String str) {
-        com.baidu.adp.widget.a.a ep;
-        c D = this.alc.D(this.mContext, str);
-        if (D == null && (ep = ep(str)) != null) {
-            return new c(ep.getWidth(), ep.getHeight());
+    public c eH(String str) {
+        com.baidu.adp.widget.a.a eG;
+        c E = this.amd.E(this.mContext, str);
+        if (E == null && (eG = eG(str)) != null) {
+            return new c(eG.getWidth(), eG.getHeight());
         }
-        return D;
+        return E;
     }
 
-    public int yF() {
-        return this.alc.yF();
+    public int zs() {
+        return this.amd.zs();
     }
 
-    public String ef(String str) {
-        return this.alc.ef(str);
+    public String ew(String str) {
+        return this.amd.ew(str);
     }
 
-    public SpannableString E(Context context, String str) {
-        com.baidu.adp.widget.a.a o;
+    public SpannableString F(Context context, String str) {
+        com.baidu.adp.widget.a.a p;
         if (str == null) {
             return null;
         }
@@ -87,20 +87,20 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile("#[\\(][\\w?~]+[\\)]").matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int ee = this.alc.ee(group);
-            if (ee > 0 && (o = o(ee, String.valueOf(ee))) != null) {
+            int ev = this.amd.ev(group);
+            if (ev > 0 && (p = p(ev, String.valueOf(ev))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable mB = o.mB();
-                mB.setBounds(0, 0, o.getWidth(), o.getHeight());
-                spannableString.setSpan(new ImageSpan(mB, 0), start, length + start, 33);
+                BitmapDrawable mU = p.mU();
+                mU.setBounds(0, 0, p.getWidth(), p.getHeight());
+                spannableString.setSpan(new ImageSpan(mU, 0), start, length + start, 33);
             }
         }
         return spannableString;
     }
 
     public SpannableString a(Context context, String str, a aVar) {
-        ImageSpan er;
+        ImageSpan eI;
         if (str == null) {
             return null;
         }
@@ -108,21 +108,21 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile("#[\\(][\\w?~]+[\\)]").matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int ee = this.alc.ee(group);
-            if (ee > 0) {
-                com.baidu.adp.widget.a.a o = o(ee, String.valueOf(ee));
-                if (o != null) {
+            int ev = this.amd.ev(group);
+            if (ev > 0) {
+                com.baidu.adp.widget.a.a p = p(ev, String.valueOf(ev));
+                if (p != null) {
                     int length = group.length();
                     int start = matcher.start();
-                    BitmapDrawable mB = o.mB();
-                    int width = (int) (0.5d * o.getWidth());
-                    mB.setBounds(0, 0, width, width);
-                    spannableString.setSpan(new ImageSpan(mB, 0), start, length + start, 33);
+                    BitmapDrawable mU = p.mU();
+                    int width = (int) (0.5d * p.getWidth());
+                    mU.setBounds(0, 0, width, width);
+                    spannableString.setSpan(new ImageSpan(mU, 0), start, length + start, 33);
                 }
-            } else if (aVar != null && (er = aVar.er(group)) != null) {
+            } else if (aVar != null && (eI = aVar.eI(group)) != null) {
                 int length2 = group.length();
                 int start2 = matcher.start();
-                spannableString.setSpan(er, start2, length2 + start2, 33);
+                spannableString.setSpan(eI, start2, length2 + start2, 33);
             }
         }
         return spannableString;

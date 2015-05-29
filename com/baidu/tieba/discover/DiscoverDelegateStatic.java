@@ -3,48 +3,52 @@ package com.baidu.tieba.discover;
 import android.content.Context;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView aBU;
-    private static Boolean aBV = false;
+    private static ImageView aDV;
+    private static Boolean aDW = false;
 
     static {
-        n nVar = new n(2007002);
-        nVar.setPriority(7);
-        MessageManager.getInstance().registerListener(nVar);
-        o oVar = new o(2007004);
-        oVar.setPriority(7);
-        MessageManager.getInstance().registerListener(oVar);
+        s sVar = new s(2007002);
+        sVar.setPriority(7);
+        MessageManager.getInstance().registerListener(sVar);
+        t tVar = new t(2007004);
+        tVar.setPriority(7);
+        MessageManager.getInstance().registerListener(tVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d zQ() {
+    public boolean isAvailable() {
+        return MainTabActivityConfig.DISCOVER_DELEGATE_AVAILABLE;
+    }
+
+    @Override // com.baidu.tbadk.mainTab.b
+    public com.baidu.tbadk.mainTab.d AC() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.amd = new a();
+        dVar.anf = new a();
         dVar.type = 6;
-        dVar.ame = y.discover;
-        dVar.alU = com.baidu.tieba.u.icon_tabbar_discover;
+        dVar.ang = com.baidu.tieba.t.discover;
+        dVar.anh = com.baidu.tieba.p.icon_tabbar_discover;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator af(Context context) {
-        this.alR = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hH().inflate(context, w.fragmenttabindicator, null);
-        aBU = new ImageView(context);
+    public FragmentTabIndicator aj(Context context) {
+        this.amS = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.fragmenttabindicator, null);
+        aDV = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.amc = this.alR;
-        cVar.vf = com.baidu.adp.lib.util.n.dip2px(context, 3.0f);
-        cVar.view = aBU;
-        cVar.ama = com.baidu.tieba.u.icon_news_down_bar_one;
-        if (aBV.booleanValue()) {
-            aBU.setVisibility(0);
+        cVar.ane = this.amS;
+        cVar.ur = com.baidu.adp.lib.util.n.dip2px(context, 3.0f);
+        cVar.view = aDV;
+        cVar.anc = com.baidu.tieba.p.icon_news_down_bar_one;
+        if (aDW.booleanValue()) {
+            aDV.setVisibility(0);
         } else {
-            aBU.setVisibility(8);
+            aDV.setVisibility(8);
         }
-        this.alR.a("emotion", cVar);
-        return this.alR;
+        this.amS.a("emotion", cVar);
+        return this.amS;
     }
 }

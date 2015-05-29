@@ -8,28 +8,29 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.n;
-import com.baidu.adp.lib.util.v;
+import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.t;
 import java.io.File;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    public static void F(Context context, String str) {
+    public static void G(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            n.showToast(context, y.pb_app_error);
+            n.showToast(context, t.pb_app_error);
             return;
         }
-        File cm = o.cm(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cm != null) {
+        File cB = o.cB(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cB != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cm), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(cB), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -40,7 +41,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean G(Context context, String str) {
+    public static boolean H(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -55,7 +56,7 @@ public class a {
         }
     }
 
-    public static boolean H(Context context, String str) {
+    public static boolean I(Context context, String str) {
         String str2;
         String str3 = Build.MODEL;
         if (!TextUtils.isEmpty(str3) && str3.startsWith("MI")) {
@@ -67,13 +68,13 @@ public class a {
         } else {
             str2 = "content://com.android.launcher2.settings/favorites?notify=true";
         }
-        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(y.bar)}, null);
+        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(t.bar)}, null);
         boolean z = query != null && query.getCount() > 0;
-        v.b(query);
+        w.b(query);
         return z;
     }
 
-    public static Intent I(Context context, String str) {
+    public static Intent J(Context context, String str) {
         Class<?> intentClass;
         if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m411getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
@@ -86,6 +87,17 @@ public class a {
         intent.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
         intent.putExtra("back_special", true);
         intent.putExtra("from", "short_cut");
+        return intent;
+    }
+
+    public static Intent K(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 2);
+        intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
+        intent.putExtra("from", "nas");
         return intent;
     }
 }

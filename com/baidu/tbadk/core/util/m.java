@@ -10,7 +10,6 @@ public class m extends Thread {
         aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
         aaVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         aaVar.o("os_version", Build.VERSION.RELEASE);
-        aaVar.o("subapp_type", "im");
-        aaVar.rO();
+        aaVar.sw();
     }
 }

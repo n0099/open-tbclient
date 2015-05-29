@@ -3,13 +3,13 @@ package com.baidu.tbadk.imageManager;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class g extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
-    final /* synthetic */ e alg;
+    final /* synthetic */ e amh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.alg = eVar;
+        this.amh = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ class g extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
     public void entryRemoved(boolean z, String str, com.baidu.adp.widget.a.a aVar, com.baidu.adp.widget.a.a aVar2) {
         if (aVar != null) {
             BdLog.isDebugMode();
-            aVar.my();
+            aVar.mR();
         }
     }
 }

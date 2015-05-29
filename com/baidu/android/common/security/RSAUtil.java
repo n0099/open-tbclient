@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import com.baidu.sapi2.shell.b;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -32,21 +31,21 @@ public final class RSAUtil {
 
     public static byte[] decryptByPrivateKey(byte[] bArr, String str) {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] decryptByPublicKey(byte[] bArr, String str) {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePublic);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i) {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
         int i2 = i / 8;
         StringBuilder sb = new StringBuilder();
@@ -67,21 +66,21 @@ public final class RSAUtil {
 
     public static byte[] encryptByPrivateKey(byte[] bArr, String str) {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] encryptByPublicKey(byte[] bArr, String str) {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i) {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
         int i2 = i / 8;
         int i3 = i2 - 11;

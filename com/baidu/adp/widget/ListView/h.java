@@ -4,11 +4,11 @@ import android.database.DataSetObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends DataSetObserver {
-    final /* synthetic */ g HD;
+    final /* synthetic */ g Ht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.HD = gVar;
+        this.Ht = gVar;
     }
 
     @Override // android.database.DataSetObserver
@@ -18,15 +18,15 @@ public class h extends DataSetObserver {
         i iVar2;
         DataSetObserver dataSetObserver2;
         super.onChanged();
-        dataSetObserver = this.HD.mDataSetObserver;
+        dataSetObserver = this.Ht.mDataSetObserver;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.HD.mDataSetObserver;
+            dataSetObserver2 = this.Ht.mDataSetObserver;
             dataSetObserver2.onChanged();
         }
-        iVar = this.HD.HC;
+        iVar = this.Ht.Hs;
         if (iVar != null) {
-            iVar2 = this.HD.HC;
-            iVar2.mU();
+            iVar2 = this.Ht.Hs;
+            iVar2.nm();
         }
     }
 
@@ -35,9 +35,9 @@ public class h extends DataSetObserver {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onInvalidated();
-        dataSetObserver = this.HD.mDataSetObserver;
+        dataSetObserver = this.Ht.mDataSetObserver;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.HD.mDataSetObserver;
+            dataSetObserver2 = this.Ht.mDataSetObserver;
             dataSetObserver2.onInvalidated();
         }
     }

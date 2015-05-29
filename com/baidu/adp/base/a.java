@@ -1,14 +1,21 @@
 package com.baidu.adp.base;
 
 import android.app.Activity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public final class a {
     private static ArrayList<SoftReference<Activity>> np;
     private static a nq;
     private b nr;
     private int ns = 0;
+
+    public void a(b bVar) {
+        this.nr = bVar;
+    }
 
     private a() {
         if (np == null) {
@@ -116,5 +123,47 @@ public final class a {
                 }
             }
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:33:0x005b A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001a A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String dI() {
+        String simpleName;
+        if (np == null || np.size() == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        Iterator<SoftReference<Activity>> it = np.iterator();
+        while (it.hasNext()) {
+            SoftReference<Activity> next = it.next();
+            if (next != null && next.get() != null) {
+                Activity activity = next.get();
+                if (activity instanceof ActivityProxy) {
+                    com.baidu.adp.plugin.pluginBase.c kN = ((ActivityProxy) activity).kN();
+                    if (kN != null && kN.getClass() != null) {
+                        simpleName = kN.getClass().getSimpleName();
+                        if (StringUtils.isNull(simpleName)) {
+                            sb.append(String.valueOf(simpleName) + ";");
+                        }
+                    }
+                    simpleName = "";
+                    if (StringUtils.isNull(simpleName)) {
+                    }
+                } else {
+                    if (activity.getClass() != null) {
+                        simpleName = activity.getClass().getSimpleName();
+                        if (StringUtils.isNull(simpleName)) {
+                        }
+                    }
+                    simpleName = "";
+                    if (StringUtils.isNull(simpleName)) {
+                    }
+                }
+            }
+        }
+        return sb.toString();
     }
 }

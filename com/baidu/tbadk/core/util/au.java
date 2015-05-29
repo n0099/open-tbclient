@@ -2,20 +2,21 @@ package com.baidu.tbadk.core.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements Runnable {
-    final /* synthetic */ at Vd;
+    final /* synthetic */ aq VI;
+    private final /* synthetic */ String VJ;
+    private final /* synthetic */ String VM;
+    private final /* synthetic */ int VN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar) {
-        this.Vd = atVar;
+    public au(aq aqVar, String str, String str2, int i) {
+        this.VI = aqVar;
+        this.VM = str;
+        this.VJ = str2;
+        this.VN = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.sharedPref.b.rB().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.rB().remove("pull_image_num");
-        com.baidu.tbadk.core.sharedPref.b.rB().remove("pullview_background_color_day");
-        com.baidu.tbadk.core.sharedPref.b.rB().remove("pullview_background_color_night");
-        this.Vd.sS();
-        this.Vd.sN();
+        this.VI.d(this.VM, this.VJ, this.VN);
     }
 }

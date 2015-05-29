@@ -1,125 +1,131 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import java.util.ArrayList;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BaseAdapter {
-    private ArrayList<MetaData> auK;
-    private com.baidu.tbadk.core.view.aa bsS;
-    private AtListActivity cxc;
-    private boolean cxe;
-    private final Context mContext;
-    private p cxd = null;
-    private ViewGroup bsU = null;
+public class n extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
+    private com.baidu.tbadk.core.util.aa aaG;
+    final /* synthetic */ AtListActivity cBt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(p pVar) {
-        this.cxd = pVar;
-    }
-
-    public n(AtListActivity atListActivity, boolean z) {
-        this.cxe = true;
-        this.cxc = atListActivity;
-        this.mContext = this.cxc.getPageContext().getContext();
-        this.cxe = z;
+    private n(AtListActivity atListActivity) {
+        this.cBt = atListActivity;
+        this.aaG = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void p(ArrayList<MetaData> arrayList) {
-        this.auK = arrayList;
+    public /* synthetic */ n(AtListActivity atListActivity, n nVar) {
+        this(atListActivity);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.tbadk.core.view.aa aaVar) {
-        this.bsS = aaVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.cBt.mProgress;
+        progressBar.setVisibility(0);
+        super.onPreExecute();
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.auK == null) {
-            return 0;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.aaG != null) {
+            this.aaG.gS();
         }
-        return this.auK.size();
+        this.cBt.cBj = null;
+        progressBar = this.cBt.mProgress;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: jf */
-    public MetaData getItem(int i) {
-        if (this.auK != null && i < this.auK.size()) {
-            return this.auK.get(i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: C */
+    public com.baidu.tieba.write.a.a doInBackground(String... strArr) {
+        this.aaG = new com.baidu.tbadk.core.util.aa();
+        this.aaG.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
+        String sw = this.aaG.sw();
+        if (!this.aaG.sX().tT().qa()) {
+            return null;
         }
-        return null;
+        com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
+        aVar.ka(sw);
+        return aVar;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(com.baidu.tieba.write.a.a aVar) {
+        ProgressBar progressBar;
+        LinearLayout linearLayout;
+        com.baidu.tieba.write.b.a aVar2;
         o oVar;
-        if (this.bsU == null) {
-            this.bsU = viewGroup;
+        EditText editText;
+        com.baidu.tieba.write.b.a aVar3;
+        com.baidu.tieba.write.b.a aVar4;
+        o oVar2;
+        o oVar3;
+        o oVar4;
+        BdListView bdListView;
+        LinearLayout linearLayout2;
+        View view;
+        this.cBt.cBj = null;
+        progressBar = this.cBt.mProgress;
+        progressBar.setVisibility(8);
+        linearLayout = this.cBt.bvM;
+        if (linearLayout != null) {
+            linearLayout2 = this.cBt.bvM;
+            if (linearLayout2.getVisibility() == 0) {
+                view = this.cBt.cBn;
+                view.setVisibility(0);
+            }
         }
-        MetaData item = getItem(i);
-        if (item != null) {
-            oVar = a(view != null ? view.getTag() : null, item);
+        if (this.aaG.sX().tT().qa()) {
+            aVar2 = this.cBt.cBk;
+            aVar2.a(aVar);
+            oVar = this.cBt.cBl;
+            if (oVar != null) {
+                editText = this.cBt.mEditText;
+                if (com.baidu.adp.lib.util.m.a(editText.getText(), "").length() != 0) {
+                    aVar3 = this.cBt.cBk;
+                    if (aVar3.asn() != null) {
+                        if (aVar != null && aVar.asc() != null && !aVar.asc().isEmpty()) {
+                            this.cBt.jA(2);
+                        }
+                        aVar4 = this.cBt.cBk;
+                        aVar4.asn().f(aVar.asc());
+                        oVar2 = this.cBt.cBl;
+                        oVar2.notifyDataSetInvalidated();
+                    }
+                } else {
+                    if (aVar == null || aVar.asb() == null || !aVar.asb().isEmpty()) {
+                        this.cBt.jA(0);
+                    } else {
+                        this.cBt.jA(2);
+                    }
+                    this.cBt.cBf = aVar.asb();
+                    oVar3 = this.cBt.cBl;
+                    oVar3.setData(this.cBt.cBf);
+                    oVar4 = this.cBt.cBl;
+                    oVar4.notifyDataSetInvalidated();
+                    bdListView = this.cBt.mListView;
+                    bdListView.setSelection(0);
+                }
+            } else {
+                return;
+            }
         } else {
-            oVar = null;
+            this.cBt.showToast(this.aaG.getErrorString());
         }
-        if (oVar != null) {
-            return oVar.rootView;
-        }
-        return null;
-    }
-
-    private o a(Object obj, MetaData metaData) {
-        o oVar;
-        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (obj == null) {
-            oVar = ara();
-        } else {
-            oVar = (o) obj;
-        }
-        if (this.cxd != null) {
-            this.cxd.a(oVar.rootView, metaData);
-        }
-        String portrait = metaData.getPortrait();
-        oVar.azB.setText(metaData.getName_show());
-        oVar.bsW.setTagData(metaData);
-        oVar.bsy.setTag(portrait);
-        if (this.cxe) {
-            oVar.bsW.setVisibility(0);
-        } else {
-            oVar.bsW.setVisibility(8);
-        }
-        oVar.bsy.c(portrait, 12, false);
-        this.cxc.getPageContext().getLayoutMode().X(skinType == 1);
-        this.cxc.getPageContext().getLayoutMode().h(oVar.rootView);
-        return oVar;
-    }
-
-    private o ara() {
-        o oVar = new o(this, null);
-        oVar.rootView = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.invite_friend_list_item, null);
-        oVar.bsy = (HeadImageView) oVar.rootView.findViewById(com.baidu.tieba.v.photo);
-        oVar.bsy.setIsRound(false);
-        oVar.azB = (TextView) oVar.rootView.findViewById(com.baidu.tieba.v.txt_user_name);
-        oVar.bsW = (TbCheckBox) oVar.rootView.findViewById(com.baidu.tieba.v.ckb_select);
-        if (this.bsS != null) {
-            oVar.bsW.setStatedChangedListener(this.bsS);
-        }
-        oVar.rootView.setTag(oVar);
-        return oVar;
+        super.onPostExecute(aVar);
     }
 }

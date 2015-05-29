@@ -1,45 +1,45 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class ab extends ag {
-    public static int apI = 100;
-    public static int apJ = 10;
+    public static int aqK = 100;
+    public static int aqL = 10;
 
-    public static void CO() {
-        if (ah.CQ().CR()) {
-            if (ad.apN > apJ) {
-                ad.CD();
+    public static void Dz() {
+        if (ah.DB().DC()) {
+            if (ad.aqP > aqL) {
+                ad.Do();
             }
-            if (ac.apK > apJ) {
-                ac.CD();
+            if (ac.aqM > aqL) {
+                ac.Do();
             }
         }
     }
 
     public static void a(boolean z, boolean z2, boolean z3) {
-        ac.apK++;
+        ac.aqM++;
         if (z2) {
-            ac.apL++;
+            ac.aqN++;
         } else if (z3) {
-            ac.apM++;
+            ac.aqO++;
         }
-        if (ac.apK > apI) {
-            ac.CD();
+        if (ac.aqM > aqK) {
+            ac.Do();
         }
     }
 
     public void c(r rVar) {
-        if (ah.CQ().CR()) {
-            if (ad.apN < apI) {
-                ad.apO += rVar.vy;
-                ad.apP += rVar.ape;
-                ad.apQ += rVar.apf;
-                ad.apR += rVar.apg;
-                ad.apT += rVar.Gz;
-                ad.apS += rVar.aoV;
-                ad.apN++;
+        if (ah.DB().DC()) {
+            if (ad.aqP < aqK) {
+                ad.aqQ += rVar.uK;
+                ad.aqR += rVar.aqj;
+                ad.aqS += rVar.aqk;
+                ad.aqT += rVar.aql;
+                ad.aqV += rVar.Gp;
+                ad.aqU += rVar.aqa;
+                ad.aqP++;
                 return;
             }
-            ad.CD();
+            ad.Do();
         }
     }
 }

@@ -13,18 +13,18 @@ class j implements com.baidu.tbadk.core.view.a {
     }
 
     @Override // com.baidu.tbadk.core.view.a
-    public void cj(int i) {
+    public void cn(int i) {
         boolean z;
         a aVar;
-        z = this.this$0.buY;
+        z = this.this$0.bxG;
         if (z) {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra(ImageViewerConfig.INDEX, -1);
             intent.putExtra("state", i);
             this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
         } else if (i == 0) {
-            aVar = this.this$0.buS;
-            aVar.VY();
+            aVar = this.this$0.bxA;
+            aVar.Xq();
         }
     }
 }

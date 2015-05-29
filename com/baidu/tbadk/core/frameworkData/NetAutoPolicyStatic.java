@@ -5,12 +5,12 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class NetAutoPolicyStatic {
     static {
-        b bVar = new b(0);
-        bVar.setPriority(ExploreByTouchHelper.INVALID_ID);
-        MessageManager.getInstance().addMessageRule(bVar);
-        MessageManager.getInstance().addResponsedMessageRule(new c(0));
-        d dVar = new d(2000999);
+        d dVar = new d(0);
         dVar.setPriority(ExploreByTouchHelper.INVALID_ID);
-        MessageManager.getInstance().registerListener(dVar);
+        MessageManager.getInstance().addMessageRule(dVar);
+        MessageManager.getInstance().addResponsedMessageRule(new e(0));
+        f fVar = new f(2000999);
+        fVar.setPriority(ExploreByTouchHelper.INVALID_ID);
+        MessageManager.getInstance().registerListener(fVar);
     }
 }

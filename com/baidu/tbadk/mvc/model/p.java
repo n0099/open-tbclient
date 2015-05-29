@@ -16,8 +16,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.b.k, ActivityType> extends BdAsyncTask<Object, D, D> {
-    private NetModel<T, D, ActivityType> ang;
-    private com.baidu.tbadk.core.util.httpNet.a anh;
+    private NetModel<T, D, ActivityType> aoj;
+    private com.baidu.tbadk.core.util.httpNet.a aok;
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tbadk.mvc.model.p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.b.k, ActivityType> */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,41 +28,41 @@ public class p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.
     }
 
     public p(NetModel<T, D, ActivityType> netModel) {
-        this.ang = netModel;
+        this.aoj = netModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
+    /* renamed from: k */
     public D doInBackground(Object... objArr) {
-        ((NetModel) this.ang).anb = true;
-        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.ang.oy());
-        for (Map.Entry<String, Object> entry : this.ang.amU.oC().entrySet()) {
+        ((NetModel) this.aoj).aoe = true;
+        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + this.aoj.oO());
+        for (Map.Entry<String, Object> entry : this.aoj.anX.oS().entrySet()) {
             aaVar.o(entry.getKey(), String.valueOf(entry.getValue()));
         }
-        String rO = aaVar.rO();
-        this.anh = aaVar.sp();
-        D q = q(this.ang.getResponseDataClass());
+        String sw = aaVar.sw();
+        this.aok = aaVar.sX();
+        D q = q(this.aoj.getResponseDataClass());
         try {
-            q.c(new JSONObject(rO));
+            q.c(new JSONObject(sw));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         publishProgress(q);
-        if (this.ang.isNeedCache() && this.anh != null && this.anh.tq() != null && this.anh.tq().pv() && q != null && (this.ang.amU instanceof com.baidu.tbadk.mvc.b.e)) {
-            com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.ang.amU;
+        if (this.aoj.isNeedCache() && this.aok != null && this.aok.tT() != null && this.aok.tT().qa() && q != null && (this.aoj.anX instanceof com.baidu.tbadk.mvc.b.e)) {
+            com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.aoj.anX;
             String cacheKey = eVar.getCacheKey();
-            String zX = eVar.zX();
+            String AJ = eVar.AJ();
             String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-            if (cacheKey == null || TextUtils.isEmpty(zX) || q == null) {
+            if (cacheKey == null || TextUtils.isEmpty(AJ) || q == null) {
                 return q;
             }
-            com.baidu.adp.lib.cache.t<String> S = com.baidu.tbadk.core.b.a.rc().S(zX, currentAccount);
-            if (S == null) {
+            com.baidu.adp.lib.cache.t<String> W = com.baidu.tbadk.core.b.a.rI().W(AJ, currentAccount);
+            if (W == null) {
                 return q;
             }
-            S.f(cacheKey, rO);
+            W.f(cacheKey, sw);
         }
         return q;
     }
@@ -78,29 +78,29 @@ public class p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.
         Runnable runnable2;
         super.onProgressUpdate(dArr);
         if (dArr != null && dArr.length > 0) {
-            ((NetModel) this.ang).anb = false;
-            runnable = ((NetModel) this.ang).and;
+            ((NetModel) this.aoj).aoe = false;
+            runnable = ((NetModel) this.aoj).aog;
             if (runnable != null) {
-                com.baidu.adp.lib.g.i hI = com.baidu.adp.lib.g.i.hI();
-                runnable2 = ((NetModel) this.ang).and;
-                hI.removeCallbacks(runnable2);
+                com.baidu.adp.lib.g.i hs = com.baidu.adp.lib.g.i.hs();
+                runnable2 = ((NetModel) this.aoj).aog;
+                hs.removeCallbacks(runnable2);
             }
-            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.ang.amU, this.ang.ox());
-            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.ang.ox());
+            MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.aoj.anX, this.aoj.oN());
+            MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.aoj.oN());
             mvcJsonHttpResponsedMessage.setData(dArr[0]);
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-            if (this.anh != null && this.anh.tq() != null) {
-                mvcJsonHttpResponsedMessage.setStatusCode(this.anh.tq().Wa, this.anh.tq().mErrorString);
-                mvcJsonHttpResponsedMessage.setError(this.anh.tq().Wb);
-                mvcJsonHttpResponsedMessage.setErrorString(this.anh.tq().mErrorString);
-                if (this.anh.tq().Wc != null) {
-                    BdLog.e(this.anh.tq().Wc);
+            if (this.aok != null && this.aok.tT() != null) {
+                mvcJsonHttpResponsedMessage.setStatusCode(this.aok.tT().WH, this.aok.tT().mErrorString);
+                mvcJsonHttpResponsedMessage.setError(this.aok.tT().WI);
+                mvcJsonHttpResponsedMessage.setErrorString(this.aok.tT().mErrorString);
+                if (this.aok.tT().WJ != null) {
+                    BdLog.e(this.aok.tT().WJ);
                 }
             }
-            this.ang.Bg();
-            rVar = ((NetModel) this.ang).amS;
+            this.aoj.BS();
+            rVar = ((NetModel) this.aoj).anV;
             if (rVar != null) {
-                rVar2 = ((NetModel) this.ang).amS;
+                rVar2 = ((NetModel) this.aoj).anV;
                 rVar2.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
             }
         }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.l;
 import com.baidu.adp.plugin.PluginCenter;
 /* loaded from: classes.dex */
 public class i extends ContextWrapper {
@@ -33,7 +35,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kh();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).kz();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -46,14 +48,42 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
+        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            Resources resources = l.dJ().getResources();
+            if (resources == null) {
+                return super.getResources();
+            }
+            return resources;
+        } else if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
+        } else {
+            return PluginCenter.getInstance().getPlugin(this.mPackageName).kA();
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).ki();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
         return getResources().getAssets();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources.Theme getTheme() {
+        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            if (this.mTheme == null) {
+                this.mTheme = getResources().newTheme();
+                this.mTheme.setTo(BdBaseApplication.getInst().getTheme());
+            }
+            return this.mTheme;
+        }
+        return super.getTheme();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void setTheme(int i) {
+        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            getTheme().applyStyle(i, true);
+        } else {
+            super.setTheme(i);
+        }
     }
 }

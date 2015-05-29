@@ -11,37 +11,37 @@ import java.nio.ByteBuffer;
 class h implements f {
     private byte[] mData;
     private InputStream mInputStream;
-    private OutputStream ro;
-    private long zR;
-    private String zS;
-    private String zT;
-    private String zU;
-    private Socket zV;
+    private OutputStream ry;
+    private long zG;
+    private String zH;
+    private String zI;
+    private String zJ;
+    private Socket zK;
 
     public h(String str, int i, al alVar) {
-        this.zV = null;
+        this.zK = null;
         this.mInputStream = null;
-        this.ro = null;
+        this.ry = null;
         this.mData = null;
-        this.zR = 0L;
-        this.zS = null;
-        this.zT = null;
-        this.zU = null;
-        this.zV = new Socket();
+        this.zG = 0L;
+        this.zH = null;
+        this.zI = null;
+        this.zJ = null;
+        this.zK = new Socket();
         long currentTimeMillis = System.currentTimeMillis();
         InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
         if (inetSocketAddress.getAddress() != null) {
-            this.zS = inetSocketAddress.getAddress().getHostAddress();
-            this.zR = System.currentTimeMillis() - currentTimeMillis;
+            this.zH = inetSocketAddress.getAddress().getHostAddress();
+            this.zG = System.currentTimeMillis() - currentTimeMillis;
         }
-        this.zV.connect(inetSocketAddress, alVar.jK());
-        this.zV.setSoTimeout(alVar.jJ());
-        this.zV.setTcpNoDelay(alVar.getTcpNoDelay());
-        this.mInputStream = this.zV.getInputStream();
-        this.ro = this.zV.getOutputStream();
+        this.zK.connect(inetSocketAddress, alVar.kb());
+        this.zK.setSoTimeout(alVar.ka());
+        this.zK.setTcpNoDelay(alVar.getTcpNoDelay());
+        this.mInputStream = this.zK.getInputStream();
+        this.ry = this.zK.getOutputStream();
         this.mData = new byte[1024];
-        this.zT = com.baidu.adp.lib.util.n.iX();
-        this.zU = com.baidu.adp.lib.util.n.iY();
+        this.zI = com.baidu.adp.lib.util.n.jm();
+        this.zJ = com.baidu.adp.lib.util.n.jn();
     }
 
     @Override // com.baidu.adp.lib.webSocket.f
@@ -52,13 +52,13 @@ class h implements f {
             BdLog.e(e.getMessage());
         }
         try {
-            this.ro.close();
+            this.ry.close();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.zV != null) {
+        if (this.zK != null) {
             try {
-                this.zV.close();
+                this.zK.close();
             } catch (IOException e3) {
                 throw e3;
             } catch (Throwable th) {
@@ -68,8 +68,8 @@ class h implements f {
 
     @Override // com.baidu.adp.lib.webSocket.f
     public boolean isConnected() {
-        if (this.zV != null) {
-            return this.zV.isConnected();
+        if (this.zK != null) {
+            return this.zK.isConnected();
         }
         return false;
     }
@@ -89,33 +89,33 @@ class h implements f {
         if (remaining > 0) {
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            this.ro.write(bArr);
+            this.ry.write(bArr);
         }
         return remaining;
     }
 
     @Override // com.baidu.adp.lib.webSocket.f
+    public String jE() {
+        return this.zH;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.f
+    public long jF() {
+        return this.zG;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.f
+    public String jm() {
+        return this.zI;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.f
     public String jn() {
-        return this.zS;
+        return this.zJ;
     }
 
     @Override // com.baidu.adp.lib.webSocket.f
-    public long jo() {
-        return this.zR;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.f
-    public String iX() {
-        return this.zT;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.f
-    public String iY() {
-        return this.zU;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.f
-    public int jp() {
+    public int jG() {
         return 0;
     }
 }

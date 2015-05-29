@@ -5,11 +5,11 @@ import com.baidu.adp.plugin.util.Util;
 import java.io.File;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ d aqv;
+    final /* synthetic */ d arx;
     private File mFile;
 
     public e(d dVar, File file) {
-        this.aqv = dVar;
+        this.arx = dVar;
         this.mFile = null;
         this.mFile = file;
     }

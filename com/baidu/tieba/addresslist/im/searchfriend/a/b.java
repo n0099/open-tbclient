@@ -12,32 +12,32 @@ import tbclient.RecommendFriend.LikeUserInfo;
 import tbclient.RecommendFriend.PostInfo;
 /* loaded from: classes.dex */
 public class b {
-    String Qc;
-    int Qe;
-    String Qi;
-    c azH = new c();
-    ArrayList<String> Qh = new ArrayList<>();
-    ArrayList<String> Qj = new ArrayList<>();
+    String QE;
+    String Qx;
+    int Qz;
+    c aBs = new c();
+    ArrayList<String> QD = new ArrayList<>();
+    ArrayList<String> QF = new ArrayList<>();
 
-    public String Fp() {
-        return this.Qi;
+    public String Gi() {
+        return this.QE;
     }
 
-    public int qn() {
-        return this.Qe;
+    public int qT() {
+        return this.Qz;
     }
 
     public void a(LikeUserInfo likeUserInfo) {
         if (likeUserInfo != null) {
-            this.Qi = likeUserInfo.message;
-            if (likeUserInfo.user_info != null && this.azH != null) {
-                this.azH.a(likeUserInfo.user_info);
+            this.QE = likeUserInfo.message;
+            if (likeUserInfo.user_info != null && this.aBs != null) {
+                this.aBs.a(likeUserInfo.user_info);
             }
             if (likeUserInfo.forum_info != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                this.Qe = likeUserInfo.forum_info.size();
-                int i = this.Qe;
-                if (this.Qe > 2) {
+                this.Qz = likeUserInfo.forum_info.size();
+                int i = this.Qz;
+                if (this.Qz > 2) {
                     i = 2;
                 }
                 for (int i2 = 0; i2 < i; i2++) {
@@ -45,47 +45,47 @@ public class b {
                         stringBuffer.append(likeUserInfo.forum_info.get(i2).common_forum);
                         if (i - 1 > i2) {
                             stringBuffer.append("、");
-                        } else if (this.Qe > i) {
+                        } else if (this.Qz > i) {
                             stringBuffer.append("...");
                         }
                     }
                 }
-                this.Qc = stringBuffer.toString();
+                this.Qx = stringBuffer.toString();
             }
             if (likeUserInfo.post_info != null) {
                 for (PostInfo postInfo : likeUserInfo.post_info) {
-                    this.Qh.add(postInfo.common_post_pic);
-                    this.Qj.add(postInfo.large_post_pic);
+                    this.QD.add(postInfo.common_post_pic);
+                    this.QF.add(postInfo.large_post_pic);
                 }
             }
         }
     }
 
-    public String qo() {
-        return this.Qc;
+    public String qU() {
+        return this.Qx;
     }
 
-    public c Fm() {
-        return this.azH;
+    public c Gf() {
+        return this.aBs;
     }
 
-    public ArrayList<String> qr() {
-        return this.Qh;
+    public ArrayList<String> qX() {
+        return this.QD;
     }
 
-    public ArrayList<String> qs() {
-        return this.Qj;
+    public ArrayList<String> qY() {
+        return this.QF;
     }
 
     public HashMap<String, ImageUrlData> getAssistUrls() {
         HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-        if (this.Qh != null && this.Qj != null) {
-            int min = Math.min(this.Qh.size(), this.Qj.size());
+        if (this.QD != null && this.QF != null) {
+            int min = Math.min(this.QD.size(), this.QF.size());
             for (int i = 0; i < min; i++) {
-                String str = this.Qj.get(i);
+                String str = this.QF.get(i);
                 if (!TextUtils.isEmpty(str)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = this.Qh.get(i);
+                    imageUrlData.imageUrl = this.QD.get(i);
                     imageUrlData.urlType = 10;
                     hashMap.put(str, imageUrlData);
                 }
@@ -94,25 +94,25 @@ public class b {
         return hashMap;
     }
 
-    public JSONObject Fq() {
+    public JSONObject Gj() {
         JSONObject jSONObject = new JSONObject();
-        if (this.azH != null) {
-            jSONObject.put("recommend_new_user", this.azH.Fq());
+        if (this.aBs != null) {
+            jSONObject.put("recommend_new_user", this.aBs.Gj());
         }
-        jSONObject.put("common_forum", this.Qc);
-        jSONObject.put("common_forum_count", this.Qe);
-        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Qi);
-        if (this.Qh != null && this.Qh.size() > 0) {
+        jSONObject.put("common_forum", this.Qx);
+        jSONObject.put("common_forum_count", this.Qz);
+        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.QE);
+        if (this.QD != null && this.QD.size() > 0) {
             JSONArray jSONArray = new JSONArray();
-            Iterator<String> it = this.Qh.iterator();
+            Iterator<String> it = this.QD.iterator();
             while (it.hasNext()) {
                 jSONArray.put(it.next());
             }
             jSONObject.put("common_pic_urls", jSONArray);
         }
-        if (this.Qj != null && this.Qj.size() > 0) {
+        if (this.QF != null && this.QF.size() > 0) {
             JSONArray jSONArray2 = new JSONArray();
-            Iterator<String> it2 = this.Qj.iterator();
+            Iterator<String> it2 = this.QF.iterator();
             while (it2.hasNext()) {
                 jSONArray2.put(it2.next());
             }
@@ -123,32 +123,32 @@ public class b {
 
     public void e(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.azH == null) {
-                this.azH = new c();
+            if (this.aBs == null) {
+                this.aBs = new c();
             }
-            this.azH.e(jSONObject.optJSONObject("recommend_new_user"));
-            this.Qc = jSONObject.optString("common_forum");
-            this.Qe = jSONObject.optInt("common_forum_count");
-            this.Qi = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            this.aBs.e(jSONObject.optJSONObject("recommend_new_user"));
+            this.Qx = jSONObject.optString("common_forum");
+            this.Qz = jSONObject.optInt("common_forum_count");
+            this.QE = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.Qh == null) {
-                    this.Qh = new ArrayList<>();
+                if (this.QD == null) {
+                    this.QD = new ArrayList<>();
                 }
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.Qh.add(optJSONArray.optString(i));
+                        this.QD.add(optJSONArray.optString(i));
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                if (this.Qj == null) {
-                    this.Qj = new ArrayList<>();
+                if (this.QF == null) {
+                    this.QF = new ArrayList<>();
                 }
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                        this.Qj.add(optJSONArray2.optString(i2));
+                        this.QF.add(optJSONArray2.optString(i2));
                     }
                 }
             }

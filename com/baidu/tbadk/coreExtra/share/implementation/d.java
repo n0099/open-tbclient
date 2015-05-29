@@ -1,20 +1,20 @@
 package com.baidu.tbadk.coreExtra.share.implementation;
 
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.g;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements BdSocialShareSdkDelegate.ShareCallback {
-    private f adK;
-    private int adL;
-    final /* synthetic */ a adM;
+    private g aeO;
+    private int aeP;
+    final /* synthetic */ a aeQ;
 
-    public d(a aVar, f fVar, int i) {
-        this.adM = aVar;
-        this.adK = null;
-        this.adL = -1;
-        this.adK = fVar;
-        this.adL = i;
+    public d(a aVar, g gVar, int i) {
+        this.aeQ = aVar;
+        this.aeO = null;
+        this.aeP = -1;
+        this.aeO = gVar;
+        this.aeP = i;
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
@@ -23,34 +23,34 @@ public class d implements BdSocialShareSdkDelegate.ShareCallback {
         c cVar2;
         c cVar3;
         if (z) {
-            cVar2 = this.adM.adH;
-            cVar2.aE(true);
-            cVar3 = this.adM.adH;
+            cVar2 = this.aeQ.aeL;
+            cVar2.aL(true);
+            cVar3 = this.aeQ.aeL;
             cVar3.a(new e(this));
             return;
         }
-        cVar = this.adM.adH;
-        cVar.aE(false);
+        cVar = this.aeQ.aeL;
+        cVar.aL(false);
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onCancelOfBaiduListener() {
         c cVar;
-        cVar = this.adM.adH;
-        cVar.wU();
+        cVar = this.aeQ.aeL;
+        cVar.xG();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onCompleteOfBaiduListener() {
         c cVar;
-        cVar = this.adM.adH;
-        cVar.wT();
+        cVar = this.aeQ.aeL;
+        cVar.xF();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onErrorOfBaiduListener() {
         c cVar;
-        cVar = this.adM.adH;
-        cVar.wV();
+        cVar = this.aeQ.aeL;
+        cVar.xH();
     }
 }

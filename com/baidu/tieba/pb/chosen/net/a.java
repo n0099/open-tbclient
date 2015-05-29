@@ -10,10 +10,6 @@ public interface a {
 
     ForumInfo getForumInfo();
 
-    long getNextTid();
-
-    long getPreTid();
-
     User_Info getUserInfo();
 
     boolean isEmpty();

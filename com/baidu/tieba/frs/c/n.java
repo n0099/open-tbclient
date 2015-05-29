@@ -3,27 +3,27 @@ package com.baidu.tieba.frs.c;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bf;
-import com.baidu.tieba.w;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.i.b {
-    private bf aJa;
-    private Runnable aNV;
-    private FrsActivity aNs;
+    private bf aLi;
+    private FrsActivity aPE;
+    private Runnable aQh;
 
     public n(FrsActivity frsActivity) {
-        this.aNs = frsActivity;
+        this.aPE = frsActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void Ag() {
-        super.Ag();
+    public void AS() {
+        super.AS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void Ai() {
-        super.Ai();
+    public void AU() {
+        super.AU();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
@@ -31,32 +31,32 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.i.a
-    protected void ot() {
+    protected void oJ() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.i.a
-    protected void os() {
+    protected void oI() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void ov() {
-        this.aJa = new bf(this.aNs, this.aNs.aJC);
-        this.aNs.a(this.aJa);
-        BJ();
+    public void oL() {
+        this.aLi = new bf(this.aPE, this.aPE.aLJ);
+        this.aPE.a(this.aLi);
+        Cv();
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    protected int ou() {
-        return w.frs_activity;
+    protected int oK() {
+        return r.frs_activity;
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bs() {
+    protected void Ce() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Bt() {
+    protected void Cf() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
@@ -65,23 +65,16 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
-    public void ba(boolean z) {
-        super.ba(z);
+    public void bh(boolean z) {
+        super.bh(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityDestroy() {
         super.onActivityDestroy();
-        if (this.aNV != null) {
-            com.baidu.adp.lib.g.i.hI().removeCallbacks(this.aNV);
+        if (this.aQh != null) {
+            com.baidu.adp.lib.g.i.hs().removeCallbacks(this.aQh);
         }
-    }
-
-    public void Kv() {
-        if (this.aNV == null) {
-            this.aNV = new o(this);
-        }
-        com.baidu.adp.lib.g.i.hI().postDelayed(this.aNV, 2000L);
     }
 }

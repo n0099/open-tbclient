@@ -4,63 +4,63 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f {
-    private boolean bEG;
-    private MarkData bEH;
-    private g bEI;
-    private com.baidu.tbadk.baseEditMark.b bEJ;
+    private boolean bHB;
+    private MarkData bHC;
+    private g bHD;
+    private com.baidu.tbadk.baseEditMark.b bHE;
 
     public void a(com.baidu.tbadk.baseEditMark.b bVar) {
-        this.bEJ = bVar;
+        this.bHE = bVar;
     }
 
     public f(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.bEG = false;
-        this.bEH = null;
-        this.bEI = null;
-        this.bEJ = null;
-        this.bEH = new MarkData();
+        this.bHB = false;
+        this.bHC = null;
+        this.bHD = null;
+        this.bHE = null;
+        this.bHC = new MarkData();
     }
 
-    public boolean oQ() {
-        return this.bEG;
+    public boolean pq() {
+        return this.bHB;
     }
 
-    public MarkData oT() {
-        return this.bEH;
+    public MarkData pt() {
+        return this.bHC;
     }
 
     public void a(MarkData markData) {
-        this.bEH = markData;
+        this.bHC = markData;
     }
 
-    public void W(boolean z) {
-        this.bEG = z;
+    public void Z(boolean z) {
+        this.bHB = z;
     }
 
-    public String oP() {
-        if (this.bEH != null) {
-            return this.bEH.getPostId();
+    public String pp() {
+        if (this.bHC != null) {
+            return this.bHC.getPostId();
         }
         return null;
     }
 
-    public void oS() {
-        if (this.bEI != null) {
-            this.bEI.cancel();
+    public void ps() {
+        if (this.bHD != null) {
+            this.bHD.cancel();
         }
-        this.bEI = new g(this, true);
-        this.bEI.setPriority(3);
-        this.bEI.execute(new Boolean[0]);
+        this.bHD = new g(this, true);
+        this.bHD.setPriority(3);
+        this.bHD.execute(new Boolean[0]);
     }
 
-    public void oR() {
-        if (this.bEI != null) {
-            this.bEI.cancel();
+    public void pr() {
+        if (this.bHD != null) {
+            this.bHD.cancel();
         }
-        this.bEI = new g(this, false);
-        this.bEI.setPriority(3);
-        this.bEI.execute(new Boolean[0]);
+        this.bHD = new g(this, false);
+        this.bHD.setPriority(3);
+        this.bHD.execute(new Boolean[0]);
     }
 
     @Override // com.baidu.adp.base.f
@@ -70,8 +70,8 @@ public class f extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bEI != null) {
-            this.bEI.cancel();
+        if (this.bHD != null) {
+            this.bHD.cancel();
             return false;
         }
         return false;

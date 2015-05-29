@@ -24,7 +24,7 @@ public class h extends SQLiteOpenHelper {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, " + com.baidu.tbadk.core.frameworkData.a.PORTRAIT + " TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, " + OfficalBarChatActivityConfig.USER_TYPE + " INT);");
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, " + com.baidu.tbadk.core.frameworkData.c.PORTRAIT + " TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, " + OfficalBarChatActivityConfig.USER_TYPE + " INT);");
             }
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);

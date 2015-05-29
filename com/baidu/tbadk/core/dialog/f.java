@@ -5,21 +5,21 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private final /* synthetic */ TextView RA;
-    final /* synthetic */ e Ry;
-    private final /* synthetic */ int Rz;
+    final /* synthetic */ e RX;
+    private final /* synthetic */ int RY;
+    private final /* synthetic */ TextView RZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, int i, TextView textView) {
-        this.Ry = eVar;
-        this.Rz = i;
-        this.RA = textView;
+        this.RX = eVar;
+        this.RY = i;
+        this.RZ = textView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         h hVar;
-        hVar = this.Ry.Rs;
-        hVar.itemClick(this.Ry, this.Rz, this.RA);
+        hVar = this.RX.RR;
+        hVar.itemClick(this.RX, this.RY, this.RZ);
     }
 }

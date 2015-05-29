@@ -7,11 +7,11 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e IG;
+    final /* synthetic */ e Iv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.IG = eVar;
+        this.Iv = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,44 +31,44 @@ public class f implements Runnable {
         int i2;
         int i3;
         int i4;
-        weakReference = this.IG.IE;
+        weakReference = this.Iv.It;
         if (weakReference != null) {
-            weakReference2 = this.IG.IE;
+            weakReference2 = this.Iv.It;
             View view = (View) weakReference2.get();
             if (view == null) {
-                this.IG.Iz = true;
+                this.Iv.Ip = true;
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
                 int i5 = layoutParams.topMargin;
-                i2 = this.IG.Ik;
+                i2 = this.Iv.Ia;
                 layoutParams.topMargin = i5 - ((int) (i2 * 1.5f));
                 int i6 = layoutParams.topMargin;
-                i3 = this.IG.Iy;
+                i3 = this.Iv.Io;
                 if (i6 <= i3) {
-                    i4 = this.IG.Iy;
+                    i4 = this.Iv.Io;
                     layoutParams.topMargin = i4;
-                    this.IG.Iz = true;
+                    this.Iv.Ip = true;
                 }
                 view.setLayoutParams(layoutParams);
             }
-            z = this.IG.Iz;
+            z = this.Iv.Ip;
             if (z) {
-                gVar = this.IG.Im;
+                gVar = this.Iv.Ic;
                 if (gVar != null) {
-                    gVar2 = this.IG.Im;
-                    gVar2.nb();
+                    gVar2 = this.Iv.Ic;
+                    gVar2.ns();
                 }
-                handler3 = this.IG.handler;
-                runnable3 = this.IG.IF;
+                handler3 = this.Iv.handler;
+                runnable3 = this.Iv.Iu;
                 handler3.removeCallbacks(runnable3);
                 return;
             }
-            handler = this.IG.handler;
-            runnable = this.IG.IF;
+            handler = this.Iv.handler;
+            runnable = this.Iv.Iu;
             handler.removeCallbacks(runnable);
-            handler2 = this.IG.handler;
-            runnable2 = this.IG.IF;
-            i = this.IG.Ix;
+            handler2 = this.Iv.handler;
+            runnable2 = this.Iv.Iu;
+            i = this.Iv.In;
             handler2.postDelayed(runnable2, i);
         }
     }

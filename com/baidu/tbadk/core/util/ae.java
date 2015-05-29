@@ -1,66 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class ae implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ ad Uo;
+public class ae {
+    private static ae Va;
+    private static volatile int Vb = 0;
+    private static int Vc = 300000;
+    private static int Vd = 10;
+    public static int Ve;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.Uo = adVar;
+    private ae() {
+        Ve = TbadkCoreApplication.m411getInst().getNetWorkCoreType();
     }
 
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
-        com.baidu.tbadk.core.util.httpNet.a aVar;
-        com.baidu.tbadk.core.util.httpNet.a aVar2;
-        com.baidu.tbadk.core.util.httpNet.a aVar3;
-        com.baidu.tbadk.core.util.httpNet.a aVar4;
-        boolean z = true;
-        if (httpURLConnection != null) {
-            try {
-                if (httpURLConnection.getInputStream() != null) {
-                    String headerField = httpURLConnection.getHeaderField("imgsrc");
-                    if (headerField == null || headerField.length() <= 0) {
-                        z = false;
-                    }
-                    aVar = this.Uo.Uc;
-                    if (aVar.tp().ts().mIsBDImage || z) {
-                        byte[] bArr = new byte[23];
-                        int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
-                        if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                            outputStream.write(bArr, 0, read);
-                        }
-                    }
-                    String headerField2 = httpURLConnection.getHeaderField("Src-Content-Type");
-                    aVar2 = this.Uo.Uc;
-                    aVar2.tq().mHeader = httpURLConnection.getHeaderFields();
-                    if ("image/gif".equalsIgnoreCase(headerField2)) {
-                        aVar4 = this.Uo.Uc;
-                        aVar4.tq().rC = true;
-                        return;
-                    }
-                    aVar3 = this.Uo.Uc;
-                    aVar3.tq().rC = false;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+    public static synchronized ae tf() {
+        ae aeVar;
+        synchronized (ae.class) {
+            if (Va == null) {
+                Va = new ae();
             }
+            aeVar = Va;
         }
+        return aeVar;
     }
 
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    public s a(com.baidu.tbadk.core.util.httpNet.a aVar) {
+        return new ab(aVar);
     }
 
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(com.baidu.adp.lib.network.willdelete.f fVar) {
-    }
-
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void ht() {
+    public static void bY(int i) {
+        Ve = i;
     }
 }

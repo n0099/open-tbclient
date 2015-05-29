@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class WriteActivityConfig extends a {
+public class WriteActivityConfig extends c {
     public static final String ADDITION_DATA = "addition_data";
     public static final String BAOBAO_IMAGES = "baobao_images";
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";

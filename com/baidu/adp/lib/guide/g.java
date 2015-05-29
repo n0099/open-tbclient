@@ -5,90 +5,82 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private h uR;
-    private boolean uU;
-    private List<b> uV = new ArrayList();
-    private Configuration uN = new Configuration();
+    private h uc;
+    private boolean uf;
+    private List<b> ug = new ArrayList();
+    private Configuration tY = new Configuration();
 
-    public g O(int i) {
-        if (this.uU) {
+    public g M(int i) {
+        if (this.uf) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.uN.mAlpha = i;
+        this.tY.mAlpha = i;
         return this;
     }
 
     public g b(View view) {
-        if (this.uU) {
+        if (this.uf) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.uN.lI = view;
+        this.tY.lI = view;
         return this;
     }
 
-    public g P(int i) {
-        if (this.uU) {
+    public g N(int i) {
+        if (this.uf) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.uN.uG = i;
+        this.tY.tR = i;
         return this;
     }
 
     public g u(boolean z) {
-        if (this.uU) {
+        if (this.uf) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.uN.uI = z;
+        this.tY.tT = z;
         return this;
     }
 
     public g v(boolean z) {
-        if (this.uU) {
+        if (this.uf) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.uN.uJ = z;
+        this.tY.tU = z;
         return this;
     }
 
     public g a(b bVar) {
-        if (this.uU) {
+        if (this.uf) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.uV.add(bVar);
-        return this;
-    }
-
-    public g b(h hVar) {
-        if (this.uU) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.uR = hVar;
+        this.ug.add(bVar);
         return this;
     }
 
     public g w(boolean z) {
-        this.uN.uE = z;
+        this.tY.tP = z;
         return this;
     }
 
-    public d gV() {
+    public d gG() {
         d dVar = new d();
-        dVar.a((b[]) this.uV.toArray(new b[this.uV.size()]));
-        dVar.a(this.uN);
-        dVar.a(this.uR);
-        this.uV = null;
-        this.uN = null;
-        this.uR = null;
-        this.uU = true;
+        dVar.a((b[]) this.ug.toArray(new b[this.ug.size()]));
+        dVar.a(this.tY);
+        dVar.a(this.uc);
+        this.ug = null;
+        this.tY = null;
+        this.uc = null;
+        this.uf = true;
         return dVar;
     }
 }

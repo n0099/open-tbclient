@@ -6,15 +6,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.SearchLocationActivityConfig;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ SelectLocationActivity cvH;
+    final /* synthetic */ SelectLocationActivity czY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(SelectLocationActivity selectLocationActivity) {
-        this.cvH = selectLocationActivity;
+        this.czY = selectLocationActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.cvH.getPageContext().getPageActivity(), 23009)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.czY.getPageContext().getPageActivity(), 23009)));
     }
 }

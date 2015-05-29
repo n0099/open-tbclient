@@ -10,28 +10,28 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.s;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.n;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView boU;
-    private FragmentTransaction boV;
+    private ImageView brA;
+    private FragmentTransaction brB;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Ou = new a(this, 2008002);
+    private CustomMessageListener OQ = new a(this, 2008002);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Ou);
+        registerListener(this.OQ);
         sendMessage(new CustomMessage(2008002));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 1));
     }
@@ -41,16 +41,16 @@ public class ChatMessageActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ba.i(this.mRootView, s.cp_bg_line_d);
+        ay.i(this.mRootView, n.cp_bg_line_d);
     }
 
     private void initUI() {
-        setContentView(w.chat_message_activity);
+        setContentView(r.chat_message_activity);
         this.mOnClickListener = new b(this);
-        this.mRootView = findViewById(v.container);
-        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
-        this.mNavigationBar.setTitleText(y.my_chat);
+        this.mRootView = findViewById(q.container);
+        this.mNavigationBar = (NavigationBar) findViewById(q.view_navigation_bar);
+        this.mNavigationBar.setTitleText(t.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.boU = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_addchat, this.mOnClickListener);
+        this.brA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

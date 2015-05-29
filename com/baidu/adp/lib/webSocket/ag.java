@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class ag extends z {
-    c AL;
+    c Az;
 
     public ag(c cVar) {
-        this.AL = null;
-        this.AL = cVar;
+        this.Az = null;
+        this.Az = cVar;
     }
 }

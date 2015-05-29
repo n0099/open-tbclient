@@ -7,13 +7,13 @@ import com.baidu.adp.base.BdBaseApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ f sA;
+    final /* synthetic */ f sL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(f fVar, Looper looper) {
         super(looper);
-        this.sA = fVar;
+        this.sL = fVar;
     }
 
     @Override // android.os.Handler
@@ -23,9 +23,9 @@ public class h extends Handler {
             if (message.obj == null || !(message.obj instanceof j)) {
                 return;
             }
-            this.sA.b((j) message.obj);
+            this.sL.b((j) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
-            this.sA.e((j) message.obj);
+            this.sL.e((j) message.obj);
             BdBaseApplication.getInst().isDebugMode();
         }
     }

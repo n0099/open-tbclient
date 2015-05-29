@@ -3,33 +3,33 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 import java.util.List;
 /* loaded from: classes.dex */
 class u implements b {
-    final /* synthetic */ t agG;
+    final /* synthetic */ t ahH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.agG = tVar;
+        this.ahH = tVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.b
-    public void xx() {
+    public void yk() {
         q qVar;
         q qVar2;
         q qVar3;
         List list;
         q qVar4;
         q qVar5;
-        qVar = this.agG.agE;
+        qVar = this.ahH.ahF;
         qVar.currentIndex = 0;
-        qVar2 = this.agG.agE;
-        qVar2.afS = a.xr().xu();
-        qVar3 = this.agG.agE;
-        list = qVar3.afS;
+        qVar2 = this.ahH.ahF;
+        qVar2.agT = a.ye().yh();
+        qVar3 = this.ahH.ahF;
+        list = qVar3.agT;
         if (list != null) {
-            qVar5 = this.agG.agE;
-            qVar5.dY("change ip to reconnect with DNS' failed.");
+            qVar5 = this.ahH.ahF;
+            qVar5.ep("change ip to reconnect with DNS' failed.");
             return;
         }
-        qVar4 = this.agG.agE;
-        qVar4.agC = false;
+        qVar4 = this.ahH.ahF;
+        qVar4.ahD = false;
     }
 }

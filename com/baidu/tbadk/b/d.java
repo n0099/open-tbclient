@@ -3,8 +3,8 @@ package com.baidu.tbadk.b;
 import android.view.View;
 /* loaded from: classes.dex */
 public class d extends b {
-    private com.baidu.tbadk.core.frameworkData.a ahs;
-    private com.baidu.tbadk.core.frameworkData.a aht;
+    private com.baidu.tbadk.core.frameworkData.c ait;
+    private com.baidu.tbadk.core.frameworkData.c aiu;
     private View.OnClickListener mClickListener;
 
     @Override // com.baidu.tbadk.b.b
@@ -12,15 +12,15 @@ public class d extends b {
         this.mClickListener = onClickListener;
     }
 
-    public void a(com.baidu.tbadk.core.frameworkData.a aVar) {
-        this.ahs = aVar;
+    public void a(com.baidu.tbadk.core.frameworkData.c cVar) {
+        this.ait = cVar;
     }
 
-    public void b(com.baidu.tbadk.core.frameworkData.a aVar) {
-        this.aht = aVar;
+    public void b(com.baidu.tbadk.core.frameworkData.c cVar) {
+        this.aiu = cVar;
     }
 
-    public com.baidu.tbadk.core.frameworkData.a aK(boolean z) {
-        return z ? this.ahs : this.aht;
+    public com.baidu.tbadk.core.frameworkData.c aR(boolean z) {
+        return z ? this.ait : this.aiu;
     }
 }

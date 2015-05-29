@@ -1,36 +1,20 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
+import android.widget.CompoundButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnClickListener {
-    final /* synthetic */ cj bMC;
+public class cp implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ ch bOF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(cj cjVar) {
-        this.bMC = cjVar;
+    public cp(ch chVar) {
+        this.bOF = chVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.bMC.bLI;
-        if (dialog != null) {
-            dialog2 = this.bMC.bLI;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.bMC.bLI;
-                pbActivity = this.bMC.bIT;
-                com.baidu.adp.lib.g.k.b(dialog3, pbActivity.getPageContext());
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.bMC.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.bOF.bOc = (String) compoundButton.getTag();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public interface ay {
-    void d(String str, long j);
+    void g(String str, long j);
 
-    void e(String str, long j);
+    void h(String str, long j);
 }

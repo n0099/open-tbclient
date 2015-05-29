@@ -3,23 +3,31 @@ package com.baidu.tieba.pb.pb.main.a;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bMP;
+    final /* synthetic */ a bON;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bMP = aVar;
+        this.bON = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        pbActivity = this.bMP.bIT;
-        pbActivity2 = this.bMP.bIT;
-        pbActivity.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(pbActivity2.getPageContext().getPageActivity())));
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        pbActivity = this.bON.bKZ;
+        if (pbActivity.checkUpIsLogin()) {
+            pbActivity2 = this.bON.bKZ;
+            pbActivity3 = this.bON.bKZ;
+            pbActivity2.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(pbActivity3.getPageContext().getPageActivity())));
+            pbActivity4 = this.bON.bKZ;
+            TiebaStatic.eventStat(pbActivity4.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+        }
     }
 }

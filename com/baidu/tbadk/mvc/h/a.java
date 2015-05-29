@@ -24,28 +24,28 @@ public class a {
 
     public static final void a(b bVar, View view) {
         if (bVar != null && view != null) {
-            int AF = bVar.AF();
+            int Br = bVar.Br();
             BdUniqueId uniqueId = bVar.getUniqueId();
-            com.baidu.tbadk.mvc.b.a AG = bVar.AG();
-            c AH = bVar.AH();
-            com.baidu.tbadk.mvc.a.a AI = bVar.AI();
+            com.baidu.tbadk.mvc.b.a Bs = bVar.Bs();
+            c Bt = bVar.Bt();
+            com.baidu.tbadk.mvc.a.a Bu = bVar.Bu();
             Object extra = bVar.getExtra();
-            boolean AJ = bVar.AJ();
-            int AK = bVar.AK();
+            boolean Bv = bVar.Bv();
+            int Bw = bVar.Bw();
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(50331648, Integer.valueOf(AF));
+            sparseArray.put(50331648, Integer.valueOf(Br));
             sparseArray.put(51380224, uniqueId);
-            sparseArray.put(52428800, AG);
-            sparseArray.put(53477376, AH);
-            sparseArray.put(54525952, AI);
+            sparseArray.put(52428800, Bs);
+            sparseArray.put(53477376, Bt);
+            sparseArray.put(54525952, Bu);
             sparseArray.put(58720256, extra);
-            sparseArray.put(59768832, Boolean.valueOf(AJ));
-            sparseArray.put(67108864, Integer.valueOf(AK));
+            sparseArray.put(59768832, Boolean.valueOf(Bv));
+            sparseArray.put(67108864, Integer.valueOf(Bw));
             a(sparseArray, view);
         }
     }
 
-    public static final b r(View view) {
+    public static final b u(View view) {
         if (view != null) {
             Object tag = view.getTag(50331648);
             Object tag2 = view.getTag(51380224);
@@ -63,8 +63,8 @@ public class a {
                 b bVar = new b(intValue, (com.baidu.tbadk.mvc.b.a) tag3, (c) tag4, (com.baidu.tbadk.mvc.a.a) tag5);
                 bVar.setUniqueId(bdUniqueId);
                 bVar.setExtra(tag6);
-                bVar.aS(booleanValue);
-                bVar.dL(intValue2);
+                bVar.aZ(booleanValue);
+                bVar.dV(intValue2);
                 return bVar;
             }
         }
@@ -81,7 +81,7 @@ public class a {
         if (dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
             return null;
         }
-        return r(dialog.getWindow().getDecorView());
+        return u(dialog.getWindow().getDecorView());
     }
 
     public static final void a(SparseArray<Object> sparseArray, View view) {

@@ -9,19 +9,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.coreExtra.c.g;
 import com.baidu.tbadk.coreExtra.messageCenter.c;
 import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, g> {
-    aa Ok;
-    final /* synthetic */ a bZU;
+    aa OE;
+    final /* synthetic */ a cer;
 
     private b(a aVar) {
-        this.bZU = aVar;
-        this.Ok = null;
+        this.cer = aVar;
+        this.OE = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,40 +38,40 @@ public class b extends BdAsyncTask<String, Integer, g> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: x */
+    /* renamed from: y */
     public g doInBackground(String... strArr) {
         g gVar;
         Exception e;
         Context context;
         try {
-            this.Ok = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
-            this.Ok.o("_os_version", Build.VERSION.RELEASE);
+            this.OE = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
+            this.OE.o("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(n.M(TbadkCoreApplication.m411getInst().getApp())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(n.N(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ok.o("_phone_screen", stringBuffer.toString());
-            if (c.vw().vz() > 0) {
-                this.Ok.o("_msg_status", GameInfoData.NOT_FROM_DETAIL);
+            this.OE.o("_phone_screen", stringBuffer.toString());
+            if (c.wg().wj() > 0) {
+                this.OE.o("_msg_status", GameInfoData.NOT_FROM_DETAIL);
             } else {
-                this.Ok.o("_msg_status", "1");
+                this.OE.o("_msg_status", "1");
             }
             String packageName = TbadkCoreApplication.m411getInst().getPackageName();
-            this.Ok.o("package", packageName);
-            this.Ok.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
-            this.Ok.o("signmd5", bf.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.Ok.o("md5", UtilHelper.getTiebaApkMd5());
-            String rO = this.Ok.rO();
-            if (!this.Ok.sp().tq().pv()) {
+            this.OE.o("package", packageName);
+            this.OE.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
+            this.OE.o("signmd5", bd.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.OE.o("md5", UtilHelper.getTiebaApkMd5());
+            String sw = this.OE.sw();
+            if (!this.OE.sX().tT().qa()) {
                 return null;
             }
             gVar = new g();
             try {
-                gVar.parserJson(rO);
-                if (TbadkCoreApplication.getClientId() == null && gVar.wc().getClientId() != null && gVar.wc().getClientId().length() > 0) {
-                    context = this.bZU.mContext;
-                    TbadkCoreApplication.saveClientId(context, gVar.wc().getClientId());
-                    TbadkCoreApplication.setClientId(gVar.wc().getClientId());
+                gVar.parserJson(sw);
+                if (TbadkCoreApplication.getClientId() == null && gVar.wM().getClientId() != null && gVar.wM().getClientId().length() > 0) {
+                    context = this.cer.mContext;
+                    TbadkCoreApplication.saveClientId(context, gVar.wM().getClientId());
+                    TbadkCoreApplication.setClientId(gVar.wM().getClientId());
                     return gVar;
                 }
                 return gVar;
@@ -88,9 +88,9 @@ public class b extends BdAsyncTask<String, Integer, g> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bZU.bZT = null;
-        if (this.Ok != null) {
-            this.Ok.hh();
+        this.cer.ceq = null;
+        if (this.OE != null) {
+            this.OE.gS();
         }
         super.cancel(true);
     }
@@ -101,7 +101,7 @@ public class b extends BdAsyncTask<String, Integer, g> {
     /* renamed from: a */
     public void onPostExecute(g gVar) {
         super.onPostExecute(gVar);
-        this.bZU.bZT = null;
-        this.bZU.mLoadDataCallBack.c(gVar);
+        this.cer.ceq = null;
+        this.cer.mLoadDataCallBack.c(gVar);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.adp.lib.f;
 /* loaded from: classes.dex */
 public abstract class c<T> {
     /* JADX INFO: Access modifiers changed from: protected */
-    public void onLoaded(T t, String str, int i) {
+    public void a(T t, String str, int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -10,6 +10,6 @@ public abstract class c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void onCancelled(String str) {
+    public void am(String str) {
     }
 }

@@ -1,15 +1,14 @@
 package com.baidu.tieba.mention;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
-    private int aIU = 1;
-    private int bDz;
+    private int aLd = 1;
+    private int bGu;
     private String ids;
 
     public void b(FeedData feedData) {
@@ -18,37 +17,37 @@ public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
         }
     }
 
-    public void QD() {
-        this.aIU++;
-        this.bDz = 4;
+    public void RR() {
+        this.aLd++;
+        this.bGu = 4;
     }
 
     public void reset() {
-        this.aIU = 1;
-        this.bDz = 1;
+        this.aLd = 1;
+        this.bGu = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.bDz;
+        return this.bGu;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oC() {
+    public HashMap<String, Object> oS() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.aIU));
-        if (this.bDz == 4 && !TextUtils.isEmpty(this.ids)) {
+        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+        hashMap.put("pn", String.valueOf(this.aLd));
+        if (this.bGu == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object V(boolean z) {
+    public Object Y(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.aIU);
+            builder.pn = Integer.valueOf(this.aLd);
             builder.ids = this.ids;
             if (z) {
                 com.baidu.tbadk.util.j.a(builder, true);
@@ -67,12 +66,12 @@ public class ag implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.i {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String zX() {
+    public String AJ() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean AD() {
+    public boolean Bp() {
         return true;
     }
 

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class LiveCardData implements as, Serializable {
+public class LiveCardData implements ap, Serializable {
     private static final long serialVersionUID = 1;
     private int authorId;
     private String authorName;
@@ -23,6 +23,7 @@ public class LiveCardData implements as, Serializable {
     private String intro;
     private boolean isModifyTime = false;
     private int isVip;
+    private String labelName;
     private int likers;
     private int listeners;
     private String name;
@@ -218,6 +219,14 @@ public class LiveCardData implements as, Serializable {
         this.isVip = i;
     }
 
+    public String getLabelName() {
+        return this.labelName;
+    }
+
+    public void setLabelName(String str) {
+        this.labelName = str;
+    }
+
     public JSONObject toDraftJson() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -255,16 +264,18 @@ public class LiveCardData implements as, Serializable {
             } else {
                 this.fromType = anchorInfo.from_type.intValue();
             }
+            this.labelName = anchorInfo.label_name;
+            this.isVip = anchorInfo.is_vip.intValue();
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.as
-    public ArrayList<ar> getImages() {
-        ArrayList<ar> arrayList = new ArrayList<>();
-        ar arVar = new ar();
-        arVar.QM = this.portrait;
-        arVar.UW = 10;
-        arrayList.add(arVar);
+    @Override // com.baidu.tbadk.core.util.ap
+    public ArrayList<ao> getImages() {
+        ArrayList<ao> arrayList = new ArrayList<>();
+        ao aoVar = new ao();
+        aoVar.Ri = this.portrait;
+        aoVar.Vx = 10;
+        arrayList.add(aoVar);
         return arrayList;
     }
 

@@ -1,24 +1,16 @@
 package com.baidu.tbadk.core.view;
-
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v {
-    NoDataViewFactory.ImgType YF = NoDataViewFactory.ImgType.NONE;
-    int mHeight = -1;
+public class v implements Runnable {
+    final /* synthetic */ t Zj;
 
-    private v() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(t tVar) {
+        this.Zj = tVar;
     }
 
-    public static v a(NoDataViewFactory.ImgType imgType, int i) {
-        v vVar = new v();
-        vVar.YF = imgType;
-        vVar.mHeight = i;
-        return vVar;
-    }
-
-    public static v a(NoDataViewFactory.ImgType imgType) {
-        v vVar = new v();
-        vVar.YF = imgType;
-        return vVar;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.Zj.ut();
     }
 }

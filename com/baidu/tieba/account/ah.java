@@ -1,137 +1,149 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class ah extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n> {
-    private com.baidu.tbadk.core.util.aa Ok;
-    final /* synthetic */ Register2Activity awk;
-
-    private ah(Register2Activity register2Activity) {
-        this.awk = register2Activity;
-        this.Ok = null;
-    }
+class ah implements TextWatcher {
+    final /* synthetic */ Register2Activity axP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(Register2Activity register2Activity, ah ahVar) {
-        this(register2Activity);
+    public ah(Register2Activity register2Activity) {
+        this.axP = register2Activity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.Ok != null) {
-            this.Ok.hh();
-        }
-        this.awk.awg = null;
-        progressBar = this.awk.mProgressBar;
-        progressBar.setVisibility(8);
-        this.awk.Ev();
-        super.cancel(true);
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public com.baidu.tbadk.core.data.n doInBackground(String... strArr) {
-        RegistData Ew;
-        com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-        try {
-            Ew = this.awk.Ew();
-            this.Ok = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            this.Ok.o("un", Ew.getName());
-            this.Ok.o("phonenum", Ew.getPhone());
-            this.Ok.o("passwd", Ew.getPsw());
-            if (Ew.getVcode() != null) {
-                this.Ok.o("vcode", Ew.getVcode());
-            }
-            if (Ew.getVcodeMd5() != null) {
-                this.Ok.o("vcode_md5", Ew.getVcodeMd5());
-            }
-            String rO = this.Ok.rO();
-            if ((this.Ok.ss() && (this.Ok.st() == 0 || this.Ok.st() == 36)) || this.Ok.st() == 5) {
-                com.baidu.tbadk.core.data.n nVar2 = new com.baidu.tbadk.core.data.n();
-                nVar2.parserJson(rO);
-                return nVar2;
-            }
-            return nVar;
-        } catch (Exception e) {
-            BdLog.detailException(e);
-            return null;
-        }
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(com.baidu.tbadk.core.data.n nVar) {
-        ProgressBar progressBar;
-        RegistData Ew;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x006a, code lost:
+        if (r4 != r0.getEditableText()) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0082, code lost:
+        if (r4 != r0.getEditableText()) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x009a, code lost:
+        if (r4 != r0.getEditableText()) goto L30;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0078  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
+    @Override // android.text.TextWatcher
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void afterTextChanged(Editable editable) {
+        EditText editText;
+        EditText editText2;
+        RelativeLayout relativeLayout;
         int i;
         int i2;
         int i3;
-        super.onPostExecute(nVar);
-        this.awk.awg = null;
-        progressBar = this.awk.mProgressBar;
-        progressBar.setVisibility(8);
-        this.awk.Ev();
-        this.awk.awh = nVar;
-        if (!this.Ok.ss()) {
-            this.awk.awd = -1;
-            this.awk.mErrorString = this.Ok.getErrorString();
-            this.awk.Eu();
-        } else if (this.Ok.st() == 36) {
-            this.awk.r(nVar.qf());
-            Register2Activity register2Activity = this.awk;
-            i3 = Register2Activity.avz;
-            register2Activity.awd = i3;
-            this.awk.mErrorString = this.Ok.getErrorString();
-            this.awk.Eu();
-        } else if (this.Ok.st() == 5) {
-            Register2Activity register2Activity2 = this.awk;
-            i2 = Register2Activity.avC;
-            register2Activity2.awd = i2;
-            this.awk.bl(true);
-        } else if (this.Ok.st() == 0) {
-            Ew = this.awk.Ew();
-            Activity pageActivity = this.awk.getPageContext().getPageActivity();
-            i = Register2Activity.avy;
-            ActivationActivity.a(pageActivity, Ew, i);
-            this.awk.bl(false);
-        } else {
-            this.awk.awd = this.Ok.st();
-            this.awk.mErrorString = this.Ok.getErrorString();
-            this.awk.Eu();
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        EditText editText3;
+        EditText editText4;
+        EditText editText5;
+        EditText editText6;
+        EditText editText7;
+        EditText editText8;
+        boolean z;
+        RelativeLayout relativeLayout2;
+        EditText editText9;
+        RelativeLayout relativeLayout3;
+        editText = this.axP.axw;
+        if (editable == editText.getEditableText()) {
+            this.axP.bu(false);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        LinearLayout linearLayout;
-        TextView textView;
-        TextView textView2;
-        progressBar = this.awk.mProgressBar;
-        progressBar.setVisibility(0);
-        this.awk.Es();
-        this.awk.awd = -1;
-        this.awk.mErrorString = null;
-        this.awk.Eu();
-        linearLayout = this.awk.avV;
-        linearLayout.setVisibility(8);
-        textView = this.awk.avO;
-        textView.setVisibility(4);
-        textView2 = this.awk.avO;
-        textView2.setText((CharSequence) null);
-        super.onPreExecute();
+        editText2 = this.axP.axu;
+        if (editText2.length() > 0) {
+            editText7 = this.axP.axv;
+            if (editText7.length() >= 6) {
+                editText8 = this.axP.axw;
+                if (editText8.length() > 0) {
+                    z = this.axP.axG;
+                    if (z) {
+                        editText9 = this.axP.axx;
+                        if (editText9.length() <= 0) {
+                            relativeLayout3 = this.axP.axy;
+                            relativeLayout3.setEnabled(false);
+                            i = this.axP.axI;
+                            i2 = Register2Activity.axe;
+                            if (i == i2) {
+                                editText6 = this.axP.axu;
+                            }
+                            i3 = this.axP.axI;
+                            i4 = Register2Activity.axf;
+                            if (i3 == i4) {
+                                editText5 = this.axP.axv;
+                            }
+                            i5 = this.axP.axI;
+                            i6 = Register2Activity.axg;
+                            if (i5 == i6) {
+                                editText4 = this.axP.axw;
+                            }
+                            i7 = this.axP.axI;
+                            i8 = Register2Activity.axh;
+                            if (i7 == i8) {
+                                editText3 = this.axP.axx;
+                                if (editable != editText3.getEditableText()) {
+                                    return;
+                                }
+                                this.axP.axI = -1;
+                                this.axP.Fl();
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    relativeLayout2 = this.axP.axy;
+                    relativeLayout2.setEnabled(true);
+                    i = this.axP.axI;
+                    i2 = Register2Activity.axe;
+                    if (i == i2) {
+                    }
+                    i3 = this.axP.axI;
+                    i4 = Register2Activity.axf;
+                    if (i3 == i4) {
+                    }
+                    i5 = this.axP.axI;
+                    i6 = Register2Activity.axg;
+                    if (i5 == i6) {
+                    }
+                    i7 = this.axP.axI;
+                    i8 = Register2Activity.axh;
+                    if (i7 == i8) {
+                    }
+                }
+            }
+        }
+        relativeLayout = this.axP.axy;
+        relativeLayout.setEnabled(false);
+        i = this.axP.axI;
+        i2 = Register2Activity.axe;
+        if (i == i2) {
+        }
+        i3 = this.axP.axI;
+        i4 = Register2Activity.axf;
+        if (i3 == i4) {
+        }
+        i5 = this.axP.axI;
+        i6 = Register2Activity.axg;
+        if (i5 == i6) {
+        }
+        i7 = this.axP.axI;
+        i8 = Register2Activity.axh;
+        if (i7 == i8) {
+        }
     }
 }

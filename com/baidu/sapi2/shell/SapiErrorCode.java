@@ -31,7 +31,6 @@ public interface SapiErrorCode {
     public static final int LOGA_SUCCEED = 110000;
     public static final int LOGIN_FAIL_OVER_LIMIT = 210001;
     public static final int LOGIN_INTERFACE_PARAM_ERROR = -1;
-    public static final int LOGIN_MERGE_CONFIRM = 400401;
     public static final int LOGIN_PROTECT_VERIFY = 17;
     public static final int LOGIN_SIGNATURE_ERROR = -2;
     public static final int LOGIN_TOO_MUCH = 5;
@@ -88,9 +87,5 @@ public interface SapiErrorCode {
     public static final int VERIFY_CODE_INPUT_ERR = 110031;
     public static final int VERIFY_CODE_NOT_MATCH = 6;
     public static final int VERSION_TOO_OLD = 140008;
-    public static final int VOICE_CHECK_USER_FORBIDDEN = 4;
-    public static final int VOICE_CHECK_USER_NOT_NORMALIZED = 3;
-    public static final int VOICE_LOGIN_VERIFY_FAILED = 71042;
-    public static final int VOICE_REG_AUTH_EXPIRED = 62004;
     public static final int WEAK_PWD = 110012;
 }

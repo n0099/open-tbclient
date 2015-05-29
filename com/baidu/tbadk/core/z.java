@@ -1,11 +1,23 @@
 package com.baidu.tbadk.core;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.adp.base.a.b {
-    @Override // com.baidu.adp.base.a.b
-    public void c(SQLiteDatabase sQLiteDatabase) {
-        TbadkCoreApplication.resetTDatabaseCreateTime();
+public class z implements CustomMessageTask.CustomRunnable<Intent> {
+    final /* synthetic */ TbadkCoreApplication OW;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(TbadkCoreApplication tbadkCoreApplication) {
+        this.OW = tbadkCoreApplication;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
+        UtilHelper.commenDealIntent(this.OW.getApp(), customMessage.getData());
+        return null;
     }
 }

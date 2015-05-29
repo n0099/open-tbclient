@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AccountData;
 public interface b {
     void a(AccountData accountData);
 
-    void bO(String str);
-
     void c(String str, int i, String str2);
+
+    void cb(String str);
 }

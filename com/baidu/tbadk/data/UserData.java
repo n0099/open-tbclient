@@ -17,8 +17,6 @@ import tbclient.PrivSets;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
-    public static final int NORMAL_ACCOUNT = 0;
-    public static final int OFFICIAL_ACCOUNT = 1;
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
     private int bimg_end_time;
@@ -272,7 +270,7 @@ public class UserData extends MetaData {
                 this.concern_num = jSONObject.optInt("concern_num");
                 this.mFansNum = jSONObject.optInt("fans_num");
                 this.sex = jSONObject.optInt(MyGiftListActivityConfig.USER_SEX, 1);
-                if (this.sex != 1 && this.sex != 2) {
+                if (this.sex != 2 && this.sex != 1) {
                     this.sex = 1;
                 }
                 this.like_bars = jSONObject.optInt("my_like_num");

@@ -5,39 +5,39 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class i {
-    private static final String ced = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
-    private com.baidu.tbadk.core.util.aa Ok = null;
+    private static final String cii = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
+    private com.baidu.tbadk.core.util.aa OE = null;
 
-    public String im(String str) {
+    public String jf(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.Ok = new com.baidu.tbadk.core.util.aa(ced);
-        this.Ok.o("user_id", str2);
-        this.Ok.o("forum_ids", str);
-        this.Ok.sp().tp().VW = true;
-        this.Ok.sp().tp().mIsNeedTbs = true;
-        return this.Ok.rO();
+        this.OE = new com.baidu.tbadk.core.util.aa(cii);
+        this.OE.o("user_id", str2);
+        this.OE.o("forum_ids", str);
+        this.OE.sX().tS().WD = true;
+        this.OE.sX().tS().mIsNeedTbs = true;
+        return this.OE.sw();
     }
 
     public void cancel() {
-        if (this.Ok != null) {
-            this.Ok.hh();
+        if (this.OE != null) {
+            this.OE.gS();
         }
     }
 
-    public boolean pv() {
-        if (this.Ok != null) {
-            return this.Ok.sp().tq().pv();
+    public boolean qa() {
+        if (this.OE != null) {
+            return this.OE.sX().tT().qa();
         }
         return false;
     }
 
-    public String pw() {
-        if (this.Ok != null) {
-            return this.Ok.getErrorString();
+    public String qb() {
+        if (this.OE != null) {
+            return this.OE.getErrorString();
         }
         return null;
     }

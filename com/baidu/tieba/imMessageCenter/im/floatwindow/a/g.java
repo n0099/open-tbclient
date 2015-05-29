@@ -1,9 +1,9 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class g implements c {
-    private int bri;
-    private int brj;
-    private h brk;
+    private int btS;
+    private int btT;
+    private h btU;
     private final int speed;
     private int start;
 
@@ -13,33 +13,33 @@ public class g implements c {
 
     public void setStart(int i) {
         this.start = i;
-        this.brj = i;
+        this.btT = i;
     }
 
-    public void gw(int i) {
-        this.bri = i;
+    public void gN(int i) {
+        this.btS = i;
     }
 
     public void a(h hVar) {
-        this.brk = hVar;
+        this.btU = hVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c
     public boolean execute() {
-        if (this.brj != this.bri) {
-            if (this.bri > this.start) {
-                this.brj += this.speed;
-                if (this.brj > this.bri) {
-                    this.brj = this.bri;
+        if (this.btT != this.btS) {
+            if (this.btS > this.start) {
+                this.btT += this.speed;
+                if (this.btT > this.btS) {
+                    this.btT = this.btS;
                 }
             } else {
-                this.brj -= this.speed;
-                if (this.brj < this.bri) {
-                    this.brj = this.bri;
+                this.btT -= this.speed;
+                if (this.btT < this.btS) {
+                    this.btT = this.btS;
                 }
             }
-            if (this.brk != null) {
-                this.brk.dY(this.brj);
+            if (this.btU != null) {
+                this.btU.ei(this.btT);
             }
             return false;
         }

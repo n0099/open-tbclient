@@ -1,0 +1,43 @@
+package com.baidu.sapi2.utils;
+/* loaded from: classes.dex */
+public interface g {
+    public static final String A = "/yunid/device/service/status";
+    public static final String B = "/yunid/device/reg";
+    public static final String C = "/yunid/device/login";
+    public static final String D = "/yunid/device/forcereg";
+    public static final String E = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String F = "/v2/security/sapibindwidgetsend";
+    public static final String G = "/v2/security/sapibindwidgetbind";
+    public static final String H = "/v2/sapi/getvoiceid";
+    public static final String I = "/v2/sapi/regvoice";
+    public static final String J = "/v2/sapi/voicelogin";
+    public static final String K = "baiduvoice35hy12";
+    public static final String L = "/v2/sapi/sdk-e7e3227a11d7e4d3a3a1a8ea89bc76d8";
+    public static final String M = "/v2/sapi/sdk-9fc05608ec97ba19262c82c1aa7770e7";
+    public static final String a = "/v2/sapi/login";
+    public static final String b = "/wp/login/proxy";
+    public static final String c = "http://119.75.220.29";
+    public static final String d = "http://220.181.111.48";
+    public static final String e = "http://123.125.115.81";
+    public static final String f = "/cgi-bin/genimage?";
+    public static final String g = "/v2/sapi/applyregcode";
+    public static final String h = "/v2/sapi/phoneregverify";
+    public static final String i = "/v2/sapi/reg/quick";
+    public static final String j = "2512457640";
+    public static final String k = "/phoenix/account/ssologin";
+    public static final String l = "/phoenix/account/ssologin";
+    public static final String m = "/phoenix/account/startlogin";
+    public static final String n = "/phoenix/account/afterauth";
+    public static final String o = "/phoenix/account/finishbind";
+    public static final String p = "/v2/sapi/qrlogin?lp=pc";
+    public static final String q = "/v2/sapi/qrlogin?lp=app";
+    public static final String r = "/v2/sapi/smsgetlogin";
+    public static final String s = "10698000036592";
+    public static final String t = "/v2/sapi/getdpass";
+    public static final String u = "AES/CBC/PKCS5Padding";
+    public static final String v = "AES";
+    public static final String w = "8070605040302010";
+    public static final String x = "js52je)927!hsm^%3m";
+    public static final String y = "AES/CBC/NoPadding";
+    public static final String z = "/static/appsapi/conf/config.txt";
+}

@@ -2,17 +2,17 @@ package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class o {
     public String BDUSS;
-    public String aqN;
+    public String asp;
 
     public o(String str, String str2) {
         this.BDUSS = "";
-        this.aqN = "";
+        this.asp = "";
         this.BDUSS = str;
-        this.aqN = str2;
+        this.asp = str2;
     }
 
     public int hashCode() {
-        return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aqN != null ? this.aqN.hashCode() : 0);
+        return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.asp != null ? this.asp.hashCode() : 0);
     }
 
     public boolean equals(Object obj) {
@@ -28,7 +28,7 @@ public class o {
             } else if (!this.BDUSS.equals(oVar.BDUSS)) {
                 return false;
             }
-            return this.aqN == null ? oVar.aqN == null : this.aqN.equals(oVar.aqN);
+            return this.asp == null ? oVar.asp == null : this.asp.equals(oVar.asp);
         }
         return false;
     }

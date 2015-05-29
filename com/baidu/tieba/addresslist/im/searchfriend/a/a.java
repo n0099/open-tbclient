@@ -8,29 +8,29 @@ import tbclient.RecommendFriend.LikeUserInfo;
 import tbclient.RecommendFriend.RecommendFriendResIdl;
 /* loaded from: classes.dex */
 public class a {
-    private c azH = new c();
+    private c aBs = new c();
     private List<b> likeUserList = new ArrayList();
 
-    public c Fm() {
-        return this.azH;
+    public c Gf() {
+        return this.aBs;
     }
 
     public void a(c cVar) {
-        this.azH = cVar;
+        this.aBs = cVar;
     }
 
     public void a(b bVar) {
         this.likeUserList.add(bVar);
     }
 
-    public List<b> Fn() {
+    public List<b> Gg() {
         return this.likeUserList;
     }
 
     public void a(RecommendFriendResIdl recommendFriendResIdl) {
         if (recommendFriendResIdl != null && recommendFriendResIdl.data != null) {
             if (recommendFriendResIdl.data.new_user != null) {
-                this.azH.a(recommendFriendResIdl.data.new_user);
+                this.aBs.a(recommendFriendResIdl.data.new_user);
             }
             if (recommendFriendResIdl.data.like_user != null && recommendFriendResIdl.data.like_user.size() > 0) {
                 for (LikeUserInfo likeUserInfo : recommendFriendResIdl.data.like_user) {
@@ -44,10 +44,10 @@ public class a {
 
     public void h(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.azH == null) {
-                this.azH = new c();
+            if (this.aBs == null) {
+                this.aBs = new c();
             }
-            this.azH.e(jSONObject.optJSONObject("recommend_new_user"));
+            this.aBs.e(jSONObject.optJSONObject("recommend_new_user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("recommend_like_user");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 if (this.likeUserList == null) {
@@ -63,14 +63,14 @@ public class a {
         }
     }
 
-    public JSONObject Fo() {
+    public JSONObject Gh() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("recommend_new_user", this.azH.Fq());
+            jSONObject.put("recommend_new_user", this.aBs.Gj());
             if (this.likeUserList != null && this.likeUserList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
                 for (b bVar : this.likeUserList) {
-                    jSONArray.put(bVar.Fq());
+                    jSONArray.put(bVar.Gj());
                 }
                 jSONObject.put("recommend_like_user", jSONArray);
             }

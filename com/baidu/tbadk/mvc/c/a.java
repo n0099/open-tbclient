@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface a {
-    boolean Aa();
+    boolean AM();
 
     boolean a(b bVar);
 

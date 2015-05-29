@@ -1,91 +1,91 @@
 package com.baidu.tieba.image;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private String aIS;
-    private ArrayList<String> bue;
-    private String buh;
-    private String bui;
-    private boolean buo;
-    private String bug = null;
-    private String aeD = null;
-    private boolean buj = false;
-    private boolean buk = true;
-    private b bul = null;
-    private int bum = 0;
-    private boolean bun = false;
-    private c bup = null;
-    private HashMap<String, String> buq = new HashMap<>();
+    private String aLb;
+    private ArrayList<String> bwN;
+    private String bwP;
+    private String bwQ;
+    private boolean bwW;
+    private String bwO = null;
+    private String afH = null;
+    private boolean bwR = false;
+    private boolean bwS = true;
+    private b bwT = null;
+    private int bwU = 0;
+    private boolean bwV = false;
+    private c bwX = null;
+    private HashMap<String, String> bwY = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.bue = null;
-        this.buh = null;
-        this.aIS = null;
-        this.bui = null;
-        this.buo = false;
-        this.bue = arrayList;
-        if (this.bue == null) {
-            this.bue = new ArrayList<>();
+        this.bwN = null;
+        this.bwP = null;
+        this.aLb = null;
+        this.bwQ = null;
+        this.bwW = false;
+        this.bwN = arrayList;
+        if (this.bwN == null) {
+            this.bwN = new ArrayList<>();
         }
-        int size = this.bue.size();
+        int size = this.bwN.size();
         for (int i = 0; i < size; i++) {
-            String str4 = this.bue.get(i);
-            this.buq.put(hs(str4), str4);
+            String str4 = this.bwN.get(i);
+            this.bwY.put(hV(str4), str4);
         }
-        this.buh = str2;
-        this.aIS = str;
-        this.bui = str3;
-        if (this.bui == null) {
-            this.buo = true;
-        }
-    }
-
-    public void dk(boolean z) {
-        this.buk = z;
-    }
-
-    public void VX() {
-        if (!this.buj && !this.buo) {
-            c(this.buh, this.bui, 10, 0);
+        this.bwP = str2;
+        this.aLb = str;
+        this.bwQ = str3;
+        if (this.bwQ == null) {
+            this.bwW = true;
         }
     }
 
-    public void VY() {
-        if (!this.buo) {
-            if (!this.buj) {
-                VX();
-            } else if (this.bug != null && this.bug.length() > 0) {
-                this.buk = true;
-                c(this.bug, null, 0, 10);
+    public void dw(boolean z) {
+        this.bwS = z;
+    }
+
+    public void Xp() {
+        if (!this.bwR && !this.bwW) {
+            c(this.bwP, this.bwQ, 10, 0);
+        }
+    }
+
+    public void Xq() {
+        if (!this.bwW) {
+            if (!this.bwR) {
+                Xp();
+            } else if (this.bwO != null && this.bwO.length() > 0) {
+                this.bwS = true;
+                c(this.bwO, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.bul != null) {
-            if (str2 == null || !str2.equals(this.bul.getPicId())) {
-                this.bul.cancel();
+        if (this.bwT != null) {
+            if (str2 == null || !str2.equals(this.bwT.getPicId())) {
+                this.bwT.cancel();
             } else {
                 return;
             }
         }
-        this.bul = new b(this, str, str2, i, i2);
-        this.bul.setPriority(3);
-        this.bul.execute(new Object[0]);
+        this.bwT = new b(this, str, str2, i, i2);
+        this.bwT.setPriority(3);
+        this.bwT.execute(new Object[0]);
     }
 
     public void a(c cVar) {
-        this.bup = cVar;
+        this.bwX = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(d dVar) {
-        if (dVar.DM() != null && dVar.DM().length() > 0) {
-            return dVar.DM();
+        if (dVar.Ew() != null && dVar.Ew().length() > 0) {
+            return dVar.Ew();
         }
         StringBuilder sb = new StringBuilder(150);
         if (dVar.getHeight() * dVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
@@ -101,21 +101,21 @@ public class a {
             sb.append(String.valueOf(dVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(bd.aM(dVar.getImageUrl()));
+        sb.append(bb.aV(dVar.getImageUrl()));
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String hs(String str) {
+    public String hV(String str) {
         int lastIndexOf;
         int indexOf;
-        String aN = bd.aN(str);
-        if (aN != null) {
-            if (aN.indexOf(".baidu.com") != -1 && (lastIndexOf = aN.lastIndexOf("/")) != -1 && (indexOf = aN.indexOf(".", lastIndexOf)) != -1) {
-                return aN.substring(lastIndexOf + 1, indexOf);
+        String aW = bb.aW(str);
+        if (aW != null) {
+            if (aW.indexOf(".baidu.com") != -1 && (lastIndexOf = aW.lastIndexOf("/")) != -1 && (indexOf = aW.indexOf(".", lastIndexOf)) != -1) {
+                return aW.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return aN;
+        return aW;
     }
 }

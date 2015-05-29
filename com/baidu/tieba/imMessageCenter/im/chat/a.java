@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity bpo;
+    final /* synthetic */ PersonalChatActivity brU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.bpo = personalChatActivity;
+        this.brU = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,17 +24,17 @@ class a extends CustomMessageListener {
         PersonalChatView personalChatView2;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
             com.baidu.tieba.im.data.b data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
-            personalMsglistModel = this.bpo.bph;
+            personalMsglistModel = this.brU.brN;
             PersonalMsglistModel.CardStatus currentStatus = personalMsglistModel.getCurrentStatus(data);
-            personalMsglistModel2 = this.bpo.bph;
+            personalMsglistModel2 = this.brU.brN;
             personalMsglistModel2.setCardStatus(currentStatus);
             if (currentStatus == PersonalMsglistModel.CardStatus.AGREE) {
                 String content = data.getContent();
-                personalChatView2 = this.bpo.bpi;
+                personalChatView2 = this.brU.brO;
                 personalChatView2.a(currentStatus, false, content);
                 return;
             }
-            personalChatView = this.bpo.bpi;
+            personalChatView = this.brU.brO;
             personalChatView.a(currentStatus, false, new String[0]);
         }
     }

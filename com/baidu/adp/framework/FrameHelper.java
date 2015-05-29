@@ -11,7 +11,7 @@ public class FrameHelper {
         SOCKET,
         CUSTOM;
 
-        /* JADX DEBUG: Replace access to removed values field (nX) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (oc) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TYPE[] valuesCustom() {
             TYPE[] valuesCustom = values();
@@ -22,7 +22,7 @@ public class FrameHelper {
         }
     }
 
-    public static TYPE q(int i) {
+    public static TYPE r(int i) {
         if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
@@ -36,19 +36,19 @@ public class FrameHelper {
         return null;
     }
 
-    public static boolean r(int i) {
+    public static boolean s(int i) {
         return i >= 1000000 && i < 2000000;
     }
 
-    public static boolean s(int i) {
+    public static boolean t(int i) {
         return i >= 0 && i < 1000000;
     }
 
-    public static boolean t(int i) {
+    public static boolean u(int i) {
         return i >= 2000000 && i < 3000000;
     }
 
-    public static <T extends c> int a(LinkedList<T> linkedList, int i) {
+    public static <T extends d> int a(LinkedList<T> linkedList, int i) {
         int size = linkedList.size();
         int i2 = 0;
         while (i2 < size && linkedList.get(i2).getPriority() <= i) {
@@ -57,7 +57,7 @@ public class FrameHelper {
         return i2;
     }
 
-    public static <T extends c> void a(LinkedList<T> linkedList, T t) {
+    public static <T extends d> void a(LinkedList<T> linkedList, T t) {
         if (t != null && !linkedList.contains(t)) {
             linkedList.add(a(linkedList, t.getPriority()), t);
         }

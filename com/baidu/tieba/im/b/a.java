@@ -1,7 +1,9 @@
 package com.baidu.tieba.im.b;
+
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    public static int ge(int i) {
+    public static int gv(int i) {
         switch (i) {
             case 1:
                 return -2;
@@ -25,7 +27,7 @@ public class a {
             case 26:
             case 27:
             case 28:
-            case 29:
+            case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
             default:
                 return 1;
             case 6:

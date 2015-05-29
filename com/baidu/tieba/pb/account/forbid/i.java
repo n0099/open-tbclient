@@ -4,15 +4,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
-    private String AE;
-    private String acU;
-    private WeakReference<j> awC;
-    private String bFR;
+    private String At;
+    private String aec;
+    private WeakReference<j> ayi;
+    private String bIM;
     private String mForumId;
     private String mForumName;
     private String mPostId;
@@ -22,35 +22,35 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
-        this.acU = str4;
-        this.bFR = str6;
-        this.AE = str7;
+        this.aec = str4;
+        this.bIM = str6;
+        this.At = str7;
         this.mPostId = str5;
-        this.awC = new WeakReference<>(jVar);
+        this.ayi = new WeakReference<>(jVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: t */
+    /* renamed from: u */
     public ForbidResultData doInBackground(String... strArr) {
         String str;
-        str = h.bFQ;
+        str = h.bIL;
         aa aaVar = new aa(str);
-        aaVar.o("day", this.bFR);
-        aaVar.o("un", this.acU);
+        aaVar.o("day", this.bIM);
+        aaVar.o("un", this.aec);
         aaVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
         aaVar.o("word", this.mForumName);
         aaVar.o("z", this.mThreadId);
-        aaVar.o("reason", this.AE);
+        aaVar.o("reason", this.At);
         aaVar.o("ntn", "banid");
         aaVar.o("post_id", this.mPostId);
-        aaVar.sp().tp().mIsNeedTbs = true;
-        String rO = aaVar.rO();
-        if (aaVar.sp().tq().pv()) {
+        aaVar.sX().tS().mIsNeedTbs = true;
+        String sw = aaVar.sw();
+        if (aaVar.sX().tT().qa()) {
             try {
-                return (ForbidResultData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(rO, ForbidResultData.class);
+                return (ForbidResultData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(sw, ForbidResultData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 ForbidResultData forbidResultData = new ForbidResultData();
@@ -59,7 +59,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
             }
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
-        forbidResultData2.error_code = aaVar.st();
+        forbidResultData2.error_code = aaVar.tb();
         forbidResultData2.error_msg = aaVar.getErrorString();
         return forbidResultData2;
     }
@@ -70,9 +70,9 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: c */
     public void onPostExecute(ForbidResultData forbidResultData) {
         super.onPostExecute(forbidResultData);
-        j jVar = this.awC.get();
+        j jVar = this.ayi.get();
         if (jVar != null) {
-            if (forbidResultData.error_code == 0 && bd.isEmpty(forbidResultData.error_msg)) {
+            if (forbidResultData.error_code == 0 && bb.isEmpty(forbidResultData.error_msg)) {
                 jVar.a(forbidResultData);
             } else {
                 jVar.b(forbidResultData);

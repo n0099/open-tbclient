@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.l;
+import com.baidu.adp.base.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
@@ -17,7 +17,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.n;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class a extends c implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, l {
+public class a extends c implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, m {
     private final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -127,7 +127,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.l
+    @Override // com.baidu.adp.base.m
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -138,7 +138,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.hB().d(this.mId);
+        com.baidu.adp.lib.f.d.hl().d(this.mId);
         com.baidu.adp.base.a.dF().h(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -147,7 +147,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.hB().e(this.mId);
+        com.baidu.adp.lib.f.d.hl().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -164,21 +164,21 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.mV();
+            onGetPreLoadListView.nn();
         }
     }
 
-    @Override // com.baidu.adp.base.l
+    @Override // com.baidu.adp.base.m
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.l
+    @Override // com.baidu.adp.base.m
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.l
+    @Override // com.baidu.adp.base.m
     public void onPreLoad(BdListView bdListView) {
     }
 

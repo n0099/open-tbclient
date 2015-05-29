@@ -19,7 +19,7 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         d.removeAllTask(bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
         d.removeAllTask(bdUniqueId, String.valueOf(i));
     }
@@ -28,7 +28,7 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         return a((String) null, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
         return a(String.valueOf(i), bdUniqueId);
     }
@@ -40,14 +40,14 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof d) {
-                linkedList.add(((d) next).dR());
+                linkedList.add(((d) next).dU());
             }
         }
         return linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     /* renamed from: a */
     public void sendMessage(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         new d(this, httpMessage, httpMessageTask).execute(new HttpMessage[0]);

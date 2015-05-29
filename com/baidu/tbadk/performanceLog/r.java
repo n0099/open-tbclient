@@ -4,23 +4,23 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class r extends y {
-    public long Gz;
-    public int aoV;
-    public long apd;
-    public long ape;
-    public long apf;
-    public int apg;
-    private t aph = null;
-    private final Handler apj = new s(this, Looper.getMainLooper());
-    public long vy;
+    public long Gp;
+    public int aqa;
+    public long aqi;
+    public long aqj;
+    public long aqk;
+    public int aql;
+    private t aqm = null;
+    private final Handler aqn = new s(this, Looper.getMainLooper());
+    public long uK;
 
-    public void CC() {
-        this.apj.sendEmptyMessage(0);
+    public void Dn() {
+        this.aqn.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CD() {
-        ab abVar = (ab) ah.CQ().ed(this.mSubType);
+    public void Do() {
+        ab abVar = (ab) ah.DB().en(this.mSubType);
         if (abVar != null) {
             abVar.c(this);
         }

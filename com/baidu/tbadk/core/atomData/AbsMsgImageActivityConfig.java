@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class AbsMsgImageActivityConfig extends a {
+public class AbsMsgImageActivityConfig extends c {
     public static final String ASSIST_URL = "assist_url";
     public static final String CURRENT_URL = "current_url";
     public static final String ID = "id";

@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ BannerView adY;
+    final /* synthetic */ BannerView afc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BannerView bannerView) {
-        this.adY = bannerView;
+        this.afc = bannerView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,37 +39,37 @@ public class a implements View.OnClickListener {
         b bVar4;
         TbPageContext tbPageContext5;
         String str10;
-        button = this.adY.adR;
+        button = this.afc.aeV;
         if (view != button) {
-            str = this.adY.adP;
+            str = this.afc.aeT;
             if (!TextUtils.isEmpty(str)) {
-                tbPageContext4 = this.adY.LP;
+                tbPageContext4 = this.afc.LH;
                 Context context = tbPageContext4.getContext();
-                str8 = this.adY.adP;
+                str8 = this.afc.aeT;
                 com.baidu.tbadk.core.k.A(context, str8);
             }
-            bVar = this.adY.adW;
+            bVar = this.afc.afa;
             if (bVar == null) {
-                str2 = this.adY.link;
+                str2 = this.afc.link;
                 if (!TextUtils.isEmpty(str2)) {
-                    bk tl = bk.tl();
-                    tbPageContext = this.adY.LP;
-                    str3 = this.adY.link;
-                    tl.b(tbPageContext, new String[]{str3});
-                    str4 = this.adY.link;
+                    bi tO = bi.tO();
+                    tbPageContext = this.afc.LH;
+                    str3 = this.afc.link;
+                    tO.b(tbPageContext, new String[]{str3});
+                    str4 = this.afc.link;
                     if (str4.startsWith("game:detail:")) {
-                        str7 = this.adY.type;
+                        str7 = this.afc.type;
                         if ("frs_banner".equals(str7)) {
-                            tbPageContext3 = this.adY.LP;
+                            tbPageContext3 = this.afc.LH;
                             TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                             return;
                         }
                     }
-                    str5 = this.adY.link;
+                    str5 = this.afc.link;
                     if (str5.startsWith("game:detail:")) {
-                        str6 = this.adY.type;
+                        str6 = this.afc.type;
                         if ("enterforum_banner".equals(str6)) {
-                            tbPageContext2 = this.adY.LP;
+                            tbPageContext2 = this.afc.LH;
                             TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
                             return;
                         }
@@ -79,23 +79,23 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            bVar2 = this.adY.adW;
-            bVar2.wX();
+            bVar2 = this.afc.afa;
+            bVar2.xJ();
             return;
         }
-        str9 = this.adY.adQ;
+        str9 = this.afc.aeU;
         if (!TextUtils.isEmpty(str9)) {
-            tbPageContext5 = this.adY.LP;
+            tbPageContext5 = this.afc.LH;
             Context context2 = tbPageContext5.getContext();
-            str10 = this.adY.adQ;
+            str10 = this.afc.aeU;
             com.baidu.tbadk.core.k.A(context2, str10);
         }
-        this.adY.adT = true;
-        this.adY.setVisibility(8);
-        bVar3 = this.adY.adW;
+        this.afc.aeX = true;
+        this.afc.setVisibility(8);
+        bVar3 = this.afc.afa;
         if (bVar3 != null) {
-            bVar4 = this.adY.adW;
-            bVar4.wY();
+            bVar4 = this.afc.afa;
+            bVar4.xK();
         }
     }
 }

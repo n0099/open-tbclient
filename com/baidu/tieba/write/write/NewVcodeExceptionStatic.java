@@ -4,6 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class NewVcodeExceptionStatic {
     static {
-        MessageManager.getInstance().registerListener(new aa(2016301));
+        MessageManager.getInstance().registerListener(new ab(2016301));
     }
 }

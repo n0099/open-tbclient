@@ -90,12 +90,16 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "apply_add_friend";
             } else if ("411".equals(str)) {
                 str2 = "apply_pass_friend";
+            } else if ("312".equals(str)) {
+                str2 = "live_v_notify";
+            } else if ("501".equals(str)) {
+                str2 = "upload_stat";
             }
             setCmd(str2);
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            Qn();
+            RC();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -113,7 +117,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void Qn() {
+    private void RC() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

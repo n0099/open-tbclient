@@ -6,19 +6,19 @@ import org.json.JSONObject;
 import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class t {
-    private String Qk;
-    private String Ql;
-    private IconData Qm = new IconData();
+    private String QG;
+    private String QH;
+    private IconData QI = new IconData();
     private boolean isAdded;
     private String name;
     private int sex;
     private int userId;
 
-    public void qu() {
+    public void ra() {
         this.isAdded = true;
     }
 
-    public boolean qv() {
+    public boolean rb() {
         return this.isAdded;
     }
 
@@ -26,14 +26,14 @@ public class t {
         if (userInfo != null) {
             this.isAdded = false;
             this.userId = userInfo.user_id.intValue();
-            this.Qk = userInfo.portrait;
+            this.QG = userInfo.portrait;
             this.name = userInfo.user_name;
             this.sex = userInfo.gender.intValue();
-            this.Ql = userInfo.intro;
+            this.QH = userInfo.intro;
             if (userInfo.tshow_icon != null) {
-                this.Qm.setIcon(userInfo.tshow_icon.icon);
-                this.Qm.setIconName(userInfo.tshow_icon.name);
-                this.Qm.setUrl(userInfo.tshow_icon.url);
+                this.QI.setIcon(userInfo.tshow_icon.icon);
+                this.QI.setIconName(userInfo.tshow_icon.name);
+                this.QI.setUrl(userInfo.tshow_icon.url);
             }
         }
     }
@@ -42,39 +42,39 @@ public class t {
         return this.userId;
     }
 
-    public String qw() {
-        return this.Qk;
+    public String rc() {
+        return this.QG;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public boolean qx() {
+    public boolean rd() {
         return 2 == this.sex;
     }
 
-    public String qy() {
-        return this.Ql;
+    public String re() {
+        return this.QH;
     }
 
-    public IconData qz() {
-        return this.Qm;
+    public IconData rf() {
+        return this.QI;
     }
 
     public void e(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.userId = jSONObject.optInt("user_id");
             this.name = jSONObject.optString("user_name");
-            this.Qk = jSONObject.optString("portait");
+            this.QG = jSONObject.optString("portait");
             this.sex = jSONObject.optInt("gender");
             this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.Ql = jSONObject.optString("intro");
+            this.QH = jSONObject.optString("intro");
             JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
             if (optJSONObject != null) {
-                this.Qm.setIcon(optJSONObject.optString("icon"));
-                this.Qm.setIconName(optJSONObject.optString("user_name"));
-                this.Qm.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
+                this.QI.setIcon(optJSONObject.optString("icon"));
+                this.QI.setIconName(optJSONObject.optString("user_name"));
+                this.QI.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
             }
         }
     }

@@ -6,8 +6,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
-import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt extends CustomMessageListener {
@@ -23,21 +21,12 @@ public class bt extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage;
-        com.baidu.tieba.im.message.e data;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
-            ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.im.message.h hVar : data.datas) {
-                c.Sq().d(hVar.id, hVar.customGroupType, hVar.aid);
-            }
-            if (memoryClearStrangerItemsMessage.isAllClear()) {
-                c.Sq().e("-1001", -7, false);
-            }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bu(this, arrayList, memoryClearStrangerItemsMessage));
-            customMessageTask.setParallel(TiebaIMConfig.getParallel());
-            customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-            customMessageTask.setPriority(4);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
-        }
+        String valueOf = String.valueOf(customResponsedMessage.getData());
+        c.TD().F(valueOf, 9);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bu(this, valueOf));
+        customMessageTask.setParallel(TiebaIMConfig.getParallel());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        customMessageTask.setPriority(4);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
     }
 }

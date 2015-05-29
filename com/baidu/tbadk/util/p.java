@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class p {
-    public static int cf(String str) {
+    public static int cu(String str) {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
@@ -29,14 +29,14 @@ public class p {
         }
     }
 
-    private static Bitmap eg(int i) {
+    private static Bitmap es(int i) {
         Exception e;
         try {
-            int cf = cf(com.baidu.tbadk.core.util.o.cl("camera.jpg"));
+            int cu = cu(com.baidu.tbadk.core.util.o.cA("camera.jpg"));
             Bitmap n = com.baidu.tbadk.core.util.c.n("camera.jpg", i);
-            if (cf != 0 && n != null) {
+            if (cu != 0 && n != null) {
                 try {
-                    return com.baidu.tbadk.core.util.c.h(n, cf);
+                    return com.baidu.tbadk.core.util.c.h(n, cu);
                 } catch (Exception e2) {
                     e = e2;
                     BdLog.e(e.getMessage());
@@ -69,7 +69,7 @@ public class p {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return eg(i2);
+            return es(i2);
         }
         if (!TextUtils.isEmpty(str)) {
             return b(context, str, i2);

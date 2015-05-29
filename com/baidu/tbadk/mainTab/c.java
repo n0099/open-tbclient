@@ -2,32 +2,32 @@ package com.baidu.tbadk.mainTab;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 public class c {
-    public boolean alZ = true;
-    public int ama;
-    public int amb;
-    public FragmentTabIndicator amc;
-    public int vf;
+    public boolean anb = true;
+    public int anc;
+    public int and;
+    public FragmentTabIndicator ane;
+    public int ur;
     public View view;
 
-    public void cu(int i) {
-        if (this.ama != 0) {
-            ba.i(this.view, this.ama);
+    public void cz(int i) {
+        if (this.anc != 0) {
+            ay.i(this.view, this.anc);
         }
         if (this.view instanceof TextView) {
-            if (this.amb != 0) {
-                ba.b((TextView) this.view, this.amb, 1);
+            if (this.and != 0) {
+                ay.b((TextView) this.view, this.and, 1);
             }
             int b = b((TextView) this.view);
             if (b > 0 && b < 10) {
-                ba.i((View) ((TextView) this.view), u.icon_news_head_prompt_one);
+                ay.i((View) ((TextView) this.view), p.icon_news_head_prompt_one);
             } else if (b >= 10 && b < 100) {
-                ba.i((View) ((TextView) this.view), u.icon_news_head_prompt_two);
+                ay.i((View) ((TextView) this.view), p.icon_news_head_prompt_two);
             } else if (b >= 100) {
-                ba.i((View) ((TextView) this.view), u.icon_news_head_prompt_more);
+                ay.i((View) ((TextView) this.view), p.icon_news_head_prompt_more);
             }
         }
     }

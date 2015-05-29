@@ -12,100 +12,118 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class h implements com.baidu.adp.lib.f.b {
-    private static int Wy = 5;
-    private ImgHttpClient WA;
-    private com.baidu.adp.lib.network.http.e Wv;
-    private volatile com.baidu.adp.lib.network.http.c of = null;
-    private HashMap<String, String> Ww = null;
-    private com.baidu.adp.lib.network.http.g Wx = new com.baidu.adp.lib.network.http.g();
-    public String Wz = p.ik();
-    public List<Integer> WB = new ArrayList();
-    public boolean WC = false;
-    public boolean Gm = false;
-    public String vL = "";
-    public com.baidu.adp.lib.network.http.d WD = null;
+    private static int Xj = 5;
+    private com.baidu.adp.lib.network.http.e Xg;
+    private ImgHttpClient Xl;
+    private volatile com.baidu.adp.lib.network.http.c ol = null;
+    private HashMap<String, String> Xh = null;
+    private com.baidu.adp.lib.network.http.g Xi = new com.baidu.adp.lib.network.http.g();
+    public String Xk = p.hT();
+    public List<Integer> Xm = new ArrayList();
+    public boolean Xn = false;
+    public boolean Gc = false;
+    public String uX = "";
+    public com.baidu.adp.lib.network.http.d Xo = null;
     public int dataSize = -1;
     public int responseCode = -1;
-    private boolean WE = false;
-    public boolean WF = false;
+    private boolean Xp = false;
+    public boolean Xq = false;
 
-    public boolean tw() {
-        return this.WE;
+    public boolean ub() {
+        return this.Xp;
     }
 
-    public com.baidu.adp.lib.network.http.g hn() {
-        return this.Wx;
+    public com.baidu.adp.lib.network.http.g gZ() {
+        return this.Xi;
     }
 
-    public void tx() {
-        this.WD = null;
-        this.vL = "";
-        this.WE = false;
+    public void uc() {
+        this.Xo = null;
+        this.uX = "";
+        this.Xp = false;
         this.responseCode = -1;
         this.dataSize = -1;
-        this.Gm = false;
-        this.WC = false;
-        this.WB.clear();
+        this.Gc = false;
+        this.Xn = false;
+        this.Xm.clear();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [172=6] */
-    private final byte[] cU(String str) {
-        int size;
+    /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE, IGET, INVOKE, INVOKE, CHECK_CAST, IPUT, ARITH, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, MOVE, IGET, CONST_STR, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, MOVE, IF, IGET, IGET, IF, IGET, INVOKE, INVOKE] complete}, expected: {[IGET, INVOKE, IGET, INVOKE, INVOKE, CHECK_CAST, IPUT, ARITH, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, CONST_STR, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF, IGET, IGET, IF, IGET, INVOKE, INVOKE] complete} */
+    /* JADX WARN: Finally extract failed */
+    private final byte[] di(String str) {
+        com.baidu.adp.lib.network.http.d dVar;
+        com.baidu.adp.lib.network.http.d dVar2;
+        com.baidu.adp.lib.network.http.d dVar3;
         int i = 0;
         try {
             try {
-                tx();
-                if (this.Wv != null) {
+                uc();
+                if (this.Xg != null) {
                     cancel();
-                    this.of = null;
+                    this.ol = null;
                 }
-                this.Wv = new com.baidu.adp.lib.network.http.e();
-                if (!TextUtils.isEmpty(this.Wz)) {
-                    this.Wv.hm().p("sid", this.Wz);
+                this.Xg = new com.baidu.adp.lib.network.http.e();
+                if (!TextUtils.isEmpty(this.Xk)) {
+                    this.Xg.gY().p("sid", this.Xk);
                 }
-                this.Wv.hm().setUrl(str);
-                if (this.Ww != null) {
-                    for (Map.Entry<String, String> entry : this.Ww.entrySet()) {
-                        this.Wv.hm().o(entry.getKey(), entry.getValue());
+                this.Xg.gY().setUrl(str);
+                if (this.Xh != null) {
+                    for (Map.Entry<String, String> entry : this.Xh.entrySet()) {
+                        this.Xg.gY().o(entry.getKey(), entry.getValue());
                     }
                 }
-                this.of = new com.baidu.adp.lib.network.http.c(this.Wv);
-                this.of.i(Wy, 0, 0);
-                this.Wx = this.Wv.hn();
-                byte[] bArr = this.Wv.hn().vY;
-                this.responseCode = this.Wv.hn().responseCode;
-                this.WE = this.Wv.hn().hs();
+                this.ol = new com.baidu.adp.lib.network.http.c(this.Xg);
+                this.ol.i(Xj, 0, 0);
+                this.Xi = this.Xg.gZ();
+                byte[] bArr = this.Xg.gZ().vk;
+                this.responseCode = this.Xg.gZ().responseCode;
+                this.Xp = this.Xg.gZ().he();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.Wv.hn().contentEncoding != null && this.Wv.hn().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.WC = true;
+                if (this.Xg.gZ().contentEncoding != null && this.Xg.gZ().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.Xn = true;
                     bArr = z(bArr);
                 }
-                if (!this.WE) {
+                if (!this.Xp) {
                     a(str, null);
                 }
-                while (true) {
-                    if (i >= size) {
-                        return bArr;
-                    }
+                TiebaStatic.netImg(this.Xg);
+                while (i < this.Xg.ha().size()) {
+                    this.Xo = this.Xg.ha().get(i);
+                    i++;
                 }
+                if (this.Xo.uX == null) {
+                    this.Xo.uX = "";
+                }
+                this.Xo.uX = String.valueOf(dVar3.uX) + "responseCode:" + this.responseCode;
+                return bArr;
             } catch (Exception e) {
                 a(str, e);
-                TiebaStatic.netImg(this.Wv);
-                for (int i2 = 0; i2 < this.Wv.ho().size(); i2++) {
-                    this.WD = this.Wv.ho().get(i2);
+                TiebaStatic.netImg(this.Xg);
+                for (int i2 = 0; i2 < this.Xg.ha().size(); i2++) {
+                    this.Xo = this.Xg.ha().get(i2);
                 }
+                if (this.Xo.uX == null) {
+                    this.Xo.uX = "";
+                }
+                this.Xo.uX = String.valueOf(dVar2.uX) + "responseCode:" + this.responseCode;
                 return null;
             }
-        } finally {
-            TiebaStatic.netImg(this.Wv);
-            while (i < this.Wv.ho().size()) {
-                this.WD = this.Wv.ho().get(i);
+        } catch (Throwable th) {
+            TiebaStatic.netImg(this.Xg);
+            while (i < this.Xg.ha().size()) {
+                this.Xo = this.Xg.ha().get(i);
                 i++;
             }
+            if (this.Xo.uX == null) {
+                this.Xo.uX = "";
+            }
+            this.Xo.uX = String.valueOf(dVar.uX) + "responseCode:" + this.responseCode;
+            throw th;
         }
     }
 
@@ -120,44 +138,46 @@ public class h implements com.baidu.adp.lib.f.b {
         }
     }
 
-    public byte[] cV(String str) {
-        return cU(str);
+    public byte[] dj(String str) {
+        return di(str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [283=6] */
     public byte[] l(String str, boolean z) {
-        byte[] bArr;
-        int size;
+        byte[] di;
         String str2;
+        com.baidu.adp.lib.network.http.d dVar;
+        com.baidu.adp.lib.network.http.d dVar2;
+        int size;
         int i = 0;
         if (TbadkCoreApplication.m411getInst().isHttpClientOpen()) {
             try {
                 try {
-                    tx();
-                    if (this.WA != null) {
+                    uc();
+                    if (this.Xl != null) {
                         cancel();
                     }
-                    this.Wv = new com.baidu.adp.lib.network.http.e();
-                    this.WA = new ImgHttpClient(this.Wv);
-                    this.Wv.hm().setUrl(str);
-                    if (this.Ww != null) {
-                        for (Map.Entry<String, String> entry : this.Ww.entrySet()) {
-                            this.Wv.hm().o(entry.getKey(), entry.getValue());
+                    this.Xg = new com.baidu.adp.lib.network.http.e();
+                    this.Xl = new ImgHttpClient(this.Xg);
+                    this.Xg.gY().setUrl(str);
+                    if (this.Xh != null) {
+                        for (Map.Entry<String, String> entry : this.Xh.entrySet()) {
+                            this.Xg.gY().o(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.WA.tu();
-                    this.Wx = this.Wv.hn();
-                    bArr = this.Wv.hn().vY;
-                    this.responseCode = this.Wv.hn().responseCode;
-                    this.WE = this.Wv.hn().hs();
-                    if (bArr != null) {
-                        this.dataSize = bArr.length;
+                    this.Xl.tZ();
+                    this.Xi = this.Xg.gZ();
+                    di = this.Xg.gZ().vk;
+                    this.responseCode = this.Xg.gZ().responseCode;
+                    this.Xp = this.Xg.gZ().he();
+                    if (di != null) {
+                        this.dataSize = di.length;
                     } else {
                         this.dataSize = 0;
                     }
-                    this.Gm = this.WA.fI();
-                    this.WF = this.WA.tv();
-                    if (!this.WE) {
+                    this.Gc = this.Xl.fN();
+                    this.Xq = this.Xl.ua();
+                    if (!this.Xp) {
                         a(str, null);
                     }
                     while (true) {
@@ -167,60 +187,68 @@ public class h implements com.baidu.adp.lib.f.b {
                     }
                 } catch (Exception e) {
                     a(str, e);
-                    TiebaStatic.netImg(this.Wv);
-                    for (int i2 = 0; i2 < this.Wv.ho().size(); i2++) {
-                        this.WD = this.Wv.ho().get(i2);
+                    TiebaStatic.netImg(this.Xg);
+                    for (int i2 = 0; i2 < this.Xg.ha().size(); i2++) {
+                        this.Xo = this.Xg.ha().get(i2);
                     }
+                    if (this.Xo.uX == null) {
+                        this.Xo.uX = "";
+                    }
+                    this.Xo.uX = String.valueOf(dVar2.uX) + "responseCode:" + this.responseCode;
                     return null;
                 }
             } finally {
-                TiebaStatic.netImg(this.Wv);
-                while (i < this.Wv.ho().size()) {
-                    this.WD = this.Wv.ho().get(i);
+                TiebaStatic.netImg(this.Xg);
+                while (i < this.Xg.ha().size()) {
+                    this.Xo = this.Xg.ha().get(i);
                     i++;
                 }
+                if (this.Xo.uX == null) {
+                    this.Xo.uX = "";
+                }
+                this.Xo.uX = String.valueOf(dVar.uX) + "responseCode:" + this.responseCode;
             }
         } else {
             try {
-                bArr = cU(str);
-                if (bArr == null) {
+                di = di(str);
+                if (di == null) {
                     return null;
                 }
-                if (this.Wv != null && this.Wv.hn().vX != null) {
-                    List<String> list = this.Wv.hn().vX.get("imgsrc");
+                if (this.Xg != null && this.Xg.gZ().vj != null) {
+                    List<String> list = this.Xg.gZ().vj.get("imgsrc");
                     if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                         i = 1;
                     }
-                    List<String> list2 = this.Wv.hn().vX.get("Src-Content-Type");
+                    List<String> list2 = this.Xg.gZ().vj.get("Src-Content-Type");
                     if (list2 != null && list2.size() > 0) {
                         if ("image/gif".equalsIgnoreCase(list2.get(0))) {
-                            this.Gm = true;
+                            this.Gc = true;
                         } else {
-                            this.Gm = false;
+                            this.Gc = false;
                         }
                     }
-                    List<String> list3 = this.Wv.hn().vX.get("Error-Message");
+                    List<String> list3 = this.Xg.gZ().vj.get("Error-Message");
                     if (list3 != null && list3.size() > 0) {
                         String str3 = list3.get(0);
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                            this.WF = false;
+                            this.Xq = false;
                         } else {
-                            this.WF = true;
+                            this.Xq = true;
                         }
                     }
                 }
-                if (this.WE && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
-                    return h(bArr, 23, bArr.length);
+                if (this.Xp && ((z || i != 0) && new String(di, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
+                    return g(di, 23, di.length);
                 }
             } catch (Exception e2) {
-                this.vL = String.valueOf(this.vL) + "BDIMAGE DECODE ERROR" + e2.getMessage();
+                this.uX = String.valueOf(this.uX) + "BDIMAGE DECODE ERROR" + e2.getMessage();
                 return null;
             }
         }
-        return bArr;
+        return di;
     }
 
-    private static byte[] h(byte[] bArr, int i, int i2) {
+    private static byte[] g(byte[] bArr, int i, int i2) {
         int i3 = i2 - i;
         if (i3 < 0) {
             throw new IllegalArgumentException(String.valueOf(i) + " > " + i2);
@@ -237,29 +265,29 @@ public class h implements com.baidu.adp.lib.f.b {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.Wv.ho().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.Wv.ho().get(i);
+            for (int i = 0; i < this.Xg.ha().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.Xg.ha().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
-                stringBuffer.append(dVar.vL);
+                stringBuffer.append(dVar.uX);
                 stringBuffer.append("retry:");
-                stringBuffer.append(dVar.vI);
+                stringBuffer.append(dVar.uU);
                 stringBuffer.append("connectTime:");
-                stringBuffer.append(dVar.vG);
+                stringBuffer.append(dVar.uS);
                 stringBuffer.append("downloadSize:");
-                stringBuffer.append(dVar.vF);
+                stringBuffer.append(dVar.uR);
                 stringBuffer.append("rspTime:");
-                stringBuffer.append(dVar.vH);
+                stringBuffer.append(dVar.uT);
                 stringBuffer.append("dnsTime:");
-                stringBuffer.append(dVar.vK);
+                stringBuffer.append(dVar.uW);
                 stringBuffer.append("responsedCode:");
-                stringBuffer.append(dVar.vM);
+                stringBuffer.append(dVar.uY);
                 stringBuffer.append("allCostTime:");
-                stringBuffer.append(dVar.vJ);
+                stringBuffer.append(dVar.uV);
                 stringBuffer.append("executeStatus:");
-                stringBuffer.append(dVar.vN);
-                this.WB.add(Integer.valueOf(dVar.vN));
+                stringBuffer.append(dVar.uZ);
+                this.Xm.add(Integer.valueOf(dVar.uZ));
             }
             if (exc != null) {
                 stringBuffer.append("webclient exception");
@@ -270,28 +298,28 @@ public class h implements com.baidu.adp.lib.f.b {
             } else {
                 stringBuffer.append("networkcore exception");
             }
-            this.vL = stringBuffer.toString();
+            this.uX = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.WE = false;
+            this.Xp = false;
         }
     }
 
     @Override // com.baidu.adp.lib.f.b
     public void cancel() {
-        if (this.of != null) {
-            this.of.cancel();
+        if (this.ol != null) {
+            this.ol.cancel();
         }
-        if (this.WA != null) {
-            this.WA.cancel();
-            this.WA = null;
+        if (this.Xl != null) {
+            this.Xl.cancel();
+            this.Xl = null;
         }
     }
 
-    public boolean ty() {
-        if (this.WA == null) {
+    public boolean ud() {
+        if (this.Xl == null) {
             return false;
         }
-        return this.WA.Wl;
+        return this.Xl.WX;
     }
 }

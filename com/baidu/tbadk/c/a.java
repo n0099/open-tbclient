@@ -4,36 +4,36 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View alF;
-    private boolean alG;
+    protected View amG;
+    private boolean amH;
 
     public a(View view) {
-        this.alF = view;
+        this.amG = view;
     }
 
-    public boolean zI() {
-        return this.alG;
+    public boolean Au() {
+        return this.amH;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.alF != null && this.alF.getParent() == null) {
-            this.alG = true;
-            d.q(view).a(view, this.alF, z);
-            zJ();
+        if (view != null && this.amG != null && this.amG.getParent() == null) {
+            this.amH = true;
+            d.t(view).a(view, this.amG, z);
+            Av();
         }
     }
 
-    public void p(View view) {
-        if (view != null && this.alF != null && this.alF.getParent() != null && (view instanceof ViewGroup)) {
-            zK();
-            ((ViewGroup) view).removeView(this.alF);
-            this.alG = false;
+    public void s(View view) {
+        if (view != null && this.amG != null && this.amG.getParent() != null && (view instanceof ViewGroup)) {
+            Aw();
+            ((ViewGroup) view).removeView(this.amG);
+            this.amH = false;
         }
     }
 
-    protected void zJ() {
+    protected void Av() {
     }
 
-    protected void zK() {
+    protected void Aw() {
     }
 }

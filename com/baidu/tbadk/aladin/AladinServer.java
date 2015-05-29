@@ -20,7 +20,7 @@ public class AladinServer extends BdBaseService {
     }
 
     public void reStartListener() {
-        if (this.mTcpListener == null || !this.mTcpListener.oG()) {
+        if (this.mTcpListener == null || !this.mTcpListener.pg()) {
             if (this.mTcpListener != null) {
                 this.mTcpListener.quit();
             }

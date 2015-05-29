@@ -5,11 +5,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class v implements Runnable {
-    final /* synthetic */ ActivationActivity avu;
+    final /* synthetic */ ActivationActivity awV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(ActivationActivity activationActivity) {
-        this.avu = activationActivity;
+        this.awV = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,31 +21,31 @@ class v implements Runnable {
         Handler handler;
         Runnable runnable;
         TextView textView2;
-        z zVar;
+        aa aaVar;
         RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.avu;
-        i = activationActivity.EW;
-        activationActivity.EW = i - 1;
-        i2 = this.avu.EW;
+        ActivationActivity activationActivity = this.awV;
+        i = activationActivity.EL;
+        activationActivity.EL = i - 1;
+        i2 = this.awV.EL;
         if (i2 <= 0) {
-            this.avu.avk = true;
-            textView2 = this.avu.ave;
-            textView2.setText(this.avu.getPageContext().getString(com.baidu.tieba.y.resend_code));
-            zVar = this.avu.avj;
-            if (zVar == null) {
-                relativeLayout = this.avu.avh;
+            this.awV.awM = true;
+            textView2 = this.awV.awG;
+            textView2.setText(this.awV.getPageContext().getString(com.baidu.tieba.t.resend_code));
+            aaVar = this.awV.awL;
+            if (aaVar == null) {
+                relativeLayout = this.awV.awJ;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.avu.getPageContext().getString(com.baidu.tieba.y.resend_code_second);
-        i3 = this.avu.EW;
+        String string = this.awV.getPageContext().getString(com.baidu.tieba.t.resend_code_second);
+        i3 = this.awV.EL;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.avu.ave;
+        textView = this.awV.awG;
         textView.setText(format);
-        handler = this.avu.mHandler;
-        runnable = this.avu.mRunnable;
+        handler = this.awV.mHandler;
+        runnable = this.awV.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

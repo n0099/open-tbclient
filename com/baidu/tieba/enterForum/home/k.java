@@ -1,22 +1,35 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends CustomMessageListener {
-    final /* synthetic */ a aDb;
+public class k extends com.baidu.adp.base.i {
+    final /* synthetic */ a aFd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(a aVar, int i) {
-        super(i);
-        this.aDb = aVar;
+    public k(a aVar) {
+        this.aFd = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.aDb.aCW = true;
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        af afVar;
+        af afVar2;
+        com.baidu.tieba.enterForum.c.c cVar;
+        String str;
+        if (obj != null) {
+            cVar = this.aFd.aEM;
+            str = this.aFd.aEO;
+            cVar.bJ(!StringUtils.isNull(str));
+            return;
+        }
+        afVar = this.aFd.LI;
+        if (!StringUtils.isNull(afVar.getErrorString())) {
+            TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
+            afVar2 = this.aFd.LI;
+            com.baidu.adp.lib.util.n.showToast(m411getInst, afVar2.getErrorString());
+        }
     }
 }

@@ -1,16 +1,71 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class aw implements Runnable {
-    final /* synthetic */ at Vd;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(at atVar) {
-        this.Vd = atVar;
+import com.baidu.tbadk.TbConfig;
+/* loaded from: classes.dex */
+public class aw extends Thread {
+    private String Qv;
+    private String VQ;
+    private boolean VR;
+    private String mObjTp;
+    private String wV;
+
+    public aw(String str) {
+        this.wV = null;
+        this.Qv = null;
+        this.VQ = null;
+        this.mObjTp = null;
+        this.VR = false;
+        this.wV = str;
+        this.VR = false;
     }
 
-    @Override // java.lang.Runnable
+    public aw(String str, boolean z) {
+        this.wV = null;
+        this.Qv = null;
+        this.VQ = null;
+        this.mObjTp = null;
+        this.VR = false;
+        this.wV = str;
+        this.VR = z;
+    }
+
+    public aw(String str, String str2) {
+        this.wV = null;
+        this.Qv = null;
+        this.VQ = null;
+        this.mObjTp = null;
+        this.VR = false;
+        this.wV = str;
+        this.Qv = str2;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.Vd.sN();
+        String str;
+        super.run();
+        if (this.VR) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
+        }
+        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+        if (!this.VR) {
+            String tk = af.th().tk();
+            if (!bb.isEmpty(tk)) {
+                af.th().tj();
+                aaVar.o("st_record", tk);
+            }
+        }
+        aaVar.o("st_type", this.wV);
+        if (this.Qv != null) {
+            aaVar.o("st_param", this.Qv);
+        }
+        if (this.VQ != null) {
+            aaVar.o("obj", this.VQ);
+        }
+        if (this.mObjTp != null) {
+            aaVar.o("obj_tp", this.mObjTp);
+        }
+        aaVar.sw();
     }
 }

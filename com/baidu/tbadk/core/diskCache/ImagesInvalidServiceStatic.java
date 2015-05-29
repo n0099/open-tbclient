@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.g.j;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean RK = false;
-    private static Handler ot = new b();
+    private static boolean Ss = false;
+    private static Handler oy = new b();
 
     static {
         MessageManager.getInstance().registerListener(new c(2001011));
@@ -23,7 +23,7 @@ public class ImagesInvalidServiceStatic {
         j.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void af(boolean z) {
-        RK = z;
+    public static void al(boolean z) {
+        Ss = z;
     }
 }

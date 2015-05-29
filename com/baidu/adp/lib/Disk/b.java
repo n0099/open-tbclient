@@ -6,47 +6,47 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String qY = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String qZ = String.valueOf(this.qY) + "/baidu/";
-    private String ra;
+    private final String rd = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String re = String.valueOf(this.rd) + "/baidu/";
+    private String rf;
 
     public b() {
-        this.ra = null;
+        this.rf = null;
         try {
-            this.ra = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.rf = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void M(String str) {
+    public void O(String str) {
         if (str != null) {
-            this.qZ = String.valueOf(this.qY) + "/" + str + "/";
+            this.re = String.valueOf(this.rd) + "/" + str + "/";
         }
     }
 
-    public boolean fj() {
+    public boolean fo() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String a(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!fj()) {
+            if (!fo()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.qZ) + str + "/";
+                str2 = String.valueOf(this.re) + str + "/";
             } else {
-                str2 = this.qZ;
+                str2 = this.re;
             }
-        } else if (this.ra == null) {
+        } else if (this.rf == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = String.valueOf(this.ra) + str + "/";
+                str2 = String.valueOf(this.rf) + str + "/";
             } else {
-                str2 = this.ra;
+                str2 = this.rf;
             }
         }
         File file = new File(str2);

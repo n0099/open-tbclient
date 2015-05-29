@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PayActivityConfig extends a {
+public class PayActivityConfig extends c {
     public static final String IS_LEFT = "is_left";
     public static final String IS_PAY = "is_pay";
     public static final String PAY_TYPE = "pay_type";

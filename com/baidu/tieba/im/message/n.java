@@ -6,36 +6,36 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ ResponsePullMessage bkV;
-    private final /* synthetic */ ImMessageCenterPojo bkX;
+    final /* synthetic */ ResponsePullMessage bnA;
+    private final /* synthetic */ ImMessageCenterPojo bnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bkV = responsePullMessage;
-        this.bkX = imMessageCenterPojo;
+        this.bnA = responsePullMessage;
+        this.bnC = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            com.baidu.tieba.im.db.k.Qg().a(imMessageCenterPojo, 2);
+            com.baidu.tieba.im.db.k.Rv().a(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
-            if (this.bkX != null) {
+            if (this.bnC != null) {
                 if (userType == 1 || userType == 3) {
-                    this.bkX.setGid(String.valueOf("-1000"));
-                    this.bkX.setCustomGroupType(-8);
+                    this.bnC.setGid(String.valueOf("-1000"));
+                    this.bnC.setCustomGroupType(-8);
                     if (i == 0) {
-                        this.bkX.setUnread_count(0);
+                        this.bnC.setUnread_count(0);
                     } else if (i == 1) {
-                        this.bkX.setUnread_count(1);
+                        this.bnC.setUnread_count(1);
                     } else {
                         i2 = 1;
                     }
                     if (z) {
-                        this.bkX.setIs_hidden(0);
+                        this.bnC.setIs_hidden(0);
                     }
-                    com.baidu.tieba.im.db.k.Qg().a(this.bkX, i2);
+                    com.baidu.tieba.im.db.k.Rv().a(this.bnC, i2);
                 }
             }
         }
@@ -43,6 +43,6 @@ public class n implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void c(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.m.Ql().a(com.baidu.adp.lib.g.c.a(str, 0L), list, true);
+        com.baidu.tieba.im.db.m.RA().a(com.baidu.adp.lib.g.c.c(str, 0L), list, true);
     }
 }

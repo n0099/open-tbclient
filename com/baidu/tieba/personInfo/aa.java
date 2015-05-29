@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    private final /* synthetic */ UserData aZl;
-    final /* synthetic */ z bUj;
+    final /* synthetic */ z bWQ;
+    private final /* synthetic */ UserData bbS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar, UserData userData) {
-        this.bUj = zVar;
-        this.aZl = userData;
+        this.bWQ = zVar;
+        this.bbS = userData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bUj.m(this.aZl);
+        this.bWQ.m(this.bbS);
     }
 }

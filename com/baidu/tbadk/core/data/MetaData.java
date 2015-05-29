@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.util.ImageInfo;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.view.ab;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.ag;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements as, com.baidu.tbadk.core.util.x, ab {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements ap, com.baidu.tbadk.core.util.x, ag {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
@@ -33,12 +33,12 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements as, com.b
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.view.ab
+    @Override // com.baidu.tbadk.core.view.ag
     public boolean isChecked() {
         return this.mIsChecked;
     }
 
-    @Override // com.baidu.tbadk.core.view.ab
+    @Override // com.baidu.tbadk.core.view.ag
     public void setChecked(boolean z) {
         this.mIsChecked = z;
     }
@@ -55,13 +55,13 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements as, com.b
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.as
-    public ArrayList<ar> getImages() {
-        ArrayList<ar> arrayList = new ArrayList<>();
-        ar arVar = new ar();
-        arVar.QM = getPortrait();
-        arVar.UW = 12;
-        arrayList.add(arVar);
+    @Override // com.baidu.tbadk.core.util.ap
+    public ArrayList<ao> getImages() {
+        ArrayList<ao> arrayList = new ArrayList<>();
+        ao aoVar = new ao();
+        aoVar.Ri = getPortrait();
+        aoVar.Vx = 12;
+        arrayList.add(aoVar);
         return arrayList;
     }
 }

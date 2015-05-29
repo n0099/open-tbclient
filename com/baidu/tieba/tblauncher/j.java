@@ -1,27 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.AppUploadMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class j implements Runnable {
+class j extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Runnable runnable;
-        if (TbadkCoreApplication.m411getInst().isAppUploadOpen()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
-            handler = this.this$0.mHandler;
-            runnable = this.this$0.crL;
-            handler.postDelayed(runnable, 18000000L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aj ajVar;
+        if (customResponsedMessage != null) {
+            ajVar = this.this$0.cvr;
+            ajVar.jd(0);
+            MainTabActivity.cvi = false;
         }
     }
 }

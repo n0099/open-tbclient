@@ -1,21 +1,25 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public interface r {
-    void ax(String str);
+    long aA(String str);
+
+    void az(String str);
+
+    void d(String str, long j);
 
     void h(long j);
 
+    String hW();
+
+    long hX();
+
+    long hY();
+
+    long hZ();
+
     void i(long j);
 
-    String in();
-
-    long io();
-
-    long ip();
-
-    long iq();
-
-    long ir();
+    long ia();
 
     void j(long j);
 

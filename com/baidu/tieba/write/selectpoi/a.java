@@ -2,18 +2,18 @@ package com.baidu.tieba.write.selectpoi;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.location.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.LocationSearchResponseMessage;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity cvy;
+    final /* synthetic */ SearchLocationActivity czP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.cvy = searchLocationActivity;
+        this.czP = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.cvy.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cvy.getResources().getString(y.neterror) : responsedMessage.getErrorString());
+                    this.czP.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.czP.getResources().getString(t.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.cvy.cvr = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.czP.czI = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.cvy.cvr = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.czP.czI = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                gVar = this.cvy.cvs;
-                lVar = this.cvy.cvr;
+                gVar = this.czP.czJ;
+                lVar = this.czP.czI;
                 gVar.a(lVar);
-                gVar2 = this.cvy.cvs;
+                gVar2 = this.czP.czJ;
                 gVar2.notifyDataSetChanged();
             }
         }

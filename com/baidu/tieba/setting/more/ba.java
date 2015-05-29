@@ -1,38 +1,24 @@
 package com.baidu.tieba.setting.more;
 
-import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tieba.setting.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<String, String, String> {
-    final /* synthetic */ ay ccq;
+public class ba extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ az cgT;
 
-    private ba(ay ayVar) {
-        this.ccq = ayVar;
+    private ba(az azVar) {
+        this.cgT = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(ay ayVar, ba baVar) {
-        this(ayVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) {
-        Context context;
-        String rK = com.baidu.tbadk.core.util.o.rK();
-        long k = com.baidu.tbadk.core.util.o.k(TbConfig.IMAGE_CACHE_DIR_NAME, false) + com.baidu.tbadk.core.util.o.k(String.valueOf(rK) + TbConfig.TMP_PIC_DIR_NAME, false) + com.baidu.tbadk.core.util.o.k(String.valueOf(rK) + "voice", false) + com.baidu.tbadk.core.util.o.ct(String.valueOf(rK) + TbConfig.TMP_DATABASE_NAME);
-        float f = 0.0f + ((float) k);
-        if (k < 10485.76d) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder(String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))));
-        context = this.ccq.mContext;
-        return sb.append(context.getString(com.baidu.tieba.y.mebibyte)).toString();
+    public /* synthetic */ ba(az azVar, ba baVar) {
+        this(azVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,12 +28,29 @@ public class ba extends BdAsyncTask<String, String, String> {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         BaseActivity.LoadDataCallBack loadDataCallBack2;
         super.onPostExecute((ba) str);
-        this.ccq.ccp = null;
-        loadDataCallBack = this.ccq.bEA;
+        this.cgT.cgR = null;
+        loadDataCallBack = this.cgT.bHv;
         if (loadDataCallBack == null) {
             return;
         }
-        loadDataCallBack2 = this.ccq.bEA;
-        loadDataCallBack2.callback(MoreModel.TaskType.GET_SIZE, str);
+        loadDataCallBack2 = this.cgT.bHv;
+        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) {
+        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().dM();
+        com.baidu.tbadk.core.voice.a.b.uH();
+        try {
+            com.baidu.tbadk.core.util.ba.tw().tx();
+            com.baidu.tbadk.core.util.ba.tw().ty();
+            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2802002, ""));
+            return null;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return null;
+        }
     }
 }

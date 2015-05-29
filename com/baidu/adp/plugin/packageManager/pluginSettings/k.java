@@ -11,11 +11,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ServiceConnection {
-    final /* synthetic */ h EB;
+    final /* synthetic */ h Er;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.EB = hVar;
+        this.Er = hVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -24,22 +24,22 @@ public class k implements ServiceConnection {
         ArrayList arrayList2;
         ArrayList arrayList3;
         Messenger messenger;
-        this.EB.Ex = new Messenger(iBinder);
-        this.EB.lQ();
-        arrayList = this.EB.EA;
+        this.Er.Eo = new Messenger(iBinder);
+        this.Er.mj();
+        arrayList = this.Er.Eq;
         if (arrayList.size() > 0) {
-            arrayList2 = this.EB.EA;
+            arrayList2 = this.Er.Eq;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 Message message = (Message) it.next();
                 try {
-                    messenger = this.EB.Ex;
+                    messenger = this.Er.Eo;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
             }
-            arrayList3 = this.EB.EA;
+            arrayList3 = this.Er.Eq;
             arrayList3.clear();
         }
     }
@@ -47,8 +47,8 @@ public class k implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         ArrayList arrayList;
-        this.EB.Ex = null;
-        arrayList = this.EB.EA;
+        this.Er.Eo = null;
+        arrayList = this.Er.Eq;
         arrayList.clear();
     }
 }

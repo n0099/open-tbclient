@@ -3,15 +3,15 @@ package com.baidu.tbadk.coreExtra.act;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class f implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ FillUProfileActivity aaq;
+    final /* synthetic */ FillUProfileActivity abr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FillUProfileActivity fillUProfileActivity) {
-        this.aaq = fillUProfileActivity;
+        this.abr = fillUProfileActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
     public void onFinish() {
-        this.aaq.finish();
+        this.abr.finish();
     }
 }

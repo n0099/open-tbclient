@@ -6,18 +6,18 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class k {
-    private int PH;
-    private String PJ;
-    private String PK;
+    private int Qe;
+    private String Qf;
+    private String Qg;
     private int mType;
     private String mValue;
 
-    public int pY() {
-        return this.PH;
+    public int qE() {
+        return this.Qe;
     }
 
-    public String pZ() {
-        return this.PJ;
+    public String qF() {
+        return this.Qf;
     }
 
     public String getValue() {
@@ -28,18 +28,18 @@ public class k {
         return this.mType;
     }
 
-    public String qa() {
-        return this.PK;
+    public String qG() {
+        return this.Qg;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.PH = jSONObject.optInt("bannerType");
-                this.PJ = jSONObject.optString("bannerUrl");
+                this.Qe = jSONObject.optInt("bannerType");
+                this.Qf = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.PK = jSONObject.optString("desc");
+                this.Qg = jSONObject.optString("desc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -48,11 +48,11 @@ public class k {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.PH = banner.banner_type.intValue();
-            this.PJ = banner.banner_url;
+            this.Qe = banner.banner_type.intValue();
+            this.Qf = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.PK = banner.desc;
+            this.Qg = banner.desc;
         }
     }
 
@@ -60,6 +60,6 @@ public class k {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.PH == 1 || this.PH == 4 || this.PH == 2 || this.PH == 3 : this.mType == 2 && !StringUtils.isNull(this.PK);
+        return this.mType == 1 ? this.Qe == 1 || this.Qe == 4 || this.Qe == 2 || this.Qe == 3 : this.mType == 2 && !StringUtils.isNull(this.Qg);
     }
 }

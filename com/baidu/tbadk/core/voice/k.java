@@ -86,17 +86,17 @@ public class k implements com.baidu.adp.lib.voice.f {
     }
 
     @Override // com.baidu.adp.lib.voice.i
-    public void aj(int i) {
+    public void ah(int i) {
     }
 
     @Override // com.baidu.adp.lib.voice.f
-    public void ai(int i) {
+    public void ag(int i) {
         i playView;
         VoiceData.VoiceModel voiceModel;
         VoiceData.VoiceModel voiceModel2;
         playView = this.this$0.getPlayView();
         if (playView != null) {
-            playView.aI(i);
+            playView.aG(i);
         }
         voiceModel = this.this$0.mCurPlayModel;
         if (voiceModel != null) {

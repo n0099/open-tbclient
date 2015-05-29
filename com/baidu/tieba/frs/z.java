@@ -2,11 +2,11 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aJQ;
+    final /* synthetic */ FrsActivity aLX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FrsActivity frsActivity) {
-        this.aJQ = frsActivity;
+        this.aLX = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

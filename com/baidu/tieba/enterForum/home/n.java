@@ -1,23 +1,28 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.view.ae;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements ae {
-    final /* synthetic */ a aDb;
+public class n extends CustomMessageListener {
+    final /* synthetic */ a aFd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(a aVar) {
-        this.aDb = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(a aVar, int i) {
+        super(i);
+        this.aFd = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae
-    public void onListPullRefresh(boolean z) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        String str;
-        cVar = this.aDb.aCK;
-        str = this.aDb.aCM;
-        cVar.bz(!StringUtils.isNull(str));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean HM;
+        HM = this.aFd.HM();
+        if (!HM) {
+            this.aFd.HN();
+        } else {
+            this.aFd.HQ();
+        }
     }
 }

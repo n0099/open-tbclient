@@ -1,27 +1,28 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ x cxy;
+public class z implements View.OnClickListener {
+    final /* synthetic */ y cBQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(x xVar) {
-        this.cxy = xVar;
+    public z(y yVar) {
+        this.cBQ = yVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        this.cxy.fi(true);
-        if (aVar != null) {
-            tbImageView2 = this.cxy.cxv;
-            aVar.a(tbImageView2);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        w wVar;
+        x xVar;
+        w wVar2;
+        x xVar2;
+        wVar = this.cBQ.cBP;
+        xVar = wVar.cBH;
+        if (xVar != null) {
+            wVar2 = this.cBQ.cBP;
+            xVar2 = wVar2.cBH;
+            xVar2.asU();
         }
-        tbImageView = this.cxy.cxv;
-        tbImageView.setDefaultResource(com.baidu.tieba.u.image_group_load_f);
     }
 }

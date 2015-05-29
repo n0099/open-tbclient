@@ -7,32 +7,33 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tbadk.core.view.af;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-    private final TbPageContextSupport bsR;
-    private com.baidu.tbadk.core.view.aa bsS;
-    private s bsT = null;
-    private ViewGroup bsU = null;
-    private boolean bsV;
+    private final TbPageContextSupport bvC;
+    private s bvD = null;
+    private ViewGroup bvE = null;
+    private boolean bvF;
+    private af mCheckBoxStateChangedListener;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
 
     public q(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.bsR = tbPageContextSupport;
-        this.bsV = z;
+        this.bvC = tbPageContextSupport;
+        this.bvF = z;
     }
 
     public void a(s sVar) {
-        this.bsT = sVar;
+        this.bvD = sVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
         this.mData = list;
     }
 
-    public void a(com.baidu.tbadk.core.view.aa aaVar) {
-        this.bsS = aaVar;
+    public void setCheckBoxStateChangedListener(af afVar) {
+        this.mCheckBoxStateChangedListener = afVar;
     }
 
     @Override // android.widget.Adapter
@@ -59,8 +60,8 @@ public class q extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         r rVar;
-        if (this.bsU == null) {
-            this.bsU = viewGroup;
+        if (this.bvE == null) {
+            this.bvE = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar != null) {
@@ -77,42 +78,42 @@ public class q extends BaseAdapter {
     private r a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         r rVar;
         if (obj == null) {
-            rVar = VI();
+            rVar = Xa();
         } else {
             rVar = (r) obj;
         }
-        if (this.bsT != null) {
-            this.bsT.a(rVar.rootView, aVar);
+        if (this.bvD != null) {
+            this.bvD.a(rVar.rootView, aVar);
         }
         a(aVar, rVar, aVar.getUserPortrait());
-        rVar.azB.setText(aVar.getUserName());
-        if (this.bsV) {
-            rVar.bsW.setVisibility(8);
+        rVar.aBm.setText(aVar.getUserName());
+        if (this.bvF) {
+            rVar.bvG.setVisibility(8);
         } else {
-            rVar.bsW.setTagData(aVar);
+            rVar.bvG.setTagData(aVar);
         }
-        if (this.bsR instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.bsR).getLayoutMode().h(rVar.rootView);
+        if (this.bvC instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bvC).getLayoutMode().j(rVar.rootView);
         }
         return rVar;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, r rVar, String str) {
         if (aVar != null) {
-            rVar.bsy.setTag(str);
-            rVar.bsy.c(str, 12, false);
+            rVar.bvj.setTag(str);
+            rVar.bvj.c(str, 12, false);
         }
     }
 
-    private r VI() {
+    private r Xa() {
         r rVar = new r(this);
-        rVar.rootView = com.baidu.adp.lib.g.b.hH().inflate(this.bsR.getPageContext().getContext(), com.baidu.tieba.w.invite_friend_list_item, null);
-        rVar.bsy = (HeadImageView) rVar.rootView.findViewById(com.baidu.tieba.v.photo);
-        rVar.bsy.setIsRound(false);
-        rVar.azB = (TextView) rVar.rootView.findViewById(com.baidu.tieba.v.txt_user_name);
-        rVar.bsW = (TbCheckBox) rVar.rootView.findViewById(com.baidu.tieba.v.ckb_select);
-        if (this.bsS != null) {
-            rVar.bsW.setStatedChangedListener(this.bsS);
+        rVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.bvC.getPageContext().getContext(), com.baidu.tieba.r.invite_friend_list_item, null);
+        rVar.bvj = (HeadImageView) rVar.rootView.findViewById(com.baidu.tieba.q.photo);
+        rVar.bvj.setIsRound(false);
+        rVar.aBm = (TextView) rVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
+        rVar.bvG = (TbCheckBox) rVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
+        if (this.mCheckBoxStateChangedListener != null) {
+            rVar.bvG.setStatedChangedListener(this.mCheckBoxStateChangedListener);
         }
         rVar.rootView.setTag(rVar);
         return rVar;

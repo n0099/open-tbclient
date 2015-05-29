@@ -1,37 +1,37 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public class b implements a {
-    private static a qP;
-    private int qQ;
-    private final g qR = new g();
+    private static a qU;
+    private int qV;
+    private final g qW = new g();
 
     public b() {
-        this.qQ = 0;
-        if (NSGif.qS) {
-            this.qQ = 0;
+        this.qV = 0;
+        if (NSGif.qX) {
+            this.qV = 0;
         } else {
-            this.qQ = 1;
+            this.qV = 1;
         }
     }
 
-    public static synchronized a ff() {
+    public static synchronized a fk() {
         a aVar;
         synchronized (b.class) {
-            if (qP == null) {
-                qP = new b();
+            if (qU == null) {
+                qU = new b();
             }
-            aVar = qP;
+            aVar = qU;
         }
         return aVar;
     }
 
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.a.a J(String str) {
-        if (this.qQ != 0) {
+    public com.baidu.adp.widget.a.a L(String str) {
+        if (this.qV != 0) {
             return null;
         }
         try {
-            return this.qR.J(str);
+            return this.qW.L(str);
         } catch (Exception e) {
             return null;
         }
@@ -39,11 +39,11 @@ public class b implements a {
 
     @Override // com.baidu.adp.gif.a
     public com.baidu.adp.widget.a.a d(byte[] bArr, int i, int i2) {
-        if (this.qQ != 0) {
+        if (this.qV != 0) {
             return null;
         }
         try {
-            return this.qR.d(bArr, i, i2);
+            return this.qW.d(bArr, i, i2);
         } catch (Exception e) {
             return null;
         }

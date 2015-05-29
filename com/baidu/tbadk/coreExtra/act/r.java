@@ -1,22 +1,21 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.x;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.core.atomData.VoiceCheckActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements x {
-    final /* synthetic */ LoginActivity aat;
+public class r implements SapiWebView.VoiceLoginHandler {
+    final /* synthetic */ LoginActivity abx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(LoginActivity loginActivity) {
-        this.aat = loginActivity;
+        this.abx = loginActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.x
-    public void g(AccountData accountData) {
-        com.baidu.tbadk.core.a.d.b(accountData);
-        TbadkCoreApplication.setCurrentAccount(accountData, this.aat.getBaseContext());
-        this.aat.up();
+    @Override // com.baidu.sapi2.SapiWebView.VoiceLoginHandler
+    public void handleVoiceLogin() {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VoiceCheckActivityConfig(this.abx.getPageContext().getPageActivity())));
     }
 }

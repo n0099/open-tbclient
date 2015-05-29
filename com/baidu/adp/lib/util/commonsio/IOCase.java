@@ -6,12 +6,12 @@ public final class IOCase implements Serializable {
     public static final IOCase SYSTEM;
     private static final long serialVersionUID = -6343169151696340687L;
     private final String name;
-    private final transient boolean zu;
+    private final transient boolean zj;
     public static final IOCase SENSITIVE = new IOCase("Sensitive", true);
     public static final IOCase INSENSITIVE = new IOCase("Insensitive", false);
 
     static {
-        SYSTEM = new IOCase("System", b.jf() ? false : true);
+        SYSTEM = new IOCase("System", b.jw() ? false : true);
     }
 
     public static IOCase forName(String str) {
@@ -29,7 +29,7 @@ public final class IOCase implements Serializable {
 
     private IOCase(String str, boolean z) {
         this.name = str;
-        this.zu = z;
+        this.zj = z;
     }
 
     private Object readResolve() {
@@ -41,30 +41,30 @@ public final class IOCase implements Serializable {
     }
 
     public boolean isCaseSensitive() {
-        return this.zu;
+        return this.zj;
     }
 
     public int checkCompareTo(String str, String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("The strings must not be null");
         }
-        return this.zu ? str.compareTo(str2) : str.compareToIgnoreCase(str2);
+        return this.zj ? str.compareTo(str2) : str.compareToIgnoreCase(str2);
     }
 
     public boolean checkEquals(String str, String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("The strings must not be null");
         }
-        return this.zu ? str.equals(str2) : str.equalsIgnoreCase(str2);
+        return this.zj ? str.equals(str2) : str.equalsIgnoreCase(str2);
     }
 
     public boolean checkStartsWith(String str, String str2) {
-        return str.regionMatches(!this.zu, 0, str2, 0, str2.length());
+        return str.regionMatches(!this.zj, 0, str2, 0, str2.length());
     }
 
     public boolean checkEndsWith(String str, String str2) {
         int length = str2.length();
-        return str.regionMatches(!this.zu, str.length() - length, str2, 0, length);
+        return str.regionMatches(!this.zj, str.length() - length, str2, 0, length);
     }
 
     public int checkIndexOf(String str, int i, String str2) {
@@ -80,7 +80,7 @@ public final class IOCase implements Serializable {
     }
 
     public boolean checkRegionMatches(String str, int i, String str2) {
-        return str.regionMatches(!this.zu, i, str2, 0, str2.length());
+        return str.regionMatches(!this.zj, i, str2, 0, str2.length());
     }
 
     public String toString() {

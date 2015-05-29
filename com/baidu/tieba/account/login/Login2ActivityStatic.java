@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 public class Login2ActivityStatic {
     static {
         com.baidu.tbadk.coreExtra.act.a.checkPassV6Switch();
-        if (TbadkCoreApplication.m411getInst().getIntentClass(LoginActivityConfig.class) == null || com.baidu.tbadk.coreExtra.act.a.un()) {
+        if (TbadkCoreApplication.m411getInst().getIntentClass(LoginActivityConfig.class) == null || com.baidu.tbadk.coreExtra.act.a.uW()) {
             TbadkCoreApplication.m411getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, Login2Activity.class);
         }
     }

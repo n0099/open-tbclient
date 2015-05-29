@@ -19,6 +19,7 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_MESSAGE_NEW = 11;
     public static final int CLASS_TYPE_MESSAGE_NEW_MENTION = 21;
     public static final int CLASS_TYPE_NATIVE_BUY_TBEAN = 25;
+    public static final int CLASS_TYPE_NATIVE_JUMP = 30;
     public static final int CLASS_TYPE_NATIVE_PAY = 23;
     public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
     public static final int CLASS_TYPE_OFFICAL_BAR = 22;
@@ -28,13 +29,13 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_PERSON_NEW = 12;
     public static final int CLASS_TYPE_PK_AFTER = 7;
     public static final int CLASS_TYPE_PK_BEFORE = 6;
+    public static final int CLASS_TYPE_PUSH_RECOMMEND_PB = 29;
     public static final int CLASS_TYPE_RECOMMEND_PB = 28;
     public static final int CLASS_TYPE_SIGN = 9;
     public static final int CLASS_TYPE_SINGLESQUARE_ACTIVITY = 19;
     public static final int CLASS_TYPE_SQUARESEARCH_ACTIVITY = 18;
     public static final int CLASS_TYPE_VOTE = 8;
     public static final int CLASS_TYPE_WEB = 0;
-    public static final int CLASS_TYPE_XIUBA = 26;
     private a mDealAsyncTask = null;
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

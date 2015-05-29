@@ -2,5 +2,5 @@ package com.baidu.adp.widget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public interface i {
-    void av(int i);
+    void at(int i);
 }

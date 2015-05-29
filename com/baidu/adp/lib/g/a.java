@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public static void f(HttpURLConnection httpURLConnection) {
+    public static void e(HttpURLConnection httpURLConnection) {
         if (httpURLConnection != null) {
             try {
                 httpURLConnection.disconnect();

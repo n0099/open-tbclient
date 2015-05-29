@@ -11,6 +11,7 @@ import android.net.wifi.ScanResult;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.appsearchlib.Info;
 import com.baidu.location.au;
 import com.baidu.location.u;
 import com.baidu.tbadk.TbConfig;
@@ -436,7 +437,7 @@ public class l implements a0, n {
             stringBuffer.append("v");
             stringBuffer.append(5);
             int currentTimeMillis2 = (int) (System.currentTimeMillis() >> 15);
-            stringBuffer.append("t");
+            stringBuffer.append(Info.kBaiduTimeKey);
             stringBuffer.append(currentTimeMillis2);
             if (at.a()) {
                 if (at.f107byte == 460) {

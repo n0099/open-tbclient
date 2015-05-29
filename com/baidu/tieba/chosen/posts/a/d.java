@@ -1,35 +1,30 @@
 package com.baidu.tieba.chosen.posts.a;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import java.util.ArrayList;
-import tbclient.HotThread.Pic;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bb;
 import tbclient.HotThread.tinfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.mvc.b.a {
-    private ArrayList<String> aBB;
-    private String forumId;
-    private String forumName;
-    private int index;
-    private String threadId;
+public class d implements View.OnClickListener {
+    final /* synthetic */ c aDs;
+    private final /* synthetic */ tinfo aDt;
 
-    public d(int i, tinfo tinfoVar) {
-        if (tinfoVar != null) {
-            this.aBB = new ArrayList<>();
-            this.index = i;
-            this.forumId = String.valueOf(tinfoVar.forum_id);
-            this.forumName = tinfoVar.forum_name;
-            for (Pic pic : tinfoVar.pics) {
-                if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.aBB.add(pic.big_pic);
-                }
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar, tinfo tinfoVar) {
+        this.aDs = cVar;
+        this.aDt = tinfoVar;
     }
 
-    public CustomMessage<ImageViewerConfig> an(Context context) {
-        return new CustomMessage<>(2010000, new ImageViewerConfig(context).createConfig(this.aBB, this.index, this.forumName, this.forumId, this.threadId, true, this.aBB.get(this.aBB.size() - 1), false));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str = this.aDt.forum_name;
+        if (bb.aT(str)) {
+            TiebaStatic.eventStat(this.aDs.getActivity(), "kantie_6", null, 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aDs.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+        }
     }
 }

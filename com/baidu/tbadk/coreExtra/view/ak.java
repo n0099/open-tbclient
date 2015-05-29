@@ -1,32 +1,57 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
+import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends Handler {
-    final /* synthetic */ LivePlayingStatusMgr afr;
+public class ak extends CustomMessageListener {
+    final /* synthetic */ LivePlayingStatusMgr ags;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(LivePlayingStatusMgr livePlayingStatusMgr) {
-        this.afr = livePlayingStatusMgr;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ak(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
+        super(i);
+        this.ags = livePlayingStatusMgr;
     }
 
-    @Override // android.os.Handler
-    public void dispatchMessage(Message message) {
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
-        if (message != null) {
-            LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2 = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
-            try {
-                this.afr.afo = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
-                this.afr.gid = message.arg1;
-                LivePlayingStatusMgr livePlayingStatusMgr = this.afr;
-                livePlayingStatus = this.afr.afo;
-                livePlayingStatusMgr.b(livePlayingStatus);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LiveChatRoomEventData parseFromEventContent;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        if (customResponsedMessage.getCmd() == 2001166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
+            String data = ((LiveChatRoomEventResponseMessage) customResponsedMessage).getData();
+            if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && !"302".equals(parseFromEventContent.mEventId) && !"306".equals(parseFromEventContent.mEventId)) {
+                if ("310".equals(parseFromEventContent.mEventId)) {
+                    i4 = this.ags.gid;
+                    if (i4 != 0) {
+                        this.ags.xY();
+                    }
+                } else if ("307".equals(parseFromEventContent.mEventId)) {
+                    this.ags.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                } else if ("318".equals(parseFromEventContent.mEventId)) {
+                    i3 = this.ags.gid;
+                    if (i3 != 0) {
+                        this.ags.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                    }
+                } else if ("308".equals(parseFromEventContent.mEventId)) {
+                    i2 = this.ags.gid;
+                    if (i2 != 0) {
+                        this.ags.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PAUSE);
+                    }
+                } else if ("309".equals(parseFromEventContent.mEventId)) {
+                    i = this.ags.gid;
+                    if (i != 0) {
+                        this.ags.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
+                    }
+                }
             }
         }
     }

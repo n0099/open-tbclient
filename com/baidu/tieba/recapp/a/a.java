@@ -7,23 +7,23 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.au;
-import com.baidu.tieba.tbadkCore.c.i;
-import com.baidu.tieba.y;
+import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private static a bXA;
+    private static a cbd;
 
-    public static final a afE() {
-        if (bXA != null) {
-            return bXA;
+    public static final a ahi() {
+        if (cbd != null) {
+            return cbd;
         }
         synchronized (a.class) {
-            if (bXA == null) {
-                bXA = new a();
+            if (cbd == null) {
+                cbd = new a();
             }
         }
-        return bXA;
+        return cbd;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,27 +35,26 @@ public class a implements View.OnClickListener {
                 i appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
                 if (appData != null) {
-                    com.baidu.tbadk.distribute.a.yk().a(view.getContext(), appData.amL(), "area_click", "pb", appData.cof, appData.threadId);
-                    com.baidu.tbadk.distribute.a.yk().a(appData.amL(), appData.cof, appData.threadId, "PB", "click");
+                    com.baidu.tbadk.distribute.a.yX().a(view.getContext(), appData.aox(), "area_click", "pb", appData.csd, appData.threadId);
+                    com.baidu.tbadk.distribute.a.yX().a(appData.aox(), appData.csd, appData.threadId, "PB", "click");
                     TiebaStatic.eventStat(view.getContext(), "pb_ck_app", null, 1, "app_name", appData.getPkgName());
-                    int amH = appData.amH();
-                    if (amH == 0) {
+                    int aot = appData.aot();
+                    if (aot == 0) {
                         if (view.getContext() instanceof Activity) {
                             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
-                            aVar.bw(y.del_post_tip);
-                            if (!k.iI()) {
-                                aVar.bx(y.frs_network_tips);
-                            } else if (StringUtils.isNull(appData.amK())) {
-                                aVar.bx(y.pb_app_download_ask);
+                            if (!k.iY()) {
+                                aVar.bu(t.frs_network_tips);
+                            } else if (StringUtils.isNull(appData.aow())) {
+                                aVar.bu(t.pb_app_download_ask);
                             } else {
-                                aVar.ca(appData.amK());
+                                aVar.cn(appData.aow());
                             }
-                            aVar.a(y.alert_yes_button, new b(this, view, appData, position, baseAppViewHolder));
-                            aVar.b(y.alert_no_button, new c(this));
+                            aVar.a(t.alert_yes_button, new b(this, view, appData, position, baseAppViewHolder));
+                            aVar.b(t.alert_no_button, new c(this));
                             aVar.b(view.getContext() instanceof TbPageContextSupport ? ((TbPageContextSupport) view.getContext()).getPageContext() : null);
-                            aVar.re();
+                            aVar.rL();
                         }
-                    } else if (amH == 2) {
+                    } else if (aot == 2) {
                         au.a(view.getContext(), appData);
                         baseAppViewHolder.refresh();
                     }

@@ -4,9 +4,10 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aCf;
-    private boolean aCg;
-    private int aCh;
+    private boolean aEg;
+    private boolean aEh;
+    private int aEi;
+    private boolean aEj;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -31,11 +32,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aCf = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aEg = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aCg = z;
+        this.aEh = z;
         return this;
     }
 
@@ -43,43 +44,63 @@ public class c {
         return this.icon_url;
     }
 
+    public void fO(String str) {
+        this.icon_url = str;
+    }
+
     public String getTitle() {
         return this.title;
     }
 
-    public String Gk() {
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public String Hn() {
         return this.link_url;
     }
 
-    public String Gl() {
+    public String Ho() {
         return this.describe;
     }
 
-    public String Gm() {
+    public String Hp() {
         return this.statistics;
     }
 
-    public boolean Gn() {
-        return this.aCf;
+    public void fP(String str) {
+        this.statistics = str;
     }
 
-    public void bt(boolean z) {
-        this.aCf = z;
+    public boolean Hq() {
+        return this.aEg;
     }
 
-    public boolean Go() {
-        return this.aCg;
+    public void bC(boolean z) {
+        this.aEg = z;
     }
 
-    public void bu(boolean z) {
-        this.aCg = z;
+    public boolean Hr() {
+        return this.aEh;
     }
 
-    public int Gp() {
-        return this.aCh;
+    public void bD(boolean z) {
+        this.aEh = z;
     }
 
-    public void ep(int i) {
-        this.aCh = i;
+    public int Hs() {
+        return this.aEi;
+    }
+
+    public void eB(int i) {
+        this.aEi = i;
+    }
+
+    public boolean Ht() {
+        return this.aEj;
+    }
+
+    public void bE(boolean z) {
+        this.aEj = z;
     }
 }

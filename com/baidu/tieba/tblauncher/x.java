@@ -16,17 +16,8 @@ class x extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ai aiVar;
-        ai aiVar2;
-        if (customResponsedMessage != null) {
-            this.this$0.aok();
-            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
-                this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
-            }
-            aiVar = this.this$0.crl;
-            aiVar.aoG().aoK();
-            aiVar2 = this.this$0.crl;
-            aiVar2.aoA();
+        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
+            this.this$0.anV();
         }
     }
 }

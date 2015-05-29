@@ -24,18 +24,18 @@ public class g extends Handler {
                 return;
             case 2:
                 f fVar = this.this$0;
-                bdStatLog = this.this$0.xs;
+                bdStatLog = this.this$0.wv;
                 fVar.a((BdStatBase) bdStatLog, true, true);
                 f fVar2 = this.this$0;
-                bdDebugLog = this.this$0.xt;
+                bdDebugLog = this.this$0.ww;
                 fVar2.a((BdStatBase) bdDebugLog, true, true);
                 f fVar3 = this.this$0;
-                bdErrorLog = this.this$0.xu;
+                bdErrorLog = this.this$0.wx;
                 fVar3.a((BdStatBase) bdErrorLog, true, true);
                 f fVar4 = this.this$0;
-                bdPerformanceLog = this.this$0.xv;
+                bdPerformanceLog = this.this$0.wy;
                 fVar4.a((BdStatBase) bdPerformanceLog, true, true);
-                this.this$0.hW();
+                this.this$0.hG();
                 return;
             case 3:
                 this.this$0.c((BdStatBase) message.obj, message.arg1 > 0);

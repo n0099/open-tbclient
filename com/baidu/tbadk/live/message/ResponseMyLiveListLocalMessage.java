@@ -59,6 +59,9 @@ public class ResponseMyLiveListLocalMessage extends CustomResponsedMessage<Objec
                     liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
                     liveCardData.setStatus(liveGroupInfo.status.intValue());
                     liveCardData.setStreamId(liveGroupInfo.streamId);
+                    if (liveGroupInfo.label != null) {
+                        liveCardData.setLabelName(liveGroupInfo.label.labelName);
+                    }
                     this.hotLiveListData.getGroups().add(liveCardData);
                     i2 = i3 + 1;
                 } else {

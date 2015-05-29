@@ -1,48 +1,41 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity auC;
+class d implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ c awg;
+    private final /* synthetic */ View awh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(AccountActivity accountActivity) {
-        this.auC = accountActivity;
+    public d(c cVar, View view) {
+        this.awg = cVar;
+        this.awh = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        m mVar;
-        m mVar2;
-        TextView textView;
-        TextView textView2;
-        m mVar3;
-        m mVar4;
-        TextView textView3;
-        TextView textView4;
-        m mVar5;
-        mVar = this.auC.auw;
-        if (!mVar.Eo()) {
-            mVar4 = this.auC.auw;
-            mVar4.setEditState(true);
-            textView3 = this.auC.auy;
-            textView3.setText(com.baidu.tieba.y.done);
-            textView4 = this.auC.auy;
-            ba.b(textView4, com.baidu.tieba.s.cp_link_tip_a, 1);
-            mVar5 = this.auC.auw;
-            mVar5.notifyDataSetChanged();
-            return;
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        AccountActivity accountActivity;
+        AccountActivity accountActivity2;
+        if (this.awh != null) {
+            AccountData accountData = (AccountData) this.awh.getTag();
+            switch (i) {
+                case 0:
+                    if (accountData != null) {
+                        accountActivity2 = this.awg.awf;
+                        accountActivity2.a(false, accountData);
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (accountData != null) {
+                        accountActivity = this.awg.awf;
+                        accountActivity.a(true, accountData);
+                        break;
+                    }
+                    break;
+            }
+            eVar.dismiss();
         }
-        mVar2 = this.auC.auw;
-        mVar2.setEditState(false);
-        textView = this.auC.auy;
-        textView.setText(com.baidu.tieba.y.edit);
-        textView2 = this.auC.auy;
-        ba.b(textView2, com.baidu.tieba.s.navi_op_text, 1);
-        mVar3 = this.auC.auw;
-        mVar3.notifyDataSetChanged();
     }
 }

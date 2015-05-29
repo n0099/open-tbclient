@@ -1,27 +1,27 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public class e {
-    private long aDr;
-    private final w ckt;
-    private aa cku;
-    private z ckv;
-    private boolean ckw;
-    private i ckx;
-    private f cky;
-    private boolean ckz;
+    private long aFt;
+    private final w cot;
+    private aa cou;
+    private z cov;
+    private boolean cow;
+    private i cox;
+    private f coy;
+    private boolean coz;
 
-    public void eH(boolean z) {
-        this.ckw = z;
+    public void fb(boolean z) {
+        this.cow = z;
     }
 
     public void clear() {
-        if (this.ckx != null) {
-            this.ckx.cancel();
-            this.ckx = null;
+        if (this.cox != null) {
+            this.cox.cancel();
+            this.cox = null;
         }
-        if (this.cky != null) {
-            this.cky.cancel();
-            this.cky = null;
+        if (this.coy != null) {
+            this.coy.cancel();
+            this.coy = null;
         }
     }
 }

@@ -1,41 +1,33 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ MultiImageView afC;
+public class al extends Handler {
+    final /* synthetic */ LivePlayingStatusMgr ags;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(MultiImageView multiImageView) {
-        this.afC = multiImageView;
+    public al(LivePlayingStatusMgr livePlayingStatusMgr) {
+        this.ags = livePlayingStatusMgr;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        r0 = r1.afC.getCurrentImageView();
-     */
-    @Override // android.view.View.OnClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        com.baidu.tbadk.widget.a currentImageView;
-        com.baidu.tbadk.widget.a currentImageView2;
-        button = this.afC.aft;
-        if (view != button) {
-            button2 = this.afC.afu;
-            if (view == button2 && currentImageView != null) {
-                currentImageView.zoomOutBitmap();
-                return;
+    @Override // android.os.Handler
+    public void dispatchMessage(Message message) {
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
+        if (message != null) {
+            LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2 = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
+            try {
+                this.ags.agp = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
+                this.ags.gid = message.arg1;
+                LivePlayingStatusMgr livePlayingStatusMgr = this.ags;
+                livePlayingStatus = this.ags.agp;
+                livePlayingStatusMgr.b(livePlayingStatus);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return;
-        }
-        currentImageView2 = this.afC.getCurrentImageView();
-        if (currentImageView2 != null) {
-            currentImageView2.zoomInBitmap();
         }
     }
 }

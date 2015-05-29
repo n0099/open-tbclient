@@ -5,87 +5,87 @@ import android.graphics.drawable.AnimationDrawable;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.l;
+import com.baidu.tieba.n;
+import com.baidu.tieba.o;
+import com.baidu.tieba.p;
 import com.baidu.tieba.q;
-import com.baidu.tieba.s;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f extends a {
-    private Runnable IF;
-    private String[] Xe;
-    private TextView afF;
-    private ImageView alH;
-    private TextView alI;
-    private final int alJ;
+    private Runnable Iu;
+    private String[] XP;
+    private TextView agG;
+    private ImageView amI;
+    private TextView amJ;
+    private final int amK;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int zL() {
+    public int Ax() {
         this.currentIndex++;
-        if (this.currentIndex >= this.alJ) {
+        if (this.currentIndex >= this.amK) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
     }
 
     public f(Context context) {
-        this(context, context.getResources().getDimensionPixelSize(t.ds484));
+        this(context, context.getResources().getDimensionPixelSize(o.ds484));
     }
 
     public f(Context context, int i) {
-        super(com.baidu.adp.lib.g.b.hH().inflate(context, w.loading_view_layout, null));
+        super(com.baidu.adp.lib.g.b.hr().inflate(context, r.loading_view_layout, null));
         this.currentIndex = 0;
-        this.IF = new g(this);
-        this.alH = (ImageView) this.alF.findViewById(v.loading_animate_view);
+        this.Iu = new g(this);
+        this.amI = (ImageView) this.amG.findViewById(q.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.alH.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.amI.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.alH.setLayoutParams(marginLayoutParams);
+                this.amI.setLayoutParams(marginLayoutParams);
             }
         }
-        this.afF = (TextView) this.alF.findViewById(v.loading_anim_ellipsis);
-        this.alI = (TextView) this.alF.findViewById(v.loading_text);
-        this.alH.setBackgroundResource(u.loading_animation);
-        this.Xe = context.getResources().getStringArray(q.loading_anim_text_array);
-        this.alJ = this.Xe.length;
+        this.agG = (TextView) this.amG.findViewById(q.loading_anim_ellipsis);
+        this.amJ = (TextView) this.amG.findViewById(q.loading_text);
+        this.amI.setBackgroundResource(p.loading_animation);
+        this.XP = context.getResources().getStringArray(l.loading_anim_text_array);
+        this.amK = this.XP.length;
     }
 
-    private void zM() {
-        if (this.alH != null && (this.alH.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.alH.getBackground()).start();
+    private void Ay() {
+        if (this.amI != null && (this.amI.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.amI.getBackground()).start();
         }
     }
 
-    private void zN() {
-        if (this.alH != null && (this.alH.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.alH.getBackground()).stop();
+    private void Az() {
+        if (this.amI != null && (this.amI.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.amI.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.c.a
-    protected void zJ() {
-        zM();
-        this.afF.setText(this.Xe[0]);
-        this.afF.postDelayed(this.IF, 200L);
+    protected void Av() {
+        Ay();
+        this.agG.setText(this.XP[0]);
+        this.agG.postDelayed(this.Iu, 200L);
     }
 
     @Override // com.baidu.tbadk.c.a
-    protected void zK() {
-        zN();
-        this.afF.removeCallbacks(this.IF);
+    protected void Aw() {
+        Az();
+        this.agG.removeCallbacks(this.Iu);
     }
 
-    public void rk() {
-        ba.b(this.afF, s.cp_cont_c, 1);
-        ba.b(this.alI, s.cp_cont_c, 1);
-        ba.j(this.alF, s.cp_bg_line_d);
-        zN();
-        ba.i(this.alH, u.loading_animation);
-        zM();
+    public void rU() {
+        ay.b(this.agG, n.cp_cont_c, 1);
+        ay.b(this.amJ, n.cp_cont_c, 1);
+        ay.j(this.amG, n.cp_bg_line_d);
+        Az();
+        ay.i(this.amI, p.loading_animation);
+        Ay();
     }
 }

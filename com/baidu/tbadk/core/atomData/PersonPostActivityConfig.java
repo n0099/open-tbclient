@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PersonPostActivityConfig extends a {
+public class PersonPostActivityConfig extends c {
     public static final String KEY_PORTRAIT_URL = "key_portrait_url";
     public static final String KEY_SEX = "key_sex";
     public static final String KEY_UID = "key_uid";

@@ -5,5 +5,5 @@ public interface aa {
 
     void b(u uVar);
 
-    void eG(int i);
+    void eU(int i);
 }

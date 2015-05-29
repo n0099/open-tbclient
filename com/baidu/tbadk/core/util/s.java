@@ -9,23 +9,21 @@ public interface s {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    void g(String str, byte[] bArr);
+    void d(String str, byte[] bArr);
 
-    void hh();
+    void gS();
+
+    void n(ArrayList<BasicNameValuePair> arrayList);
 
     void o(String str, String str2);
 
-    void o(ArrayList<BasicNameValuePair> arrayList);
+    ArrayList<BasicNameValuePair> sv();
 
-    ArrayList<BasicNameValuePair> rM();
+    String sw();
 
-    boolean rN();
+    byte[] sx();
 
-    String rO();
+    String sy();
 
-    byte[] rP();
-
-    String rQ();
-
-    String rR();
+    String sz();
 }

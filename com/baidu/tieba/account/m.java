@@ -13,35 +13,35 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private View.OnClickListener YC;
-    private BaseActivity auI;
-    private ArrayList<AccountData> auK = null;
-    private boolean auJ = false;
+    private View.OnClickListener ZA;
+    private BaseActivity awl;
+    private ArrayList<AccountData> Sk = null;
+    private boolean awm = false;
 
     public m(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.auI = baseActivity;
-        this.YC = onClickListener;
+        this.awl = baseActivity;
+        this.ZA = onClickListener;
     }
 
-    public void p(ArrayList<AccountData> arrayList) {
-        this.auK = arrayList;
+    public void setData(ArrayList<AccountData> arrayList) {
+        this.Sk = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.auK != null) {
-            i = this.auK.size();
+        if (this.Sk != null) {
+            i = this.Sk.size();
         }
         return i + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.auK == null || i < 0 || i >= this.auK.size()) {
+        if (this.Sk == null || i < 0 || i >= this.Sk.size()) {
             return null;
         }
-        return this.auK.get(i);
+        return this.Sk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -70,76 +70,76 @@ public class m extends BaseAdapter {
                         nVar = (n) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = com.baidu.adp.lib.g.b.hH().inflate(this.auI.getPageContext().getContext(), com.baidu.tieba.w.account_item, null);
+                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awl.getPageContext().getContext(), com.baidu.tieba.r.account_item, null);
                         nVar = new n(this, null);
-                        nVar.auL = (TextView) view2.findViewById(com.baidu.tieba.v.account);
-                        nVar.auN = (ImageView) view2.findViewById(com.baidu.tieba.v.active);
-                        nVar.auO = (Button) view2.findViewById(com.baidu.tieba.v.delete);
-                        nVar.adg = view2.findViewById(com.baidu.tieba.v.account_item_line_layout);
-                        nVar.auO.setOnClickListener(this.YC);
+                        nVar.awn = (TextView) view2.findViewById(com.baidu.tieba.q.account);
+                        nVar.awp = (ImageView) view2.findViewById(com.baidu.tieba.q.active);
+                        nVar.awq = (Button) view2.findViewById(com.baidu.tieba.q.delete);
+                        nVar.mLine = view2.findViewById(com.baidu.tieba.q.account_item_line_layout);
+                        nVar.awq.setOnClickListener(this.ZA);
                         view2.setTag(nVar);
                     } else {
-                        view2 = com.baidu.adp.lib.g.b.hH().inflate(this.auI.getPageContext().getContext(), com.baidu.tieba.w.account_add_item, null);
+                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awl.getPageContext().getContext(), com.baidu.tieba.r.account_add_item, null);
                         nVar = new n(this, null);
-                        nVar.auM = (TextView) view2.findViewById(com.baidu.tieba.v.add_text);
+                        nVar.awo = (TextView) view2.findViewById(com.baidu.tieba.q.add_text);
                         view2.setTag(nVar);
                     }
                     if (getItemViewType(i) == 0) {
                         AccountData accountData = (AccountData) getItem(i);
-                        nVar.auN.setVisibility(8);
-                        nVar.auO.setVisibility(8);
-                        nVar.auO.setTag(accountData);
+                        nVar.awp.setVisibility(8);
+                        nVar.awq.setVisibility(8);
+                        nVar.awq.setTag(accountData);
                         if (accountData != null) {
-                            nVar.auL.setText(accountData.getAccount());
+                            nVar.awn.setText(accountData.getAccount());
                             if (accountData.getIsActive() == 1) {
-                                nVar.auN.setVisibility(0);
+                                nVar.awp.setVisibility(0);
                             }
-                            if (this.auJ) {
-                                nVar.auO.setVisibility(0);
+                            if (this.awm) {
+                                nVar.awq.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
-                            nVar.adg.setVisibility(8);
+                            nVar.mLine.setVisibility(8);
                         } else {
-                            nVar.adg.setVisibility(0);
+                            nVar.mLine.setVisibility(0);
                         }
                     }
-                    this.auI.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.auI.getLayoutMode().h(view2);
+                    this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.awl.getLayoutMode().j(view2);
                     return view2;
                 } catch (Throwable th) {
                     th = th;
-                    this.auI.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.auI.getLayoutMode().h(view);
+                    this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.awl.getLayoutMode().j(view);
                     throw th;
                 }
             } catch (Exception e) {
                 e = e;
                 BdLog.detailException(e);
-                this.auI.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-                this.auI.getLayoutMode().h(view);
+                this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+                this.awl.getLayoutMode().j(view);
                 return view;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.auI.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-            this.auI.getLayoutMode().h(view);
+            this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+            this.awl.getLayoutMode().j(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.auI.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-            this.auI.getLayoutMode().h(view);
+            this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+            this.awl.getLayoutMode().j(view);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.auJ = z;
+        this.awm = z;
     }
 
-    public boolean Eo() {
-        return this.auJ;
+    public boolean Fb() {
+        return this.awm;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

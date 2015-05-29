@@ -27,19 +27,19 @@ public class q extends BdAsyncTask<Object, Integer, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: k */
+    /* renamed from: n */
     public Bitmap doInBackground(Object... objArr) {
         boolean z;
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            Bitmap Y = com.baidu.tbadk.core.util.o.Y(null, TbConfig.IMAGE_RESIZED_FILE);
+            Bitmap ac = com.baidu.tbadk.core.util.o.ac(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
-                if (Y.getWidth() > 750 || Y.getHeight() > 750) {
-                    Bitmap d = com.baidu.tbadk.core.util.c.d(Y, TbConfig.POST_IMAGE_MIDDLE);
+                if (ac.getWidth() > 750 || ac.getHeight() > 750) {
+                    Bitmap d = com.baidu.tbadk.core.util.c.d(ac, TbConfig.POST_IMAGE_MIDDLE);
                     try {
-                        Y.recycle();
-                        Y = d;
+                        ac.recycle();
+                        ac = d;
                     } catch (Exception e) {
                         e = e;
                         bitmap = d;
@@ -47,26 +47,26 @@ public class q extends BdAsyncTask<Object, Integer, Bitmap> {
                         return bitmap;
                     }
                 }
-                if (isCancelled() && Y != null && !Y.isRecycled()) {
-                    Y.recycle();
+                if (isCancelled() && ac != null && !ac.isRecycled()) {
+                    ac.recycle();
                     return null;
                 }
                 int dip2px = com.baidu.adp.lib.util.n.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.this$0.bPl;
+                    z = this.this$0.bRo;
                     if (z) {
-                        Bitmap f = com.baidu.tbadk.core.util.c.f(Y, dip2px);
-                        Bitmap a = com.baidu.tbadk.core.util.c.a(f, com.baidu.adp.lib.util.n.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), Y != f);
-                        this.this$0.bPp = new HashMap();
-                        this.this$0.bPq = new HashMap();
-                        hashMap = this.this$0.bPp;
+                        Bitmap f = com.baidu.tbadk.core.util.c.f(ac, dip2px);
+                        Bitmap a = com.baidu.tbadk.core.util.c.a(f, com.baidu.adp.lib.util.n.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), ac != f);
+                        this.this$0.bRs = new HashMap();
+                        this.this$0.bRt = new HashMap();
+                        hashMap = this.this$0.bRs;
                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
-                        return Y;
+                        return ac;
                     }
                 }
-                return Y;
+                return ac;
             } catch (Exception e2) {
-                bitmap = Y;
+                bitmap = ac;
                 e = e2;
             }
         } catch (Exception e3) {
@@ -81,7 +81,7 @@ public class q extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.bOW;
+        view = this.this$0.bQZ;
         view.setClickable(false);
     }
 
@@ -90,12 +90,12 @@ public class q extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         View view;
         View view2;
-        this.this$0.bPa = null;
+        this.this$0.bRd = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.bOW;
+        view = this.this$0.bQZ;
         view.setClickable(true);
-        view2 = this.this$0.bOW;
+        view2 = this.this$0.bQZ;
         view2.setEnabled(true);
         super.cancel(true);
     }
@@ -112,26 +112,26 @@ public class q extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((q) bitmap);
-        this.this$0.bPa = null;
+        this.this$0.bRd = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.bOW;
+        view = this.this$0.bQZ;
         view.setClickable(true);
-        view2 = this.this$0.bOW;
+        view2 = this.this$0.bQZ;
         view2.setEnabled(true);
         if (bitmap == null || bitmap.isRecycled()) {
-            editHeadsImageView = this.this$0.bOU;
+            editHeadsImageView = this.this$0.bQX;
             editHeadsImageView.setImageDrawable(null);
         } else if (bitmap != null) {
-            editHeadsImageView2 = this.this$0.bOU;
+            editHeadsImageView2 = this.this$0.bQX;
             editHeadsImageView2.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.bPl;
+                z = this.this$0.bRo;
                 if (z) {
                     EditHeadActivity editHeadActivity = this.this$0;
-                    strArr = EditHeadActivity.bOT;
-                    editHeadActivity.v(strArr);
+                    strArr = EditHeadActivity.bQW;
+                    editHeadActivity.w(strArr);
                 }
             }
         }

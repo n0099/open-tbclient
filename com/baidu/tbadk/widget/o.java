@@ -25,25 +25,25 @@ public class o extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            A(i, i2);
+            B(i, i2);
         }
     }
 
-    private void A(int i, int i2) {
+    private void B(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            B(i, i2);
+            C(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         p b = b(spannableStringBuilder, i, i2);
-        if (b.ase) {
+        if (b.atH) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            B(i, i2);
+            C(i, i2);
         }
     }
 
@@ -69,7 +69,7 @@ public class o extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return p.DA();
+        return p.Ek();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -82,7 +82,7 @@ public class o extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, p pVar) {
-        for (Object obj : pVar.asg) {
+        for (Object obj : pVar.atJ) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -92,7 +92,7 @@ public class o extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : pVar.asf) {
+        for (Object obj2 : pVar.atI) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -109,7 +109,7 @@ public class o extends TextView {
         }
     }
 
-    private void B(int i, int i2) {
+    private void C(int i, int i2) {
         c(getText().toString(), i, i2);
     }
 }

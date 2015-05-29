@@ -5,5 +5,5 @@ import java.util.ArrayList;
 public interface c {
     void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2);
 
-    void x(int i, String str);
+    void y(int i, String str);
 }

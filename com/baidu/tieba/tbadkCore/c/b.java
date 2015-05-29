@@ -1,43 +1,22 @@
 package com.baidu.tieba.tbadkCore.c;
 
-import tbclient.GoodsInfo;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.lib.a.b.a.a.i {
-    public final int cnX;
-    public final int id;
-    public final String pop_window_text;
-    public final String thread_pic;
-    public final String thread_title;
-    public final String user_name;
-    public final String user_portrait;
+class b implements com.baidu.tbadk.core.dialog.d {
+    private final /* synthetic */ BaseActivity bfU;
 
-    public b() {
-        this.id = 0;
-        this.user_name = null;
-        this.user_portrait = null;
-        this.thread_title = null;
-        this.thread_pic = null;
-        this.pop_window_text = null;
-        this.cnX = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(BaseActivity baseActivity) {
+        this.bfU = baseActivity;
     }
 
-    public b(GoodsInfo goodsInfo) {
-        if (goodsInfo == null) {
-            this.id = 0;
-            this.user_name = null;
-            this.user_portrait = null;
-            this.thread_title = null;
-            this.thread_pic = null;
-            this.pop_window_text = null;
-            this.cnX = 0;
-            return;
-        }
-        this.id = goodsInfo.id.intValue();
-        this.user_name = goodsInfo.user_name;
-        this.user_portrait = goodsInfo.user_portrait;
-        this.thread_title = goodsInfo.thread_title;
-        this.thread_pic = goodsInfo.thread_pic;
-        this.pop_window_text = goodsInfo.pop_window_text;
-        this.cnX = goodsInfo.goods_style.intValue();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig((Context) this.bfU.getPageContext().getPageActivity(), true, 23004, "remind")));
     }
 }

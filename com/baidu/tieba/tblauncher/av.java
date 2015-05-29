@@ -1,20 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class av implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ ai csd;
+class av implements SlidingMenu.CanvasTransformer {
+    final /* synthetic */ aj cwn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(ai aiVar) {
-        this.csd = aiVar;
+    public av(aj ajVar) {
+        this.cwn = ajVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        this.csd.x(1.0f);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007012));
+    @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
+    public void transformCanvas(Canvas canvas, float f) {
+        float f2 = 1.0f - (0.2f * f);
+        canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
     }
 }

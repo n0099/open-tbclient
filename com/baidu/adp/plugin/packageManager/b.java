@@ -9,12 +9,12 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, Boolean> {
-    private c Du;
-    final /* synthetic */ a Dv;
+    private c Dl;
+    final /* synthetic */ a Dm;
 
     public b(a aVar, c cVar) {
-        this.Dv = aVar;
-        this.Du = cVar;
+        this.Dm = aVar;
+        this.Dl = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        if (this.Du != null) {
-            return Boolean.valueOf(bf(this.Du.apkPath));
+        if (this.Dl != null) {
+            return Boolean.valueOf(bp(this.Dl.apkPath));
         }
         return false;
     }
@@ -40,39 +40,39 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
         boolean a;
         ArrayList arrayList3;
         super.onPostExecute(bool);
-        this.Dv.Dt = null;
-        arrayList = this.Dv.Ds;
+        this.Dm.Dk = null;
+        arrayList = this.Dm.Dj;
         if (arrayList.size() > 0) {
-            arrayList2 = this.Dv.Ds;
+            arrayList2 = this.Dm.Dj;
             Iterator it = arrayList2.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 c cVar = (c) it.next();
-                a = this.Dv.a(this.Du, cVar);
+                a = this.Dm.a(this.Dl, cVar);
                 if (a) {
-                    arrayList3 = this.Dv.Ds;
+                    arrayList3 = this.Dm.Dj;
                     arrayList3.remove(cVar);
                     break;
                 }
             }
         }
         if (bool != null && bool.booleanValue()) {
-            dVar = this.Dv.Dr;
+            dVar = this.Dm.Di;
             if (dVar != null) {
-                dVar2 = this.Dv.Dr;
-                dVar2.J(this.Du.packageName, this.Du.apkPath);
+                dVar2 = this.Dm.Di;
+                dVar2.L(this.Dl.packageName, this.Dl.apkPath);
             }
         }
-        this.Dv.ln();
+        this.Dm.lH();
     }
 
-    private boolean bf(String str) {
+    private boolean bp(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.adp.plugin.b.a.lh().g("plugin_del_unuse", "delete unuse", str);
+        com.baidu.adp.plugin.b.a.lB().g("plugin_del_unuse", "delete unuse", str);
         com.baidu.adp.lib.util.commonsio.a.g(new File(str));
         int length = str.length();
         if (length >= 4) {

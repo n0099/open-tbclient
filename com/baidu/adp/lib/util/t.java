@@ -1,12 +1,12 @@
 package com.baidu.adp.lib.util;
 /* loaded from: classes.dex */
-class t extends BlockingLinkedDeque<E>.r {
-    final /* synthetic */ BlockingLinkedDeque za;
+class t extends BlockingLinkedDeque<E>.s {
+    final /* synthetic */ BlockingLinkedDeque yP;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     private t(BlockingLinkedDeque blockingLinkedDeque) {
         super(blockingLinkedDeque);
-        this.za = blockingLinkedDeque;
+        this.yP = blockingLinkedDeque;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,11 +14,11 @@ class t extends BlockingLinkedDeque<E>.r {
         this(blockingLinkedDeque);
     }
 
-    u<E> jc() {
-        return this.za.first;
+    v<E> jt() {
+        return this.yP.last;
     }
 
-    u<E> c(u<E> uVar) {
-        return uVar.yY;
+    v<E> c(v<E> vVar) {
+        return vVar.yQ;
     }
 }

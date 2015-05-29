@@ -4,37 +4,37 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g ahX = new g();
-    private static DownloadData ahY = null;
-    private static List<DownloadData> ahS = new LinkedList();
-    private i ahZ = null;
+    private static g aiX = new g();
+    private static DownloadData aiY = null;
+    private static List<DownloadData> aiS = new LinkedList();
+    private i aiZ = null;
     private int max = 20;
-    private Handler aia = new h(this, Looper.getMainLooper());
+    private Handler aja = new h(this, Looper.getMainLooper());
 
     private g() {
     }
 
-    public static g yv() {
-        return ahX;
+    public static g zi() {
+        return aiX;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : ahS) {
+        for (DownloadData downloadData2 : aiS) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(t.download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().a(downloadData);
                 return;
@@ -46,8 +46,8 @@ public class g {
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!o.fj()) {
-                downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail_no_sd));
+            if (!o.fo()) {
+                downloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(t.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
@@ -60,8 +60,8 @@ public class g {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < ahS.size()) {
-                    DownloadData downloadData2 = ahS.get(i2);
+                if (i2 < aiS.size()) {
+                    DownloadData downloadData2 = aiS.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -69,8 +69,8 @@ public class g {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    ahS.add(downloadData);
-                    yw();
+                    aiS.add(downloadData);
+                    zj();
                     return;
                 }
             }
@@ -78,23 +78,23 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yw() {
-        if (ahY == null && !ahS.isEmpty()) {
-            ahY = ahS.get(0);
-            if (ahY != null) {
-                this.ahZ = new i(this);
-                this.ahZ.execute(ahY);
+    public void zj() {
+        if (aiY == null && !aiS.isEmpty()) {
+            aiY = aiS.get(0);
+            if (aiY != null) {
+                this.aiZ = new i(this);
+                this.aiZ.execute(aiY);
             }
         }
     }
 
-    public void ec(String str) {
-        if (ahY != null && ahY.getUrl().equals(str)) {
-            this.ahZ.cancel(true);
+    public void et(String str) {
+        if (aiY != null && aiY.getUrl().equals(str)) {
+            this.aiZ.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = ahS.iterator();
+        Iterator<DownloadData> it = aiS.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -109,17 +109,17 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            ahS.remove(downloadData);
+            aiS.remove(downloadData);
         }
     }
 
     public void q(String str, int i) {
-        if (ahY != null && ahY.getId().equals(str) && ahY.getType() == i) {
-            this.ahZ.cancel(true);
+        if (aiY != null && aiY.getId().equals(str) && aiY.getType() == i) {
+            this.aiZ.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = ahS.iterator();
+        Iterator<DownloadData> it = aiS.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -135,16 +135,16 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            ahS.remove(downloadData);
+            aiS.remove(downloadData);
         }
     }
 
-    public void dm(int i) {
-        if (ahY != null && ahY.getType() == i) {
-            this.ahZ.cancel(true);
+    public void dw(int i) {
+        if (aiY != null && aiY.getType() == i) {
+            this.aiZ.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : ahS) {
+        for (DownloadData downloadData : aiS) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -155,11 +155,11 @@ public class g {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            ahS.remove(downloadData2);
+            aiS.remove(downloadData2);
         }
     }
 
-    public List<DownloadData> lG() {
-        return ahS;
+    public List<DownloadData> lZ() {
+        return aiS;
     }
 }

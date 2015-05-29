@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.core.a.b {
-    final /* synthetic */ p auU;
+    final /* synthetic */ p aww;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.auU = pVar;
+        this.aww = pVar;
     }
 
     @Override // com.baidu.tbadk.core.a.b
-    public void bO(String str) {
+    public void cb(String str) {
         u uVar;
         u uVar2;
-        uVar = this.auU.auR;
+        uVar = this.aww.awt;
         if (uVar != null) {
-            uVar2 = this.auU.auR;
-            uVar2.bO(str);
+            uVar2 = this.aww.awt;
+            uVar2.cb(str);
         }
     }
 
@@ -27,9 +27,9 @@ public class q implements com.baidu.tbadk.core.a.b {
     public void a(AccountData accountData) {
         u uVar;
         u uVar2;
-        uVar = this.auU.auR;
+        uVar = this.aww.awt;
         if (uVar != null) {
-            uVar2 = this.auU.auR;
+            uVar2 = this.aww.awt;
             uVar2.onSuccess();
         }
     }
@@ -37,7 +37,7 @@ public class q implements com.baidu.tbadk.core.a.b {
     @Override // com.baidu.tbadk.core.a.b
     public void c(String str, int i, String str2) {
         if (i == 1) {
-            ReloginManager.rw().e(null);
+            ReloginManager.sg().e(null);
         }
         r rVar = new r(this, str);
         rVar.setPriority(3);

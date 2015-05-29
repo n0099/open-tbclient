@@ -1,22 +1,33 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.setting.model.MoreModel;
 /* loaded from: classes.dex */
-class at extends CustomMessageListener {
-    final /* synthetic */ SystemHelpSettingActivity ccn;
+class at extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
+    final /* synthetic */ SystemHelpSettingActivity cgQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
-        super(i);
-        this.ccn = systemHelpSettingActivity;
+    public at(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
+        super();
+        this.cgQ = systemHelpSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.ccn.closeLoadingDialog();
-        this.ccn.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        bc bcVar;
+        bc bcVar2;
+        Object obj = objArr[0];
+        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.cgQ.closeLoadingDialog();
+                bcVar2 = this.cgQ.cgO;
+                bcVar2.ajX().setTip("");
+                this.cgQ.showToast(com.baidu.tieba.t.systemhelpsetting_clear_cache_success);
+            } else if (obj == MoreModel.TaskType.GET_SIZE) {
+                bcVar = this.cgQ.cgO;
+                bcVar.ajX().setTip((String) objArr[1]);
+            }
+        }
     }
 }

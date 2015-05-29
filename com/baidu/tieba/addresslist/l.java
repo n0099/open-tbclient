@@ -1,29 +1,38 @@
 package com.baidu.tieba.addresslist;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ QuickSearchActivity axI;
+public class l extends com.baidu.adp.framework.a.j {
+    private boolean azm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(QuickSearchActivity quickSearchActivity) {
-        this.axI = quickSearchActivity;
+    public l() {
+        super(304001);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        TextView textView;
-        ListView listView;
-        editText = this.axI.axD;
-        editText.setText("");
-        textView = this.axI.axF;
-        textView.setVisibility(8);
-        listView = this.axI.axG;
-        listView.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+            com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+            this.azm = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
+            if (addressListData != null) {
+                for (com.baidu.tieba.addresslist.relationship.f fVar : addressListData.getAddressList()) {
+                    List<com.baidu.tbadk.coreExtra.relationship.a> contacts = fVar.getContacts();
+                    ArrayList arrayList = new ArrayList();
+                    for (com.baidu.tbadk.coreExtra.relationship.a aVar : contacts) {
+                        if (!this.azm && aVar.getUserType() == 1) {
+                            arrayList.add(aVar);
+                        }
+                    }
+                    contacts.removeAll(arrayList);
+                }
+            }
+        }
+        return socketResponsedMessage;
     }
 }

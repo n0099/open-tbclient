@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements com.baidu.tbadk.widget.n {
-    final /* synthetic */ q cwv;
+    final /* synthetic */ q cAL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.cwv = qVar;
+        this.cAL = qVar;
     }
 
     @Override // com.baidu.tbadk.widget.n
@@ -26,28 +26,28 @@ public class r implements com.baidu.tbadk.widget.n {
         WriteShareActivity writeShareActivity5;
         int i2;
         if (z) {
-            shareSDKImageView = this.cwv.cwq;
+            shareSDKImageView = this.cAL.cAG;
             if (shareSDKImageView.getLoadedWidth() != 0) {
-                shareSDKImageView2 = this.cwv.cwq;
+                shareSDKImageView2 = this.cAL.cAG;
                 if (shareSDKImageView2.getLoadedHeight() != 0) {
-                    q qVar = this.cwv;
-                    shareSDKImageView3 = this.cwv.cwq;
+                    q qVar = this.cAL;
+                    shareSDKImageView3 = this.cAL.cAG;
                     qVar.width = shareSDKImageView3.getLoadedWidth();
-                    q qVar2 = this.cwv;
-                    shareSDKImageView4 = this.cwv.cwq;
+                    q qVar2 = this.cAL;
+                    shareSDKImageView4 = this.cAL.cAG;
                     qVar2.height = shareSDKImageView4.getLoadedHeight();
-                    writeShareActivity3 = this.cwv.cwt;
+                    writeShareActivity3 = this.cAL.cAJ;
                     if (writeShareActivity3 != null) {
-                        writeShareActivity4 = this.cwv.cwt;
-                        WriteData IS = writeShareActivity4.IS();
-                        i = this.cwv.width;
-                        IS.setShareSummaryImgWidth(i);
-                        writeShareActivity5 = this.cwv.cwt;
-                        WriteData IS2 = writeShareActivity5.IS();
-                        i2 = this.cwv.height;
-                        IS2.setShareSummaryImgHeight(i2);
-                        this.cwv.cwu = true;
-                        this.cwv.aqP();
+                        writeShareActivity4 = this.cAL.cAJ;
+                        WriteData JS = writeShareActivity4.JS();
+                        i = this.cAL.width;
+                        JS.setShareSummaryImgWidth(i);
+                        writeShareActivity5 = this.cAL.cAJ;
+                        WriteData JS2 = writeShareActivity5.JS();
+                        i2 = this.cAL.height;
+                        JS2.setShareSummaryImgHeight(i2);
+                        this.cAL.cAK = true;
+                        this.cAL.asF();
                         return;
                     }
                     return;
@@ -56,12 +56,12 @@ public class r implements com.baidu.tbadk.widget.n {
             }
             return;
         }
-        this.cwv.cwu = false;
-        this.cwv.aqP();
-        writeShareActivity = this.cwv.cwt;
+        this.cAL.cAK = false;
+        this.cAL.asF();
+        writeShareActivity = this.cAL.cAJ;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.cwv.cwt;
-            writeShareActivity2.iX(com.baidu.tieba.y.share_load_image_fail_tip);
+            writeShareActivity2 = this.cAL.cAJ;
+            writeShareActivity2.jt(com.baidu.tieba.t.share_load_image_fail_tip);
         }
     }
 
@@ -69,12 +69,12 @@ public class r implements com.baidu.tbadk.widget.n {
     public void onCancel() {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        this.cwv.cwu = false;
-        this.cwv.aqP();
-        writeShareActivity = this.cwv.cwt;
+        this.cAL.cAK = false;
+        this.cAL.asF();
+        writeShareActivity = this.cAL.cAJ;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.cwv.cwt;
-            writeShareActivity2.iX(com.baidu.tieba.y.share_load_image_fail_tip);
+            writeShareActivity2 = this.cAL.cAJ;
+            writeShareActivity2.jt(com.baidu.tieba.t.share_load_image_fail_tip);
         }
     }
 }

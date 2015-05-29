@@ -1,41 +1,17 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ b auD;
-    private final /* synthetic */ View auE;
+class c implements View.OnClickListener {
+    final /* synthetic */ AccountActivity awf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar, View view) {
-        this.auD = bVar;
-        this.auE = view;
+    public c(AccountActivity accountActivity) {
+        this.awf = accountActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        AccountActivity accountActivity;
-        AccountActivity accountActivity2;
-        if (this.auE != null) {
-            AccountData accountData = (AccountData) this.auE.getTag();
-            switch (i) {
-                case 0:
-                    if (accountData != null) {
-                        accountActivity2 = this.auD.auC;
-                        accountActivity2.a(false, accountData);
-                        break;
-                    }
-                    break;
-                case 1:
-                    if (accountData != null) {
-                        accountActivity = this.auD.auC;
-                        accountActivity.a(true, accountData);
-                        break;
-                    }
-                    break;
-            }
-            eVar.dismiss();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new com.baidu.tbadk.core.dialog.e(this.awf.getPageContext().getPageActivity()).bx(com.baidu.tieba.t.alert_title).a(new String[]{this.awf.getPageContext().getString(com.baidu.tieba.t.delete_account_only), this.awf.getPageContext().getString(com.baidu.tieba.t.delete_account_and_group_cache), this.awf.getPageContext().getString(com.baidu.tieba.t.delete_account_cancle)}, new d(this, view)).d(this.awf.getPageContext()).rN();
     }
 }

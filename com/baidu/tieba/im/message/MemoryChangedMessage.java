@@ -10,7 +10,7 @@ public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenter
     private int type;
 
     public MemoryChangedMessage(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i) {
-        super(2016003, imMessageCenterPojo);
+        super(2016004, imMessageCenterPojo);
         this.isFromServer = z;
         this.type = i;
     }

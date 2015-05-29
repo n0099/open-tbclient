@@ -1,21 +1,34 @@
 package com.baidu.tbadk.core.util;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        try {
-            ab abVar = (ab) message.obj;
-            if (abVar != null) {
-                abVar.hh();
+class ac implements com.baidu.adp.lib.network.http.h {
+    int UU = 0;
+    int UV = 0;
+    int UW = 0;
+    final /* synthetic */ ab UX;
+    private final /* synthetic */ Handler UY;
+    private final /* synthetic */ int UZ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(ab abVar, Handler handler, int i) {
+        this.UX = abVar;
+        this.UY = handler;
+        this.UZ = i;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.h
+    public void onProgress(int i, int i2) {
+        if (i2 > 0) {
+            this.UU = i2 / 50;
+        }
+        this.UV += i - this.UW;
+        this.UW = i;
+        if (this.UY != null) {
+            if (this.UV > this.UU || i == i2) {
+                this.UV = 0;
+                this.UY.sendMessage(this.UY.obtainMessage(this.UZ, i, i2));
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

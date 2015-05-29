@@ -6,13 +6,13 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ g aib;
+    final /* synthetic */ g ajb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(g gVar, Looper looper) {
         super(looper);
-        this.aib = gVar;
+        this.ajb = gVar;
     }
 
     @Override // android.os.Handler
@@ -26,19 +26,19 @@ public class h extends Handler {
         DownloadData downloadData7;
         super.handleMessage(message);
         if (message.what == 900002 && message.arg2 > 0) {
-            downloadData = g.ahY;
+            downloadData = g.aiY;
             if (downloadData != null) {
-                downloadData2 = g.ahY;
+                downloadData2 = g.aiY;
                 downloadData2.setLength(message.arg1);
-                downloadData3 = g.ahY;
+                downloadData3 = g.aiY;
                 downloadData3.setSize(message.arg2);
-                downloadData4 = g.ahY;
+                downloadData4 = g.aiY;
                 downloadData4.setStatus(1);
-                downloadData5 = g.ahY;
+                downloadData5 = g.aiY;
                 if (downloadData5.getCallback() != null) {
-                    downloadData6 = g.ahY;
+                    downloadData6 = g.aiY;
                     f callback = downloadData6.getCallback();
-                    downloadData7 = g.ahY;
+                    downloadData7 = g.aiY;
                     callback.a(downloadData7);
                 }
             }

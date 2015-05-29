@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
+import com.baidu.tieba.n;
+import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> axJ;
-    private int axM = s.cp_cont_b;
-    private int axN = s.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> azv;
+    private int azy = n.cp_cont_b;
+    private int azz = n.cp_cont_c;
     private Context mContext;
 
     public h(Context context) {
@@ -26,26 +26,26 @@ public class h extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.axJ = list;
+        this.azv = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.axJ == null) {
+        if (this.azv == null) {
             return 0;
         }
-        return this.axJ.size();
+        return this.azv.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: em */
+    /* renamed from: ey */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.axJ == null || i < 0 || i >= this.axJ.size()) {
+        if (this.azv == null || i < 0 || i >= this.azv.size()) {
             return null;
         }
-        return this.axJ.get(i);
+        return this.azv.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,7 +64,7 @@ public class h extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.wJ()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
+        if (!TextUtils.isEmpty(item.xw()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
             return 0;
         }
         return 1;
@@ -81,40 +81,40 @@ public class h extends BaseAdapter {
         com.baidu.tbadk.coreExtra.relationship.a item = getItem(i);
         if (getItemViewType(i) == 0) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof j)) {
-                view = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, w.select_friend_group_item, null);
+                view = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, r.select_friend_group_item, null);
                 j jVar2 = new j(this, null);
-                jVar2.axW = (TextView) view.findViewById(v.addresslist_group_item_key);
-                jVar2.axS = view.findViewById(v.addresslist_group_item_divider);
+                jVar2.azH = (TextView) view.findViewById(q.addresslist_group_item_key);
+                jVar2.So = view.findViewById(q.addresslist_group_item_divider);
                 view.setTag(jVar2);
                 jVar = jVar2;
             } else {
                 jVar = (j) view.getTag();
             }
-            if (item.wJ() != null) {
-                jVar.axW.setText(item.wJ());
+            if (item.xw() != null) {
+                jVar.azH.setText(item.xw());
             }
-            ba.b(jVar.axW, this.axN, 1);
-            ba.j(jVar.axS, s.cp_bg_line_b);
+            ay.b(jVar.azH, this.azz, 1);
+            ay.j(jVar.So, n.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof i)) {
                 i iVar2 = new i(this, null);
-                view = com.baidu.adp.lib.g.b.hH().inflate(this.mContext, w.select_friend_child_item, null);
-                iVar2.axK = (HeadImageView) view.findViewById(v.addresslist_child_item_icon);
-                iVar2.axL = (TextView) view.findViewById(v.addresslist_child_item_name);
-                iVar2.axS = view.findViewById(v.addresslist_child_item_divider);
+                view = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, r.select_friend_child_item, null);
+                iVar2.azw = (HeadImageView) view.findViewById(q.addresslist_child_item_icon);
+                iVar2.azx = (TextView) view.findViewById(q.addresslist_child_item_name);
+                iVar2.So = view.findViewById(q.addresslist_child_item_divider);
                 view.setTag(iVar2);
                 iVar = iVar2;
             } else {
                 iVar = (i) view.getTag();
             }
             if (item.getUserName() != null) {
-                iVar.axL.setText(item.getUserName());
-                iVar.axK.c(item.getUserPortrait(), 12, false);
+                iVar.azx.setText(item.getUserName());
+                iVar.azw.c(item.getUserPortrait(), 12, false);
             }
-            ba.b(iVar.axL, this.axM, 1);
-            ba.i(iVar.axS, s.cp_bg_line_b);
-            ba.i(view, u.select_friend_item_bg);
+            ay.b(iVar.azx, this.azy, 1);
+            ay.i(iVar.So, n.cp_bg_line_b);
+            ay.i(view, p.select_friend_item_bg);
             return view;
         } else {
             return null;

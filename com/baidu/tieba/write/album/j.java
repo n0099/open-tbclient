@@ -1,37 +1,36 @@
 package com.baidu.tieba.write.album;
 
-import android.text.TextUtils;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class j extends BaseAdapter {
-    private com.baidu.tbadk.img.e ctI;
-    private AlbumActivity ctK;
-    private String cub;
-    private int cuc;
-    private List<a> mList;
-    private int mWidth;
+public class j extends PagerAdapter {
+    private int BF;
+    private com.baidu.tbadk.img.e cxX;
+    private AlbumActivity cxZ;
+    private Map<Integer, Boolean> cyq = new HashMap();
+    private List<ImageFileInfo> mList;
+    private int mMaxHeight;
 
-    public j(AlbumActivity albumActivity) {
-        this.ctK = albumActivity;
-        this.ctI = albumActivity.apN();
-        this.mWidth = (int) this.ctK.getResources().getDimension(com.baidu.tieba.t.album_image_height);
-        this.cuc = com.baidu.adp.lib.util.n.M(this.ctK.getPageContext().getPageActivity()) / 2;
+    public j(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
+        this.cxZ = albumActivity;
+        this.cxX = eVar;
+        this.BF = com.baidu.adp.lib.util.n.M(this.cxZ.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.n.N(this.cxZ.getPageContext().getContext()) - ((int) this.cxZ.getResources().getDimension(com.baidu.tieba.o.album_bottom_height));
     }
 
-    public void c(List<a> list, String str) {
+    public void setData(List<ImageFileInfo> list) {
         this.mList = list;
-        this.cub = str;
+        notifyDataSetChanged();
     }
 
-    @Override // android.widget.Adapter
+    @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         if (this.mList != null) {
             return this.mList.size();
@@ -39,70 +38,51 @@ public class j extends BaseAdapter {
         return 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: iS */
-    public a getItem(int i) {
-        if (this.mList == null || i < 0 || i >= this.mList.size()) {
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        ((ViewPager) viewGroup).removeView((View) obj);
+    }
+
+    public ImageFileInfo jm(int i) {
+        if (i < 0 || i >= getCount()) {
             return null;
         }
         return this.mList.get(i);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public boolean jn(int i) {
+        if (this.cyq.get(Integer.valueOf(i)) == null) {
+            return false;
+        }
+        return this.cyq.get(Integer.valueOf(i)).booleanValue();
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        l lVar;
-        if (view != null) {
-            lVar = (l) view.getTag();
-        } else {
-            view = com.baidu.adp.lib.g.b.hH().a(this.ctK.getPageContext().getPageActivity(), com.baidu.tieba.w.album_list_item, viewGroup, false);
-            l lVar2 = new l(this, null);
-            lVar2.cue = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
-            lVar2.cuf = (TextView) view.findViewById(com.baidu.tieba.v.item_name);
-            lVar2.cug = (ImageView) view.findViewById(com.baidu.tieba.v.item_arrow);
-            view.setTag(lVar2);
-            lVar = lVar2;
-        }
-        lVar.cue.setTag(null);
-        lVar.cue.setDefaultResource(com.baidu.tieba.u.pic_image_h_not);
-        lVar.cue.c(null, 12, false);
-        lVar.cue.invalidate();
-        a item = getItem(i);
-        if (item != null) {
-            if (!TextUtils.isEmpty(item.getName())) {
-                item.getName();
-                lVar.cuf.setText(String.valueOf(com.baidu.adp.lib.util.n.a(lVar.cuf.getPaint(), item.getName(), this.cuc)) + "(" + item.apQ() + ")");
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.cxZ.getPageContext().getContext(), com.baidu.tieba.r.album_big_image_item, null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.q.big_image);
+        tbImageView.setTag(null);
+        tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        ImageFileInfo jm = jm(i);
+        this.cyq.put(Integer.valueOf(i), false);
+        if (jm != null) {
+            jm.clearPageActions();
+            jm.addPageAction(com.baidu.tbadk.img.effect.d.y(this.BF, this.mMaxHeight));
+            tbImageView.setTag(jm.toCachedKey(false));
+            if (this.cxX.a(jm, false) != null) {
+                tbImageView.invalidate();
+                this.cyq.put(Integer.valueOf(i), true);
             } else {
-                lVar.cuf.setText("");
+                this.cxX.a(jm, new k(this, viewGroup, i), false);
             }
-            String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.cub)) {
-                lVar.cug.setVisibility(0);
-            } else {
-                lVar.cug.setVisibility(8);
-            }
-            ImageFileInfo apR = item.apR();
-            if (apR != null) {
-                apR.clearPageActions();
-                apR.addPageAction(com.baidu.tbadk.img.effect.d.x(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a = this.ctI.a(apR, false);
-                lVar.cue.setTag(apR.toCachedKey(false));
-                if (a != null) {
-                    lVar.cue.invalidate();
-                } else {
-                    this.ctI.a(apR, new k(this, viewGroup), false, this.ctK.isScroll());
-                }
-            }
-        } else {
-            lVar.cuf.setText("");
         }
-        this.ctK.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.ctK.getLayoutMode().h(view);
-        return view;
+        ((ViewPager) viewGroup).addView(inflate, 0);
+        return inflate;
     }
 }

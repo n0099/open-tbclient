@@ -17,24 +17,24 @@ public class b extends e<c, d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> oB() {
+    protected Class<? extends ChosenPostHttpResponse> oR() {
         return ChosenPostHttpResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> oA() {
+    protected Class<? extends ChosenPostSocketResponse> oQ() {
         return ChosenPostSocketResponse.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int ox() {
+    public int oN() {
         return CmdConfigHttp.CMD_GET_HOT_THREAD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String oy() {
+    public String oO() {
         return "c/f/choiceness/hotthread";
     }
 
@@ -45,7 +45,7 @@ public class b extends e<c, d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oz() {
+    protected int oP() {
         return 307008;
     }
 }

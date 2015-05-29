@@ -5,11 +5,11 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ e cpL;
+    final /* synthetic */ e ctM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.cpL = eVar;
+        this.ctM = eVar;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -18,14 +18,14 @@ public class g implements com.baidu.adp.lib.d.d {
         j jVar2;
         if (i == 0 && address != null) {
             BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
-            this.cpL.aW(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+            this.ctM.bb(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             return;
         }
         BdLog.i("mGetLonAndLatCallback error!");
-        jVar = this.cpL.cpE;
+        jVar = this.ctM.ctF;
         if (jVar != null) {
-            jVar2 = this.cpL.cpE;
-            jVar2.fH(str);
+            jVar2 = this.ctM.ctF;
+            jVar2.gh(str);
         }
     }
 }

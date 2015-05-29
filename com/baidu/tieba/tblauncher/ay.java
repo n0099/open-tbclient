@@ -1,15 +1,20 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class ay implements com.baidu.tieba.tblauncher.a.o {
-    final /* synthetic */ ai csd;
+class ay implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ aj cwn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(ai aiVar) {
-        this.csd = aiVar;
+    public ay(aj ajVar) {
+        this.cwn = ajVar;
     }
 
-    @Override // com.baidu.tieba.tblauncher.a.o
-    public void iI(int i) {
-        this.csd.onChangeSkinType(i);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        this.cwn.y(1.0f);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007012));
     }
 }

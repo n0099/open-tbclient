@@ -2,11 +2,11 @@ package com.baidu.tbadk.mvc.i;
 
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.af;
-import com.baidu.tbadk.core.view.ag;
+import com.baidu.tbadk.core.view.ak;
+import com.baidu.tbadk.core.view.al;
 /* loaded from: classes.dex */
 public abstract class e extends c {
-    private ag mPullView;
+    private al mPullView;
 
     public abstract BdListView getListView();
 
@@ -18,55 +18,55 @@ public abstract class e extends c {
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void ot() {
-        BO();
+    protected void oJ() {
+        CA();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void os() {
-        BP();
+    protected void oI() {
+        CB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BN() {
+    public void Cz() {
         BdListView listView = getListView();
         if (listView != null) {
-            listView.setPullRefresh(BS());
+            listView.setPullRefresh(CE());
         }
-        zZ().setListPullRefreshListener(BS(), Ab());
+        AL().setListPullRefreshListener(CE(), AN());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ba(boolean z) {
-        zZ().addEventDelegate(this);
+    public void bh(boolean z) {
+        AL().addEventDelegate(this);
         g(16777217, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BO() {
+    public void CA() {
         BdListView listView = getListView();
-        BS().a((af) null);
-        listView.mX();
-        zZ().setListPullRefreshListener(BS(), Ab());
+        CE().a((ak) null);
+        listView.no();
+        AL().setListPullRefreshListener(CE(), AN());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BP() {
-        getListView().mW();
+    public void CB() {
+        getListView().completePullRefresh();
     }
 
-    protected void BQ() {
-        BO();
+    protected void CC() {
+        CA();
     }
 
-    protected void BR() {
-        BP();
+    protected void CD() {
+        CB();
     }
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
-        BS().ct(i);
+        CE().cy(i);
         return true;
     }
 
@@ -75,11 +75,11 @@ public abstract class e extends c {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.AF() == 33554437) {
-            BQ();
+        if (bVar.Br() == 33554437) {
+            CC();
             return true;
-        } else if (bVar.AF() == 33554438) {
-            BR();
+        } else if (bVar.Br() == 33554438) {
+            CD();
             return true;
         } else {
             return false;
@@ -87,9 +87,9 @@ public abstract class e extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ag BS() {
+    public al CE() {
         if (this.mPullView == null) {
-            this.mPullView = new ag(getPageContext());
+            this.mPullView = new al(getPageContext());
         }
         return this.mPullView;
     }

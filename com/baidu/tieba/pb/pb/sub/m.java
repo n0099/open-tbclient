@@ -1,83 +1,75 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tieba.y;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l bOv;
+public class m implements com.baidu.tieba.tbadkCore.writeModel.e {
+    final /* synthetic */ NewSubPbActivity bPw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.bOv = lVar;
+    public m(NewSubPbActivity newSubPbActivity) {
+        this.bPw = newSubPbActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ArrayList arrayList;
-        SparseArray sparseArray;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        this.bOv.bOt = true;
-        arrayList = this.bOv.bOo;
-        if (arrayList != null) {
-            arrayList2 = this.bOv.bOo;
-            if (i < arrayList2.size()) {
-                arrayList3 = this.bOv.bOo;
-                if (arrayList3.get(i) != null) {
-                    l lVar = this.bOv;
-                    arrayList4 = this.bOv.bOo;
-                    lVar.bOp = ((com.baidu.tieba.tbadkCore.c.j) arrayList4.get(i)).getId();
-                    sparseArray = (SparseArray) view.getTag();
-                    if (sparseArray == null && (str = (String) sparseArray.get(com.baidu.tieba.v.tag_photo_username)) != null) {
-                        String editable = this.bOv.aIG.getEditText().getText().toString();
-                        String string = this.bOv.mActivity.getResources().getString(y.reply_sub_floor);
-                        String str5 = "^" + string.replace("%s", ".+") + "$";
-                        if (bd.isEmpty(editable) || editable.matches(str5)) {
-                            str2 = this.bOv.bOq;
-                            if (str2 != null) {
-                                Pattern compile = Pattern.compile(string.replace("%s", str));
-                                str3 = this.bOv.bOq;
-                                if (compile.matcher(str3).lookingAt()) {
-                                    l lVar2 = this.bOv;
-                                    str4 = this.bOv.bOq;
-                                    lVar2.hU(str4);
-                                } else {
-                                    this.bOv.hT(str);
-                                }
-                            } else {
-                                this.bOv.hT(str);
-                            }
-                            this.bOv.b(i, view);
-                            return;
-                        }
-                        Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(editable);
-                        this.bOv.bOq = editable;
-                        if (!matcher.lookingAt()) {
-                            this.bOv.hT(str);
-                        } else {
-                            this.bOv.hU(editable);
-                        }
-                        this.bOv.b(i, view);
-                        return;
-                    }
-                }
-            }
+    @Override // com.baidu.tieba.tbadkCore.writeModel.e
+    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
+        s sVar;
+        s sVar2;
+        s sVar3;
+        com.baidu.tieba.tbadkCore.writeModel.a aVar;
+        com.baidu.tieba.tbadkCore.writeModel.a aVar2;
+        com.baidu.tieba.tbadkCore.writeModel.a aVar3;
+        ak akVar;
+        s sVar4;
+        s sVar5;
+        sVar = this.bPw.bPq;
+        sVar.adm();
+        if (z) {
+            sVar5 = this.bPw.bPq;
+            sVar5.clearContent();
+            this.bPw.acY();
         }
-        this.bOv.bOp = null;
-        sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
+        String str = "";
+        if (postWriteCallBackData != null) {
+            str = postWriteCallBackData.getErrorString();
+        }
+        if (z) {
+            sVar2 = this.bPw.bPq;
+            sVar2.acw();
+            sVar3 = this.bPw.bPq;
+            if (sVar3.Ki() != null) {
+                sVar4 = this.bPw.bPq;
+                sVar4.Ki().setVisibility(8);
+            }
+            aVar = this.bPw.aJT;
+            WriteData JS = aVar.JS();
+            aVar2 = this.bPw.aJT;
+            aVar2.c((WriteData) null);
+            aVar3 = this.bPw.aJT;
+            aVar3.fj(false);
+            if (JS != null && JS != null && JS.getType() == 2) {
+                akVar = this.bPw.bPn;
+                akVar.adF();
+            }
+        } else if (lVar == null || writeData == null || lVar.getVcode_pic_url() == null) {
+            this.bPw.a(antiData, str);
+        } else if (AntiHelper.e(antiData)) {
+            this.bPw.a(antiData, str);
+        } else {
+            writeData.setVcodeMD5(lVar.getVcode_md5());
+            writeData.setVcodeUrl(lVar.getVcode_pic_url());
+            if (lVar.vv().equals("4")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bPw.getPageContext().getPageActivity(), 12006, writeData, false)));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bPw.getPageContext().getPageActivity(), writeData, 12006)));
+            }
         }
     }
 }

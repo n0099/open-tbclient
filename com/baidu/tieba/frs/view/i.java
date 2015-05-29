@@ -4,17 +4,18 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aPl;
+public class i implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView aRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsHeaderView frsHeaderView) {
-        this.aPl = frsHeaderView;
+        this.aRv = frsHeaderView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902027, new ForumDetailActivityConfig(this.aPl.LP.getContext(), this.aPl.mForumId, ForumDetailActivityConfig.FromType.FRS)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902027, new ForumDetailActivityConfig(this.aRv.LH.getContext(), this.aRv.mForumId, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

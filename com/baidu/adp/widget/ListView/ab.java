@@ -6,18 +6,18 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab {
-    private static float Ie = 3.0f;
-    private f If;
+    private static float HU = 3.0f;
+    private f HV;
     private BdListView mListView;
-    private boolean Ig = false;
+    private boolean HW = false;
     private int mStartY = 0;
     protected int mState = 3;
-    private Boolean Ih = false;
-    private z HM = null;
-    private int Ii = 800;
+    private Boolean HX = false;
+    private z HC = null;
+    private int HY = 800;
 
     public ab(BdListView bdListView, f fVar) {
-        this.If = null;
+        this.HV = null;
         this.mListView = null;
         if (fVar == null) {
             throw new InvalidParameterException("PullRefresh view is null");
@@ -25,73 +25,73 @@ public class ab {
         if (bdListView == null) {
             throw new InvalidParameterException("PullRefresh listView is null");
         }
-        this.If = fVar;
+        this.HV = fVar;
         this.mListView = bdListView;
-        View view = this.If.getView();
-        view.setPadding(0, -this.If.mR(), 0, 0);
+        View view = this.HV.getView();
+        view.setPadding(0, -this.HV.nj(), 0, 0);
         view.invalidate();
         this.mListView.f(view);
     }
 
-    public f mZ() {
-        return this.If;
+    public f nq() {
+        return this.HV;
     }
 
     public void done() {
         this.mState = 3;
-        this.If.setPadding(0, -this.If.mR(), 0, 0);
-        this.If.P(true);
-        if (this.HM != null) {
-            this.HM.R(false);
+        this.HV.setPadding(0, -this.HV.nj(), 0, 0);
+        this.HV.R(true);
+        if (this.HC != null) {
+            this.HC.T(false);
         }
     }
 
-    public void S(boolean z) {
+    public void U(boolean z) {
         this.mState = 2;
-        this.If.setPadding(0, 0, 0, 0);
-        this.If.mP();
-        this.If.Q(z);
+        this.HV.setPadding(0, 0, 0, 0);
+        this.HV.ni();
+        this.HV.S(z);
     }
 
     public void setOnScrollToPullListener(z zVar) {
-        this.HM = zVar;
+        this.HC = zVar;
     }
 
     public void a(MotionEvent motionEvent, int i) {
-        if (motionEvent.getAction() == 0 && mZ().mQ()) {
-            this.Ig = false;
-            this.Ih = false;
-            if (i == 0 && !this.Ig) {
-                this.Ig = true;
+        if (motionEvent.getAction() == 0 && nq().isEnable()) {
+            this.HW = false;
+            this.HX = false;
+            if (i == 0 && !this.HW) {
+                this.HW = true;
                 this.mStartY = (int) motionEvent.getY();
             }
         }
     }
 
     public void b(MotionEvent motionEvent, int i) {
-        if (mZ().mQ()) {
+        if (nq().isEnable()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     if (this.mState != 2) {
                         if (this.mState == 1) {
                             this.mState = 3;
-                            this.If.setPadding(0, -this.If.mR(), 0, 0);
-                            this.If.P(false);
-                            if (this.HM != null) {
-                                this.HM.R(true);
+                            this.HV.setPadding(0, -this.HV.nj(), 0, 0);
+                            this.HV.R(false);
+                            if (this.HC != null) {
+                                this.HC.T(true);
                                 return;
                             }
                             return;
                         } else if (this.mState == 0) {
-                            S(false);
-                            if (this.HM != null) {
-                                this.HM.R(true);
+                            U(false);
+                            if (this.HC != null) {
+                                this.HC.T(true);
                                 return;
                             }
                             return;
-                        } else if (this.mState == 3 && this.HM != null) {
-                            this.HM.R(false);
+                        } else if (this.mState == 3 && this.HC != null) {
+                            this.HC.T(false);
                             return;
                         } else {
                             return;
@@ -100,59 +100,59 @@ public class ab {
                     return;
                 case 2:
                     int y = (int) motionEvent.getY();
-                    if (!this.Ig && i == 0) {
-                        this.Ig = true;
+                    if (!this.HW && i == 0) {
+                        this.HW = true;
                         this.mStartY = y;
                     }
-                    if (this.mState != 2 && this.Ig) {
+                    if (this.mState != 2 && this.HW) {
                         if (this.mState == 0) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / Ie)) < this.If.mR() && y - this.mStartY > 0) {
+                            if (((int) ((y - this.mStartY) / HU)) < this.HV.nj() && y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.If.O(this.Ih.booleanValue());
-                                this.Ih = false;
-                                if (this.HM != null) {
-                                    this.HM.R(true);
+                                this.HV.Q(this.HX.booleanValue());
+                                this.HX = false;
+                                if (this.HC != null) {
+                                    this.HC.T(true);
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.If.setPadding(0, -this.If.mR(), 0, 0);
-                                this.If.P(false);
-                                if (this.HM != null) {
-                                    this.HM.R(true);
+                                this.HV.setPadding(0, -this.HV.nj(), 0, 0);
+                                this.HV.R(false);
+                                if (this.HC != null) {
+                                    this.HC.T(true);
                                 }
                             }
                         } else if (this.mState == 1) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / Ie)) >= this.If.mR()) {
+                            if (((int) ((y - this.mStartY) / HU)) >= this.HV.nj()) {
                                 this.mState = 0;
-                                this.Ih = true;
-                                this.If.mO();
-                                if (this.HM != null) {
-                                    this.HM.R(true);
+                                this.HX = true;
+                                this.HV.nh();
+                                if (this.HC != null) {
+                                    this.HC.T(true);
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.If.setPadding(0, -this.If.mR(), 0, 0);
-                                this.If.P(false);
-                                if (this.HM != null) {
-                                    this.HM.R(true);
+                                this.HV.setPadding(0, -this.HV.nj(), 0, 0);
+                                this.HV.R(false);
+                                if (this.HC != null) {
+                                    this.HC.T(true);
                                 }
                             }
                         } else if (this.mState == 3) {
                             if (y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.If.O(this.Ih.booleanValue());
-                                this.Ih = false;
-                                if (this.HM != null) {
-                                    this.HM.R(true);
+                                this.HV.Q(this.HX.booleanValue());
+                                this.HX = false;
+                                if (this.HC != null) {
+                                    this.HC.T(true);
                                 }
-                            } else if (this.HM != null) {
-                                this.HM.R(false);
+                            } else if (this.HC != null) {
+                                this.HC.T(false);
                             }
                         }
                         if (this.mState == 1 || this.mState == 0) {
-                            this.If.setPadding(0, ((int) ((y - this.mStartY) / Ie)) - this.If.mR(), 0, 0);
+                            this.HV.setPadding(0, ((int) ((y - this.mStartY) / HU)) - this.HV.nj(), 0, 0);
                             return;
                         }
                         return;
@@ -165,18 +165,18 @@ public class ab {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.mW():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.completePullRefresh():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ab abVar) {
-        abVar.na();
+        abVar.nr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void na() {
+    public void nr() {
         View view;
-        f mZ = mZ();
-        if (mZ != null && (view = mZ.getView()) != null) {
-            ad adVar = new ad(view.getContext(), 0, -mZ.mR(), this.Ii);
+        f nq = nq();
+        if (nq != null && (view = nq.getView()) != null) {
+            ad adVar = new ad(view.getContext(), 0, -nq.nj(), this.HY);
             adVar.a(new ac(this));
             adVar.g(view);
         }

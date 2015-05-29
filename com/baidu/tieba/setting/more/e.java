@@ -6,55 +6,49 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d cal;
-    private final /* synthetic */ q cam;
+    final /* synthetic */ d ceH;
+    private final /* synthetic */ q ceI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, q qVar) {
-        this.cal = dVar;
-        this.cam = qVar;
+        this.ceH = dVar;
+        this.ceI = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SettingTextTestNewView settingTextTestNewView;
         TbSettingTextTipView tbSettingTextTipView;
-        SettingTextFunctionIntroView settingTextFunctionIntroView;
         TextView textView;
         long j;
         int i;
-        settingTextTestNewView = this.cal.cah;
+        settingTextTestNewView = this.ceH.ceD;
         if (view == settingTextTestNewView) {
-            this.cam.hW(1);
+            this.ceI.iu(1);
             return;
         }
-        tbSettingTextTipView = this.cal.cai;
+        tbSettingTextTipView = this.ceH.ceE;
         if (view == tbSettingTextTipView) {
-            this.cam.hW(2);
+            this.ceI.iu(2);
             return;
         }
-        settingTextFunctionIntroView = this.cal.caj;
-        if (view == settingTextFunctionIntroView) {
-            this.cam.hW(3);
-            return;
-        }
-        textView = this.cal.cae;
+        textView = this.ceH.ceC;
         if (view == textView) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.cal.cac;
+            j = this.ceH.cez;
             if (currentTimeMillis - j >= 2000) {
-                this.cal.cab = 0;
+                this.ceH.cey = 0;
             } else {
-                d dVar = this.cal;
-                i = dVar.cab;
+                d dVar = this.ceH;
+                i = dVar.cey;
                 int i2 = i + 1;
-                dVar.cab = i2;
+                dVar.cey = i2;
                 if (i2 >= 14) {
-                    this.cam.hW(4);
-                    this.cal.cab = 0;
+                    this.ceI.iu(4);
+                    this.ceH.cey = 0;
                 }
             }
-            this.cal.cac = System.currentTimeMillis();
+            this.ceH.cez = System.currentTimeMillis();
         }
     }
 }

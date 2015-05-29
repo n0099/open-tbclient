@@ -1,21 +1,23 @@
 package com.baidu.tbadk.core.view;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox YV;
+public class z {
+    y ZB;
+    y ZC;
+    int ZD = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(TbCheckBox tbCheckBox) {
-        this.YV = tbCheckBox;
+    private z() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean tQ;
-        TbCheckBox tbCheckBox = this.YV;
-        tQ = this.YV.tQ();
-        tbCheckBox.setChecked(!tQ);
+    public static z a(y yVar) {
+        z zVar = new z();
+        zVar.ZB = yVar;
+        return zVar;
+    }
+
+    public static z a(y yVar, int i) {
+        z zVar = new z();
+        zVar.ZB = yVar;
+        zVar.ZD = i;
+        return zVar;
     }
 }

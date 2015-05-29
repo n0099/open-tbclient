@@ -19,10 +19,10 @@ class c extends CustomMessageListener {
             b bVar = new b();
             bVar.setThreadId(historyMessage.threadId);
             bVar.setForumName(historyMessage.forumName);
-            bVar.hz(historyMessage.threadName);
-            bVar.hA(historyMessage.postID);
-            bVar.dy(historyMessage.isHostOnly);
-            bVar.dz(historyMessage.isSquence);
+            bVar.id(historyMessage.threadName);
+            bVar.ie(historyMessage.postID);
+            bVar.dK(historyMessage.isHostOnly);
+            bVar.dL(historyMessage.isSquence);
             aVar.a((a) bVar);
         }
     }

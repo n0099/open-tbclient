@@ -5,9 +5,9 @@ public interface h extends f {
 
     String f(m<?> mVar);
 
-    void gl();
+    void gp();
 
-    void gm();
+    void gq();
 
     void release();
 }

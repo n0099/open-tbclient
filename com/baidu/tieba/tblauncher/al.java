@@ -1,50 +1,69 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
-public class al implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ ai csd;
+class al implements Runnable {
+    final /* synthetic */ ak cwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar) {
-        this.csd = aiVar;
+    public al(ak akVar) {
+        this.cwo = akVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        MainTabActivity mainTabActivity;
-        mainTabActivity = this.csd.crX;
-        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(com.baidu.tieba.y.first_enter_addresslist_tip);
-        textView.setBackgroundResource(com.baidu.tieba.u.tips_home_help);
-        textView.setPadding(com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds26), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10), com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds10));
-        textView.setTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_g));
-        textView.setTextSize(0, com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds28));
-        return textView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int gT() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int gU() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds40);
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return -com.baidu.adp.lib.util.n.d(TbadkCoreApplication.m411getInst(), com.baidu.tieba.t.ds6);
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x001e, code lost:
+        if (r0 == 6) goto L12;
+     */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        aj ajVar;
+        FragmentTabHost fragmentTabHost;
+        aj ajVar2;
+        aj ajVar3;
+        FragmentTabHost fragmentTabHost2;
+        aj ajVar4;
+        FragmentTabHost fragmentTabHost3;
+        aj ajVar5;
+        ImageView imageView;
+        aj ajVar6;
+        ImageView imageView2;
+        aj ajVar7;
+        ImageView imageView3;
+        aj ajVar8;
+        ImageView imageView4;
+        aj ajVar9;
+        int i;
+        ajVar = this.cwo.cwn;
+        fragmentTabHost = ajVar.aRO;
+        if (fragmentTabHost.getCurrentTabType() != 6) {
+            ajVar9 = this.cwo.cwn;
+            i = ajVar9.cwa;
+        }
+        TbadkCoreApplication.m411getInst().setFriendFeedNew(false);
+        ajVar2 = this.cwo.cwn;
+        ajVar3 = this.cwo.cwn;
+        fragmentTabHost2 = ajVar3.aRO;
+        ajVar2.cwa = fragmentTabHost2.getCurrentTabType();
+        ajVar4 = this.cwo.cwn;
+        fragmentTabHost3 = ajVar4.aRO;
+        if (fragmentTabHost3.getCurrentTabType() == 1) {
+            ajVar7 = this.cwo.cwn;
+            imageView3 = ajVar7.cwd;
+            imageView3.setVisibility(0);
+            ajVar8 = this.cwo.cwn;
+            imageView4 = ajVar8.cwg;
+            imageView4.setVisibility(8);
+            return;
+        }
+        ajVar5 = this.cwo.cwn;
+        imageView = ajVar5.cwd;
+        imageView.setVisibility(8);
+        ajVar6 = this.cwo.cwn;
+        imageView2 = ajVar6.cwg;
+        imageView2.setVisibility(0);
     }
 }

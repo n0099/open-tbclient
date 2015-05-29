@@ -1,20 +1,18 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
+public class t implements Runnable {
+    final /* synthetic */ LoginActivity abx;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(int i) {
-        super(i);
+    public t(LoginActivity loginActivity) {
+        this.abx = loginActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.j) && ((com.baidu.tbadk.core.data.j) customResponsedMessage.getData()).info.contains("com.baidu.sapi2")) {
-            TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.m411getInst().setUsed();
     }
 }

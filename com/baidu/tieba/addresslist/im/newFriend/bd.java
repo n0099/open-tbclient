@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd extends HttpMessageListener {
-    final /* synthetic */ bc ayR;
+    final /* synthetic */ bc aAC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bd(bc bcVar, int i) {
         super(i);
-        this.ayR = bcVar;
+        this.aAC = bcVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,10 @@ public class bd extends HttpMessageListener {
         bg bgVar4;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                bgVar = this.ayR.ayN;
+                bgVar = this.aAC.aAy;
                 if (bgVar != null) {
-                    bgVar2 = this.ayR.ayN;
-                    bgVar2.fg(null);
+                    bgVar2 = this.aAC.aAy;
+                    bgVar2.fB(null);
                     return;
                 }
                 return;
@@ -34,10 +34,10 @@ public class bd extends HttpMessageListener {
             RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
             String errMsg = recommendFriendResponseMessage.getErrMsg();
             if (recommendFriendResponseMessage.getError() != 0) {
-                bgVar3 = this.ayR.ayN;
+                bgVar3 = this.aAC.aAy;
                 if (bgVar3 != null) {
-                    bgVar4 = this.ayR.ayN;
-                    bgVar4.fg(errMsg);
+                    bgVar4 = this.aAC.aAy;
+                    bgVar4.fB(errMsg);
                     return;
                 }
                 return;

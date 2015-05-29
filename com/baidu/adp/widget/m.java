@@ -5,15 +5,15 @@ import android.view.VelocityTracker;
 import com.baidu.adp.widget.HorizontalTranslateLayout;
 /* loaded from: classes.dex */
 public class m {
-    private static /* synthetic */ int[] Gl;
-    final /* synthetic */ HorizontalTranslateLayout FY;
-    VelocityTracker Gh;
-    boolean Gi;
-    final int Gj;
-    final int Gk;
+    private static /* synthetic */ int[] Ga;
+    final /* synthetic */ HorizontalTranslateLayout FN;
+    VelocityTracker FW;
+    boolean FX;
+    final int FY;
+    final int FZ;
 
-    static /* synthetic */ int[] mw() {
-        int[] iArr = Gl;
+    static /* synthetic */ int[] mP() {
+        int[] iArr = Ga;
         if (iArr == null) {
             iArr = new int[HorizontalTranslateLayout.TrackDirection.valuesCustom().length];
             try {
@@ -32,12 +32,12 @@ public class m {
                 iArr[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            Gl = iArr;
+            Ga = iArr;
         }
         return iArr;
     }
 
-    public boolean aw(int i) {
+    public boolean au(int i) {
         HorizontalTranslateLayout.TrackDirection trackDirection;
         i iVar;
         i iVar2;
@@ -45,46 +45,46 @@ public class m {
         int i3;
         int i4;
         int i5;
-        int[] mw = mw();
-        trackDirection = this.FY.FI;
-        switch (mw[trackDirection.ordinal()]) {
+        int[] mP = mP();
+        trackDirection = this.FN.Fx;
+        switch (mP[trackDirection.ordinal()]) {
             case 1:
-                i4 = this.FY.FJ;
+                i4 = this.FN.Fy;
                 if (i4 != 10004) {
-                    i5 = this.FY.FJ;
+                    i5 = this.FN.Fy;
                     if (i5 != 10000) {
                         return false;
                     }
                 }
                 break;
             case 2:
-                i2 = this.FY.FJ;
+                i2 = this.FN.Fy;
                 if (i2 != 10004) {
-                    i3 = this.FY.FJ;
+                    i3 = this.FN.Fy;
                     if (i3 != 10001) {
                         return false;
                     }
                 }
                 break;
             case 3:
-                iVar = this.FY.FX;
+                iVar = this.FN.FM;
                 if (iVar != null) {
-                    iVar2 = this.FY.FX;
-                    iVar2.av(i);
+                    iVar2 = this.FN.FM;
+                    iVar2.at(i);
                     break;
                 }
                 break;
         }
-        this.Gh = VelocityTracker.obtain();
-        this.Gi = true;
+        this.FW = VelocityTracker.obtain();
+        this.FX = true;
         return true;
     }
 
-    public void mu() {
-        this.Gi = false;
+    public void mN() {
+        this.FX = false;
     }
 
-    public void ax(int i) {
+    public void av(int i) {
         int i2;
         HorizontalTranslateLayout.TrackDirection trackDirection;
         float f;
@@ -94,44 +94,44 @@ public class m {
         int i4;
         float f4;
         int i5;
-        if (this.Gi) {
-            i2 = this.FY.FE;
+        if (this.FX) {
+            i2 = this.FN.Ft;
             int i6 = i2 - i;
-            int[] mw = mw();
-            trackDirection = this.FY.FI;
-            switch (mw[trackDirection.ordinal()]) {
+            int[] mP = mP();
+            trackDirection = this.FN.Fx;
+            switch (mP[trackDirection.ordinal()]) {
                 case 1:
                     Log.d("HorizontalTranslateLayout", "@move left");
-                    f4 = this.FY.FC;
-                    if (i6 > f4 - this.FY.getMeasuredWidth() && i6 < 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout = this.FY;
-                        i5 = horizontalTranslateLayout.FE;
-                        horizontalTranslateLayout.FE = i5 - i;
-                        this.FY.invalidate();
+                    f4 = this.FN.Fr;
+                    if (i6 > f4 - this.FN.getMeasuredWidth() && i6 < 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout = this.FN;
+                        i5 = horizontalTranslateLayout.Ft;
+                        horizontalTranslateLayout.Ft = i5 - i;
+                        this.FN.invalidate();
                         return;
                     }
                     return;
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@move right");
-                    f3 = this.FY.FD;
-                    if (i6 < this.FY.getMeasuredWidth() - f3 && i6 > 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.FY;
-                        i4 = horizontalTranslateLayout2.FE;
-                        horizontalTranslateLayout2.FE = i4 - i;
-                        this.FY.invalidate();
+                    f3 = this.FN.Fs;
+                    if (i6 < this.FN.getMeasuredWidth() - f3 && i6 > 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.FN;
+                        i4 = horizontalTranslateLayout2.Ft;
+                        horizontalTranslateLayout2.Ft = i4 - i;
+                        this.FN.invalidate();
                         return;
                     }
                     return;
                 case 3:
                     Log.d("HorizontalTranslateLayout", "@move horizontal");
-                    f = this.FY.FC;
-                    if (i6 >= f - this.FY.getMeasuredWidth()) {
-                        f2 = this.FY.FD;
-                        if (i6 <= this.FY.getMeasuredWidth() - f2) {
-                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.FY;
-                            i3 = horizontalTranslateLayout3.FE;
-                            horizontalTranslateLayout3.FE = i3 - i;
-                            this.FY.invalidate();
+                    f = this.FN.Fr;
+                    if (i6 >= f - this.FN.getMeasuredWidth()) {
+                        f2 = this.FN.Fs;
+                        if (i6 <= this.FN.getMeasuredWidth() - f2) {
+                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.FN;
+                            i3 = horizontalTranslateLayout3.Ft;
+                            horizontalTranslateLayout3.Ft = i3 - i;
+                            this.FN.invalidate();
                             return;
                         }
                         return;
@@ -143,20 +143,20 @@ public class m {
         }
     }
 
-    public void mv() {
+    public void mO() {
         float max;
         HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.Gh.computeCurrentVelocity(this.Gj);
-        float xVelocity = this.Gh.getXVelocity();
+        this.FW.computeCurrentVelocity(this.FY);
+        float xVelocity = this.FW.getXVelocity();
         Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
         if (xVelocity < 0.0f) {
-            max = Math.min(xVelocity, -this.Gk);
+            max = Math.min(xVelocity, -this.FZ);
         } else {
-            max = Math.max(xVelocity, this.Gk);
+            max = Math.max(xVelocity, this.FZ);
         }
-        int[] mw = mw();
-        trackDirection = this.FY.FI;
-        switch (mw[trackDirection.ordinal()]) {
+        int[] mP = mP();
+        trackDirection = this.FN.Fx;
+        switch (mP[trackDirection.ordinal()]) {
             case 1:
                 h(max);
                 break;
@@ -167,8 +167,8 @@ public class m {
                 g(max);
                 break;
         }
-        this.Gh.recycle();
-        this.Gh = null;
+        this.FW.recycle();
+        this.FW = null;
     }
 
     private void g(float f) {
@@ -180,29 +180,29 @@ public class m {
         h hVar3;
         h hVar4;
         Log.d("HorizontalTranslateLayout", "@horizontalFling");
-        i = this.FY.FE;
+        i = this.FN.Ft;
         if (i <= 0) {
-            f3 = this.FY.FC;
-            if (i >= f3 - this.FY.getMeasuredWidth()) {
+            f3 = this.FN.Fr;
+            if (i >= f3 - this.FN.getMeasuredWidth()) {
                 if (f < 0.0f) {
-                    hVar4 = this.FY.FS;
+                    hVar4 = this.FN.FH;
                     hVar4.e(f);
                     return;
                 }
-                hVar3 = this.FY.FS;
+                hVar3 = this.FN.FH;
                 hVar3.c(f);
                 return;
             }
         }
         if (i >= 0) {
-            f2 = this.FY.FD;
-            if (i <= this.FY.getMeasuredWidth() - f2) {
+            f2 = this.FN.Fs;
+            if (i <= this.FN.getMeasuredWidth() - f2) {
                 if (f < 0.0f) {
-                    hVar2 = this.FY.FS;
+                    hVar2 = this.FN.FH;
                     hVar2.d(f);
                     return;
                 }
-                hVar = this.FY.FS;
+                hVar = this.FN.FH;
                 hVar.f(f);
             }
         }
@@ -213,11 +213,11 @@ public class m {
         h hVar2;
         Log.d("HorizontalTranslateLayout", "@leftFling");
         if (f < 0.0f) {
-            hVar2 = this.FY.FS;
+            hVar2 = this.FN.FH;
             hVar2.e(f);
             return;
         }
-        hVar = this.FY.FS;
+        hVar = this.FN.FH;
         hVar.c(f);
     }
 
@@ -226,11 +226,11 @@ public class m {
         h hVar2;
         Log.d("HorizontalTranslateLayout", "@rightFling");
         if (f < 0.0f) {
-            hVar2 = this.FY.FS;
+            hVar2 = this.FN.FH;
             hVar2.d(f);
             return;
         }
-        hVar = this.FY.FS;
+        hVar = this.FN.FH;
         hVar.f(f);
     }
 }

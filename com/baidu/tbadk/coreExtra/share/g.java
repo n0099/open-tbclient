@@ -1,57 +1,34 @@
 package com.baidu.tbadk.coreExtra.share;
 
-import android.util.Pair;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import java.util.Iterator;
+import android.graphics.Bitmap;
+import android.location.Location;
+import android.net.Uri;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.o;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
-        d dVar;
-        d dVar2;
-        d dVar3;
-        d dVar4;
-        d dVar5;
-        d dVar6;
-        d dVar7;
-        if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
-            ShareDialogConfig data = customMessage.getData();
-            ShareStatic.adB = new d(data.getContext());
-            dVar = ShareStatic.adB;
-            dVar.a(data.shareItem, data.showLocation);
-            if (data.mtjStatistics != null) {
-                dVar7 = ShareStatic.adB;
-                dVar7.a(data.mtjStatistics);
-            }
-            if (data.isSetCopyLink) {
-                dVar6 = ShareStatic.adB;
-                dVar6.setIsCopyLink(data.isCopyLink);
-            }
-            if (data.copyLinkListener != null) {
-                dVar5 = ShareStatic.adB;
-                dVar5.setCopyLinkListener(data.copyLinkListener);
-            }
-            if (data.textViewList != null && data.textViewList.size() > 0) {
-                Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
-                while (it.hasNext()) {
-                    Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    dVar3 = ShareStatic.adB;
-                    TextView u = dVar3.u(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
-                    dVar4 = ShareStatic.adB;
-                    dVar4.a(u);
-                    if (((Pair) next.second).second != null) {
-                        u.setOnClickListener((View.OnClickListener) ((Pair) next.second).second);
-                    }
-                }
-            }
-            dVar2 = ShareStatic.adB;
-            dVar2.show();
+public class g {
+    public static final String aeF = o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String aeC;
+    public String aeD;
+    public boolean aeA = false;
+    public String title = null;
+    public String content = null;
+    public String linkUrl = null;
+    public Uri imageUri = null;
+    public Location location = null;
+    private WeakReference<Bitmap> aeE = null;
+    public String aeB = null;
+
+    public Bitmap getImageData() {
+        Bitmap bitmap;
+        if (this.aeE == null || (bitmap = this.aeE.get()) == null || bitmap.isRecycled()) {
+            return null;
         }
-        return null;
+        return bitmap;
+    }
+
+    public void h(Bitmap bitmap) {
+        this.aeE = new WeakReference<>(bitmap);
     }
 }

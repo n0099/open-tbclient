@@ -1,24 +1,23 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class bc implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bmd;
+    final /* synthetic */ bb bng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public bc(bb bbVar, ImMessageCenterPojo imMessageCenterPojo) {
+        this.bng = bbVar;
+        this.bmd = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.Sq().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        com.baidu.tieba.im.db.k.Rv().a(this.bmd, 1);
+        return null;
     }
 }

@@ -2,78 +2,78 @@ package com.baidu.tieba.tbadkCore;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
-public class ChildViewPager extends ViewPager {
-    private PointF ckn;
-    private PointF cko;
-    private c ckp;
-    private int ckq;
+public class ChildViewPager extends TbViewPager {
+    private PointF con;
+    private PointF coo;
+    private c cop;
+    private int coq;
 
     public ChildViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckn = new PointF();
-        this.cko = new PointF();
+        this.con = new PointF();
+        this.coo = new PointF();
         init();
     }
 
     public ChildViewPager(Context context) {
         super(context);
-        this.ckn = new PointF();
-        this.cko = new PointF();
+        this.con = new PointF();
+        this.coo = new PointF();
         init();
     }
 
     private void init() {
-        this.ckq = new ViewConfiguration().getScaledTouchSlop();
+        this.coq = new ViewConfiguration().getScaledTouchSlop();
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         return true;
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.cko.x = motionEvent.getX();
-        this.cko.y = motionEvent.getY();
+        this.coo.x = motionEvent.getX();
+        this.coo.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.ckn.x = motionEvent.getX();
-            this.ckn.y = motionEvent.getY();
+            this.con.x = motionEvent.getX();
+            this.con.y = motionEvent.getY();
             getParent().requestDisallowInterceptTouchEvent(true);
             setPressed(true);
         }
         if (motionEvent.getAction() == 2) {
-            int abs = (int) Math.abs(this.cko.x - this.ckn.x);
-            int abs2 = (int) Math.abs(this.cko.y - this.ckn.y);
+            int abs = (int) Math.abs(this.coo.x - this.con.x);
+            int abs2 = (int) Math.abs(this.coo.y - this.con.y);
             if (abs > abs2) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             } else {
                 getParent().requestDisallowInterceptTouchEvent(false);
             }
-            if (abs > this.ckq || abs2 > this.ckq) {
+            if (abs > this.coq || abs2 > this.coq) {
                 setPressed(false);
             }
         }
         if (motionEvent.getAction() == 1) {
-            if (Math.abs(this.ckn.x - this.cko.x) + Math.abs(this.ckn.y - this.cko.y) < getResources().getDimensionPixelSize(com.baidu.tieba.t.ds6)) {
-                eJ(getCurrentItem());
+            if (Math.abs(this.con.x - this.coo.x) + Math.abs(this.con.y - this.coo.y) < getResources().getDimensionPixelSize(com.baidu.tieba.o.ds6)) {
+                eX(getCurrentItem());
             }
             setPressed(false);
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void eJ(int i) {
-        if (this.ckp != null) {
-            this.ckp.eJ(i);
+    public void eX(int i) {
+        if (this.cop != null) {
+            this.cop.eX(i);
         }
     }
 
     public void setOnSingleTouchListener(c cVar) {
-        this.ckp = cVar;
+        this.cop = cVar;
     }
 }

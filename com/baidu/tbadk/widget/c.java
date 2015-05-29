@@ -6,11 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ a aru;
+    final /* synthetic */ a asX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.aru = aVar;
+        this.asX = aVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -18,12 +18,12 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         int i;
         d dVar;
         d dVar2;
-        i = this.aru.VZ;
+        i = this.asX.WG;
         if (i != 2 && (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f)) {
-            dVar = this.aru.aqY;
+            dVar = this.asX.asB;
             dVar.b(f, f2);
-            a aVar = this.aru;
-            dVar2 = this.aru.aqY;
+            a aVar = this.asX;
+            dVar2 = this.asX.asB;
             aVar.startAnimation(dVar2);
         }
         return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -38,29 +38,29 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         float f3;
         float f4;
         float f5;
-        i = this.aru.VZ;
+        i = this.asX.WG;
         if (i != 1) {
-            i2 = this.aru.VZ;
+            i2 = this.asX.WG;
             if (i2 != 2) {
-                this.aru.mMode = 2;
-                f = this.aru.mCurrentScale;
-                f2 = this.aru.aqR;
+                this.asX.mMode = 2;
+                f = this.asX.mCurrentScale;
+                f2 = this.asX.asu;
                 if (f > f2) {
-                    a aVar = this.aru;
-                    f4 = this.aru.aqR;
+                    a aVar = this.asX;
+                    f4 = this.asX.asu;
                     aVar.mCurrentScale = f4;
-                    a aVar2 = this.aru;
-                    f5 = this.aru.mCurrentScale;
-                    aVar2.aqS = f5;
-                    this.aru.Dt();
-                    this.aru.Dr();
+                    a aVar2 = this.asX;
+                    f5 = this.asX.mCurrentScale;
+                    aVar2.asv = f5;
+                    this.asX.Ed();
+                    this.asX.Eb();
                     return true;
                 }
-                a aVar3 = this.aru;
-                f3 = this.aru.aqR;
+                a aVar3 = this.asX;
+                f3 = this.asX.asu;
                 aVar3.mCurrentScale = f3 * 2.0f;
-                this.aru.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
-                this.aru.Dr();
+                this.asX.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
+                this.asX.Eb();
                 return true;
             }
         }
@@ -72,12 +72,12 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
-        onClickListener = this.aru.aqX;
+        onClickListener = this.asX.asA;
         if (onClickListener != null) {
-            z = this.aru.ara;
+            z = this.asX.asD;
             if (!z) {
-                onClickListener2 = this.aru.aqX;
-                onClickListener2.onClick(this.aru);
+                onClickListener2 = this.asX.asA;
+                onClickListener2.onClick(this.asX);
             }
         }
         return super.onSingleTapConfirmed(motionEvent);
@@ -110,73 +110,73 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         float f8;
         float f9;
         boolean z;
-        this.aru.ara = true;
-        i = this.aru.aqV;
+        this.asX.asD = true;
+        i = this.asX.asy;
         if (i == 0) {
-            z = this.aru.arb;
+            z = this.asX.asE;
             if (z) {
                 return false;
             }
         }
-        int scrollX = this.aru.getScrollX();
-        f3 = this.aru.aqO;
-        if (f3 >= this.aru.getWidth()) {
+        int scrollX = this.asX.getScrollX();
+        f3 = this.asX.asr;
+        if (f3 >= this.asX.getWidth()) {
             scrollX = (int) (scrollX + f);
-            i12 = this.aru.aqV;
+            i12 = this.asX.asy;
             if (i12 == 0) {
                 i2 = scrollX >= 0 ? scrollX : 0;
-                f8 = this.aru.aqO;
-                if (this.aru.getWidth() + i2 > f8) {
-                    f9 = this.aru.aqO;
-                    i2 = (int) (f9 - this.aru.getWidth());
+                f8 = this.asX.asr;
+                if (this.asX.getWidth() + i2 > f8) {
+                    f9 = this.asX.asr;
+                    i2 = (int) (f9 - this.asX.getWidth());
                 }
-                scrollY = this.aru.getScrollY();
-                f4 = this.aru.aqP;
-                i3 = this.aru.mTop;
+                scrollY = this.asX.getScrollY();
+                f4 = this.asX.ass;
+                i3 = this.asX.mTop;
                 f5 = f4 + i3;
-                i4 = this.aru.mBottom;
-                if (f5 + i4 >= this.aru.getHeight()) {
+                i4 = this.asX.mBottom;
+                if (f5 + i4 >= this.asX.getHeight()) {
                     scrollY = (int) (scrollY + f2);
-                    i5 = this.aru.aqV;
+                    i5 = this.asX.asy;
                     if (i5 == 0) {
-                        i6 = this.aru.arf;
+                        i6 = this.asX.asI;
                         if (scrollY < (-i6)) {
-                            i11 = this.aru.arf;
+                            i11 = this.asX.asI;
                             scrollY = -i11;
                         }
-                        f6 = this.aru.aqP;
-                        i7 = this.aru.mBottom;
+                        f6 = this.asX.ass;
+                        i7 = this.asX.mBottom;
                         float f10 = f6 + i7;
-                        i8 = this.aru.arg;
-                        if (this.aru.getHeight() + scrollY > f10 + i8) {
-                            f7 = this.aru.aqP;
-                            float height = f7 - this.aru.getHeight();
-                            i9 = this.aru.mBottom;
+                        i8 = this.asX.asJ;
+                        if (this.asX.getHeight() + scrollY > f10 + i8) {
+                            f7 = this.asX.ass;
+                            float height = f7 - this.asX.getHeight();
+                            i9 = this.asX.mBottom;
                             float f11 = height + i9;
-                            i10 = this.aru.arg;
+                            i10 = this.asX.asJ;
                             scrollY = (int) (f11 + i10);
                         }
                     }
                 }
-                if (i2 == this.aru.getScrollX() || scrollY != this.aru.getScrollY()) {
-                    this.aru.scrollTo(i2, scrollY);
-                    this.aru.invalidate();
+                if (i2 == this.asX.getScrollX() || scrollY != this.asX.getScrollY()) {
+                    this.asX.scrollTo(i2, scrollY);
+                    this.asX.invalidate();
                 }
                 return true;
             }
         }
         i2 = scrollX;
-        scrollY = this.aru.getScrollY();
-        f4 = this.aru.aqP;
-        i3 = this.aru.mTop;
+        scrollY = this.asX.getScrollY();
+        f4 = this.asX.ass;
+        i3 = this.asX.mTop;
         f5 = f4 + i3;
-        i4 = this.aru.mBottom;
-        if (f5 + i4 >= this.aru.getHeight()) {
+        i4 = this.asX.mBottom;
+        if (f5 + i4 >= this.asX.getHeight()) {
         }
-        if (i2 == this.aru.getScrollX()) {
+        if (i2 == this.asX.getScrollX()) {
         }
-        this.aru.scrollTo(i2, scrollY);
-        this.aru.invalidate();
+        this.asX.scrollTo(i2, scrollY);
+        this.asX.invalidate();
         return true;
     }
 
@@ -185,12 +185,12 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         View.OnLongClickListener onLongClickListener;
         boolean z;
         View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.aru.aey;
+        onLongClickListener = this.asX.afC;
         if (onLongClickListener != null) {
-            z = this.aru.ara;
+            z = this.asX.asD;
             if (!z) {
-                onLongClickListener2 = this.aru.aey;
-                onLongClickListener2.onLongClick(this.aru);
+                onLongClickListener2 = this.asX.afC;
+                onLongClickListener2.onLongClick(this.asX);
             }
         }
         super.onLongPress(motionEvent);

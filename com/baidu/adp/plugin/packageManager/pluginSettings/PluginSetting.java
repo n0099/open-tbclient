@@ -18,7 +18,6 @@ public class PluginSetting implements Serializable {
     private int is_inject_classloader;
     public String md5;
     public String packageName;
-    public int priority = 1000;
     public String requireLoad;
     public int size;
     public String tempMd5;
@@ -26,6 +25,8 @@ public class PluginSetting implements Serializable {
     public String url;
     public String version;
     public int versionCode;
+    public int priority = 1000;
+    public boolean hasRes = false;
 
     public boolean isContainCmd(int i) {
         if (this.cmdRangeInt == null) {
@@ -48,11 +49,11 @@ public class PluginSetting implements Serializable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bu(str);
+        this.cmdRangeInt = bE(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bu(String str) {
+    private int[] bE(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -116,6 +117,7 @@ public class PluginSetting implements Serializable {
         pluginSetting.abandon_apk_path = this.abandon_apk_path;
         pluginSetting.install_fail_count = this.install_fail_count;
         pluginSetting.priority = this.priority;
+        pluginSetting.hasRes = this.hasRes;
         return pluginSetting;
     }
 

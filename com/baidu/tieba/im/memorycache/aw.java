@@ -7,19 +7,19 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
 class aw implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo bkm;
-    final /* synthetic */ av bkz;
+    private final /* synthetic */ ImMessageCenterPojo bmQ;
+    final /* synthetic */ av bnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(av avVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bkz = avVar;
-        this.bkm = imMessageCenterPojo;
+        this.bnd = avVar;
+        this.bmQ = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.k.Qg().a(this.bkm);
+            com.baidu.tieba.im.db.k.Rv().a(this.bmQ);
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);

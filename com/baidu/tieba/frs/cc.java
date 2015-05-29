@@ -5,41 +5,30 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc implements View.OnClickListener {
-    final /* synthetic */ cb aME;
-    private final /* synthetic */ com.baidu.tbadk.core.data.s aMF;
+    final /* synthetic */ ca aOO;
+    private final /* synthetic */ com.baidu.tbadk.core.data.s aOP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(cb cbVar, com.baidu.tbadk.core.data.s sVar) {
-        this.aME = cbVar;
-        this.aMF = sVar;
+    public cc(ca caVar, com.baidu.tbadk.core.data.s sVar) {
+        this.aOO = caVar;
+        this.aOP = sVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        com.baidu.tbadk.core.data.s sVar;
-        Context context2;
-        Context context3;
-        com.baidu.tbadk.core.data.s sVar2;
-        context = this.aME.mContext;
-        com.baidu.tbadk.core.k.A(context, "cluster_btn_addFd");
-        com.baidu.tbadk.core.data.t qq = this.aMF.qq();
-        sVar = this.aME.aMD;
-        if (sVar != null) {
+        com.baidu.tbadk.core.data.t qW = this.aOP.qW();
+        if (UtilHelper.isNetOk()) {
             MessageManager messageManager = MessageManager.getInstance();
-            context3 = this.aME.mContext;
-            String valueOf = String.valueOf(qq.getUserId());
-            String name = qq.getName();
-            String qw = qq.qw();
-            sVar2 = this.aME.aMD;
-            messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(context3, valueOf, name, qw, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, sVar2.qt())));
+            context = this.aOO.mContext;
+            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, String.valueOf(qW.getUserId()), qW.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
             return;
         }
-        MessageManager messageManager2 = MessageManager.getInstance();
-        context2 = this.aME.mContext;
-        messageManager2.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(context2, String.valueOf(qq.getUserId()), qq.getName(), qq.qw(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
+        this.aOO.aMk.showToast(com.baidu.tieba.t.im_error_default);
     }
 }

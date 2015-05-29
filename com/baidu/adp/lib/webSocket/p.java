@@ -6,10 +6,10 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends Thread {
-    final /* synthetic */ n Ay;
+    final /* synthetic */ n An;
 
     private p(n nVar) {
-        this.Ay = nVar;
+        this.An = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +22,7 @@ public class p extends Thread {
         String str;
         int i;
         boolean z;
-        boolean jw;
+        boolean jN;
         String str2;
         int i2;
         String str3;
@@ -34,50 +34,50 @@ public class p extends Thread {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             e eVar = new e();
-            n nVar = this.Ay;
-            str = this.Ay.An;
-            i = this.Ay.Ao;
-            nVar.Ak = eVar.a(str, i, this.Ay.As, false);
-            z = this.Ay.Av;
+            n nVar = this.An;
+            str = this.An.Ab;
+            i = this.An.Ac;
+            nVar.zY = eVar.a(str, i, this.An.Ah, false);
+            z = this.An.Ak;
             if (!z) {
                 try {
-                    if (this.Ay.Ak.isConnected()) {
-                        this.Ay.Aw = System.currentTimeMillis() - currentTimeMillis;
-                        this.Ay.jB();
-                        this.Ay.jA();
-                        str2 = this.Ay.An;
+                    if (this.An.zY.isConnected()) {
+                        this.An.Al = System.currentTimeMillis() - currentTimeMillis;
+                        this.An.jS();
+                        this.An.jR();
+                        str2 = this.An.Ab;
                         StringBuilder append = new StringBuilder(String.valueOf(str2)).append(":");
-                        i2 = this.Ay.Ao;
+                        i2 = this.An.Ac;
                         t tVar = new t(append.append(i2).toString());
-                        str3 = this.Ay.Ap;
+                        str3 = this.An.Ae;
                         tVar.mPath = str3;
-                        str4 = this.Ay.Aq;
-                        tVar.AA = str4;
-                        strArr = this.Ay.Aa;
-                        tVar.AB = strArr;
-                        list = this.Ay.zZ;
-                        tVar.AC = list;
-                        this.Ay.Aj.q(tVar);
-                        z2 = this.Ay.Av;
+                        str4 = this.An.Af;
+                        tVar.Ap = str4;
+                        strArr = this.An.zP;
+                        tVar.Aq = strArr;
+                        list = this.An.zO;
+                        tVar.Ar = list;
+                        this.An.zX.q(tVar);
+                        z2 = this.An.Ak;
                         if (z2) {
-                            this.Ay.n(new u());
+                            this.An.n(new u());
                         }
                     } else {
-                        this.Ay.n(new w(2, "cannot connect"));
+                        this.An.n(new w(2, "cannot connect"));
                     }
                     return;
                 } catch (Throwable th) {
-                    jw = this.Ay.jw();
-                    if (jw) {
+                    jN = this.An.jN();
+                    if (jN) {
                         BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
                     }
-                    this.Ay.n(new x(new Exception(th)));
+                    this.An.n(new x(new Exception(th)));
                     return;
                 }
             }
-            this.Ay.n(new u());
+            this.An.n(new u());
         } catch (Throwable th2) {
-            this.Ay.n(new w(2, th2.getMessage()));
+            this.An.n(new w(2, th2.getMessage()));
         }
     }
 }

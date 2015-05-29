@@ -6,14 +6,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends BdAsyncTask<Void, Void, Bitmap> {
-    final /* synthetic */ a bmS;
-    private final /* synthetic */ String bna;
+    private final /* synthetic */ String bpF;
+    final /* synthetic */ a bpx;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(a aVar, String str, String str2) {
-        this.bmS = aVar;
-        this.bna = str;
+        this.bpx = aVar;
+        this.bpF = str;
         this.val$key = str2;
     }
 
@@ -22,13 +22,13 @@ public class v extends BdAsyncTask<Void, Void, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Bitmap doInBackground(Void... voidArr) {
-        return BitmapFactory.decodeFile(this.bna);
+        return BitmapFactory.decodeFile(this.bpF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Bitmap bitmap) {
-        this.bmS.e(this.val$key, new com.baidu.adp.widget.a.a(bitmap, false));
+        this.bpx.e(this.val$key, new com.baidu.adp.widget.a.a(bitmap, false));
     }
 }

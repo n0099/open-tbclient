@@ -1,43 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class g {
-    private int aaV;
-    private int aaW;
-    private int aaX;
+    private int abZ;
+    private int aca;
+    private int acb;
 
-    public int uF() {
-        if (this.aaV == 0) {
+    public int vp() {
+        if (this.abZ == 0) {
             return Integer.MAX_VALUE;
         }
-        if (this.aaV >= 150) {
-            return this.aaV;
-        }
-        return 150;
+        return this.abZ;
     }
 
-    public void dk(String str) {
-        this.aaV = com.baidu.adp.lib.g.c.toInt(str, 0);
+    public void dB(String str) {
+        this.abZ = com.baidu.adp.lib.g.c.toInt(str, 0);
     }
 
-    public int uG() {
-        if (this.aaW == 0) {
-            return 200;
-        }
-        return this.aaW;
+    public int vq() {
+        return this.aca;
     }
 
-    public void dl(String str) {
-        this.aaW = com.baidu.adp.lib.g.c.toInt(str, 0);
+    public void dC(String str) {
+        this.aca = com.baidu.adp.lib.g.c.toInt(str, 0);
     }
 
-    public int uH() {
-        if (this.aaX == 0) {
-            return 90;
-        }
-        return this.aaX;
+    public int vr() {
+        return this.acb;
     }
 
-    public void dm(String str) {
-        this.aaX = com.baidu.adp.lib.g.c.toInt(str, 0);
+    public void dD(String str) {
+        this.acb = com.baidu.adp.lib.g.c.toInt(str, 0);
     }
 }

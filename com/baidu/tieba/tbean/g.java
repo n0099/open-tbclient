@@ -6,17 +6,17 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ d cqI;
+    final /* synthetic */ d cuM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.cqI = dVar;
+        this.cuM = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,10 +33,10 @@ public class g extends HttpMessageListener {
         BuyTBeanActivity buyTBeanActivity9;
         BuyTBeanActivity buyTBeanActivity10;
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-            buyTBeanActivity = this.cqI.cqG;
+            buyTBeanActivity = this.cuM.cuK;
             if (buyTBeanActivity != null) {
-                buyTBeanActivity2 = this.cqI.cqG;
-                buyTBeanActivity2.showToast(y.neterror);
+                buyTBeanActivity2 = this.cuM.cuK;
+                buyTBeanActivity2.showToast(t.neterror);
                 return;
             }
             return;
@@ -46,26 +46,26 @@ public class g extends HttpMessageListener {
         ResponseGetPayinfoMessage responseGetPayinfoMessage = (ResponseGetPayinfoMessage) httpResponsedMessage;
         if (statusCode == 200 && error == 0) {
             if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                buyTBeanActivity5 = this.cqI.cqG;
+                buyTBeanActivity5 = this.cuM.cuK;
                 if (buyTBeanActivity5 != null) {
-                    buyTBeanActivity6 = this.cqI.cqG;
-                    buyTBeanActivity6.showToast(y.buy_tbean_failed_tip);
+                    buyTBeanActivity6 = this.cuM.cuK;
+                    buyTBeanActivity6.showToast(t.buy_tbean_failed_tip);
                     return;
                 }
             } else {
                 int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                 if (pay_status != 0) {
-                    buyTBeanActivity7 = this.cqI.cqG;
+                    buyTBeanActivity7 = this.cuM.cuK;
                     if (buyTBeanActivity7 != null) {
-                        buyTBeanActivity8 = this.cqI.cqG;
-                        buyTBeanActivity8.showToast(y.buy_tbean_failed_tip);
+                        buyTBeanActivity8 = this.cuM.cuK;
+                        buyTBeanActivity8.showToast(t.buy_tbean_failed_tip);
                         return;
                     }
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001233, Integer.valueOf(pay_status)));
-                    buyTBeanActivity9 = this.cqI.cqG;
+                    buyTBeanActivity9 = this.cuM.cuK;
                     if (buyTBeanActivity9 != null) {
-                        buyTBeanActivity10 = this.cqI.cqG;
+                        buyTBeanActivity10 = this.cuM.cuK;
                         buyTBeanActivity10.finish();
                         return;
                     }
@@ -73,11 +73,11 @@ public class g extends HttpMessageListener {
             }
         }
         if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-            buyTBeanActivity4 = this.cqI.cqG;
+            buyTBeanActivity4 = this.cuM.cuK;
             buyTBeanActivity4.showToast(responseGetPayinfoMessage.getErrorString());
             return;
         }
-        buyTBeanActivity3 = this.cqI.cqG;
-        buyTBeanActivity3.showToast(y.neterror);
+        buyTBeanActivity3 = this.cuM.cuK;
+        buyTBeanActivity3.showToast(t.neterror);
     }
 }

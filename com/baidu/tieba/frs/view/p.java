@@ -4,21 +4,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o aPq;
+    final /* synthetic */ o aRA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.aPq = oVar;
+        this.aRA = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.coreExtra.view.b bVar;
         com.baidu.tbadk.coreExtra.view.b bVar2;
-        bVar = this.aPq.adW;
+        bVar = this.aRA.afa;
         if (bVar != null) {
-            bVar2 = this.aPq.adW;
-            bVar2.wX();
+            bVar2 = this.aRA.afa;
+            bVar2.xJ();
         }
     }
 }

@@ -1,28 +1,39 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
-class a extends Handler {
-    final /* synthetic */ AccountActivity auC;
+class a implements com.baidu.tbadk.core.a.b {
+    final /* synthetic */ AccountActivity awf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AccountActivity accountActivity) {
-        this.auC = accountActivity;
+        this.awf = accountActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                this.auC.Em();
-                return;
-            case 2:
-                this.auC.El();
-                return;
-            default:
-                return;
+    @Override // com.baidu.tbadk.core.a.b
+    public void cb(String str) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void a(AccountData accountData) {
+        TbadkCoreApplication.setCurrentAccount(accountData, this.awf.getBaseContext());
+        this.awf.closeLoadingDialog();
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
+        TbadkCoreApplication.m411getInst().onUserChanged();
+        com.baidu.tbadk.core.c.b.a(this.awf.getPageContext().getPageActivity(), 1, false);
+        this.awf.awd = null;
+    }
+
+    @Override // com.baidu.tbadk.core.a.b
+    public void c(String str, int i, String str2) {
+        this.awf.closeLoadingDialog();
+        this.awf.showToast(str2);
+        if (i == 1) {
+            ReloginManager.sg().e(TbadkCoreApplication.getCurrentAccountObj());
         }
     }
 }

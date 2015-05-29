@@ -10,51 +10,69 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class q {
     private long mStartTime;
-    private ArrayList<BasicNameValuePair> xO;
-    private String xP;
-    private StringBuilder xQ;
+    public long wR;
+    public long wS;
+    boolean wT;
+    private ArrayList<BasicNameValuePair> wU;
+    public String wV;
+    private StringBuilder wW;
 
     public q(String str) {
-        this.xP = null;
-        this.xQ = new StringBuilder(100);
-        this.xP = str;
+        this.wR = 1L;
+        this.wS = -1L;
+        this.wT = false;
+        this.wV = null;
+        this.wW = new StringBuilder(100);
+        this.wV = str;
+        this.wT = false;
+        this.wR = -1L;
+        this.wS = -1L;
     }
 
     public q() {
-        this.xP = null;
-        this.xQ = new StringBuilder(100);
+        this.wR = 1L;
+        this.wS = -1L;
+        this.wT = false;
+        this.wV = null;
+        this.wW = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.xO == null) {
-                this.xO = new ArrayList<>();
+            if (this.wU == null) {
+                this.wU = new ArrayList<>();
             }
-            this.xO.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wU.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.xO != null) {
-            Iterator<BasicNameValuePair> it = this.xO.iterator();
+        if (this.wU != null) {
+            Iterator<BasicNameValuePair> it = this.wU.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.xQ.length() > 0) {
-                        this.xQ.append('&');
+                    if (this.wW.length() > 0) {
+                        this.wW.append('&');
                     }
-                    this.xQ.append(next.getName());
-                    this.xQ.append('=');
+                    this.wW.append(next.getName());
+                    this.wW.append('=');
                     try {
-                        this.xQ.append(URLEncoder.encode(aw(next.getValue()), "utf-8"));
+                        this.wW.append(URLEncoder.encode(ay(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.xQ.append(aw(next.getValue()));
+                        this.wW.append(ay(next.getValue()));
                     }
                 }
             }
         }
-        return this.xQ.toString();
+        return this.wW.toString();
+    }
+
+    public void ax(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.wW.append(str);
+        }
     }
 
     public void f(Object... objArr) {
@@ -72,29 +90,29 @@ public class q {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.xQ.length() > 0) {
-                this.xQ.append('&');
+            if (this.wW.length() > 0) {
+                this.wW.append('&');
             }
-            this.xQ.append(str);
-            this.xQ.append("=");
+            this.wW.append(str);
+            this.wW.append("=");
             try {
-                this.xQ.append(URLEncoder.encode(aw(str2), "utf-8"));
+                this.wW.append(URLEncoder.encode(ay(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.xQ.append(aw(str2));
+                this.wW.append(ay(str2));
             }
         }
     }
 
-    public void il() {
+    public void hU() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long im() {
+    public long hV() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    private String aw(String str) {
+    public static String ay(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

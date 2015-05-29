@@ -3,14 +3,13 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private aa YU;
+    private af ZV;
 
-    public void setTagData(ab abVar) {
-        setTag(abVar);
-        tP();
+    public void setTagData(ag agVar) {
+        setTag(agVar);
+        uy();
     }
 
     public TbCheckBox(Context context) {
@@ -24,43 +23,43 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new z(this));
-        tP();
+        setOnClickListener(new ae(this));
+        uy();
     }
 
-    public void setStatedChangedListener(aa aaVar) {
-        this.YU = aaVar;
+    public void setStatedChangedListener(af afVar) {
+        this.ZV = afVar;
     }
 
-    public void tP() {
-        if (tQ()) {
-            ba.c(this, com.baidu.tieba.u.icon_set_list_ok_s);
+    public void uy() {
+        if (uz()) {
+            com.baidu.tbadk.core.util.ay.c(this, com.baidu.tieba.p.icon_set_list_ok_s);
         } else {
-            ba.c(this, com.baidu.tieba.u.icon_set_list_ok_n);
+            com.baidu.tbadk.core.util.ay.c(this, com.baidu.tieba.p.icon_set_list_ok_n);
         }
     }
 
     public boolean isChecked() {
-        return tQ();
+        return uz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean tQ() {
+    public boolean uz() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof ab)) {
+        if (tag == null || !(tag instanceof ag)) {
             return false;
         }
-        return ((ab) tag).isChecked();
+        return ((ag) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof ab)) {
-            ((ab) tag).setChecked(z);
+        if (tag != null && (tag instanceof ag)) {
+            ((ag) tag).setChecked(z);
         }
-        tP();
-        if (this.YU != null) {
-            this.YU.a(this, z, getTag());
+        uy();
+        if (this.ZV != null) {
+            this.ZV.handler(this, z, getTag());
         }
     }
 }

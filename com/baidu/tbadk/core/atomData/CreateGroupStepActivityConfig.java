@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class CreateGroupStepActivityConfig extends a {
+public class CreateGroupStepActivityConfig extends c {
     public static final String FORUMID = "forumid";
     public static final String GROUP_TYPE = "group_type";
     public static final int GROUP_TYPE_COMMON = 3;

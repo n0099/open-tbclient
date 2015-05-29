@@ -1,71 +1,52 @@
 package com.baidu.tieba.home;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.coreExtra.data.l;
-import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask<String, Integer, Bitmap> {
-    private aa ZF;
-    final /* synthetic */ CreateBarActivity aWh;
-    private volatile boolean wb;
-
-    private d(CreateBarActivity createBarActivity) {
-        this.aWh = createBarActivity;
-        this.ZF = null;
-        this.wb = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(CreateBarActivity createBarActivity, d dVar) {
-        this(createBarActivity);
-    }
+public class d extends BdAsyncTask<String, Integer, String> {
+    private String aYK;
+    final /* synthetic */ CreateBarActivity aYM;
+    private aa aaG = null;
+    private String mVcode;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
-        this.wb = true;
-        if (this.ZF != null) {
-            this.ZF.hh();
+        if (this.aaG != null) {
+            this.aaG.gS();
         }
-        progressBar = this.aWh.aVY;
+        progressBar = this.aYM.mProgress;
         progressBar.setVisibility(8);
-        this.aWh.aWa = null;
+        this.aYM.aYE = null;
+    }
+
+    public d(CreateBarActivity createBarActivity, String str, String str2) {
+        this.aYM = createBarActivity;
+        this.aYK = null;
+        this.mVcode = null;
+        this.aYK = str;
+        this.mVcode = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: m */
-    public Bitmap doInBackground(String... strArr) {
+    public String doInBackground(String... strArr) {
+        String str;
         try {
-            this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            this.ZF.o(ImageViewerConfig.FORUM_ID, GameInfoData.NOT_FROM_DETAIL);
-            this.ZF.o("pub_type", GameInfoData.NOT_FROM_DETAIL);
-            this.ZF.o(ImageViewerConfig.FORUM_NAME, "");
-            this.ZF.o("tid", GameInfoData.NOT_FROM_DETAIL);
-            String rO = this.ZF.rO();
-            if (this.ZF.sp().tq().pv()) {
-                l lVar = new l();
-                lVar.parserJson(rO);
-                if (lVar.getVcode_pic_url() == null || lVar.getVcode_pic_url().length() <= 0) {
-                    return null;
-                }
-                this.aWh.aWb = lVar.getVcode_md5();
-                if (this.wb) {
-                    return null;
-                }
-                this.ZF = new aa(lVar.getVcode_pic_url());
-                return com.baidu.tbadk.core.util.c.w(this.ZF.rP());
-            }
+            this.aaG = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
+            this.aaG.sX().tS().mIsNeedTbs = true;
+            this.aaG.o("kw", this.aYK);
+            this.aaG.o("vcode", this.mVcode);
+            aa aaVar = this.aaG;
+            str = this.aYM.aYG;
+            aaVar.o("vcode_md5", str);
+            this.aaG.sw();
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -76,16 +57,20 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(Bitmap bitmap) {
+    public void onPostExecute(String str) {
         ProgressBar progressBar;
-        ImageView imageView;
-        super.onPostExecute((d) bitmap);
-        progressBar = this.aWh.aVY;
+        super.onPostExecute((d) str);
+        progressBar = this.aYM.mProgress;
         progressBar.setVisibility(8);
-        this.aWh.aWa = null;
-        if (bitmap != null) {
-            imageView = this.aWh.atD;
-            imageView.setImageBitmap(bitmap);
+        this.aYM.aYE = null;
+        if (this.aaG.sX().tT().qa()) {
+            CreateBarSuccessActivity.L(this.aYM.getPageContext().getPageActivity(), this.aYK);
+            this.aYM.finish();
+            return;
+        }
+        this.aYM.showToast(this.aaG.getErrorString());
+        if (this.aaG.ta()) {
+            this.aYM.OL();
         }
     }
 
@@ -93,12 +78,8 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        ImageView imageView;
         super.onPreExecute();
-        this.aWh.aWb = null;
-        progressBar = this.aWh.aVY;
+        progressBar = this.aYM.mProgress;
         progressBar.setVisibility(0);
-        imageView = this.aWh.atD;
-        imageView.setImageDrawable(null);
     }
 }

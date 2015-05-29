@@ -1,43 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by extends bq<com.baidu.tbadk.core.data.aa, bx> {
-    private View.OnClickListener bsw;
+public class by implements View.OnClickListener {
+    final /* synthetic */ bw bMi;
+    private final /* synthetic */ String bMj;
+    private final /* synthetic */ String bMk;
+    private final /* synthetic */ String bMl;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public by(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(bw bwVar, String str, String str2, String str3) {
+        this.bMi = bwVar;
+        this.bMj = str;
+        this.bMk = str2;
+        this.bMl = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: q */
-    public bx a(ViewGroup viewGroup) {
-        return new bx(com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.pb_u9_news_layout, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bq, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, bx bxVar) {
-        super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) bxVar);
-        if (aaVar != null) {
-            bxVar.bJU.setOnClickListener(this.bsw);
-            bxVar.bJU.setText(aaVar.getSummary());
-            bxVar.bJU.setTag(aaVar);
-            com.baidu.tbadk.core.util.ba.j(bxVar.bJV, com.baidu.tieba.s.cp_bg_line_b);
-            com.baidu.tbadk.core.util.ba.b(bxVar.bJU, com.baidu.tieba.s.cp_cont_b, 1);
-            bxVar.bJU.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.bMj) && !StringUtils.isNull(this.bMk)) {
+            if (com.baidu.adp.lib.util.k.iX()) {
+                context = this.bMi.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.bMj) + "," + this.bMk, this.bMl, this.bMl, context.getString(com.baidu.tieba.t.app_info_for_map));
+                context2 = this.bMi.mContext;
+                com.baidu.tbadk.browser.f.x(context2, format);
+                return;
+            }
+            this.bMi.bKZ.showToast(com.baidu.tieba.t.neterror);
         }
-        return view;
-    }
-
-    public void w(View.OnClickListener onClickListener) {
-        this.bsw = onClickListener;
     }
 }

@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.cm;
+import com.baidu.tieba.frs.cl;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.w;
-import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.i {
-    final /* synthetic */ a aNQ;
+    final /* synthetic */ a aQc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.aNQ = aVar;
+        this.aQc = aVar;
     }
 
     @Override // com.baidu.adp.base.i
@@ -26,59 +26,59 @@ public class i extends com.baidu.adp.base.i {
         FrsActivity frsActivity;
         SignData signData;
         boolean z;
-        cm cmVar;
+        cl clVar;
         FrsActivity frsActivity2;
-        cm cmVar2;
+        cl clVar2;
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
-        frsActivity = this.aNQ.aNs;
-        w JA = frsActivity.JA();
-        if (JA != null && JA.Za() != null) {
-            String name = JA.Za().getName();
+        frsActivity = this.aQc.aPE;
+        w KE = frsActivity.KE();
+        if (KE != null && KE.aar() != null) {
+            String name = KE.aar().getName();
             if (obj == null || !(obj instanceof SignData)) {
                 signData = null;
                 z = false;
             } else {
                 signData = (SignData) obj;
-                com.baidu.tieba.tbadkCore.d.akD().D(name, false);
-                JA.d(signData);
-                signData.setForumId(JA.Za().getId());
+                com.baidu.tieba.tbadkCore.d.amo().D(name, false);
+                KE.d(signData);
+                signData.setForumId(KE.aar().getId());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001228, signData));
                 z = true;
             }
-            this.aNQ.Lh();
+            this.aQc.Mm();
             if (!z) {
-                cmVar = this.aNQ.aNP;
-                if (cmVar.getErrorCode() == 160002) {
-                    this.aNQ.eX(1);
+                clVar = this.aQc.aQb;
+                if (clVar.getErrorCode() == 160002) {
+                    this.aQc.fl(1);
                 }
-                frsActivity2 = this.aNQ.aNs;
-                cmVar2 = this.aNQ.aNP;
-                frsActivity2.showToast(cmVar2.getErrorString());
-            } else if (JA != null && JA.Za() != null) {
-                AntiData qe = JA.qe();
-                this.aNQ.d(JA);
+                frsActivity2 = this.aQc.aPE;
+                clVar2 = this.aQc.aQb;
+                frsActivity2.showToast(clVar2.getErrorString());
+            } else if (KE != null && KE.aar() != null) {
+                AntiData qK = KE.qK();
+                this.aQc.d(KE);
                 if (signData != null) {
                     int i = -1;
-                    if (this.aNQ.Ln()) {
-                        i = JA.Za().getUser_level() + 1;
+                    if (this.aQc.Ms()) {
+                        i = KE.aar().getUser_level() + 1;
                     }
-                    TbadkCoreApplication.m411getInst().addSignedForum(JA.Za().getName(), signData.getBonusPoint(), i);
+                    TbadkCoreApplication.m411getInst().addSignedForum(KE.aar().getName(), signData.getBonusPoint(), i);
                 }
-                if (AntiHelper.d(qe) || AntiHelper.c(qe) || AntiHelper.e(qe)) {
-                    qe.setBlock_forum_name(name);
-                    qe.setBlock_forum_id(JA.Za().getId());
-                    qe.setUser_name(JA.getUserData().getUserName());
-                    qe.setUser_id(JA.getUserData().getUserId());
-                    AntiHelper.a(this.aNQ.getPageContext().getPageActivity(), qe, AntiHelper.OperationType.SIGN, PageType.FRS);
+                if (AntiHelper.d(qK) || AntiHelper.c(qK) || AntiHelper.e(qK)) {
+                    qK.setBlock_forum_name(name);
+                    qK.setBlock_forum_id(KE.aar().getId());
+                    qK.setUser_name(KE.getUserData().getUserName());
+                    qK.setUser_id(KE.getUserData().getUserId());
+                    AntiHelper.a(this.aQc.getPageContext().getPageActivity(), qK, AntiHelper.OperationType.SIGN, PageType.FRS);
                 } else if (signData != null) {
-                    if (!this.aNQ.Lf()) {
-                        frsActivity4 = this.aNQ.aNs;
-                        frsActivity4.showToast(this.aNQ.getPageContext().getResources().getString(y.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
+                    if (!this.aQc.Mk()) {
+                        frsActivity4 = this.aQc.aPE;
+                        frsActivity4.showToast(this.aQc.getPageContext().getResources().getString(t.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
                         return;
                     }
-                    frsActivity3 = this.aNQ.aNs;
-                    frsActivity3.showToast(this.aNQ.getPageContext().getResources().getString(y.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
+                    frsActivity3 = this.aQc.aPE;
+                    frsActivity3.showToast(this.aQc.getPageContext().getResources().getString(t.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
                 }
             }
         }

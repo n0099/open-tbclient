@@ -1,43 +1,48 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity auC;
+public class e implements View.OnClickListener {
+    final /* synthetic */ AccountActivity awf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.auC = accountActivity;
+        this.awf = accountActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         m mVar;
         m mVar2;
+        TextView textView;
+        TextView textView2;
         m mVar3;
-        mVar = this.auC.auw;
-        if (mVar.getItemId(i) >= 0) {
-            mVar2 = this.auC.auw;
-            if (!mVar2.Eo()) {
-                mVar3 = this.auC.auw;
-                AccountData accountData = (AccountData) mVar3.getItem(i);
-                if (accountData != null && accountData.getIsActive() != 1) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
-                    this.auC.l(accountData);
-                    return;
-                }
-                return;
-            }
+        m mVar4;
+        TextView textView3;
+        TextView textView4;
+        m mVar5;
+        mVar = this.awf.avZ;
+        if (!mVar.Fb()) {
+            mVar4 = this.awf.avZ;
+            mVar4.setEditState(true);
+            textView3 = this.awf.awb;
+            textView3.setText(com.baidu.tieba.t.done);
+            textView4 = this.awf.awb;
+            ay.b(textView4, com.baidu.tieba.n.cp_link_tip_a, 1);
+            mVar5 = this.awf.avZ;
+            mVar5.notifyDataSetChanged();
             return;
         }
-        this.auC.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.auC.getPageContext().getPageActivity())));
+        mVar2 = this.awf.avZ;
+        mVar2.setEditState(false);
+        textView = this.awf.awb;
+        textView.setText(com.baidu.tieba.t.edit);
+        textView2 = this.awf.awb;
+        ay.b(textView2, com.baidu.tieba.n.navi_op_text, 1);
+        mVar3 = this.awf.avZ;
+        mVar3.notifyDataSetChanged();
     }
 }

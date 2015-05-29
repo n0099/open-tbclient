@@ -9,38 +9,38 @@ import android.widget.ListAdapter;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView anv;
-    private ImageView cvD;
-    private l cvE;
-    private AdapterView.OnItemClickListener cvF = new i(this);
-    private CustomMessageListener cvG = new j(this, 2002013);
+    private BdListView aoy;
+    private ImageView czU;
+    private l czV;
+    private AdapterView.OnItemClickListener czW = new i(this);
+    private CustomMessageListener czX = new j(this, 2002013);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.select_location_activity);
-        this.anu.setTitleText(y.select_position_title);
-        this.cvD = (ImageView) this.anu.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_search, (View.OnClickListener) null);
-        this.cvD.setOnClickListener(new k(this));
-        this.anv = (BdListView) findViewById(v.select_position_list);
-        this.cvE = new l(this);
-        this.anv.setAdapter((ListAdapter) this.cvE);
-        this.anv.setOnItemClickListener(this.cvF);
-        registerListener(this.cvG);
+        setContentView(r.select_location_activity);
+        this.aox.setTitleText(t.select_position_title);
+        this.czU = (ImageView) this.aox.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_search, (View.OnClickListener) null);
+        this.czU.setOnClickListener(new k(this));
+        this.aoy = (BdListView) findViewById(q.select_position_list);
+        this.czV = new l(this);
+        this.aoy.setAdapter((ListAdapter) this.czV);
+        this.aoy.setOnItemClickListener(this.czW);
+        registerListener(this.czX);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cvE.notifyDataSetChanged();
+        this.czV.notifyDataSetChanged();
     }
 
     @Override // android.app.Activity

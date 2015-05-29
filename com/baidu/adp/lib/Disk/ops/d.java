@@ -3,38 +3,38 @@ package com.baidu.adp.lib.Disk.ops;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 class d {
-    private static byte rA = Byte.MIN_VALUE;
-    private static byte rB = Byte.MIN_VALUE;
-    boolean rC = false;
-    long rD = 0;
-    boolean rE = true;
+    private static byte rK = Byte.MIN_VALUE;
+    private static byte rL = Byte.MIN_VALUE;
+    boolean rM = false;
+    long rN = 0;
+    boolean rO = true;
 
-    public static int fL() {
+    public static int fQ() {
         return 14;
     }
 
     public byte[] toByteArray() {
-        ByteBuffer allocate = ByteBuffer.allocate(fL());
+        ByteBuffer allocate = ByteBuffer.allocate(fQ());
         allocate.putInt(1786600511);
-        allocate.put(this.rC ? (byte) (rA | 0) : (byte) 0);
-        allocate.putLong(this.rD);
-        allocate.put(this.rE ? (byte) 0 : (byte) (rB | 0));
+        allocate.put(this.rM ? (byte) (rK | 0) : (byte) 0);
+        allocate.putLong(this.rN);
+        allocate.put(this.rO ? (byte) 0 : (byte) (rL | 0));
         allocate.flip();
         return allocate.array();
     }
 
     public boolean l(byte[] bArr) {
-        if (bArr == null || bArr.length < fL()) {
+        if (bArr == null || bArr.length < fQ()) {
             return false;
         }
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fL());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fQ());
         if (wrap.getInt() == 1786600511) {
-            if ((wrap.get() & rA) != 0) {
-                this.rC = true;
+            if ((wrap.get() & rK) != 0) {
+                this.rM = true;
             }
-            this.rD = wrap.getLong();
-            if ((wrap.get() & rB) != 0) {
-                this.rE = false;
+            this.rN = wrap.getLong();
+            if ((wrap.get() & rL) != 0) {
+                this.rO = false;
             }
             return true;
         }

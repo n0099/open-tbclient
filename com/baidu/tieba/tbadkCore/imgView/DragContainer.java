@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap arB;
+    private Bitmap ate;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -35,13 +35,13 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void ab(View view) {
+    public void ac(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.arB = Bitmap.createBitmap(drawingCache);
+            this.ate = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -57,15 +57,15 @@ public class DragContainer extends LinearLayout {
         if (this.view != null) {
             if (this.mScroller.computeScrollOffset()) {
                 canvas.save();
-                canvas.drawBitmap(this.arB, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.ate, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.arB != null) {
-                this.arB.recycle();
+            if (this.ate != null) {
+                this.ate.recycle();
             }
-            this.arB = null;
+            this.ate = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.arB != null) {
-            this.arB.recycle();
+        if (this.ate != null) {
+            this.ate.recycle();
         }
-        this.arB = null;
+        this.ate = null;
         this.view = null;
     }
 }

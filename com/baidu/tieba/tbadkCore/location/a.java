@@ -10,23 +10,23 @@ public class a {
     private List<b> poi_info;
     private String sn;
 
-    public String anm() {
+    public String apd() {
         return this.formatted_address;
     }
 
-    public List<b> ann() {
+    public List<b> ape() {
         return this.poi_info;
     }
 
-    public void iJ(String str) {
+    public void jD(String str) {
         this.formatted_address = str;
     }
 
-    public String ano() {
+    public String apf() {
         return this.sn;
     }
 
-    public void iK(String str) {
+    public void jE(String str) {
         this.sn = str;
     }
 

@@ -1,25 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ai extends HttpMessageListener {
-    final /* synthetic */ SquareSearchActivity bzT;
+class ai extends CustomMessageListener {
+    final /* synthetic */ SquareSearchActivity bCE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(SquareSearchActivity squareSearchActivity, int i, boolean z) {
-        super(i, z);
-        this.bzT = squareSearchActivity;
+    public ai(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
+        this.bCE = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.bzT.bzH = true;
-        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
-            this.bzT.a(httpResponsedMessage, !((FrsPageHttpResponseMessage) httpResponsedMessage).hasNetworkError());
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseSearchPersonHistoryReadMessage)) {
+            return;
         }
+        this.bCE.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
     }
 }

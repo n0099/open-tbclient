@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cec;
+    final /* synthetic */ f cih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cec = fVar;
+        this.cih = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,31 +30,31 @@ public class g extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 String errorString = httpResponsedMessage.getErrorString();
-                hVar5 = this.cec.cdX;
-                hVar5.gB(errorString);
+                hVar5 = this.cih.cib;
+                hVar5.he(errorString);
             } else if (error == 0) {
-                this.cec.cdW = ((GetForumResponsed) httpResponsedMessage).listData;
-                hVar2 = this.cec.cdX;
+                this.cih.cia = ((GetForumResponsed) httpResponsedMessage).listData;
+                hVar2 = this.cih.cib;
                 if (hVar2 != null) {
-                    cVar = this.cec.cdW;
+                    cVar = this.cih.cia;
                     if (cVar != null) {
-                        hVar4 = this.cec.cdX;
-                        cVar2 = this.cec.cdW;
+                        hVar4 = this.cih.cib;
+                        cVar2 = this.cih.cia;
                         hVar4.a(cVar2);
                     }
                 }
                 String errorString2 = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString2)) {
-                    errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.y.neterror);
+                    errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.t.neterror);
                 }
-                hVar3 = this.cec.cdX;
-                hVar3.gB(errorString2);
+                hVar3 = this.cih.cib;
+                hVar3.he(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                hVar = this.cec.cdX;
-                hVar.gB(errorString3);
+                hVar = this.cih.cib;
+                hVar.he(errorString3);
             }
-            this.cec.cdY = null;
+            this.cih.cic = null;
         }
     }
 }

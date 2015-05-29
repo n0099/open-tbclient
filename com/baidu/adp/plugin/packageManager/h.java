@@ -8,11 +8,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ g DD;
+    final /* synthetic */ g Dt;
     private String packageName;
 
     public h(g gVar, String str) {
-        this.DD = gVar;
+        this.Dt = gVar;
         this.packageName = str;
     }
 
@@ -22,7 +22,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
         if (this.packageName != null) {
-            bg(this.packageName);
+            bq(this.packageName);
         }
         return true;
     }
@@ -36,10 +36,10 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         super.onPostExecute(bool);
-        this.DD.DB = null;
-        arrayList = this.DD.Ds;
+        this.Dt.Ds = null;
+        arrayList = this.Dt.Dj;
         if (arrayList.size() > 0) {
-            arrayList2 = this.DD.Ds;
+            arrayList2 = this.Dt.Dj;
             Iterator it = arrayList2.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -47,24 +47,24 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
                 }
                 String str = (String) it.next();
                 if (str != null && str.equals(this.packageName)) {
-                    arrayList3 = this.DD.Ds;
+                    arrayList3 = this.Dt.Dj;
                     arrayList3.remove(str);
                     break;
                 }
             }
         }
-        this.DD.ln();
+        this.Dt.lH();
     }
 
-    private void bg(String str) {
+    private void bq(String str) {
         File[] listFiles;
-        File lV = Util.lV();
-        String bC = Util.bC(str);
-        if (lV != null && lV.exists() && (listFiles = lV.listFiles()) != null) {
+        File mo = Util.mo();
+        String bM = Util.bM(str);
+        if (mo != null && mo.exists() && (listFiles = mo.listFiles()) != null) {
             int length = listFiles.length;
             for (int i = 0; i < length; i++) {
-                if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bC)) {
-                    com.baidu.adp.plugin.b.a.lh().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
+                if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bM)) {
+                    com.baidu.adp.plugin.b.a.lB().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
                     com.baidu.adp.lib.util.commonsio.a.g(listFiles[i]);
                 }
             }

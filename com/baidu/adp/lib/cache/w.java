@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public interface w<T> extends t<T> {
-    String gr();
+    String gv();
 
-    s<T> gs();
+    s<T> gw();
 
-    void gt();
+    void gx();
 }

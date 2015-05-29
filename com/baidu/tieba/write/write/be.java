@@ -1,43 +1,41 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.NinePatchDrawable;
+import android.widget.EditText;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements com.baidu.tieba.tbadkCore.location.j {
-    final /* synthetic */ WriteActivity cyx;
+public class be extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ WriteActivity cCP;
+    private final /* synthetic */ boolean cCS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+    public be(WriteActivity writeActivity, boolean z) {
+        this.cCP = writeActivity;
+        this.cCS = z;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void IW() {
-        com.baidu.tieba.write.editor.b bVar;
-        this.cyx.showToast(com.baidu.tieba.y.no_network_guide);
-        bVar = this.cyx.cye;
-        bVar.setLocationInfoViewState(0);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void fH(String str) {
-        com.baidu.tieba.write.editor.b bVar;
-        WriteActivity writeActivity = this.cyx;
-        if (StringUtils.isNull(str)) {
-            str = this.cyx.getPageContext().getString(com.baidu.tieba.y.location_fail);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        EditText editText;
+        EditText editText2;
+        com.baidu.tieba.tbadkCore.c.h hVar;
+        super.a((be) aVar, str, i);
+        if (aVar != null && aVar.mS() != null && aVar.mW() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m411getInst().getResources(), aVar.mS(), aVar.mS().getNinePatchChunk(), aVar.mW(), null);
+            if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
+                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.an.mAlpha);
+            }
+            editText = this.cCP.cAy;
+            editText.setBackgroundDrawable(ninePatchDrawable);
+            if (this.cCS) {
+                WriteActivity writeActivity = this.cCP;
+                editText2 = this.cCP.cAy;
+                hVar = this.cCP.bOz;
+                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, editText2, true, hVar);
+            }
         }
-        writeActivity.showToast(str);
-        bVar = this.cyx.cye;
-        bVar.setLocationInfoViewState(0);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        com.baidu.tieba.write.editor.b bVar;
-        if (aVar != null && !StringUtils.isNull(aVar.anm())) {
-            bVar = this.cyx.cye;
-            bVar.B(2, aVar.anm());
-            return;
-        }
-        fH(null);
     }
 }

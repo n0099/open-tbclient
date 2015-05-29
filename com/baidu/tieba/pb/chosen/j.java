@@ -1,36 +1,30 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
-import com.baidu.tieba.y;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bGl;
+public class j implements View.OnClickListener {
+    final /* synthetic */ h bJc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(PbChosenActivity pbChosenActivity, int i, int i2) {
-        super(i, i2);
-        this.bGl = pbChosenActivity;
+    public j(h hVar) {
+        this.bJc = hVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.pb.chosen.a.e eVar;
-        com.baidu.tieba.pb.chosen.a.e eVar2;
-        if (responsedMessage != null) {
-            eVar = this.bGl.bFX;
-            eVar.YQ();
-            if (responsedMessage.hasError()) {
-                this.bGl.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bGl.getResources().getString(y.neterror) : responsedMessage.getErrorString());
-                return;
-            }
-            Object extra = responsedMessage.getOrginalMessage().getExtra();
-            if (extra instanceof ChosenZanNetMessage) {
-                eVar2 = this.bGl.bFX;
-                eVar2.dB(((ChosenZanNetMessage) extra).isPraise());
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbChosenActivity pbChosenActivity;
+        PbChosenActivity pbChosenActivity2;
+        PbChosenActivity pbChosenActivity3;
+        pbChosenActivity = this.bJc.bJb;
+        pbChosenActivity.sendMessage(new CustomMessage(2001284));
+        pbChosenActivity2 = this.bJc.bJb;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23007)));
+        pbChosenActivity3 = this.bJc.bJb;
+        TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
     }
 }

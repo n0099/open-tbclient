@@ -11,7 +11,7 @@ public interface l {
 
     void j(AccountData accountData);
 
-    AccountData rz();
+    AccountData sj();
 
-    void ur();
+    void va();
 }

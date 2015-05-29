@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements com.baidu.adp.widget.BdSwitchView.b, x {
-    private y bpX;
-    private s bpY;
-    private com.baidu.adp.framework.listener.e bpZ = new g(this, 104102);
+    private y bsC;
+    private s bsD;
+    private com.baidu.adp.framework.listener.e bsE = new g(this, 104102);
     private long userId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,17 +21,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         super.onCreate(bundle);
         initView();
         initData(bundle);
-        registerListener(205003, this.bpY.Uo());
-        registerListener(104102, this.bpY.Uo());
-        registerListener(2001118, this.bpY.Up());
-        registerListener(this.bpZ);
+        registerListener(205003, this.bsD.VF());
+        registerListener(104102, this.bsD.VF());
+        registerListener(2001118, this.bsD.VG());
+        registerListener(this.bsE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.bpY.onDestory();
+        this.bsD.onDestory();
     }
 
     @Override // android.app.Activity
@@ -46,49 +46,50 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         } else {
             this.userId = bundle.getLong("userId");
         }
-        this.bpY = new s(this, this, this.userId);
+        this.bsD = new s(this, this, this.userId);
     }
 
     private void initView() {
-        this.bpX = new y(this);
-        this.bpX.a(this);
+        this.bsC = new y(this);
+        this.bsC.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().X(i == 1);
-        this.bpX.onChangeSkinType(i);
+        getLayoutMode().ab(i == 1);
+        this.bsC.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.v.user_info_lin) {
-            if (this.bpY != null && this.bpY.Um() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.bpY.Um().name)));
+        if (id == com.baidu.tieba.q.user_info_lin) {
+            if (this.bsD != null && this.bsD.VD() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.bsD.VD().name)));
             }
-        } else if (id == com.baidu.tieba.v.remove_from_black_man) {
+        } else if (id == com.baidu.tieba.q.remove_from_black_man) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar.ca(getPageContext().getContext().getString(com.baidu.tieba.y.add_black_alert, this.bpY.Um().name)).a(com.baidu.tieba.y.alert_yes_button, new i(this)).b(com.baidu.tieba.y.alert_no_button, new j(this)).b(getPageContext());
-            aVar.re();
-        } else if (id == com.baidu.tieba.v.st_delete_talk_history) {
+            aVar.cn(getPageContext().getContext().getString(com.baidu.tieba.t.add_black_alert, this.bsD.VD().name)).a(com.baidu.tieba.t.alert_yes_button, new i(this)).b(com.baidu.tieba.t.alert_no_button, new j(this)).b(getPageContext());
+            aVar.rL();
+        } else if (id == com.baidu.tieba.q.st_delete_talk_history) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar2.ca(getPageContext().getContext().getString(com.baidu.tieba.y.remove_personal_history, this.bpY.Um().name)).a(com.baidu.tieba.y.alert_yes_button, new k(this)).b(com.baidu.tieba.y.alert_no_button, new n(this)).b(getPageContext());
-            aVar2.re();
-        } else if (id == com.baidu.tieba.v.add_to_black) {
+            aVar2.cn(getPageContext().getContext().getString(com.baidu.tieba.t.remove_personal_history)).a(com.baidu.tieba.t.alert_yes_button, new k(this)).b(com.baidu.tieba.t.alert_no_button, new n(this)).b(getPageContext());
+            aVar2.rL();
+        } else if (id == com.baidu.tieba.q.add_to_black) {
             com.baidu.tbadk.core.dialog.a aVar3 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar3.ca(getPageContext().getContext().getString(com.baidu.tieba.y.remove_black_alert, this.bpY.Um().name)).a(com.baidu.tieba.y.alert_yes_button, new o(this)).b(com.baidu.tieba.y.alert_no_button, new p(this)).b(getPageContext());
-            aVar3.re();
+            aVar3.cm(getPageContext().getContext().getString(com.baidu.tieba.t.sure_add_somebody_to_black, this.bsD.VD().name));
+            aVar3.cn(getPageContext().getContext().getString(com.baidu.tieba.t.remove_black_alert)).a(com.baidu.tieba.t.alert_yes_button, new o(this)).b(com.baidu.tieba.t.alert_no_button, new p(this)).b(getPageContext());
+            aVar3.rL();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.personaltalk.x
-    public void tM() {
+    public void uv() {
         closeLoadingDialog();
-        if (this.bpX != null && this.bpY != null) {
-            this.bpX.e(this.bpY);
+        if (this.bsC != null && this.bsD != null) {
+            this.bsC.e(this.bsD);
         }
     }
 
@@ -96,35 +97,38 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void a(View view, BdSwitchView.SwitchState switchState) {
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         if (z) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.vw().vy() || !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vE()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.wg().wi() || !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wo()) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-                aVar.bx(com.baidu.tieba.y.error_open_personal_single_alloff);
-                aVar.c(getResources().getString(com.baidu.tieba.y.group_create_private_isee), new q(this, aVar));
+                aVar.bu(com.baidu.tieba.t.error_open_personal_single_alloff);
+                aVar.b(getResources().getString(com.baidu.tieba.t.group_create_private_isee), new q(this, aVar));
                 aVar.b(getPageContext());
-                aVar.re();
-                c(false, z);
+                aVar.rL();
+                d(false, z);
                 return;
             }
             showLoadingDialog(null);
-            this.bpY.de(z);
+            this.bsD.dq(z);
             return;
         }
         showLoadingDialog(null);
-        this.bpY.de(z);
+        this.bsD.dq(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(boolean z, boolean z2) {
+    public void d(boolean z, boolean z2) {
         if (z) {
-            boolean Ul = this.bpY.Ul();
-            this.bpY.dd(z2);
+            boolean VC = this.bsD.VC();
+            this.bsD.dp(z2);
+            if (z2) {
+                this.bsC.ds(true);
+            }
             new r(this, z2).execute(new Void[0]);
-            if (Ul != this.bpY.Ul()) {
+            if (VC != this.bsD.VC()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.g.i.hI().postDelayed(new h(this, z2), 500L);
+        com.baidu.adp.lib.g.i.hs().postDelayed(new h(this, z2), 500L);
     }
 }

@@ -4,21 +4,21 @@ import android.content.Context;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class af implements Runnable {
-    final /* synthetic */ ad Iq;
-    private int Ir;
+    final /* synthetic */ ad Ig;
+    private int Ih;
     private Scroller mScroller;
 
     public af(ad adVar, Context context) {
-        this.Iq = adVar;
+        this.Ig = adVar;
         this.mScroller = new Scroller(context);
     }
 
-    private void nc() {
-        if (this.Iq.mHandler != null) {
-            this.Iq.mHandler.removeCallbacks(this.Iq.Ip);
+    private void nt() {
+        if (this.Ig.mHandler != null) {
+            this.Ig.mHandler.removeCallbacks(this.Ig.If);
         }
-        if (this.Iq.mView != null) {
-            this.Iq.mView.removeCallbacks(this);
+        if (this.Ig.mView != null) {
+            this.Ig.mView.removeCallbacks(this);
         }
     }
 
@@ -26,61 +26,61 @@ public class af implements Runnable {
     public void run() {
         boolean move;
         boolean z = true;
-        if (this.Iq.mView != null && this.mScroller != null) {
+        if (this.Ig.mView != null && this.mScroller != null) {
             boolean computeScrollOffset = this.mScroller.computeScrollOffset();
-            if (this.mScroller.timePassed() >= this.Iq.mDuration) {
+            if (this.mScroller.timePassed() >= this.Ig.mDuration) {
                 computeScrollOffset = false;
             }
             int currY = this.mScroller.getCurrY();
-            int i = currY - this.Ir;
+            int i = currY - this.Ih;
             if (computeScrollOffset) {
                 if (i != 0) {
-                    move = this.Iq.move(i);
+                    move = this.Ig.move(i);
                     r1 = move ? false : true;
-                    this.Ir = currY;
+                    this.Ih = currY;
                 }
                 z = r1;
                 if (!z) {
-                    this.Iq.mView.post(this);
+                    this.Ig.mView.post(this);
                 }
             }
             if (z) {
-                this.Iq.mHandler.removeCallbacks(this.Iq.Ip);
-                this.Iq.mHandler.post(this.Iq.Ip);
+                this.Ig.mHandler.removeCallbacks(this.Ig.If);
+                this.Ig.mHandler.post(this.Ig.If);
             }
         }
     }
 
     public void h(int i, int i2) {
-        if (this.Iq.mView != null && this.mScroller != null) {
+        if (this.Ig.mView != null && this.mScroller != null) {
             int i3 = i == 0 ? i - 1 : i;
-            nc();
-            this.Ir = 0;
+            nt();
+            this.Ih = 0;
             this.mScroller.startScroll(0, 0, 0, i3, i2);
-            this.Iq.mView.post(this);
+            this.Ig.mView.post(this);
         }
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.ae.run():void] */
     public static /* synthetic */ void a(af afVar) {
-        afVar.nd();
+        afVar.nu();
     }
 
-    public void nd() {
+    public void nu() {
         com.baidu.adp.widget.ScrollView.g gVar;
         com.baidu.adp.widget.ScrollView.g gVar2;
-        this.Iq.mHandler.removeCallbacks(this.Iq.Ip);
+        this.Ig.mHandler.removeCallbacks(this.Ig.If);
         if (this.mScroller != null) {
             this.mScroller.abortAnimation();
             this.mScroller.forceFinished(true);
         }
-        if (this.Iq.mView != null) {
-            this.Iq.mView.removeCallbacks(this);
+        if (this.Ig.mView != null) {
+            this.Ig.mView.removeCallbacks(this);
         }
-        gVar = this.Iq.Im;
+        gVar = this.Ig.Ic;
         if (gVar != null) {
-            gVar2 = this.Iq.Im;
-            gVar2.nb();
+            gVar2 = this.Ig.Ic;
+            gVar2.ns();
         }
     }
 }

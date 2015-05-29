@@ -5,46 +5,46 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class x {
-    private String QM;
-    private String QN;
-    private String QO;
-    private int QP;
-    private String QR;
-    private long QS;
+    private String Ri;
+    private String Rj;
+    private String Rk;
+    private int Rl;
+    private String Rm;
+    private long Rn;
     private String summary;
 
-    public String qA() {
-        return this.QM;
+    public String rg() {
+        return this.Ri;
     }
 
     public String getSummary() {
         return this.summary;
     }
 
-    public String qV() {
-        return this.QO;
+    public String rB() {
+        return this.Rk;
     }
 
-    public int qW() {
-        return this.QP;
+    public int rC() {
+        return this.Rl;
     }
 
-    public String qX() {
-        return this.QR;
+    public String rD() {
+        return this.Rm;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
-            this.QM = topCode.img_url;
-            this.QN = topCode.game_link;
+            this.Ri = topCode.img_url;
+            this.Rj = topCode.game_link;
             this.summary = topCode.summary;
-            this.QO = topCode.code_link;
-            this.QP = topCode.get_type.intValue();
-            this.QR = topCode.surplusgift;
+            this.Rk = topCode.code_link;
+            this.Rl = topCode.get_type.intValue();
+            this.Rm = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.QS = 0L;
+                this.Rn = 0L;
             } else {
-                this.QS = topCode.giftworth.longValue();
+                this.Rn = topCode.giftworth.longValue();
             }
         }
     }
@@ -52,13 +52,13 @@ public class x {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.QM = jSONObject.optString("img_url");
-                this.QN = jSONObject.optString("game_link");
+                this.Ri = jSONObject.optString("img_url");
+                this.Rj = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.QO = jSONObject.optString("code_link");
-                this.QP = jSONObject.optInt("get_type", 1);
-                this.QR = jSONObject.optString("surplusgift");
-                this.QS = jSONObject.optLong("giftworth", 0L);
+                this.Rk = jSONObject.optString("code_link");
+                this.Rl = jSONObject.optInt("get_type", 1);
+                this.Rm = jSONObject.optString("surplusgift");
+                this.Rn = jSONObject.optLong("giftworth", 0L);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

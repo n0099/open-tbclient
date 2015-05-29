@@ -1,32 +1,16 @@
 package com.baidu.tieba.mainentrance;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-            return null;
-        }
-        RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null) {
-            currentAccount = "";
-        }
-        com.baidu.adp.lib.cache.t<String> S = com.baidu.tbadk.core.b.a.rc().S("tb.searchperson_history", currentAccount);
-        if (requestSearchPersonHistoryWriteMessage.isClear()) {
-            BdCacheService.gp().a(S);
-        } else {
-            Object data = requestSearchPersonHistoryWriteMessage.getData();
-            if (data == null || !(data instanceof String)) {
-                return null;
-            }
-            S.f((String) data, null);
-        }
-        return new ResponseSearchPersonHistoryWriteMessage();
+public class o implements com.baidu.tieba.view.d {
+    final /* synthetic */ SquareSearchActivity bCE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(SquareSearchActivity squareSearchActivity) {
+        this.bCE = squareSearchActivity;
+    }
+
+    @Override // com.baidu.tieba.view.d
+    public void dC(boolean z) {
+        this.bCE.bCn = z;
     }
 }

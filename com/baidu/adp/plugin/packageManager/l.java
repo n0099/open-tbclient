@@ -13,12 +13,12 @@ public class l implements d {
     }
 
     @Override // com.baidu.adp.plugin.packageManager.d
-    public void J(String str, String str2) {
+    public void L(String str, String str2) {
         PluginSetting findPluginSetting;
         boolean z;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.lP().findPluginSetting(str)) != null) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.mi().findPluginSetting(str)) != null) {
             if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
-                com.baidu.adp.plugin.packageManager.pluginSettings.h.lP().bx(str);
+                com.baidu.adp.plugin.packageManager.pluginSettings.h.mi().bH(str);
             } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
                 String[] split = findPluginSetting.getAbandon_apk_path().split(",");
                 String str3 = "";
@@ -30,9 +30,9 @@ public class l implements d {
                         str3 = String.valueOf(str3) + str4;
                     }
                 }
-                com.baidu.adp.plugin.packageManager.pluginSettings.h lP = com.baidu.adp.plugin.packageManager.pluginSettings.h.lP();
-                z = this.this$0.DH;
-                lP.b(str, str3, z);
+                com.baidu.adp.plugin.packageManager.pluginSettings.h mi = com.baidu.adp.plugin.packageManager.pluginSettings.h.mi();
+                z = this.this$0.Dx;
+                mi.b(str, str3, z);
             }
         }
     }

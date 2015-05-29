@@ -16,11 +16,7 @@ class h extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ai aiVar;
-        if (customResponsedMessage != null) {
-            aiVar = this.this$0.crl;
-            aiVar.iH(0);
-            MainTabActivity.cre = false;
-        }
+        this.this$0.mHasNewVersion = false;
+        this.this$0.fl(false);
     }
 }

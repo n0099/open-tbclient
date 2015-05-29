@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PluginDownloadActivityConfig extends a {
+public class PluginDownloadActivityConfig extends c {
     public static final String PLUGIN_CONFIG = "plugin_config";
 
     public PluginDownloadActivityConfig(Context context, PluginNetConfigInfos.PluginConfig pluginConfig) {

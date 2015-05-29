@@ -3,16 +3,15 @@ package com.baidu.tieba.addresslist.im.searchfriend;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.addresslist.im.searchfriend.cache.RequestRecommendWriteMessage;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ SearchFriendActivity azf;
+    final /* synthetic */ SearchFriendActivity aAQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.azf = searchFriendActivity;
+        this.aAQ = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,13 +20,13 @@ class b extends com.baidu.adp.framework.listener.e {
         n nVar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304106) {
             if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponsedRecommendMessage)) {
-                this.azf.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.azf.getResources().getString(y.neterror) : socketResponsedMessage.getErrorString(), false);
+                this.aAQ.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.aAQ.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString(), false);
                 return;
             }
             com.baidu.tieba.addresslist.im.searchfriend.a.a recommendFriendInfo = ((ResponsedRecommendMessage) socketResponsedMessage).getRecommendFriendInfo();
-            nVar = this.azf.ayX;
+            nVar = this.aAQ.aAI;
             nVar.a(recommendFriendInfo);
-            this.azf.sendMessage(new RequestRecommendWriteMessage(recommendFriendInfo));
+            this.aAQ.sendMessage(new RequestRecommendWriteMessage(recommendFriendInfo));
         }
     }
 }

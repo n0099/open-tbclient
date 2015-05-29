@@ -2,7 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 class y extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,12 +16,17 @@ class y extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> zT;
-        ai aiVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (zT = ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).zT()) != null && zT.size() != 0) {
-            aiVar = this.this$0.crl;
-            aiVar.Z(zT);
-            this.this$0.X(this.this$0.getIntent());
+        aj ajVar;
+        aj ajVar2;
+        if (customResponsedMessage != null) {
+            this.this$0.aqb();
+            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
+                this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
+            }
+            ajVar = this.this$0.cvr;
+            ajVar.aqw().aqz();
+            ajVar2 = this.this$0.cvr;
+            ajVar2.aqr();
         }
     }
 }

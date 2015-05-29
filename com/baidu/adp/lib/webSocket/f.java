@@ -5,17 +5,17 @@ import java.nio.ByteBuffer;
 public interface f {
     void close();
 
-    String iX();
-
-    String iY();
-
     boolean isConnected();
 
+    String jE();
+
+    long jF();
+
+    int jG();
+
+    String jm();
+
     String jn();
-
-    long jo();
-
-    int jp();
 
     int read(ByteBuffer byteBuffer);
 

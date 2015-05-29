@@ -10,9 +10,9 @@ public abstract class b extends ViewGroup {
 
     public abstract VoiceData.VoiceModel getVoiceModel();
 
-    public abstract void of();
-
     public abstract void onStopingRecorder();
+
+    public abstract void ov();
 
     public abstract void reset();
 

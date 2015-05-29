@@ -5,15 +5,15 @@ import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements com.baidu.tieba.im.g<PersonalSettingItemData> {
-    private final /* synthetic */ long ayj;
-    final /* synthetic */ s bqi;
-    private final /* synthetic */ PersonalTalkSettingActivity bqj;
+    private final /* synthetic */ long azU;
+    final /* synthetic */ s bsN;
+    private final /* synthetic */ PersonalTalkSettingActivity bsO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(s sVar, long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.bqi = sVar;
-        this.ayj = j;
-        this.bqj = personalTalkSettingActivity;
+        this.bsN = sVar;
+        this.azU = j;
+        this.bsO = personalTalkSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ public class w implements com.baidu.tieba.im.g<PersonalSettingItemData> {
     /* renamed from: a */
     public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
         if (personalSettingItemData != null) {
-            this.bqi.bqe = personalSettingItemData.isAcceptNotify();
+            this.bsN.bsJ = personalSettingItemData.isAcceptNotify();
         }
         RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-        requestQueryUserInfoMessage.setReqUserId(this.ayj);
-        this.bqj.sendMessage(requestQueryUserInfoMessage);
+        requestQueryUserInfoMessage.setReqUserId(this.azU);
+        this.bsO.sendMessage(requestQueryUserInfoMessage);
     }
 }

@@ -4,23 +4,23 @@ import com.baidu.adp.framework.client.socket.l;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.ad;
+import com.baidu.adp.lib.util.ae;
 import com.baidu.adp.lib.util.g;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class b {
-    private static b pK = null;
+    private static b pP = null;
 
-    public static b eH() {
-        if (pK == null) {
+    public static b eK() {
+        if (pP == null) {
             synchronized (b.class) {
-                if (pK == null) {
-                    pK = new b();
+                if (pP == null) {
+                    pP = new b();
                 }
             }
         }
-        return pK;
+        return pP;
     }
 
     private b() {
@@ -36,57 +36,57 @@ public class b {
                 encodeInBackGround = c(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = ad.a(d.eI().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = ae.a(d.eL().getSecretKey(), encodeInBackGround);
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
         } catch (Throwable th) {
-            throw new CoderException(l.oY);
+            throw new CoderException(l.pf);
         }
     }
 
     public c a(c cVar) {
-        if (cVar == null || cVar.pL == null || cVar.pM == null) {
-            throw new CoderException(l.oO);
+        if (cVar == null || cVar.pQ == null || cVar.pR == null) {
+            throw new CoderException(l.oT);
         }
-        a aVar = cVar.pL;
-        if (aVar.eF() && cVar.pO > 0) {
-            if (d.eI().getSecretKey() == null) {
-                throw new CoderException(l.oV);
+        a aVar = cVar.pQ;
+        if (aVar.eI() && cVar.pT > 0) {
+            if (d.eL().getSecretKey() == null) {
+                throw new CoderException(l.pa);
             }
             try {
-                cVar.pM = ad.a(d.eI().getSecretKey(), cVar.pM, cVar.pN, cVar.pO);
-                cVar.pN = 0;
-                cVar.pO = cVar.pM.length;
+                cVar.pR = ae.a(d.eL().getSecretKey(), cVar.pR, cVar.pS, cVar.pT);
+                cVar.pS = 0;
+                cVar.pT = cVar.pR.length;
             } catch (Exception e) {
-                throw new CoderException(l.oX);
+                throw new CoderException(l.pe);
             }
         }
-        if (aVar.eD() && cVar.pO > 0) {
+        if (aVar.eG() && cVar.pT > 0) {
             try {
-                cVar.pM = b(cVar.pM, cVar.pN, cVar.pO);
-                cVar.pN = 0;
-                cVar.pO = cVar.pM.length;
+                cVar.pR = b(cVar.pR, cVar.pS, cVar.pT);
+                cVar.pS = 0;
+                cVar.pT = cVar.pR.length;
             } catch (Exception e2) {
-                throw new CoderException(l.oU);
+                throw new CoderException(l.oZ);
             }
         }
         return cVar;
     }
 
     public c h(byte[] bArr) {
-        int eC = a.eC();
-        if (bArr == null || bArr.length < eC) {
-            throw new CoderException(l.oO);
+        int eF = a.eF();
+        if (bArr == null || bArr.length < eF) {
+            throw new CoderException(l.oT);
         }
         a f = a.f(bArr);
         if (f == null) {
-            throw new CoderException(l.oO);
+            throw new CoderException(l.oT);
         }
         c cVar = new c();
-        cVar.pL = f;
-        cVar.pM = bArr;
-        cVar.pN = eC;
-        cVar.pO = bArr.length - eC;
+        cVar.pQ = f;
+        cVar.pR = bArr;
+        cVar.pS = eF;
+        cVar.pT = bArr.length - eF;
         return cVar;
     }
 
@@ -103,7 +103,7 @@ public class b {
             newInstance.decodeInBackGround(i, bArr);
             return newInstance;
         } catch (Throwable th) {
-            throw new CoderException(l.oR);
+            throw new CoderException(l.oW);
         }
     }
 

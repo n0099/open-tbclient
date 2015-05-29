@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class UpdateGroupActivityConfig extends a {
+public class UpdateGroupActivityConfig extends c {
     public static final String EDIT_TYPE = "edit_type";
     public static final String GROUP_TEXT = "group_text";
 

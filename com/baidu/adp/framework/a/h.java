@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.a;
 /* loaded from: classes.dex */
-public abstract class h<T> extends com.baidu.adp.framework.c {
+public abstract class h<T> extends com.baidu.adp.framework.d {
     private int mCmd;
 
     public h(int i) {

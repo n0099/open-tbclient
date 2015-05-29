@@ -10,71 +10,71 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements com.baidu.adp.widget.BdSwitchView.b {
-    private bb ccl = null;
-    private ay ccm = null;
+    private bc cgO = null;
+    private az cgP = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ccl = new bb(this);
-        this.ccm = new ay(this);
+        this.cgO = new bc(this);
+        this.cgP = new az(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.ccl.aif().ma();
+            this.cgO.ajW().mt();
         } else {
-            this.ccl.aif().mb();
+            this.cgO.ajW().mu();
         }
-        this.ccl.aig().setTip(getPageContext().getString(com.baidu.tieba.y.calc_cache_size));
-        this.ccl.aig().displayTip();
-        this.ccm.a(new as(this, this));
-        registerListener(new at(this, 2008016));
+        this.cgO.ajX().setTip(getPageContext().getString(com.baidu.tieba.t.calc_cache_size));
+        this.cgO.ajX().displayTip();
+        this.cgP.a(new at(this, this));
+        registerListener(new au(this, 2008016));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.ccm != null) {
-            this.ccm.aie();
+        if (this.cgP != null) {
+            this.cgP.ajV();
         }
-        agz();
+        ais();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ccl.onChangeSkinType(i);
+        this.cgO.onChangeSkinType(i);
     }
 
-    private void agz() {
-        this.ccl.aii().refresh();
+    private void ais() {
+        this.cgO.ajZ().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ccl.aig()) {
-            if (this.ccm != null) {
-                if (TextUtils.isEmpty(this.ccl.aig().getTip())) {
-                    showToast(com.baidu.tieba.y.no_cache_delete);
+        if (view == this.cgO.ajX()) {
+            if (this.cgP != null) {
+                if (TextUtils.isEmpty(this.cgO.ajX().getTip())) {
+                    showToast(com.baidu.tieba.t.no_cache_delete);
                 } else {
-                    new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bw(com.baidu.tieba.y.alert_title).ac(false).bx(com.baidu.tieba.y.alert_clear_all_cache).a(com.baidu.tieba.y.alert_yes_button, new au(this)).b(com.baidu.tieba.y.alert_no_button, new av(this)).b(getPageContext()).re();
+                    new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bu(com.baidu.tieba.t.alert_clear_all_cache).a(com.baidu.tieba.t.alert_yes_button, new av(this)).b(com.baidu.tieba.t.alert_no_button, new aw(this)).b(getPageContext()).rL();
                 }
             }
-        } else if (view == this.ccl.aih()) {
-            new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bw(com.baidu.tieba.y.alert_title).ac(false).bx(com.baidu.tieba.y.alert_clear_cache).a(com.baidu.tieba.y.alert_yes_button, new aw(this)).b(com.baidu.tieba.y.alert_no_button, new ax(this)).b(getPageContext()).re();
-        } else if (view == this.ccl.aii()) {
+        } else if (view == this.cgO.ajY()) {
+            new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bu(com.baidu.tieba.t.alert_clear_cache).a(com.baidu.tieba.t.alert_yes_button, new ax(this)).b(com.baidu.tieba.t.alert_no_button, new ay(this)).b(getPageContext()).rL();
+        } else if (view == this.cgO.ajZ()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.b
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.ccl.aif())) {
+        if (view != null && view.equals(this.cgO.ajW())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.ccm.setHeadsetModeOn(true);
+                this.cgP.setHeadsetModeOn(true);
             } else {
-                this.ccm.setHeadsetModeOn(false);
+                this.cgP.setHeadsetModeOn(false);
             }
         }
     }

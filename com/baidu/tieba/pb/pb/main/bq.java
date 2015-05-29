@@ -1,34 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.am;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class bq<T, V extends com.baidu.adp.widget.ListView.am> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity bIT;
-    protected boolean mIsFromCDN;
-    protected ListView mListView;
-    protected int mSkinType;
+public class bq implements Runnable {
+    final /* synthetic */ bp bLQ;
+    private final /* synthetic */ PbPageReadLocalResponseMessage bLR;
+    private final /* synthetic */ com.baidu.tieba.pb.a.b bLS;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bq(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        this.bIT = pbActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bq(bp bpVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.a.b bVar) {
+        this.bLQ = bpVar;
+        this.bLR = pbPageReadLocalResponseMessage;
+        this.bLS = bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.mListView = (ListView) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
+    @Override // java.lang.Runnable
+    public void run() {
+        bo boVar;
+        bs bsVar;
+        bo boVar2;
+        bs bsVar2;
+        boVar = this.bLQ.bLP;
+        bsVar = boVar.bLI;
+        bsVar.a(true, 0, this.bLR.getUpdateType(), 0, this.bLS, this.bLR.getErrorString(), 0);
+        boVar2 = this.bLQ.bLP;
+        bsVar2 = boVar2.bLI;
+        bsVar2.dR(false);
     }
 }

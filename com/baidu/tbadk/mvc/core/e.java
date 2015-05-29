@@ -9,6 +9,8 @@ import com.baidu.tbadk.mvc.core.a;
 import com.baidu.tbadk.mvc.core.c;
 /* loaded from: classes.dex */
 public interface e<V extends c, M extends a, T> extends View.OnClickListener, TbPageContextSupport<T> {
+    ViewEventCenter AL();
+
     LayoutInflater getLayoutInflater();
 
     com.baidu.tbadk.core.c getLayoutMode();
@@ -17,11 +19,9 @@ public interface e<V extends c, M extends a, T> extends View.OnClickListener, Tb
 
     BdUniqueId getUniqueId();
 
-    M oi();
+    V oA();
 
-    V ok();
+    M oy();
 
     void showLoadingView(View view);
-
-    ViewEventCenter zZ();
 }

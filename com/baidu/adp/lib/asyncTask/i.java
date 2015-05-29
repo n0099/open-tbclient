@@ -5,13 +5,13 @@ import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class i extends j {
-    final /* synthetic */ f sA;
+    final /* synthetic */ f sL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(f fVar, k kVar) {
         super(kVar);
-        this.sA = fVar;
+        this.sL = fVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4] */
@@ -33,11 +33,11 @@ class i extends j {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            fT();
+            fX();
         } finally {
             if (!isSelfExecute()) {
-                handler = this.sA.mHandler;
-                handler2 = this.sA.mHandler;
+                handler = this.sL.mHandler;
+                handler2 = this.sL.mHandler;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

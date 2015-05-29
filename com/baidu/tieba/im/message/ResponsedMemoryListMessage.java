@@ -8,7 +8,7 @@ public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMe
     private int type;
 
     public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i) {
-        super(2016006, list);
+        super(2016007, list);
         this.type = i;
     }
 

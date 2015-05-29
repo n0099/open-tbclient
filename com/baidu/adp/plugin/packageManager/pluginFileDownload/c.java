@@ -3,46 +3,46 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c DZ;
-    private b Ea;
+    private static volatile c DP;
+    private b DQ;
 
-    public static c lH() {
-        if (DZ == null) {
+    public static c ma() {
+        if (DP == null) {
             synchronized (c.class) {
-                if (DZ == null) {
-                    DZ = new c();
+                if (DP == null) {
+                    DP = new c();
                 }
             }
         }
-        return DZ;
+        return DP;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.Ea != null) {
+        if (bdFileDownloadData != null && this.DQ != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.Ea.h(bdFileDownloadData);
+            this.DQ.h(bdFileDownloadData);
         }
     }
 
-    public void bt(String str) {
-        if (this.Ea != null) {
-            this.Ea.bs(str);
+    public void bD(String str) {
+        if (this.DQ != null) {
+            this.DQ.bC(str);
         }
     }
 
     public void a(b bVar) {
-        this.Ea = bVar;
+        this.DQ = bVar;
     }
 
-    public boolean bq(String str) {
+    public boolean bA(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.Ea != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.Ea.lG()) {
+        if (this.DQ != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.DQ.lZ()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

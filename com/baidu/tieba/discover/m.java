@@ -1,35 +1,22 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.discover.data.a, BaseFragmentActivity> {
-    public m(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        super(tbPageContext);
+public class m extends CustomMessageListener {
+    final /* synthetic */ a aDS;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(a aVar, int i) {
+        super(i);
+        this.aDS = aVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.a.b
-    public Class<com.baidu.tieba.discover.data.a> zU() {
-        return com.baidu.tieba.discover.data.a.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.a.b
-    public String zX() {
-        return "FoundNewCache";
-    }
-
-    @Override // com.baidu.tbadk.mvc.a.b
-    public int zV() {
-        return 2016201;
-    }
-
-    @Override // com.baidu.tbadk.mvc.a.b
-    public int zW() {
-        return 2016202;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean AP() {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.aDS.bA(false);
     }
 }

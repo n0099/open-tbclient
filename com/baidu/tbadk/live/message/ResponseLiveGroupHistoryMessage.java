@@ -27,7 +27,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
         if (queryLiveGroupHistoryResIdl.error != null) {
             setError(queryLiveGroupHistoryResIdl.error.errorno.intValue());
             setErrorString(queryLiveGroupHistoryResIdl.error.usermsg);
-            if (getError() == 0 && queryLiveGroupHistoryResIdl.data != null) {
+            if (getError() == 0 && queryLiveGroupHistoryResIdl.data != null && queryLiveGroupHistoryResIdl.data.group != null) {
                 this.liveGroupHistoryData = new LiveGroupHistoryData();
                 this.liveGroupHistoryData.setHasMore(queryLiveGroupHistoryResIdl.data.hasMore.intValue());
                 LiveCardData liveCardData = new LiveCardData();
@@ -47,6 +47,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
                 liveCardData.setPublisherId(queryLiveGroupHistoryResIdl.data.group.publisherId.intValue());
                 liveCardData.setPublisherName(queryLiveGroupHistoryResIdl.data.group.publisherName);
                 liveCardData.setPublisherPortrait(queryLiveGroupHistoryResIdl.data.group.publisherPortrait);
+                liveCardData.setIsVip(queryLiveGroupHistoryResIdl.data.group.isVip.intValue());
                 liveCardData.setStartTime(queryLiveGroupHistoryResIdl.data.group.startTime.intValue());
                 liveCardData.setStatus(queryLiveGroupHistoryResIdl.data.group.status.intValue());
                 liveCardData.setStreamId(queryLiveGroupHistoryResIdl.data.group.streamId);

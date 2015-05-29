@@ -1,27 +1,34 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements TextWatcher {
-    final /* synthetic */ WriteActivity cyx;
+public class bc implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+        this.cCP = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.cyx.aqP();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        TbEditorToolButtonContainer tbEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            tbEditorToolButtonContainer = this.cCP.cCx;
+            tbEditorToolButtonContainer.ane();
+            editorToolComponetContainer = this.cCP.cqO;
+            editText = this.cCP.cAy;
+            editorToolComponetContainer.ab(editText);
+            return false;
+        }
+        return false;
     }
 }

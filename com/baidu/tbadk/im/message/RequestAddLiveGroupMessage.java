@@ -7,6 +7,7 @@ import protobuf.AddLiveGroup.DataReq;
 public class RequestAddLiveGroupMessage extends TbSocketMessage {
     public int forumId;
     public int groupType;
+    public int labelId;
     public String name;
     public int publisherId;
     public String publisherName;
@@ -23,6 +24,7 @@ public class RequestAddLiveGroupMessage extends TbSocketMessage {
         builder.groupType = Integer.valueOf(this.groupType);
         builder.publisherName = this.publisherName;
         builder.publisherId = Integer.valueOf(this.publisherId);
+        builder.labelId = Integer.valueOf(this.labelId);
         AddLiveGroupReqIdl.Builder builder2 = new AddLiveGroupReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

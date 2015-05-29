@@ -5,18 +5,18 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskMessage;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.adp.base.f<MsgRemindActivity> {
-    private am cbp;
-    private MsgRemindActivity cbu;
-    private com.baidu.adp.framework.listener.e cbv;
-    private com.baidu.adp.framework.listener.e cbw;
+    private am cfR;
+    private MsgRemindActivity cfW;
+    private com.baidu.adp.framework.listener.e cfX;
+    private com.baidu.adp.framework.listener.e cfY;
 
     public aj(MsgRemindActivity msgRemindActivity) {
         super(msgRemindActivity.getPageContext());
-        this.cbv = new ak(this, 104102);
-        this.cbw = new al(this, 104101);
-        this.cbu = msgRemindActivity;
-        registerListener(this.cbw);
-        registerListener(this.cbv);
+        this.cfX = new ak(this, 104102);
+        this.cfY = new al(this, 104101);
+        this.cfW = msgRemindActivity;
+        registerListener(this.cfY);
+        registerListener(this.cfX);
     }
 
     @Override // com.baidu.adp.base.f
@@ -31,7 +31,7 @@ public class aj extends com.baidu.adp.base.f<MsgRemindActivity> {
 
     public void a(int i, boolean z, am amVar) {
         if (i == 14 || i == 2 || i == 3 || i == 4 || i == 5 || i == 1 || i == 23 || i == 6) {
-            this.cbp = amVar;
+            this.cfR = amVar;
             if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -42,41 +42,41 @@ public class aj extends com.baidu.adp.base.f<MsgRemindActivity> {
                 requestUpdateMaskInfoMessage.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage);
             }
-            this.cbu.showProgressBar();
+            this.cfW.showProgressBar();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, boolean z, boolean z2, String str) {
         if (z) {
-            this.cbu.showToast(this.cbu.getResources().getString(com.baidu.tieba.y.success));
-            if (this.cbp != null) {
-                this.cbp.a(i, true, z2);
+            this.cfW.showToast(this.cfW.getResources().getString(com.baidu.tieba.t.success));
+            if (this.cfR != null) {
+                this.cfR.a(i, true, z2);
                 if (i != 14) {
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.vw().vB() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vE() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vC() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vD() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vM() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vL() && !com.baidu.tbadk.coreExtra.messageCenter.c.vw().vA()) {
-                        this.cbp.a(14, true, false);
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.wg().wl() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wo() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wm() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wn() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().ww() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wv() && !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wk()) {
+                        this.cfR.a(14, true, false);
                         return;
                     }
                     return;
                 }
-                this.cbp.a(2, true, z2);
-                this.cbp.a(3, true, z2);
-                this.cbp.a(4, true, z2);
-                this.cbp.a(5, true, z2);
-                this.cbp.a(1, true, z2);
-                this.cbp.a(23, true, z2);
-                this.cbp.a(13, true, z2);
+                this.cfR.a(2, true, z2);
+                this.cfR.a(3, true, z2);
+                this.cfR.a(4, true, z2);
+                this.cfR.a(5, true, z2);
+                this.cfR.a(1, true, z2);
+                this.cfR.a(23, true, z2);
+                this.cfR.a(13, true, z2);
                 return;
             }
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.cbu.showToast(str);
+            this.cfW.showToast(str);
         } else {
-            this.cbu.showToast(com.baidu.tieba.y.bubble_setdefualt_error);
+            this.cfW.showToast(com.baidu.tieba.t.bubble_setdefualt_error);
         }
-        if (this.cbp != null) {
-            this.cbp.a(i, false, z2);
+        if (this.cfR != null) {
+            this.cfR.a(i, false, z2);
         }
     }
 }

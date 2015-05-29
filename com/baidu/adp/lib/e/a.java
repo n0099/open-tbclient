@@ -52,7 +52,7 @@ public class a<K, V> {
         return put;
     }
 
-    public synchronized boolean U(int i) {
+    public synchronized boolean S(int i) {
         if (this.size + i > this.maxSize * 0.8d) {
             trimToSize(this.size - i);
         }
@@ -119,27 +119,15 @@ public class a<K, V> {
         return 1;
     }
 
-    public final void evictAll() {
-        trimToSize(-1);
-    }
-
-    public final void clear() {
-        evictAll();
-        this.putCount = 0;
-        this.evictionCount = 0;
-        this.hitCount = 0;
-        this.missCount = 0;
-    }
-
     public final synchronized int size() {
         return this.size;
     }
 
-    public final synchronized int gh() {
+    public final synchronized int gl() {
         return this.maxSize;
     }
 
-    public final void V(int i) {
+    public final void T(int i) {
         synchronized (this) {
             this.maxSize = i;
             trimToSize(i);

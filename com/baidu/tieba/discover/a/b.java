@@ -7,12 +7,12 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.discover.u;
-import com.baidu.tieba.t;
+import com.baidu.tieba.discover.z;
+import com.baidu.tieba.o;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private u aCj;
+    private z aEl;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public b(Context context) {
@@ -24,8 +24,8 @@ public class b extends LinearLayout {
         setOrientation(0);
     }
 
-    public void setOnHeaderItemClickListener(u uVar) {
-        this.aCj = uVar;
+    public void setOnHeaderItemClickListener(z zVar) {
+        this.aEl = zVar;
     }
 
     public void s(String str, boolean z) {
@@ -33,10 +33,10 @@ public class b extends LinearLayout {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.Gm())) {
-                    cVar.bu(z);
+                if (cVar != null && str.equals(cVar.Hp())) {
+                    cVar.bD(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
-                        ((a) getChildAt(i)).bv(z);
+                        ((a) getChildAt(i)).bF(z);
                         return;
                     }
                 }
@@ -58,15 +58,15 @@ public class b extends LinearLayout {
     private void a(com.baidu.tieba.discover.data.c cVar, int i, int i2) {
         if (cVar != null) {
             a aVar = new a(getContext());
-            aVar.am(cVar.getIcon_url(), cVar.Gm());
+            aVar.ar(cVar.getIcon_url(), cVar.Hp());
             aVar.setTitle(cVar.getTitle());
-            aVar.bv(cVar.Go());
+            aVar.bF(cVar.Hr());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {
-                    aVar.setPadding(n.d(TbadkApplication.getInst(), t.ds30), 0, 0, 0);
+                    aVar.setPadding(n.d(TbadkApplication.getInst(), o.ds30), 0, 0, 0);
                 } else if (i == i2 - 1) {
-                    aVar.setPadding(0, 0, n.d(TbadkApplication.getInst(), t.ds30), 0);
+                    aVar.setPadding(0, 0, n.d(TbadkApplication.getInst(), o.ds30), 0);
                 } else {
                     aVar.setPadding(0, 0, 0, 0);
                 }
@@ -76,12 +76,12 @@ public class b extends LinearLayout {
         }
     }
 
-    public void f(TbPageContext<?> tbPageContext) {
+    public void d(TbPageContext<?> tbPageContext) {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof a) {
-                ((a) childAt).f(tbPageContext);
+                ((a) childAt).d(tbPageContext);
             }
         }
     }

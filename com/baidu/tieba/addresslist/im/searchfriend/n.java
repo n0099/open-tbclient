@@ -10,26 +10,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    private ArrayList<Object> RM = new ArrayList<>();
-    private Drawable axP;
-    private Drawable axQ;
-    private SearchFriendActivity azm;
+    private ArrayList<Object> Su = new ArrayList<>();
+    private SearchFriendActivity aAX;
+    private Drawable azB;
+    private Drawable azC;
     private int size;
 
     public n(SearchFriendActivity searchFriendActivity) {
-        this.azm = searchFriendActivity;
-        this.size = com.baidu.adp.lib.util.n.d(this.azm.getPageContext().getPageActivity(), com.baidu.tieba.t.ds24);
+        this.aAX = searchFriendActivity;
+        this.size = com.baidu.adp.lib.util.n.d(this.aAX.getPageContext().getPageActivity(), com.baidu.tieba.o.ds24);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -38,26 +36,26 @@ public class n extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.addresslist.im.searchfriend.a.a aVar) {
-        if (aVar != null && aVar.Fm() != null && aVar.Fn() != null) {
-            this.RM.clear();
+        if (aVar != null && aVar.Gf() != null && aVar.Gg() != null) {
+            this.Su.clear();
             ArrayList arrayList = new ArrayList();
-            if (!aVar.Fm().isEmpty()) {
-                if (fk(aVar.Fm().getTagName())) {
-                    arrayList.add(aVar.Fm().getTagName());
+            if (!aVar.Gf().isEmpty()) {
+                if (fF(aVar.Gf().getTagName())) {
+                    arrayList.add(aVar.Gf().getTagName());
                 } else {
-                    arrayList.add(this.azm.getPageContext().getString(y.add_friend_recommend_title_new));
+                    arrayList.add(this.aAX.getPageContext().getString(com.baidu.tieba.t.add_friend_recommend_title_new));
                 }
-                arrayList.add(aVar.Fm());
+                arrayList.add(aVar.Gf());
             }
             boolean z = false;
-            for (com.baidu.tieba.addresslist.im.searchfriend.a.b bVar : aVar.Fn()) {
-                if (bVar.Fm() != null) {
-                    if (!bVar.Fm().isEmpty()) {
+            for (com.baidu.tieba.addresslist.im.searchfriend.a.b bVar : aVar.Gg()) {
+                if (bVar.Gf() != null) {
+                    if (!bVar.Gf().isEmpty()) {
                         if (!z) {
-                            if (fk(bVar.Fm().getTagName())) {
-                                arrayList.add(bVar.Fm().getTagName());
+                            if (fF(bVar.Gf().getTagName())) {
+                                arrayList.add(bVar.Gf().getTagName());
                             } else {
-                                arrayList.add(this.azm.getPageContext().getString(y.add_friend_recommend_title_similar));
+                                arrayList.add(this.aAX.getPageContext().getString(com.baidu.tieba.t.add_friend_recommend_title_similar));
                             }
                             z = true;
                         }
@@ -67,18 +65,18 @@ public class n extends BaseAdapter {
                     return;
                 }
             }
-            this.RM.addAll(arrayList);
+            this.Su.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
 
-    private boolean fk(String str) {
+    private boolean fF(String str) {
         return !TextUtils.isEmpty(str) && TextUtils.getTrimmedLength(str) > 0;
     }
 
-    public com.baidu.tieba.addresslist.im.searchfriend.a.a Fl() {
+    public com.baidu.tieba.addresslist.im.searchfriend.a.a Ge() {
         com.baidu.tieba.addresslist.im.searchfriend.a.a aVar = new com.baidu.tieba.addresslist.im.searchfriend.a.a();
-        Iterator<Object> it = this.RM.iterator();
+        Iterator<Object> it = this.Su.iterator();
         while (it.hasNext()) {
             Object next = it.next();
             if (next instanceof com.baidu.tieba.addresslist.im.searchfriend.a.c) {
@@ -90,22 +88,22 @@ public class n extends BaseAdapter {
         return aVar;
     }
 
-    public void al(String str, String str2) {
-        if (this.RM != null && this.RM.size() > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Iterator<Object> it = this.RM.iterator();
+    public void aq(String str, String str2) {
+        if (this.Su != null && this.Su.size() > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            Iterator<Object> it = this.Su.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof com.baidu.tieba.addresslist.im.searchfriend.a.c) {
                     com.baidu.tieba.addresslist.im.searchfriend.a.c cVar = (com.baidu.tieba.addresslist.im.searchfriend.a.c) next;
                     if (TextUtils.equals(cVar.getName(), str2) && TextUtils.equals(str, String.valueOf(cVar.getUserId()))) {
-                        cVar.qu();
+                        cVar.ra();
                         notifyDataSetChanged();
                         return;
                     }
                 } else if (next instanceof com.baidu.tieba.addresslist.im.searchfriend.a.b) {
                     com.baidu.tieba.addresslist.im.searchfriend.a.b bVar = (com.baidu.tieba.addresslist.im.searchfriend.a.b) next;
-                    if (TextUtils.equals(bVar.Fm().getName(), str2) && TextUtils.equals(str, String.valueOf(bVar.Fm().getUserId()))) {
-                        bVar.Fm().qu();
+                    if (TextUtils.equals(bVar.Gf().getName(), str2) && TextUtils.equals(str, String.valueOf(bVar.Gf().getUserId()))) {
+                        bVar.Gf().ra();
                         notifyDataSetChanged();
                         return;
                     }
@@ -118,7 +116,7 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        Object obj = this.RM.get(i);
+        Object obj = this.Su.get(i);
         if (obj == null) {
             return super.getItemViewType(i);
         }
@@ -136,18 +134,18 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.RM == null) {
+        if (this.Su == null) {
             return 0;
         }
-        return this.RM.size();
+        return this.Su.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.RM == null) {
+        if (this.Su == null) {
             return null;
         }
-        return this.RM.get(i);
+        return this.Su.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -174,227 +172,227 @@ public class n extends BaseAdapter {
     private View a(View view, String str, boolean z) {
         v vVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof v)) {
-            view = com.baidu.adp.lib.g.b.hH().inflate(this.azm.getPageContext().getPageActivity(), w.add_friend_recommend_title, null);
+            view = com.baidu.adp.lib.g.b.hr().inflate(this.aAX.getPageContext().getPageActivity(), com.baidu.tieba.r.add_friend_recommend_title, null);
             v vVar2 = new v(this, null);
-            vVar2.ahz = (TextView) view.findViewById(com.baidu.tieba.v.add_friend_recommend_title);
-            vVar2.line = view.findViewById(com.baidu.tieba.v.add_friend_recommend_line);
+            vVar2.aiA = (TextView) view.findViewById(com.baidu.tieba.q.add_friend_recommend_title);
+            vVar2.line = view.findViewById(com.baidu.tieba.q.add_friend_recommend_line);
             view.setTag(vVar2);
             vVar = vVar2;
         } else {
             vVar = (v) view.getTag();
         }
-        vVar.ahz.setText(str);
-        ba.b(vVar.ahz, com.baidu.tieba.s.cp_cont_c, 1);
-        ba.i(vVar.line, com.baidu.tieba.s.cp_bg_line_b);
+        vVar.aiA.setText(str);
+        ay.b(vVar.aiA, com.baidu.tieba.n.cp_cont_c, 1);
+        ay.i(vVar.line, com.baidu.tieba.n.cp_bg_line_b);
         return view;
     }
 
     private View a(View view, com.baidu.tieba.addresslist.im.searchfriend.a.c cVar, boolean z) {
         u uVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof u)) {
-            view = com.baidu.adp.lib.g.b.hH().inflate(this.azm.getPageContext().getPageActivity(), w.add_friend_recommend_new, null);
+            view = com.baidu.adp.lib.g.b.hr().inflate(this.aAX.getPageContext().getPageActivity(), com.baidu.tieba.r.add_friend_recommend_new, null);
             u uVar2 = new u(this, null);
-            uVar2.azz = (HeadImageView) view.findViewById(com.baidu.tieba.v.recommend_new_head);
-            uVar2.azA = (UserIconBox) view.findViewById(com.baidu.tieba.v.recommend_new_crown);
-            uVar2.azB = (TextView) view.findViewById(com.baidu.tieba.v.recommend_new_user_name);
-            uVar2.azC = (TextView) view.findViewById(com.baidu.tieba.v.recommend_new_introduce);
-            uVar2.azD = (TextView) view.findViewById(com.baidu.tieba.v.detail_info_distance);
-            uVar2.azE = (TextView) view.findViewById(com.baidu.tieba.v.detail_info_time);
-            uVar2.azF = (TextView) view.findViewById(com.baidu.tieba.v.recommend_new_add_friend);
-            uVar2.azF.setOnClickListener(new o(this));
-            uVar2.azG = (ImageView) view.findViewById(com.baidu.tieba.v.recommend_new_user_sex);
-            uVar2.line = view.findViewById(com.baidu.tieba.v.recommend_new_line);
+            uVar2.aBk = (HeadImageView) view.findViewById(com.baidu.tieba.q.recommend_new_head);
+            uVar2.aBl = (UserIconBox) view.findViewById(com.baidu.tieba.q.recommend_new_crown);
+            uVar2.aBm = (TextView) view.findViewById(com.baidu.tieba.q.recommend_new_user_name);
+            uVar2.aBn = (TextView) view.findViewById(com.baidu.tieba.q.recommend_new_introduce);
+            uVar2.aBo = (TextView) view.findViewById(com.baidu.tieba.q.detail_info_distance);
+            uVar2.aBp = (TextView) view.findViewById(com.baidu.tieba.q.detail_info_time);
+            uVar2.aBq = (TextView) view.findViewById(com.baidu.tieba.q.recommend_new_add_friend);
+            uVar2.aBq.setOnClickListener(new o(this));
+            uVar2.aBr = (ImageView) view.findViewById(com.baidu.tieba.q.recommend_new_user_sex);
+            uVar2.line = view.findViewById(com.baidu.tieba.q.recommend_new_line);
             view.setOnClickListener(new p(this));
             view.setTag(uVar2);
             uVar = uVar2;
         } else {
             uVar = (u) view.getTag();
         }
-        uVar.azF.setTag(cVar);
+        uVar.aBq.setTag(cVar);
         view.setTag(cVar);
-        this.azm.getLayoutMode().X(z);
-        this.azm.getLayoutMode().h(view);
+        this.aAX.getLayoutMode().ab(z);
+        this.aAX.getLayoutMode().j(view);
         a(uVar, cVar, z);
-        ba.i(uVar.line, com.baidu.tieba.s.cp_bg_line_b);
-        ba.i(view, com.baidu.tieba.u.recommend_friend_item_bg);
+        ay.i(uVar.line, com.baidu.tieba.n.cp_bg_line_b);
+        ay.i(view, com.baidu.tieba.p.recommend_friend_item_bg);
         return view;
     }
 
     private void a(u uVar, com.baidu.tieba.addresslist.im.searchfriend.a.c cVar, boolean z) {
         if (cVar != null && uVar != null) {
-            if (com.baidu.tbadk.core.n.px().pz()) {
-                uVar.azz.setVisibility(0);
-                if (!TextUtils.isEmpty(cVar.qw())) {
-                    uVar.azz.setUserId(String.valueOf(cVar.getUserId()));
-                    uVar.azz.setImageDrawable(null);
-                    uVar.azz.c(cVar.qw(), 12, false);
+            if (com.baidu.tbadk.core.n.qc().qe()) {
+                uVar.aBk.setVisibility(0);
+                if (!TextUtils.isEmpty(cVar.rc())) {
+                    uVar.aBk.setUserId(String.valueOf(cVar.getUserId()));
+                    uVar.aBk.setImageDrawable(null);
+                    uVar.aBk.c(cVar.rc(), 12, false);
                 }
             } else {
-                uVar.azz.setVisibility(8);
+                uVar.aBk.setVisibility(8);
             }
-            if (cVar.qz() != null && !TextUtils.isEmpty(cVar.qz().getUrl())) {
-                uVar.azA.setVisibility(0);
+            if (cVar.rf() != null && !TextUtils.isEmpty(cVar.rf().getUrl())) {
+                uVar.aBl.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(cVar.qz());
-                uVar.azA.a(arrayList, 1, this.azm.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_width), this.azm.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_height), this.azm.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_margin));
+                arrayList.add(cVar.rf());
+                uVar.aBl.a(arrayList, 1, this.aAX.getResources().getDimensionPixelSize(com.baidu.tieba.o.small_icon_width), this.aAX.getResources().getDimensionPixelSize(com.baidu.tieba.o.small_icon_height), this.aAX.getResources().getDimensionPixelSize(com.baidu.tieba.o.small_icon_margin));
             } else {
-                uVar.azA.setVisibility(8);
+                uVar.aBl.setVisibility(8);
             }
-            uVar.azB.setText(cVar.getName());
-            if (StringUtils.isNull(cVar.qy())) {
-                uVar.azC.setVisibility(8);
+            uVar.aBm.setText(cVar.getName());
+            if (StringUtils.isNull(cVar.re())) {
+                uVar.aBn.setVisibility(8);
             } else {
-                uVar.azC.setVisibility(0);
-                uVar.azC.setText(cVar.qy());
+                uVar.aBn.setVisibility(0);
+                uVar.aBn.setText(cVar.re());
             }
             if (cVar.getLbsInfo() == null) {
-                uVar.azD.setVisibility(8);
-                uVar.azE.setVisibility(8);
+                uVar.aBo.setVisibility(8);
+                uVar.aBp.setVisibility(8);
                 return;
             }
-            if (cVar.getLbsInfo().wK() == 1) {
-                uVar.azD.setVisibility(0);
-                uVar.azD.setText(this.azm.getPageContext().getString(y.contact_yinshen));
-                uVar.azD.setCompoundDrawables(null, null, null, null);
-                uVar.azE.setVisibility(8);
-            } else if (cVar.getLbsInfo().wK() == 0) {
+            if (cVar.getLbsInfo().xx() == 1) {
+                uVar.aBo.setVisibility(0);
+                uVar.aBo.setText(this.aAX.getPageContext().getString(com.baidu.tieba.t.contact_yinshen));
+                uVar.aBo.setCompoundDrawables(null, null, null, null);
+                uVar.aBp.setVisibility(8);
+            } else if (cVar.getLbsInfo().xx() == 0) {
                 if (!StringUtils.isNull(cVar.getLbsInfo().getDistance()) && cVar.getLbsInfo().getTime() > 0) {
-                    uVar.azD.setVisibility(0);
-                    uVar.azE.setVisibility(0);
-                    uVar.azD.setText(cVar.getLbsInfo().getDistance());
-                    uVar.azE.setText(bd.m(cVar.getLbsInfo().getTime()));
-                    this.axP = ba.getDrawable(com.baidu.tieba.u.icon_friend_pin);
-                    this.axP.setBounds(0, 0, this.size, this.size);
-                    uVar.azD.setCompoundDrawables(this.axP, null, null, null);
-                    this.axQ = ba.getDrawable(com.baidu.tieba.u.icon_friend_time);
-                    this.axQ.setBounds(0, 0, this.size, this.size);
-                    uVar.azE.setCompoundDrawables(this.axQ, null, null, null);
+                    uVar.aBo.setVisibility(0);
+                    uVar.aBp.setVisibility(0);
+                    uVar.aBo.setText(cVar.getLbsInfo().getDistance());
+                    uVar.aBp.setText(bb.n(cVar.getLbsInfo().getTime()));
+                    this.azB = ay.getDrawable(com.baidu.tieba.p.icon_friend_pin);
+                    this.azB.setBounds(0, 0, this.size, this.size);
+                    uVar.aBo.setCompoundDrawables(this.azB, null, null, null);
+                    this.azC = ay.getDrawable(com.baidu.tieba.p.icon_friend_time);
+                    this.azC.setBounds(0, 0, this.size, this.size);
+                    uVar.aBp.setCompoundDrawables(this.azC, null, null, null);
                 } else {
-                    uVar.azD.setVisibility(8);
-                    uVar.azE.setVisibility(8);
+                    uVar.aBo.setVisibility(8);
+                    uVar.aBp.setVisibility(8);
                 }
             } else {
-                uVar.azD.setVisibility(8);
-                uVar.azE.setVisibility(8);
+                uVar.aBo.setVisibility(8);
+                uVar.aBp.setVisibility(8);
             }
-            if (cVar.qx()) {
-                ba.c(uVar.azG, com.baidu.tieba.u.icon_pop_qz_girl);
+            if (cVar.rd()) {
+                ay.c(uVar.aBr, com.baidu.tieba.p.icon_pop_qz_girl);
             } else {
-                ba.c(uVar.azG, com.baidu.tieba.u.icon_pop_qz_boy);
+                ay.c(uVar.aBr, com.baidu.tieba.p.icon_pop_qz_boy);
             }
-            if (cVar.qv()) {
-                uVar.azF.setClickable(false);
-                uVar.azF.setBackgroundResource(com.baidu.tieba.s.transparent);
-                uVar.azF.setText(y.waiting);
-                ba.b(uVar.azF, com.baidu.tieba.s.cp_cont_d, 1);
+            if (cVar.rb()) {
+                uVar.aBq.setClickable(false);
+                uVar.aBq.setBackgroundResource(com.baidu.tieba.n.transparent);
+                uVar.aBq.setText(com.baidu.tieba.t.waiting);
+                ay.b(uVar.aBq, com.baidu.tieba.n.cp_cont_d, 1);
                 return;
             }
-            uVar.azF.setClickable(true);
-            uVar.azF.setText(y.add);
+            uVar.aBq.setClickable(true);
+            uVar.aBq.setText(com.baidu.tieba.t.add);
         }
     }
 
     private View a(View view, com.baidu.tieba.addresslist.im.searchfriend.a.b bVar, boolean z) {
         t tVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof u)) {
-            view = com.baidu.adp.lib.g.b.hH().inflate(this.azm.getPageContext().getPageActivity(), w.add_friend_recommend_similar, null);
+            view = com.baidu.adp.lib.g.b.hr().inflate(this.aAX.getPageContext().getPageActivity(), com.baidu.tieba.r.add_friend_recommend_similar, null);
             t tVar2 = new t(this, null);
-            tVar2.azp = new u(this, null);
-            View findViewById = view.findViewById(com.baidu.tieba.v.recommend_similar_top);
-            tVar2.azp.azz = (HeadImageView) findViewById.findViewById(com.baidu.tieba.v.recommend_new_head);
-            tVar2.azp.azA = (UserIconBox) findViewById.findViewById(com.baidu.tieba.v.recommend_new_crown);
-            tVar2.azp.azB = (TextView) findViewById.findViewById(com.baidu.tieba.v.recommend_new_user_name);
-            tVar2.azp.azC = (TextView) findViewById.findViewById(com.baidu.tieba.v.recommend_new_introduce);
-            tVar2.azp.azD = (TextView) view.findViewById(com.baidu.tieba.v.detail_info_distance);
-            tVar2.azp.azE = (TextView) view.findViewById(com.baidu.tieba.v.detail_info_time);
-            tVar2.azp.line = findViewById.findViewById(com.baidu.tieba.v.recommend_new_line);
-            tVar2.azp.azF = (TextView) findViewById.findViewById(com.baidu.tieba.v.recommend_new_add_friend);
-            tVar2.azp.azF.setOnClickListener(new q(this, bVar));
-            tVar2.azp.azG = (ImageView) view.findViewById(com.baidu.tieba.v.recommend_new_user_sex);
-            tVar2.azp.line = view.findViewById(com.baidu.tieba.v.recommend_new_line);
-            tVar2.azq = (TextView) view.findViewById(com.baidu.tieba.v.recommend_similar_bar_names);
-            tVar2.azr = (TextView) view.findViewById(com.baidu.tieba.v.recommend_similar_bar_desc);
-            tVar2.azu = (TbImageView) view.findViewById(com.baidu.tieba.v.recommend_similar_pic_one);
-            tVar2.azv = (TbImageView) view.findViewById(com.baidu.tieba.v.recommend_similar_pic_two);
-            tVar2.azw = (TbImageView) view.findViewById(com.baidu.tieba.v.recommend_similar_pic_thr);
+            tVar2.aBa = new u(this, null);
+            View findViewById = view.findViewById(com.baidu.tieba.q.recommend_similar_top);
+            tVar2.aBa.aBk = (HeadImageView) findViewById.findViewById(com.baidu.tieba.q.recommend_new_head);
+            tVar2.aBa.aBl = (UserIconBox) findViewById.findViewById(com.baidu.tieba.q.recommend_new_crown);
+            tVar2.aBa.aBm = (TextView) findViewById.findViewById(com.baidu.tieba.q.recommend_new_user_name);
+            tVar2.aBa.aBn = (TextView) findViewById.findViewById(com.baidu.tieba.q.recommend_new_introduce);
+            tVar2.aBa.aBo = (TextView) view.findViewById(com.baidu.tieba.q.detail_info_distance);
+            tVar2.aBa.aBp = (TextView) view.findViewById(com.baidu.tieba.q.detail_info_time);
+            tVar2.aBa.line = findViewById.findViewById(com.baidu.tieba.q.recommend_new_line);
+            tVar2.aBa.aBq = (TextView) findViewById.findViewById(com.baidu.tieba.q.recommend_new_add_friend);
+            tVar2.aBa.aBq.setOnClickListener(new q(this, bVar));
+            tVar2.aBa.aBr = (ImageView) view.findViewById(com.baidu.tieba.q.recommend_new_user_sex);
+            tVar2.aBa.line = view.findViewById(com.baidu.tieba.q.recommend_new_line);
+            tVar2.aBb = (TextView) view.findViewById(com.baidu.tieba.q.recommend_similar_bar_names);
+            tVar2.aBc = (TextView) view.findViewById(com.baidu.tieba.q.recommend_similar_bar_desc);
+            tVar2.aBf = (TbImageView) view.findViewById(com.baidu.tieba.q.recommend_similar_pic_one);
+            tVar2.aBg = (TbImageView) view.findViewById(com.baidu.tieba.q.recommend_similar_pic_two);
+            tVar2.aBh = (TbImageView) view.findViewById(com.baidu.tieba.q.recommend_similar_pic_thr);
             r rVar = new r(this);
-            tVar2.azu.setTag(com.baidu.tieba.v.tag_first, bVar);
-            tVar2.azv.setTag(com.baidu.tieba.v.tag_first, bVar);
-            tVar2.azw.setTag(com.baidu.tieba.v.tag_first, bVar);
-            tVar2.azu.setTag(com.baidu.tieba.v.tag_second, 0);
-            tVar2.azv.setTag(com.baidu.tieba.v.tag_second, 1);
-            tVar2.azw.setTag(com.baidu.tieba.v.tag_second, 2);
-            tVar2.azu.setOnClickListener(rVar);
-            tVar2.azv.setOnClickListener(rVar);
-            tVar2.azw.setOnClickListener(rVar);
-            tVar2.azs = (TextView) view.findViewById(com.baidu.tieba.v.recommend_similar_forum);
-            tVar2.azt = (TextView) view.findViewById(com.baidu.tieba.v.recommend_similar_common_conern);
-            tVar2.azx = (LinearLayout) view.findViewById(com.baidu.tieba.v.recommend_similar_forum_container);
-            tVar2.azy = (LinearLayout) view.findViewById(com.baidu.tieba.v.recommend_similar_commom_conern_container);
+            tVar2.aBf.setTag(com.baidu.tieba.q.tag_first, bVar);
+            tVar2.aBg.setTag(com.baidu.tieba.q.tag_first, bVar);
+            tVar2.aBh.setTag(com.baidu.tieba.q.tag_first, bVar);
+            tVar2.aBf.setTag(com.baidu.tieba.q.tag_second, 0);
+            tVar2.aBg.setTag(com.baidu.tieba.q.tag_second, 1);
+            tVar2.aBh.setTag(com.baidu.tieba.q.tag_second, 2);
+            tVar2.aBf.setOnClickListener(rVar);
+            tVar2.aBg.setOnClickListener(rVar);
+            tVar2.aBh.setOnClickListener(rVar);
+            tVar2.aBd = (TextView) view.findViewById(com.baidu.tieba.q.recommend_similar_forum);
+            tVar2.aBe = (TextView) view.findViewById(com.baidu.tieba.q.recommend_similar_common_conern);
+            tVar2.aBi = (LinearLayout) view.findViewById(com.baidu.tieba.q.recommend_similar_forum_container);
+            tVar2.aBj = (LinearLayout) view.findViewById(com.baidu.tieba.q.recommend_similar_commom_conern_container);
             view.setOnClickListener(new s(this));
-            view.setTag(com.baidu.tieba.v.tag_first, tVar2);
+            view.setTag(com.baidu.tieba.q.tag_first, tVar2);
             tVar = tVar2;
         } else {
-            tVar = (t) view.getTag(com.baidu.tieba.v.tag_first);
+            tVar = (t) view.getTag(com.baidu.tieba.q.tag_first);
         }
-        tVar.azp.azF.setTag(bVar.Fm());
-        view.setTag(com.baidu.tieba.v.tag_second, bVar.Fm());
-        this.azm.getLayoutMode().X(z);
-        this.azm.getLayoutMode().h(view);
+        tVar.aBa.aBq.setTag(bVar.Gf());
+        view.setTag(com.baidu.tieba.q.tag_second, bVar.Gf());
+        this.aAX.getLayoutMode().ab(z);
+        this.aAX.getLayoutMode().j(view);
         a(tVar, bVar, z);
-        ba.j(tVar.azp.line, com.baidu.tieba.s.cp_bg_line_b);
-        ba.i(view, com.baidu.tieba.u.recommend_friend_item_bg);
+        ay.j(tVar.aBa.line, com.baidu.tieba.n.cp_bg_line_b);
+        ay.i(view, com.baidu.tieba.p.recommend_friend_item_bg);
         return view;
     }
 
     private void a(t tVar, com.baidu.tieba.addresslist.im.searchfriend.a.b bVar, boolean z) {
-        if (tVar != null && bVar != null && bVar.Fm() != null) {
-            a(tVar.azp, bVar.Fm(), z);
-            if (bVar.qn() > 0) {
-                if (!TextUtils.isEmpty(bVar.qo())) {
-                    tVar.azq.setText(bVar.qo());
+        if (tVar != null && bVar != null && bVar.Gf() != null) {
+            a(tVar.aBa, bVar.Gf(), z);
+            if (bVar.qT() > 0) {
+                if (!TextUtils.isEmpty(bVar.qU())) {
+                    tVar.aBb.setText(bVar.qU());
                 }
-                if (bVar.qn() < 3) {
-                    tVar.azr.setVisibility(8);
+                if (bVar.qT() < 3) {
+                    tVar.aBc.setVisibility(8);
                 } else {
-                    tVar.azr.setVisibility(0);
-                    tVar.azr.setText(y.add_friend_forum_count);
+                    tVar.aBc.setVisibility(0);
+                    tVar.aBc.setText(com.baidu.tieba.t.add_friend_forum_count);
                 }
             } else {
-                tVar.azy.setVisibility(8);
+                tVar.aBj.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.n.px().pB() && bVar.qr() != null && bVar.qr().size() > 0) {
-                tVar.azx.setVisibility(0);
-                if (bVar.Fm().qx()) {
-                    tVar.azs.setText(y.add_friend_her_posts);
+            if (com.baidu.tbadk.core.n.qc().qg() && bVar.qX() != null && bVar.qX().size() > 0) {
+                tVar.aBi.setVisibility(0);
+                if (bVar.Gf().rd()) {
+                    tVar.aBd.setText(com.baidu.tieba.t.add_friend_her_posts);
                 } else {
-                    tVar.azs.setText(y.add_friend_his_posts);
+                    tVar.aBd.setText(com.baidu.tieba.t.add_friend_his_posts);
                 }
-                switch (bVar.qr().size()) {
+                switch (bVar.qX().size()) {
                     case 1:
-                        tVar.azu.setVisibility(0);
-                        tVar.azv.setVisibility(4);
-                        tVar.azw.setVisibility(4);
-                        tVar.azu.c(bVar.qr().get(0), 13, false);
+                        tVar.aBf.setVisibility(0);
+                        tVar.aBg.setVisibility(4);
+                        tVar.aBh.setVisibility(4);
+                        tVar.aBf.c(bVar.qX().get(0), 13, false);
                         return;
                     case 2:
-                        tVar.azu.setVisibility(0);
-                        tVar.azv.setVisibility(0);
-                        tVar.azw.setVisibility(4);
-                        tVar.azu.c(bVar.qr().get(0), 13, false);
-                        tVar.azv.c(bVar.qr().get(1), 13, false);
+                        tVar.aBf.setVisibility(0);
+                        tVar.aBg.setVisibility(0);
+                        tVar.aBh.setVisibility(4);
+                        tVar.aBf.c(bVar.qX().get(0), 13, false);
+                        tVar.aBg.c(bVar.qX().get(1), 13, false);
                         return;
                     default:
-                        tVar.azu.setVisibility(0);
-                        tVar.azv.setVisibility(0);
-                        tVar.azw.setVisibility(0);
-                        tVar.azu.c(bVar.qr().get(0), 13, false);
-                        tVar.azv.c(bVar.qr().get(1), 13, false);
-                        tVar.azw.c(bVar.qr().get(2), 13, false);
+                        tVar.aBf.setVisibility(0);
+                        tVar.aBg.setVisibility(0);
+                        tVar.aBh.setVisibility(0);
+                        tVar.aBf.c(bVar.qX().get(0), 13, false);
+                        tVar.aBg.c(bVar.qX().get(1), 13, false);
+                        tVar.aBh.c(bVar.qX().get(2), 13, false);
                         return;
                 }
             }
-            tVar.azx.setVisibility(8);
+            tVar.aBi.setVisibility(8);
         }
     }
 }

@@ -7,22 +7,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private q bSA;
-    private r bSB;
-    private t bSC;
-    private x bSD;
-    private PersonInfoActivity bSy;
-    private z bSz;
+    private PersonInfoActivity bVf;
+    private z bVg;
+    private q bVh;
+    private r bVi;
+    private t bVj;
+    private x bVk;
     private boolean mIsHost;
 
     public p(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bSy = personInfoActivity;
+        this.bVf = personInfoActivity;
         this.mIsHost = z;
-        this.bSz = new z(this.bSy, this.mIsHost);
-        this.bSA = new q(this.bSy, this.mIsHost);
-        this.bSB = new r(this.bSy, this.mIsHost);
-        this.bSC = new t(this.bSy, this.mIsHost);
-        this.bSD = new x(this.bSy, this.mIsHost);
+        this.bVg = new z(this.bVf, this.mIsHost);
+        this.bVh = new q(this.bVf, this.mIsHost);
+        this.bVi = new r(this.bVf, this.mIsHost);
+        this.bVj = new t(this.bVf, this.mIsHost);
+        this.bVk = new x(this.bVf, this.mIsHost);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -79,74 +79,74 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.bSz.aeg();
-            return this.bSz.getRootView();
+            this.bVg.afl();
+            return this.bVg.getRootView();
         } else if (itemViewType == 1) {
-            this.bSA.aeg();
-            return this.bSA.getRootView();
+            this.bVh.afl();
+            return this.bVh.getRootView();
         } else if (itemViewType == 2) {
-            this.bSB.aeg();
-            return this.bSB.getRootView();
+            this.bVi.afl();
+            return this.bVi.getRootView();
         } else if (itemViewType == 3) {
-            this.bSC.aeg();
-            return this.bSC.getRootView();
+            this.bVj.afl();
+            return this.bVj.getRootView();
         } else if (itemViewType == 4) {
-            this.bSD.aeg();
-            return this.bSD.getRootView();
+            this.bVk.afl();
+            return this.bVk.getRootView();
         } else {
             return null;
         }
     }
 
-    public RelativeLayout adU() {
-        return this.bSB.adU();
+    public RelativeLayout aeZ() {
+        return this.bVi.aeZ();
     }
 
-    public void adV() {
-        this.bSB.adV();
+    public void afa() {
+        this.bVi.afa();
     }
 
-    public RelativeLayout adW() {
-        return this.bSA.aef();
+    public RelativeLayout afb() {
+        return this.bVh.afk();
     }
 
-    public RelativeLayout adX() {
-        return this.bSA.adX();
+    public RelativeLayout afc() {
+        return this.bVh.afc();
     }
 
-    public TextView adY() {
-        return this.bSB.adY();
+    public TextView afd() {
+        return this.bVi.afd();
     }
 
-    public RelativeLayout adZ() {
-        return this.bSA.adZ();
+    public RelativeLayout afe() {
+        return this.bVh.afe();
     }
 
-    public RelativeLayout aea() {
-        return this.bSB.aea();
+    public RelativeLayout aff() {
+        return this.bVi.aff();
     }
 
-    public RelativeLayout aeb() {
-        return this.bSB.aeb();
+    public RelativeLayout afg() {
+        return this.bVi.afg();
     }
 
-    public RelativeLayout aec() {
-        return this.bSC.aec();
+    public RelativeLayout afh() {
+        return this.bVj.afh();
     }
 
-    public RelativeLayout aed() {
-        return this.bSC.adX();
+    public RelativeLayout afi() {
+        return this.bVj.afc();
     }
 
-    public RelativeLayout aee() {
-        return this.bSD.aee();
+    public RelativeLayout afj() {
+        return this.bVk.afj();
     }
 
-    public void ef(boolean z) {
-        this.bSB.ef(z);
+    public void er(boolean z) {
+        this.bVi.er(z);
     }
 
-    public void hG(int i) {
-        this.bSB.hG(i);
+    public void hV(int i) {
+        this.bVi.hV(i);
     }
 }

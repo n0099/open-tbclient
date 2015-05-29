@@ -6,27 +6,27 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements k {
-    final /* synthetic */ l Ag;
+    final /* synthetic */ l zU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.Ag = lVar;
+        this.zU = lVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
-    public void G(String str) {
+    public void J(String str) {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((k) it.next()).G(str);
+            ((k) it.next()).J(str);
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
     public void s(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((k) it.next()).s(bArr);
@@ -36,7 +36,7 @@ public class m implements k {
     @Override // com.baidu.adp.lib.webSocket.k
     public void j(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((k) it.next()).j(bArr);
@@ -46,7 +46,7 @@ public class m implements k {
     @Override // com.baidu.adp.lib.webSocket.k
     public void d(Map<String, String> map) {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((k) it.next()).d(map);
@@ -56,8 +56,8 @@ public class m implements k {
     @Override // com.baidu.adp.lib.webSocket.k
     public void l(int i, String str) {
         ArrayList arrayList;
-        this.Ag.Ac = null;
-        arrayList = this.Ag.Ae;
+        this.zU.zR = null;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((k) it.next()).l(i, str);
@@ -67,7 +67,7 @@ public class m implements k {
     @Override // com.baidu.adp.lib.webSocket.k
     public void a(c cVar) {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((k) it.next()).a(cVar);
@@ -75,33 +75,33 @@ public class m implements k {
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
-    public void jq() {
+    public void jH() {
         ArrayList arrayList;
-        arrayList = this.Ag.Ae;
+        arrayList = this.zU.zS;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((k) it.next()).jq();
+            ((k) it.next()).jH();
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
     public void b(c cVar) {
         if (cVar != null) {
-            cVar.ed();
+            cVar.eg();
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
     public void a(int i, c cVar) {
         if (cVar != null) {
-            cVar.v(i);
+            cVar.w(i);
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
     public void c(c cVar) {
         if (cVar != null) {
-            cVar.ee();
+            cVar.eh();
         }
     }
 }

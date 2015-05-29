@@ -1,29 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cm implements Animation.AnimationListener {
-    final /* synthetic */ cj bMC;
+public class cm implements View.OnClickListener {
+    final /* synthetic */ ch bOF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(cj cjVar) {
-        this.bMC = cjVar;
+    public cm(ch chVar) {
+        this.bOF = chVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.bMC.bLw;
-        relativeLayout.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
+        PbActivity pbActivity;
+        dialog = this.bOF.bNL;
+        if (dialog != null) {
+            dialog2 = this.bOF.bNL;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.bOF.bNL;
+                pbActivity = this.bOF.bKZ;
+                com.baidu.adp.lib.g.k.b(dialog3, pbActivity.getPageContext());
+            }
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.bOF.a(((Integer) sparseArray.get(com.baidu.tieba.q.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.q.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.q.tag_del_post_is_self)).booleanValue());
+        }
     }
 }

@@ -1,41 +1,42 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
 import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tbadk.core.view.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tbadk.core.view.aa {
-    final /* synthetic */ t btl;
+public class ab implements af {
+    final /* synthetic */ t bvV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(t tVar) {
-        this.btl = tVar;
+        this.bvV = tVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.aa
-    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+    @Override // com.baidu.tbadk.core.view.af
+    public void handler(TbCheckBox tbCheckBox, boolean z, Object obj) {
         InviteFriendCandidateList inviteFriendCandidateList;
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.btl.VS();
+        this.bvV.Xk();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
             if (z) {
-                int VT = this.btl.VT();
-                inviteFriendCandidateList = this.btl.btb;
-                if (VT <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.btl.bsY;
-                    inviteFriendListActivity2 = this.btl.bsY;
-                    String string = inviteFriendListActivity2.getPageContext().getString(com.baidu.tieba.y.invite_friend_exceed_max_count);
-                    i = this.btl.btf;
+                int Xl = this.bvV.Xl();
+                inviteFriendCandidateList = this.bvV.bvL;
+                if (Xl <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.bvV.bvI;
+                    inviteFriendListActivity2 = this.bvV.bvI;
+                    String string = inviteFriendListActivity2.getPageContext().getString(com.baidu.tieba.t.invite_friend_exceed_max_count);
+                    i = this.bvV.bvP;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
                     ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
                     return;
                 }
-                this.btl.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.bvV.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
                 return;
             }
-            this.btl.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+            this.bvV.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
         }
     }
 }

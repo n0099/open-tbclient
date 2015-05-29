@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ i cau;
-    private final /* synthetic */ String cav;
+    final /* synthetic */ i ceQ;
+    private final /* synthetic */ String ceR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, String str) {
-        this.cau = iVar;
-        this.cav = str;
+        this.ceQ = iVar;
+        this.ceR = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TbadkCoreApplication.m411getInst().cashNoAccountData(this.cav, 7);
+        TbadkCoreApplication.m411getInst().cashNoAccountData(this.ceR, 7);
     }
 }

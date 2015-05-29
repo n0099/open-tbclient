@@ -1,17 +1,18 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class au implements View.OnClickListener {
-    final /* synthetic */ PersonImageActivity bQE;
+public class au implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(PersonImageActivity personImageActivity) {
-        this.bQE = personImageActivity;
+    public au(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bQE.finish();
+        this.bSN.aeu();
     }
 }

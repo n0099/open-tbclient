@@ -4,10 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class EditHeadActivityConfig extends a {
+public class EditHeadActivityConfig extends c {
     public static final String ACCOUNTDATA = "account_data";
+    public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";
     public static final int GROUP_PHOTO_WALL = 2;
@@ -17,32 +18,35 @@ public class EditHeadActivityConfig extends a {
     public static String PIC_INFO = "pic_info";
     public static String FILE_NAME = "file_name";
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f) {
         super(context);
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f) {
         super(context);
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f) {
         super(context);
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", 0);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

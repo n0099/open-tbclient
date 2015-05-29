@@ -23,14 +23,14 @@ class k implements ViewPager.OnPageChangeListener {
         MultiImageView multiImageView;
         a aVar2;
         int i2;
-        z = this.this$0.buY;
+        z = this.this$0.bxG;
         if (!z) {
-            aVar = this.this$0.buS;
+            aVar = this.this$0.bxA;
             if (aVar != null) {
-                multiImageView = this.this$0.buQ;
+                multiImageView = this.this$0.bxy;
                 if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.this$0.buS;
-                    aVar2.VX();
+                    aVar2 = this.this$0.bxA;
+                    aVar2.Xp();
                 }
             }
         } else {
@@ -40,9 +40,9 @@ class k implements ViewPager.OnPageChangeListener {
         }
         ImageViewerActivity imageViewerActivity = this.this$0;
         i2 = this.this$0.mIndex;
-        imageViewerActivity.O(i2, i);
+        imageViewerActivity.R(i2, i);
         this.this$0.mIndex = i;
-        this.this$0.We();
+        this.this$0.Xw();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -60,15 +60,15 @@ class k implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.this$0.buT;
+            j = this.this$0.bxB;
             if (nanoTime - j > 300000000) {
-                arrayList = this.this$0.buJ;
+                arrayList = this.this$0.bxr;
                 if (arrayList != null) {
                     i2 = this.this$0.mIndex;
-                    arrayList2 = this.this$0.buJ;
+                    arrayList2 = this.this$0.bxr;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.this$0.buU;
-                        arrayList3 = this.this$0.buJ;
+                        hashMap = this.this$0.bxC;
+                        arrayList3 = this.this$0.bxr;
                         i3 = this.this$0.mIndex;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }

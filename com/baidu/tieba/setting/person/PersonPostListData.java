@@ -1,6 +1,8 @@
 package com.baidu.tieba.setting.person;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.a;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import java.io.Serializable;
@@ -9,7 +11,7 @@ import java.util.List;
 import tbclient.Abstract;
 import tbclient.PostInfoList;
 /* loaded from: classes.dex */
-public class PersonPostListData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class PersonPostListData extends i implements Serializable {
     public List<PostList> post_list = new ArrayList();
     public int hide_post = 0;
 
@@ -112,7 +114,7 @@ public class PersonPostListData extends com.baidu.adp.lib.a.b.a.a.i implements S
     }
 
     /* loaded from: classes.dex */
-    public class PostList extends com.baidu.tbadk.core.util.a implements Serializable {
+    public class PostList extends a implements Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;

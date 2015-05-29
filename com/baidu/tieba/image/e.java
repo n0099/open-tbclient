@@ -8,31 +8,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private AntiData buD;
-    private LinkedList<d> buE;
-    private String buB = null;
+    private AntiData bxl;
+    private LinkedList<d> bxm;
+    private String bxj = null;
     private String fid = null;
-    private int buC = 0;
+    private int bxk = 0;
     private Context mContext = null;
-    private String buF = null;
-    private String buG = null;
+    private String bxn = null;
+    private String bxo = null;
     private String tid = null;
     private String title = null;
-    private int buH = 0;
+    private int bxp = 0;
 
-    public String VZ() {
-        return this.buF;
+    public String Xr() {
+        return this.bxn;
     }
 
-    public String Wa() {
-        return this.buG;
+    public String Xs() {
+        return this.bxo;
     }
 
     public e() {
-        this.buD = null;
-        this.buE = null;
-        this.buE = new LinkedList<>();
-        this.buD = new AntiData();
+        this.bxl = null;
+        this.bxm = null;
+        this.bxm = new LinkedList<>();
+        this.bxl = new AntiData();
     }
 
     public void u(String str, boolean z) {
@@ -43,24 +43,24 @@ public class e {
         }
     }
 
-    public LinkedList<d> Wb() {
-        return this.buE;
+    public LinkedList<d> Xt() {
+        return this.bxm;
     }
 
-    public int Wc() {
-        return this.buC;
+    public int Xu() {
+        return this.bxk;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                gG(jSONObject.optInt("is_new_url", 0));
+                gX(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.buB = optJSONObject.optString("name");
+                    this.bxj = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.buC = jSONObject.optInt("pic_amount", 0);
+                this.bxk = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -68,8 +68,8 @@ public class e {
                             d dVar = new d(this.mContext);
                             dVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = dVar.getIndex();
-                            if (index >= 1 && index <= this.buC) {
-                                this.buE.addLast(dVar);
+                            if (index >= 1 && index <= this.bxk) {
+                                this.bxm.addLast(dVar);
                             }
                         }
                     } else {
@@ -77,22 +77,22 @@ public class e {
                             d dVar2 = new d(this.mContext);
                             dVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = dVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.buC) {
-                                this.buE.addFirst(dVar2);
+                            if (index2 >= 1 && index2 <= this.bxk) {
+                                this.bxm.addFirst(dVar2);
                             }
                         }
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
-                this.buF = optJSONObject2.optString("tid");
-                this.buG = optJSONObject2.optString("title");
+                this.bxn = optJSONObject2.optString("tid");
+                this.bxo = optJSONObject2.optString("title");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public void gG(int i) {
-        this.buH = i;
+    public void gX(int i) {
+        this.bxp = i;
     }
 }

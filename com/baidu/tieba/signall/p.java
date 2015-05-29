@@ -5,15 +5,15 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o cep;
-    private final /* synthetic */ e ceq;
-    private final /* synthetic */ r cer;
+    final /* synthetic */ o ciu;
+    private final /* synthetic */ e civ;
+    private final /* synthetic */ r ciw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, e eVar, r rVar) {
-        this.cep = oVar;
-        this.ceq = eVar;
-        this.cer = rVar;
+        this.ciu = oVar;
+        this.civ = eVar;
+        this.ciw = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,21 +21,21 @@ public class p implements View.OnClickListener {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
         SignAllForumActivity signAllForumActivity2;
-        if (!this.ceq.aiT()) {
-            this.cer.ceC.setVisibility(4);
-            this.cer.ceD.setVisibility(0);
-            this.cer.ceE.setText(com.baidu.tieba.y.signallforum_resigning);
-            this.ceq.ez(true);
-            signAllForumActivity = this.cep.cen;
+        if (!this.civ.akD()) {
+            this.ciw.ciH.setVisibility(4);
+            this.ciw.ciI.setVisibility(0);
+            this.ciw.ciJ.setText(com.baidu.tieba.t.signallforum_resigning);
+            this.civ.eT(true);
+            signAllForumActivity = this.ciu.cis;
             ag agVar = new ag(signAllForumActivity);
-            agVar.a(this.cep);
-            String sb = new StringBuilder(String.valueOf(this.ceq.getForumId())).toString();
-            synchronized (this.cep) {
-                hashMap = this.cep.ceo;
+            agVar.a(this.ciu);
+            String sb = new StringBuilder(String.valueOf(this.civ.getForumId())).toString();
+            synchronized (this.ciu) {
+                hashMap = this.ciu.cit;
                 hashMap.put(sb, agVar);
             }
-            agVar.ap(this.ceq.getForumName(), sb);
-            signAllForumActivity2 = this.cep.cen;
+            agVar.au(this.civ.getForumName(), sb);
+            signAllForumActivity2 = this.ciu.cis;
             com.baidu.tbadk.core.k.A(signAllForumActivity2.getPageContext().getPageActivity(), "signall_resign_click");
         }
     }

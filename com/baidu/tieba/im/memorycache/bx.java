@@ -1,11 +1,31 @@
 package com.baidu.tieba.im.memorycache;
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 /* loaded from: classes.dex */
-public class bx {
-    public static boolean ga(int i) {
-        return i == 1 || i == 9 || i == 5 || i == -1 || i == -9 || i == 3 || i == -2 || i == 8 || i == 7 || i == 6;
+public class bx extends com.baidu.adp.framework.a.a {
+    public bx() {
+        super(2016004);
     }
 
-    public static boolean gb(int i) {
-        return i == 8 || i == 7;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: f */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage == null) {
+            return null;
+        }
+        if (customResponsedMessage instanceof MemoryChangedMessage) {
+            ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
+            if (data != null && data.getCustomGroupType() == -8) {
+                return new MemoryChangedMessage(by.l(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+            }
+            if (data != null && data.getCustomGroupType() == -7) {
+                return new MemoryChangedMessage(cb.m(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+            }
+            return customResponsedMessage;
+        }
+        return customResponsedMessage;
     }
 }

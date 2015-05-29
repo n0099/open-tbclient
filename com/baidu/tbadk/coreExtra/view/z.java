@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
-    private com.baidu.tbadk.core.util.aa ZF = null;
-    final /* synthetic */ t afh;
+    private com.baidu.tbadk.core.util.aa aaG = null;
+    final /* synthetic */ t agi;
     private String mAccount;
     private String mUrl;
 
     public z(t tVar, String str, String str2) {
-        this.afh = tVar;
+        this.agi = tVar;
         this.mUrl = null;
         this.mAccount = null;
         this.mUrl = str;
@@ -27,10 +27,10 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     public void cancel() {
         ProgressBar progressBar;
         TextView textView;
-        this.afh.aeU = null;
-        progressBar = this.afh.aeY;
+        this.agi.afW = null;
+        progressBar = this.agi.aga;
         progressBar.setVisibility(8);
-        textView = this.afh.aeX;
+        textView = this.agi.afZ;
         textView.setEnabled(true);
     }
 
@@ -47,26 +47,26 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         x xVar2;
         AccountData accountData2;
         super.onPostExecute(aVar);
-        this.afh.aeU = null;
-        progressBar = this.afh.aeY;
+        this.agi.afW = null;
+        progressBar = this.agi.aga;
         progressBar.setVisibility(8);
-        textView = this.afh.aeX;
+        textView = this.agi.afZ;
         textView.setEnabled(true);
         if (aVar == null) {
-            this.afh.dQ(this.ZF.getErrorString());
+            this.agi.eh(this.aaG.getErrorString());
         } else if (aVar.getUser().getUserName() != null) {
-            this.afh.xg();
-            accountData = this.afh.afc;
-            tbPageContext = this.afh.LP;
+            this.agi.xS();
+            accountData = this.agi.agd;
+            tbPageContext = this.agi.LH;
             TbadkCoreApplication.setCurrentAccount(accountData, tbPageContext.getPageActivity());
-            xVar = this.afh.afd;
+            xVar = this.agi.age;
             if (xVar != null) {
-                xVar2 = this.afh.afd;
-                accountData2 = this.afh.afc;
+                xVar2 = this.agi.age;
+                accountData2 = this.agi.agd;
                 xVar2.g(accountData2);
             }
         } else {
-            this.afh.r(aVar.qf());
+            this.agi.p(aVar.qL());
         }
     }
 
@@ -75,12 +75,12 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     public void onPreExecute() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.afh.aeY;
+        progressBar = this.agi.aga;
         progressBar.setVisibility(0);
-        textView = this.afh.aeX;
+        textView = this.agi.afZ;
         textView.setEnabled(false);
-        this.afh.dQ(null);
-        this.afh.xf();
+        this.agi.eh(null);
+        this.agi.xR();
         super.onPreExecute();
     }
 
@@ -111,7 +111,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         String str;
         Exception e;
         AccountData accountData;
-        String rO;
+        String sw;
         AccountData accountData2;
         AccountData accountData3;
         AccountData accountData4;
@@ -122,19 +122,19 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         str2 = null;
         str2 = null;
         try {
-            this.ZF = new com.baidu.tbadk.core.util.aa(this.mUrl);
-            this.ZF.o("un", this.mAccount);
-            com.baidu.tbadk.core.util.aa aaVar = this.ZF;
-            accountData = this.afh.afc;
+            this.aaG = new com.baidu.tbadk.core.util.aa(this.mUrl);
+            this.aaG.o("un", this.mAccount);
+            com.baidu.tbadk.core.util.aa aaVar = this.aaG;
+            accountData = this.agi.agd;
             aaVar.o("BDUSS", accountData.getBDUSS());
-            this.ZF.sp().tp().VW = false;
-            rO = this.ZF.rO();
+            this.aaG.sX().tS().WD = false;
+            sw = this.aaG.sw();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.ZF.ss()) {
-            str = this.ZF.st();
+        if (this.aaG.ta()) {
+            str = this.aaG.tb();
             try {
             } catch (Exception e3) {
                 e = e3;
@@ -143,7 +143,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
             }
             if (str == 0) {
                 com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-                aVar.parserJson(rO);
+                aVar.parserJson(sw);
                 String userName = aVar.getUser().getUserName();
                 String bduss = aVar.getUser().getBDUSS();
                 str = aVar;
@@ -151,28 +151,28 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
                 str2 = userName;
                 str2 = userName;
                 if (userName != null && bduss != null) {
-                    accountData2 = this.afh.afc;
+                    accountData2 = this.agi.agd;
                     str = aVar;
                     str2 = userName;
                     if (accountData2 != null) {
-                        accountData3 = this.afh.afc;
+                        accountData3 = this.agi.agd;
                         accountData3.setAccount(userName);
-                        accountData4 = this.afh.afc;
+                        accountData4 = this.agi.agd;
                         accountData4.setBDUSS(bduss);
-                        accountData5 = this.afh.afc;
+                        accountData5 = this.agi.agd;
                         accountData5.setPortrait(aVar.getUser().getPortrait());
-                        r1 = this.afh.afc;
+                        r1 = this.agi.agd;
                         com.baidu.tbadk.core.a.d.b(r1);
                         str = aVar;
                         str2 = r1;
                     }
                 }
-            } else if (this.ZF.st() == 36) {
+            } else if (this.aaG.tb() == 36) {
                 com.baidu.tbadk.coreExtra.data.a aVar2 = new com.baidu.tbadk.coreExtra.data.a();
-                aVar2.parserJson(rO);
+                aVar2.parserJson(sw);
                 str = aVar2;
-            } else if (this.ZF.st() == 1) {
-                this.afh.xg();
+            } else if (this.aaG.tb() == 1) {
+                this.agi.xS();
                 str = 0;
                 return str;
             }

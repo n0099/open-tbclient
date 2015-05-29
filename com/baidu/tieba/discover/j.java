@@ -1,28 +1,22 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aBS;
+public class j extends CustomMessageListener {
+    final /* synthetic */ a aDS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(a aVar) {
-        this.aBS = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(a aVar, int i) {
+        super(i);
+        this.aDS = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        TbadkApplication.getInst().setLocationShared(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902001, new com.baidu.tbadk.core.frameworkData.a(this.aBS.getPageContext().getPageActivity())));
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
-        httpMessage.addParam("opt", "location");
-        httpMessage.addParam("val", String.valueOf(1));
-        this.aBS.sendMessage(httpMessage);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.aDS.bz(true);
     }
 }

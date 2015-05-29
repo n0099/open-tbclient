@@ -7,17 +7,17 @@ import android.view.View;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> CREATOR = new c();
-    boolean uE;
+    boolean tP;
     View lI = null;
     int mAlpha = MotionEventCompat.ACTION_MASK;
-    int uF = -1;
-    int uG = -1;
-    int uH = 17170444;
-    boolean uI = true;
-    boolean uJ = false;
-    boolean uK = false;
-    int uL = -1;
-    int uM = -1;
+    int tQ = -1;
+    int tR = -1;
+    int tS = 17170444;
+    boolean tT = true;
+    boolean tU = false;
+    boolean tV = false;
+    int tW = -1;
+    int tX = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -27,10 +27,10 @@ class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.uF);
-        parcel.writeInt(this.uG);
-        parcel.writeInt(this.uH);
-        parcel.writeByte((byte) (this.uI ? 1 : 0));
-        parcel.writeByte((byte) (this.uJ ? 1 : 0));
+        parcel.writeInt(this.tQ);
+        parcel.writeInt(this.tR);
+        parcel.writeInt(this.tS);
+        parcel.writeByte((byte) (this.tT ? 1 : 0));
+        parcel.writeByte((byte) (this.tU ? 1 : 0));
     }
 }

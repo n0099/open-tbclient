@@ -14,16 +14,16 @@ public class e {
 
     public e() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = pI();
+        this.mKey = qo();
     }
 
     private byte[] b(Key key, byte[] bArr) {
-        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);
     }
 
-    public String Q(String str, String str2) {
+    public String U(String str, String str2) {
         int length;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -53,7 +53,7 @@ public class e {
         return com.baidu.adp.lib.util.c.m(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String pI() {
+    private String qo() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

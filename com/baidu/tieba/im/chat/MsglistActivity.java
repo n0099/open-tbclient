@@ -28,6 +28,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
+        adjustResizeForSoftInput();
         if (this.mListModel != null) {
             this.mListModel.setImageUploadUIProgressCallback(this.mUploadProgressCallback);
         }
@@ -35,13 +36,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cg.aYs = com.baidu.tbadk.util.g.Dl();
+            cg.baZ = com.baidu.tbadk.util.g.DV();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
         if (!initData(null)) {

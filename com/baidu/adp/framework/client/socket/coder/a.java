@@ -3,22 +3,22 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte pE = Byte.MIN_VALUE;
-    private static byte pF = 64;
-    private boolean pG = false;
-    private boolean pH = false;
-    private int pI;
-    private int pJ;
+    private static byte pJ = Byte.MIN_VALUE;
+    private static byte pK = 64;
+    private boolean pL = false;
+    private boolean pM = false;
+    private int pN;
+    private int pO;
 
-    public static int eC() {
+    public static int eF() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + eC());
-        byte b = z ? (byte) (pE | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + eF());
+        byte b = z ? (byte) (pJ | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | pF);
+            b = (byte) (b | pK);
         }
         allocate.put(b);
         allocate.putInt(i);
@@ -31,33 +31,33 @@ public class a {
     }
 
     public static a f(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, eC());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, eF());
         a aVar = new a();
         byte b = wrap.get();
-        if ((pE & b) != 0) {
-            aVar.pG = true;
+        if ((pJ & b) != 0) {
+            aVar.pL = true;
         }
-        if ((b & pF) != 0) {
-            aVar.pH = true;
+        if ((b & pK) != 0) {
+            aVar.pM = true;
         }
-        aVar.pI = wrap.getInt();
-        aVar.pJ = wrap.getInt();
+        aVar.pN = wrap.getInt();
+        aVar.pO = wrap.getInt();
         return aVar;
     }
 
-    public boolean eD() {
-        return this.pH;
+    public boolean eG() {
+        return this.pM;
     }
 
-    public int eE() {
-        return this.pI;
+    public int eH() {
+        return this.pN;
     }
 
-    public boolean eF() {
-        return this.pG;
+    public boolean eI() {
+        return this.pL;
     }
 
-    public int eG() {
-        return this.pJ;
+    public int eJ() {
+        return this.pO;
     }
 }

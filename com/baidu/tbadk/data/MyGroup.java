@@ -39,7 +39,7 @@ public class MyGroup extends i implements Serializable {
         if (jSONObject != null) {
             this.mGroupName = jSONObject.optString("group_name");
             this.mGroupId = jSONObject.optLong("group_id");
-            this.mGroupPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+            this.mGroupPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
         }
     }
 

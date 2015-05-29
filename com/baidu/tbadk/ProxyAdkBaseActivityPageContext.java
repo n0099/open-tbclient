@@ -34,6 +34,7 @@ public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
         this.activity.sendMessage(netMessage);
     }
 
+    @Override // com.baidu.adp.base.j
     public void registerListener(a aVar) {
         this.activity.registerListener(aVar);
     }

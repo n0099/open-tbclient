@@ -9,6 +9,6 @@ public class RequestMemoryListMessage extends CustomMessage<Integer> {
     public static final int TYPE_REQUEST_OFFICIAL = 2;
 
     public RequestMemoryListMessage(Integer num) {
-        super(2016006, num);
+        super(2016007, num);
     }
 }

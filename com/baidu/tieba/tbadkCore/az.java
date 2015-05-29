@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 class az extends BdAsyncTask<Integer, Integer, Integer> {
-    private String Wu;
-    private com.baidu.tbadk.core.util.aa ZF = null;
-    private WeakReference<ay> cnL;
+    private com.baidu.tbadk.core.util.aa aaG = null;
+    private WeakReference<ay> crJ;
     private long mForumId;
     private String mForumName;
+    private String mFrom;
 
     public az(String str, long j, String str2, ay ayVar) {
         this.mForumName = null;
         this.mForumId = 0L;
-        this.cnL = null;
+        this.crJ = null;
         this.mForumName = str;
         this.mForumId = j;
-        this.cnL = new WeakReference<>(ayVar);
-        this.Wu = str2;
+        this.crJ = new WeakReference<>(ayVar);
+        this.mFrom = str2;
         setPriority(3);
     }
 
@@ -32,13 +32,13 @@ class az extends BdAsyncTask<Integer, Integer, Integer> {
     public Integer doInBackground(Integer... numArr) {
         try {
             if (this.mForumId != 0 && this.mForumName != null) {
-                this.ZF = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-                this.ZF.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
-                this.ZF.o("kw", this.mForumName);
-                this.ZF.o("favo_type", "1");
-                this.ZF.o("st_type", this.Wu);
-                this.ZF.sp().tp().mIsNeedTbs = true;
-                this.ZF.rO();
+                this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                this.aaG.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
+                this.aaG.o("kw", this.mForumName);
+                this.aaG.o("favo_type", "1");
+                this.aaG.o("st_type", this.mFrom);
+                this.aaG.sX().tS().mIsNeedTbs = true;
+                this.aaG.sw();
             }
             return 1;
         } catch (Exception e) {
@@ -53,21 +53,21 @@ class az extends BdAsyncTask<Integer, Integer, Integer> {
     public void onPostExecute(Integer num) {
         ay ayVar;
         super.onPostExecute((az) num);
-        if (this.cnL != null && (ayVar = this.cnL.get()) != null) {
-            if (this.ZF != null) {
-                if (this.ZF.sp().tq().pv()) {
+        if (this.crJ != null && (ayVar = this.crJ.get()) != null) {
+            if (this.aaG != null) {
+                if (this.aaG.sX().tT().qa()) {
                     if (num.intValue() == 1) {
                         TbadkCoreApplication.m411getInst().delLikeForum(this.mForumName);
-                        ayVar.d(this.mForumName, this.mForumId);
+                        ayVar.g(this.mForumName, this.mForumId);
                         return;
                     }
-                    ayVar.e(this.mForumName, this.mForumId);
+                    ayVar.h(this.mForumName, this.mForumId);
                     return;
                 }
-                ayVar.e(this.mForumName, this.mForumId);
+                ayVar.h(this.mForumName, this.mForumId);
                 return;
             }
-            ayVar.e(this.mForumName, this.mForumId);
+            ayVar.h(this.mForumName, this.mForumId);
         }
     }
 }

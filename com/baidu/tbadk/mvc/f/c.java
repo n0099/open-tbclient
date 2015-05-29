@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.cache.v;
-import com.baidu.adp.lib.util.z;
+import com.baidu.adp.lib.util.aa;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.b.d;
 import com.baidu.tbadk.mvc.b.f;
@@ -31,7 +31,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
             return null;
         }
         ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) Bq();
+        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) Cc();
         if (readCacheMessage.isNeedUid()) {
             str = TbadkCoreApplication.getCurrentAccount();
             if (str == null) {
@@ -43,22 +43,22 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         if (dVar3 != null) {
             if (readCacheMessage.getRequestData() == null) {
                 if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                    List<v<byte[]>> c = z.c(com.baidu.tbadk.core.b.a.rc().R(this.sI, str));
+                    List<v<byte[]>> c = aa.c(com.baidu.tbadk.core.b.a.rI().V(this.sT, str));
                     if (c != null) {
                         ArrayList arrayList2 = new ArrayList(c.size());
                         for (v<byte[]> vVar : c) {
-                            if (vVar != null && (bArr = vVar.sf) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) Bq()) != null) {
+                            if (vVar != null && (bArr = vVar.ss) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) Cc()) != null) {
                                 ((com.baidu.tbadk.mvc.b.b) dVar2).A(bArr);
                                 arrayList2.add(dVar2);
                             }
                         }
                         arrayList = arrayList2;
                     }
-                } else if ((dVar3 instanceof f) && (b = z.b(com.baidu.tbadk.core.b.a.rc().S(this.sI, str))) != null) {
+                } else if ((dVar3 instanceof f) && (b = aa.b(com.baidu.tbadk.core.b.a.rI().W(this.sT, str))) != null) {
                     ArrayList arrayList3 = new ArrayList(b.size());
                     for (v<String> vVar2 : b) {
-                        if (vVar2 != null && (str3 = vVar2.sf) != null && (dVar = (com.baidu.tbadk.mvc.b.d) Bq()) != null) {
-                            ((f) dVar).eB(str3);
+                        if (vVar2 != null && (str3 = vVar2.ss) != null && (dVar = (com.baidu.tbadk.mvc.b.d) Cc()) != null) {
+                            ((f) dVar).eS(str3);
                             arrayList3.add(dVar);
                         }
                     }
@@ -66,17 +66,17 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                 }
             } else {
                 String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                String zX = readCacheMessage.getRequestData().zX();
+                String AJ = readCacheMessage.getRequestData().AJ();
                 if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                    byte[] bArr2 = com.baidu.tbadk.core.b.a.rc().R(zX, str).get(cacheKey);
+                    byte[] bArr2 = com.baidu.tbadk.core.b.a.rI().V(AJ, str).get(cacheKey);
                     if (bArr2 != null) {
                         ((com.baidu.tbadk.mvc.b.b) dVar3).A(bArr2);
                         ArrayList arrayList4 = new ArrayList();
                         arrayList4.add(dVar3);
                         arrayList = arrayList4;
                     }
-                } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.b.a.rc().S(zX, str).get(cacheKey)) != null) {
-                    ((f) dVar3).eB(str2);
+                } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.b.a.rI().W(AJ, str).get(cacheKey)) != null) {
+                    ((f) dVar3).eS(str2);
                     ArrayList arrayList5 = new ArrayList();
                     arrayList5.add(dVar3);
                     arrayList = arrayList5;

@@ -5,9 +5,9 @@ public interface t<T> {
 
     void a(String str, T t, long j);
 
-    v<T> ab(String str);
+    v<T> ad(String str);
 
-    void ac(String str);
+    void ae(String str);
 
     void b(String str, T t, long j);
 

@@ -11,8 +11,8 @@ class k implements CustomMessageTask.CustomRunnable<m> {
             return null;
         }
         m data = customMessage.getData();
-        data.aoU = ah.CQ().CS();
-        data.aoV = ah.CQ().CU();
+        data.apZ = ah.DB().DD();
+        data.aqa = ah.DB().DF();
         return new CustomResponsedMessage<>(2016100, data);
     }
 }

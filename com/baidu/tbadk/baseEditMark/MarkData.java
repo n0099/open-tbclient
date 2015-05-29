@@ -1,8 +1,9 @@
 package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.core.frameworkData.c;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -148,17 +149,20 @@ public class MarkData implements Serializable {
     }
 
     public JSONObject toJson() {
+        int i;
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
-            jSONObject.put("pid", this.mPostId);
-            if (this.mHostMode) {
-                jSONObject.put("status", "1");
-            } else if (!this.mSequence) {
-                jSONObject.put("status", "2");
+            jSONObject.put(Info.kBaiduPIDKey, this.mPostId);
+            if (this.mSequence) {
+                i = 1;
             } else {
-                jSONObject.put("status", GameInfoData.NOT_FROM_DETAIL);
+                i = 4;
             }
+            if (this.mHostMode) {
+                i += 2;
+            }
+            jSONObject.put("status", i);
             return jSONObject;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -172,15 +176,25 @@ public class MarkData implements Serializable {
             this.mPostId = jSONObject.optString("mark_pid");
             this.mForumName = jSONObject.optString("forum_name");
             this.mTitle = jSONObject.optString("title");
-            this.mAuthorName = jSONObject.optJSONObject("author").optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+            this.mAuthorName = jSONObject.optJSONObject("author").optString(c.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
             int optInt = jSONObject.optInt("mark_status");
-            if (optInt == 1) {
-                this.mHostMode = true;
-            } else if (optInt == 2) {
+            if (optInt == 0) {
+                this.mSequence = true;
+                this.mHostMode = false;
+                return;
+            }
+            if ((optInt & 1) != 0) {
+                this.mSequence = true;
+            } else {
                 this.mSequence = false;
+            }
+            if ((optInt & 2) != 0) {
+                this.mHostMode = true;
+            } else {
+                this.mHostMode = false;
             }
         } catch (Exception e) {
             BdLog.detailException(e);

@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AbsListView.OnScrollListener {
-    final /* synthetic */ AbsMsglistView aWI;
+    final /* synthetic */ AbsMsglistView aZo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(AbsMsglistView absMsglistView) {
-        this.aWI = absMsglistView;
+        this.aZo = absMsglistView;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -17,8 +17,8 @@ public class o implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.aWI.sendmsgCloseSoftkey();
-        this.aWI.sendmsgCloseMore();
-        this.aWI.sendmsgCloseExpression();
+        this.aZo.sendmsgCloseSoftkey();
+        this.aZo.sendmsgCloseMore();
+        this.aZo.sendmsgCloseExpression();
     }
 }

@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
-import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
@@ -20,7 +19,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 public final class ShareService extends Service {
     private static Context a;
     private static LoginShareStrategy b;
-    private static com.baidu.sapi2.c c;
+    private static com.baidu.sapi2.d c;
     private static boolean d = false;
     private Handler e;
 
@@ -54,15 +53,14 @@ public final class ShareService extends Service {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
             Bundle readBundle;
             ShareModel shareModel;
-            String e = com.baidu.sapi2.share.b.e(ShareService.this);
-            if (!com.baidu.sapi2.share.b.d(ShareService.this)) {
+            if (!com.baidu.sapi2.share.a.c(ShareService.this)) {
                 return false;
             }
             if (SapiAccountManager.getReceiveShareListener() != null) {
                 if (ShareService.this.e == null) {
                     ShareService.this.e = new Handler(Looper.getMainLooper());
                 }
-                ShareService.this.e.post(new RunnableC0006a());
+                ShareService.this.e.post(new RunnableC0007a());
             }
             if (!ShareService.d) {
                 ShareService.this.a((Context) ShareService.this);
@@ -79,21 +77,18 @@ public final class ShareService extends Service {
             if (shareModel == null) {
                 return true;
             }
-            if (TextUtils.isEmpty(e) || !e.equals(ShareService.a.getPackageName())) {
-                if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                    com.baidu.sapi2.share.b.c(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
-                    switch (b.a[shareModel.b().ordinal()]) {
-                        case 1:
-                            com.baidu.sapi2.share.b.a(ShareService.a, ShareService.b, shareModel);
-                            break;
-                        case 2:
-                            com.baidu.sapi2.share.b.a(ShareService.a, shareModel);
-                            break;
-                        case 3:
-                            ShareService.this.a(parcel2);
-                            break;
-                    }
-                    return true;
+            if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
+                com.baidu.sapi2.share.a.c(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
+                switch (b.a[shareModel.b().ordinal()]) {
+                    case 1:
+                        com.baidu.sapi2.share.a.a(ShareService.a, ShareService.b, shareModel);
+                        break;
+                    case 2:
+                        com.baidu.sapi2.share.a.a(ShareService.a, shareModel);
+                        break;
+                    case 3:
+                        ShareService.this.a(parcel2);
+                        break;
                 }
                 return true;
             }
@@ -102,8 +97,8 @@ public final class ShareService extends Service {
 
         /* renamed from: com.baidu.sapi2.share.ShareService$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC0006a implements Runnable {
-            RunnableC0006a() {
+        class RunnableC0007a implements Runnable {
+            RunnableC0007a() {
             }
 
             @Override // java.lang.Runnable
@@ -138,7 +133,7 @@ public final class ShareService extends Service {
     void a(Context context) {
         try {
             a = context;
-            c = com.baidu.sapi2.c.a(context);
+            c = com.baidu.sapi2.d.a(context);
             b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
             d = true;
         } catch (IllegalStateException e) {
@@ -159,10 +154,10 @@ public final class ShareService extends Service {
         for (SapiAccount sapiAccount : shareModel.a()) {
             sapiAccount.app = SapiUtils.getAppName(a);
         }
-        com.baidu.sapi2.share.b.b(a, b, shareModel);
+        com.baidu.sapi2.share.a.b(a, b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
-        if (c.k() != null) {
-            bundle.putString("RELOGIN_CREDENTIALS", com.baidu.sapi2.share.a.a(a, c.k().toString()));
+        if (c.p() != null) {
+            bundle.putString("RELOGIN_CREDENTIALS", e.a(a, c.p().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         parcel.writeBundle(bundle);

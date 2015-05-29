@@ -1,17 +1,15 @@
 package com.baidu.tieba.pluginCenter;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class d implements View.OnClickListener {
-    final /* synthetic */ PluginDetailActivity bUL;
+class d implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PluginCenterActivity bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(PluginDetailActivity pluginDetailActivity) {
-        this.bUL = pluginDetailActivity;
+    public d(PluginCenterActivity pluginCenterActivity) {
+        this.bXh = pluginCenterActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bUL.closeActivity();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

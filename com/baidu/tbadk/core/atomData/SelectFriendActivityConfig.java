@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class SelectFriendActivityConfig extends a {
+public class SelectFriendActivityConfig extends c {
     public static final int KEY_FROME_WEB_GAME = 0;
     public static final String KEY_FROME_WHERE = "key_from_where";
 

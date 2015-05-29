@@ -12,7 +12,7 @@ public class q implements k {
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
-    public void G(String str) {
+    public void J(String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
@@ -28,7 +28,7 @@ public class q implements k {
     }
 
     @Override // com.baidu.adp.lib.webSocket.k
-    public void jq() {
+    public void jH() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.k

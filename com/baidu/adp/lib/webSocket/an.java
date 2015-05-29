@@ -1,14 +1,14 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 class an {
-    public int Bg;
-    public boolean Bh;
-    public int Bi;
-    public int Bj;
-    public int Bk;
-    public int Bl;
-    public byte[] Bm;
-    public byte[] Bn;
+    public int AV;
+    public boolean AW;
+    public int AX;
+    public int AY;
+    public int AZ;
+    public int Ba;
+    public byte[] Bb;
+    public byte[] Bc;
 
     private an() {
     }

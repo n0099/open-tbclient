@@ -1,32 +1,25 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-public class br extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class br implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bmQ;
+    final /* synthetic */ bq bni;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public br(bq bqVar, ImMessageCenterPojo imMessageCenterPojo) {
+        this.bni = bqVar;
+        this.bmQ = imMessageCenterPojo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String valueOf = String.valueOf(customResponsedMessage.getData());
-        c.Sq().F(valueOf, 9);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bs(this, valueOf));
-        customMessageTask.setParallel(TiebaIMConfig.getParallel());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        customMessageTask.setPriority(4);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && (customMessage instanceof CustomMessage)) {
+            com.baidu.tieba.im.db.c.Rm().gW(this.bmQ.getGid());
+        }
+        return null;
     }
 }

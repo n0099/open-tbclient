@@ -1,85 +1,42 @@
 package com.baidu.tieba.home;
 
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aa;
+import android.app.Activity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.adp.lib.util.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<String, Integer, String> {
-    private aa ZF = null;
-    private String aWf;
-    final /* synthetic */ CreateBarActivity aWh;
-    private String mVcode;
+public class c implements View.OnTouchListener {
+    final /* synthetic */ CreateBarActivity aYM;
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        super.cancel(true);
-        if (this.ZF != null) {
-            this.ZF.hh();
-        }
-        progressBar = this.aWh.mProgress;
-        progressBar.setVisibility(8);
-        this.aWh.aVZ = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(CreateBarActivity createBarActivity) {
+        this.aYM = createBarActivity;
     }
 
-    public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.aWh = createBarActivity;
-        this.aWf = null;
-        this.mVcode = null;
-        this.aWf = str;
-        this.mVcode = str2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) {
-        String str;
-        try {
-            this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
-            this.ZF.sp().tp().mIsNeedTbs = true;
-            this.ZF.o("kw", this.aWf);
-            this.ZF.o("vcode", this.mVcode);
-            aa aaVar = this.ZF;
-            str = this.aWh.aWb;
-            aaVar.o("vcode_md5", str);
-            this.ZF.rO();
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        EditText editText4;
+        if (motionEvent.getAction() == 0) {
+            editText = this.aYM.aYA;
+            if (editText.hasFocus()) {
+                Activity pageActivity = this.aYM.getPageContext().getPageActivity();
+                editText4 = this.aYM.aYA;
+                n.c(pageActivity, editText4);
+            }
+            editText2 = this.aYM.axx;
+            if (editText2.hasFocus()) {
+                Activity pageActivity2 = this.aYM.getPageContext().getPageActivity();
+                editText3 = this.aYM.axx;
+                n.c(pageActivity2, editText3);
+                return false;
+            }
+            return false;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        super.onPostExecute((c) str);
-        progressBar = this.aWh.mProgress;
-        progressBar.setVisibility(8);
-        this.aWh.aVZ = null;
-        if (this.ZF.sp().tq().pv()) {
-            CreateBarSuccessActivity.J(this.aWh.getPageContext().getPageActivity(), this.aWf);
-            this.aWh.finish();
-            return;
-        }
-        this.aWh.showToast(this.ZF.getErrorString());
-        if (this.ZF.ss()) {
-            this.aWh.Nw();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        super.onPreExecute();
-        progressBar = this.aWh.mProgress;
-        progressBar.setVisibility(0);
+        return false;
     }
 }

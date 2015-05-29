@@ -1,31 +1,25 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import android.view.ViewGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.bs;
 /* loaded from: classes.dex */
-public class ap implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout Zq;
+class ap implements bs {
+    final /* synthetic */ ao aap;
+    private final /* synthetic */ String aaq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(UserPhotoLayout userPhotoLayout) {
-        this.Zq = userPhotoLayout;
+    public ap(ao aoVar, String str) {
+        this.aap = aoVar;
+        this.aaq = str;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof HeadImageView) {
-            bVar = this.Zq.mUserPhotoPool;
-            if (bVar != null) {
-                bVar2 = this.Zq.mUserPhotoPool;
-                bVar2.j((HeadImageView) view2);
-            }
+    @Override // com.baidu.tbadk.core.util.bs
+    public boolean m(View view) {
+        Object tag = view.getTag();
+        if (tag != null && this.aaq.equals(tag)) {
+            view.invalidate();
+            return false;
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+        return false;
     }
 }

@@ -1,4 +1,6 @@
 package com.baidu.sapi2.utils.enums;
+
+import com.baidu.location.a0;
 /* loaded from: classes.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
@@ -6,7 +8,8 @@ public enum SocialType {
     SINA_WEIBO(2, "新浪微博"),
     TENCENT_WEIBO(4, "腾讯微博"),
     QZONE(15, "QQ空间"),
-    QQ(15, "QQ");
+    QQ(15, "QQ"),
+    WEIXIN(42, "微信");
     
     private int a;
     private String b;
@@ -34,6 +37,8 @@ public enum SocialType {
                 return TENCENT_WEIBO;
             case 15:
                 return QQ;
+            case a0.e /* 42 */:
+                return WEIXIN;
             default:
                 return UNKNOWN;
         }

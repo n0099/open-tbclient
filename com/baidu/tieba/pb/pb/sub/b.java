@@ -1,18 +1,29 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    public TbRichTextView bKu;
-    public LinearLayout bNu;
-    public TextView bNv;
-    final /* synthetic */ a bNw;
-    public View rootView;
+public class b implements AbsListView.OnScrollListener {
+    final /* synthetic */ NewSubPbActivity bPw;
 
-    public b(a aVar) {
-        this.bNw = aVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(NewSubPbActivity newSubPbActivity) {
+        this.bPw = newSubPbActivity;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        s sVar;
+        s sVar2;
+        if (i == 2 || i == 1) {
+            sVar = this.bPw.bPq;
+            sVar.acw();
+        }
+        sVar2 = this.bPw.bPq;
+        sVar2.ade();
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

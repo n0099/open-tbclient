@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class GameNewActivityConfig extends a {
+public class GameNewActivityConfig extends c {
     public GameNewActivityConfig(Context context) {
         super(context);
     }

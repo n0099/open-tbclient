@@ -14,9 +14,9 @@ class aq extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (TbadkCoreApplication.isLogin()) {
-            r.XM().XO();
+            r.Zl().Zn();
         } else {
-            r.XM().destroy();
+            r.Zl().destroy();
         }
     }
 }

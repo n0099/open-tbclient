@@ -1,32 +1,36 @@
 package com.baidu.tieba.setting.im.more;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.data.VoiceCheckResult;
 /* loaded from: classes.dex */
-public class f implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ SecretSettingActivity bZE;
-    private final /* synthetic */ String bZH;
+class f extends CustomMessageListener {
+    final /* synthetic */ SecretSettingActivity cdW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(SecretSettingActivity secretSettingActivity, String str) {
-        this.bZE = secretSettingActivity;
-        this.bZH = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(SecretSettingActivity secretSettingActivity, int i) {
+        super(i);
+        this.cdW = secretSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        this.bZE.showProgressBar();
-        switch (i) {
-            case 0:
-                this.bZE.S(this.bZH, 1);
-                break;
-            case 1:
-                this.bZE.S(this.bZH, 2);
-                break;
-            case 2:
-                this.bZE.S(this.bZH, 3);
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        i iVar;
+        i iVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && (customResponsedMessage.getData() instanceof VoiceCheckResult)) {
+            VoiceCheckResult voiceCheckResult = (VoiceCheckResult) customResponsedMessage.getData();
+            if (voiceCheckResult.aoK() == VoiceCheckResult.ResultCode.SUCCESS) {
+                this.cdW.cdN = voiceCheckResult;
+                if (voiceCheckResult.aoL()) {
+                    iVar2 = this.cdW.cdK;
+                    iVar2.eD(true);
+                    return;
+                }
+                iVar = this.cdW.cdK;
+                iVar.eD(false);
+            }
         }
-        eVar.dismiss();
     }
 }

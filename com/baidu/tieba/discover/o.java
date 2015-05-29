@@ -1,25 +1,20 @@
 package com.baidu.tieba.discover;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
+public class o implements View.OnClickListener {
+    final /* synthetic */ a aDS;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(int i) {
-        super(i);
+    public o(a aVar) {
+        this.aDS = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        Boolean bool;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            DiscoverDelegateStatic.aBV = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).alP);
-            imageView = DiscoverDelegateStatic.aBU;
-            bool = DiscoverDelegateStatic.aBV;
-            imageView.setVisibility(bool.booleanValue() ? 0 : 8);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aDS.sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(this.aDS.getPageContext().getPageActivity(), 1)));
     }
 }

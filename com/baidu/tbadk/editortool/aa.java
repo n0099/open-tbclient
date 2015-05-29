@@ -12,43 +12,43 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    private static aa ajA = new aa();
-    private static BdAsyncTaskParallel ajD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ad> ajB = new ArrayList<>();
-    private final List<a> ajC = new ArrayList();
+    private ArrayList<ad> akA = new ArrayList<>();
+    private final List<a> akB = new ArrayList();
+    private static aa akz = new aa();
+    private static BdAsyncTaskParallel akC = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
-    public static aa yR() {
-        return ajA;
+    public static aa zE() {
+        return akz;
     }
 
     private aa() {
     }
 
     public void b(a aVar) {
-        synchronized (this.ajC) {
-            if (!this.ajC.contains(aVar)) {
-                this.ajC.add(aVar);
-                Collections.sort(this.ajC);
+        synchronized (this.akB) {
+            if (!this.akB.contains(aVar)) {
+                this.akB.add(aVar);
+                Collections.sort(this.akB);
             }
         }
     }
 
-    public void yS() {
+    public void zF() {
         new ab(this).execute(new Void[0]);
     }
 
-    public boolean eg(String str) {
-        Iterator<ad> it = this.ajB.iterator();
+    public boolean ex(String str) {
+        Iterator<ad> it = this.akA.iterator();
         while (it.hasNext()) {
-            if (it.next().eg(str)) {
+            if (it.next().ex(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public com.baidu.adp.widget.a.a ej(String str) {
-        return com.baidu.tbadk.imageManager.e.zy().eu(str);
+    public com.baidu.adp.widget.a.a eA(String str) {
+        return com.baidu.tbadk.imageManager.e.Al().eL(str);
     }
 
     public String q(String str, boolean z) {
@@ -59,38 +59,38 @@ public class aa {
         return String.valueOf(z ? "d_" : "s_") + hashCode;
     }
 
-    public com.baidu.adp.widget.a.a ag(String str, String str2) {
+    public com.baidu.adp.widget.a.a al(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
-        Bitmap ah;
-        com.baidu.adp.widget.a.a eu = com.baidu.tbadk.imageManager.e.zy().eu(str2);
-        if (eu != null) {
-            return eu;
+        Bitmap am;
+        com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Al().eL(str2);
+        if (eL != null) {
+            return eL;
         }
-        Iterator<ad> it = this.ajB.iterator();
+        Iterator<ad> it = this.akA.iterator();
         while (true) {
             if (!it.hasNext()) {
-                aVar = eu;
+                aVar = eL;
                 break;
             }
             ad next = it.next();
-            if (next.eg(str2)) {
-                aVar = next.eh(str2);
+            if (next.ex(str2)) {
+                aVar = next.ey(str2);
                 break;
             }
         }
-        if (aVar == null && str != null && (ah = ah(str, q(str2, false))) != null) {
-            aVar = new com.baidu.adp.widget.a.a(ah, false, str2);
+        if (aVar == null && str != null && (am = am(str, q(str2, false))) != null) {
+            aVar = new com.baidu.adp.widget.a.a(am, false, str2);
         }
         a(str2, aVar, false);
         return aVar;
     }
 
     public String m(String str, boolean z) {
-        if (!y.yQ().isEmpty()) {
-            List<ad> groups = y.yQ().getGroups();
+        if (!y.zD().isEmpty()) {
+            List<ad> groups = y.zD().getGroups();
             if (z) {
                 for (ad adVar : groups) {
-                    if (adVar.eg(str)) {
+                    if (adVar.ex(str)) {
                         return str;
                     }
                 }
@@ -104,19 +104,19 @@ public class aa {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.zy().c(m(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.Al().c(m(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.zy().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.Al().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ad> yT() {
-        return this.ajB;
+    public ArrayList<ad> zG() {
+        return this.akA;
     }
 
-    public ad ek(String str) {
-        Iterator<ad> it = this.ajB.iterator();
+    public ad eB(String str) {
+        Iterator<ad> it = this.akA.iterator();
         while (it.hasNext()) {
             ad next = it.next();
             if (next.getGroupId().equals(str)) {
@@ -126,21 +126,21 @@ public class aa {
         return null;
     }
 
-    public Bitmap ah(String str, String str2) {
-        return com.baidu.tbadk.core.util.o.Y(".emotions/" + str, str2);
+    public Bitmap am(String str, String str2) {
+        return com.baidu.tbadk.core.util.o.ac(".emotions/" + str, str2);
     }
 
-    public com.baidu.adp.widget.a.a ai(String str, String str2) {
-        File file = new File(com.baidu.tbadk.core.util.o.yl + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
+    public com.baidu.adp.widget.a.a an(String str, String str2) {
+        File file = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
         if (file.exists()) {
             if (!UtilHelper.hasAvaiableSDCardSpace(1024)) {
-                Bitmap ah = ah(str, str2);
-                if (ah != null) {
-                    return new com.baidu.adp.widget.a.a(ah, false, str2);
+                Bitmap am = am(str, str2);
+                if (am != null) {
+                    return new com.baidu.adp.widget.a.a(am, false, str2);
                 }
                 return null;
             }
-            return com.baidu.adp.gif.b.ff().J(file.getAbsolutePath());
+            return com.baidu.adp.gif.b.fk().L(file.getAbsolutePath());
         }
         return null;
     }

@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private String afR;
-    private List<String> afS;
-    private c afT;
-    private boolean afU;
+    private String agS;
+    private List<String> agT;
+    private c agU;
+    private boolean agV;
 
-    public static a xr() {
+    public static a ye() {
         a aVar;
-        aVar = e.afY;
+        aVar = e.agZ;
         return aVar;
     }
 
     private a() {
-        this.afR = null;
-        this.afS = null;
-        this.afT = null;
-        this.afU = false;
-        this.afU = false;
-        this.afS = null;
+        this.agS = null;
+        this.agT = null;
+        this.agU = null;
+        this.agV = false;
+        this.agV = false;
+        this.agT = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,62 +30,62 @@ public class a {
         this();
     }
 
-    public int xs() {
-        return com.baidu.tbadk.core.sharedPref.b.rB().getInt("KeyOfSharedPrefImCount", 0);
+    public int yf() {
+        return com.baidu.tbadk.core.sharedPref.b.sl().getInt("KeyOfSharedPrefImCount", 0);
     }
 
-    public String xt() {
-        int xs = xs();
-        if (xs >= 10) {
-            com.baidu.tbadk.core.sharedPref.b.rB().putInt("KeyOfSharedPrefImCount", 0);
-            com.baidu.tbadk.core.sharedPref.b.rB().putString("KeyOfSharedPrefValidIp", "");
-            this.afR = null;
+    public String yg() {
+        int yf = yf();
+        if (yf >= 10) {
+            com.baidu.tbadk.core.sharedPref.b.sl().putInt("KeyOfSharedPrefImCount", 0);
+            com.baidu.tbadk.core.sharedPref.b.sl().putString("KeyOfSharedPrefValidIp", "");
+            this.agS = null;
             return null;
         }
-        if (this.afR == null) {
-            this.afR = com.baidu.tbadk.core.sharedPref.b.rB().getString("KeyOfSharedPrefValidIp", null);
+        if (this.agS == null) {
+            this.agS = com.baidu.tbadk.core.sharedPref.b.sl().getString("KeyOfSharedPrefValidIp", null);
         }
-        if (!com.baidu.adp.lib.util.m.isEmpty(this.afR)) {
-            com.baidu.tbadk.core.sharedPref.b.rB().putInt("KeyOfSharedPrefImCount", xs + 1);
+        if (!com.baidu.adp.lib.util.m.isEmpty(this.agS)) {
+            com.baidu.tbadk.core.sharedPref.b.sl().putInt("KeyOfSharedPrefImCount", yf + 1);
         } else {
-            this.afR = null;
+            this.agS = null;
         }
-        return this.afR;
+        return this.agS;
     }
 
-    public void dS(String str) {
+    public void ej(String str) {
         if (!TiebaIMConfig.defaultUrl.equals(str)) {
-            this.afR = str;
-            com.baidu.tbadk.core.sharedPref.b.rB().putString("KeyOfSharedPrefValidIp", str);
+            this.agS = str;
+            com.baidu.tbadk.core.sharedPref.b.sl().putString("KeyOfSharedPrefValidIp", str);
         }
     }
 
-    public List<String> xu() {
-        if (this.afS == null) {
-            this.afS = dT(com.baidu.tbadk.core.sharedPref.b.rB().getString("KeyOfSharedPrefIpList", null));
+    public List<String> yh() {
+        if (this.agT == null) {
+            this.agT = ek(com.baidu.tbadk.core.sharedPref.b.sl().getString("KeyOfSharedPrefIpList", null));
         }
-        return this.afS;
+        return this.agT;
     }
 
-    public void xv() {
-        this.afU = false;
+    public void yi() {
+        this.agV = false;
     }
 
-    public boolean xw() {
-        return this.afU;
+    public boolean yj() {
+        return this.agV;
     }
 
     public void a(b bVar) {
-        if (this.afT == null) {
-            this.afU = true;
-            this.afT = new c(this, bVar);
-            this.afT.setSelfExecute(true);
-            this.afT.execute(new Object[0]);
+        if (this.agU == null) {
+            this.agV = true;
+            this.agU = new c(this, bVar);
+            this.agU.setSelfExecute(true);
+            this.agU.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> dT(String str) {
+    public List<String> ek(String str) {
         String[] split;
         ArrayList arrayList = null;
         if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {

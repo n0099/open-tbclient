@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ ResponsePullMessage bkV;
+    final /* synthetic */ ResponsePullMessage bnA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ResponsePullMessage responsePullMessage) {
-        this.bkV = responsePullMessage;
+        this.bnA = responsePullMessage;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
@@ -19,6 +19,6 @@ public class q implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void c(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.c.PX().a(str, list, true);
+        com.baidu.tieba.im.db.c.Rm().a(str, list, true);
     }
 }

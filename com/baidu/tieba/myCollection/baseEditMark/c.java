@@ -11,19 +11,19 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Boolean, String, a> {
-    private i bEB;
-    final /* synthetic */ a bEC;
+    private i bHw;
+    final /* synthetic */ a bHx;
     private int offset;
-    private aa Ok = null;
-    private String bED = null;
-    Boolean bEE = false;
+    private aa OE = null;
+    private String bHy = null;
+    Boolean bHz = false;
 
     public c(a aVar, int i) {
-        this.bEC = aVar;
+        this.bHx = aVar;
         this.offset = 0;
-        this.bEB = null;
+        this.bHw = null;
         this.offset = i;
-        this.bEB = new i();
+        this.bHw = new i();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,89 +41,89 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        this.bEE = boolArr[0];
+        this.bHz = boolArr[0];
         a aVar = new a();
-        if (this.bEE.booleanValue()) {
-            t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.my_bookmarks");
-            if (bX != null) {
-                publishProgress(bX.get(TbadkCoreApplication.getCurrentAccount()));
+        if (this.bHz.booleanValue()) {
+            t<String> ck = com.baidu.tbadk.core.b.a.rI().ck("tb.my_bookmarks");
+            if (ck != null) {
+                publishProgress(ck.get(TbadkCoreApplication.getCurrentAccount()));
             }
-            arrayList3 = this.bEC.bEw;
+            arrayList3 = this.bHx.bHr;
             if (arrayList3 == null) {
-                this.bEC.bEw = new ArrayList();
+                this.bHx.bHr = new ArrayList();
             } else {
-                arrayList4 = this.bEC.bEw;
+                arrayList4 = this.bHx.bHr;
                 arrayList4.clear();
             }
-            this.bEC.bEx = 0;
+            this.bHx.bHs = 0;
         }
-        this.Ok = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_GETSTORE);
-        this.Ok.o("user_id", TbadkCoreApplication.getCurrentAccount());
-        z = this.bEC.bEz;
+        this.OE = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_GETSTORE);
+        this.OE.o("user_id", TbadkCoreApplication.getCurrentAccount());
+        z = this.bHx.bHu;
         if (z) {
-            this.Ok.o("offset", String.valueOf(0));
+            this.OE.o("offset", String.valueOf(0));
         } else {
-            this.Ok.o("offset", String.valueOf(this.offset));
+            this.OE.o("offset", String.valueOf(this.offset));
         }
-        this.Ok.o("rn", String.valueOf(20));
-        this.bED = this.Ok.rO();
-        this.bEB.parserJson(this.bED);
-        if (this.Ok.sp().tq().pv()) {
-            aVar.hx(this.bED);
+        this.OE.o("rn", String.valueOf(20));
+        this.bHy = this.OE.sw();
+        this.bHw.parserJson(this.bHy);
+        if (this.OE.sX().tT().qa()) {
+            aVar.ib(this.bHy);
             if (this.offset == 0) {
-                arrayList = this.bEC.bEw;
+                arrayList = this.bHx.bHr;
                 if (arrayList == null) {
-                    this.bEC.bEw = new ArrayList();
+                    this.bHx.bHr = new ArrayList();
                 } else {
-                    arrayList2 = this.bEC.bEw;
+                    arrayList2 = this.bHx.bHr;
                     arrayList2.clear();
                 }
-                this.bEC.bEx = 0;
-                if (this.bEE.booleanValue()) {
-                    fC(this.bED);
+                this.bHx.bHs = 0;
+                if (this.bHz.booleanValue()) {
+                    gc(this.bHy);
                 }
             }
         }
         return aVar;
     }
 
-    private void fC(String str) {
-        t<String> bX;
+    private void gc(String str) {
+        t<String> ck;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && (bX = com.baidu.tbadk.core.b.a.rc().bX("tb.my_bookmarks")) != null) {
-            bX.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+        if (currentAccount != null && (ck = com.baidu.tbadk.core.b.a.rI().ck("tb.my_bookmarks")) != null) {
+            ck.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: q */
+    /* renamed from: r */
     public void onProgressUpdate(String... strArr) {
-        ArrayList<MarkData> hy;
+        ArrayList<MarkData> ic;
         super.onProgressUpdate(strArr);
         String str = strArr[0];
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
-            hy = this.bEC.hy(str);
-            if (this.bEE.booleanValue()) {
-                this.bEC.K(hy);
+            ic = this.bHx.ic(str);
+            if (this.bHz.booleanValue()) {
+                this.bHx.H(ic);
             } else {
-                this.bEC.L(hy);
+                this.bHx.I(ic);
             }
         } else {
-            this.bEC.K(arrayList);
+            this.bHx.H(arrayList);
         }
-        this.bEC.bEA.callback(0, null, true);
+        this.bHx.bHv.callback(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.Ok != null) {
-            this.Ok.hh();
+        if (this.OE != null) {
+            this.OE.gS();
         }
-        this.bEC.bEt = null;
+        this.bHx.bHo = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,32 +134,32 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         if (aVar == null) {
             aVar = new a();
         }
-        this.bEC.bEt = null;
-        this.bEC.bEx = aVar.getCount();
-        ArrayList<MarkData> Yj = aVar.Yj();
-        if (this.bEE.booleanValue()) {
-            if (Yj != null && Yj.size() != 0) {
-                this.bEC.K(Yj);
+        this.bHx.bHo = null;
+        this.bHx.bHs = aVar.getCount();
+        ArrayList<MarkData> ZJ = aVar.ZJ();
+        if (this.bHz.booleanValue()) {
+            if (ZJ != null && ZJ.size() != 0) {
+                this.bHx.H(ZJ);
             }
         } else {
-            this.bEC.L(Yj);
+            this.bHx.I(ZJ);
         }
-        Iterator<MarkData> it = Yj.iterator();
+        Iterator<MarkData> it = ZJ.iterator();
         int i = 0;
         while (it.hasNext()) {
             if (it.next().getNewCounts() > 0) {
                 int i2 = i + 1;
-                this.bEC.gZ(i2);
+                this.bHx.hq(i2);
                 i = i2;
             }
         }
-        if (this.bEC.bEA != null) {
-            if (this.Ok.sp().tq().pv()) {
-                this.bEC.bEA.callback(0, this.bEB.getErrorString(), false);
+        if (this.bHx.bHv != null) {
+            if (this.OE.sX().tT().qa()) {
+                this.bHx.bHv.callback(0, this.bHw.getErrorString(), false);
             } else {
-                this.bEC.bEA.callback(3, this.Ok.getErrorString());
+                this.bHx.bHv.callback(3, this.OE.getErrorString());
             }
         }
-        this.bEC.bEz = false;
+        this.bHx.bHu = false;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 /* loaded from: classes.dex */
 public class af {
-    public int cnn;
-    public int cno;
-    public int cnp;
-    public int cnq;
-    public int cnr;
+    public int crl;
+    public int crm;
+    public int crn;
+    public int cro;
+    public int crp;
 }

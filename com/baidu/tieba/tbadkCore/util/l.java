@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int bWn;
-    private volatile HashMap<Long, Integer> cqb = new HashMap<>();
-    private volatile int cqa = 0;
+    private volatile int bZQ;
+    private volatile HashMap<Long, Integer> cuf = new HashMap<>();
+    private volatile int cue = 0;
 
     public l(int i) {
-        this.bWn = i;
+        this.bZQ = i;
     }
 
-    public void iQ(String str) {
+    public void jK(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cqb.size() >= this.bWn) {
-                    anK();
+                if (this.cuf.size() >= this.bZQ) {
+                    apC();
                 }
-                this.cqa++;
-                this.cqb.put(valueOf, Integer.valueOf(this.cqa));
+                this.cue++;
+                this.cuf.put(valueOf, Integer.valueOf(this.cue));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void anK() {
+    public void apC() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.cqb.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.cuf.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.cqb.remove(l);
+                this.cuf.remove(l);
             } else {
-                this.cqb.clear();
+                this.cuf.clear();
             }
         }
     }
 
-    public boolean iR(String str) {
+    public boolean jL(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cqb.get(valueOf) != null) {
+                if (this.cuf.get(valueOf) != null) {
                     z = true;
                 }
             }

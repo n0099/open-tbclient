@@ -4,11 +4,11 @@ import java.util.Comparator;
 import java.util.Map;
 /* loaded from: classes.dex */
 class d implements Comparator<Map.Entry<String, Integer>> {
-    final /* synthetic */ c afX;
+    final /* synthetic */ c agY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.afX = cVar;
+        this.agY = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,14 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String app;
     public String bduss;
     public String displayname;
+    @Deprecated
     public String email;
     public String extra;
+    @Deprecated
     private String k;
+    @Deprecated
     private String l;
+    @Deprecated
     public String phone;
     public String ptoken;
     public String stoken;
@@ -130,7 +135,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return false;
         }
         try {
-            return new JSONObject(this.extra).optBoolean(com.baidu.sapi2.utils.a.a, false);
+            return new JSONObject(this.extra).optBoolean(e.a, false);
         } catch (JSONException e2) {
             return false;
         }
@@ -141,7 +146,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return SocialType.UNKNOWN;
         }
         try {
-            return SocialType.getSocialType(new JSONObject(this.extra).optInt(com.baidu.sapi2.utils.a.b, SocialType.UNKNOWN.getType()));
+            return SocialType.getSocialType(new JSONObject(this.extra).optInt(e.b, SocialType.UNKNOWN.getType()));
         } catch (JSONException e2) {
             return SocialType.UNKNOWN;
         }
@@ -152,7 +157,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return null;
         }
         try {
-            return new JSONObject(this.extra).optString(com.baidu.sapi2.utils.a.c, null);
+            return new JSONObject(this.extra).optString(e.c, null);
         } catch (JSONException e2) {
             return null;
         }
@@ -225,7 +230,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public ReloginCredentials getReloginCredentials() {
-        return c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).c(this.uid);
+        return d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).c(this.uid);
     }
 
     /* loaded from: classes.dex */

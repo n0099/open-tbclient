@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
-    final /* synthetic */ ab auk;
+public class ad implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar) {
-        this.auk = abVar;
+    public ad(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        ag agVar;
-        boolean z;
-        textView = this.auk.aua;
-        textView.setEnabled(false);
-        agVar = this.auk.auh;
-        z = this.auk.atP;
-        agVar.bj(z);
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        w wVar;
+        wVar = this.this$0.avV;
+        wVar.dismiss();
+        this.this$0.mHandler.postDelayed(new ae(this), 100L);
     }
 }

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.GridView;
+import com.baidu.tbadk.core.view.BdGridView;
 /* loaded from: classes.dex */
-public class GoodGridView extends GridView {
+public class GoodGridView extends BdGridView {
     public GoodGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.myCollection;
 
-import com.baidu.tieba.u;
+import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tieba.tbadkCore.i.a {
     @Override // com.baidu.tieba.tbadkCore.i.a
-    public int Yh() {
-        return u.icon_home_collect;
+    public int ZH() {
+        return p.icon_home_collect;
     }
 }

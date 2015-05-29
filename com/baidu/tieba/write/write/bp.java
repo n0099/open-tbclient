@@ -1,36 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
 import android.widget.EditText;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-class bp implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cyx;
+class bp implements Runnable {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+        this.cCP = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditorToolComponetContainer editorToolComponetContainer;
-        int aro;
+    @Override // java.lang.Runnable
+    public void run() {
         EditText editText;
+        EditorToolComponetContainer editorToolComponetContainer;
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
-        editorToolComponetContainer = this.cyx.cmP;
-        if (editorToolComponetContainer.alK()) {
-            editorToolComponetContainer2 = this.cyx.cmP;
-            editorToolComponetContainer2.hideAll();
+        EditText editText3;
+        editText = this.cCP.cAu;
+        if (editText.getVisibility() == 0) {
+            editorToolComponetContainer2 = this.cCP.cqO;
+            editText3 = this.cCP.cAu;
+            editorToolComponetContainer2.ab(editText3);
+            return;
         }
-        aro = this.cyx.aro();
-        if (aro >= 0) {
-            editText = this.cyx.cwi;
-            if (aro < editText.getText().length()) {
-                editText2 = this.cyx.cwi;
-                editText2.setSelection(aro);
-            }
-        }
+        editorToolComponetContainer = this.cCP.cqO;
+        editText2 = this.cCP.cAy;
+        editorToolComponetContainer.ab(editText2);
     }
 }

@@ -8,13 +8,13 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView akW;
+    final /* synthetic */ GifView alX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.akW = gifView;
+        this.alX = gifView;
     }
 
     @Override // android.os.Handler
@@ -26,47 +26,47 @@ public class b extends Handler {
         boolean z;
         int i3;
         Bitmap bitmap;
-        e eVar;
-        e eVar2;
+        d dVar;
+        d dVar2;
         int i4;
         boolean z2;
-        weakReference = this.akW.akA;
+        weakReference = this.alX.alB;
         if (weakReference != null) {
-            weakReference2 = this.akW.akA;
+            weakReference2 = this.alX.alB;
             com.baidu.adp.gif.c cVar = (com.baidu.adp.gif.c) weakReference2.get();
             if (cVar != null && message.what == 1) {
-                GifView gifView = this.akW;
-                i = gifView.akB;
-                gifView.akB = i + 1;
-                i2 = this.akW.akB;
-                if (i2 >= cVar.fg()) {
-                    z2 = this.akW.akR;
+                GifView gifView = this.alX;
+                i = gifView.alC;
+                gifView.alC = i + 1;
+                i2 = this.alX.alC;
+                if (i2 >= cVar.fl()) {
+                    z2 = this.alX.alS;
                     if (z2) {
-                        this.akW.setVisibility(4);
-                        this.akW.akR = false;
+                        this.alX.setVisibility(4);
+                        this.alX.alS = false;
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.akW.akB = 0;
+                    this.alX.alC = 0;
                 } else {
                     z = false;
                 }
-                i3 = this.akW.akB;
-                cVar.C(i3);
-                bitmap = this.akW.mBitmap;
+                i3 = this.alX.alC;
+                cVar.D(i3);
+                bitmap = this.alX.mBitmap;
                 cVar.a(bitmap, null);
-                this.akW.invalidate();
+                this.alX.invalidate();
                 removeMessages(1);
                 if (!z) {
-                    i4 = this.akW.akB;
-                    sendEmptyMessageDelayed(1, cVar.D(i4));
+                    i4 = this.alX.alC;
+                    sendEmptyMessageDelayed(1, cVar.E(i4));
                     return;
                 }
-                eVar = this.akW.akC;
-                if (eVar != null) {
-                    eVar2 = this.akW.akC;
-                    eVar2.onStop();
+                dVar = this.alX.alD;
+                if (dVar != null) {
+                    dVar2 = this.alX.alD;
+                    dVar2.onStop();
                 }
             }
         }

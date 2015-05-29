@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PayTBeanActivityConfig extends a {
+public class PayTBeanActivityConfig extends c {
     public static final String ICON_COUNT = "icon_count";
     public static final String ICON_ID = "icon_id";
     public static final String PAY_TYPE = "pay_type";

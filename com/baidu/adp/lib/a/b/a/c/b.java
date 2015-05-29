@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    public Cursor rT;
-    private final Set<String> rU;
+    public Cursor se;
+    private final Set<String> sf;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.rT = cursor;
+        this.se = cursor;
         this.values = null;
-        this.rU = new TreeSet();
+        this.sf = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.rU.add(columnName);
+                    this.sf.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.rU = new TreeSet();
+        this.sf = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> fM() {
-        return this.rU;
+    public Set<String> fR() {
+        return this.sf;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.rT.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.rT.getColumnCount()) {
+        int columnIndex = this.se.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.se.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.rT.getShort(columnIndex));
+                valueOf = Short.valueOf(this.se.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.rT.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.se.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.rT.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.se.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.rT.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.se.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.rT.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.se.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.rT.getString(columnIndex);
+                    string = this.se.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.rT.getBlob(columnIndex);
+                        return this.se.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

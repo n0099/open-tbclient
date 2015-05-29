@@ -7,45 +7,45 @@ import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class d extends FragmentPagerAdapter {
-    private ArrayList<BaseFragment> bOR;
-    private int[] blI;
+    private ArrayList<BaseFragment> bQT;
+    private int[] bom;
 
-    protected abstract BaseFragment acY();
+    protected abstract BaseFragment adY();
 
     public d(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.bOR = new ArrayList<>();
+        this.bQT = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment acY = acY();
-        acY.setArguments(bundle);
-        this.bOR.add(acY);
+        BaseFragment adY = adY();
+        adY.setArguments(bundle);
+        this.bQT.add(adY);
         if (z) {
-            this.blI = new int[1];
+            this.bom = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
-        BaseFragment acY2 = acY();
-        acY2.setArguments(bundle2);
-        this.bOR.add(acY2);
-        this.blI = new int[]{0, 1};
+        BaseFragment adY2 = adY();
+        adY2.setArguments(bundle2);
+        this.bQT.add(adY2);
+        this.bom = new int[]{0, 1};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.blI.length || i < 0) {
+        if (i >= this.bom.length || i < 0) {
             return null;
         }
-        return this.bOR.get(i);
+        return this.bQT.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.blI.length;
+        return this.bom.length;
     }
 
-    public int gk(int i) {
-        return this.blI[i];
+    public int gB(int i) {
+        return this.bom[i];
     }
 }

@@ -5,6 +5,7 @@ import com.baidu.adp.lib.a.b.a.a.i;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class Message<T> extends i {
+    private long clientLogID;
     private final int mCmd;
     private BdUniqueId mTag;
     private Object mExtra = null;
@@ -24,12 +25,14 @@ public abstract class Message<T> extends i {
     public Message(int i) {
         this.mCmd = i;
         check();
+        this.clientLogID = com.baidu.adp.lib.h.a.iB().io();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
+        this.clientLogID = com.baidu.adp.lib.h.a.iB().io();
     }
 
     private void check() {
@@ -64,5 +67,13 @@ public abstract class Message<T> extends i {
 
     public void setEncodedBinarySize(long j) {
         this.encodedBinarySize = j;
+    }
+
+    public long getClientLogID() {
+        return this.clientLogID;
+    }
+
+    public void setClientLogID(long j) {
+        this.clientLogID = j;
     }
 }

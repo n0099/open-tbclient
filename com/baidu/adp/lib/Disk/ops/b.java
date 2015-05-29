@@ -40,23 +40,23 @@ public class b extends c {
     public boolean k(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.rz.l(bArr)) {
-            if (this.rz.rD == 0 || this.rz.rD >= System.currentTimeMillis()) {
-                if (this.ry == null) {
-                    this.ry = new BitmapFactory.Options();
-                    this.ry.inDither = false;
+        if (bArr != null && this.rJ.l(bArr)) {
+            if (this.rJ.rN == 0 || this.rJ.rN >= System.currentTimeMillis()) {
+                if (this.rI == null) {
+                    this.rI = new BitmapFactory.Options();
+                    this.rI.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.ry.inScreenDensity = i;
-                    this.ry.inTargetDensity = i;
-                    r2 = this.ry;
+                    this.rI.inScreenDensity = i;
+                    this.rI.inTargetDensity = i;
+                    r2 = this.rI;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
-                int fL = d.fL();
+                int fQ = d.fQ();
                 try {
                     try {
-                        byteArrayInputStream = new ByteArrayInputStream(bArr, fL, bArr.length - fL);
+                        byteArrayInputStream = new ByteArrayInputStream(bArr, fQ, bArr.length - fQ);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.ry);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rI);
                             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {

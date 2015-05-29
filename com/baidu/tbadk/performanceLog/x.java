@@ -1,12 +1,12 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class x {
-    public String aoU;
-    public int aoV;
-    final /* synthetic */ u apr;
-    public String aps;
+    public String apZ;
+    public int aqa;
+    final /* synthetic */ u aqu;
+    public String aqv;
 
     public x(u uVar) {
-        this.apr = uVar;
+        this.aqu = uVar;
     }
 }

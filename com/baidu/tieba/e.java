@@ -1,12 +1,23 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.os.IBinder;
 /* loaded from: classes.dex */
-public interface e {
-    IBinder onBind(Intent intent);
+class e implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ c avi;
 
-    void onCreate();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(c cVar) {
+        this.avi = cVar;
+    }
 
-    void onDestroy();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        b bVar;
+        LogoActivity logoActivity;
+        h hVar;
+        aVar.dismiss();
+        com.baidu.adp.lib.g.i hs = com.baidu.adp.lib.g.i.hs();
+        bVar = this.avi.avh;
+        logoActivity = bVar.avg;
+        hVar = logoActivity.ave;
+        hs.post(hVar);
+    }
 }

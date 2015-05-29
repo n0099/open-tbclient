@@ -1,7 +1,9 @@
 package com.baidu.adp.plugin.install;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class PluginInstallerService extends IntentService {
@@ -27,6 +29,9 @@ public class PluginInstallerService extends IntentService {
     @Override // android.app.IntentService, android.app.Service
     public void onCreate() {
         super.onCreate();
+        if (Build.VERSION.SDK_INT < 18) {
+            startForeground(2147483646, new Notification());
+        }
     }
 
     @Override // android.app.IntentService, android.app.Service

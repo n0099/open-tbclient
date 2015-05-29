@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> LP;
-    private String adP;
-    private String adQ;
-    private Button adR;
-    private TbImageView adS;
-    private boolean adT;
-    private float adU;
-    private boolean adV;
-    private b adW;
-    View.OnClickListener adX;
+    private TbPageContext<?> LH;
+    private String aeT;
+    private String aeU;
+    private Button aeV;
+    private TbImageView aeW;
+    private boolean aeX;
+    private float aeY;
+    private boolean aeZ;
+    private b afa;
+    View.OnClickListener afb;
     private String link;
     private String type;
 
@@ -30,12 +30,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adP = "";
-        this.adQ = "";
-        this.adT = false;
-        this.adU = 0.1388889f;
-        this.adV = false;
-        this.adX = new a(this);
+        this.aeT = "";
+        this.aeU = "";
+        this.aeX = false;
+        this.aeY = 0.1388889f;
+        this.aeZ = false;
+        this.afb = new a(this);
         init(context);
     }
 
@@ -44,30 +44,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        com.baidu.adp.lib.g.b.hH().inflate(context, com.baidu.tieba.w.bannerview, this);
-        this.adR = (Button) findViewById(com.baidu.tieba.v.btn_close);
-        this.adR.setOnClickListener(this.adX);
-        this.adS = (TbImageView) findViewById(com.baidu.tieba.v.banner_image);
-        this.adS.setAutoChangeStyle(true);
-        this.adS.setOnClickListener(this.adX);
+        com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.bannerview, this);
+        this.aeV = (Button) findViewById(com.baidu.tieba.q.btn_close);
+        this.aeV.setOnClickListener(this.afb);
+        this.aeW = (TbImageView) findViewById(com.baidu.tieba.q.banner_image);
+        this.aeW.setAutoChangeStyle(true);
+        this.aeW.setOnClickListener(this.afb);
     }
 
     public void setBannerViewEvent(com.baidu.tbadk.widget.n nVar) {
-        if (this.adS != null && nVar != null) {
-            this.adS.setEvent(nVar);
+        if (this.aeW != null && nVar != null) {
+            this.aeW.setEvent(nVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.LP = tbPageContext;
+        this.LH = tbPageContext;
         this.link = str2;
-        this.adV = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.aeZ = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.adT && this.adV) {
-            ViewGroup.LayoutParams layoutParams = this.adS.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.n.M(getContext()) * this.adU) + 0.5d);
-            this.adS.setLayoutParams(layoutParams);
-            this.adS.a(str, 10, 720, 100, false);
+        if (!this.aeX && this.aeZ) {
+            ViewGroup.LayoutParams layoutParams = this.aeW.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.n.M(getContext()) * this.aeY) + 0.5d);
+            this.aeW.setLayoutParams(layoutParams);
+            this.aeW.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -77,19 +77,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(b bVar) {
-        this.adW = bVar;
+        this.afa = bVar;
     }
 
-    public boolean wW() {
-        return this.adV;
+    public boolean xI() {
+        return this.aeZ;
     }
 
     public void reset() {
-        this.adT = false;
-        this.adV = false;
+        this.aeX = false;
+        this.aeZ = false;
     }
 
-    public void oq() {
-        this.adS.postInvalidate();
+    public void oG() {
+        this.aeW.postInvalidate();
     }
 }

@@ -2,15 +2,21 @@ package com.baidu.tieba.pb.view;
 
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.ag;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends ag {
-    public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+public class c implements View.OnClickListener {
+    final /* synthetic */ b bQM;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b bVar) {
+        this.bQM = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ac, com.baidu.adp.widget.ListView.f
-    public View mN() {
-        return super.mN();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bQM.mPageContext;
+        ((PbActivity) tbPageContext.getOrignalPage()).skipToRegisterActivity();
     }
 }

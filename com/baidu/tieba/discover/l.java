@@ -1,62 +1,35 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements s {
-    final /* synthetic */ a aBS;
+public class l extends CustomMessageListener {
+    final /* synthetic */ a aDS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(a aVar) {
-        this.aBS = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(a aVar, int i) {
+        super(i);
+        this.aDS = aVar;
     }
 
-    @Override // com.baidu.tieba.discover.s
-    public void a(boolean z, com.baidu.tieba.discover.data.a aVar, boolean z2) {
-        BdListView bdListView;
-        List list;
-        List list2;
-        List list3;
-        List list4;
-        bdListView = this.aBS.aBF;
-        bdListView.mW();
-        if (aVar != null) {
-            if (!z) {
-                this.aBS.aBM = true;
-            } else {
-                this.aBS.aBN = true;
-            }
-            if (z2) {
-                list = this.aBS.aBK;
-                list.clear();
-                list2 = this.aBS.aBL;
-                list2.clear();
-                if (aVar.Gj() != null && !aVar.Gj().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.Gj()) {
-                        if (dVar != null && dVar.Gq() != null) {
-                            if (dVar.getType() == 1) {
-                                list3 = this.aBS.aBK;
-                                if (list3.isEmpty()) {
-                                    this.aBS.aBK = dVar.Gq();
-                                }
-                            } else {
-                                list4 = this.aBS.aBL;
-                                list4.add(dVar);
-                            }
-                        }
-                    }
-                }
-                this.aBS.a(aVar.Gi());
-                this.aBS.br(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
+            return;
+        }
+        this.aDS.GU();
+        this.aDS.bA(false);
+        if (customResponsedMessage.getData() instanceof Integer) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            if (intValue == 2902001) {
+                TiebaStatic.eventStat(this.aDS.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
+            } else if (intValue == 2902040) {
+                TiebaStatic.eventStat(this.aDS.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.discover.s
-    public void Gb() {
-        BdListView bdListView;
-        bdListView = this.aBS.aBF;
-        bdListView.mW();
     }
 }

@@ -1,32 +1,42 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.EditText;
-import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-class bo implements Runnable {
-    final /* synthetic */ WriteActivity cyx;
+class bo extends CustomMessageListener {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bo(WriteActivity writeActivity, int i) {
+        super(i);
+        this.cCP = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText3;
-        editText = this.cyx.cwe;
-        if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.cyx.cmP;
-            editText3 = this.cyx.cwe;
-            editorToolComponetContainer2.aa(editText3);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.tbadkCore.location.e eVar;
+        com.baidu.tieba.write.editor.b bVar;
+        com.baidu.tieba.tbadkCore.location.e eVar2;
+        com.baidu.tieba.tbadkCore.location.e eVar3;
+        com.baidu.tieba.write.editor.b bVar2;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                eVar2 = this.cCP.aJM;
+                eVar2.fi(false);
+                eVar3 = this.cCP.aJM;
+                eVar3.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar2 = this.cCP.cCw;
+                bVar2.D(2, responsedSelectLocation.getName());
+                return;
+            }
+            eVar = this.cCP.aJM;
+            eVar.fi(true);
+            bVar = this.cCP.cCw;
+            bVar.setLocationInfoViewState(0);
         }
-        editorToolComponetContainer = this.cyx.cmP;
-        editText2 = this.cyx.cwi;
-        editorToolComponetContainer.aa(editText2);
     }
 }

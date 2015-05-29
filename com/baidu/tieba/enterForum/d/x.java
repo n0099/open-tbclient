@@ -4,21 +4,23 @@ import android.view.View;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class x implements View.OnLongClickListener {
-    final /* synthetic */ v aEy;
+    final /* synthetic */ v aGB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(v vVar) {
-        this.aEy = vVar;
+        this.aGB = vVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
-        viewEventCenter = this.aEy.aCS;
+        int i;
+        viewEventCenter = this.aGB.aET;
         if (viewEventCenter != null) {
-            viewEventCenter2 = this.aEy.aCS;
-            return viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, null, null, null));
+            viewEventCenter2 = this.aGB.aET;
+            i = this.aGB.position;
+            return viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, new com.baidu.tieba.enterForum.b.d(i), null, null));
         }
         return false;
     }

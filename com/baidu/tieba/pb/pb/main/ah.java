@@ -1,27 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ PbActivity bIJ;
+public class ah implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bKT;
+    private final /* synthetic */ MarkData bKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+    public ah(PbActivity pbActivity, MarkData markData) {
+        this.bKT = pbActivity;
+        this.bKX = markData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.bIJ.aHI;
-        com.baidu.tbadk.core.util.o.deleteFile(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bKX);
+        this.bKT.setResult(-1, intent);
+        this.bKT.aaS();
     }
 }

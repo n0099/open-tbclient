@@ -6,56 +6,56 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class i {
-    private static i WP = null;
-    private final int WO = 20;
-    private Queue<j> WQ = new LinkedList();
-    private BdAsyncTaskParallel WR = null;
-    private BdAsyncTaskParallel WS = null;
-    private float WT = 0.0f;
+    private static i XA = null;
+    private final int Xz = 20;
+    private Queue<j> XB = new LinkedList();
+    private BdAsyncTaskParallel XC = null;
+    private BdAsyncTaskParallel XD = null;
+    private float XE = 0.0f;
 
-    public static i tB() {
-        if (WP == null) {
-            WP = new i();
+    public static i ug() {
+        if (XA == null) {
+            XA = new i();
         }
-        return WP;
+        return XA;
     }
 
     public void c(int i, long j) {
         j jVar = new j(this, null);
-        jVar.vF = i;
-        jVar.WU = j;
-        this.WQ.offer(jVar);
-        if (this.WQ.size() > 5) {
-            this.WQ.poll();
+        jVar.uR = i;
+        jVar.XF = j;
+        this.XB.offer(jVar);
+        if (this.XB.size() > 5) {
+            this.XB.poll();
         }
-        if (tC()) {
+        if (uh()) {
             int i2 = 0;
-            for (j jVar2 : this.WQ) {
+            for (j jVar2 : this.XB) {
                 if (j > 0) {
-                    i2 = (int) ((jVar2.vF / jVar2.WU) + i2);
+                    i2 = (int) ((jVar2.uR / jVar2.XF) + i2);
                 }
             }
-            this.WT = i2 / 5;
+            this.XE = i2 / 5;
         }
     }
 
-    public boolean tC() {
-        return this.WQ.size() == 5;
+    public boolean uh() {
+        return this.XB.size() == 5;
     }
 
-    public BdAsyncTaskParallel hF() {
-        if (!com.baidu.adp.lib.util.k.iK()) {
+    public BdAsyncTaskParallel hp() {
+        if (!com.baidu.adp.lib.util.k.ja()) {
             return null;
         }
-        if (tC() && this.WT < 20.0f) {
-            if (this.WR == null) {
-                this.WR = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (uh() && this.XE < 20.0f) {
+            if (this.XC == null) {
+                this.XC = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
-            return this.WR;
+            return this.XC;
         }
-        if (this.WS == null) {
-            this.WS = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        if (this.XD == null) {
+            this.XD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
         }
-        return this.WS;
+        return this.XD;
     }
 }

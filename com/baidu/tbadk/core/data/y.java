@@ -14,7 +14,7 @@ public class y {
         return this.title;
     }
 
-    public String qY() {
+    public String rE() {
         return this.title_link;
     }
 

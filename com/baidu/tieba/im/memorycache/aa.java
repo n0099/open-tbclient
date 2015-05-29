@@ -18,8 +18,8 @@ public class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016001 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
-            this.this$0.SC();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
+            this.this$0.TP();
         }
     }
 }

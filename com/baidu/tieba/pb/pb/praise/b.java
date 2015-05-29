@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.v;
+import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
     private HeadImageView mItemHead;
@@ -21,10 +21,10 @@ public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
         this.mItemName = null;
         this.mItemTime = null;
         this.mItemLineBottom = null;
-        this.mItemHead = (HeadImageView) view.findViewById(v.zan_list_item_head);
-        this.mItemName = (TextView) view.findViewById(v.zan_list_item_name);
-        this.mItemTime = (TextView) view.findViewById(v.zan_list_item_time);
-        this.mItemLineBottom = (ImageView) view.findViewById(v.zan_list_item_line_bottom);
+        this.mItemHead = (HeadImageView) view.findViewById(q.zan_list_item_head);
+        this.mItemName = (TextView) view.findViewById(q.zan_list_item_name);
+        this.mItemTime = (TextView) view.findViewById(q.zan_list_item_time);
+        this.mItemLineBottom = (ImageView) view.findViewById(q.zan_list_item_line_bottom);
         this.mItemLineBottom.setVisibility(0);
     }
 
@@ -37,11 +37,11 @@ public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.j.e
     /* renamed from: a */
-    public void A(a aVar) {
-        super.A(aVar);
+    public void z(a aVar) {
+        super.z(aVar);
         this.mItemName.setText(aVar.getUserName());
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(bd.n(aVar.abR()));
+        this.mItemTime.setText(bb.o(aVar.acJ()));
         this.mItemHead.c(aVar.getPortrait(), 28, false);
     }
 }

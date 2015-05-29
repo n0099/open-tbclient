@@ -1,56 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity bIJ;
+public class s implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        com.baidu.tbadk.baseEditMark.a aVar;
-        com.baidu.tbadk.baseEditMark.a aVar2;
-        boolean z;
-        cj cjVar;
-        com.baidu.tbadk.core.dialog.h hVar;
-        br brVar;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
-        }
-        if (sparseArray != null) {
-            this.bIJ.bIH = (com.baidu.tieba.tbadkCore.c.j) sparseArray.get(com.baidu.tieba.v.tag_clip_board);
-            if (this.bIJ.bIH != null) {
-                aVar = this.bIJ.bIh;
-                if (aVar != null) {
-                    aVar2 = this.bIJ.bIh;
-                    if (aVar2.oQ() && this.bIJ.bIH.getId() != null) {
-                        String id = this.bIJ.bIH.getId();
-                        brVar = this.bIJ.bIg;
-                        if (id.equals(brVar.qI())) {
-                            z = true;
-                            boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_is_subpb)).booleanValue();
-                            cjVar = this.bIJ.bIl;
-                            hVar = this.bIJ.bII;
-                            cjVar.a(hVar, z, booleanValue);
-                        }
-                    }
-                    z = false;
-                    boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_is_subpb)).booleanValue();
-                    cjVar = this.bIJ.bIl;
-                    hVar = this.bIJ.bII;
-                    cjVar.a(hVar, z, booleanValue2);
-                }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.tbadkCore.location.j jVar;
+        ch chVar;
+        com.baidu.tieba.tbadkCore.location.e eVar;
+        ch chVar2;
+        ch chVar3;
+        if (UtilHelper.isNetOk()) {
+            chVar = this.bKT.bKz;
+            if (chVar.Ki() != null) {
+                chVar2 = this.bKT.bKz;
+                chVar2.Ki().setLocationInfoViewState(1);
+                chVar3 = this.bKT.bKz;
+                chVar3.Ki().setLocationViewVisibility(0);
             }
+            eVar = this.bKT.aJM;
+            eVar.app();
+        } else {
+            jVar = this.bKT.aJX;
+            jVar.JW();
         }
-        return true;
+        aVar.dismiss();
     }
 }

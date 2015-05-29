@@ -18,6 +18,6 @@ class i extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.this$0.gL(this.this$0.Sd());
+        this.this$0.ho(this.this$0.Tq());
     }
 }

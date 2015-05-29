@@ -7,55 +7,55 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class j {
-    private EditText azg;
-    private TextView azh;
-    private ImageView azi;
-    private m azj;
-    private View.OnClickListener azk = new k(this);
+    private EditText aAR;
+    private TextView aAS;
+    private ImageView aAT;
+    private m aAU;
+    private View.OnClickListener aAV = new k(this);
     private Context context;
     private TbPageContext<?> mPageContext;
 
-    public void bo(boolean z) {
-        this.azh.setClickable(z);
+    public void bx(boolean z) {
+        this.aAS.setClickable(z);
     }
 
-    public void fi(String str) {
-        this.azg.setText(str);
+    public void fD(String str) {
+        this.aAR.setText(str);
     }
 
     public j(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.azg = (EditText) view.findViewById(com.baidu.tieba.v.new_search_friend_input);
-        this.azh = (TextView) view.findViewById(com.baidu.tieba.v.new_search_friend_search);
-        this.azi = (ImageView) view.findViewById(com.baidu.tieba.v.new_search_friend_del);
-        this.azh.setOnClickListener(this.azk);
-        this.azi.setOnClickListener(this.azk);
-        this.azg.addTextChangedListener(new l(this));
-        ct(TbadkCoreApplication.m411getInst().getSkinType());
+        this.aAR = (EditText) view.findViewById(com.baidu.tieba.q.new_search_friend_input);
+        this.aAS = (TextView) view.findViewById(com.baidu.tieba.q.new_search_friend_search);
+        this.aAT = (ImageView) view.findViewById(com.baidu.tieba.q.new_search_friend_del);
+        this.aAS.setOnClickListener(this.aAV);
+        this.aAT.setOnClickListener(this.aAV);
+        this.aAR.addTextChangedListener(new l(this));
+        cy(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void hideSoftKeyboard() {
-        com.baidu.adp.lib.util.n.c(this.context, this.azg);
+        com.baidu.adp.lib.util.n.c(this.context, this.aAR);
     }
 
     public void a(m mVar) {
-        this.azj = mVar;
+        this.aAU = mVar;
     }
 
-    public void ct(int i) {
-        ba.b(this.azh, com.baidu.tieba.s.cp_cont_g, 1);
-        this.azg.setHintTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_e));
-        ba.c(this.azi, com.baidu.tieba.u.icon_search_close);
+    public void cy(int i) {
+        ay.b(this.aAS, com.baidu.tieba.n.cp_cont_g, 1);
+        this.aAR.setHintTextColor(ay.getColor(com.baidu.tieba.n.cp_cont_e));
+        ay.c(this.aAT, com.baidu.tieba.p.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fj(String str) {
-        if (this.azj != null) {
-            this.azj.fh(str);
+    public void fE(String str) {
+        if (this.aAU != null) {
+            this.aAU.fC(str);
         }
     }
 }

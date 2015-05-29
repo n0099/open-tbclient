@@ -7,9 +7,9 @@ class o implements Runnable {
     public void run() {
         Toast toast;
         Toast toast2;
-        toast = n.yQ;
+        toast = n.yE;
         if (toast != null) {
-            toast2 = n.yQ;
+            toast2 = n.yE;
             toast2.cancel();
         }
     }

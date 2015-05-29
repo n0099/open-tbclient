@@ -4,22 +4,22 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.a.a {
-    private String aoW = "dalvikvm";
-    private String[] aoX = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private f aoY = null;
-    private int aoQ = 0;
-    private final int aoZ = 10000;
-    private q apa = null;
-    private final Handler apb = new o(this);
+    private String aqb = "dalvikvm";
+    private String[] aqc = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private f aqd = null;
+    private int apV = 0;
+    private final int aqe = 10000;
+    private q aqf = null;
+    private final Handler aqg = new o(this);
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
-        if (!dL()) {
+        if (!dN()) {
             super.start();
-            this.apb.sendEmptyMessageDelayed(0, 10000L);
-            CA();
+            this.aqg.sendEmptyMessageDelayed(0, 10000L);
+            Dl();
             try {
-                f.a(this.aoW, new p(this));
+                f.a(this.aqb, new p(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -29,27 +29,27 @@ public class n extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        CB();
+        Dm();
     }
 
-    private void CA() {
-        if (this.aoY == null) {
-            this.aoY = new f();
+    private void Dl() {
+        if (this.aqd == null) {
+            this.aqd = new f();
         }
-        if (!this.aoY.dL()) {
-            new Thread(this.aoY).start();
+        if (!this.aqd.dN()) {
+            new Thread(this.aqd).start();
         }
     }
 
-    private void CB() {
-        if (this.aoY != null && this.aoY.dL()) {
-            this.aoY.stop();
+    private void Dm() {
+        if (this.aqd != null && this.aqd.dN()) {
+            this.aqd.stop();
         }
     }
 
     public void a(q qVar) {
-        if (this.apa == null) {
-            this.apa = qVar;
+        if (this.aqf == null) {
+            this.aqf = qVar;
         }
     }
 }

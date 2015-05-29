@@ -5,31 +5,31 @@ import android.text.TextUtils;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b {
-    private static a aqo = new a();
-    private static BdFileDownloadData aqp = null;
-    private static List<BdFileDownloadData> ahS = new LinkedList();
-    private c aqq = null;
-    private Handler aia = new b(this);
+    private static a arq = new a();
+    private static BdFileDownloadData arr = null;
+    private static List<BdFileDownloadData> aiS = new LinkedList();
+    private c ars = null;
+    private Handler aja = new b(this);
 
     private a() {
     }
 
-    public static a CZ() {
-        return aqo;
+    public static a DK() {
+        return arq;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public void a(BdFileDownloadData bdFileDownloadData, int i) {
         if (bdFileDownloadData != null) {
-            if (!o.fj() && i == 2) {
-                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(y.download_fail_no_sd));
+            if (!o.fo() && i == 2) {
+                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.m411getInst().getApp().getString(t.download_fail_no_sd));
                 bdFileDownloadData.setStatus(2);
             }
             if (bdFileDownloadData.getStatus() == 2) {
@@ -42,8 +42,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < ahS.size()) {
-                    BdFileDownloadData bdFileDownloadData2 = ahS.get(i3);
+                if (i3 < aiS.size()) {
+                    BdFileDownloadData bdFileDownloadData2 = aiS.get(i3);
                     if (bdFileDownloadData2 == null || !bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) || !bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
                         i2 = i3 + 1;
                     } else {
@@ -51,8 +51,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     }
                 } else {
                     bdFileDownloadData.setStatus(1);
-                    ahS.add(bdFileDownloadData);
-                    yw();
+                    aiS.add(bdFileDownloadData);
+                    zj();
                     return;
                 }
             }
@@ -60,25 +60,25 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yw() {
-        if (aqp == null && !ahS.isEmpty()) {
-            aqp = ahS.get(0);
-            if (aqp != null) {
-                this.aqq = new c(this);
-                this.aqq.execute(aqp);
+    public void zj() {
+        if (arr == null && !aiS.isEmpty()) {
+            arr = aiS.get(0);
+            if (arr != null) {
+                this.ars = new c(this);
+                this.ars.execute(arr);
             }
         }
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
-    public void bs(String str) {
+    public void bC(String str) {
         if (!TextUtils.isEmpty(str)) {
-            if (aqp != null && aqp.getId().equals(str)) {
-                this.aqq.cancel(true);
+            if (arr != null && arr.getId().equals(str)) {
+                this.ars.cancel(true);
                 return;
             }
             LinkedList<BdFileDownloadData> linkedList = new LinkedList();
-            Iterator<BdFileDownloadData> it = ahS.iterator();
+            Iterator<BdFileDownloadData> it = aiS.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -94,14 +94,14 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 }
             }
             for (BdFileDownloadData bdFileDownloadData : linkedList) {
-                ahS.remove(bdFileDownloadData);
+                aiS.remove(bdFileDownloadData);
             }
         }
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
-    public List<BdFileDownloadData> lG() {
-        return ahS;
+    public List<BdFileDownloadData> lZ() {
+        return aiS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

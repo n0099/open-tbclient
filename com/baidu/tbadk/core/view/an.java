@@ -1,22 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class an implements AbsListView.RecyclerListener {
-    private int mId;
+class an extends CustomMessageListener {
+    final /* synthetic */ al aai;
 
-    public an(int i) {
-        this.mId = 0;
-        this.mId = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an(al alVar, int i) {
+        super(i);
+        this.aai = alVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.mId);
-        if (findViewById != null && (findViewById instanceof UserIconBox)) {
-            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.aai.ZY.setBackgroundColor(com.baidu.tbadk.core.util.aq.to().cf(TbadkCoreApplication.m411getInst().getSkinType()));
     }
 }

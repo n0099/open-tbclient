@@ -5,16 +5,16 @@ import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements TextWatcher {
-    final /* synthetic */ q cwv;
+    final /* synthetic */ q cAL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(q qVar) {
-        this.cwv = qVar;
+        this.cAL = qVar;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.cwv.aqP();
+        this.cAL.asF();
     }
 
     @Override // android.text.TextWatcher

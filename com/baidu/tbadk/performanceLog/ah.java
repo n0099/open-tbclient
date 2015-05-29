@@ -9,51 +9,51 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ah {
-    private static String apW = "tb_perfor_samllflow_time";
-    private static volatile ah apZ;
-    private long apY;
-    private boolean apU = false;
-    private long apX = 86400;
-    private long apV = com.baidu.tbadk.core.sharedPref.b.rB().getLong(apW, 0);
+    private static String aqY = "tb_perfor_samllflow_time";
+    private static volatile ah arb;
+    private long ara;
+    private boolean aqW = false;
+    private long aqZ = 86400;
+    private long aqX = com.baidu.tbadk.core.sharedPref.b.sl().getLong(aqY, 0);
 
-    public static ah CQ() {
-        if (apZ == null) {
+    public static ah DB() {
+        if (arb == null) {
             synchronized (ah.class) {
-                if (apZ == null) {
-                    apZ = new ah();
+                if (arb == null) {
+                    arb = new ah();
                 }
             }
         }
-        return apZ;
+        return arb;
     }
 
     private ah() {
-        this.apY = 0L;
-        this.apY = this.apX;
+        this.ara = 0L;
+        this.ara = this.aqZ;
     }
 
-    public boolean CR() {
-        if (!this.apU || (System.currentTimeMillis() - this.apV) / 1000 <= this.apY) {
-            return this.apU;
+    public boolean DC() {
+        if (!this.aqW || (System.currentTimeMillis() - this.aqX) / 1000 <= this.ara) {
+            return this.aqW;
         }
         return false;
     }
 
-    public void bd(boolean z) {
+    public void bk(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.apV || currentTimeMillis - this.apV >= this.apY) {
-                this.apV = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.rB().putLong(apW, this.apV);
+            if (0 == this.aqX || currentTimeMillis - this.aqX >= this.ara) {
+                this.aqX = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.sl().putLong(aqY, this.aqX);
             }
         } else {
-            this.apV = 0L;
-            com.baidu.tbadk.core.sharedPref.b.rB().putLong(apW, this.apV);
+            this.aqX = 0L;
+            com.baidu.tbadk.core.sharedPref.b.sl().putLong(aqY, this.aqX);
         }
-        this.apU = z;
+        this.aqW = z;
     }
 
-    public String CS() {
+    public String DD() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -67,7 +67,7 @@ public class ah {
         }
     }
 
-    public final String CT() {
+    public final String DE() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -83,22 +83,22 @@ public class ah {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.k.iH()) {
+        if (!com.baidu.adp.lib.util.k.iX()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.k.iI()) {
+        if (com.baidu.adp.lib.util.k.iY()) {
             return NetworkChangeReceiver.WIFI_STRING;
         }
-        if (com.baidu.adp.lib.util.k.iL()) {
+        if (com.baidu.adp.lib.util.k.jb()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.k.hx()) {
+        if (!com.baidu.adp.lib.util.k.hi()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String ec(int i) {
+    public static String em(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -111,8 +111,8 @@ public class ah {
         return NetworkChangeReceiver.WIFI_STRING;
     }
 
-    public ag ed(int i) {
-        if (CR()) {
+    public ag en(int i) {
+        if (DC()) {
             switch (i) {
                 case 1000:
                     aj ajVar = new aj();
@@ -137,9 +137,9 @@ public class ah {
         return null;
     }
 
-    public void v(long j) {
+    public void x(long j) {
         if (j > 0) {
-            this.apY = j;
+            this.ara = j;
         }
     }
 
@@ -158,7 +158,7 @@ public class ah {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int CU() {
+    public int DF() {
         BufferedReader bufferedReader;
         Process process;
         String str;

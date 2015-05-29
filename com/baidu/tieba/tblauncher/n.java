@@ -1,21 +1,22 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class n implements Runnable {
+class n extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ai aiVar;
-        ai aiVar2;
-        aiVar = this.this$0.crl;
-        if (aiVar.isMenuShowing()) {
-            aiVar2 = this.this$0.crl;
-            aiVar2.aoy();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.this$0.cvA = false;
+        this.this$0.fl(false);
     }
 }

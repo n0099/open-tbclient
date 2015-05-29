@@ -2,6 +2,7 @@ package com.baidu.tieba.addresslist.relationship;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
@@ -9,7 +10,14 @@ public class i {
     private static volatile SQLiteDatabase sDatabase;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase Fx() {
+    public static synchronized void Gq() {
+        synchronized (i.class) {
+            w.i(sDatabase);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static synchronized SQLiteDatabase Gr() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (i.class) {
             try {

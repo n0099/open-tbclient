@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnTouchListener {
-    final /* synthetic */ i brS;
+    final /* synthetic */ i buE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.brS = iVar;
+        this.buE = iVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,28 +25,28 @@ public class l implements View.OnTouchListener {
         Point point4;
         switch (motionEvent.getAction()) {
             case 0:
-                point3 = this.brS.bqN;
+                point3 = this.buE.btx;
                 point3.x = (int) motionEvent.getX();
-                point4 = this.brS.bqN;
+                point4 = this.buE.btx;
                 point4.y = (int) motionEvent.getY();
                 break;
             case 1:
-                this.brS.brP = false;
-                headImageView = this.brS.azz;
+                this.buE.buB = false;
+                headImageView = this.buE.aBk;
                 headImageView.setVisibility(0);
-                i iVar = this.brS;
-                i = this.brS.brO;
-                iVar.gx(i);
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b Uy = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Uy();
-                mVar = this.brS.brQ;
-                Uy.a(mVar);
+                i iVar = this.buE;
+                i = this.buE.buA;
+                iVar.gO(i);
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b VP = com.baidu.tieba.imMessageCenter.im.floatwindow.b.VP();
+                mVar = this.buE.buC;
+                VP.a(mVar);
                 break;
             case 2:
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b Uy2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Uy();
-                point = this.brS.bqN;
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b VP2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.VP();
+                point = this.buE.btx;
                 int rawX = ((int) motionEvent.getRawX()) + point.x;
-                point2 = this.brS.bqN;
-                Uy2.T(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
+                point2 = this.buE.btx;
+                VP2.V(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
                 break;
         }
         return false;

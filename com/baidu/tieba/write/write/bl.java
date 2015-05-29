@@ -1,27 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-public class bl extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity cyx;
+class bl implements com.baidu.tbadk.imageManager.a {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(WriteActivity writeActivity) {
-        this.cyx = writeActivity;
+        this.cCP = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.cyx.aHI;
-        com.baidu.tbadk.core.util.o.deleteFile(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.imageManager.a
+    public ImageSpan eI(String str) {
+        com.baidu.adp.widget.a.a eA = com.baidu.tbadk.editortool.aa.zE().eA(str);
+        if (eA == null) {
+            eA = com.baidu.tbadk.editortool.aa.zE().al(null, str);
+        }
+        if (eA == null) {
+            return null;
+        }
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(eA.mS());
+        int width = eA.getWidth();
+        bitmapDrawable.setBounds(0, 0, width, width);
+        bitmapDrawable.setGravity(119);
+        return new ImageSpan(bitmapDrawable, 0);
     }
 }

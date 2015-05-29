@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity avu;
+    final /* synthetic */ ActivationActivity awV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ActivationActivity activationActivity) {
-        this.avu = activationActivity;
+        this.awV = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,39 +21,39 @@ class w implements View.OnClickListener {
         ImageView imageView;
         EditText editText;
         boolean z;
+        ab abVar;
         aa aaVar;
-        z zVar;
+        ab abVar2;
+        ab abVar3;
         aa aaVar2;
+        ab abVar4;
         aa aaVar3;
-        z zVar2;
         aa aaVar4;
-        z zVar3;
-        z zVar4;
-        view2 = this.avu.mBack;
+        view2 = this.awV.mBack;
         if (view != view2) {
-            relativeLayout = this.avu.avg;
+            relativeLayout = this.awV.awI;
             if (view != relativeLayout) {
-                relativeLayout2 = this.avu.avh;
+                relativeLayout2 = this.awV.awJ;
                 if (view != relativeLayout2) {
-                    imageView = this.avu.avb;
+                    imageView = this.awV.awD;
                     if (view == imageView) {
-                        editText = this.avu.avf;
+                        editText = this.awV.awH;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.avu.avk;
+                z = this.awV.awM;
                 if (z) {
-                    aaVar = this.avu.avi;
-                    if (aaVar == null) {
-                        zVar = this.avu.avj;
-                        if (zVar == null) {
-                            this.avu.avi = new aa(this.avu, null);
-                            aaVar2 = this.avu.avi;
-                            aaVar2.setPriority(3);
-                            aaVar3 = this.avu.avi;
-                            aaVar3.execute(new String[0]);
+                    abVar = this.awV.awK;
+                    if (abVar == null) {
+                        aaVar = this.awV.awL;
+                        if (aaVar == null) {
+                            this.awV.awK = new ab(this.awV, null);
+                            abVar2 = this.awV.awK;
+                            abVar2.setPriority(3);
+                            abVar3 = this.awV.awK;
+                            abVar3.execute(new String[0]);
                             return;
                         }
                         return;
@@ -62,22 +62,22 @@ class w implements View.OnClickListener {
                 }
                 return;
             }
-            zVar2 = this.avu.avj;
-            if (zVar2 == null) {
-                aaVar4 = this.avu.avi;
-                if (aaVar4 == null) {
-                    this.avu.avj = new z(this.avu, null);
-                    zVar3 = this.avu.avj;
-                    zVar3.setPriority(3);
-                    zVar4 = this.avu.avj;
-                    zVar4.execute(new String[0]);
+            aaVar2 = this.awV.awL;
+            if (aaVar2 == null) {
+                abVar4 = this.awV.awK;
+                if (abVar4 == null) {
+                    this.awV.awL = new aa(this.awV, null);
+                    aaVar3 = this.awV.awL;
+                    aaVar3.setPriority(3);
+                    aaVar4 = this.awV.awL;
+                    aaVar4.execute(new String[0]);
                     return;
                 }
                 return;
             }
             return;
         }
-        this.avu.setResult(0);
-        this.avu.finish();
+        this.awV.setResult(0);
+        this.awV.finish();
     }
 }

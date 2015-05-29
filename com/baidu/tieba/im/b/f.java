@@ -2,18 +2,17 @@ package com.baidu.tieba.im.b;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ b bln;
+    final /* synthetic */ b bnT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
         super(i);
-        this.bln = bVar;
+        this.bnT = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,14 +23,13 @@ public class f extends com.baidu.adp.framework.listener.e {
                 if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
                     return;
                 }
-                this.bln.SW();
+                this.bnT.Uj();
             } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-                TiebaStatic.imNet(responseOnlineMessage);
                 if (responseOnlineMessage.getError() == 0) {
-                    this.bln.blg = responseOnlineMessage.getGroupInfos();
-                    if (com.baidu.tieba.im.memorycache.c.Sq().isInit()) {
-                        this.bln.SP();
+                    this.bnT.bnL = responseOnlineMessage.getGroupInfos();
+                    if (com.baidu.tieba.im.memorycache.c.TD().isInit()) {
+                        this.bnT.Uc();
                     }
                 }
             }

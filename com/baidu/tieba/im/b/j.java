@@ -3,7 +3,6 @@ package com.baidu.tieba.im.b;
 import android.util.SparseArray;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.framework.a.k {
@@ -15,7 +14,6 @@ public class j extends com.baidu.adp.framework.a.k {
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str;
         StringBuilder sb = new StringBuilder(200);
         if (socketMessage instanceof MessageSyncMessage) {
             SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
@@ -25,12 +23,7 @@ public class j extends com.baidu.adp.framework.a.k {
                 sb.append(groupMids.valueAt(i));
                 sb.append("|");
             }
-            if (((MessageSyncMessage) socketMessage).isForTimer()) {
-                str = "active";
-            } else {
-                str = "passive";
-            }
-            TiebaStatic.imLog(202003, ((MessageSyncMessage) socketMessage).getSquencedId(), str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
+            com.baidu.tbadk.core.log.b.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
         }
         return socketMessage;
     }

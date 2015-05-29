@@ -1,7 +1,7 @@
 package com.baidu.tieba.image;
 
 import android.view.View;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class i implements View.OnLongClickListener {
     final /* synthetic */ ImageViewerActivity this$0;
@@ -14,11 +14,11 @@ class i implements View.OnLongClickListener {
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         com.baidu.tbadk.core.dialog.h hVar;
-        String[] strArr = {this.this$0.getPageContext().getString(y.save)};
+        String[] strArr = {this.this$0.getPageContext().getString(t.save)};
         ImageViewerActivity imageViewerActivity = this.this$0;
-        hVar = this.this$0.buZ;
+        hVar = this.this$0.bxH;
         imageViewerActivity.createListMenu(strArr, hVar);
         this.this$0.showListMenu();
-        return false;
+        return true;
     }
 }

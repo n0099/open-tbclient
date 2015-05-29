@@ -10,46 +10,51 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static a aDj;
-    private WindowManager.LayoutParams aDg;
-    private ImageView aDh;
-    private boolean aDi;
-    private int aDk;
-    private boolean aDl;
+    private static a aFl;
+    private WindowManager.LayoutParams aFi;
+    private ImageView aFj;
+    private boolean aFk;
+    private int aFm;
+    private boolean aFn;
     private int mHeight;
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a GR() {
-        if (aDj == null) {
+    public static a HT() {
+        if (aFl == null) {
             synchronized (a.class) {
-                if (aDj == null) {
-                    aDj = new a();
+                if (aFl == null) {
+                    aFl = new a();
                 }
             }
         }
-        return aDj;
+        return aFl;
     }
 
     private a() {
     }
 
     public void i(Context context, int i) {
-        this.aDl = true;
+        this.aFn = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.aDk = i;
+        this.aFm = i;
     }
 
-    public boolean GS() {
-        return this.aDi;
+    public void destroy() {
+        this.aFn = false;
+        aFl = null;
+    }
+
+    public boolean HU() {
+        return this.aFk;
     }
 
     public void a(Context context, View view, int i, int i2) {
         if (view != null) {
-            this.aDi = true;
+            this.aFk = true;
             view.setPressed(false);
             view.setDrawingCacheEnabled(true);
             Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
@@ -61,29 +66,29 @@ public class a {
         }
     }
 
-    public void H(int i, int i2) {
-        GT();
-        I(i, i2);
-        this.mWindowManager.updateViewLayout(this.aDh, this.aDg);
+    public void I(int i, int i2) {
+        HV();
+        J(i, i2);
+        this.mWindowManager.updateViewLayout(this.aFj, this.aFi);
     }
 
-    private void GT() {
-        if (!this.aDl) {
+    private void HV() {
+        if (!this.aFn) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        GT();
+        HV();
         if (bitmap != null) {
-            I(i, i2);
-            this.aDh = new ImageView(context);
-            this.aDh.setImageBitmap(bitmap);
+            J(i, i2);
+            this.aFj = new ImageView(context);
+            this.aFj.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && c(activity.getWindow().getDecorView())) {
                     try {
-                        this.mWindowManager.addView(this.aDh, this.aDg);
+                        this.mWindowManager.addView(this.aFj, this.aFi);
                     } catch (Exception e) {
                     }
                 }
@@ -106,31 +111,31 @@ public class a {
         return false;
     }
 
-    private void GU() {
-        this.aDg = new WindowManager.LayoutParams();
-        this.aDg.format = -3;
-        this.aDg.gravity = 51;
-        this.aDg.alpha = 1.0f;
-        this.aDg.width = -2;
-        this.aDg.height = -2;
-        this.aDg.flags = 24;
+    private void HW() {
+        this.aFi = new WindowManager.LayoutParams();
+        this.aFi.format = -3;
+        this.aFi.gravity = 51;
+        this.aFi.alpha = 1.0f;
+        this.aFi.width = -2;
+        this.aFi.height = -2;
+        this.aFi.flags = 24;
     }
 
-    private void I(int i, int i2) {
-        if (this.aDg == null) {
-            GU();
+    private void J(int i, int i2) {
+        if (this.aFi == null) {
+            HW();
         }
-        this.aDg.x = i - (this.mWidth / 2);
-        this.aDg.y = (i2 - (this.mHeight / 2)) - this.aDk;
+        this.aFi.x = i - (this.mWidth / 2);
+        this.aFi.y = (i2 - (this.mHeight / 2)) - this.aFm;
     }
 
-    public void GV() {
-        if (this.aDh != null) {
+    public void HX() {
+        if (this.aFj != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.aDh);
+                this.mWindowManager.removeView(this.aFj);
             }
-            this.aDh = null;
+            this.aFj = null;
         }
-        this.aDi = false;
+        this.aFk = false;
     }
 }

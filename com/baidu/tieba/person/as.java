@@ -1,28 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as {
-    TextView aHo;
-    HeadImageView aIq;
-    TextView aYa;
-    LinearLayout bQA;
-    TextView bQB;
-    final /* synthetic */ ar bQC;
-    ImageView bQz;
-    ImageView blR;
-    ProgressBar mProgress;
-
-    private as(ar arVar) {
-        this.bQC = arVar;
-    }
+public class as implements DialogInterface.OnCancelListener {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ as(ar arVar, as asVar) {
-        this(arVar);
+    public as(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ba baVar;
+        ba baVar2;
+        this.bSN.destroyWaitingDialog();
+        baVar = this.bSN.bSH;
+        if (baVar != null) {
+            baVar2 = this.bSN.bSH;
+            baVar2.cancel();
+        }
     }
 }

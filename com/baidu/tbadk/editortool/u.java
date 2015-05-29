@@ -3,35 +3,35 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class u {
-    private EmotionGroupType ajm;
-    private int ajn;
-    private int ajo;
-    private int ajp;
-    private int ajq;
-    private ad ajr;
-    private int ajs;
-    private int ajt;
+    private EmotionGroupType akl;
+    private int akm;
+    private int akn;
+    private int ako;
+    private int akp;
+    private ad akq;
+    private int akr;
+    private int aks;
     private int column;
     private int index;
     private int row;
 
     public void e(ad adVar) {
-        this.ajr = adVar;
+        this.akq = adVar;
     }
 
-    public ad yG() {
-        return this.ajr;
+    public ad zt() {
+        return this.akq;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.ajm = emotionGroupType;
+        this.akl = emotionGroupType;
     }
 
-    public EmotionGroupType yH() {
-        return this.ajm;
+    public EmotionGroupType zu() {
+        return this.akl;
     }
 
-    public void ds(int i) {
+    public void dB(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class u {
         return this.row;
     }
 
-    public void dt(int i) {
+    public void dC(int i) {
         this.column = i;
     }
 
-    public int yI() {
+    public int zv() {
         return this.column;
     }
 
-    public void du(int i) {
-        this.ajt = i;
+    public void dD(int i) {
+        this.aks = i;
     }
 
-    public int yJ() {
-        return this.ajt;
+    public int zw() {
+        return this.aks;
     }
 
-    public void dv(int i) {
-        this.ajs = i;
+    public void dE(int i) {
+        this.akr = i;
     }
 
-    public int yK() {
-        return this.ajs;
+    public int zx() {
+        return this.akr;
     }
 
-    public void dw(int i) {
-        this.ajn = i;
+    public void dF(int i) {
+        this.akm = i;
     }
 
-    public int yL() {
-        return this.ajn;
+    public int zy() {
+        return this.akm;
     }
 
-    public void dx(int i) {
-        this.ajp = i;
+    public void dG(int i) {
+        this.ako = i;
     }
 
-    public int yM() {
-        return this.ajp;
+    public int zz() {
+        return this.ako;
     }
 
     public void setEndIndex(int i) {
-        this.ajq = i;
+        this.akp = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class u {
         return this.index;
     }
 
-    public void dy(int i) {
-        this.ajo = i;
+    public void dH(int i) {
+        this.akn = i;
     }
 
-    public int yN() {
-        return this.ajo;
+    public int zA() {
+        return this.akn;
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.mainentrance;
 /* loaded from: classes.dex */
-class ae implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ ab bzU;
+class ae implements Runnable {
+    final /* synthetic */ ad bCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar) {
-        this.bzU = abVar;
+    public ae(ad adVar) {
+        this.bCJ = adVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.tbadkCore.util.j.apy();
     }
 }

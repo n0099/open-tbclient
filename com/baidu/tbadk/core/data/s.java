@@ -12,38 +12,38 @@ import tbclient.FrsPage.PostInfo;
 import tbclient.FrsPage.RecomUserInfo;
 /* loaded from: classes.dex */
 public class s extends w {
-    public static final BdUniqueId Qb = BdUniqueId.gen();
-    private String Qc;
-    private String Qd;
-    private int Qe;
-    private String Qi;
-    private t Qf = new t();
-    private com.baidu.tbadk.coreExtra.relationship.b Qg = new com.baidu.tbadk.coreExtra.relationship.b();
-    private ArrayList<String> Qh = new ArrayList<>();
-    private ArrayList<String> Qj = new ArrayList<>();
+    public static final BdUniqueId Qw = BdUniqueId.gen();
+    private String QE;
+    private String Qx;
+    private String Qy;
+    private int Qz;
+    private t QB = new t();
+    private com.baidu.tbadk.coreExtra.relationship.b QC = new com.baidu.tbadk.coreExtra.relationship.b();
+    private ArrayList<String> QD = new ArrayList<>();
+    private ArrayList<String> QF = new ArrayList<>();
 
-    public int qn() {
-        return this.Qe;
+    public int qT() {
+        return this.Qz;
     }
 
     public com.baidu.tbadk.coreExtra.relationship.b getLbsInfo() {
-        return this.Qg;
+        return this.QC;
     }
 
     public void a(CommonDistance commonDistance) {
         if (commonDistance != null && commonDistance.distance != null) {
-            if (this.Qg == null) {
-                this.Qg = new com.baidu.tbadk.coreExtra.relationship.b();
+            if (this.QC == null) {
+                this.QC = new com.baidu.tbadk.coreExtra.relationship.b();
             }
-            this.Qg.cW(commonDistance.is_hide.intValue());
-            this.Qg.setTime(commonDistance.time.intValue());
+            this.QC.df(commonDistance.is_hide.intValue());
+            this.QC.setTime(commonDistance.time.intValue());
             int intValue = commonDistance.distance.intValue();
             if (intValue > 0 && intValue <= 100) {
-                this.Qg.dK("100米以内");
+                this.QC.eb("100米以内");
             } else if (intValue > 100 && intValue <= 1000) {
-                this.Qg.dK(String.valueOf(intValue) + "米");
+                this.QC.eb(String.valueOf(intValue) + "米");
             } else if (intValue > 1000) {
-                this.Qg.dK(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
+                this.QC.eb(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
             }
         }
     }
@@ -51,15 +51,15 @@ public class s extends w {
     public void a(RecomUserInfo recomUserInfo) {
         if (recomUserInfo != null) {
             a(recomUserInfo.distanceinfo);
-            bS(recomUserInfo.message);
-            if (recomUserInfo.user_info != null && this.Qf != null) {
-                this.Qf.a(recomUserInfo.user_info);
+            cf(recomUserInfo.message);
+            if (recomUserInfo.user_info != null && this.QB != null) {
+                this.QB.a(recomUserInfo.user_info);
             }
             if (recomUserInfo.common_forum != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                this.Qe = recomUserInfo.common_forum.size();
-                int i = this.Qe;
-                if (this.Qe > 2) {
+                this.Qz = recomUserInfo.common_forum.size();
+                int i = this.Qz;
+                if (this.Qz > 2) {
                     i = 2;
                 }
                 for (int i2 = 0; i2 < i; i2++) {
@@ -67,74 +67,74 @@ public class s extends w {
                         stringBuffer.append(recomUserInfo.common_forum.get(i2).common_forum);
                         if (i - 1 > i2) {
                             stringBuffer.append("、");
-                        } else if (this.Qe > i) {
+                        } else if (this.Qz > i) {
                             stringBuffer.append("...");
                         }
                     }
                 }
-                this.Qc = stringBuffer.toString();
+                this.Qx = stringBuffer.toString();
             }
             if (recomUserInfo.post_info != null) {
                 for (PostInfo postInfo : recomUserInfo.post_info) {
-                    this.Qh.add(postInfo.common_post_pic);
-                    this.Qj.add(postInfo.large_post_pic);
+                    this.QD.add(postInfo.common_post_pic);
+                    this.QF.add(postInfo.large_post_pic);
                 }
             }
             if (recomUserInfo.pos_name != null) {
-                this.Qd = recomUserInfo.pos_name;
+                this.Qy = recomUserInfo.pos_name;
             }
         }
     }
 
-    public String qo() {
-        return this.Qc;
+    public String qU() {
+        return this.Qx;
     }
 
-    public String qp() {
-        return this.Qd;
+    public String qV() {
+        return this.Qy;
     }
 
-    public t qq() {
-        return this.Qf;
+    public t qW() {
+        return this.QB;
     }
 
-    public ArrayList<String> qr() {
-        return this.Qh;
+    public ArrayList<String> qX() {
+        return this.QD;
     }
 
-    public ArrayList<String> qs() {
-        return this.Qj;
+    public ArrayList<String> qY() {
+        return this.QF;
     }
 
     public void e(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.Qf == null) {
-                this.Qf = new t();
+            if (this.QB == null) {
+                this.QB = new t();
             }
-            this.Qf.e(jSONObject.optJSONObject("user_info"));
-            this.Qc = jSONObject.optString("common_forum");
-            this.Qc = jSONObject.optString("pos_name");
-            this.Qe = jSONObject.optInt("common_forum_count");
-            this.Qi = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            this.QB.e(jSONObject.optJSONObject("user_info"));
+            this.Qx = jSONObject.optString("common_forum");
+            this.Qx = jSONObject.optString("pos_name");
+            this.Qz = jSONObject.optInt("common_forum_count");
+            this.QE = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.Qh == null) {
-                    this.Qh = new ArrayList<>();
+                if (this.QD == null) {
+                    this.QD = new ArrayList<>();
                 }
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.Qh.add(optJSONArray.optString(i));
+                        this.QD.add(optJSONArray.optString(i));
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                if (this.Qj == null) {
-                    this.Qj = new ArrayList<>();
+                if (this.QF == null) {
+                    this.QF = new ArrayList<>();
                 }
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                        this.Qj.add(optJSONArray2.optString(i2));
+                        this.QF.add(optJSONArray2.optString(i2));
                     }
                 }
             }
@@ -143,14 +143,14 @@ public class s extends w {
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return Qb;
+        return Qw;
     }
 
-    public String qt() {
-        return this.Qi;
+    public String qZ() {
+        return this.QE;
     }
 
-    public void bS(String str) {
-        this.Qi = str;
+    public void cf(String str) {
+        this.QE = str;
     }
 }

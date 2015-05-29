@@ -1,4 +1,6 @@
 package com.baidu.tieba.tblauncher;
+
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.dialog.d {
@@ -11,7 +13,11 @@ public class t implements com.baidu.tbadk.core.dialog.d {
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        this.this$0.aop();
+        try {
+            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+            aVar.dismiss();
+        } catch (Exception e) {
+            this.this$0.showToast(com.baidu.tieba.t.goto_developActivity_error_toast);
+        }
     }
 }

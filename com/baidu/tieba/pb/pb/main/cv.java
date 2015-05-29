@@ -1,45 +1,71 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
+import android.view.View;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditorToolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements Animation.AnimationListener {
-    final /* synthetic */ cj bMC;
-    private final /* synthetic */ com.baidu.tieba.pb.a.c bME;
-    private final /* synthetic */ boolean bMF;
-    private final /* synthetic */ String bMG;
-    private final /* synthetic */ String bMH;
+public class cv implements View.OnClickListener {
+    final /* synthetic */ ch bOF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cj cjVar, com.baidu.tieba.pb.a.c cVar, boolean z, String str, String str2) {
-        this.bMC = cjVar;
-        this.bME = cVar;
-        this.bMF = z;
-        this.bMG = str;
-        this.bMH = str2;
+    public cv(ch chVar) {
+        this.bOF = chVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        dh dhVar;
-        com.baidu.tieba.pb.pb.sub.l lVar;
-        dh dhVar2;
-        dhVar = this.bMC.bMa;
-        if (dhVar != null) {
-            dhVar2 = this.bMC.bMa;
-            dhVar2.a(this.bME);
-        }
-        if (this.bMF) {
-            lVar = this.bMC.bLz;
-            lVar.aQ(this.bMG, this.bMH);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        View view2;
+        View view3;
+        boolean z;
+        PbActivity pbActivity2;
+        PbEditor pbEditor3;
+        PbActivity pbActivity3;
+        PbEditor pbEditor4;
+        com.baidu.tieba.tbadkCore.c.h hVar;
+        PbActivity pbActivity4;
+        PbActivity pbActivity5;
+        pbActivity = this.bOF.bKZ;
+        if (pbActivity.checkUpIsLogin()) {
+            pbEditor = this.bOF.bOh;
+            if (pbEditor == null) {
+                this.bOF.abW();
+            }
+            pbEditor2 = this.bOF.bOh;
+            if (pbEditor2 != null) {
+                z = this.bOF.bOD;
+                if (z) {
+                    this.bOF.ack();
+                } else {
+                    this.bOF.acl();
+                }
+                pbActivity2 = this.bOF.bKZ;
+                if (pbActivity2 != null) {
+                    pbActivity4 = this.bOF.bKZ;
+                    pbActivity4.aaM();
+                    pbActivity5 = this.bOF.bKZ;
+                    pbActivity5.JR();
+                } else {
+                    pbEditor3 = this.bOF.bOh;
+                    pbEditor3.CQ();
+                    this.bOF.ef(false);
+                }
+                this.bOF.bOn = false;
+                pbActivity3 = this.bOF.bKZ;
+                pbEditor4 = this.bOF.bOh;
+                PbEditorToolView editorToolButtonContainer = pbEditor4.getEditorToolButtonContainer();
+                hVar = this.bOF.bOz;
+                com.baidu.tieba.tbadkCore.c.a.a(pbActivity3, editorToolButtonContainer, false, hVar);
+            }
+            view2 = this.bOF.bOj;
+            if (view2 != null) {
+                view3 = this.bOF.bOj;
+                view3.setVisibility(8);
+                this.bOF.bOn = false;
+            }
         }
     }
 }

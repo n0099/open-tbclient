@@ -6,86 +6,86 @@ import tbclient.NativeApp;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.a.b.a.a.i {
-    private String asm;
-    private int asn;
-    private String aso;
-    private String asp;
+    private String atS;
+    private int atT;
+    private String atU;
+    private String atV;
     private String mText;
     private int mType;
 
     public b() {
         this.mText = null;
-        this.asm = null;
+        this.atS = null;
         this.mType = 0;
     }
 
     public b(JSONObject jSONObject) {
         this.mText = null;
-        this.asm = null;
+        this.atS = null;
         this.mType = 0;
         if (jSONObject != null) {
             this.mText = jSONObject.optString("text");
-            this.asm = jSONObject.optString("link");
+            this.atS = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.asn = jSONObject.optInt("is_native_app", 0);
-            if (this.asn == 1) {
+            this.atT = jSONObject.optInt("is_native_app", 0);
+            if (this.atT == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.asn = 0;
+                    this.atT = 0;
                     return;
                 }
-                this.aso = jSONObject.optString("jump_and");
-                this.asp = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.aso) || TextUtils.isEmpty(this.asp)) {
-                    this.asn = 0;
+                this.atU = jSONObject.optString("jump_and");
+                this.atV = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.atU) || TextUtils.isEmpty(this.atV)) {
+                    this.atT = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.aso = String.valueOf(this.aso) + ";download_url:" + this.asp + ";web_play_url:" + this.asm;
+                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.atS;
                 } else if (this.mType == 5) {
-                    this.aso = String.valueOf(this.aso) + ";download_url:" + this.asp + ";web_play_url:" + this.mText;
+                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.mText;
                 }
-                this.aso = String.valueOf(this.aso) + ";is_native_app=1";
+                this.atU = String.valueOf(this.atU) + ";is_native_app=1";
             }
         }
     }
 
     public b(PbContent pbContent) {
         this.mText = null;
-        this.asm = null;
+        this.atS = null;
         this.mType = 0;
         if (pbContent != null) {
             this.mText = pbContent.text;
-            this.asm = pbContent.link;
+            this.atS = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.asn = pbContent.is_native_app.intValue();
-            if (this.asn == 1) {
+            this.atT = pbContent.is_native_app.intValue();
+            if (this.atT == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.asn = 0;
+                    this.atT = 0;
                     return;
                 }
-                this.aso = nativeApp.jump_and;
-                this.asp = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.aso) || TextUtils.isEmpty(this.asp)) {
-                    this.asn = 0;
+                this.atU = nativeApp.jump_and;
+                this.atV = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.atU) || TextUtils.isEmpty(this.atV)) {
+                    this.atT = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.aso = String.valueOf(this.aso) + ";download_url:" + this.asp + ";web_play_url:" + this.asm;
+                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.atS;
                 } else if (this.mType == 5) {
-                    this.aso = String.valueOf(this.aso) + ";download_url:" + this.asp + ";web_play_url:" + this.mText;
+                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.mText;
                 }
-                this.aso = String.valueOf(this.aso) + ";is_native_app=1";
+                this.atU = String.valueOf(this.atU) + ";is_native_app=1";
             }
         }
     }
 
     public b(String str, String str2) {
         this.mText = null;
-        this.asm = null;
+        this.atS = null;
         this.mType = 0;
         this.mText = str;
-        this.asm = str2;
+        this.atS = str2;
     }
 
     public void setText(String str) {
@@ -93,7 +93,7 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public void setLink(String str) {
-        this.asm = str;
+        this.atS = str;
     }
 
     public String getText() {
@@ -101,23 +101,23 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public String getLink() {
-        return this.asm;
+        return this.atS;
     }
 
-    public int DC() {
-        return this.asn;
+    public int Em() {
+        return this.atT;
     }
 
-    public String DD() {
-        return this.aso;
+    public String En() {
+        return this.atU;
     }
 
-    public void DE() {
+    public void Eo() {
         if (this.mText != null) {
             this.mText = this.mText.replaceAll("\n", "");
         }
-        if (this.asm != null) {
-            this.asm = this.asm.replaceAll("\n", "");
+        if (this.atS != null) {
+            this.atS = this.atS.replaceAll("\n", "");
         }
     }
 }

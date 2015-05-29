@@ -1,38 +1,51 @@
 package com.baidu.tieba.addresslist;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import java.util.ArrayList;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.framework.a.j {
-    private boolean axA;
+public class g extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ e azl;
 
-    public g() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(e eVar) {
         super(304001);
+        this.azl = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        BdListView bdListView;
+        com.baidu.tieba.addresslist.c.a aVar;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
+            bdListView = this.azl.azf;
+            bdListView.completePullRefresh();
+            if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                this.azl.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.azl.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString(), false);
+                return;
+            }
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            this.axA = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
+            ArrayList arrayList = new ArrayList();
             if (addressListData != null) {
                 for (com.baidu.tieba.addresslist.relationship.f fVar : addressListData.getAddressList()) {
                     List<com.baidu.tbadk.coreExtra.relationship.a> contacts = fVar.getContacts();
-                    ArrayList arrayList = new ArrayList();
-                    for (com.baidu.tbadk.coreExtra.relationship.a aVar : contacts) {
-                        if (!this.axA && aVar.getUserType() == 1) {
-                            arrayList.add(aVar);
-                        }
+                    if (contacts.size() > 0) {
+                        com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
+                        aVar2.ea(fVar.getKey());
+                        arrayList.add(aVar2);
                     }
-                    contacts.removeAll(arrayList);
+                    for (com.baidu.tbadk.coreExtra.relationship.a aVar3 : contacts) {
+                        arrayList.add(aVar3);
+                    }
                 }
             }
+            aVar = this.azl.ayX;
+            aVar.A(arrayList);
         }
-        return socketResponsedMessage;
     }
 }

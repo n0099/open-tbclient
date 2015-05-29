@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements View.OnFocusChangeListener {
-    final /* synthetic */ cj bMC;
+public class cz implements Runnable {
+    final /* synthetic */ ch bOF;
+    private final /* synthetic */ boolean bOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(cj cjVar) {
-        this.bMC = cjVar;
+    public cz(ch chVar, boolean z) {
+        this.bOF = chVar;
+        this.bOG = z;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        PbActivity pbActivity;
-        if (!z) {
-            pbActivity = this.bMC.bIT;
-            com.baidu.adp.lib.util.n.c(pbActivity.getPageContext().getPageActivity(), view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        bdTypeListView = this.bOF.aMl;
+        bdTypeListView.setEnabled(this.bOG);
     }
 }

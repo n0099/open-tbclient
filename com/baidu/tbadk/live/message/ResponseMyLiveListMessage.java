@@ -26,44 +26,50 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
         int i2 = 0;
         QueryLiveGroupsByUidResIdl queryLiveGroupsByUidResIdl = (QueryLiveGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupsByUidResIdl.class);
-        setError(queryLiveGroupsByUidResIdl.error.errorno.intValue());
-        setErrorString(queryLiveGroupsByUidResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.hotLiveListData = new HotLiveListData();
-            this.hotLiveListData.setHasMore(queryLiveGroupsByUidResIdl.data.hasMore.intValue());
-            this.hotLiveListData.setGroups(new ArrayList());
-            if (queryLiveGroupsByUidResIdl.data.groups == null) {
-                return;
-            }
-            while (true) {
-                int i3 = i2;
-                if (i3 < queryLiveGroupsByUidResIdl.data.groups.size()) {
-                    LiveCardData liveCardData = new LiveCardData();
-                    LiveGroupInfo liveGroupInfo = queryLiveGroupsByUidResIdl.data.groups.get(i3);
-                    liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
-                    liveCardData.setAuthorName(liveGroupInfo.authorName);
-                    liveCardData.setBackground(liveGroupInfo.background);
-                    liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
-                    liveCardData.setDeviceId(liveGroupInfo.deviceId.intValue());
-                    liveCardData.setForumId(liveGroupInfo.forumId.intValue());
-                    liveCardData.setForumName(liveGroupInfo.forumName);
-                    liveCardData.setGroupId(liveGroupInfo.groupId.intValue());
-                    liveCardData.setGroupType(liveGroupInfo.groupType.intValue());
-                    liveCardData.setIntro(liveGroupInfo.intro);
-                    liveCardData.setLikers(liveGroupInfo.likers.intValue());
-                    liveCardData.setListeners(liveGroupInfo.listeners.intValue());
-                    liveCardData.setName(liveGroupInfo.name);
-                    liveCardData.setPortrait(liveGroupInfo.portrait);
-                    liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
-                    liveCardData.setPublisherName(liveGroupInfo.publisherName);
-                    liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
-                    liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
-                    liveCardData.setStatus(liveGroupInfo.status.intValue());
-                    liveCardData.setStreamId(liveGroupInfo.streamId);
-                    this.hotLiveListData.getGroups().add(liveCardData);
-                    i2 = i3 + 1;
-                } else {
+        if (queryLiveGroupsByUidResIdl != null && queryLiveGroupsByUidResIdl.error != null && queryLiveGroupsByUidResIdl.data != null) {
+            setError(queryLiveGroupsByUidResIdl.error.errorno.intValue());
+            setErrorString(queryLiveGroupsByUidResIdl.error.usermsg);
+            if (getError() == 0) {
+                this.hotLiveListData = new HotLiveListData();
+                this.hotLiveListData.setHasMore(queryLiveGroupsByUidResIdl.data.hasMore.intValue());
+                this.hotLiveListData.setGroups(new ArrayList());
+                if (queryLiveGroupsByUidResIdl.data.groups == null) {
                     return;
+                }
+                while (true) {
+                    int i3 = i2;
+                    if (i3 < queryLiveGroupsByUidResIdl.data.groups.size()) {
+                        LiveCardData liveCardData = new LiveCardData();
+                        LiveGroupInfo liveGroupInfo = queryLiveGroupsByUidResIdl.data.groups.get(i3);
+                        liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
+                        liveCardData.setAuthorName(liveGroupInfo.authorName);
+                        liveCardData.setBackground(liveGroupInfo.background);
+                        liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
+                        liveCardData.setDeviceId(liveGroupInfo.deviceId.intValue());
+                        liveCardData.setForumId(liveGroupInfo.forumId.intValue());
+                        liveCardData.setForumName(liveGroupInfo.forumName);
+                        liveCardData.setGroupId(liveGroupInfo.groupId.intValue());
+                        liveCardData.setGroupType(liveGroupInfo.groupType.intValue());
+                        liveCardData.setIntro(liveGroupInfo.intro);
+                        liveCardData.setLikers(liveGroupInfo.likers.intValue());
+                        liveCardData.setListeners(liveGroupInfo.listeners.intValue());
+                        liveCardData.setName(liveGroupInfo.name);
+                        liveCardData.setPortrait(liveGroupInfo.portrait);
+                        liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
+                        liveCardData.setPublisherName(liveGroupInfo.publisherName);
+                        liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
+                        liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
+                        liveCardData.setStatus(liveGroupInfo.status.intValue());
+                        liveCardData.setStreamId(liveGroupInfo.streamId);
+                        liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
+                        if (liveGroupInfo.label != null) {
+                            liveCardData.setLabelName(liveGroupInfo.label.labelName);
+                        }
+                        this.hotLiveListData.getGroups().add(liveCardData);
+                        i2 = i3 + 1;
+                    } else {
+                        return;
+                    }
                 }
             }
         }
@@ -79,7 +85,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.b.a.rc().bW("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.b.a.rI().cj("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class XiaomiPushSdkSwitchStatic extends a {
     static {
-        f.gz().l(XiaomiPushSdkSwitchStatic.class);
+        f.gD().l(XiaomiPushSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

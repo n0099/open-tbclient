@@ -1,21 +1,38 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import android.view.View;
+import com.baidu.adp.lib.util.n;
+import com.baidu.tbadk.core.view.PbListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c extends com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> {
-    final /* synthetic */ b bXW;
+public class c implements View.OnClickListener {
+    final /* synthetic */ b cbE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b bVar, TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, clsArr, iArr, viewEventCenter);
-        this.bXW = bVar;
+    public c(b bVar) {
+        this.cbE = bVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.j.b
-    public int dS(int i) {
-        Object item = getItem(i);
-        return item instanceof com.baidu.tieba.recommendfrs.data.b ? ((com.baidu.tieba.recommendfrs.data.b) item).getType() == 2 ? 1 : 0 : item instanceof Integer ? 2 : 0;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        boolean z2;
+        PbListView pbListView;
+        com.baidu.tieba.recommendfrs.control.a.b bVar;
+        int ahq;
+        String str;
+        z = this.cbE.mHasMore;
+        if (z && n.isNetOk()) {
+            z2 = this.cbE.aKl;
+            if (!z2) {
+                this.cbE.aKl = true;
+                pbListView = this.cbE.aOf;
+                pbListView.startLoadData();
+                bVar = this.cbE.cbv;
+                ahq = this.cbE.ahq();
+                str = this.cbE.cbB;
+                bVar.B(ahq, str);
+            }
+        }
     }
 }

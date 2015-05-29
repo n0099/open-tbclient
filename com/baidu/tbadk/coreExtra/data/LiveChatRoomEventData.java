@@ -11,11 +11,13 @@ public class LiveChatRoomEventData {
     public String mEventId;
     public int mGroupId;
     public String mIntro;
+    public boolean mIsBgChanged;
     public List<MetaData> mLikeUserList = new ArrayList();
     public int mLikers;
     public int mListeners;
     public String mName;
     public String mPortrait;
+    public String mSignature;
     public int mUserId;
     public String mUserMsg;
 
@@ -36,13 +38,15 @@ public class LiveChatRoomEventData {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                         metaData.setUserId(optJSONObject2.optString("user_id"));
                         metaData.setUserName(optJSONObject2.optString("user_name"));
-                        metaData.setPortrait(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                        metaData.setPortrait(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT));
                         this.mLikeUserList.add(metaData);
                     }
                 }
                 this.mName = optJSONObject.optString("name");
-                this.mPortrait = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                this.mPortrait = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 this.mIntro = optJSONObject.optString("intro");
+                this.mSignature = optJSONObject.optString("signature");
+                this.mIsBgChanged = optJSONObject.optInt("bgChanged", 0) == 1;
             }
         } catch (JSONException e) {
             e.printStackTrace();

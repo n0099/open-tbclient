@@ -14,7 +14,7 @@ public class a<T> implements m {
         return new ArrayList(this.mList);
     }
 
-    public void p(List<T> list) {
+    public void q(List<T> list) {
         if (list != null) {
             if (this.mList == null) {
                 this.mList = new ArrayList();

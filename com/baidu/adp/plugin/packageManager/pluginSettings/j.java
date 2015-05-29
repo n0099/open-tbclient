@@ -10,10 +10,10 @@ import java.io.Serializable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-    final /* synthetic */ h EB;
+    final /* synthetic */ h Er;
 
     private j(h hVar) {
-        this.EB = hVar;
+        this.Er = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,13 +50,13 @@ public class j extends Handler {
                 case 5:
                     Bundle data = message.getData();
                     if (data != null && (serializable = data.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
-                        this.EB.Ep = (PluginSettings) data.getSerializable("plugin_settings");
+                        this.Er.Eg = (PluginSettings) data.getSerializable("plugin_settings");
                     }
-                    if (this.EB.Ez != null) {
-                        m mVar = this.EB.Ez;
-                        pluginSettings12 = this.EB.Ep;
+                    if (this.Er.Ep != null) {
+                        m mVar = this.Er.Ep;
+                        pluginSettings12 = this.Er.Eg;
                         mVar.a(pluginSettings12);
-                        this.EB.Ez = null;
+                        this.Er.Ep = null;
                         return;
                     }
                     return;
@@ -65,7 +65,7 @@ public class j extends Handler {
                     if (data2 != null) {
                         boolean z = data2.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
                         String string = data2.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                        pluginSettings9 = this.EB.Ep;
+                        pluginSettings9 = this.Er.Eg;
                         PluginSetting findPluginSetting = pluginSettings9.findPluginSetting(string);
                         if (findPluginSetting != null && findPluginSetting.forbidden != z) {
                             findPluginSetting.forbidden = z;
@@ -81,7 +81,7 @@ public class j extends Handler {
                     Bundle data3 = message.getData();
                     if (data3 != null) {
                         String string2 = data3.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                        pluginSettings7 = this.EB.Ep;
+                        pluginSettings7 = this.Er.Eg;
                         pluginSettings7.removePluginSetting(string2);
                         return;
                     }
@@ -90,7 +90,7 @@ public class j extends Handler {
                     Bundle data4 = message.getData();
                     if (data4 != null) {
                         boolean z2 = data4.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                        pluginSettings10 = this.EB.Ep;
+                        pluginSettings10 = this.Er.Eg;
                         pluginSettings10.setAllPluginEnable(z2);
                         return;
                     }
@@ -100,7 +100,7 @@ public class j extends Handler {
                     if (data5 != null) {
                         boolean z3 = data5.getBoolean(PluginSettingIOService.KEY_ENABLE);
                         String string3 = data5.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                        pluginSettings11 = this.EB.Ep;
+                        pluginSettings11 = this.Er.Eg;
                         PluginSetting findPluginSetting2 = pluginSettings11.findPluginSetting(string3);
                         if (findPluginSetting2 != null && findPluginSetting2.enable != z3) {
                             findPluginSetting2.enable = z3;
@@ -117,21 +117,21 @@ public class j extends Handler {
                     if (data6 != null) {
                         String string4 = data6.getString(PluginSettingIOService.KEY_VERSION);
                         if (TextUtils.isEmpty(string4)) {
-                            pluginSettings6 = this.EB.Ep;
+                            pluginSettings6 = this.Er.Eg;
                             break;
                         }
                         if (!TextUtils.isEmpty(string4)) {
-                            pluginSettings4 = this.EB.Ep;
+                            pluginSettings4 = this.Er.Eg;
                             break;
                         }
                         if (!TextUtils.isEmpty(string4)) {
-                            pluginSettings2 = this.EB.Ep;
+                            pluginSettings2 = this.Er.Eg;
                             if (!TextUtils.isEmpty(pluginSettings2.getContainerVersion())) {
-                                pluginSettings3 = this.EB.Ep;
+                                pluginSettings3 = this.Er.Eg;
                                 if (string4.equals(pluginSettings3.getContainerVersion())) {
                                     return;
                                 }
-                                pluginSettings5 = this.EB.Ep;
+                                pluginSettings5 = this.Er.Eg;
                                 pluginSettings5.setContainerSetting(string4);
                                 return;
                             }
@@ -145,7 +145,7 @@ public class j extends Handler {
                     if (data7 != null) {
                         int i = data7.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
                         String string5 = data7.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                        pluginSettings8 = this.EB.Ep;
+                        pluginSettings8 = this.Er.Eg;
                         PluginSetting findPluginSetting3 = pluginSettings8.findPluginSetting(string5);
                         if (findPluginSetting3 != null && findPluginSetting3.installStatus != i) {
                             findPluginSetting3.installStatus = i;
@@ -158,7 +158,7 @@ public class j extends Handler {
                     Bundle data8 = message.getData();
                     if (data8 != null) {
                         String string6 = data8.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE);
-                        pluginSettings = this.EB.Ep;
+                        pluginSettings = this.Er.Eg;
                         pluginSettings.setForbiddenFeatures(string6);
                         return;
                     }

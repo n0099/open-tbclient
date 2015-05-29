@@ -19,7 +19,7 @@ public class OfficialChatMessage extends ChatMessage {
             builder.toUid = Long.valueOf(getToUserId());
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
-            if (c.a(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
+            if (c.c(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
                 userType = getUserInfo().getUserType();
             } else {
                 userType = getToUserInfo().getUserType();

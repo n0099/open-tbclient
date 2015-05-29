@@ -4,22 +4,22 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements com.baidu.tieba.im.g<List<com.baidu.tieba.im.data.b>> {
-    final /* synthetic */ NewFriendsActivity ayH;
+    final /* synthetic */ NewFriendsActivity aAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewFriendsActivity newFriendsActivity) {
-        this.ayH = newFriendsActivity;
+        this.aAs = newFriendsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
-    /* renamed from: x */
+    /* renamed from: y */
     public void onReturnDataInUI(List<com.baidu.tieba.im.data.b> list) {
         bb bbVar;
         bb bbVar2;
-        bbVar = this.ayH.ayA;
-        bbVar.Fi().setData(list);
-        bbVar2 = this.ayH.ayA;
-        bbVar2.Fi().notifyDataSetChanged();
+        bbVar = this.aAs.aAl;
+        bbVar.Gb().setData(list);
+        bbVar2 = this.aAs.aAl;
+        bbVar2.Gb().notifyDataSetChanged();
     }
 }

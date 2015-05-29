@@ -1,42 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-class n implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity bIJ;
+class n extends com.baidu.adp.base.i {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        WriteImagesInfo writeImagesInfo;
-        String str;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        eVar.dismiss();
-        this.bIJ.Jz();
-        if (i == 0) {
-            writeImagesInfo = this.bIJ.writeImagesInfo;
-            if (writeImagesInfo.getChosedFiles() != null) {
-                writeImagesInfo2 = this.bIJ.writeImagesInfo;
-                int size = writeImagesInfo2.getChosedFiles().size();
-                writeImagesInfo3 = this.bIJ.writeImagesInfo;
-                if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
-                    this.bIJ.showToast(String.format(this.bIJ.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
-                    return;
-                }
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        ch chVar;
+        com.baidu.tieba.tbadkCore.writeModel.a aVar;
+        if (obj instanceof Bitmap) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (obj != null) {
+                chVar = this.bKT.bKz;
+                chVar.k(bitmap);
+                aVar = this.bKT.aJT;
+                aVar.fj(true);
             }
-            this.bIJ.aHI = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.bIJ.getPageContext();
-            str = this.bIJ.aHI;
-            com.baidu.tbadk.core.util.az.a(pageContext, str);
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.az.q(this.bIJ.getPageContext().getPageActivity());
         }
     }
 }

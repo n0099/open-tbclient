@@ -1,29 +1,16 @@
 package com.baidu.tieba;
-
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends Handler {
-    final /* synthetic */ LogoActivity atK;
+public class f implements Runnable {
+    final /* synthetic */ LogoActivity avg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(LogoActivity logoActivity) {
-        this.atK = logoActivity;
+        this.avg = logoActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.atK.atC = true;
-        z = this.atK.atB;
-        if (z) {
-            if (!this.atK.getPageContext().getPageActivity().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                TbadkCoreApplication.setCurrentAccount(com.baidu.tbadk.core.a.d.pG(), this.atK.getBaseContext());
-            }
-            this.atK.al(this.atK.getBaseContext());
-        }
-        super.handleMessage(message);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.avg.EN();
     }
 }

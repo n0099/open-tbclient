@@ -23,7 +23,7 @@ public class PersonInfoPostAnchor implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+            this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
             this.name = jSONObject.optString("name");
             this.start_time = jSONObject.optInt("start_time");
             this.status = jSONObject.optInt("status");

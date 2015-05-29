@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class GameDetailActivityConfig extends a {
+public class GameDetailActivityConfig extends c {
     public static final String GAME_ID_KEY = "game_id_key";
     public static final String SOURCE = "source";
 

@@ -1,23 +1,23 @@
 package com.baidu.tbadk.coreExtra.share.implementation;
 
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.g;
 /* loaded from: classes.dex */
 class e implements b {
-    final /* synthetic */ d adN;
+    final /* synthetic */ d aeR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.adN = dVar;
+        this.aeR = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.implementation.b
     public void onSuccess() {
         a aVar;
-        f fVar;
+        g gVar;
         int i;
-        aVar = this.adN.adM;
-        fVar = this.adN.adK;
-        i = this.adN.adL;
-        aVar.a(fVar, i, false);
+        aVar = this.aeR.aeQ;
+        gVar = this.aeR.aeO;
+        i = this.aeR.aeP;
+        aVar.a(gVar, i, false);
     }
 }

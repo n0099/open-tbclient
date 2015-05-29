@@ -4,15 +4,15 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    View adg;
-    TextView bYY;
-    TextView bYZ;
-    TextView bYv;
-    TextView bYw;
-    final /* synthetic */ m bZa;
+    TextView ccH;
+    TextView ccI;
+    TextView cdj;
+    TextView cdk;
+    final /* synthetic */ m cdl;
+    View mLine;
 
     private n(m mVar) {
-        this.bZa = mVar;
+        this.cdl = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

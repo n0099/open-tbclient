@@ -1,24 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.data.MediaData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    final /* synthetic */ CommonImageLayout Xv;
-    private final /* synthetic */ MediaData Xw;
+class e extends com.baidu.tbadk.core.flow.a.b {
+    private final /* synthetic */ TbPageContext NC;
+    final /* synthetic */ c XX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(CommonImageLayout commonImageLayout, MediaData mediaData) {
-        this.Xv = commonImageLayout;
-        this.Xw = mediaData;
+    public e(c cVar, TbPageContext tbPageContext) {
+        this.XX = cVar;
+        this.NC = tbPageContext;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.Xv.mContext;
-        com.baidu.tbadk.browser.f.x(context, this.Xw.getVideoUrl());
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.e rW() {
+        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
+        eVar.setHeight(this.NC.getPageActivity().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds330));
+        return eVar;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.c rV() {
+        com.baidu.tbadk.core.flow.a.c rV = super.rV();
+        if (rV != null) {
+            rV.setGravity(85);
+            rV.bN(com.baidu.tieba.o.ds20);
+            rV.bO(com.baidu.tieba.o.ds30);
+        }
+        return rV;
     }
 }

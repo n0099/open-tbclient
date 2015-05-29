@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.addresslist.im.searchfriend.cache.ResponseRecommendReadMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ SearchFriendActivity azf;
+    final /* synthetic */ SearchFriendActivity aAQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.azf = searchFriendActivity;
+        this.aAQ = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,14 +19,14 @@ class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         n nVar;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseRecommendReadMessage)) {
-            nVar = this.azf.ayX;
+            nVar = this.aAQ.aAI;
             nVar.a(((ResponseRecommendReadMessage) customResponsedMessage).getData());
             RequestRecommendMessage requestRecommendMessage = new RequestRecommendMessage();
-            requestRecommendMessage.setHeight(com.baidu.adp.lib.util.n.M(this.azf.getPageContext().getPageActivity()));
-            requestRecommendMessage.setWidth(com.baidu.adp.lib.util.n.N(this.azf.getPageContext().getPageActivity()));
-            requestRecommendMessage.setDpi(this.azf.getResources().getDisplayMetrics().density);
+            requestRecommendMessage.setHeight(com.baidu.adp.lib.util.n.M(this.aAQ.getPageContext().getPageActivity()));
+            requestRecommendMessage.setWidth(com.baidu.adp.lib.util.n.N(this.aAQ.getPageContext().getPageActivity()));
+            requestRecommendMessage.setDpi(this.aAQ.getResources().getDisplayMetrics().density);
             requestRecommendMessage.setQuality("80");
-            this.azf.sendMessage(requestRecommendMessage);
+            this.aAQ.sendMessage(requestRecommendMessage);
         }
     }
 }

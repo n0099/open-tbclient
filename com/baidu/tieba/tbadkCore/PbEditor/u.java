@@ -2,48 +2,48 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.editortool.v {
-    private final /* synthetic */ com.baidu.tbadk.editortool.v aIJ;
-    final /* synthetic */ PbEditor cmW;
+    private final /* synthetic */ com.baidu.tbadk.editortool.v aKR;
+    final /* synthetic */ PbEditor cqV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PbEditor pbEditor, com.baidu.tbadk.editortool.v vVar) {
-        this.cmW = pbEditor;
-        this.aIJ = vVar;
+        this.cqV = pbEditor;
+        this.aKR = vVar;
     }
 
     @Override // com.baidu.tbadk.editortool.v
     public void handleAction(int i, Object obj) {
         if (i == 2) {
-            this.cmW.ir(i);
+            this.cqV.iN(i);
         } else if (i == 3) {
-            this.cmW.acy();
+            this.cqV.adc();
         } else if (i == 5) {
-            this.cmW.ir(i);
+            this.cqV.iN(i);
         } else if (i == 6) {
-            this.cmW.acy();
+            this.cqV.adc();
         } else if (i == 8) {
-            this.cmW.ir(i);
+            this.cqV.iN(i);
         } else if (i == 9) {
-            this.cmW.acy();
+            this.cqV.adc();
         } else if (i != 0) {
             if (i == 18) {
-                if (this.cmW.ame()) {
-                    this.cmW.cmO.amc();
+                if (this.cqV.anQ()) {
+                    this.cqV.cqN.anO();
                 } else {
-                    this.cmW.cmO.amd();
+                    this.cqV.cqN.anP();
                 }
             } else if (i == 12 || i == 64) {
-                this.aIJ.handleAction(35, obj);
-                this.cmW.cmO.alt();
-                this.cmW.cmP.aa(this.cmW.cmO.getEditText());
+                this.aKR.handleAction(35, obj);
+                this.cqV.cqN.ane();
+                this.cqV.cqO.ab(this.cqV.cqN.getEditText());
             } else if (i == 38) {
-                this.cmW.ir(i);
+                this.cqV.iN(i);
             } else if (i == 44) {
-                this.cmW.ir(i);
+                this.cqV.iN(i);
             } else if (i == 50) {
-                this.cmW.ir(i);
+                this.cqV.iN(i);
             }
         }
-        this.aIJ.handleAction(i, obj);
+        this.aKR.handleAction(i, obj);
     }
 }

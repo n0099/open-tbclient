@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.t;
 import com.baidu.adp.lib.util.b;
-import com.baidu.adp.lib.util.x;
+import com.baidu.adp.lib.util.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.b.a;
 import com.baidu.tbadk.mvc.b.e;
@@ -31,7 +31,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends k, M extends Mes
         if (a2 == null || a2.size() <= 0) {
             z = false;
         } else {
-            Object a3 = x.a(parseFrom, a2.get(0));
+            Object a3 = y.a(parseFrom, a2.get(0));
             if (a3 instanceof Error) {
                 Error error = (Error) a3;
                 setError(error.errorno.intValue());
@@ -40,7 +40,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends k, M extends Mes
             z = true;
         }
         if (!z && (a = b.a(parseFrom, tbclient.Error.class)) != null && a.size() > 0) {
-            Object a4 = x.a(parseFrom, a.get(0));
+            Object a4 = y.a(parseFrom, a.get(0));
             if (a4 instanceof tbclient.Error) {
                 tbclient.Error error2 = (tbclient.Error) a4;
                 setError(error2.errorno.intValue());
@@ -65,7 +65,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends k, M extends Mes
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        t<byte[]> R;
+        t<byte[]> V;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -85,10 +85,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends k, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String zX = eVar.zX();
+                String AJ = eVar.AJ();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(zX) && bArr != null && (R = a.rc().R(zX, currentAccount)) != null) {
-                    R.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(AJ) && bArr != null && (V = a.rI().V(AJ, currentAccount)) != null) {
+                    V.f(cacheKey, bArr);
                 }
             }
         }

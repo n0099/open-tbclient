@@ -1,53 +1,27 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
-import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr afr;
+public class ai implements View.OnClickListener {
+    final /* synthetic */ LivePlayingImageView agn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
-        super(i);
-        this.afr = livePlayingStatusMgr;
+    public ai(LivePlayingImageView livePlayingImageView) {
+        this.agn = livePlayingImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveStatusChangeMessage.LiveStatusData data;
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2;
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus3;
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus4;
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus5;
-        if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
-            if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
-                livePlayingStatus = this.afr.afo;
-                if (livePlayingStatus != LivePlayingStatusMgr.LivePlayingStatus.IDEL) {
-                    livePlayingStatus2 = this.afr.afo;
-                    if (livePlayingStatus2 != LivePlayingStatusMgr.LivePlayingStatus.JOINED) {
-                        livePlayingStatus3 = this.afr.afo;
-                        if (livePlayingStatus3 != LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER) {
-                            return;
-                        }
-                    }
-                }
-                this.afr.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
-            } else if (data.status == 0) {
-                livePlayingStatus4 = this.afr.afo;
-                if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {
-                    livePlayingStatus5 = this.afr.afo;
-                    if (livePlayingStatus5 != LivePlayingStatusMgr.LivePlayingStatus.PLAYING) {
-                        return;
-                    }
-                }
-                this.afr.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.agn.getStatisticsKey())) {
+            com.baidu.tbadk.core.k.A(this.agn.getContext(), this.agn.getStatisticsKey());
+        }
+        if (LivePlayingStatusMgr.xW().getGid() != 0) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.agn.getContext(), LivePlayingStatusMgr.xW().getGid())));
         }
     }
 }

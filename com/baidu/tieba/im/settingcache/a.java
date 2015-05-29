@@ -2,26 +2,26 @@ package com.baidu.tieba.im.settingcache;
 
 import com.baidu.adp.lib.cache.t;
 import com.baidu.adp.lib.cache.v;
-import com.baidu.adp.lib.util.z;
+import com.baidu.adp.lib.util.aa;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> bnj = new HashMap<>();
+    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> bpO = new HashMap<>();
 
-    protected abstract t<String> Tz();
+    protected abstract t<String> UM();
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar);
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tieba.im.g<Void> gVar);
 
-    public abstract com.baidu.tieba.im.pushNotify.a aE(String str, String str2);
+    public abstract com.baidu.tieba.im.pushNotify.a aJ(String str, String str2);
 
     public void s(Class<? extends com.baidu.tieba.im.pushNotify.a> cls) {
         String str;
-        synchronized (this.bnj) {
-            this.bnj.clear();
+        synchronized (this.bpO) {
+            this.bpO.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -29,14 +29,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
-            synchronized (this.bnj) {
-                t<String> Tz = Tz();
-                List<v<String>> b = z.b(Tz);
+            synchronized (this.bpO) {
+                t<String> UM = UM();
+                List<v<String>> b = aa.b(UM);
                 if (b != null) {
                     for (v<String> vVar : b) {
                         String str4 = vVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = Tz.get(str4)) != null) {
-                            this.bnj.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = UM.get(str4)) != null) {
+                            this.bpO.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -45,27 +45,27 @@ public abstract class a {
     }
 
     public void e(String str, String str2, boolean z) {
-        com.baidu.tieba.im.pushNotify.a aE = aE(str, str2);
-        if (aE != null) {
-            aE.setAcceptNotify(z);
-            a(aE);
+        com.baidu.tieba.im.pushNotify.a aJ = aJ(str, str2);
+        if (aJ != null) {
+            aJ.setAcceptNotify(z);
+            a(aJ);
         }
     }
 
     public void a(String str, String str2, boolean z, com.baidu.tieba.im.g<Void> gVar) {
-        com.baidu.tieba.im.pushNotify.a aE = aE(str, str2);
-        if (aE != null) {
-            aE.setAcceptNotify(z);
-            a(aE, gVar);
+        com.baidu.tieba.im.pushNotify.a aJ = aJ(str, str2);
+        if (aJ != null) {
+            aJ.setAcceptNotify(z);
+            a(aJ, gVar);
         }
     }
 
-    public boolean aF(String str, String str2) {
-        com.baidu.tieba.im.pushNotify.a aE = aE(str, str2);
-        if (aE == null) {
+    public boolean aK(String str, String str2) {
+        com.baidu.tieba.im.pushNotify.a aJ = aJ(str, str2);
+        if (aJ == null) {
             return false;
         }
-        return aE.isAcceptNotify();
+        return aJ.isAcceptNotify();
     }
 
     public void a(String str, String str2, com.baidu.tieba.im.g<Boolean> gVar) {

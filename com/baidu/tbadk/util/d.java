@@ -4,34 +4,34 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class d {
-    private static d aqD = new d();
-    private f aqE;
-    private e aqF;
+    private static d asf = new d();
+    private f asg;
+    private e ash;
 
     private d() {
     }
 
-    public static d Dj() {
-        return aqD;
+    public static d DT() {
+        return asf;
     }
 
     public void a(e eVar) {
-        this.aqF = eVar;
-        if (this.aqE != null) {
-            this.aqE.cancel();
+        this.ash = eVar;
+        if (this.asg != null) {
+            this.asg.cancel();
         }
-        this.aqE = new f(this, null);
-        this.aqE.setPriority(4);
-        this.aqE.execute(new String[0]);
+        this.asg = new f(this, null);
+        this.asg.setPriority(4);
+        this.asg.execute(new String[0]);
     }
 
-    public boolean Dk() {
+    public boolean DU() {
         int i;
         long j = 0;
-        byte[] aE = com.baidu.adp.lib.util.f.aE("crash_hour_record.log");
+        byte[] aN = com.baidu.adp.lib.util.f.aN("crash_hour_record.log");
         String str = null;
-        if (aE != null) {
-            str = new String(aE);
+        if (aN != null) {
+            str = new String(aN);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -42,7 +42,7 @@ public class d {
                 i = 0;
             } else {
                 i = com.baidu.adp.lib.g.c.toInt(split[0], 0);
-                j = com.baidu.adp.lib.g.c.a(split[1], j2);
+                j = com.baidu.adp.lib.g.c.c(split[1], j2);
             }
         }
         if (j == j2 && i > 1) {

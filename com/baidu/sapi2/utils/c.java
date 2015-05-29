@@ -24,13 +24,13 @@ public class c {
                 fileInputStream.read(bArr);
                 String str = new String(bArr);
                 if (!TextUtils.isEmpty(str) && str.contains("passport.baidu.com")) {
-                    com.baidu.sapi2.c.a(context).b(true);
+                    com.baidu.sapi2.d.a(context).b(true);
                 } else {
-                    com.baidu.sapi2.c.a(context).b(false);
+                    com.baidu.sapi2.d.a(context).b(false);
                 }
                 fileInputStream.close();
             } catch (Throwable th) {
-                com.baidu.sapi2.c.a(context).b(false);
+                com.baidu.sapi2.d.a(context).b(false);
                 L.e(th);
             }
         }
@@ -114,7 +114,7 @@ public class c {
             return sb.toString();
         }
 
-        private static String b(byte[] bArr) {
+        public static String b(byte[] bArr) {
             int i;
             StringBuilder sb = new StringBuilder();
             int length = bArr.length * 8;
@@ -158,7 +158,7 @@ public class c {
             }
             try {
                 String b2 = b(str.getBytes(c));
-                return a(b2 + "." + a(b(b2 + e.s)), e.s);
+                return a(b2 + "." + a(b(b2 + g.x)), g.x);
             } catch (Exception e2) {
                 L.e(e2);
                 return null;
@@ -170,7 +170,7 @@ public class c {
                 String a2 = a(b(str2.trim()));
                 String substring = a2.substring(0, 16);
                 String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
-                Cipher cipher = Cipher.getInstance(e.t);
+                Cipher cipher = Cipher.getInstance(g.y);
                 cipher.init(1, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
                 return b(cipher.doFinal(c(str.getBytes(c))));
             } catch (Exception e2) {
@@ -184,7 +184,7 @@ public class c {
                 String a2 = a(b(str2.trim()));
                 String substring = a2.substring(0, 16);
                 String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
-                Cipher cipher = Cipher.getInstance(e.t);
+                Cipher cipher = Cipher.getInstance(g.y);
                 cipher.init(2, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
                 return b(cipher.doFinal(c(str.getBytes(c))));
             } catch (Exception e2) {

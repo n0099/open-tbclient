@@ -3,18 +3,17 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a aDb;
+    final /* synthetic */ a aFd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.aDb = aVar;
+        this.aFd = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,29 +25,27 @@ public class b extends com.baidu.adp.framework.listener.a {
         String errorString;
         BaseFragmentActivity baseFragmentActivity;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = this.aDb.aCK;
+            cVar = this.aFd.aEM;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                eVar = this.aDb.aCJ;
-                eVar.Hx();
-                if (responsedMessage.getError() == 1) {
-                    ReloginManager.rw().e(null);
-                } else if (responsedMessage.hasError()) {
+                eVar = this.aFd.aEL;
+                eVar.Ix();
+                if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        baseFragmentActivity = this.aDb.aCN;
-                        errorString = baseFragmentActivity.getResources().getString(y.neterror);
+                        baseFragmentActivity = this.aFd.azk;
+                        errorString = baseFragmentActivity.getResources().getString(t.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    this.aDb.showToast(errorString);
-                } else {
-                    if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        cVar3 = this.aDb.aCK;
-                        cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
-                    }
-                    if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        cVar2 = this.aDb.aCK;
-                        cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
-                    }
+                    this.aFd.showToast(errorString);
+                    return;
+                }
+                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
+                    cVar3 = this.aFd.aEM;
+                    cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
+                }
+                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
+                    cVar2 = this.aFd.aEM;
+                    cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }

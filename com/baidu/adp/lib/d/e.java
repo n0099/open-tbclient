@@ -6,10 +6,10 @@ import com.baidu.location.BDLocationListener;
 import java.util.Locale;
 /* loaded from: classes.dex */
 class e implements BDLocationListener {
-    final /* synthetic */ a vu;
+    final /* synthetic */ a uG;
 
     private e(a aVar) {
-        this.vu = aVar;
+        this.uG = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,13 +20,13 @@ class e implements BDLocationListener {
     @Override // com.baidu.location.BDLocationListener
     public void onReceiveLocation(BDLocation bDLocation) {
         if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
-            a.a(this.vu, 0);
-            a.c(this.vu);
-            a.a(this.vu, new Address(Locale.getDefault()));
-            a.e(this.vu).setLatitude(bDLocation.getLatitude());
-            a.e(this.vu).setLongitude(bDLocation.getLongitude());
-            a.e(this.vu).setLocality(bDLocation.getCity());
-            this.vu.vr = System.currentTimeMillis();
+            a.a(this.uG, 0);
+            a.c(this.uG);
+            a.a(this.uG, new Address(Locale.getDefault()));
+            a.e(this.uG).setLatitude(bDLocation.getLatitude());
+            a.e(this.uG).setLongitude(bDLocation.getLongitude());
+            a.e(this.uG).setLocality(bDLocation.getCity());
+            this.uG.uD = System.currentTimeMillis();
             StringBuffer stringBuffer = new StringBuffer();
             if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
                 stringBuffer.append(bDLocation.getCity());
@@ -34,9 +34,9 @@ class e implements BDLocationListener {
             stringBuffer.append(bDLocation.getDistrict());
             stringBuffer.append(bDLocation.getStreet());
             if (bDLocation.getAddrStr() != null) {
-                a.e(this.vu).setAddressLine(0, stringBuffer.toString());
+                a.e(this.uG).setAddressLine(0, stringBuffer.toString());
             }
-            a.a(this.vu, a.d(this.vu), "", a.e(this.vu));
+            a.a(this.uG, a.d(this.uG), "", a.e(this.uG));
         }
     }
 }

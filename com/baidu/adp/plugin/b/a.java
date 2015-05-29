@@ -9,41 +9,41 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Dl = null;
-    private HashMap<String, Integer> Dk = new HashMap<>();
+    private static volatile a Dc = null;
+    private HashMap<String, Integer> Db = new HashMap<>();
 
-    public static synchronized a lh() {
+    public static synchronized a lB() {
         a aVar;
         synchronized (a.class) {
-            if (Dl == null) {
+            if (Dc == null) {
                 synchronized (a.class) {
-                    if (Dl == null) {
-                        Dl = new a();
+                    if (Dc == null) {
+                        Dc = new a();
                     }
                 }
             }
-            aVar = Dl;
+            aVar = Dc;
         }
         return aVar;
     }
 
-    public void bd(String str) {
+    public void bn(String str) {
         if (str != null) {
-            Integer num = this.Dk.get(str);
+            Integer num = this.Db.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.Dk.put(str, Integer.valueOf(num.intValue() + 1));
+            this.Db.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
-    public void I(String str, String str2) {
+    public void K(String str, String str2) {
         if (str != null && str2 != null) {
-            bd(str);
+            bn(str);
         }
     }
 
-    public void b(String str, long j) {
+    public void e(String str, long j) {
         a(str, j, 0);
     }
 
@@ -56,16 +56,16 @@ public class a {
     }
 
     public void a(String str, long j, int i, String str2) {
-        q hC = hC();
-        hC.r("workflow", String.valueOf(str) + "_cost");
-        hC.f("cost", Long.valueOf(j));
+        q hm = hm();
+        hm.r("workflow", String.valueOf(str) + "_cost");
+        hm.f("cost", Long.valueOf(j));
         if (i != 0) {
-            hC.f(ImageViewerConfig.COUNT, Integer.valueOf(i));
+            hm.f(ImageViewerConfig.COUNT, Integer.valueOf(i));
         }
         if (str2 != null) {
-            hC.r("pname", str2);
+            hm.r("pname", str2);
         }
-        f.hP().a("pluginproxy", hC);
+        f.hz().a("pluginproxy", hm);
     }
 
     public void g(String str, String str2, String str3) {
@@ -73,47 +73,47 @@ public class a {
     }
 
     public void d(String str, String str2, String str3, String str4) {
-        q hC = hC();
+        q hm = hm();
         if (str != null) {
-            hC.r("workflow", String.valueOf(str) + "_failure");
+            hm.r("workflow", String.valueOf(str) + "_failure");
         }
         if (str2 != null) {
-            hC.r("reason", str2);
+            hm.r("reason", str2);
         }
         if (str3 != null) {
-            hC.r("pname", str3);
+            hm.r("pname", str3);
         }
-        a(hC);
+        a(hm);
         if (str4 != null) {
-            hC.r("comment", str4);
+            hm.r("comment", str4);
         }
-        BdLog.e(hC.toString());
-        f.hP().a("pluginproxy", hC);
-        f.hP().save();
+        BdLog.e(hm.toString());
+        f.hz().a("pluginproxy", hm);
+        f.hz().save();
     }
 
-    public void li() {
-        if (this.Dk.size() != 0) {
-            q hC = hC();
-            a(hC);
-            f.hP().a("pluginproxy", hC);
+    public void lC() {
+        if (this.Db.size() != 0) {
+            q hm = hm();
+            a(hm);
+            f.hz().a("pluginproxy", hm);
         }
     }
 
-    public void be(String str) {
-        f.hP().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
+    public void bo(String str) {
+        f.hz().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
     }
 
     private void a(q qVar) {
         if (qVar != null) {
-            for (Map.Entry<String, Integer> entry : this.Dk.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.Db.entrySet()) {
                 qVar.r(String.valueOf(entry.getKey()) + "_count", String.valueOf(entry.getValue()));
             }
-            this.Dk.clear();
+            this.Db.clear();
         }
     }
 
-    private q hC() {
-        return f.hP().ar("dbg");
+    private q hm() {
+        return f.hz().as("dbg");
     }
 }

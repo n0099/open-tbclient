@@ -4,62 +4,60 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.BarImageView;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private SquareSearchActivity byL;
-    private List<e> byM;
+    private List<e> bBw;
+    private BaseActivity<?> mActivity;
 
-    public c(SquareSearchActivity squareSearchActivity) {
-        this.byL = squareSearchActivity;
+    public c(BaseActivity<?> baseActivity) {
+        this.mActivity = baseActivity;
     }
 
-    public void setData(List<e> list) {
-        if (list == null || list.isEmpty()) {
-            this.byM = new ArrayList();
-        } else {
-            this.byM = list;
-        }
+    public void aM(List<e> list) {
+        this.bBw = list;
+        notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.byM == null) {
+        if (this.bBw == null) {
             return 0;
         }
-        return this.byM.size();
+        return this.bBw.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gN */
+    /* renamed from: he */
     public e getItem(int i) {
-        if (this.byM == null || this.byM.size() == 0 || i < 0 || i > this.byM.size() - 1) {
+        int count = getCount();
+        if (i < 0 || i >= count) {
             return null;
         }
-        return this.byM.get(i);
+        return this.bBw.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        return 0L;
+        return i;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         d dVar;
-        TextView textView;
-        TextView textView2;
-        BarImageView barImageView;
-        TextView textView3;
-        if (view == null || !(view.getTag() instanceof d)) {
-            view = com.baidu.adp.lib.g.b.hH().inflate(this.byL.getPageContext().getPageActivity(), com.baidu.tieba.w.search_history_hot_forum_item, null);
-            d dVar2 = new d(null);
-            dVar2.byN = (BarImageView) view.findViewById(com.baidu.tieba.v.search_history_hot_forum_avatar);
-            dVar2.aED = (TextView) view.findViewById(com.baidu.tieba.v.hot_forum_title_tv);
+        if (view == null) {
+            view = com.baidu.adp.lib.g.b.hr().inflate(this.mActivity.getPageContext().getPageActivity(), com.baidu.tieba.r.square_dialog_search_item, null);
+            d dVar2 = new d(this, null);
+            dVar2.bAR = (BarImageView) view.findViewById(com.baidu.tieba.q.forum_avatar);
+            dVar2.bAR.setGifIconSupport(false);
+            dVar2.aGH = (TextView) view.findViewById(com.baidu.tieba.q.name);
+            dVar2.bAS = (TextView) view.findViewById(com.baidu.tieba.q.member_count);
+            dVar2.bAT = (TextView) view.findViewById(com.baidu.tieba.q.thread_count);
             view.setTag(dVar2);
             dVar = dVar2;
         } else {
@@ -67,17 +65,28 @@ public class c extends BaseAdapter {
         }
         e item = getItem(i);
         if (item != null) {
-            barImageView = dVar.byN;
-            barImageView.c(item.WM(), 10, false);
-            if (item.getForumName() != null) {
-                textView3 = dVar.aED;
-                textView3.setText(this.byL.getPageContext().getPageActivity().getString(com.baidu.tieba.y.official_msg_list_name, new Object[]{item.getForumName()}));
+            int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+            String Yf = item.Yf();
+            dVar.bAR.setTag(Yf);
+            dVar.bAR.c(Yf, 10, false);
+            dVar.aGH.setText(item.getForumName());
+            dVar.bAS.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_attention_tv)) + ai(item.Yg()));
+            dVar.bAT.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_thread_tv)) + ai(item.Yh()));
+            if (i == getCount() - 1) {
+                view.findViewById(com.baidu.tieba.q.square_lv_search_forum_divider).setVisibility(8);
+            } else {
+                view.findViewById(com.baidu.tieba.q.square_lv_search_forum_divider).setVisibility(0);
             }
+            this.mActivity.getLayoutMode().ab(skinType == 1);
+            this.mActivity.getLayoutMode().j(view);
         }
-        textView = dVar.aED;
-        ba.b(textView, com.baidu.tieba.s.cp_cont_g, 1);
-        textView2 = dVar.aED;
-        ba.i((View) textView2, com.baidu.tieba.u.hot_forum_textview_bg_shape);
         return view;
+    }
+
+    public String ai(long j) {
+        if (j >= 100000) {
+            return bb.s(j);
+        }
+        return String.valueOf(j);
     }
 }

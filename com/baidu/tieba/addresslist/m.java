@@ -1,40 +1,28 @@
 package com.baidu.tieba.addresslist;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.app.Activity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements TextWatcher {
-    final /* synthetic */ QuickSearchActivity axI;
-
-    private m(QuickSearchActivity quickSearchActivity) {
-        this.axI = quickSearchActivity;
-    }
+public class m implements View.OnTouchListener {
+    final /* synthetic */ QuickSearchActivity azu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(QuickSearchActivity quickSearchActivity, m mVar) {
-        this(quickSearchActivity);
+    public m(QuickSearchActivity quickSearchActivity) {
+        this.azu = quickSearchActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        if (charSequence.toString().trim().length() != 0) {
-            QuickSearchActivity.a(this.axI, charSequence.toString());
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        EditText editText;
+        if (motionEvent.getAction() == 0) {
+            Activity pageActivity = this.azu.getPageContext().getPageActivity();
+            editText = this.azu.azp;
+            com.baidu.adp.lib.util.n.c(pageActivity, editText);
+            return false;
         }
-        QuickSearchActivity.a(this.axI).setVisibility(8);
-        QuickSearchActivity.b(this.axI).setVisibility(8);
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        if (editable.toString().trim().length() == 0) {
-            QuickSearchActivity.c(this.axI).setVisibility(8);
-        } else {
-            QuickSearchActivity.c(this.axI).setVisibility(0);
-        }
+        return false;
     }
 }

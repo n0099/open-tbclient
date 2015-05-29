@@ -7,108 +7,108 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v {
-    float FZ;
-    float Ga;
-    float Gb;
-    float Gc;
-    long Gd;
-    long Ge;
-    boolean Gf;
-    final /* synthetic */ VerticalTranslateLayout JO;
+    float FO;
+    float FP;
+    float FQ;
+    float FR;
+    long FS;
+    long FT;
+    boolean FU;
+    final /* synthetic */ VerticalTranslateLayout JF;
 
-    private void mj() {
+    private void mC() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.FZ = ((((float) (uptimeMillis - this.Gd)) / 1000.0f) * this.Ga) + this.FZ;
-        this.Gd = uptimeMillis;
-        this.Ge += 16;
+        this.FO = ((((float) (uptimeMillis - this.FS)) / 1000.0f) * this.FP) + this.FO;
+        this.FS = uptimeMillis;
+        this.FT += 16;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nF() {
+    public void nW() {
         u uVar;
         y yVar;
-        mj();
-        if (this.FZ <= this.Gb) {
-            yVar = this.JO.JL;
+        mC();
+        if (this.FO <= this.FQ) {
+            yVar = this.JF.JC;
             if (yVar != null) {
-                yVar.nK();
+                yVar.ob();
             }
-            this.Gf = false;
-            this.JO.FJ = 10000;
-            this.JO.mi();
+            this.FU = false;
+            this.JF.Fy = 10000;
+            this.JF.mB();
             return;
         }
-        this.JO.JA = (int) (a.a(this.Gb, this.FZ, false) + this.Gc);
-        this.JO.invalidate();
-        uVar = this.JO.JI;
-        uVar.sendEmptyMessageAtTime(-100, this.Ge);
+        this.JF.Jr = (int) (a.a(this.FQ, this.FO, false) + this.FR);
+        this.JF.invalidate();
+        uVar = this.JF.Jz;
+        uVar.sendEmptyMessageAtTime(-100, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nG() {
+    public void nX() {
         u uVar;
         w wVar;
-        mj();
-        if (this.FZ >= this.Gb) {
-            wVar = this.JO.JM;
+        mC();
+        if (this.FO >= this.FQ) {
+            wVar = this.JF.JD;
             if (wVar != null) {
-                wVar.nJ();
+                wVar.oa();
             }
-            this.Gf = false;
-            this.JO.FJ = 10001;
-            this.JO.mi();
+            this.FU = false;
+            this.JF.Fy = 10001;
+            this.JF.mB();
             return;
         }
-        this.JO.JA = (int) (a.a(this.Gb, this.FZ, false) + this.Gc);
-        this.JO.invalidate();
-        uVar = this.JO.JI;
-        uVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.Ge);
+        this.JF.Jr = (int) (a.a(this.FQ, this.FO, false) + this.FR);
+        this.JF.invalidate();
+        uVar = this.JF.Jz;
+        uVar.sendEmptyMessageAtTime(-101, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nH() {
+    public void nY() {
         u uVar;
         List<x> list;
-        mj();
-        if (this.FZ >= this.Gb) {
-            list = this.JO.FW;
+        mC();
+        if (this.FO >= this.FQ) {
+            list = this.JF.FL;
             for (x xVar : list) {
                 if (xVar != null) {
-                    xVar.mr();
+                    xVar.mK();
                 }
             }
-            this.Gf = false;
-            this.JO.FJ = 10004;
-            this.JO.mi();
+            this.FU = false;
+            this.JF.Fy = 10004;
+            this.JF.mB();
             return;
         }
-        this.JO.JA = (int) (a.a(this.Gb, this.FZ, false) + this.Gc);
-        this.JO.invalidate();
-        uVar = this.JO.JI;
-        uVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.Ge);
+        this.JF.Jr = (int) (a.a(this.FQ, this.FO, false) + this.FR);
+        this.JF.invalidate();
+        uVar = this.JF.Jz;
+        uVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nI() {
+    public void nZ() {
         u uVar;
         List<x> list;
-        mj();
-        if (this.FZ <= this.Gb) {
-            list = this.JO.FW;
+        mC();
+        if (this.FO <= this.FQ) {
+            list = this.JF.FL;
             for (x xVar : list) {
                 if (xVar != null) {
-                    xVar.mr();
+                    xVar.mK();
                 }
             }
-            this.Gf = false;
-            this.JO.FJ = 10004;
-            this.JO.mi();
+            this.FU = false;
+            this.JF.Fy = 10004;
+            this.JF.mB();
             return;
         }
-        this.JO.JA = (int) (a.a(this.Gb, this.FZ, false) + this.Gc);
-        this.JO.invalidate();
-        uVar = this.JO.JI;
-        uVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.Ge);
+        this.JF.Jr = (int) (a.a(this.FQ, this.FO, false) + this.FR);
+        this.JF.invalidate();
+        uVar = this.JF.Jz;
+        uVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -118,28 +118,28 @@ public class v {
         int i2;
         u uVar;
         u uVar2;
-        list = this.JO.FW;
+        list = this.JF.FL;
         for (x xVar : list) {
             if (xVar != null) {
-                xVar.mq();
+                xVar.mJ();
             }
         }
-        this.Gf = true;
+        this.FU = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.Gd = uptimeMillis;
-        this.Ge = uptimeMillis + 16;
-        this.Ga = f;
-        this.FZ = 0.0f;
-        i = this.JO.JA;
-        this.Gb = 0 - i;
-        i2 = this.JO.JA;
-        this.Gc = i2;
-        uVar = this.JO.JI;
+        this.FS = uptimeMillis;
+        this.FT = uptimeMillis + 16;
+        this.FP = f;
+        this.FO = 0.0f;
+        i = this.JF.Jr;
+        this.FQ = 0 - i;
+        i2 = this.JF.Jr;
+        this.FR = i2;
+        uVar = this.JF.Jz;
         uVar.removeMessages(SapiErrorCode.GETTING_CERT);
-        Log.d("Animator", "@animateTopOpen " + this.Gb);
+        Log.d("Animator", "@animateTopOpen " + this.FQ);
         Log.d("Animator", "@animateTopOpen " + f);
-        uVar2 = this.JO.JI;
-        uVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.Ge);
+        uVar2 = this.JF.Jz;
+        uVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,28 +149,28 @@ public class v {
         int i2;
         u uVar;
         u uVar2;
-        list = this.JO.FW;
+        list = this.JF.FL;
         for (x xVar : list) {
             if (xVar != null) {
-                xVar.mq();
+                xVar.mJ();
             }
         }
-        this.Gf = true;
+        this.FU = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.Gd = uptimeMillis;
-        this.Ge = uptimeMillis + 16;
-        this.Ga = f;
-        this.FZ = 0.0f;
-        i = this.JO.JA;
-        this.Gb = 0 - i;
-        i2 = this.JO.JA;
-        this.Gc = i2;
-        Log.d("Animator", "@animateBottomOpen " + this.Gb);
+        this.FS = uptimeMillis;
+        this.FT = uptimeMillis + 16;
+        this.FP = f;
+        this.FO = 0.0f;
+        i = this.JF.Jr;
+        this.FQ = 0 - i;
+        i2 = this.JF.Jr;
+        this.FR = i2;
+        Log.d("Animator", "@animateBottomOpen " + this.FQ);
         Log.d("Animator", "@animateBottomOpen " + f);
-        uVar = this.JO.JI;
+        uVar = this.JF.Jz;
         uVar.removeMessages(SapiErrorCode.GET_CERT_FAIL);
-        uVar2 = this.JO.JI;
-        uVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.Ge);
+        uVar2 = this.JF.Jz;
+        uVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -182,29 +182,29 @@ public class v {
         int i3;
         u uVar;
         u uVar2;
-        yVar = this.JO.JL;
+        yVar = this.JF.JC;
         if (yVar != null) {
-            yVar.mo();
+            yVar.mH();
         }
-        this.Gf = true;
+        this.FU = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.Gd = uptimeMillis;
-        this.Ge = uptimeMillis + 16;
-        this.Ga = f;
-        this.FZ = 0.0f;
-        i = this.JO.FA;
-        f2 = this.JO.Jw;
+        this.FS = uptimeMillis;
+        this.FT = uptimeMillis + 16;
+        this.FP = f;
+        this.FO = 0.0f;
+        i = this.JF.Fp;
+        f2 = this.JF.Jn;
         float f3 = (-i) + f2;
-        i2 = this.JO.JA;
-        this.Gb = f3 - i2;
-        i3 = this.JO.JA;
-        this.Gc = i3;
-        Log.d("Animator", "@animateTop " + this.Gb);
+        i2 = this.JF.Jr;
+        this.FQ = f3 - i2;
+        i3 = this.JF.Jr;
+        this.FR = i3;
+        Log.d("Animator", "@animateTop " + this.FQ);
         Log.d("Animator", "@animateTop " + f);
-        uVar = this.JO.JI;
+        uVar = this.JF.Jz;
         uVar.removeMessages(-100);
-        uVar2 = this.JO.JI;
-        uVar2.sendEmptyMessageAtTime(-100, this.Ge);
+        uVar2 = this.JF.Jz;
+        uVar2.sendEmptyMessageAtTime(-100, this.FT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -216,28 +216,28 @@ public class v {
         int i3;
         u uVar;
         u uVar2;
-        wVar = this.JO.JM;
+        wVar = this.JF.JD;
         if (wVar != null) {
-            wVar.ms();
+            wVar.mL();
         }
-        this.Gf = true;
+        this.FU = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.Gd = uptimeMillis;
-        this.Ge = uptimeMillis + 16;
-        this.Ga = f;
-        this.FZ = 0.0f;
-        i = this.JO.FA;
-        f2 = this.JO.Jy;
+        this.FS = uptimeMillis;
+        this.FT = uptimeMillis + 16;
+        this.FP = f;
+        this.FO = 0.0f;
+        i = this.JF.Fp;
+        f2 = this.JF.Jp;
         float f3 = i - f2;
-        i2 = this.JO.JA;
-        this.Gb = f3 - i2;
-        i3 = this.JO.JA;
-        this.Gc = i3;
-        Log.d("Animator", "@animateBottom " + this.Gb);
+        i2 = this.JF.Jr;
+        this.FQ = f3 - i2;
+        i3 = this.JF.Jr;
+        this.FR = i3;
+        Log.d("Animator", "@animateBottom " + this.FQ);
         Log.d("Animator", "@animateBottom " + f);
-        uVar = this.JO.JI;
-        uVar.removeMessages(SapiErrorCode.SENT_SUCCEED);
-        uVar2 = this.JO.JI;
-        uVar2.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.Ge);
+        uVar = this.JF.Jz;
+        uVar.removeMessages(-101);
+        uVar2 = this.JF.Jz;
+        uVar2.sendEmptyMessageAtTime(-101, this.FT);
     }
 }

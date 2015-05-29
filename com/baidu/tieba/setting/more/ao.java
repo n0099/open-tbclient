@@ -12,8 +12,8 @@ class ao extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MsgRemindStatic.cbz = false;
+        MsgRemindStatic.cgb = false;
         MsgRemindStatic.maskInfo = null;
-        MsgRemindStatic.cby = false;
+        MsgRemindStatic.cga = false;
     }
 }

@@ -56,6 +56,7 @@ public class ResponseLiveRoomIntroMessage extends SocketResponsedMessage {
         liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
         liveCardData.setPublisherName(liveGroupInfo.publisherName);
         liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
+        liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
         liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
         liveCardData.setStatus(liveGroupInfo.status.intValue());
         liveCardData.setStreamId(liveGroupInfo.streamId);

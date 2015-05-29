@@ -7,22 +7,22 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Object, Integer, Void> {
     final /* synthetic */ f this$0;
-    private BdStatBase xD;
+    private BdStatBase wG;
 
     public l(f fVar, BdStatBase bdStatBase) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
         BdUniqueId bdUniqueId;
         BdAsyncTaskParallel bdAsyncTaskParallel2;
         this.this$0 = fVar;
-        this.xD = null;
-        this.xD = bdStatBase;
-        bdAsyncTaskParallel = fVar.xA;
+        this.wG = null;
+        this.wG = bdStatBase;
+        bdAsyncTaskParallel = fVar.wD;
         if (bdAsyncTaskParallel == null) {
-            fVar.xA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+            fVar.wD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
-        bdUniqueId = f.xb;
+        bdUniqueId = f.we;
         setTag(bdUniqueId);
-        bdAsyncTaskParallel2 = fVar.xA;
+        bdAsyncTaskParallel2 = fVar.wD;
         setParallel(bdAsyncTaskParallel2);
     }
 
@@ -30,7 +30,7 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Object... objArr) {
-        this.this$0.c(this.xD);
+        this.this$0.c(this.wG);
         return null;
     }
 
@@ -42,9 +42,9 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
         BdStatSwitchData bdStatSwitchData;
         BdStatSwitchData bdStatSwitchData2;
         super.onPostExecute(r6);
-        bdStatSwitchData = this.this$0.xw;
+        bdStatSwitchData = this.this$0.wz;
         if (!bdStatSwitchData.inSpecStrategy()) {
-            bdStatSwitchData2 = this.this$0.xw;
+            bdStatSwitchData2 = this.this$0.wz;
             if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
                 new i(this.this$0, false).execute(new Object[0]);
             }

@@ -3,46 +3,46 @@ package com.baidu.tieba.imageProblem.logic;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.BdStatSwitchData;
+import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
-    ImageProblemView bvL;
-    ImageProblemAssistant bvM;
-    CheckTask bvN;
+    ImageProblemView byt;
+    ImageProblemAssistant byu;
+    CheckTask byv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bvM = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.bvL = new ImageProblemView(this, this.bvM);
+        this.byu = new ImageProblemAssistant(getPageContext().getPageActivity());
+        this.byt = new ImageProblemView(this, this.byu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bvN != null) {
-            this.bvN.cancel();
-            this.bvN = null;
+        if (this.byv != null) {
+            this.byv.cancel();
+            this.byv = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bvL.getCheckButton()) {
-            if (this.bvN == null) {
-                this.bvL.getCheckButton().setText(getResources().getText(y.stop));
-                this.bvN = new CheckTask(this, null);
-                this.bvN.execute(new Object[0]);
+        if (view == this.byt.getCheckButton()) {
+            if (this.byv == null) {
+                this.byt.getCheckButton().setText(getResources().getText(t.stop));
+                this.byv = new CheckTask(this, null);
+                this.byv.execute(new Object[0]);
                 return;
             }
-            this.bvL.getCheckButton().setText(getResources().getText(y.diagnose));
-            if (this.bvN != null) {
-                this.bvN.cancel();
-                this.bvN = null;
+            this.byt.getCheckButton().setText(getResources().getText(t.diagnose));
+            if (this.byv != null) {
+                this.byv.cancel();
+                this.byv = null;
             }
         }
     }
@@ -50,7 +50,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bvL.onChangeSkinType(i);
+        this.byt.onChangeSkinType(i);
     }
 
     /* loaded from: classes.dex */
@@ -65,28 +65,28 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.bvL.start();
+            ImageProblemActivity.this.byt.start();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
+        /* renamed from: g */
         public BdStatSwitchData doInBackground(Object... objArr) {
             publishProgress(0);
-            ImageProblemActivity.this.bvM.networkCheck();
+            ImageProblemActivity.this.byu.networkCheck();
             publishProgress(1);
-            ImageProblemActivity.this.bvM.checkDNSIP();
+            ImageProblemActivity.this.byu.checkDNSIP();
             publishProgress(2);
-            ImageProblemActivity.this.bvM.checkProxyIP();
+            ImageProblemActivity.this.byu.checkProxyIP();
             publishProgress(3);
-            ImageProblemActivity.this.bvM.networkTest();
+            ImageProblemActivity.this.byu.networkTest();
             publishProgress(4);
-            ImageProblemActivity.this.bvM.checkSetting();
+            ImageProblemActivity.this.byu.checkSetting();
             publishProgress(5);
-            ImageProblemActivity.this.bvM.checkLoadImg();
+            ImageProblemActivity.this.byu.checkLoadImg();
             publishProgress(6);
-            ImageProblemActivity.this.bvM.fix();
+            ImageProblemActivity.this.byu.fix();
             publishProgress(7);
             return null;
         }
@@ -97,18 +97,18 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate(numArr);
-            ImageProblemActivity.this.bvL.setValue(numArr[0].intValue(), ImageProblemActivity.this.bvM.bvQ);
+            ImageProblemActivity.this.byt.setValue(numArr[0].intValue(), ImageProblemActivity.this.byu.byy);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
+        /* renamed from: a */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.bvL.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(y.diagnose));
-            ImageProblemActivity.this.bvL.complete();
-            ImageProblemActivity.this.bvN = null;
+            ImageProblemActivity.this.byt.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(t.diagnose));
+            ImageProblemActivity.this.byt.complete();
+            ImageProblemActivity.this.byv = null;
         }
     }
 }

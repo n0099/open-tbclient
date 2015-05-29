@@ -1,72 +1,39 @@
 package com.baidu.tieba.mainentrance;
 
-import android.graphics.Color;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bd;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class k {
-    private String buB;
-    private String tid = null;
-    private String aaT = null;
-    private String title = null;
-    private boolean byX = false;
-    private long time = 0;
-    private final UserData byW = new UserData();
-    private String content = null;
-    private boolean byY = true;
-
-    public boolean WQ() {
-        return this.byY;
-    }
-
-    public String getPid() {
-        return this.aaT;
-    }
-
-    public String getTid() {
-        return this.tid;
-    }
-
-    public String WR() {
-        return this.buB;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public long getTime() {
-        return this.time;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.tid = jSONObject.optString("tid");
-                this.title = jSONObject.optString("title");
-                this.aaT = jSONObject.optString("pid");
-                this.byX = jSONObject.optInt("is_floor", 0) != 0;
-                this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.byW.parserJson(jSONObject.optJSONObject("author"));
-                this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                this.buB = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.title = bd.a(this.title, (Color) null);
-                String a = bd.a(this.content, (Color) null);
-                if (!a.equals(this.content)) {
-                    this.content = a;
-                    this.byY = false;
+public class k implements CustomMessageTask.CustomRunnable<Object> {
+    public static final List<String> aO(List<com.baidu.adp.lib.cache.v<String>> list) {
+        LinkedList linkedList = new LinkedList();
+        if (list != null) {
+            for (com.baidu.adp.lib.cache.v<String> vVar : list) {
+                String str = vVar.key;
+                if (!TextUtils.isEmpty(str)) {
+                    linkedList.add(str);
                 }
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
+        return linkedList;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+            return null;
+        }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null) {
+            currentAccount = "";
+        }
+        List<String> aO = aO(com.baidu.adp.lib.util.aa.b(com.baidu.tbadk.core.b.a.rI().W("tb.searchperson_history", currentAccount)));
+        ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+        responseSearchPersonHistoryReadMessage.datas.addAll(aO);
+        return responseSearchPersonHistoryReadMessage;
     }
 }

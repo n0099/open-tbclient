@@ -5,46 +5,46 @@ import com.baidu.tbadk.performanceLog.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView asd;
+    final /* synthetic */ TbImageView atG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(TbImageView tbImageView) {
-        this.asd = tbImageView;
+        this.atG = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         n nVar;
         long j;
         n nVar2;
-        this.asd.stopLoading();
+        this.atG.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        nVar = this.asd.arP;
+        nVar = this.atG.att;
         if (nVar != null) {
             if (aVar != null) {
-                this.asd.asa = aVar.getWidth();
-                this.asd.asb = aVar.getHeight();
+                this.atG.atE = aVar.getWidth();
+                this.atG.atF = aVar.getHeight();
             }
-            nVar2 = this.asd.arP;
+            nVar2 = this.atG.att;
             nVar2.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.Gw != null) {
-                this.asd.arY.Gy = aVar.Gw.Gy;
-                this.asd.arY.isSuccess = aVar.Gw.GA;
-                this.asd.arY.Gz = aVar.Gw.Gz;
+            if (aVar.Gm != null) {
+                this.atG.atC.Go = aVar.Gm.Go;
+                this.atG.atC.isSuccess = aVar.Gm.Gq;
+                this.atG.atC.Gp = aVar.Gm.Gp;
             }
         } else {
-            this.asd.arY.Gy = "net";
-            this.asd.arY.isSuccess = false;
-            z zVar = this.asd.arY;
+            this.atG.atC.Go = "net";
+            this.atG.atC.isSuccess = false;
+            z zVar = this.atG.atC;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.asd.arZ;
-            zVar.Gz = currentTimeMillis - j;
+            j = this.atG.atD;
+            zVar.Gp = currentTimeMillis - j;
         }
-        this.asd.tK();
+        this.atG.uq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,14 +55,14 @@ public class m extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    public void onCancelled(String str) {
+    public void am(String str) {
         n nVar;
         n nVar2;
-        super.onCancelled(str);
-        this.asd.stopLoading();
-        nVar = this.asd.arP;
+        super.am(str);
+        this.atG.stopLoading();
+        nVar = this.atG.att;
         if (nVar != null) {
-            nVar2 = this.asd.arP;
+            nVar2 = this.atG.att;
             nVar2.onCancel();
         }
     }

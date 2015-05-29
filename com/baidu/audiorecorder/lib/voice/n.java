@@ -8,6 +8,6 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 class n implements CustomMessageTask.CustomRunnable<Activity> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<com.baidu.tieba.tbadkCore.voice.a> run(CustomMessage<Activity> customMessage) {
-        return new CustomResponsedMessage<>(2001278, g.nR());
+        return new CustomResponsedMessage<>(2001278, g.oi());
     }
 }

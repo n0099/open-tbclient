@@ -34,6 +34,7 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal.sendMessage(netMessage);
     }
 
+    @Override // com.baidu.adp.base.j
     public void registerListener(a aVar) {
         this.orginal.registerListener(aVar);
     }

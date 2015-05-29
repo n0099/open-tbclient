@@ -79,7 +79,7 @@ public class b implements f {
         }
     }
 
-    public JSONObject Yn() {
+    public JSONObject ZN() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -98,7 +98,7 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String Yo() {
+    public String ZO() {
         return this.threadName;
     }
 
@@ -114,7 +114,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void hz(String str) {
+    public void id(String str) {
         this.threadName = str;
     }
 
@@ -122,27 +122,27 @@ public class b implements f {
         this.forumName = str;
     }
 
-    public String Yp() {
+    public String ZP() {
         return this.postID;
     }
 
-    public void hA(String str) {
+    public void ie(String str) {
         this.postID = str;
     }
 
-    public boolean Yq() {
+    public boolean ZQ() {
         return this.isHostOnly;
     }
 
-    public void dy(boolean z) {
+    public void dK(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean Yr() {
+    public boolean ZR() {
         return this.isSquence;
     }
 
-    public void dz(boolean z) {
+    public void dL(boolean z) {
         this.isSquence = z;
     }
 
@@ -152,12 +152,12 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String AE() {
-        return Yn().toString();
+    public String Bq() {
+        return ZN().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean eB(String str) {
+    public boolean eS(String str) {
         if (str != null) {
             try {
                 return j(new JSONObject(str));

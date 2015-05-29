@@ -5,12 +5,12 @@ import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Thread {
-    private boolean aoG = false;
-    final /* synthetic */ f aoH;
+    private boolean apL = false;
+    final /* synthetic */ f apM;
     private InputStream in;
 
     public g(f fVar, InputStream inputStream) {
-        this.aoH = fVar;
+        this.apM = fVar;
         this.in = inputStream;
     }
 
@@ -18,11 +18,11 @@ public class g extends Thread {
     public void run() {
         int read;
         byte[] bArr = new byte[8192];
-        while (!this.aoG && (read = this.in.read(bArr)) != -1) {
+        while (!this.apL && (read = this.in.read(bArr)) != -1) {
             try {
                 String str = new String(bArr, 0, read);
                 if (str != null) {
-                    this.aoH.eE(str);
+                    this.apM.eV(str);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -32,6 +32,6 @@ public class g extends Thread {
     }
 
     public synchronized void finish() {
-        this.aoG = true;
+        this.apL = true;
     }
 }

@@ -1,4 +1,5 @@
 package com.baidu.sapi2.shell.response;
+@Deprecated
 /* loaded from: classes.dex */
 public class GetUserInfoResponse extends SapiResponse {
     public String displayname;

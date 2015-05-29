@@ -1,13 +1,13 @@
 package com.baidu.tieba.enterForum.c;
 /* loaded from: classes.dex */
 public class g {
-    final /* synthetic */ c aDv;
-    public String aDy = "";
-    public boolean aDz = false;
+    final /* synthetic */ c aFx;
+    public String aFA = "";
+    public boolean aFB = false;
     public int type = -1;
-    public com.baidu.tieba.enterForum.b.b aDA = null;
+    public com.baidu.tieba.enterForum.b.b aFC = null;
 
     public g(c cVar) {
-        this.aDv = cVar;
+        this.aFx = cVar;
     }
 }

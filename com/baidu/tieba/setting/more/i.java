@@ -8,12 +8,12 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, String> {
-    private com.baidu.tbadk.core.util.aa Ok = null;
-    final /* synthetic */ AppsActivity cat;
+    private com.baidu.tbadk.core.util.aa OE = null;
+    final /* synthetic */ AppsActivity ceP;
     private String url;
 
     public i(AppsActivity appsActivity, String str) {
-        this.cat = appsActivity;
+        this.ceP = appsActivity;
         this.url = null;
         this.url = str;
     }
@@ -24,37 +24,37 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.cat.caq;
+        progressBar = this.ceP.ceM;
         progressBar.setVisibility(0);
-        linearLayout = this.cat.cap;
+        linearLayout = this.ceP.ceL;
         linearLayout.setVisibility(8);
-        baseWebView = this.cat.mWebView;
+        baseWebView = this.ceP.mWebView;
         baseWebView.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: s */
+    /* renamed from: v */
     public String doInBackground(Object... objArr) {
         if (this.url == null) {
             return null;
         }
-        this.Ok = new com.baidu.tbadk.core.util.aa(this.url);
-        this.Ok.sp().tp().ts().Ws = false;
-        this.Ok.o("client", "android");
-        return this.Ok.rO();
+        this.OE = new com.baidu.tbadk.core.util.aa(this.url);
+        this.OE.sX().tS().tV().Xe = false;
+        this.OE.o("client", "android");
+        return this.OE.sw();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.Ok != null) {
-            this.Ok.hh();
+        if (this.OE != null) {
+            this.OE.gS();
         }
-        progressBar = this.cat.caq;
+        progressBar = this.ceP.ceM;
         progressBar.setVisibility(8);
-        this.cat.cao = null;
+        this.ceP.ceK = null;
         super.cancel(true);
     }
 
@@ -63,31 +63,31 @@ public class i extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         ProgressBar progressBar;
-        boolean agA;
+        boolean ait;
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.cat.caq;
+        progressBar = this.ceP.ceM;
         progressBar.setVisibility(8);
-        if (this.Ok != null && this.Ok.ss() && str != null && str.length() > 0) {
-            com.baidu.adp.lib.g.l.hJ().c(new j(this, str));
-            com.baidu.tbadk.core.sharedPref.b.rB().putLong("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.cat.mWebView;
+        if (this.OE != null && this.OE.ta() && str != null && str.length() > 0) {
+            com.baidu.adp.lib.g.l.ht().c(new j(this, str));
+            com.baidu.tbadk.core.sharedPref.b.sl().putLong("app_inverval", System.currentTimeMillis());
+            baseWebView3 = this.ceP.mWebView;
             baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             return;
         }
-        agA = this.cat.agA();
-        if (!agA && str == null) {
-            baseWebView2 = this.cat.mWebView;
+        ait = this.ceP.ait();
+        if (!ait && str == null) {
+            baseWebView2 = this.ceP.mWebView;
             baseWebView2.setVisibility(8);
-            linearLayout = this.cat.cap;
+            linearLayout = this.ceP.ceL;
             linearLayout.setVisibility(0);
-            this.cat.showToast(this.cat.getPageContext().getString(com.baidu.tieba.y.neterror));
+            this.ceP.showToast(this.ceP.getPageContext().getString(com.baidu.tieba.t.neterror));
             return;
         }
-        String string = this.cat.getPageContext().getString(com.baidu.tieba.y.server_404);
-        baseWebView = this.cat.mWebView;
+        String string = this.ceP.getPageContext().getString(com.baidu.tieba.t.server_404);
+        baseWebView = this.ceP.mWebView;
         baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
     }
 }

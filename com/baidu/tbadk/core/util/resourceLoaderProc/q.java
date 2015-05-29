@@ -17,12 +17,12 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean tz() {
+    public boolean ue() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean tA() {
+    public boolean uf() {
         return true;
     }
 }

@@ -17,9 +17,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData aM(String str, String str2) {
+    public static AccountData aR(String str, String str2) {
         aa aaVar;
-        String rO;
+        String sw;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -29,16 +29,16 @@ public class a {
             aaVar.o("isphone", GameInfoData.NOT_FROM_DETAIL);
             aaVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             aaVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            aaVar.sp().tp().ts().Wr = true;
-            aaVar.sp().tp().mIsNeedAddCommenParam = false;
-            aaVar.sp().tp().mIsUseCurrentBDUSS = false;
-            rO = aaVar.rO();
+            aaVar.sX().tS().tV().Xd = true;
+            aaVar.sX().tS().mIsNeedAddCommenParam = false;
+            aaVar.sX().tS().mIsUseCurrentBDUSS = false;
+            sw = aaVar.sw();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aaVar.sp().tq().pv() && rO != null) {
+        if (aaVar.sX().tT().qa() && sw != null) {
             n nVar = new n();
-            nVar.parserJson(rO);
+            nVar.parserJson(sw);
             String userId = nVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
@@ -54,19 +54,19 @@ public class a {
             accountData.setBDUSS(nVar.getUser().getBDUSS());
             accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (nVar.qe() != null) {
-                accountData.setTbs(nVar.qe().getTbs());
+            if (nVar.qK() != null) {
+                accountData.setTbs(nVar.qK().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (aaVar.ss()) {
-            switch (aaVar.st()) {
+        if (aaVar.ta()) {
+            switch (aaVar.tb()) {
                 case 1:
                 case 2:
                 case 5:
-                    aaVar.hh();
-                    ReloginManager.rw().e(null);
+                    aaVar.gS();
+                    ReloginManager.sg().e(null);
                     break;
             }
             return null;

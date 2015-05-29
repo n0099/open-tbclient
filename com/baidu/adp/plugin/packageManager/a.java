@@ -5,34 +5,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Dq;
-    private d Dr;
-    private ArrayList<c> Ds = new ArrayList<>();
-    private b Dt;
+    private static a Dh;
+    private d Di;
+    private ArrayList<c> Dj = new ArrayList<>();
+    private b Dk;
 
     private a() {
     }
 
-    public static a lm() {
-        if (Dq == null) {
+    public static a lG() {
+        if (Dh == null) {
             synchronized (a.class) {
-                if (Dq == null) {
-                    Dq = new a();
+                if (Dh == null) {
+                    Dh = new a();
                 }
             }
         }
-        return Dq;
+        return Dh;
     }
 
     public void a(ArrayList<c> arrayList, d dVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.Dr = dVar;
+            this.Di = dVar;
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<c> it2 = this.Ds.iterator();
+                    Iterator<c> it2 = this.Dj.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -43,19 +43,19 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Ds.add(next);
+                        this.Dj.add(next);
                     }
                 }
             }
-            ln();
+            lH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ln() {
-        if (this.Ds.size() != 0 && this.Dt == null) {
-            this.Dt = new b(this, this.Ds.get(0));
-            this.Dt.execute(new String[0]);
+    public void lH() {
+        if (this.Dj.size() != 0 && this.Dk == null) {
+            this.Dk = new b(this, this.Dj.get(0));
+            this.Dk.execute(new String[0]);
         }
     }
 

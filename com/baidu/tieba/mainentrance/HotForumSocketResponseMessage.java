@@ -34,9 +34,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                         if (forumInfo != null) {
                             e eVar = new e();
                             eVar.a(forumInfo);
-                            if (!eVar.WN()) {
-                                this.forumInfoList.add(eVar);
-                            }
+                            this.forumInfoList.add(eVar);
                         }
                     }
                 }

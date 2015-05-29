@@ -1,5 +1,5 @@
 package com.baidu.tieba.addresslist.im.searchfriend;
 /* loaded from: classes.dex */
 public interface m {
-    void fh(String str);
+    void fC(String str);
 }
