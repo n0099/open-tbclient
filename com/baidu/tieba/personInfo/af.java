@@ -1,40 +1,31 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements AbsListView.OnScrollListener {
-    final /* synthetic */ ae bUy;
+public class af implements com.baidu.tbadk.core.view.s {
+    final /* synthetic */ ad bXe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ae aeVar) {
-        this.bUy = aeVar;
+    public af(ad adVar) {
+        this.bXe = adVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.bUy.line;
-            if (view3 != null) {
-                view4 = this.bUy.line;
-                view4.setVisibility(0);
-                return;
-            }
-            return;
-        }
-        view = this.bUy.line;
-        if (view != null) {
-            view2 = this.bUy.line;
-            view2.setVisibility(8);
-        }
+    @Override // com.baidu.tbadk.core.view.s
+    public void pC() {
+        MorePopupWindow morePopupWindow;
+        PersonInfoActivity personInfoActivity;
+        morePopupWindow = this.bXe.bXc;
+        personInfoActivity = this.bXe.bVf;
+        com.baidu.adp.lib.g.k.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // com.baidu.tbadk.core.view.s
+    public void pD() {
+        MorePopupWindow morePopupWindow;
+        PersonInfoActivity personInfoActivity;
+        morePopupWindow = this.bXe.bXc;
+        personInfoActivity = this.bXe.bVf;
+        com.baidu.adp.lib.g.k.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
     }
 }

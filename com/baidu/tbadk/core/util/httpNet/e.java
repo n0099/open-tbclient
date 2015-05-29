@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e We = null;
-    public boolean Wd = false;
+    private static e WM = null;
+    public boolean WL = false;
 
     public abstract com.baidu.tbadk.cdnOptimize.a getCDNImageTimeData();
 
@@ -29,17 +29,17 @@ public abstract class e {
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (We == null) {
+        if (WM == null) {
             synchronized (e.class) {
-                if (We == null) {
+                if (WM == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016102, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        We = (e) runTask.getData();
+                        WM = (e) runTask.getData();
                     }
-                    return We;
+                    return WM;
                 }
             }
         }
-        return We;
+        return WM;
     }
 }

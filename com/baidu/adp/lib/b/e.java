@@ -5,67 +5,67 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class e {
-    public static String tx = "_crashtime";
-    public static String ty = "_crashtype";
-    private int tA;
-    private c tB;
-    private int tz;
+    public static String tI = "_crashtime";
+    public static String tJ = "_crashtype";
+    private int tK;
+    private int tL;
+    private c tM;
 
     public e(c cVar) {
-        this.tz = 0;
-        this.tA = 0;
-        this.tB = null;
+        this.tK = 0;
+        this.tL = 0;
+        this.tM = null;
         if (cVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.tB = cVar;
-        if (this.tB.getMaxCrashTimes() > 0 && this.tB.gw() != null) {
-            this.tz = gy();
-            if (this.tz == -1) {
+        this.tM = cVar;
+        if (this.tM.getMaxCrashTimes() > 0 && this.tM.gA() != null) {
+            this.tK = gC();
+            if (this.tK == -1) {
                 reset();
             }
         }
-        this.tA = gx();
-        this.tB.b(this.tA, true);
+        this.tL = gB();
+        this.tM.b(this.tL, true);
     }
 
     public String getName() {
-        return this.tB.getName();
+        return this.tM.getName();
     }
 
     public int getDefaultType() {
-        return this.tB.getDefaultType();
+        return this.tM.getDefaultType();
     }
 
     public int getType() {
-        return this.tA;
+        return this.tL;
     }
 
-    public boolean G(int i) {
-        if (this.tB.getMaxCrashTimes() >= 0 && this.tz >= this.tB.getMaxCrashTimes() + 2) {
-            i = this.tB.getOffType();
+    public boolean H(int i) {
+        if (this.tM.getMaxCrashTimes() >= 0 && this.tK >= this.tM.getMaxCrashTimes() + 2) {
+            i = this.tM.getOffType();
         }
-        if (i == this.tA) {
+        if (i == this.tL) {
             return false;
         }
-        this.tA = i;
-        this.tB.b(this.tA, false);
-        H(i);
+        this.tL = i;
+        this.tM.b(this.tL, false);
+        I(i);
         return true;
     }
 
-    public boolean af(String str) {
-        if (str == null || this.tB.getMaxCrashTimes() <= 0 || this.tB.gw() == null) {
+    public boolean ah(String str) {
+        if (str == null || this.tM.getMaxCrashTimes() <= 0 || this.tM.gA() == null) {
             return false;
         }
-        for (String str2 : this.tB.gw()) {
+        for (String str2 : this.tM.gA()) {
             if (str.indexOf(str2) != -1) {
-                this.tz++;
-                I(this.tz);
-                if (this.tz >= this.tB.getMaxCrashTimes()) {
-                    H(this.tB.getOffType());
-                    this.tA = this.tB.getOffType();
-                    this.tB.b(this.tB.getOffType(), false);
+                this.tK++;
+                J(this.tK);
+                if (this.tK >= this.tM.getMaxCrashTimes()) {
+                    I(this.tM.getOffType());
+                    this.tL = this.tM.getOffType();
+                    this.tM.b(this.tM.getOffType(), false);
                 }
                 return true;
             }
@@ -73,33 +73,31 @@ public class e {
         return false;
     }
 
-    private void H(int i) {
+    private void I(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.tB.getName()) + ty, i);
+        edit.putInt(String.valueOf(this.tM.getName()) + tJ, i);
         edit.commit();
     }
 
-    private int gx() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.tB.getName()) + ty, this.tB.getDefaultType());
+    private int gB() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.tM.getName()) + tJ, this.tM.getDefaultType());
     }
 
-    private int gy() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.tB.getName()) + tx, -1);
+    private int gC() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.tM.getName()) + tI, -1);
     }
 
-    private void I(int i) {
+    private void J(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.tB.getName()) + tx, i);
+        edit.putInt(String.valueOf(this.tM.getName()) + tI, i);
         edit.commit();
     }
 
     public void reset() {
-        this.tz = 0;
-        I(0);
-        H(getDefaultType());
+        this.tK = 0;
     }
 
-    public void J(int i) {
-        this.tz = i;
+    public void K(int i) {
+        this.tK = i;
     }
 }

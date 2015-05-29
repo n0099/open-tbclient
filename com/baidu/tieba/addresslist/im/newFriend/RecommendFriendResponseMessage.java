@@ -46,14 +46,14 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     bVar.setId(jSONObject2.optLong("user_id"));
                     bVar.setName(jSONObject2.optString("user_name"));
-                    bVar.setPortrait(jSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                    bVar.setPortrait(jSONObject2.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT));
                     bVar.setContent(jSONObject2.optString("message"));
                     if (jSONObject2.optInt("type") == 0) {
                         bVar.setStatus(0);
                     } else {
                         bVar.setStatus(1);
                     }
-                    bVar.fH(1);
+                    bVar.fY(1);
                     this.mDatas.add(bVar);
                 }
             }

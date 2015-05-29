@@ -6,62 +6,62 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.b.a.a.i {
-    private SpannableStringBuilder asq;
-    private g asr;
-    private ArrayList<f> ass;
-    private u ast;
-    private d asu;
-    private e asv;
-    private int asw;
+    private SpannableStringBuilder atW;
+    private g atX;
+    private ArrayList<f> atY;
+    private u atZ;
+    private d aua;
+    private e aub;
+    private int auc;
     private int mType;
 
     public c() {
         this.mType = 0;
-        this.asq = null;
-        this.asr = null;
-        this.ass = null;
-        this.ast = null;
-        this.asu = null;
+        this.atW = null;
+        this.atX = null;
+        this.atY = null;
+        this.atZ = null;
+        this.aua = null;
     }
 
     public c(int i) {
         this.mType = 0;
-        this.asq = null;
-        this.asr = null;
-        this.ass = null;
-        this.ast = null;
-        this.asu = null;
+        this.atW = null;
+        this.atX = null;
+        this.atY = null;
+        this.atZ = null;
+        this.aua = null;
         this.mType = i;
-        this.asu = new d(this);
+        this.aua = new d(this);
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public ArrayList<f> DF() {
-        if (this.ass == null) {
-            this.ass = new ArrayList<>();
+    public ArrayList<f> Ep() {
+        if (this.atY == null) {
+            this.atY = new ArrayList<>();
         }
-        return this.ass;
+        return this.atY;
     }
 
-    public void C(int i, int i2) {
-        if (this.ass != null) {
-            Iterator<f> it = this.ass.iterator();
+    public void D(int i, int i2) {
+        if (this.atY != null) {
+            Iterator<f> it = this.atY.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 Rect bounds = next.getBounds();
                 if (bounds != null && i > bounds.bottom - bounds.top) {
-                    next.E(0, i2);
+                    next.F(0, i2);
                 }
             }
         }
     }
 
-    public void D(int i, int i2) {
-        if (this.ass != null) {
-            Iterator<f> it = this.ass.iterator();
+    public void E(int i, int i2) {
+        if (this.atY != null) {
+            Iterator<f> it = this.atY.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -70,87 +70,87 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.asq == null) {
-                this.asq = new SpannableStringBuilder("");
+            if (this.atW == null) {
+                this.atW = new SpannableStringBuilder("");
             }
-            this.asq.append(charSequence);
-            this.asu.asx = this.asq.length();
+            this.atW.append(charSequence);
+            this.aua.aud = this.atW.length();
         }
     }
 
-    public void eP(String str) {
+    public void fk(String str) {
         if (this.mType == 32 && str != null) {
-            this.asq = new SpannableStringBuilder(str);
+            this.atW = new SpannableStringBuilder(str);
         }
     }
 
-    public g DG() {
+    public g Eq() {
         if (this.mType != 8) {
             return null;
         }
-        return this.asr;
+        return this.atX;
     }
 
     public void a(g gVar) {
         if (this.mType == 8) {
-            this.asr = gVar;
+            this.atX = gVar;
         }
     }
 
-    public SpannableStringBuilder DH() {
-        return this.asq;
+    public SpannableStringBuilder Er() {
+        return this.atW;
     }
 
-    public u DI() {
+    public u Es() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.ast;
+            return this.atZ;
         }
         return null;
     }
 
     public void a(u uVar) {
         if (this.mType == 512 || this.mType == 768) {
-            this.ast = uVar;
+            this.atZ = uVar;
         }
     }
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.asq != null) {
-                return this.asq.toString();
+            if (this.atW != null) {
+                return this.atW.toString();
             }
         } else if (this.mType == 8) {
-            if (this.asr != null) {
-                return this.asr.DO();
+            if (this.atX != null) {
+                return this.atX.Ey();
             }
-        } else if (this.mType == 17 && this.asv != null) {
-            return this.asv.akS.aks;
+        } else if (this.mType == 17 && this.aub != null) {
+            return this.aub.alT.alt;
         }
         return "";
     }
 
-    public d DJ() {
+    public d Et() {
         if (this.mType != 1) {
             return null;
         }
-        return this.asu;
+        return this.aua;
     }
 
     public void a(e eVar) {
         if (this.mType == 17) {
-            this.asv = eVar;
+            this.aub = eVar;
         }
     }
 
-    public e DK() {
-        return this.asv;
+    public e Eu() {
+        return this.aub;
     }
 
-    public int DL() {
-        return this.asw;
+    public int Ev() {
+        return this.auc;
     }
 
-    public void eh(int i) {
-        this.asw = i;
+    public void et(int i) {
+        this.auc = i;
     }
 }

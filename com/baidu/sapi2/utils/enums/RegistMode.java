@@ -24,7 +24,7 @@ public enum RegistMode {
     }
 
     public static RegistMode getDefault() {
-        return FAST;
+        return NORMAL;
     }
 
     RegistMode(String str) {

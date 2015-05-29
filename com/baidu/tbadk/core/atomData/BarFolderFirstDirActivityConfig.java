@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class BarFolderFirstDirActivityConfig extends a {
+public class BarFolderFirstDirActivityConfig extends c {
     public static String URL_ST_TYPE = "st_type";
 
     public BarFolderFirstDirActivityConfig(Context context, String str) {

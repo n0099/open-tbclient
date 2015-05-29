@@ -3,11 +3,11 @@ package com.baidu.adp.lib.asyncTask;
 /* loaded from: classes.dex */
 public class c<Data> {
     final Data[] mData;
-    final BdAsyncTask sm;
+    final BdAsyncTask sz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdAsyncTask bdAsyncTask, Data... dataArr) {
-        this.sm = bdAsyncTask;
+        this.sz = bdAsyncTask;
         this.mData = dataArr;
     }
 }

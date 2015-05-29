@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Handler;
@@ -23,20 +24,18 @@ import com.baidu.tbadk.TbConfig;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class n {
-    private static float yN;
-    static int yO;
-    static int yP;
-    private static String yR;
-    static boolean yM = false;
-    private static Toast yQ = null;
-    private static Handler mHandler = new Handler();
+    private static float yB;
+    static int yC;
+    static int yD;
+    private static String yG;
+    static boolean yA = false;
+    private static Toast yE = null;
+    private static q yF = null;
+    private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new o();
 
     public static void L(Context context) {
@@ -45,63 +44,67 @@ public class n {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yO = displayMetrics.heightPixels;
-            yP = displayMetrics.widthPixels;
+            yC = displayMetrics.heightPixels;
+            yD = displayMetrics.widthPixels;
         } else {
-            yO = displayMetrics.widthPixels;
-            yP = displayMetrics.heightPixels;
+            yC = displayMetrics.widthPixels;
+            yD = displayMetrics.heightPixels;
         }
-        yN = displayMetrics.density;
-        yM = true;
+        yB = displayMetrics.density;
+        yA = true;
     }
 
     public static int M(Context context) {
-        if (!yM) {
+        if (!yA) {
             L(context);
         }
-        return yO;
+        return yC;
     }
 
     public static int N(Context context) {
-        if (!yM) {
+        if (!yA) {
             L(context);
         }
-        return yP;
+        return yD;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!yM) {
+        if (!yA) {
             L(context);
         }
-        return (int) ((yN * f) + 0.5f);
+        return (int) ((yB * f) + 0.5f);
     }
 
     public static float O(Context context) {
-        if (!yM) {
+        if (!yA) {
             L(context);
         }
-        return yN;
-    }
-
-    public static void iU() {
-        if (mHandler != null) {
-            mHandler.removeCallbacks(mRunnable);
-        }
-        yQ = null;
+        return yB;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yQ == null) {
-                yQ = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                yQ.setGravity(17, 0, dip2px(context, 100.0f));
-            } else if (!str.equals(yR)) {
-                yQ.setText(str);
+            if (yE == null) {
+                if (yF == null || yF.js() == null) {
+                    yE = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+                } else {
+                    yE = new Toast(BdBaseApplication.getInst().getApp());
+                    yE.setDuration(0);
+                    yF.aY(str);
+                    yE.setView(yF.js());
+                }
+                yE.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(yG)) {
+                if (yF == null || yF.js() == null) {
+                    yE.setText(str);
+                } else {
+                    yF.aY(str);
+                }
             }
-            yR = str;
+            yG = str;
             mHandler.postDelayed(mRunnable, i);
-            yQ.show();
+            yE.show();
         }
     }
 
@@ -239,6 +242,22 @@ public class n {
         }
     }
 
+    public static int a(Paint paint, String str) {
+        float[] fArr;
+        int i = 0;
+        if (str != null && str.length() > 0) {
+            int length = str.length();
+            paint.getTextWidths(str, new float[length]);
+            int i2 = 0;
+            while (i2 < length) {
+                int ceil = ((int) Math.ceil(fArr[i2])) + i;
+                i2++;
+                i = ceil;
+            }
+        }
+        return i;
+    }
+
     public static String a(TextPaint textPaint, String str, int i) {
         CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i, TextUtils.TruncateAt.END);
         if (ellipsize == null) {
@@ -288,7 +307,7 @@ public class n {
         return false;
     }
 
-    public static void iV() {
+    public static void jk() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             boolean z = false;
             if ((Looper.myLooper() == null || Looper.getMainLooper() != Looper.myLooper()) ? true : true) {
@@ -308,12 +327,12 @@ public class n {
         }
     }
 
-    public static boolean iW() {
+    public static boolean jl() {
         return Looper.getMainLooper() == Looper.myLooper();
     }
 
     public static boolean isNetOk() {
-        return k.iH();
+        return k.iX();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -325,7 +344,7 @@ public class n {
         view2.post(new p(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String iX() {
+    public static String jm() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -334,16 +353,16 @@ public class n {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    v.a(bufferedReader);
+                    w.a(bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    v.a(bufferedReader);
+                    w.a(bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                v.a(bufferedReader);
+                w.a(bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -352,13 +371,13 @@ public class n {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            v.a(bufferedReader);
+            w.a(bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static String iY() {
+    public static String jn() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -367,16 +386,16 @@ public class n {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    v.a(bufferedReader);
+                    w.a(bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    v.a(bufferedReader);
+                    w.a(bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                v.a(bufferedReader);
+                w.a(bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -385,22 +404,22 @@ public class n {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            v.a(bufferedReader);
+            w.a(bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static boolean iZ() {
+    public static boolean jo() {
         return Build.VERSION.SDK_INT > 9;
     }
 
-    public static boolean ja() {
-        String aO;
+    public static boolean jp() {
+        String aX;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aO = aO(str)) != null && aO.length() >= 3) {
-            int i = com.baidu.adp.lib.g.c.toInt(aO(aO.substring(0, 1)), 0);
-            int i2 = com.baidu.adp.lib.g.c.toInt(aO(aO.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aX = aX(str)) != null && aX.length() >= 3) {
+            int i = com.baidu.adp.lib.g.c.toInt(aX(aX.substring(0, 1)), 0);
+            int i2 = com.baidu.adp.lib.g.c.toInt(aX(aX.substring(1, 2)), 0);
             if (i > 3) {
                 return true;
             }
@@ -411,38 +430,18 @@ public class n {
         return false;
     }
 
-    public static String aO(String str) {
+    public static String aX(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    private static List<String> b(Map<String, List<String>> map, String str) {
-        if (map == null || str == null) {
-            return null;
-        }
-        return Collections.unmodifiableList(map.get(str));
+    public static q jq() {
+        return yF;
     }
 
-    public static String c(Map<String, List<String>> map, String str) {
-        if (map != null && str != null) {
-            List<String> b = b(map, str);
-            String str2 = "";
-            if (b == null) {
-                return "";
-            }
-            Iterator<String> it = b.iterator();
-            while (true) {
-                String str3 = str2;
-                if (it.hasNext()) {
-                    str2 = String.valueOf(str3) + it.next();
-                } else {
-                    return str3;
-                }
-            }
-        } else {
-            return null;
-        }
+    public static void a(q qVar) {
+        yF = qVar;
     }
 }

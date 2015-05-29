@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.task.MessageTask;
 /* loaded from: classes.dex */
-public abstract class a<M extends Message<?>, T extends MessageTask> implements com.baidu.adp.framework.a<M, T> {
-    protected MessageManager nY;
+public abstract class a<M extends Message<?>, T extends MessageTask> implements com.baidu.adp.framework.b<M, T> {
+    protected MessageManager od;
 
     public a(MessageManager messageManager) {
-        this.nY = null;
-        this.nY = messageManager;
+        this.od = null;
+        this.od = messageManager;
     }
 }

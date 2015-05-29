@@ -1,31 +1,24 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import android.view.View;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity bGl;
+public class k implements View.OnClickListener {
+    final /* synthetic */ h bJc;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.g bJd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(PbChosenActivity pbChosenActivity, int i) {
-        super(i);
-        this.bGl = pbChosenActivity;
+    public k(h hVar, com.baidu.tbadk.coreExtra.share.g gVar) {
+        this.bJc = hVar;
+        this.bJd = gVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof ReadChosenPbCacheResponse) {
-            long longExtra = this.bGl.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-            com.baidu.tieba.pb.chosen.net.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
-            if (chosenData != null && chosenData.getForumInfo() != null && chosenData.getForumInfo().ftid != null && longExtra == chosenData.getForumInfo().ftid.longValue()) {
-                this.bGl.bGe = true;
-                this.bGl.a(chosenData);
-            }
-            this.bGl.ai(longExtra);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbChosenActivity pbChosenActivity;
+        com.baidu.adp.lib.util.a.copyToClipboard(this.bJd.linkUrl);
+        pbChosenActivity = this.bJc.bJb;
+        com.baidu.adp.lib.util.n.showToast(pbChosenActivity.getPageContext().getPageActivity(), view.getResources().getString(t.copy_pb_url_success));
     }
 }

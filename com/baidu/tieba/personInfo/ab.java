@@ -1,21 +1,16 @@
 package com.baidu.tieba.personInfo;
-
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements Runnable {
-    final /* synthetic */ z bUj;
-    private final /* synthetic */ EditText bUk;
+public class ab implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ z bWQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar, EditText editText) {
-        this.bUj = zVar;
-        this.bUk = editText;
+    public ab(z zVar) {
+        this.bWQ = zVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ((InputMethodManager) this.bUk.getContext().getSystemService("input_method")).toggleSoftInput(0, 2);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

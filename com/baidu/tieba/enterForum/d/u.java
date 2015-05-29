@@ -4,21 +4,21 @@ import android.view.View;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class u implements View.OnClickListener {
-    final /* synthetic */ t aEw;
+    final /* synthetic */ t aGz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.aEw = tVar;
+        this.aGz = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
-        viewEventCenter = this.aEw.aCS;
+        viewEventCenter = this.aGz.aET;
         if (viewEventCenter != null) {
-            viewEventCenter2 = this.aEw.aCS;
-            viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, this.aEw.getData(), null, null));
+            viewEventCenter2 = this.aGz.aET;
+            viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, this.aGz.getData(), null, null));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
 public interface u {
-    void bO(String str);
+    void cb(String str);
 
     void onSuccess();
 }

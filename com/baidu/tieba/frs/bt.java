@@ -2,56 +2,27 @@ package com.baidu.tieba.frs;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt implements com.baidu.adp.lib.e.c<bv> {
-    final /* synthetic */ bs aMm;
+public class bt implements View.OnClickListener {
+    final /* synthetic */ bq aOw;
+    private final /* synthetic */ com.baidu.tbadk.core.data.w aOx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bs bsVar) {
-        this.aMm = bsVar;
+    public bt(bq bqVar, com.baidu.tbadk.core.data.w wVar) {
+        this.aOw = bqVar;
+        this.aOx = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: KC */
-    public bv hA() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Context context;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        com.baidu.adp.lib.g.b hH = com.baidu.adp.lib.g.b.hH();
-        context = this.aMm.mContext;
-        View inflate = hH.inflate(context, com.baidu.tieba.w.frs_item_livecard, null);
-        bv bvVar = new bv(this.aMm);
-        bvVar.aIA = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.live_card_layout);
-        bvVar.aIB = (LiveBroadcastCard) inflate.findViewById(com.baidu.tieba.v.item_card);
-        frsActivity = this.aMm.aKd;
-        frsActivity.getLayoutMode().X(this.aMm.mSkinType == 1);
-        frsActivity2 = this.aMm.aKd;
-        frsActivity2.getLayoutMode().h(inflate);
-        bvVar.aiy = this.aMm.mSkinType;
-        return bvVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void k(bv bvVar) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public bv l(bv bvVar) {
-        return bvVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public bv m(bv bvVar) {
-        return bvVar;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aOw.mContext;
+        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, this.aOx.getAuthor().getUserId(), this.aOx.getAuthor().getName_show(), this.aOw.aLl.aar().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

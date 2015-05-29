@@ -1,41 +1,35 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w {
-    String YH;
-    String YI;
-    String mTitle;
+public class w implements View.OnClickListener {
+    final /* synthetic */ NavigationBar Zk;
 
-    private w() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(NavigationBar navigationBar) {
+        this.Zk = navigationBar;
     }
 
-    public static w cq(int i) {
-        return cZ(TbadkCoreApplication.m411getInst().getResources().getString(i));
-    }
-
-    public static w r(int i, int i2) {
-        return ac(TbadkCoreApplication.m411getInst().getResources().getString(i), TbadkCoreApplication.m411getInst().getResources().getString(i2));
-    }
-
-    public static w cZ(String str) {
-        w wVar = new w();
-        wVar.YH = str;
-        return wVar;
-    }
-
-    public static w ac(String str, String str2) {
-        w wVar = new w();
-        wVar.mTitle = str2;
-        wVar.YH = str;
-        return wVar;
-    }
-
-    public static w k(String str, String str2, String str3) {
-        w wVar = new w();
-        wVar.mTitle = str2;
-        wVar.YH = str;
-        wVar.YI = str3;
-        return wVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.Zk.mClickIsVaild;
+        if (z) {
+            int id = view.getId();
+            if (id == com.baidu.tieba.q.navigationBarGoBack) {
+                activity2 = this.Zk.mCurrentActivity;
+                activity2.finish();
+            } else if (id == com.baidu.tieba.q.navigationBarHome) {
+                MessageManager messageManager = MessageManager.getInstance();
+                activity = this.Zk.mCurrentActivity;
+                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2002004, activity));
+            }
+        }
     }
 }

@@ -4,21 +4,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f<SquareSearchActivity> {
-    private SquareSearchActivity byL;
-    private List<e> byM;
-    private h byQ;
+    private SquareSearchActivity bBC;
+    private h bBD;
+    private List<e> bBE;
 
     public f(SquareSearchActivity squareSearchActivity, h hVar) {
         super(squareSearchActivity.getPageContext());
-        this.byL = squareSearchActivity;
-        this.byQ = hVar;
+        this.bBC = squareSearchActivity;
+        this.bBD = hVar;
     }
 
-    public void WO() {
+    public void Yi() {
         sendMessage(new HotForumNetMessage());
     }
 
-    public void WP() {
+    public void Yj() {
         registerListener(new g(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
     }
 

@@ -1,36 +1,29 @@
 package com.baidu.tieba.recommendfrs.a;
 
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bb;
+import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendfrs.data.c> {
-    final /* synthetic */ b bYj;
+class c implements View.OnClickListener {
+    final /* synthetic */ b ccs;
+    private final /* synthetic */ Hot_Thread cct;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.bYj = bVar;
+    public c(b bVar, Hot_Thread hot_Thread) {
+        this.ccs = bVar;
+        this.cct = hot_Thread;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.d
-    public void a(ReadCacheRespMsg<List<com.baidu.tieba.recommendfrs.data.c>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.recommendfrs.data.c> readCacheMessage) {
-        e eVar;
-        e eVar2;
-        if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0 && readCacheRespMsg.getData().get(0) != null) {
-            com.baidu.tieba.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-            eVar = this.bYj.bYi;
-            if (eVar != null) {
-                eVar2 = this.bYj.bYi;
-                eVar2.a(false, cVar, false);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str = this.cct.forum_name;
+        if (bb.aT(str)) {
+            TiebaStatic.eventStat(this.ccs.getActivity(), "kantie_6", null, 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.ccs.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
         }
-        this.bYj.hP(0);
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.d
-    public void a(WriteCacheRespMsg<List<com.baidu.tieba.recommendfrs.data.c>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.recommendfrs.data.c> writeCacheMessage) {
     }
 }

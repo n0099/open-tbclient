@@ -8,71 +8,71 @@ import java.io.OutputStream;
 public class d extends FilterOutputStream {
     private byte[] buffer;
     private int position;
-    private boolean xZ;
-    private int ya;
-    private int yb;
-    private boolean yc;
-    private byte[] yd;
-    private boolean ye;
-    private int yf;
-    private byte[] yg;
+    private boolean xO;
+    private int xP;
+    private int xQ;
+    private boolean xR;
+    private byte[] xS;
+    private boolean xT;
+    private int xU;
+    private byte[] xV;
 
     public d(OutputStream outputStream, int i) {
         super(outputStream);
-        byte[] ad;
-        this.yc = (i & 8) != 0;
-        this.xZ = (i & 1) != 0;
-        this.ya = this.xZ ? 3 : 4;
-        this.buffer = new byte[this.ya];
+        byte[] ab;
+        this.xR = (i & 8) != 0;
+        this.xO = (i & 1) != 0;
+        this.xP = this.xO ? 3 : 4;
+        this.buffer = new byte[this.xP];
         this.position = 0;
-        this.yb = 0;
-        this.ye = false;
-        this.yd = new byte[4];
-        this.yf = i;
-        ad = c.ad(i);
-        this.yg = ad;
+        this.xQ = 0;
+        this.xT = false;
+        this.xS = new byte[4];
+        this.xU = i;
+        ab = c.ab(i);
+        this.xV = ab;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(int i) {
         int a;
         byte[] a2;
-        if (this.ye) {
+        if (this.xT) {
             this.out.write(i);
-        } else if (this.xZ) {
+        } else if (this.xO) {
             byte[] bArr = this.buffer;
             int i2 = this.position;
             this.position = i2 + 1;
             bArr[i2] = (byte) i;
-            if (this.position >= this.ya) {
+            if (this.position >= this.xP) {
                 OutputStream outputStream = this.out;
-                a2 = c.a(this.yd, this.buffer, this.ya, this.yf);
+                a2 = c.a(this.xS, this.buffer, this.xP, this.xU);
                 outputStream.write(a2);
-                this.yb += 4;
-                if (this.yc && this.yb >= 76) {
+                this.xQ += 4;
+                if (this.xR && this.xQ >= 76) {
                     this.out.write(10);
-                    this.yb = 0;
+                    this.xQ = 0;
                 }
                 this.position = 0;
             }
-        } else if (this.yg[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
+        } else if (this.xV[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
             byte[] bArr2 = this.buffer;
             int i3 = this.position;
             this.position = i3 + 1;
             bArr2[i3] = (byte) i;
-            if (this.position >= this.ya) {
-                a = c.a(this.buffer, 0, this.yd, 0, this.yf);
-                this.out.write(this.yd, 0, a);
+            if (this.position >= this.xP) {
+                a = c.a(this.buffer, 0, this.xS, 0, this.xU);
+                this.out.write(this.xS, 0, a);
                 this.position = 0;
             }
-        } else if (this.yg[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
+        } else if (this.xV[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
             throw new IOException("Invalid character in Base64 data.");
         }
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) {
-        if (this.ye) {
+        if (this.xT) {
             this.out.write(bArr, i, i2);
             return;
         }
@@ -81,12 +81,12 @@ public class d extends FilterOutputStream {
         }
     }
 
-    public void is() {
+    public void iJ() {
         byte[] a;
         if (this.position > 0) {
-            if (this.xZ) {
+            if (this.xO) {
                 OutputStream outputStream = this.out;
-                a = c.a(this.yd, this.buffer, this.position, this.yf);
+                a = c.a(this.xS, this.buffer, this.position, this.xU);
                 outputStream.write(a);
                 this.position = 0;
                 return;
@@ -97,7 +97,7 @@ public class d extends FilterOutputStream {
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        is();
+        iJ();
         super.close();
         this.buffer = null;
         this.out = null;

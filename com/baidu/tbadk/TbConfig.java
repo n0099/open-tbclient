@@ -15,6 +15,7 @@ public class TbConfig {
     public static final int ABSTRACT_OPEN = 1;
     public static final String ADD_FAN_ADDRESS = "c/c/user/fansno";
     public static final String ADD_MY_GAME = "c/c/game/addmygamebatch";
+    public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
@@ -31,7 +32,7 @@ public class TbConfig {
     private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
-    public static final int BUILD_NUMBER = 254;
+    public static final int BUILD_NUMBER = 139;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -76,6 +77,7 @@ public class TbConfig {
     public static final int FRS_WATER_FALL_PHOTO_NUM = 30;
     public static final String FUNCTION_INTRO_WEBVIEW = "mo/q/topic_page/110_1";
     public static final String GAME_SEARCH_RESULT = "c/u/game/searchGame";
+    public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_GAME_CATEGORY = "c/u/game/getgamecategory";
     public static final String GET_GAME_GATEGORY_DETAIL = "c/u/game/getgamecategorydetail";
@@ -84,6 +86,8 @@ public class TbConfig {
     public static final String GET_IP_LIST = "c/s/getipinfo";
     public static final String GET_MY_GAMELIST = "c/u/game/getmygamelist";
     public static final String GET_MY_POST = "c/f/frs/getmypost";
+    public static final String GET_NEW_GAME = "c/u/game/getNewGameList";
+    public static final String GET_OPEN_USER_INFO = "c/e/xiuba/getopenid";
     public static final String GET_PACKAGE_DETAIL = "c/e/faces/getfacelist";
     public static final String GET_PACKAGE_DOWNLOAD_URL = "c/e/faces/dpack";
     public static final String GET_PACKAGE_LIST = "c/e/faces/getpacklist";
@@ -99,6 +103,7 @@ public class TbConfig {
     public static final boolean GROUP_MSG_DEFAULT_SWITCH = true;
     public static final int HEAD_IMG_SIZE = 960;
     public static final String HOME_FORUM_FEED_LIST = "c/u/feed/forum";
+    public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
     public static final String IMAGE_CACHE_DIR_NAME = "images";
     public static final String IMAGE_PB_ADDRESS = "c/f/pb/picpage";
     public static final int IMAGE_PV_COUNT = 100;
@@ -114,7 +119,8 @@ public class TbConfig {
     public static final String LOCAL_CAMERA_DIR = "cameras";
     public static final String LOCAL_PIC_DIR = "photos";
     public static final String LOG_ERROR_FILE = "log_error.log";
-    public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync2.js";
+    public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync3.js";
+    public static final String LOG_SYNC_SWITCH_OLD = "http://tb1.bdstatic.com/tb/client/logsync2.js";
     public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
     public static final String MAIN_PACKAGE_NAME = "com.baidu.tieba";
@@ -163,6 +169,7 @@ public class TbConfig {
     public static final int NOTIFY_LIVE_GROUP_END_EVENT = 22;
     public static final int NOTIFY_LIVE_GROUP_EVENT = 20;
     public static final int NOTIFY_LIVE_NOTIFY = 21;
+    public static final int NOTIFY_LIVING_VIP = 27;
     public static final int NOTIFY_OFFICIAL_MESSAGE = 19;
     public static final int NOTIFY_PUSH_ID = 15;
     public static final int NOTIFY_RECOMMEND_MESSAGE_ID = 13;
@@ -187,8 +194,10 @@ public class TbConfig {
     public static final int POST_IMAGE_MIDDLE = 750;
     public static final int POST_IMAGE_QUALITY = 80;
     public static final int POST_IMAGE_SMALL = 600;
+    public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
+    public static final String PRODUCT_NO = "1000002";
     public static final String PROFILE_HEAD_MODIFY = "c/c/img/portrait";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
     public static final boolean PROMOTED_DEFAULT = true;
@@ -255,6 +264,8 @@ public class TbConfig {
     public static final String VOICE_DATA = "c/p/voice";
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
+    public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
+    public static final String WEIXIN_PARTNER_ID = "1219850201";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
@@ -284,23 +295,9 @@ public class TbConfig {
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
     public static final String IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
     public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
+    public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
+    public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
-
-    /* loaded from: classes.dex */
-    public enum AppRunMode {
-        RUN_AS_MAIN_APP,
-        RUN_IN_KUANG_SDK;
-
-        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static AppRunMode[] valuesCustom() {
-            AppRunMode[] valuesCustom = values();
-            int length = valuesCustom.length;
-            AppRunMode[] appRunModeArr = new AppRunMode[length];
-            System.arraycopy(valuesCustom, 0, appRunModeArr, 0, length);
-            return appRunModeArr;
-        }
-    }
 
     /* loaded from: classes.dex */
     public final class PassConfig {
@@ -314,10 +311,6 @@ public class TbConfig {
 
     public static int getPbListItemMaxNum() {
         return PB_LIST_ITEM_MAX_NUM;
-    }
-
-    public static AppRunMode getAppRunMode() {
-        return AppRunMode.RUN_AS_MAIN_APP;
     }
 
     public static void setPbListItemMaxNum(int i) {

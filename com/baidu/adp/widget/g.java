@@ -6,7 +6,7 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Handler {
-    final /* synthetic */ HorizontalTranslateLayout FY;
+    final /* synthetic */ HorizontalTranslateLayout FN;
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
@@ -15,28 +15,28 @@ public class g extends Handler {
         h hVar3;
         h hVar4;
         h hVar5;
-        hVar = this.FY.FS;
-        if (hVar.Gf) {
+        hVar = this.FN.FH;
+        if (hVar.FU) {
             switch (message.what) {
                 case SapiErrorCode.GET_CERT_FAIL /* -105 */:
-                    hVar5 = this.FY.FS;
-                    hVar5.mn();
+                    hVar5 = this.FN.FH;
+                    hVar5.mG();
                     return;
                 case SapiErrorCode.GETTING_CERT /* -104 */:
-                    hVar2 = this.FY.FS;
-                    hVar2.mm();
+                    hVar2 = this.FN.FH;
+                    hVar2.mF();
                     return;
-                case SapiErrorCode.INVALID_ARG /* -103 */:
-                case SapiErrorCode.NOT_INIT /* -102 */:
+                case -103:
+                case -102:
                 default:
                     return;
-                case SapiErrorCode.SENT_SUCCEED /* -101 */:
-                    hVar3 = this.FY.FS;
-                    hVar3.ml();
+                case -101:
+                    hVar3 = this.FN.FH;
+                    hVar3.mE();
                     return;
                 case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
-                    hVar4 = this.FY.FS;
-                    hVar4.mk();
+                    hVar4 = this.FN.FH;
+                    hVar4.mD();
                     return;
             }
         }

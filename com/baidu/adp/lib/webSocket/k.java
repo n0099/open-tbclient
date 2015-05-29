@@ -3,7 +3,7 @@ package com.baidu.adp.lib.webSocket;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface k {
-    void G(String str);
+    void J(String str);
 
     void a(int i, c cVar);
 
@@ -17,7 +17,7 @@ public interface k {
 
     void j(byte[] bArr);
 
-    void jq();
+    void jH();
 
     void l(int i, String str);
 

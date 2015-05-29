@@ -9,14 +9,14 @@ import com.baidu.location.a0;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class u extends y {
-    public static int apn = 0;
-    public static int apo = 1;
-    public static int apq = 2;
+    public static int aqr = 0;
+    public static int aqs = 1;
+    public static int aqt = 2;
     private static CustomMessageTask customNormalTask = new CustomMessageTask(2016103, new v());
-    private ArrayList<String> aoJ;
-    private ArrayList<String> aoK;
-    private ArrayList<String> apl;
-    private boolean apm;
+    private ArrayList<String> apO;
+    private ArrayList<String> apP;
+    private ArrayList<String> aqp;
+    private boolean aqq;
     private CustomMessageListener customNormalListener = new w(this, 2016103);
 
     static {
@@ -25,109 +25,109 @@ public class u extends y {
     }
 
     public u() {
-        Cu();
+        Df();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean CE() {
-        return this.apm;
+    public boolean Dp() {
+        return this.aqq;
     }
 
-    public void bc(boolean z) {
-        this.apm = z;
+    public void bj(boolean z) {
+        this.aqq = z;
     }
 
-    public void Ct() {
-        Cv();
+    public void De() {
+        Dg();
     }
 
-    public void z(int i, int i2) {
+    public void A(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(apn, 6);
-            sparseArray.put(apo, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(apq, Integer.valueOf(i));
+            sparseArray.put(aqr, 6);
+            sparseArray.put(aqs, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(aqt, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage(2905002, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(apn, 6);
-            sparseArray2.put(apo, Integer.valueOf((int) a0.t));
-            sparseArray2.put(apq, Integer.valueOf(i2));
+            sparseArray2.put(aqr, 6);
+            sparseArray2.put(aqs, Integer.valueOf((int) a0.t));
+            sparseArray2.put(aqt, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage(2905002, sparseArray2));
         }
     }
 
-    public void CF() {
-        CH();
-        if (this.aoK != null) {
-            this.aoK.clear();
+    public void Dq() {
+        Ds();
+        if (this.apP != null) {
+            this.apP.clear();
         }
-        if (this.aoJ != null) {
-            this.aoJ.clear();
+        if (this.apO != null) {
+            this.apO.clear();
         }
-        if (this.apl != null) {
-            this.apl.clear();
+        if (this.aqp != null) {
+            this.aqp.clear();
         }
     }
 
-    private void Cu() {
+    private void Df() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Cv() {
+    private void Dg() {
         CustomMessage customMessage = new CustomMessage(2016103, new x(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eF(String str) {
-        if (this.aoJ == null) {
-            this.aoJ = new ArrayList<>();
+    public void eW(String str) {
+        if (this.apO == null) {
+            this.apO = new ArrayList<>();
         }
         if (str != null) {
-            this.aoJ.add(str);
+            this.apO.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eG(String str) {
-        if (this.apl == null) {
-            this.apl = new ArrayList<>();
+    public void eX(String str) {
+        if (this.aqp == null) {
+            this.aqp = new ArrayList<>();
         }
         if (str != null) {
-            this.apl.add(str);
+            this.aqp.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ea(int i) {
+    public void ek(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aoK == null) {
-            this.aoK = new ArrayList<>();
+        if (this.apP == null) {
+            this.apP = new ArrayList<>();
         }
-        this.aoK.add(valueOf);
+        this.apP.add(valueOf);
     }
 
-    public String CG() {
-        return t(this.apl);
+    public String Dr() {
+        return r(this.aqp);
     }
 
-    public String Cy() {
-        return t(this.aoJ);
+    public String Dj() {
+        return r(this.apO);
     }
 
     public String getCpuString() {
-        return t(this.aoK);
+        return r(this.apP);
     }
 
-    private String t(ArrayList<String> arrayList) {
+    private String r(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -146,9 +146,9 @@ public class u extends y {
         return stringBuffer.toString();
     }
 
-    private void CH() {
+    private void Ds() {
         af afVar;
-        if (this.aoJ != null && this.aoJ.size() > 0 && this.aoK != null && this.aoK.size() > 0 && this.apl != null && this.apl.size() > 0 && (afVar = (af) ah.CQ().ed(this.mSubType)) != null) {
+        if (this.apO != null && this.apO.size() > 0 && this.apP != null && this.apP.size() > 0 && this.aqp != null && this.aqp.size() > 0 && (afVar = (af) ah.DB().en(this.mSubType)) != null) {
             afVar.b(this);
         }
     }

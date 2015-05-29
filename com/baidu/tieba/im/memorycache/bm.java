@@ -1,38 +1,34 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm extends CustomMessageListener {
+public class bm implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ String bnh;
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bm(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
+    public bm(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, String str) {
         this.this$0 = imMemoryCacheRegisterStatic;
+        this.bnh = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo D;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (D = c.Sq().D("-1003", -4)) != null) {
-            Object data = customResponsedMessage.getData();
-            if (data == null) {
-                D.setUnread_count(0);
-                D.setIs_hidden(1);
-                this.this$0.k(D);
-            } else if (data instanceof ImMessageCenterPojo) {
-                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                D.setLast_content(imMessageCenterPojo.getLast_content());
-                D.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                D.setUnread_count(0);
-                D.setIs_hidden(0);
-                this.this$0.k(D);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && (customMessage instanceof CustomMessage)) {
+            try {
+                com.baidu.tieba.im.db.g.Rq().Rr();
+                com.baidu.tieba.im.db.k.Rv().y(this.bnh, 1);
+                com.baidu.tieba.im.db.c.Rm().gX(this.bnh);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            } finally {
+                com.baidu.tieba.im.db.g.Rq().endTransaction();
             }
         }
+        return null;
     }
 }

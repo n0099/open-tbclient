@@ -16,14 +16,14 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     /* renamed from: a */
     public void sendMessage(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         if (customMessage != null && customMessageTask != null) {
-            if (customMessageTask.eX() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.fb() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 CustomResponsedMessage<?> customResponsedMessage = null;
                 try {
-                    customResponsedMessage = customMessageTask.eW().run(customMessage);
+                    customResponsedMessage = customMessageTask.fa().run(customMessage);
                     if (customResponsedMessage != null) {
                         customResponsedMessage.setOrginalMessage(customMessage);
                     }
@@ -31,7 +31,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.nY.dispatchResponsedMessage(customResponsedMessage);
+                    this.od.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
                 return;
@@ -43,14 +43,14 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     public <T> CustomResponsedMessage<T> a(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         CustomResponsedMessage<T> customResponsedMessage = null;
         if (customMessageTask != null) {
-            if (customMessageTask.eX() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.fb() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.eW().run(customMessage);
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.fa().run(customMessage);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.nY.dispatchResponsedMessage(customResponsedMessage);
+                    this.od.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
                 new c(this, customMessage, customMessageTask).execute(new String[0]);
@@ -63,7 +63,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         removeMessage(0, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
@@ -76,7 +76,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         return findMessage(0, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.a
+    @Override // com.baidu.adp.framework.b
     public LinkedList<CustomMessage<?>> findMessage(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
@@ -88,7 +88,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof c) {
-                linkedList.add(((c) next).dQ());
+                linkedList.add(((c) next).dT());
             }
         }
         return linkedList;

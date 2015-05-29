@@ -19,13 +19,13 @@ class d extends q {
     }
 
     @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public void G(String str) {
+    public void J(String str) {
         g gVar;
         g gVar2;
         gVar = BdSocketLinkService.connStateCallBack;
         if (gVar != null) {
             gVar2 = BdSocketLinkService.connStateCallBack;
-            gVar2.G(str);
+            gVar2.J(str);
         }
     }
 
@@ -45,8 +45,8 @@ class d extends q {
         Handler handler;
         g gVar;
         g gVar2;
-        m.a("linkservice", 0, 0, "onOpen", 0, "TiebaSocketLinkService:onOpen");
-        m.eB();
+        m.a("linkservice", 0, 0, "onOpen", 0, "LinkService:onOpen");
+        m.eE();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         gVar = BdSocketLinkService.connStateCallBack;
@@ -64,7 +64,7 @@ class d extends q {
         g gVar2;
         boolean z = false;
         m.a("linkservice", 0, 0, "onClose", i, str);
-        m.eB();
+        m.eE();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         gVar = BdSocketLinkService.connStateCallBack;

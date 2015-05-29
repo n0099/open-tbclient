@@ -5,24 +5,24 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, String> {
-    private String bnf;
-    private ChatMessage bng;
-    private ac bnh = new ac();
-    final /* synthetic */ af bni;
+    private String bpK;
+    private ChatMessage bpL;
+    private ac bpM = new ac();
+    final /* synthetic */ af bpN;
 
     public ag(af afVar, String str, ChatMessage chatMessage) {
-        this.bni = afVar;
-        this.bnf = str;
-        this.bng = chatMessage;
+        this.bpN = afVar;
+        this.bpK = str;
+        this.bpL = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: s */
+    /* renamed from: v */
     public String doInBackground(Object... objArr) {
         try {
-            return this.bnh.gS(this.bnf);
+            return this.bpM.hv(this.bpK);
         } catch (Exception e) {
             return null;
         }
@@ -35,10 +35,10 @@ public class ag extends BdAsyncTask<Object, Integer, String> {
         ah ahVar;
         ah ahVar2;
         super.onPostExecute((ag) str);
-        ahVar = this.bni.bne;
+        ahVar = this.bpN.bpJ;
         if (ahVar != null) {
-            ahVar2 = this.bni.bne;
-            ahVar2.a(str, this.bng);
+            ahVar2 = this.bpN.bpJ;
+            ahVar2.a(str, this.bpL);
         }
     }
 }

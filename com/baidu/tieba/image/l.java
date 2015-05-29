@@ -30,28 +30,28 @@ class l implements c {
         MultiImageView multiImageView13;
         MultiImageView multiImageView14;
         if (z2) {
-            multiImageView10 = this.this$0.buQ;
+            multiImageView10 = this.this$0.bxy;
             if (multiImageView10.getCurrentItem() <= 4) {
-                multiImageView11 = this.this$0.buQ;
+                multiImageView11 = this.this$0.bxy;
                 int itemNum = multiImageView11.getItemNum();
-                multiImageView12 = this.this$0.buQ;
+                multiImageView12 = this.this$0.bxy;
                 multiImageView12.setTempSize(itemNum + 100);
-                multiImageView13 = this.this$0.buQ;
+                multiImageView13 = this.this$0.bxy;
                 multiImageView13.setCurrentItem(itemNum + 90, false);
-                multiImageView14 = this.this$0.buQ;
+                multiImageView14 = this.this$0.bxy;
                 multiImageView14.setTempSize(0);
             }
         }
-        multiImageView = this.this$0.buQ;
+        multiImageView = this.this$0.bxy;
         multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.this$0.buQ;
+        multiImageView2 = this.this$0.bxy;
         multiImageView2.setHasNext(z);
-        multiImageView3 = this.this$0.buQ;
+        multiImageView3 = this.this$0.bxy;
         multiImageView3.setNextTitle(str);
         if (i >= 0) {
-            multiImageView8 = this.this$0.buQ;
+            multiImageView8 = this.this$0.bxy;
             if (i < multiImageView8.getItemNum()) {
-                multiImageView9 = this.this$0.buQ;
+                multiImageView9 = this.this$0.bxy;
                 multiImageView9.setCurrentItem(i, false);
             }
         }
@@ -59,33 +59,33 @@ class l implements c {
             this.this$0.mCount = i2;
         }
         if (arrayList.size() >= 400) {
-            multiImageView4 = this.this$0.buQ;
+            multiImageView4 = this.this$0.bxy;
             if (multiImageView4.getCurrentItem() > 200) {
                 for (int i4 = 0; i4 < 200; i4++) {
                     arrayList.remove(0);
                 }
-                multiImageView5 = this.this$0.buQ;
+                multiImageView5 = this.this$0.bxy;
                 multiImageView5.setUrlData(arrayList);
                 ImageViewerActivity imageViewerActivity = this.this$0;
-                i3 = imageViewerActivity.buI;
-                imageViewerActivity.buI = i3 + 200;
-                multiImageView6 = this.this$0.buQ;
-                multiImageView7 = this.this$0.buQ;
+                i3 = imageViewerActivity.bxq;
+                imageViewerActivity.bxq = i3 + 200;
+                multiImageView6 = this.this$0.bxy;
+                multiImageView7 = this.this$0.bxy;
                 multiImageView6.setCurrentItem(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
-        this.this$0.We();
+        this.this$0.Xw();
     }
 
     @Override // com.baidu.tieba.image.c
-    public void x(int i, String str) {
+    public void y(int i, String str) {
         ArrayList arrayList;
         this.this$0.showToast(str);
         if (i == 40) {
             ImageViewerActivity imageViewerActivity = this.this$0;
-            arrayList = this.this$0.buJ;
+            arrayList = this.this$0.bxr;
             imageViewerActivity.mCount = arrayList.size();
-            this.this$0.We();
+            this.this$0.Xw();
         }
     }
 }

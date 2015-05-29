@@ -8,20 +8,20 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.j.e;
 /* loaded from: classes.dex */
 public class d extends e<com.baidu.tbadk.mvc.b.a, com.baidu.tbadk.mvc.e.c> {
-    protected NavigationBar anu;
+    protected NavigationBar aox;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         if (view instanceof NavigationBar) {
-            this.anu = (NavigationBar) view;
+            this.aox = (NavigationBar) view;
         } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
-            this.anu = (NavigationBar) view;
+            this.aox = (NavigationBar) view;
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.anu.onChangeSkinType(tbPageContext, i);
+        this.aox.onChangeSkinType(tbPageContext, i);
         return true;
     }
 }

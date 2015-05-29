@@ -1,21 +1,19 @@
 package com.baidu.tieba.write.write;
-
-import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements Runnable {
-    final /* synthetic */ WriteActivity cyx;
-    private final /* synthetic */ Date cyy;
+public class al implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ WriteActivity cCP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(WriteActivity writeActivity, Date date) {
-        this.cyx = writeActivity;
-        this.cyy = date;
+    public al(WriteActivity writeActivity) {
+        this.cCP = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.view.a aVar;
-        aVar = this.cyx.cyw;
-        aVar.updateTime(this.cyy.getHours(), this.cyy.getMinutes());
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.write.editor.b bVar;
+        bVar = this.cCP.cCw;
+        bVar.setLocationInfoViewState(0);
+        aVar.dismiss();
     }
 }

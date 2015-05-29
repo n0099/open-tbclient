@@ -10,31 +10,31 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ao {
-    private TbPageContext<FrsActivity> LP;
-    private Animation aKw;
+    private TbPageContext<FrsActivity> LH;
+    private Animation aMD;
 
     public ao(TbPageContext<FrsActivity> tbPageContext) {
-        this.LP = tbPageContext;
-        this.aKw = AnimationUtils.loadAnimation(this.LP.getPageActivity(), com.baidu.tieba.p.frs_like);
+        this.LH = tbPageContext;
+        this.aMD = AnimationUtils.loadAnimation(this.LH.getPageActivity(), com.baidu.tieba.k.frs_like);
     }
 
-    public void t(View view) {
-        if (!this.LP.getPageActivity().isFinishing()) {
-            View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.LP.getPageActivity(), com.baidu.tieba.w.frs_like_cover, null);
-            Button button = (Button) inflate.findViewById(com.baidu.tieba.v.btn_love);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.tv_love);
-            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ba.getDrawable(com.baidu.tieba.u.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.ba.getColor(com.baidu.tieba.s.frs_like_shadow));
-            com.baidu.tbadk.core.util.ba.i((View) button, com.baidu.tieba.u.frs_btn_like);
-            com.baidu.tbadk.core.util.ba.b(textView, com.baidu.tieba.s.frs_like_txt, 1);
+    public void w(View view) {
+        if (!this.LH.getPageActivity().isFinishing()) {
+            View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.LH.getPageActivity(), com.baidu.tieba.r.frs_like_cover, null);
+            Button button = (Button) inflate.findViewById(com.baidu.tieba.q.btn_love);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.q.tv_love);
+            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.ay.getColor(com.baidu.tieba.n.frs_like_shadow));
+            com.baidu.tbadk.core.util.ay.i((View) button, com.baidu.tieba.p.frs_btn_like);
+            com.baidu.tbadk.core.util.ay.b(textView, com.baidu.tieba.n.frs_like_txt, 1);
             button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
             gVar.u(false);
-            gVar.P(com.baidu.tieba.v.love).O(0).v(true);
+            gVar.N(com.baidu.tieba.q.love).M(0).v(true);
             gVar.a(new ap(this, inflate));
-            com.baidu.adp.lib.guide.d gV = gVar.gV();
-            gV.i(this.LP.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.LP.getOrignalPage(), inflate, this.aKw, new aq(this, gV));
+            com.baidu.adp.lib.guide.d gG = gVar.gG();
+            gG.i(this.LH.getPageActivity());
+            com.baidu.tieba.tbadkCore.a.a(this.LH.getOrignalPage(), inflate, this.aMD, new aq(this, gG));
         }
     }
 }

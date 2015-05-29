@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
@@ -17,8 +17,7 @@ public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void onLoaded(com.baidu.tbadk.core.voice.a.a aVar, String str, int i) {
+    public void a(com.baidu.tbadk.core.voice.a.a aVar, String str, int i) {
         VoiceData.VoiceModel voiceModel;
         i iVar;
         i iVar2;
@@ -27,7 +26,7 @@ public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
         VoiceData.VoiceModel voiceModel3;
         VoiceData.VoiceModel voiceModel4;
         VoiceData.VoiceModel voiceModel5;
-        super.onLoaded(aVar, str, i);
+        super.a((g) aVar, str, i);
         voiceModel = this.this$0.mCurPlayModel;
         if (voiceModel == null) {
             return;
@@ -39,10 +38,10 @@ public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
             int i2 = aVar.error_code;
             String str4 = aVar.error_msg;
             if (StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-                TiebaStatic.voiceError("", 1, this.this$0.context.getString(y.voice_cache_error_internal), str2);
+                TiebaStatic.voiceError("", 1, this.this$0.context.getString(t.voice_cache_error_internal), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
                     iVar2 = this.this$0.sPlayView;
-                    iVar2.onShowErr(5, com.baidu.adp.lib.voice.l.getString(y.voice_err_load_fail));
+                    iVar2.onShowErr(5, com.baidu.adp.lib.voice.l.getString(t.voice_err_load_fail));
                 } else {
                     iVar3 = this.this$0.sPlayView;
                     iVar3.onShowErr(5, str4);

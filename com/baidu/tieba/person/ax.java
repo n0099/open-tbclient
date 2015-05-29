@@ -1,14 +1,23 @@
 package com.baidu.tieba.person;
+
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ PersonImageActivity bQE;
+public class ax implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PersonImageActivity personImageActivity) {
-        this.bQE = personImageActivity;
+    public ax(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.a
-    public void cj(int i) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.bSN.bSD = true;
+            return false;
+        }
+        return false;
     }
 }

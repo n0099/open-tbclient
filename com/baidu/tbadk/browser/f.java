@@ -15,13 +15,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String P(String str, String str2) {
+    public static String T(String str, String str2) {
         String str3;
         if (!str.startsWith("http://")) {
             str = "http://".concat(str);
@@ -40,6 +41,7 @@ public class f {
 
     public static void b(Context context, boolean z, String str) {
         String appendVersionCode;
+        pu();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -57,7 +59,28 @@ public class f {
         }
     }
 
+    public static void a(Context context, boolean z, String str, String str2) {
+        String appendVersionCode;
+        pu();
+        if (z) {
+            try {
+                appendVersionCode = appendVersionCode(appendCuidParam(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return;
+            }
+        } else {
+            appendVersionCode = str;
+        }
+        if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, str2, appendVersionCode, true, false, true)));
+        } else {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str2, appendVersionCode, true, false, true)));
+        }
+    }
+
     public static void f(Context context, String str, String str2) {
+        pu();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -71,6 +94,7 @@ public class f {
     }
 
     public static void b(Context context, String str, String str2, boolean z) {
+        pu();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -84,6 +108,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        pu();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -114,8 +139,24 @@ public class f {
         }
     }
 
+    public static void d(Context context, String str, boolean z) {
+        if (z) {
+            str = appendVersionCode(appendCuidParam(str));
+        }
+        try {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(Uri.parse(str));
+            if (!(context instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+            context.startActivity(intent);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
     public static String appendCuidParam(String str) {
-        if (!bd.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!bb.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -133,17 +174,17 @@ public class f {
     }
 
     public static String appendVersionCode(String str) {
-        return (bd.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (bb.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void U(Context context) {
-        com.baidu.tbadk.core.a.c bN = com.baidu.tbadk.core.a.a.pD().bN(TbadkCoreApplication.getCurrentBduss());
+        com.baidu.tbadk.core.a.c ca = com.baidu.tbadk.core.a.a.qi().ca(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(context);
         CookieManager cookieManager = CookieManager.getInstance();
-        if (bN != null) {
+        if (ca != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + bN.xh + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + bN.OF + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + ca.wk + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + ca.Pc + "; domain=.baidu.com;");
         } else {
             cookieManager.removeAllCookie();
         }
@@ -155,5 +196,9 @@ public class f {
 
     public static void WebViewNoDataBase(WebSettings webSettings) {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
+    }
+
+    private static void pu() {
+        new aw("open_webview", true).start();
     }
 }

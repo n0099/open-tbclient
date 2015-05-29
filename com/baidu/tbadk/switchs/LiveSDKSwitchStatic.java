@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class LiveSDKSwitchStatic extends a {
     static {
-        f.gz().l(LiveSDKSwitchStatic.class);
+        f.gD().l(LiveSDKSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

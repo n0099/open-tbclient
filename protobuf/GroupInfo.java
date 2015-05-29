@@ -1,6 +1,7 @@
 package protobuf;
 
 import com.baidu.location.a0;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -23,7 +24,7 @@ public final class GroupInfo extends Message {
     public final String album;
     @ProtoField(tag = 14, type = Message.Datatype.INT32)
     public final Integer authorId;
-    @ProtoField(tag = 29, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String authorName;

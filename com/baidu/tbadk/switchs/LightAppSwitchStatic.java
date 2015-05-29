@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class LightAppSwitchStatic extends a {
     static {
-        f.gz().l(LightAppSwitchStatic.class);
+        f.gD().l(LightAppSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

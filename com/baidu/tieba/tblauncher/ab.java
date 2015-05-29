@@ -1,37 +1,49 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ab extends BroadcastReceiver {
+class ab extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
-    private ab(MainTabActivity mainTabActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(MainTabActivity mainTabActivity, ab abVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        int i;
+        boolean z;
+        aj ajVar;
+        aj ajVar2;
+        int i2;
+        this.this$0.cvB = false;
+        i = this.this$0.cvt;
+        if (i <= 0) {
+            i2 = this.this$0.cvw;
+            if (i2 <= 0) {
+                z = false;
+                if (z) {
+                    ajVar = this.this$0.cvr;
+                    ajVar.fo(false);
+                    ajVar2 = this.this$0.cvr;
+                    ajVar2.aqw().fu(false);
+                    return;
+                }
+                return;
+            }
         }
-    }
-
-    private void refreshNewVersion() {
-        if (TbadkCoreApplication.checkNeedShowNewVersion()) {
-            this.this$0.mHasNewVersion = true;
-        } else {
-            this.this$0.mHasNewVersion = false;
+        z = true;
+        if (z) {
         }
-        this.this$0.eS(false);
     }
 }

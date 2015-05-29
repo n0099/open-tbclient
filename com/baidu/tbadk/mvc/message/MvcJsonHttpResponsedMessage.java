@@ -1,7 +1,6 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.cache.t;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,7 +9,7 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.b.f;
 import com.baidu.tbadk.mvc.b.k;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -48,7 +47,7 @@ public class MvcJsonHttpResponsedMessage<D extends k> extends MvcHttpResponsedMe
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(y.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(t.error_unkown_try_again));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
@@ -56,7 +55,7 @@ public class MvcJsonHttpResponsedMessage<D extends k> extends MvcHttpResponsedMe
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(y.error_unkown_try_again));
+                setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(t.error_unkown_try_again));
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -78,24 +77,24 @@ public class MvcJsonHttpResponsedMessage<D extends k> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        t<String> S;
+        com.baidu.adp.lib.cache.t<String> W;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String zX = eVar.zX();
+                String AJ = eVar.AJ();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(zX) && bArr != null) {
-                    if (eVar.AD()) {
-                        t<byte[]> R = a.rc().R(zX, currentAccount);
-                        if (R != null) {
-                            R.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(AJ) && bArr != null) {
+                    if (eVar.Bp()) {
+                        com.baidu.adp.lib.cache.t<byte[]> V = a.rI().V(AJ, currentAccount);
+                        if (V != null) {
+                            V.f(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (S = a.rc().S(zX, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (W = a.rI().W(AJ, currentAccount)) != null) {
                         try {
-                            S.f(cacheKey, new String(bArr, "UTF-8"));
+                            W.f(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

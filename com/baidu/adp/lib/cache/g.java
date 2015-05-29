@@ -3,7 +3,7 @@ package com.baidu.adp.lib.cache;
 public interface g extends f {
     String d(m<?> mVar);
 
-    void gj();
+    void gn();
 
-    void gk();
+    void go();
 }

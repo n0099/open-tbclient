@@ -14,37 +14,37 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class VcodeActivity extends BaseActivity<VcodeActivity> {
-    private WriteData cxz = null;
-    private TextView cwj = null;
-    private ImageView atD = null;
+    private WriteData cBR = null;
+    private TextView cAz = null;
+    private ImageView avb = null;
     private EditText mEdit = null;
     private ProgressBar mProgressBar = null;
-    private ag cxN = null;
-    private af cxO = null;
+    private ah cCf = null;
+    private ag cCg = null;
     private InputMethodManager mInputManager = null;
-    private DialogInterface.OnCancelListener ccP = null;
-    private RelativeLayout aXd = null;
-    private TextView aGo = null;
+    private DialogInterface.OnCancelListener bSI = null;
+    private RelativeLayout aZJ = null;
+    private TextView aIw = null;
     protected NavigationBar mNavigationBar = null;
-    private final View.OnClickListener cxJ = new ab(this);
-    private final View.OnClickListener cxK = new ac(this);
+    private final View.OnClickListener cCb = new ac(this);
+    private final View.OnClickListener cCc = new ad(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.vcode_activity);
+        setContentView(com.baidu.tieba.r.vcode_activity);
         initUI();
         initData(bundle);
-        eV(this.cxz.getVcodeUrl());
+        fq(this.cBR.getVcodeUrl());
     }
 
     private void initData(Bundle bundle) {
-        this.ccP = new ad(this);
+        this.bSI = new ae(this);
         if (bundle != null) {
-            this.cxz = (WriteData) bundle.getSerializable("model");
+            this.cBR = (WriteData) bundle.getSerializable("model");
         } else {
-            this.cxz = (WriteData) getIntent().getSerializableExtra("model");
+            this.cBR = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
     }
@@ -53,12 +53,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.cxz != null && this.cxz.getType() == 3) {
-            if (this.cxN != null) {
-                this.cxN.cancel();
+        if (this.cBR != null && this.cBR.getType() == 3) {
+            if (this.cCf != null) {
+                this.cCf.cancel();
             }
-            if (this.cxO != null) {
-                this.cxO.cancel();
+            if (this.cCg != null) {
+                this.cCg.cancel();
             }
             if (this.mProgressBar != null) {
                 this.mProgressBar.setVisibility(8);
@@ -72,11 +72,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.cxN != null) {
-            this.cxN.cancel();
+        if (this.cCf != null) {
+            this.cCf.cancel();
         }
-        if (this.cxO != null) {
-            this.cxO.cancel();
+        if (this.cCg != null) {
+            this.cCg.cancel();
         }
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
@@ -85,7 +85,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.cxz);
+        bundle.putSerializable("model", this.cBR);
         super.onSaveInstanceState(bundle);
     }
 
@@ -94,39 +94,39 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.ba.e(this.aXd, i);
+        com.baidu.tbadk.core.util.ay.e(this.aZJ, i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        com.baidu.tbadk.core.util.ba.g(this.cwj, i);
+        com.baidu.tbadk.core.util.ay.g(this.cAz, i);
         if (i == 1) {
-            i2 = com.baidu.tbadk.core.util.ba.cd(i);
+            i2 = com.baidu.tbadk.core.util.ay.ch(i);
         } else {
             i2 = -12895429;
         }
-        this.aGo.setTextColor(i2);
+        this.aIw.setTextColor(i2);
     }
 
     private void initUI() {
-        this.aXd = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.aGo = (TextView) findViewById(com.baidu.tieba.v.info);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.cxJ);
-        this.cwj = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.send), this.cxK);
-        this.mEdit = (EditText) findViewById(com.baidu.tieba.v.input);
-        this.atD = (ImageView) findViewById(com.baidu.tieba.v.vcode_image);
-        this.atD.setImageDrawable(null);
-        this.atD.setOnClickListener(new ae(this));
-        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.aZJ = (RelativeLayout) findViewById(com.baidu.tieba.q.parent);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.view_navigation_bar);
+        this.aIw = (TextView) findViewById(com.baidu.tieba.q.info);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.cCb);
+        this.cAz = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.t.send), this.cCc);
+        this.mEdit = (EditText) findViewById(com.baidu.tieba.q.input);
+        this.avb = (ImageView) findViewById(com.baidu.tieba.q.vcode_image);
+        this.avb.setImageDrawable(null);
+        this.avb.setOnClickListener(new af(this));
+        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.q.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eV(String str) {
-        if (this.cxO != null) {
-            this.cxO.cancel();
+    public void fq(String str) {
+        if (this.cCg != null) {
+            this.cCg.cancel();
         }
         this.mProgressBar.setVisibility(0);
-        this.atD.setImageDrawable(null);
-        this.cxO = new af(this, null);
-        this.cxO.setPriority(3);
-        this.cxO.execute(str);
+        this.avb.setImageDrawable(null);
+        this.cCg = new ag(this, null);
+        this.cCg.setPriority(3);
+        this.cCg.execute(str);
     }
 }

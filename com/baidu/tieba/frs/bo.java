@@ -1,42 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.coreExtra.view.BannerView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements com.baidu.tbadk.widget.n {
-    final /* synthetic */ bf aMc;
+public class bo implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ bf aOm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bf bfVar) {
-        this.aMc = bfVar;
+        this.aOm = bfVar;
     }
 
-    @Override // com.baidu.tbadk.widget.n
-    public void onComplete(String str, boolean z) {
-        BannerView bannerView;
-        boolean z2;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BannerView bannerView2;
-        if (z) {
-            bannerView = this.aMc.aBI;
-            if (bannerView.wW()) {
-                z2 = this.aMc.aLR;
-                if (!z2) {
-                    bdTypeListView = this.aMc.aLu;
-                    if (bdTypeListView != null) {
-                        this.aMc.aLR = true;
-                        bdTypeListView2 = this.aMc.aLu;
-                        bannerView2 = this.aMc.aBI;
-                        bdTypeListView2.d(bannerView2, 1);
-                    }
-                }
-            }
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        eVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.aOm.aMk;
+            com.baidu.tbadk.core.util.ax.b(frsActivity2.getPageContext());
+        } else if (i == 1) {
+            frsActivity = this.aOm.aMk;
+            com.baidu.tbadk.core.util.ax.p(frsActivity.getPageContext().getPageActivity());
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.n
-    public void onCancel() {
     }
 }

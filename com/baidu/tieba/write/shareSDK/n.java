@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity cwd;
+    final /* synthetic */ WriteShareActivity cAt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(WriteShareActivity writeShareActivity) {
-        this.cwd = writeShareActivity;
+        this.cAt = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,14 +17,14 @@ class n implements View.OnClickListener {
         q qVar;
         InputMethodManager inputMethodManager2;
         q qVar2;
-        WriteShareActivity writeShareActivity = this.cwd;
-        inputMethodManager = this.cwd.mInputManager;
-        qVar = this.cwd.cvO;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, qVar.aqR());
-        WriteShareActivity writeShareActivity2 = this.cwd;
-        inputMethodManager2 = this.cwd.mInputManager;
-        qVar2 = this.cwd.cvO;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, qVar2.aqS());
-        this.cwd.aqK();
+        WriteShareActivity writeShareActivity = this.cAt;
+        inputMethodManager = this.cAt.mInputManager;
+        qVar = this.cAt.cAe;
+        writeShareActivity.HidenSoftKeyPad(inputMethodManager, qVar.asH());
+        WriteShareActivity writeShareActivity2 = this.cAt;
+        inputMethodManager2 = this.cAt.mInputManager;
+        qVar2 = this.cAt.cAe;
+        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, qVar2.asI());
+        this.cAt.asA();
     }
 }

@@ -1,12 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.widget.ListView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.bs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ao {
-    ListView getListView();
+public class ao implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ UserIconBox aao;
 
-    int tS();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(UserIconBox userIconBox) {
+        this.aao = userIconBox;
+    }
 
-    com.baidu.adp.lib.e.b<TbImageView> tT();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str != null) {
+            bq.a((ViewGroup) this.aao, false, (bs) new ap(this, str));
+        }
+    }
 }

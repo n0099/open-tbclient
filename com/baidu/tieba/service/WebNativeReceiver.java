@@ -56,7 +56,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("class", 22);
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
                 intent2.putExtra(CreateBarActivityConfig.BAR_NAME_STRING, intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING));
-                intent2.putExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                intent2.putExtra(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, intent.getStringExtra(com.baidu.tbadk.core.frameworkData.c.PORTRAIT));
             } else if (stringExtra.equals("recommendpb")) {
                 intent2.putExtra("class", 28);
                 intent2.putExtra(PbChosenActivityConfig.KEY_TID, intent.getStringExtra(PbChosenActivityConfig.KEY_TID));

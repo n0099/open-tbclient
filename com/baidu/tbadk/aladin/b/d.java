@@ -3,16 +3,16 @@ package com.baidu.tbadk.aladin.b;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class d {
-    private com.baidu.tbadk.aladin.a.a Ng;
+    private com.baidu.tbadk.aladin.a.a Nu;
 
     public d(com.baidu.tbadk.aladin.a.a aVar) {
-        this.Ng = aVar;
+        this.Nu = aVar;
     }
 
-    public com.baidu.tbadk.aladin.a.a oM() {
-        if (this.Ng == null || this.Ng.getMethod() == null || this.Ng.oH() == null || this.Ng.getUrl() == null || !this.Ng.getMethod().equalsIgnoreCase("GET") || !this.Ng.oH().toLowerCase(Locale.getDefault()).startsWith("http")) {
+    public com.baidu.tbadk.aladin.a.a pm() {
+        if (this.Nu == null || this.Nu.getMethod() == null || this.Nu.ph() == null || this.Nu.getUrl() == null || !this.Nu.getMethod().equalsIgnoreCase("GET") || !this.Nu.ph().toLowerCase(Locale.getDefault()).startsWith("http")) {
             return null;
         }
-        return this.Ng;
+        return this.Nu;
     }
 }

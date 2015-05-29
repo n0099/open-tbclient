@@ -2,12 +2,13 @@ package com.baidu.tbadk.aladin.a;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import com.baidu.appsearchlib.Info;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String Nc;
+    private String Nq;
     private int errorCode = 0;
     private Intent intent;
     private String response;
@@ -19,7 +20,7 @@ public class b {
         }
     }
 
-    public boolean oI() {
+    public boolean pi() {
         HashMap<String, String> i;
         if (this.url == null || (i = i(this.url.split("&"))) == null) {
             return false;
@@ -30,10 +31,10 @@ public class b {
                 String value = entry.getValue();
                 if (key != null && value != null) {
                     if ("intent".equals(key)) {
-                        bF(value);
-                    } else if (!"t".equals(key) && "callback".equals(key)) {
-                        this.Nc = value;
-                        oJ();
+                        bP(value);
+                    } else if (!Info.kBaiduTimeKey.equals(key) && "callback".equals(key)) {
+                        this.Nq = value;
+                        pj();
                     }
                 }
             }
@@ -41,7 +42,7 @@ public class b {
         return (this.intent == null || this.response == null) ? false : true;
     }
 
-    private void bF(String str) {
+    private void bP(String str) {
         String[] split;
         boolean z;
         boolean z2;
@@ -110,9 +111,9 @@ public class b {
         }
     }
 
-    private void oJ() {
-        if (this.Nc != null) {
-            this.response = String.valueOf(this.Nc) + "({\"error\":" + this.errorCode + "})";
+    private void pj() {
+        if (this.Nq != null) {
+            this.response = String.valueOf(this.Nq) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
@@ -143,13 +144,13 @@ public class b {
 
     public String getResponse() {
         if (this.response == null) {
-            oJ();
+            pj();
         }
         return this.response;
     }
 
     public void setErrorCode(int i) {
         this.errorCode = i;
-        oJ();
+        pj();
     }
 }

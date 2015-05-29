@@ -5,9 +5,9 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001269, new ar());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001269, new as());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(2005016, new as(0));
+        MessageManager.getInstance().registerListener(2005016, new at(0));
     }
 }

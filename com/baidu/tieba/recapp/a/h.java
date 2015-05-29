@@ -1,26 +1,26 @@
 package com.baidu.tieba.recapp.a;
 
 import android.view.View;
-import com.baidu.adp.base.m;
+import com.baidu.adp.base.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
-import com.baidu.tieba.tbadkCore.c.i;
+import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    private static h bXH;
+    private static h cbk;
 
-    public static final h afH() {
-        if (bXH != null) {
-            return bXH;
+    public static final h ahl() {
+        if (cbk != null) {
+            return cbk;
         }
         synchronized (h.class) {
-            if (bXH == null) {
-                bXH = new h();
+            if (cbk == null) {
+                cbk = new h();
             }
         }
-        return bXH;
+        return cbk;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,10 +29,10 @@ public class h implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof BaseAppViewHolder) {
                 i appData = ((BaseAppViewHolder) tag).getAppData();
-                if (!bd.isEmpty(appData.amF().url)) {
-                    com.baidu.tbadk.distribute.a.yk().a(view.getContext(), appData.amL(), "area_click", "pb", appData.cof, appData.threadId);
-                    com.baidu.tbadk.distribute.a.yk().a(appData.amL(), appData.cof, appData.threadId, "PB", "click");
-                    bk.tl().b((TbPageContext) m.D(view.getContext()), new String[]{appData.amF().url});
+                if (!bb.isEmpty(appData.aor().url)) {
+                    com.baidu.tbadk.distribute.a.yX().a(view.getContext(), appData.aox(), "area_click", "pb", appData.csd, appData.threadId);
+                    com.baidu.tbadk.distribute.a.yX().a(appData.aox(), appData.csd, appData.threadId, "PB", "click");
+                    bi.tO().b((TbPageContext) n.D(view.getContext()), new String[]{appData.aor().url});
                 }
             }
         }

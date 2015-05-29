@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class GroupInfoActivityConfig extends a {
+public class GroupInfoActivityConfig extends c {
     public static final String ACTION_FROM = "activity_from";
     public static final String DEFAULT_INVITE_MSG = "default_invite_msg";
     public static final int FROM_FORUM_GROUP_HOT = 5;

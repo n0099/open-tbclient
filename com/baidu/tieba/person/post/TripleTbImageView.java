@@ -9,12 +9,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
-    private static int bSi;
-    public TbImageView Xq;
-    public TbImageView Xr;
-    public TbImageView Xs;
-    public Object[] bSh;
-    private int bSj;
+    private static int bUP;
+    public TbImageView Yd;
+    public TbImageView Ye;
+    public TbImageView Yf;
+    public Object[] bUO;
+    private int bUQ;
     public final int mPadding;
 
     public TripleTbImageView(Context context) {
@@ -23,50 +23,50 @@ public class TripleTbImageView extends ViewGroup {
 
     public TripleTbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Xq = new TbImageView(context);
-        this.Xr = new TbImageView(context);
-        this.Xs = new TbImageView(context);
-        this.Xq.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.Xr.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.Xs.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.Xq);
-        addView(this.Xr);
-        addView(this.Xs);
+        this.Yd = new TbImageView(context);
+        this.Ye = new TbImageView(context);
+        this.Yf = new TbImageView(context);
+        this.Yd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.Ye.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.Yf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.Yd);
+        addView(this.Ye);
+        addView(this.Yf);
         this.mPadding = com.baidu.adp.lib.util.n.dip2px(context, 6.0f);
     }
 
     public void setTags(Object[] objArr) {
-        this.bSh = objArr;
+        this.bUO = objArr;
         if (objArr == null) {
-            this.Xq.setTag(null);
-            this.Xr.setTag(null);
-            this.Xs.setTag(null);
+            this.Yd.setTag(null);
+            this.Ye.setTag(null);
+            this.Yf.setTag(null);
             requestLayout();
             invalidate();
             return;
         }
         int length = objArr.length;
         if (length == 0) {
-            this.Xq.setTag(null);
-            this.Xr.setTag(null);
-            this.Xs.setTag(null);
+            this.Yd.setTag(null);
+            this.Ye.setTag(null);
+            this.Yf.setTag(null);
             requestLayout();
             invalidate();
             return;
         }
-        this.bSj = 200;
+        this.bUQ = 200;
         if (length == 1) {
-            a((PersonPostModel.Media) objArr[0], this.Xq);
-            this.Xr.setTag(null);
-            this.Xs.setTag(null);
+            a((PersonPostModel.Media) objArr[0], this.Yd);
+            this.Ye.setTag(null);
+            this.Yf.setTag(null);
         } else if (length == 2) {
-            a((PersonPostModel.Media) objArr[0], this.Xq);
-            a((PersonPostModel.Media) objArr[1], this.Xr);
-            this.Xs.setTag(null);
+            a((PersonPostModel.Media) objArr[0], this.Yd);
+            a((PersonPostModel.Media) objArr[1], this.Ye);
+            this.Yf.setTag(null);
         } else if (length == 3) {
-            a((PersonPostModel.Media) objArr[0], this.Xq);
-            a((PersonPostModel.Media) objArr[1], this.Xr);
-            a((PersonPostModel.Media) objArr[2], this.Xs);
+            a((PersonPostModel.Media) objArr[0], this.Yd);
+            a((PersonPostModel.Media) objArr[1], this.Ye);
+            a((PersonPostModel.Media) objArr[2], this.Yf);
         }
         requestLayout();
         invalidate();
@@ -75,41 +75,41 @@ public class TripleTbImageView extends ViewGroup {
     private void a(PersonPostModel.Media media, TbImageView tbImageView) {
         if (media != null && tbImageView != null) {
             if (media.type == 3) {
-                tbImageView.setDefaultResource(com.baidu.tieba.u.img_default_100);
+                tbImageView.setDefaultResource(com.baidu.tieba.p.img_default_100);
             } else if (media.type == 5) {
-                tbImageView.setDefaultResource(com.baidu.tieba.u.pic_video);
+                tbImageView.setDefaultResource(com.baidu.tieba.p.pic_video);
             }
             tbImageView.setTag(media.big_pic);
-            tbImageView.a(media.big_pic, 10, this.bSj, this.bSj, false);
+            tbImageView.a(media.big_pic, 10, this.bUQ, this.bUQ, false);
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3 = 1073741823 & i;
-        if (bSi == 0) {
-            bSi = i3;
+        if (bUP == 0) {
+            bUP = i3;
         }
-        if (this.bSh == null || this.bSh.length == 0) {
+        if (this.bUO == null || this.bUO.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
         setMeasuredDimension(i3, (int) ((i3 * 0.33f) + 0.5f));
         int i4 = ((i3 - (this.mPadding * 4)) / 3) + 1073741824;
         int i5 = ((int) ((i4 * 0.33f) + 0.5f)) + 1073741824;
-        measureChild(this.Xq, i4, i5);
-        measureChild(this.Xr, i4, i5);
-        measureChild(this.Xs, i4, i5);
+        measureChild(this.Yd, i4, i5);
+        measureChild(this.Ye, i4, i5);
+        measureChild(this.Yf, i4, i5);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int min = Math.min(i4, getHeight());
-        if (this.bSh != null && this.bSh.length != 0) {
+        if (this.bUO != null && this.bUO.length != 0) {
             int measuredWidth = (getMeasuredWidth() - (this.mPadding * 4)) / 3;
-            this.Xq.layout(this.mPadding, this.mPadding + 0, measuredWidth + this.mPadding, min > this.mPadding ? min - this.mPadding : min);
-            this.Xr.layout(measuredWidth + (this.mPadding * 2), this.mPadding + 0, (this.mPadding * 2) + (measuredWidth * 2), min > this.mPadding ? min - this.mPadding : min);
-            TbImageView tbImageView = this.Xs;
+            this.Yd.layout(this.mPadding, this.mPadding + 0, measuredWidth + this.mPadding, min > this.mPadding ? min - this.mPadding : min);
+            this.Ye.layout(measuredWidth + (this.mPadding * 2), this.mPadding + 0, (this.mPadding * 2) + (measuredWidth * 2), min > this.mPadding ? min - this.mPadding : min);
+            TbImageView tbImageView = this.Yf;
             int i5 = (measuredWidth * 2) + (this.mPadding * 3);
             int i6 = this.mPadding + 0;
             int i7 = (measuredWidth * 3) + (this.mPadding * 3);
@@ -122,20 +122,20 @@ public class TripleTbImageView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.bSh != null && this.bSh.length != 0) {
+        if (this.bUO != null && this.bUO.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.bSh.length) {
+            switch (this.bUO.length) {
                 case 1:
-                    drawChild(canvas, this.Xq, drawingTime);
+                    drawChild(canvas, this.Yd, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.Xq, drawingTime);
-                    drawChild(canvas, this.Xr, drawingTime);
+                    drawChild(canvas, this.Yd, drawingTime);
+                    drawChild(canvas, this.Ye, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.Xq, drawingTime);
-                    drawChild(canvas, this.Xr, drawingTime);
-                    drawChild(canvas, this.Xs, drawingTime);
+                    drawChild(canvas, this.Yd, drawingTime);
+                    drawChild(canvas, this.Ye, drawingTime);
+                    drawChild(canvas, this.Yf, drawingTime);
                     return;
                 default:
                     return;

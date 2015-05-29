@@ -26,6 +26,8 @@ public final class Plugin_setting extends Message {
     public final Integer enable;
     @ProtoField(tag = 6, type = Message.Datatype.UINT32)
     public final Integer forbidden;
+    @ProtoField(tag = 20, type = Message.Datatype.UINT32)
+    public final Integer has_res;
     @ProtoField(tag = 18, type = Message.Datatype.UINT32)
     public final Integer install_fail_count;
     @ProtoField(tag = 9, type = Message.Datatype.UINT32)
@@ -61,6 +63,7 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_IS_INJECT_CLASSLOADER = 0;
     public static final Integer DEFAULT_INSTALL_FAIL_COUNT = 0;
     public static final Integer DEFAULT_PRIORITY = 1000;
+    public static final Integer DEFAULT_HAS_RES = 0;
 
     /* synthetic */ Plugin_setting(Builder builder, boolean z, Plugin_setting plugin_setting) {
         this(builder, z);
@@ -161,9 +164,14 @@ public final class Plugin_setting extends Message {
             }
             if (builder.priority == null) {
                 this.priority = DEFAULT_PRIORITY;
-                return;
             } else {
                 this.priority = builder.priority;
+            }
+            if (builder.has_res == null) {
+                this.has_res = DEFAULT_HAS_RES;
+                return;
+            } else {
+                this.has_res = builder.has_res;
                 return;
             }
         }
@@ -186,6 +194,7 @@ public final class Plugin_setting extends Message {
         this.abandon_apk_path = builder.abandon_apk_path;
         this.install_fail_count = builder.install_fail_count;
         this.priority = builder.priority;
+        this.has_res = builder.has_res;
     }
 
     /* loaded from: classes.dex */
@@ -196,6 +205,7 @@ public final class Plugin_setting extends Message {
         public String display_name;
         public Integer enable;
         public Integer forbidden;
+        public Integer has_res;
         public Integer install_fail_count;
         public Integer install_status;
         public Integer is_inject_classloader;
@@ -232,6 +242,7 @@ public final class Plugin_setting extends Message {
                 this.abandon_apk_path = plugin_setting.abandon_apk_path;
                 this.install_fail_count = plugin_setting.install_fail_count;
                 this.priority = plugin_setting.priority;
+                this.has_res = plugin_setting.has_res;
             }
         }
 

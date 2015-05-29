@@ -1,32 +1,17 @@
 package com.baidu.tbadk.core.view;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ HaloView XT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(HaloView haloView) {
-        this.XT = haloView;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean z;
-        boolean z2;
-        int i;
-        z = this.XT.XS;
-        if (!z) {
-            z2 = this.XT.XQ;
-            if (!z2) {
-                HaloView haloView = this.XT;
-                HaloView haloView2 = this.XT;
-                i = haloView2.XR;
-                int i2 = i + 1;
-                haloView2.XR = i2;
-                haloView.XR = i2 % 4;
+public class l extends ImageView {
+    public void up() {
+        if (getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+            setBackgroundDrawable(null);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
             }
-            this.XT.postDelayed(this, 800L);
-            this.XT.invalidate();
         }
     }
 }

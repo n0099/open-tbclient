@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class ab implements com.baidu.tieba.tbadkCore.aa {
-    final /* synthetic */ FrsActivity aJQ;
+    final /* synthetic */ FrsActivity aLX;
     private long startTime = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(FrsActivity frsActivity) {
-        this.aJQ = frsActivity;
+        this.aLX = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa
-    public void eG(int i) {
+    public void eU(int i) {
         bf bfVar;
         bf bfVar2;
         bf bfVar3;
@@ -26,33 +26,33 @@ class ab implements com.baidu.tieba.tbadkCore.aa {
         this.startTime = System.nanoTime();
         switch (i) {
             case 1:
-                bfVar3 = this.aJQ.aJa;
-                bfVar3.bQ(true);
-                bfVar4 = this.aJQ.aJa;
-                bfVar4.Ki();
+                bfVar3 = this.aLX.aLi;
+                bfVar3.bZ(true);
+                bfVar4 = this.aLX.aLi;
+                bfVar4.Ln();
                 return;
             case 2:
-                bfVar = this.aJQ.aJa;
-                bfVar.bR(true);
-                bfVar2 = this.aJQ.aJa;
-                bfVar2.Ki();
+                bfVar = this.aLX.aLi;
+                bfVar.ca(true);
+                bfVar2 = this.aLX.aLi;
+                bfVar2.Ln();
                 return;
             case 3:
-                bfVar5 = this.aJQ.aJa;
-                bfVar5.bP(true);
+                bfVar5 = this.aLX.aLi;
+                bfVar5.bY(true);
                 return;
             default:
                 return;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x00aa, code lost:
-        if (r1.akE().size() == 0) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x00b2, code lost:
+        if (r1.amt().size() == 0) goto L17;
      */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x0627  */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x066f  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00dc  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x062f  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0677  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00e4  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x014b  */
     @Override // com.baidu.tieba.tbadkCore.aa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -140,277 +140,276 @@ class ab implements com.baidu.tieba.tbadkCore.aa {
         com.baidu.tieba.frs.loadmore.a aVar7;
         bf bfVar22;
         if (hVar != null && hVar.isSuccess) {
-            bfVar22 = this.aJQ.aJa;
-            bfVar22.Kr().bG(com.baidu.tbadk.core.util.be.sY().ta());
-            FrsActivity.aJj = 0L;
-            FrsActivity.aJk = 0L;
-            FrsActivity.aJl = 0;
+            bfVar22 = this.aLX.aLi;
+            bfVar22.Lw().bP(com.baidu.tbadk.core.util.bc.tB().tD());
+            FrsActivity.aLr = 0L;
+            FrsActivity.aLs = 0L;
+            FrsActivity.aLt = 0;
         } else {
-            FrsActivity.aJl = 1;
+            FrsActivity.aLt = 1;
         }
+        this.aLX.aKW = false;
         if (i == 3) {
-            aVar7 = this.aJQ.aJv;
+            aVar7 = this.aLX.aLC;
             aVar7.resetData();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        bfVar = this.aJQ.aJa;
-        bfVar.bP(false);
-        if (this.aJQ.oi().KS() != null) {
-            this.aJQ.aJd = this.aJQ.oi().KS();
+        bfVar = this.aLX.aLi;
+        bfVar.bY(false);
+        if (this.aLX.oy().LX() != null) {
+            this.aLX.aLl = this.aLX.oy().LX();
         }
-        FrsActivity frsActivity = this.aJQ;
-        wVar = this.aJQ.aJd;
-        frsActivity.aJw = wVar.XQ().ql();
-        i2 = this.aJQ.aJw;
+        FrsActivity frsActivity = this.aLX;
+        wVar = this.aLX.aLl;
+        frsActivity.aLD = wVar.Zp().qR();
+        i2 = this.aLX.aLD;
         if (i2 == 0) {
-            wVar37 = this.aJQ.aJd;
-            if (wVar37.akE() != null) {
-                wVar40 = this.aJQ.aJd;
+            wVar37 = this.aLX.aLl;
+            if (wVar37.amt() != null) {
+                wVar40 = this.aLX.aLl;
             }
-            wVar38 = this.aJQ.aJd;
+            wVar38 = this.aLX.aLl;
             if (wVar38.getThreadList() != null) {
-                wVar39 = this.aJQ.aJd;
+                wVar39 = this.aLX.aLl;
                 if (wVar39.getThreadList().size() != 0) {
-                    bfVar21 = this.aJQ.aJa;
-                    bfVar21.Kx();
+                    bfVar21 = this.aLX.aLi;
+                    bfVar21.LC();
                     if (i != 4) {
                         switch (i) {
                             case 1:
-                                bfVar5 = this.aJQ.aJa;
-                                bfVar5.bQ(false);
-                                bfVar6 = this.aJQ.aJa;
-                                bfVar6.Ki();
+                                bfVar5 = this.aLX.aLi;
+                                bfVar5.bZ(false);
+                                bfVar6 = this.aLX.aLi;
+                                bfVar6.Ln();
                                 break;
                             case 2:
-                                bfVar3 = this.aJQ.aJa;
-                                bfVar3.bR(false);
-                                bfVar4 = this.aJQ.aJa;
-                                bfVar4.Ki();
+                                bfVar3 = this.aLX.aLi;
+                                bfVar3.ca(false);
+                                bfVar4 = this.aLX.aLi;
+                                bfVar4.Ln();
                                 break;
                         }
-                        FrsActivity frsActivity2 = this.aJQ;
-                        bfVar7 = this.aJQ.aJa;
+                        FrsActivity frsActivity2 = this.aLX;
+                        bfVar7 = this.aLX.aLi;
                         frsActivity2.hideLoadingView(bfVar7.getRootView());
-                        bfVar8 = this.aJQ.aJa;
-                        bfVar8.Kp();
+                        bfVar8 = this.aLX.aLi;
+                        bfVar8.Lu();
                         if (z || (hVar != null && hVar.errorCode != 0)) {
-                            z2 = this.aJQ.aIQ;
+                            z2 = this.aLX.aKY;
                             if (!z2) {
                                 if (hVar != null) {
-                                    if (hVar.ckH) {
+                                    if (hVar.coH) {
                                         if (340001 == hVar.errorCode) {
-                                            FrsActivity frsActivity3 = this.aJQ;
-                                            bfVar14 = this.aJQ.aJa;
-                                            frsActivity3.showNetRefreshViewNoClick(bfVar14.Ks(), this.aJQ.getPageContext().getResources().getString(com.baidu.tieba.y.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), false);
+                                            FrsActivity frsActivity3 = this.aLX;
+                                            bfVar14 = this.aLX.aLi;
+                                            frsActivity3.showNetRefreshViewNoClick(bfVar14.getRootView(), this.aLX.getPageContext().getResources().getString(com.baidu.tieba.t.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), true);
                                         } else {
-                                            FrsActivity frsActivity4 = this.aJQ;
-                                            bfVar13 = this.aJQ.aJa;
-                                            frsActivity4.showNetRefreshView(bfVar13.Ks(), this.aJQ.getPageContext().getResources().getString(com.baidu.tieba.y.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), false);
+                                            FrsActivity frsActivity4 = this.aLX;
+                                            bfVar13 = this.aLX.aLi;
+                                            frsActivity4.showNetRefreshView(bfVar13.getRootView(), this.aLX.getPageContext().getResources().getString(com.baidu.tieba.t.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), true);
                                         }
                                     } else if (340001 == hVar.errorCode) {
-                                        FrsActivity frsActivity5 = this.aJQ;
-                                        bfVar11 = this.aJQ.aJa;
-                                        frsActivity5.showNetRefreshViewNoClick(bfVar11.Ks(), hVar.errorMsg, false);
+                                        FrsActivity frsActivity5 = this.aLX;
+                                        bfVar11 = this.aLX.aLi;
+                                        frsActivity5.showNetRefreshViewNoClick(bfVar11.getRootView(), hVar.errorMsg, true);
                                     } else {
-                                        FrsActivity frsActivity6 = this.aJQ;
-                                        bfVar10 = this.aJQ.aJa;
-                                        frsActivity6.showNetRefreshView(bfVar10.Ks(), hVar.errorMsg, false);
+                                        FrsActivity frsActivity6 = this.aLX;
+                                        bfVar10 = this.aLX.aLi;
+                                        frsActivity6.showNetRefreshView(bfVar10.getRootView(), hVar.errorMsg, true);
                                     }
-                                    bfVar12 = this.aJQ.aJa;
-                                    bfVar12.eP(8);
+                                    bfVar12 = this.aLX.aLi;
+                                    bfVar12.fd(8);
                                 }
-                            } else if (hVar != null && hVar.ckH) {
-                                bfVar9 = this.aJQ.aJa;
-                                bfVar9.eP(0);
-                                this.aJQ.showToast(this.aJQ.getPageContext().getResources().getString(com.baidu.tieba.y.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)));
+                            } else if (hVar != null && hVar.coH) {
+                                bfVar9 = this.aLX.aLi;
+                                bfVar9.fd(0);
+                                this.aLX.showToast(this.aLX.getPageContext().getResources().getString(com.baidu.tieba.t.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)));
                             }
                         } else {
-                            this.aJQ.aIQ = true;
-                            this.aJQ.aIZ = true;
-                            bfVar15 = this.aJQ.aJa;
-                            bfVar15.eP(0);
-                            wVar6 = this.aJQ.aJd;
+                            this.aLX.aKY = true;
+                            this.aLX.aLh = true;
+                            bfVar15 = this.aLX.aLi;
+                            bfVar15.fd(0);
+                            wVar6 = this.aLX.aLl;
                             if (wVar6 != null) {
-                                FrsActivity frsActivity7 = this.aJQ;
-                                wVar28 = this.aJQ.aJd;
-                                frsActivity7.aIS = wVar28.Za().getName();
-                                FrsActivity frsActivity8 = this.aJQ;
-                                wVar29 = this.aJQ.aJd;
-                                frsActivity8.forumId = wVar29.Za().getId();
-                                wVar30 = this.aJQ.aJd;
-                                if (wVar30.Za().getFrsBannerData().getType() == 2) {
-                                    aVar5 = this.aJQ.aJt;
-                                    wVar33 = this.aJQ.aJd;
-                                    aVar5.eS(wVar33.getUserData().getIsMem());
-                                    this.aJQ.aJc = true;
+                                FrsActivity frsActivity7 = this.aLX;
+                                wVar28 = this.aLX.aLl;
+                                frsActivity7.aLb = wVar28.aar().getName();
+                                FrsActivity frsActivity8 = this.aLX;
+                                wVar29 = this.aLX.aLl;
+                                frsActivity8.forumId = wVar29.aar().getId();
+                                wVar30 = this.aLX.aLl;
+                                if (wVar30.aar().getFrsBannerData().getType() == 2) {
+                                    aVar5 = this.aLX.aLA;
+                                    wVar33 = this.aLX.aLl;
+                                    aVar5.fg(wVar33.getUserData().getIsMem());
+                                    this.aLX.aLk = true;
                                 }
-                                bfVar18 = this.aJQ.aJa;
-                                wVar31 = this.aJQ.aJd;
-                                ForumData Za = wVar31.Za();
-                                wVar32 = this.aJQ.aJd;
-                                bfVar18.a(Za, wVar32.getUserData());
+                                bfVar18 = this.aLX.aLi;
+                                wVar31 = this.aLX.aLl;
+                                ForumData aar = wVar31.aar();
+                                wVar32 = this.aLX.aLl;
+                                bfVar18.a(aar, wVar32.getUserData());
                             }
-                            z3 = this.aJQ.aJp;
+                            z3 = this.aLX.aLx;
                             if (z3) {
-                                wVar22 = this.aJQ.aJd;
+                                wVar22 = this.aLX.aLl;
                                 if (wVar22 != null) {
-                                    wVar23 = this.aJQ.aJd;
-                                    wVar23.akY();
+                                    wVar23 = this.aLX.aLl;
+                                    wVar23.amJ();
                                     if (TbadkCoreApplication.m411getInst().isRecAppExist()) {
-                                        wVar27 = this.aJQ.aJd;
-                                        wVar27.aB(this.aJQ.getPageContext().getPageActivity());
+                                        wVar27 = this.aLX.aLl;
+                                        wVar27.aG(this.aLX.getPageContext().getPageActivity());
                                     }
-                                    wVar24 = this.aJQ.aJd;
-                                    wVar24.ala();
-                                    if (!this.aJQ.oi().KR()) {
-                                        wVar26 = this.aJQ.aJd;
-                                        wVar26.akZ();
+                                    wVar24 = this.aLX.aLl;
+                                    wVar24.amL();
+                                    if (!this.aLX.oy().LW()) {
+                                        wVar26 = this.aLX.aLl;
+                                        wVar26.amK();
                                     }
-                                    bfVar17 = this.aJQ.aJa;
-                                    wVar25 = this.aJQ.aJd;
+                                    bfVar17 = this.aLX.aLi;
+                                    wVar25 = this.aLX.aLl;
                                     bfVar17.b(wVar25);
                                 }
                             }
-                            wVar7 = this.aJQ.aJd;
-                            com.baidu.tbadk.core.data.y top_notice_data = wVar7.Za().getTop_notice_data();
+                            wVar7 = this.aLX.aLl;
+                            com.baidu.tbadk.core.data.y top_notice_data = wVar7.aar().getTop_notice_data();
                             if (top_notice_data != null && top_notice_data.getTitle() != null) {
                                 com.baidu.tbadk.core.data.w wVar41 = new com.baidu.tbadk.core.data.w();
                                 wVar41.setTitle(top_notice_data.getTitle());
-                                wVar41.bt(2);
-                                wVar41.bU(top_notice_data.qY());
+                                wVar41.bq(2);
+                                wVar41.ch(top_notice_data.rE());
                                 wVar41.parser_title();
-                                wVar21 = this.aJQ.aJd;
+                                wVar21 = this.aLX.aLl;
                                 wVar21.e(wVar41);
                             }
-                            aVar = this.aJQ.aJt;
-                            String KQ = this.aJQ.oi().KQ();
-                            wVar8 = this.aJQ.aJd;
-                            aVar.a(KQ, wVar8);
-                            FrsActivity.aJj = (System.nanoTime() - this.startTime) / 1000000;
+                            aVar = this.aLX.aLA;
+                            String LV = this.aLX.oy().LV();
+                            wVar8 = this.aLX.aLl;
+                            aVar.a(LV, wVar8);
+                            FrsActivity.aLr = (System.nanoTime() - this.startTime) / 1000000;
                             if (hVar != null) {
-                                FrsActivity.aJk = hVar.ckI;
+                                FrsActivity.aLs = hVar.coI;
                             }
-                            wVar9 = this.aJQ.aJd;
+                            wVar9 = this.aLX.aLl;
                             if (wVar9 != null) {
-                                wVar19 = this.aJQ.aJd;
+                                wVar19 = this.aLX.aLl;
                                 if (wVar19.getThreadList() != null) {
-                                    wVar20 = this.aJQ.aJd;
-                                    if (wVar20.getThreadList().size() == 0 && this.aJQ.oi().getType() == 4) {
-                                        this.aJQ.showToast(this.aJQ.getPageContext().getString(com.baidu.tieba.y.no_more_to_load));
-                                        i3 = this.aJQ.aIU;
+                                    wVar20 = this.aLX.aLl;
+                                    if (wVar20.getThreadList().size() == 0 && this.aLX.oy().getType() == 4) {
+                                        this.aLX.showToast(this.aLX.getPageContext().getString(com.baidu.tieba.t.no_more_to_load));
+                                        i3 = this.aLX.aLd;
                                         if (i3 > 1) {
-                                            FrsActivity frsActivity9 = this.aJQ;
-                                            i4 = frsActivity9.aIU;
-                                            frsActivity9.aIU = i4 - 1;
+                                            FrsActivity frsActivity9 = this.aLX;
+                                            i4 = frsActivity9.aLd;
+                                            frsActivity9.aLd = i4 - 1;
                                         }
-                                        if (this.aJQ.aCO > -1) {
+                                        if (this.aLX.aEP > -1) {
                                             long currentTimeMillis2 = System.currentTimeMillis();
-                                            TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aJQ.aCO, this.aJQ.oi().Ha() - this.aJQ.aCO, this.aJQ.oi().GY(), this.aJQ.oi().GZ(), currentTimeMillis2 - this.aJQ.oi().GX());
-                                            this.aJQ.aCO = -1L;
+                                            TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aLX.aEP, this.aLX.oy().Ic() - this.aLX.aEP, this.aLX.oy().Ia(), this.aLX.oy().Ib(), currentTimeMillis2 - this.aLX.oy().HZ());
+                                            this.aLX.aEP = -1L;
                                         }
-                                        this.aJQ.apB = System.currentTimeMillis() - currentTimeMillis;
+                                        this.aLX.aqD = System.currentTimeMillis() - currentTimeMillis;
                                         return;
                                     }
                                 }
                             }
-                            wVar10 = this.aJQ.aJd;
+                            wVar10 = this.aLX.aLl;
                             if (wVar10 != null) {
-                                wVar17 = this.aJQ.aJd;
+                                wVar17 = this.aLX.aLl;
                                 if (wVar17.getUserData() != null) {
-                                    wVar18 = this.aJQ.aJd;
+                                    wVar18 = this.aLX.aLl;
                                     if (wVar18.getUserData().isBawu()) {
-                                        kVar4 = this.aJQ.aJu;
+                                        kVar4 = this.aLX.aLB;
                                         kVar4.setIsManager(true);
-                                        wVar11 = this.aJQ.aJd;
+                                        wVar11 = this.aLX.aLl;
                                         if (wVar11 != null) {
-                                            wVar15 = this.aJQ.aJd;
-                                            if (wVar15.Za() != null) {
-                                                kVar3 = this.aJQ.aJu;
-                                                wVar16 = this.aJQ.aJd;
-                                                kVar3.bX(wVar16.Za().isLike() == 1);
+                                            wVar15 = this.aLX.aLl;
+                                            if (wVar15.aar() != null) {
+                                                kVar3 = this.aLX.aLB;
+                                                wVar16 = this.aLX.aLl;
+                                                kVar3.cg(wVar16.aar().isLike() == 1);
                                             }
                                         }
-                                        aVar2 = this.aJQ.aJv;
-                                        wVar12 = this.aJQ.aJd;
+                                        aVar2 = this.aLX.aLC;
+                                        wVar12 = this.aLX.aLl;
                                         a = aVar2.a(true, wVar12.getThreadList());
                                         if (a != null) {
-                                            wVar14 = this.aJQ.aJd;
-                                            wVar14.V(a);
+                                            wVar14 = this.aLX.aLl;
+                                            wVar14.R(a);
                                         }
-                                        this.aJQ.Jw();
-                                        aVar3 = this.aJQ.aJt;
-                                        wVar13 = this.aJQ.aJd;
-                                        aVar3.bW(wVar13.akG());
-                                        aVar4 = this.aJQ.aJt;
-                                        bfVar16 = this.aJQ.aJa;
+                                        this.aLX.KA();
+                                        aVar3 = this.aLX.aLA;
+                                        wVar13 = this.aLX.aLl;
+                                        aVar3.cf(wVar13.amq());
+                                        aVar4 = this.aLX.aLA;
+                                        bfVar16 = this.aLX.aLi;
                                         aVar4.b(bfVar16.getNavigationBar());
-                                        this.aJQ.ok().Kv();
                                     }
                                 }
                             }
-                            kVar2 = this.aJQ.aJu;
+                            kVar2 = this.aLX.aLB;
                             kVar2.setIsManager(false);
-                            wVar11 = this.aJQ.aJd;
+                            wVar11 = this.aLX.aLl;
                             if (wVar11 != null) {
                             }
-                            aVar2 = this.aJQ.aJv;
-                            wVar12 = this.aJQ.aJd;
+                            aVar2 = this.aLX.aLC;
+                            wVar12 = this.aLX.aLl;
                             a = aVar2.a(true, wVar12.getThreadList());
                             if (a != null) {
                             }
-                            this.aJQ.Jw();
-                            aVar3 = this.aJQ.aJt;
-                            wVar13 = this.aJQ.aJd;
-                            aVar3.bW(wVar13.akG());
-                            aVar4 = this.aJQ.aJt;
-                            bfVar16 = this.aJQ.aJa;
+                            this.aLX.KA();
+                            aVar3 = this.aLX.aLA;
+                            wVar13 = this.aLX.aLl;
+                            aVar3.cf(wVar13.amq());
+                            aVar4 = this.aLX.aLA;
+                            bfVar16 = this.aLX.aLi;
                             aVar4.b(bfVar16.getNavigationBar());
-                            this.aJQ.ok().Kv();
                         }
-                        if (this.aJQ.aCO > -1) {
+                        if (this.aLX.aEP > -1) {
                             long currentTimeMillis3 = System.currentTimeMillis();
-                            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aJQ.aCO, this.aJQ.oi().Ha() - this.aJQ.aCO, this.aJQ.oi().GY(), this.aJQ.oi().GZ(), currentTimeMillis3 - this.aJQ.oi().GX());
-                            this.aJQ.aCO = -1L;
+                            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aLX.aEP, this.aLX.oy().Ic() - this.aLX.aEP, this.aLX.oy().Ia(), this.aLX.oy().Ib(), currentTimeMillis3 - this.aLX.oy().HZ());
+                            this.aLX.aEP = -1L;
                         }
-                        kVar = this.aJQ.aJu;
-                        wVar2 = this.aJQ.aJd;
+                        kVar = this.aLX.aLB;
+                        wVar2 = this.aLX.aLl;
                         kVar.e(wVar2);
-                        wVar3 = this.aJQ.aJd;
+                        wVar3 = this.aLX.aLl;
                         if (wVar3 != null) {
-                            wVar4 = this.aJQ.aJd;
+                            wVar4 = this.aLX.aLl;
                             if (wVar4.getUserData() != null) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                wVar5 = this.aJQ.aJd;
+                                wVar5 = this.aLX.aLl;
                                 messageManager.dispatchResponsedMessageToUI(new CustomResponsedMessage(2001200, Integer.valueOf(wVar5.getUserData().getIsMem())));
                             }
                         }
-                        this.aJQ.apB = System.currentTimeMillis() - currentTimeMillis;
+                        this.aLX.aqD = System.currentTimeMillis() - currentTimeMillis;
                         System.gc();
                         return;
                     }
-                    aVar6 = this.aJQ.aJv;
-                    wVar34 = this.aJQ.aJd;
+                    aVar6 = this.aLX.aLC;
+                    wVar34 = this.aLX.aLl;
                     ArrayList<com.baidu.adp.widget.ListView.ai> a2 = aVar6.a(false, wVar34.getThreadList());
                     if (a2 != null) {
-                        wVar35 = this.aJQ.aJd;
-                        wVar35.V(a2);
-                        bfVar19 = this.aJQ.aJa;
-                        i5 = this.aJQ.aIU;
-                        wVar36 = this.aJQ.aJd;
-                        i6 = this.aJQ.aJw;
+                        wVar35 = this.aLX.aLl;
+                        wVar35.R(a2);
+                        bfVar19 = this.aLX.aLi;
+                        i5 = this.aLX.aLd;
+                        wVar36 = this.aLX.aLl;
+                        i6 = this.aLX.aLD;
                         bfVar19.a(a2, i5, wVar36, i6);
                         return;
                     }
                     return;
                 }
             }
-            bfVar20 = this.aJQ.aJa;
-            bfVar20.Ky();
+            bfVar20 = this.aLX.aLi;
+            bfVar20.LD();
             if (i != 4) {
             }
         }
-        bfVar2 = this.aJQ.aJa;
-        bfVar2.Kw();
+        bfVar2 = this.aLX.aLi;
+        bfVar2.LB();
         if (i != 4) {
         }
     }
@@ -418,10 +417,10 @@ class ab implements com.baidu.tieba.tbadkCore.aa {
     @Override // com.baidu.tieba.tbadkCore.aa
     public void b(com.baidu.tieba.tbadkCore.u uVar) {
         if (uVar != null) {
-            if (!"normal_page".equals(this.aJQ.oi().KQ()) && !"frs_page".equals(this.aJQ.oi().KQ())) {
+            if (!"normal_page".equals(this.aLX.oy().LV()) && !"frs_page".equals(this.aLX.oy().LV())) {
                 return;
             }
-            this.aJQ.a(uVar);
+            this.aLX.a(uVar);
         }
     }
 }

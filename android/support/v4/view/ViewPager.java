@@ -132,9 +132,8 @@ public class ViewPager extends ViewGroup {
     interface Decor {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface OnAdapterChangeListener {
+    interface OnAdapterChangeListener {
         void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 
@@ -1167,9 +1166,8 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         ItemInfo infoForChild;
         int i5;
         int i6;
@@ -2218,9 +2216,8 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PagerObserver extends DataSetObserver {
+    class PagerObserver extends DataSetObserver {
         private PagerObserver() {
         }
 

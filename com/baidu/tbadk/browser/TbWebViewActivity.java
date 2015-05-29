@@ -19,6 +19,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        setUseStyleImmersiveSticky(false);
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2001315, (Class) null);
         if (this.mNeedCookie) {
@@ -59,9 +60,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.mWebView.setInitialScale(100);
             this.mWebView.setScrollBarStyle(33554432);
             this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.mWebView.setWebViewClient(new o(this));
-            this.mWebView.setDownloadListener(new p(this, null));
-            this.mWebView.setWebChromeClient(new n(this));
+            this.mWebView.setWebViewClient(new n(this));
+            this.mWebView.setDownloadListener(new o(this, null));
+            this.mWebView.setWebChromeClient(new m(this));
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -85,7 +86,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void loadUrl(String str) {
         if (this.mWebView != null) {
-            this.mWebView.loadUrl(this.mUrl);
+            CompatibleUtile.getInstance().loadUrl(this.mWebView, str);
         }
     }
 

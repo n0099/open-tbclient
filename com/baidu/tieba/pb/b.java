@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.io.File;
 /* loaded from: classes.dex */
 class b extends BdAsyncTask<String, Integer, Boolean> {
-    private final String SD;
-    final /* synthetic */ FileDownloader bFD;
+    private final String To;
+    final /* synthetic */ FileDownloader bIy;
     private final String mUrl;
-    private aa Ok = null;
-    private volatile boolean wb = false;
+    private aa OE = null;
+    private volatile boolean ayP = false;
 
     public b(FileDownloader fileDownloader, String str, String str2) {
-        this.bFD = fileDownloader;
+        this.bIy = fileDownloader;
         this.mUrl = str;
-        this.SD = str2;
+        this.To = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,17 +28,17 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        File cn;
+        File cC;
         Handler handler;
         Boolean bool = false;
-        while (!this.wb) {
+        while (!this.ayP) {
             try {
-                this.Ok = new aa(this.mUrl);
-                handler = this.bFD.handler;
-                bool = Boolean.valueOf(this.Ok.a(String.valueOf(this.SD) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
-                if (bool.booleanValue() || this.Ok.st() == -2) {
+                this.OE = new aa(this.mUrl);
+                handler = this.bIy.handler;
+                bool = Boolean.valueOf(this.OE.a(String.valueOf(this.To) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
+                if (bool.booleanValue() || this.OE.tb() == -2) {
                     break;
-                } else if (!this.Ok.sp().tq().hi()) {
+                } else if (!this.OE.sX().tT().gT()) {
                     try {
                         Thread.sleep(10000L);
                     } catch (Exception e) {
@@ -48,10 +48,10 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
             }
         }
         if (bool.booleanValue()) {
-            o.cs(this.SD);
-            File cm = o.cm(String.valueOf(this.SD) + ".tmp");
-            if (cm != null && (cn = o.cn(this.SD)) != null) {
-                cm.renameTo(cn);
+            o.cH(this.To);
+            File cB = o.cB(String.valueOf(this.To) + ".tmp");
+            if (cB != null && (cC = o.cC(this.To)) != null) {
+                cB.renameTo(cC);
             }
         }
         return bool;
@@ -60,10 +60,10 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.bFD.mDowndingTask = null;
-        this.wb = true;
-        if (this.Ok != null) {
-            this.Ok.hh();
+        this.bIy.mDowndingTask = null;
+        this.ayP = true;
+        if (this.OE != null) {
+            this.OE.gS();
         }
     }
 
@@ -76,17 +76,17 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler;
         Handler handler2;
         super.onPostExecute(bool);
-        this.bFD.mDowndingTask = null;
+        this.bIy.mDowndingTask = null;
         if (bool.booleanValue()) {
-            NotificationHelper.cancelNotification(this.bFD.getBaseContext(), 10);
-            handler = this.bFD.handler;
-            handler2 = this.bFD.handler;
-            handler.sendMessageDelayed(handler2.obtainMessage(1, this.SD), 100L);
+            NotificationHelper.cancelNotification(this.bIy.getBaseContext(), 10);
+            handler = this.bIy.handler;
+            handler2 = this.bIy.handler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1, this.To), 100L);
             return;
         }
-        Context baseContext = this.bFD.getBaseContext();
-        i = this.bFD.progress;
-        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.bFD.getString(y.error_sd_error), false);
-        this.bFD.stopSelf();
+        Context baseContext = this.bIy.getBaseContext();
+        i = this.bIy.progress;
+        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.bIy.getString(t.error_sd_error), false);
+        this.bIy.stopSelf();
     }
 }

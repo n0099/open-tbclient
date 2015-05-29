@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 import com.baidu.tieba.im.data.GroupActivityData;
 /* loaded from: classes.dex */
-public class CreateGroupActivityActivityConfig extends a {
+public class CreateGroupActivityActivityConfig extends c {
     public static final String GROUP_ACTIVITY_AREA = "area";
     public static final String GROUP_ACTIVITY_CONTENT = "content";
     public static final String GROUP_ACTIVITY_GID = "gid";

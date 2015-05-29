@@ -1,25 +1,25 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 /* loaded from: classes.dex */
 class aa extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ long ayj;
-    final /* synthetic */ x ayl;
+    private final /* synthetic */ long azU;
+    final /* synthetic */ x azW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(x xVar, long j) {
-        this.ayl = xVar;
-        this.ayj = j;
+        this.azW = xVar;
+        this.azU = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: EX */
+    /* renamed from: FQ */
     public Void doInBackground() {
-        if (0 != this.ayj && ba.Fd().J(this.ayj)) {
+        if (0 != this.azU && ba.FW().I(this.azU)) {
             com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
-            bVar.setId(this.ayj);
+            bVar.setId(this.azU);
             bVar.setStatus(2);
-            bVar.fH(0);
-            ba.Fd().h(bVar);
+            bVar.fY(0);
+            ba.FW().h(bVar);
         }
         return null;
     }

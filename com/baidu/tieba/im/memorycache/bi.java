@@ -1,10 +1,14 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
@@ -17,13 +21,25 @@ public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.Sq().e(imMessageCenterPojo);
-        if (z) {
-            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
-        }
+        c.TD().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void c(String str, List<CommonMsgPojo> list) {
+        if (list != null && list.size() != 0) {
+            for (CommonMsgPojo commonMsgPojo : list) {
+                if (commonMsgPojo.getMsg_type() == 11) {
+                    String content = commonMsgPojo.getContent();
+                    try {
+                        String optString = new JSONObject(content).optString("eventId");
+                        if (Info.kBaiduPIDValue.equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
+                        }
+                    } catch (JSONException e) {
+                        BdLog.detailException(e);
+                    }
+                }
+            }
+        }
     }
 }

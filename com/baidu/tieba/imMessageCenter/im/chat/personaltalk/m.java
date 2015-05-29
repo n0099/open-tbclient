@@ -1,16 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* loaded from: classes.dex */
 class m implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ k bqb;
+    final /* synthetic */ k bsG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.bqb = kVar;
+        this.bsG = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,19 +19,13 @@ class m implements com.baidu.tieba.im.g<Boolean> {
         PersonalTalkSettingActivity personalTalkSettingActivity2;
         PersonalTalkSettingActivity personalTalkSettingActivity3;
         long j;
-        PersonalTalkSettingActivity personalTalkSettingActivity4;
-        long j2;
-        personalTalkSettingActivity = this.bqb.bqa;
+        personalTalkSettingActivity = this.bsG.bsF;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.bqb.bqa;
-        personalTalkSettingActivity2.showToast(com.baidu.tieba.y.cash_del_suc, false);
-        personalTalkSettingActivity3 = this.bqb.bqa;
+        personalTalkSettingActivity2 = this.bsG.bsF;
+        personalTalkSettingActivity2.showToast(com.baidu.tieba.t.cash_del_suc, false);
+        personalTalkSettingActivity3 = this.bsG.bsF;
         j = personalTalkSettingActivity3.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(j), 2, null, 1)));
-        StringBuilder sb = new StringBuilder("clear cache by person:");
-        personalTalkSettingActivity4 = this.bqb.bqa;
-        j2 = personalTalkSettingActivity4.userId;
-        BdSocketLinkService.startService(true, sb.append(j2).toString());
     }
 }

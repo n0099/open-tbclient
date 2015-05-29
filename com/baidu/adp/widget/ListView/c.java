@@ -3,7 +3,7 @@ package com.baidu.adp.widget.ListView;
 public interface c {
     void k(float f);
 
-    void mL();
+    void ne();
 
-    void mM();
+    void nf();
 }

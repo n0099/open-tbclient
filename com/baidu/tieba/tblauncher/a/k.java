@@ -4,19 +4,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.message.b {
-    final /* synthetic */ d cst;
-    private final /* synthetic */ int csu;
-    private final /* synthetic */ int csv;
+    final /* synthetic */ d cwD;
+    private final /* synthetic */ int cwE;
+    private final /* synthetic */ int cwF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(d dVar, int i, int i2) {
-        this.cst = dVar;
-        this.csu = i;
-        this.csv = i2;
+        this.cwD = dVar;
+        this.cwE = i;
+        this.cwF = i2;
     }
 
     @Override // com.baidu.tbadk.core.message.b
-    public void j(List<com.baidu.tieba.tbadkCore.f.a> list) {
+    public void k(List<com.baidu.tieba.tbadkCore.f.a> list) {
         com.baidu.tbadk.mvc.j.d dVar;
         com.baidu.tbadk.mvc.j.d dVar2;
         int size = list.size();
@@ -28,16 +28,16 @@ public class k implements com.baidu.tbadk.core.message.b {
             }
             if (list.get(i) instanceof a) {
                 aVar = (a) list.get(i);
-                if (aVar.getType() == this.csu) {
-                    aVar.iJ(this.csv);
+                if (aVar.getType() == this.cwE) {
+                    aVar.jf(this.cwF);
                     break;
                 }
             }
             i++;
         }
-        dVar = this.cst.csq;
+        dVar = this.cwD.cwA;
         if (dVar != null && aVar != null) {
-            dVar2 = this.cst.csq;
+            dVar2 = this.cwD.cwA;
             dVar2.y(aVar);
         }
     }

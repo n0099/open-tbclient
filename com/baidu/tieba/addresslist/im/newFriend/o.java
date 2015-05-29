@@ -5,19 +5,19 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic ayc;
-    private final /* synthetic */ long ayf;
+    final /* synthetic */ NewFriendDbManagerStatic azN;
+    private final /* synthetic */ long azQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-        this.ayc = newFriendDbManagerStatic;
-        this.ayf = j;
+        this.azN = newFriendDbManagerStatic;
+        this.azQ = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     /* renamed from: d */
     public void onReturnDataInUI(Void r9) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.ayf, "", "", "", ""));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.azQ, "", "", "", ""));
     }
 }

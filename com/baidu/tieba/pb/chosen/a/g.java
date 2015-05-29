@@ -1,27 +1,9 @@
 package com.baidu.tieba.pb.chosen.a;
-
-import android.view.View;
-import tbclient.FinePbPage.ForumInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ e bGI;
-    private final /* synthetic */ ForumInfo bGJ;
+public interface g {
+    void aU(String str, String str2);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar, ForumInfo forumInfo) {
-        this.bGI = eVar;
-        this.bGJ = forumInfo;
-    }
+    void ig(String str);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        i iVar;
-        i iVar2;
-        iVar = this.bGI.bGE;
-        if (iVar != null) {
-            iVar2 = this.bGI.bGE;
-            iVar2.hB(this.bGJ.fromfname);
-        }
-    }
+    void ih(String str);
 }

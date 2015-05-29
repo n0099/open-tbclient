@@ -20,9 +20,9 @@ public class ab<T> extends x<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.x, com.baidu.adp.lib.cache.t
-    public v<T> ab(String str) {
+    public v<T> ad(String str) {
         try {
-            return super.ab(str);
+            return super.ad(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);

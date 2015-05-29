@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class BuyTBeanActivityConfig extends a {
+public class BuyTBeanActivityConfig extends c {
     public static final String GIFT_TBEAN = "gift_tbean";
 
     public BuyTBeanActivityConfig(Context context, long j) {

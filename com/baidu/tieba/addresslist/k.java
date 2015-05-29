@@ -1,20 +1,8 @@
 package com.baidu.tieba.addresslist;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnFocusChangeListener {
-    final /* synthetic */ QuickSearchActivity axI;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(QuickSearchActivity quickSearchActivity) {
-        this.axI = quickSearchActivity;
-    }
-
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.util.n.c(this.axI.getPageContext().getPageActivity(), view);
-        }
+public class k implements com.baidu.tieba.tbadkCore.b.a {
+    @Override // com.baidu.tieba.tbadkCore.b.a
+    public int FK() {
+        return com.baidu.tieba.p.icon_home_friends;
     }
 }

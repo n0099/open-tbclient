@@ -6,11 +6,11 @@ import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdListView Id;
+    final /* synthetic */ BdListView HT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(BdListView bdListView) {
-        this.Id = bdListView;
+        this.HT = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -29,50 +29,50 @@ public class p implements AdapterView.OnItemClickListener {
         u uVar2;
         e eVar5;
         e eVar6;
-        gVar = this.Id.HE;
+        gVar = this.HT.Hu;
         int headersCount = gVar.getHeadersCount();
         if (i < headersCount) {
-            eVar4 = this.Id.HS;
+            eVar4 = this.HT.HI;
             if (eVar4 != null) {
-                eVar5 = this.Id.HS;
+                eVar5 = this.HT.HI;
                 if (view == eVar5.getView()) {
-                    eVar6 = this.Id.HS;
+                    eVar6 = this.HT.HI;
                     eVar6.onClick();
                     return;
                 }
             }
-            uVar = this.Id.HI;
+            uVar = this.HT.Hy;
             if (uVar != null) {
-                uVar2 = this.Id.HI;
+                uVar2 = this.HT.Hy;
                 uVar2.onClick(view);
                 return;
             }
             return;
         }
         int i2 = i - headersCount;
-        gVar2 = this.Id.HE;
+        gVar2 = this.HT.Hu;
         ListAdapter wrappedAdapter = gVar2.getWrappedAdapter();
         if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-            onItemClickListener = this.Id.HF;
+            onItemClickListener = this.HT.Hv;
             if (onItemClickListener != null) {
-                onItemClickListener2 = this.Id.HF;
+                onItemClickListener2 = this.HT.Hv;
                 onItemClickListener2.onItemClick(adapterView, view, i2, j);
                 return;
             }
             return;
         }
-        eVar = this.Id.HT;
+        eVar = this.HT.HJ;
         if (eVar != null) {
-            eVar2 = this.Id.HT;
+            eVar2 = this.HT.HJ;
             if (view == eVar2.getView()) {
-                eVar3 = this.Id.HT;
+                eVar3 = this.HT.HJ;
                 eVar3.onClick();
                 return;
             }
         }
-        tVar = this.Id.HJ;
+        tVar = this.HT.Hz;
         if (tVar != null) {
-            tVar2 = this.Id.HJ;
+            tVar2 = this.HT.Hz;
             tVar2.onClick(view);
         }
     }

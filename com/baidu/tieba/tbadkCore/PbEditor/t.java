@@ -1,24 +1,24 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 /* loaded from: classes.dex */
 class t implements ae {
-    final /* synthetic */ s cmY;
+    final /* synthetic */ s cqX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.cmY = sVar;
+        this.cqX = sVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ae
-    public void amn() {
+    public void anZ() {
         PbEditor pbEditor;
         PbEditor pbEditor2;
-        pbEditor = this.cmY.cmW;
-        pbEditor.cmU = true;
-        pbEditor2 = this.cmY.cmW;
-        pbEditor2.cmO.getEditText().requestFocus();
+        pbEditor = this.cqX.cqV;
+        pbEditor.cqT = true;
+        pbEditor2 = this.cqX.cqV;
+        pbEditor2.cqN.getEditText().requestFocus();
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ae
-    public void amo() {
+    public void aoa() {
     }
 }

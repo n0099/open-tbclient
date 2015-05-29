@@ -14,12 +14,12 @@ class ai extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (com.baidu.adp.lib.g.c.toInt(customResponsedMessage.getData().toString(), 1) == 1) {
-                FrsActivityStatic.aJZ = false;
-                FrsActivityStatic.aJY = false;
+                FrsActivityStatic.aMg = false;
+                FrsActivityStatic.aMf = false;
                 return;
             }
-            FrsActivityStatic.aKa = false;
-            FrsActivityStatic.aJY = false;
+            FrsActivityStatic.aMh = false;
+            FrsActivityStatic.aMf = false;
         }
     }
 }

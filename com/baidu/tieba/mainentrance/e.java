@@ -3,8 +3,10 @@ package com.baidu.tieba.mainentrance;
 import tbclient.HotForum.ForumInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String byO;
-    private long byP;
+    private long bBA;
+    private long bBB;
+    private String bBy;
+    private long bBz;
     private long forumId;
     private String forumName;
 
@@ -12,20 +14,26 @@ public class e {
         return this.forumName;
     }
 
-    public String WM() {
-        return this.byO;
+    public String Yf() {
+        return this.bBy;
     }
 
-    public boolean WN() {
-        return System.currentTimeMillis() > this.byP * 1000;
+    public long Yg() {
+        return this.bBA;
+    }
+
+    public long Yh() {
+        return this.bBB;
     }
 
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
-            this.byO = forumInfo.avatar;
+            this.bBy = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.byP = forumInfo.time_out.longValue();
+            this.bBz = forumInfo.time_out.longValue();
+            this.bBA = forumInfo.member_count.longValue();
+            this.bBB = forumInfo.thread_count.longValue();
         }
     }
 }

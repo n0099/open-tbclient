@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 public interface a {
-    void cj(int i);
+    void cn(int i);
 }

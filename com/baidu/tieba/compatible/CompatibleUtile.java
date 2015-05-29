@@ -9,6 +9,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +19,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class CompatibleUtile {
     private static CompatibleUtile mCompatibleUtile = null;
@@ -220,6 +222,14 @@ public class CompatibleUtile {
         return getObject14() != null ? getObject14().getWebChromeClient(activity) : new WebChromeClient();
     }
 
+    public void loadUrl(WebView webView, String str) {
+        if (getObject8() != null) {
+            getObject8().loadUrl(webView, str);
+        } else {
+            webView.loadUrl(str);
+        }
+    }
+
     /* loaded from: classes.dex */
     public class FullscreenableChromeClient extends WebChromeClient {
         private final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
@@ -385,6 +395,14 @@ public class CompatibleUtile {
 
         public long getUidRxBytes(int i) {
             return TrafficStats.getUidRxBytes(i);
+        }
+
+        public void loadUrl(WebView webView, String str) {
+            if (webView != null && !TextUtils.isEmpty(str)) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("referer", "http://c.tieba.baidu.com/");
+                webView.loadUrl(str, hashMap);
+            }
         }
     }
 

@@ -5,12 +5,13 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class o extends Handler {
-    final /* synthetic */ TiebaUpdateService bZt;
+    final /* synthetic */ TiebaUpdateService cdF;
 
     private o(TiebaUpdateService tiebaUpdateService) {
-        this.bZt = tiebaUpdateService;
+        this.cdF = tiebaUpdateService;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,90 +54,92 @@ class o extends Handler {
         super.handleMessage(message);
         if (message.what == 0) {
             if (message.arg2 > 0) {
-                this.bZt.mMainApkCurSize = message.arg1;
-                this.bZt.mMainApkSize = message.arg2;
-                j = this.bZt.mMainApkSize;
-                j2 = this.bZt.mMainApkCurSize;
+                this.cdF.mMainApkCurSize = message.arg1;
+                this.cdF.mMainApkSize = message.arg2;
+                j = this.cdF.mMainApkSize;
+                j2 = this.cdF.mMainApkCurSize;
                 if (j > j2) {
-                    this.bZt.mMainTaskWaitingTimestamp = System.currentTimeMillis();
+                    this.cdF.mMainTaskWaitingTimestamp = System.currentTimeMillis();
                 }
-                j3 = this.bZt.mMainApkSize;
-                j4 = this.bZt.mMainApkCurSize;
+                j3 = this.cdF.mMainApkSize;
+                j4 = this.cdF.mMainApkCurSize;
                 if (j3 <= j4) {
-                    this.bZt.mIsMainApkDone = true;
+                    this.cdF.mIsMainApkDone = true;
                 }
-                j5 = this.bZt.mMainApkCurSize;
-                j6 = this.bZt.mMainApkSize;
+                j5 = this.cdF.mMainApkCurSize;
+                j6 = this.cdF.mMainApkSize;
                 int i5 = (int) ((j5 * 100) / j6);
-                z3 = this.bZt.mHasOther;
+                z3 = this.cdF.mHasOther;
                 if (z3) {
-                    j12 = this.bZt.mOtherApkSize;
+                    j12 = this.cdF.mOtherApkSize;
                     if (j12 != 0) {
-                        TiebaUpdateService tiebaUpdateService = this.bZt;
-                        j13 = this.bZt.mMainApkCurSize;
-                        j14 = this.bZt.mOtherApkCurSize;
-                        j15 = this.bZt.mMainApkSize;
-                        j16 = this.bZt.mOtherApkSize;
+                        TiebaUpdateService tiebaUpdateService = this.cdF;
+                        j13 = this.cdF.mMainApkCurSize;
+                        j14 = this.cdF.mOtherApkCurSize;
+                        j15 = this.cdF.mMainApkSize;
+                        j16 = this.cdF.mOtherApkSize;
                         tiebaUpdateService.mProgressAfter = (int) (((j13 + j14) * 100) / (j15 + j16));
-                        i = this.bZt.mProgressAfter;
-                        i2 = this.bZt.mProgressBefore;
+                        i = this.cdF.mProgressAfter;
+                        i2 = this.cdF.mProgressBefore;
                         if (i > i2) {
-                            TiebaUpdateService tiebaUpdateService2 = this.bZt;
-                            j17 = this.bZt.mMainApkCurSize;
-                            j18 = this.bZt.mOtherApkCurSize;
+                            TiebaUpdateService tiebaUpdateService2 = this.cdF;
+                            j17 = this.cdF.mMainApkCurSize;
+                            j18 = this.cdF.mOtherApkCurSize;
                             long j21 = j17 + j18;
-                            j19 = this.bZt.mMainApkSize;
-                            j20 = this.bZt.mOtherApkSize;
+                            j19 = this.cdF.mMainApkSize;
+                            j20 = this.cdF.mOtherApkSize;
                             tiebaUpdateService2.updateProgress(j21, j19 + j20);
-                            TiebaUpdateService tiebaUpdateService3 = this.bZt;
-                            i3 = this.bZt.mProgressAfter;
+                            TiebaUpdateService tiebaUpdateService3 = this.cdF;
+                            i3 = this.cdF.mProgressAfter;
                             tiebaUpdateService3.sendBroadcast(i3);
-                            TiebaUpdateService tiebaUpdateService4 = this.bZt;
-                            i4 = this.bZt.mProgressAfter;
+                            TiebaUpdateService tiebaUpdateService4 = this.cdF;
+                            i4 = this.cdF.mProgressAfter;
                             tiebaUpdateService4.mProgressBefore = i4;
                             return;
                         }
                         return;
                     }
                 }
-                z4 = this.bZt.mHasOther;
+                z4 = this.cdF.mHasOther;
                 if (z4) {
-                    j9 = this.bZt.mOtherApkSize;
+                    j9 = this.cdF.mOtherApkSize;
                     if (j9 == 0) {
                         if (i5 < 60) {
-                            TiebaUpdateService tiebaUpdateService5 = this.bZt;
-                            j10 = this.bZt.mMainApkCurSize;
-                            j11 = this.bZt.mMainApkSize;
+                            TiebaUpdateService tiebaUpdateService5 = this.cdF;
+                            j10 = this.cdF.mMainApkCurSize;
+                            j11 = this.cdF.mMainApkSize;
                             tiebaUpdateService5.updateProgress(j10, j11);
-                            this.bZt.sendBroadcast(i5);
+                            this.cdF.sendBroadcast(i5);
                         }
-                        this.bZt.mProgressBefore = i5;
+                        this.cdF.mProgressBefore = i5;
                         return;
                     }
                 }
-                z5 = this.bZt.mHasOther;
+                z5 = this.cdF.mHasOther;
                 if (!z5) {
-                    TiebaUpdateService tiebaUpdateService6 = this.bZt;
-                    j7 = this.bZt.mMainApkCurSize;
-                    j8 = this.bZt.mMainApkSize;
+                    TiebaUpdateService tiebaUpdateService6 = this.cdF;
+                    j7 = this.cdF.mMainApkCurSize;
+                    j8 = this.cdF.mMainApkSize;
                     tiebaUpdateService6.updateProgress(j7, j8);
-                    this.bZt.sendBroadcast(i5);
+                    this.cdF.sendBroadcast(i5);
                 }
             }
         } else if (message.what == 1) {
-            z = this.bZt.mMainApkInstallEnable;
+            z = this.cdF.mMainApkInstallEnable;
             if (z) {
-                z2 = this.bZt.mHasAs;
+                z2 = this.cdF.mHasAs;
                 if (z2) {
-                    this.bZt.startAsInstallService();
+                    this.cdF.startAsInstallService();
                 }
                 Application app = TbadkCoreApplication.m411getInst().getApp();
-                str = this.bZt.mMainApkFileName;
+                str = this.cdF.mMainApkFileName;
                 UtilHelper.install_apk(app, str);
-                this.bZt.finishDownload();
+                this.cdF.finishDownload();
                 return;
             }
-            this.bZt.mMainApkInstallEnable = true;
+            this.cdF.mMainApkInstallEnable = true;
+        } else if (message.what == 3) {
+            com.baidu.adp.lib.util.n.showToast(TbadkCoreApplication.m411getInst(), t.update_app_error);
         }
     }
 }

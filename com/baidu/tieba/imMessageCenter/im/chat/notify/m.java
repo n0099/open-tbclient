@@ -1,34 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ d bpR;
-    private final /* synthetic */ ImMessageCenterShowItemData bpT;
+public class m implements View.OnClickListener {
+    final /* synthetic */ d bsw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(d dVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bpR = dVar;
-        this.bpT = imMessageCenterShowItemData;
+    public m(d dVar) {
+        this.bsw = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        ImMessageCenterModel imMessageCenterModel;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        eVar.dismiss();
-        switch (i) {
-            case 0:
-                imMessageCenterModel = this.bpR.bpD;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.bpT;
-                aVar = this.bpR.aZT;
-                imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BdBaseFragmentActivity bdBaseFragmentActivity;
+        BdBaseFragmentActivity bdBaseFragmentActivity2;
+        bdBaseFragmentActivity = this.bsw.bsk;
+        TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+        bdBaseFragmentActivity2 = this.bsw.bsk;
+        bq.ac(bdBaseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

@@ -7,17 +7,17 @@ import com.baidu.tbadk.TbPageContextSupport;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animation.AnimationListener {
-    final /* synthetic */ a aPe;
-    private final /* synthetic */ TbPageContextSupport aPf;
-    private final /* synthetic */ float aPg;
-    private final /* synthetic */ View yS;
+    final /* synthetic */ a aRp;
+    private final /* synthetic */ TbPageContextSupport aRq;
+    private final /* synthetic */ float aRr;
+    private final /* synthetic */ View yH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
-        this.aPe = aVar;
-        this.aPf = tbPageContextSupport;
-        this.yS = view;
-        this.aPg = f;
+        this.aRp = aVar;
+        this.aRq = tbPageContextSupport;
+        this.yH = view;
+        this.aRr = f;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -33,6 +33,6 @@ public class e implements Animation.AnimationListener {
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(300L);
-        com.baidu.tieba.tbadkCore.a.a(this.aPf, this.yS, scaleAnimation, new f(this, this.aPg, this.yS));
+        com.baidu.tieba.tbadkCore.a.a(this.aRq, this.yH, scaleAnimation, new f(this, this.aRr, this.yH));
     }
 }

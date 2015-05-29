@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 public class LoginActivityStatic {
     static {
         b.checkPassV6Switch();
-        if (!b.un()) {
+        if (!b.uW()) {
             TbadkCoreApplication.m411getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
         }
     }

@@ -17,53 +17,53 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class e {
-    private final String ctP = TbConfig.getTempDirName();
-    private f ctQ;
-    private g ctR;
+    private final String cye = TbConfig.getTempDirName();
+    private f cyf;
+    private h cyg;
     private final Context mContext;
 
     public e(Context context) {
         this.mContext = context;
     }
 
-    public boolean a(m mVar) {
-        if (mVar == null) {
+    public boolean a(o oVar) {
+        if (oVar == null) {
             return false;
         }
-        apU();
-        this.ctQ = new f(this, mVar);
-        this.ctQ.setPriority(3);
-        this.ctQ.execute(new Object[0]);
+        arK();
+        this.cyf = new f(this, oVar);
+        this.cyf.setPriority(3);
+        this.cyf.execute(new Object[0]);
         return true;
     }
 
-    public boolean a(String str, aq aqVar) {
-        if (aqVar == null) {
+    public boolean a(String str, as asVar) {
+        if (asVar == null) {
             return false;
         }
-        apV();
-        this.ctR = new g(this, str, aqVar);
-        this.ctR.setPriority(3);
-        this.ctR.execute(new Void[0]);
+        arL();
+        this.cyg = new h(this, str, asVar);
+        this.cyg.setPriority(3);
+        this.cyg.execute(new Void[0]);
         return true;
     }
 
-    public void apU() {
-        if (this.ctQ != null) {
-            this.ctQ.cancel();
-            this.ctQ = null;
+    public void arK() {
+        if (this.cyf != null) {
+            this.cyf.cancel();
+            this.cyf = null;
         }
     }
 
-    public void apV() {
-        if (this.ctR != null) {
-            this.ctR.cancel();
-            this.ctR = null;
+    public void arL() {
+        if (this.cyg != null) {
+            this.cyg.cancel();
+            this.cyg = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<a> apW() {
+    public List<a> arM() {
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -96,8 +96,8 @@ public class e {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String jc = jc(file2.getAbsolutePath());
-                                    if (jc != null && (matcher = compile.matcher(jc)) != null && matcher.matches()) {
+                                    String jW = jW(file2.getAbsolutePath());
+                                    if (jW != null && (matcher = compile.matcher(jW)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -105,13 +105,13 @@ public class e {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 a aVar = new a();
-                                aVar.ja(string);
-                                aVar.jb(sb);
+                                aVar.jU(string);
+                                aVar.jV(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 aVar.e(imageFileInfo);
                                 aVar.setName(string2);
-                                if (string2 != null && string2.equals(this.ctP)) {
+                                if (string2 != null && string2.equals(this.cye)) {
                                     list.add(0, aVar);
                                 } else {
                                     list.add(aVar);
@@ -145,7 +145,7 @@ public class e {
         }
     }
 
-    public String jc(String str) {
+    public String jW(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;

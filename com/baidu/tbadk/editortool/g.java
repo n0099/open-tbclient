@@ -10,21 +10,21 @@ import com.baidu.adp.widget.IndicatorView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends PagerAdapter {
-    final /* synthetic */ EmotionTabContentView aiA;
+    final /* synthetic */ EmotionTabContentView ajA;
 
     public g(EmotionTabContentView emotionTabContentView) {
-        this.aiA = emotionTabContentView;
+        this.ajA = emotionTabContentView;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         List list;
         List list2;
-        list = this.aiA.air;
+        list = this.ajA.ajr;
         if (list == null) {
             return 0;
         }
-        list2 = this.aiA.air;
+        list2 = this.ajA.ajr;
         return list2.size();
     }
 
@@ -38,7 +38,7 @@ public class g extends PagerAdapter {
         com.baidu.adp.lib.e.b bVar;
         GridView gridView = (GridView) obj;
         viewGroup.removeView(gridView);
-        bVar = this.aiA.aiz;
+        bVar = this.ajA.ajz;
         bVar.j(gridView);
     }
 
@@ -52,32 +52,32 @@ public class g extends PagerAdapter {
         Context context;
         Context context2;
         Context context3;
-        bVar = this.aiA.aiz;
-        GridView gridView2 = (GridView) bVar.hz();
+        bVar = this.ajA.ajz;
+        GridView gridView2 = (GridView) bVar.hj();
         if (gridView2 == null) {
-            context3 = this.aiA.mContext;
+            context3 = this.ajA.mContext;
             gridView = new GridView(context3);
         } else {
             gridView = gridView2;
         }
         gridView.setScrollbarFadingEnabled(false);
-        list = this.aiA.air;
+        list = this.ajA.ajr;
         if (list != null) {
-            list2 = this.aiA.air;
+            list2 = this.ajA.ajr;
             if (i < list2.size()) {
-                list3 = this.aiA.air;
+                list3 = this.ajA.ajr;
                 u uVar = (u) list3.get(i);
-                gridView.setNumColumns(uVar.yI());
+                gridView.setNumColumns(uVar.zv());
                 gridView.setVerticalSpacing(0);
                 gridView.setHorizontalSpacing(0);
-                gridView.setSelector(com.baidu.tieba.s.transparent);
-                context = this.aiA.mContext;
-                int dimensionPixelSize = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28);
-                context2 = this.aiA.mContext;
-                gridView.setPadding(dimensionPixelSize, 0, context2.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28), 0);
+                gridView.setSelector(com.baidu.tieba.n.transparent);
+                context = this.ajA.mContext;
+                int dimensionPixelSize = context.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds28);
+                context2 = this.ajA.mContext;
+                gridView.setPadding(dimensionPixelSize, 0, context2.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds28), 0);
                 gridView.setOnItemLongClickListener(new h(this));
                 gridView.setOnItemClickListener(new i(this));
-                gridView.setAdapter((ListAdapter) new e(this.aiA, uVar));
+                gridView.setAdapter((ListAdapter) new e(this.ajA, uVar));
             }
         }
         viewGroup.addView(gridView);
@@ -96,33 +96,33 @@ public class g extends PagerAdapter {
         IndicatorView indicatorView;
         IndicatorView indicatorView2;
         IndicatorView indicatorView3;
-        list = this.aiA.air;
+        list = this.ajA.ajr;
         if (list != null) {
-            list2 = this.aiA.air;
+            list2 = this.ajA.ajr;
             int size = list2.size();
             if (i == 0 && i < size) {
-                i2 = this.aiA.currentPosition;
+                i2 = this.ajA.currentPosition;
                 if (i != i2) {
-                    list3 = this.aiA.air;
+                    list3 = this.ajA.ajr;
                     u uVar = (u) list3.get(i);
                     if (uVar != null) {
-                        this.aiA.currentPosition = i;
-                        indicatorView = this.aiA.aif;
+                        this.ajA.currentPosition = i;
+                        indicatorView = this.ajA.ajf;
                         indicatorView.setVisibility(0);
-                        indicatorView2 = this.aiA.aif;
-                        indicatorView2.setCount(uVar.yJ());
-                        indicatorView3 = this.aiA.aif;
-                        indicatorView3.setPosition(uVar.yK());
+                        indicatorView2 = this.ajA.ajf;
+                        indicatorView2.setCount(uVar.zw());
+                        indicatorView3 = this.ajA.ajf;
+                        indicatorView3.setPosition(uVar.zx());
                     }
                     if (uVar != null) {
-                        int yN = uVar.yN();
-                        i3 = this.aiA.ait;
-                        if (yN != i3) {
-                            this.aiA.ait = uVar.yN();
-                            jVar = this.aiA.aiu;
+                        int zA = uVar.zA();
+                        i3 = this.ajA.ajt;
+                        if (zA != i3) {
+                            this.ajA.ajt = uVar.zA();
+                            jVar = this.ajA.aju;
                             if (jVar != null) {
-                                jVar2 = this.aiA.aiu;
-                                jVar2.dq(uVar.yN());
+                                jVar2 = this.ajA.aju;
+                                jVar2.dz(uVar.zA());
                             }
                         }
                     }

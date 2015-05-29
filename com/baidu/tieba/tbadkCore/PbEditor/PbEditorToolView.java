@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbEditorToolView extends LinearLayout {
-    protected PbEditorToolButtonContainer cne;
-    protected TextView cnf;
+    protected PbEditorToolButtonContainer crc;
+    protected TextView crd;
     protected Context mContext;
     protected EditText mEditText;
 
@@ -28,7 +28,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public TextView getPostButton() {
-        return this.cnf;
+        return this.crd;
     }
 
     public EditText getEditText() {
@@ -37,14 +37,14 @@ public class PbEditorToolView extends LinearLayout {
 
     protected void initialize() {
         setOrientation(1);
-        com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.pb_editor_tool_view, this, true);
-        this.cne = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
-        this.mEditText = (EditText) findViewById(com.baidu.tieba.v.reply_content);
-        this.cnf = (TextView) findViewById(com.baidu.tieba.v.pb_reply_post);
+        com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.pb_editor_tool_view, this, true);
+        this.crc = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.q.tool_button_container);
+        this.mEditText = (EditText) findViewById(com.baidu.tieba.q.reply_content);
+        this.crd = (TextView) findViewById(com.baidu.tieba.q.pb_reply_post);
         this.mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
-    public void X(ArrayList<String> arrayList) {
+    public void T(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -65,75 +65,57 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
-        this.cne.setOnActionListener(new x(this, vVar));
+        this.crc.setOnActionListener(new x(this, vVar));
         this.mEditText.setOnTouchListener(new y(this, vVar));
         this.mEditText.addTextChangedListener(new z(this, vVar));
-        this.cnf.setOnClickListener(new aa(this, vVar));
+        this.crd.setOnClickListener(new aa(this, vVar));
     }
 
     public void clearData() {
-        this.cne.amq();
+        this.crc.zJ();
         this.mEditText.setText("");
-        amd();
+        anP();
     }
 
-    public void abn() {
-        this.cne.eL(true);
+    public void anO() {
+        this.crd.setEnabled(true);
+        ay.b(this.crd, com.baidu.tieba.n.cp_cont_f, 1);
     }
 
-    public void abm() {
-        this.cne.eL(false);
+    public void anP() {
+        this.crd.setEnabled(false);
+        ay.b(this.crd, com.baidu.tieba.n.black_alpha40, 1);
     }
 
-    public void amc() {
-        this.cnf.setEnabled(true);
+    public void aod() {
+        this.crc.aod();
     }
 
-    public void amd() {
-        this.cnf.setEnabled(false);
+    public void aoe() {
+        this.crc.aoe();
     }
 
-    public void amp() {
-        this.cne.amp();
-    }
-
-    public void amq() {
-        this.cne.amq();
-    }
-
-    public void amr() {
-        this.cne.amr();
-    }
-
-    public void ams() {
-        this.cne.ams();
-    }
-
-    public void alt() {
-        this.cne.alt();
-    }
-
-    public void setAudioFocusable(boolean z) {
-        this.cne.setAudioFocusable(z);
+    public void ane() {
+        this.crc.ane();
     }
 
     public void setMoreFocusable(boolean z) {
-        this.cne.setMoreFocusable(z);
+        this.crc.setMoreFocusable(z);
     }
 
     public void changeSkinType(int i) {
         if (i == 1) {
-            this.mEditText.setHintTextColor(ba.getColor(com.baidu.tieba.s.cp_cont_e));
-            this.cnf.setBackgroundDrawable(ba.getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
+            this.mEditText.setHintTextColor(ay.getColor(com.baidu.tieba.n.cp_cont_e));
+            this.crd.setBackgroundDrawable(ay.getDrawable(com.baidu.tieba.p.btn_pb_editor_post_btn));
         } else {
-            this.cnf.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
-            this.mEditText.setHintTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.cp_cont_e));
+            this.crd.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.p.btn_pb_editor_post_btn));
+            this.mEditText.setHintTextColor(this.mContext.getResources().getColor(com.baidu.tieba.n.cp_cont_e));
         }
-        if (this.cnf.isEnabled()) {
-            amc();
+        if (this.crd.isEnabled()) {
+            anO();
         } else {
-            amd();
+            anP();
         }
-        this.cne.changeSkinType(i);
+        this.crc.changeSkinType(i);
     }
 }

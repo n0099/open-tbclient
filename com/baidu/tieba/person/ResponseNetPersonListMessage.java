@@ -11,7 +11,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     private com.baidu.tieba.person.a.a data;
     private int mErrCode;
     private String mErrMsg;
-    private bj mModel;
+    private cc mModel;
 
     public ResponseNetPersonListMessage(int i) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
@@ -31,8 +31,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.data;
     }
 
-    public void setModel(bj bjVar) {
-        this.mModel = bjVar;
+    public void setModel(cc ccVar) {
+        this.mModel = ccVar;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -53,11 +53,11 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(bj.bQY);
+            boolean z = tag != null && tag.equals(cc.bTD);
             String str = new String(bArr);
-            com.baidu.adp.lib.cache.t<String> bX = com.baidu.tbadk.core.b.a.rc().bX("tb.my_pages");
-            if (bX != null) {
-                bX.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            com.baidu.adp.lib.cache.t<String> ck = com.baidu.tbadk.core.b.a.rI().ck("tb.my_pages");
+            if (ck != null) {
+                ck.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
             }
         }
     }

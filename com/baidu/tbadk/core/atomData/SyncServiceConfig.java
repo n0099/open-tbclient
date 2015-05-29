@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class SyncServiceConfig extends a {
+public class SyncServiceConfig extends c {
     public SyncServiceConfig(Context context) {
         super(context);
         setIntentAction(IntentAction.StartService);

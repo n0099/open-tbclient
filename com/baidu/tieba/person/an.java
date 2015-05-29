@@ -1,26 +1,17 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements View.OnClickListener {
-    final /* synthetic */ aj bQu;
+public class an implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(aj ajVar) {
-        this.bQu = ajVar;
+    public an(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        at atVar;
-        z = this.bQu.bQr;
-        if (!z) {
-            aj ajVar = this.bQu;
-            atVar = this.bQu.bQm;
-            ajVar.pageNum = atVar.getData().XQ().qj() + 1;
-            this.bQu.bQr = true;
-            this.bQu.adr();
-        }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.bSN.aeu();
     }
 }

@@ -1,6 +1,9 @@
 package com.baidu.adp.lib.util;
 
-import java.util.concurrent.BlockingQueue;
+import android.view.View;
 /* loaded from: classes.dex */
-public interface q extends w, BlockingQueue {
+public interface q {
+    void aY(String str);
+
+    View js();
 }

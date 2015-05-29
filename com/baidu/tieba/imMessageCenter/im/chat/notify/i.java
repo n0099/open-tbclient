@@ -6,13 +6,13 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ d bpR;
+    final /* synthetic */ d bsw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(d dVar, int i) {
         super(i);
-        this.bpR = dVar;
+        this.bsw = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,26 +25,26 @@ public class i extends CustomMessageListener {
         ImMessageCenterModel imMessageCenterModel;
         com.baidu.tieba.im.chat.notify.a aVar;
         if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2016001) {
-                if (customResponsedMessage.getCmd() != 2016003) {
-                    if (customResponsedMessage.getCmd() != 2016006) {
-                        if (customResponsedMessage.getCmd() == 2016000) {
-                            imMessageCenterModel = this.bpR.bpD;
-                            aVar = this.bpR.aZT;
+            if (customResponsedMessage.getCmd() != 2016002) {
+                if (customResponsedMessage.getCmd() != 2016004) {
+                    if (customResponsedMessage.getCmd() != 2016007) {
+                        if (customResponsedMessage.getCmd() == 2016001) {
+                            imMessageCenterModel = this.bsw.bsj;
+                            aVar = this.bsw.bcA;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            imMessageCenterListAdapter3 = this.bpR.bpH;
+                            imMessageCenterListAdapter3 = this.bsw.bsn;
                             if (imMessageCenterListAdapter3 != null) {
-                                imMessageCenterListAdapter4 = this.bpR.bpH;
+                                imMessageCenterListAdapter4 = this.bsw.bsn;
                                 imMessageCenterListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            imMessageCenterListAdapter = this.bpR.bpH;
+                            imMessageCenterListAdapter = this.bsw.bsn;
                             if (imMessageCenterListAdapter != null) {
-                                imMessageCenterListAdapter2 = this.bpR.bpH;
+                                imMessageCenterListAdapter2 = this.bsw.bsn;
                                 imMessageCenterListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -53,13 +53,13 @@ public class i extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.bpR.e(customResponsedMessage);
+                    this.bsw.e(customResponsedMessage);
                     return;
                 }
-                this.bpR.d(customResponsedMessage);
+                this.bsw.d(customResponsedMessage);
                 return;
             }
-            this.bpR.c(customResponsedMessage);
+            this.bsw.c(customResponsedMessage);
         }
     }
 }

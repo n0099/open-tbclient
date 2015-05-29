@@ -21,14 +21,14 @@ public class LiveStatusChangeMessage extends CustomResponsedMessage<LiveStatusDa
         if (liveStatusData == null || StringUtils.isNull(liveStatusData.groupId)) {
             return false;
         }
-        return liveStatusData.status == 1 || liveStatusData.status == 3 || liveStatusData.status == 4;
+        return liveStatusData.status == 1 || liveStatusData.status == 3;
     }
 
     public static boolean isPlayingLive(LiveStatusData liveStatusData) {
         if (liveStatusData == null || StringUtils.isNull(liveStatusData.groupId) || LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(liveStatusData.groupId)) {
             return false;
         }
-        return liveStatusData.status == 18 || liveStatusData.status == 19 || liveStatusData.status == 20;
+        return liveStatusData.status == 18 || liveStatusData.status == 19;
     }
 
     public static boolean isPlayingRecord(LiveStatusData liveStatusData) {

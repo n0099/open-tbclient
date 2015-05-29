@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class d implements g<Integer> {
-    final /* synthetic */ b aWl;
+    final /* synthetic */ b aYQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aWl = bVar;
+        this.aYQ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

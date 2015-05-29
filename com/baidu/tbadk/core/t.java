@@ -1,32 +1,28 @@
 package com.baidu.tbadk.core;
 
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ TbadkCoreApplication Oz;
+public class t implements com.baidu.adp.lib.util.q {
+    final /* synthetic */ TbadkCoreApplication OW;
+    private final /* synthetic */ View yH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(TbadkCoreApplication tbadkCoreApplication) {
-        this.Oz = tbadkCoreApplication;
+    public t(TbadkCoreApplication tbadkCoreApplication, View view) {
+        this.OW = tbadkCoreApplication;
+        this.yH = view;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void b(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    this.Oz.setLocationLat(valueOf);
-                    this.Oz.setLocationLng(valueOf2);
-                    this.Oz.setLocationPos(address.getAddressLine(0));
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // com.baidu.adp.lib.util.q
+    public void aY(String str) {
+        if (js() instanceof TextView) {
+            ((TextView) js()).setText(str);
         }
+    }
+
+    @Override // com.baidu.adp.lib.util.q
+    public View js() {
+        return this.yH;
     }
 }

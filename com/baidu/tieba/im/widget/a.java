@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T bor;
+    private T bqW;
     private int subType;
     private String title;
 
     /* JADX WARN: Type inference failed for: r1v2, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v1, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int aJ(String str, String str2) {
+    public int aO(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -37,7 +37,7 @@ public class a<T> {
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            this.bor = r2;
+                            this.bqW = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -52,7 +52,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.bor = r1;
+                            this.bqW = r1;
                             i = 1;
                         }
                     }
@@ -63,11 +63,11 @@ public class a<T> {
         return i;
     }
 
-    public int TU() {
+    public int Vh() {
         return this.subType;
     }
 
-    public T TV() {
-        return this.bor;
+    public T Vi() {
+        return this.bqW;
     }
 }

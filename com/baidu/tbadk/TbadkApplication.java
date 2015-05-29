@@ -7,34 +7,34 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
-import com.baidu.adp.base.b;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.b.f;
 import com.baidu.adp.lib.g.d;
-import com.baidu.adp.lib.stats.f;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.n;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.appsearchlib.NASLib;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.d.a;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.imageManager.e;
 import com.baidu.tbadk.performanceLog.ai;
+import com.baidu.tieba.p;
 import com.baidu.tieba.service.SignAlertReceiver;
-import com.baidu.tieba.u;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.util.Calendar;
 /* loaded from: classes.dex */
-public class TbadkApplication extends TbadkCoreApplication implements b {
+public class TbadkApplication extends TbadkCoreApplication {
     private static final String CUSTOM_THEME_URL = "file:///android_asset/sapi_theme/style.css";
     CustomMessageListener mMemListener = new CustomMessageListener(2001200) { // from class: com.baidu.tbadk.TbadkApplication.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,6 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             }
         }
     };
-    public long processCreateTime;
     private d resourcesWrapper;
     private String tShopUrl;
     protected static TbadkApplication sApp = null;
@@ -62,13 +61,38 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
 
     private void initSapi() {
         String string;
+        SapiConfiguration build;
+        SapiAccountManager.registerSilentShareListener(new SapiAccountManager.SilentShareListener() { // from class: com.baidu.tbadk.TbadkApplication.2
+            @Override // com.baidu.sapi2.SapiAccountManager.SilentShareListener
+            public void onSilentShare() {
+                SapiAccountManager.unregisterSilentShareListener();
+            }
+        });
         Resources resources = getResources();
         if (resources == null) {
             string = "";
         } else {
-            string = resources.getString(y.register_tip);
+            string = resources.getString(t.register_tip);
         }
-        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.act.b.aan).registMode(RegistMode.FAST).initialShareStrategy(LoginShareStrategy.CHOICE).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).build());
+        boolean z = b.sl().getBoolean("is_domain_qa", false);
+        boolean isVoiceLoginCanUse = TbadkCoreApplication.m411getInst().isVoiceLoginCanUse();
+        if (z) {
+            SapiConfiguration.Builder fastRegConfirmMsg = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string);
+            if (isVoiceLoginCanUse) {
+                fastRegConfirmMsg.fastLoginSupport(FastLoginFeature.VOICE_LOGIN);
+            }
+            build = fastRegConfirmMsg.build();
+        } else {
+            SapiConfiguration.Builder fastRegConfirmMsg2 = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.act.b.abo).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string);
+            if (isVoiceLoginCanUse) {
+                fastRegConfirmMsg2.fastLoginSupport(FastLoginFeature.VOICE_LOGIN);
+            }
+            build = fastRegConfirmMsg2.build();
+        }
+        try {
+            SapiAccountManager.getInstance().init(build);
+        } catch (Exception e) {
+        }
     }
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -80,8 +104,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             initSapi();
         }
         init(getContext());
-        PluginPackageManager.ls().a(a.CZ(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
-        ab.sy();
+        PluginPackageManager.lM().a(a.DK(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
         initSettings();
         if (isMainProcess(true)) {
             UninstallInquirer.getInstance().startProcessBySwitch();
@@ -93,16 +116,25 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
             initSignedForum();
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
-        ai.CW().x(System.currentTimeMillis());
+        ai.DH().z(System.currentTimeMillis());
         if (this.isRemoteProcess) {
-            ai.CW().D(System.currentTimeMillis() - this.processCreateTime);
+            ai.DH().D(System.currentTimeMillis() - this.processCreateTime);
+        }
+        if (isMainProcess(true)) {
+            NASLib.onAppStart(this);
+            NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
+                @Override // com.baidu.appsearchlib.NASLib.NASCallBack
+                public void callback(String str, String str2) {
+                    bi.tO().b(null, new String[]{str2});
+                }
+            });
         }
     }
 
     private void initSettings() {
         getInst().mViewImageQuality = TbadkSettings.getInst().loadInt("view_image_quality", 0);
         getInst().setSkinTypeValue(TbadkSettings.getInst().loadInt("skin", 0));
-        com.baidu.adp.lib.d.a.gZ().y(Build.VERSION.SDK_INT > 4 ? TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true) : false);
+        com.baidu.adp.lib.d.a.gK().y(Build.VERSION.SDK_INT > 4 ? TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true) : false);
     }
 
     public boolean isSignAlertOn() {
@@ -177,38 +209,22 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
         return intent;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
+    public void init(Context context) {
+    }
+
+    @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
+        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            return super.getResources();
+        }
         if (this.resourcesWrapper == null && super.getResources() != null) {
             this.resourcesWrapper = new d(super.getResources());
         }
         return this.resourcesWrapper;
     }
 
-    public void init(Context context) {
-    }
-
-    public void clearMemOnActivityEmpty() {
-        if (TbConfig.getAppRunMode() == TbConfig.AppRunMode.RUN_IN_KUANG_SDK) {
-            onLowMemory();
-            n.iU();
-            f.fR();
-            BdCacheService.fR();
-            com.baidu.tbadk.core.b.a.fR();
-            com.baidu.adp.lib.asyncTask.f.fR();
-            com.baidu.tbadk.core.sharedPref.b.fR();
-            GifView.releaseBitmap();
-            e.zy().zA();
-            getApp().getResources().updateConfiguration(getApp().getResources().getConfiguration(), getApp().getResources().getDisplayMetrics());
-        }
-    }
-
     public boolean isDaemonProcess() {
         return this.isDaemonProcess;
-    }
-
-    public boolean isXiubaProcess() {
-        return this.isXiubaProcess;
     }
 
     public boolean isTbCDNTachometerProcess() {
@@ -219,7 +235,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.rB().remove("account_share");
+        b.sl().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -246,19 +262,19 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     private static void initMotuFilterImageMap() {
-        motuFilterImageMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, Integer.valueOf(u.motu_filter_normal));
-        motuFilterImageMap.put("clvivid", Integer.valueOf(u.motu_filter_skin));
-        motuFilterImageMap.put("cllomoscenery", Integer.valueOf(u.motu_filter_lomo));
-        motuFilterImageMap.put("clcaisefupian", Integer.valueOf(u.motu_filter_classichdr));
-        motuFilterImageMap.put("clm3", Integer.valueOf(u.motu_filter_nashiv));
-        motuFilterImageMap.put("cqiuse", Integer.valueOf(u.motu_filter_fleeting));
-        motuFilterImageMap.put("clzaoan", Integer.valueOf(u.motu_filter_bluetone));
-        motuFilterImageMap.put("clfuguscenery", Integer.valueOf(u.motu_filter_elegant));
-        motuFilterImageMap.put("clheibai", Integer.valueOf(u.motu_filter_gray));
+        motuFilterImageMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, Integer.valueOf(p.motu_filter_normal));
+        motuFilterImageMap.put("clvivid", Integer.valueOf(p.motu_filter_skin));
+        motuFilterImageMap.put("cllomoscenery", Integer.valueOf(p.motu_filter_lomo));
+        motuFilterImageMap.put("clcaisefupian", Integer.valueOf(p.motu_filter_classichdr));
+        motuFilterImageMap.put("clm3", Integer.valueOf(p.motu_filter_nashiv));
+        motuFilterImageMap.put("cqiuse", Integer.valueOf(p.motu_filter_fleeting));
+        motuFilterImageMap.put("clzaoan", Integer.valueOf(p.motu_filter_bluetone));
+        motuFilterImageMap.put("clfuguscenery", Integer.valueOf(p.motu_filter_elegant));
+        motuFilterImageMap.put("clheibai", Integer.valueOf(p.motu_filter_gray));
     }
 
     public boolean isLiveRecordOpen() {
-        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.b.f.gz().ag("switch_live_record") == 0;
+        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && f.gD().ai("switch_live_record") == 0;
     }
 
     public String gettShopUrl() {
@@ -283,10 +299,5 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
 
     public String getAppUploadMd5() {
         return TbadkSettings.getInst().loadString("app_upload_md5", null);
-    }
-
-    @Override // com.baidu.adp.base.b
-    public void onActivityClosed() {
-        clearMemOnActivityEmpty();
     }
 }

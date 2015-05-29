@@ -1,19 +1,15 @@
 package com.baidu.tieba.write.write;
-
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-class cg implements Runnable {
-    final /* synthetic */ cb cyM;
+class cg implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ cc cDe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cb cbVar) {
-        this.cyM = cbVar;
+    public cg(cc ccVar) {
+        this.cDe = ccVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        WriteImageActivity writeImageActivity;
-        writeImageActivity = this.cyM.this$0;
-        writeImageActivity.hX(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

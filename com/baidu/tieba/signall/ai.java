@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<Object, Integer, SignData> {
-    private volatile com.baidu.tbadk.core.util.aa ZF;
-    final /* synthetic */ ag cfr;
+    private volatile com.baidu.tbadk.core.util.aa aaG;
+    final /* synthetic */ ag cjv;
 
     private ai(ag agVar) {
-        this.cfr = agVar;
-        this.ZF = null;
+        this.cjv = agVar;
+        this.aaG = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,7 +29,7 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: r */
+    /* renamed from: u */
     public SignData doInBackground(Object... objArr) {
         SignData signData;
         Exception e;
@@ -38,24 +38,24 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.ZF = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-            com.baidu.tbadk.core.util.aa aaVar = this.ZF;
-            str = this.cfr.mForumName;
+            this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
+            com.baidu.tbadk.core.util.aa aaVar = this.aaG;
+            str = this.cjv.mForumName;
             aaVar.o("kw", str);
-            com.baidu.tbadk.core.util.aa aaVar2 = this.ZF;
-            str2 = this.cfr.mForumId;
+            com.baidu.tbadk.core.util.aa aaVar2 = this.aaG;
+            str2 = this.cjv.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
-            this.ZF.sp().tp().mIsNeedTbs = true;
-            String rO = this.ZF.rO();
-            if (!this.ZF.ss() || !this.ZF.sp().tq().pv()) {
+            this.aaG.sX().tS().mIsNeedTbs = true;
+            String sw = this.aaG.sw();
+            if (!this.aaG.ta() || !this.aaG.sX().tT().qa()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(rO);
-                str3 = this.cfr.mForumId;
+                signData.parserJson(sw);
+                str3 = this.cjv.mForumId;
                 signData.setForumId(str3);
-                str4 = this.cfr.mForumName;
+                str4 = this.cjv.mForumName;
                 signData.setForumName(str4);
                 return signData;
             } catch (Exception e2) {
@@ -73,14 +73,14 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
     public void cancel() {
         ah ahVar;
         String str;
-        if (this.ZF != null) {
-            this.ZF.hh();
+        if (this.aaG != null) {
+            this.aaG.gS();
         }
-        this.cfr.cfp = null;
+        this.cjv.cjt = null;
         super.cancel(true);
-        ahVar = this.cfr.cfq;
-        str = this.cfr.mForumId;
-        ahVar.aU(str, null);
+        ahVar = this.cjv.cju;
+        str = this.cjv.mForumId;
+        ahVar.aZ(str, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,17 +92,17 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
         ah ahVar2;
         String str;
         String str2;
-        this.cfr.cfp = null;
-        if (signData != null || this.ZF == null) {
-            ahVar = this.cfr.cfq;
+        this.cjv.cjt = null;
+        if (signData != null || this.aaG == null) {
+            ahVar = this.cjv.cju;
             ahVar.c(signData);
             return;
         }
-        this.cfr.mErrorCode = this.ZF.st();
-        this.cfr.mErrorString = this.ZF.getErrorString();
-        ahVar2 = this.cfr.cfq;
-        str = this.cfr.mForumId;
-        str2 = this.cfr.mErrorString;
-        ahVar2.aU(str, str2);
+        this.cjv.mErrorCode = this.aaG.tb();
+        this.cjv.mErrorString = this.aaG.getErrorString();
+        ahVar2 = this.cjv.cju;
+        str = this.cjv.mForumId;
+        str2 = this.cjv.mErrorString;
+        ahVar2.aZ(str, str2);
     }
 }

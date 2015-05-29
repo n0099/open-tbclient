@@ -2,23 +2,23 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac {
-    public static int apK;
-    public static int apL;
-    public static int apM;
+    public static int aqM;
+    public static int aqN;
+    public static int aqO;
 
-    public static void CD() {
-        com.baidu.adp.lib.stats.q hC = ab.hC();
-        hC.r("action", "imbusy");
-        hC.r("totalNum", String.valueOf(apK));
-        hC.r("tfailNum", String.valueOf(apL));
-        hC.r("qfailNum", String.valueOf(apM));
-        com.baidu.adp.lib.stats.f.hP().b("im", hC);
+    public static void Do() {
+        com.baidu.adp.lib.stats.q hm = ab.hm();
+        hm.r("action", "imbusy");
+        hm.r("totalNum", String.valueOf(aqM));
+        hm.r("tfailNum", String.valueOf(aqN));
+        hm.r("qfailNum", String.valueOf(aqO));
+        com.baidu.adp.lib.stats.f.hz().b("im", hm);
         resetData();
     }
 
     public static void resetData() {
-        apK = 0;
-        apL = 0;
-        apM = 0;
+        aqM = 0;
+        aqN = 0;
+        aqO = 0;
     }
 }

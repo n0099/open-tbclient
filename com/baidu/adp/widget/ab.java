@@ -4,7 +4,7 @@ import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
 abstract class ab {
     public static final Interpolator sInterpolator = new ac();
-    public static final Interpolator EZ = new ad();
+    public static final Interpolator EO = new ad();
 
     public static int a(float f, float f2, boolean z) {
         if (z) {

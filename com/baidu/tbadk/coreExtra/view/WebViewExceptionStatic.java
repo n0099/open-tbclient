@@ -4,6 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class WebViewExceptionStatic {
     static {
-        MessageManager.getInstance().registerListener(new ax(2016301));
+        MessageManager.getInstance().registerListener(new ay(2016301));
     }
 }

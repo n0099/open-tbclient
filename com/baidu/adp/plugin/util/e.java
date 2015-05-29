@@ -1,55 +1,65 @@
 package com.baidu.adp.plugin.util;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
+import dalvik.system.DexClassLoader;
+import dalvik.system.DexFile;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<Class<?>, Class<?>> EQ = new HashMap<>();
-
-    static {
-        EQ.put(Boolean.class, Boolean.TYPE);
-        EQ.put(Byte.class, Byte.TYPE);
-        EQ.put(Character.class, Character.TYPE);
-        EQ.put(Short.class, Short.TYPE);
-        EQ.put(Integer.class, Integer.TYPE);
-        EQ.put(Float.class, Float.TYPE);
-        EQ.put(Long.class, Long.TYPE);
-        EQ.put(Double.class, Double.TYPE);
-        EQ.put(Boolean.TYPE, Boolean.TYPE);
-        EQ.put(Byte.TYPE, Byte.TYPE);
-        EQ.put(Character.TYPE, Character.TYPE);
-        EQ.put(Short.TYPE, Short.TYPE);
-        EQ.put(Integer.TYPE, Integer.TYPE);
-        EQ.put(Float.TYPE, Float.TYPE);
-        EQ.put(Long.TYPE, Long.TYPE);
-        EQ.put(Double.TYPE, Double.TYPE);
-    }
-
-    public static Method a(Object obj, String str, Class<?>[] clsArr) {
-        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
+    public static DexFile a(ClassLoader classLoader) {
+        if (classLoader == null) {
+            return null;
+        }
+        boolean z = true;
+        try {
+            Class.forName("dalvik.system.BaseDexClassLoader");
+        } catch (ClassNotFoundException e) {
+            z = false;
+        }
+        if (!z) {
+            Object a = a(classLoader, DexClassLoader.class, "mDexs");
+            if (a == null) {
+                return null;
+            }
             try {
-                return cls.getDeclaredMethod(str, clsArr);
-            } catch (Exception e) {
+                return (DexFile) Array.get(a, 0);
+            } catch (Exception e2) {
+            }
+        } else {
+            Object t = t(s(classLoader));
+            if (t == null) {
+                return null;
+            }
+            try {
+                return (DexFile) a(Array.get(t, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+            } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    public static Object a(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
-        Method a = a(obj, str, clsArr);
-        if (a != null) {
-            try {
-                a.setAccessible(true);
-                return a.invoke(obj, objArr);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-            }
+    private static Object t(Object obj) {
+        if (obj == null) {
+            return null;
         }
-        return null;
+        return a(obj, obj.getClass(), "dexElements");
+    }
+
+    private static Object a(Object obj, Class<?> cls, String str) {
+        try {
+            Field declaredField = cls.getDeclaredField(str);
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        } catch (NoSuchFieldException | SecurityException | Exception e) {
+            return null;
+        }
+    }
+
+    private static Object s(Object obj) {
+        try {
+            return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
+        } catch (ClassNotFoundException | Exception e) {
+            return null;
+        }
     }
 }

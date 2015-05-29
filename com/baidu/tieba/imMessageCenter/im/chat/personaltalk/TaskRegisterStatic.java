@@ -13,6 +13,6 @@ public class TaskRegisterStatic {
         com.baidu.tieba.im.e.b(2001147, c.class);
         com.baidu.tieba.im.e.b(2001150, e.class);
         com.baidu.tieba.im.e.b(2001153, d.class);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Uy().registerListener();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.VP().registerListener();
     }
 }

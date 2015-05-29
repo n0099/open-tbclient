@@ -1,23 +1,39 @@
 package com.baidu.tieba.pb.pb.sub;
+
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements com.baidu.tbadk.editortool.v {
-    private final /* synthetic */ com.baidu.tbadk.editortool.v aIJ;
-    final /* synthetic */ l bOv;
+public class t implements com.baidu.tieba.pb.b.e {
+    final /* synthetic */ s bPT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(l lVar, com.baidu.tbadk.editortool.v vVar) {
-        this.bOv = lVar;
-        this.aIJ = vVar;
+    public t(s sVar) {
+        this.bPT = sVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.v
-    public void handleAction(int i, Object obj) {
-        if (i == 0) {
-            this.aIJ.handleAction(26, obj);
-        } else if (i == 10) {
-            this.aIJ.handleAction(27, obj);
-        } else if (i != 34 && i != 33) {
-            this.aIJ.handleAction(i, obj);
+    @Override // com.baidu.tieba.pb.b.e
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.bPT.ee(false);
+        this.bPT.O(view);
+        this.bPT.ee(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.b.e
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.b.e
+    public boolean c(View view, MotionEvent motionEvent) {
+        boolean z;
+        z = this.bPT.bPR;
+        if (!z) {
+            this.bPT.ade();
+            return true;
         }
+        this.bPT.bPR = false;
+        return true;
     }
 }

@@ -29,7 +29,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
         QueryLiveGroupsByFidResIdl queryLiveGroupsByFidResIdl = (QueryLiveGroupsByFidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupsByFidResIdl.class);
         setError(queryLiveGroupsByFidResIdl.error.errorno.intValue());
         setErrorString(queryLiveGroupsByFidResIdl.error.usermsg);
-        if (getError() == 0) {
+        if (getError() == 0 && queryLiveGroupsByFidResIdl.data != null && queryLiveGroupsByFidResIdl.data.groups != null) {
             this.frsLiveListData = new FrsLiveListData();
             this.frsLiveListData.setHasMore(queryLiveGroupsByFidResIdl.data.hasMore.intValue());
             this.frsLiveListData.setGroups(new ArrayList());
@@ -57,6 +57,10 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 liveCardData.setStatus(liveGroupInfo.status.intValue());
                 liveCardData.setStreamId(liveGroupInfo.streamId);
                 liveCardData.setFlag(liveGroupInfo.flag.intValue());
+                liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
+                if (liveGroupInfo.label != null) {
+                    liveCardData.setLabelName(liveGroupInfo.label.labelName);
+                }
                 if (liveGroupInfo.fromType == null) {
                     liveCardData.setFromType(0);
                 } else {
@@ -65,30 +69,36 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 this.frsLiveListData.getGroups().add(liveCardData);
             }
             this.frsLiveListData.setHotGroups(new ArrayList());
-            for (int i3 = 0; i3 < queryLiveGroupsByFidResIdl.data.hotGroups.size(); i3++) {
-                LiveCardData liveCardData2 = new LiveCardData();
-                LiveGroupInfo liveGroupInfo2 = queryLiveGroupsByFidResIdl.data.hotGroups.get(i3);
-                liveCardData2.setAuthorId(liveGroupInfo2.authorId.intValue());
-                liveCardData2.setAuthorName(liveGroupInfo2.authorName);
-                liveCardData2.setBackground(liveGroupInfo2.background);
-                liveCardData2.setCreateTime(liveGroupInfo2.createTime.intValue());
-                liveCardData2.setDeviceId(liveGroupInfo2.deviceId.intValue());
-                liveCardData2.setForumId(liveGroupInfo2.forumId.intValue());
-                liveCardData2.setForumName(liveGroupInfo2.forumName);
-                liveCardData2.setGroupId(liveGroupInfo2.groupId.intValue());
-                liveCardData2.setGroupType(liveGroupInfo2.groupType.intValue());
-                liveCardData2.setIntro(liveGroupInfo2.intro);
-                liveCardData2.setLikers(liveGroupInfo2.likers.intValue());
-                liveCardData2.setListeners(liveGroupInfo2.listeners.intValue());
-                liveCardData2.setName(liveGroupInfo2.name);
-                liveCardData2.setPortrait(liveGroupInfo2.portrait);
-                liveCardData2.setPublisherId(liveGroupInfo2.publisherId.intValue());
-                liveCardData2.setPublisherName(liveGroupInfo2.publisherName);
-                liveCardData2.setPublisherPortrait(liveGroupInfo2.publisherPortrait);
-                liveCardData2.setStartTime(liveGroupInfo2.startTime.intValue());
-                liveCardData2.setStatus(liveGroupInfo2.status.intValue());
-                liveCardData2.setStreamId(liveGroupInfo2.streamId);
-                this.frsLiveListData.getHotGroups().add(liveCardData2);
+            if (queryLiveGroupsByFidResIdl.data.hotGroups != null) {
+                for (int i3 = 0; i3 < queryLiveGroupsByFidResIdl.data.hotGroups.size(); i3++) {
+                    LiveCardData liveCardData2 = new LiveCardData();
+                    LiveGroupInfo liveGroupInfo2 = queryLiveGroupsByFidResIdl.data.hotGroups.get(i3);
+                    liveCardData2.setAuthorId(liveGroupInfo2.authorId.intValue());
+                    liveCardData2.setAuthorName(liveGroupInfo2.authorName);
+                    liveCardData2.setBackground(liveGroupInfo2.background);
+                    liveCardData2.setCreateTime(liveGroupInfo2.createTime.intValue());
+                    liveCardData2.setDeviceId(liveGroupInfo2.deviceId.intValue());
+                    liveCardData2.setForumId(liveGroupInfo2.forumId.intValue());
+                    liveCardData2.setForumName(liveGroupInfo2.forumName);
+                    liveCardData2.setGroupId(liveGroupInfo2.groupId.intValue());
+                    liveCardData2.setGroupType(liveGroupInfo2.groupType.intValue());
+                    liveCardData2.setIntro(liveGroupInfo2.intro);
+                    liveCardData2.setLikers(liveGroupInfo2.likers.intValue());
+                    liveCardData2.setListeners(liveGroupInfo2.listeners.intValue());
+                    liveCardData2.setName(liveGroupInfo2.name);
+                    liveCardData2.setPortrait(liveGroupInfo2.portrait);
+                    liveCardData2.setPublisherId(liveGroupInfo2.publisherId.intValue());
+                    liveCardData2.setPublisherName(liveGroupInfo2.publisherName);
+                    liveCardData2.setPublisherPortrait(liveGroupInfo2.publisherPortrait);
+                    liveCardData2.setIsVip(liveGroupInfo2.isVip.intValue());
+                    liveCardData2.setStartTime(liveGroupInfo2.startTime.intValue());
+                    liveCardData2.setStatus(liveGroupInfo2.status.intValue());
+                    liveCardData2.setStreamId(liveGroupInfo2.streamId);
+                    if (liveGroupInfo2.label != null) {
+                        liveCardData2.setLabelName(liveGroupInfo2.label.labelName);
+                    }
+                    this.frsLiveListData.getHotGroups().add(liveCardData2);
+                }
             }
         }
     }

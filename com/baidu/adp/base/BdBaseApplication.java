@@ -3,7 +3,7 @@ package com.baidu.adp.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.n;
+import android.content.res.Resources;
 import com.baidu.megapp.ma.MAApplication;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
@@ -11,9 +11,11 @@ public class BdBaseApplication extends MAApplication {
     private static BdBaseApplication sApp = null;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
+    private boolean mIsPluginResourceOpen = true;
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
+        l.dJ().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -26,19 +28,14 @@ public class BdBaseApplication extends MAApplication {
     public void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        n.L(application);
+        com.baidu.adp.lib.util.n.L(application);
         initWorkMode();
         initBitmapHelper();
-        initHttpManager();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.lj().init();
-    }
-
-    private void initHttpManager() {
-        com.baidu.adp.lib.network.willdelete.e.hu().init(this.mContext, false);
+        com.baidu.adp.plugin.c.a.lD().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -80,7 +77,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.e.it().K(this.mContext);
+        com.baidu.adp.lib.util.e.iK().K(this.mContext);
     }
 
     public void onAppMemoryLow() {
@@ -98,5 +95,19 @@ public class BdBaseApplication extends MAApplication {
 
     public int getActivityStackMaxSize() {
         return a.dF().getActivityStackMaxSize();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        Resources resources = l.dJ().getResources();
+        return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
+    }
+
+    public void setIsPluginResourceOpen(boolean z) {
+        this.mIsPluginResourceOpen = z;
+    }
+
+    public boolean getIsPluginResourcOpen() {
+        return this.mIsPluginResourceOpen;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.adp.framework.client.socket.link;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface g {
-    void G(String str);
+    void J(String str);
 
     void a(com.baidu.adp.lib.webSocket.c cVar);
 

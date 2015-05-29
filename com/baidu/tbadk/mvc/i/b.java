@@ -1,9 +1,9 @@
 package com.baidu.tbadk.mvc.i;
 /* loaded from: classes.dex */
 public abstract class b extends d {
-    protected abstract void Bs();
+    protected abstract void Ce();
 
-    protected abstract void Bt();
+    protected abstract void Cf();
 
     public b(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
@@ -17,11 +17,11 @@ public abstract class b extends d {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.AF() == 33554440) {
-            Bs();
+        if (bVar.Br() == 33554440) {
+            Ce();
             return true;
-        } else if (bVar.AF() == 33554441) {
-            Bt();
+        } else if (bVar.Br() == 33554441) {
+            Cf();
             return true;
         } else {
             return false;

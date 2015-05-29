@@ -1,19 +1,12 @@
 package com.baidu.tbadk.browser;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tbadk.core.util.bo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.bl;
+import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
-public class i implements bn {
-    @Override // com.baidu.tbadk.core.util.bn
-    public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bo boVar) {
-        String bG;
-        bG = Static.bG(str2);
-        if (z) {
-            com.baidu.tbadk.coreExtra.util.a.a(tbPageContext, new j(this, tbPageContext, str, bG), new k(this), bG);
-        } else {
-            f.f(tbPageContext.getContext(), str, bG);
-        }
+class i implements bl {
+    @Override // com.baidu.tbadk.core.util.bl
+    public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bm bmVar) {
+        Static.a(tbPageContext, str2, str, z, true, true, true);
     }
 }

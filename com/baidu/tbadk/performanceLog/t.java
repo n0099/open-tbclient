@@ -4,10 +4,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ r apk;
+    final /* synthetic */ r aqo;
 
     public t(r rVar) {
-        this.apk = rVar;
+        this.aqo = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -15,8 +15,8 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        this.apk.aoV = ah.CQ().CU();
-        this.apk.CD();
+        this.aqo.aqa = ah.DB().DF();
+        this.aqo.Do();
         return Boolean.TRUE;
     }
 

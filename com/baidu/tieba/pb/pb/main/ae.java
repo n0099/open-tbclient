@@ -1,21 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bIJ;
-    private final /* synthetic */ dj bIK;
+public class ae extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(PbActivity pbActivity, dj djVar) {
-        this.bIJ = pbActivity;
-        this.bIK = djVar;
+    public ae(PbActivity pbActivity) {
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bIJ.HidenSoftKeyPad((InputMethodManager) this.bIJ.getSystemService("input_method"), this.bIK.getChatMsgView());
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.bKT.aJR;
+        com.baidu.tbadk.core.util.o.deleteFile(new File(append.append(str).toString()));
+        return null;
     }
 }

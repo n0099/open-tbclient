@@ -7,37 +7,37 @@ import java.util.HashMap;
 public class f implements i {
     private String mThreadId = "";
     private String mPostId = "";
-    private String bNg = "";
-    private boolean bNh = true;
-    private int bNi = 1;
+    private String bPe = "";
+    private boolean bPf = true;
+    private int bPg = 1;
 
     public void j(Bundle bundle) {
         this.mThreadId = bundle.getString("thread_id");
         this.mPostId = bundle.getString("post_id");
-        this.bNg = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
-        this.bNh = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true);
+        this.bPe = bundle.getString(com.baidu.tbadk.core.frameworkData.c.POST_DESC);
+        this.bPf = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.c.IS_FROM_PB, true);
     }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, this.bNh);
+        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.c.IS_FROM_PB, this.bPf);
         bundle.putString("thread_id", this.mThreadId);
         bundle.putString("post_id", this.mPostId);
-        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_DESC, this.bNg);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.c.POST_DESC, this.bPe);
         return bundle;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oC() {
+    public HashMap<String, Object> oS() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("post_id", new StringBuilder(String.valueOf(this.mPostId)).toString());
-        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bNi)).toString());
+        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bPg)).toString());
         hashMap.put("res_num", "20");
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object V(boolean z) {
+    public Object Y(boolean z) {
         return null;
     }
 
@@ -45,15 +45,15 @@ public class f implements i {
         return this.mThreadId;
     }
 
-    public boolean abX() {
-        return this.bNh;
+    public boolean acP() {
+        return this.bPf;
     }
 
-    public void abY() {
-        this.bNi++;
+    public void acQ() {
+        this.bPg++;
     }
 
     public int getPageNum() {
-        return this.bNi;
+        return this.bPg;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.g;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +7,13 @@ import android.view.ViewGroup;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b wO = new b();
+    private static b vS = new b();
 
     private b() {
     }
 
-    public static b hH() {
-        return wO;
+    public static b hr() {
+        return vS;
     }
 
     private LayoutInflater F(Context context) {
@@ -80,19 +79,5 @@ public class b {
             }
         }
         return view;
-    }
-
-    public boolean a(Activity activity, int i) {
-        if (BdBaseApplication.getInst().isDebugMode()) {
-            activity.setContentView(i);
-        } else {
-            try {
-                activity.setContentView(i);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return true;
     }
 }

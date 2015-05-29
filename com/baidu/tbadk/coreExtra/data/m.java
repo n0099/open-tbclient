@@ -3,67 +3,67 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private String abc;
-    private String abd;
-    private String abe;
-    private String abf;
-    private String abg;
-    private String abh;
-    private String abi;
-    private String abj;
-    private String abk;
+    private String acg;
+    private String ach;
+    private String aci;
+    private String acj;
+    private String ack;
+    private String acl;
+    private String acm;
+    private String acn;
+    private String aco;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.abc = jSONObject.optString("drop_pic");
-                this.abd = jSONObject.optString("drop_pic_md5");
-                this.abe = jSONObject.optString("drop_pic_num");
-                this.abf = jSONObject.optString("drop_bg_color_day");
-                this.abg = jSONObject.optString("drop_bg_color_night");
-                this.abh = jSONObject.optString("apply_vip_live_room_pid");
-                this.abi = jSONObject.optString("max_cache");
-                this.abj = jSONObject.optString("frs_max_cache");
-                this.abk = jSONObject.optString("frs_pn");
+                this.acg = jSONObject.optString("drop_pic");
+                this.ach = jSONObject.optString("drop_pic_md5");
+                this.aci = jSONObject.optString("drop_pic_num");
+                this.acj = jSONObject.optString("drop_bg_color_day");
+                this.ack = jSONObject.optString("drop_bg_color_night");
+                this.acl = jSONObject.optString("apply_vip_live_room_pid");
+                this.acm = jSONObject.optString("max_cache");
+                this.acn = jSONObject.optString("frs_max_cache");
+                this.aco = jSONObject.optString("frs_pn");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String uN() {
-        return this.abh;
+    public String vx() {
+        return this.acl;
     }
 
-    public String uO() {
-        return this.abc;
+    public String vy() {
+        return this.acg;
     }
 
-    public String uP() {
-        return this.abd;
+    public String vz() {
+        return this.ach;
     }
 
-    public String uQ() {
-        return this.abe;
+    public String vA() {
+        return this.aci;
     }
 
-    public String uR() {
-        return this.abf;
+    public String vB() {
+        return this.acj;
     }
 
-    public String uS() {
-        return this.abg;
+    public String vC() {
+        return this.ack;
     }
 
-    public String uT() {
-        return this.abi;
+    public String vD() {
+        return this.acm;
     }
 
-    public String uU() {
-        return this.abj;
+    public String vE() {
+        return this.acn;
     }
 
-    public String uV() {
-        return this.abk;
+    public String vF() {
+        return this.aco;
     }
 }

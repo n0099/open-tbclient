@@ -3,17 +3,17 @@ package com.baidu.tieba.write.write;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
 class cd implements Runnable {
-    final /* synthetic */ cb cyM;
+    final /* synthetic */ cc cDe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cb cbVar) {
-        this.cyM = cbVar;
+    public cd(cc ccVar) {
+        this.cDe = ccVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         WriteImageActivity writeImageActivity;
-        writeImageActivity = this.cyM.this$0;
-        writeImageActivity.hX(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+        writeImageActivity = this.cDe.this$0;
+        writeImageActivity.iB(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

@@ -4,20 +4,20 @@ import android.os.Handler;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PersonalMsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalChatActivity bpo;
+    final /* synthetic */ PersonalChatActivity brU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonalChatActivity personalChatActivity, int i, boolean z) {
         super(i, z);
-        this.bpo = personalChatActivity;
+        this.brU = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,37 +35,37 @@ class f extends com.baidu.adp.framework.listener.e {
         Runnable runnable;
         long j2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.bpo.bpf = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.bpo.bpf;
+            this.brU.brL = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.brU.brL;
             if (bVar != null) {
-                msglistModel = this.bpo.mListModel;
+                msglistModel = this.brU.mListModel;
                 UserData user = ((PersonalMsglistModel) msglistModel).getUser();
                 if (user != null) {
-                    absMsglistView = this.bpo.mListView;
+                    absMsglistView = this.brU.mListView;
                     String userName = user.getUserName();
-                    bVar2 = this.bpo.bpf;
+                    bVar2 = this.brU.brL;
                     absMsglistView.refreshPersonalHeadFooter(userName, bVar2);
-                    PersonalChatActivity personalChatActivity = this.bpo;
-                    PersonalChatActivity personalChatActivity2 = this.bpo;
-                    bVar3 = this.bpo.bpf;
-                    personalChatActivity.bpe = personalChatActivity2.ha(bd.m(bVar3.getTime()));
-                    j = this.bpo.bpe;
+                    PersonalChatActivity personalChatActivity = this.brU;
+                    PersonalChatActivity personalChatActivity2 = this.brU;
+                    bVar3 = this.brU.brL;
+                    personalChatActivity.brK = personalChatActivity2.hD(bb.n(bVar3.getTime()));
+                    j = this.brU.brK;
                     if (j != 0) {
-                        handler = this.bpo.mHandler;
-                        runnable = this.bpo.bpj;
-                        j2 = this.bpo.bpe;
+                        handler = this.brU.mHandler;
+                        runnable = this.brU.brP;
+                        j2 = this.brU.brK;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f Ud = PersonalChatActivityStatic.Ud();
-                    str = this.bpo.bpg;
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f Vr = PersonalChatActivityStatic.Vr();
+                    str = this.brU.brM;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
-                    bVar4 = this.bpo.bpf;
-                    Ud.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    bVar4 = this.brU.brL;
+                    Vr.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().oN();
+            TbadkCoreApplication.m411getInst().getAlarmManager().pn();
         }
     }
 }

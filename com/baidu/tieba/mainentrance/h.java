@@ -5,5 +5,5 @@ import java.util.List;
 public interface h {
     void aN(List<e> list);
 
-    void ht(String str);
+    void hX(String str);
 }

@@ -4,15 +4,15 @@ import android.view.View;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
 class i implements com.baidu.tbadk.core.dialog.h {
-    private final /* synthetic */ ImMessageCenterShowItemData bpT;
-    final /* synthetic */ StrangerListActivity btU;
-    private final /* synthetic */ int btV;
+    private final /* synthetic */ ImMessageCenterShowItemData bsy;
+    final /* synthetic */ StrangerListActivity bwD;
+    private final /* synthetic */ int bwE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.btU = strangerListActivity;
-        this.btV = i;
-        this.bpT = imMessageCenterShowItemData;
+        this.bwD = strangerListActivity;
+        this.bwE = i;
+        this.bsy = imMessageCenterShowItemData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -21,15 +21,15 @@ class i implements com.baidu.tbadk.core.dialog.h {
         com.baidu.tieba.im.chat.notify.a aVar;
         StrangerListModel strangerListModel2;
         eVar.dismiss();
-        if (this.btV == 1) {
-            strangerListModel2 = this.btU.btP;
-            strangerListModel2.VU();
-            this.btU.finish();
+        if (this.bwE == 1) {
+            strangerListModel2 = this.bwD.bwy;
+            strangerListModel2.Xm();
+            this.bwD.finish();
             return;
         }
-        strangerListModel = this.btU.btP;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.bpT;
-        aVar = this.btU.aZT;
+        strangerListModel = this.bwD.bwy;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.bsy;
+        aVar = this.bwD.bcA;
         strangerListModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

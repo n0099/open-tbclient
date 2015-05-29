@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class ScreenLockActivityConfig extends a {
+public class ScreenLockActivityConfig extends c {
     private static final String CHAT_CONTENT = "chat_content";
     private static final String CHAT_NAME = "chat_name";
 

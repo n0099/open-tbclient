@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PluginDownloadServiceConfig extends a {
+public class PluginDownloadServiceConfig extends c {
     public static final String BACKGROUND_DOWNLOAD = "background_download";
     public static final String DOWNLOAD_NAMES = "download_names";
 

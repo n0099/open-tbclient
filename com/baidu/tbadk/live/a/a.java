@@ -18,7 +18,7 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        byte[] bArr = com.baidu.tbadk.core.b.a.rc().bW("tb.live_hotlist").get("mylive_" + valueOf + currentAccount);
+        byte[] bArr = com.baidu.tbadk.core.b.a.rI().cj("tb.live_hotlist").get("mylive_" + valueOf + currentAccount);
         ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = new ResponseMyLiveListLocalMessage();
         try {
             responseMyLiveListLocalMessage.decodeInBackGround(2001165, bArr);

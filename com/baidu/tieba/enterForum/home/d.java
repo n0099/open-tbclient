@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aDb;
+    final /* synthetic */ a aFd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.aDb = aVar;
+        this.aFd = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -18,14 +18,14 @@ public class d implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tieba.enterForum.d.e eVar;
         com.baidu.tieba.enterForum.c.c cVar;
         long j;
-        baseFragmentActivity = this.aDb.aCN;
+        baseFragmentActivity = this.aFd.azk;
         TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
-        eVar = this.aDb.aCJ;
-        eVar.HB();
-        this.aDb.aCR = System.currentTimeMillis();
-        cVar = this.aDb.aCK;
-        j = this.aDb.aCR;
-        cVar.N(j);
+        eVar = this.aFd.aEL;
+        eVar.IB();
+        this.aFd.aES = System.currentTimeMillis();
+        cVar = this.aFd.aEM;
+        j = this.aFd.aES;
+        cVar.O(j);
         aVar.dismiss();
     }
 }

@@ -1,78 +1,63 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class by extends av<com.baidu.tieba.tbadkCore.aj, bx> implements View.OnClickListener {
-    private boolean aMx;
+public class by extends com.baidu.adp.widget.ListView.e {
+    private View.OnClickListener ZA;
+    private final int aKj;
+    private boolean aOI;
+    private bz aOp;
+    private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public by(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
-        super(frsActivity, bdUniqueId);
-        this.aMx = TbadkCoreApplication.m411getInst().appResponseToCmd(2002006);
+    @Override // com.baidu.adp.widget.ListView.e
+    public View ng() {
+        View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.frs_item_control, null);
+        this.aOp = new bz();
+        this.aOp.aOJ = (FrameLayout) inflate.findViewById(com.baidu.tieba.q.frs_list_control);
+        this.aOp.aOK = (LinearLayout) inflate.findViewById(com.baidu.tieba.q.frs_list_control_in);
+        this.aOp.aOM = (ProgressBar) inflate.findViewById(com.baidu.tieba.q.frs_list_control_progress);
+        this.aOp.aOL = (TextView) inflate.findViewById(com.baidu.tieba.q.frs_list_control_tv);
+        inflate.setTag(this.aOp);
+        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        return inflate;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public bx a(ViewGroup viewGroup) {
-        return new bx(com.baidu.adp.lib.g.b.hH().inflate(this.mContext, com.baidu.tieba.w.frs_official_account_item, null));
+    public void onChangeSkinType(int i) {
+        if (this.aOp != null) {
+            com.baidu.tbadk.core.util.ay.i(this.aOp.aOK, com.baidu.tieba.p.frs_item_control_bg);
+            com.baidu.tbadk.core.util.ay.c(this.aOp.aOL, i);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.aj ajVar, bx bxVar) {
-        super.a(i, view, viewGroup, (ViewGroup) ajVar, (com.baidu.tieba.tbadkCore.aj) bxVar);
-        if (ajVar.alf()) {
-            String alg = ajVar.alg();
-            if (alg != null) {
-                bxVar.aMu.setText(alg);
-            } else if (this.aJd.Za() != null && this.aJd.Za().getName() != null) {
-                bxVar.aMu.setText(this.mContext.getString(com.baidu.tieba.y.get_fortune_hint_format, this.aJd.Za().getName()));
+    public void bW(boolean z) {
+        this.aOI = z;
+        if (this.aOp != null) {
+            this.aOp.aOJ.setVisibility(0);
+            this.aOp.aOJ.setPadding(0, this.aKj, 0, 0);
+            if (z) {
+                this.aOp.aOL.setText(com.baidu.tieba.t.loading);
+                this.aOp.aOM.setVisibility(0);
+                return;
             }
-            bxVar.aMt.setTag(Integer.valueOf(i));
-            bxVar.aMt.setOnClickListener(this);
-            bxVar.aMt.setVisibility(0);
-        } else {
-            bxVar.aMt.setVisibility(8);
+            this.aOp.aOL.setText(com.baidu.tieba.t.frs_pre);
+            this.aOp.aOM.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.x alh = ajVar.alh();
-        if (alh != null && alh.alb() && !TextUtils.isEmpty(alh.alc())) {
-            bxVar.aMw.setText(alh.alc());
-            bxVar.aMv.setTag(Integer.valueOf(i));
-            bxVar.aMv.setOnClickListener(this);
-            bxVar.aMv.setVisibility(0);
-        } else {
-            bxVar.aMv.setVisibility(8);
-        }
-        this.aKd.getLayoutMode().X(this.mSkinType == 1);
-        this.aKd.getLayoutMode().h(view);
-        if (!this.aMx && !ajVar.alf()) {
-            return new View(this.mContext);
-        }
-        return view;
     }
 
-    public int JQ() {
-        return com.baidu.tieba.v.frs_fortune_bag_item;
+    public void j(View.OnClickListener onClickListener) {
+        this.ZA = onClickListener;
     }
 
-    public int JR() {
-        return com.baidu.tieba.v.frs_my_service_item;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aKM != null) {
-            int id = view.getId();
-            int intValue = ((Integer) view.getTag()).intValue();
-            View childAt = this.mListView.getChildAt(intValue - (this.mListView.getFirstVisiblePosition() - this.mListView.getHeaderViewsCount()));
-            this.aKM.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.w) aA(intValue));
+    @Override // com.baidu.adp.widget.ListView.e
+    public void onClick() {
+        if (this.ZA != null) {
+            this.ZA.onClick(getView());
         }
     }
 }

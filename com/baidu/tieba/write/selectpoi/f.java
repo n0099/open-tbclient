@@ -10,7 +10,7 @@ class f implements CustomMessageTask.CustomRunnable<SearchLocationActivityConfig
     public CustomResponsedMessage<?> run(CustomMessage<SearchLocationActivityConfig> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
             customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SearchLocationActivity.class);
-            customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, 0));
+            customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.c.REQUEST_CODE, 0));
         }
         return null;
     }

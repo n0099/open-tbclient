@@ -13,5 +13,5 @@ public interface q {
 
     void setVisibleChangeCallback(r rVar);
 
-    void xb();
+    void xN();
 }

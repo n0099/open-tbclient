@@ -1,0 +1,51 @@
+package com.baidu.tieba.recommendfrs.data;
+
+import com.baidu.adp.lib.util.n;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.util.j;
+import java.util.HashMap;
+import tbclient.FineFrsPage.DataReq;
+import tbclient.FineFrsPage.FinefrspageReqIdl;
+/* loaded from: classes.dex */
+public class g implements i {
+    private int ccd;
+    private String tag;
+
+    public String ahB() {
+        return this.tag;
+    }
+
+    public void ja(String str) {
+        this.tag = str;
+    }
+
+    public void il(int i) {
+        this.ccd = i;
+    }
+
+    public int ahH() {
+        return this.ccd;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, Object> oS() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.l
+    public Object Y(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.publish_time = Integer.valueOf(this.ccd);
+        builder.scr_w = Integer.valueOf(n.M(TbadkCoreApplication.m411getInst()));
+        builder.scr_h = Integer.valueOf(n.N(TbadkCoreApplication.m411getInst()));
+        builder.scr_dip = Double.valueOf(n.O(TbadkCoreApplication.m411getInst()));
+        builder.tag = this.tag;
+        builder.q_type = Integer.valueOf(bc.tB().tD() ? 2 : 1);
+        FinefrspageReqIdl.Builder builder2 = new FinefrspageReqIdl.Builder();
+        builder2.data = builder.build(false);
+        j.a(builder2.data, true);
+        return builder2.build(false);
+    }
+}

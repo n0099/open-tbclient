@@ -1,47 +1,58 @@
 package com.baidu.tieba.pb.chosen;
 
-import android.view.inputmethod.InputMethodManager;
+import android.app.Activity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class b implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbChosenActivity bGl;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.j bGm;
-    private final /* synthetic */ String bGn;
-    private final /* synthetic */ int bGo;
-    private final /* synthetic */ int blE;
+class b implements com.baidu.tieba.pb.chosen.a.g {
+    final /* synthetic */ PbChosenActivity bJa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.j jVar, int i, String str, int i2) {
-        this.bGl = pbChosenActivity;
-        this.bGm = jVar;
-        this.blE = i;
-        this.bGn = str;
-        this.bGo = i2;
+    public b(PbChosenActivity pbChosenActivity) {
+        this.bJa = pbChosenActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // com.baidu.tieba.pb.chosen.a.g
+    public void aU(String str, String str2) {
+        this.bJa.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bJa.getPageContext().getPageActivity(), str, str2)));
+    }
+
+    @Override // com.baidu.tieba.pb.chosen.a.g
+    public void ig(String str) {
+        com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
-        com.baidu.tieba.pb.chosen.net.a aVar5;
-        String str;
-        aVar2 = this.bGl.chosenData;
-        if (aVar2 != null) {
-            aVar3 = this.bGl.chosenData;
-            if (aVar3.getForumInfo() != null) {
-                this.bGl.HidenSoftKeyPad((InputMethodManager) this.bGl.getSystemService("input_method"), this.bGm.getChatMsgView());
-                String leaveMsg = this.bGm.getLeaveMsg();
-                aVar4 = this.bGl.chosenData;
-                aVar5 = this.bGl.chosenData;
-                long longValue = aVar5.getForumInfo().ftid.longValue();
-                str = this.bGl.shareUrl;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bGl.getPageContext().getPageActivity(), this.blE, this.bGn, this.bGo, "from_share", leaveMsg, n.a(aVar4, longValue, str).toChatMessageContent())));
-                aVar.dismiss();
+        if (!StringUtils.isNull(str)) {
+            this.bJa.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bJa.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
+            aVar = this.bJa.chosenData;
+            if (aVar != null) {
+                aVar2 = this.bJa.chosenData;
+                if (aVar2.getForumInfo() != null) {
+                    aVar3 = this.bJa.chosenData;
+                    if (aVar3.getForumInfo().ftid != null) {
+                        Activity pageActivity = this.bJa.getPageContext().getPageActivity();
+                        aVar4 = this.bJa.chosenData;
+                        TiebaStatic.eventStat(pageActivity, "pb_new_sourcefid", null, 1, PbChosenActivityConfig.KEY_TID, aVar4.getForumInfo().ftid);
+                    }
+                }
             }
         }
+    }
+
+    @Override // com.baidu.tieba.pb.chosen.a.g
+    public void ih(String str) {
+        com.baidu.tieba.pb.chosen.net.a aVar;
+        Activity pageActivity = this.bJa.getPageContext().getPageActivity();
+        aVar = this.bJa.chosenData;
+        TiebaStatic.eventStat(pageActivity, "kantie_2", null, 1, PbChosenActivityConfig.KEY_TID, aVar.getForumInfo().ftid);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001328, str));
+        this.bJa.finish();
     }
 }

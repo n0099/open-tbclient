@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class m {
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+    public static void a(String str, int i, long j, int i2, String str2, int i3, String str3) {
         StringBuilder sb = new StringBuilder(50);
         if (i != 0 && i2 != 0) {
             sb.append("cmd = ");
@@ -24,12 +24,8 @@ public class m {
             linkedList.add("lib");
             linkedList.add(str);
             if (i != 0) {
-                linkedList.add(com.baidu.tbadk.core.frameworkData.a.CMD);
+                linkedList.add(com.baidu.tbadk.core.frameworkData.c.CMD);
                 linkedList.add(Integer.valueOf(i));
-            }
-            if (i2 != 0) {
-                linkedList.add("seqID");
-                linkedList.add(Integer.valueOf(i2));
             }
             if (!TextUtils.isEmpty(str2)) {
                 linkedList.add("act");
@@ -43,29 +39,35 @@ public class m {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.f.hP().b("socket", linkedList.toArray());
+            com.baidu.adp.lib.h.a.iB().a("socket", j, i2 == 0 ? null : String.valueOf(i2), linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void eB() {
+    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+        a(str, i, -1L, i2, str2, i3, str3);
+    }
+
+    public static void eE() {
         try {
-            com.baidu.adp.lib.stats.f.hP().b("socket", ImageViewerConfig.URL, com.baidu.adp.lib.webSocket.l.jr().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.l.jr().jo()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.l.jr().jz()), "remote_ip", com.baidu.adp.lib.webSocket.l.jr().jn(), "local_dns", com.baidu.adp.lib.webSocket.l.jr().iX(), "local_dns_bak", com.baidu.adp.lib.webSocket.l.jr().iY(), "net", com.baidu.adp.lib.stats.f.hP().hS());
+            com.baidu.adp.lib.stats.f.hz().b("socket", ImageViewerConfig.URL, com.baidu.adp.lib.webSocket.l.jI().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.l.jI().jF()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.l.jI().jQ()), "remote_ip", com.baidu.adp.lib.webSocket.l.jI().jE(), "local_dns", com.baidu.adp.lib.webSocket.l.jI().jm(), "local_dns_bak", com.baidu.adp.lib.webSocket.l.jI().jn(), "net", com.baidu.adp.lib.stats.f.hz().hC());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-    }
-
-    public static void a(String str, Message<?> message, int i, String str2, String str3) {
-        a(str, message != null ? message.getCmd() : 0, i, str2, 0, str3);
     }
 
     public static void a(String str, Message<?> message, int i, String str2, int i2, String str3) {
         int i3 = 0;
+        long j = 0;
         if (message != null) {
             i3 = message.getCmd();
+            j = message.getClientLogID();
         }
-        a(str, i3, i, str2, i2, str3);
+        a(str, i3, j, i, str2, i2, str3);
+    }
+
+    public static void a(String str, Message<?> message, int i, String str2, String str3) {
+        a(str, message, i, str2, 0, str3);
     }
 }

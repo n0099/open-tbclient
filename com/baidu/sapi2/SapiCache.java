@@ -12,7 +12,8 @@ import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.sapi2.b;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.e;
+import com.baidu.sapi2.utils.g;
+import com.baidu.sapi2.utils.h;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -56,7 +57,7 @@ public final class SapiCache {
 
     static String b(Context context, String str) {
         e();
-        if (com.baidu.sapi2.c.a(context).j().h().a()) {
+        if (com.baidu.sapi2.d.a(context).k().h().a()) {
             String b2 = b(str);
             if (TextUtils.isEmpty(b2)) {
                 b.a.C0004a c2 = c(context, str);
@@ -102,7 +103,7 @@ public final class SapiCache {
     }
 
     static b.a.C0004a c(Context context, String str) {
-        for (b.a.C0004a c0004a : com.baidu.sapi2.c.a(context).j().h().b()) {
+        for (b.a.C0004a c0004a : com.baidu.sapi2.d.a(context).k().h().b()) {
             if (c0004a.a.equals(str)) {
                 return c0004a;
             }
@@ -117,10 +118,11 @@ public final class SapiCache {
         d = context.getApplicationContext();
         a();
         b();
+        SapiAccountManager.getInstance().getAccountService().o();
     }
 
     static void a() {
-        b.a h = com.baidu.sapi2.c.a(d).j().h();
+        b.a h = com.baidu.sapi2.d.a(d).k().h();
         if (h.a()) {
             for (b.a.C0004a c0004a : h.b()) {
                 b.add(c0004a.a);
@@ -205,6 +207,9 @@ public final class SapiCache {
     static void b() {
         if (SapiUtils.hasActiveNetwork(d)) {
             RequestParams c2 = c();
+            if (!TextUtils.isEmpty(h.b(g.z))) {
+                c2.put("di", h.b(g.z));
+            }
             c2.put("cdnversion", String.valueOf((int) (System.currentTimeMillis() / 300000)));
             try {
                 new AsyncHttpClient().get(d, d(), c2, new b());
@@ -223,12 +228,12 @@ public final class SapiCache {
         @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
         public void onSuccess(JSONObject jSONObject) {
             if (jSONObject != null) {
-                com.baidu.sapi2.b j = com.baidu.sapi2.c.a(SapiCache.d).j();
+                com.baidu.sapi2.b k = com.baidu.sapi2.d.a(SapiCache.d).k();
                 com.baidu.sapi2.b a2 = com.baidu.sapi2.b.a(jSONObject);
                 b.a h = a2.h();
-                com.baidu.sapi2.c.a(SapiCache.d).a(a2);
-                com.baidu.sapi2.share.c.c();
-                com.baidu.sapi2.share.c.d();
+                com.baidu.sapi2.d.a(SapiCache.d).a(a2);
+                com.baidu.sapi2.share.b.b();
+                com.baidu.sapi2.share.b.c();
                 SapiCache.c.clear();
                 if (h.a()) {
                     for (b.a.C0004a c0004a : h.b()) {
@@ -236,7 +241,7 @@ public final class SapiCache {
                     }
                     for (b.a.C0004a c0004a2 : h.b()) {
                         b.a.C0004a c0004a3 = null;
-                        for (b.a.C0004a c0004a4 : j.h().b()) {
+                        for (b.a.C0004a c0004a4 : k.h().b()) {
                             if (!c0004a4.a.equals(c0004a2.a)) {
                                 c0004a4 = c0004a3;
                             }
@@ -264,7 +269,7 @@ public final class SapiCache {
             public void onSuccess(JSONObject jSONObject) {
                 this.a.c = b.a.C0004a.C0005a.a(jSONObject);
                 if (!SapiCache.a(this.a, this.b)) {
-                    com.baidu.sapi2.c.a(SapiCache.d).a(this.c);
+                    com.baidu.sapi2.d.a(SapiCache.d).a(this.c);
                     SapiCache.a(this.a, new C0002b());
                     return;
                 }
@@ -279,7 +284,7 @@ public final class SapiCache {
 
                 @Override // com.baidu.sapi2.SapiCache.a
                 public void a(b.a.C0004a c0004a, String str) {
-                    com.baidu.sapi2.c.a(SapiCache.d).a(a.this.c);
+                    com.baidu.sapi2.d.a(SapiCache.d).a(a.this.c);
                     if (!TextUtils.isEmpty(a.this.a.a) && !TextUtils.isEmpty(str)) {
                         SapiCache.a(a.this.a.a, str);
                         SapiCache.a(SapiCache.d, b.a.C0004a.a(a.this.a.a), str.getBytes());
@@ -295,7 +300,7 @@ public final class SapiCache {
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                     public void onSuccess(String str) {
                         if (!TextUtils.isEmpty(a.this.a.a) && !TextUtils.isEmpty(str) && a.this.a.c.c.equals(MD5Util.toMd5(str.getBytes(), false))) {
-                            com.baidu.sapi2.c.a(SapiCache.d).a(a.this.c);
+                            com.baidu.sapi2.d.a(SapiCache.d).a(a.this.c);
                             SapiCache.a(a.this.a.a, str);
                             SapiCache.a(SapiCache.d, b.a.C0004a.a(a.this.a.a), str.getBytes());
                             SapiCache.a(b.a.C0004a.c(a.this.a.a), str.getBytes());
@@ -355,7 +360,7 @@ public final class SapiCache {
     }
 
     static String d() {
-        return SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigUrl() + e.u;
+        return SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigUrl() + g.z;
     }
 
     static void e() {
@@ -381,7 +386,7 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [488=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [494=4] */
     static void a(android.content.Context r3, java.lang.String r4, byte[] r5) {
         /*
             r0 = 0
@@ -426,7 +431,7 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [527=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;

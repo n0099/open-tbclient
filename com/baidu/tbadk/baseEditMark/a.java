@@ -5,21 +5,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public abstract class a {
-    public abstract void W(boolean z);
+    public abstract void Z(boolean z);
 
     public abstract void a(MarkData markData);
 
     public abstract void a(b bVar);
 
-    public abstract String oP();
+    public abstract String pp();
 
-    public abstract boolean oQ();
+    public abstract boolean pq();
 
-    public abstract void oR();
+    public abstract void pr();
 
-    public abstract void oS();
+    public abstract void ps();
 
-    public abstract MarkData oT();
+    public abstract MarkData pt();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001286, a.class, baseActivity);

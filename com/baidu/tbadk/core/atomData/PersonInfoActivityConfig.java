@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PersonInfoActivityConfig extends a {
+public class PersonInfoActivityConfig extends c {
     public static final int REQUSET_CHANGE = 101;
     public static final String TAG_DATA = "data";
 

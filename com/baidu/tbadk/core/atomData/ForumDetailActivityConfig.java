@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class ForumDetailActivityConfig extends a {
+public class ForumDetailActivityConfig extends c {
     public static final String FORUM_ID = "forum_id";
     public static final String FROM_TYPE = "from_type";
 
@@ -16,7 +16,7 @@ public class ForumDetailActivityConfig extends a {
         BAR_RANK,
         BAR_SQUARE;
 
-        /* JADX DEBUG: Replace access to removed values field (OL) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Ph) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();

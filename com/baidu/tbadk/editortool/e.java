@@ -9,36 +9,36 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    final /* synthetic */ EmotionTabContentView aiA;
-    private final u aiB;
+    final /* synthetic */ EmotionTabContentView ajA;
+    private final u ajB;
 
     public e(EmotionTabContentView emotionTabContentView, u uVar) {
-        this.aiA = emotionTabContentView;
-        this.aiB = uVar;
+        this.ajA = emotionTabContentView;
+        this.ajB = uVar;
     }
 
-    public int yC() {
-        if (this.aiB == null) {
+    public int zp() {
+        if (this.ajB == null) {
             return 0;
         }
-        return this.aiB.yM();
+        return this.ajB.zz();
     }
 
-    public u yD() {
-        return this.aiB;
+    public u zq() {
+        return this.ajB;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aiB == null) {
+        if (this.ajB == null) {
             return 0;
         }
-        return this.aiB.yL();
+        return this.ajB.zy();
     }
 
     @Override // android.widget.Adapter
@@ -60,46 +60,47 @@ public class e extends BaseAdapter {
         int i6;
         int i7;
         int color;
-        LinearLayout linearLayout = (LinearLayout) (view == null ? (LinearLayout) com.baidu.adp.lib.g.b.hH().inflate(TbadkCoreApplication.m411getInst().getContext(), com.baidu.tieba.w.emotion_tab_content_item, null) : view);
-        if (this.aiB != null) {
-            int yM = this.aiB.yM() + i;
+        LinearLayout linearLayout = (LinearLayout) (view == null ? (LinearLayout) com.baidu.adp.lib.g.b.hr().inflate(TbadkCoreApplication.m411getInst().getContext(), com.baidu.tieba.r.emotion_tab_content_item, null) : view);
+        if (this.ajB != null) {
+            int zz = this.ajB.zz() + i;
             int measuredWidth = viewGroup.getMeasuredWidth();
             int measuredHeight = viewGroup.getMeasuredHeight();
-            int yI = measuredWidth / this.aiB.yI();
-            int row = measuredHeight / this.aiB.getRow();
-            i2 = this.aiA.aim;
-            i3 = this.aiA.aim;
-            i4 = this.aiA.aim;
-            i5 = this.aiA.aim;
+            int zv = measuredWidth / this.ajB.zv();
+            int row = measuredHeight / this.ajB.getRow();
+            i2 = this.ajA.ajm;
+            i3 = this.ajA.ajm;
+            i4 = this.ajA.ajm;
+            i5 = this.ajA.ajm;
             linearLayout.setPadding(i2 * 2, i3 * 2, i4 * 2, i5 * 2);
-            linearLayout.setLayoutParams(new AbsListView.LayoutParams(yI, row));
-            TbImageView tbImageView = (TbImageView) linearLayout.findViewById(com.baidu.tieba.v.emotion_tab_content_img);
+            linearLayout.setLayoutParams(new AbsListView.LayoutParams(zv, row));
+            TbImageView tbImageView = (TbImageView) linearLayout.findViewById(com.baidu.tieba.q.emotion_tab_content_img);
             tbImageView.setAutoChangeStyle(false);
-            int i8 = com.baidu.tieba.u.btn_choose_face_selector;
-            i6 = this.aiA.aiy;
-            ba.c(tbImageView, i8, i6);
+            int i8 = com.baidu.tieba.p.btn_choose_face_selector;
+            i6 = this.ajA.ajy;
+            ay.c(tbImageView, i8, i6);
+            tbImageView.setPadding(0, 0, 0, 0);
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            String dz = this.aiB.yG().dz(yM);
-            tbImageView.setTag(dz);
-            Object a = com.baidu.adp.lib.f.d.hB().a(dz, 20, new f(this), 0, 0, null, null, dz, false, null);
+            String dI = this.ajB.zt().dI(zz);
+            tbImageView.setTag(dI);
+            Object a = com.baidu.adp.lib.f.d.hl().a(dI, 20, new f(this), 0, 0, null, null, dI, false, null);
             com.baidu.adp.widget.a.a aVar = (a == null || !(a instanceof com.baidu.adp.widget.a.a)) ? null : (com.baidu.adp.widget.a.a) a;
             if (aVar != null) {
                 aVar.a(tbImageView);
                 tbImageView.setTag(null);
             }
-            TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.v.emotion_tab_content_tip);
-            if (this.aiB.yH() == EmotionGroupType.BIG_EMOTION) {
-                String dz2 = this.aiB.yG().dz(yM);
-                if (!TextUtils.isEmpty(dz2)) {
-                    i7 = this.aiA.aiy;
+            TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.q.emotion_tab_content_tip);
+            if (this.ajB.zu() == EmotionGroupType.BIG_EMOTION) {
+                String dI2 = this.ajB.zt().dI(zz);
+                if (!TextUtils.isEmpty(dI2)) {
+                    i7 = this.ajA.ajy;
                     if (i7 == 0) {
-                        color = this.aiA.getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_c);
+                        color = this.ajA.getContext().getResources().getColor(com.baidu.tieba.n.cp_cont_c);
                     } else {
-                        color = ba.getColor(com.baidu.tieba.s.cp_cont_c);
+                        color = ay.getColor(com.baidu.tieba.n.cp_cont_c);
                     }
                     textView.setVisibility(0);
                     textView.setTextColor(color);
-                    textView.setText(dz2.substring(dz2.lastIndexOf("_") + 1, dz2.length() - 1));
+                    textView.setText(dI2.substring(dI2.lastIndexOf("_") + 1, dI2.length() - 1));
                 }
             } else {
                 textView.setVisibility(8);

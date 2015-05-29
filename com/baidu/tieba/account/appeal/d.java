@@ -1,16 +1,16 @@
 package com.baidu.tieba.account.appeal;
 
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements l {
-    final /* synthetic */ AppealActivity awu;
+    final /* synthetic */ AppealActivity aya;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AppealActivity appealActivity) {
-        this.awu = appealActivity;
+        this.aya = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.l
@@ -19,20 +19,20 @@ public class d implements l {
         String str;
         TextView textView2;
         String string;
-        textView = this.awu.awn;
-        str = this.awu.acU;
+        textView = this.aya.axT;
+        str = this.aya.aec;
         textView.setText(str);
-        textView2 = this.awu.awo;
-        if (!bd.isEmpty(forbidReasonData.reason)) {
+        textView2 = this.aya.axU;
+        if (!bb.isEmpty(forbidReasonData.reason)) {
             string = forbidReasonData.reason;
         } else {
-            string = this.awu.getPageContext().getString(y.default_forbid_reason);
+            string = this.aya.getPageContext().getString(t.default_forbid_reason);
         }
         textView2.setText(string);
     }
 
     @Override // com.baidu.tieba.account.appeal.l
     public void b(ForbidReasonData forbidReasonData) {
-        this.awu.showToast(forbidReasonData.error.errMsg);
+        this.aya.showToast(forbidReasonData.error.errMsg);
     }
 }

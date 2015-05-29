@@ -7,18 +7,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.n;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.s;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.n;
+import com.baidu.tieba.o;
+import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class j extends LinearLayout {
-    private TextView cwL;
-    private ImageView cwM;
-    private View cwN;
+    private TextView cBc;
+    private ImageView cBd;
+    private View cBe;
     private Context mContext;
 
     public j(Context context) {
@@ -32,37 +31,37 @@ public class j extends LinearLayout {
     }
 
     private void init() {
-        com.baidu.adp.lib.g.b.hH().inflate(this.mContext, w.prefix_item, this);
+        com.baidu.adp.lib.g.b.hr().inflate(this.mContext, r.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.cwL = (TextView) findViewById(v.prefix_text);
-        this.cwM = (ImageView) findViewById(v.prefix_checked);
-        this.cwN = findViewById(v.prefix_item_divider);
-        this.cwL.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        ba.i((View) this.cwL, s.cp_bg_line_d);
-        this.cwM.setBackgroundDrawable(ba.getDrawable(u.icon_set_list_ok_s));
-        ba.i(this.cwN, s.cp_bg_line_c);
+        this.cBc = (TextView) findViewById(q.prefix_text);
+        this.cBd = (ImageView) findViewById(q.prefix_checked);
+        this.cBe = findViewById(q.prefix_item_divider);
+        this.cBc.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        ay.i((View) this.cBc, n.cp_bg_line_d);
+        this.cBd.setBackgroundDrawable(ay.getDrawable(p.icon_set_list_ok_s));
+        ay.i(this.cBe, n.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.cwL.setText(str);
+        this.cBc.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.cwL.setTextColor(i);
+        this.cBc.setTextColor(i);
     }
 
-    public void fh(boolean z) {
+    public void fD(boolean z) {
         if (z) {
-            this.cwM.setVisibility(0);
+            this.cBd.setVisibility(0);
         } else {
-            this.cwM.setVisibility(8);
+            this.cBd.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.cwN.getLayoutParams()).setMargins(n.d(this.mContext, t.ds30), 0, n.d(this.mContext, t.ds30), 0);
+            ((LinearLayout.LayoutParams) this.cBe.getLayoutParams()).setMargins(com.baidu.adp.lib.util.n.d(this.mContext, o.ds30), 0, com.baidu.adp.lib.util.n.d(this.mContext, o.ds30), 0);
         }
     }
 }

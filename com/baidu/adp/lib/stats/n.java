@@ -1,18 +1,19 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n {
+public class n {
     private int mCount;
     private boolean mIsRunning;
     private long mLastLogTime;
-    private long xH;
-    private boolean xI;
-    final /* synthetic */ m xJ;
+    private long wK;
+    private boolean wL;
+    final /* synthetic */ m wM;
 
     private n(m mVar) {
-        this.xJ = mVar;
+        this.wM = mVar;
         this.mIsRunning = false;
         this.mCount = 0;
-        this.xI = false;
+        this.wL = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,31 +21,31 @@ class n {
         this(mVar);
     }
 
-    public boolean ib() {
-        return this.xI;
+    public boolean hL() {
+        return this.wL;
     }
 
-    public void C(boolean z) {
-        this.xI = z;
+    public void B(boolean z) {
+        this.wL = z;
     }
 
-    public long ic() {
-        return this.xH;
+    public long hM() {
+        return this.wK;
     }
 
     public void f(long j) {
-        this.xH = j;
+        this.wK = j;
     }
 
-    public int id() {
+    public int hN() {
         return this.mCount;
     }
 
-    public void Y(int i) {
+    public void W(int i) {
         this.mCount = i;
     }
 
-    public long ie() {
+    public long hO() {
         return this.mLastLogTime;
     }
 
@@ -52,11 +53,11 @@ class n {
         this.mLastLogTime = j;
     }
 
-    public boolean ig() {
+    public boolean hP() {
         return this.mIsRunning;
     }
 
-    public void D(boolean z) {
+    public void C(boolean z) {
         this.mIsRunning = z;
     }
 }

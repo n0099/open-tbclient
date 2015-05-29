@@ -3,10 +3,18 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class MainTabActivityConfig extends a {
+public class MainTabActivityConfig extends c {
     public static final String IS_NEW_USER = "is_new_user";
+    public static boolean IS_SUPPORT_LEFT_BAR = true;
+    public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
+    public static boolean IS_INDICATOR_BOTTOM = true;
+    public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
+    public static boolean ADDRESS_LIST_DELEGATE_AVAILABLE = false;
+    public static boolean DISCOVER_DELEGATE_AVAILABLE = true;
+    public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
+    public static boolean RECOMMEND_FRS_DELEGATE_AVAIBLE = true;
 
     public MainTabActivityConfig(Context context) {
         super(context);

@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class FileDownloader extends Service {
     public static final int FILE_EXIST = 1;
@@ -57,14 +57,14 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (o.cm(fileOfUrl) != null) {
+            if (o.cB(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new b(this, stringExtra, fileOfUrl);
                 this.mDowndingTask.execute(new String[0]);
                 NotificationHelper.showProgressNotification(getBaseContext(), 10, null, 0, "0/0", this.mInfo, true);
             } else {
-                n.showToast(getApplicationContext(), y.downloading_tip);
+                n.showToast(getApplicationContext(), t.downloading_tip);
             }
         }
         super.onStart(intent, i);

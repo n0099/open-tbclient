@@ -1,15 +1,18 @@
 package com.baidu.tbadk.core.view;
-/* loaded from: classes.dex */
-public class u {
-    t YD;
-    t YE;
 
-    private u() {
+import android.view.ViewTreeObserver;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class u implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ t Zj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(t tVar) {
+        this.Zj = tVar;
     }
 
-    public static u a(t tVar) {
-        u uVar = new u();
-        uVar.YD = tVar;
-        return uVar;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        this.Zj.ur();
     }
 }

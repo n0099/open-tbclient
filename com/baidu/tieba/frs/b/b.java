@@ -6,14 +6,14 @@ import com.baidu.tieba.tbadkCore.d;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, u, Void> {
-    private a aND;
+    private a aPP;
     private String mName;
     private boolean needCache;
 
     public b(a aVar, boolean z, String str) {
         this.mName = null;
         this.mName = str;
-        this.aND = aVar;
+        this.aPP = aVar;
         this.needCache = z;
         setSelfExecute(true);
     }
@@ -22,11 +22,11 @@ public class b extends BdAsyncTask<Object, u, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Object... objArr) {
-        if (this.needCache && d.akD().iv(this.mName)) {
-            if (!d.akD().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
-                d.akD().getResponseData().Za().getSignData().setIsSigned(0);
+        if (this.needCache && d.amo().jo(this.mName)) {
+            if (!d.amo().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
+                d.amo().getResponseData().aar().getSignData().setIsSigned(0);
             }
-            publishProgress(d.akD().getResponseData());
+            publishProgress(d.amo().getResponseData());
             return null;
         }
         return null;
@@ -38,7 +38,7 @@ public class b extends BdAsyncTask<Object, u, Void> {
     /* renamed from: a */
     public void onProgressUpdate(u... uVarArr) {
         super.onProgressUpdate(uVarArr);
-        this.aND.c(uVarArr.length > 0 ? uVarArr[0] : null);
+        this.aPP.c(uVarArr.length > 0 ? uVarArr[0] : null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,6 +47,6 @@ public class b extends BdAsyncTask<Object, u, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r2) {
         super.onPostExecute(r2);
-        this.aND.KU();
+        this.aPP.LZ();
     }
 }

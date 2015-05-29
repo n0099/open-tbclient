@@ -1,16 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bIJ;
+public class as implements View.OnClickListener {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bKT.sendMessage(new CustomMessage(2001284));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bKT.getPageContext().getPageActivity(), 23007)));
     }
 }

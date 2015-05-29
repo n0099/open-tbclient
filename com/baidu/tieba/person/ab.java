@@ -1,36 +1,51 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
-import com.baidu.tbadk.core.data.ForumData;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class ab implements View.OnClickListener {
-    final /* synthetic */ v bPV;
+    final /* synthetic */ v bSb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(v vVar) {
-        this.bPV = vVar;
+        this.bSb = vVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        af afVar;
-        af afVar2;
-        PersonBarActivity adl;
-        PersonBarActivity adl2;
-        int intValue = ((Integer) view.getTag()).intValue();
-        if (intValue >= 0) {
-            afVar = this.bPV.bPJ;
-            if (intValue < afVar.getCount()) {
-                afVar2 = this.bPV.bPJ;
-                ForumData forumData = (ForumData) afVar2.getItem(intValue);
-                adl = this.bPV.adl();
-                if (adl != null) {
-                    adl2 = this.bPV.adl();
-                    this.bPV.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(adl2.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
-                }
+        ag agVar;
+        ag agVar2;
+        ag agVar3;
+        TextView textView;
+        TextView textView2;
+        ag agVar4;
+        ag agVar5;
+        TextView textView3;
+        TextView textView4;
+        ag agVar6;
+        agVar = this.bSb.bRM;
+        if (agVar != null) {
+            agVar2 = this.bSb.bRM;
+            if (!agVar2.Fb()) {
+                agVar5 = this.bSb.bRM;
+                agVar5.setEditState(true);
+                textView3 = this.bSb.awb;
+                textView3.setText(com.baidu.tieba.t.done);
+                textView4 = this.bSb.awb;
+                com.baidu.tbadk.core.util.ay.g(textView4, TbadkCoreApplication.m411getInst().getSkinType());
+                agVar6 = this.bSb.bRM;
+                agVar6.notifyDataSetChanged();
+                return;
             }
+            agVar3 = this.bSb.bRM;
+            agVar3.setEditState(false);
+            textView = this.bSb.awb;
+            textView.setText(com.baidu.tieba.t.edit);
+            textView2 = this.bSb.awb;
+            com.baidu.tbadk.core.util.ay.i(textView2, TbadkCoreApplication.m411getInst().getSkinType());
+            agVar4 = this.bSb.bRM;
+            agVar4.notifyDataSetChanged();
         }
     }
 }

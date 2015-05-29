@@ -4,18 +4,19 @@ import android.text.TextUtils;
 import android.widget.TextView;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import com.baidu.tieba.im.c.ad;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.im.c.ad {
-    final /* synthetic */ AbsMsgImageActivity aWF;
+public class g implements ad {
+    final /* synthetic */ AbsMsgImageActivity aZl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AbsMsgImageActivity absMsgImageActivity) {
-        this.aWF = absMsgImageActivity;
+        this.aZl = absMsgImageActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
@@ -43,28 +44,28 @@ public class g implements com.baidu.tieba.im.c.ad {
         String str6;
         boolean z2;
         if (linkedHashMap != null) {
-            z2 = this.aWF.aWE;
+            z2 = this.aZl.aZk;
         }
         linkedHashMap = new LinkedHashMap<>();
         if (linkedHashMap.isEmpty()) {
-            str2 = this.aWF.aWy;
+            str2 = this.aZl.aZe;
             if (!TextUtils.isEmpty(str2)) {
-                str3 = this.aWF.aWA;
-                str4 = this.aWF.aWy;
+                str3 = this.aZl.aZg;
+                str4 = this.aZl.aZe;
                 linkedHashMap.put(str3, str4);
                 if (hashMap == null) {
                     hashMap = new HashMap<>();
                 }
                 ImageUrlData imageUrlData = new ImageUrlData();
-                str5 = this.aWF.aWz;
+                str5 = this.aZl.aZf;
                 imageUrlData.imageUrl = str5;
                 imageUrlData.urlType = 10;
-                str6 = this.aWF.aWy;
+                str6 = this.aZl.aZe;
                 hashMap.put(str6, imageUrlData);
             }
         }
         if (linkedHashMap.size() != 0) {
-            str = this.aWF.aWA;
+            str = this.aZl.aZg;
             Iterator<String> it = linkedHashMap.keySet().iterator();
             int i3 = 0;
             while (true) {
@@ -74,34 +75,34 @@ public class g implements com.baidu.tieba.im.c.ad {
                 }
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(next) && next.equals(str)) {
-                    this.aWF.mIndex = i3;
+                    this.aZl.mIndex = i3;
                     z = true;
                     break;
                 }
                 i3++;
             }
-            this.aWF.mCount = linkedHashMap.size();
+            this.aZl.mCount = linkedHashMap.size();
             if (!z) {
-                AbsMsgImageActivity absMsgImageActivity = this.aWF;
-                i2 = this.aWF.mCount;
+                AbsMsgImageActivity absMsgImageActivity = this.aZl;
+                i2 = this.aZl.mCount;
                 absMsgImageActivity.mIndex = i2 - 1;
             }
-            textView = this.aWF.mTextView;
+            textView = this.aZl.mTextView;
             textView.setVisibility(0);
-            this.aWF.ND();
-            multiImageView = this.aWF.aWu;
+            this.aZl.OS();
+            multiImageView = this.aZl.aYZ;
             multiImageView.setIsFromCDN(true);
-            multiImageView2 = this.aWF.aWu;
+            multiImageView2 = this.aZl.aYZ;
             multiImageView2.setAllowLocalUrl(true);
-            multiImageView3 = this.aWF.aWu;
+            multiImageView3 = this.aZl.aYZ;
             multiImageView3.setAssistUrls(hashMap);
-            multiImageView4 = this.aWF.aWu;
+            multiImageView4 = this.aZl.aYZ;
             multiImageView4.setUrlData(new ArrayList<>(linkedHashMap.values()));
-            multiImageView5 = this.aWF.aWu;
-            i = this.aWF.mIndex;
+            multiImageView5 = this.aZl.aYZ;
+            i = this.aZl.mIndex;
             multiImageView5.setCurrentItem(i, false);
             return;
         }
-        this.aWF.finish();
+        this.aZl.finish();
     }
 }

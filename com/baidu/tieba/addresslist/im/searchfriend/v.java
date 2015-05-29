@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class v {
-    TextView ahz;
-    final /* synthetic */ n azn;
+    final /* synthetic */ n aAY;
+    TextView aiA;
     View line;
 
     private v(n nVar) {
-        this.azn = nVar;
+        this.aAY = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,73 +1,58 @@
 package com.baidu.tieba.signall;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
-    private static u ceS;
-    private static String userId;
-    private w ceO;
-    private s ceP;
-    private v ceQ;
-    private c ceR;
-    public boolean pT;
+    private w ciT;
+    private s ciU;
+    private v ciV;
+    private c ciW;
+    public boolean pY;
 
-    public static u e(SignAllForumActivity signAllForumActivity) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (ceS == null) {
-            ceS = new u(signAllForumActivity);
-        } else if (!TextUtils.isEmpty(userId) && !TextUtils.equals(userId, currentAccount)) {
-            ceS = new u(signAllForumActivity);
-        }
-        return ceS;
-    }
-
-    private u(SignAllForumActivity signAllForumActivity) {
+    public u(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.ceO = null;
-        this.ceP = null;
-        this.ceQ = null;
-        userId = TbadkCoreApplication.getCurrentAccount();
-        this.ceP = new s();
+        this.ciT = null;
+        this.ciU = null;
+        this.ciV = null;
+        this.ciU = new s();
     }
 
     public void a(v vVar) {
-        this.ceQ = vVar;
+        this.ciV = vVar;
     }
 
     public void c(c cVar) {
-        this.ceR = cVar;
+        this.ciW = cVar;
     }
 
-    public c aje() {
-        return this.ceR;
+    public c akO() {
+        return this.ciW;
     }
 
-    private String ajf() {
-        ArrayList<e> aiE = this.ceR.aiE();
-        if (aiE == null) {
+    private String akP() {
+        ArrayList<e> ako = this.ciW.ako();
+        if (ako == null) {
             return "";
         }
-        if (!this.ceR.aiF()) {
+        if (!this.ciW.akp()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = aiE.iterator();
+            Iterator<e> it = ako.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.aiO() < this.ceR.getLevel()) {
+                if (next.aky() < this.ciW.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            aiE.removeAll(arrayList);
+            ako.removeAll(arrayList);
         }
-        int size = aiE.size();
+        int size = ako.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = aiE.get(i);
-            if (eVar.aiS()) {
-                if (!eVar.aiT()) {
-                    eVar.ez(true);
+            e eVar = ako.get(i);
+            if (eVar.akC()) {
+                if (!eVar.akD()) {
+                    eVar.eT(true);
                 }
             }
             if (i > 0) {
@@ -81,19 +66,19 @@ public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        if (this.ceO != null) {
+        if (this.ciT != null) {
             return false;
         }
-        String ajf = ajf();
-        this.ceO = new w(this);
-        this.ceO.execute(ajf);
+        String akP = akP();
+        this.ciT = new w(this);
+        this.ciT.execute(akP);
         return true;
     }
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.ceO != null) {
-            this.ceO.cancel();
+        if (this.ciT != null) {
+            this.ciT.cancel();
             return true;
         }
         return false;

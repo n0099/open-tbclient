@@ -9,16 +9,16 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static Pattern vz = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean yA = true;
-    private static k yB;
-    private NetworkInfo yt = null;
-    private boolean yu = true;
-    private boolean yv = false;
-    private boolean yw = true;
-    private int yx = 0;
-    private int yy = 0;
-    private int yz = -1;
+    private static Pattern uL = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+    private static boolean yo = true;
+    private static k yp;
+    private NetworkInfo yi = null;
+    private boolean isWifi = true;
+    private boolean yj = false;
+    private boolean yk = true;
+    private int yl = 0;
+    private int ym = 0;
+    private int yn = -1;
     private String mProxyHost = null;
     private int mProxyPort = -1;
 
@@ -28,123 +28,124 @@ public class k {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             BdBaseApplication.getInst().getApp().registerReceiver(lVar, intentFilter);
-            iG().iy();
+            iW().iP();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        yB = null;
+        yp = null;
     }
 
-    public void iy() {
+    public void iP() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
-            this.yt = activeNetworkInfo;
+            this.yi = activeNetworkInfo;
             if (activeNetworkInfo.getType() == 1) {
-                this.yu = true;
-                this.yv = false;
+                this.isWifi = true;
+                this.yj = false;
             } else if (activeNetworkInfo.getType() == 0) {
-                this.yu = false;
-                this.yv = true;
+                this.isWifi = false;
+                this.yj = true;
             } else {
-                this.yu = false;
-                this.yv = false;
+                this.isWifi = false;
+                this.yj = false;
             }
-            this.yw = true;
-            this.yx = activeNetworkInfo.getSubtype();
-            if (this.yv) {
-                this.yy = T(this.yx);
+            this.yk = true;
+            this.yl = activeNetworkInfo.getSubtype();
+            if (this.yj) {
+                this.ym = R(this.yl);
             } else {
-                this.yy = 0;
+                this.ym = 0;
             }
         } else {
-            this.yu = false;
-            this.yv = false;
-            this.yw = false;
-            this.yx = 0;
-            this.yx = 0;
+            this.isWifi = false;
+            this.yj = false;
+            this.yk = false;
+            this.yl = 0;
+            this.yl = 0;
         }
-        this.yz = iF();
+        this.yn = iV();
         this.mProxyHost = Proxy.getDefaultHost();
         this.mProxyPort = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
         try {
-            return ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.hu().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            return ((ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public boolean iz() {
-        if (this.yt == null) {
-            iy();
+    public boolean iQ() {
+        if (this.yi == null) {
+            iP();
         }
-        return this.yw;
+        return this.yk;
     }
 
     public boolean isWifi() {
-        if (this.yt == null) {
-            iy();
+        if (this.yi == null) {
+            iP();
         }
-        return this.yu;
+        return this.isWifi;
     }
 
-    public boolean hv() {
-        if (this.yt == null) {
-            iy();
+    public boolean hg() {
+        if (this.yi == null) {
+            iP();
         }
-        return this.yv;
+        return this.yj;
     }
 
-    public int iA() {
-        if (this.yt == null) {
-            iy();
+    public int iR() {
+        if (this.yi == null) {
+            iP();
         }
-        return this.yy;
+        return this.ym;
     }
 
-    public int iB() {
-        if (this.yz == -1) {
+    public int iS() {
+        if (this.yn == -1) {
             try {
-                this.yz = iF();
+                this.yn = iV();
             } catch (Exception e) {
-                this.yz = 0;
+                this.yn = 0;
             }
         }
-        return this.yz;
+        return this.yn;
     }
 
-    public static boolean aJ(String str) {
-        if (vz.matcher(str).find()) {
+    public static boolean aS(String str) {
+        if (uL.matcher(str).find()) {
             return true;
         }
         return false;
     }
 
-    public String iC() {
+    public static boolean isWap() {
+        NetworkInfo activeNetworkInfo = iW().getActiveNetworkInfo();
+        return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
+    }
+
+    public String iT() {
         if (this.mProxyHost == null) {
             this.mProxyHost = Proxy.getDefaultHost();
         }
         return this.mProxyHost;
     }
 
-    public int iD() {
+    public int iU() {
         if (-1 == this.mProxyPort) {
             this.mProxyPort = Proxy.getDefaultPort();
         }
         return this.mProxyPort;
     }
 
-    public static boolean iE() {
-        return (iG().yu || iF() == 1 || m.aL(Proxy.getDefaultHost())) ? false : true;
-    }
-
-    private static int iF() {
+    private static int iV() {
         int i;
-        String networkOperator = ((TelephonyManager) com.baidu.adp.lib.network.willdelete.e.hu().getContext().getSystemService("phone")).getNetworkOperator();
-        if (networkOperator == null || networkOperator.length() < 4 || m.aL(networkOperator)) {
+        String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
+        if (networkOperator == null || networkOperator.length() < 4 || m.aU(networkOperator)) {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
@@ -173,7 +174,7 @@ public class k {
         }
     }
 
-    public static int T(int i) {
+    public static int R(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -198,56 +199,56 @@ public class k {
         }
     }
 
-    public static synchronized k iG() {
+    public static synchronized k iW() {
         k kVar;
         synchronized (k.class) {
-            if (yB == null) {
-                yB = new k();
+            if (yp == null) {
+                yp = new k();
             }
-            kVar = yB;
+            kVar = yp;
         }
         return kVar;
     }
 
-    public static boolean iH() {
-        return iG().iz();
+    public static boolean iX() {
+        return iW().iQ();
     }
 
-    public static boolean iI() {
-        return iG().isWifi();
+    public static boolean iY() {
+        return iW().isWifi();
     }
 
-    public static boolean iJ() {
-        return iG().hv();
+    public static boolean iZ() {
+        return iW().hg();
     }
 
-    public static boolean iK() {
-        return 3 == iG().iA();
+    public static boolean ja() {
+        return 3 == iW().iR();
     }
 
-    public static boolean iL() {
-        return 2 == iG().iA();
+    public static boolean jb() {
+        return 2 == iW().iR();
     }
 
-    public static boolean hx() {
-        return 1 == iG().iA();
+    public static boolean hi() {
+        return 1 == iW().iR();
     }
 
-    public static int iM() {
-        if (iI()) {
+    public static int jc() {
+        if (iY()) {
             return 1;
         }
-        if (hx()) {
+        if (hi()) {
             return 2;
         }
-        if (iL()) {
+        if (jb()) {
             return 3;
         }
-        return (iK() || iH()) ? 4 : 0;
+        return (ja() || iX()) ? 4 : 0;
     }
 
-    public static String iN() {
-        switch (iM()) {
+    public static String jd() {
+        switch (jc()) {
             case 1:
                 return "wifi";
             case 2:
@@ -261,27 +262,27 @@ public class k {
         }
     }
 
-    public static String iO() {
-        String iN = iN();
-        if (iN != null) {
-            return iN.toUpperCase();
+    public static String je() {
+        String jd = jd();
+        if (jd != null) {
+            return jd.toUpperCase();
         }
-        return iN;
+        return jd;
     }
 
-    public static int iP() {
-        return iG().iB();
+    public static int jf() {
+        return iW().iS();
     }
 
-    public static String iQ() {
-        return iG().iC();
+    public static String jg() {
+        return iW().iT();
     }
 
-    public static int iR() {
-        return iG().iD();
+    public static int jh() {
+        return iW().iU();
     }
 
-    public static boolean iS() {
-        return yA;
+    public static boolean ji() {
+        return yo;
     }
 }

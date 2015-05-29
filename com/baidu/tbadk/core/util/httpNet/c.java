@@ -4,22 +4,22 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int Wa;
-    public int Wb;
+    public int WH;
+    public int WI;
     public String mErrorString;
-    public String Wc = null;
-    public boolean rC = false;
+    public String WJ = null;
+    public boolean rM = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean ss() {
-        return this.Wa == 200;
+    public boolean ta() {
+        return this.WH == 200;
     }
 
-    public boolean pv() {
-        return this.Wa == 200 && this.Wb == 0;
+    public boolean qa() {
+        return this.WH == 200 && this.WI == 0;
     }
 
-    public boolean hi() {
-        return this.Wa == 200 || this.Wa == 206;
+    public boolean gT() {
+        return this.WH == 200 || this.WH == 206;
     }
 }

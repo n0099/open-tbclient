@@ -9,8 +9,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private View bhQ;
-    private CheckBox cci;
+    private View Mb;
+    private CheckBox cgL;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -24,39 +24,39 @@ public class MsgSettingItemView2 extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        com.baidu.adp.lib.g.b.hH().a(context, com.baidu.tieba.w.msg_setting_item_view2, this, true);
-        this.cci = (CheckBox) findViewById(com.baidu.tieba.v.setting_check_view);
-        this.bhQ = findViewById(com.baidu.tieba.v.bottom_line_ll);
+        com.baidu.adp.lib.g.b.hr().a(context, com.baidu.tieba.r.msg_setting_item_view2, this, true);
+        this.cgL = (CheckBox) findViewById(com.baidu.tieba.q.setting_check_view);
+        this.Mb = findViewById(com.baidu.tieba.q.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cci.setText(str);
+        this.cgL.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cci.setText(i);
+            this.cgL.setText(i);
         }
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.bhQ.setVisibility(0);
+            this.Mb.setVisibility(0);
         } else {
-            this.bhQ.setVisibility(8);
+            this.Mb.setVisibility(8);
         }
     }
 
     public CheckBox getSwitchView() {
-        return this.cci;
+        return this.cgL;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().X(i == 1);
-        tbPageContext.getLayoutMode().h(this);
-        com.baidu.tbadk.core.util.ba.j(this, com.baidu.tieba.s.cp_bg_line_d);
+        tbPageContext.getLayoutMode().ab(i == 1);
+        tbPageContext.getLayoutMode().j(this);
+        com.baidu.tbadk.core.util.ay.j(this, com.baidu.tieba.n.cp_bg_line_d);
     }
 }

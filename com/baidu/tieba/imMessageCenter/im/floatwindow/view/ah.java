@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements ar {
-    final /* synthetic */ FloatingPersonalChatView bsm;
+    final /* synthetic */ FloatingPersonalChatView buY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bsm = floatingPersonalChatView;
+        this.buY = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.ar
-    public void Vv() {
+    public void WN() {
         List list;
         int i;
         List list2;
@@ -24,23 +24,23 @@ public class ah implements ar {
         ap apVar;
         List list4;
         int i4;
-        list = this.bsm.mUserDataList;
+        list = this.buY.mUserDataList;
         if (list != null) {
-            i = this.bsm.currentIndex;
-            list2 = this.bsm.mUserDataList;
+            i = this.buY.currentIndex;
+            list2 = this.buY.mUserDataList;
             if (i < list2.size()) {
-                i2 = this.bsm.currentIndex;
+                i2 = this.buY.currentIndex;
                 if (i2 >= 0) {
-                    list3 = this.bsm.mUserDataList;
-                    i3 = this.bsm.currentIndex;
+                    list3 = this.buY.mUserDataList;
+                    i3 = this.buY.currentIndex;
                     if (list3.get(i3) == null) {
                         return;
                     }
-                    nVar = this.bsm.bsj;
-                    apVar = this.bsm.bsk;
-                    list4 = this.bsm.mUserDataList;
-                    i4 = this.bsm.currentIndex;
-                    nVar.gz(apVar.c((UserData) list4.get(i4)));
+                    nVar = this.buY.buV;
+                    apVar = this.buY.buW;
+                    list4 = this.buY.mUserDataList;
+                    i4 = this.buY.currentIndex;
+                    nVar.gQ(apVar.c((UserData) list4.get(i4)));
                 }
             }
         }

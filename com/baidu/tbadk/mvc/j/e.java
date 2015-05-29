@@ -1,6 +1,7 @@
 package com.baidu.tbadk.mvc.j;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
@@ -10,8 +11,8 @@ import com.baidu.tbadk.mvc.e.c;
 import com.baidu.tieba.tbadkCore.ab;
 /* loaded from: classes.dex */
 public abstract class e<D, S extends com.baidu.tbadk.mvc.e.c> implements ab {
-    private S amA;
-    private final ViewEventCenter anS;
+    private S anD;
+    private final ViewEventCenter aoV;
     private D data;
     private TbPageContext<?> pageContext;
     private final View rootView;
@@ -19,7 +20,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.e.c> implements ab {
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
         this.rootView = view;
-        this.anS = viewEventCenter;
+        this.aoV = viewEventCenter;
     }
 
     public View getRootView() {
@@ -27,12 +28,12 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.e.c> implements ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter zZ() {
-        return this.anS;
+    public ViewEventCenter AL() {
+        return this.aoV;
     }
 
     public void a(D d, S s) {
-        A(d);
+        z(d);
         e(s);
     }
 
@@ -40,20 +41,24 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.e.c> implements ab {
         return this.data;
     }
 
-    public S AH() {
-        return this.amA;
+    public S Bt() {
+        return this.anD;
     }
 
-    public void A(D d) {
+    public void z(D d) {
         this.data = d;
     }
 
     public void e(S s) {
-        this.amA = s;
+        this.anD = s;
     }
 
     public TbPageContext<?> getPageContext() {
         return this.pageContext;
+    }
+
+    public Context getContext() {
+        return this.pageContext.getContext();
     }
 
     public Resources getResources() {

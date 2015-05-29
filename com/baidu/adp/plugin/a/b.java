@@ -7,11 +7,15 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public interface b {
     Service getService();
 
     boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
+
+    void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
     void proxyFinalize();
 
@@ -24,6 +28,8 @@ public interface b {
     void proxyOnDestroy();
 
     void proxyOnLowMemory();
+
+    void proxyOnRebind(Intent intent);
 
     void proxyOnStart(Intent intent, int i);
 

@@ -11,7 +11,7 @@ public interface a {
 
     int getCurrentTabType();
 
-    Class<?> ru();
+    Class<?> se();
 
-    String rv();
+    String sf();
 }

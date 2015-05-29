@@ -1,51 +1,35 @@
 package com.baidu.tieba.pb.chosen;
 
-import android.app.Activity;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbChosenActivity bGl;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.j bGm;
-    private final /* synthetic */ long btx;
-    private final /* synthetic */ String bty;
-    private final /* synthetic */ String val$name;
+class d extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ PbChosenActivity bJa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.j jVar, long j, String str, String str2) {
-        this.bGl = pbChosenActivity;
-        this.bGm = jVar;
-        this.btx = j;
-        this.val$name = str;
-        this.bty = str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(PbChosenActivity pbChosenActivity, int i, int i2) {
+        super(i, i2);
+        this.bJa = pbChosenActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.chosen.net.a aVar2;
-        com.baidu.tieba.pb.chosen.net.a aVar3;
-        com.baidu.tieba.pb.chosen.net.a aVar4;
-        com.baidu.tieba.pb.chosen.net.a aVar5;
-        String str;
-        aVar2 = this.bGl.chosenData;
-        if (aVar2 != null) {
-            aVar3 = this.bGl.chosenData;
-            if (aVar3.getForumInfo() != null) {
-                this.bGl.HidenSoftKeyPad((InputMethodManager) this.bGl.getSystemService("input_method"), this.bGm.getChatMsgView());
-                Activity pageActivity = this.bGl.getPageContext().getPageActivity();
-                long j = this.btx;
-                String str2 = this.val$name;
-                String str3 = this.bty;
-                String leaveMsg = this.bGm.getLeaveMsg();
-                aVar4 = this.bGl.chosenData;
-                aVar5 = this.bGl.chosenData;
-                long longValue = aVar5.getForumInfo().ftid.longValue();
-                str = this.bGl.shareUrl;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str2, str3, 0, leaveMsg, n.a(aVar4, longValue, str).toChatMessageContent())));
-                aVar.dismiss();
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.pb.chosen.a.h hVar;
+        com.baidu.tieba.pb.chosen.a.h hVar2;
+        if (responsedMessage != null) {
+            hVar = this.bJa.bIP;
+            hVar.aao();
+            if (responsedMessage.hasError()) {
+                this.bJa.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bJa.getResources().getString(t.neterror) : responsedMessage.getErrorString());
+                return;
+            }
+            Object extra = responsedMessage.getOrginalMessage().getExtra();
+            if (extra instanceof ChosenZanNetMessage) {
+                hVar2 = this.bJa.bIP;
+                hVar2.dN(((ChosenZanNetMessage) extra).isPraise());
             }
         }
     }

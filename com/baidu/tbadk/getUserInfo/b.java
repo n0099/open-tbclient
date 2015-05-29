@@ -12,32 +12,32 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.g;
 /* loaded from: classes.dex */
 public class b {
-    private static b ako;
+    private static b alp;
 
     private b() {
     }
 
-    public static b zs() {
-        if (ako == null) {
+    public static b Af() {
+        if (alp == null) {
             synchronized (b.class) {
-                if (ako == null) {
-                    ako = new b();
+                if (alp == null) {
+                    alp = new b();
                 }
             }
         }
-        return ako;
+        return alp;
     }
 
-    public void zt() {
+    public void Ag() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void zu() {
+    public void Ah() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.c.a(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.c.c(currentAccountObj.getID(), 0L));
         }
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
@@ -56,12 +56,12 @@ public class b {
             }
             currentAccountObj.setSex(userData.getSex());
             g payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.pM() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.qs() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            l.hJ().b(new c(this, currentAccountObj));
+            l.ht().b(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001253, payMemberInfoData));
         }
     }

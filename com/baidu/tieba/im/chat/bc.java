@@ -4,6 +4,6 @@ import com.baidu.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bc {
-    public List<bd> aXy;
+    public List<bd> bae;
     public TbPageContext<MsglistActivity<?>> context;
 }

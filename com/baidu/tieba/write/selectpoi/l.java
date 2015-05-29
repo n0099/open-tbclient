@@ -7,31 +7,30 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private ArrayList<Object> cvI;
-    private SelectLocationActivity cvJ;
+    private SelectLocationActivity czZ;
+    private ArrayList<Object> data;
     private boolean isShowLocation;
 
     public l(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.cvJ = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.anq().getLocationData();
-        this.isShowLocation = com.baidu.tieba.tbadkCore.location.d.anq().anr() ? false : true;
+        this.czZ = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.aph().getLocationData();
+        this.isShowLocation = com.baidu.tieba.tbadkCore.location.d.aph().api() ? false : true;
         if (locationData != null) {
-            this.cvI = d(locationData.ann(), locationData.anm());
+            this.data = c(locationData.ape(), locationData.apd());
         }
     }
 
-    private ArrayList<Object> d(List<com.baidu.tieba.tbadkCore.location.b> list, String str) {
+    private ArrayList<Object> c(List<com.baidu.tieba.tbadkCore.location.b> list, String str) {
         if (list == null || list.size() <= 0) {
             return null;
         }
@@ -53,8 +52,8 @@ public class l extends BaseAdapter {
             bVar3.setName(str);
             arrayList.add(0, bVar3);
         }
-        if (this.cvJ != null) {
-            arrayList.add(0, this.cvJ.getPageContext().getString(y.select_position_no_location));
+        if (this.czZ != null) {
+            arrayList.add(0, this.czZ.getPageContext().getString(t.select_position_no_location));
         }
         return arrayList;
     }
@@ -78,18 +77,18 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cvI == null) {
+        if (this.data == null) {
             return 0;
         }
-        return this.cvI.size();
+        return this.data.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cvI == null || i < 0 || i >= this.cvI.size()) {
+        if (this.data == null || i < 0 || i >= this.data.size()) {
             return null;
         }
-        return this.cvI.get(i);
+        return this.data.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -103,26 +102,26 @@ public class l extends BaseAdapter {
         boolean z = TbadkCoreApplication.m411getInst().getSkinType() == 1;
         switch (itemViewType) {
             case 0:
-                return a(view, i, z);
-            case 1:
                 return b(view, i, z);
+            case 1:
+                return c(view, i, z);
             default:
                 return null;
         }
     }
 
-    private View a(View view, int i, boolean z) {
+    private View b(View view, int i, boolean z) {
         n nVar;
         View view2;
         Object item = getItem(i);
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.cvJ.getPageContext().getPageActivity(), w.select_location_nolocation_item, null);
+                View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.czZ.getPageContext().getPageActivity(), r.select_location_nolocation_item, null);
                 nVar = new n(null);
-                nVar.ahz = (TextView) inflate.findViewById(v.select_location_title);
-                nVar.cvK = (ImageView) inflate.findViewById(v.select_location_tick);
-                nVar.line = inflate.findViewById(v.select_location_line);
+                nVar.aiA = (TextView) inflate.findViewById(q.select_location_title);
+                nVar.cAa = (ImageView) inflate.findViewById(q.select_location_tick);
+                nVar.line = inflate.findViewById(q.select_location_line);
                 inflate.setTag(nVar);
                 view2 = inflate;
             } else {
@@ -130,49 +129,49 @@ public class l extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                nVar.cvK.setVisibility(0);
-                ba.c(nVar.cvK, u.icon_site_ok);
+                nVar.cAa.setVisibility(0);
+                ay.c(nVar.cAa, p.icon_site_ok);
             } else {
-                nVar.cvK.setVisibility(4);
+                nVar.cAa.setVisibility(4);
             }
-            nVar.ahz.setText(str);
-            ba.j(nVar.line, s.cp_bg_line_b);
-            ba.b(nVar.ahz, s.cp_link_tip_a, 1);
-            ba.i(view2, u.home_recommend_item_bg);
+            nVar.aiA.setText(str);
+            ay.j(nVar.line, com.baidu.tieba.n.cp_bg_line_b);
+            ay.b(nVar.aiA, com.baidu.tieba.n.cp_link_tip_a, 1);
+            ay.i(view2, p.home_recommend_item_bg);
             return view2;
         }
         return null;
     }
 
-    private View b(View view, int i, boolean z) {
+    private View c(View view, int i, boolean z) {
         m mVar;
         Object item = getItem(i);
         if (item instanceof com.baidu.tieba.tbadkCore.location.b) {
             com.baidu.tieba.tbadkCore.location.b bVar = (com.baidu.tieba.tbadkCore.location.b) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                view = com.baidu.adp.lib.g.b.hH().inflate(this.cvJ.getPageContext().getPageActivity(), w.select_location_address_item, null);
+                view = com.baidu.adp.lib.g.b.hr().inflate(this.czZ.getPageContext().getPageActivity(), r.select_location_address_item, null);
                 m mVar2 = new m(null);
-                mVar2.aFA = (TextView) view.findViewById(v.select_location_name);
-                mVar2.cvB = (TextView) view.findViewById(v.select_location_address);
-                mVar2.cvK = (ImageView) view.findViewById(v.select_location_tick);
+                mVar2.aHH = (TextView) view.findViewById(q.select_location_name);
+                mVar2.czS = (TextView) view.findViewById(q.select_location_address);
+                mVar2.cAa = (ImageView) view.findViewById(q.select_location_tick);
                 view.setTag(mVar2);
                 mVar = mVar2;
             } else {
                 mVar = (m) view.getTag();
             }
-            mVar.cvB.setText(bVar.anp());
+            mVar.czS.setText(bVar.apg());
             if (this.isShowLocation && i == 1) {
-                mVar.cvK.setVisibility(0);
-                if (TextUtils.isEmpty(bVar.anp())) {
-                    mVar.cvB.setText(y.select_location_current);
+                mVar.cAa.setVisibility(0);
+                if (TextUtils.isEmpty(bVar.apg())) {
+                    mVar.czS.setText(t.select_location_current);
                 }
             } else {
-                mVar.cvK.setVisibility(4);
+                mVar.cAa.setVisibility(4);
             }
-            mVar.aFA.setText(bVar.getName());
-            this.cvJ.getLayoutMode().X(z);
-            this.cvJ.getLayoutMode().h(view);
-            ba.i(view, u.home_recommend_item_bg);
+            mVar.aHH.setText(bVar.getName());
+            this.czZ.getLayoutMode().ab(z);
+            this.czZ.getLayoutMode().j(view);
+            ay.i(view, p.home_recommend_item_bg);
             return view;
         }
         return null;

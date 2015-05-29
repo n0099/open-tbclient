@@ -4,34 +4,34 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aJQ;
+    final /* synthetic */ FrsActivity aLX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsActivity frsActivity) {
-        this.aJQ = frsActivity;
+        this.aLX = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         bf bfVar;
         int intValue = ((Integer) view.getTag()).intValue();
-        bfVar = this.aJQ.aJa;
-        com.baidu.adp.widget.ListView.ai aA = bfVar.Kr().aA(intValue);
-        if (aA instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aA;
-            int i = cVar.OX;
+        bfVar = this.aLX.aLi;
+        com.baidu.adp.widget.ListView.ai ay = bfVar.Lw().ay(intValue);
+        if (ay instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) ay;
+            int i = cVar.Pr;
             if (i == 0) {
-                if (com.baidu.adp.lib.util.k.iH() && !com.baidu.adp.lib.util.k.iI()) {
-                    this.aJQ.a(cVar, intValue);
+                if (com.baidu.adp.lib.util.k.iX() && !com.baidu.adp.lib.util.k.iY()) {
+                    this.aLX.a(cVar, intValue);
                 } else {
-                    this.aJQ.a(cVar, "btn_download");
-                    this.aJQ.b(cVar, "download");
-                    this.aJQ.b((com.baidu.tbadk.core.data.c) aA, intValue);
+                    this.aLX.a(cVar, "btn_download");
+                    this.aLX.b(cVar, "download");
+                    this.aLX.b((com.baidu.tbadk.core.data.c) ay, intValue);
                 }
             } else if (i == 2) {
-                com.baidu.tieba.frs.utils.a.F(this.aJQ.getPageContext().getPageActivity(), cVar.Pd);
+                com.baidu.tieba.frs.utils.a.G(this.aLX.getPageContext().getPageActivity(), cVar.Px);
             }
-            TiebaStatic.eventStat(this.aJQ.getPageContext().getPageActivity(), "frs_tb_btc", "");
+            TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_tb_btc", "");
         }
     }
 }

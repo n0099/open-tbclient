@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g DA;
-    private h DB;
-    private ArrayList<String> Ds = new ArrayList<>();
+    private static volatile g Dr;
+    private ArrayList<String> Dj = new ArrayList<>();
+    private h Ds;
 
-    public static g lr() {
-        if (DA == null) {
+    public static g lL() {
+        if (Dr == null) {
             synchronized (g.class) {
-                if (DA == null) {
-                    DA = new g();
+                if (Dr == null) {
+                    Dr = new g();
                 }
             }
         }
-        return DA;
+        return Dr;
     }
 
     private g() {
@@ -27,7 +27,7 @@ public class g {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Ds.iterator();
+            Iterator<String> it = this.Dj.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -40,17 +40,17 @@ public class g {
                 }
             }
             if (!z) {
-                this.Ds.add(pluginSetting.packageName);
+                this.Dj.add(pluginSetting.packageName);
             }
-            ln();
+            lH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ln() {
-        if (this.Ds.size() > 0 && this.DB == null) {
-            this.DB = new h(this, this.Ds.get(0));
-            this.DB.execute(new String[0]);
+    public void lH() {
+        if (this.Dj.size() > 0 && this.Ds == null) {
+            this.Ds = new h(this, this.Dj.get(0));
+            this.Ds.execute(new String[0]);
         }
     }
 }

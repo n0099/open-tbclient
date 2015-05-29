@@ -2,33 +2,33 @@ package com.baidu.tbadk.core.voice;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.y;
+import com.baidu.adp.lib.util.z;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.o;
 import java.io.File;
 /* loaded from: classes.dex */
 public class l {
-    public static String tX() {
-        return y.jd();
+    public static String uG() {
+        return z.ju();
     }
 
-    public static String da(String str) {
+    public static String dr(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String db(String str) {
+    public static String ds(String str) {
         return o.o(str, 1);
     }
 
-    public static String dc(String str) {
-        return com.baidu.adp.lib.util.f.aA(da(str));
+    public static String dt(String str) {
+        return com.baidu.adp.lib.util.f.aJ(dr(str));
     }
 
-    public static boolean aF(String str) {
+    public static boolean aO(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

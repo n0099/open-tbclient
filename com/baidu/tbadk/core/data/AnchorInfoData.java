@@ -8,6 +8,7 @@ import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
 public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
+    private int isVip;
     private String portrait = "";
     private String name = "";
     private int startTime = 0;
@@ -19,6 +20,7 @@ public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Seria
     private int group_id = 0;
     private String intro = "";
     private String publisherPortrait = "";
+    private String labelName = "";
 
     public String getPublisherPortrait() {
         return this.publisherPortrait;
@@ -108,10 +110,26 @@ public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Seria
         this.intro = str;
     }
 
+    public void setLabelName(String str) {
+        this.labelName = str;
+    }
+
+    public String getLabelName() {
+        return this.labelName;
+    }
+
+    public int getIsVip() {
+        return this.isVip;
+    }
+
+    public void setIsVip(int i) {
+        this.isVip = i;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.portrait = jSONObject.getString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                this.portrait = jSONObject.getString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 this.name = jSONObject.getString("name");
                 this.startTime = jSONObject.getInt("start_time");
                 this.status = jSONObject.getInt("status");
@@ -141,6 +159,8 @@ public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Seria
             this.publisherPortrait = anchorInfo.publisherPortrait;
             this.startTime = anchorInfo.start_time.intValue();
             this.status = anchorInfo.status.intValue();
+            this.labelName = anchorInfo.label_name;
+            this.isVip = anchorInfo.is_vip.intValue();
         }
     }
 }

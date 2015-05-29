@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class FrsActivityConfig extends a {
+public class FrsActivityConfig extends c {
     public static final String ADD_SEARCH = "add_search";
     public static final String BACK_SPECIAL = "back_special";
     public static final String CONTENT_SHOW = "content_show";
@@ -14,11 +14,13 @@ public class FrsActivityConfig extends a {
     public static final String FROM_SHORT_CUT = "from_short_cut";
     public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
     public static final int FRS_FLAG_NORMAL = 0;
+    public static final String FRS_FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
+    public static final String FRS_FROM_SEARCHBOX = "tb_searchbox";
     public static final String FRS_FROM_SQUARE = "from_square";
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
     public static final String FRS_TO_PB = "tb_frslist";

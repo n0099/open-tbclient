@@ -13,7 +13,7 @@ class aa extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            FloatingPersonalChatActivityStatic.bpp = null;
+            FloatingPersonalChatActivityStatic.brV = null;
         }
     }
 }

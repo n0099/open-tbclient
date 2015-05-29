@@ -1,24 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements com.baidu.tbadk.core.view.y {
-    final /* synthetic */ PbActivity bIJ;
+public class t implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.y
-    public void an(boolean z) {
-        boolean z2;
-        br brVar;
-        z2 = this.bIJ.bHS;
-        if (!z2 && z) {
-            brVar = this.bIJ.bIg;
-            if (brVar.aaf()) {
-                return;
-            }
-            this.bIJ.ZK();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        ch chVar;
+        ch chVar2;
+        chVar = this.bKT.bKz;
+        if (chVar.Ki() != null) {
+            chVar2 = this.bKT.bKz;
+            chVar2.Ki().setLocationInfoViewState(0);
         }
+        aVar.dismiss();
     }
 }

@@ -16,9 +16,9 @@ class ap extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
             if (TbadkCoreApplication.isLogin()) {
-                r.XM().start();
+                r.Zl().start();
             } else {
-                r.XM().destroy();
+                r.Zl().destroy();
             }
         }
     }

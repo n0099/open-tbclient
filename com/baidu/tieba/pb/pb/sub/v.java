@@ -1,7 +1,17 @@
 package com.baidu.tieba.pb.pb.sub;
-
-import android.view.View;
 /* loaded from: classes.dex */
-public interface v {
-    void N(View view);
+class v implements Runnable {
+    final /* synthetic */ s bPT;
+    private final /* synthetic */ String bPU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(s sVar, String str) {
+        this.bPT = sVar;
+        this.bPU = str;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bPT.iw(this.bPU);
+    }
 }

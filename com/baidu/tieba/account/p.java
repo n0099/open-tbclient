@@ -1,29 +1,27 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class p extends com.baidu.tbadk.core.a.a {
-    private static p auQ = null;
-    private u auR = null;
-    private final com.baidu.tbadk.core.a.b auS = new q(this);
-    private final com.baidu.tieba.a.b auT = new s(this);
-    private Activity mActivity;
+    private static p aws = null;
+    private u awt = null;
+    private final com.baidu.tbadk.core.a.b awu = new q(this);
+    private final com.baidu.tieba.a.b awv = new s(this);
 
     private p() {
     }
 
-    public static p Ep() {
-        if (auQ == null) {
-            auQ = new p();
+    public static p Fc() {
+        if (aws == null) {
+            aws = new p();
         }
-        return auQ;
+        return aws;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public com.baidu.tbadk.core.a.c bN(String str) {
+    public com.baidu.tbadk.core.a.c ca(String str) {
         com.baidu.tbadk.core.a.c cVar;
         Exception e;
         if (str != null) {
@@ -32,9 +30,9 @@ public class p extends com.baidu.tbadk.core.a.a {
                 if (split != null && split.length >= 1) {
                     cVar = new com.baidu.tbadk.core.a.c();
                     try {
-                        cVar.xh = split[0];
+                        cVar.wk = split[0];
                         if (split.length >= 2) {
-                            cVar.OF = split[1];
+                            cVar.Pc = split[1];
                             return cVar;
                         }
                         return cVar;
@@ -53,13 +51,13 @@ public class p extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void p(Activity activity) {
-        com.baidu.tbadk.core.a.c bN;
-        if (com.baidu.adp.lib.util.k.iH()) {
-            this.mActivity = activity;
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null && (bN = bN(currentAccountObj.getBDUSS())) != null) {
-                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), bN.xh, bN.OF, this.auS);
+    public void qj() {
+        AccountData currentAccountObj;
+        if (com.baidu.adp.lib.util.k.iX() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null) {
+            currentAccountObj.logPrint();
+            com.baidu.tbadk.core.a.c ca = ca(currentAccountObj.getBDUSS());
+            if (ca != null) {
+                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), ca.wk, ca.Pc, this.awu);
             }
         }
     }

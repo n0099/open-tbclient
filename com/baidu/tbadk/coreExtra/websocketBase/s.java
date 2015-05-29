@@ -4,25 +4,25 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements b {
-    final /* synthetic */ q agE;
-    private final /* synthetic */ String agF;
+    final /* synthetic */ q ahF;
+    private final /* synthetic */ String ahG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar, String str) {
-        this.agE = qVar;
-        this.agF = str;
+        this.ahF = qVar;
+        this.ahG = str;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.b
-    public void xx() {
+    public void yk() {
         List list;
-        this.agE.currentIndex = 0;
-        this.agE.afS = a.xr().xu();
-        list = this.agE.afS;
+        this.ahF.currentIndex = 0;
+        this.ahF.agT = a.ye().yh();
+        list = this.ahF.agT;
         if (list == null) {
-            this.agE.agC = false;
+            this.ahF.ahD = false;
         } else {
-            this.agE.dY(this.agF);
+            this.ahF.ep(this.ahG);
         }
     }
 }

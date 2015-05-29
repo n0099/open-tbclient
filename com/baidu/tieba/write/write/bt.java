@@ -1,64 +1,26 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import java.util.Date;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-class bt implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+class bt extends GestureDetector.SimpleOnGestureListener {
+    final /* synthetic */ WriteActivity cCP;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    private bt(WriteActivity writeActivity) {
+        this.cCP = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean jl;
-        z = this.this$0.bJy;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.this$0.mProgress;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.bPo;
-                    if (z2) {
-                        bitmap = this.this$0.bPh;
-                        if (bitmap != null) {
-                            bitmap2 = this.this$0.bPh;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                jl = this.this$0.jl(str);
-                                if (jl) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.this$0.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.this$0.setResult(0, new Intent());
-            }
-        } else {
-            this.this$0.setResult(0, new Intent());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bt(WriteActivity writeActivity, bt btVar) {
+        this(writeActivity);
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        if (WriteActivity.h(this.cCP).anK()) {
+            WriteActivity.h(this.cCP).aa(this.cCP.getCurrentFocus());
+            return true;
         }
-        this.this$0.finish();
+        return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 }

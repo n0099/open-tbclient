@@ -1,41 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import android.support.v4.view.ViewPager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements Runnable {
-    final /* synthetic */ aj cse;
+public class ak implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ aj cwn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.cse = ajVar;
+        this.cwn = ajVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x001b, code lost:
-        if (r0 == 6) goto L8;
-     */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        ai aiVar;
-        FragmentTabHost fragmentTabHost;
-        ai aiVar2;
-        ai aiVar3;
-        FragmentTabHost fragmentTabHost2;
-        ai aiVar4;
-        int i;
-        aiVar = this.cse.csd;
-        fragmentTabHost = aiVar.aPD;
-        if (fragmentTabHost.getCurrentTabType() != 6) {
-            aiVar4 = this.cse.csd;
-            i = aiVar4.crR;
-        }
-        TbadkCoreApplication.m411getInst().setFriendFeedNew(false);
-        aiVar2 = this.cse.csd;
-        aiVar3 = this.cse.csd;
-        fragmentTabHost2 = aiVar3.aPD;
-        aiVar2.crR = fragmentTabHost2.getCurrentTabType();
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        com.baidu.adp.lib.g.i.hs().postDelayed(new al(this), 200L);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

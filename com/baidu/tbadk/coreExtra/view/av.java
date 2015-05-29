@@ -4,51 +4,43 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ at afP;
+    final /* synthetic */ au agQ;
+    private final /* synthetic */ boolean agR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(at atVar) {
-        this.afP = atVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void onCancelled(String str) {
-        this.afP.afK.setVisibility(0);
-        this.afP.mProgressBar.setVisibility(8);
+    public av(au auVar, boolean z) {
+        this.agQ = auVar;
+        this.agR = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        aw awVar;
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
-        aw awVar2;
-        this.afP.afN = true;
-        this.afP.mProgressBar.setVisibility(8);
-        if (aVar != null) {
-            awVar = this.afP.afL;
-            if (awVar != null) {
-                awVar2 = this.afP.afL;
-                awVar2.i(aVar.getUrl(), aVar.mE());
-            }
-            Bitmap mz = aVar.mz();
-            if (mz == null) {
-                z = this.afP.afM;
-                if (!z) {
-                    this.afP.afK.setDefaultBitmap();
-                    return;
+        this.agQ.aN(this.agR);
+        z = this.agQ.agO;
+        if (!z) {
+            if (aVar != null) {
+                Bitmap mS = aVar.mS();
+                if (mS != null) {
+                    this.agQ.agN = true;
+                    if (aVar.fN()) {
+                        byte[] mX = aVar.mX();
+                        if (mX == null) {
+                            mX = com.baidu.tbadk.core.util.c.e(mS, 100);
+                        }
+                        this.agQ.agL.a(mX, mS);
+                        return;
+                    }
+                    this.agQ.agL.setImageBitmap(mS);
+                    this.agQ.agL.setImageData(aVar.mX());
+                } else if (!this.agR) {
+                    this.agQ.agL.setDefaultBitmap();
                 }
-                return;
+            } else if (!this.agR) {
+                this.agQ.agL.setDefaultBitmap();
             }
-            if (aVar.fI()) {
-                this.afP.afK.a(aVar.mE(), mz);
-            } else {
-                this.afP.afK.setImageBitmap(mz);
-                this.afP.afK.setImageData(aVar.mE());
-            }
-            this.afP.afK.setLoadBigImage(true);
         }
     }
 }

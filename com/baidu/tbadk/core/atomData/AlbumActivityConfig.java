@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class AlbumActivityConfig extends a {
+public class AlbumActivityConfig extends c {
     public static final String ALBUM_RESULT = "album_result";
     public static final String CAMERA_PHOTO_NAME = "camera_photo_name";
     public static final String CAMERA_RESULT = "camera_result";

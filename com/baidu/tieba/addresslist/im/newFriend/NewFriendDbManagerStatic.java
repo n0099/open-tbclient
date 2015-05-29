@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic ayb = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic azM = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new a(2001222));
@@ -30,20 +30,20 @@ public class NewFriendDbManagerStatic {
     private NewFriendDbManagerStatic() {
     }
 
-    public static NewFriendDbManagerStatic EW() {
-        return ayb;
+    public static NewFriendDbManagerStatic FP() {
+        return azM;
     }
 
-    public void eZ(String str) {
+    public void fu(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
                 com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                 bVar.setId(optJSONObject.optInt("user_id"));
                 bVar.setName(optJSONObject.optString("user_name"));
-                bVar.setPortrait(optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                bVar.setPortrait(optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT));
                 bVar.setContent(optJSONObject.optString("message"));
-                bVar.fH(0);
+                bVar.fY(0);
                 bVar.setStatus(1);
                 com.baidu.tieba.im.l.a(new b(this, bVar), new c(this));
             }
@@ -52,18 +52,18 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void fa(String str) {
+    public void fv(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
                 com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                 bVar.setId(optJSONObject.optInt("user_id"));
                 bVar.setName(optJSONObject.optString("user_name"));
-                bVar.setPortrait(optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                bVar.setPortrait(optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT));
                 bVar.setContent(optJSONObject.optString("message"));
                 String optString = optJSONObject.optString("key");
                 String optString2 = optJSONObject.optString("pinyin");
-                bVar.fH(0);
+                bVar.fY(0);
                 bVar.setStatus(4);
                 com.baidu.tieba.im.l.a(new d(this, bVar), new e(this, bVar, optString, optString2));
             }
@@ -72,7 +72,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void fb(String str) {
+    public void fw(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -83,14 +83,14 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void fc(String str) {
+    public void fx(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
                 com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                 long optInt = optJSONObject.optInt("user_id");
                 String optString = optJSONObject.optString("user_name");
-                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 String optString3 = optJSONObject.optString("message");
                 int optInt2 = optJSONObject.optInt("type");
                 if (optInt2 == 1) {
@@ -100,7 +100,7 @@ public class NewFriendDbManagerStatic {
                 }
                 bVar.setContent(optString3);
                 bVar.setId(optInt);
-                bVar.fH(1);
+                bVar.fY(1);
                 bVar.setName(optString);
                 bVar.setPortrait(optString2);
                 com.baidu.tieba.im.l.a(new h(this, bVar), new i(this, optInt));
@@ -110,19 +110,19 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void fd(String str) {
+    public void fy(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
                 com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                 long optInt = optJSONObject.optInt("user_id");
                 String optString = optJSONObject.optString("user_name");
-                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 String optString3 = optJSONObject.optString("message");
                 bVar.setStatus(3);
                 bVar.setContent(optString3);
                 bVar.setId(optInt);
-                bVar.fH(1);
+                bVar.fY(1);
                 bVar.setName(optString);
                 bVar.setPortrait(optString2);
                 com.baidu.tieba.im.l.a(new j(this, bVar), new k(this, optInt));
@@ -132,19 +132,19 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void fe(String str) {
+    public void fz(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
                 com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                 long optInt = optJSONObject.optInt("user_id");
                 String optString = optJSONObject.optString("user_name");
-                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                String optString2 = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 String optString3 = optJSONObject.optString("message");
                 bVar.setStatus(2);
                 bVar.setContent(optString3);
                 bVar.setId(optInt);
-                bVar.fH(1);
+                bVar.fY(1);
                 bVar.setName(optString);
                 bVar.setPortrait(optString2);
                 com.baidu.tieba.im.l.a(new n(this, bVar), new o(this, optInt));

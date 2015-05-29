@@ -1,13 +1,14 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o {
-    final /* synthetic */ m xJ;
-    private int xK;
-    private int xL;
-    private int xM;
+public class o {
+    final /* synthetic */ m wM;
+    private int wN;
+    private int wO;
+    private int wP;
 
     private o(m mVar) {
-        this.xJ = mVar;
+        this.wM = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,27 +16,27 @@ class o {
         this(mVar);
     }
 
-    public int ih() {
-        return this.xK;
+    public int hQ() {
+        return this.wN;
+    }
+
+    public void X(int i) {
+        this.wN = i;
+    }
+
+    public int hR() {
+        return this.wO;
+    }
+
+    public void Y(int i) {
+        this.wO = i;
+    }
+
+    public int hS() {
+        return this.wP;
     }
 
     public void Z(int i) {
-        this.xK = i;
-    }
-
-    public int ii() {
-        return this.xL;
-    }
-
-    public void aa(int i) {
-        this.xL = i;
-    }
-
-    public int ij() {
-        return this.xM;
-    }
-
-    public void ab(int i) {
-        this.xM = i;
+        this.wP = i;
     }
 }

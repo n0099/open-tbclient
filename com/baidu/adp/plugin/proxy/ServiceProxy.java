@@ -28,8 +28,8 @@ public class ServiceProxy extends Service implements b {
                 return;
             }
             try {
-                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kh().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
-                this.mEntity.a(this);
+                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kz().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
+                this.mEntity.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
             } catch (ClassNotFoundException e) {
@@ -140,13 +140,14 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        com.baidu.adp.plugin.b plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.C(intent)) {
             return super.bindService(intent, serviceConnection, i);
         }
         return false;
     }
 
+    @Override // com.baidu.adp.plugin.a.b
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.dump(fileDescriptor, printWriter, strArr);
     }
@@ -176,6 +177,7 @@ public class ServiceProxy extends Service implements b {
         super.onLowMemory();
     }
 
+    @Override // com.baidu.adp.plugin.a.b
     public void proxyOnRebind(Intent intent) {
         super.onRebind(intent);
     }
@@ -197,7 +199,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public void proxyStartActivity(Intent intent) {
-        com.baidu.adp.plugin.b plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.D(intent)) {
             super.startActivity(intent);
         }
@@ -205,7 +207,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public ComponentName proxyStartService(Intent intent) {
-        com.baidu.adp.plugin.b plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.D(intent)) {
             return super.startService(intent);
         }
@@ -214,7 +216,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public boolean proxyStopService(Intent intent) {
-        com.baidu.adp.plugin.b plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.D(intent)) {
             return super.stopService(intent);
         }

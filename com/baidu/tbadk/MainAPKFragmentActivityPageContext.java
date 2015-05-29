@@ -35,6 +35,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity.sendMessage(netMessage);
     }
 
+    @Override // com.baidu.adp.base.j
     public void registerListener(a aVar) {
         this.activity.registerListener(aVar);
     }

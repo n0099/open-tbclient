@@ -1,119 +1,97 @@
 package com.baidu.tieba.tbadkCore.c;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import android.app.Activity;
+import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.n;
+import com.baidu.tieba.o;
+import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.lib.a.b.a.a.i {
-    public final int Ph;
-    public final String abtest;
-    public final String apk_name;
-    public final String apk_url;
-    public final int cnS;
-    public final int cnT;
-    public final int cnU;
-    public final b[] cnV;
-    public b cnW;
-    public final String ext_info;
-    public final String first_name;
-    public final String id;
-    public final String ios_url;
-    public final String name;
-    public final String pos_name;
-    public final String price;
-    public final String second_name;
-    public final String url;
-    public final String user_id;
-    public final String verify;
+public class a {
+    private static com.baidu.adp.lib.guide.d crL;
 
-    public a() {
-        this.id = null;
-        this.name = null;
-        this.cnS = 0;
-        this.url = null;
-        this.ios_url = null;
-        this.apk_url = null;
-        this.apk_name = null;
-        this.pos_name = null;
-        this.first_name = null;
-        this.second_name = null;
-        this.price = null;
-        this.Ph = 0;
-        this.abtest = null;
-        this.cnT = 0;
-        this.user_id = null;
-        this.verify = null;
-        this.ext_info = null;
-        this.cnU = 0;
-        this.cnV = null;
-        this.cnW = null;
-    }
-
-    public a(App app) {
-        if (app == null) {
-            this.id = null;
-            this.name = null;
-            this.cnS = 0;
-            this.url = null;
-            this.ios_url = null;
-            this.apk_url = null;
-            this.apk_name = null;
-            this.pos_name = null;
-            this.first_name = null;
-            this.second_name = null;
-            this.Ph = 0;
-            this.price = null;
-            this.abtest = null;
-            this.cnT = 0;
-            this.user_id = null;
-            this.verify = null;
-            this.ext_info = null;
-            this.cnU = 0;
-            this.cnV = null;
-            this.cnW = null;
-            return;
-        }
-        this.id = app.id;
-        this.name = app.name;
-        this.cnS = app.url_type.intValue();
-        this.url = app.url;
-        this.apk_url = app.apk_url;
-        this.apk_name = app.apk_name;
-        this.ios_url = app.ios_url;
-        this.pos_name = app.pos_name;
-        this.first_name = app.first_name;
-        this.second_name = app.second_name;
-        this.Ph = app.cpid.intValue();
-        this.price = app.price;
-        this.abtest = app.abtest;
-        this.cnT = app.plan_id.intValue();
-        this.user_id = app.user_id;
-        this.verify = app.verify;
-        this.ext_info = app.ext_info;
-        this.cnU = app.app_time.intValue();
-        this.cnV = null;
-        if (app.goods_info != null) {
-            for (GoodsInfo goodsInfo : app.goods_info) {
-                if (goodsInfo != null) {
-                    this.cnW = new b(goodsInfo);
-                    return;
+    public static void a(BaseActivity<?> baseActivity, View view, boolean z, h hVar) {
+        int defaultBubbleEndTime;
+        SpannableString spannableString;
+        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.m411getInst().getDefaultBubbleEndTime()) > 0) {
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            if (currentTimeMillis >= defaultBubbleEndTime) {
+                MessageManager.getInstance().runTask(2001290, TbPageContext.class, baseActivity.getPageContext());
+                TbadkCoreApplication.m411getInst().setDefaultBubble(null);
+                TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(0);
+                if (hVar != null) {
+                    hVar.nf();
                 }
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
+                aVar.ah(false);
+                View inflate = com.baidu.adp.lib.g.b.hr().inflate(baseActivity.getPageContext().getPageActivity(), r.bubble_free_dialog_content, null);
+                TextView textView = (TextView) inflate.findViewById(q.tip1);
+                TextView textView2 = (TextView) inflate.findViewById(q.tip2);
+                ay.b(textView, n.cp_cont_b, 1);
+                ay.b(textView2, n.cp_cont_b, 1);
+                textView.setText(baseActivity.getPageContext().getPageActivity().getString(t.bubble_ended_tip));
+                textView2.setText(baseActivity.getPageContext().getPageActivity().getString(t.bubble_ended_tip2));
+                textView2.setTextSize(0, baseActivity.getResources().getDimensionPixelSize(o.fontsize32));
+                aVar.l(inflate);
+                aVar.a(t.open_now, new b(baseActivity));
+                aVar.b(t.group_create_private_isee, new c(baseActivity));
+                aVar.b(baseActivity.getPageContext());
+                aVar.rL();
+                return;
+            }
+            int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
+            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.sl().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                int i2 = n.cp_cont_g;
+                int i3 = n.cp_link_tip_d;
+                int i4 = p.pop_float_arrow;
+                if (i == 0) {
+                    if (new Date(currentTimeMillis).getDay() == new Date(defaultBubbleEndTime).getDay()) {
+                        spannableString = new SpannableString(baseActivity.getPageContext().getPageActivity().getString(t.bubble_end_time_tip_today));
+                        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i3)), 9, 13, 34);
+                    } else {
+                        spannableString = new SpannableString(String.format(baseActivity.getPageContext().getPageActivity().getString(t.bubble_end_time_tip), 1));
+                        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i3)), 10, 14, 34);
+                    }
+                } else {
+                    spannableString = new SpannableString(String.format(baseActivity.getPageContext().getPageActivity().getString(t.bubble_end_time_tip), Integer.valueOf(i)));
+                    spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i2)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(ay.getColor(i3)), 10, 14, 34);
+                }
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                gVar.b(view).M(0).v(false);
+                gVar.a(new d(baseActivity, z, spannableString, i4));
+                gVar.u(true);
+                gVar.w(false);
+                crL = gVar.gG();
+                new Handler().postDelayed(new f(baseActivity, z), 300L);
+                com.baidu.tbadk.core.sharedPref.b.sl().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
         }
     }
 
-    public boolean pO() {
-        if (this.cnS == 2) {
-            return false;
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void a(Activity activity, boolean z) {
+        if (crL != null) {
+            crL.i(activity);
         }
-        return pP() || pQ();
-    }
-
-    public boolean pP() {
-        return (this.cnS != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
-    }
-
-    public boolean pQ() {
-        return this.cnS == 1 && !StringUtils.isNull(this.url);
+        if (!z) {
+            new Handler().postDelayed(new g(), TbConfig.NOTIFY_SOUND_INTERVAL);
+        }
     }
 }

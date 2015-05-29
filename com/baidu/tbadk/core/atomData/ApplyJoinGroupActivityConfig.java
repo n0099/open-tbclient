@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class ApplyJoinGroupActivityConfig extends a {
+public class ApplyJoinGroupActivityConfig extends c {
     public static final String ALREADY_JOIN_COUNT = "alreadJoinCount";
     public static final String CAN_JOIN_COUNT = "canJoinCount";
     public static final String DEFAULT_USER_MSG = "defaultUserMsg";

@@ -1,9 +1,10 @@
 package com.baidu.tieba.chosen.posts.request;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.mvc.b.k;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 import tbclient.Error;
@@ -14,8 +15,31 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> FU() {
-        return this.list;
+    public List<tinfo> GS() {
+        if (this.list == null || this.list.size() <= 0) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (tinfo tinfoVar : this.list) {
+            if (c(tinfoVar)) {
+                arrayList.add(tinfoVar);
+            }
+        }
+        return arrayList;
+    }
+
+    private boolean c(tinfo tinfoVar) {
+        if (tinfoVar == null) {
+            return false;
+        }
+        if (tinfoVar.pics == null || tinfoVar.pics.size() <= 0) {
+            String str = tinfoVar.title;
+            String str2 = tinfoVar._abstract;
+            if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -41,14 +65,14 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
         try {
             a((HotThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, HotThreadResIdl.class));
             return true;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
             return false;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] AC() {
+    public byte[] Bo() {
         return null;
     }
 }

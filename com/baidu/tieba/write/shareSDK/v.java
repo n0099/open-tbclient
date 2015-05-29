@@ -2,36 +2,36 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.write.write.cm;
 import com.baidu.tieba.write.write.cn;
+import com.baidu.tieba.write.write.co;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements cn {
-    final /* synthetic */ q cwv;
+public class v implements co {
+    final /* synthetic */ q cAL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(q qVar) {
-        this.cwv = qVar;
+        this.cAL = qVar;
     }
 
-    @Override // com.baidu.tieba.write.write.cn
-    public void iZ(int i) {
+    @Override // com.baidu.tieba.write.write.co
+    public void jv(int i) {
         WriteShareActivity writeShareActivity;
         TextView textView;
         PostPrefixData postPrefixData;
-        cm cmVar;
-        cm cmVar2;
+        cn cnVar;
+        cn cnVar2;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.cwv.cwt;
-        writeShareActivity.iY(i);
-        textView = this.cwv.cwk;
-        postPrefixData = this.cwv.mPrefixData;
+        writeShareActivity = this.cAL.cAJ;
+        writeShareActivity.ju(i);
+        textView = this.cAL.cAA;
+        postPrefixData = this.cAL.mPrefixData;
         textView.setText(postPrefixData.getPrefixs().get(i));
-        cmVar = this.cwv.cwl;
-        cmVar.setCurrentIndex(i);
-        this.cwv.aqP();
-        cmVar2 = this.cwv.cwl;
-        writeShareActivity2 = this.cwv.cwt;
-        com.baidu.adp.lib.g.k.a(cmVar2, writeShareActivity2.getPageContext().getPageActivity());
+        cnVar = this.cAL.cAB;
+        cnVar.setCurrentIndex(i);
+        this.cAL.asF();
+        cnVar2 = this.cAL.cAB;
+        writeShareActivity2 = this.cAL.cAJ;
+        com.baidu.adp.lib.g.k.a(cnVar2, writeShareActivity2.getPageContext().getPageActivity());
     }
 }

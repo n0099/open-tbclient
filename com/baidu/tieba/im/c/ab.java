@@ -7,16 +7,15 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bmS;
-    private final /* synthetic */ ad bnb;
+class ab implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
+    private final /* synthetic */ ad bpG;
+    final /* synthetic */ a bpx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(a aVar, ad adVar) {
-        this.bmS = aVar;
-        this.bnb = adVar;
+        this.bpx = aVar;
+        this.bpG = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,6 +47,6 @@ public class ab implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
                 }
             }
         }
-        this.bnb.a(linkedHashMap2, hashMap);
+        this.bpG.a(linkedHashMap2, hashMap);
     }
 }

@@ -1,37 +1,37 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import android.content.Intent;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements AdapterView.OnItemClickListener {
-    final /* synthetic */ aj bQu;
+public class ao implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(aj ajVar) {
-        this.bQu = ajVar;
+    public ao(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ar arVar;
-        ar arVar2;
-        ar arVar3;
-        PersonFriendActivity adq;
-        arVar = this.bQu.bQn;
-        if (arVar != null) {
-            arVar2 = this.bQu.bQn;
-            if (arVar2.getItemViewType(i) == 0) {
-                arVar3 = this.bQu.bQn;
-                UserData userData = (UserData) arVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    aj ajVar = this.bQu;
-                    adq = this.bQu.adq();
-                    ajVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(adq.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
-                }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.coreExtra.c.f fVar;
+        Boolean bool;
+        com.baidu.tbadk.coreExtra.c.f fVar2;
+        com.baidu.tbadk.coreExtra.c.f fVar3;
+        aVar.dismiss();
+        fVar = this.bSN.bSE;
+        if (fVar.wH().getPhotoChanged()) {
+            Intent intent = new Intent();
+            bool = this.bSN.bSs;
+            if (bool.booleanValue()) {
+                fVar3 = this.bSN.bSE;
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.wH());
+            } else {
+                fVar2 = this.bSN.bSE;
+                intent.putExtra("data", fVar2.wH());
             }
+            this.bSN.setResult(-1, intent);
         }
+        this.bSN.finish();
     }
 }

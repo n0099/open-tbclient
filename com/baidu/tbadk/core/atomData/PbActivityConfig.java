@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.data.w;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PbActivityConfig extends a {
+public class PbActivityConfig extends c {
     public static final int ACTIVITY_RESULT_DELETE = 1;
+    public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
+    public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String KEY_FORUM_NAME = "forum_name";
+    public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FRS = "from_frs";
     public static final String KEY_FROM_MARK = "from_mark";
     public static final String KEY_HOST_ONLY = "host_only";
@@ -49,7 +52,7 @@ public class PbActivityConfig extends a {
             intent.putExtra("st_type", str3);
             intent.putExtra(KEY_FROM_FRS, true);
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra(a.REQUEST_CODE, i);
+            intent.putExtra(c.REQUEST_CODE, i);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -66,6 +69,21 @@ public class PbActivityConfig extends a {
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+        }
+        return this;
+    }
+
+    public PbActivityConfig createNormalCfg(String str, String str2, String str3, String str4) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from", str4);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || FROM_SEARCHBOX.equals(str4)) {
                 intent.addFlags(268435456);
             }
         }
@@ -122,7 +140,7 @@ public class PbActivityConfig extends a {
         intent.putExtra(KEY_FROM_MARK, true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-        intent.putExtra(a.REQUEST_CODE, i);
+        intent.putExtra(c.REQUEST_CODE, i);
         return this;
     }
 
@@ -152,7 +170,7 @@ public class PbActivityConfig extends a {
             intent.putExtra("forum_name", str);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra(a.REQUEST_CODE, i);
+            intent.putExtra(c.REQUEST_CODE, i);
             intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (wVar.getPraise() == null ? 0L : wVar.getPraise().getNum()));
         }
         return this;

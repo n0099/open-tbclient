@@ -1,9 +1,8 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.sapi2.utils.enums.RegistMode;
+import com.baidu.sapi2.utils.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,8 +11,8 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b {
-    private static final String a = "reg_mode";
+final class b {
+    private static final String a = "b2c_sync_enabled";
     private static final String b = "fast_reg_sms_num";
     private static final String c = "voluntary_share_plist";
     private static final String d = "global_share_strategy";
@@ -35,19 +34,19 @@ public final class b {
     private Map<String, String> w = new HashMap();
     private List<String> x = new ArrayList();
     private a q = new a();
-    private RegistMode r = RegistMode.getDefault();
-    private String s = e.n;
+    private String r = g.s;
+    private boolean s = true;
 
     public String a() {
+        return this.r;
+    }
+
+    public boolean b() {
         return this.s;
     }
 
-    public Map<String, Integer> b() {
+    public Map<String, Integer> c() {
         return this.t;
-    }
-
-    public RegistMode c() {
-        return this.r;
     }
 
     public LoginShareStrategy d() {
@@ -74,8 +73,8 @@ public final class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(h, this.q.c());
-            jSONObject.put(a, this.r.getStrValue());
-            jSONObject.put(b, this.s);
+            jSONObject.put(b, this.r);
+            jSONObject.put(a, this.s);
             jSONObject.put(c, new JSONObject(this.t));
             if (this.u != null) {
                 jSONObject.put(d, this.u.getStrValue());
@@ -103,9 +102,9 @@ public final class b {
 
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
-        bVar.r = RegistMode.mapStrToValue(jSONObject.optString(a));
         bVar.q = a.a(jSONObject.optJSONObject(h));
-        bVar.s = jSONObject.optString(b, e.n);
+        bVar.r = jSONObject.optString(b, g.s);
+        bVar.s = jSONObject.optBoolean(a, true);
         JSONObject optJSONObject = jSONObject.optJSONObject(c);
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
@@ -297,7 +296,7 @@ public final class b {
         hashMap.put("com.ting.mp3.android", "0586742e88a2e6a19e996598ec336b61");
         hashMap.put("com.baidu.news", "0586742e88a2e6a19e996598ec336b61");
         hashMap.put("com.baidu.video", "0586742e88a2e6a19e996598ec336b61");
-        hashMap.put("com.baidu.hao123", "7fd3727852d29eb6f4283988dc0d6150");
+        hashMap.put("com.baidu.hao123(.*)", "7fd3727852d29eb6f4283988dc0d6150");
         hashMap.put("com.baidu.netdisk", "ae5821440fab5e1a61a025f014bd8972");
         hashMap.put("com.baidu.music.lebo", "b1d67a31136599143c5c38879728dcfd");
         hashMap.put("com.hiapk.marketpho", "d46053ef4381d35cb774eb632d8e8aec");
@@ -322,7 +321,8 @@ public final class b {
         hashMap.put("com.baidu.doctor", "49c95b74699e358ffe67f5daacab3d48");
         hashMap.put("com.baidu.patient", "49c95b74699e358ffe67f5daacab3d48");
         hashMap.put("com.baidu.baidumovie", "645c143e25f34e076bcee9600b30e4c2");
-        hashMap.put("com.baidu.hao123tejia", "7fd3727852d29eb6f4283988dc0d6150");
+        hashMap.put("com.baidu.bdg.skyeye", "544f0f4a82864fbf7b9663fbc80437bb");
+        hashMap.put("com.zongheng.reader(.*)", "b9c43ba43f1e150d4f1670ae09a89a7f");
         return hashMap;
     }
 

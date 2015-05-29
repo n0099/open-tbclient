@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class TopRecActivityConfig extends a {
+public class TopRecActivityConfig extends c {
     public TopRecActivityConfig(Context context) {
         super(context);
     }

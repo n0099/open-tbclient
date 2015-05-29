@@ -6,33 +6,35 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.a.b {
-    final /* synthetic */ ReloginManager Sm;
+    final /* synthetic */ ReloginManager SW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ReloginManager reloginManager) {
-        this.Sm = reloginManager;
+        this.SW = reloginManager;
     }
 
     @Override // com.baidu.tbadk.core.a.b
-    public void bO(String str) {
+    public void cb(String str) {
     }
 
     @Override // com.baidu.tbadk.core.a.b
     public void a(AccountData accountData) {
+        this.SW.SQ = false;
         if (accountData != null) {
             d.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m411getInst().getApp().getApplicationContext());
-            this.Sm.rx();
+            this.SW.sh();
             return;
         }
-        this.Sm.e(TbadkCoreApplication.getCurrentAccountObj());
+        this.SW.e(TbadkCoreApplication.getCurrentAccountObj());
     }
 
     @Override // com.baidu.tbadk.core.a.b
     public void c(String str, int i, String str2) {
+        this.SW.SQ = false;
         if (i == 1) {
-            this.Sm.e(TbadkCoreApplication.getCurrentAccountObj());
+            this.SW.e(TbadkCoreApplication.getCurrentAccountObj());
         }
     }
 }

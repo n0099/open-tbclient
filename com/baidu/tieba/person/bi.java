@@ -1,30 +1,32 @@
 package com.baidu.tieba.person;
-
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class bi {
-    TextView aHo;
-    HeadImageView aIq;
-    TextView aYa;
-    LinearLayout bQA;
-    TextView bQB;
-    ViewGroup bQU;
-    TextView bQV;
-    final /* synthetic */ bh bQW;
-    ImageView bQz;
-    ProgressBar mProgress;
-
-    private bi(bh bhVar) {
-        this.bQW = bhVar;
-    }
+class bi implements com.baidu.tbadk.core.view.aj {
+    final /* synthetic */ bc bSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bi(bh bhVar, bi biVar) {
-        this(bhVar);
+    public bi(bc bcVar) {
+        this.bSZ = bcVar;
+    }
+
+    @Override // com.baidu.tbadk.core.view.aj
+    public void onListPullRefresh(boolean z) {
+        PersonFriendActivity aey;
+        bm bmVar;
+        boolean z2;
+        PersonFriendActivity aey2;
+        int i;
+        int i2;
+        aey = this.bSZ.aey();
+        if (aey != null) {
+            this.bSZ.pageNum = 0;
+            this.bSZ.bSV = true;
+            bmVar = this.bSZ.bSR;
+            z2 = this.bSZ.mIsHost;
+            aey2 = this.bSZ.aey();
+            String uid = aey2.getUid();
+            i = this.bSZ.pageNum;
+            i2 = this.bSZ.resNum;
+            bmVar.a(z2, uid, i, i2);
+        }
     }
 }

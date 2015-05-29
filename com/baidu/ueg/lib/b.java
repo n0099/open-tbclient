@@ -1,11 +1,11 @@
 package com.baidu.ueg.lib;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected final byte czt = 61;
-    private final int czu;
-    private final int czv;
-    private final int czw;
-    protected final int yb;
+    protected final byte cDL = 61;
+    private final int cDM;
+    private final int cDN;
+    private final int cDO;
+    protected final int xQ;
 
     abstract void a(byte[] bArr, int i, int i2, c cVar);
 
@@ -15,28 +15,28 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.czu = i;
-        this.czv = i2;
-        this.yb = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.czw = i4;
+        this.cDM = i;
+        this.cDN = i2;
+        this.xQ = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.cDO = i4;
     }
 
     int a(c cVar) {
         if (cVar.buffer != null) {
-            return cVar.pos - cVar.czz;
+            return cVar.pos - cVar.cDR;
         }
         return 0;
     }
 
-    protected int arK() {
+    protected int atA() {
         return 8192;
     }
 
     private byte[] b(c cVar) {
         if (cVar.buffer == null) {
-            cVar.buffer = new byte[arK()];
+            cVar.buffer = new byte[atA()];
             cVar.pos = 0;
-            cVar.czz = 0;
+            cVar.cDR = 0;
         } else {
             byte[] bArr = new byte[cVar.buffer.length * 2];
             System.arraycopy(cVar.buffer, 0, bArr, 0, cVar.buffer.length);
@@ -55,9 +55,9 @@ public abstract class b {
             return cVar.eof ? -1 : 0;
         }
         int min = Math.min(a(cVar), i2);
-        System.arraycopy(cVar.buffer, cVar.czz, bArr, i, min);
-        cVar.czz += min;
-        if (cVar.czz >= cVar.pos) {
+        System.arraycopy(cVar.buffer, cVar.cDR, bArr, i, min);
+        cVar.cDR += min;
+        if (cVar.cDR >= cVar.pos) {
             cVar.buffer = null;
             return min;
         }
@@ -65,7 +65,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(e.jn(str));
+        return decode(e.kg(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -85,7 +85,7 @@ public abstract class b {
             c cVar = new c();
             a(bArr, 0, bArr.length, cVar);
             a(bArr, 0, -1, cVar);
-            byte[] bArr2 = new byte[cVar.pos - cVar.czz];
+            byte[] bArr2 = new byte[cVar.pos - cVar.cDR];
             c(bArr2, 0, bArr2.length, cVar);
             return bArr2;
         }
@@ -106,9 +106,9 @@ public abstract class b {
     }
 
     public long G(byte[] bArr) {
-        long length = (((bArr.length + this.czu) - 1) / this.czu) * this.czv;
-        if (this.yb > 0) {
-            return length + ((((this.yb + length) - 1) / this.yb) * this.czw);
+        long length = (((bArr.length + this.cDM) - 1) / this.cDM) * this.cDN;
+        if (this.xQ > 0) {
+            return length + ((((this.xQ + length) - 1) / this.xQ) * this.cDO);
         }
         return length;
     }

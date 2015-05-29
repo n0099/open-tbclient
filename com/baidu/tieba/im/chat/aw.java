@@ -7,13 +7,13 @@ import android.widget.RelativeLayout;
 public interface aw {
     RelativeLayout getBtnSendVoice();
 
-    int nW();
+    int om();
 
-    ImageView nX();
+    ImageView on();
 
-    ImageView nY();
+    ImageView oo();
 
-    LinearLayout nZ();
+    LinearLayout op();
 
     void refreshSendVoiceText(boolean z);
 }

@@ -1,29 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.app.Activity;
-import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bIJ;
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.bIJ.bHT;
-        aVar2.dismiss();
-        str = this.bIJ.bHU;
-        if (!TextUtils.isEmpty(str)) {
-            Activity pageActivity = this.bIJ.getPageContext().getPageActivity();
-            str2 = this.bIJ.bHU;
-            com.baidu.tbadk.browser.f.b(pageActivity, false, str2);
-        }
+        aVar.dismiss();
     }
 }

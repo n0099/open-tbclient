@@ -1,106 +1,79 @@
 package com.baidu.tieba.pluginCenter;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.n;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class a extends BaseAdapter {
-    private List<PluginNetConfigInfos.PluginConfig> bUA = new ArrayList();
-    private BaseActivity mActivity;
+class a implements com.baidu.adp.plugin.packageManager.i {
+    final /* synthetic */ PluginCenterActivity bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(BaseActivity baseActivity) {
-        this.mActivity = baseActivity;
+    public a(PluginCenterActivity pluginCenterActivity) {
+        this.bXh = pluginCenterActivity;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.bUA.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: hI */
-    public PluginNetConfigInfos.PluginConfig getItem(int i) {
-        return this.bUA.get(i);
-    }
-
-    public void addAll(List<PluginNetConfigInfos.PluginConfig> list) {
-        this.bUA.clear();
-        this.bUA.addAll(list);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        b bVar;
-        if (view == null) {
-            view = View.inflate(this.mActivity.getPageContext().getPageActivity(), w.plugin_center_list_item, null);
-            b bVar2 = new b(null);
-            bVar2.aKC = (HeadImageView) view.findViewById(v.icon);
-            bVar2.bUB = (TextView) view.findViewById(v.description);
-            bVar2.aYa = (TextView) view.findViewById(v.name);
-            bVar2.aGm = (TextView) view.findViewById(v.status);
-            bVar2.bUC = view.findViewById(v.top_divider);
-            bVar2.bUD = view.findViewById(v.bot_divider);
-            bVar2.bUE = (ImageView) view.findViewById(v.new_mark);
-            view.setTag(bVar2);
-            bVar = bVar2;
-        } else {
-            bVar = (b) view.getTag();
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
+        r0 = r5.bXh.iI(r6.getId());
+     */
+    @Override // com.baidu.adp.plugin.packageManager.i
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(BdFileDownloadData bdFileDownloadData) {
+        PluginConfigWrapper iI;
+        com.baidu.tbadk.mvc.j.b bVar;
+        if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && iI != null) {
+            iI.setDownLoadPercent((float) (bdFileDownloadData.getLength() / bdFileDownloadData.getSize()));
+            iI.setDownLoadStatus(3);
+            bVar = this.bXh.bXf;
+            bVar.y(iI);
         }
-        if (i == 0) {
-            bVar.bUC.setPadding(0, 0, 0, 0);
-            bVar.bUD.setVisibility(4);
-        } else if (i == getCount() - 1) {
-            bVar.bUC.setPadding(n.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, n.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
-            bVar.bUD.setVisibility(0);
-            bVar.bUD.setPadding(0, 0, 0, 0);
-        } else {
-            bVar.bUC.setPadding(n.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, n.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
-            bVar.bUD.setVisibility(4);
+    }
+
+    @Override // com.baidu.adp.plugin.packageManager.i
+    public void b(BdFileDownloadData bdFileDownloadData) {
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x0009, code lost:
+        r0 = r3.bXh.iI(r4.getId());
+     */
+    @Override // com.baidu.adp.plugin.packageManager.i
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(BdFileDownloadData bdFileDownloadData) {
+        PluginConfigWrapper iI;
+        com.baidu.tbadk.mvc.j.b bVar;
+        if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && iI != null) {
+            this.bXh.showToast(t.download_fail_tip);
+            iI.setDownLoadStatus(0);
+            bVar = this.bXh.bXf;
+            bVar.y(iI);
         }
-        PluginNetConfigInfos.PluginConfig item = getItem(i);
-        if (item != null) {
-            bVar.bUB.setText(item.verbose);
-            bVar.aYa.setText(item.display_name);
-            if (PluginPackageManager.ls().bm(item.package_name)) {
-                if (PluginPackageManager.ls().bo(item.package_name)) {
-                    bVar.bUE.setVisibility(0);
-                    bVar.aGm.setText(y.plugin_update);
-                } else {
-                    bVar.bUE.setVisibility(4);
-                    if (PluginPackageManager.ls().bn(item.package_name)) {
-                        bVar.aGm.setText(this.mActivity.getPageContext().getString(y.plugin_unenabled));
-                    } else {
-                        bVar.aGm.setText(this.mActivity.getPageContext().getString(y.plugin_enabled));
-                    }
-                }
-            } else {
-                bVar.aGm.setText(this.mActivity.getPageContext().getString(y.plugin_disabled));
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x000a, code lost:
+        r0 = r5.bXh.iI(r6.getId());
+     */
+    @Override // com.baidu.adp.plugin.packageManager.i
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
+        PluginConfigWrapper iI;
+        com.baidu.tbadk.mvc.j.b bVar;
+        ViewEventCenter viewEventCenter;
+        if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && iI != null) {
+            if (i == 0) {
+                this.bXh.showToast(t.plugin_installation_finished);
+                viewEventCenter = this.bXh.aET;
+                viewEventCenter.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, iI, null, null));
+                return;
             }
-            bVar.aKC.setTag(item.icon);
-            bVar.aKC.c(item.icon, 10, false);
+            this.bXh.showToast(String.valueOf(this.bXh.getPageContext().getString(t.plugin_installation_failed)) + str);
+            iI.setDownLoadStatus(0);
+            bVar = this.bXh.bXf;
+            bVar.y(iI);
         }
-        this.mActivity.getLayoutMode().X(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.mActivity.getLayoutMode().h(view);
-        return view;
     }
 }

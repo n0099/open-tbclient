@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.b;
 /* loaded from: classes.dex */
 public interface c {
-    void KA();
+    void LF();
 
-    void KB();
+    void LG();
 }

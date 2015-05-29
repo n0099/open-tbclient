@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class CreateBarActivityConfig extends a {
+public class CreateBarActivityConfig extends c {
     public static final String BAR_NAME_ISVALID = "isvalid";
     public static final String BAR_NAME_STRING = "barname";
 

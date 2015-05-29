@@ -9,12 +9,12 @@ public class i extends u implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String AE() {
+    public String Bq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean eB(String str) {
+    public boolean eS(String str) {
         try {
             c(new JSONObject(str));
             return true;

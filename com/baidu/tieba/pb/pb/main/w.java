@@ -1,52 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
+import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnTouchListener {
-    final /* synthetic */ PbActivity bIJ;
+public class w implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        MorePopupWindow morePopupWindow3;
-        MorePopupWindow morePopupWindow4;
-        MorePopupWindow morePopupWindow5;
-        MorePopupWindow morePopupWindow6;
-        MorePopupWindow morePopupWindow7;
-        MorePopupWindow morePopupWindow8;
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        morePopupWindow = this.bIJ.bIp;
-        if (morePopupWindow.getContentView() == null) {
-            return false;
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        bo boVar;
+        String str5;
+        String str6;
+        String str7;
+        bo boVar2;
+        String str8;
+        if (i == 0) {
+            TiebaStatic.eventStat(this.bKT.getPageContext().getPageActivity(), "pb_phone_call", "call");
+            PbActivity pbActivity = this.bKT;
+            str6 = this.bKT.mPhoneNumber;
+            pbActivity.mPhoneNumber = str6.trim();
+            Activity pageActivity = this.bKT.getPageContext().getPageActivity();
+            str7 = this.bKT.mPhoneNumber;
+            UtilHelper.callPhone(pageActivity, str7);
+            boVar2 = this.bKT.bKv;
+            String abo = boVar2.abo();
+            str8 = this.bKT.mPhoneNumber;
+            new a(abo, str8, "1").start();
+            eVar.dismiss();
+        } else if (i == 1) {
+            TiebaStatic.eventStat(this.bKT.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
+            PbActivity pbActivity2 = this.bKT;
+            str3 = this.bKT.mPhoneNumber;
+            pbActivity2.mPhoneNumber = str3.trim();
+            Activity pageActivity2 = this.bKT.getPageContext().getPageActivity();
+            str4 = this.bKT.mPhoneNumber;
+            UtilHelper.smsPhone(pageActivity2, str4);
+            boVar = this.bKT.bKv;
+            String abo2 = boVar.abo();
+            str5 = this.bKT.mPhoneNumber;
+            new a(abo2, str5, "2").start();
+            eVar.dismiss();
+        } else if (i == 2) {
+            PbActivity pbActivity3 = this.bKT;
+            str = this.bKT.mPhoneNumber;
+            pbActivity3.mPhoneNumber = str.trim();
+            Activity pageActivity3 = this.bKT.getPageContext().getPageActivity();
+            str2 = this.bKT.mPhoneNumber;
+            UtilHelper.startBaiDuBar(pageActivity3, str2);
+            eVar.dismiss();
         }
-        morePopupWindow2 = this.bIJ.bIp;
-        int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.bIJ.bIp;
-        int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.bIJ.bIp;
-        int bottom = morePopupWindow4.getContentView().getBottom();
-        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.bIJ.bIp;
-            if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.bIJ.bIp;
-                morePopupWindow7.dismiss();
-                morePopupWindow8 = this.bIJ.bIp;
-                morePopupWindow8.setIsIntercepted(true);
-                return true;
-            }
-        }
-        morePopupWindow5 = this.bIJ.bIp;
-        morePopupWindow5.setIsIntercepted(false);
-        return false;
     }
 }

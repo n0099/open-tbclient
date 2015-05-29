@@ -23,18 +23,18 @@ public class g extends com.baidu.adp.framework.listener.e {
         s sVar;
         s sVar2;
         Runnable runnable2;
-        this.this$0.anb = false;
-        runnable = this.this$0.and;
+        this.this$0.aoe = false;
+        runnable = this.this$0.aog;
         if (runnable != null) {
-            com.baidu.adp.lib.g.i hI = com.baidu.adp.lib.g.i.hI();
-            runnable2 = this.this$0.and;
-            hI.removeCallbacks(runnable2);
+            com.baidu.adp.lib.g.i hs = com.baidu.adp.lib.g.i.hs();
+            runnable2 = this.this$0.aog;
+            hs.removeCallbacks(runnable2);
         }
         if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
             if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                sVar = this.this$0.amT;
+                sVar = this.this$0.anW;
                 if (sVar != null) {
-                    sVar2 = this.this$0.amT;
+                    sVar2 = this.this$0.anW;
                     sVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {

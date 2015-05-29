@@ -3,28 +3,28 @@ package com.baidu.tieba.write.shareSDK;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 class h implements com.baidu.tieba.write.view.i {
-    final /* synthetic */ WriteShareActivity cwd;
+    final /* synthetic */ WriteShareActivity cAt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(WriteShareActivity writeShareActivity) {
-        this.cwd = writeShareActivity;
+        this.cAt = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.view.i
-    public void onClick(com.baidu.tieba.write.view.f fVar) {
+    public void a(com.baidu.tieba.write.view.f fVar) {
         InputMethodManager inputMethodManager;
         q qVar;
         InputMethodManager inputMethodManager2;
         q qVar2;
-        WriteShareActivity writeShareActivity = this.cwd;
-        inputMethodManager = this.cwd.mInputManager;
-        qVar = this.cwd.cvO;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, qVar.aqR());
-        WriteShareActivity writeShareActivity2 = this.cwd;
-        inputMethodManager2 = this.cwd.mInputManager;
-        qVar2 = this.cwd.cvO;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, qVar2.aqS());
-        this.cwd.aqK();
+        WriteShareActivity writeShareActivity = this.cAt;
+        inputMethodManager = this.cAt.mInputManager;
+        qVar = this.cAt.cAe;
+        writeShareActivity.HidenSoftKeyPad(inputMethodManager, qVar.asH());
+        WriteShareActivity writeShareActivity2 = this.cAt;
+        inputMethodManager2 = this.cAt.mInputManager;
+        qVar2 = this.cAt.cAe;
+        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, qVar2.asI());
+        this.cAt.asA();
         fVar.dismiss();
     }
 }

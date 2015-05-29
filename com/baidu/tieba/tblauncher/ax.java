@@ -1,38 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aBt;
-    private final /* synthetic */ int aYT;
-    final /* synthetic */ ai csd;
+class ax implements SlidingMenu.OnOpenedListener {
+    final /* synthetic */ aj cwn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(ai aiVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.csd = aiVar;
-        this.aBt = aVar;
-        this.aYT = i;
+    public ax(aj ajVar) {
+        this.cwn = ajVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        MainTabActivity mainTabActivity3;
-        this.aBt.dismiss();
-        MessageManager messageManager = MessageManager.getInstance();
-        mainTabActivity = this.csd.crX;
-        messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(mainTabActivity.getPageContext().getPageActivity(), 2)));
-        if (this.aYT == 0) {
-            mainTabActivity3 = this.csd.crX;
-            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.aYT == 1) {
-            mainTabActivity2 = this.csd.crX;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
-        }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        this.cwn.fo(false);
+        this.cwn.y(0.0f);
     }
 }

@@ -1,23 +1,96 @@
 package com.baidu.adp.lib.util;
 
-import java.util.Comparator;
+import android.database.Cursor;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-class aa implements Comparator<com.baidu.adp.lib.cache.v<?>> {
-    private aa() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(aa aaVar) {
-        this();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(com.baidu.adp.lib.cache.v<?> vVar, com.baidu.adp.lib.cache.v<?> vVar2) {
-        if (vVar.tn == vVar2.tn) {
-            return 0;
+public class aa {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
+    public static List<com.baidu.adp.lib.cache.v<String>> b(com.baidu.adp.lib.cache.t<String> tVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
+        try {
+            cursor = d(tVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
         }
-        return vVar.tn > vVar2.tn ? -1 : 1;
+        if (cursor == null) {
+            return null;
+        }
+        while (cursor.moveToNext()) {
+            try {
+                com.baidu.adp.lib.cache.v vVar = new com.baidu.adp.lib.cache.v();
+                vVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                vVar.tz = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                vVar.tj = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                vVar.ss = cursor.getString(cursor.getColumnIndex("m_value"));
+                linkedList.add(vVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    com.baidu.adp.lib.g.a.b(cursor);
+                    Collections.sort(linkedList, new ab(null));
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.b(cursor);
+                }
+            }
+        }
+        Collections.sort(linkedList, new ab(null));
+        return linkedList;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    public static List<com.baidu.adp.lib.cache.v<byte[]>> c(com.baidu.adp.lib.cache.t<byte[]> tVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
+        try {
+            cursor = d(tVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
+        }
+        if (cursor == null) {
+            return null;
+        }
+        while (cursor.moveToNext()) {
+            try {
+                com.baidu.adp.lib.cache.v vVar = new com.baidu.adp.lib.cache.v();
+                vVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                vVar.tz = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                vVar.tj = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                vVar.ss = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                linkedList.add(vVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    com.baidu.adp.lib.g.a.b(cursor);
+                    Collections.sort(linkedList, new ab(null));
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.b(cursor);
+                }
+            }
+        }
+        Collections.sort(linkedList, new ab(null));
+        return linkedList;
+    }
+
+    private static Cursor d(com.baidu.adp.lib.cache.t<?> tVar) {
+        if (tVar != null && (tVar instanceof com.baidu.adp.lib.cache.w)) {
+            com.baidu.adp.lib.cache.w wVar = (com.baidu.adp.lib.cache.w) tVar;
+            if (wVar.gw() instanceof com.baidu.adp.lib.cache.p) {
+                com.baidu.adp.lib.cache.c gs = ((com.baidu.adp.lib.cache.p) wVar.gw()).gs();
+                return gs.d(gs.gj().dK(), wVar.gv());
+            }
+            return null;
+        }
+        return null;
     }
 }

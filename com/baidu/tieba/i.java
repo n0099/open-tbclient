@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes.dex */
-class i implements d {
-    final /* synthetic */ LogoActivity atK;
+public class i {
+    private com.baidu.tbadk.coreExtra.c.c avl = new com.baidu.tbadk.coreExtra.c.c();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(LogoActivity logoActivity) {
-        this.atK = logoActivity;
-    }
-
-    @Override // com.baidu.tieba.d
-    public void C(Object obj) {
-        if (obj != null) {
-            this.atK.ek(com.baidu.adp.lib.g.c.toInt(String.valueOf(obj), 0));
-            return;
+    public Bitmap ar(Context context) {
+        String wB = this.avl.wB();
+        Bitmap bitmap = null;
+        if (!StringUtils.isNull(wB)) {
+            try {
+                bitmap = BitmapFactory.decodeFile(com.baidu.tbadk.core.util.o.cB(bd.db(wB)).getAbsolutePath());
+                if (bitmap == null) {
+                    this.avl.wC();
+                }
+            } catch (Throwable th) {
+            }
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.atK.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
-        this.atK.finish();
+        return bitmap;
     }
 }

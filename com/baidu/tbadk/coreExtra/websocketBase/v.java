@@ -14,23 +14,23 @@ import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class v {
-    private static v agK = null;
-    private int agH;
-    private com.baidu.adp.framework.client.socket.link.g agI = null;
-    private UpdateClientInfoMessage agJ = null;
-    private final com.baidu.adp.framework.client.socket.link.g oI = new w(this);
+    private static v ahL = null;
+    private int ahI;
+    private com.baidu.adp.framework.client.socket.link.g ahJ = null;
+    private UpdateClientInfoMessage ahK = null;
+    private final com.baidu.adp.framework.client.socket.link.g oN = new w(this);
 
-    public static synchronized v xN() {
+    public static synchronized v yA() {
         v vVar;
         synchronized (v.class) {
-            if (agK == null) {
+            if (ahL == null) {
                 synchronized (v.class) {
-                    if (agK == null) {
-                        agK = new v();
+                    if (ahL == null) {
+                        ahL = new v();
                     }
                 }
             }
-            vVar = agK;
+            vVar = ahL;
         }
         return vVar;
     }
@@ -40,11 +40,11 @@ public class v {
     }
 
     public void init() {
-        MessageManager.getInstance().getSocketClient().a(this.oI);
+        MessageManager.getInstance().getSocketClient().a(this.oN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage xO() {
+    public UpdateClientInfoMessage yB() {
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
         updateClientInfoMessage.addUserInfo("_client_type", "2");
         updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
@@ -62,11 +62,11 @@ public class v {
         if (from != null && from.length() > 0) {
             updateClientInfoMessage.addUserInfo("from", from);
         }
-        String str = new aa().sp().tp().ts().mNetType;
+        String str = new aa().sX().tS().tV().mNetType;
         if (str != null) {
             updateClientInfoMessage.addUserInfo("net_type", str);
         }
-        String valueOf = String.valueOf(com.baidu.adp.lib.util.k.iM());
+        String valueOf = String.valueOf(com.baidu.adp.lib.util.k.jc());
         if (valueOf != null) {
             updateClientInfoMessage.addUserInfo("net", valueOf);
         }
@@ -79,7 +79,7 @@ public class v {
         stringBuffer.append(",");
         stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.n.N(TbadkCoreApplication.m411getInst().getApp())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.vw().vz() > 0) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.wg().wj() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", GameInfoData.NOT_FROM_DETAIL);
         } else {
             updateClientInfoMessage.addUserInfo("_msg_status", "1");
@@ -87,9 +87,9 @@ public class v {
         updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(TbadkCoreApplication.m411getInst().getViewImageQuality()));
         try {
             if (TbadkCoreApplication.isLogin()) {
-                com.baidu.tbadk.core.a.c bN = com.baidu.tbadk.core.a.a.pD().bN(TbadkCoreApplication.getCurrentBduss());
-                if (bN != null) {
-                    updateClientInfoMessage.setBduss(bN.xh);
+                com.baidu.tbadk.core.a.c ca = com.baidu.tbadk.core.a.a.qi().ca(TbadkCoreApplication.getCurrentBduss());
+                if (ca != null) {
+                    updateClientInfoMessage.setBduss(ca.wk);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss());
                 }
@@ -100,10 +100,10 @@ public class v {
         int dip2px = com.baidu.adp.lib.util.n.dip2px(TbadkCoreApplication.m411getInst().getContext(), 70.0f);
         updateClientInfoMessage.setHeight(com.baidu.adp.lib.util.n.dip2px(TbadkCoreApplication.m411getInst().getContext(), 70.0f));
         updateClientInfoMessage.setWidth(dip2px);
-        if (com.baidu.tbadk.coreExtra.a.a.uu().uv()) {
+        if (com.baidu.tbadk.coreExtra.a.a.vd().ve()) {
             updateClientInfoMessage.setPub_env(3);
         }
-        updateClientInfoMessage.setSecretKey(com.baidu.adp.framework.client.socket.coder.d.eI().eJ());
+        updateClientInfoMessage.setSecretKey(com.baidu.adp.framework.client.socket.coder.d.eL().eM());
         updateClientInfoMessage.addUserInfo("pversion", TiebaIMConfig.PROTOBUF_VERSION);
         if (TbadkCoreApplication.m411getInst().getCustomizedFilter() != null) {
             return TbadkCoreApplication.m411getInst().getCustomizedFilter().a(updateClientInfoMessage);
@@ -111,33 +111,33 @@ public class v {
         return updateClientInfoMessage;
     }
 
-    public boolean xP() {
-        return this.agH >= 5;
+    public boolean yC() {
+        return this.ahI >= 5;
     }
 
-    public void xQ() {
-        this.agH++;
-        if (xP()) {
+    public void yD() {
+        this.ahI++;
+        if (yC()) {
             BdSocketLinkService.setAvailable(false);
-            NoNetworkView.tM();
+            NoNetworkView.uv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xR() {
-        this.agH = 0;
-        MessageManager.getInstance().getSocketClient().et();
-        NoNetworkView.tM();
+    public void yE() {
+        this.ahI = 0;
+        MessageManager.getInstance().getSocketClient().ew();
+        NoNetworkView.uv();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, String str) {
-        xQ();
+        yD();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.g gVar) {
-        this.agI = gVar;
+        this.ahJ = gVar;
     }
 }

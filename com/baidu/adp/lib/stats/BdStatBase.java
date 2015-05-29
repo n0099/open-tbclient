@@ -6,7 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.ab;
+import com.baidu.adp.lib.util.ac;
 import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -74,12 +74,12 @@ public abstract class BdStatBase implements Serializable {
         this.mContext = context;
         this.mLogDir = str;
         this.mLastLogTime = System.currentTimeMillis();
-        com.baidu.adp.lib.util.f.aG(this.mLogDir);
+        com.baidu.adp.lib.util.f.aP(this.mLogDir);
         if (TextUtils.isEmpty(mProcessNameMd5)) {
             if (z) {
                 mProcessNameMd5 = "44f94582";
             } else {
-                mProcessNameMd5 = hM();
+                mProcessNameMd5 = hw();
             }
         }
         this.mMemCache = new StringBuffer();
@@ -162,9 +162,9 @@ public abstract class BdStatBase implements Serializable {
             }
         }
         if (System.currentTimeMillis() - this.mLastLogTime > TbConfig.USE_TIME_INTERVAL) {
-            f.hP().a(this, true, false);
+            f.hz().a(this, true, false);
         } else {
-            f.hP().a(this, false, false);
+            f.hz().a(this, false, false);
         }
         this.mLastLogTime = System.currentTimeMillis();
     }
@@ -226,7 +226,7 @@ public abstract class BdStatBase implements Serializable {
     public void handleException() {
     }
 
-    private String hM() {
+    private String hw() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;
@@ -244,7 +244,7 @@ public abstract class BdStatBase implements Serializable {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String p = ab.p(str.getBytes("UTF-8"));
+                            String p = ac.p(str.getBytes("UTF-8"));
                             if (!TextUtils.isEmpty(p) && p.length() > 8) {
                                 return p.substring(p.length() - 8);
                             }

@@ -1,24 +1,23 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class ai implements z {
-    final /* synthetic */ ah cuX;
+class ai {
+    ImageView bzw;
+    RelativeLayout bzx;
+    final /* synthetic */ ac czc;
+    HeadImageView czi;
+    ViewGroup czj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar) {
-        this.cuX = ahVar;
+    private ai(ac acVar) {
+        this.czc = acVar;
     }
 
-    @Override // com.baidu.tieba.write.album.z
-    public boolean onClick(int i, ImageFileInfo imageFileInfo, boolean z) {
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        if (z) {
-            albumActivity2 = this.cuX.ctK;
-            return albumActivity2.c(imageFileInfo);
-        }
-        albumActivity = this.cuX.ctK;
-        return albumActivity.d(imageFileInfo);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ai(ac acVar, ai aiVar) {
+        this(acVar);
     }
 }

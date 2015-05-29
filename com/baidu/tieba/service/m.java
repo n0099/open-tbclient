@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, Boolean> {
-    private aa Ok;
-    final /* synthetic */ TiebaUpdateService bZt;
-    private volatile boolean wb;
+    private aa OE;
+    private volatile boolean ayP;
+    final /* synthetic */ TiebaUpdateService cdF;
 
     private m(TiebaUpdateService tiebaUpdateService) {
-        this.bZt = tiebaUpdateService;
-        this.wb = false;
+        this.cdF = tiebaUpdateService;
+        this.ayP = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,22 +35,22 @@ public class m extends BdAsyncTask<String, Integer, Boolean> {
         boolean z;
         long j;
         Boolean bool2 = false;
-        while (!this.wb) {
+        while (!this.ayP) {
             try {
-                str2 = this.bZt.mMainApkUrl;
-                this.Ok = new aa(str2);
-                aa aaVar = this.Ok;
-                str3 = this.bZt.mMainApkFileName;
+                str2 = this.cdF.mMainApkUrl;
+                this.OE = new aa(str2);
+                aa aaVar = this.OE;
+                str3 = this.cdF.mMainApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.bZt.mMainApkHandler;
+                handler = this.cdF.mMainApkHandler;
                 bool2 = Boolean.valueOf(aaVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
-                } else if (this.Ok.st() == -2) {
+                } else if (this.OE.tb() == -2) {
                     bool = bool2;
                     break;
                 } else {
-                    if (!this.Ok.sp().tq().hi()) {
+                    if (!this.OE.sX().tT().gT()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e2) {
@@ -59,9 +59,9 @@ public class m extends BdAsyncTask<String, Integer, Boolean> {
                     z = TiebaUpdateService.sHasStart;
                     if (z) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        j = this.bZt.mMainTaskWaitingTimestamp;
+                        j = this.cdF.mMainTaskWaitingTimestamp;
                         if (currentTimeMillis - j > 20000) {
-                            this.bZt.sendBroadcast("action_update_progress_interrupted", true);
+                            this.cdF.downloadError();
                             bool = bool2;
                             break;
                         }
@@ -75,8 +75,8 @@ public class m extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.bZt;
-                str = this.bZt.mMainApkFileName;
+                TiebaUpdateService tiebaUpdateService = this.cdF;
+                str = this.cdF.mMainApkFileName;
                 tiebaUpdateService.renameFile(str);
             }
         } catch (Exception e4) {
@@ -90,10 +90,10 @@ public class m extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.bZt.mDowndMainApkTask = null;
-        this.wb = true;
-        if (this.Ok != null) {
-            this.Ok.hh();
+        this.cdF.mDowndMainApkTask = null;
+        this.ayP = true;
+        if (this.OE != null) {
+            this.OE.gS();
         }
     }
 
@@ -106,14 +106,14 @@ public class m extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler2;
         String str;
         super.onPostExecute(bool);
-        this.bZt.mDowndMainApkTask = null;
+        this.cdF.mDowndMainApkTask = null;
         try {
             if (bool.booleanValue()) {
-                this.bZt.mIsMainApkDone = true;
-                handler = this.bZt.mMainApkHandler;
-                handler2 = this.bZt.mMainApkHandler;
-                str = this.bZt.mMainApkFileName;
-                handler.sendMessageDelayed(handler2.obtainMessage(1, str), 100L);
+                this.cdF.mIsMainApkDone = true;
+                handler = this.cdF.mMainApkHandler;
+                handler2 = this.cdF.mMainApkHandler;
+                str = this.cdF.mMainApkFileName;
+                handler.sendMessageDelayed(handler2.obtainMessage(1, str), 300L);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

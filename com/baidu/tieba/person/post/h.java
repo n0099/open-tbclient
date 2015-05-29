@@ -1,37 +1,37 @@
 package com.baidu.tieba.person.post;
 
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.bo;
+import com.baidu.tieba.person.ch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements bo {
-    final /* synthetic */ g bRE;
+public class h implements ch {
+    final /* synthetic */ g bUj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.bRE = gVar;
+        this.bUj = gVar;
     }
 
-    @Override // com.baidu.tieba.person.bo
+    @Override // com.baidu.tieba.person.ch
     public void a(PersonPostModel personPostModel, boolean z) {
         PersonPostModel personPostModel2;
         PersonPostModel personPostModel3;
-        bo boVar;
-        bo boVar2;
+        ch chVar;
+        ch chVar2;
         if (z) {
-            this.bRE.bRB = personPostModel;
+            this.bUj.bUg = personPostModel;
         } else {
-            personPostModel2 = this.bRE.bRB;
+            personPostModel2 = this.bUj.bUg;
             if (personPostModel2 != null) {
-                personPostModel3 = this.bRE.bRB;
+                personPostModel3 = this.bUj.bUg;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        boVar = this.bRE.bRA;
-        if (boVar != null) {
-            boVar2 = this.bRE.bRA;
-            boVar2.a(personPostModel, z);
+        chVar = this.bUj.bUf;
+        if (chVar != null) {
+            chVar2 = this.bUj.bUf;
+            chVar2.a(personPostModel, z);
         }
-        this.bRE.notifyDataSetChanged();
+        this.bUj.notifyDataSetChanged();
     }
 }

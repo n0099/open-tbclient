@@ -17,24 +17,24 @@ import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
-    private j btO;
-    private StrangerListModel btP;
-    private StrangerListActivity btQ;
-    private com.baidu.tbadk.core.dialog.a btR;
-    private com.baidu.tbadk.core.dialog.d btS = new e(this);
-    private com.baidu.tbadk.core.dialog.d btT = new f(this);
-    private final CustomMessageListener aZS = new g(this, 0);
-    private com.baidu.tieba.im.chat.notify.a aZT = new h(this);
+    private com.baidu.tbadk.core.dialog.a bwA;
+    private j bwx;
+    private StrangerListModel bwy;
+    private StrangerListActivity bwz;
+    private com.baidu.tbadk.core.dialog.d bwB = new e(this);
+    private com.baidu.tbadk.core.dialog.d bwC = new f(this);
+    private final CustomMessageListener bcz = new g(this, 0);
+    private com.baidu.tieba.im.chat.notify.a bcA = new h(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.btQ = this;
+        this.bwz = this;
         a(this);
         initData();
         registerListener();
@@ -46,8 +46,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         ChatStatusManager.getInst().setIsOpen(5, true);
     }
 
-    @Override // android.app.Activity
-    protected void onStart() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onStart() {
         super.onStart();
         ChatStatusManager.getInst().setIsOpen(5, true);
     }
@@ -60,57 +61,57 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aZS);
-        registerListener(2016006, this.aZS);
-        registerListener(2016000, this.aZS);
-        registerListener(2016011, this.aZS);
-        registerListener(2016001, this.aZS);
+        registerListener(2016004, this.bcz);
+        registerListener(2016007, this.bcz);
+        registerListener(2016001, this.bcz);
+        registerListener(2016011, this.bcz);
+        registerListener(2016002, this.bcz);
     }
 
     private void a(StrangerListActivity strangerListActivity) {
-        this.btO = new j(strangerListActivity);
-        this.btR = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.btR.bx(y.sure_to_delete_all_stranger_msg);
-        this.btR.a(y.alert_yes_btn, this.btS);
-        this.btR.b(y.cancel, this.btT);
-        this.btR.b(strangerListActivity.getPageContext());
+        this.bwx = new j(strangerListActivity);
+        this.bwA = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
+        this.bwA.bu(t.sure_to_delete_all_stranger_msg);
+        this.bwA.a(t.alert_yes_btn, this.bwB);
+        this.bwA.b(t.cancel, this.bwC);
+        this.bwA.b(strangerListActivity.getPageContext());
     }
 
     private void initData() {
-        this.btP = new StrangerListModel(getPageContext());
+        this.bwy = new StrangerListModel(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.btO != null) {
-            this.btO.onChangeSkinType(i);
+        if (this.bwx != null) {
+            this.bwx.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData fC;
-        if (this.btO != null && this.btO.VV() != null && (fC = this.btO.VV().getItem(i)) != null) {
-            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.btQ.getPageContext().getContext(), com.baidu.adp.lib.g.c.a(fC.getFriendId(), 0L), fC.getFriendName(), fC.getFriendPortrait(), 0, 0)));
+        ImMessageCenterShowItemData fT;
+        if (this.bwx != null && this.bwx.Xn() != null && (fT = this.bwx.Xn().getItem(i)) != null) {
+            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.bwz.getPageContext().getContext(), com.baidu.adp.lib.g.c.c(fT.getFriendId(), 0L), fT.getFriendName(), fT.getFriendPortrait(), 0, 0)));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData fC;
-        if (this.btO == null || this.btO.VV() == null || (fC = this.btO.VV().getItem(i)) == null) {
+        ImMessageCenterShowItemData fT;
+        if (this.bwx == null || this.bwx.Xn() == null || (fT = this.bwx.Xn().getItem(i)) == null) {
             return false;
         }
-        com.baidu.tbadk.coreExtra.util.a.a(getPageContext().getContext(), new i(this, this.btP.getData().size(), fC));
+        com.baidu.tbadk.coreExtra.util.a.a(getPageContext().getContext(), new i(this, this.bwy.getData().size(), fT));
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.btO.VW() && this.btR != null) {
-            this.btR.re();
+        if (view == this.bwx.Xo() && this.bwA != null) {
+            this.bwA.rL();
         }
     }
 
@@ -118,8 +119,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.btO != null && this.btO.VV() != null) {
-            this.btO.VV().notifyDataSetChanged();
+        if (this.bwx != null && this.bwx.Xn() != null) {
+            this.bwx.Xn().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1001", -7)));
     }
@@ -137,11 +138,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.btP != null) {
-                    this.btP.insertOrUpdate(data, this.aZT);
+                if (this.bwy != null) {
+                    this.bwy.insertOrUpdate(data, this.bcA);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.btP != null) {
-                this.btP.remove(data, this.aZT);
+            } else if (memoryChangedMessage.getType() == 2 && this.bwy != null) {
+                this.bwy.remove(data, this.bcA);
             }
         }
     }
@@ -151,8 +152,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 3 && this.btP != null) {
-                this.btP.setData(data, this.aZT);
+            if (responsedMemoryListMessage.getType() == 3 && this.bwy != null) {
+                this.bwy.setData(data, this.bcA);
             }
         }
     }

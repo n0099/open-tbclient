@@ -9,14 +9,14 @@ import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.Disk.f {
-    final /* synthetic */ BdNormalStatBase wX;
+    final /* synthetic */ BdNormalStatBase wb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdNormalStatBase bdNormalStatBase) {
-        this.wX = bdNormalStatBase;
+        this.wb = bdNormalStatBase;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [535=4, 536=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [534=4, 535=4] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x004a  */
     /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.adp.lib.Disk.f
@@ -30,14 +30,14 @@ public class c implements com.baidu.adp.lib.Disk.f {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream = null;
         try {
-            a = bVar.a(diskFileOperate.getPath(), diskFileOperate.getName(), false, diskFileOperate.fB());
+            a = bVar.a(diskFileOperate.getPath(), diskFileOperate.getName(), false, diskFileOperate.fG());
         } catch (Exception e) {
             e = e;
         } catch (Throwable th) {
             th = th;
             fileInputStream = null;
         }
-        if (a == null || !a.exists() || eVar.fl()) {
+        if (a == null || !a.exists() || eVar.fq()) {
             com.baidu.adp.lib.g.a.d(null);
             com.baidu.adp.lib.g.a.b((OutputStream) null);
             return false;
@@ -55,7 +55,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
                 }
                 i++;
                 if (fileOutputStream == null || file == null) {
-                    file = bVar.a(diskFileOperate.getPath(), this.wX.getUploadingLogFile(), false, diskFileOperate.fB());
+                    file = bVar.a(diskFileOperate.getPath(), this.wb.getUploadingLogFile(), false, diskFileOperate.fG());
                     fileOutputStream = new FileOutputStream(file);
                 }
                 boolean z2 = i * 10240 >= 102400;
@@ -80,7 +80,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
                     com.baidu.adp.lib.g.a.b(fileOutputStream);
                     if (i2 != read) {
                         try {
-                            File a2 = bVar.a(diskFileOperate.getPath(), this.wX.getUploadingLogFile(), false, diskFileOperate.fB());
+                            File a2 = bVar.a(diskFileOperate.getPath(), this.wb.getUploadingLogFile(), false, diskFileOperate.fG());
                             fileOutputStream = new FileOutputStream(a2);
                             fileOutputStream.write(bArr, i2, read - i2);
                             fileOutputStream.flush();
@@ -130,7 +130,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
         if (z) {
             return z;
         }
-        this.wX.an(diskFileOperate.getName());
+        this.wb.ao(diskFileOperate.getName());
         return z;
     }
 }

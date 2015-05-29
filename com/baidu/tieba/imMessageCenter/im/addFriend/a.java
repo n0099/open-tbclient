@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity bpc;
+    final /* synthetic */ AddFriendActivity brI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.bpc = addFriendActivity;
+        this.brI = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,19 +30,19 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.bpc.userId;
-                str2 = this.bpc.name;
+                str = this.brI.userId;
+                str2 = this.brI.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001197, new i(str, str2)));
-                z = this.bpc.bpb;
+                z = this.brI.brH;
                 if (z) {
-                    this.bpc.showToast(this.bpc.getPageContext().getPageActivity().getString(y.add_ok_but_level_is_lower), false);
+                    this.brI.showToast(this.brI.getPageContext().getPageActivity().getString(t.add_ok_but_level_is_lower), false);
                 } else {
-                    this.bpc.showToast(this.bpc.getPageContext().getPageActivity().getString(y.group_apply_succ), false);
+                    this.brI.showToast(this.brI.getPageContext().getPageActivity().getString(t.group_apply_succ), false);
                 }
-                this.bpc.finish();
+                this.brI.finish();
                 return;
             }
-            BdToast.a(this.bpc.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).ri();
+            BdToast.a(this.brI.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).rR();
         }
     }
 }

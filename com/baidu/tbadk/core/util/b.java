@@ -3,25 +3,30 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.stats.r {
-    private static b Tg = null;
+    private static b TP = null;
 
     private b() {
     }
 
-    public static synchronized b rF() {
+    public static synchronized b so() {
         b bVar;
         synchronized (b.class) {
-            if (Tg == null) {
-                Tg = new b();
+            if (TP == null) {
+                TP = new b();
             }
-            bVar = Tg;
+            bVar = TP;
         }
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void ax(String str) {
+    public void az(String str) {
         TbadkSettings.getInst().saveString("log_stat_switch_data", str);
+    }
+
+    @Override // com.baidu.adp.lib.stats.r
+    public void d(String str, long j) {
+        TbadkSettings.getInst().saveLong(cs(str), j);
     }
 
     @Override // com.baidu.adp.lib.stats.r
@@ -45,27 +50,36 @@ public class b implements com.baidu.adp.lib.stats.r {
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public String in() {
+    public String hW() {
         return TbadkSettings.getInst().loadString("log_stat_switch_data", null);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long io() {
+    public long aA(String str) {
+        return TbadkSettings.getInst().loadLong(cs(str), 0L);
+    }
+
+    @Override // com.baidu.adp.lib.stats.r
+    public long hX() {
         return TbadkSettings.getInst().loadLong("log_stat_upload_time ", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long ip() {
+    public long hY() {
         return TbadkSettings.getInst().loadLong("log_stat_debug_time", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long ir() {
+    public long ia() {
         return TbadkSettings.getInst().loadLong("log_stat_error_time", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long iq() {
+    public long hZ() {
         return TbadkSettings.getInst().loadLong("log_stat_perfor_time", 0L);
+    }
+
+    private String cs(String str) {
+        return "new_log_upload_time_" + str;
     }
 }

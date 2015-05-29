@@ -49,7 +49,7 @@ public class MetaData extends i implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.c.a(this.userId, 0L);
+        return com.baidu.adp.lib.g.c.c(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -222,8 +222,8 @@ public class MetaData extends i implements Serializable {
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
-                this.name_show = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
-                this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                this.name_show = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.NAME_SHOW);
+                this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");

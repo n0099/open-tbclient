@@ -4,15 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class PbEditorToolButtonContainer extends c {
-    protected EditorToolButton cmZ;
-    protected EditorToolButton cna;
-    protected TextView cnb;
-    protected TextView cnc;
+    protected TextView akZ;
+    protected EditorToolButton cqY;
+    protected EditorToolButton cqZ;
+    protected TextView cra;
     protected Context mContext;
 
     public PbEditorToolButtonContainer(Context context) {
@@ -33,127 +32,113 @@ public class PbEditorToolButtonContainer extends c {
         initialize();
     }
 
-    protected void acx() {
-        com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.pb_editor_tool_button_container, this, true);
+    protected void aob() {
+        com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.pb_editor_tool_button_container, this, true);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.cmZ.getTip() != null) {
-            TextView tip = this.cmZ.getTip();
-            int right = this.cmZ.getRight() - com.baidu.adp.lib.util.n.dip2px(this.mContext, 10.0f);
-            int top = this.cmZ.getTop() + com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
-            this.cmZ.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
+        if (this.cqY.getTip() != null) {
+            TextView tip = this.cqY.getTip();
+            int right = this.cqY.getRight() - com.baidu.adp.lib.util.n.dip2px(this.mContext, 10.0f);
+            int top = this.cqY.getTop() + com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
+            this.cqY.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
-        if (this.cna.getTip() != null) {
-            TextView tip2 = this.cna.getTip();
-            int right2 = this.cna.getRight() - com.baidu.adp.lib.util.n.dip2px(this.mContext, 10.0f);
-            int top2 = this.cna.getTop() + com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
-            this.cna.getTip().layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
+        if (this.cqZ.getTip() != null) {
+            TextView tip2 = this.cqZ.getTip();
+            int right2 = this.cqZ.getRight() - com.baidu.adp.lib.util.n.dip2px(this.mContext, 10.0f);
+            int top2 = this.cqZ.getTop() + com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
+            this.cqZ.getTip().layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
         }
     }
 
     protected void initialize() {
         setDrawTop(false);
-        acx();
-        this.cna = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_more);
-        this.cmZ = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_audio);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001298, com.baidu.tieba.tbadkCore.l.a.class);
-        if (runTask != null && runTask.getData() != null) {
-            ba.c(this.cmZ, ((com.baidu.tieba.tbadkCore.l.a) runTask.getData()).nV());
-        }
-        if (!com.baidu.tieba.tbadkCore.voice.d.anO()) {
-            this.cmZ.hide();
+        aob();
+        this.cqZ = (EditorToolButton) findViewById(com.baidu.tieba.q.tool_more);
+        this.cqY = (EditorToolButton) findViewById(com.baidu.tieba.q.tool_face);
+        if (TbadkCoreApplication.m411getInst().isFaceShopNew()) {
+            aoc();
+        } else {
+            zJ();
         }
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
         if (vVar != null) {
             View.OnClickListener b = b(vVar);
-            this.cna.setOnClickListener(b);
-            this.cmZ.setOnClickListener(b);
+            this.cqZ.setOnClickListener(b);
+            this.cqY.setOnClickListener(b);
         }
     }
 
     public void setMoreFocusable(boolean z) {
-        this.cna.setFocusable(z);
+        this.cqZ.setFocusable(z);
     }
 
-    public void setAudioFocusable(boolean z) {
-        this.cmZ.setFocusable(z);
+    public void setFaceFocusable(boolean z) {
+        this.cqY.setFocusable(z);
     }
 
     public void setMoreEnabled(boolean z) {
-        this.cna.setEnabled(z);
+        this.cqZ.setEnabled(z);
     }
 
-    public void setAudioEnabled(boolean z) {
-        this.cmZ.setEnabled(z);
+    public void setFaceEnabled(boolean z) {
+        this.cqY.setEnabled(z);
     }
 
-    public void setAudioHardDisabled(boolean z) {
-        this.cmZ.setHardDisabled(z);
-    }
-
-    public void amp() {
-        if (this.cnb == null) {
-            this.cnb = a(this.cmZ, false);
+    public void aoc() {
+        if (this.cqY == null) {
+            this.akZ = a(this.cqY, false);
         }
-        this.cmZ.displayTip();
+        this.cqY.jx("N");
     }
 
-    public void amq() {
-        this.cmZ.hideTip();
+    public void zJ() {
+        this.cqY.hideTip();
     }
 
-    public void amr() {
-        if (this.cnc == null) {
-            this.cnc = a(this.cna, false);
+    public void aod() {
+        if (this.cra == null) {
+            this.cra = a(this.cqZ, false);
         }
-        this.cna.displayTip();
+        this.cqZ.displayTip();
     }
 
-    public void ams() {
-        this.cna.hideTip();
-    }
-
-    public void eL(boolean z) {
-        if (z && com.baidu.tieba.tbadkCore.voice.d.anO()) {
-            this.cmZ.Cf();
-        } else {
-            this.cmZ.hide();
-        }
+    public void aoe() {
+        this.cqZ.hideTip();
     }
 
     public void changeSkinType(int i) {
-        if (this.cnb != null) {
-            ba.i((View) this.cnb, com.baidu.tieba.u.icon_news_down_bar_one);
+        if (this.akZ != null) {
+            ay.i((View) this.akZ, com.baidu.tieba.p.icon_news_down_bar_one);
         }
-        if (this.cnc != null) {
-            ba.i((View) this.cnc, com.baidu.tieba.u.icon_news_down_bar_one);
+        if (this.cra != null) {
+            ay.i((View) this.cra, com.baidu.tieba.p.icon_news_down_bar_one);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(EditorToolButton editorToolButton, com.baidu.tbadk.editortool.v vVar) {
-        if (editorToolButton == this.cna) {
+        if (editorToolButton == this.cqZ) {
             vVar.handleAction(37, null);
-        } else if (editorToolButton == this.cmZ) {
-            vVar.handleAction(4, null);
+        } else if (editorToolButton == this.cqY) {
+            vVar.handleAction(1, null);
         }
-        if (editorToolButton.alo()) {
+        if (editorToolButton.amZ()) {
             if (!editorToolButton.isFocused()) {
-                alt();
-                editorToolButton.alp();
-                if (editorToolButton == this.cna) {
+                ane();
+                editorToolButton.ana();
+                if (editorToolButton == this.cqZ) {
                     vVar.handleAction(38, null);
-                } else if (editorToolButton == this.cmZ) {
-                    vVar.handleAction(5, null);
+                } else if (editorToolButton == this.cqY) {
+                    vVar.handleAction(2, null);
                 }
-            } else if (editorToolButton == this.cna) {
-                alt();
-                editorToolButton.alp();
+            } else if (editorToolButton == this.cqZ) {
+                ane();
+                editorToolButton.ana();
                 vVar.handleAction(64, null);
             }
         }

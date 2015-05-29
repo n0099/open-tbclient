@@ -10,94 +10,104 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout afE;
-    protected TextView afF;
-    protected TextView afG;
-    private boolean afI;
-    protected ImageView afJ;
+    protected LinearLayout agF;
+    protected TextView agG;
+    protected TextView agH;
+    private boolean agJ;
+    protected ImageView agK;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.afI = true;
+        this.agJ = true;
         this.mContext = context;
-        xp();
+        yc();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.afI = true;
+        this.agJ = true;
         this.mContext = context;
-        xp();
+        yc();
     }
 
     public void displayTip() {
-        if (this.afG != null) {
-            this.afG.setVisibility(0);
+        if (this.agH != null) {
+            this.agH.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.afG != null) {
-            this.afG.setTextColor(i);
+        if (this.agH != null) {
+            this.agH.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
     }
 
+    public void e(int i, int i2, int i3, int i4) {
+        if (this.agH != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(i, i2, i3, i4);
+            this.agH.setLayoutParams(layoutParams);
+        }
+    }
+
     public void recycle() {
     }
 
     public void hideArrow() {
-        this.afJ.setVisibility(8);
+        this.agK.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.afF.setText(str);
+        this.agG.setText(str);
     }
 
     public void setText(int i) {
-        this.afF.setText(i);
+        this.agG.setText(i);
     }
 
     public void setTip(String str) {
-        this.afG.setText(str);
+        this.agH.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.afG.getText();
+        return this.agH.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.afG.setBackgroundDrawable(drawable);
+        this.agH.setBackgroundDrawable(drawable);
     }
 
-    protected void xp() {
-        com.baidu.adp.lib.g.b.hH().a(this.mContext, com.baidu.tieba.w.tb_setting_text_tip_view, this, true);
-        this.afE = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.afF = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.afG = (TextView) findViewById(com.baidu.tieba.v.tip);
-        this.afJ = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
+    protected void yc() {
+        com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.tb_setting_text_tip_view, this, true);
+        this.agF = (LinearLayout) findViewById(com.baidu.tieba.q.container);
+        this.agG = (TextView) findViewById(com.baidu.tieba.q.text);
+        this.agH = (TextView) findViewById(com.baidu.tieba.q.tip);
+        this.agK = (ImageView) findViewById(com.baidu.tieba.q.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.TbSettingView);
-        String string = obtainStyledAttributes.getString(0);
-        String string2 = obtainStyledAttributes.getString(3);
-        if (string != null) {
-            this.afF.setText(string);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.v.TbSettingView);
+        if (obtainStyledAttributes != null) {
+            String string = obtainStyledAttributes.getString(0);
+            String string2 = obtainStyledAttributes.getString(3);
+            if (string != null) {
+                this.agG.setText(string);
+            }
+            if (string2 != null) {
+                this.agH.setText(string2);
+            }
+            this.agJ = obtainStyledAttributes.getBoolean(5, true);
+            obtainStyledAttributes.recycle();
         }
-        if (string2 != null) {
-            this.afG.setText(string2);
-        }
-        this.afI = obtainStyledAttributes.getBoolean(5, true);
-        obtainStyledAttributes.recycle();
-        this.afE.setClickable(false);
-        this.afE.setFocusable(false);
-        if (!this.afI) {
-            this.afJ.setVisibility(4);
+        this.agF.setClickable(false);
+        this.agF.setFocusable(false);
+        if (!this.agJ) {
+            this.agK.setVisibility(4);
         }
     }
 }

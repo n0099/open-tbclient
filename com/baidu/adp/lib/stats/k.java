@@ -18,6 +18,6 @@ class k extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.this$0.hR();
+        this.this$0.hB();
     }
 }

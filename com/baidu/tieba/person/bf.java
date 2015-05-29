@@ -1,18 +1,27 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
-public class bf implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bQP;
+class bf implements View.OnClickListener {
+    final /* synthetic */ bc bSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PersonListActivity personListActivity) {
-        this.bQP = personListActivity;
+    public bf(bc bcVar) {
+        this.bSZ = bcVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bQP.adr();
+        this.bSZ.bST = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            TbadkCoreApplication.m411getInst().login(this.bSZ.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.bSZ.getBaseFragmentActivity().getPageContext().getPageActivity(), this.bSZ.getString(com.baidu.tieba.t.login_to_chat), true, 11028)));
+        } else {
+            this.bSZ.aeA();
+        }
     }
 }

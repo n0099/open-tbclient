@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.v;
+import com.baidu.tieba.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bMP;
+    final /* synthetic */ a bON;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bMP = aVar;
+        this.bON = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,13 +32,13 @@ public class b implements View.OnClickListener {
             str2 = ((HeadImageView) view).getUserName();
             str3 = userId;
         } else {
-            if (view.getTag(v.tag_user_id) instanceof String) {
-                str = (String) view.getTag(v.tag_user_id);
+            if (view.getTag(q.tag_user_id) instanceof String) {
+                str = (String) view.getTag(q.tag_user_id);
             } else {
                 str = view.getTag() instanceof String ? (String) view.getTag() : null;
             }
-            if (view.getTag(v.tag_user_name) instanceof String) {
-                str2 = (String) view.getTag(v.tag_user_name);
+            if (view.getTag(q.tag_user_name) instanceof String) {
+                str2 = (String) view.getTag(q.tag_user_name);
                 str3 = str;
             } else {
                 str2 = null;
@@ -46,13 +46,13 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.bMP.bIT;
-            if (pbActivity.Zu() != null) {
+            pbActivity = this.bON.bKZ;
+            if (pbActivity.aaL() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.bMP.bIT;
+                pbActivity2 = this.bON.bKZ;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.bMP.bIT;
-                messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.Zu().ZZ(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.bON.bKZ;
+                messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aaL().abn(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

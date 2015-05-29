@@ -2,28 +2,28 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ bf aMc;
+    final /* synthetic */ bf aOm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(bf bfVar) {
-        this.aMc = bfVar;
+        this.aOm = bfVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wX() {
+    public void xJ() {
         com.baidu.tbadk.core.data.k kVar;
         com.baidu.tbadk.core.data.k kVar2;
-        kVar = this.aMc.aLP;
+        kVar = this.aOm.aNZ;
         if (kVar != null) {
-            kVar2 = this.aMc.aLP;
+            kVar2 = this.aOm.aNZ;
             if (kVar2.getType() == 2) {
-                this.aMc.JW();
+                this.aOm.Lb();
             }
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wY() {
-        this.aMc.Km();
+    public void xK() {
+        this.aOm.Lr();
     }
 }

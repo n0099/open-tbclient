@@ -1,40 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.gif.GifView;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tieba.pb.FileDownloader;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements com.baidu.adp.lib.e.c<GifView> {
-    final /* synthetic */ PbActivity bIJ;
+public class an implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: ZN */
-    public GifView hA() {
-        return new GifView(this.bIJ.getPageContext().getPageActivity());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: g */
-    public void k(GifView gifView) {
-        gifView.onDestroy();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: h */
-    public GifView l(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: i */
-    public GifView m(GifView gifView) {
-        return gifView;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.bKT.bKi;
+        aVar2.dismiss();
+        if (com.baidu.tbadk.core.util.o.fo()) {
+            str = this.bKT.mDownloadUrl;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.k.iY()) {
+                Activity pageActivity = this.bKT.getPageContext().getPageActivity();
+                str2 = this.bKT.mDownloadUrl;
+                FileDownloader.download(pageActivity, str2, null, this.bKT.getPageContext().getString(com.baidu.tieba.t.download_iqiyi_app));
+                return;
+            }
+            return;
+        }
+        this.bKT.showToast(com.baidu.tbadk.core.util.o.sr());
     }
 }

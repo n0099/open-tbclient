@@ -18,14 +18,15 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 public final class ShareReceiver extends BroadcastReceiver {
     private static Context a;
     private static LoginShareStrategy b;
-    private static com.baidu.sapi2.c c;
-    private static e d;
+    private static com.baidu.sapi2.d c;
+    private static g d;
     private static boolean e = false;
     private static Handler f;
     private static Handler g;
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
+        ShareModel shareModel;
         if (SapiAccountManager.getReceiveShareListener() != null) {
             if (f == null) {
                 f = new Handler(Looper.getMainLooper());
@@ -37,26 +38,13 @@ public final class ShareReceiver extends BroadcastReceiver {
         }
         if (e && b != LoginShareStrategy.DISABLED) {
             try {
-                String action = intent.getAction();
-                if ("baidu.intent.action.SHARE_V6".equals(action)) {
-                    ShareModel shareModel = (ShareModel) intent.getParcelableExtra("LOGIN_SHARE_MODEL");
-                    if (shareModel != null) {
-                        String b2 = com.baidu.sapi2.share.a.b(context, shareModel.c());
-                        if (TextUtils.isEmpty(b2) || !b2.equals(context.getPackageName())) {
-                            if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                                g.post(new a(context, intent, shareModel));
-                            } else {
-                                return;
-                            }
-                        } else {
-                            return;
+                if ("baidu.intent.action.SHARE_V6".equals(intent.getAction()) && (shareModel = (ShareModel) intent.getParcelableExtra("LOGIN_SHARE_MODEL")) != null) {
+                    String b2 = e.b(context, shareModel.c());
+                    if (TextUtils.isEmpty(b2) || !b2.equals(context.getPackageName())) {
+                        if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
+                            g.post(new a(context, intent, shareModel));
                         }
-                    } else {
-                        return;
                     }
-                }
-                if ("baidu.intent.action.SHARE".equals(action) || "baidu.intent.action.NEWSHARE".equals(action)) {
-                    com.baidu.sapi2.share.d.a(context, intent, b, d);
                 }
             } catch (Throwable th) {
                 L.e(th);
@@ -91,9 +79,13 @@ public final class ShareReceiver extends BroadcastReceiver {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.sapi2.share.b.c(this.a, this.b.getStringExtra("RELOGIN_CREDENTIALS"));
-            if (ShareReceiver.d != null) {
-                ShareReceiver.d.a(this.c);
+            try {
+                com.baidu.sapi2.share.a.c(this.a, this.b.getStringExtra("RELOGIN_CREDENTIALS"));
+                if (ShareReceiver.d != null) {
+                    ShareReceiver.d.a(this.c);
+                }
+            } catch (Throwable th) {
+                L.e(th);
             }
         }
     }
@@ -101,7 +93,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     void a(Context context) {
         try {
             a = context;
-            c = com.baidu.sapi2.c.a(context);
+            c = com.baidu.sapi2.d.a(context);
             b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
             d = new b();
             HandlerThread handlerThread = new HandlerThread("ReceiverThread");
@@ -115,25 +107,25 @@ public final class ShareReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class b implements e {
+    public class b implements g {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.e
+        @Override // com.baidu.sapi2.share.g
         public void a(ShareModel shareModel) {
             if (shareModel != null && ShareReceiver.b != LoginShareStrategy.DISABLED) {
                 switch (d.a[shareModel.b().ordinal()]) {
                     case 1:
-                        com.baidu.sapi2.share.b.a(ShareReceiver.a, ShareReceiver.b, shareModel);
+                        com.baidu.sapi2.share.a.a(ShareReceiver.a, ShareReceiver.b, shareModel);
                         return;
                     case 2:
-                        com.baidu.sapi2.share.b.a(ShareReceiver.a, shareModel);
+                        com.baidu.sapi2.share.a.a(ShareReceiver.a, shareModel);
                         return;
                     case 3:
                         ShareReceiver.this.a(shareModel);
                         return;
                     case 4:
-                        com.baidu.sapi2.share.b.a(ShareReceiver.a, ShareReceiver.b, shareModel);
+                        com.baidu.sapi2.share.a.a(ShareReceiver.a, ShareReceiver.b, shareModel);
                         return;
                     default:
                         return;
@@ -181,10 +173,10 @@ public final class ShareReceiver extends BroadcastReceiver {
         for (SapiAccount sapiAccount : shareModel2.a()) {
             sapiAccount.app = SapiUtils.getAppName(a);
         }
-        com.baidu.sapi2.share.b.b(a, b, shareModel2);
+        com.baidu.sapi2.share.a.b(a, b, shareModel2);
         intent.putExtra("LOGIN_SHARE_MODEL", shareModel2);
-        if (c.k() != null) {
-            intent.putExtra("RELOGIN_CREDENTIALS", com.baidu.sapi2.share.a.a(a, c.k().toString()));
+        if (c.p() != null) {
+            intent.putExtra("RELOGIN_CREDENTIALS", e.a(a, c.p().toString()));
         }
         intent.putExtra("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         if (Build.VERSION.SDK_INT > 11) {

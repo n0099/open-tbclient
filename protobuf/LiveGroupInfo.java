@@ -1,7 +1,11 @@
 package protobuf;
 
+import com.baidu.location.a0;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes.dex */
 public final class LiveGroupInfo extends Message {
     public static final String DEFAULT_AUTHORNAME = "";
@@ -14,13 +18,18 @@ public final class LiveGroupInfo extends Message {
     public static final String DEFAULT_PORTRAITID = "";
     public static final String DEFAULT_PUBLISHERNAME = "";
     public static final String DEFAULT_PUBLISHERPORTRAIT = "";
+    public static final String DEFAULT_SIGNATURE = "";
     public static final String DEFAULT_STREAMID = "";
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer authorId;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String authorName;
+    @ProtoField(tag = 32)
+    public final Photo avatar;
     @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String background;
+    @ProtoField(label = Message.Label.REPEATED, tag = a0.h)
+    public final List<Photo> backgrounds;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer createTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
@@ -45,6 +54,8 @@ public final class LiveGroupInfo extends Message {
     public final Integer isLiving;
     @ProtoField(tag = 28, type = Message.Datatype.INT32)
     public final Integer isVip;
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB)
+    public final LiveGroupLabel label;
     @ProtoField(tag = 24, type = Message.Datatype.INT64)
     public final Long lastMsgId;
     @ProtoField(tag = 19, type = Message.Datatype.INT32)
@@ -65,6 +76,8 @@ public final class LiveGroupInfo extends Message {
     public final String publisherName;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String publisherPortrait;
+    @ProtoField(tag = 30, type = Message.Datatype.STRING)
+    public final String signature;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
     public final Integer startTime;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
@@ -88,6 +101,7 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_FLAG = 0;
     public static final Integer DEFAULT_FROMTYPE = 0;
     public static final Integer DEFAULT_ISVIP = 0;
+    public static final List<Photo> DEFAULT_BACKGROUNDS = Collections.emptyList();
 
     /* synthetic */ LiveGroupInfo(Builder builder, boolean z, LiveGroupInfo liveGroupInfo) {
         this(builder, z);
@@ -233,11 +247,22 @@ public final class LiveGroupInfo extends Message {
             }
             if (builder.isVip == null) {
                 this.isVip = DEFAULT_ISVIP;
-                return;
             } else {
                 this.isVip = builder.isVip;
-                return;
             }
+            this.label = builder.label;
+            if (builder.signature == null) {
+                this.signature = "";
+            } else {
+                this.signature = builder.signature;
+            }
+            if (builder.backgrounds == null) {
+                this.backgrounds = DEFAULT_BACKGROUNDS;
+            } else {
+                this.backgrounds = immutableCopyOf(builder.backgrounds);
+            }
+            this.avatar = builder.avatar;
+            return;
         }
         this.name = builder.name;
         this.status = builder.status;
@@ -267,13 +292,19 @@ public final class LiveGroupInfo extends Message {
         this.flag = builder.flag;
         this.fromType = builder.fromType;
         this.isVip = builder.isVip;
+        this.label = builder.label;
+        this.signature = builder.signature;
+        this.backgrounds = immutableCopyOf(builder.backgrounds);
+        this.avatar = builder.avatar;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<LiveGroupInfo> {
         public Integer authorId;
         public String authorName;
+        public Photo avatar;
         public String background;
+        public List<Photo> backgrounds;
         public Integer createTime;
         public Integer deviceId;
         public Integer flag;
@@ -286,6 +317,7 @@ public final class LiveGroupInfo extends Message {
         public String intro;
         public Integer isLiving;
         public Integer isVip;
+        public LiveGroupLabel label;
         public Long lastMsgId;
         public Integer likers;
         public Integer listeners;
@@ -296,6 +328,7 @@ public final class LiveGroupInfo extends Message {
         public Integer publisherId;
         public String publisherName;
         public String publisherPortrait;
+        public String signature;
         public Integer startTime;
         public Integer status;
         public String streamId;
@@ -331,6 +364,10 @@ public final class LiveGroupInfo extends Message {
                 this.flag = liveGroupInfo.flag;
                 this.fromType = liveGroupInfo.fromType;
                 this.isVip = liveGroupInfo.isVip;
+                this.label = liveGroupInfo.label;
+                this.signature = liveGroupInfo.signature;
+                this.backgrounds = LiveGroupInfo.copyOf(liveGroupInfo.backgrounds);
+                this.avatar = liveGroupInfo.avatar;
             }
         }
 

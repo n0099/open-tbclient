@@ -2,22 +2,22 @@ package com.baidu.tieba.write.selectpoi;
 
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ SearchLocationActivity cvy;
+    final /* synthetic */ SearchLocationActivity czP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SearchLocationActivity searchLocationActivity) {
-        this.cvy = searchLocationActivity;
+        this.czP = searchLocationActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!com.baidu.adp.lib.util.n.isNetOk()) {
-            this.cvy.showToast(y.no_network_guide);
-        } else if (!StringUtils.isNull(this.cvy.afX())) {
-            this.cvy.aqy();
+            this.czP.showToast(t.no_network_guide);
+        } else if (!StringUtils.isNull(this.czP.ahM())) {
+            this.czP.aso();
         }
     }
 }

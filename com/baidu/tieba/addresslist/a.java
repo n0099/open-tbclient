@@ -1,30 +1,17 @@
 package com.baidu.tieba.addresslist;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.message.NetWorkChangeMessage;
+import android.view.View;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    final /* synthetic */ AddressListActivity axz;
+class a implements View.OnClickListener {
+    final /* synthetic */ AddressListActivity ayS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(AddressListActivity addressListActivity, int i) {
-        super(i);
-        this.axz = addressListActivity;
+    public a(AddressListActivity addressListActivity) {
+        this.ayS = addressListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdListView bdListView;
-        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
-            if (((NetWorkChangeMessage) customResponsedMessage).mState == 0 || !BdSocketLinkService.isAvailable()) {
-                bdListView = this.axz.axu;
-                bdListView.mW();
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.ayS.finish();
     }
 }

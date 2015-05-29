@@ -10,68 +10,72 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.aj {
-    final /* synthetic */ FrsActivity aJQ;
+    final /* synthetic */ FrsActivity aLX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity) {
-        this.aJQ = frsActivity;
+        this.aLX = frsActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v11, resolved type: com.baidu.tieba.frs.FrsActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v12, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.adp.widget.ListView.aj
     public void a(View view, com.baidu.adp.widget.ListView.ai aiVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
         String str;
         if (bdUniqueId != null) {
-            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.OR.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.OS.getId()) {
+            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Pm.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Pn.getId()) {
                 if (aiVar != null && (aiVar instanceof com.baidu.tbadk.core.data.c)) {
-                    this.aJQ.c((com.baidu.tbadk.core.data.c) aiVar, i);
+                    this.aLX.c((com.baidu.tbadk.core.data.c) aiVar, i);
                 }
-            } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.aj.clQ.getId()) {
-                if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.OT.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.OV.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.OW.getId()) {
+            } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.aj.cpP.getId()) {
+                if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Po.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Pp.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Pq.getId()) {
                     if (aiVar != null && (aiVar instanceof com.baidu.tbadk.core.data.c)) {
                         com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aiVar;
-                        if (!cVar.pP()) {
-                            if (!cVar.pQ()) {
+                        if (!cVar.qv()) {
+                            if (!cVar.qw()) {
                                 return;
                             }
-                            this.aJQ.a(cVar);
+                            this.aLX.a(cVar);
                             return;
                         }
-                        this.aJQ.c(cVar, i);
+                        this.aLX.c(cVar, i);
                     }
                 } else if (aiVar != null && (aiVar instanceof com.baidu.tbadk.core.data.w)) {
                     com.baidu.tbadk.core.data.w wVar = (com.baidu.tbadk.core.data.w) aiVar;
-                    com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-                    if (readThreadHistory != null && !readThreadHistory.iR(wVar.getId())) {
-                        readThreadHistory.iQ(wVar.getId());
+                    if (wVar.getAnchorInfoData() == null || wVar.getAnchorInfoData().getGroup_id() == 0 || this.aLX.checkUpIsLogin()) {
+                        if ((wVar.rv() != 1 && wVar.rv() != 2) || this.aLX.checkUpIsLogin()) {
+                            com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+                            if (readThreadHistory != null && !readThreadHistory.jL(wVar.getId())) {
+                                readThreadHistory.jK(wVar.getId());
+                            }
+                            boolean z = false;
+                            String rl = wVar.rl();
+                            if (rl != null && !rl.equals("")) {
+                                z = true;
+                                new Thread(new n(this, rl)).start();
+                            }
+                            String tid = wVar.getTid();
+                            if (tid == null) {
+                                tid = "";
+                            }
+                            if (wVar.getIs_top() == 2 && !tid.startsWith("pb:")) {
+                                com.baidu.tbadk.core.util.bi tO = com.baidu.tbadk.core.util.bi.tO();
+                                TbPageContext<?> pageContext = this.aLX.getPageContext();
+                                String[] strArr = new String[3];
+                                strArr[0] = tid;
+                                strArr[1] = "";
+                                tO.b(pageContext, strArr);
+                                return;
+                            }
+                            if (tid.startsWith("pb:")) {
+                                wVar.setId(tid.substring(3));
+                            }
+                            FrsActivity frsActivity = this.aLX;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aLX.getPageContext().getPageActivity());
+                            str = this.aLX.aLb;
+                            frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(wVar, str, null, 18003, true, false, z)));
+                        }
                     }
-                    boolean z = false;
-                    String qF = wVar.qF();
-                    if (qF != null && !qF.equals("")) {
-                        z = true;
-                        new Thread(new n(this, qF)).start();
-                    }
-                    String tid = wVar.getTid();
-                    if (tid == null) {
-                        tid = "";
-                    }
-                    if (wVar.getIs_top() == 2 && !tid.startsWith("pb:")) {
-                        com.baidu.tbadk.core.util.bk tl = com.baidu.tbadk.core.util.bk.tl();
-                        TbPageContext<?> pageContext = this.aJQ.getPageContext();
-                        String[] strArr = new String[3];
-                        strArr[0] = tid;
-                        strArr[1] = "";
-                        tl.b(pageContext, strArr);
-                        return;
-                    }
-                    if (tid.startsWith("pb:")) {
-                        wVar.setId(tid.substring(3));
-                    }
-                    FrsActivity frsActivity = this.aJQ;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aJQ.getPageContext().getPageActivity());
-                    str = this.aJQ.aIS;
-                    frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(wVar, str, null, 18003, true, false, z)));
                 }
             }
         }

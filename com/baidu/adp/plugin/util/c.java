@@ -1,65 +1,19 @@
 package com.baidu.adp.plugin.util;
 
-import dalvik.system.DexClassLoader;
-import dalvik.system.DexFile;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
+import java.io.File;
+import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    public static DexFile a(ClassLoader classLoader) {
-        if (classLoader == null) {
-            return null;
+public class c implements Comparator<File> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: b */
+    public int compare(File file, File file2) {
+        int P;
+        if (file == null || file2 == null) {
+            return 0;
         }
-        boolean z = true;
-        try {
-            Class.forName("dalvik.system.BaseDexClassLoader");
-        } catch (ClassNotFoundException e) {
-            z = false;
-        }
-        if (!z) {
-            Object a = a(classLoader, DexClassLoader.class, "mDexs");
-            if (a == null) {
-                return null;
-            }
-            try {
-                return (DexFile) Array.get(a, 0);
-            } catch (Exception e2) {
-            }
-        } else {
-            Object t = t(s(classLoader));
-            if (t == null) {
-                return null;
-            }
-            try {
-                return (DexFile) a(Array.get(t, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
-            } catch (Exception e3) {
-            }
-        }
-        return null;
-    }
-
-    private static Object t(Object obj) {
-        if (obj == null) {
-            return null;
-        }
-        return a(obj, obj.getClass(), "dexElements");
-    }
-
-    private static Object a(Object obj, Class<?> cls, String str) {
-        try {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
-        } catch (NoSuchFieldException | SecurityException | Exception e) {
-            return null;
-        }
-    }
-
-    private static Object s(Object obj) {
-        try {
-            return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
-        } catch (ClassNotFoundException | Exception e) {
-            return null;
-        }
+        P = a.P(file.getAbsolutePath(), file2.getAbsolutePath());
+        return P;
     }
 }

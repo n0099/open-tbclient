@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.framework.a.j {
-    final /* synthetic */ v agL;
+    final /* synthetic */ v ahM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(v vVar, int i) {
         super(i);
-        this.agL = vVar;
+        this.ahM = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,25 +21,32 @@ public class x extends com.baidu.adp.framework.a.j {
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         int i;
         int i2;
+        int i3;
         if (socketResponsedMessage instanceof ResponseOnlineMessage) {
             ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-            int squencedId = (responseOnlineMessage.getOrginalMessage() == null || !(responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) ? 0 : ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
+            long j = 0;
+            if (responseOnlineMessage.getOrginalMessage() == null || !(responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) {
+                i = 0;
+            } else {
+                i = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
+                j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
+            }
             if (responseOnlineMessage.getError() == 0) {
-                this.agL.xR();
+                this.ahM.yE();
                 int cmd = socketResponsedMessage.getCmd();
                 StringBuilder sb = new StringBuilder("online succ. retry count-");
-                i = this.agL.agH;
-                com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd, squencedId, "online_succ", 0, sb.append(i).toString());
+                i2 = this.ahM.ahI;
+                com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd, j, i, "online_succ", 0, sb.append(i2).toString());
                 return socketResponsedMessage;
             }
-            this.agL.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+            this.ahM.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
             int cmd2 = socketResponsedMessage.getCmd();
             StringBuilder sb2 = new StringBuilder("online failed. count-");
-            i2 = this.agL.agH;
-            com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd2, 0, "online_failed", 0, sb2.append(i2).toString());
+            i3 = this.ahM.ahI;
+            com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd2, j, 0, "online_failed", 0, sb2.append(i3).toString());
             return null;
         }
-        this.agL.a(socketResponsedMessage.getCmd(), -1, null);
+        this.ahM.a(socketResponsedMessage.getCmd(), -1, null);
         return null;
     }
 }

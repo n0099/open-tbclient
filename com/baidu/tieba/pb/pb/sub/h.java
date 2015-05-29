@@ -1,58 +1,42 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.content.Context;
 import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class h extends a {
-    private String bNR;
-    private int bNS;
-    private boolean bNT;
-    private boolean bNU;
+class h implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ NewSubPbActivity bPw;
 
-    public h(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
-        this.bNR = null;
-        this.bNS = 0;
-        this.bNT = false;
-        this.bNU = false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(NewSubPbActivity newSubPbActivity) {
+        this.bPw = newSubPbActivity;
     }
 
-    public void ea(boolean z) {
-        this.bNU = z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: abf */
+    public View hk() {
+        return new PlayVoiceBnt(this.bPw.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.a, android.widget.Adapter
-    public int getCount() {
-        if (this.auK == null) {
-            return 0;
-        }
-        return (this.bNT ? 1 : 0) + this.auK.size();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: L */
+    public void k(View view) {
+        ((PlayVoiceBnt) view).reset();
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.a, android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.auK == null || i < 0 || i >= this.auK.size()) {
-            return null;
-        }
-        return this.auK.get(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: M */
+    public View l(View view) {
+        return view;
     }
 
-    public void P(String str, int i) {
-        this.bNR = str;
-        this.bNS = i;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.sub.a
-    public int hP(String str) {
-        if (this.auK == null) {
-            return -1;
-        }
-        int size = this.auK.size();
-        for (int i = 0; i < size; i++) {
-            if (this.auK.get(i).getId().equals(str)) {
-                return i;
-            }
-        }
-        return -1;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: N */
+    public View m(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

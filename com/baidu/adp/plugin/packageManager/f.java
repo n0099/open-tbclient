@@ -10,10 +10,10 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Void, Integer, Boolean> {
-    final /* synthetic */ e Dz;
+    final /* synthetic */ e Dq;
 
     public f(e eVar) {
-        this.Dz = eVar;
+        this.Dq = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ public class f extends BdAsyncTask<Void, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public Boolean doInBackground(Void... voidArr) {
-        ArrayList<File> lq = lq();
-        if (lq == null || lq.size() == 0) {
+        ArrayList<File> lK = lK();
+        if (lK == null || lK.size() == 0) {
             return false;
         }
-        i(lq);
+        h(lK);
         return true;
     }
 
@@ -35,31 +35,31 @@ public class f extends BdAsyncTask<Void, Integer, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
-        this.Dz.Dy = null;
+        this.Dq.Dp = null;
     }
 
-    private ArrayList<File> lq() {
+    private ArrayList<File> lK() {
         HashMap hashMap;
         HashMap hashMap2;
         ArrayList<File> arrayList = null;
-        File lV = Util.lV();
-        if (lV != null) {
-            String lO = com.baidu.adp.plugin.packageManager.pluginSettings.e.lL().lO();
-            File[] listFiles = lV.listFiles();
+        File mo = Util.mo();
+        if (mo != null) {
+            String mh = com.baidu.adp.plugin.packageManager.pluginSettings.e.me().mh();
+            File[] listFiles = mo.listFiles();
             if (listFiles != null) {
                 arrayList = new ArrayList<>();
                 for (File file : listFiles) {
                     if (file != null) {
                         String absolutePath = file.getAbsolutePath();
                         BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
-                        if (!absolutePath.equals(lO) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
+                        if (!absolutePath.equals(mh) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                             if (file.isDirectory()) {
-                                hashMap2 = this.Dz.Dx;
+                                hashMap2 = this.Dq.Do;
                                 if (hashMap2.get(String.valueOf(absolutePath) + ".apk") == null) {
                                     arrayList.add(file);
                                 }
                             } else if (absolutePath.endsWith(".apk")) {
-                                hashMap = this.Dz.Dx;
+                                hashMap = this.Dq.Do;
                                 if (hashMap.get(absolutePath) == null) {
                                     arrayList.add(file);
                                 }
@@ -74,7 +74,7 @@ public class f extends BdAsyncTask<Void, Integer, Boolean> {
         return arrayList;
     }
 
-    private void i(ArrayList<File> arrayList) {
+    private void h(ArrayList<File> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             Iterator<File> it = arrayList.iterator();
             while (it.hasNext()) {

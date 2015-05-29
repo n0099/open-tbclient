@@ -2,13 +2,13 @@ package com.baidu.tieba.addresslist.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ bd ayS;
-    private final /* synthetic */ String ayU;
+    final /* synthetic */ bd aAD;
+    private final /* synthetic */ String aAF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(bd bdVar, String str) {
-        this.ayS = bdVar;
-        this.ayU = str;
+        this.aAD = bdVar;
+        this.aAF = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,8 +17,8 @@ public class bf implements com.baidu.tieba.im.g<Void> {
     public void onReturnDataInUI(Void r3) {
         bc bcVar;
         bg bgVar;
-        bcVar = this.ayS.ayR;
-        bgVar = bcVar.ayN;
-        bgVar.ff(this.ayU);
+        bcVar = this.aAD.aAC;
+        bgVar = bcVar.aAy;
+        bgVar.fA(this.aAF);
     }
 }

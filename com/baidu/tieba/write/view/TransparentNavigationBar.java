@@ -2,9 +2,9 @@ package com.baidu.tieba.write.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.s;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public TransparentNavigationBar(Context context) {
@@ -21,7 +21,7 @@ public class TransparentNavigationBar extends NavigationBar {
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
     public void onChangeSkinType(com.baidu.adp.base.j<?> jVar, int i) {
-        ba.j(this, s.navi_transparent_bg);
+        ay.j(this, n.navi_transparent_bg);
         initPadding();
     }
 }

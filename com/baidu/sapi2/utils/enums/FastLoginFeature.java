@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils.enums;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public enum FastLoginFeature {
+    TX_WEIXIN_SSO("tweixin_sso"),
     SINA_WEIBO_SSO("tsina_sso"),
     SINA_WEIBO_WEBVIEW("tsina"),
     TX_WEIBO_WEBVIEW("tqq"),
@@ -10,7 +11,7 @@ public enum FastLoginFeature {
     RENREN_WEBVIEW("renren"),
     DEVICE_LOGIN("device_login"),
     QR_LOGIN("qr_app_login"),
-    NM_LOGIN("nm_login"),
+    NM_LOGIN("nuomi_login"),
     VOICE_LOGIN("voice_login");
     
     private String a;

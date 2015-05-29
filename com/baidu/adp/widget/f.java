@@ -8,20 +8,20 @@ import android.widget.LinearLayout;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class f extends LinearLayout.LayoutParams {
-    private int FB;
+    private int Fq;
 
     public f(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.FB = 0;
+        this.Fq = 0;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
         String string = obtainStyledAttributes.getString(0);
         if (string != null) {
             if ("before".equals(string)) {
-                this.FB = 1;
+                this.Fq = 1;
             } else if ("after".equals(string)) {
-                this.FB = 2;
+                this.Fq = 2;
             } else if ("both".equals(string)) {
-                this.FB = 3;
+                this.Fq = 3;
             }
         }
         obtainStyledAttributes.recycle();
@@ -29,12 +29,12 @@ public class f extends LinearLayout.LayoutParams {
 
     public f(int i, int i2, int i3) {
         super(i, i2);
-        this.FB = 0;
-        this.FB = i3;
+        this.Fq = 0;
+        this.Fq = i3;
     }
 
     public f(ViewGroup.LayoutParams layoutParams) {
         super(layoutParams);
-        this.FB = 0;
+        this.Fq = 0;
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class GroupSettingActivityConfig extends a {
+public class GroupSettingActivityConfig extends c {
     public static final String INTENT_DATA_GROUP_FLAG = "intent_data_group_flag";
     public static final String INTENT_DATA_GROUP_ID = "intent_data_group_id";
     public static final String INTENT_DATA_GROUP_NAME = "intent_data_group_name";

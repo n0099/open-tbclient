@@ -1,34 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bQP;
+public class be extends HttpMessageListener {
+    final /* synthetic */ bc bSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(PersonListActivity personListActivity) {
-        this.bQP = personListActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be(bc bcVar, int i) {
+        super(i);
+        this.bSZ = bcVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bh bhVar;
-        bh bhVar2;
-        bh bhVar3;
-        if (view.getTag() instanceof Integer) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            bhVar = this.bQP.bQK;
-            if (bhVar != null) {
-                bhVar2 = this.bQP.bQK;
-                if (bhVar2.getItemViewType(this.bQP.bQo) == 0) {
-                    bhVar3 = this.bQP.bQK;
-                    UserData userData = (UserData) bhVar3.getItem(intValue);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.bQP.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonFriendActivity aey;
+        PersonFriendActivity aey2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
+            this.bSZ.bSW = false;
+            aey = this.bSZ.aey();
+            if (aey != null) {
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                aey2 = this.bSZ.aey();
+                if (tag == aey2.getUniqueId()) {
+                    this.bSZ.mListView.completePullRefresh();
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
+                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
+                        if (personFriendResponseMessage.getError() == 0) {
+                            this.bSZ.a(personFriendResponseMessage.getPersonListData(), false);
+                            return;
+                        } else {
+                            this.bSZ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSZ.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
+                            return;
+                        }
+                    }
+                    this.bSZ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSZ.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
                 }
             }
         }

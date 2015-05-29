@@ -6,54 +6,55 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
-import com.baidu.tieba.z;
+import com.baidu.tieba.q;
+import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity> {
-    private PluginNetConfigInfos.PluginConfig bUK;
-    private g bUM;
-    private boolean bUN;
+    private PluginNetConfigInfos.PluginConfig bXo;
+    private i bXq;
+    private boolean bXr;
     private boolean mFinished;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bUK = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
-        if (this.bUK == null) {
-            showToast(getPageContext().getString(y.plugin_config_not_found), false);
+        this.bXo = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
+        if (this.bXo == null) {
+            showToast(getPageContext().getString(t.plugin_config_not_found), false);
             finish();
             return;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.bUM = new g(this, getPageContext().getPageActivity(), z.common_alert_dialog);
-        this.bUM.setCancelable(false);
-        this.bUM.setOnKeyListener(new e(this));
-        this.bUM.setOnDismissListener(new f(this));
+        this.bXq = new i(this, getPageContext().getPageActivity(), u.common_alert_dialog);
+        this.bXq.setCancelable(false);
+        this.bXq.setOnKeyListener(new g(this));
+        this.bXq.setOnDismissListener(new h(this));
     }
 
-    @Override // android.app.Activity
-    protected void onStart() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onStart() {
         super.onStart();
-        this.bUM.show();
+        this.bXq.show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().X(i == 1);
-        getLayoutMode().h(this.bUM.findViewById(v.dialog_layout));
+        getLayoutMode().ab(i == 1);
+        getLayoutMode().j(this.bXq.findViewById(q.dialog_layout));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.bUK != null) {
-            PluginPackageManager.ls().bp(this.bUK.package_name);
+        if (this.bXo != null) {
+            PluginPackageManager.lM().bz(this.bXo.package_name);
         }
         super.onDestroy();
     }

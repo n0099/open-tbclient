@@ -5,33 +5,34 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.message.SaveDraftMessage;
+import com.baidu.tieba.im.message.r;
 /* loaded from: classes.dex */
-public abstract class b implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.r> {
-    private com.baidu.tieba.im.settingcache.a bnA;
+public abstract class b implements CustomMessageTask.CustomRunnable<r> {
+    private com.baidu.tieba.im.settingcache.a bqf;
     private int mCmd;
 
     public b(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.bnA = aVar;
+        this.bqf = aVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.r> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<r> customMessage) {
         CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.mCmd);
         if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
             return null;
         }
-        com.baidu.tieba.im.message.r data = customMessage.getData();
+        r data = customMessage.getData();
         String str = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        com.baidu.tieba.im.pushNotify.a aE = this.bnA.aE(str, data.mId);
-        if (aE == null) {
+        com.baidu.tieba.im.pushNotify.a aJ = this.bqf.aJ(str, data.mId);
+        if (aJ == null) {
             return null;
         }
-        aE.setDraft(data.mDraft);
-        this.bnA.a(aE);
+        aJ.setDraft(data.mDraft);
+        this.bqf.a(aJ);
         return customResponsedMessage;
     }
 }

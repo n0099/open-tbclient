@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.n;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
@@ -21,79 +21,79 @@ import com.baidu.tieba.tbadkCore.u;
 import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
-    private String Wu;
-    private com.baidu.tieba.tbadkCore.e.a aDq;
-    private long aDr;
-    private long aDs;
-    private long aDt;
-    private long aDu;
-    private String aIS;
-    private int aIT;
-    private int aIU;
-    private w aJd;
-    private boolean aNA;
-    private boolean aNB;
-    h aNC;
-    private FrsActivity aNs;
-    private c<FrsActivity> aNt;
-    private t aNu;
-    private long aNv;
-    private boolean aNw;
-    private String aNx;
-    private String aNy;
-    private String aNz;
-    private long apC;
+    private com.baidu.tieba.tbadkCore.e.a aFs;
+    private long aFt;
+    private long aFu;
+    private long aFv;
+    private long aFw;
+    private String aLb;
+    private int aLc;
+    private int aLd;
+    private w aLl;
+    private FrsActivity aPE;
+    private c<FrsActivity> aPF;
+    private t aPG;
+    private long aPH;
+    private boolean aPI;
+    private String aPJ;
+    private String aPK;
+    private String aPL;
+    private boolean aPM;
+    private boolean aPN;
+    h aPO;
+    private long aqE;
+    private String mFrom;
     private String mPageType;
     private int mType;
 
     public a(FrsActivity frsActivity) {
         super(frsActivity);
-        this.aIS = null;
+        this.aLb = null;
         this.mType = 3;
-        this.aIU = 1;
-        this.Wu = null;
-        this.aIT = 0;
-        this.aNv = 0L;
-        this.aNw = false;
+        this.aLd = 1;
+        this.mFrom = null;
+        this.aLc = 0;
+        this.aPH = 0L;
+        this.aPI = false;
         this.mPageType = "normal_page";
-        this.aNx = null;
-        this.aNy = null;
-        this.aNz = null;
-        this.aDq = null;
-        this.apC = 0L;
-        this.aNA = false;
-        this.aNB = false;
-        this.aDr = 0L;
-        this.aDs = 0L;
-        this.aDt = 0L;
-        this.aDu = 0L;
-        this.aNs = frsActivity;
+        this.aPJ = null;
+        this.aPK = null;
+        this.aPL = null;
+        this.aFs = null;
+        this.aqE = 0L;
+        this.aPM = false;
+        this.aPN = false;
+        this.aFt = 0L;
+        this.aFu = 0L;
+        this.aFv = 0L;
+        this.aFw = 0L;
+        this.aPE = frsActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
         if (bundle != null) {
-            this.aIS = bundle.getString("name");
-            this.Wu = bundle.getString("from");
-            this.aIT = bundle.getInt(FrsActivityConfig.FLAG, 0);
-            this.aNw = bundle.getBoolean(FrsActivityConfig.GOOD, false);
+            this.aLb = bundle.getString("name");
+            this.mFrom = bundle.getString("from");
+            this.aLc = bundle.getInt(FrsActivityConfig.FLAG, 0);
+            this.aPI = bundle.getBoolean(FrsActivityConfig.GOOD, false);
         }
-        if (TextUtils.isEmpty(this.aIS)) {
-            this.aIS = "";
+        if (TextUtils.isEmpty(this.aLb)) {
+            this.aLb = "";
         }
-        if (TextUtils.isEmpty(this.Wu)) {
-            this.Wu = "";
+        if (TextUtils.isEmpty(this.mFrom)) {
+            this.mFrom = "";
         }
-        this.aNx = this.Wu;
-        this.aNu = new t();
-        this.aJd = new w();
-        this.aNt = new c<>(this.aNs.getPageContext(), this.aNu);
-        this.aNt.a((q) this);
-        this.aNt.setUniqueId(getUniqueId());
-        if (this.aIS != null && this.aIS.length() > 0) {
-            if (this.Wu == null || this.Wu.length() <= 0) {
-                this.Wu = FrsActivityConfig.FRS_FROM_LIKE;
+        this.aPJ = this.mFrom;
+        this.aPG = new t();
+        this.aLl = new w();
+        this.aPF = new c<>(this.aPE.getPageContext(), this.aPG);
+        this.aPF.a((q) this);
+        this.aPF.setUniqueId(getUniqueId());
+        if (this.aLb != null && this.aLb.length() > 0) {
+            if (this.mFrom == null || this.mFrom.length() <= 0) {
+                this.mFrom = FrsActivityConfig.FRS_FROM_LIKE;
             }
         }
     }
@@ -101,22 +101,22 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("name", this.aIS);
-        bundle.putString("from", this.Wu);
-        bundle.putInt(FrsActivityConfig.FLAG, this.aIT);
-        bundle.putBoolean(FrsActivityConfig.GOOD, this.aNw);
+        bundle.putString("name", this.aLb);
+        bundle.putString("from", this.mFrom);
+        bundle.putInt(FrsActivityConfig.FLAG, this.aLc);
+        bundle.putBoolean(FrsActivityConfig.GOOD, this.aPI);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
-    public boolean ow() {
-        return aU(true);
+    public boolean oM() {
+        return bb(true);
     }
 
     @Override // com.baidu.tbadk.mvc.d.b
-    public boolean AN() {
-        if (!this.aNt.isLoading() && this.aNu.getPn() > 1) {
-            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aNu), t.class);
-            tVar.setPn(this.aNu.getPn() - 1);
+    public boolean Bz() {
+        if (!this.aPF.isLoading() && this.aPG.getPn() > 1) {
+            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
+            tVar.setPn(this.aPG.getPn() - 1);
             a(tVar, 2);
             return true;
         }
@@ -124,118 +124,118 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    public boolean AO() {
-        if (this.aNt.isLoading()) {
+    public boolean BA() {
+        if (this.aPF.isLoading()) {
             return false;
         }
-        TiebaStatic.eventStat(this.aNs.getPageContext().getPageActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
-        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aNu), t.class);
+        TiebaStatic.eventStat(this.aPE.getPageContext().getPageActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
+        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
         tVar.setPn(tVar.getPn() + 1);
         a(tVar, 1);
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.e
-    public boolean aU(boolean z) {
-        if (this.aNt.isLoading()) {
+    public boolean bb(boolean z) {
+        if (this.aPF.isLoading()) {
             return false;
         }
-        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aNu), t.class);
+        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
         tVar.setPn(1);
         a(tVar, 3);
         return true;
     }
 
-    public void eQ(int i) {
-        if (!this.aNt.isLoading()) {
-            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aNu), t.class);
+    public void fe(int i) {
+        if (!this.aPF.isLoading()) {
+            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
             tVar.setPn(i);
             a(tVar, 4);
         }
     }
 
-    public boolean KN() {
-        if (this.aNt.isLoading()) {
+    public boolean LS() {
+        if (this.aPF.isLoading()) {
             return false;
         }
-        this.aNw = false;
-        this.aIU = 1;
-        return aU(true);
+        this.aPI = false;
+        this.aLd = 1;
+        return bb(true);
     }
 
-    public boolean eR(int i) {
-        if (this.aNt.isLoading()) {
+    public boolean ff(int i) {
+        if (this.aPF.isLoading()) {
             return false;
         }
-        this.aNw = true;
-        this.aNv = i;
-        this.aIU = 1;
-        return aU(true);
+        this.aPI = true;
+        this.aPH = i;
+        this.aLd = 1;
+        return bb(true);
     }
 
-    public boolean aq(String str, String str2) {
-        if (this.aNt.isLoading() || str2 == null) {
+    public boolean av(String str, String str2) {
+        if (this.aPF.isLoading() || str2 == null) {
             return false;
         }
-        this.aNx = "sidebar";
-        this.aNy = str;
-        this.aNw = false;
-        this.aIS = str2;
-        return aU(true);
+        this.aPJ = "sidebar";
+        this.aPK = str;
+        this.aPI = false;
+        this.aLb = str2;
+        return bb(true);
     }
 
     private void a(t tVar, int i) {
         boolean z = true;
-        this.aNs.aJz.eG(i);
-        this.aNt.a(tVar);
+        this.aPE.aLG.eU(i);
+        this.aPF.a(tVar);
         this.mType = i;
-        tVar.setKw(this.aIS);
-        if (n.px().pB()) {
+        tVar.setKw(this.aLb);
+        if (n.qc().qg()) {
             tVar.setRn(35);
         } else {
             tVar.setRn(50);
         }
         tVar.setWithGroup(1);
-        if (this.aNw) {
+        if (this.aPI) {
             tVar.setIsGood(1);
-            tVar.setCid((int) this.aNv);
+            tVar.setCid((int) this.aPH);
         } else {
             tVar.setIsGood(0);
             tVar.setCid(0);
         }
-        int M = com.baidu.adp.lib.util.n.M(this.aNs.getPageContext().getPageActivity());
-        int N = com.baidu.adp.lib.util.n.N(this.aNs.getPageContext().getPageActivity());
+        int M = com.baidu.adp.lib.util.n.M(this.aPE.getPageContext().getPageActivity());
+        int N = com.baidu.adp.lib.util.n.N(this.aPE.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = be.sY().ta() ? 2 : 1;
+        int i2 = bc.tB().tD() ? 2 : 1;
         tVar.setScrW(M);
         tVar.setScrH(N);
         tVar.setScrDip(f);
         tVar.setqType(i2);
-        tVar.setLastId(this.aNz);
-        if (this.aNx != null) {
-            tVar.setStType(this.aNx);
-            if (this.aNx.equalsIgnoreCase("sidebar")) {
-                tVar.setStType(this.aNy);
+        tVar.setLastId(this.aPL);
+        if (this.aPJ != null) {
+            tVar.setStType(this.aPJ);
+            if (this.aPJ.equalsIgnoreCase("sidebar")) {
+                tVar.setStType(this.aPK);
             }
         }
-        if (FrsActivity.aJj != 0) {
-            tVar.setCtime((int) FrsActivity.aJj);
+        if (FrsActivity.aLr != 0) {
+            tVar.setCtime((int) FrsActivity.aLr);
         }
-        if (FrsActivity.aJk != 0) {
-            tVar.setDataSize((int) FrsActivity.aJk);
+        if (FrsActivity.aLs != 0) {
+            tVar.setDataSize((int) FrsActivity.aLs);
         }
-        if (FrsActivity.aJl != 0) {
-            tVar.setNetError(FrsActivity.aJl);
+        if (FrsActivity.aLt != 0) {
+            tVar.setNetError(FrsActivity.aLt);
         }
-        if (tVar.getPn() != 1 || ((!this.mPageType.equals("normal_page") && !this.mPageType.equals("frs_page")) || this.mType != 3 || this.aNw)) {
+        if (tVar.getPn() != 1 || ((!this.mPageType.equals("normal_page") && !this.mPageType.equals("frs_page")) || this.mType != 3 || this.aPI)) {
             z = false;
         }
         tVar.setUpdateType(this.mType);
         tVar.setNeedCache(z);
-        new b(this, z, this.aIS).execute(new Object[0]);
-        if (this.aDq == null) {
-            this.aDq = new com.baidu.tieba.tbadkCore.e.a("frsStat");
-            this.aDq.start();
+        new b(this, z, this.aLb).execute(new Object[0]);
+        if (this.aFs == null) {
+            this.aFs = new com.baidu.tieba.tbadkCore.e.a("frsStat");
+            this.aFs.start();
         }
     }
 
@@ -243,178 +243,216 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean a(t tVar, u uVar) {
-        this.aJd.d(uVar);
-        if (this.aJd.akF().akO() == 1) {
+        this.aLl.d(uVar);
+        if (this.aLl.amp().amz() == 1) {
             this.mPageType = "frs_page";
         } else {
             this.mPageType = "normal_page";
         }
-        if (this.aNw) {
+        if (this.aPI) {
             this.mPageType = "good_page";
         }
         if (tVar != null) {
-            this.aNu = tVar;
-            this.aIU = this.aNu.getPn();
-            this.aIS = this.aNu.getKw();
-            this.aNs.fL(this.aIS);
-            this.aNs.setFrom(this.Wu);
-            this.aNs.setPn(this.aIU);
-            this.aNs.setFlag(this.aIT);
+            this.aPG = tVar;
+            this.aLd = this.aPG.getPn();
+            this.aLb = this.aPG.getKw();
+            this.aPE.gl(this.aLb);
+            this.aPE.setFrom(this.mFrom);
+            this.aPE.setPn(this.aLd);
+            this.aPE.setFlag(this.aLc);
         }
-        this.aNs.aJz.a(this.mType, false, this.aNC);
-        this.aNx = null;
+        this.aPE.aLG.a(this.mType, false, this.aPO);
+        this.aPJ = null;
         return super.a((a) tVar, (t) uVar);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.model.s
     public void a(MvcSocketResponsedMessage<u, ?> mvcSocketResponsedMessage, MvcSocketMessage<t, u> mvcSocketMessage, MvcNetMessage<t, u> mvcNetMessage) {
+        t tVar;
         h hVar = new h();
-        hVar.ckH = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+        hVar.coH = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
         hVar.isSuccess = !mvcSocketResponsedMessage.hasError();
         hVar.errorCode = mvcSocketResponsedMessage.getError();
         hVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-        hVar.ckI = mvcSocketResponsedMessage.getDownSize();
-        this.aNC = hVar;
+        hVar.coI = mvcSocketResponsedMessage.getDownSize();
+        this.aPO = hVar;
         super.a(mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage);
-        KP();
-        if (this.aDq != null) {
-            this.aDq.a(false, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.ckI);
-            this.aDq = null;
+        LU();
+        if (this.aFs != null) {
+            this.aFs.a(false, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coI);
+            this.aFs = null;
         }
-        if (!this.aNB) {
-            this.aNB = true;
+        if (!this.aPN) {
+            this.aPN = true;
             aa aaVar = new aa();
-            aaVar.eb(1000);
-            aaVar.apH = false;
+            aaVar.el(1000);
+            aaVar.aqJ = false;
             aaVar.isSuccess = hVar.isSuccess;
-            aaVar.apw = mvcSocketResponsedMessage.performanceData.qt;
-            aaVar.apx = mvcSocketResponsedMessage.performanceData.qu;
-            aaVar.apy = mvcSocketResponsedMessage.performanceData.qv;
-            aaVar.apz = mvcSocketResponsedMessage.performanceData.qw;
-            aaVar.apA = mvcSocketResponsedMessage.performanceData.qx;
-            aaVar.apF = hVar.ckI;
-            aaVar.apG = 0L;
-            if (this.aNs.aJz != null) {
+            aaVar.aqy = mvcSocketResponsedMessage.performanceData.qx;
+            aaVar.aqz = mvcSocketResponsedMessage.performanceData.qy;
+            aaVar.aqA = mvcSocketResponsedMessage.performanceData.qz;
+            aaVar.aqB = mvcSocketResponsedMessage.performanceData.qA;
+            aaVar.aqC = mvcSocketResponsedMessage.performanceData.qB;
+            aaVar.aqH = hVar.coI;
+            aaVar.aqI = 0L;
+            if (this.aPE.aLG != null) {
                 e(aaVar);
             }
         }
+        long j = 0;
+        t tVar2 = null;
+        if (mvcSocketMessage != null) {
+            j = mvcSocketMessage.getClientLogID();
+            tVar2 = mvcSocketMessage.getRequestData();
+        }
+        if (mvcNetMessage != null) {
+            j = mvcNetMessage.getLogID();
+            tVar = mvcNetMessage.getRequestData();
+        } else {
+            tVar = tVar2;
+        }
+        int error = mvcSocketResponsedMessage.getError();
+        String errorString = mvcSocketResponsedMessage.getErrorString();
+        int cmd = mvcSocketResponsedMessage.getCmd();
+        Object[] objArr = new Object[2];
+        objArr[0] = "kw";
+        objArr[1] = tVar != null ? tVar.getKw() : null;
+        com.baidu.tbadk.core.log.b.a("frs", j, cmd, "socket_resp", error, errorString, objArr);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.model.r
     public void a(MvcHttpResponsedMessage<u> mvcHttpResponsedMessage, MvcHttpMessage<t, u> mvcHttpMessage, MvcNetMessage<t, u> mvcNetMessage) {
+        t tVar;
         h hVar = new h();
-        hVar.ckH = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
-        hVar.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
+        hVar.coH = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+        hVar.isSuccess = !mvcHttpResponsedMessage.hasError();
         hVar.errorCode = mvcHttpResponsedMessage.getError();
         hVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-        hVar.ckI = mvcHttpResponsedMessage.getDownSize();
-        this.aNC = hVar;
+        hVar.coI = mvcHttpResponsedMessage.getDownSize();
+        this.aPO = hVar;
         super.a(mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage);
-        KP();
-        if (this.aDq != null) {
-            this.aDq.a(true, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.ckI);
-            this.aDq = null;
+        LU();
+        if (this.aFs != null) {
+            this.aFs.a(true, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coI);
+            this.aFs = null;
         }
-        if (!this.aNB) {
-            this.aNB = true;
+        if (!this.aPN) {
+            this.aPN = true;
             aa aaVar = new aa();
-            aaVar.eb(1000);
-            aaVar.apH = true;
+            aaVar.el(1000);
+            aaVar.aqJ = true;
             aaVar.isSuccess = hVar.isSuccess;
-            aaVar.apw = mvcHttpResponsedMessage.performanceData.qt;
-            aaVar.apx = mvcHttpResponsedMessage.performanceData.qu;
-            aaVar.apy = mvcHttpResponsedMessage.performanceData.qv;
-            aaVar.apz = mvcHttpResponsedMessage.performanceData.qw;
-            aaVar.apA = mvcHttpResponsedMessage.performanceData.qx;
-            aaVar.apF = 0L;
-            aaVar.apG = hVar.ckI;
-            if (this.aNs.aJz != null) {
+            aaVar.aqy = mvcHttpResponsedMessage.performanceData.qx;
+            aaVar.aqz = mvcHttpResponsedMessage.performanceData.qy;
+            aaVar.aqA = mvcHttpResponsedMessage.performanceData.qz;
+            aaVar.aqB = mvcHttpResponsedMessage.performanceData.qA;
+            aaVar.aqC = mvcHttpResponsedMessage.performanceData.qB;
+            aaVar.aqH = 0L;
+            aaVar.aqI = hVar.coI;
+            if (this.aPE.aLG != null) {
                 e(aaVar);
             }
         }
+        long j = 0;
+        t tVar2 = null;
+        if (mvcHttpMessage != null) {
+            j = mvcHttpMessage.getClientLogID();
+            tVar2 = mvcHttpMessage.getRequestData();
+        }
+        if (mvcNetMessage != null) {
+            j = mvcNetMessage.getLogID();
+            tVar = mvcNetMessage.getRequestData();
+        } else {
+            tVar = tVar2;
+        }
+        int error = mvcHttpResponsedMessage.getError();
+        String errorString = mvcHttpResponsedMessage.getErrorString();
+        int cmd = mvcHttpResponsedMessage.getCmd();
+        Object[] objArr = new Object[2];
+        objArr[0] = "kw";
+        objArr[1] = tVar != null ? tVar.getKw() : null;
+        com.baidu.tbadk.core.log.b.a("frs", j, cmd, "http_resp", error, errorString, objArr);
     }
 
-    public void KO() {
-        if (this.aJd != null && this.aJd.Za() != null && this.aJd.Za().getBannerListData() != null) {
-            String pV = this.aJd.Za().getBannerListData().pV();
-            if (!TextUtils.isEmpty(pV)) {
-                this.aNz = pV;
+    public void LT() {
+        if (this.aLl != null && this.aLl.aar() != null && this.aLl.aar().getBannerListData() != null) {
+            String qB = this.aLl.aar().getBannerListData().qB();
+            if (!TextUtils.isEmpty(qB)) {
+                this.aPL = qB;
             }
         }
     }
 
-    public void KP() {
-        if (!this.aNA) {
-            this.aNA = true;
-            this.apC = System.currentTimeMillis() - this.aNs.aJi;
+    public void LU() {
+        if (!this.aPM) {
+            this.aPM = true;
+            this.aqE = System.currentTimeMillis() - this.aPE.aLq;
             aa aaVar = new aa();
-            aaVar.eb(1000);
-            aaVar.apt = this.aNs.aJq;
-            aaVar.apv = this.aNs.createTime;
-            aaVar.apC = this.apC;
-            aaVar.CK();
+            aaVar.el(1000);
+            aaVar.aqx = this.aPE.createTime;
+            aaVar.aqE = this.aqE;
+            aaVar.Dv();
         }
     }
 
     public void e(aa aaVar) {
         if (aaVar != null) {
-            aaVar.apv = this.aNs.createTime;
-            this.aNs.createTime = 0L;
-            aaVar.apt = this.aNs.aJq;
-            aaVar.apB = this.aNs.apB;
-            aaVar.apC = this.apC == 0 ? System.currentTimeMillis() - this.aNs.aJi : this.apC;
-            aaVar.CL();
+            aaVar.aqx = this.aPE.createTime;
+            this.aPE.createTime = 0L;
+            aaVar.aqD = this.aPE.aqD;
+            aaVar.aqE = this.aqE == 0 ? System.currentTimeMillis() - this.aPE.aLq : this.aqE;
+            aaVar.Dw();
         }
     }
 
-    public String KQ() {
+    public String LV() {
         return this.mPageType;
     }
 
-    public boolean KR() {
-        return this.aNw;
+    public boolean LW() {
+        return this.aPI;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public w KS() {
-        return this.aJd;
+    public w LX() {
+        return this.aLl;
     }
 
-    public h KT() {
-        return this.aNC;
+    public h LY() {
+        return this.aPO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KU() {
-        this.aDr = System.currentTimeMillis();
-        this.aNt.AZ();
+    public void LZ() {
+        this.aFt = System.currentTimeMillis();
+        this.aPF.BL();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(u uVar) {
-        this.aNs.aJz.b(uVar);
+        this.aPE.aLG.b(uVar);
     }
 
-    public long GX() {
-        return this.aDu;
+    public long HZ() {
+        return this.aFw;
     }
 
-    public long GY() {
-        return this.aDs;
+    public long Ia() {
+        return this.aFu;
     }
 
-    public long GZ() {
-        return this.aDt;
+    public long Ib() {
+        return this.aFv;
     }
 
-    public long Ha() {
-        return this.aDr;
+    public long Ic() {
+        return this.aFt;
     }
 
     public boolean isLoading() {
-        return this.aNt.isLoading();
+        return this.aPF.isLoading();
     }
 }

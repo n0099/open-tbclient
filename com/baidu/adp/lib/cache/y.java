@@ -1,19 +1,19 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 class y implements Runnable {
-    final /* synthetic */ x tr;
-    private final /* synthetic */ u ts;
+    final /* synthetic */ x tC;
+    private final /* synthetic */ u tD;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar, String str, u uVar) {
-        this.tr = xVar;
+        this.tC = xVar;
         this.val$key = str;
-        this.ts = uVar;
+        this.tD = uVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ts.onItemGet(this.val$key, this.tr.get(this.val$key));
+        this.tD.onItemGet(this.val$key, this.tC.get(this.val$key));
     }
 }

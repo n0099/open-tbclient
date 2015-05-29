@@ -5,50 +5,50 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class h extends i {
-    private int ahl = 1;
-    private int ahm = 1;
-    private int ahn = 1;
-    private int aho = 1;
-    private int ahp = 1;
+    private int aim = 1;
+    private int ain = 1;
+    private int aio = 1;
+    private int aip = 1;
+    private int aiq = 1;
 
-    public int yc() {
-        return this.ahl;
+    public int yP() {
+        return this.aim;
     }
 
-    public int yd() {
-        return this.ahm;
+    public int yQ() {
+        return this.ain;
     }
 
-    public int ye() {
-        return this.ahn;
+    public int yR() {
+        return this.aio;
     }
 
-    public int yf() {
-        return this.aho;
+    public int yS() {
+        return this.aip;
     }
 
-    public int yg() {
-        return this.ahp;
+    public int yT() {
+        return this.aiq;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ahl = jSONObject.optInt("location", 1);
-            this.ahm = jSONObject.optInt("like", 1);
-            this.ahn = jSONObject.optInt("group", 1);
-            this.aho = jSONObject.optInt("post", 1);
-            this.ahp = jSONObject.optInt("friend", 1);
+            this.aim = jSONObject.optInt("location", 1);
+            this.ain = jSONObject.optInt("like", 1);
+            this.aio = jSONObject.optInt("group", 1);
+            this.aip = jSONObject.optInt("post", 1);
+            this.aiq = jSONObject.optInt("friend", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.ahl = privSets.location.intValue();
-                this.ahm = privSets.like.intValue();
-                this.ahn = privSets.group.intValue();
-                this.aho = privSets.post.intValue();
-                this.ahp = privSets.friend.intValue();
+                this.aim = privSets.location.intValue();
+                this.ain = privSets.like.intValue();
+                this.aio = privSets.group.intValue();
+                this.aip = privSets.post.intValue();
+                this.aiq = privSets.friend.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

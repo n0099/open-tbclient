@@ -17,18 +17,18 @@ public class d extends NetModel<f, g, PraiseListActivity> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int ox() {
+    public int oN() {
         return CmdConfigHttp.PRAISE_LIST_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oz() {
+    protected int oP() {
         return 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String oy() {
+    public String oO() {
         return "c/u/zan/getuserlist";
     }
 }

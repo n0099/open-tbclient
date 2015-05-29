@@ -4,6 +4,6 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f {
-    SocketResponsedMessage or;
-    g os;
+    SocketResponsedMessage ow;
+    g ox;
 }

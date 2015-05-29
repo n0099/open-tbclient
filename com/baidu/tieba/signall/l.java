@@ -1,35 +1,35 @@
 package com.baidu.tieba.signall;
 /* loaded from: classes.dex */
 class l implements h {
-    final /* synthetic */ SignAllForumActivity cem;
+    final /* synthetic */ SignAllForumActivity cir;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SignAllForumActivity signAllForumActivity) {
-        this.cem = signAllForumActivity;
+        this.cir = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.h
     public void a(c cVar) {
         ae aeVar;
         ae aeVar2;
-        aeVar = this.cem.cee;
-        aeVar.Hx();
-        a aiC = cVar.aiC();
-        if (aiC != null && aiC.getErrorNumber() == 0) {
-            aeVar2 = this.cem.cee;
+        aeVar = this.cir.cij;
+        aeVar.Ix();
+        a akm = cVar.akm();
+        if (akm != null && akm.getErrorNumber() == 0) {
+            aeVar2 = this.cir.cij;
             aeVar2.d(cVar);
             return;
         }
-        this.cem.showToast(aiC.getUserMsg(), false);
-        this.cem.finish();
+        this.cir.showToast(akm.getUserMsg(), false);
+        this.cir.finish();
     }
 
     @Override // com.baidu.tieba.signall.h
-    public void gB(String str) {
+    public void he(String str) {
         ae aeVar;
-        aeVar = this.cem.cee;
-        aeVar.Hx();
-        this.cem.showToast(str, false);
-        this.cem.finish();
+        aeVar = this.cir.cij;
+        aeVar.Ix();
+        this.cir.showToast(str, false);
+        this.cir.finish();
     }
 }

@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class LogoActivityConfig extends a {
+public class LogoActivityConfig extends c {
     public static final String EXTRAINTENT = "extra_intent";
     public static boolean isFirst = true;
     public static boolean mFromSpacial = false;
@@ -24,6 +25,7 @@ public class LogoActivityConfig extends a {
         }
         getIntent().addCategory("android.intent.category.LAUNCHER");
         getIntent().setAction("android.intent.action.MAIN");
+        Log.e("LogoActivityConfig", "LogoActivityConfig Create");
     }
 
     public LogoActivityConfig(Context context, boolean z) {
@@ -36,5 +38,6 @@ public class LogoActivityConfig extends a {
         }
         getIntent().addCategory("android.intent.category.LAUNCHER");
         getIntent().setAction("android.intent.action.MAIN");
+        Log.e("LogoActivityConfig", "LogoActivityConfig Create  fromSpecial:" + mFromSpacial);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import android.widget.ProgressBar;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -19,65 +19,47 @@ public class bw implements View.OnClickListener {
     public void onClick(View view) {
         boolean z;
         int i;
+        ProgressBar progressBar;
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean jl;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean jl2;
-        z = this.this$0.bJy;
+        boolean ke;
+        z = this.this$0.bLE;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
-                intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
-                this.this$0.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.this$0.bPo;
-                if (z2) {
-                    bitmap = this.this$0.bPh;
-                    if (bitmap != null) {
-                        bitmap2 = this.this$0.bPh;
-                        if (!bitmap2.isRecycled()) {
-                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            jl = this.this$0.jl(str);
-                            if (jl) {
-                                intent2.putExtra("change", true);
-                                intent2.putExtra("file_name", str);
-                            } else {
-                                intent2.putExtra("change", false);
+                progressBar = this.this$0.mProgress;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.this$0.bRr;
+                    if (z2) {
+                        bitmap = this.this$0.bRk;
+                        if (bitmap != null) {
+                            bitmap2 = this.this$0.bRk;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                ke = this.this$0.ke(str);
+                                if (ke) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.this$0.setResult(-1, intent);
                             }
                         }
                     }
-                    intent2.putExtra("change", false);
+                    intent.putExtra("change", false);
+                    this.this$0.setResult(-1, intent);
                 } else {
-                    intent2.setData(this.this$0.getIntent().getData());
-                    this.this$0.setResult(-1, intent2);
+                    return;
                 }
-                this.this$0.setResult(-1, intent2);
+            } else {
+                this.this$0.setResult(0, new Intent());
             }
-            this.this$0.finish();
-            return;
+        } else {
+            this.this$0.setResult(0, new Intent());
         }
-        Intent intent3 = new Intent();
-        z3 = this.this$0.bPo;
-        if (z3) {
-            bitmap3 = this.this$0.bPh;
-            if (bitmap3 != null) {
-                bitmap4 = this.this$0.bPh;
-                if (!bitmap4.isRecycled()) {
-                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    jl2 = this.this$0.jl(str2);
-                    if (jl2) {
-                        intent3.putExtra("filename", str2);
-                    }
-                }
-            }
-        }
-        this.this$0.setResult(-1, intent3);
         this.this$0.finish();
     }
 }

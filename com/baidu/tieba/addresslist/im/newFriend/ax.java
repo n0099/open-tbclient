@@ -4,18 +4,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends com.baidu.tieba.im.h<List<com.baidu.tieba.im.data.b>> {
-    final /* synthetic */ NewFriendsActivity ayH;
+    final /* synthetic */ NewFriendsActivity aAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(NewFriendsActivity newFriendsActivity) {
-        this.ayH = newFriendsActivity;
+        this.aAs = newFriendsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: Fc */
+    /* renamed from: FV */
     public List<com.baidu.tieba.im.data.b> doInBackground() {
-        ba.Fd().Ff();
-        return ba.Fd().Fg();
+        ba.FW().FY();
+        return ba.FW().FZ();
     }
 }

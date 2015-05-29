@@ -1,28 +1,32 @@
 package com.baidu.tbadk.core.view;
-
-import android.database.DataSetObserver;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m extends DataSetObserver {
-    final /* synthetic */ HorizontalListView Yl;
+public class m implements Runnable {
+    final /* synthetic */ HaloView YG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(HorizontalListView horizontalListView) {
-        this.Yl = horizontalListView;
+    public m(HaloView haloView) {
+        this.YG = haloView;
     }
 
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        synchronized (this.Yl) {
-            this.Yl.Yf = true;
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        boolean z2;
+        int i;
+        z = this.YG.YF;
+        if (!z) {
+            z2 = this.YG.YD;
+            if (!z2) {
+                HaloView haloView = this.YG;
+                HaloView haloView2 = this.YG;
+                i = haloView2.YE;
+                int i2 = i + 1;
+                haloView2.YE = i2;
+                haloView.YE = i2 % 4;
+            }
+            this.YG.postDelayed(this, 800L);
+            this.YG.invalidate();
         }
-        this.Yl.invalidate();
-        this.Yl.requestLayout();
-    }
-
-    @Override // android.database.DataSetObserver
-    public void onInvalidated() {
-        this.Yl.reset();
-        this.Yl.invalidate();
-        this.Yl.requestLayout();
     }
 }

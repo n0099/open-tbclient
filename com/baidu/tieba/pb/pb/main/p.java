@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class p implements dh {
-    final /* synthetic */ PbActivity bIJ;
+class p implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dh
-    public void a(com.baidu.tieba.pb.a.c cVar) {
-        com.baidu.tieba.pb.pb.sub.e eVar;
-        com.baidu.tieba.pb.pb.sub.e eVar2;
-        cj cjVar;
-        eVar = this.bIJ.bIj;
-        if (eVar != null) {
-            eVar2 = this.bIJ.bIj;
-            if (eVar2.AZ()) {
-                cjVar = this.bIJ.bIl;
-                cjVar.abe();
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
+        eVar.dismiss();
+        if (this.bKT.bKR != null) {
+            if (i == 0) {
+                this.bKT.bKR.aJ(this.bKT.getPageContext().getPageActivity());
+                this.bKT.bKR = null;
+            } else if (i == 1 && this.bKT.checkUpIsLogin()) {
+                this.bKT.b(this.bKT.bKR);
             }
         }
     }

@@ -8,47 +8,47 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static volatile e Dw;
-    private HashMap<String, String> Dx = new HashMap<>();
-    private f Dy = null;
+    private static volatile e Dn;
+    private HashMap<String, String> Do = new HashMap<>();
+    private f Dp = null;
 
-    public static e lo() {
-        if (Dw == null) {
+    public static e lI() {
+        if (Dn == null) {
             synchronized (e.class) {
-                if (Dw == null) {
-                    Dw = new e();
+                if (Dn == null) {
+                    Dn = new e();
                 }
             }
         }
-        return Dw;
+        return Dn;
     }
 
     private e() {
     }
 
     public void clear(boolean z) {
-        if (z && this.Dy == null && lp()) {
-            this.Dy = new f(this);
-            this.Dy.execute(new Void[0]);
+        if (z && this.Dp == null && lJ()) {
+            this.Dp = new f(this);
+            this.Dp.execute(new Void[0]);
         }
     }
 
-    private boolean lp() {
+    private boolean lJ() {
         String[] split;
-        this.Dx.clear();
-        PluginSettings lM = com.baidu.adp.plugin.packageManager.pluginSettings.h.lP().lM();
-        if (lM == null) {
+        this.Do.clear();
+        PluginSettings mf = com.baidu.adp.plugin.packageManager.pluginSettings.h.mi().mf();
+        if (mf == null) {
             return false;
         }
-        for (Map.Entry<String, PluginSetting> entry : lM.getPlugins().entrySet()) {
+        for (Map.Entry<String, PluginSetting> entry : mf.getPlugins().entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Dx.put(value.apkPath, "");
+                this.Do.put(value.apkPath, "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Dx.put(str, "");
+                        this.Do.put(str, "");
                     }
                 }
             }

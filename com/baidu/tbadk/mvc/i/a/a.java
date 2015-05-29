@@ -8,25 +8,25 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mvc.core.d;
 import com.baidu.tbadk.mvc.core.e;
-import com.baidu.tieba.s;
-import com.baidu.tieba.t;
+import com.baidu.tieba.n;
+import com.baidu.tieba.o;
 /* loaded from: classes.dex */
 public abstract class a extends d implements ViewPager.OnPageChangeListener, com.baidu.tbadk.mvc.i.b.a {
-    private FragmentTabWidget anC;
-    private ViewPager anD;
-    private c anE;
-    private int anF;
+    private FragmentTabWidget aoF;
+    private ViewPager aoG;
+    private c aoH;
+    private int aoI;
 
-    protected abstract FragmentTabWidget BI();
+    protected abstract FragmentTabWidget Cu();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract ViewGroup.LayoutParams dN(int i);
+    public abstract ViewGroup.LayoutParams dX(int i);
 
     protected abstract ViewPager getViewPager();
 
     public a(e<?, ?, ?> eVar) {
         super(eVar);
-        this.anF = -1;
+        this.aoI = -1;
     }
 
     @Override // com.baidu.tbadk.mvc.core.d
@@ -39,65 +39,65 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void BT() {
+    public void CF() {
         initViewPager();
-        BU();
-        this.anE.notifyDataSetChanged();
-        if (this.anF == -1) {
-            this.anF = 0;
+        CG();
+        this.aoH.notifyDataSetChanged();
+        if (this.aoI == -1) {
+            this.aoI = 0;
         }
-        this.anC.d(this.anF, true);
-        this.anD.setCurrentItem(this.anF);
-        dP(this.anF);
+        this.aoF.d(this.aoI, true);
+        this.aoG.setCurrentItem(this.aoI);
+        dZ(this.aoI);
     }
 
     private void initViewPager() {
-        this.anD = getViewPager();
-        this.anE = new c(this);
-        this.anD.setAdapter(this.anE);
-        this.anD.setOnPageChangeListener(this);
+        this.aoG = getViewPager();
+        this.aoH = new c(this);
+        this.aoG.setAdapter(this.aoH);
+        this.aoG.setOnPageChangeListener(this);
     }
 
-    private void BU() {
-        this.anC = BI();
+    private void CG() {
+        this.aoF = Cu();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            dO(i);
+            dY(i);
         }
-        this.anC.setTabSelectionListener(new b(this));
+        this.aoF.setTabSelectionListener(new b(this));
     }
 
     protected void a(int i, FragmentTabIndicator fragmentTabIndicator) {
-        com.baidu.tbadk.mvc.core.c dK = dK(i);
-        if (dK instanceof com.baidu.tbadk.mvc.i.b.b) {
-            com.baidu.tbadk.mvc.i.b.c BV = ((com.baidu.tbadk.mvc.i.b.b) dK).BV();
-            fragmentTabIndicator.setText(BV.getTitle());
-            com.baidu.tbadk.mainTab.c BX = BV.BX();
-            if (BX != null) {
-                if (fragmentTabIndicator.eA(BV.BY()) == null) {
-                    BX.cu(TbadkCoreApplication.m411getInst().getSkinType());
-                    fragmentTabIndicator.a(BV.BY(), BX);
+        com.baidu.tbadk.mvc.core.c dU = dU(i);
+        if (dU instanceof com.baidu.tbadk.mvc.i.b.b) {
+            com.baidu.tbadk.mvc.i.b.c CH = ((com.baidu.tbadk.mvc.i.b.b) dU).CH();
+            fragmentTabIndicator.setText(CH.getTitle());
+            com.baidu.tbadk.mainTab.c CJ = CH.CJ();
+            if (CJ != null) {
+                if (fragmentTabIndicator.eR(CH.CK()) == null) {
+                    CJ.cz(TbadkCoreApplication.m411getInst().getSkinType());
+                    fragmentTabIndicator.a(CH.CK(), CJ);
                 }
-                BX.amc = fragmentTabIndicator;
-                if (BV.BW() > 0) {
-                    if (BX.view instanceof TextView) {
-                        ((TextView) BX.view).setText(new StringBuilder(String.valueOf(BV.BW())).toString());
+                CJ.ane = fragmentTabIndicator;
+                if (CH.CI() > 0) {
+                    if (CJ.view instanceof TextView) {
+                        ((TextView) CJ.view).setText(new StringBuilder(String.valueOf(CH.CI())).toString());
                     }
-                    BX.view.setVisibility(0);
+                    CJ.view.setVisibility(0);
                     return;
                 }
-                BX.view.setVisibility(8);
+                CJ.view.setVisibility(8);
             }
         }
     }
 
-    private void dO(int i) {
+    private void dY(int i) {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
-        fragmentTabIndicator.alT = s.main_bottom_button_color;
-        fragmentTabIndicator.setTextSize(0, getResources().getDimension(t.ds32));
+        fragmentTabIndicator.amU = n.main_bottom_button_color;
+        fragmentTabIndicator.setTextSize(0, getResources().getDimension(o.ds32));
         fragmentTabIndicator.setGravity(17);
         a(i, fragmentTabIndicator);
-        this.anC.addView(fragmentTabIndicator);
+        this.aoF.addView(fragmentTabIndicator);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -106,37 +106,37 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        BI().a(i, f);
+        Cu().a(i, f);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        dP(i);
+        dZ(i);
     }
 
-    private void dP(int i) {
-        BI().d(i, true);
-        this.anF = i;
-        com.baidu.tbadk.mvc.core.c dK = dK(i);
-        if (dK instanceof com.baidu.tbadk.mvc.i.b.b) {
-            super.a(dK, this.anD, dN(i));
-            ((com.baidu.tbadk.mvc.i.b.b) dK).onPrimary();
+    private void dZ(int i) {
+        Cu().d(i, true);
+        this.aoI = i;
+        com.baidu.tbadk.mvc.core.c dU = dU(i);
+        if (dU instanceof com.baidu.tbadk.mvc.i.b.b) {
+            super.a(dU, this.aoG, dX(i));
+            ((com.baidu.tbadk.mvc.i.b.b) dU).onPrimary();
         }
     }
 
     public int getCurrentTabIndex() {
-        return this.anF;
+        return this.aoI;
     }
 
     public int getCurrentTabType() {
-        com.baidu.tbadk.mvc.core.c dK = dK(this.anF);
-        if (dK == null || !(dK instanceof com.baidu.tbadk.mvc.i.b.b)) {
+        com.baidu.tbadk.mvc.core.c dU = dU(this.aoI);
+        if (dU == null || !(dU instanceof com.baidu.tbadk.mvc.i.b.b)) {
             return -1;
         }
-        return ((com.baidu.tbadk.mvc.i.b.b) dK).BV().BZ();
+        return ((com.baidu.tbadk.mvc.i.b.b) dU).CH().CL();
     }
 
-    public void dQ(int i) {
+    public void ea(int i) {
         int i2;
         int childCount = getChildCount();
         int i3 = 0;
@@ -145,8 +145,8 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
                 i2 = -1;
                 break;
             }
-            com.baidu.tbadk.mvc.core.c dK = dK(i3);
-            if (dK != null && (dK instanceof com.baidu.tbadk.mvc.i.b.b) && ((com.baidu.tbadk.mvc.i.b.b) dK).BV().BZ() == i) {
+            com.baidu.tbadk.mvc.core.c dU = dU(i3);
+            if (dU != null && (dU instanceof com.baidu.tbadk.mvc.i.b.b) && ((com.baidu.tbadk.mvc.i.b.b) dU).CH().CL() == i) {
                 i2 = i3;
                 break;
             }
@@ -154,11 +154,11 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
         }
         if (i2 != -1) {
             if (getView() != null) {
-                this.anD.setCurrentItem(i2);
-                this.anC.d(i2, true);
+                this.aoG.setCurrentItem(i2);
+                this.aoF.d(i2, true);
                 return;
             }
-            this.anF = i2;
+            this.aoI = i2;
         }
     }
 }

@@ -8,10 +8,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.aa ZF;
-    private final String ckA;
-    private final g ckB;
-    final /* synthetic */ e ckC;
+    private com.baidu.tbadk.core.util.aa aaG;
+    private final String coA;
+    private final g coB;
+    final /* synthetic */ e coC;
     private final String mForumId;
     private final String mForumName;
 
@@ -22,38 +22,38 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     public Boolean doInBackground(String... strArr) {
         w wVar;
         try {
-            this.ZF = new com.baidu.tbadk.core.util.aa(strArr[0]);
-            this.ZF.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-            this.ZF.o("kw", this.mForumName);
-            this.ZF.o("is_like", this.ckA);
-            this.ZF.sp().tp().mIsNeedTbs = true;
-            String rO = this.ZF.rO();
-            if (this.ZF.ss()) {
-                if (this.ckA.equals(GameInfoData.NOT_FROM_DETAIL)) {
+            this.aaG = new com.baidu.tbadk.core.util.aa(strArr[0]);
+            this.aaG.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+            this.aaG.o("kw", this.mForumName);
+            this.aaG.o("is_like", this.coA);
+            this.aaG.sX().tS().mIsNeedTbs = true;
+            String sw = this.aaG.sw();
+            if (this.aaG.ta()) {
+                if (this.coA.equals(GameInfoData.NOT_FROM_DETAIL)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(rO);
+                        JSONObject jSONObject = new JSONObject(sw);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.ckB.level = optJSONObject.optInt("level_id", 0);
-                            this.ckB.ckG = optJSONObject.optString("level_name", "");
+                            this.coB.level = optJSONObject.optInt("level_id", 0);
+                            this.coB.coG = optJSONObject.optString("level_name", "");
                             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
                             if (optJSONObject2 != null) {
-                                this.ckB.cur_score = optJSONObject2.optInt("cur_score", 0);
-                                this.ckB.levelup_score = optJSONObject2.optInt("levelup_score", 0);
+                                this.coB.cur_score = optJSONObject2.optInt("cur_score", 0);
+                                this.coB.levelup_score = optJSONObject2.optInt("levelup_score", 0);
                             }
-                            this.ckB.ckE = true;
+                            this.coB.coE = true;
                         }
-                        wVar = this.ckC.ckt;
-                        wVar.a(this.ckB);
+                        wVar = this.coC.cot;
+                        wVar.a(this.coB);
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
                 }
-                if (this.ZF.sp().tq().pv()) {
+                if (this.aaG.sX().tT().qa()) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(rO);
-                        this.ckB.ckF = jSONObject2.optInt("num");
-                        this.ckB.ckD = true;
+                        JSONObject jSONObject2 = new JSONObject(sw);
+                        this.coB.coF = jSONObject2.optInt("num");
+                        this.coB.coD = true;
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
@@ -69,11 +69,11 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.ZF != null) {
-            this.ZF.hh();
+        if (this.aaG != null) {
+            this.aaG.gS();
         }
-        this.ckC.cky = null;
-        this.ckC.eH(false);
+        this.coC.coy = null;
+        this.coC.fb(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,16 +83,16 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         z zVar;
         z zVar2;
-        this.ckC.cky = null;
-        this.ckC.eH(false);
-        if (this.ZF != null) {
+        this.coC.coy = null;
+        this.coC.fb(false);
+        if (this.aaG != null) {
             h hVar = new h();
-            hVar.errorMsg = this.ZF.getErrorString();
-            hVar.errorCode = this.ZF.st();
-            zVar = this.ckC.ckv;
+            hVar.errorMsg = this.aaG.getErrorString();
+            hVar.errorCode = this.aaG.tb();
+            zVar = this.coC.cov;
             if (zVar != null) {
-                zVar2 = this.ckC.ckv;
-                zVar2.a(this.ckB, hVar);
+                zVar2 = this.coC.cov;
+                zVar2.a(this.coB, hVar);
             }
         }
     }

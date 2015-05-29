@@ -4,12 +4,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class i {
-    TextView bEn;
-    final /* synthetic */ h bEo;
+    TextView bHi;
+    final /* synthetic */ h bHj;
     ProgressBar mProgress;
 
     private i(h hVar) {
-        this.bEo = hVar;
+        this.bHj = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

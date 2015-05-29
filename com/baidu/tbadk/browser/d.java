@@ -3,11 +3,11 @@ package com.baidu.tbadk.browser;
 import android.app.Activity;
 /* loaded from: classes.dex */
 class d implements e {
-    final /* synthetic */ BaseWebViewActivity Nn;
+    final /* synthetic */ BaseWebViewActivity NB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaseWebViewActivity baseWebViewActivity) {
-        this.Nn = baseWebViewActivity;
+        this.NB = baseWebViewActivity;
     }
 
     @Override // com.baidu.tbadk.browser.e

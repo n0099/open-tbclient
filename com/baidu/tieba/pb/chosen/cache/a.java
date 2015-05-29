@@ -4,7 +4,7 @@ import tbclient.FinePbPage.ForumInfo;
 import tbclient.FinePbPage.User_Info;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.pb.chosen.net.a {
-    private User_Info bGs;
+    private User_Info bJk;
     private ForumInfo forumInfo;
     private long nextTid;
     private long preTid;
@@ -12,23 +12,13 @@ public class a implements com.baidu.tieba.pb.chosen.net.a {
     public a(long j, long j2, User_Info user_Info, ForumInfo forumInfo) {
         this.preTid = j;
         this.nextTid = j2;
-        this.bGs = user_Info;
+        this.bJk = user_Info;
         this.forumInfo = forumInfo;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
-    public long getPreTid() {
-        return this.preTid;
-    }
-
-    @Override // com.baidu.tieba.pb.chosen.net.a
-    public long getNextTid() {
-        return this.nextTid;
-    }
-
-    @Override // com.baidu.tieba.pb.chosen.net.a
     public User_Info getUserInfo() {
-        return this.bGs;
+        return this.bJk;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

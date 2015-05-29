@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, ah> {
-    private volatile com.baidu.tbadk.core.util.aa ZF;
-    final /* synthetic */ af clN;
+    private volatile com.baidu.tbadk.core.util.aa aaG;
+    final /* synthetic */ af cpM;
 
     private ag(af afVar) {
-        this.clN = afVar;
-        this.ZF = null;
+        this.cpM = afVar;
+        this.aaG = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: C */
+    /* renamed from: F */
     public ah doInBackground(Object... objArr) {
         String str;
         String str2;
@@ -36,35 +36,35 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
         String str7;
         String str8;
         try {
-            this.ZF = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-            com.baidu.tbadk.core.util.aa aaVar = this.ZF;
-            str = this.clN.mForumName;
+            this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+            com.baidu.tbadk.core.util.aa aaVar = this.aaG;
+            str = this.cpM.mForumName;
             aaVar.o("kw", str);
-            com.baidu.tbadk.core.util.aa aaVar2 = this.ZF;
-            str2 = this.clN.mForumId;
+            com.baidu.tbadk.core.util.aa aaVar2 = this.aaG;
+            str2 = this.cpM.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
-            com.baidu.tbadk.core.util.aa aaVar3 = this.ZF;
-            str3 = this.clN.from;
+            com.baidu.tbadk.core.util.aa aaVar3 = this.aaG;
+            str3 = this.cpM.from;
             aaVar3.o("st_type", str3);
-            str4 = this.clN.clM;
+            str4 = this.cpM.cpL;
             if (!StringUtils.isNull(str4)) {
-                com.baidu.tbadk.core.util.aa aaVar4 = this.ZF;
-                str8 = this.clN.clM;
+                com.baidu.tbadk.core.util.aa aaVar4 = this.aaG;
+                str8 = this.cpM.cpL;
                 aaVar4.o("dev_id", str8);
             }
-            str5 = this.clN.clK;
+            str5 = this.cpM.cpJ;
             if (!TextUtils.isEmpty(str5)) {
-                com.baidu.tbadk.core.util.aa aaVar5 = this.ZF;
-                str7 = this.clN.clK;
+                com.baidu.tbadk.core.util.aa aaVar5 = this.aaG;
+                str7 = this.cpM.cpJ;
                 aaVar5.o("pagefrom", str7);
             }
-            this.ZF.sp().tp().mIsNeedTbs = true;
-            String rO = this.ZF.rO();
-            if (this.ZF.sp().tq().pv() && rO != null) {
+            this.aaG.sX().tS().mIsNeedTbs = true;
+            String sw = this.aaG.sw();
+            if (this.aaG.sX().tT().qa() && sw != null) {
                 ah ahVar = new ah();
-                ahVar.parserJson(rO);
-                str6 = this.clN.mForumId;
-                ahVar.iC(str6);
+                ahVar.parserJson(sw);
+                str6 = this.cpM.mForumId;
+                ahVar.jv(str6);
                 return ahVar;
             }
         } catch (Exception e) {
@@ -80,14 +80,14 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
     public void onPostExecute(ah ahVar) {
         com.baidu.adp.base.i iVar;
         com.baidu.adp.base.i iVar2;
-        this.clN.clL = null;
-        if (ahVar == null && this.ZF != null) {
-            this.clN.mErrorCode = this.ZF.st();
-            this.clN.mErrorString = this.ZF.getErrorString();
+        this.cpM.cpK = null;
+        if (ahVar == null && this.aaG != null) {
+            this.cpM.mErrorCode = this.aaG.tb();
+            this.cpM.mErrorString = this.aaG.getErrorString();
         }
-        iVar = this.clN.mLoadDataCallBack;
+        iVar = this.cpM.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.clN.mLoadDataCallBack;
+            iVar2 = this.cpM.mLoadDataCallBack;
             iVar2.c(ahVar);
         }
     }
@@ -95,13 +95,13 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.base.i iVar;
-        if (this.ZF != null) {
-            this.ZF.hh();
-            this.ZF = null;
+        if (this.aaG != null) {
+            this.aaG.gS();
+            this.aaG = null;
         }
-        this.clN.clL = null;
+        this.cpM.cpK = null;
         super.cancel(true);
-        iVar = this.clN.mLoadDataCallBack;
+        iVar = this.cpM.mLoadDataCallBack;
         iVar.c(null);
     }
 }

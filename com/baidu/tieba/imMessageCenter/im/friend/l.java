@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity bsP;
+    final /* synthetic */ InviteFriendListActivity bvA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.bsP = inviteFriendListActivity;
+        this.bvA = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ class l extends CustomMessageListener {
         t tVar;
         t tVar2;
         if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            this.bsP.isLoaded = true;
-            atomicBoolean = this.bsP.bsN;
+            this.bvA.isLoaded = true;
+            atomicBoolean = this.bvA.bvy;
             atomicBoolean.set(false);
-            InviteFriendListActivity inviteFriendListActivity = this.bsP;
-            tVar = this.bsP.bsI;
+            InviteFriendListActivity inviteFriendListActivity = this.bvA;
+            tVar = this.bvA.bvt;
             inviteFriendListActivity.hideLoadingView(tVar.getRootView());
             List<com.baidu.tbadk.coreExtra.relationship.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
             if (contacts == null) {
                 contacts = new LinkedList<>();
             }
-            this.bsP.bsK = contacts;
-            tVar2 = this.bsP.bsI;
+            this.bvA.bvv = contacts;
+            tVar2 = this.bvA.bvt;
             if (tVar2 != null) {
-                this.bsP.VH();
+                this.bvA.WZ();
             }
         }
     }

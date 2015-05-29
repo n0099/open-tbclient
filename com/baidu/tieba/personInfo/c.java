@@ -2,46 +2,46 @@ package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.c {
-    final /* synthetic */ PersonInfoActivity bSx;
+    final /* synthetic */ PersonInfoActivity bVe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonInfoActivity personInfoActivity) {
-        this.bSx = personInfoActivity;
+        this.bVe = personInfoActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void mM() {
+    public void nf() {
         v vVar;
-        ae aeVar;
-        ae aeVar2;
-        vVar = this.bSx.bSm;
-        vVar.aez();
-        aeVar = this.bSx.bSn;
-        if (aeVar.aeC() != null) {
-            aeVar2 = this.bSx.bSn;
-            aeVar2.aeC().mK();
+        ad adVar;
+        ad adVar2;
+        vVar = this.bVe.bUT;
+        vVar.afE();
+        adVar = this.bVe.bUU;
+        if (adVar.afI() != null) {
+            adVar2 = this.bVe.bUU;
+            adVar2.afI().nd();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void mL() {
-        ae aeVar;
-        ae aeVar2;
-        aeVar = this.bSx.bSn;
-        if (aeVar.aeC() != null) {
-            aeVar2 = this.bSx.bSn;
-            aeVar2.aeC().hideProgress();
+    public void ne() {
+        ad adVar;
+        ad adVar2;
+        adVar = this.bVe.bUU;
+        if (adVar.afI() != null) {
+            adVar2 = this.bVe.bUU;
+            adVar2.afI().hideProgress();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void k(float f) {
-        ae aeVar;
-        ae aeVar2;
-        aeVar = this.bSx.bSn;
-        if (aeVar.aeC() != null) {
-            aeVar2 = this.bSx.bSn;
-            aeVar2.aeC().j(f);
+        ad adVar;
+        ad adVar2;
+        adVar = this.bVe.bUU;
+        if (adVar.afI() != null) {
+            adVar2 = this.bVe.bUU;
+            adVar2.afI().j(f);
         }
     }
 }

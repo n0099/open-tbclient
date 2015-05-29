@@ -11,6 +11,6 @@ public class b extends com.baidu.adp.base.i {
 
     @Override // com.baidu.adp.base.i
     public void c(Object obj) {
-        this.this$0.E(obj);
+        this.this$0.C(obj);
     }
 }

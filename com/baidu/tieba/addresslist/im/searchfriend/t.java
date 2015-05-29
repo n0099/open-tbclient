@@ -5,20 +5,20 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class t {
-    final /* synthetic */ n azn;
-    u azp;
-    TextView azq;
-    TextView azr;
-    TextView azs;
-    TextView azt;
-    TbImageView azu;
-    TbImageView azv;
-    TbImageView azw;
-    LinearLayout azx;
-    LinearLayout azy;
+    final /* synthetic */ n aAY;
+    u aBa;
+    TextView aBb;
+    TextView aBc;
+    TextView aBd;
+    TextView aBe;
+    TbImageView aBf;
+    TbImageView aBg;
+    TbImageView aBh;
+    LinearLayout aBi;
+    LinearLayout aBj;
 
     private t(n nVar) {
-        this.azn = nVar;
+        this.aAY = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

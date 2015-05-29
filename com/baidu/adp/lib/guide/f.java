@@ -5,13 +5,13 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ d uS;
-    private final /* synthetic */ ViewGroup uT;
+    final /* synthetic */ d ud;
+    private final /* synthetic */ ViewGroup ue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar, ViewGroup viewGroup) {
-        this.uS = dVar;
-        this.uT = viewGroup;
+        this.ud = dVar;
+        this.ue = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,15 +23,15 @@ public class f implements Animation.AnimationListener {
         i iVar;
         h hVar;
         h hVar2;
-        ViewGroup viewGroup = this.uT;
-        iVar = this.uS.uO;
+        ViewGroup viewGroup = this.ue;
+        iVar = this.ud.tZ;
         viewGroup.removeView(iVar);
-        hVar = this.uS.uR;
+        hVar = this.ud.uc;
         if (hVar != null) {
-            hVar2 = this.uS.uR;
+            hVar2 = this.ud.uc;
             hVar2.onDismiss();
         }
-        this.uS.onDestroy();
+        this.ud.onDestroy();
     }
 
     @Override // android.view.animation.Animation.AnimationListener

@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.tbadk.browser.f;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bMP;
+    final /* synthetic */ a bON;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bMP = aVar;
+        this.bON = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,11 +20,11 @@ public class c implements View.OnClickListener {
         PbActivity pbActivity;
         PbActivity pbActivity2;
         String str;
-        pbActivity = this.bMP.bIT;
+        pbActivity = this.bON.bKZ;
         Activity pageActivity = pbActivity.getPageContext().getPageActivity();
-        pbActivity2 = this.bMP.bIT;
-        String string = pbActivity2.getPageContext().getString(y.user_icon_intro);
-        str = a.bMK;
+        pbActivity2 = this.bON.bKZ;
+        String string = pbActivity2.getPageContext().getString(t.user_icon_intro);
+        str = a.bOI;
         f.a(pageActivity, string, String.valueOf(str) + "?st_type=pb_user_icon", true, false, false);
     }
 }

@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.editortool.v {
-    private final /* synthetic */ com.baidu.tbadk.editortool.v aIJ;
-    final /* synthetic */ PbEditor cmW;
+    private final /* synthetic */ com.baidu.tbadk.editortool.v aKR;
+    final /* synthetic */ PbEditor cqV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PbEditor pbEditor, com.baidu.tbadk.editortool.v vVar) {
-        this.cmW = pbEditor;
-        this.aIJ = vVar;
+        this.cqV = pbEditor;
+        this.aKR = vVar;
     }
 
     @Override // com.baidu.tbadk.editortool.v
@@ -22,110 +22,110 @@ public class v implements com.baidu.tbadk.editortool.v {
         TbPageContext tbPageContext2;
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.f)) {
-                if (this.cmW.Ji()) {
-                    com.baidu.adp.lib.util.n.showToast(this.cmW.getContext(), com.baidu.tieba.y.over_limit_tip);
+                if (this.cqV.Km()) {
+                    com.baidu.adp.lib.util.n.showToast(this.cqV.getContext(), com.baidu.tieba.t.over_limit_tip);
                     return;
                 }
                 com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) obj;
                 if (fVar.getName() != null) {
-                    if (PbEditor.iG(this.cmW.cmO.getEditText().getText().toString()) >= 10) {
-                        tbPageContext = this.cmW.mPageContext;
+                    if (PbEditor.jz(this.cqV.cqN.getEditText().getText().toString()) >= 10) {
+                        tbPageContext = this.cqV.mPageContext;
                         if (tbPageContext != null) {
-                            tbPageContext2 = this.cmW.mPageContext;
-                            tbPageContext2.showToast(this.cmW.mContext.getResources().getString(com.baidu.tieba.y.too_many_face));
+                            tbPageContext2 = this.cqV.mPageContext;
+                            tbPageContext2.showToast(this.cqV.mContext.getResources().getString(com.baidu.tieba.t.too_many_face));
                             return;
                         }
                     }
-                    this.cmW.cmO.getEditText().getText().insert(this.cmW.cmO.getEditText().getSelectionStart(), fVar.getName());
+                    this.cqV.cqN.getEditText().getText().insert(this.cqV.cqN.getEditText().getSelectionStart(), fVar.getName());
                 }
-                if (this.cmW.ame()) {
-                    this.cmW.cmO.amc();
+                if (this.cqV.anQ()) {
+                    this.cqV.cqN.anO();
                 } else {
-                    this.cmW.cmO.amd();
+                    this.cqV.cqN.anP();
                 }
             }
         } else if (i == 21) {
-            if (this.cmW.cmO.getEditText().getSelectionStart() > 0) {
-                String substring = this.cmW.cmO.getEditText().getText().toString().substring(0, this.cmW.cmO.getEditText().getSelectionStart());
-                pattern = PbEditor.cmR;
+            if (this.cqV.cqN.getEditText().getSelectionStart() > 0) {
+                String substring = this.cqV.cqN.getEditText().getText().toString().substring(0, this.cqV.cqN.getEditText().getSelectionStart());
+                pattern = PbEditor.cqQ;
                 Matcher matcher = pattern.matcher(substring);
                 if (matcher.find()) {
-                    this.cmW.cmO.getEditText().getText().delete(this.cmW.cmO.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.cmW.cmO.getEditText().getSelectionStart());
+                    this.cqV.cqN.getEditText().getText().delete(this.cqV.cqN.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.cqV.cqN.getEditText().getSelectionStart());
                     return;
                 }
-                this.cmW.cmO.getEditText().getText().delete(this.cmW.cmO.getEditText().getSelectionStart() - 1, this.cmW.cmO.getEditText().getSelectionStart());
+                this.cqV.cqN.getEditText().getText().delete(this.cqV.cqN.getEditText().getSelectionStart() - 1, this.cqV.cqN.getEditText().getSelectionStart());
             }
         } else if (i == 14) {
-            this.cmW.cmO.amp();
-            if (this.cmW.ame()) {
-                this.cmW.cmO.amc();
+            this.cqV.cqO.ano();
+            if (this.cqV.anQ()) {
+                this.cqV.cqN.anO();
             } else {
-                this.cmW.cmO.amd();
+                this.cqV.cqN.anP();
             }
         } else if (i == 15) {
-            this.cmW.cmO.amq();
-            if (this.cmW.ame()) {
-                this.cmW.cmO.amc();
+            this.cqV.cqO.abZ();
+            if (this.cqV.anQ()) {
+                this.cqV.cqN.anO();
             } else {
-                this.cmW.cmO.amd();
+                this.cqV.cqN.anP();
             }
         } else if (i == 2) {
-            this.cmW.ir(i);
-            this.cmW.cmO.alt();
+            this.cqV.iN(i);
+            this.cqV.cqN.ane();
         } else if (i == 23) {
-            this.cmW.cmO.alt();
-            if (this.cmW.cmP.alT()) {
-                this.cmW.ir(i);
+            this.cqV.cqN.ane();
+            if (this.cqV.cqO.anF()) {
+                this.cqV.iN(i);
             } else {
-                this.aIJ.handleAction(i, obj);
+                this.aKR.handleAction(i, obj);
             }
         } else if (i == 22) {
-            this.cmW.cmO.alt();
-            this.aIJ.handleAction(i, obj);
+            this.cqV.cqN.ane();
+            this.aKR.handleAction(i, obj);
         } else if (i == 13) {
-            this.cmW.refresh();
-            if (this.cmW.ame()) {
-                this.cmW.cmO.amc();
+            this.cqV.refresh();
+            if (this.cqV.anQ()) {
+                this.cqV.cqN.anO();
             } else {
-                this.cmW.cmO.amd();
+                this.cqV.cqN.anP();
             }
-            this.aIJ.handleAction(i, obj);
+            this.aKR.handleAction(i, obj);
         } else if (i == 0) {
-            if (this.cmW.Ji()) {
-                com.baidu.adp.lib.util.n.showToast(this.cmW.getContext(), com.baidu.tieba.y.over_limit_tip);
+            if (this.cqV.Km()) {
+                com.baidu.adp.lib.util.n.showToast(this.cqV.getContext(), com.baidu.tieba.t.over_limit_tip);
             } else {
-                this.aIJ.handleAction(i, obj);
+                this.aKR.handleAction(i, obj);
             }
         } else if (i == 44) {
-            this.cmW.ir(i);
-            this.cmW.cmO.alt();
+            this.cqV.iN(i);
+            this.cqV.cqN.ane();
         } else if (i == 46) {
-            this.cmW.cmO.amr();
+            this.cqV.cqN.aod();
         } else if (i == 47) {
-            if (!this.cmW.cmP.alT()) {
-                this.cmW.refresh();
+            if (!this.cqV.cqO.anF()) {
+                this.cqV.refresh();
             }
         } else if (i == 48) {
-            this.cmW.cmO.alt();
-            if (this.cmW.cmP.alU()) {
-                this.cmW.ir(i);
+            this.cqV.cqN.ane();
+            if (this.cqV.cqO.anG()) {
+                this.cqV.iN(i);
                 return;
             }
-            this.cmW.cmP.zc();
-            this.aIJ.handleAction(i, obj);
+            this.cqV.cqO.zP();
+            this.aKR.handleAction(i, obj);
         } else if (i == 51) {
-            if (!this.cmW.cmP.alU()) {
-                this.cmW.cmP.alN();
+            if (!this.cqV.cqO.anG()) {
+                this.cqV.cqO.anz();
             }
-            this.cmW.refresh();
-            if (this.cmW.ame()) {
-                this.cmW.cmO.amc();
+            this.cqV.refresh();
+            if (this.cqV.anQ()) {
+                this.cqV.cqN.anO();
             } else {
-                this.cmW.cmO.amd();
+                this.cqV.cqN.anP();
             }
-            this.aIJ.handleAction(i, obj);
+            this.aKR.handleAction(i, obj);
         } else {
-            this.aIJ.handleAction(i, obj);
+            this.aKR.handleAction(i, obj);
         }
     }
 }

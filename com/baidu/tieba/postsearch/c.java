@@ -1,0 +1,25 @@
+package com.baidu.tieba.postsearch;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class c implements View.OnFocusChangeListener {
+    final /* synthetic */ a bXO;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.bXO = aVar;
+    }
+
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        PostSearchActivity postSearchActivity;
+        if (!z) {
+            postSearchActivity = this.bXO.bXM;
+            com.baidu.adp.lib.util.n.c(postSearchActivity.getPageContext().getPageActivity(), view);
+            return;
+        }
+        this.bXO.afT();
+        this.bXO.afS();
+    }
+}

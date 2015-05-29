@@ -1,19 +1,28 @@
 package com.baidu.tieba.addresslist;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.app.Activity;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o {
-    final /* synthetic */ QuickSearchActivity axI;
-    public HeadImageView axK;
-    public TextView axL;
-
-    private o(QuickSearchActivity quickSearchActivity) {
-        this.axI = quickSearchActivity;
-    }
+public class o implements View.OnClickListener {
+    final /* synthetic */ QuickSearchActivity azu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(QuickSearchActivity quickSearchActivity, o oVar) {
-        this(quickSearchActivity);
+    public o(QuickSearchActivity quickSearchActivity) {
+        this.azu = quickSearchActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        EditText editText2;
+        editText = this.azu.azp;
+        if (editText.hasFocus()) {
+            Activity pageActivity = this.azu.getPageContext().getPageActivity();
+            editText2 = this.azu.azp;
+            com.baidu.adp.lib.util.n.c(pageActivity, editText2);
+        }
+        this.azu.closeActivity();
     }
 }

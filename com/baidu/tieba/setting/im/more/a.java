@@ -3,82 +3,82 @@ package com.baidu.tieba.setting.im.more;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private int ahn;
-    private int bZv;
-    private int bZw;
-    private boolean bZx;
+    private int aio;
+    private int cdH;
+    private int cdI;
+    private boolean cdJ;
 
-    public boolean agk() {
-        com.baidu.tbadk.core.sharedPref.b rB = com.baidu.tbadk.core.sharedPref.b.rB();
+    public boolean ahZ() {
+        com.baidu.tbadk.core.sharedPref.b sl = com.baidu.tbadk.core.sharedPref.b.sl();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.bZv = rB.getInt("post" + currentAccount, 0);
-        this.bZw = rB.getInt("like" + currentAccount, 0);
-        this.ahn = rB.getInt("group" + currentAccount, 0);
-        this.bZx = TbadkCoreApplication.m411getInst().getLocationShared();
-        return (this.bZv == 0 && this.bZw == 0 && this.ahn == 0) ? false : true;
+        this.cdH = sl.getInt("post" + currentAccount, 0);
+        this.cdI = sl.getInt("like" + currentAccount, 0);
+        this.aio = sl.getInt("group" + currentAccount, 0);
+        this.cdJ = TbadkCoreApplication.m411getInst().getLocationShared();
+        return (this.cdH == 0 && this.cdI == 0 && this.aio == 0) ? false : true;
     }
 
     public void a(a aVar) {
-        this.bZv = aVar.bZv;
-        this.bZw = aVar.bZw;
-        this.ahn = aVar.ahn;
-        this.bZx = aVar.bZx;
+        this.cdH = aVar.cdH;
+        this.cdI = aVar.cdI;
+        this.aio = aVar.aio;
+        this.cdJ = aVar.cdJ;
     }
 
-    public int agl() {
-        return this.bZv;
+    public int aia() {
+        return this.cdH;
     }
 
-    public void Q(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.rB().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
+    public void R(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.sl().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void agm() {
+    public void aib() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b rB = com.baidu.tbadk.core.sharedPref.b.rB();
-        rB.putInt("post" + currentAccount, this.bZv);
-        rB.putInt("like" + currentAccount, this.bZw);
-        rB.putInt("group" + currentAccount, this.ahn);
-        TbadkCoreApplication.m411getInst().setLocationShared(this.bZx);
+        com.baidu.tbadk.core.sharedPref.b sl = com.baidu.tbadk.core.sharedPref.b.sl();
+        sl.putInt("post" + currentAccount, this.cdH);
+        sl.putInt("like" + currentAccount, this.cdI);
+        sl.putInt("group" + currentAccount, this.aio);
+        TbadkCoreApplication.m411getInst().setLocationShared(this.cdJ);
     }
 
-    public void hS(int i) {
+    public void iq(int i) {
         if (i <= 3 && i >= 1) {
-            this.bZv = i;
+            this.cdH = i;
         }
     }
 
-    public int agn() {
-        return this.bZw;
+    public int aic() {
+        return this.cdI;
     }
 
-    public void hT(int i) {
+    public void ir(int i) {
         if (i <= 3 && i >= 1) {
-            this.bZw = i;
+            this.cdI = i;
         }
     }
 
-    public int ye() {
-        return this.ahn;
+    public int yR() {
+        return this.aio;
     }
 
-    public void hU(int i) {
+    public void is(int i) {
         if (i <= 3 && i >= 1) {
-            this.ahn = i;
+            this.aio = i;
         }
     }
 
-    public boolean ago() {
-        return this.bZx;
+    public boolean aid() {
+        return this.cdJ;
     }
 
-    public void hV(int i) {
+    public void it(int i) {
         switch (i) {
             case 1:
-                this.bZx = true;
+                this.cdJ = true;
                 return;
             default:
-                this.bZx = false;
+                this.cdJ = false;
                 return;
         }
     }

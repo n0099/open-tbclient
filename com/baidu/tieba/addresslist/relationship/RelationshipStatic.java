@@ -15,6 +15,7 @@ public class RelationshipStatic {
         MessageManager.getInstance().registerListener(new j(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES));
         MessageManager.getInstance().registerListener(new k(304001));
         MessageManager.getInstance().registerListener(new l(2001178));
+        MessageManager.getInstance().registerListener(new m(2002014));
     }
 
     private static void a(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {

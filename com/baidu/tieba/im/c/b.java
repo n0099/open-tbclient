@@ -2,7 +2,6 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
@@ -11,11 +10,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ah {
-    final /* synthetic */ a bmS;
+    final /* synthetic */ a bpx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bmS = aVar;
+        this.bpx = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.ah
@@ -23,7 +22,7 @@ public class b implements ah {
         ae aeVar;
         ae aeVar2;
         try {
-            a.Tx().l(chatMessage);
+            a.UK().l(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData v = com.baidu.tieba.im.util.i.v(chatMessage);
@@ -31,17 +30,17 @@ public class b implements ah {
                         v.setVoice_md5(str);
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
-                    TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    a.Tx().n(chatMessage);
-                    aeVar = this.bmS.mSendCallback;
+                    com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
+                    a.UK().n(chatMessage);
+                    aeVar = this.bpx.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bmS.mSendCallback;
-                        aeVar2.go(2);
+                        aeVar2 = this.bpx.mSendCallback;
+                        aeVar2.gF(2);
                         return;
                     }
                     return;
                 }
-                TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - chatMessage.getLogTime());
+                com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001221, chatMessage));
                 if (chatMessage instanceof CommonGroupChatMessage) {
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;

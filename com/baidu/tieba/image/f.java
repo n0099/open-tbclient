@@ -17,7 +17,7 @@ class f implements com.baidu.tbadk.core.dialog.h {
         if (eVar == listMenu) {
             switch (i) {
                 case 0:
-                    this.this$0.Rr();
+                    this.this$0.SE();
                     break;
             }
             eVar.dismiss();

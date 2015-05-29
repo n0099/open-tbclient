@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements f {
-    final /* synthetic */ BaseWebView adZ;
+    final /* synthetic */ BaseWebView afd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaseWebView baseWebView) {
-        this.adZ = baseWebView;
+        this.afd = baseWebView;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.f
@@ -18,7 +18,7 @@ public class d implements f {
         Context context;
         if (str != null) {
             try {
-                context = this.adZ.mContext;
+                context = this.afd.mContext;
                 com.baidu.tbadk.browser.f.z(context, str);
             } catch (Exception e) {
                 BdLog.e(e.toString());

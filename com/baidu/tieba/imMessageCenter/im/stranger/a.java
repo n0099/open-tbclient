@@ -4,19 +4,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ MsgReplyCardView btF;
+    final /* synthetic */ MsgReplyCardView bwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(MsgReplyCardView msgReplyCardView) {
-        this.btF = msgReplyCardView;
+        this.bwo = msgReplyCardView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.adp.lib.c.a aVar;
         int i;
-        aVar = this.btF.aXs;
-        i = this.btF.mPosition;
+        aVar = this.bwo.aZY;
+        i = this.bwo.mPosition;
         aVar.onItemViewClick(view, 14, i, 0L);
     }
 }

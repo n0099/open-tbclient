@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class BrowseSettingActivityConfig extends a {
+public class BrowseSettingActivityConfig extends c {
     public BrowseSettingActivityConfig(Context context) {
         super(context);
     }

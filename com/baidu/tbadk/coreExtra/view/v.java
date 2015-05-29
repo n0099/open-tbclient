@@ -1,17 +1,18 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements View.OnClickListener {
-    final /* synthetic */ t afh;
+public class v implements View.OnClickListener {
+    final /* synthetic */ t agi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.afh = tVar;
+        this.agi = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.afh.xd();
+        this.agi.xP();
     }
 }

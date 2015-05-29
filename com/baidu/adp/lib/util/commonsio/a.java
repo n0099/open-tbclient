@@ -12,16 +12,16 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 /* loaded from: classes.dex */
 public class a {
-    public static final BigInteger zh = BigInteger.valueOf(1024);
-    public static final BigInteger zi = zh.multiply(zh);
-    public static final BigInteger zj = zh.multiply(zi);
-    public static final BigInteger zk = zh.multiply(zj);
-    public static final BigInteger zl = zh.multiply(zk);
-    public static final BigInteger zm = zh.multiply(zl);
-    public static final BigInteger zn = BigInteger.valueOf(1024).multiply(BigInteger.valueOf(1152921504606846976L));
-    public static final BigInteger zo = zh.multiply(zn);
-    public static final File[] zp = new File[0];
-    private static final Charset zq = Charset.forName("UTF-8");
+    public static final BigInteger yW = BigInteger.valueOf(1024);
+    public static final BigInteger yX = yW.multiply(yW);
+    public static final BigInteger yY = yW.multiply(yX);
+    public static final BigInteger yZ = yW.multiply(yY);
+    public static final BigInteger za = yW.multiply(yZ);
+    public static final BigInteger zb = yW.multiply(za);
+    public static final BigInteger zc = BigInteger.valueOf(1024).multiply(BigInteger.valueOf(1152921504606846976L));
+    public static final BigInteger zd = yW.multiply(zc);
+    public static final File[] ze = new File[0];
+    private static final Charset zf = Charset.forName("UTF-8");
 
     public static void copyFile(File file, File file2) {
         a(file, file2, true);
@@ -236,7 +236,7 @@ public class a {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (b.jf()) {
+        if (b.jw()) {
             return false;
         }
         if (file.getParent() != null) {

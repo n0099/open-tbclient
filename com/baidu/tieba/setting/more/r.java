@@ -18,7 +18,7 @@ public class r implements q {
     }
 
     @Override // com.baidu.tieba.setting.more.q
-    public void hW(int i) {
+    public void iu(int i) {
         aa aaVar;
         if (i != 0) {
             if (i != 1) {
@@ -33,8 +33,8 @@ public class r implements q {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                aaVar = this.this$0.caQ;
-                                                aaVar.ahi();
+                                                aaVar = this.this$0.cfq;
+                                                aaVar.aiZ();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,31 +53,31 @@ public class r implements q {
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.ahd();
+                                            this.this$0.aiV();
                                             return;
                                         }
                                     }
-                                    this.this$0.agW();
+                                    this.this$0.aiO();
                                     return;
                                 }
-                                this.this$0.agV();
+                                this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.agX();
+                            this.this$0.aiP();
                             return;
                         }
-                        this.this$0.ahc();
+                        this.this$0.aiU();
                         return;
                     }
-                    this.this$0.agY();
+                    this.this$0.aiQ();
                     return;
                 }
-                this.this$0.agZ();
+                this.this$0.aiR();
                 return;
             }
-            this.this$0.aha();
+            this.this$0.aiS();
             return;
         }
-        this.this$0.ahb();
+        this.this$0.aiT();
     }
 }

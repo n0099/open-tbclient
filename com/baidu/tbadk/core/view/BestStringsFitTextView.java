@@ -6,72 +6,72 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class BestStringsFitTextView extends TextView {
-    private String[] Xe;
-    private String Xf;
-    private float Xg;
-    private String Xh;
-    private boolean Xi;
+    private String[] XP;
+    private String XQ;
+    private float XR;
+    private String XS;
+    private boolean XT;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.Xf = " ";
-        this.Xg = 0.0f;
-        this.Xh = "";
-        this.Xi = false;
+        this.XQ = " ";
+        this.XR = 0.0f;
+        this.XS = "";
+        this.XT = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Xf = " ";
-        this.Xg = 0.0f;
-        this.Xh = "";
-        this.Xi = false;
+        this.XQ = " ";
+        this.XR = 0.0f;
+        this.XS = "";
+        this.XT = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Xf = " ";
-        this.Xg = 0.0f;
-        this.Xh = "";
-        this.Xi = false;
+        this.XQ = " ";
+        this.XR = 0.0f;
+        this.XS = "";
+        this.XT = false;
     }
 
-    protected void tD() {
-        this.Xg = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void ui() {
+        this.XR = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.Xe.length; i++) {
+        for (int i = 0; i < this.XP.length; i++) {
             if (i > 0) {
-                sb.append(this.Xf);
+                sb.append(this.XQ);
             }
-            sb.append(this.Xe[i]);
+            sb.append(this.XP[i]);
             String sb2 = sb.toString();
-            if (this.Xg < getPaint().measureText(sb2)) {
+            if (this.XR < getPaint().measureText(sb2)) {
                 break;
             }
-            this.Xi = true;
-            this.Xh = sb2;
+            this.XT = true;
+            this.XS = sb2;
         }
-        setText(this.Xh);
+        setText(this.XS);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Xe != null && !this.Xi) {
-            tD();
+        if (this.XP != null && !this.XT) {
+            ui();
         }
     }
 
     public void setTextArray(String[] strArr) {
-        this.Xe = strArr;
-        tD();
+        this.XP = strArr;
+        ui();
     }
 
     public String getSeperator() {
-        return this.Xf;
+        return this.XQ;
     }
 
     public void setSeperator(String str) {
-        this.Xf = str;
+        this.XQ = str;
     }
 }

@@ -8,72 +8,72 @@ import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class a {
-    private q coC;
-    private final int coD = 10;
-    private final int coE = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String coF = null;
-    public boolean Ws = false;
+    private q csD;
+    private final int csE = 10;
+    private final int csF = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String csG = null;
+    public boolean Xe = false;
 
     public a(String str) {
         E(str, false);
     }
 
     public void E(String str, boolean z) {
-        this.coF = str;
-        this.Ws = z;
-        this.coC = new q("dbg");
+        this.csG = str;
+        this.Xe = z;
+        this.csD = new q("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.coC.il();
+        this.csD.hU();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long im = this.coC.im();
+        long hV = this.csD.hV();
         long j2 = 0;
         long j3 = 0;
         if (z) {
-            j2 = im;
+            j2 = hV;
         } else {
-            j3 = im;
+            j3 = hV;
         }
         a(z, z2, i, str, j, j2, j3);
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e ana;
-        if (this.coC != null && (ana = ana()) != null) {
+        e aoR;
+        if (this.csD != null && (aoR = aoR()) != null) {
             if (z) {
-                if (ana.coK != null) {
-                    ana.coK.num++;
+                if (aoR.csL != null) {
+                    aoR.csL.num++;
                     if (z2) {
-                        ana.coK.coH += j2;
-                        ana.coK.size += j;
+                        aoR.csL.csI += j2;
+                        aoR.csL.size += j;
                     } else {
-                        ana.coK.coI++;
+                        aoR.csL.csJ++;
                     }
                 } else {
                     return;
                 }
-            } else if (ana.coL != null) {
-                ana.coL.num++;
+            } else if (aoR.csM != null) {
+                aoR.csM.num++;
                 if (z2) {
-                    ana.coL.coH += j3;
-                    ana.coL.size += j;
+                    aoR.csM.csI += j3;
+                    aoR.csM.size += j;
                     j2 = j3;
                 } else {
-                    ana.coL.coI++;
+                    aoR.csM.csJ++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.coC = null;
+            this.csD = null;
             if (z2) {
-                b.a(ana, 10);
+                b.a(aoR, 10);
             }
-            if (this.coF == "frsStat") {
+            if (this.csG == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.r("act", "frs");
@@ -83,41 +83,41 @@ public class a {
                     qVar.r("errCode", String.valueOf(i));
                     qVar.r("errMsg", str);
                     qVar.r("down", String.valueOf(j));
-                    f.hP().a("frs", qVar);
+                    f.hz().a("frs", qVar);
                 }
             }
         }
     }
 
     public void destory() {
-        e ana;
-        if (this.coC != null && (ana = ana()) != null && ana.coM != null) {
-            long im = this.coC.im();
-            if (im > 3000) {
-                d dVar = ana.coM;
-                dVar.coH = im + dVar.coH;
-                ana.coM.num++;
-                b.a(ana, 10);
+        e aoR;
+        if (this.csD != null && (aoR = aoR()) != null && aoR.csN != null) {
+            long hV = this.csD.hV();
+            if (hV > 3000) {
+                d dVar = aoR.csN;
+                dVar.csI = hV + dVar.csI;
+                aoR.csN.num++;
+                b.a(aoR, 10);
             }
         }
     }
 
-    private e ana() {
-        return b.h(this.coF, getNetType(), this.Ws);
+    private e aoR() {
+        return b.h(this.csG, getNetType(), this.Xe);
     }
 
     private String getNetType() {
-        int iM = k.iM();
-        if (iM == 0) {
+        int jc = k.jc();
+        if (jc == 0) {
             return "N";
         }
-        if (iM == 1) {
+        if (jc == 1) {
             return NetworkChangeReceiver.WIFI_STRING;
         }
-        if (iM == 3) {
+        if (jc == 3) {
             return "3G";
         }
-        if (iM != 2) {
+        if (jc != 2) {
             return "N";
         }
         return "2G";

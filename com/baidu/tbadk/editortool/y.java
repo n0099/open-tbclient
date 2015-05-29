@@ -6,33 +6,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y extends a {
-    private static y aju = new y();
-    private LinkedList<ad> ajv;
+    private static y akt = new y();
+    private LinkedList<ad> aku;
 
     @Override // com.baidu.tbadk.editortool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized y yQ() {
+    public static synchronized y zD() {
         y yVar;
         synchronized (y.class) {
-            yVar = aju;
+            yVar = akt;
         }
         return yVar;
     }
 
     public List<ad> getGroups() {
-        return this.ajv;
+        return this.aku;
     }
 
     @Override // com.baidu.tbadk.editortool.a
     public void a(b bVar) {
-        if (this.ajv == null || this.ajv.isEmpty()) {
-            this.ajv = new LinkedList<>();
-            if (TbFaceManager.zx().yF() > 0) {
+        if (this.aku == null || this.aku.isEmpty()) {
+            this.aku = new LinkedList<>();
+            if (TbFaceManager.Ak().zs() > 0) {
                 x xVar = new x();
-                this.ajv.add(xVar);
+                this.aku.add(xVar);
                 if (bVar != null) {
                     bVar.a(xVar);
                     return;
@@ -41,7 +41,7 @@ public class y extends a {
             }
             return;
         }
-        Iterator<ad> it = this.ajv.iterator();
+        Iterator<ad> it = this.aku.iterator();
         while (it.hasNext()) {
             ad next = it.next();
             if (bVar != null) {
@@ -51,10 +51,10 @@ public class y extends a {
     }
 
     @Override // com.baidu.tbadk.editortool.a
-    public void yz() {
+    public void zm() {
     }
 
     public boolean isEmpty() {
-        return this.ajv == null || this.ajv.size() == 0;
+        return this.aku == null || this.aku.size() == 0;
     }
 }

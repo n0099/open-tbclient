@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements c {
-    final /* synthetic */ WriteShareActivity cwd;
+    final /* synthetic */ WriteShareActivity cAt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(WriteShareActivity writeShareActivity) {
-        this.cwd = writeShareActivity;
+        this.cAt = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.shareSDK.c
@@ -21,17 +21,17 @@ public class f implements c {
         q qVar3;
         PostPrefixData postPrefixData5;
         if (z) {
-            this.cwd.mPrefixData = postPrefixData;
-            postPrefixData2 = this.cwd.mPrefixData;
+            this.cAt.mPrefixData = postPrefixData;
+            postPrefixData2 = this.cAt.mPrefixData;
             if (postPrefixData2 != null) {
-                postPrefixData3 = this.cwd.mPrefixData;
+                postPrefixData3 = this.cAt.mPrefixData;
                 if (postPrefixData3.getPrefixs().size() > 0) {
-                    postPrefixData4 = this.cwd.mPrefixData;
-                    postPrefixData4.getPrefixs().add(this.cwd.getPageContext().getString(com.baidu.tieba.y.write_no_prefix));
-                    qVar2 = this.cwd.cvO;
+                    postPrefixData4 = this.cAt.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.cAt.getPageContext().getString(com.baidu.tieba.t.write_no_prefix));
+                    qVar2 = this.cAt.cAe;
                     if (qVar2 != null) {
-                        qVar3 = this.cwd.cvO;
-                        postPrefixData5 = this.cwd.mPrefixData;
+                        qVar3 = this.cAt.cAe;
+                        postPrefixData5 = this.cAt.mPrefixData;
                         qVar3.a(postPrefixData5);
                         return;
                     }
@@ -41,16 +41,16 @@ public class f implements c {
             }
             return;
         }
-        this.cwd.mPrefixData = null;
-        qVar = this.cwd.cvO;
+        this.cAt.mPrefixData = null;
+        qVar = this.cAt.cAe;
         qVar.a((PostPrefixData) null);
     }
 
     @Override // com.baidu.tieba.write.shareSDK.c
-    public void aqC() {
+    public void ass() {
         q qVar;
-        this.cwd.mPrefixData = null;
-        qVar = this.cwd.cvO;
+        this.cAt.mPrefixData = null;
+        qVar = this.cAt.cAe;
         qVar.a((PostPrefixData) null);
     }
 }

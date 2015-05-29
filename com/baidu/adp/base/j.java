@@ -22,5 +22,7 @@ public interface j<T> {
 
     void registerListener(MessageListener<?> messageListener);
 
+    void registerListener(com.baidu.adp.framework.listener.a aVar);
+
     void sendMessage(Message<?> message);
 }

@@ -11,10 +11,10 @@ import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Location, Void, Address> {
-    final /* synthetic */ a vu;
+    final /* synthetic */ a uG;
 
     private f(a aVar) {
-        this.vu = aVar;
+        this.uG = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,7 +29,7 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     public Address doInBackground(Location... locationArr) {
         Context context;
         List<Address> list;
-        context = this.vu.mContext;
+        context = this.uG.mContext;
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
         if (locationArr == null || locationArr.length < 1) {
             return null;
@@ -60,7 +60,7 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        this.vu.vq = null;
+        this.uG.uC = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,16 +70,16 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     public void onPostExecute(Address address) {
         int i;
         super.onPostExecute(address);
-        this.vu.vq = null;
+        this.uG.uC = null;
         if (address == null) {
             return;
         }
-        this.vu.hc();
-        this.vu.errorCode = 0;
-        this.vu.vr = System.currentTimeMillis();
-        a aVar = this.vu;
-        i = this.vu.errorCode;
+        this.uG.gN();
+        this.uG.errorCode = 0;
+        this.uG.uD = System.currentTimeMillis();
+        a aVar = this.uG;
+        i = this.uG.errorCode;
         aVar.a(i, "", address);
-        this.vu.vp = address;
+        this.uG.uB = address;
     }
 }

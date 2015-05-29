@@ -1,34 +1,26 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ a aBS;
-    private final /* synthetic */ String aBT;
+public class c implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ a aDS;
+    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar, String str) {
-        this.aBS = aVar;
-        this.aBT = str;
+    public c(a aVar, PluginNetConfigInfos.PluginConfig pluginConfig) {
+        this.aDS = aVar;
+        this.aDT = pluginConfig;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wY() {
-        BdListView bdListView;
-        BannerView bannerView;
-        bdListView = this.aBS.aBF;
-        bannerView = this.aBS.aBI;
-        bdListView.removeHeaderView(bannerView);
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wX() {
-        if (!StringUtils.isNull(this.aBT)) {
-            bk.tl().b(this.aBS.getPageContext(), new String[]{this.aBT});
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        if (com.baidu.adp.lib.util.n.isNetOk()) {
+            PluginPackageManager.lM().a(this.aDT, (com.baidu.adp.plugin.packageManager.i) null);
+        } else {
+            this.aDS.showToast(com.baidu.tieba.t.neterror);
         }
+        aVar.dismiss();
     }
 }

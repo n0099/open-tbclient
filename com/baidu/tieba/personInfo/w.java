@@ -9,13 +9,13 @@ import tbclient.PostInfoList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends CustomMessageListener {
-    final /* synthetic */ v bTZ;
+    final /* synthetic */ v bWG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i) {
         super(i);
-        this.bTZ = vVar;
+        this.bWG = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,31 +36,31 @@ public class w extends CustomMessageListener {
         List list2;
         if (customResponsedMessage instanceof ResponsePersonInfoMessage) {
             ResponsePersonInfoMessage responsePersonInfoMessage = (ResponsePersonInfoMessage) customResponsedMessage;
-            userData = this.bTZ.mUserData;
+            userData = this.bWG.mUserData;
             if (userData == null) {
-                this.bTZ.mUserData = new UserData();
+                this.bWG.mUserData = new UserData();
             }
-            userData2 = this.bTZ.mUserData;
+            userData2 = this.bWG.mUserData;
             userData2.parserProtobuf(responsePersonInfoMessage.getUser());
-            personTainInfo = this.bTZ.bTV;
+            personTainInfo = this.bWG.bWC;
             if (personTainInfo == null) {
-                this.bTZ.bTV = new PersonTainInfo();
+                this.bWG.bWC = new PersonTainInfo();
             }
-            personTainInfo2 = this.bTZ.bTV;
+            personTainInfo2 = this.bWG.bWC;
             personTainInfo2.parseProto(responsePersonInfoMessage.getTainfo());
-            antiData = this.bTZ.bHF;
+            antiData = this.bWG.bJU;
             if (antiData == null) {
-                this.bTZ.bHF = new AntiData();
+                this.bWG.bJU = new AntiData();
             }
-            antiData2 = this.bTZ.bHF;
+            antiData2 = this.bWG.bJU;
             antiData2.parserProtobuf(responsePersonInfoMessage.getAnti_stat());
-            antiData3 = this.bTZ.bHF;
-            userData3 = this.bTZ.mUserData;
+            antiData3 = this.bWG.bJU;
+            userData3 = this.bWG.mUserData;
             antiData3.setUser_id(userData3.getUserId());
-            antiData4 = this.bTZ.bHF;
-            userData4 = this.bTZ.mUserData;
+            antiData4 = this.bWG.bJU;
+            userData4 = this.bWG.mUserData;
             antiData4.setUser_name(userData4.getUserName());
-            list = this.bTZ.bTU;
+            list = this.bWG.bWB;
             list.clear();
             List<PostInfoList> post_list = responsePersonInfoMessage.getPost_list();
             if (post_list != null) {
@@ -72,12 +72,12 @@ public class w extends CustomMessageListener {
                     }
                     PersonInfoPostList personInfoPostList = new PersonInfoPostList();
                     personInfoPostList.parseProto(post_list.get(i2));
-                    list2 = this.bTZ.bTU;
+                    list2 = this.bWG.bWB;
                     list2.add(personInfoPostList);
                     i = i2 + 1;
                 }
             }
-            iVar = this.bTZ.mLoadDataCallBack;
+            iVar = this.bWG.mLoadDataCallBack;
             iVar.c(true);
         }
     }

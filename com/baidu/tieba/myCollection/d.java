@@ -26,16 +26,16 @@ class d extends CustomMessageListener {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             EditMarkStatic.msgCount = newsNotifyMessage.getMsgBookmark();
-            eVar = EditMarkStatic.bEa;
+            eVar = EditMarkStatic.bGV;
             if (eVar != null) {
                 i = EditMarkStatic.msgCount;
-                eVar2 = EditMarkStatic.bEa;
-                if (i > eVar2.zS()) {
-                    eVar4 = EditMarkStatic.bEa;
-                    eVar4.aR(true);
+                eVar2 = EditMarkStatic.bGV;
+                if (i > eVar2.AE()) {
+                    eVar4 = EditMarkStatic.bGV;
+                    eVar4.aY(true);
                 }
-                eVar3 = EditMarkStatic.bEa;
-                eVar3.dH(newsNotifyMessage.getMsgBookmark());
+                eVar3 = EditMarkStatic.bGV;
+                eVar3.dR(newsNotifyMessage.getMsgBookmark());
             }
         }
     }

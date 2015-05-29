@@ -14,51 +14,51 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.n;
+import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
-    private RelativeLayout aWd;
+    private RelativeLayout aYI;
     public NavigationBar mNavigationBar;
-    private TextView awZ = null;
-    private TextView aVU = null;
-    private EditText aVV = null;
-    private EditText avS = null;
-    private RelativeLayout aVW = null;
-    private FrameLayout aVX = null;
-    private ImageView atD = null;
+    private TextView ayF = null;
+    private TextView aYz = null;
+    private EditText aYA = null;
+    private EditText axx = null;
+    private RelativeLayout aYB = null;
+    private FrameLayout aYC = null;
+    private ImageView avb = null;
     private ProgressBar mProgress = null;
-    private ProgressBar aVY = null;
-    private c aVZ = null;
-    private d aWa = null;
+    private ProgressBar aYD = null;
+    private d aYE = null;
+    private e aYF = null;
     private View.OnClickListener mOnClickListener = null;
-    private TextWatcher avs = null;
-    private String aWb = null;
-    private TextView aWc = null;
-    private RelativeLayout aux = null;
-    private TextView aWe = null;
-    private String aWf = null;
-    private boolean aWg = false;
+    private TextWatcher awT = null;
+    private String aYG = null;
+    private TextView aYH = null;
+    private RelativeLayout awa = null;
+    private TextView aYJ = null;
+    private String aYK = null;
+    private boolean aYL = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.create_bar_activity);
+        setContentView(r.create_bar_activity);
         initData();
         initUI();
-        Nv();
+        OK();
     }
 
-    private void Nv() {
-        if (this.aWa == null) {
-            this.aWa = new d(this, null);
-            this.aWa.execute(new String[0]);
+    private void OK() {
+        if (this.aYF == null) {
+            this.aYF = new e(this, null);
+            this.aYF.execute(new String[0]);
         }
     }
 
@@ -66,90 +66,91 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aVZ != null) {
-            this.aVZ.cancel();
+        if (this.aYE != null) {
+            this.aYE.cancel();
         }
-        if (this.aWa != null) {
-            this.aWa.cancel();
+        if (this.aYF != null) {
+            this.aYF.cancel();
         }
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aWf = intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
-        this.aWg = intent.getBooleanExtra(CreateBarActivityConfig.BAR_NAME_ISVALID, false);
-        if (this.aWf == null) {
-            this.aWf = "";
+        this.aYK = intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
+        this.aYL = intent.getBooleanExtra(CreateBarActivityConfig.BAR_NAME_ISVALID, false);
+        if (this.aYK == null) {
+            this.aYK = "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nw() {
-        if (this.aWa == null && this.aVZ == null) {
-            this.aWa = new d(this, null);
-            this.aWa.setPriority(3);
-            this.aWa.execute(new String[0]);
+    public void OL() {
+        if (this.aYF == null && this.aYE == null) {
+            this.aYF = new e(this, null);
+            this.aYF.setPriority(3);
+            this.aYF.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nx() {
-        if (this.aVZ == null) {
-            this.aVZ = new c(this, this.aVV.getText().toString().trim(), this.avS.getText().toString().trim());
-            this.aVZ.setPriority(3);
-            this.aVZ.execute(new String[0]);
+    public void OM() {
+        if (this.aYE == null) {
+            this.aYE = new d(this, this.aYA.getText().toString().trim(), this.axx.getText().toString().trim());
+            this.aYE.setPriority(3);
+            this.aYE.execute(new String[0]);
         }
     }
 
     private void initUI() {
         this.mOnClickListener = new a(this);
-        this.avs = new b(this);
-        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.awT = new b(this);
+        this.mNavigationBar = (NavigationBar) findViewById(q.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(y.create_bar));
-        this.aux = (RelativeLayout) findViewById(v.container);
-        this.aWe = (TextView) findViewById(v.text);
-        this.aWc = (TextView) findViewById(v.error);
-        this.awZ = (TextView) findViewById(v.info);
-        this.aVW = (RelativeLayout) findViewById(v.create);
-        this.aVW.setOnClickListener(this.mOnClickListener);
-        this.aVU = (TextView) findViewById(v.info2);
-        this.aVV = (EditText) findViewById(v.edit_name);
-        this.aVV.addTextChangedListener(this.avs);
-        this.avS = (EditText) findViewById(v.edit_vcode);
-        this.avS.addTextChangedListener(this.avs);
-        if (this.aWg) {
-            this.aVU.setText(getPageContext().getString(y.bar_name_valid));
-            this.aVV.setText(this.aWf);
+        this.mNavigationBar.setTitleText(getPageContext().getString(t.create_bar));
+        this.awa = (RelativeLayout) findViewById(q.container);
+        this.aYJ = (TextView) findViewById(q.text);
+        this.aYH = (TextView) findViewById(q.error);
+        this.ayF = (TextView) findViewById(q.info);
+        this.aYB = (RelativeLayout) findViewById(q.create);
+        this.aYB.setOnClickListener(this.mOnClickListener);
+        this.aYz = (TextView) findViewById(q.info2);
+        this.aYA = (EditText) findViewById(q.edit_name);
+        this.aYA.addTextChangedListener(this.awT);
+        this.axx = (EditText) findViewById(q.edit_vcode);
+        this.axx.addTextChangedListener(this.awT);
+        if (this.aYL) {
+            this.aYz.setText(getPageContext().getString(t.bar_name_valid));
+            this.aYA.setText(this.aYK);
         } else {
-            this.aVU.setText(getPageContext().getString(y.bar_name_invalid));
+            this.aYz.setText(getPageContext().getString(t.bar_name_invalid));
         }
-        this.aWd = (RelativeLayout) findViewById(v.create);
-        this.aVX = (FrameLayout) findViewById(v.image_button);
-        this.aVX.setOnClickListener(this.mOnClickListener);
-        this.atD = (ImageView) findViewById(v.image);
-        this.aVW.setEnabled(false);
-        this.mProgress = (ProgressBar) findViewById(v.progress);
-        this.aVY = (ProgressBar) findViewById(v.progress_image);
-        if (this.aWg) {
-            this.avS.requestFocus();
+        this.aYI = (RelativeLayout) findViewById(q.create);
+        this.aYC = (FrameLayout) findViewById(q.image_button);
+        this.aYC.setOnClickListener(this.mOnClickListener);
+        this.avb = (ImageView) findViewById(q.image);
+        this.aYB.setEnabled(false);
+        this.mProgress = (ProgressBar) findViewById(q.progress);
+        this.aYD = (ProgressBar) findViewById(q.progress_image);
+        if (this.aYL) {
+            this.axx.requestFocus();
         }
+        findViewById(q.show_message_container).setOnTouchListener(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().X(i == 1);
-        getLayoutMode().h(this.aux);
-        ba.b(this.aWe, i);
-        ba.c(this.aVU, i);
-        String str = String.valueOf(this.aWf) + getPageContext().getString(y.bar_not_create);
+        getLayoutMode().ab(i == 1);
+        getLayoutMode().j(this.awa);
+        ay.b(this.aYJ, i);
+        ay.c(this.aYz, i);
+        String str = String.valueOf(this.aYK) + getPageContext().getString(t.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ForegroundColorSpan(ba.getColor(s.noexit_create_bar_name_text)), 0, this.aWf.length(), 33);
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(s.skin_1_common_color)), this.aWf.length(), str.length(), 33);
-        ba.i(this.aWd, u.btn_general_start_selector);
-        this.awZ.setText(spannableString);
+        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(n.noexit_create_bar_name_text)), 0, this.aYK.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(n.skin_1_common_color)), this.aYK.length(), str.length(), 33);
+        ay.i(this.aYI, p.btn_general_start_selector);
+        this.ayF.setText(spannableString);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

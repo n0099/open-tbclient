@@ -28,9 +28,9 @@ public class r extends BroadcastReceiver {
             return;
         }
         this.this$0.showToast(intent.getStringExtra("error"));
-        view = this.this$0.bOW;
+        view = this.this$0.bQZ;
         if (view != null) {
-            view2 = this.this$0.bOW;
+            view2 = this.this$0.bQZ;
             view2.setEnabled(false);
         }
     }

@@ -1,38 +1,125 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Parcelable;
+import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    final /* synthetic */ bz bKc;
-    private final /* synthetic */ String bKd;
-    private final /* synthetic */ String bKe;
-    private final /* synthetic */ String bKf;
+public class cb {
+    private com.baidu.tieba.pb.a.b bLH;
+    private boolean bLu;
+    private boolean bLv;
+    private String bMZ;
+    private boolean bNa;
+    private boolean bNb;
+    private Parcelable bNc;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(bz bzVar, String str, String str2, String str3) {
-        this.bKc = bzVar;
-        this.bKd = str;
-        this.bKe = str2;
-        this.bKf = str3;
+    static {
+        MessageManager.getInstance().registerListener(new cc(2005016));
+        MessageManager.getInstance().registerListener(new cd(2004006));
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.bKd) && !StringUtils.isNull(this.bKe)) {
-            if (com.baidu.adp.lib.util.k.iH()) {
-                context = this.bKc.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.bKd) + "," + this.bKe, this.bKf, this.bKf, context.getString(com.baidu.tieba.y.app_info_for_map));
-                context2 = this.bKc.mContext;
-                com.baidu.tbadk.browser.f.x(context2, format);
-                return;
-            }
-            this.bKc.bIT.showToast(com.baidu.tieba.y.neterror);
+    public static cb abK() {
+        cb cbVar;
+        cbVar = ce.bNd;
+        return cbVar;
+    }
+
+    private cb() {
+        this.bMZ = null;
+        this.bNa = false;
+        this.bLH = null;
+        this.bNb = false;
+        this.bNc = null;
+        this.bLv = true;
+        this.bLu = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ cb(cb cbVar) {
+        this();
+    }
+
+    public void y(String str, boolean z) {
+        this.bNa = false;
+        if (z) {
+            str = null;
         }
+        if (str == null || str.length() < 1) {
+            reset();
+            this.bMZ = null;
+        } else if (!str.equals(this.bMZ)) {
+            reset();
+            this.bMZ = str;
+        } else {
+            this.bNa = true;
+        }
+    }
+
+    public com.baidu.tieba.pb.a.b getPbData() {
+        if (!this.bNa) {
+            this.bNb = false;
+            return null;
+        } else if (this.bLH != null && this.bLH.aat() != null && this.bLH.aat().size() > 0) {
+            this.bNb = true;
+            com.baidu.tieba.pb.a.b bVar = this.bLH;
+            this.bLH = null;
+            return bVar;
+        } else {
+            this.bNb = false;
+            this.bLH = null;
+            return null;
+        }
+    }
+
+    public Parcelable abL() {
+        if (this.bNb) {
+            this.bNb = false;
+            Parcelable parcelable = this.bNc;
+            this.bNc = null;
+            return parcelable;
+        }
+        this.bNc = null;
+        return null;
+    }
+
+    public boolean abp() {
+        return this.bLv;
+    }
+
+    public boolean abM() {
+        return this.bLu;
+    }
+
+    public boolean a(com.baidu.tieba.pb.a.b bVar, Parcelable parcelable, boolean z, boolean z2) {
+        this.bNa = false;
+        if (this.bMZ == null) {
+            reset();
+            return false;
+        } else if (bVar == null) {
+            reset();
+            return false;
+        } else if (bVar.aat() == null) {
+            reset();
+            return false;
+        } else if (bVar.aat().size() < 1) {
+            reset();
+            return false;
+        } else if (parcelable == null) {
+            reset();
+            return false;
+        } else {
+            this.bLH = bVar;
+            this.bNb = false;
+            this.bNc = parcelable;
+            this.bLv = z;
+            this.bLu = z2;
+            return true;
+        }
+    }
+
+    public void reset() {
+        this.bNa = false;
+        this.bLH = null;
+        this.bNb = false;
+        this.bNc = null;
     }
 }

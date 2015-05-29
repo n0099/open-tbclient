@@ -12,7 +12,7 @@ public abstract class c {
         return i;
     }
 
-    public static long a(String str, long j) {
+    public static long c(String str, long j) {
         if (str != null) {
             try {
                 return Long.parseLong(str);
@@ -43,5 +43,16 @@ public abstract class c {
             }
         }
         return d;
+    }
+
+    public static boolean d(String str, boolean z) {
+        if (str != null) {
+            try {
+                return Boolean.parseBoolean(str);
+            } catch (Exception e) {
+                return z;
+            }
+        }
+        return z;
     }
 }

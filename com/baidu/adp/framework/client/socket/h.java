@@ -2,15 +2,15 @@ package com.baidu.adp.framework.client.socket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ g oC;
+    final /* synthetic */ g oH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.oC = gVar;
+        this.oH = gVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.oC.dW();
+        this.oH.dZ();
     }
 }

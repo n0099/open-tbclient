@@ -1,35 +1,31 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
+import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ NavigationBar Yn;
+public class r extends LinearLayout {
+    private s Ze;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(NavigationBar navigationBar) {
-        this.Yn = navigationBar;
+    public r(Context context, View view, s sVar) {
+        super(context);
+        this.Ze = null;
+        setFocusableInTouchMode(true);
+        this.Ze = sVar;
+        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        addView(view);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        Activity activity;
-        Activity activity2;
-        z = this.Yn.mClickIsVaild;
-        if (z) {
-            int id = view.getId();
-            if (id == com.baidu.tieba.v.navigationBarGoBack) {
-                activity2 = this.Yn.mCurrentActivity;
-                activity2.finish();
-            } else if (id == com.baidu.tieba.v.navigationBarHome) {
-                MessageManager messageManager = MessageManager.getInstance();
-                activity = this.Yn.mCurrentActivity;
-                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2002004, activity));
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
+            if (this.Ze != null) {
+                this.Ze.pC();
             }
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.Ze != null) {
+            this.Ze.pD();
         }
+        return super.dispatchKeyEvent(keyEvent);
     }
 }

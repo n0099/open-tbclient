@@ -1,41 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements Animation.AnimationListener {
-    final /* synthetic */ cj bMC;
+public class cn implements View.OnClickListener {
+    final /* synthetic */ ch bOF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(cj cjVar) {
-        this.bMC = cjVar;
+    public cn(ch chVar) {
+        this.bOF = chVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        PbEditor pbEditor;
-        View view2;
-        PbEditor pbEditor2;
-        cj cjVar = this.bMC;
-        view = this.bMC.bMj;
-        cjVar.bMm = view.getVisibility() == 0;
-        pbEditor = this.bMC.bMh;
-        if (pbEditor != null) {
-            pbEditor2 = this.bMC.bMh;
-            pbEditor2.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        bc bcVar;
+        bc bcVar2;
+        Dialog dialog2;
+        Dialog dialog3;
+        PbActivity pbActivity;
+        dialog = this.bOF.bNL;
+        if (dialog != null) {
+            dialog2 = this.bOF.bNL;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.bOF.bNL;
+                pbActivity = this.bOF.bKZ;
+                com.baidu.adp.lib.g.k.b(dialog3, pbActivity.getPageContext());
+            }
         }
-        view2 = this.bMC.bMj;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray == null) {
+            return;
+        }
+        bcVar = this.bOF.bOB;
+        if (bcVar == null) {
+            return;
+        }
+        bcVar2 = this.bOF.bOB;
+        bcVar2.c(new Object[]{sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity), sparseArray.get(com.baidu.tieba.q.tag_forbid_user_name), sparseArray.get(com.baidu.tieba.q.tag_forbid_user_post_id)});
     }
 }

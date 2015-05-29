@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class SingleMentionActivityConfig extends a {
+public class SingleMentionActivityConfig extends c {
     private static Class<?> sMentionClass;
 
     public SingleMentionActivityConfig(Context context, int i) {

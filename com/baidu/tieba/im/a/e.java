@@ -18,37 +18,37 @@ public class e extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean Si;
+        boolean Tv;
         String str;
         String str2;
         String str3;
         String str4;
         List list;
-        Si = this.this$0.Si();
-        if (Si && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+        Tv = this.this$0.Tv();
+        if (Tv && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.bja = this.this$0.Sd();
-                bVar.bjb = this.this$0.Sf();
-                str = this.this$0.bjh;
+                bVar.blD = this.this$0.Tq();
+                bVar.blE = this.this$0.Ts();
+                str = this.this$0.blK;
                 if (str == null) {
-                    this.this$0.bjh = bVar.emitTime;
+                    this.this$0.blK = bVar.emitTime;
                 }
-                str2 = this.this$0.bji;
+                str2 = this.this$0.blL;
                 if (str2 == null) {
-                    this.this$0.bji = bVar.emitTime;
+                    this.this$0.blL = bVar.emitTime;
                 }
-                str3 = this.this$0.bji;
-                if (com.baidu.adp.lib.g.c.a(str3, 0L) < com.baidu.adp.lib.g.c.a(bVar.emitTime, 0L)) {
-                    this.this$0.bji = bVar.emitTime;
+                str3 = this.this$0.blL;
+                if (com.baidu.adp.lib.g.c.c(str3, 0L) < com.baidu.adp.lib.g.c.c(bVar.emitTime, 0L)) {
+                    this.this$0.blL = bVar.emitTime;
                 }
-                str4 = this.this$0.bjh;
-                if (com.baidu.adp.lib.g.c.a(str4, 0L) > com.baidu.adp.lib.g.c.a(bVar.emitTime, 0L)) {
-                    this.this$0.bjh = bVar.emitTime;
+                str4 = this.this$0.blK;
+                if (com.baidu.adp.lib.g.c.c(str4, 0L) > com.baidu.adp.lib.g.c.c(bVar.emitTime, 0L)) {
+                    this.this$0.blK = bVar.emitTime;
                 }
-                list = this.this$0.bjf;
+                list = this.this$0.blI;
                 list.add(bVar);
             }
         }

@@ -4,15 +4,15 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 /* loaded from: classes.dex */
 public interface c {
-    boolean C(int i);
+    boolean D(int i);
 
-    int D(int i);
+    int E(int i);
 
     boolean a(Bitmap bitmap, Canvas canvas);
 
     void close();
 
-    int fg();
+    int fl();
 
     int getHeight();
 

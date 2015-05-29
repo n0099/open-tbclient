@@ -1,29 +1,19 @@
 package com.baidu.tieba.pb.chosen;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity bGl;
+public class m implements com.baidu.tbadk.core.dialog.d {
+    private final /* synthetic */ PbChosenActivity bJf;
+    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.l bJg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PbChosenActivity pbChosenActivity) {
-        this.bGl = pbChosenActivity;
+    public m(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.l lVar) {
+        this.bJf = pbChosenActivity;
+        this.bJg = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        n nVar;
-        n nVar2;
-        com.baidu.tieba.pb.chosen.net.a aVar;
-        String str;
-        nVar = this.bGl.bGd;
-        if (nVar == null) {
-            this.bGl.bGd = new n(this.bGl);
-        }
-        nVar2 = this.bGl.bGd;
-        aVar = this.bGl.chosenData;
-        str = this.bGl.shareUrl;
-        nVar2.a(aVar, str);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.adp.lib.util.n.c(this.bJf.getPageContext().getPageActivity(), this.bJg.getChatMsgView());
+        aVar.dismiss();
     }
 }

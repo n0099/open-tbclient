@@ -10,17 +10,17 @@ class c implements Parcelable.Creator<Configuration> {
     public Configuration createFromParcel(Parcel parcel) {
         Configuration configuration = new Configuration();
         configuration.mAlpha = parcel.readInt();
-        configuration.uF = parcel.readInt();
-        configuration.uG = parcel.readInt();
-        configuration.uH = parcel.readInt();
-        configuration.uI = parcel.readByte() == 1;
-        configuration.uJ = parcel.readByte() == 1;
+        configuration.tQ = parcel.readInt();
+        configuration.tR = parcel.readInt();
+        configuration.tS = parcel.readInt();
+        configuration.tT = parcel.readByte() == 1;
+        configuration.tU = parcel.readByte() == 1;
         return configuration;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: N */
+    /* renamed from: L */
     public Configuration[] newArray(int i) {
         return new Configuration[i];
     }

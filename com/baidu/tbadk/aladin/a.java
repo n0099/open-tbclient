@@ -9,28 +9,28 @@ import java.net.ServerSocket;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private AladinServer MW;
-    private ServerSocket MV = null;
-    private boolean MX = false;
-    private boolean MY = false;
+    private AladinServer Nk;
+    private ServerSocket Nj = null;
+    private boolean Nl = false;
+    private boolean Nm = false;
     private int mPort = 6257;
 
     public a(AladinServer aladinServer) {
-        this.MW = aladinServer;
+        this.Nk = aladinServer;
     }
 
     private void init(int i) {
-        this.MV = new ServerSocket();
-        this.MV.setReuseAddress(true);
-        this.MV.setSoTimeout(0);
-        this.MV.bind(new InetSocketAddress(i));
+        this.Nj = new ServerSocket();
+        this.Nj.setReuseAddress(true);
+        this.Nj.setSoTimeout(0);
+        this.Nj.bind(new InetSocketAddress(i));
     }
 
     public void quit() {
-        this.MY = true;
+        this.Nm = true;
         try {
-            if (!this.MV.isClosed()) {
-                this.MV.close();
+            if (!this.Nj.isClosed()) {
+                this.Nj.close();
             }
         } catch (Throwable th) {
         }
@@ -38,7 +38,7 @@ public class a extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.mPort = com.baidu.tbadk.core.sharedPref.b.rB().getInt("aladin_port", -1);
+        this.mPort = com.baidu.tbadk.core.sharedPref.b.sl().getInt("aladin_port", -1);
         if (this.mPort == -1) {
             this.mPort = 6257;
         }
@@ -46,8 +46,8 @@ public class a extends Thread {
             init(this.mPort);
             while (true) {
                 try {
-                    this.MX = true;
-                    Socket accept = this.MV.accept();
+                    this.Nl = true;
+                    Socket accept = this.Nj.accept();
                     if (accept != null) {
                         if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
                             try {
@@ -57,50 +57,50 @@ public class a extends Thread {
                             } catch (Throwable th) {
                             }
                         } else {
-                            new b(accept, this.MW, this).start();
+                            new b(accept, this.Nk, this).start();
                         }
                     }
                 } catch (Throwable th2) {
                     try {
                         BdLog.detailException(th2);
-                        this.MX = false;
-                        if (this.MV != null) {
+                        this.Nl = false;
+                        if (this.Nj != null) {
                             try {
-                                if (!this.MV.isClosed()) {
-                                    this.MV.close();
+                                if (!this.Nj.isClosed()) {
+                                    this.Nj.close();
                                 }
                             } catch (Throwable th3) {
                                 BdLog.detailException(th3);
                             }
                         }
-                        if (!this.MY && this.MW != null) {
+                        if (!this.Nm && this.Nk != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            this.MW.reStartListener();
+                            this.Nk.reStartListener();
                             return;
                         }
                         return;
                     } catch (Throwable th4) {
-                        this.MX = false;
-                        if (this.MV != null) {
+                        this.Nl = false;
+                        if (this.Nj != null) {
                             try {
-                                if (!this.MV.isClosed()) {
-                                    this.MV.close();
+                                if (!this.Nj.isClosed()) {
+                                    this.Nj.close();
                                 }
                             } catch (Throwable th5) {
                                 BdLog.detailException(th5);
                             }
                         }
-                        if (!this.MY && this.MW != null) {
+                        if (!this.Nm && this.Nk != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            this.MW.reStartListener();
+                            this.Nk.reStartListener();
                         }
                         throw th4;
                     }
@@ -109,13 +109,13 @@ public class a extends Thread {
         } catch (Throwable th6) {
             BdLog.detailException(th6);
             TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.mPort)).toString());
-            if (this.MW != null) {
-                this.MW.stopSelf();
+            if (this.Nk != null) {
+                this.Nk.stopSelf();
             }
-            if (this.MV != null) {
+            if (this.Nj != null) {
                 try {
-                    if (!this.MV.isClosed()) {
-                        this.MV.close();
+                    if (!this.Nj.isClosed()) {
+                        this.Nj.close();
                     }
                 } catch (Throwable th7) {
                     BdLog.detailException(th7);
@@ -124,7 +124,7 @@ public class a extends Thread {
         }
     }
 
-    public boolean oG() {
-        return this.MX;
+    public boolean pg() {
+        return this.Nl;
     }
 }

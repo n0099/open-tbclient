@@ -15,6 +15,6 @@ class l extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        k.a(k.iT());
+        k.a(k.jj());
     }
 }

@@ -1,39 +1,24 @@
 package com.baidu.tieba.write.album;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-class ak implements x {
-    final /* synthetic */ ah cuX;
+class ak implements ab {
+    final /* synthetic */ aj czp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ah ahVar) {
-        this.cuX = ahVar;
+    public ak(aj ajVar) {
+        this.czp = ajVar;
     }
 
-    @Override // com.baidu.tieba.write.album.x
-    public void onClick(int i, ImageFileInfo imageFileInfo) {
-        n nVar;
-        n nVar2;
-        n nVar3;
+    @Override // com.baidu.tieba.write.album.ab
+    public boolean a(int i, ImageFileInfo imageFileInfo, boolean z) {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        nVar = this.cuX.ctF;
-        int maxImagesAllowed = nVar.getMaxImagesAllowed();
-        nVar2 = this.cuX.ctF;
-        if (nVar2.size() < maxImagesAllowed) {
-            nVar3 = this.cuX.ctF;
-            String aqc = nVar3.aqc();
-            if (!TextUtils.isEmpty(aqc)) {
-                albumActivity2 = this.cuX.ctK;
-                az.a(albumActivity2.getPageContext(), aqc);
-                return;
-            }
-            albumActivity = this.cuX.ctK;
-            az.d(albumActivity.getPageContext());
-            return;
+        if (z) {
+            albumActivity2 = this.czp.cxZ;
+            return albumActivity2.c(imageFileInfo);
         }
-        this.cuX.showToast(String.format(this.cuX.getPageContext().getString(com.baidu.tieba.y.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        albumActivity = this.czp.cxZ;
+        return albumActivity.d(imageFileInfo);
     }
 }

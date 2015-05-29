@@ -21,7 +21,7 @@ public class g {
     public void setOnClickListener(View.OnClickListener onClickListener) {
     }
 
-    public boolean x(View view) {
+    public boolean A(View view) {
         return false;
     }
 }

@@ -1,25 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class al implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bIJ;
-    private final /* synthetic */ MarkData bIN;
+class al implements com.baidu.adp.lib.e.c<GifView> {
+    final /* synthetic */ PbActivity bKT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PbActivity pbActivity, MarkData markData) {
-        this.bIJ = pbActivity;
-        this.bIN = markData;
+    public al(PbActivity pbActivity) {
+        this.bKT = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.bIN);
-        this.bIJ.setResult(-1, intent);
-        this.bIJ.ZB();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: abe */
+    public GifView hk() {
+        return new GifView(this.bKT.getPageContext().getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void k(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public GifView l(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: i */
+    public GifView m(GifView gifView) {
+        return gifView;
     }
 }

@@ -2,41 +2,41 @@ package com.baidu.tbadk.core.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u {
-    v TA;
-    v TB;
-    v TC;
-    v TD;
-    v TE;
-    v TF;
-    v TG;
-    v TH;
-    v TI;
-    v TJ;
-    v TK;
-    v TL;
-    v TM;
-    int Tw;
-    boolean Tx;
-    v Ty;
-    v Tz;
+    int Uf;
+    boolean Ug;
+    v Uh;
+    v Ui;
+    v Uj;
+    v Uk;
+    v Ul;
+    v Um;
+    v Un;
+    v Uo;
+    v Up;
+    v Uq;
+    v Ur;
+    v Us;
+    v Ut;
+    v Uu;
+    v Uv;
 
     private u() {
-        this.Tw = 0;
-        this.Ty = new v(null);
-        this.Tz = new v(null);
-        this.TA = new v(null);
-        this.TB = new v(null);
-        this.TC = new v(null);
-        this.TD = new v(null);
-        this.TE = new v(null);
-        this.TF = new v(null);
-        this.TG = new v(null);
-        this.TH = new v(null);
-        this.TI = new v(null);
-        this.TJ = new v(null);
-        this.TK = new v(null);
-        this.TL = new v(null);
-        this.TM = new v(null);
+        this.Uf = 0;
+        this.Uh = new v(null);
+        this.Ui = new v(null);
+        this.Uj = new v(null);
+        this.Uk = new v(null);
+        this.Ul = new v(null);
+        this.Um = new v(null);
+        this.Un = new v(null);
+        this.Uo = new v(null);
+        this.Up = new v(null);
+        this.Uq = new v(null);
+        this.Ur = new v(null);
+        this.Us = new v(null);
+        this.Ut = new v(null);
+        this.Uu = new v(null);
+        this.Uv = new v(null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,59 +45,59 @@ public class u {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4] */
-    public int sa() {
-        return this.Ty.num + this.Tz.num + this.TA.num + this.TB.num + this.TC.num;
+    public int sI() {
+        return this.Uh.num + this.Ui.num + this.Uj.num + this.Uk.num + this.Ul.num;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [95=14] */
-    public int sb() {
-        return this.Ty.num + this.Tz.num + this.TA.num + this.TB.num + this.TC.num + this.TD.num + this.TE.num + this.TF.num + this.TG.num + this.TH.num + this.TI.num + this.TJ.num + this.TK.num + this.TL.num + this.TM.num;
+    public int sJ() {
+        return this.Uh.num + this.Ui.num + this.Uj.num + this.Uk.num + this.Ul.num + this.Um.num + this.Un.num + this.Uo.num + this.Up.num + this.Uq.num + this.Ur.num + this.Us.num + this.Ut.num + this.Uu.num + this.Uv.num;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=4] */
-    public int sc() {
-        return this.TD.num + this.TE.num + this.TF.num + this.TG.num + this.TH.num;
+    public int sK() {
+        return this.Um.num + this.Un.num + this.Uo.num + this.Up.num + this.Uq.num;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [112=4] */
-    public int sd() {
-        return this.TI.num + this.TJ.num + this.TK.num + this.TL.num + this.TM.num;
+    public int sL() {
+        return this.Ur.num + this.Us.num + this.Ut.num + this.Uu.num + this.Uv.num;
     }
 
     public void reset() {
-        this.Tw = 0;
-        this.Ty.reset();
-        this.Tz.reset();
-        this.TA.reset();
-        this.TB.reset();
-        this.TC.reset();
-        this.TD.reset();
-        this.TE.reset();
-        this.TF.reset();
-        this.TG.reset();
-        this.TH.reset();
-        this.TI.reset();
-        this.TJ.reset();
-        this.TK.reset();
-        this.TL.reset();
-        this.TM.reset();
+        this.Uf = 0;
+        this.Uh.reset();
+        this.Ui.reset();
+        this.Uj.reset();
+        this.Uk.reset();
+        this.Ul.reset();
+        this.Um.reset();
+        this.Un.reset();
+        this.Uo.reset();
+        this.Up.reset();
+        this.Uq.reset();
+        this.Ur.reset();
+        this.Us.reset();
+        this.Ut.reset();
+        this.Uu.reset();
+        this.Uv.reset();
     }
 
-    public void se() {
-        if (t.rZ().sa() > 0) {
-            com.baidu.tbadk.performanceLog.ae.a(t.rZ().Ty.num, t.rZ().Ty.TN, t.rZ().Ty.TP, t.rZ().Ty.TO, t.rZ().Ty.time, t.rZ().Tz.num, t.rZ().Tz.TN, t.rZ().Tz.TP, t.rZ().Tz.time, t.rZ().Tz.TO, t.rZ().TA.num, t.rZ().TA.TN, t.rZ().TA.TP, t.rZ().TA.time, t.rZ().TA.TO, t.rZ().TC.num, t.rZ().TC.TN, t.rZ().TC.TP, t.rZ().TC.time, t.rZ().TC.TO, t.rZ().TB.num, t.rZ().TB.TN, t.rZ().TB.TP, t.rZ().TB.time, t.rZ().TB.TO, 3);
+    public void sM() {
+        if (t.sH().sI() > 0) {
+            com.baidu.tbadk.performanceLog.ae.a(t.sH().Uh.num, t.sH().Uh.Uw, t.sH().Uh.Uy, t.sH().Uh.Ux, t.sH().Uh.time, t.sH().Ui.num, t.sH().Ui.Uw, t.sH().Ui.Uy, t.sH().Ui.time, t.sH().Ui.Ux, t.sH().Uj.num, t.sH().Uj.Uw, t.sH().Uj.Uy, t.sH().Uj.time, t.sH().Uj.Ux, t.sH().Ul.num, t.sH().Ul.Uw, t.sH().Ul.Uy, t.sH().Ul.time, t.sH().Ul.Ux, t.sH().Uk.num, t.sH().Uk.Uw, t.sH().Uk.Uy, t.sH().Uk.time, t.sH().Uk.Ux, 3);
         }
     }
 
-    public void sf() {
-        if (t.rZ().sc() > 0) {
-            com.baidu.tbadk.performanceLog.ae.a(t.rZ().TD.num, t.rZ().TD.TN, t.rZ().TD.TP, t.rZ().TD.time, t.rZ().TD.TO, t.rZ().TE.num, t.rZ().TE.TN, t.rZ().TE.TP, t.rZ().TE.time, t.rZ().TE.TO, t.rZ().TF.num, t.rZ().TF.TN, t.rZ().TF.TP, t.rZ().TF.time, t.rZ().TF.TO, t.rZ().TH.num, t.rZ().TH.TN, t.rZ().TH.TP, t.rZ().TH.time, t.rZ().TH.TO, t.rZ().TG.num, t.rZ().TG.TN, t.rZ().TG.TP, t.rZ().TG.time, t.rZ().TG.TO, 1);
+    public void sN() {
+        if (t.sH().sK() > 0) {
+            com.baidu.tbadk.performanceLog.ae.a(t.sH().Um.num, t.sH().Um.Uw, t.sH().Um.Uy, t.sH().Um.time, t.sH().Um.Ux, t.sH().Un.num, t.sH().Un.Uw, t.sH().Un.Uy, t.sH().Un.time, t.sH().Un.Ux, t.sH().Uo.num, t.sH().Uo.Uw, t.sH().Uo.Uy, t.sH().Uo.time, t.sH().Uo.Ux, t.sH().Uq.num, t.sH().Uq.Uw, t.sH().Uq.Uy, t.sH().Uq.time, t.sH().Uq.Ux, t.sH().Up.num, t.sH().Up.Uw, t.sH().Up.Uy, t.sH().Up.time, t.sH().Up.Ux, 1);
         }
     }
 
-    public void sg() {
-        if (t.rZ().sd() > 0) {
-            com.baidu.tbadk.performanceLog.ae.a(t.rZ().TI.num, t.rZ().TI.TN, t.rZ().TI.TP, t.rZ().TI.time, t.rZ().TI.TO, t.rZ().TJ.num, t.rZ().TJ.TN, t.rZ().TJ.TP, t.rZ().TJ.time, t.rZ().TJ.TO, t.rZ().TK.num, t.rZ().TK.TN, t.rZ().TK.TP, t.rZ().TK.time, t.rZ().TK.TO, t.rZ().TM.num, t.rZ().TM.TN, t.rZ().TM.TP, t.rZ().TM.time, t.rZ().TM.TO, t.rZ().TL.num, t.rZ().TL.TN, t.rZ().TL.TP, t.rZ().TL.time, t.rZ().TL.TO, 2);
+    public void sO() {
+        if (t.sH().sL() > 0) {
+            com.baidu.tbadk.performanceLog.ae.a(t.sH().Ur.num, t.sH().Ur.Uw, t.sH().Ur.Uy, t.sH().Ur.time, t.sH().Ur.Ux, t.sH().Us.num, t.sH().Us.Uw, t.sH().Us.Uy, t.sH().Us.time, t.sH().Us.Ux, t.sH().Ut.num, t.sH().Ut.Uw, t.sH().Ut.Uy, t.sH().Ut.time, t.sH().Ut.Ux, t.sH().Uv.num, t.sH().Uv.Uw, t.sH().Uv.Uy, t.sH().Uv.time, t.sH().Uv.Ux, t.sH().Uu.num, t.sH().Uu.Uw, t.sH().Uu.Uy, t.sH().Uu.time, t.sH().Uu.Ux, 2);
         }
     }
 }

@@ -4,22 +4,22 @@ import android.os.Handler;
 import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
-    private static int nF = 0;
-    private static String nG = null;
-    private static String nH = null;
     private static int nI = 0;
-    private static int nJ = 0;
+    private static String nJ = null;
     private static String nK = null;
-    private static f nL = null;
-    private static f nM = null;
+    private static int nL = 0;
+    private static int nM = 0;
+    private static String nN = null;
+    private static f nO = null;
+    private static f nP = null;
     public static Handler mHandler = null;
-    public static int nN = 0;
-    public static boolean nO = false;
-    public static boolean nP = false;
-    public static boolean nQ = false;
+    public static int nQ = 0;
+    public static boolean nR = false;
+    public static boolean nS = false;
+    public static boolean nT = false;
 
     public static void p(int i) {
-        nF = i;
+        nI = i;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(0);
@@ -30,7 +30,7 @@ public class d {
     }
 
     public static void a(f fVar) {
-        nL = fVar;
+        nO = fVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -40,8 +40,8 @@ public class d {
         }
     }
 
-    public static f dN() {
-        return nM;
+    public static f dP() {
+        return nP;
     }
 
     public static double a(double d) {

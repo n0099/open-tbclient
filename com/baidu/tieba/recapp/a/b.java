@@ -3,30 +3,30 @@ package com.baidu.tieba.recapp.a;
 import android.view.View;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
 import com.baidu.tieba.tbadkCore.au;
-import com.baidu.tieba.tbadkCore.c.i;
+import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 class b implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ int Rz;
-    private final /* synthetic */ View auE;
-    final /* synthetic */ a bXB;
-    private final /* synthetic */ i bXC;
-    private final /* synthetic */ BaseAppViewHolder bXD;
+    private final /* synthetic */ int RY;
+    private final /* synthetic */ View awh;
+    final /* synthetic */ a cbe;
+    private final /* synthetic */ i cbf;
+    private final /* synthetic */ BaseAppViewHolder cbg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, View view, i iVar, int i, BaseAppViewHolder baseAppViewHolder) {
-        this.bXB = aVar;
-        this.auE = view;
-        this.bXC = iVar;
-        this.Rz = i;
-        this.bXD = baseAppViewHolder;
+        this.cbe = aVar;
+        this.awh = view;
+        this.cbf = iVar;
+        this.RY = i;
+        this.cbg = baseAppViewHolder;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        com.baidu.tbadk.distribute.a.yk().a(this.auE.getContext(), this.bXC.amL(), "area_download", "pb", this.bXC.cof, this.bXC.threadId);
-        com.baidu.tbadk.distribute.a.yk().a(this.bXC.amL(), this.bXC.cof, this.bXC.threadId, "PB", "download");
-        au.a(this.auE.getContext(), this.bXC, this.Rz);
-        this.bXD.refresh();
+        com.baidu.tbadk.distribute.a.yX().a(this.awh.getContext(), this.cbf.aox(), "area_download", "pb", this.cbf.csd, this.cbf.threadId);
+        com.baidu.tbadk.distribute.a.yX().a(this.cbf.aox(), this.cbf.csd, this.cbf.threadId, "PB", "download");
+        au.a(this.awh.getContext(), this.cbf, this.RY);
+        this.cbg.refresh();
     }
 }

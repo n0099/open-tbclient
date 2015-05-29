@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class al {
-    private int AO;
-    private int AP;
-    private boolean AQ;
-    private boolean AR;
-    private int AS;
-    private int AT;
-    private boolean AU;
-    private boolean AV;
-    private String Ab;
+    private int AC;
+    private int AD;
+    private boolean AE;
+    private boolean AF;
+    private int AG;
+    private int AH;
+    private boolean AI;
+    private boolean AJ;
+    private String zQ;
 
     public al() {
-        this.Ab = null;
-        this.AO = 32768;
-        this.AP = 131072;
-        this.AQ = false;
-        this.AR = true;
-        this.AS = 30000;
-        this.AT = 30000;
-        this.AU = true;
-        this.AV = true;
-        this.Ab = null;
+        this.zQ = null;
+        this.AC = 32768;
+        this.AD = 131072;
+        this.AE = false;
+        this.AF = true;
+        this.AG = 30000;
+        this.AH = 30000;
+        this.AI = true;
+        this.AJ = true;
+        this.zQ = null;
     }
 
     public al(al alVar) {
-        this.Ab = null;
-        this.AO = alVar.AO;
-        this.AP = alVar.AP;
-        this.AQ = alVar.AQ;
-        this.AR = alVar.AR;
-        this.AS = alVar.AS;
-        this.AT = alVar.AT;
-        this.AU = alVar.AU;
-        this.AV = alVar.AV;
-        this.Ab = alVar.Ab;
+        this.zQ = null;
+        this.AC = alVar.AC;
+        this.AD = alVar.AD;
+        this.AE = alVar.AE;
+        this.AF = alVar.AF;
+        this.AG = alVar.AG;
+        this.AH = alVar.AH;
+        this.AI = alVar.AI;
+        this.AJ = alVar.AJ;
+        this.zQ = alVar.zQ;
     }
 
-    public boolean jG() {
-        return this.AQ;
+    public boolean jX() {
+        return this.AE;
     }
 
-    public int jH() {
-        return this.AO;
+    public int jY() {
+        return this.AC;
     }
 
-    public int jI() {
-        return this.AP;
+    public int jZ() {
+        return this.AD;
     }
 
     public boolean getTcpNoDelay() {
-        return this.AR;
+        return this.AF;
     }
 
-    public int jJ() {
-        return this.AS;
+    public int ka() {
+        return this.AG;
     }
 
-    public int jK() {
-        return this.AT;
+    public int kb() {
+        return this.AH;
     }
 
-    public boolean jL() {
-        return this.AU;
+    public boolean kc() {
+        return this.AI;
     }
 
-    public boolean jM() {
-        return this.AV;
+    public boolean kd() {
+        return this.AJ;
     }
 
-    public String jN() {
-        return this.Ab;
+    public String ke() {
+        return this.zQ;
     }
 
-    public void aU(String str) {
-        this.Ab = str;
+    public void be(String str) {
+        this.zQ = str;
     }
 }

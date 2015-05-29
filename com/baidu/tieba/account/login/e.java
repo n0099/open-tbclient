@@ -1,47 +1,30 @@
 package com.baidu.tieba.account.login;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tbadk.core.util.bd;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements TextWatcher {
-    final /* synthetic */ Login2Activity axg;
+public class e implements TextView.OnEditorActionListener {
+    final /* synthetic */ Login2Activity ayM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Login2Activity login2Activity) {
-        this.axg = login2Activity;
+        this.ayM = login2Activity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.axg.awJ;
-        if (z) {
-            this.axg.EK();
-        }
-        this.axg.awK = true;
-        this.axg.EN();
-        this.axg.EO();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.axg.EE();
-        str = this.axg.mAccount;
-        if (!bd.isEmpty(str)) {
-            String editable2 = editable.toString();
-            str2 = this.axg.mAccount;
-            if (!editable2.equals(str2)) {
-                return;
+    @Override // android.widget.TextView.OnEditorActionListener
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.ayM.ayA;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.ayM.ayA;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
             }
-            this.axg.EJ();
         }
+        this.ayM.Fz();
+        return true;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class CreateGroupMainActivityConfig extends a {
+public class CreateGroupMainActivityConfig extends c {
     public static final String CANCREATECOMMONGROUP = "canCreateCommonGroup";
     public static final String CANCRRATEOFFICIALGROUP = "canCreateOfficialGroup";
     public static final String CREATECOMMONGROUPTIP = "createCommonGroupTip";

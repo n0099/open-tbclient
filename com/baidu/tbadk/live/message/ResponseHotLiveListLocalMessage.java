@@ -29,7 +29,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
             QueryHotLiveGroupsResIdl queryHotLiveGroupsResIdl = (QueryHotLiveGroupsResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHotLiveGroupsResIdl.class);
             setError(queryHotLiveGroupsResIdl.error.errorno.intValue());
             setErrorString(queryHotLiveGroupsResIdl.error.usermsg);
-            if (getError() == 0) {
+            if (getError() == 0 && queryHotLiveGroupsResIdl.data != null) {
                 this.hotLiveListData = new HotLiveListData();
                 this.hotLiveListData.setHasMore(queryHotLiveGroupsResIdl.data.hasMore.intValue());
                 this.hotLiveListData.setGroups(new ArrayList());
@@ -61,6 +61,9 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
                         liveCardData.setStatus(liveGroupInfo.status.intValue());
                         liveCardData.setStreamId(liveGroupInfo.streamId);
                         liveCardData.setIsVip(liveGroupInfo.isVip.intValue());
+                        if (liveGroupInfo.label != null) {
+                            liveCardData.setLabelName(liveGroupInfo.label.labelName);
+                        }
                         this.hotLiveListData.getGroups().add(liveCardData);
                         i2 = i3 + 1;
                     } else {

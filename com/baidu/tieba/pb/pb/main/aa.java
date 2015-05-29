@@ -1,42 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements bf {
-    final /* synthetic */ PbActivity bIJ;
+public class aa implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bKT;
+    private final /* synthetic */ dc bKU;
+    private final /* synthetic */ ShareFromPBMsgData bKV;
+    private final /* synthetic */ long bwg;
+    private final /* synthetic */ String bwh;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(PbActivity pbActivity) {
-        this.bIJ = pbActivity;
+    public aa(PbActivity pbActivity, dc dcVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
+        this.bKT = pbActivity;
+        this.bKU = dcVar;
+        this.bwg = j;
+        this.val$name = str;
+        this.bwh = str2;
+        this.bKV = shareFromPBMsgData;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bf
-    public void c(Object obj) {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        br brVar4;
-        Object[] objArr = (Object[]) obj;
-        brVar = this.bIJ.bIg;
-        String valueOf = String.valueOf(brVar.getPbData().getUserData().getUserId());
-        String str = "";
-        if (objArr.length > 1) {
-            str = String.valueOf(objArr[1]);
-        }
-        String str2 = "";
-        if (objArr.length > 2) {
-            str2 = String.valueOf(objArr[2]);
-        }
-        PbActivity pbActivity = this.bIJ;
-        Activity pageActivity = this.bIJ.getPageContext().getPageActivity();
-        brVar2 = this.bIJ.bIg;
-        String id = brVar2.getPbData().Za().getId();
-        brVar3 = this.bIJ.bIg;
-        String name = brVar3.getPbData().Za().getName();
-        brVar4 = this.bIJ.bIg;
-        pbActivity.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(pageActivity, id, name, brVar4.getPbData().Zb().getId(), valueOf, str, str2)));
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.bKT.HidenSoftKeyPad((InputMethodManager) this.bKT.getSystemService("input_method"), this.bKU.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.bKT.getPageContext().getPageActivity(), this.bwg, this.val$name, this.bwh, 0, this.bKU.getLeaveMsg(), this.bKV.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

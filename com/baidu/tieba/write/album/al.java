@@ -1,31 +1,22 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.NavigationBar;
-import java.util.List;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-class al implements View.OnClickListener {
-    final /* synthetic */ ah cuX;
+class al implements aa {
+    final /* synthetic */ aj czp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ah ahVar) {
-        this.cuX = ahVar;
+    public al(aj ajVar) {
+        this.czp = ajVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.write.view.a aVar;
-        n nVar;
-        n nVar2;
-        com.baidu.tieba.write.view.a aVar2;
-        NavigationBar navigationBar;
-        aVar = this.cuX.cuV;
-        nVar = this.cuX.ctF;
-        List<a> aqa = nVar.aqa();
-        nVar2 = this.cuX.ctF;
-        aVar.c(aqa, nVar2.apY());
-        aVar2 = this.cuX.cuV;
-        navigationBar = this.cuX.mNavigationBar;
-        aVar2.F(navigationBar);
+    @Override // com.baidu.tieba.write.album.aa
+    public void a(int i, ImageFileInfo imageFileInfo) {
+        p pVar;
+        AlbumActivity albumActivity;
+        pVar = this.czp.cxU;
+        pVar.setCurrentIndex(i);
+        albumActivity = this.czp.cxZ;
+        albumActivity.jk(1);
     }
 }

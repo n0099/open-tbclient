@@ -22,14 +22,14 @@ public class k implements View.OnClickListener {
         if (progressBar.getVisibility() != 0) {
             bitmap = this.this$0.mBitmap;
             if (bitmap == null) {
-                bitmap2 = this.this$0.bPh;
+                bitmap2 = this.this$0.bRk;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.this$0.bPo = false;
-                this.this$0.hW(view.getTag().toString());
+                this.this$0.bRr = false;
+                this.this$0.iA(view.getTag().toString());
             }
         }
     }

@@ -17,9 +17,10 @@ public class NoDataViewFactory {
         EMOTION,
         SINGALL,
         GIFT,
-        WEBVIEW;
+        WEBVIEW,
+        LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (YG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ZG) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -30,36 +31,36 @@ public class NoDataViewFactory {
         }
     }
 
-    public static s a(Context context, View view, v vVar, w wVar, u uVar) {
-        return a(context, view, vVar, wVar, uVar, false);
+    public static x a(Context context, View view, aa aaVar, ab abVar, z zVar) {
+        return a(context, view, aaVar, abVar, zVar, false);
     }
 
-    public static s a(Context context, View view, v vVar, w wVar, u uVar, boolean z) {
-        s sVar = new s(context);
-        sVar.a(uVar, vVar, wVar);
+    public static x a(Context context, View view, aa aaVar, ab abVar, z zVar, boolean z) {
+        x xVar = new x(context);
+        xVar.a(zVar, aaVar, abVar);
         if (view != null) {
             if (view instanceof RelativeLayout) {
                 RelativeLayout relativeLayout = (RelativeLayout) view;
                 if (z) {
-                    relativeLayout.addView(sVar, 0);
+                    relativeLayout.addView(xVar, 0);
                 } else {
-                    relativeLayout.addView(sVar);
+                    relativeLayout.addView(xVar);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) sVar.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) xVar.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 layoutParams.addRule(14);
-                sVar.setLayoutParams(layoutParams);
+                xVar.setLayoutParams(layoutParams);
             } else if (view instanceof LinearLayout) {
-                ((LinearLayout) view).addView(sVar);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) sVar.getLayoutParams();
+                ((LinearLayout) view).addView(xVar);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) xVar.getLayoutParams();
                 layoutParams2.gravity = 1;
-                sVar.setLayoutParams(layoutParams2);
+                xVar.setLayoutParams(layoutParams2);
             } else if (view instanceof FrameLayout) {
-                ((FrameLayout) view).addView(sVar, 0);
+                ((FrameLayout) view).addView(xVar, 0);
             }
         }
-        sVar.setVisibility(8);
-        return sVar;
+        xVar.setVisibility(8);
+        return xVar;
     }
 }

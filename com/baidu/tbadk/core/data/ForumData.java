@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class ForumData implements as, Serializable {
+public class ForumData implements ap, Serializable {
     public static final int ANCHOR_HAVE_POWER = 1;
     public static final int ANCHOR_NOT_SHOW = 0;
     public static final int ANCHOR_SHOW_BUT_NO_POWER = 2;
@@ -595,13 +595,13 @@ public class ForumData implements as, Serializable {
         return this.news_info;
     }
 
-    @Override // com.baidu.tbadk.core.util.as
-    public ArrayList<ar> getImages() {
-        ArrayList<ar> arrayList = new ArrayList<>();
-        ar arVar = new ar();
-        arVar.QM = this.image_url;
-        arVar.UW = 10;
-        arrayList.add(arVar);
+    @Override // com.baidu.tbadk.core.util.ap
+    public ArrayList<ao> getImages() {
+        ArrayList<ao> arrayList = new ArrayList<>();
+        ao aoVar = new ao();
+        aoVar.Ri = this.image_url;
+        aoVar.Vx = 10;
+        arrayList.add(aoVar);
         return arrayList;
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ b bqI;
+    final /* synthetic */ b bts;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(b bVar) {
         super(2001257);
-        this.bqI = bVar;
+        this.bts = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,15 +27,15 @@ public class i extends CustomMessageListener {
                 case 1:
                 case 3:
                     if (!isOpen) {
-                        this.bqI.di(true);
+                        this.bts.du(true);
                         return;
                     }
                     return;
                 case 2:
                     if (!isOpen) {
-                        aVar = this.bqI.bqy;
-                        if (aVar.Uw()) {
-                            this.bqI.dh(false);
+                        aVar = this.bts.bth;
+                        if (aVar.VN()) {
+                            this.bts.dt(false);
                             return;
                         }
                         return;
@@ -43,10 +43,10 @@ public class i extends CustomMessageListener {
                     return;
                 case 4:
                     if (isOpen) {
-                        this.bqI.dh(true);
+                        this.bts.dt(true);
                         return;
                     } else {
-                        this.bqI.di(false);
+                        this.bts.du(false);
                         return;
                     }
                 default:

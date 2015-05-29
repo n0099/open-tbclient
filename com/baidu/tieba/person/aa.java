@@ -1,71 +1,71 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
-    final /* synthetic */ v bPV;
+public class aa extends HttpMessageListener {
+    final /* synthetic */ v bSb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(v vVar) {
-        this.bPV = vVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(v vVar, int i) {
+        super(i);
+        this.bSb = vVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2;
-        af afVar;
-        boolean z;
-        af afVar2;
-        int i3;
-        ForumData forumData;
-        ForumData forumData2;
-        ForumData forumData3;
-        ForumData forumData4;
-        ForumData forumData5;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         String str;
-        ForumData forumData6;
-        this.bPV.bDX = ((Integer) view.getTag()).intValue();
-        i = this.bPV.bDX;
-        if (i >= 0) {
-            i2 = this.bPV.bDX;
-            afVar = this.bPV.bPJ;
-            if (i2 < afVar.getCount()) {
-                z = this.bPV.bPP;
-                if (!z) {
-                    v vVar = this.bPV;
-                    afVar2 = this.bPV.bPJ;
-                    i3 = this.bPV.bDX;
-                    vVar.bPO = (ForumData) afVar2.getItem(i3);
-                    forumData = this.bPV.bPO;
-                    if (forumData != null) {
-                        forumData2 = this.bPV.bPO;
-                        if (forumData2.getId() != null) {
-                            forumData3 = this.bPV.bPO;
-                            if (forumData3.getName() != null) {
-                                v vVar2 = this.bPV;
-                                forumData4 = this.bPV.bPO;
-                                vVar2.bPK = forumData4.getName();
-                                this.bPV.bPP = true;
-                                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-                                forumData5 = this.bPV.bPO;
-                                httpMessage.addParam(ImageViewerConfig.FORUM_ID, forumData5.getId());
-                                str = this.bPV.bPK;
-                                httpMessage.addParam("kw", str);
-                                forumData6 = this.bPV.bPO;
-                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
-                                httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
-                                this.bPV.sendMessage(httpMessage);
-                            }
+        PersonBarActivity ael;
+        String str2;
+        PersonBarActivity ael2;
+        String str3;
+        String str4;
+        ai aiVar;
+        ai aiVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
+            ael = this.bSb.ael();
+            if (ael != null) {
+                this.bSb.mListView.completePullRefresh();
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                ael2 = this.bSb.ael();
+                if (tag == ael2.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
+                        PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
+                        if (personBarResponseMessage.getErrCode() == 0) {
+                            u personBarData = personBarResponseMessage.getPersonBarData();
+                            aiVar = this.bSb.bRB;
+                            aiVar.hP(this.bSb.bRP);
+                            aiVar2 = this.bSb.bRB;
+                            aiVar2.iD(personBarResponseMessage.getResultString());
+                            this.bSb.a(personBarData, false);
+                            return;
                         }
+                        this.bSb.showToast(httpResponsedMessage.getErrorString());
+                        com.baidu.tieba.person.post.z zVar = this.bSb.bRL;
+                        str4 = this.bSb.bRS;
+                        zVar.iF(str4);
+                        return;
                     }
+                    this.bSb.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSb.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
+                    com.baidu.tieba.person.post.z zVar2 = this.bSb.bRL;
+                    str3 = this.bSb.bRS;
+                    zVar2.iF(str3);
+                    return;
                 }
+                return;
             }
+            com.baidu.tieba.person.post.z zVar3 = this.bSb.bRL;
+            str2 = this.bSb.bRS;
+            zVar3.iF(str2);
+            return;
         }
+        com.baidu.tieba.person.post.z zVar4 = this.bSb.bRL;
+        str = this.bSb.bRS;
+        zVar4.iF(str);
     }
 }

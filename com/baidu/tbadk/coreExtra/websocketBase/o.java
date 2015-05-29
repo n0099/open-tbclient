@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends CustomMessageListener {
-    final /* synthetic */ PingManager agv;
+    final /* synthetic */ PingManager ahw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PingManager pingManager, int i) {
         super(i);
-        this.agv = pingManager;
+        this.ahw = pingManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class o extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        this.agv.a((BackgroundSwitchMessage) customResponsedMessage);
+        this.ahw.a((BackgroundSwitchMessage) customResponsedMessage);
     }
 }

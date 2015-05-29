@@ -115,13 +115,13 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
-            jSONObject2.put(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.replyer.getPortrait());
+            jSONObject2.put(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, this.replyer.getPortrait());
             jSONObject2.put("gender", this.replyer.getGender());
             jSONObject.put("replyer", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("id", this.quote_user.getUserId());
             jSONObject3.put("name", this.quote_user.getUserName());
-            jSONObject3.put(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.quote_user.getPortrait());
+            jSONObject3.put(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, this.quote_user.getPortrait());
             jSONObject3.put("gender", this.quote_user.getGender());
             jSONObject.put("quote_user", jSONObject3);
             jSONArray.put(jSONObject);

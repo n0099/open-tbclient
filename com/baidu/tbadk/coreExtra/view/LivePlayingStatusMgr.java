@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class LivePlayingStatusMgr {
-    private static LivePlayingStatusMgr afn;
-    private ArrayList<SoftReference<LivePlayingImageView>> afp;
+    private static LivePlayingStatusMgr ago;
+    private ArrayList<SoftReference<LivePlayingImageView>> agq;
     private int gid;
-    private LivePlayingStatus afo = LivePlayingStatus.IDEL;
-    private final CustomMessageListener mCustomMessageListener = new ai(this, 2001161);
-    private final CustomMessageListener afq = new aj(this, 2001166);
-    private final Handler mHandler = new ak(this);
+    private LivePlayingStatus agp = LivePlayingStatus.IDEL;
+    private final CustomMessageListener mCustomMessageListener = new aj(this, 2001161);
+    private final CustomMessageListener agr = new ak(this, 2001166);
+    private final Handler mHandler = new al(this);
 
     /* loaded from: classes.dex */
     public enum LivePlayingStatus {
@@ -26,7 +26,7 @@ public class LivePlayingStatusMgr {
         PAUSE,
         NO_PUBLISHER;
 
-        /* JADX DEBUG: Replace access to removed values field (afs) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (agt) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static LivePlayingStatus[] valuesCustom() {
             LivePlayingStatus[] valuesCustom = values();
@@ -38,32 +38,32 @@ public class LivePlayingStatusMgr {
     }
 
     private LivePlayingStatusMgr() {
-        this.afp = null;
+        this.agq = null;
         BdLog.addLogPackage("com.baidu.tbadk.coreExtra.view");
-        this.afp = new ArrayList<>();
+        this.agq = new ArrayList<>();
         MessageManager.getInstance().registerListener(this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.afq);
+        MessageManager.getInstance().registerListener(this.agr);
     }
 
-    public static synchronized LivePlayingStatusMgr xj() {
+    public static synchronized LivePlayingStatusMgr xW() {
         LivePlayingStatusMgr livePlayingStatusMgr;
         synchronized (LivePlayingStatusMgr.class) {
-            if (afn == null) {
-                afn = new LivePlayingStatusMgr();
+            if (ago == null) {
+                ago = new LivePlayingStatusMgr();
             }
-            livePlayingStatusMgr = afn;
+            livePlayingStatusMgr = ago;
         }
         return livePlayingStatusMgr;
     }
 
     public void a(LivePlayingImageView livePlayingImageView) {
         if (livePlayingImageView != null) {
-            this.afp.add(new SoftReference<>(livePlayingImageView));
+            this.agq.add(new SoftReference<>(livePlayingImageView));
         }
     }
 
     public void b(LivePlayingImageView livePlayingImageView) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.afp.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.agq.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView) && next.get() == livePlayingImageView) {
@@ -72,15 +72,15 @@ public class LivePlayingStatusMgr {
         }
     }
 
-    public LivePlayingStatus xk() {
-        return this.afo;
+    public LivePlayingStatus xX() {
+        return this.agp;
     }
 
     public int getGid() {
         return this.gid;
     }
 
-    public void xl() {
+    public void xY() {
         a(0, LivePlayingStatus.IDEL);
     }
 
@@ -93,7 +93,7 @@ public class LivePlayingStatusMgr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LivePlayingStatus livePlayingStatus) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.afp.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.agq.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView)) {

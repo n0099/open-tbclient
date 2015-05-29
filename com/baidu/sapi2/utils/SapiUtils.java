@@ -26,10 +26,6 @@ import org.apache.http.NameValuePair;
 public class SapiUtils {
     public static final String KEY_QR_LOGIN_LP = "lp";
     public static final String KEY_QR_LOGIN_SIGN = "sign";
-    public static final int NETWORK_OPERATOR_MOBILE = 1;
-    public static final int NETWORK_OPERATOR_TELECOM = 3;
-    public static final int NETWORK_OPERATOR_UNICOM = 2;
-    public static final int NETWORK_OPERATOR_UNKOWN = 0;
     public static final String QR_LOGIN_LP_APP = "app";
     public static final String QR_LOGIN_LP_PC = "pc";
     static final String a = "cmd";
@@ -51,6 +47,15 @@ public class SapiUtils {
             return DeviceId.getDeviceID(context);
         } catch (Throwable th) {
             return "123456789";
+        }
+    }
+
+    public static String getCUID(Context context) {
+        try {
+            return DeviceId.getDeviceID(context) + "|" + ((Object) TextUtils.getReverse(DeviceId.getIMEI(context), 0, DeviceId.getIMEI(context).length()));
+        } catch (Throwable th) {
+            L.e(th);
+            return null;
         }
     }
 
@@ -117,47 +122,15 @@ public class SapiUtils {
     }
 
     public static boolean hasActiveNetwork(Context context) {
-        ConnectivityManager connectivityManager;
-        if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
+        if (context == null) {
             return false;
         }
         try {
-            return connectivityManager.getActiveNetworkInfo() != null;
+            return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() != null;
         } catch (Throwable th) {
+            L.e(th);
             return false;
         }
-    }
-
-    public static int readNetworkOperatorType(Context context) {
-        int i;
-        String networkOperator = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-        if (TextUtils.isEmpty(networkOperator)) {
-            return 0;
-        }
-        if (networkOperator.length() < 3 || networkOperator.substring(0, 3).equals("460")) {
-            if (networkOperator.length() > 3) {
-                try {
-                    i = Integer.parseInt(networkOperator.substring(3));
-                } catch (NumberFormatException e) {
-                    L.e(e);
-                    i = 0;
-                }
-                switch (i) {
-                    case 0:
-                    case 2:
-                    case 7:
-                        return 1;
-                    case 1:
-                    case 6:
-                        return 2;
-                    case 3:
-                    case 5:
-                        return 3;
-                }
-            }
-            return 0;
-        }
-        return 0;
     }
 
     public static boolean webLogin(Context context, String str) {
@@ -193,7 +166,7 @@ public class SapiUtils {
     }
 
     public static List<String> getAuthorizedDomains(Context context) {
-        return context == null ? Collections.emptyList() : com.baidu.sapi2.c.a(context).j().g();
+        return context == null ? Collections.emptyList() : com.baidu.sapi2.d.a(context).m();
     }
 
     public static String getAppName(Context context) {
@@ -201,15 +174,6 @@ public class SapiUtils {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
         } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    public static String getAppName(Context context, String str) {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            return packageManager.getPackageInfo(str, 0).applicationInfo.loadLabel(packageManager).toString();
-        } catch (Exception e) {
             return null;
         }
     }
@@ -223,18 +187,19 @@ public class SapiUtils {
         }
     }
 
+    public static int getVersionCode(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static int dip2px(Context context, float f) {
         if (context == null) {
             throw new IllegalArgumentException("Context can't be null");
         }
         return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
-    }
-
-    public static int px2dip(Context context, float f) {
-        if (context == null) {
-            throw new IllegalArgumentException("Context can't be null");
-        }
-        return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     public static boolean isQrLoginSchema(String str) {
@@ -278,5 +243,21 @@ public class SapiUtils {
         } catch (Throwable th) {
             return false;
         }
+    }
+
+    public static void resetSilentShareStatus(Context context) {
+        if (context != null && com.baidu.sapi2.d.a(context).d() == null) {
+            com.baidu.sapi2.d.a(context).i();
+        }
+    }
+
+    public static String getFastRegChannel(Context context) {
+        if (context != null) {
+            String n = com.baidu.sapi2.d.a(context).n();
+            if (!TextUtils.isEmpty(n)) {
+                return n;
+            }
+        }
+        return g.s;
     }
 }

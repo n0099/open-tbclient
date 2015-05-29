@@ -8,36 +8,36 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean aal = false;
-    public static l aam = null;
+    private static boolean abm = false;
+    public static l abn = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (aam == null && (runTask = MessageManager.getInstance().runTask(2001275, l.class)) != null && runTask.getData() != null) {
-            aam = (l) runTask.getData();
+        if (abn == null && (runTask = MessageManager.getInstance().runTask(2001275, l.class)) != null && runTask.getData() != null) {
+            abn = (l) runTask.getData();
         }
     }
 
-    public static l um() {
-        return aam;
+    public static l uV() {
+        return abn;
     }
 
-    public static boolean un() {
-        return aal;
+    public static boolean uW() {
+        return abm;
     }
 
     public static void checkPassV6Switch() {
         if (Build.VERSION.SDK_INT < 9 || TbConfig.USE_OLD_LOGIN || !TbadkCoreApplication.m411getInst().isPassportV6ShouldOpen()) {
-            aal = true;
+            abm = true;
         } else if (Build.VERSION.SDK_INT <= 10) {
             if (UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m411getInst().getContext())) {
                 TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
-                aal = true;
+                abm = true;
                 return;
             }
-            aal = false;
+            abm = false;
         } else {
-            aal = false;
+            abm = false;
         }
     }
 }

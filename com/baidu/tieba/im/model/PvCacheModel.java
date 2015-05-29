@@ -46,6 +46,6 @@ public class PvCacheModel {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return UtilHelper.isSameDay(c.a(str2, 0L), System.currentTimeMillis());
+        return UtilHelper.isSameDay(c.c(str2, 0L), System.currentTimeMillis());
     }
 }

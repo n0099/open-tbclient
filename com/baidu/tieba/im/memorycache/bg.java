@@ -1,43 +1,37 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+public class bg extends CustomMessageListener {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
         this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.Sq().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        if (list != null && list.size() != 0) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo.getMsg_type() == 11) {
-                    String content = commonMsgPojo.getContent();
-                    try {
-                        String optString = new JSONObject(content).optString("eventId");
-                        if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
-                        }
-                    } catch (JSONException e) {
-                        BdLog.detailException(e);
-                    }
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterPojo D;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (D = c.TD().D("-1002", -3)) != null) {
+            Object data = customResponsedMessage.getData();
+            if (data == null) {
+                D.setUnread_count(0);
+                D.setIs_hidden(1);
+                this.this$0.k(D);
+            } else if (data instanceof ImMessageCenterPojo) {
+                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
+                D.setLast_content(imMessageCenterPojo.getLast_content());
+                D.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                D.setUnread_count(0);
+                D.setIs_hidden(0);
+                this.this$0.k(D);
             }
         }
     }

@@ -27,14 +27,14 @@ public class az extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.im.message.i)) {
             com.baidu.tieba.im.message.i iVar = (com.baidu.tieba.im.message.i) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(iVar.id)) {
-                if ((!TextUtils.isEmpty(iVar.head) || !TextUtils.isEmpty(iVar.name)) && (D = c.Sq().D(iVar.id, iVar.customGroupType)) != null) {
+                if ((!TextUtils.isEmpty(iVar.head) || !TextUtils.isEmpty(iVar.name)) && (D = c.TD().D(iVar.id, iVar.customGroupType)) != null) {
                     String str = iVar.name;
                     String str2 = iVar.head;
                     if (!TextUtils.isEmpty(str)) {
-                        c.Sq().aC(iVar.id, str);
+                        c.TD().aH(iVar.id, str);
                     }
                     if (!TextUtils.isEmpty(iVar.head)) {
-                        c.Sq().aB(iVar.id, str2);
+                        c.TD().aG(iVar.id, str2);
                     }
                     CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ba(this, D));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());

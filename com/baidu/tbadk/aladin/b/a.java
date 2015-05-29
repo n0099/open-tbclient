@@ -13,7 +13,7 @@ public class a {
         if (intent != null) {
             String stringExtra = intent.getStringExtra("type");
             if (stringExtra == null) {
-                if (com.baidu.tbadk.core.c.b.ru() != null) {
+                if (com.baidu.tbadk.core.c.b.se() != null) {
                     return true;
                 }
             } else if (stringExtra.equals("web")) {

@@ -7,11 +7,11 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ k aNU;
+    final /* synthetic */ k aQg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.aNU = kVar;
+        this.aQg = kVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:? A[RETURN, SYNTHETIC] */
@@ -26,24 +26,24 @@ public class m implements SlidingMenu.OnClosedListener {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
-        frsActivity = this.aNU.aNs;
+        frsActivity = this.aQg.aPE;
         if (!TextUtils.isEmpty(frsActivity.getFrom())) {
-            frsActivity4 = this.aNU.aNs;
+            frsActivity4 = this.aQg.aPE;
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(frsActivity4.getFrom())) {
-                frsActivity5 = this.aNU.aNs;
+                frsActivity5 = this.aQg.aPE;
                 frsActivity5.setSwipeBackEnabled(false);
-                if (!this.aNU.Lt().KH()) {
-                    this.aNU.Lt().bV(false);
-                    frsActivity3 = this.aNU.aNs;
+                if (!this.aQg.My().LM()) {
+                    this.aQg.My().ce(false);
+                    frsActivity3 = this.aQg.aPE;
                     frsActivity3.refresh();
                     return;
                 }
                 return;
             }
         }
-        frsActivity2 = this.aNU.aNs;
+        frsActivity2 = this.aQg.aPE;
         frsActivity2.setSwipeBackEnabled(true);
-        if (!this.aNU.Lt().KH()) {
+        if (!this.aQg.My().LM()) {
         }
     }
 }

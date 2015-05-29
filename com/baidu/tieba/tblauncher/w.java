@@ -16,8 +16,21 @@ class w extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
-            this.this$0.amj();
+        aj ajVar;
+        boolean z;
+        aj ajVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            ajVar = this.this$0.cvr;
+            if (booleanValue) {
+                ajVar2 = this.this$0.cvr;
+                if (ajVar2.aqm()) {
+                    z = true;
+                    ajVar.fr(z);
+                }
+            }
+            z = false;
+            ajVar.fr(z);
         }
     }
 }

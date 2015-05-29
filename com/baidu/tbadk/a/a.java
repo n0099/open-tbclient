@@ -7,56 +7,56 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    public static int Nk = 0;
-    public static int Nl = 1;
-    public static int Nm = 2;
-    private AlarmManager Nh;
-    private PendingIntent Ni;
-    private long Nj;
+    private AlarmManager Nv;
+    private PendingIntent Nw;
+    private long Nx;
     private Context mContext;
+    public static int Ny = 0;
+    public static int Nz = 1;
+    public static int NA = 2;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.Ni = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.Nh = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.Nw = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.Nv = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.Nh != null) {
-            this.Nj = j2;
-            if (i == Nk) {
-                this.Nh.set(i2, j, this.Ni);
-            } else if (i == Nl) {
-                this.Nh.setRepeating(i2, j, j2, this.Ni);
-            } else if (i == Nm) {
-                this.Nh.setInexactRepeating(i2, j, j2, this.Ni);
+        if (this.Nv != null) {
+            this.Nx = j2;
+            if (i == Ny) {
+                this.Nv.set(i2, j, this.Nw);
+            } else if (i == Nz) {
+                this.Nv.setRepeating(i2, j, j2, this.Nw);
+            } else if (i == NA) {
+                this.Nv.setInexactRepeating(i2, j, j2, this.Nw);
             } else {
-                this.Nh.set(i2, j, this.Ni);
+                this.Nv.set(i2, j, this.Nw);
             }
         }
     }
 
     public void cancel() {
-        if (this.Nh != null && this.Ni != null) {
-            this.Nh.cancel(this.Ni);
+        if (this.Nv != null && this.Nw != null) {
+            this.Nv.cancel(this.Nw);
         }
     }
 
-    public void oN() {
-        if (this.Nh != null && this.Ni != null) {
-            if (this.Nj <= 0) {
-                this.Nj = 3600000L;
+    public void pn() {
+        if (this.Nv != null && this.Nw != null) {
+            if (this.Nx <= 0) {
+                this.Nx = 3600000L;
             }
-            a(Nl, 1, System.currentTimeMillis() + this.Nj, this.Nj);
+            a(Nz, 1, System.currentTimeMillis() + this.Nx, this.Nx);
         }
     }
 
-    public long oO() {
-        if (this.Nj <= 0) {
-            this.Nj = 3600000L;
+    public long po() {
+        if (this.Nx <= 0) {
+            this.Nx = 3600000L;
         }
-        return this.Nj;
+        return this.Nx;
     }
 }

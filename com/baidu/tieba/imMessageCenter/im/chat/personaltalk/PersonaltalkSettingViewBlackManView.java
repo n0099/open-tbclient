@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
-    private TextView bqn;
+    private TextView bsW;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -19,24 +19,24 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     }
 
     private void initUI() {
-        inflate(getContext(), com.baidu.tieba.w.p2ptalk_setting_black_man_view, this);
+        inflate(getContext(), com.baidu.tieba.r.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.bqn = (TextView) findViewById(com.baidu.tieba.v.black_man_text);
+        this.bsW = (TextView) findViewById(com.baidu.tieba.q.black_man_text);
     }
 
     public void setSex(int i) {
         String string;
         switch (i) {
             case 1:
-                string = getResources().getString(com.baidu.tieba.y.he);
+                string = getResources().getString(com.baidu.tieba.t.he);
                 break;
             case 2:
-                string = getResources().getString(com.baidu.tieba.y.she);
+                string = getResources().getString(com.baidu.tieba.t.she);
                 break;
             default:
-                string = getResources().getString(com.baidu.tieba.y.it);
+                string = getResources().getString(com.baidu.tieba.t.it);
                 break;
         }
-        this.bqn.setText(getResources().getString(com.baidu.tieba.y.in_black_desc_1, string));
+        this.bsW.setText(getResources().getString(com.baidu.tieba.t.in_black_desc_1, string));
     }
 }

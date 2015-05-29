@@ -6,22 +6,22 @@ import com.baidu.adp.lib.network.http.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements h {
-    final /* synthetic */ d oh;
+    final /* synthetic */ d oo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.oh = dVar;
+        this.oo = dVar;
     }
 
     @Override // com.baidu.adp.lib.network.http.h
     public void onProgress(int i, int i2) {
         HttpMessageTask httpMessageTask;
-        httpMessageTask = this.oh.od;
+        httpMessageTask = this.oo.oi;
         com.baidu.adp.framework.task.a downloadTask = httpMessageTask.getDownloadTask();
         if (downloadTask != null && downloadTask.getCmd() > 0) {
             HttpProgressResponsedMessage httpProgressResponsedMessage = new HttpProgressResponsedMessage(downloadTask.getCmd());
             httpProgressResponsedMessage.setProgress(i / i2);
-            this.oh.publishProgress(httpProgressResponsedMessage);
+            this.oo.publishProgress(httpProgressResponsedMessage);
         }
     }
 }

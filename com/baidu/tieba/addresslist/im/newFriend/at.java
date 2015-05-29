@@ -1,17 +1,17 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 /* loaded from: classes.dex */
-class at implements com.baidu.tbadk.core.view.ae {
-    final /* synthetic */ NewFriendsActivity ayH;
+class at implements com.baidu.tbadk.core.view.aj {
+    final /* synthetic */ NewFriendsActivity aAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewFriendsActivity newFriendsActivity) {
-        this.ayH = newFriendsActivity;
+        this.aAs = newFriendsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae
+    @Override // com.baidu.tbadk.core.view.aj
     public void onListPullRefresh(boolean z) {
         if (!z) {
-            this.ayH.Fa();
+            this.aAs.FT();
         }
     }
 }

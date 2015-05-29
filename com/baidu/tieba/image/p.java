@@ -2,7 +2,7 @@ package com.baidu.tieba.image;
 
 import android.view.View;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<String, Integer, String> {
@@ -24,12 +24,12 @@ public class p extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         switch (com.baidu.tbadk.core.util.o.a(this.mUrl, this.mData, this.this$0.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.o.rI();
+                return com.baidu.tbadk.core.util.o.sr();
             case -1:
             default:
-                return this.this$0.getPageContext().getString(y.save_error);
+                return this.this$0.getPageContext().getString(t.save_error);
             case 0:
-                return this.this$0.getPageContext().getString(y.save_image_to_album);
+                return this.this$0.getPageContext().getString(t.save_image_to_album);
         }
     }
 
@@ -40,16 +40,16 @@ public class p extends BdAsyncTask<String, Integer, String> {
         View view;
         super.onPostExecute((p) str);
         this.this$0.showToast(str);
-        this.this$0.buM = null;
-        view = this.this$0.buN;
+        this.this$0.bxu = null;
+        view = this.this$0.bxv;
         view.setClickable(true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         View view;
-        this.this$0.buM = null;
-        view = this.this$0.buN;
+        this.this$0.bxu = null;
+        view = this.this$0.bxv;
         view.setClickable(true);
         super.cancel(true);
     }

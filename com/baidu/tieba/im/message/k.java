@@ -7,88 +7,88 @@ import com.baidu.tieba.im.data.MemberData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private GroupData bkL;
-    private List<MemberData> bkM;
-    private List<PhotoUrlData> bkN;
-    private int bkO;
-    private int bkP;
-    private boolean bkQ;
-    private boolean bkR;
-    private boolean bkS;
-    private boolean bkT;
-    private GroupActivityData bkU;
+    private GroupData bnq;
+    private List<MemberData> bnr;
+    private List<PhotoUrlData> bns;
+    private int bnt;
+    private int bnu;
+    private boolean bnv;
+    private boolean bnw;
+    private boolean bnx;
+    private boolean bny;
+    private GroupActivityData bnz;
     private boolean isMemGroup;
 
-    public GroupActivityData SD() {
-        return this.bkU;
+    public GroupActivityData TQ() {
+        return this.bnz;
     }
 
     public void a(GroupActivityData groupActivityData) {
-        this.bkU = groupActivityData;
+        this.bnz = groupActivityData;
     }
 
     public GroupData getGroup() {
-        return this.bkL;
+        return this.bnq;
     }
 
     public void setGroup(GroupData groupData) {
-        this.bkL = groupData;
+        this.bnq = groupData;
     }
 
-    public List<MemberData> SE() {
-        return this.bkM;
+    public List<MemberData> TR() {
+        return this.bnr;
     }
 
-    public void aH(List<MemberData> list) {
-        this.bkM = list;
+    public void aG(List<MemberData> list) {
+        this.bnr = list;
     }
 
-    public List<PhotoUrlData> SF() {
-        return this.bkN;
+    public List<PhotoUrlData> TS() {
+        return this.bns;
     }
 
-    public void aI(List<PhotoUrlData> list) {
-        this.bkN = list;
+    public void aH(List<PhotoUrlData> list) {
+        this.bns = list;
     }
 
-    public int SG() {
-        return this.bkO;
+    public int TT() {
+        return this.bnt;
     }
 
-    public void gc(int i) {
-        this.bkO = i;
+    public void gt(int i) {
+        this.bnt = i;
     }
 
-    public int SH() {
-        return this.bkP;
+    public int TU() {
+        return this.bnu;
     }
 
-    public void gd(int i) {
-        this.bkP = i;
+    public void gu(int i) {
+        this.bnu = i;
     }
 
-    public boolean SI() {
-        return this.bkQ;
+    public boolean TV() {
+        return this.bnv;
     }
 
-    public void cP(boolean z) {
-        this.bkQ = z;
+    public void da(boolean z) {
+        this.bnv = z;
     }
 
-    public boolean SJ() {
-        return this.bkR;
+    public boolean TW() {
+        return this.bnw;
     }
 
-    public void cQ(boolean z) {
-        this.bkR = z;
+    public void db(boolean z) {
+        this.bnw = z;
     }
 
-    public boolean SK() {
-        return this.bkS;
+    public boolean TX() {
+        return this.bnx;
     }
 
-    public void cR(boolean z) {
-        this.bkS = z;
+    public void dc(boolean z) {
+        this.bnx = z;
     }
 
     public boolean isMemGroup() {
@@ -99,11 +99,11 @@ public class k {
         this.isMemGroup = z;
     }
 
-    public boolean SL() {
-        return this.bkT;
+    public boolean TY() {
+        return this.bny;
     }
 
-    public void cS(boolean z) {
-        this.bkT = z;
+    public void dd(boolean z) {
+        this.bny = z;
     }
 }

@@ -1,28 +1,28 @@
 package com.baidu.tieba.square;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.adp.widget.t;
+import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
-public class SquareViewPager extends ViewPager {
-    private boolean Yg;
-    private t Yi;
+public class SquareViewPager extends TbViewPager {
+    private boolean YT;
+    private t YV;
 
     public SquareViewPager(Context context) {
         super(context);
-        this.Yg = true;
+        this.YT = true;
     }
 
     public SquareViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Yg = true;
+        this.YT = true;
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Yg) {
+        if (this.YT) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -30,28 +30,28 @@ public class SquareViewPager extends ViewPager {
         }
         int action = motionEvent.getAction();
         if (action == 3 || action == 1) {
-            if (this.Yi != null) {
-                this.Yi.nD();
+            if (this.YV != null) {
+                this.YV.nU();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (action) {
             case 0:
-                if (this.Yi != null) {
-                    this.Yi.nE();
+                if (this.YV != null) {
+                    this.YV.nV();
                     break;
                 }
                 break;
             case 1:
             default:
-                if (this.Yi != null) {
-                    this.Yi.nD();
+                if (this.YV != null) {
+                    this.YV.nU();
                     break;
                 }
                 break;
             case 2:
-                if (this.Yi != null) {
-                    this.Yi.nE();
+                if (this.YV != null) {
+                    this.YV.nV();
                     break;
                 }
                 break;
@@ -59,9 +59,9 @@ public class SquareViewPager extends ViewPager {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Yg) {
+        if (this.YT) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -69,26 +69,26 @@ public class SquareViewPager extends ViewPager {
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.Yi != null) {
-                    this.Yi.nE();
+                if (this.YV != null) {
+                    this.YV.nV();
                     break;
                 }
                 break;
             case 1:
-                if (this.Yi != null) {
-                    this.Yi.nD();
+                if (this.YV != null) {
+                    this.YV.nU();
                     break;
                 }
                 break;
             case 2:
-                if (this.Yi != null) {
-                    this.Yi.nE();
+                if (this.YV != null) {
+                    this.YV.nV();
                     break;
                 }
                 break;
             default:
-                if (this.Yi != null) {
-                    this.Yi.nD();
+                if (this.YV != null) {
+                    this.YV.nU();
                     break;
                 }
                 break;
@@ -97,10 +97,10 @@ public class SquareViewPager extends ViewPager {
     }
 
     public void setSwipeControlInterface(t tVar) {
-        this.Yi = tVar;
+        this.YV = tVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.Yg = z;
+        this.YT = z;
     }
 }

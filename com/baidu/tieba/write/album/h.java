@@ -1,88 +1,172 @@
 package com.baidu.tieba.write.album;
 
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
-import java.util.HashMap;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends PagerAdapter {
-    private int BQ;
-    private com.baidu.tbadk.img.e ctI;
-    private AlbumActivity ctK;
-    private Map<Integer, Boolean> ctY = new HashMap();
-    private List<ImageFileInfo> mList;
-    private int mMaxHeight;
+public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
+    final /* synthetic */ e cyi;
+    private final as cyj;
+    private final String cyk;
+    private String cyl;
+    private List<a> cym;
+    private int cyn = 1;
+    private g cyo = new i(this);
 
-    public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
-        this.ctK = albumActivity;
-        this.ctI = eVar;
-        this.BQ = com.baidu.adp.lib.util.n.M(this.ctK.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.n.N(this.ctK.getPageContext().getContext()) - ((int) this.ctK.getResources().getDimension(com.baidu.tieba.t.album_bottom_height));
+    public h(e eVar, String str, as asVar) {
+        this.cyi = eVar;
+        this.cyj = asVar;
+        this.cyk = str;
     }
 
-    public void setData(List<ImageFileInfo> list) {
-        this.mList = list;
-        notifyDataSetChanged();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        if (this.mList != null) {
-            return this.mList.size();
-        }
-        return 0;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        ((ViewPager) viewGroup).removeView((View) obj);
-    }
-
-    public ImageFileInfo iQ(int i) {
-        if (i < 0 || i >= getCount()) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: k */
+    public List<ImageFileInfo> doInBackground(Void... voidArr) {
+        List<a> arM;
+        if (TextUtils.isEmpty(this.cyk)) {
             return null;
         }
-        return this.mList.get(i);
-    }
-
-    public boolean iR(int i) {
-        if (this.ctY.get(Integer.valueOf(i)) == null) {
-            return false;
+        ArrayList arrayList = new ArrayList();
+        if (this.cyk.equals("-1")) {
+            arM = this.cyi.arM();
+            this.cym = arM;
+            if (this.cym != null) {
+                for (a aVar : this.cym) {
+                    String albumId = aVar.getAlbumId();
+                    if (!TextUtils.isEmpty(albumId)) {
+                        a(arrayList, this.cyo, albumId);
+                    }
+                }
+            }
+            return arrayList;
         }
-        return this.ctY.get(Integer.valueOf(i)).booleanValue();
+        a(arrayList, this.cyo, this.cyk);
+        return arrayList;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = com.baidu.adp.lib.g.b.hH().inflate(this.ctK.getPageContext().getContext(), com.baidu.tieba.w.album_big_image_item, null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.v.big_image);
-        tbImageView.setTag(null);
-        tbImageView.setDefaultResource(0);
-        tbImageView.setDefaultBgResource(0);
-        ImageFileInfo iQ = iQ(i);
-        this.ctY.put(Integer.valueOf(i), false);
-        if (iQ != null) {
-            iQ.clearPageActions();
-            iQ.addPageAction(com.baidu.tbadk.img.effect.d.x(this.BQ, this.mMaxHeight));
-            tbImageView.setTag(iQ.toCachedKey(false));
-            if (this.ctI.a(iQ, false) != null) {
-                tbImageView.invalidate();
-                this.ctY.put(Integer.valueOf(i), true);
-            } else {
-                this.ctI.a(iQ, new i(this, viewGroup, i), false);
+    private void a(List<ImageFileInfo> list, g gVar, String str) {
+        Context context;
+        Context context2;
+        if (list != null) {
+            context = this.cyi.mContext;
+            a(list, gVar, str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            if (list == null || list.size() <= 0) {
+                context2 = this.cyi.mContext;
+                a(list, gVar, str, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             }
         }
-        ((ViewPager) viewGroup).addView(inflate, 0);
-        return inflate;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreCancel() {
+        super.onPreCancel();
+        if (this.cyj != null) {
+            this.cyj.nm();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onProgressUpdate(List<ImageFileInfo>... listArr) {
+        super.onProgressUpdate(listArr);
+        if (listArr.length > 0 && this.cyj != null) {
+            this.cyj.a(this.cym, listArr[0], this.cyl);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: o */
+    public void onPostExecute(List<ImageFileInfo> list) {
+        super.onPostExecute(list);
+        if (this.cyj != null) {
+            this.cyj.a(this.cym, list, this.cyl);
+        }
+    }
+
+    private void a(List<ImageFileInfo> list, g gVar) {
+        if (list != null && gVar != null) {
+            if (this.cyn == 1 || this.cyn == 2) {
+                if (list.size() / this.cyn > 50) {
+                    if (gVar != null) {
+                        gVar.bc(list);
+                    }
+                    this.cyn++;
+                }
+            } else if (list.size() / this.cyn > 500) {
+                if (gVar != null) {
+                    gVar.bc(list);
+                }
+                this.cyn++;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0082 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v3, types: [android.database.Cursor] */
+    private void a(List<ImageFileInfo> list, g gVar, String str, Context context, Uri uri) {
+        Cursor cursor;
+        if (list != null) {
+            ?? r1 = "bucket_display_name";
+            try {
+                try {
+                    cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
+                    try {
+                        if (cursor.moveToFirst()) {
+                            int columnIndex = cursor.getColumnIndex("_data");
+                            int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
+                            do {
+                                String string = cursor.getString(columnIndex);
+                                this.cyl = cursor.getString(columnIndex2);
+                                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                                imageFileInfo.setAlbumnId(str);
+                                imageFileInfo.setFilePath(string);
+                                File file = new File(string);
+                                if (file.exists() && file.length() > 0) {
+                                    list.add(imageFileInfo);
+                                    a(list, gVar);
+                                }
+                            } while (cursor.moveToNext());
+                            com.baidu.adp.lib.g.a.b(cursor);
+                        }
+                        com.baidu.adp.lib.g.a.b(cursor);
+                    } catch (Exception e) {
+                        e = e;
+                        BdLog.detailException(e);
+                        com.baidu.adp.lib.g.a.b(cursor);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.adp.lib.g.a.b((Cursor) r1);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                r1 = 0;
+                com.baidu.adp.lib.g.a.b((Cursor) r1);
+                throw th;
+            }
+        }
     }
 }

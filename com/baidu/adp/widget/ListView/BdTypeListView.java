@@ -8,29 +8,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    al Is;
+    al Ii;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Is = null;
+        this.Ii = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Is = null;
+        this.Ii = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Is = null;
+        this.Ii = null;
         init();
     }
 
     private void init() {
-        if (this.Is == null) {
-            this.Is = new al();
+        if (this.Ii == null) {
+            this.Ii = new al();
         }
         super.setOnItemClickListener(new ag(this));
         super.setOnItemLongClickListener(new ah(this));
@@ -46,23 +46,23 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void g(List<a> list) {
+    public void h(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Is.a(it.next());
+            this.Ii.a(it.next());
         }
-        setAdapter((ListAdapter) this.Is);
+        setAdapter((ListAdapter) this.Ii);
     }
 
     public void setData(List<ai> list) {
-        this.Is.setData(list);
+        this.Ii.setData(list);
     }
 
     public List<ai> getData() {
-        return this.Is.getData();
+        return this.Ii.getData();
     }
 
-    public ai aA(int i) {
-        return this.Is.getItem(i);
+    public ai ay(int i) {
+        return this.Ii.getItem(i);
     }
 }

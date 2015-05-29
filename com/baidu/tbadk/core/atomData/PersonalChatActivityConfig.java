@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 /* loaded from: classes.dex */
-public class PersonalChatActivityConfig extends a {
+public class PersonalChatActivityConfig extends c {
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
     public static final String KEY_IS_FRIEND = "key_is_friend";
@@ -27,7 +27,7 @@ public class PersonalChatActivityConfig extends a {
         UserData userData = new UserData(j, str, str2, i);
         this.mUserData = userData;
         Intent intent = getIntent();
-        intent.putExtra(a.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(c.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("chat_mode", 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
@@ -40,7 +40,7 @@ public class PersonalChatActivityConfig extends a {
         UserData userData = new UserData(j, str, str2, i);
         this.mUserData = userData;
         Intent intent = getIntent();
-        intent.putExtra(a.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(c.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("chat_mode", 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());

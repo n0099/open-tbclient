@@ -11,13 +11,13 @@ import com.baidu.tbadk.img.ImageUploadResult;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, ImageUploadResult> {
-    final /* synthetic */ a cqu;
-    private boolean cqs = false;
-    com.baidu.tieba.tbadkCore.d.a cqt = new com.baidu.tieba.tbadkCore.d.a();
-    Bitmap arB = null;
+    final /* synthetic */ a cuy;
+    private boolean cuw = false;
+    com.baidu.tieba.tbadkCore.d.a cux = new com.baidu.tieba.tbadkCore.d.a();
+    Bitmap ate = null;
 
     public b(a aVar) {
-        this.cqu = aVar;
+        this.cuy = aVar;
         setPriority(3);
     }
 
@@ -38,49 +38,49 @@ public class b extends BdAsyncTask<Void, Void, ImageUploadResult> {
         String str6;
         String str7;
         ImageUploadResult a2;
-        str = this.cqu.cqm;
-        boolean cu = o.cu(str);
-        if (this.cqs) {
+        str = this.cuy.cuq;
+        boolean cJ = o.cJ(str);
+        if (this.cuw) {
             return null;
         }
-        bArr = this.cqu.cqn;
+        bArr = this.cuy.cur;
         if (bArr != null) {
-            bArr2 = this.cqu.cqn;
+            bArr2 = this.cuy.cur;
             if (bArr2.length > 0) {
-                bArr3 = this.cqu.cqn;
-                this.arB = com.baidu.tbadk.core.util.c.w(bArr3);
-                if (this.arB != null) {
-                    this.cqu.cql = o.a(TbConfig.IMAGE_RESIZED_FILE, this.arB, 80);
-                    str6 = this.cqu.cql;
+                bArr3 = this.cuy.cur;
+                this.ate = com.baidu.tbadk.core.util.c.w(bArr3);
+                if (this.ate != null) {
+                    this.cuy.cup = o.a(TbConfig.IMAGE_RESIZED_FILE, this.ate, 80);
+                    str6 = this.cuy.cup;
                     if (TextUtils.isEmpty(str6)) {
-                        if (this.arB == null || this.arB.isRecycled()) {
+                        if (this.ate == null || this.ate.isRecycled()) {
                             return null;
                         }
-                        this.arB.recycle();
+                        this.ate.recycle();
                         return null;
                     }
-                    a aVar = this.cqu;
-                    str7 = this.cqu.cql;
-                    a2 = aVar.a(str7, this.cqt);
+                    a aVar = this.cuy;
+                    str7 = this.cuy.cup;
+                    a2 = aVar.a(str7, this.cux);
                     return a2;
                 }
                 return null;
             }
         }
-        str2 = this.cqu.cqm;
-        if (TextUtils.isEmpty(str2) || !cu) {
+        str2 = this.cuy.cuq;
+        if (TextUtils.isEmpty(str2) || !cJ) {
             return null;
         }
-        str3 = this.cqu.cqm;
+        str3 = this.cuy.cuq;
         Uri parse = Uri.parse(str3);
-        this.cqu.cql = o.c(TbadkCoreApplication.m411getInst().getApp(), parse);
-        str4 = this.cqu.cql;
+        this.cuy.cup = o.c(TbadkCoreApplication.m411getInst().getApp(), parse);
+        str4 = this.cuy.cup;
         if (TextUtils.isEmpty(str4)) {
             return null;
         }
-        a aVar2 = this.cqu;
-        str5 = this.cqu.cql;
-        a = aVar2.a(str5, this.cqt);
+        a aVar2 = this.cuy;
+        str5 = this.cuy.cup;
+        a = aVar2.a(str5, this.cux);
         return a;
     }
 
@@ -88,20 +88,20 @@ public class b extends BdAsyncTask<Void, Void, ImageUploadResult> {
     public void cancel() {
         c cVar;
         c cVar2;
-        this.cqs = true;
-        if (this.cqt != null) {
-            this.cqt.cancel();
+        this.cuw = true;
+        if (this.cux != null) {
+            this.cux.cancel();
         }
-        cVar = this.cqu.cqo;
+        cVar = this.cuy.cus;
         if (cVar != null) {
-            cVar2 = this.cqu.cqo;
+            cVar2 = this.cuy.cus;
             cVar2.a(null, true);
         }
-        if (this.arB != null && !this.arB.isRecycled()) {
-            this.arB.recycle();
+        if (this.ate != null && !this.ate.isRecycled()) {
+            this.ate.recycle();
         }
         super.cancel();
-        this.cqu.cqj = null;
+        this.cuy.cun = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -112,14 +112,14 @@ public class b extends BdAsyncTask<Void, Void, ImageUploadResult> {
         c cVar;
         c cVar2;
         super.onPostExecute(imageUploadResult);
-        if (!this.cqs) {
-            cVar = this.cqu.cqo;
+        if (!this.cuw) {
+            cVar = this.cuy.cus;
             if (cVar != null) {
-                cVar2 = this.cqu.cqo;
+                cVar2 = this.cuy.cus;
                 cVar2.a(imageUploadResult, false);
             }
-            if (this.arB != null && !this.arB.isRecycled()) {
-                this.arB.recycle();
+            if (this.ate != null && !this.ate.isRecycled()) {
+                this.ate.recycle();
             }
         }
     }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.game.GameInfoData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static HashMap<String, e> coG;
+    private static HashMap<String, e> csH;
 
     static {
         MessageManager.getInstance().registerListener(new c(2001011));
-        coG = new HashMap<>();
+        csH = new HashMap<>();
     }
 
     public static void g(String str, String str2, boolean z) {
@@ -19,8 +19,8 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!coG.containsKey(str3)) {
-            coG.put(str3, new e(str, str2, z));
+        if (!csH.containsKey(str3)) {
+            csH.put(str3, new e(str, str2, z));
         }
     }
 
@@ -29,38 +29,38 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!coG.containsKey(str3)) {
-            coG.put(str3, new e(str, str2, z));
+        if (!csH.containsKey(str3)) {
+            csH.put(str3, new e(str, str2, z));
         }
-        return coG.get(str3);
+        return csH.get(str3);
     }
 
-    public static void iw(int i) {
-        for (String str : coG.keySet()) {
-            a(coG.get(str), i);
+    public static void iS(int i) {
+        for (String str : csH.keySet()) {
+            a(csH.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.coK;
-        d dVar2 = eVar.coL;
-        d dVar3 = eVar.coM;
+        d dVar = eVar.csL;
+        d dVar2 = eVar.csM;
+        d dVar3 = eVar.csN;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             q qVar = new q("dbg");
             qVar.r("act", eVar.type);
-            qVar.r("httpTimeCost", String.valueOf(dVar.coH));
+            qVar.r("httpTimeCost", String.valueOf(dVar.csI));
             qVar.r("httpNum", String.valueOf(dVar.num));
-            qVar.r("httpFailnum", String.valueOf(dVar.coI));
+            qVar.r("httpFailnum", String.valueOf(dVar.csJ));
             qVar.r("httpSize", String.valueOf(dVar.size));
-            qVar.r("socketTimeCost", String.valueOf(dVar2.coH));
+            qVar.r("socketTimeCost", String.valueOf(dVar2.csI));
             qVar.r("socketNum", String.valueOf(dVar2.num));
-            qVar.r("socketFailnum", String.valueOf(dVar2.coI));
+            qVar.r("socketFailnum", String.valueOf(dVar2.csJ));
             qVar.r("socketSize", String.valueOf(dVar2.size));
-            qVar.r("abortTimeCost", String.valueOf(dVar3.coH));
+            qVar.r("abortTimeCost", String.valueOf(dVar3.csI));
             qVar.r("abortNum", String.valueOf(dVar3.num));
-            qVar.r("netType", eVar.bja);
-            qVar.r("isJson", eVar.coJ ? "1" : GameInfoData.NOT_FROM_DETAIL);
-            f.hP().a("frs", qVar);
+            qVar.r("netType", eVar.blD);
+            qVar.r("isJson", eVar.csK ? "1" : GameInfoData.NOT_FROM_DETAIL);
+            f.hz().a("frs", qVar);
             dVar.reset();
             dVar2.reset();
             dVar3.reset();

@@ -1,21 +1,23 @@
 package com.baidu.tieba.account.login;
-/* loaded from: classes.dex */
-class j {
-    String So;
-    boolean awK;
-    final /* synthetic */ Login2Activity axg;
-    int axh;
-    int axi;
-    String mAccount;
-    String mPassword;
-    String mVcode;
 
-    private j(Login2Activity login2Activity) {
-        this.axg = login2Activity;
-    }
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.view.x;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class j implements x {
+    final /* synthetic */ Login2Activity ayM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(Login2Activity login2Activity, j jVar) {
-        this(login2Activity);
+    public j(Login2Activity login2Activity) {
+        this.ayM = login2Activity;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.x
+    public void g(AccountData accountData) {
+        com.baidu.tbadk.core.a.d.b(accountData);
+        TbadkCoreApplication.setCurrentAccount(accountData, this.ayM.getBaseContext());
+        this.ayM.vb();
+        this.ayM.uY();
     }
 }

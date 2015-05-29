@@ -1,27 +1,21 @@
 package com.baidu.tieba.pb.chosen.a;
 
 import android.view.View;
-import tbclient.FinePbPage.ForumInfo;
+import tbclient.FinePbPage.User_Info;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e bGI;
-    private final /* synthetic */ ForumInfo bGJ;
+    final /* synthetic */ b bJo;
+    private final /* synthetic */ User_Info bJr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, ForumInfo forumInfo) {
-        this.bGI = eVar;
-        this.bGJ = forumInfo;
+    public f(b bVar, User_Info user_Info) {
+        this.bJo = bVar;
+        this.bJr = user_Info;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        i iVar;
-        i iVar2;
-        iVar = this.bGI.bGE;
-        if (iVar != null) {
-            iVar2 = this.bGI.bGE;
-            iVar2.b(this.bGJ.fromfid.longValue(), this.bGJ.originalurl);
-        }
+        this.bJo.d(this.bJr.id.longValue(), this.bJr.name);
     }
 }

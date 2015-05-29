@@ -2,17 +2,17 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ PbEditor cmW;
-    private final /* synthetic */ int cmX;
+    final /* synthetic */ PbEditor cqV;
+    private final /* synthetic */ int cqW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbEditor pbEditor, int i) {
-        this.cmW = pbEditor;
-        this.cmX = i;
+        this.cqV = pbEditor;
+        this.cqW = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.cmW.a(this.cmX, new t(this));
+        this.cqV.a(this.cqW, new t(this));
     }
 }

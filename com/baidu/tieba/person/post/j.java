@@ -3,14 +3,14 @@ package com.baidu.tieba.person.post;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends a {
-    private View bGM;
-    private View bGN;
-    public ReplyLinearLayout bRF;
-    public TextView bRG;
+    public ReplyLinearLayout bUk;
+    public TextView bUl;
+    private View bUm;
+    private View bUn;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -19,20 +19,20 @@ public class j extends a {
     public j(View view) {
         super(view, r0);
         TbPageContext tbPageContext;
-        tbPageContext = g.XG;
-        this.bRF = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.v.content_container);
-        this.bRG = (TextView) view.findViewById(com.baidu.tieba.v.original_post_title);
-        this.bGM = view.findViewById(com.baidu.tieba.v.reply_top_line);
-        this.bGN = view.findViewById(com.baidu.tieba.v.reply_bottom_line);
-        this.bRG.setOnClickListener(this);
+        tbPageContext = g.Yt;
+        this.bUk = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.q.content_container);
+        this.bUl = (TextView) view.findViewById(com.baidu.tieba.q.original_post_title);
+        this.bUm = view.findViewById(com.baidu.tieba.q.reply_top_line);
+        this.bUn = view.findViewById(com.baidu.tieba.q.reply_bottom_line);
+        this.bUl.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.person.post.a
-    public void ct(int i) {
-        super.ct(i);
-        ba.i((View) this.bRG, com.baidu.tieba.s.cp_bg_line_e);
-        ba.b(this.bRG, com.baidu.tieba.s.cp_cont_b, 1);
-        ba.i(this.bGM, com.baidu.tieba.s.cp_bg_line_b);
-        ba.i(this.bGN, com.baidu.tieba.s.cp_bg_line_b);
+    public void cy(int i) {
+        super.cy(i);
+        ay.i((View) this.bUl, com.baidu.tieba.n.cp_bg_line_e);
+        ay.b(this.bUl, com.baidu.tieba.n.cp_cont_b, 1);
+        ay.i(this.bUm, com.baidu.tieba.n.cp_bg_line_b);
+        ay.i(this.bUn, com.baidu.tieba.n.cp_bg_line_b);
     }
 }

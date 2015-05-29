@@ -5,13 +5,12 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.v;
-import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.game.GameInfoData;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -21,12 +20,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<String, Integer, String> {
-    private aa ZF = null;
-    final /* synthetic */ FatalErrorService bZo;
+    private aa aaG = null;
+    final /* synthetic */ FatalErrorService cdA;
     Intent intent;
 
     public e(FatalErrorService fatalErrorService, Intent intent) {
-        this.bZo = fatalErrorService;
+        this.cdA = fatalErrorService;
         this.intent = intent;
     }
 
@@ -101,12 +100,12 @@ class e extends BdAsyncTask<String, Integer, String> {
                                     }
                                     return;
                                 }
-                                this.ZF = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-                                this.ZF.g("logfile", byteArray);
+                                this.aaG = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+                                this.aaG.d("logfile", byteArray);
                                 if (!TextUtils.isEmpty(str2) && !GameInfoData.NOT_FROM_DETAIL.equals(str2)) {
-                                    this.ZF.o("errortype", str2);
+                                    this.aaG.o("errortype", str2);
                                 }
-                                this.ZF.rR();
+                                this.aaG.sz();
                                 if (byteArrayOutputStream2 != null) {
                                     byteArrayOutputStream2.close();
                                     byteArrayOutputStream3 = null;
@@ -175,9 +174,9 @@ class e extends BdAsyncTask<String, Integer, String> {
                                     fileInputStream2 = fileInputStream;
                                 }
                                 try {
-                                    if (this.ZF.sp().tq().pv()) {
+                                    if (this.aaG.sX().tT().qa()) {
                                         if (z2) {
-                                            t(file);
+                                            v(file);
                                         }
                                         FileWriter fileWriter3 = new FileWriter(file, false);
                                         try {
@@ -286,7 +285,7 @@ class e extends BdAsyncTask<String, Integer, String> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void t(File file) {
+    private void v(File file) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
@@ -345,17 +344,17 @@ class e extends BdAsyncTask<String, Integer, String> {
         File[] listFiles;
         boolean z = true;
         try {
-            a(com.baidu.tbadk.core.util.o.cm(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, GameInfoData.NOT_FROM_DETAIL, true, true);
-            a(com.baidu.tbadk.core.util.o.cm(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", GameInfoData.NOT_FROM_DETAIL, false, false);
-            if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.rB().getString("native_crash_dump_version", ""))) {
-                com.baidu.tbadk.core.sharedPref.b.rB().putString("native_crash_dump_version", TbConfig.getVersion());
+            a(com.baidu.tbadk.core.util.o.cB(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, GameInfoData.NOT_FROM_DETAIL, true, true);
+            a(com.baidu.tbadk.core.util.o.cB(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", GameInfoData.NOT_FROM_DETAIL, false, false);
+            if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.sl().getString("native_crash_dump_version", ""))) {
+                com.baidu.tbadk.core.sharedPref.b.sl().putString("native_crash_dump_version", TbConfig.getVersion());
                 z = false;
             }
-            File cm = com.baidu.tbadk.core.util.o.cm(TbConfig.FATAL_ERROR_NATIVE_DIR);
-            if (cm != null) {
-                for (File file : cm.listFiles()) {
+            File cB = com.baidu.tbadk.core.util.o.cB(TbConfig.FATAL_ERROR_NATIVE_DIR);
+            if (cB != null) {
+                for (File file : cB.listFiles()) {
                     if (file.length() >= 1024 && z) {
-                        u(file);
+                        w(file);
                         a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                     } else {
                         file.delete();
@@ -370,7 +369,7 @@ class e extends BdAsyncTask<String, Integer, String> {
         }
     }
 
-    private void u(File file) {
+    private void w(File file) {
         FileWriter fileWriter;
         if (file != null && file.exists() && file.isFile()) {
             try {
@@ -379,21 +378,21 @@ class e extends BdAsyncTask<String, Integer, String> {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, bd.sW(), null);
+                            a(fileWriter, bb.tz(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
                             a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                             a(fileWriter, "from", TbConfig.getFrom());
                             a(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                            a(fileWriter, SapiAccountManager.SESSION_UID, this.intent.getStringExtra(SapiAccountManager.SESSION_UID));
+                            a(fileWriter, "uid", this.intent.getStringExtra("uid"));
                             a(fileWriter, "imei", TbadkCoreApplication.m411getInst().getImei());
                             a(fileWriter, "uname", this.intent.getStringExtra("uname"));
-                            v.a(fileWriter);
+                            w.a(fileWriter);
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            v.a(fileWriter);
+                            w.a(fileWriter);
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -401,7 +400,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                     } catch (Throwable th) {
                         th = th;
                         fileWriter = null;
-                        v.a(fileWriter);
+                        w.a(fileWriter);
                         throw th;
                     }
                 }
@@ -426,12 +425,12 @@ class e extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.ZF != null) {
-            this.ZF.hh();
+        if (this.aaG != null) {
+            this.aaG.gS();
         }
-        this.bZo.mTask = null;
+        this.cdA.mTask = null;
         super.cancel(true);
-        this.bZo.stopSelf();
+        this.cdA.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -439,7 +438,7 @@ class e extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((e) str);
-        this.bZo.mTask = null;
-        this.bZo.stopSelf();
+        this.cdA.mTask = null;
+        this.cdA.stopSelf();
     }
 }

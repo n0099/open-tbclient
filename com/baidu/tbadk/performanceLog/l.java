@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ h aoT;
+    final /* synthetic */ h apY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(h hVar, int i) {
         super(i);
-        this.aoT = hVar;
+        this.apY = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,13 +19,13 @@ public class l extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         m mVar;
         int i;
-        if (customResponsedMessage != null && (mVar = (m) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aoT.mId) {
-            h hVar = this.aoT;
-            i = hVar.aoN;
-            hVar.aoN = i + 1;
-            this.aoT.eF(mVar.aoU);
-            this.aoT.ea(mVar.aoV);
-            this.aoT.Cz();
+        if (customResponsedMessage != null && (mVar = (m) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.apY.mId) {
+            h hVar = this.apY;
+            i = hVar.apS;
+            hVar.apS = i + 1;
+            this.apY.eW(mVar.apZ);
+            this.apY.ek(mVar.aqa);
+            this.apY.Dk();
         }
     }
 }

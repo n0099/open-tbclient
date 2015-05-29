@@ -13,15 +13,15 @@ public class d {
 
     public static AccountData h(String str, String str2, String str3) {
         aa aaVar = new aa(TbConfig.LOGIN_FULL_ADDRESS);
-        aaVar.sp().tp().mIsUseCurrentBDUSS = false;
+        aaVar.sX().tS().mIsUseCurrentBDUSS = false;
         aaVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
         aaVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
         aaVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        aaVar.sp().tp().VW = false;
-        String rO = aaVar.rO();
-        if (aaVar.sp().tq().pv() && rO != null) {
+        aaVar.sX().tS().WD = false;
+        String sw = aaVar.sw();
+        if (aaVar.sX().tT().qa() && sw != null) {
             n nVar = new n();
-            nVar.parserJson(rO);
+            nVar.parserJson(sw);
             AccountData accountData = new AccountData();
             accountData.setAccount(nVar.getUser().getUserName());
             accountData.setPassword("");
@@ -29,8 +29,8 @@ public class d {
             accountData.setBDUSS(nVar.getUser().getBDUSS());
             accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (nVar.qe() != null) {
-                accountData.setTbs(nVar.qe().getTbs());
+            if (nVar.qK() != null) {
+                accountData.setTbs(nVar.qK().getTbs());
                 return accountData;
             }
             return accountData;

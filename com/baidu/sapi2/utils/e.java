@@ -1,36 +1,42 @@
 package com.baidu.sapi2.utils;
+
+import android.text.TextUtils;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.utils.enums.SocialType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public interface e {
-    public static final String A = "/v2/security/sapibindwidgetsend";
-    public static final String B = "/v2/security/sapibindwidgetbind";
-    public static final String C = "/v2/sapi/getvoiceid";
-    public static final String D = "/v2/sapi/regvoice";
-    public static final String E = "/v2/sapi/voicelogin";
-    public static final String F = "baiduvoice35hy12";
-    public static final String a = "/v2/sapi/login";
-    public static final String b = "http://119.75.220.29";
-    public static final String c = "http://220.181.111.48";
-    public static final String d = "http://123.125.115.81";
-    public static final String e = "2512457640";
-    public static final String f = "/phoenix/account/ssologin";
-    public static final String g = "/phoenix/account/ssologin";
-    public static final String h = "/phoenix/account/startlogin";
-    public static final String i = "/phoenix/account/afterauth";
-    public static final String j = "/phoenix/account/finishbind";
-    public static final String k = "/v2/sapi/qrlogin?lp=pc";
-    public static final String l = "/v2/sapi/qrlogin?lp=app";
-    public static final String m = "/v2/sapi/smsgetlogin";
-    public static final String n = "10698000036592";
-    public static final String o = "/v2/sapi/getdpass";
-    public static final String p = "AES/CBC/PKCS5Padding";
-    public static final String q = "AES";
-    public static final String r = "8070605040302010";
-    public static final String s = "js52je)927!hsm^%3m";
-    public static final String t = "AES/CBC/NoPadding";
-    public static final String u = "/static/appsapi/conf/config.txt";
-    public static final String v = "/yunid/device/service/status";
-    public static final String w = "/yunid/device/reg";
-    public static final String x = "/yunid/device/login";
-    public static final String y = "/yunid/device/forcereg";
-    public static final String z = "/v2/sapi/bdussexchangeaccesstoken";
+public class e {
+    public static final String a = "is_social_account";
+    public static final String b = "social_type";
+    public static final String c = "social_portrait";
+
+    public static void a(SapiAccount sapiAccount, SocialType socialType, String str) {
+        a(sapiAccount, a, (Object) true);
+        a(sapiAccount, b, Integer.valueOf(socialType.getType()));
+        a(sapiAccount, c, str);
+    }
+
+    public static void a(SapiAccount sapiAccount, String str, Object obj) {
+        if (sapiAccount != null && !TextUtils.isEmpty(str) && obj != null) {
+            if (TextUtils.isEmpty(sapiAccount.extra)) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, obj);
+                    sapiAccount.extra = jSONObject.toString();
+                    return;
+                } catch (JSONException e) {
+                    L.e(e);
+                    return;
+                }
+            }
+            try {
+                JSONObject jSONObject2 = new JSONObject(sapiAccount.extra);
+                jSONObject2.put(str, obj);
+                sapiAccount.extra = jSONObject2.toString();
+            } catch (JSONException e2) {
+                L.e(e2);
+            }
+        }
+    }
 }

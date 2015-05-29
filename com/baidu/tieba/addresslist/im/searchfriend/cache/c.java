@@ -10,12 +10,12 @@ public class c implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         com.baidu.tieba.addresslist.im.searchfriend.a.a friendInfo;
-        com.baidu.tbadk.core.b.a rc;
-        t<String> bX;
-        if (customMessage != null && (customMessage instanceof RequestRecommendWriteMessage) && (friendInfo = ((RequestRecommendWriteMessage) customMessage).getFriendInfo()) != null && (rc = com.baidu.tbadk.core.b.a.rc()) != null && (bX = rc.bX("tb.recommend_friend")) != null) {
+        com.baidu.tbadk.core.b.a rI;
+        t<String> ck;
+        if (customMessage != null && (customMessage instanceof RequestRecommendWriteMessage) && (friendInfo = ((RequestRecommendWriteMessage) customMessage).getFriendInfo()) != null && (rI = com.baidu.tbadk.core.b.a.rI()) != null && (ck = rI.ck("tb.recommend_friend")) != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            bX.remove(currentAccount);
-            bX.f(currentAccount, friendInfo.Fo().toString());
+            ck.remove(currentAccount);
+            ck.f(currentAccount, friendInfo.Gh().toString());
         }
         return null;
     }

@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 /* loaded from: classes.dex */
-class ae implements View.OnClickListener {
-    final /* synthetic */ ab auk;
+class ae implements Runnable {
+    final /* synthetic */ ad avX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar) {
-        this.auk = abVar;
+    public ae(ad adVar) {
+        this.avX = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ag agVar;
-        agVar = this.auk.auh;
-        agVar.Ed();
+    @Override // java.lang.Runnable
+    public void run() {
+        UpdateDialog updateDialog;
+        VersionData versionData;
+        UpdateDialog updateDialog2;
+        updateDialog = this.avX.this$0;
+        versionData = updateDialog.avT;
+        if (versionData.forceUpdate()) {
+            updateDialog2 = this.avX.this$0;
+            com.baidu.tbadk.core.c.b.e(updateDialog2.getPageContext().getPageActivity(), 200);
+        }
     }
 }

@@ -2,22 +2,22 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements i {
-    final /* synthetic */ BdListView Id;
+    final /* synthetic */ BdListView HT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.Id = bdListView;
+        this.HT = bdListView;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
-    public void mU() {
+    public void nm() {
         Runnable runnable;
         Runnable runnable2;
-        BdListView bdListView = this.Id;
-        runnable = this.Id.preLoadRunnable;
+        BdListView bdListView = this.HT;
+        runnable = this.HT.preLoadRunnable;
         bdListView.removeCallbacks(runnable);
-        BdListView bdListView2 = this.Id;
-        runnable2 = this.Id.preLoadRunnable;
+        BdListView bdListView2 = this.HT;
+        runnable2 = this.HT.preLoadRunnable;
         bdListView2.postDelayed(runnable2, 100L);
     }
 }

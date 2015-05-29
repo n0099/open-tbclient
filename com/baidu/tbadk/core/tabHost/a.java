@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.BaseFragment;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends FragmentPagerAdapter {
-    private List<b> SQ;
+    private List<b> TA;
     private int mPrimaryPosition;
 
     public a(FragmentManager fragmentManager, List<b> list) {
         super(fragmentManager);
         this.mPrimaryPosition = -1;
-        this.SQ = list;
+        this.TA = list;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.SQ.get(i).SS;
+        return this.TA.get(i).TC;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public long getItemId(int i) {
-        return this.SQ.get(i).SS.hashCode();
+        return this.TA.get(i).TC.hashCode();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.SQ.size();
+        return this.TA.size();
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -40,7 +40,9 @@ public class a extends FragmentPagerAdapter {
                 ((BaseFragment) getItem(this.mPrimaryPosition)).setPrimary(false);
             }
             this.mPrimaryPosition = i;
-            ((BaseFragment) obj).setPrimary(true);
+            if (obj instanceof BaseFragment) {
+                ((BaseFragment) obj).setPrimary(true);
+            }
         }
     }
 }

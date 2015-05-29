@@ -6,21 +6,21 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.bo;
+import com.baidu.tieba.person.ch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements bo {
-    final /* synthetic */ k bRR;
+public class l implements ch {
+    final /* synthetic */ k bUy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bRR = kVar;
+        this.bUy = kVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0038, code lost:
         if (com.baidu.adp.lib.util.StringUtils.isNull(r5.getErrorString()) != false) goto L33;
      */
-    @Override // com.baidu.tieba.person.bo
+    @Override // com.baidu.tieba.person.ch
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -35,55 +35,55 @@ public class l implements bo {
         BdListView bdListView3;
         BdListView bdListView4;
         boolean z2;
-        if (this.bRR.isAdded()) {
-            progressBar = this.bRR.mProgressBar;
+        if (this.bUy.isAdded()) {
+            progressBar = this.bUy.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.bRR.bRI;
-            bdListView.mW();
+            bdListView = this.bUy.bUp;
+            bdListView.completePullRefresh();
             if (personPostModel != null) {
-                if (k.aU(personPostModel.post_list) == 0) {
-                    z2 = this.bRR.bRO;
+                if (k.aT(personPostModel.post_list) == 0) {
+                    z2 = this.bUy.bUv;
                     if (z2) {
                     }
                 }
                 if (!StringUtils.isNull(personPostModel.getErrorString())) {
-                    if (k.aU(personPostModel.post_list) == 0) {
-                        this.bRR.mNoDataView.setVisibility(0);
-                        bdListView4 = this.bRR.bRI;
+                    if (k.aT(personPostModel.post_list) == 0) {
+                        this.bUy.mNoDataView.setVisibility(0);
+                        bdListView4 = this.bUy.bUp;
                         bdListView4.setVisibility(0);
                     } else {
-                        this.bRR.mNoDataView.setVisibility(8);
-                        bdListView3 = this.bRR.bRI;
+                        this.bUy.mNoDataView.setVisibility(8);
+                        bdListView3 = this.bUy.bUp;
                         bdListView3.setVisibility(0);
                     }
                     if (personPostModel.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.n.showToast(this.bRR.getActivity(), personPostModel.getErrorString());
+                        com.baidu.adp.lib.util.n.showToast(this.bUy.getActivity(), personPostModel.getErrorString());
                     }
                 }
-                if (k.aU(personPostModel.post_list) < 20) {
-                    if (!com.baidu.adp.lib.util.k.iH()) {
-                        view = this.bRR.bRM;
+                if (k.aT(personPostModel.post_list) < 20) {
+                    if (!com.baidu.adp.lib.util.k.iX()) {
+                        view = this.bUy.bUt;
                         view.setVisibility(8);
                     } else {
-                        this.bRR.bRN = false;
-                        pbListView2 = this.bRR.bRL;
-                        pbListView2.setText(this.bRR.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
-                        view2 = this.bRR.bRM;
+                        this.bUy.bUu = false;
+                        pbListView2 = this.bUy.bUs;
+                        pbListView2.setText(this.bUy.getResources().getString(com.baidu.tieba.t.person_post_reply_no_more));
+                        view2 = this.bUy.bUt;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.bRR.bRL;
-                pbListView.tO();
+                pbListView = this.bUy.bUs;
+                pbListView.ux();
                 if (z) {
-                    this.bRR.bRN = true;
-                    this.bRR.mLastCount = 0;
-                    this.bRR.bRO = false;
+                    this.bUy.bUu = true;
+                    this.bUy.mLastCount = 0;
+                    this.bUy.bUv = false;
                     return;
                 }
                 return;
             }
-            this.bRR.mNoDataView.setVisibility(0);
-            bdListView2 = this.bRR.bRI;
+            this.bUy.mNoDataView.setVisibility(0);
+            bdListView2 = this.bUy.bUp;
             bdListView2.setVisibility(0);
         }
     }

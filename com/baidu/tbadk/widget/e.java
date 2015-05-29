@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 class e extends Thread {
-    final /* synthetic */ a aru;
+    final /* synthetic */ a asX;
 
     private e(a aVar) {
-        this.aru = aVar;
+        this.asX = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,26 +16,26 @@ class e extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        while (a.l(this.aru) == 1 && a.m(this.aru) != null && a.n(this.aru) > 0 && a.o(this.aru) > 0 && a.p(this.aru) > 0) {
+        while (a.l(this.asX) == 1 && a.m(this.asX) != null && a.n(this.asX) > 0 && a.o(this.asX) > 0 && a.p(this.asX) > 0) {
             try {
-                a.m(this.aru).C(a.q(this.aru));
-                f Dv = this.aru.Dv();
-                if (Dv.arB == null || (Dv.arB.getWidth() != a.o(this.aru) && Dv.arB.getHeight() != a.p(this.aru))) {
-                    Dv.arB = Bitmap.createBitmap(a.o(this.aru), a.p(this.aru), Bitmap.Config.ARGB_8888);
+                a.m(this.asX).D(a.q(this.asX));
+                f Ef = this.asX.Ef();
+                if (Ef.ate == null || (Ef.ate.getWidth() != a.o(this.asX) && Ef.ate.getHeight() != a.p(this.asX))) {
+                    Ef.ate = Bitmap.createBitmap(a.o(this.asX), a.p(this.asX), Bitmap.Config.ARGB_8888);
                 }
-                a.m(this.aru).a(Dv.arB, null);
-                Dv.delay = a.m(this.aru).D(a.q(this.aru));
-                a aVar = this.aru;
+                a.m(this.asX).a(Ef.ate, null);
+                Ef.delay = a.m(this.asX).E(a.q(this.asX));
+                a aVar = this.asX;
                 a.a(aVar, a.q(aVar) + 1);
-                if (Dv.arB == null) {
-                    a aVar2 = this.aru;
+                if (Ef.ate == null) {
+                    a aVar2 = this.asX;
                     a.a(aVar2, a.q(aVar2) + 1);
                 }
-                a aVar3 = this.aru;
-                a.a(aVar3, a.q(aVar3) % a.n(this.aru));
-                a.r(this.aru).put(Dv);
-                if (a.c(this.aru)) {
-                    this.aru.mHandler.sendEmptyMessage(1);
+                a aVar3 = this.asX;
+                a.a(aVar3, a.q(aVar3) % a.n(this.asX));
+                a.r(this.asX).put(Ef);
+                if (a.c(this.asX)) {
+                    this.asX.mHandler.sendEmptyMessage(1);
                 }
             } catch (Exception e) {
                 return;

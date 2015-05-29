@@ -118,7 +118,7 @@ final class f {
                     try {
                         byte[] bArr2 = new byte[(int) this.c.length()];
                         fileInputStream.read(bArr2);
-                        fileInputStream2 = a.b(this.a, new String(bArr2));
+                        fileInputStream2 = e.b(this.a, new String(bArr2));
                         this.b = new JSONObject((String) fileInputStream2);
                         if (fileInputStream != null) {
                             try {
@@ -185,7 +185,7 @@ final class f {
                 try {
                     fileWriter = new FileWriter(this.c);
                     try {
-                        fileWriter.write(a.a(this.a, this.b.toString()));
+                        fileWriter.write(e.a(this.a, this.b.toString()));
                         fileWriter.flush();
                         this.d = false;
                         if (fileWriter != 0) {

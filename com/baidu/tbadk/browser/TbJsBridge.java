@@ -7,10 +7,11 @@ import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -22,7 +23,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!bd.isEmpty(str)) {
+        if (!bb.isEmpty(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -30,19 +31,19 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.mActivity, com.baidu.adp.lib.g.c.toInt(String.valueOf(i), 0))));
+        TbadkCoreApplication.m411getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.mActivity, com.baidu.adp.lib.g.c.toInt(String.valueOf(i), 0))));
     }
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-        fVar.title = str;
-        fVar.content = str2;
-        fVar.adu = str4;
-        if (!bd.isEmpty(str3)) {
-            fVar.adv = Uri.parse(str3);
+        com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
+        gVar.title = str;
+        gVar.content = str2;
+        gVar.linkUrl = str4;
+        if (!bb.isEmpty(str3)) {
+            gVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.mActivity, fVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001283, new ShareDialogConfig(this.mActivity, gVar, true)));
     }
 
     @JavascriptInterface

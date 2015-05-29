@@ -17,12 +17,10 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         super(307003);
     }
 
-    @Override // com.baidu.tieba.pb.chosen.net.a
     public long getPreTid() {
         return this.preTid;
     }
 
-    @Override // com.baidu.tieba.pb.chosen.net.a
     public long getNextTid() {
         return this.nextTid;
     }
@@ -60,9 +58,9 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            t<byte[]> bW = com.baidu.tbadk.core.b.a.rc().bW("tb.pb_normal");
-            bW.remove("chosen_pb_page_cache");
-            bW.f("chosen_pb_page_cache", bArr);
+            t<byte[]> cj = com.baidu.tbadk.core.b.a.rI().cj("tb.pb_normal");
+            cj.remove("chosen_pb_page_cache");
+            cj.f("chosen_pb_page_cache", bArr);
         }
     }
 

@@ -27,9 +27,9 @@ public class al extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         ImMessageCenterPojo D;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-            this.this$0.f(socketResponsedMessage);
             ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
             ChatMessage chatMessage = (ChatMessage) responseCommitPersonalMessage.getOrginalMessage();
+            int toUserType = responseCommitPersonalMessage.getToUserType();
             if (socketResponsedMessage.hasError()) {
                 chatMessage.getLocalData().setStatus((short) 2);
             } else {
@@ -39,22 +39,23 @@ public class al extends com.baidu.adp.framework.listener.e {
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
                 if (responseCommitPersonalMessage.getToUserType() == 0) {
-                    com.baidu.tieba.im.c.a.gm(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
+                    com.baidu.tieba.im.c.a.gD(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
                 } else {
-                    com.baidu.tieba.im.c.a.gn(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
+                    com.baidu.tieba.im.c.a.gE(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
                 }
             }
+            com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType);
             if (chatMessage instanceof PersonalChatMessage) {
-                c.Sq().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.TD().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.Sq().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.TD().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                D = c.Sq().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
+                D = c.TD().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                D = c.Sq().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
+                D = c.TD().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
             } else {
                 return;
             }

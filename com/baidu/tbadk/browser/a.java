@@ -1,15 +1,15 @@
 package com.baidu.tbadk.browser;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ BaseWebViewActivity Nn;
+    final /* synthetic */ BaseWebViewActivity NB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaseWebViewActivity baseWebViewActivity) {
-        this.Nn = baseWebViewActivity;
+        this.NB = baseWebViewActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Nn.refresh();
+        this.NB.refresh();
     }
 }

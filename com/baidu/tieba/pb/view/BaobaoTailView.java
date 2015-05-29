@@ -5,36 +5,36 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.s;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
+import com.baidu.tieba.n;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private View.OnClickListener YC;
-    private TbImageView aEZ;
-    private TextView auM;
-    private com.baidu.tbadk.data.a bOJ;
+    private View.OnClickListener ZA;
+    private TbImageView aHg;
+    private TextView awo;
+    private com.baidu.tbadk.data.a bQI;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.YC = new a(this);
+        this.ZA = new a(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.YC = new a(this);
+        this.ZA = new a(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
-        com.baidu.adp.lib.g.b.hH().inflate(getContext(), w.baobao_tail_layout, this);
-        this.aEZ = (TbImageView) findViewById(v.baobao_icon);
-        this.auM = (TextView) findViewById(v.baobao_tail_text);
-        setOnClickListener(this.YC);
+        com.baidu.adp.lib.g.b.hr().inflate(getContext(), r.baobao_tail_layout, this);
+        this.aHg = (TbImageView) findViewById(q.baobao_icon);
+        this.awo = (TextView) findViewById(q.baobao_tail_text);
+        setOnClickListener(this.ZA);
     }
 
     public void setData(com.baidu.tbadk.data.a aVar) {
@@ -42,12 +42,12 @@ public class BaobaoTailView extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.bOJ = aVar;
-        this.auM.setText(aVar.getContent());
-        this.aEZ.c(aVar.getIconUrl(), 10, false);
+        this.bQI = aVar;
+        this.awo.setText(aVar.getContent());
+        this.aHg.c(aVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        ba.b(this.auM, s.cp_link_tip_c, 1);
+        ay.b(this.awo, n.cp_link_tip_c, 1);
     }
 }

@@ -1,49 +1,25 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.discover.data.FoundNewHttpResponsedMessage;
-import com.baidu.tieba.discover.data.FoundNewSocketResponsedMessage;
+import android.widget.ImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class t extends com.baidu.tbadk.mvc.model.e<com.baidu.tieba.discover.data.b, com.baidu.tieba.discover.data.a, BaseFragmentActivity> {
-    public t(TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.discover.data.b bVar) {
-        super(tbPageContext, bVar);
+class t extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oB() {
-        return FoundNewHttpResponsedMessage.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oA() {
-        return FoundNewSocketResponsedMessage.class;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int ox() {
-        return CmdConfigHttp.CMD_FOUND_NEW;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String oy() {
-        return TbConfig.FOUND_NEW_ADDRESS;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<com.baidu.tieba.discover.data.a> getResponseDataClass() {
-        return com.baidu.tieba.discover.data.a.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oz() {
-        return 303023;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImageView imageView;
+        Boolean bool;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
+            DiscoverDelegateStatic.aDW = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).amQ);
+            imageView = DiscoverDelegateStatic.aDV;
+            bool = DiscoverDelegateStatic.aDW;
+            imageView.setVisibility(bool.booleanValue() ? 0 : 8);
+        }
     }
 }

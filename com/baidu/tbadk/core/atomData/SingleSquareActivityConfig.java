@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.frameworkData.c;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
-public class SingleSquareActivityConfig extends a {
+public class SingleSquareActivityConfig extends c {
     public static final String BACK_SPECIAL = "back_special";
     public static final String PAGE_NAME = "square_page";
     public static final String START_FROM = "start_from";

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as extends HttpMessageListener {
-    final /* synthetic */ ar cnu;
+    final /* synthetic */ ar crs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public as(ar arVar, int i) {
         super(i);
-        this.cnu = arVar;
+        this.crs = arVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,24 +24,24 @@ public class as extends HttpMessageListener {
         at atVar5;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                atVar = this.cnu.cnt;
+                atVar = this.crs.crr;
                 if (atVar != null) {
-                    atVar2 = this.cnu.cnt;
-                    atVar2.fg(null);
+                    atVar2 = this.crs.crr;
+                    atVar2.fB(null);
                     return;
                 }
                 return;
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                atVar5 = this.cnu.cnt;
-                atVar5.ff(praiseResponseMessage.getErrMsg());
+                atVar5 = this.crs.crr;
+                atVar5.fA(praiseResponseMessage.getErrMsg());
                 return;
             }
-            atVar3 = this.cnu.cnt;
+            atVar3 = this.crs.crr;
             if (atVar3 != null) {
-                atVar4 = this.cnu.cnt;
-                atVar4.fg(praiseResponseMessage.getErrMsg());
+                atVar4 = this.crs.crr;
+                atVar4.fB(praiseResponseMessage.getErrMsg());
             }
         }
     }

@@ -1,33 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class db implements com.baidu.tieba.pb.b.c {
-    final /* synthetic */ cj bMC;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cj cjVar) {
-        this.bMC = cjVar;
-    }
-
-    @Override // com.baidu.tieba.pb.b.c
-    public void KB() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        if (!this.bMC.abg()) {
-            bdTypeListView = this.bMC.aKe;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.bMC.aKe;
-                bdTypeListView2.setSelection(0);
-            }
+public class db implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.pb.b.c
-    public void KA() {
-        PbActivity pbActivity;
-        pbActivity = this.bMC.bIT;
-        pbActivity.Jz();
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] x = bm.abk().x(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(2004003, x);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
+        }
     }
 }

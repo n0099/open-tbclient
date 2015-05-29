@@ -8,6 +8,6 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<g> {
     public static final int TYPE_SEND_MSG = 3;
 
     public MemoryModifyLastMsgMessage(g gVar) {
-        super(2016002, gVar);
+        super(2016003, gVar);
     }
 }

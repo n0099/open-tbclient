@@ -1,54 +1,149 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.Context;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bi {
-    private static String VB;
-    private static String VC;
-    private static final HashMap<String, String> VD = new HashMap<>();
+    private static bi Wl = new bj();
+    private static final Pattern Wn = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private bl Wm;
+    private List<bk> mListeners;
 
-    public static void cO(String str) {
-        VC = str;
+    private bi() {
+        this.mListeners = new LinkedList();
+        this.Wm = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bi(bi biVar) {
+        this();
+    }
+
+    public static SpannableString C(Context context, String str) {
+        int start;
+        Matcher matcher = Wn.matcher(str);
+        SpannableString spannableString = new SpannableString(str);
+        while (matcher.find()) {
+            String group = matcher.group();
+            String group2 = matcher.group();
+            if (!group2.endsWith(" ")) {
+                group2 = String.valueOf(group2) + " ";
+            }
+            int length = group2.length();
+            spannableString.setSpan(new com.baidu.tbadk.widget.richText.h(context, 2, group), matcher.start(), (length + start) - 1, 33);
+        }
+        return spannableString;
+    }
+
+    public static bi tO() {
+        return Wl;
+    }
+
+    public void a(bk bkVar) {
+        if (!this.mListeners.contains(bkVar)) {
+            this.mListeners.add(bkVar);
+        }
+    }
+
+    public void a(bl blVar) {
+        this.Wm = blVar;
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, bm bmVar) {
+        boolean z2;
+        if (strArr != null && strArr.length != 0) {
+            if (this.mListeners == null) {
+                this.mListeners = new LinkedList();
+            }
+            Iterator<bk> it = this.mListeners.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z2 = false;
+                    break;
+                }
+                bk next = it.next();
+                if (next != null && next.a(tbPageContext, strArr)) {
+                    z2 = true;
+                    break;
+                }
+            }
+            if (!z2 && this.Wm != null && tbPageContext != null) {
+                b(tbPageContext, "", strArr[0], z, bmVar);
+            }
+        }
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, bm bmVar) {
+        boolean z2;
+        if (strArr != null && strArr.length != 0 && !TextUtils.isEmpty(strArr[0])) {
+            if (this.mListeners == null) {
+                this.mListeners = new LinkedList();
+            }
+            Iterator<bk> it = this.mListeners.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z2 = false;
+                    break;
+                }
+                bk next = it.next();
+                if (next != null && next.a(tbPageContext, strArr)) {
+                    z2 = true;
+                    break;
+                }
+            }
+            if (!z2 && this.Wm != null) {
+                b(tbPageContext, str, strArr[0], z, bmVar);
+            }
+        }
+    }
+
+    public static Map<String, String> de(String str) {
         if (TextUtils.isEmpty(str)) {
-            VB = str;
-            return;
+            return null;
         }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
-            str = str.substring(lastIndexOf + 1, str.length());
-        }
-        String str2 = "";
-        if (VD != null) {
-            str2 = VD.get(str);
-        }
-        if (str2 == null) {
-            str2 = cP(str);
-            if (VD != null) {
-                VD.put(str, str2);
+        HashMap hashMap = new HashMap();
+        String[] split = str.split("[&]");
+        if (split != null) {
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
             }
+            return hashMap;
         }
-        if (str2 != null) {
-            VB = String.valueOf(str2) + System.currentTimeMillis();
-        }
+        return null;
     }
 
-    private static String cP(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            int length = str.length();
-            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
-                return str.substring(0, length - 8);
-            }
-            return str;
+    public static String df(String str) {
+        String[] split;
+        if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
+            return null;
         }
-        return str;
+        return split[1];
     }
 
-    public static String tj() {
-        return VB;
+    public void b(TbPageContext<?> tbPageContext, String[] strArr) {
+        a(tbPageContext, strArr, false, null);
     }
 
-    public static String tk() {
-        return VC;
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr) {
+        a(tbPageContext, str, strArr, false, null);
+    }
+
+    private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bm bmVar) {
+        if (Wn.matcher(str2).find()) {
+            this.Wm.a(tbPageContext, str, str2, z, bmVar);
+        }
     }
 }

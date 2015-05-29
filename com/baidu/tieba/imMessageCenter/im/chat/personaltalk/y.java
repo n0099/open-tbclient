@@ -1,67 +1,82 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tbadk.data.IconData;
 import java.util.LinkedList;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.IconInfo;
 /* loaded from: classes.dex */
 public class y {
-    private final View LO;
-    private final TextView aHo;
-    private final HeadImageView aIq;
-    private final UserIconBox aOz;
-    private final TextView aYa;
-    private final PersonalTalkSettingActivity bqg;
-    public PersonaltalkSettingViewBlackManView bqk;
-    public PersonalTalkSettingViewSettingView bql;
+    private final View LG;
+    private final TextView aJw;
+    private final HeadImageView aKy;
+    private final UserIconBox aQK;
+    private final TextView baH;
+    private final PersonalTalkSettingActivity bsL;
+    private TbSettingTextTipView bsP;
+    private TbSettingTextTipView bsQ;
+    private RelativeLayout bsR;
+    private LinearLayout bsS;
+    public PersonaltalkSettingViewBlackManView bsT;
+    public PersonalTalkSettingViewSettingView bsU;
     private final NavigationBar mNavigationBar;
 
     public y(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.bqg = personalTalkSettingActivity;
-        this.bqg.setContentView(com.baidu.tieba.w.p2ptalk_setting_activity);
-        this.LO = this.bqg.findViewById(com.baidu.tieba.v.person_talk_setting_parent);
-        this.mNavigationBar = (NavigationBar) this.LO.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.bqg.getPageContext().getString(com.baidu.tieba.y.talk_detail));
+        this.bsL = personalTalkSettingActivity;
+        this.bsL.setContentView(com.baidu.tieba.r.p2ptalk_setting_activity);
+        this.LG = this.bsL.findViewById(com.baidu.tieba.q.person_talk_setting_parent);
+        this.mNavigationBar = (NavigationBar) this.LG.findViewById(com.baidu.tieba.q.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.bsL.getPageContext().getString(com.baidu.tieba.t.talk_detail));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bqk = (PersonaltalkSettingViewBlackManView) this.bqg.findViewById(com.baidu.tieba.v.black_status_view);
-        this.bql = (PersonalTalkSettingViewSettingView) this.bqg.findViewById(com.baidu.tieba.v.setting_detail_view);
-        this.aIq = (HeadImageView) this.bqg.findViewById(com.baidu.tieba.v.photo);
-        this.aIq.setIsRound(true);
-        this.aYa = (TextView) this.bqg.findViewById(com.baidu.tieba.v.name);
-        this.aOz = (UserIconBox) this.bqg.findViewById(com.baidu.tieba.v.user_icon_box);
-        this.aHo = (TextView) this.bqg.findViewById(com.baidu.tieba.v.user_desc);
+        this.bsT = (PersonaltalkSettingViewBlackManView) this.bsL.findViewById(com.baidu.tieba.q.black_status_view);
+        this.bsU = (PersonalTalkSettingViewSettingView) this.bsL.findViewById(com.baidu.tieba.q.setting_detail_view);
+        this.bsS = (LinearLayout) this.bsL.findViewById(com.baidu.tieba.q.user_info_lin);
+        this.bsP = (TbSettingTextTipView) this.bsL.findViewById(com.baidu.tieba.q.st_delete_talk_history);
+        this.bsQ = (TbSettingTextTipView) this.bsL.findViewById(com.baidu.tieba.q.add_to_black);
+        this.bsR = (RelativeLayout) this.bsL.findViewById(com.baidu.tieba.q.remove_from_black_man);
+        this.bsP.setOnClickListener(this.bsL);
+        this.bsQ.setOnClickListener(this.bsL);
+        this.bsR.setOnClickListener(this.bsL);
+        this.bsS.setOnClickListener(this.bsL);
+        this.aKy = (HeadImageView) this.bsL.findViewById(com.baidu.tieba.q.photo);
+        this.aKy.setIsRound(true);
+        this.baH = (TextView) this.bsL.findViewById(com.baidu.tieba.q.name);
+        this.aQK = (UserIconBox) this.bsL.findViewById(com.baidu.tieba.q.user_icon_box);
+        this.aJw = (TextView) this.bsL.findViewById(com.baidu.tieba.q.user_desc);
     }
 
     public void onChangeSkinType(int i) {
-        this.bqg.getLayoutMode().h(this.LO);
-        this.mNavigationBar.onChangeSkinType(this.bqg.getPageContext(), i);
+        this.bsL.getLayoutMode().j(this.LG);
+        this.mNavigationBar.onChangeSkinType(this.bsL.getPageContext(), i);
     }
 
-    public void c(boolean z, int i) {
+    public void b(boolean z, int i) {
         if (z) {
-            this.bqk.setSex(i);
-            this.bqk.setVisibility(0);
-            this.bql.setVisibility(8);
+            this.bsT.setSex(i);
+            this.bsT.setVisibility(0);
+            this.bsU.setVisibility(8);
             return;
         }
-        this.bql.setVisibility(0);
-        this.bqk.setVisibility(8);
+        this.bsU.setVisibility(0);
+        this.bsT.setVisibility(8);
     }
 
-    public void dg(boolean z) {
-        this.bql.dg(z);
+    public void ds(boolean z) {
+        this.bsU.ds(z);
     }
 
     public void e(s sVar) {
         if (sVar != null) {
-            c(sVar.Un(), sVar.Um().sex.intValue());
-            dg(sVar.Ul());
-            a(sVar.Um());
+            b(sVar.VE(), sVar.VD().sex.intValue());
+            ds(sVar.VC());
+            a(sVar.VD());
             f(sVar);
         }
     }
@@ -69,18 +84,18 @@ public class y {
     public void a(DataRes dataRes) {
         int i = 3;
         if (dataRes != null) {
-            this.aYa.setText(dataRes.name);
+            this.baH.setText(dataRes.name);
             if (dataRes.sex.intValue() == 1) {
-                this.aYa.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_pop_boy, 0);
+                this.baH.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.p.icon_pop_boy, 0);
             } else if (dataRes.sex.intValue() != 2) {
                 i = 4;
             } else if (dataRes.iconInfo.size() > 0 && dataRes.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
-                this.aYa.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.baH.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.aYa.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_pop_girl, 0);
+                this.baH.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.p.icon_pop_girl, 0);
             }
-            this.aHo.setText(dataRes.intro);
-            if (this.aOz != null) {
+            this.aJw.setText(dataRes.intro);
+            if (this.aQK != null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
                     IconData iconData = new IconData();
@@ -88,22 +103,22 @@ public class y {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.aOz.a(linkedList, i, this.bqg.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_icon_width), this.bqg.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_icon_height), this.bqg.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_icon_margin));
+                this.aQK.a(linkedList, i, this.bsL.getResources().getDimensionPixelSize(com.baidu.tieba.o.person_icon_width), this.bsL.getResources().getDimensionPixelSize(com.baidu.tieba.o.person_icon_height), this.bsL.getResources().getDimensionPixelSize(com.baidu.tieba.o.person_icon_margin));
             }
         }
     }
 
     public void f(s sVar) {
         String str;
-        if (sVar != null && sVar.Um() != null && (str = sVar.Um().portrait) != null && str.length() > 0) {
-            this.aIq.setImageResource(0);
-            this.aIq.c(str, 12, false);
+        if (sVar != null && sVar.VD() != null && (str = sVar.VD().portrait) != null && str.length() > 0) {
+            this.aKy.setImageResource(0);
+            this.aKy.c(str, 12, false);
         }
     }
 
     public void a(com.baidu.adp.widget.BdSwitchView.b bVar) {
-        if (this.bql != null) {
-            this.bql.setSwitchStateChangeListener(bVar);
+        if (this.bsU != null) {
+            this.bsU.setSwitchStateChangeListener(bVar);
         }
     }
 }

@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ TiebaActiveService bZq;
-    aa bZr;
+    final /* synthetic */ TiebaActiveService cdC;
+    aa cdD;
 
     private j(TiebaActiveService tiebaActiveService) {
-        this.bZq = tiebaActiveService;
-        this.bZr = null;
+        this.cdC = tiebaActiveService;
+        this.cdD = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,31 +27,31 @@ public class j extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(String... strArr) {
-        String rO;
+        String sw;
         try {
-            this.bZr = new aa("http://114.113.149.3:8086/partnersService");
-            this.bZr.o("apk", TbadkCoreApplication.m411getInst().getApp().getPackageName());
-            this.bZr.o("imei", TbadkCoreApplication.m411getInst().getImei());
-            this.bZr.o("model", Build.MODEL);
-            this.bZr.o("edition", TbConfig.getVersion());
-            this.bZr.o("system", Build.VERSION.SDK);
-            this.bZr.sp().tp().ts().mIsBaiduServer = false;
-            rO = this.bZr.rO();
+            this.cdD = new aa("http://114.113.149.3:8086/partnersService");
+            this.cdD.o("apk", TbadkCoreApplication.m411getInst().getApp().getPackageName());
+            this.cdD.o("imei", TbadkCoreApplication.m411getInst().getImei());
+            this.cdD.o("model", Build.MODEL);
+            this.cdD.o("edition", TbConfig.getVersion());
+            this.cdD.o("system", Build.VERSION.SDK);
+            this.cdD.sX().tS().tV().mIsBaiduServer = false;
+            sw = this.cdD.sw();
         } catch (Exception e) {
-            com.baidu.tbadk.core.sharedPref.b.rB().putInt("active", 1);
+            com.baidu.tbadk.core.sharedPref.b.sl().putInt("active", 1);
             BdLog.e(e.getMessage());
         }
-        if (this.bZr.ss()) {
-            return rO;
+        if (this.cdD.ta()) {
+            return sw;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bZq.mActiveTask = null;
-        if (this.bZr != null) {
-            this.bZr.hh();
+        this.cdC.mActiveTask = null;
+        if (this.cdD != null) {
+            this.cdD.gS();
         }
         super.cancel(true);
     }
@@ -67,25 +67,25 @@ public class j extends BdAsyncTask<String, Integer, String> {
         Handler handler2;
         Runnable runnable2;
         super.onPostExecute((j) str);
-        this.bZq.mActiveTask = null;
+        this.cdC.mActiveTask = null;
         if (str == null) {
-            TiebaActiveService tiebaActiveService = this.bZq;
+            TiebaActiveService tiebaActiveService = this.cdC;
             i = tiebaActiveService.mHaveRetry;
             tiebaActiveService.mHaveRetry = i + 1;
-            i2 = this.bZq.mHaveRetry;
+            i2 = this.cdC.mHaveRetry;
             if (i2 < 10) {
-                handler = this.bZq.mHandler;
-                runnable = this.bZq.mRunnable;
+                handler = this.cdC.mHandler;
+                runnable = this.cdC.mRunnable;
                 handler.removeCallbacks(runnable);
-                handler2 = this.bZq.mHandler;
-                runnable2 = this.bZq.mRunnable;
+                handler2 = this.cdC.mHandler;
+                runnable2 = this.cdC.mRunnable;
                 handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.rB().putInt("active", 1);
-                this.bZq.stopSelf();
+                com.baidu.tbadk.core.sharedPref.b.sl().putInt("active", 1);
+                this.cdC.stopSelf();
             }
         }
-        com.baidu.tbadk.core.sharedPref.b.rB().putInt("active", 2);
-        this.bZq.stopSelf();
+        com.baidu.tbadk.core.sharedPref.b.sl().putInt("active", 2);
+        this.cdC.stopSelf();
     }
 }

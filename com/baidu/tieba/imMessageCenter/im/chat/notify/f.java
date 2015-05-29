@@ -7,31 +7,31 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
 class f implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ e bpS;
-    private final /* synthetic */ ImMessageCenterShowItemData bpT;
+    final /* synthetic */ e bsx;
+    private final /* synthetic */ ImMessageCenterShowItemData bsy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bpS = eVar;
-        this.bpT = imMessageCenterShowItemData;
+        this.bsx = eVar;
+        this.bsy = imMessageCenterShowItemData;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && this.bpT != null) {
-            this.bpT.setUnReadCount(0);
-            if (this.bpT.getOwnerName().equals("2")) {
-                com.baidu.tieba.im.db.d.PY().gv("apply_join_group");
-            } else if (this.bpT.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                com.baidu.tieba.im.db.d.PY().gv("group_intro_change");
-                com.baidu.tieba.im.db.d.PY().gv("group_name_change");
-                com.baidu.tieba.im.db.d.PY().gv("group_notice_change");
-                com.baidu.tieba.im.db.d.PY().gv("group_level_up");
-                com.baidu.tieba.im.db.d.PY().gv("dismiss_group");
-                com.baidu.tieba.im.db.d.PY().gv("kick_out");
-                com.baidu.tieba.im.db.d.PY().gv("group_activitys_change");
-            } else if (this.bpT.getOwnerName().equals("6")) {
-                com.baidu.tieba.im.db.d.PY().gv("live_notify");
+        if (customMessage != null && this.bsy != null) {
+            this.bsy.setUnReadCount(0);
+            if (this.bsy.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.d.Rn().gY("apply_join_group");
+            } else if (this.bsy.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+                com.baidu.tieba.im.db.d.Rn().gY("group_intro_change");
+                com.baidu.tieba.im.db.d.Rn().gY("group_name_change");
+                com.baidu.tieba.im.db.d.Rn().gY("group_notice_change");
+                com.baidu.tieba.im.db.d.Rn().gY("group_level_up");
+                com.baidu.tieba.im.db.d.Rn().gY("dismiss_group");
+                com.baidu.tieba.im.db.d.Rn().gY("kick_out");
+                com.baidu.tieba.im.db.d.Rn().gY("group_activitys_change");
+            } else if (this.bsy.getOwnerName().equals("6")) {
+                com.baidu.tieba.im.db.d.Rn().gY("live_notify");
             }
         }
         return null;

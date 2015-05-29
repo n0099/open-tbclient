@@ -5,38 +5,38 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.frs.aw;
 import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class h {
-    private View LO;
-    private GoodGridView aPi;
-    private ImageView aPj;
+    private View LG;
+    private GoodGridView aRt;
+    private ImageView aRu;
 
     public h(Context context) {
-        this.LO = null;
-        this.aPi = null;
-        this.aPj = null;
-        this.LO = com.baidu.adp.lib.g.b.hH().inflate(context, com.baidu.tieba.w.dialog_good, null);
-        this.aPi = (GoodGridView) this.LO.findViewById(com.baidu.tieba.v.good_gridview);
-        this.aPj = (ImageView) this.LO.findViewById(com.baidu.tieba.v.divider_line);
+        this.LG = null;
+        this.aRt = null;
+        this.aRu = null;
+        this.LG = com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.dialog_good, null);
+        this.aRt = (GoodGridView) this.LG.findViewById(com.baidu.tieba.q.good_gridview);
+        this.aRu = (ImageView) this.LG.findViewById(com.baidu.tieba.q.divider_line);
     }
 
     public void a(aw awVar) {
-        this.aPi.setAdapter((ListAdapter) awVar);
+        this.aRt.setAdapter((ListAdapter) awVar);
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aPi.setOnItemClickListener(onItemClickListener);
+        this.aRt.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
-        return this.LO;
+        return this.LG;
     }
 
     public void changeSkinType(int i) {
-        ba.j(this.aPi, com.baidu.tieba.s.cp_bg_line_d);
-        ba.i(this.aPj, com.baidu.tieba.s.frs_goodheader_line_end);
+        ay.j(this.aRt, com.baidu.tieba.n.cp_bg_line_d);
+        ay.i(this.aRu, com.baidu.tieba.n.frs_goodheader_line_end);
     }
 }

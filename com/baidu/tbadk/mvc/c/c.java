@@ -9,23 +9,23 @@ public class c {
         this.uniqueId = bdUniqueId;
     }
 
-    public b dM(int i) {
+    public b dW(int i) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
         return bVar;
     }
 
-    public b y(int i, int i2) {
+    public b z(int i, int i2) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
-        bVar.dL(i2);
+        bVar.dV(i2);
         return bVar;
     }
 
     public b i(int i, boolean z) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
-        bVar.aS(z);
+        bVar.aZ(z);
         return bVar;
     }
 }

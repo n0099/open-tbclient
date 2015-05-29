@@ -38,7 +38,7 @@ public class PluginSettingIOService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void save(PluginSettings pluginSettings, l lVar) {
-        e.lL().save(pluginSettings, lVar);
+        e.me().save(pluginSettings, lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

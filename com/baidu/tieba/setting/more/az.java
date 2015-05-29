@@ -1,56 +1,63 @@
 package com.baidu.tieba.setting.more;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tieba.setting.model.MoreModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class az extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ ay ccq;
+public class az extends com.baidu.adp.base.f {
+    private BaseActivity.LoadDataCallBack bHv;
+    private ba cgR;
+    private bb cgS;
+    private Context mContext;
 
-    private az(ay ayVar) {
-        this.ccq = ayVar;
+    public az(SystemHelpSettingActivity systemHelpSettingActivity) {
+        super(systemHelpSettingActivity.getPageContext());
+        this.cgR = null;
+        this.cgS = null;
+        this.mContext = null;
+        this.bHv = null;
+        this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ az(ay ayVar, az azVar) {
-        this(ayVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        BaseActivity.LoadDataCallBack loadDataCallBack2;
-        super.onPostExecute((az) str);
-        this.ccq.cco = null;
-        loadDataCallBack = this.ccq.bEA;
-        if (loadDataCallBack == null) {
-            return;
+    public void ajT() {
+        if (this.cgR == null) {
+            this.cgR = new ba(this, null);
+            this.cgR.execute(new String[0]);
         }
-        loadDataCallBack2 = this.ccq.bEA;
-        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) {
-        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().dK();
-        com.baidu.tbadk.core.voice.a.b.tY();
-        try {
-            com.baidu.tbadk.core.util.bc.sT().sU();
-            com.baidu.tbadk.core.util.bc.sT().sV();
-            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2802002, ""));
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+    public void ajU() {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (!TextUtils.isEmpty(currentAccount)) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
+    }
+
+    public void ajV() {
+        if (this.cgS == null) {
+            this.cgS = new bb(this, null);
+            this.cgS.execute(new String[0]);
+        }
+    }
+
+    public void setHeadsetModeOn(boolean z) {
+        TbadkCoreApplication.m411getInst().setHeadsetModeOn(z);
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
+        this.bHv = loadDataCallBack;
     }
 }

@@ -10,7 +10,7 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     private boolean isReset;
     private boolean isThread;
-    private WeakReference<bo> mCallbackWeakReference;
+    private WeakReference<ch> mCallbackWeakReference;
     private boolean needContent;
     private int pn;
     private int rn;
@@ -20,11 +20,11 @@ public class UserPostPageRequestMessage extends NetMessage {
         super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
     }
 
-    public WeakReference<bo> getmCallbackWeakReference() {
+    public WeakReference<ch> getmCallbackWeakReference() {
         return this.mCallbackWeakReference;
     }
 
-    public void setmCallbackWeakReference(WeakReference<bo> weakReference) {
+    public void setmCallbackWeakReference(WeakReference<ch> weakReference) {
         this.mCallbackWeakReference = weakReference;
     }
 
@@ -80,7 +80,7 @@ public class UserPostPageRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(com.baidu.adp.lib.g.c.a(this.uid, 0L));
+        builder.uid = Long.valueOf(com.baidu.adp.lib.g.c.c(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);

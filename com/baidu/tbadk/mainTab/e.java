@@ -1,20 +1,18 @@
 package com.baidu.tbadk.mainTab;
 /* loaded from: classes.dex */
 public abstract class e {
-    private int amf;
-    private boolean amg;
+    private int ani;
+    private boolean anj;
 
-    public abstract void onClick();
-
-    public void aR(boolean z) {
-        this.amg = z;
+    public void aY(boolean z) {
+        this.anj = z;
     }
 
-    public void dH(int i) {
-        this.amf = i;
+    public void dR(int i) {
+        this.ani = i;
     }
 
-    public int zS() {
-        return this.amf;
+    public int AE() {
+        return this.ani;
     }
 }

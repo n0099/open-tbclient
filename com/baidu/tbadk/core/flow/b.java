@@ -6,7 +6,7 @@ import com.baidu.tbadk.widget.TbImageView;
 public interface b {
     TbImageView V(Context context);
 
-    com.baidu.tbadk.core.flow.a.c rl();
+    com.baidu.tbadk.core.flow.a.c rV();
 
-    com.baidu.tbadk.core.flow.a.e rm();
+    com.baidu.tbadk.core.flow.a.e rW();
 }

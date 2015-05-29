@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
 import tbclient.GetGameCenter.RecommendGame;
+import tbclient.GetGameDetailNew.CodeInfo;
+import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes.dex */
 public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final int APP_TYPE = 1;
@@ -21,6 +23,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private int category_id;
     private String category_name;
     private String category_name_sim;
+    private CodeInfo codeInfo;
     private int day_downloads;
     private long deadline;
     private long downloadTime;
@@ -48,12 +51,56 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String schema_url;
     private int score;
     private String secret_key;
+    private String server_id;
+    private String server_name;
+    private int server_open_time;
+    private int server_type;
     private int star;
     private String superscript_color;
     private String version;
     private String ref_id = "5000901";
     private String ref_type = "606";
     private String is_detail = NOT_FROM_DETAIL;
+
+    public CodeInfo getCodeInfo() {
+        return this.codeInfo;
+    }
+
+    public void setCodeInfo(CodeInfo codeInfo) {
+        this.codeInfo = codeInfo;
+    }
+
+    public String getServerId() {
+        return this.server_id;
+    }
+
+    public void setServerId(String str) {
+        this.server_id = str;
+    }
+
+    public String getServerName() {
+        return this.server_name;
+    }
+
+    public void setServerName(String str) {
+        this.server_name = str;
+    }
+
+    public int getServerOpenTime() {
+        return this.server_open_time;
+    }
+
+    public void setServerOpenTime(int i) {
+        this.server_open_time = i;
+    }
+
+    public int getServerType() {
+        return this.server_type;
+    }
+
+    public void setServerType(int i) {
+        this.server_type = i;
+    }
 
     public String getGameId() {
         return this.game_id;
@@ -108,7 +155,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = eo(str);
+        this.package_size = eF(str);
     }
 
     public String getGameLink() {
@@ -371,6 +418,48 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return gameInfoData;
     }
 
+    public static GameInfoData fromNewGame(NewGameInfo newGameInfo) {
+        GameInfoData gameInfoData = new GameInfoData();
+        if (newGameInfo != null) {
+            gameInfoData.setServerId(newGameInfo.server_id);
+            gameInfoData.setServerName(newGameInfo.server_name);
+            gameInfoData.setServerOpenTime(newGameInfo.server_open_time.intValue());
+            gameInfoData.setServerType(newGameInfo.server_type.intValue());
+            gameInfoData.setAppleId(newGameInfo.apple_id);
+            gameInfoData.setBundleId(newGameInfo.bundle_id);
+            gameInfoData.setGameId(newGameInfo.game_id);
+            gameInfoData.setGameLink(newGameInfo.game_link);
+            gameInfoData.setGameName(newGameInfo.game_name);
+            gameInfoData.setGamePic(newGameInfo.game_pic);
+            if (TextUtils.isEmpty(newGameInfo.icon_pic1)) {
+                gameInfoData.setIconUrl(newGameInfo.icon_url);
+            } else {
+                gameInfoData.setIconUrl(newGameInfo.icon_pic1);
+            }
+            gameInfoData.setGameType(newGameInfo.game_type.intValue());
+            gameInfoData.setMark(newGameInfo.mark.intValue());
+            gameInfoData.setPackageLink(newGameInfo.package_link);
+            gameInfoData.setPackageSize(newGameInfo.package_size);
+            gameInfoData.setSchemaUrl(newGameInfo.schema_url);
+            gameInfoData.setIntroduce(newGameInfo.game_desc);
+            gameInfoData.setLauncherActivity(newGameInfo.launchComponent);
+            gameInfoData.setPackageName(newGameInfo.andr_pk_name);
+            if (newGameInfo.deadline != null) {
+                gameInfoData.setDeadline(newGameInfo.deadline.longValue());
+            }
+            gameInfoData.setCategoryId(newGameInfo.category_id.intValue());
+            gameInfoData.setCategoryName(newGameInfo.category_name);
+            gameInfoData.setCategoryNameSim(newGameInfo.category_name_sim);
+            gameInfoData.setVersion(newGameInfo.version);
+            gameInfoData.setStar(newGameInfo.score.intValue());
+            gameInfoData.setSecretKey(newGameInfo.secret_key);
+            gameInfoData.setSuperscriptColor(newGameInfo.subscript_color);
+            gameInfoData.setApp_id(String.valueOf(newGameInfo.app_id));
+            gameInfoData.setRefId("5000901");
+        }
+        return gameInfoData;
+    }
+
     public String getEditorRec() {
         return this.editor_rec;
     }
@@ -419,7 +508,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String eo(String str) {
+    private String eF(String str) {
         return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.c.a(str, 0.0f)));
     }
 

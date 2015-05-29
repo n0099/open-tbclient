@@ -6,27 +6,27 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.MyGift;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    private List<MyGift> bTk;
-    final /* synthetic */ r bTl;
+    private List<MyGift> bVR;
+    final /* synthetic */ r bVS;
 
     public s(r rVar, List<MyGift> list) {
-        this.bTl = rVar;
-        this.bTk = list;
+        this.bVS = rVar;
+        this.bVR = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bTk == null) {
+        if (this.bVR == null) {
             return 0;
         }
-        if (this.bTk.size() <= 8) {
-            return this.bTk.size();
+        if (this.bVR.size() <= 8) {
+            return this.bVR.size();
         }
         return 8;
     }
@@ -47,20 +47,20 @@ public class s extends BaseAdapter {
         PersonInfoActivity personInfoActivity;
         PersonInfoActivity personInfoActivity2;
         PersonInfoActivity personInfoActivity3;
-        com.baidu.adp.lib.g.b hH = com.baidu.adp.lib.g.b.hH();
-        personInfoActivity = this.bTl.bSy;
-        View inflate = hH.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.w.personinfo_gift_icon, null);
-        personInfoActivity2 = this.bTl.bSy;
-        int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds86);
-        personInfoActivity3 = this.bTl.bSy;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds80)));
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.gift_icon);
+        com.baidu.adp.lib.g.b hr = com.baidu.adp.lib.g.b.hr();
+        personInfoActivity = this.bVS.bVf;
+        View inflate = hr.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.r.personinfo_gift_icon, null);
+        personInfoActivity2 = this.bVS.bVf;
+        int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds86);
+        personInfoActivity3 = this.bVS.bVf;
+        inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds80)));
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.q.gift_icon);
         headImageView.setIsRound(true);
         headImageView.setDrawBorder(false);
         headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.gift_num);
-        g(textView);
-        MyGift myGift = this.bTk.get(i);
+        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.q.gift_num);
+        f(textView);
+        MyGift myGift = this.bVR.get(i);
         if (myGift != null) {
             headImageView.c(myGift.getGiftIcon(), 10, false);
             textView.setText(new StringBuilder().append(myGift.getGiftNum()).toString());
@@ -68,8 +68,8 @@ public class s extends BaseAdapter {
         return inflate;
     }
 
-    private void g(TextView textView) {
-        ba.i((View) textView, com.baidu.tieba.u.personinfo_gift_num_bg);
-        ba.b(textView, com.baidu.tieba.s.cp_cont_g, 1);
+    private void f(TextView textView) {
+        ay.i((View) textView, com.baidu.tieba.p.personinfo_gift_num_bg);
+        ay.b(textView, com.baidu.tieba.n.cp_cont_g, 1);
     }
 }

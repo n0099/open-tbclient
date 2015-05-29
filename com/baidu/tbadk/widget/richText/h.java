@@ -6,7 +6,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String asH;
+    private String aun;
     private Context mContext;
     private int mType;
     private String mUrl;
@@ -20,8 +20,8 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void eQ(String str) {
-        this.asH = str;
+    public void fl(String str) {
+        this.aun = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -54,7 +54,7 @@ public class h extends ClickableSpan {
                     jVar.onVideoP2PClicked(this.mContext, this.mUrl);
                     return;
                 case 256:
-                    jVar.onPhoneClicked(this.mContext, this.mUrl, this.asH);
+                    jVar.onPhoneClicked(this.mContext, this.mUrl, this.aun);
                     return;
                 default:
                     return;

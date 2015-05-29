@@ -3,22 +3,16 @@ package com.baidu.tieba.person;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements View.OnLongClickListener {
-    final /* synthetic */ PersonImageActivity bQE;
+public class av implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(PersonImageActivity personImageActivity) {
-        this.bQE = personImageActivity;
+    public av(PersonChangeActivity personChangeActivity) {
+        this.bSN = personChangeActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.tbadk.core.dialog.h hVar;
-        String[] strArr = {this.bQE.getPageContext().getString(com.baidu.tieba.y.save)};
-        PersonImageActivity personImageActivity = this.bQE;
-        hVar = this.bQE.buZ;
-        personImageActivity.createListMenu(strArr, hVar);
-        this.bQE.showListMenu();
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bSN.aev();
     }
 }

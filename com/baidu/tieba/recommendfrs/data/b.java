@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FineFrsPage.FineThreadInfo;
 /* loaded from: classes.dex */
-public class b {
-    private int bXZ;
-    private int bYa;
-    private boolean bYb;
+public class b extends h {
+    private int cbV;
+    private boolean cbW;
     private String desc;
     private long ftid;
     private String tag;
@@ -30,14 +29,14 @@ public class b {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.bXZ = fineThreadInfo.publish_time.intValue();
+                this.cbV = fineThreadInfo.publish_time.intValue();
             }
             this.tag = fineThreadInfo.tag;
         }
         return this;
     }
 
-    public long afP() {
+    public long ahw() {
         return this.ftid;
     }
 
@@ -49,35 +48,27 @@ public class b {
         return this.type;
     }
 
-    public String qa() {
+    public String qG() {
         return this.desc;
     }
 
-    public List<String> afQ() {
+    public List<String> ahx() {
         return this.thumbnail;
     }
 
-    public int afR() {
-        return this.bXZ;
+    public int ahy() {
+        return this.cbV;
     }
 
     public String getTag() {
         return this.tag;
     }
 
-    public int afS() {
-        return this.bYa;
+    public boolean ahz() {
+        return this.cbW;
     }
 
-    public void hN(int i) {
-        this.bYa = i;
-    }
-
-    public boolean afT() {
-        return this.bYb;
-    }
-
-    public void el(boolean z) {
-        this.bYb = z;
+    public void eA(boolean z) {
+        this.cbW = z;
     }
 }

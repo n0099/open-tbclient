@@ -1,21 +1,34 @@
 package com.baidu.tieba.frs;
+
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ bf aMc;
+public class bi implements View.OnTouchListener {
+    final /* synthetic */ bf aOm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(bf bfVar) {
-        this.aMc = bfVar;
+        this.aOm = bfVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wX() {
-        this.aMc.JW();
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void wY() {
-        this.aMc.Km();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view.getId() == com.baidu.tieba.q.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                imageView = this.aOm.aNB;
+                com.baidu.tbadk.core.util.ay.c(imageView, com.baidu.tieba.p.pic_fresh_n);
+            }
+            if (motionEvent.getAction() == 0) {
+                imageView2 = this.aOm.aNB;
+                com.baidu.tbadk.core.util.ay.c(imageView2, com.baidu.tieba.p.pic_fresh_s);
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }

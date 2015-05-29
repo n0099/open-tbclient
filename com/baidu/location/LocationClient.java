@@ -150,7 +150,7 @@ public final class LocationClient implements a0, n {
                         return;
                     }
                     return;
-                case a0.B /* 55 */:
+                case 55:
                     if (LocationClient.this.kh.f21goto) {
                         LocationClient.this.jR = false;
                         return;
