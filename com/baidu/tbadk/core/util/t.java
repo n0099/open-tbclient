@@ -413,7 +413,7 @@ public class t {
     }
 
     private static String sF() {
-        return com.baidu.tbadk.imageManager.e.Al().fV();
+        return com.baidu.tbadk.imageManager.e.Am().fV();
     }
 
     private static String sG() {

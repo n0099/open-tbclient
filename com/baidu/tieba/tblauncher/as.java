@@ -5,11 +5,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class as implements View.OnClickListener {
-    final /* synthetic */ aj cwn;
+    final /* synthetic */ aj cwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(aj ajVar) {
-        this.cwn = ajVar;
+        this.cwo = ajVar;
     }
 
     @Override // android.view.View.OnClickListener

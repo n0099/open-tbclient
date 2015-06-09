@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.LiveRoomEntranceActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsActivity frsActivity) {
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -48,117 +48,117 @@ class c implements View.OnClickListener {
         com.baidu.tieba.tbadkCore.w wVar6;
         com.baidu.tieba.tbadkCore.w wVar7;
         bf bfVar14;
-        bfVar = this.aLX.aLi;
-        if (view != bfVar.Li()) {
-            bfVar2 = this.aLX.aLi;
-            if (view == bfVar2.Le()) {
-                bfVar13 = this.aLX.aLi;
-                bfVar13.bX(this.aLX.oy().LW());
-                TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_forum_name", "frsclick", 1, new Object[0]);
+        bfVar = this.aLY.aLj;
+        if (view != bfVar.Lj()) {
+            bfVar2 = this.aLY.aLj;
+            if (view == bfVar2.Lf()) {
+                bfVar13 = this.aLY.aLj;
+                bfVar13.bX(this.aLY.oy().LX());
+                TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_forum_name", "frsclick", 1, new Object[0]);
             } else {
-                bfVar3 = this.aLX.aLi;
-                if (view != bfVar3.Lj()) {
-                    bfVar4 = this.aLX.aLi;
+                bfVar3 = this.aLY.aLj;
+                if (view != bfVar3.Lk()) {
+                    bfVar4 = this.aLY.aLj;
                     if (view == bfVar4.getMoreButton()) {
-                        bfVar11 = this.aLX.aLi;
-                        ceVar = this.aLX.aLn;
+                        bfVar11 = this.aLY.aLj;
+                        ceVar = this.aLY.aLo;
                         bfVar11.a(ceVar);
-                        kVar3 = this.aLX.aLB;
-                        ceVar2 = this.aLX.aLn;
+                        kVar3 = this.aLY.aLC;
+                        ceVar2 = this.aLY.aLo;
                         kVar3.a(ceVar2);
-                        TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                        bfVar12 = this.aLX.aLi;
-                        bfVar12.Ls();
-                        FrsActivityStatic.aMf = false;
-                        kVar4 = this.aLX.aLB;
+                        TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                        bfVar12 = this.aLY.aLj;
+                        bfVar12.Lt();
+                        FrsActivityStatic.aMg = false;
+                        kVar4 = this.aLY.aLC;
                         kVar4.showMenu(true);
                     } else {
-                        bfVar5 = this.aLX.aLi;
-                        if (view == bfVar5.Lf()) {
-                            bfVar10 = this.aLX.aLi;
-                            bfVar10.Ld();
-                            kVar2 = this.aLX.aLB;
-                            kVar2.Mx();
-                            if (this.aLX.oy().LW()) {
-                                this.aLX.stopVoice();
-                                this.aLX.oy().LS();
+                        bfVar5 = this.aLY.aLj;
+                        if (view == bfVar5.Lg()) {
+                            bfVar10 = this.aLY.aLj;
+                            bfVar10.Le();
+                            kVar2 = this.aLY.aLC;
+                            kVar2.My();
+                            if (this.aLY.oy().LX()) {
+                                this.aLY.stopVoice();
+                                this.aLY.oy().LT();
                             }
                         } else {
-                            bfVar6 = this.aLX.aLi;
-                            if (view != bfVar6.Lg()) {
-                                bfVar7 = this.aLX.aLi;
-                                if (view == bfVar7.Lh()) {
-                                    TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_add_shortcut", "frsclick", 1, new Object[0]);
-                                    bfVar8 = this.aLX.aLi;
-                                    bfVar8.Ld();
-                                    FrsActivity frsActivity = this.aLX;
-                                    FrsActivity frsActivity2 = this.aLX;
-                                    str = this.aLX.aLb;
-                                    frsActivity.aLw = new ag(frsActivity2, str);
-                                    agVar = this.aLX.aLw;
+                            bfVar6 = this.aLY.aLj;
+                            if (view != bfVar6.Lh()) {
+                                bfVar7 = this.aLY.aLj;
+                                if (view == bfVar7.Li()) {
+                                    TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_add_shortcut", "frsclick", 1, new Object[0]);
+                                    bfVar8 = this.aLY.aLj;
+                                    bfVar8.Le();
+                                    FrsActivity frsActivity = this.aLY;
+                                    FrsActivity frsActivity2 = this.aLY;
+                                    str = this.aLY.aLc;
+                                    frsActivity.aLx = new ag(frsActivity2, str);
+                                    agVar = this.aLY.aLx;
                                     agVar.setSelfExecute(true);
-                                    agVar2 = this.aLX.aLw;
+                                    agVar2 = this.aLY.aLx;
                                     agVar2.execute(new String[0]);
                                 }
                             } else {
-                                TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_good_threads", "frsclick", 1, new Object[0]);
-                                bfVar9 = this.aLX.aLi;
-                                bfVar9.Ld();
-                                kVar = this.aLX.aLB;
-                                kVar.Mx();
-                                if (!this.aLX.oy().LW()) {
-                                    this.aLX.stopVoice();
-                                    this.aLX.oy().ff(0);
+                                TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_good_threads", "frsclick", 1, new Object[0]);
+                                bfVar9 = this.aLY.aLj;
+                                bfVar9.Le();
+                                kVar = this.aLY.aLC;
+                                kVar.My();
+                                if (!this.aLY.oy().LX()) {
+                                    this.aLY.stopVoice();
+                                    this.aLY.oy().ff(0);
                                 }
                             }
                         }
                     }
                 } else {
-                    this.aLX.closeActivity();
+                    this.aLY.closeActivity();
                 }
             }
         } else {
-            TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_post_thread", "frsclick", 1, new Object[0]);
-            this.aLX.eT(0);
+            TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_post_thread", "frsclick", 1, new Object[0]);
+            this.aLY.eT(0);
         }
         int id = view.getId();
         if (id == com.baidu.tieba.q.refresh_layout) {
-            TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-            bfVar14 = this.aLX.aLi;
+            TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
+            bfVar14 = this.aLY.aLj;
             bfVar14.no();
-        } else if (id == com.baidu.tieba.q.nb_item_live_text_btn && this.aLX.checkUpIsLogin()) {
-            TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_broadcast_btn", "click", 1, new Object[0]);
+        } else if (id == com.baidu.tieba.q.nb_item_live_text_btn && this.aLY.checkUpIsLogin()) {
+            TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_broadcast_btn", "click", 1, new Object[0]);
             if (Build.VERSION.SDK_INT >= 9) {
-                wVar = this.aLX.aLl;
+                wVar = this.aLY.aLm;
                 if (wVar != null) {
-                    wVar2 = this.aLX.aLl;
-                    if (wVar2.aar() != null) {
-                        wVar3 = this.aLX.aLl;
-                        if (wVar3.aar().getAnchorPower() != null) {
-                            wVar4 = this.aLX.aLl;
-                            if (wVar4.aar().getAnchorPower().have_power.intValue() == 1) {
-                                com.baidu.tbadk.core.k.A(this.aLX.getBaseContext(), "start_live_bt");
+                    wVar2 = this.aLY.aLm;
+                    if (wVar2.aas() != null) {
+                        wVar3 = this.aLY.aLm;
+                        if (wVar3.aas().getAnchorPower() != null) {
+                            wVar4 = this.aLY.aLm;
+                            if (wVar4.aas().getAnchorPower().have_power.intValue() == 1) {
+                                com.baidu.tbadk.core.k.A(this.aLY.getBaseContext(), "start_live_bt");
                                 MessageManager messageManager = MessageManager.getInstance();
-                                Activity pageActivity = this.aLX.getPageContext().getPageActivity();
-                                wVar6 = this.aLX.aLl;
-                                int i = com.baidu.adp.lib.g.c.toInt(wVar6.aar().getId(), 0);
-                                wVar7 = this.aLX.aLl;
-                                messageManager.sendMessage(new CustomMessage(2002001, new LiveRoomEntranceActivityConfig(pageActivity, i, wVar7.aar().getName(), LiveRoomEntranceActivityConfig.FROM_FRS)));
+                                Activity pageActivity = this.aLY.getPageContext().getPageActivity();
+                                wVar6 = this.aLY.aLm;
+                                int i = com.baidu.adp.lib.g.c.toInt(wVar6.aas().getId(), 0);
+                                wVar7 = this.aLY.aLm;
+                                messageManager.sendMessage(new CustomMessage(2002001, new LiveRoomEntranceActivityConfig(pageActivity, i, wVar7.aas().getName(), LiveRoomEntranceActivityConfig.FROM_FRS)));
                                 return;
                             }
-                            FrsActivity frsActivity3 = this.aLX;
-                            wVar5 = this.aLX.aLl;
-                            frsActivity3.showToast(wVar5.aar().getAnchorPower().anchor_message);
+                            FrsActivity frsActivity3 = this.aLY;
+                            wVar5 = this.aLY.aLm;
+                            frsActivity3.showToast(wVar5.aas().getAnchorPower().anchor_message);
                             return;
                         }
-                        this.aLX.showToast(com.baidu.tieba.t.error);
+                        this.aLY.showToast(com.baidu.tieba.t.error);
                         return;
                     }
                     return;
                 }
                 return;
             }
-            this.aLX.showToast(com.baidu.tieba.t.live_error_system_not_support);
+            this.aLY.showToast(com.baidu.tieba.t.live_error_system_not_support);
         }
     }
 }

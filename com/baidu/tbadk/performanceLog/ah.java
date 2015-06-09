@@ -16,7 +16,7 @@ public class ah {
     private long aqZ = 86400;
     private long aqX = com.baidu.tbadk.core.sharedPref.b.sl().getLong(aqY, 0);
 
-    public static ah DB() {
+    public static ah DC() {
         if (arb == null) {
             synchronized (ah.class) {
                 if (arb == null) {
@@ -32,7 +32,7 @@ public class ah {
         this.ara = this.aqZ;
     }
 
-    public boolean DC() {
+    public boolean DD() {
         if (!this.aqW || (System.currentTimeMillis() - this.aqX) / 1000 <= this.ara) {
             return this.aqW;
         }
@@ -53,7 +53,7 @@ public class ah {
         this.aqW = z;
     }
 
-    public String DD() {
+    public String DE() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -67,7 +67,7 @@ public class ah {
         }
     }
 
-    public final String DE() {
+    public final String DF() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -112,7 +112,7 @@ public class ah {
     }
 
     public ag en(int i) {
-        if (DC()) {
+        if (DD()) {
             switch (i) {
                 case 1000:
                     aj ajVar = new aj();
@@ -158,7 +158,7 @@ public class ah {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int DF() {
+    public int DG() {
         BufferedReader bufferedReader;
         Process process;
         String str;

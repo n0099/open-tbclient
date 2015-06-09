@@ -59,7 +59,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                                 p pVar = new p();
                                 pVar.en(str2);
                                 if (pVar.isSucc()) {
-                                    hashMap.put(str2, Integer.valueOf(pVar.yv()));
+                                    hashMap.put(str2, Integer.valueOf(pVar.yw()));
                                 }
                             }
                             if (hashMap.size() > 0) {
@@ -104,7 +104,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     public void onPostExecute(Void r3) {
         this.agX.agU = null;
         if (this.agW != null) {
-            this.agW.yk();
+            this.agW.yl();
         }
     }
 
@@ -115,7 +115,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     public void onCancelled(Void r3) {
         this.agX.agU = null;
         if (this.agW != null) {
-            this.agW.yk();
+            this.agW.yl();
         }
     }
 
@@ -124,7 +124,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     public void onCancelled() {
         this.agX.agU = null;
         if (this.agW != null) {
-            this.agW.yk();
+            this.agW.yl();
         }
     }
 

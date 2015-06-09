@@ -15,7 +15,7 @@ public class q implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.this$0.cvy;
+        z = this.this$0.cvz;
         if (!z) {
             MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }

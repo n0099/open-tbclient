@@ -2,20 +2,20 @@ package com.baidu.tieba.addresslist.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic azN;
-    private final /* synthetic */ long azQ;
+    final /* synthetic */ NewFriendDbManagerStatic azO;
+    private final /* synthetic */ long azR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-        this.azN = newFriendDbManagerStatic;
-        this.azQ = j;
+        this.azO = newFriendDbManagerStatic;
+        this.azR = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: FQ */
+    /* renamed from: FR */
     public Void doInBackground() {
-        ba.FW().H(this.azQ);
+        ba.FX().H(this.azR);
         return null;
     }
 }

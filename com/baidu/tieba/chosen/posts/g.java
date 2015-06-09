@@ -6,21 +6,21 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ e aDf;
+    final /* synthetic */ e aDg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.aDf = eVar;
+        this.aDg = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.adp.base.j<?> jVar;
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aDf.getActivity());
-        aVar.cn(this.aDf.getString(t.chosen_post_dialog_text));
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aDg.getActivity());
+        aVar.cn(this.aDg.getString(t.chosen_post_dialog_text));
         aVar.b(t.cancel, new h(this, aVar));
         aVar.a(t.confirm, new i(this, aVar, i));
-        jVar = this.aDf.mContext;
+        jVar = this.aDg.mContext;
         aVar.b(jVar);
         aVar.rL();
         return true;

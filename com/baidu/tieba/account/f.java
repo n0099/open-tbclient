@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity awf;
+    final /* synthetic */ AccountActivity awg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.awf = accountActivity;
+        this.awg = accountActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
@@ -25,21 +25,21 @@ public class f implements AdapterView.OnItemClickListener {
         m mVar;
         m mVar2;
         m mVar3;
-        mVar = this.awf.avZ;
+        mVar = this.awg.awa;
         if (mVar.getItemId(i) >= 0) {
-            mVar2 = this.awf.avZ;
-            if (!mVar2.Fb()) {
-                mVar3 = this.awf.avZ;
+            mVar2 = this.awg.awa;
+            if (!mVar2.Fc()) {
+                mVar3 = this.awg.awa;
                 AccountData accountData = (AccountData) mVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
-                    this.awf.l(accountData);
+                    this.awg.l(accountData);
                     return;
                 }
                 return;
             }
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.awf.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.awf.getPageContext().getPageActivity())));
+        TbadkCoreApplication.m411getInst().login(this.awg.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.awg.getPageContext().getPageActivity())));
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnTouchListener {
-    final /* synthetic */ s bPT;
+    final /* synthetic */ s bPU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(s sVar) {
-        this.bPT = sVar;
+        this.bPU = sVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,27 +25,27 @@ public class aa implements View.OnTouchListener {
         MorePopupWindow morePopupWindow8;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        morePopupWindow = this.bPT.bKD;
+        morePopupWindow = this.bPU.bKE;
         if (morePopupWindow.getContentView() == null) {
             return false;
         }
-        morePopupWindow2 = this.bPT.bKD;
+        morePopupWindow2 = this.bPU.bKE;
         int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.bPT.bKD;
+        morePopupWindow3 = this.bPU.bKE;
         int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.bPT.bKD;
+        morePopupWindow4 = this.bPU.bKE;
         int bottom = morePopupWindow4.getContentView().getBottom();
         if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.bPT.bKD;
+            morePopupWindow6 = this.bPU.bKE;
             if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.bPT.bKD;
+                morePopupWindow7 = this.bPU.bKE;
                 morePopupWindow7.dismiss();
-                morePopupWindow8 = this.bPT.bKD;
+                morePopupWindow8 = this.bPU.bKE;
                 morePopupWindow8.setIsIntercepted(true);
                 return true;
             }
         }
-        morePopupWindow5 = this.bPT.bKD;
+        morePopupWindow5 = this.bPU.bKE;
         morePopupWindow5.setIsIntercepted(false);
         return false;
     }

@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 class ag implements View.OnClickListener {
-    final /* synthetic */ Register2Activity axP;
+    final /* synthetic */ Register2Activity axQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(Register2Activity register2Activity) {
-        this.axP = register2Activity;
+        this.axQ = register2Activity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.baidu.tieba.account.Register2Activity */
@@ -43,47 +43,47 @@ class ag implements View.OnClickListener {
         EditText editText;
         EditText editText2;
         int i;
-        view2 = this.axP.axi;
+        view2 = this.axQ.axj;
         if (view != view2) {
-            textView = this.axP.axj;
+            textView = this.axQ.axk;
             if (view == textView) {
-                i = this.axP.mFrom;
+                i = this.axQ.mFrom;
                 if (i == 1) {
-                    this.axP.finish();
+                    this.axQ.finish();
                     return;
                 } else {
-                    TbadkCoreApplication.m411getInst().login(this.axP.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.axP.getPageContext().getPageActivity(), 2, true, 11038)));
+                    TbadkCoreApplication.m411getInst().login(this.axQ.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.axQ.getPageContext().getPageActivity(), 2, true, 11038)));
                     return;
                 }
             }
-            button = this.axP.axk;
+            button = this.axQ.axl;
             if (view != button) {
-                imageView = this.axP.axl;
+                imageView = this.axQ.axm;
                 if (view != imageView) {
-                    imageView2 = this.axP.axm;
+                    imageView2 = this.axQ.axn;
                     if (view == imageView2) {
-                        editText = this.axP.axw;
+                        editText = this.axQ.axx;
                         editText.setText((CharSequence) null);
                         return;
                     }
-                    relativeLayout = this.axP.axy;
+                    relativeLayout = this.axQ.axz;
                     if (view != relativeLayout) {
-                        imageView3 = this.axP.axF;
+                        imageView3 = this.axQ.axG;
                         if (view != imageView3) {
-                            button2 = this.axP.axn;
+                            button2 = this.axQ.axo;
                             if (view != button2) {
                                 return;
                             }
                         }
-                        alVar = this.axP.axK;
+                        alVar = this.axQ.axL;
                         if (alVar == null) {
-                            nVar = this.axP.axM;
+                            nVar = this.axQ.axN;
                             if (nVar != null) {
-                                Register2Activity register2Activity = this.axP;
-                                Register2Activity register2Activity2 = this.axP;
-                                nVar2 = this.axP.axM;
-                                register2Activity.axK = new al(register2Activity2, nVar2.qK().getVcode_pic_url());
-                                alVar2 = this.axP.axK;
+                                Register2Activity register2Activity = this.axQ;
+                                Register2Activity register2Activity2 = this.axQ;
+                                nVar2 = this.axQ.axN;
+                                register2Activity.axL = new al(register2Activity2, nVar2.qK().getVcode_pic_url());
+                                alVar2 = this.axQ.axL;
                                 alVar2.execute(new String[0]);
                                 return;
                             }
@@ -91,29 +91,29 @@ class ag implements View.OnClickListener {
                         }
                         return;
                     }
-                    amVar = this.axP.axL;
+                    amVar = this.axQ.axM;
                     if (amVar == null) {
-                        alVar3 = this.axP.axK;
+                        alVar3 = this.axQ.axL;
                         if (alVar3 != null) {
-                            alVar4 = this.axP.axK;
+                            alVar4 = this.axQ.axL;
                             alVar4.cancel();
                         }
-                        this.axP.axL = new am(this.axP, null);
-                        amVar2 = this.axP.axL;
+                        this.axQ.axM = new am(this.axQ, null);
+                        amVar2 = this.axQ.axM;
                         amVar2.setPriority(3);
-                        amVar3 = this.axP.axL;
+                        amVar3 = this.axQ.axM;
                         amVar3.execute(new String[0]);
                         return;
                     }
                     return;
                 }
-                editText2 = this.axP.axu;
+                editText2 = this.axQ.axv;
                 editText2.setText((CharSequence) null);
                 return;
             }
-            this.axP.Fi();
+            this.axQ.Fj();
             return;
         }
-        this.axP.finish();
+        this.axQ.finish();
     }
 }

@@ -17,7 +17,7 @@ public class n extends com.baidu.adp.a.a.a {
         if (!dN()) {
             super.start();
             this.aqg.sendEmptyMessageDelayed(0, 10000L);
-            Dl();
+            Dm();
             try {
                 f.a(this.aqb, new p(this));
             } catch (Exception e) {
@@ -29,10 +29,10 @@ public class n extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Dm();
+        Dn();
     }
 
-    private void Dl() {
+    private void Dm() {
         if (this.aqd == null) {
             this.aqd = new f();
         }
@@ -41,7 +41,7 @@ public class n extends com.baidu.adp.a.a.a {
         }
     }
 
-    private void Dm() {
+    private void Dn() {
         if (this.aqd != null && this.aqd.dN()) {
             this.aqd.stop();
         }

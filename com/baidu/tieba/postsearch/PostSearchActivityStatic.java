@@ -11,24 +11,24 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        afX();
         afY();
         afZ();
+        aga();
     }
 
-    private static void afX() {
+    private static void afY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void afY() {
+    private static void afZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009003, new h());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void afZ() {
+    private static void aga() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009004, new i());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

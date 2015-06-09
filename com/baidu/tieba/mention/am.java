@@ -14,11 +14,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
 class am implements com.baidu.tbadk.editortool.v {
-    final /* synthetic */ ai bGE;
+    final /* synthetic */ ai bGF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ai aiVar) {
-        this.bGE = aiVar;
+        this.bGF = aiVar;
     }
 
     @Override // com.baidu.tbadk.editortool.v
@@ -44,60 +44,60 @@ class am implements com.baidu.tbadk.editortool.v {
                         if (i != 23) {
                             if (i == 42) {
                                 int intValue = ((Integer) obj).intValue();
-                                writeImagesInfo = this.bGE.mWriteImagesInfo;
+                                writeImagesInfo = this.bGF.mWriteImagesInfo;
                                 if (writeImagesInfo == null) {
                                     return;
                                 }
-                                writeImagesInfo2 = this.bGE.mWriteImagesInfo;
+                                writeImagesInfo2 = this.bGF.mWriteImagesInfo;
                                 if (writeImagesInfo2.getChosedFiles() == null) {
                                     return;
                                 }
-                                writeImagesInfo3 = this.bGE.mWriteImagesInfo;
+                                writeImagesInfo3 = this.bGF.mWriteImagesInfo;
                                 int size = writeImagesInfo3.getChosedFiles().size();
                                 if (size >= 1 && intValue >= 0 && intValue < size) {
                                     MessageManager messageManager = MessageManager.getInstance();
-                                    Activity activity = this.bGE.getActivity();
-                                    writeImagesInfo4 = this.bGE.mWriteImagesInfo;
+                                    Activity activity = this.bGF.getActivity();
+                                    writeImagesInfo4 = this.bGF.mWriteImagesInfo;
                                     messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(activity, 12012, writeImagesInfo4, intValue)));
                                     return;
                                 }
                                 return;
                             } else if (i != 7) {
                                 if (i == 48) {
-                                    com.baidu.tieba.tbadkCore.PbEditor.a.amX();
-                                    if (!com.baidu.tieba.tbadkCore.PbEditor.a.amV()) {
-                                        this.bGE.getPageContext().showToast(com.baidu.tieba.t.baobao_over_limit);
+                                    com.baidu.tieba.tbadkCore.PbEditor.a.amY();
+                                    if (!com.baidu.tieba.tbadkCore.PbEditor.a.amW()) {
+                                        this.bGF.getPageContext().showToast(com.baidu.tieba.t.baobao_over_limit);
                                         return;
                                     }
-                                    com.baidu.tbadk.core.frameworkData.c cVar = new com.baidu.tbadk.core.frameworkData.c(this.bGE.getActivity());
-                                    cVar.getIntent().putExtra("title", this.bGE.getResources().getString(com.baidu.tieba.t.send_reply));
+                                    com.baidu.tbadk.core.frameworkData.c cVar = new com.baidu.tbadk.core.frameworkData.c(this.bGF.getActivity());
+                                    cVar.getIntent().putExtra("title", this.bGF.getResources().getString(com.baidu.tieba.t.send_reply));
                                     cVar.getIntent().putExtra(GroupInfoActivityConfig.REQUEST_CODE, 12013);
-                                    this.bGE.getPageContext().sendMessage(new CustomMessage(2802001, cVar));
+                                    this.bGF.getPageContext().sendMessage(new CustomMessage(2802001, cVar));
                                     return;
                                 }
                                 return;
                             } else {
-                                eVar = this.bGE.aNG;
+                                eVar = this.bGF.aNH;
                                 if (eVar == null) {
-                                    this.bGE.Zr();
+                                    this.bGF.Zs();
                                 }
-                                eVar2 = this.bGE.aNG;
+                                eVar2 = this.bGF.aNH;
                                 if (eVar2 == null) {
                                     return;
                                 }
-                                eVar3 = this.bGE.aNG;
+                                eVar3 = this.bGF.aNH;
                                 eVar3.rN();
                                 return;
                             }
                         }
-                        writeImagesInfo5 = this.bGE.mWriteImagesInfo;
+                        writeImagesInfo5 = this.bGF.mWriteImagesInfo;
                         if (writeImagesInfo5 == null) {
                             return;
                         }
-                        writeImagesInfo6 = this.bGE.mWriteImagesInfo;
+                        writeImagesInfo6 = this.bGF.mWriteImagesInfo;
                         if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
-                            Activity activity2 = this.bGE.getActivity();
-                            writeImagesInfo7 = this.bGE.mWriteImagesInfo;
+                            Activity activity2 = this.bGF.getActivity();
+                            writeImagesInfo7 = this.bGF.mWriteImagesInfo;
                             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(activity2, writeImagesInfo7.toJsonString());
                             albumActivityConfig.setRequestCode(12002);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -105,29 +105,29 @@ class am implements com.baidu.tbadk.editortool.v {
                         }
                         return;
                     }
-                    writeImagesInfo8 = this.bGE.mWriteImagesInfo;
+                    writeImagesInfo8 = this.bGF.mWriteImagesInfo;
                     int size2 = writeImagesInfo8.size();
-                    writeImagesInfo9 = this.bGE.mWriteImagesInfo;
+                    writeImagesInfo9 = this.bGF.mWriteImagesInfo;
                     if (size2 >= writeImagesInfo9.getMaxImagesAllowed()) {
-                        this.bGE.getPageContext().showToast(String.format(this.bGE.getString(com.baidu.tieba.t.editor_mutiiamge_max), 10));
+                        this.bGF.getPageContext().showToast(String.format(this.bGF.getString(com.baidu.tieba.t.editor_mutiiamge_max), 10));
                         return;
                     }
-                    this.bGE.aJR = String.valueOf(System.currentTimeMillis());
-                    TbPageContext pageContext = this.bGE.getPageContext();
-                    str = this.bGE.aJR;
+                    this.bGF.aJS = String.valueOf(System.currentTimeMillis());
+                    TbPageContext pageContext = this.bGF.getPageContext();
+                    str = this.bGF.aJS;
                     ax.a(pageContext, str);
                     return;
                 }
                 return;
             }
-            this.bGE.Zs();
+            this.bGF.Zt();
             return;
         }
-        pbEditor = this.bGE.aKO;
-        if (pbEditor.Km()) {
-            this.bGE.getPageContext().showToast(com.baidu.tieba.t.over_limit_tip);
+        pbEditor = this.bGF.aKP;
+        if (pbEditor.Kn()) {
+            this.bGF.getPageContext().showToast(com.baidu.tieba.t.over_limit_tip);
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bGE.getActivity(), 12004, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bGF.getActivity(), 12004, true)));
         }
     }
 }

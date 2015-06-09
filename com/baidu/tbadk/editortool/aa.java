@@ -17,7 +17,7 @@ public class aa {
     private static aa akz = new aa();
     private static BdAsyncTaskParallel akC = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
-    public static aa zE() {
+    public static aa zF() {
         return akz;
     }
 
@@ -33,7 +33,7 @@ public class aa {
         }
     }
 
-    public void zF() {
+    public void zG() {
         new ab(this).execute(new Void[0]);
     }
 
@@ -48,7 +48,7 @@ public class aa {
     }
 
     public com.baidu.adp.widget.a.a eA(String str) {
-        return com.baidu.tbadk.imageManager.e.Al().eL(str);
+        return com.baidu.tbadk.imageManager.e.Am().eL(str);
     }
 
     public String q(String str, boolean z) {
@@ -62,7 +62,7 @@ public class aa {
     public com.baidu.adp.widget.a.a al(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
         Bitmap am;
-        com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Al().eL(str2);
+        com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Am().eL(str2);
         if (eL != null) {
             return eL;
         }
@@ -86,8 +86,8 @@ public class aa {
     }
 
     public String m(String str, boolean z) {
-        if (!y.zD().isEmpty()) {
-            List<ad> groups = y.zD().getGroups();
+        if (!y.zE().isEmpty()) {
+            List<ad> groups = y.zE().getGroups();
             if (z) {
                 for (ad adVar : groups) {
                     if (adVar.ex(str)) {
@@ -104,14 +104,14 @@ public class aa {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.Al().c(m(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.Am().c(m(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.Al().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.Am().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ad> zG() {
+    public ArrayList<ad> zH() {
         return this.akA;
     }
 

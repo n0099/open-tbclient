@@ -28,7 +28,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.g
     /* renamed from: f */
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.e.Al().eL(m(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+        return com.baidu.tbadk.imageManager.e.Am().eL(m(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,10 +46,10 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<ad> zG = aa.zE().zG();
+        ArrayList<ad> zH = aa.zF().zH();
         if (valueOf3.booleanValue()) {
-            String q = aa.zE().q(valueOf2, true);
-            Iterator<ad> it = zG.iterator();
+            String q = aa.zF().q(valueOf2, true);
+            Iterator<ad> it = zH.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar2 = null;
@@ -57,7 +57,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 }
                 ad next = it.next();
                 if (next.ex(valueOf2)) {
-                    if (next.zC()) {
+                    if (next.zD()) {
                         aVar2 = next.ez(valueOf2);
                     } else {
                         aVar2 = a(next.getGroupId(), q, aVar);
@@ -68,8 +68,8 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 aVar2 = a(valueOf, q, aVar);
             }
         } else {
-            String q2 = aa.zE().q(valueOf2, false);
-            Iterator<ad> it2 = zG.iterator();
+            String q2 = aa.zF().q(valueOf2, false);
+            Iterator<ad> it2 = zH.iterator();
             com.baidu.adp.widget.a.a aVar3 = null;
             while (true) {
                 if (!it2.hasNext()) {
@@ -78,7 +78,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 }
                 ad next2 = it2.next();
                 if (next2.ex(valueOf2)) {
-                    if (next2.zC()) {
+                    if (next2.zD()) {
                         aVar3 = next2.ey(valueOf2);
                     } else {
                         Bitmap b2 = b(next2.getGroupId(), q2, aVar);
@@ -114,7 +114,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
             return null;
         }
         synchronized (com.baidu.tbadk.core.util.c.Gk) {
-            String q = aa.zE().q(valueOf2, valueOf3.booleanValue());
+            String q = aa.zF().q(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
                 com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, q, DiskFileOperate.Action.WRITE);
@@ -127,7 +127,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                     dVar.f(aVar3);
                     aVar.vx = dVar;
                 }
-                Iterator<ad> it = aa.zE().zG().iterator();
+                Iterator<ad> it = aa.zF().zH().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;
@@ -146,7 +146,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                     return null;
                 }
             } else {
-                com.baidu.tbadk.imageManager.e.Al().dN(80000);
+                com.baidu.tbadk.imageManager.e.Am().dN(80000);
                 Bitmap w = com.baidu.tbadk.core.util.c.w(l);
                 if (w == null) {
                     return null;
@@ -171,7 +171,7 @@ public class e implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.g
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.e.Al().c(m(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.e.Am().c(m(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
         }
     }
 

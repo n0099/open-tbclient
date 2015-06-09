@@ -30,28 +30,28 @@ class l implements c {
         MultiImageView multiImageView13;
         MultiImageView multiImageView14;
         if (z2) {
-            multiImageView10 = this.this$0.bxy;
+            multiImageView10 = this.this$0.bxz;
             if (multiImageView10.getCurrentItem() <= 4) {
-                multiImageView11 = this.this$0.bxy;
+                multiImageView11 = this.this$0.bxz;
                 int itemNum = multiImageView11.getItemNum();
-                multiImageView12 = this.this$0.bxy;
+                multiImageView12 = this.this$0.bxz;
                 multiImageView12.setTempSize(itemNum + 100);
-                multiImageView13 = this.this$0.bxy;
+                multiImageView13 = this.this$0.bxz;
                 multiImageView13.setCurrentItem(itemNum + 90, false);
-                multiImageView14 = this.this$0.bxy;
+                multiImageView14 = this.this$0.bxz;
                 multiImageView14.setTempSize(0);
             }
         }
-        multiImageView = this.this$0.bxy;
+        multiImageView = this.this$0.bxz;
         multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.this$0.bxy;
+        multiImageView2 = this.this$0.bxz;
         multiImageView2.setHasNext(z);
-        multiImageView3 = this.this$0.bxy;
+        multiImageView3 = this.this$0.bxz;
         multiImageView3.setNextTitle(str);
         if (i >= 0) {
-            multiImageView8 = this.this$0.bxy;
+            multiImageView8 = this.this$0.bxz;
             if (i < multiImageView8.getItemNum()) {
-                multiImageView9 = this.this$0.bxy;
+                multiImageView9 = this.this$0.bxz;
                 multiImageView9.setCurrentItem(i, false);
             }
         }
@@ -59,22 +59,22 @@ class l implements c {
             this.this$0.mCount = i2;
         }
         if (arrayList.size() >= 400) {
-            multiImageView4 = this.this$0.bxy;
+            multiImageView4 = this.this$0.bxz;
             if (multiImageView4.getCurrentItem() > 200) {
                 for (int i4 = 0; i4 < 200; i4++) {
                     arrayList.remove(0);
                 }
-                multiImageView5 = this.this$0.bxy;
+                multiImageView5 = this.this$0.bxz;
                 multiImageView5.setUrlData(arrayList);
                 ImageViewerActivity imageViewerActivity = this.this$0;
-                i3 = imageViewerActivity.bxq;
-                imageViewerActivity.bxq = i3 + 200;
-                multiImageView6 = this.this$0.bxy;
-                multiImageView7 = this.this$0.bxy;
+                i3 = imageViewerActivity.bxr;
+                imageViewerActivity.bxr = i3 + 200;
+                multiImageView6 = this.this$0.bxz;
+                multiImageView7 = this.this$0.bxz;
                 multiImageView6.setCurrentItem(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
-        this.this$0.Xw();
+        this.this$0.Xx();
     }
 
     @Override // com.baidu.tieba.image.c
@@ -83,9 +83,9 @@ class l implements c {
         this.this$0.showToast(str);
         if (i == 40) {
             ImageViewerActivity imageViewerActivity = this.this$0;
-            arrayList = this.this$0.bxr;
+            arrayList = this.this$0.bxs;
             imageViewerActivity.mCount = arrayList.size();
-            this.this$0.Xw();
+            this.this$0.Xx();
         }
     }
 }

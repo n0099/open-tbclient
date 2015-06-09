@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class j implements y {
-    final /* synthetic */ e aDf;
+    final /* synthetic */ e aDg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.aDf = eVar;
+        this.aDg = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.y
@@ -19,14 +19,14 @@ class j implements y {
         com.baidu.tbadk.mvc.k.a aVar2;
         com.baidu.tbadk.mvc.k.a aVar3;
         if (n.isNetOk()) {
-            this.aDf.bg(false);
+            this.aDg.bg(false);
             return;
         }
-        aVar = this.aDf.aoz;
+        aVar = this.aDg.aoz;
         if (aVar != null) {
-            aVar2 = this.aDf.aoz;
-            aVar2.CQ();
-            aVar3 = this.aDf.aoz;
+            aVar2 = this.aDg.aoz;
+            aVar2.CR();
+            aVar3 = this.aDg.aoz;
             aVar3.ee(t.no_more_msg);
         }
     }

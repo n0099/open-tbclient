@@ -17,7 +17,7 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
     private c aoH;
     private int aoI;
 
-    protected abstract FragmentTabWidget Cu();
+    protected abstract FragmentTabWidget Cv();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract ViewGroup.LayoutParams dX(int i);
@@ -39,9 +39,9 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void CF() {
+    public void CG() {
         initViewPager();
-        CG();
+        CH();
         this.aoH.notifyDataSetChanged();
         if (this.aoI == -1) {
             this.aoI = 0;
@@ -58,8 +58,8 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
         this.aoG.setOnPageChangeListener(this);
     }
 
-    private void CG() {
-        this.aoF = Cu();
+    private void CH() {
+        this.aoF = Cv();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             dY(i);
@@ -70,23 +70,23 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
     protected void a(int i, FragmentTabIndicator fragmentTabIndicator) {
         com.baidu.tbadk.mvc.core.c dU = dU(i);
         if (dU instanceof com.baidu.tbadk.mvc.i.b.b) {
-            com.baidu.tbadk.mvc.i.b.c CH = ((com.baidu.tbadk.mvc.i.b.b) dU).CH();
-            fragmentTabIndicator.setText(CH.getTitle());
-            com.baidu.tbadk.mainTab.c CJ = CH.CJ();
-            if (CJ != null) {
-                if (fragmentTabIndicator.eR(CH.CK()) == null) {
-                    CJ.cz(TbadkCoreApplication.m411getInst().getSkinType());
-                    fragmentTabIndicator.a(CH.CK(), CJ);
+            com.baidu.tbadk.mvc.i.b.c CI = ((com.baidu.tbadk.mvc.i.b.b) dU).CI();
+            fragmentTabIndicator.setText(CI.getTitle());
+            com.baidu.tbadk.mainTab.c CK = CI.CK();
+            if (CK != null) {
+                if (fragmentTabIndicator.eR(CI.CL()) == null) {
+                    CK.cz(TbadkCoreApplication.m411getInst().getSkinType());
+                    fragmentTabIndicator.a(CI.CL(), CK);
                 }
-                CJ.ane = fragmentTabIndicator;
-                if (CH.CI() > 0) {
-                    if (CJ.view instanceof TextView) {
-                        ((TextView) CJ.view).setText(new StringBuilder(String.valueOf(CH.CI())).toString());
+                CK.ane = fragmentTabIndicator;
+                if (CI.CJ() > 0) {
+                    if (CK.view instanceof TextView) {
+                        ((TextView) CK.view).setText(new StringBuilder(String.valueOf(CI.CJ())).toString());
                     }
-                    CJ.view.setVisibility(0);
+                    CK.view.setVisibility(0);
                     return;
                 }
-                CJ.view.setVisibility(8);
+                CK.view.setVisibility(8);
             }
         }
     }
@@ -106,7 +106,7 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        Cu().a(i, f);
+        Cv().a(i, f);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -115,7 +115,7 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
     }
 
     private void dZ(int i) {
-        Cu().d(i, true);
+        Cv().d(i, true);
         this.aoI = i;
         com.baidu.tbadk.mvc.core.c dU = dU(i);
         if (dU instanceof com.baidu.tbadk.mvc.i.b.b) {
@@ -133,7 +133,7 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
         if (dU == null || !(dU instanceof com.baidu.tbadk.mvc.i.b.b)) {
             return -1;
         }
-        return ((com.baidu.tbadk.mvc.i.b.b) dU).CH().CL();
+        return ((com.baidu.tbadk.mvc.i.b.b) dU).CI().CM();
     }
 
     public void ea(int i) {
@@ -146,7 +146,7 @@ public abstract class a extends d implements ViewPager.OnPageChangeListener, com
                 break;
             }
             com.baidu.tbadk.mvc.core.c dU = dU(i3);
-            if (dU != null && (dU instanceof com.baidu.tbadk.mvc.i.b.b) && ((com.baidu.tbadk.mvc.i.b.b) dU).CH().CL() == i) {
+            if (dU != null && (dU instanceof com.baidu.tbadk.mvc.i.b.b) && ((com.baidu.tbadk.mvc.i.b.b) dU).CI().CM() == i) {
                 i2 = i3;
                 break;
             }

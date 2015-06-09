@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private int cpN;
     private int cpO;
+    private int cpP;
     private int cur_score;
     private String fid;
     private int is_like;
@@ -16,8 +16,8 @@ public class ah {
 
     public ah() {
         setLike(0);
-        this.cpN = 0;
         this.cpO = 0;
+        this.cpP = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
@@ -32,7 +32,7 @@ public class ah {
         this.fid = str;
     }
 
-    public int aky() {
+    public int akz() {
         return this.user_level;
     }
 
@@ -54,8 +54,8 @@ public class ah {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.cpN = jSONObject.optInt("is_black", 0);
-                this.cpO = jSONObject.optInt("like_num", 0);
+                this.cpO = jSONObject.optInt("is_black", 0);
+                this.cpP = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));

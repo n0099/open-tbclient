@@ -6,11 +6,11 @@ import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements TextWatcher {
-    final /* synthetic */ AbsMsglistView aZo;
+    final /* synthetic */ AbsMsglistView aZp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(AbsMsglistView absMsglistView) {
-        this.aZo = absMsglistView;
+        this.aZp = absMsglistView;
     }
 
     @Override // android.text.TextWatcher
@@ -28,17 +28,17 @@ public class j implements TextWatcher {
         Button button2;
         Button button3;
         if (editable == null || editable.length() <= 0) {
-            button = this.aZo.mBtnMsgsendSend;
+            button = this.aZp.mBtnMsgsendSend;
             button.setEnabled(false);
             return;
         }
-        checkTextNum = this.aZo.checkTextNum();
+        checkTextNum = this.aZp.checkTextNum();
         if (checkTextNum) {
-            button3 = this.aZo.mBtnMsgsendSend;
+            button3 = this.aZp.mBtnMsgsendSend;
             button3.setEnabled(true);
             return;
         }
-        button2 = this.aZo.mBtnMsgsendSend;
+        button2 = this.aZp.mBtnMsgsendSend;
         button2.setEnabled(false);
     }
 }

@@ -8,27 +8,27 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKT;
-    private final /* synthetic */ dc bKU;
-    private final /* synthetic */ ShareFromPBMsgData bKV;
-    private final /* synthetic */ long bwg;
-    private final /* synthetic */ String bwh;
+    final /* synthetic */ PbActivity bKU;
+    private final /* synthetic */ dc bKV;
+    private final /* synthetic */ ShareFromPBMsgData bKW;
+    private final /* synthetic */ long bwh;
+    private final /* synthetic */ String bwi;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbActivity pbActivity, dc dcVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
-        this.bKT = pbActivity;
-        this.bKU = dcVar;
-        this.bwg = j;
+        this.bKU = pbActivity;
+        this.bKV = dcVar;
+        this.bwh = j;
         this.val$name = str;
-        this.bwh = str2;
-        this.bKV = shareFromPBMsgData;
+        this.bwi = str2;
+        this.bKW = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bKT.HidenSoftKeyPad((InputMethodManager) this.bKT.getSystemService("input_method"), this.bKU.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.bKT.getPageContext().getPageActivity(), this.bwg, this.val$name, this.bwh, 0, this.bKU.getLeaveMsg(), this.bKV.toChatMessageContent())));
+        this.bKU.HidenSoftKeyPad((InputMethodManager) this.bKU.getSystemService("input_method"), this.bKV.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.bKU.getPageContext().getPageActivity(), this.bwh, this.val$name, this.bwi, 0, this.bKV.getLeaveMsg(), this.bKW.toChatMessageContent())));
         aVar.dismiss();
     }
 }

@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
 class u {
-    final /* synthetic */ n aAY;
-    HeadImageView aBk;
-    UserIconBox aBl;
-    TextView aBm;
+    final /* synthetic */ n aAZ;
+    HeadImageView aBl;
+    UserIconBox aBm;
     TextView aBn;
     TextView aBo;
     TextView aBp;
     TextView aBq;
-    ImageView aBr;
+    TextView aBr;
+    ImageView aBs;
     View line;
 
     private u(n nVar) {
-        this.aAY = nVar;
+        this.aAZ = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

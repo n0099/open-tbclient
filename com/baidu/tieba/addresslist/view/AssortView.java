@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class AssortView extends View {
-    private a aBz;
+    private a aBA;
     private Paint mPaint;
     private int mPosition;
 
@@ -39,7 +39,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.aBz = aVar;
+        this.aBA = aVar;
     }
 
     @Override // android.view.View
@@ -73,22 +73,22 @@ public class AssortView extends View {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.aBz != null) {
-                        this.aBz.fr(c.aeh[this.mPosition]);
+                    if (this.aBA != null) {
+                        this.aBA.fr(c.aeh[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.aBz != null) {
-                        this.aBz.FJ();
+                    if (this.aBA != null) {
+                        this.aBA.FK();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.aBz != null) {
-                            this.aBz.fr(c.aeh[this.mPosition]);
+                        if (this.aBA != null) {
+                            this.aBA.fr(c.aeh[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -99,8 +99,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.aBz != null) {
-            this.aBz.FJ();
+        if (this.aBA != null) {
+            this.aBA.FK();
             return true;
         }
         return true;

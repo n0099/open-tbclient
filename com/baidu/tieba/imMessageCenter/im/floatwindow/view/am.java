@@ -5,30 +5,30 @@ import com.baidu.tbadk.core.data.UserData;
 import java.util.List;
 /* loaded from: classes.dex */
 class am implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatView buY;
+    final /* synthetic */ FloatingPersonalChatView buZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(FloatingPersonalChatView floatingPersonalChatView) {
-        this.buY = floatingPersonalChatView;
+        this.buZ = floatingPersonalChatView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean WI;
+        boolean WJ;
         ap apVar;
         List list;
         int i;
         FloatingPersonalChatActivity floatingPersonalChatActivity;
-        WI = this.buY.WI();
-        if (!WI) {
-            apVar = this.buY.buW;
-            list = this.buY.mUserDataList;
-            i = this.buY.currentIndex;
+        WJ = this.buZ.WJ();
+        if (!WJ) {
+            apVar = this.buZ.buX;
+            list = this.buZ.mUserDataList;
+            i = this.buZ.currentIndex;
             if (apVar.hP(((UserData) list.get(i)).getUserId())) {
-                this.buY.SendMore1Event();
+                this.buZ.SendMore1Event();
                 return;
             }
-            floatingPersonalChatActivity = this.buY.buL;
+            floatingPersonalChatActivity = this.buZ.buM;
             floatingPersonalChatActivity.showToast(com.baidu.tieba.t.add_friend_cannot_send);
         }
     }

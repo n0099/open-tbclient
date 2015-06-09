@@ -17,17 +17,17 @@ class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 2:
-                b.d(b.Uf()).removeMessages(2);
-                b.Uf().Uk();
+                b.d(b.Ug()).removeMessages(2);
+                b.Ug().Ul();
                 return;
             case 3:
-                b.d(b.Uf()).removeMessages(3);
-                if (b.e(b.Uf()) == 3) {
-                    b.Uf().Ul();
+                b.d(b.Ug()).removeMessages(3);
+                if (b.e(b.Ug()) == 3) {
+                    b.Ug().Um();
                 } else {
-                    b.Uf().Uk();
+                    b.Ug().Ul();
                 }
-                b.d(b.Uf()).sendMessageDelayed(b.d(b.Uf()).obtainMessage(3), b.f(b.Uf()));
+                b.d(b.Ug()).sendMessageDelayed(b.d(b.Ug()).obtainMessage(3), b.f(b.Ug()));
                 return;
             default:
                 return;

@@ -5,40 +5,40 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.mvc.model.r;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.d.c<f, g> {
-    public final c bPb;
-    public final f bPc;
-    private d bPd;
+    public final c bPc;
+    public final f bPd;
+    private d bPe;
 
     public e(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
-        this.bPb = new c();
-        this.bPc = new f();
+        this.bPc = new c();
+        this.bPd = new f();
     }
 
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putAll(this.bPc.toBundle());
-        bundle.putInt("KeyIntentPraiseId", this.bPb.acM());
+        bundle.putAll(this.bPd.toBundle());
+        bundle.putInt("KeyIntentPraiseId", this.bPc.acN());
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
         if (bundle != null) {
-            this.bPc.j(bundle);
+            this.bPd.j(bundle);
         }
-        this.bPd = new d(AK().getPageContext(), this.bPc);
-        this.bPd.a((r) this);
+        this.bPe = new d(AL().getPageContext(), this.bPd);
+        this.bPe.a((r) this);
         if (bundle.containsKey("KeyIntentPraiseId")) {
-            this.bPb.hG(bundle.getInt("KeyIntentPraiseId"));
+            this.bPc.hG(bundle.getInt("KeyIntentPraiseId"));
         }
-        AL().addEventDelegate(this);
+        AM().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
     protected boolean oM() {
-        this.bPd.BL();
+        this.bPe.BM();
         return true;
     }
 
@@ -46,16 +46,16 @@ public class e extends com.baidu.tbadk.mvc.d.c<f, g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean a(f fVar, g gVar) {
-        this.bPb.a(gVar);
-        this.bPc.acQ();
-        this.bPb.setStatus(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        if (this.bPc.getPageNum() > 5) {
-            this.bPb.setStatus(1003);
+        this.bPc.a(gVar);
+        this.bPd.acR();
+        this.bPc.setStatus(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        if (this.bPd.getPageNum() > 5) {
+            this.bPc.setStatus(1003);
         }
-        if (this.bPb.acN() >= this.bPb.acM()) {
-            this.bPb.setStatus(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
+        if (this.bPc.acO() >= this.bPc.acN()) {
+            this.bPc.setStatus(BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE);
         }
-        b(this.bPb);
+        b(this.bPc);
         return true;
     }
 }

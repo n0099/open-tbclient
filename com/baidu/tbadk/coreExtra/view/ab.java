@@ -25,7 +25,7 @@ public class ab implements View.OnClickListener {
         adVar = this.agj.mCardOnClickDispatch;
         if (adVar != null) {
             adVar2 = this.agj.mCardOnClickDispatch;
-            if (!adVar2.xT()) {
+            if (!adVar2.xU()) {
                 return;
             }
         }

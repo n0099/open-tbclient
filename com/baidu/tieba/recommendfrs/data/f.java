@@ -13,27 +13,27 @@ import tbclient.FineFrsPage.FineFrsPageResIdl;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.mvc.b.b, k {
-    private boolean bLg = true;
-    private List<String> cbJ;
-    private List<a> cca;
-    private List<EverydayThread> ccb;
-    private List<Hot_Thread> ccc;
+    private boolean bLh = true;
+    private List<String> cbK;
+    private List<a> ccb;
+    private List<EverydayThread> ccc;
+    private List<Hot_Thread> ccd;
     private boolean mHasMore;
 
-    public List<a> ahC() {
-        return this.cca;
-    }
-
-    public List<Hot_Thread> ahD() {
-        return this.ccc;
-    }
-
-    public List<EverydayThread> ahE() {
+    public List<a> ahD() {
         return this.ccb;
     }
 
-    public List<String> ahF() {
-        return this.cbJ;
+    public List<Hot_Thread> ahE() {
+        return this.ccd;
+    }
+
+    public List<EverydayThread> ahF() {
+        return this.ccc;
+    }
+
+    public List<String> ahG() {
+        return this.cbK;
     }
 
     public boolean getHasMore() {
@@ -54,7 +54,7 @@ public class f implements com.baidu.tbadk.mvc.b.b, k {
         if (message instanceof FineFrsPageResIdl) {
             FineFrsPageResIdl fineFrsPageResIdl = (FineFrsPageResIdl) message;
             if (fineFrsPageResIdl.error.errorno.intValue() == 0 && fineFrsPageResIdl.data != null) {
-                this.cca = new ArrayList();
+                this.ccb = new ArrayList();
                 List<FineBanner> list = fineFrsPageResIdl.data.fine_banner;
                 if (list != null) {
                     for (FineBanner fineBanner : list) {
@@ -66,20 +66,20 @@ public class f implements com.baidu.tbadk.mvc.b.b, k {
                             aVar.iX(fineBanner.link_url);
                             aVar.iZ(fineBanner.pic_url);
                             aVar.iY(fineBanner.title);
-                            this.cca.add(aVar);
+                            this.ccb.add(aVar);
                         }
                     }
                 }
-                this.ccb = fineFrsPageResIdl.data.everyday_thread;
+                this.ccc = fineFrsPageResIdl.data.everyday_thread;
                 this.mHasMore = fineFrsPageResIdl.data.has_more.intValue() == 1;
-                this.ccc = fineFrsPageResIdl.data.hot_thread;
-                this.cbJ = fineFrsPageResIdl.data.tag_list;
+                this.ccd = fineFrsPageResIdl.data.hot_thread;
+                this.cbK = fineFrsPageResIdl.data.tag_list;
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Bo() {
+    public byte[] Bp() {
         return null;
     }
 
@@ -94,7 +94,7 @@ public class f implements com.baidu.tbadk.mvc.b.b, k {
         }
     }
 
-    public boolean ahG() {
-        return this.bLg;
+    public boolean ahH() {
+        return this.bLh;
     }
 }

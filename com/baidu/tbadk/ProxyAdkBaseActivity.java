@@ -758,7 +758,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Au();
+        return this.loadingView.Av();
     }
 
     public void hideLoadingView(View view) {

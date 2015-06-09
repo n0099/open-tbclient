@@ -17,9 +17,9 @@ public class af implements View.OnClickListener {
         w wVar;
         z = this.this$0.avq;
         if (z) {
-            this.this$0.EU();
+            this.this$0.EV();
         }
-        wVar = this.this$0.avV;
+        wVar = this.this$0.avW;
         wVar.dismiss();
         this.this$0.finish();
     }

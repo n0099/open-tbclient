@@ -10,7 +10,7 @@ public class ad {
     public static int aqU;
     public static long aqV;
 
-    public static void Do() {
+    public static void Dp() {
         com.baidu.adp.lib.stats.q hm = ab.hm();
         hm.r("action", "imcost");
         hm.r("dect", String.valueOf(aqQ));
@@ -21,10 +21,10 @@ public class ad {
         hm.r("cpu", String.valueOf(aqU));
         hm.r("totalNum", String.valueOf(aqP));
         com.baidu.adp.lib.stats.f.hz().b("im", hm);
-        DA();
+        DB();
     }
 
-    public static void DA() {
+    public static void DB() {
         aqP = 0;
         aqQ = 0L;
         aqR = 0L;

@@ -25,8 +25,8 @@ public class ac extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.im.message.g data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-            c.TD().a(data.customGroupType, data.bnp, data.id, data.type);
-            ImMessageCenterPojo D = c.TD().D(data.id, data.customGroupType);
+            c.TE().a(data.customGroupType, data.bnq, data.id, data.type);
+            ImMessageCenterPojo D = c.TE().D(data.id, data.customGroupType);
             if (D != null) {
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, D));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());

@@ -9,7 +9,7 @@ import com.baidu.tbadk.mvc.core.a;
 import com.baidu.tbadk.mvc.core.c;
 /* loaded from: classes.dex */
 public interface e<V extends c, M extends a, T> extends View.OnClickListener, TbPageContextSupport<T> {
-    ViewEventCenter AL();
+    ViewEventCenter AM();
 
     LayoutInflater getLayoutInflater();
 

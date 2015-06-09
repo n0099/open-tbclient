@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendfrs.data.f> {
-    final /* synthetic */ b cbR;
+    final /* synthetic */ b cbS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cbR = bVar;
+        this.cbS = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -21,23 +21,23 @@ public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendf
         e eVar2;
         e eVar3;
         e eVar4;
-        String ahB = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof com.baidu.tieba.recommendfrs.data.e)) ? null : ((com.baidu.tieba.recommendfrs.data.e) readCacheMessage.getRequestData()).ahB();
-        if (ahB != null) {
+        String ahC = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof com.baidu.tieba.recommendfrs.data.e)) ? null : ((com.baidu.tieba.recommendfrs.data.e) readCacheMessage.getRequestData()).ahC();
+        if (ahC != null) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                eVar = this.cbR.cbQ;
+                eVar = this.cbS.cbR;
                 if (eVar != null) {
-                    eVar2 = this.cbR.cbQ;
-                    eVar2.a(false, null, false, ahB);
+                    eVar2 = this.cbS.cbR;
+                    eVar2.a(false, null, false, ahC);
                 }
             } else {
                 com.baidu.tieba.recommendfrs.data.f fVar = readCacheRespMsg.getData().get(0);
-                eVar3 = this.cbR.cbQ;
+                eVar3 = this.cbS.cbR;
                 if (eVar3 != null) {
-                    eVar4 = this.cbR.cbQ;
-                    eVar4.a(false, fVar, false, ahB);
+                    eVar4 = this.cbS.cbR;
+                    eVar4.a(false, fVar, false, ahC);
                 }
             }
-            this.cbR.B(0, ahB);
+            this.cbS.B(0, ahC);
         }
     }
 

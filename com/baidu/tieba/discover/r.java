@@ -9,27 +9,27 @@ public class r extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<com.baidu.tieba.discover.data.a> AG() {
+    public Class<com.baidu.tieba.discover.data.a> AH() {
         return com.baidu.tieba.discover.data.a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String AJ() {
+    public String AK() {
         return "FoundNewCache";
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int AH() {
+    public int AI() {
         return 2016201;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int AI() {
+    public int AJ() {
         return 2016202;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean BB() {
+    protected boolean BC() {
         return false;
     }
 }

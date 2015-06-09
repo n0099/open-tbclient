@@ -36,7 +36,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cg.baZ = com.baidu.tbadk.util.g.DV();
+            cg.bba = com.baidu.tbadk.util.g.DW();
         }
     }
 

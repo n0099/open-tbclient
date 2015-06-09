@@ -51,7 +51,7 @@ public class a extends e implements ab {
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
-    public void CQ() {
+    public void CR() {
         this.apg.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }

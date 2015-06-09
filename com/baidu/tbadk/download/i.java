@@ -56,7 +56,7 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             list2.remove(0);
         }
         g.aiY = null;
-        this.ajb.zj();
+        this.ajb.zk();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [367=4, 369=4, 370=4, 371=4] */
@@ -271,7 +271,7 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         if (!list.isEmpty()) {
             list2 = g.aiS;
             list2.remove(0);
-            this.ajb.zj();
+            this.ajb.zk();
         }
     }
 }

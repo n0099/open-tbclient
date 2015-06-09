@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, String> {
-    private String aYK;
-    final /* synthetic */ CreateBarActivity aYM;
+    private String aYL;
+    final /* synthetic */ CreateBarActivity aYN;
     private aa aaG = null;
     private String mVcode;
 
@@ -20,16 +20,16 @@ public class d extends BdAsyncTask<String, Integer, String> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        progressBar = this.aYM.mProgress;
+        progressBar = this.aYN.mProgress;
         progressBar.setVisibility(8);
-        this.aYM.aYE = null;
+        this.aYN.aYF = null;
     }
 
     public d(CreateBarActivity createBarActivity, String str, String str2) {
-        this.aYM = createBarActivity;
-        this.aYK = null;
+        this.aYN = createBarActivity;
+        this.aYL = null;
         this.mVcode = null;
-        this.aYK = str;
+        this.aYL = str;
         this.mVcode = str2;
     }
 
@@ -41,10 +41,10 @@ public class d extends BdAsyncTask<String, Integer, String> {
         try {
             this.aaG = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
             this.aaG.sX().tS().mIsNeedTbs = true;
-            this.aaG.o("kw", this.aYK);
+            this.aaG.o("kw", this.aYL);
             this.aaG.o("vcode", this.mVcode);
             aa aaVar = this.aaG;
-            str = this.aYM.aYG;
+            str = this.aYN.aYH;
             aaVar.o("vcode_md5", str);
             this.aaG.sw();
             return null;
@@ -60,17 +60,17 @@ public class d extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         ProgressBar progressBar;
         super.onPostExecute((d) str);
-        progressBar = this.aYM.mProgress;
+        progressBar = this.aYN.mProgress;
         progressBar.setVisibility(8);
-        this.aYM.aYE = null;
+        this.aYN.aYF = null;
         if (this.aaG.sX().tT().qa()) {
-            CreateBarSuccessActivity.L(this.aYM.getPageContext().getPageActivity(), this.aYK);
-            this.aYM.finish();
+            CreateBarSuccessActivity.L(this.aYN.getPageContext().getPageActivity(), this.aYL);
+            this.aYN.finish();
             return;
         }
-        this.aYM.showToast(this.aaG.getErrorString());
+        this.aYN.showToast(this.aaG.getErrorString());
         if (this.aaG.ta()) {
-            this.aYM.OL();
+            this.aYN.OM();
         }
     }
 
@@ -79,7 +79,7 @@ public class d extends BdAsyncTask<String, Integer, String> {
     public void onPreExecute() {
         ProgressBar progressBar;
         super.onPreExecute();
-        progressBar = this.aYM.mProgress;
+        progressBar = this.aYN.mProgress;
         progressBar.setVisibility(0);
     }
 }

@@ -18,15 +18,15 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.g.b.e {
-    private final CustomMessageListener aLP;
-    private int bGd;
+    private final CustomMessageListener aLQ;
+    private int bGe;
     private View mBack;
 
     public n(MvcActivity<?, ?, ?> mvcActivity) {
         super(mvcActivity);
         this.mBack = null;
-        this.bGd = 16;
-        this.aLP = new o(this, 2001124);
+        this.bGe = 16;
+        this.aLQ = new o(this, 2001124);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,10 +34,10 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     public void g(Bundle bundle) {
         super.g(bundle);
         if (MentionActivityConfig.jumpInTab != -1) {
-            this.bGd = MentionActivityConfig.jumpInTab;
+            this.bGe = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
         } else if (bundle != null) {
-            this.bGd = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bGd);
+            this.bGe = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bGe);
         }
     }
 
@@ -45,11 +45,11 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     public void onNewIntent(Intent intent) {
         int i;
         if (intent != null) {
-            this.bGd = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bGd);
-            if (this.bGd == 24) {
+            this.bGe = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bGe);
+            if (this.bGe == 24) {
                 i = 1;
             } else {
-                i = this.bGd == 25 ? 2 : 1;
+                i = this.bGe == 25 ? 2 : 1;
             }
             if (getCurrentTabType() == i) {
                 ea(i);
@@ -67,15 +67,15 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AS() {
+    public void AT() {
         int i = 1;
-        super.AS();
-        if (Ba()) {
+        super.AT();
+        if (Bb()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 0));
             if (MentionActivityConfig.newJumpIn) {
                 MentionActivityConfig.newJumpIn = false;
-                if (this.bGd != 24) {
-                    if (this.bGd == 25) {
+                if (this.bGe != 24) {
+                    if (this.bGe == 25) {
                         i = 2;
                     } else if (com.baidu.tbadk.coreExtra.messageCenter.a.vJ().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.vJ().getMsgAtme() > 0) {
                         i = 2;
@@ -90,13 +90,13 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     @Override // com.baidu.tbadk.mvc.g.b.e, com.baidu.tbadk.mvc.core.c
     public void oL() {
         super.oL();
-        CF();
-        getPageContext().registerListener(this.aLP);
+        CG();
+        getPageContext().registerListener(this.aLQ);
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.e
     protected com.baidu.tbadk.mvc.g.a.d a(NavigationBar navigationBar) {
-        com.baidu.tbadk.mvc.g.a.d dVar = new com.baidu.tbadk.mvc.g.a.d(getPageContext(), this.aox, AL());
+        com.baidu.tbadk.mvc.g.a.d dVar = new com.baidu.tbadk.mvc.g.a.d(getPageContext(), this.aox, AM());
         this.aox.setTitleText(com.baidu.tieba.t.my_mention);
         this.mBack = this.aox.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(new p(this));
@@ -121,16 +121,16 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     @Override // com.baidu.tbadk.mvc.i.a.a
     public void ea(int i) {
         super.ea(i);
-        Zk();
+        Zl();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a.a, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         super.onPageSelected(i);
-        Zk();
+        Zl();
     }
 
-    private void Zk() {
+    private void Zl() {
         String str = null;
         if (getCurrentTabType() == 0) {
             str = "msg_chat_tab_click";
@@ -172,9 +172,9 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
                 }
                 com.baidu.tbadk.mvc.core.c dU = dU(i2);
                 if (dU instanceof com.baidu.tbadk.mvc.i.b.b) {
-                    com.baidu.tbadk.mvc.i.b.c CH = ((com.baidu.tbadk.mvc.i.b.b) dU).CH();
-                    if (CH.CL() == i) {
-                        TextView textView2 = (TextView) CH.CJ().view;
+                    com.baidu.tbadk.mvc.i.b.c CI = ((com.baidu.tbadk.mvc.i.b.b) dU).CI();
+                    if (CI.CM() == i) {
+                        TextView textView2 = (TextView) CI.CK().view;
                         lVar = dU;
                         textView = textView2;
                         break;

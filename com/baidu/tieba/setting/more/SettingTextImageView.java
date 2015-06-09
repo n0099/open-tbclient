@@ -14,13 +14,13 @@ public class SettingTextImageView extends FrameLayout {
     private LinearLayout agF;
     private TextView agG;
     private ImageView agK;
-    private HeadImageView cgN;
+    private HeadImageView cgO;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        yb();
+        yc();
         c(attributeSet);
         dl(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -28,25 +28,25 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        yb();
+        yc();
         dl(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void dl(int i) {
         com.baidu.tbadk.core.util.ay.b(this.agG, com.baidu.tieba.n.about_tip_color, 1);
         com.baidu.tbadk.core.util.ay.c(this.agK, com.baidu.tieba.p.icon_arrow_right);
-        this.cgN.invalidate();
-    }
-
-    public void ajR() {
-        if (this.cgN != null) {
-            this.cgN.setVisibility(8);
-        }
+        this.cgO.invalidate();
     }
 
     public void ajS() {
-        if (this.cgN != null) {
-            this.cgN.setVisibility(0);
+        if (this.cgO != null) {
+            this.cgO.setVisibility(8);
+        }
+    }
+
+    public void ajT() {
+        if (this.cgO != null) {
+            this.cgO.setVisibility(0);
         }
     }
 
@@ -56,20 +56,20 @@ public class SettingTextImageView extends FrameLayout {
 
     public void C(String str, boolean z) {
         if (z) {
-            this.cgN.c(str, 26, false);
+            this.cgO.c(str, 26, false);
         } else {
-            this.cgN.c(str, 12, false);
+            this.cgO.c(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void yb() {
+    private void yc() {
         com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.setting_text_image_view, this, true);
         this.agF = (LinearLayout) findViewById(com.baidu.tieba.q.container);
         this.agG = (TextView) findViewById(com.baidu.tieba.q.text);
-        this.cgN = (HeadImageView) findViewById(com.baidu.tieba.q.icon);
+        this.cgO = (HeadImageView) findViewById(com.baidu.tieba.q.icon);
         this.agK = (ImageView) findViewById(com.baidu.tieba.q.arrow);
     }
 

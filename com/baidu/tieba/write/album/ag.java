@@ -8,20 +8,20 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
     private final /* synthetic */ int RY;
-    final /* synthetic */ ac czc;
-    private final /* synthetic */ ah czd;
-    private final /* synthetic */ ImageFileInfo cze;
-    private final /* synthetic */ p czf;
-    private final /* synthetic */ ai czg;
+    final /* synthetic */ ac czd;
+    private final /* synthetic */ ah cze;
+    private final /* synthetic */ ImageFileInfo czf;
+    private final /* synthetic */ p czg;
+    private final /* synthetic */ ai czh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ac acVar, ah ahVar, p pVar, ImageFileInfo imageFileInfo, int i, ai aiVar) {
-        this.czc = acVar;
-        this.czd = ahVar;
-        this.czf = pVar;
-        this.cze = imageFileInfo;
+        this.czd = acVar;
+        this.cze = ahVar;
+        this.czg = pVar;
+        this.czf = imageFileInfo;
         this.RY = i;
-        this.czg = aiVar;
+        this.czh = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,18 +29,18 @@ public class ag implements View.OnClickListener {
         ab abVar;
         ab abVar2;
         AlbumActivity albumActivity;
-        abVar = this.czc.czb;
-        if (abVar != null && this.czd.czh) {
-            boolean isAdded = this.czf.isAdded(this.cze);
-            abVar2 = this.czc.czb;
-            if (abVar2.a(this.RY, this.cze, !isAdded)) {
+        abVar = this.czd.czc;
+        if (abVar != null && this.cze.czi) {
+            boolean isAdded = this.czg.isAdded(this.czf);
+            abVar2 = this.czd.czc;
+            if (abVar2.a(this.RY, this.czf, !isAdded)) {
                 if (!isAdded) {
-                    ay.i(this.czg.bzw, com.baidu.tieba.p.chx_camera_pic_s);
-                    albumActivity = this.czc.cxZ;
-                    this.czg.bzw.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), com.baidu.tieba.k.album_choose_icon));
+                    ay.i(this.czh.bzx, com.baidu.tieba.p.chx_camera_pic_s);
+                    albumActivity = this.czd.cya;
+                    this.czh.bzx.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), com.baidu.tieba.k.album_choose_icon));
                     return;
                 }
-                ay.i(this.czg.bzw, com.baidu.tieba.p.chx_camera_pic_n);
+                ay.i(this.czh.bzx, com.baidu.tieba.p.chx_camera_pic_n);
             }
         }
     }

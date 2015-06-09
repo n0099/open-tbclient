@@ -10,10 +10,10 @@ import tbclient.FineFrsPage.DataReq;
 import tbclient.FineFrsPage.FinefrspageReqIdl;
 /* loaded from: classes.dex */
 public class g implements i {
-    private int ccd;
+    private int cce;
     private String tag;
 
-    public String ahB() {
+    public String ahC() {
         return this.tag;
     }
 
@@ -22,11 +22,11 @@ public class g implements i {
     }
 
     public void il(int i) {
-        this.ccd = i;
+        this.cce = i;
     }
 
-    public int ahH() {
-        return this.ccd;
+    public int ahI() {
+        return this.cce;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -37,7 +37,7 @@ public class g implements i {
     @Override // com.baidu.tbadk.mvc.b.l
     public Object Y(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.publish_time = Integer.valueOf(this.ccd);
+        builder.publish_time = Integer.valueOf(this.cce);
         builder.scr_w = Integer.valueOf(n.M(TbadkCoreApplication.m411getInst()));
         builder.scr_h = Integer.valueOf(n.N(TbadkCoreApplication.m411getInst()));
         builder.scr_dip = Double.valueOf(n.O(TbadkCoreApplication.m411getInst()));

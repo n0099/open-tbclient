@@ -8,16 +8,16 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ao extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
     private com.baidu.tbadk.core.util.aa aaG = null;
-    final /* synthetic */ SquareSearchActivity bCE;
-    private BasicNameValuePair bCK;
+    final /* synthetic */ SquareSearchActivity bCF;
+    private BasicNameValuePair bCL;
     private String mUrl;
 
     public ao(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
         this.mUrl = null;
-        this.bCK = null;
+        this.bCL = null;
         this.mUrl = str;
-        this.bCK = basicNameValuePair;
+        this.bCL = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,12 +26,12 @@ public class ao extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
         FrameLayout frameLayout;
         FrameLayout frameLayout2;
         com.baidu.tbadk.core.view.x xVar;
-        SquareSearchActivity squareSearchActivity = this.bCE;
-        frameLayout = this.bCE.bBK;
-        squareSearchActivity.showLoadingView(frameLayout, true, this.bCE.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds320));
-        frameLayout2 = this.bCE.bBL;
+        SquareSearchActivity squareSearchActivity = this.bCF;
+        frameLayout = this.bCF.bBL;
+        squareSearchActivity.showLoadingView(frameLayout, true, this.bCF.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds320));
+        frameLayout2 = this.bCF.bBM;
         frameLayout2.setVisibility(8);
-        xVar = this.bCE.mNoDataView;
+        xVar = this.bCF.mNoDataView;
         xVar.setVisibility(8);
     }
 
@@ -43,13 +43,13 @@ public class ao extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
         ForumSuggestModel forumSuggestModel = null;
         try {
             this.aaG = new com.baidu.tbadk.core.util.aa(this.mUrl);
-            this.aaG.a(this.bCK);
+            this.aaG.a(this.bCL);
             String sw = this.aaG.sw();
             if (sw == null) {
                 return null;
             }
             forumSuggestModel = ForumSuggestModel.parserJson(sw);
-            this.bCE.bCg = this.bCK.getValue();
+            this.bCF.bCh = this.bCL.getValue();
             return forumSuggestModel;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -63,14 +63,14 @@ public class ao extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
     /* renamed from: a */
     public void onPostExecute(ForumSuggestModel forumSuggestModel) {
         FrameLayout frameLayout;
-        SquareSearchActivity squareSearchActivity = this.bCE;
-        frameLayout = this.bCE.bBK;
+        SquareSearchActivity squareSearchActivity = this.bCF;
+        frameLayout = this.bCF.bBL;
         squareSearchActivity.hideLoadingView(frameLayout);
         if (forumSuggestModel != null) {
-            this.bCE.bCb = forumSuggestModel;
-            this.bCE.refresh();
+            this.bCF.bCc = forumSuggestModel;
+            this.bCF.refresh();
         }
-        this.bCE.bCd = null;
+        this.bCF.bCe = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -80,8 +80,8 @@ public class ao extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
             this.aaG.gS();
             this.aaG = null;
         }
-        SquareSearchActivity squareSearchActivity = this.bCE;
-        frameLayout = this.bCE.bBK;
+        SquareSearchActivity squareSearchActivity = this.bCF;
+        frameLayout = this.bCF.bBL;
         squareSearchActivity.hideLoadingView(frameLayout);
         super.cancel(true);
     }

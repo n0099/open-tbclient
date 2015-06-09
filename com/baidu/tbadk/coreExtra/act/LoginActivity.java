@@ -121,9 +121,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.abq = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
             this.abq.a(new s(this));
         }
-        this.abq.xS();
+        this.abq.xT();
         this.abq.k(accountData);
-        this.abq.xO();
+        this.abq.xP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

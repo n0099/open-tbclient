@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements am {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.am
@@ -20,20 +20,20 @@ public class k implements am {
         s sVar4;
         ak akVar;
         s sVar5;
-        sVar = this.bPw.bPq;
+        sVar = this.bPx.bPr;
         if (sVar != null) {
-            sVar5 = this.bPw.bPq;
-            sVar5.adn();
+            sVar5 = this.bPx.bPr;
+            sVar5.ado();
         }
         if (z) {
-            sVar2 = this.bPw.bPq;
+            sVar2 = this.bPx.bPr;
             sVar2.hideNoDataView();
             if (cVar != null) {
-                sVar3 = this.bPw.bPq;
+                sVar3 = this.bPx.bPr;
                 if (sVar3 != null) {
-                    sVar4 = this.bPw.bPq;
-                    akVar = this.bPw.bPn;
-                    sVar4.a(cVar, akVar.aav());
+                    sVar4 = this.bPx.bPr;
+                    akVar = this.bPx.bPo;
+                    sVar4.a(cVar, akVar.aaw());
                 }
                 an anVar = new an();
                 anVar.setData(cVar);
@@ -43,7 +43,7 @@ public class k implements am {
             }
             return;
         }
-        this.bPw.showToast(str);
-        this.bPw.acV();
+        this.bPx.showToast(str);
+        this.bPx.acW();
     }
 }

@@ -15,8 +15,8 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        this.aqo.aqa = ah.DB().DF();
-        this.aqo.Do();
+        this.aqo.aqa = ah.DC().DG();
+        this.aqo.Dp();
         return Boolean.TRUE;
     }
 

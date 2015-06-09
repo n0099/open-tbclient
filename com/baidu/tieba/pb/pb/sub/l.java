@@ -7,11 +7,11 @@ import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.baseEditMark.b {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.b
@@ -26,41 +26,41 @@ public class l implements com.baidu.tbadk.baseEditMark.b {
         ak akVar5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.bPw.bKw;
+            aVar = this.bPx.bKx;
             if (aVar != null) {
-                aVar4 = this.bPw.bKw;
+                aVar4 = this.bPx.bKx;
                 aVar4.Z(z2);
             }
-            aVar2 = this.bPw.bKw;
+            aVar2 = this.bPx.bKx;
             MarkData pt = aVar2.pt();
             an anVar = new an();
             anVar.setType(2);
             if (z2) {
                 anVar.setData(pt);
-                aVar3 = this.bPw.bKw;
+                aVar3 = this.bPx.bKx;
                 if (aVar3 != null) {
                     if (pt != null) {
-                        akVar3 = this.bPw.bPn;
+                        akVar3 = this.bPx.bPo;
                         akVar3.en(true);
-                        akVar4 = this.bPw.bPn;
-                        akVar5 = this.bPw.bPn;
-                        akVar4.iz(akVar5.ZP());
-                        this.bPw.showToast(MessageFormat.format(this.bPw.getPageContext().getString(com.baidu.tieba.t.add_mark_on_pb), Integer.valueOf(pt.getFloor())));
+                        akVar4 = this.bPx.bPo;
+                        akVar5 = this.bPx.bPo;
+                        akVar4.iz(akVar5.ZQ());
+                        this.bPx.showToast(MessageFormat.format(this.bPx.getPageContext().getString(com.baidu.tieba.t.add_mark_on_pb), Integer.valueOf(pt.getFloor())));
                     } else {
-                        this.bPw.showToast(this.bPw.getPageContext().getString(com.baidu.tieba.t.add_mark));
+                        this.bPx.showToast(this.bPx.getPageContext().getString(com.baidu.tieba.t.add_mark));
                     }
                 }
             } else {
                 anVar.setData(null);
-                akVar = this.bPw.bPn;
+                akVar = this.bPx.bPo;
                 akVar.en(false);
-                akVar2 = this.bPw.bPn;
+                akVar2 = this.bPx.bPo;
                 akVar2.iz(null);
-                this.bPw.showToast(this.bPw.getPageContext().getString(com.baidu.tieba.t.remove_mark));
+                this.bPx.showToast(this.bPx.getPageContext().getString(com.baidu.tieba.t.remove_mark));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004007, anVar));
             return;
         }
-        this.bPw.showToast(this.bPw.getPageContext().getString(com.baidu.tieba.t.update_mark_failed));
+        this.bPx.showToast(this.bPx.getPageContext().getString(com.baidu.tieba.t.update_mark_failed));
     }
 }

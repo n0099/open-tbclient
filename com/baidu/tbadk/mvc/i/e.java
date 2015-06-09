@@ -19,54 +19,54 @@ public abstract class e extends c {
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void oJ() {
-        CA();
+        CB();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void oI() {
-        CB();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Cz() {
-        BdListView listView = getListView();
-        if (listView != null) {
-            listView.setPullRefresh(CE());
-        }
-        AL().setListPullRefreshListener(CE(), AN());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void bh(boolean z) {
-        AL().addEventDelegate(this);
-        g(16777217, z);
+        CC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void CA() {
         BdListView listView = getListView();
-        CE().a((ak) null);
-        listView.no();
-        AL().setListPullRefreshListener(CE(), AN());
+        if (listView != null) {
+            listView.setPullRefresh(CF());
+        }
+        AM().setListPullRefreshListener(CF(), AO());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void bh(boolean z) {
+        AM().addEventDelegate(this);
+        g(16777217, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void CB() {
-        getListView().completePullRefresh();
+        BdListView listView = getListView();
+        CF().a((ak) null);
+        listView.no();
+        AM().setListPullRefreshListener(CF(), AO());
     }
 
-    protected void CC() {
-        CA();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void CC() {
+        getListView().completePullRefresh();
     }
 
     protected void CD() {
         CB();
     }
 
+    protected void CE() {
+        CC();
+    }
+
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
-        CE().cy(i);
+        CF().cy(i);
         return true;
     }
 
@@ -75,11 +75,11 @@ public abstract class e extends c {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Br() == 33554437) {
-            CC();
-            return true;
-        } else if (bVar.Br() == 33554438) {
+        if (bVar.Bs() == 33554437) {
             CD();
+            return true;
+        } else if (bVar.Bs() == 33554438) {
+            CE();
             return true;
         } else {
             return false;
@@ -87,7 +87,7 @@ public abstract class e extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public al CE() {
+    public al CF() {
         if (this.mPullView == null) {
             this.mPullView = new al(getPageContext());
         }

@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Object, AccountData> {
-    private final b bGI;
+    private final b bGJ;
     private final String mAccount;
     private final String mPassword;
 
     public c(String str, String str2, b bVar) {
         this.mAccount = str;
         this.mPassword = str2;
-        this.bGI = bVar;
+        this.bGJ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,11 +31,11 @@ public class c extends BdAsyncTask<Object, Object, AccountData> {
     /* renamed from: m */
     public void onPostExecute(AccountData accountData) {
         super.onPostExecute(accountData);
-        if (this.bGI != null) {
+        if (this.bGJ != null) {
             if (accountData != null) {
-                this.bGI.a(accountData);
+                this.bGJ.a(accountData);
             } else {
-                this.bGI.fp(this.mAccount);
+                this.bGJ.fp(this.mAccount);
             }
         }
     }

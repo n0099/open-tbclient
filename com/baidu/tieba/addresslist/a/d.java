@@ -7,11 +7,11 @@ import android.widget.TextView;
 class d {
     View So;
     TextView aiA;
-    final /* synthetic */ a azG;
-    ImageView azI;
+    final /* synthetic */ a azH;
+    ImageView azJ;
 
     private d(a aVar) {
-        this.azG = aVar;
+        this.azH = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

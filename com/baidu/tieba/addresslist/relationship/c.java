@@ -10,6 +10,6 @@ public class c implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001182, g.Gn().Go());
+        return new CustomResponsedMessage<>(2001182, g.Go().Gp());
     }
 }

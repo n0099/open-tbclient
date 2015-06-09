@@ -15,7 +15,7 @@ public class c {
     public HashMap<String, String> aid = new HashMap<>();
     public String aie;
 
-    public static synchronized c yI() {
+    public static synchronized c yJ() {
         c cVar;
         synchronized (c.class) {
             if (aia == null) {

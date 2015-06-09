@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(SquareSearchActivity squareSearchActivity) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -30,49 +30,49 @@ public class ad implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.core.view.x xVar6;
         List list2;
         aVar.dismiss();
-        i = this.bCE.mMode;
+        i = this.bCF.mMode;
         if (i != 0) {
-            i2 = this.bCE.mMode;
+            i2 = this.bCF.mMode;
             if (i2 == 3) {
-                frameLayout2 = this.bCE.bBL;
+                frameLayout2 = this.bCF.bBM;
                 frameLayout2.setVisibility(8);
-                xVar3 = this.bCE.mNoDataView;
+                xVar3 = this.bCF.mNoDataView;
                 xVar3.setVisibility(0);
-                xVar4 = this.bCE.mNoDataView;
+                xVar4 = this.bCF.mNoDataView;
                 xVar4.setTextOption(com.baidu.tbadk.core.view.ab.cv(com.baidu.tieba.t.text_no_search_record));
-                z = this.bCE.anT;
+                z = this.bCF.anT;
                 if (!z) {
                     RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
                     requestSearchPersonHistoryWriteMessage.setClear(true);
-                    this.bCE.sendMessage(requestSearchPersonHistoryWriteMessage);
-                    this.bCE.anT = true;
+                    this.bCF.sendMessage(requestSearchPersonHistoryWriteMessage);
+                    this.bCF.anT = true;
                     return;
                 }
                 return;
             }
-            frameLayout = this.bCE.bBL;
+            frameLayout = this.bCF.bBM;
             frameLayout.setVisibility(8);
-            xVar = this.bCE.mNoDataView;
+            xVar = this.bCF.mNoDataView;
             xVar.setVisibility(0);
-            xVar2 = this.bCE.mNoDataView;
+            xVar2 = this.bCF.mNoDataView;
             xVar2.setTextOption(com.baidu.tbadk.core.view.ab.cv(com.baidu.tieba.t.text_no_search_record));
-            com.baidu.tieba.tbadkCore.util.j.apz();
+            com.baidu.tieba.tbadkCore.util.j.apA();
             return;
         }
         com.baidu.adp.lib.g.l.ht().c(new ae(this));
-        list = this.bCE.bBE;
+        list = this.bCF.bBF;
         if (list != null) {
-            list2 = this.bCE.bBE;
+            list2 = this.bCF.bBF;
             if (list2.size() > 0) {
-                this.bCE.a(4, (ArrayList<String>) null);
+                this.bCF.a(4, (ArrayList<String>) null);
                 return;
             }
         }
-        frameLayout3 = this.bCE.bBL;
+        frameLayout3 = this.bCF.bBM;
         frameLayout3.setVisibility(8);
-        xVar5 = this.bCE.mNoDataView;
+        xVar5 = this.bCF.mNoDataView;
         xVar5.setVisibility(0);
-        xVar6 = this.bCE.mNoDataView;
+        xVar6 = this.bCF.mNoDataView;
         xVar6.setTextOption(com.baidu.tbadk.core.view.ab.cv(com.baidu.tieba.t.text_no_search_record));
     }
 }

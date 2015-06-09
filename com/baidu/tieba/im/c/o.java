@@ -11,11 +11,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.tbadk.img.d {
-    final /* synthetic */ a bpx;
+    final /* synthetic */ a bpy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.bpx = aVar;
+        this.bpy = aVar;
     }
 
     @Override // com.baidu.tbadk.img.d
@@ -30,10 +30,10 @@ public class o implements com.baidu.tbadk.img.d {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.bpx.bps;
+                hashMap = this.bpy.bpt;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ao()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ap()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -58,16 +58,16 @@ public class o implements com.baidu.tbadk.img.d {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.bpx.aI(str, str2);
+                        this.bpy.aI(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.UK().n(chatMessage);
-                    aeVar = this.bpx.mSendCallback;
+                    a.UL().n(chatMessage);
+                    aeVar = this.bpy.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bpx.mSendCallback;
+                        aeVar2 = this.bpy.mSendCallback;
                         aeVar2.gF(1);
                     }
                 }

@@ -13,14 +13,14 @@ import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ CreateBarActivity aYM;
+    final /* synthetic */ CreateBarActivity aYN;
     private aa aaG;
-    private volatile boolean ayP;
+    private volatile boolean ayQ;
 
     private e(CreateBarActivity createBarActivity) {
-        this.aYM = createBarActivity;
+        this.aYN = createBarActivity;
         this.aaG = null;
-        this.ayP = false;
+        this.ayQ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,13 +32,13 @@ public class e extends BdAsyncTask<String, Integer, Bitmap> {
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
-        this.ayP = true;
+        this.ayQ = true;
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        progressBar = this.aYM.aYD;
+        progressBar = this.aYN.aYE;
         progressBar.setVisibility(8);
-        this.aYM.aYF = null;
+        this.aYN.aYG = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,8 +59,8 @@ public class e extends BdAsyncTask<String, Integer, Bitmap> {
                 if (lVar.getVcode_pic_url() == null || lVar.getVcode_pic_url().length() <= 0) {
                     return null;
                 }
-                this.aYM.aYG = lVar.getVcode_md5();
-                if (this.ayP) {
+                this.aYN.aYH = lVar.getVcode_md5();
+                if (this.ayQ) {
                     return null;
                 }
                 this.aaG = new aa(lVar.getVcode_pic_url());
@@ -80,11 +80,11 @@ public class e extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((e) bitmap);
-        progressBar = this.aYM.aYD;
+        progressBar = this.aYN.aYE;
         progressBar.setVisibility(8);
-        this.aYM.aYF = null;
+        this.aYN.aYG = null;
         if (bitmap != null) {
-            imageView = this.aYM.avb;
+            imageView = this.aYN.avb;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -95,10 +95,10 @@ public class e extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.aYM.aYG = null;
-        progressBar = this.aYM.aYD;
+        this.aYN.aYH = null;
+        progressBar = this.aYN.aYE;
         progressBar.setVisibility(0);
-        imageView = this.aYM.avb;
+        imageView = this.aYN.avb;
         imageView.setImageDrawable(null);
     }
 }

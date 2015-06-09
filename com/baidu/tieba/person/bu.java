@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.widget.ProgressBar;
 /* loaded from: classes.dex */
 class bu implements cf {
-    final /* synthetic */ PersonListActivity bTu;
+    final /* synthetic */ PersonListActivity bTv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(PersonListActivity personListActivity) {
-        this.bTu = personListActivity;
+        this.bTv = personListActivity;
     }
 
     @Override // com.baidu.tieba.person.cf
@@ -16,20 +16,20 @@ class bu implements cf {
         ProgressBar progressBar;
         ProgressBar progressBar2;
         if (!z) {
-            progressBar = this.bTu.mProgress;
+            progressBar = this.bTv.mProgress;
             if (progressBar.isShown()) {
-                progressBar2 = this.bTu.mProgress;
+                progressBar2 = this.bTv.mProgress;
                 progressBar2.setVisibility(8);
             }
             if (!TextUtils.isEmpty(str)) {
-                this.bTu.showToast(str);
+                this.bTv.showToast(str);
             }
         }
     }
 
     @Override // com.baidu.tieba.person.cf
     public com.baidu.tieba.person.a.a d(com.baidu.tieba.person.a.a aVar, boolean z) {
-        this.bTu.a(aVar, z);
+        this.bTv.a(aVar, z);
         return null;
     }
 }

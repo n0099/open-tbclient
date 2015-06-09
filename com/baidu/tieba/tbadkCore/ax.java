@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public class ax {
-    private ay crI;
+    private ay crJ;
     private String mFrom = "bar_detail";
 
     public void setFrom(String str) {
@@ -9,10 +9,10 @@ public class ax {
     }
 
     public void a(ay ayVar) {
-        this.crI = ayVar;
+        this.crJ = ayVar;
     }
 
     public void k(String str, long j) {
-        new az(str, j, this.mFrom, this.crI).execute(new Integer[0]);
+        new az(str, j, this.mFrom, this.crJ).execute(new Integer[0]);
     }
 }

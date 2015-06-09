@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.am;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class bn<T, V extends com.baidu.adp.widget.ListView.am> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity bKZ;
+    protected PbActivity bLa;
     protected boolean mIsFromCDN;
     protected ListView mListView;
     protected int mSkinType;
@@ -17,7 +17,7 @@ public abstract class bn<T, V extends com.baidu.adp.widget.ListView.am> extends 
     public bn(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.bKZ = pbActivity;
+        this.bLa = pbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

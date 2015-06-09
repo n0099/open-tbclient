@@ -5,11 +5,11 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements com.baidu.adp.widget.BdSwitchView.b {
-    final /* synthetic */ ci aPp;
+    final /* synthetic */ ci aPq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(ci ciVar) {
-        this.aPp = ciVar;
+        this.aPq = ciVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.b
@@ -20,6 +20,6 @@ public class cj implements com.baidu.adp.widget.BdSwitchView.b {
         } else {
             com.baidu.tbadk.core.n.qc().ac(false);
         }
-        this.aPp.aPn = true;
+        this.aPq.aPo = true;
     }
 }

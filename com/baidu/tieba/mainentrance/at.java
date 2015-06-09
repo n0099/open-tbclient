@@ -11,6 +11,6 @@ class at implements CustomMessageTask.CustomRunnable {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.j.apx());
+        return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.j.apy());
     }
 }

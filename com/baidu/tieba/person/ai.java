@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.base.f {
-    private int bRP;
+    private static final String aAA = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aAB = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aAA);
+    private int bRQ;
     private u mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
-    private static final String aAz = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask aAA = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aAz);
 
     static {
-        aAA.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(aAA);
+        aAB.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aAB);
     }
 
     public ai(TbPageContext tbPageContext, boolean z) {
@@ -41,14 +41,14 @@ public class ai extends com.baidu.adp.base.f {
     }
 
     public void hP(int i) {
-        this.bRP = i;
+        this.bRQ = i;
     }
 
-    public u aeo() {
+    public u aep() {
         return this.mData;
     }
 
-    public void Hh() {
+    public void Hi() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
@@ -74,7 +74,7 @@ public class ai extends com.baidu.adp.base.f {
     }
 
     public void iD(String str) {
-        if (this.bRP == 1 && this.mIsHost) {
+        if (this.bRQ == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

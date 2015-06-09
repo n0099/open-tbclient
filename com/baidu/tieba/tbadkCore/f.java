@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, Integer, Boolean> {
     private com.baidu.tbadk.core.util.aa aaG;
-    private final String coA;
-    private final g coB;
-    final /* synthetic */ e coC;
+    private final String coB;
+    private final g coC;
+    final /* synthetic */ e coD;
     private final String mForumId;
     private final String mForumName;
 
@@ -25,26 +25,26 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
             this.aaG = new com.baidu.tbadk.core.util.aa(strArr[0]);
             this.aaG.o(ImageViewerConfig.FORUM_ID, this.mForumId);
             this.aaG.o("kw", this.mForumName);
-            this.aaG.o("is_like", this.coA);
+            this.aaG.o("is_like", this.coB);
             this.aaG.sX().tS().mIsNeedTbs = true;
             String sw = this.aaG.sw();
             if (this.aaG.ta()) {
-                if (this.coA.equals(GameInfoData.NOT_FROM_DETAIL)) {
+                if (this.coB.equals(GameInfoData.NOT_FROM_DETAIL)) {
                     try {
                         JSONObject jSONObject = new JSONObject(sw);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.coB.level = optJSONObject.optInt("level_id", 0);
-                            this.coB.coG = optJSONObject.optString("level_name", "");
+                            this.coC.level = optJSONObject.optInt("level_id", 0);
+                            this.coC.coH = optJSONObject.optString("level_name", "");
                             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
                             if (optJSONObject2 != null) {
-                                this.coB.cur_score = optJSONObject2.optInt("cur_score", 0);
-                                this.coB.levelup_score = optJSONObject2.optInt("levelup_score", 0);
+                                this.coC.cur_score = optJSONObject2.optInt("cur_score", 0);
+                                this.coC.levelup_score = optJSONObject2.optInt("levelup_score", 0);
                             }
-                            this.coB.coE = true;
+                            this.coC.coF = true;
                         }
-                        wVar = this.coC.cot;
-                        wVar.a(this.coB);
+                        wVar = this.coD.cou;
+                        wVar.a(this.coC);
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
@@ -52,8 +52,8 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
                 if (this.aaG.sX().tT().qa()) {
                     try {
                         JSONObject jSONObject2 = new JSONObject(sw);
-                        this.coB.coF = jSONObject2.optInt("num");
-                        this.coB.coD = true;
+                        this.coC.coG = jSONObject2.optInt("num");
+                        this.coC.coE = true;
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
@@ -72,8 +72,8 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.coC.coy = null;
-        this.coC.fb(false);
+        this.coD.coz = null;
+        this.coD.fb(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,16 +83,16 @@ public class f extends BdAsyncTask<String, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         z zVar;
         z zVar2;
-        this.coC.coy = null;
-        this.coC.fb(false);
+        this.coD.coz = null;
+        this.coD.fb(false);
         if (this.aaG != null) {
             h hVar = new h();
             hVar.errorMsg = this.aaG.getErrorString();
             hVar.errorCode = this.aaG.tb();
-            zVar = this.coC.cov;
+            zVar = this.coD.cow;
             if (zVar != null) {
-                zVar2 = this.coC.cov;
-                zVar2.a(this.coB, hVar);
+                zVar2 = this.coD.cow;
+                zVar2.a(this.coC, hVar);
             }
         }
     }

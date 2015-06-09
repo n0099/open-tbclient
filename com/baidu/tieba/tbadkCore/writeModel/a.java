@@ -8,71 +8,71 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.ImageUploadResult;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.f {
-    public static int cul = 10;
-    private f cum;
-    private b cun;
-    private WriteData cuo;
-    private String cup;
+    public static int cum = 10;
+    private f cun;
+    private b cuo;
+    private WriteData cup;
     private String cuq;
-    private byte[] cur;
-    private c cus;
-    private d cut;
-    private e cuu;
-    private boolean cuv;
+    private String cur;
+    private byte[] cus;
+    private c cut;
+    private d cuu;
+    private e cuv;
+    private boolean cuw;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cum = null;
         this.cun = null;
         this.cuo = null;
         this.cup = null;
         this.cuq = null;
         this.cur = null;
-        this.cut = null;
+        this.cus = null;
         this.cuu = null;
-        this.cuv = false;
+        this.cuv = null;
+        this.cuw = false;
     }
 
     public a(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar.getPageContext());
-        this.cum = null;
         this.cun = null;
         this.cuo = null;
         this.cup = null;
         this.cuq = null;
         this.cur = null;
-        this.cut = null;
+        this.cus = null;
         this.cuu = null;
-        this.cuv = false;
+        this.cuv = null;
+        this.cuw = false;
     }
 
     public void fj(boolean z) {
-        this.cuv = z;
+        this.cuw = z;
     }
 
     public void a(e eVar) {
-        this.cuu = eVar;
+        this.cuv = eVar;
     }
 
     public void a(d dVar) {
-        this.cut = dVar;
+        this.cuu = dVar;
     }
 
     public void c(WriteData writeData) {
-        this.cuo = writeData;
+        this.cup = writeData;
     }
 
-    public WriteData JS() {
-        return this.cuo;
+    public WriteData JT() {
+        return this.cup;
     }
 
-    public boolean apH() {
-        if (this.cuo == null) {
+    public boolean apI() {
+        if (this.cup == null) {
             return false;
         }
-        if (this.cum == null) {
-            this.cum = new f(this);
-            this.cum.execute(new Integer[0]);
+        if (this.cun == null) {
+            this.cun = new f(this);
+            this.cun.execute(new Integer[0]);
         }
         return true;
     }
@@ -84,44 +84,44 @@ public class a extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.cum != null && !this.cum.isCancelled()) {
-            this.cum.cancel();
+        if (this.cun != null && !this.cun.isCancelled()) {
+            this.cun.cancel();
             return false;
         }
         return false;
     }
 
-    public void apI() {
-        if (this.cun != null && !this.cun.isCancelled()) {
-            this.cun.cancel();
+    public void apJ() {
+        if (this.cuo != null && !this.cuo.isCancelled()) {
+            this.cuo.cancel();
         }
     }
 
-    public boolean apJ() {
-        if (this.cuo == null) {
+    public boolean apK() {
+        if (this.cup == null) {
             return true;
         }
-        int size = (!this.cuo.getIsBaobao() || this.cuo.getBaobaoImagesInfo() == null) ? 0 : this.cuo.getBaobaoImagesInfo().size() + 0;
-        if (this.cuo.getWriteImagesInfo() != null) {
-            size += this.cuo.getWriteImagesInfo().size();
+        int size = (!this.cup.getIsBaobao() || this.cup.getBaobaoImagesInfo() == null) ? 0 : this.cup.getBaobaoImagesInfo().size() + 0;
+        if (this.cup.getWriteImagesInfo() != null) {
+            size += this.cup.getWriteImagesInfo().size();
         }
-        return size <= cul;
+        return size <= cum;
     }
 
-    public void Jk() {
-        if (this.cun == null) {
-            this.cun = new b(this);
-            this.cun.execute(new Void[0]);
+    public void Jl() {
+        if (this.cuo == null) {
+            this.cuo = new b(this);
+            this.cuo.execute(new Void[0]);
         }
     }
 
     public void c(byte[] bArr, String str) {
-        this.cur = bArr;
-        this.cuq = str;
+        this.cus = bArr;
+        this.cur = str;
     }
 
     public void a(c cVar) {
-        this.cus = cVar;
+        this.cut = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

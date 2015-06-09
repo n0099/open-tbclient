@@ -26,7 +26,7 @@ public class a<T> {
         this.amm.f(i, i2, i3, i4);
     }
 
-    public void An() {
+    public void Ao() {
         if (this.amk == null) {
             this.amk = new c(this, null);
             this.amk.execute(new String[0]);
@@ -48,10 +48,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: k */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Aq();
+            return Ar();
         }
 
-        private ImageUploadResult Aq() {
+        private ImageUploadResult Ar() {
             a.this.amm.a(this, null);
             ImageUploadResult eM = a.this.amm.eM(a.this.mPath);
             publishProgress(100);
@@ -132,7 +132,7 @@ public class a<T> {
         this.amm.setGroupId(str);
     }
 
-    public T Ao() {
+    public T Ap() {
         return this.aml;
     }
 
@@ -140,7 +140,7 @@ public class a<T> {
         this.aml = t;
     }
 
-    public void Ap() {
+    public void Aq() {
         LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.sR().getMsgSPicMaxSize();
         LocalViewSize.ImageSize sT = LocalViewSize.sR().sT();
         f(sT.width, sT.height, msgSPicMaxSize.width, msgSPicMaxSize.height);

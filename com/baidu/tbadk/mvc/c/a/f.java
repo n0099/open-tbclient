@@ -1,8 +1,9 @@
 package com.baidu.tbadk.mvc.c.a;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
+public class f implements View.OnClickListener {
     final /* synthetic */ e anL;
 
     /* JADX INFO: Access modifiers changed from: package-private */

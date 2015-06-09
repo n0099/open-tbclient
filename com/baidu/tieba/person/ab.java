@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class ab implements View.OnClickListener {
-    final /* synthetic */ v bSb;
+    final /* synthetic */ v bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(v vVar) {
-        this.bSb = vVar;
+        this.bSc = vVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,27 +24,27 @@ class ab implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         ag agVar6;
-        agVar = this.bSb.bRM;
+        agVar = this.bSc.bRN;
         if (agVar != null) {
-            agVar2 = this.bSb.bRM;
-            if (!agVar2.Fb()) {
-                agVar5 = this.bSb.bRM;
+            agVar2 = this.bSc.bRN;
+            if (!agVar2.Fc()) {
+                agVar5 = this.bSc.bRN;
                 agVar5.setEditState(true);
-                textView3 = this.bSb.awb;
+                textView3 = this.bSc.awc;
                 textView3.setText(com.baidu.tieba.t.done);
-                textView4 = this.bSb.awb;
+                textView4 = this.bSc.awc;
                 com.baidu.tbadk.core.util.ay.g(textView4, TbadkCoreApplication.m411getInst().getSkinType());
-                agVar6 = this.bSb.bRM;
+                agVar6 = this.bSc.bRN;
                 agVar6.notifyDataSetChanged();
                 return;
             }
-            agVar3 = this.bSb.bRM;
+            agVar3 = this.bSc.bRN;
             agVar3.setEditState(false);
-            textView = this.bSb.awb;
+            textView = this.bSc.awc;
             textView.setText(com.baidu.tieba.t.edit);
-            textView2 = this.bSb.awb;
+            textView2 = this.bSc.awc;
             com.baidu.tbadk.core.util.ay.i(textView2, TbadkCoreApplication.m411getInst().getSkinType());
-            agVar4 = this.bSb.bRM;
+            agVar4 = this.bSc.bRN;
             agVar4.notifyDataSetChanged();
         }
     }

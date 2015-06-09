@@ -28,7 +28,7 @@ public class b extends d {
         return super.a(tbPageContext, i);
     }
 
-    public void Cd() {
+    public void Ce() {
         k.a(this.aov, getActivity());
     }
 }

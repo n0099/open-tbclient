@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     private String At;
     private String aec;
-    private WeakReference<j> ayi;
-    private String bIM;
+    private WeakReference<j> ayj;
+    private String bIN;
     private String mForumId;
     private String mForumName;
     private String mPostId;
@@ -23,10 +23,10 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         this.mForumName = str2;
         this.mThreadId = str3;
         this.aec = str4;
-        this.bIM = str6;
+        this.bIN = str6;
         this.At = str7;
         this.mPostId = str5;
-        this.ayi = new WeakReference<>(jVar);
+        this.ayj = new WeakReference<>(jVar);
         setPriority(3);
     }
 
@@ -36,9 +36,9 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: u */
     public ForbidResultData doInBackground(String... strArr) {
         String str;
-        str = h.bIL;
+        str = h.bIM;
         aa aaVar = new aa(str);
-        aaVar.o("day", this.bIM);
+        aaVar.o("day", this.bIN);
         aaVar.o("un", this.aec);
         aaVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
         aaVar.o("word", this.mForumName);
@@ -70,7 +70,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: c */
     public void onPostExecute(ForbidResultData forbidResultData) {
         super.onPostExecute(forbidResultData);
-        j jVar = this.ayi.get();
+        j jVar = this.ayj.get();
         if (jVar != null) {
             if (forbidResultData.error_code == 0 && bb.isEmpty(forbidResultData.error_msg)) {
                 jVar.a(forbidResultData);

@@ -4,10 +4,10 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ e aDf;
+    final /* synthetic */ e aDg;
 
     private k(e eVar) {
-        this.aDf = eVar;
+        this.aDg = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,9 +18,9 @@ public class k implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.c.f fVar;
-        this.aDf.hideNetRefreshView(this.aDf.getView());
-        fVar = this.aDf.MO;
-        fVar.b(this.aDf.getView(), true);
-        this.aDf.GP();
+        this.aDg.hideNetRefreshView(this.aDg.getView());
+        fVar = this.aDg.MO;
+        fVar.b(this.aDg.getView(), true);
+        this.aDg.GQ();
     }
 }

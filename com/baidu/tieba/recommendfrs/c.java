@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b cbE;
+    final /* synthetic */ b cbF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cbE = bVar;
+        this.cbF = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,19 +19,19 @@ public class c implements View.OnClickListener {
         boolean z2;
         PbListView pbListView;
         com.baidu.tieba.recommendfrs.control.a.b bVar;
-        int ahq;
+        int ahr;
         String str;
-        z = this.cbE.mHasMore;
+        z = this.cbF.mHasMore;
         if (z && n.isNetOk()) {
-            z2 = this.cbE.aKl;
+            z2 = this.cbF.aKm;
             if (!z2) {
-                this.cbE.aKl = true;
-                pbListView = this.cbE.aOf;
+                this.cbF.aKm = true;
+                pbListView = this.cbF.aOg;
                 pbListView.startLoadData();
-                bVar = this.cbE.cbv;
-                ahq = this.cbE.ahq();
-                str = this.cbE.cbB;
-                bVar.B(ahq, str);
+                bVar = this.cbF.cbw;
+                ahr = this.cbF.ahr();
+                str = this.cbF.cbC;
+                bVar.B(ahr, str);
             }
         }
     }

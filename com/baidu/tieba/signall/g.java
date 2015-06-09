@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cih;
+    final /* synthetic */ f cii;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cih = fVar;
+        this.cii = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,16 +30,16 @@ public class g extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 String errorString = httpResponsedMessage.getErrorString();
-                hVar5 = this.cih.cib;
+                hVar5 = this.cii.cic;
                 hVar5.he(errorString);
             } else if (error == 0) {
-                this.cih.cia = ((GetForumResponsed) httpResponsedMessage).listData;
-                hVar2 = this.cih.cib;
+                this.cii.cib = ((GetForumResponsed) httpResponsedMessage).listData;
+                hVar2 = this.cii.cic;
                 if (hVar2 != null) {
-                    cVar = this.cih.cia;
+                    cVar = this.cii.cib;
                     if (cVar != null) {
-                        hVar4 = this.cih.cib;
-                        cVar2 = this.cih.cia;
+                        hVar4 = this.cii.cic;
+                        cVar2 = this.cii.cib;
                         hVar4.a(cVar2);
                     }
                 }
@@ -47,14 +47,14 @@ public class g extends HttpMessageListener {
                 if (StringUtils.isNull(errorString2)) {
                     errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(com.baidu.tieba.t.neterror);
                 }
-                hVar3 = this.cih.cib;
+                hVar3 = this.cii.cic;
                 hVar3.he(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                hVar = this.cih.cib;
+                hVar = this.cii.cic;
                 hVar.he(errorString3);
             }
-            this.cih.cic = null;
+            this.cii.cie = null;
         }
     }
 }

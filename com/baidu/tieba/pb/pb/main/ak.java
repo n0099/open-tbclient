@@ -4,18 +4,18 @@ import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class ak implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: abd */
+    /* renamed from: abe */
     public ImageView hk() {
-        TbImageView tbImageView = new TbImageView(this.bKT.getPageContext().getPageActivity());
+        TbImageView tbImageView = new TbImageView(this.bKU.getPageContext().getPageActivity());
         boolean qg = com.baidu.tbadk.core.n.qc().qg();
         tbImageView.setDefaultBg(com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.n.pb_default_image_bg));
         if (qg) {

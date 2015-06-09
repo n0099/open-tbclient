@@ -27,10 +27,10 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     private int Tv;
     private final List<e> Tx;
     private CustomViewPager Ty;
-    private ScrollFragmentTabWidget ccg;
-    private e cch;
-    private a cci;
-    private int ccj;
+    private ScrollFragmentTabWidget cch;
+    private e cci;
+    private a ccj;
+    private int cck;
     private Context mContext;
     private FragmentManager mFragmentManager;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
@@ -51,39 +51,39 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
 
     private void init(Context context) {
         this.mContext = context;
-        this.ccj = context.getResources().getDimensionPixelSize(o.ds72);
+        this.cck = context.getResources().getDimensionPixelSize(o.ds72);
         com.baidu.adp.lib.g.b.hr().a(context, r.scroll_fragment_tabhost, this, true);
         this.Tv = -1;
-        this.cch = null;
+        this.cci = null;
     }
 
     public void setTabWidgetViewHeight(int i) {
-        if (this.ccg != null) {
-            this.ccg.getLayoutParams().height = i;
-            this.ccg.requestLayout();
+        if (this.cch != null) {
+            this.cch.getLayoutParams().height = i;
+            this.cch.requestLayout();
         }
     }
 
     public void setTabWidgetViewWidth(int i) {
-        if (this.ccg != null) {
-            this.ccg.setIndicatorWidth(i);
+        if (this.cch != null) {
+            this.cch.setIndicatorWidth(i);
         }
     }
 
     public void setTabWidgetBackgroundRes(int i) {
-        if (this.ccg != null) {
-            this.ccg.setBackGroundDrawableResId(i);
+        if (this.cch != null) {
+            this.cch.setBackGroundDrawableResId(i);
         }
     }
 
     public void setup(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
-        this.ccg = (ScrollFragmentTabWidget) findViewById(q.tabcontainer);
-        this.ccg.setTabSelectionListener(this);
+        this.cch = (ScrollFragmentTabWidget) findViewById(q.tabcontainer);
+        this.cch.setTabSelectionListener(this);
     }
 
     public void d(int i, int i2, int i3, int i4) {
-        this.ccg.setPadding(i, i2, i3, i4);
+        this.cch.setPadding(i, i2, i3, i4);
     }
 
     public void a(e eVar) {
@@ -91,8 +91,8 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     }
 
     public void a(e eVar, int i) {
-        if (eVar != null && eVar.ahK() != null && eVar.ahL() != null && !this.Tx.contains(eVar)) {
-            this.ccg.o(eVar.ahL(), i);
+        if (eVar != null && eVar.ahL() != null && eVar.ahM() != null && !this.Tx.contains(eVar)) {
+            this.cch.o(eVar.ahM(), i);
             if (i == -1) {
                 this.Tx.add(eVar);
             } else {
@@ -124,8 +124,8 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
         addView(this.Ty);
         this.Ty.setOffscreenPageLimit(1);
         this.Ty.setOnPageChangeListener(this);
-        this.cci = new a(this.mFragmentManager, this.Tx);
-        this.Ty.setAdapter(this.cci);
+        this.ccj = new a(this.mFragmentManager, this.Tx);
+        this.Ty.setAdapter(this.ccj);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
@@ -135,15 +135,15 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     public void setCurrentTab(int i) {
         if (i >= 0 && i < this.Tx.size() && i != this.Tv) {
             this.Tv = i;
-            this.cch = this.Tx.get(this.Tv);
-            this.ccg.setCurrentTab(this.Tv);
+            this.cci = this.Tx.get(this.Tv);
+            this.cch.setCurrentTab(this.Tv);
             this.Ty.setCurrentItem(this.Tv, false);
         }
     }
 
     @Override // com.baidu.tieba.recommendfrs.indicator.c
     public void c(int i, boolean z) {
-        TiebaStatic.eventStat(this.mContext, "kantie_1", null, 1, "finetab", this.Tx.get(i).ahJ());
+        TiebaStatic.eventStat(this.mContext, "kantie_1", null, 1, "finetab", this.Tx.get(i).ahK());
         this.Ty.setCurrentItem(i, false);
     }
 
@@ -152,8 +152,8 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     }
 
     public Fragment getCurrentFragment() {
-        if (this.cch != null) {
-            return this.cch.ahK();
+        if (this.cci != null) {
+            return this.cci.ahL();
         }
         return null;
     }
@@ -162,7 +162,7 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.cci.getItem(jd(str));
+        return this.ccj.getItem(jd(str));
     }
 
     public int jd(String str) {
@@ -184,16 +184,16 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
         FragmentTransaction beginTransaction = this.mFragmentManager.beginTransaction();
         int size = this.Tx.size();
         for (int i = 0; i < size; i++) {
-            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.Ty.getId(), this.cci.getItemId(i)));
+            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.Ty.getId(), this.ccj.getItemId(i)));
             if (findFragmentByTag != null) {
                 beginTransaction.remove(findFragmentByTag);
             }
         }
         beginTransaction.commitAllowingStateLoss();
         this.Tx.clear();
-        this.cch = null;
+        this.cci = null;
         this.Tv = -1;
-        this.ccg.reset();
+        this.cch.reset();
     }
 
     private static String makeFragmentName(int i, long j) {
@@ -201,12 +201,12 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     }
 
     public void onChangeSkinType(int i) {
-        this.ccg.onChangeSkinType(i);
+        this.cch.onChangeSkinType(i);
         ay.d(this, n.cp_bg_line_d, i);
-        if (this.cci != null) {
-            int count = this.cci.getCount();
+        if (this.ccj != null) {
+            int count = this.ccj.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.cci.getItem(i2);
+                Fragment item = this.ccj.getItem(i2);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -237,11 +237,11 @@ public class ScrollFragmentTabHost extends LinearLayout implements ViewPager.OnP
     }
 
     private void im(int i) {
-        this.ccg.smoothScrollTo(this.ccg.in(i - 1) - this.ccj, 0);
+        this.cch.smoothScrollTo(this.cch.in(i - 1) - this.cck, 0);
         this.Tv = i;
-        this.cch = this.Tx.get(i);
-        this.ccg.setCurrentTab(this.Tv);
-        ViewGroup viewGroup = (ViewGroup) this.cch.ahK().getView();
+        this.cci = this.Tx.get(i);
+        this.cch.setCurrentTab(this.Tv);
+        ViewGroup viewGroup = (ViewGroup) this.cci.ahL().getView();
         if (viewGroup != null && viewGroup.getChildCount() > 0) {
             View childAt = viewGroup.getChildAt(0);
             if (childAt instanceof FragmentTabRootView) {

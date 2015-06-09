@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements View.OnClickListener {
-    final /* synthetic */ U9InfoView crH;
+    final /* synthetic */ U9InfoView crI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(U9InfoView u9InfoView) {
-        this.crH = u9InfoView;
+        this.crI = u9InfoView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,19 +32,19 @@ public class aw implements View.OnClickListener {
         Context context4;
         Context context5;
         com.baidu.tbadk.core.data.x xVar2;
-        context = this.crH.mContext;
+        context = this.crI.mContext;
         if (bq.ae(context) && com.baidu.adp.lib.util.n.isNetOk()) {
-            relativeLayout = this.crH.crw;
+            relativeLayout = this.crI.crx;
             if (view != relativeLayout) {
-                linearLayout = this.crH.crx;
+                linearLayout = this.crI.cry;
                 if (view == linearLayout) {
-                    aaVar = this.crH.news_info;
+                    aaVar = this.crI.news_info;
                     if (!TextUtils.isEmpty(aaVar.rH())) {
-                        context2 = this.crH.mContext;
+                        context2 = this.crI.mContext;
                         TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
                         bi tO = bi.tO();
-                        context3 = this.crH.mContext;
-                        aaVar2 = this.crH.news_info;
+                        context3 = this.crI.mContext;
+                        aaVar2 = this.crI.news_info;
                         tO.b((TbPageContext) com.baidu.adp.base.n.D(context3), new String[]{aaVar2.rH()});
                         return;
                     }
@@ -52,13 +52,13 @@ public class aw implements View.OnClickListener {
                 }
                 return;
             }
-            xVar = this.crH.top_code;
+            xVar = this.crI.top_code;
             if (!TextUtils.isEmpty(xVar.rB())) {
-                context4 = this.crH.mContext;
+                context4 = this.crI.mContext;
                 TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
                 bi tO2 = bi.tO();
-                context5 = this.crH.mContext;
-                xVar2 = this.crH.top_code;
+                context5 = this.crI.mContext;
+                xVar2 = this.crI.top_code;
                 tO2.b((TbPageContext) com.baidu.adp.base.n.D(context5), new String[]{xVar2.rB()});
             }
         }

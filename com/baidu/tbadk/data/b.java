@@ -16,7 +16,7 @@ public class b extends TbConfig {
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static final Long ahV = 3600000L;
 
-    public static final String yH() {
+    public static final String yI() {
         return "com.baidu.tieba.broadcast.service";
     }
 

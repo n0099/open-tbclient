@@ -14,8 +14,8 @@ class o implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((this.auX.getContext() instanceof j) && this.auY.Er() != null) {
-            ((j) this.auX.getContext()).onVideoClicked(this.auX.getContext(), this.auY.Er().toString());
+        if ((this.auX.getContext() instanceof j) && this.auY.Es() != null) {
+            ((j) this.auX.getContext()).onVideoClicked(this.auX.getContext(), this.auY.Es().toString());
         }
     }
 }

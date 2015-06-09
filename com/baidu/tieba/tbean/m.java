@@ -5,22 +5,22 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ j cvh;
+    final /* synthetic */ j cvi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.cvh = jVar;
+        this.cvi = jVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         b bVar;
         b bVar2;
-        this.cvh.beo = i;
-        bVar = this.cvh.cuS;
+        this.cvi.bep = i;
+        bVar = this.cvi.cuT;
         bVar.iZ(i);
-        bVar2 = this.cvh.cuS;
+        bVar2 = this.cvi.cuT;
         bVar2.notifyDataSetChanged();
-        this.cvh.afl();
+        this.cvi.afm();
     }
 }

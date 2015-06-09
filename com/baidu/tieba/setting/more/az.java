@@ -8,38 +8,38 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class az extends com.baidu.adp.base.f {
-    private BaseActivity.LoadDataCallBack bHv;
-    private ba cgR;
-    private bb cgS;
+    private BaseActivity.LoadDataCallBack bHw;
+    private ba cgS;
+    private bb cgT;
     private Context mContext;
 
     public az(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.cgR = null;
         this.cgS = null;
+        this.cgT = null;
         this.mContext = null;
-        this.bHv = null;
+        this.bHw = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void ajT() {
-        if (this.cgR == null) {
-            this.cgR = new ba(this, null);
-            this.cgR.execute(new String[0]);
+    public void ajU() {
+        if (this.cgS == null) {
+            this.cgS = new ba(this, null);
+            this.cgS.execute(new String[0]);
         }
     }
 
-    public void ajU() {
+    public void ajV() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void ajV() {
-        if (this.cgS == null) {
-            this.cgS = new bb(this, null);
-            this.cgS.execute(new String[0]);
+    public void ajW() {
+        if (this.cgT == null) {
+            this.cgT = new bb(this, null);
+            this.cgT.execute(new String[0]);
         }
     }
 
@@ -58,6 +58,6 @@ public class az extends com.baidu.adp.base.f {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.bHv = loadDataCallBack;
+        this.bHw = loadDataCallBack;
     }
 }

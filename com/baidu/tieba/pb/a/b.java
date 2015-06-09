@@ -25,84 +25,84 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private int bxp;
-    private boolean bJL = true;
-    private ArrayList<i> bJN = new ArrayList<>();
-    private ForumData bJD = new ForumData();
-    private w bJE = new w();
-    private ArrayList<j> bJF = new ArrayList<>();
+    private int bxq;
+    private boolean bJM = true;
+    private ArrayList<i> bJO = new ArrayList<>();
+    private ForumData bJE = new ForumData();
+    private w bJF = new w();
+    private ArrayList<j> bJG = new ArrayList<>();
     private HashMap<String, MetaData> userMap = new HashMap<>();
-    private q bGk = new q();
+    private q bGl = new q();
     private AntiData Ql = new AntiData();
-    private d bJG = new d();
-    private int bJI = 0;
-    private boolean bJH = false;
-    private final UserData bJJ = new UserData();
-    private AdditionData bJM = new AdditionData();
-    private aa bJK = new aa();
+    private d bJH = new d();
+    private int bJJ = 0;
+    private boolean bJI = false;
+    private final UserData bJK = new UserData();
+    private AdditionData bJN = new AdditionData();
+    private aa bJL = new aa();
 
-    public boolean aaq() {
-        return this.bJL;
+    public boolean aar() {
+        return this.bJM;
     }
 
     public void dP(boolean z) {
-        this.bJL = z;
+        this.bJM = z;
     }
 
     public b() {
-        this.bxp = 0;
-        this.bxp = 0;
+        this.bxq = 0;
+        this.bxq = 0;
     }
 
     public boolean isValid() {
-        return this.bJF != null && this.bJF.size() > 0;
+        return this.bJG != null && this.bJG.size() > 0;
     }
 
     public String[] aC(Context context) {
         String str = "";
         if (isValid()) {
-            j jVar = this.bJF.get(0);
-            ao aoI = jVar.aoI();
-            r1 = aoI != null ? aoI.Ri : null;
+            j jVar = this.bJG.get(0);
+            ao aoJ = jVar.aoJ();
+            r1 = aoJ != null ? aoJ.Ri : null;
             str = jVar.aK(context);
-            if (this.bJE != null && this.bJE.getAnchorInfoData() != null && this.bJE.getAnchorInfoData().getGroup_id() != 0) {
+            if (this.bJF != null && this.bJF.getAnchorInfoData() != null && this.bJF.getAnchorInfoData().getGroup_id() != 0) {
                 str = "[" + context.getString(t.msglist_live) + "] " + str;
             }
         }
         return new String[]{r1, str};
     }
 
-    public ForumData aar() {
-        return this.bJD;
-    }
-
-    public w aas() {
+    public ForumData aas() {
         return this.bJE;
     }
 
-    public ArrayList<j> aat() {
+    public w aat() {
         return this.bJF;
     }
 
-    public q Zp() {
-        return this.bGk;
+    public ArrayList<j> aau() {
+        return this.bJG;
     }
 
-    public aa aau() {
-        return this.bJK;
+    public q Zq() {
+        return this.bGl;
+    }
+
+    public aa aav() {
+        return this.bJL;
     }
 
     public void a(q qVar, int i) {
-        this.bGk.bm(qVar.qP());
-        this.bGk.bl(qVar.qt());
-        this.bGk.bk(qVar.qN());
-        this.bGk.bn(qVar.qQ());
+        this.bGl.bm(qVar.qP());
+        this.bGl.bl(qVar.qt());
+        this.bGl.bk(qVar.qN());
+        this.bGl.bn(qVar.qQ());
         if (i == 0) {
-            this.bGk = qVar;
+            this.bGl = qVar;
         } else if (i == 1) {
-            this.bGk.bo(qVar.qR());
+            this.bGl.bo(qVar.qR());
         } else if (i == 2) {
-            this.bGk.bp(qVar.qS());
+            this.bGl.bp(qVar.qS());
         }
     }
 
@@ -111,33 +111,33 @@ public class b {
     }
 
     public UserData getUserData() {
-        return this.bJJ;
+        return this.bJK;
     }
 
     public boolean pq() {
-        return this.bJE.rn() != 0;
+        return this.bJF.rn() != 0;
     }
 
     public void Z(boolean z) {
-        if (this.bJE != null) {
+        if (this.bJF != null) {
             if (z) {
-                this.bJE.bs(1);
+                this.bJF.bs(1);
             } else {
-                this.bJE.bs(0);
+                this.bJF.bs(0);
             }
         }
     }
 
     public String pp() {
-        if (this.bJE != null) {
-            return this.bJE.ro();
+        if (this.bJF != null) {
+            return this.bJF.ro();
         }
         return null;
     }
 
     public void ik(String str) {
-        if (this.bJE != null) {
-            this.bJE.ci(str);
+        if (this.bJF != null) {
+            this.bJF.ci(str);
         }
     }
 
@@ -156,35 +156,35 @@ public class b {
                     }
                 }
                 gX(dataRes.is_new_url.intValue());
-                this.bJD.parserProtobuf(dataRes.forum);
-                this.bJE.setUserMap(this.userMap);
-                this.bJE.a(dataRes.thread);
-                this.bJK.a(dataRes.news_info);
+                this.bJE.parserProtobuf(dataRes.forum);
+                this.bJF.setUserMap(this.userMap);
+                this.bJF.a(dataRes.thread);
+                this.bJL.a(dataRes.news_info);
                 List<Post> list2 = dataRes.post_list;
                 if (list2 != null && list2.size() > 0) {
                     for (Post post : dataRes.post_list) {
                         j jVar = new j();
                         jVar.setUserMap(this.userMap);
                         jVar.a(post, context);
-                        this.bJF.add(jVar);
+                        this.bJG.add(jVar);
                     }
                 }
-                this.bGk.a(dataRes.page);
+                this.bGl.a(dataRes.page);
                 this.Ql.parserProtobuf(dataRes.anti);
-                this.bJG.a(dataRes.location);
-                this.bJH = dataRes.has_floor.intValue() == 1;
+                this.bJH.a(dataRes.location);
+                this.bJI = dataRes.has_floor.intValue() == 1;
                 if (dataRes.user != null) {
-                    this.bJI = dataRes.user.is_manager.intValue();
+                    this.bJJ = dataRes.user.is_manager.intValue();
                 }
-                this.bJJ.parserProtobuf(dataRes.user);
-                this.bJM.parserProtoBuf(dataRes.add_post);
-                this.bJE.setReply_num(this.bJE.getReply_num() > 0 ? this.bJE.getReply_num() - 1 : 0);
+                this.bJK.parserProtobuf(dataRes.user);
+                this.bJN.parserProtoBuf(dataRes.add_post);
+                this.bJF.setReply_num(this.bJF.getReply_num() > 0 ? this.bJF.getReply_num() - 1 : 0);
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         i iVar = new i();
                         iVar.b(app);
-                        if (!this.bJN.contains(iVar)) {
-                            this.bJN.add(iVar);
+                        if (!this.bJO.contains(iVar)) {
+                            this.bJO.add(iVar);
                         }
                     }
                 }
@@ -194,23 +194,23 @@ public class b {
         }
     }
 
-    public int aav() {
-        return this.bJI;
+    public int aaw() {
+        return this.bJJ;
     }
 
-    public int aaw() {
-        return this.bxp;
+    public int aax() {
+        return this.bxq;
     }
 
     public void gX(int i) {
-        this.bxp = i;
+        this.bxq = i;
     }
 
-    public AdditionData aax() {
-        return this.bJM;
-    }
-
-    public ArrayList<i> aay() {
+    public AdditionData aay() {
         return this.bJN;
+    }
+
+    public ArrayList<i> aaz() {
+        return this.bJO;
     }
 }

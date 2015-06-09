@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, ah> {
     private volatile com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ af cpM;
+    final /* synthetic */ af cpN;
 
     private ag(af afVar) {
-        this.cpM = afVar;
+        this.cpN = afVar;
         this.aaG = null;
     }
 
@@ -38,24 +38,24 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
         try {
             this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
             com.baidu.tbadk.core.util.aa aaVar = this.aaG;
-            str = this.cpM.mForumName;
+            str = this.cpN.mForumName;
             aaVar.o("kw", str);
             com.baidu.tbadk.core.util.aa aaVar2 = this.aaG;
-            str2 = this.cpM.mForumId;
+            str2 = this.cpN.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
             com.baidu.tbadk.core.util.aa aaVar3 = this.aaG;
-            str3 = this.cpM.from;
+            str3 = this.cpN.from;
             aaVar3.o("st_type", str3);
-            str4 = this.cpM.cpL;
+            str4 = this.cpN.cpM;
             if (!StringUtils.isNull(str4)) {
                 com.baidu.tbadk.core.util.aa aaVar4 = this.aaG;
-                str8 = this.cpM.cpL;
+                str8 = this.cpN.cpM;
                 aaVar4.o("dev_id", str8);
             }
-            str5 = this.cpM.cpJ;
+            str5 = this.cpN.cpK;
             if (!TextUtils.isEmpty(str5)) {
                 com.baidu.tbadk.core.util.aa aaVar5 = this.aaG;
-                str7 = this.cpM.cpJ;
+                str7 = this.cpN.cpK;
                 aaVar5.o("pagefrom", str7);
             }
             this.aaG.sX().tS().mIsNeedTbs = true;
@@ -63,7 +63,7 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
             if (this.aaG.sX().tT().qa() && sw != null) {
                 ah ahVar = new ah();
                 ahVar.parserJson(sw);
-                str6 = this.cpM.mForumId;
+                str6 = this.cpN.mForumId;
                 ahVar.jv(str6);
                 return ahVar;
             }
@@ -80,14 +80,14 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
     public void onPostExecute(ah ahVar) {
         com.baidu.adp.base.i iVar;
         com.baidu.adp.base.i iVar2;
-        this.cpM.cpK = null;
+        this.cpN.cpL = null;
         if (ahVar == null && this.aaG != null) {
-            this.cpM.mErrorCode = this.aaG.tb();
-            this.cpM.mErrorString = this.aaG.getErrorString();
+            this.cpN.mErrorCode = this.aaG.tb();
+            this.cpN.mErrorString = this.aaG.getErrorString();
         }
-        iVar = this.cpM.mLoadDataCallBack;
+        iVar = this.cpN.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.cpM.mLoadDataCallBack;
+            iVar2 = this.cpN.mLoadDataCallBack;
             iVar2.c(ahVar);
         }
     }
@@ -99,9 +99,9 @@ public class ag extends BdAsyncTask<Object, Integer, ah> {
             this.aaG.gS();
             this.aaG = null;
         }
-        this.cpM.cpK = null;
+        this.cpN.cpL = null;
         super.cancel(true);
-        iVar = this.cpM.mLoadDataCallBack;
+        iVar = this.cpN.mLoadDataCallBack;
         iVar.c(null);
     }
 }

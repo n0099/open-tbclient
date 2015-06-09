@@ -3,11 +3,11 @@ package com.baidu.tieba.postsearch;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class y {
-    TextView bHU;
-    TextView bYt;
+    TextView bHV;
     TextView bYu;
     TextView bYv;
     TextView bYw;
+    TextView bYx;
 
     private y() {
     }

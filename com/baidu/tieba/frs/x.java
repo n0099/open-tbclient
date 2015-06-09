@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class x extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(FrsActivity frsActivity, int i) {
         super(i);
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ class x extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.i)) {
             com.baidu.tbadk.coreExtra.data.i iVar = (com.baidu.tbadk.coreExtra.data.i) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(iVar.userId) && !TextUtils.isEmpty(iVar.userName)) {
-                bfVar = this.aLX.aLi;
+                bfVar = this.aLY.aLj;
                 if (bfVar != null) {
-                    bfVar2 = this.aLX.aLi;
-                    if (bfVar2.Lw() != null) {
-                        bfVar3 = this.aLX.aLi;
-                        bfVar3.Lw().aq(iVar.userId, iVar.userName);
+                    bfVar2 = this.aLY.aLj;
+                    if (bfVar2.Lx() != null) {
+                        bfVar3 = this.aLY.aLj;
+                        bfVar3.Lx().aq(iVar.userId, iVar.userName);
                     }
                 }
             }

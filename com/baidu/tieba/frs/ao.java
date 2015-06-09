@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ao {
     private TbPageContext<FrsActivity> LH;
-    private Animation aMD;
+    private Animation aME;
 
     public ao(TbPageContext<FrsActivity> tbPageContext) {
         this.LH = tbPageContext;
-        this.aMD = AnimationUtils.loadAnimation(this.LH.getPageActivity(), com.baidu.tieba.k.frs_like);
+        this.aME = AnimationUtils.loadAnimation(this.LH.getPageActivity(), com.baidu.tieba.k.frs_like);
     }
 
     public void w(View view) {
@@ -34,7 +34,7 @@ public class ao {
             gVar.a(new ap(this, inflate));
             com.baidu.adp.lib.guide.d gG = gVar.gG();
             gG.i(this.LH.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.LH.getOrignalPage(), inflate, this.aMD, new aq(this, gG));
+            com.baidu.tieba.tbadkCore.a.a(this.LH.getOrignalPage(), inflate, this.aME, new aq(this, gG));
         }
     }
 }

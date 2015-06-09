@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn implements com.baidu.tbadk.widget.n {
-    final /* synthetic */ bf aOm;
+    final /* synthetic */ bf aOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bf bfVar) {
-        this.aOm = bfVar;
+        this.aOn = bfVar;
     }
 
     @Override // com.baidu.tbadk.widget.n
@@ -20,15 +20,15 @@ public class bn implements com.baidu.tbadk.widget.n {
         BdTypeListView bdTypeListView2;
         BannerView bannerView2;
         if (z) {
-            bannerView = this.aOm.aDE;
-            if (bannerView.xI()) {
-                z2 = this.aOm.aOb;
+            bannerView = this.aOn.aDF;
+            if (bannerView.xJ()) {
+                z2 = this.aOn.aOc;
                 if (!z2) {
-                    bdTypeListView = this.aOm.aND;
+                    bdTypeListView = this.aOn.aNE;
                     if (bdTypeListView != null) {
-                        this.aOm.aOb = true;
-                        bdTypeListView2 = this.aOm.aND;
-                        bannerView2 = this.aOm.aDE;
+                        this.aOn.aOc = true;
+                        bdTypeListView2 = this.aOn.aNE;
+                        bannerView2 = this.aOn.aDF;
                         bdTypeListView2.d(bannerView2, 1);
                     }
                 }

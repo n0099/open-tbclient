@@ -12,9 +12,9 @@ public class e {
     private Rect GQ = new Rect();
     public Rect aji;
     public Bitmap ate;
-    public Bundle ctA;
-    public boolean ctB;
+    public Bundle ctB;
     public boolean ctC;
+    public boolean ctD;
     private Context mContext;
 
     public e(Context context) {

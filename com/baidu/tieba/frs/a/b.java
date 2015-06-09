@@ -9,20 +9,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class b extends am {
-    HeadImageView aBk;
-    TextView aHH;
-    TextView aPA;
-    TbImageView aPB;
-    LinearLayout aPz;
+    HeadImageView aBl;
+    TextView aHI;
+    LinearLayout aPA;
+    TextView aPB;
+    TbImageView aPC;
     TextView aiA;
 
     public b(View view) {
         super(view);
-        this.aPz = (LinearLayout) view.findViewById(q.frs_locality_big_image_parent);
-        this.aBk = (HeadImageView) view.findViewById(q.frs_locality_big_iamge_head);
-        this.aHH = (TextView) view.findViewById(q.frs_locality_big_iamge_name);
-        this.aPA = (TextView) view.findViewById(q.frs_locality_big_iamge_sub);
+        this.aPA = (LinearLayout) view.findViewById(q.frs_locality_big_image_parent);
+        this.aBl = (HeadImageView) view.findViewById(q.frs_locality_big_iamge_head);
+        this.aHI = (TextView) view.findViewById(q.frs_locality_big_iamge_name);
+        this.aPB = (TextView) view.findViewById(q.frs_locality_big_iamge_sub);
         this.aiA = (TextView) view.findViewById(q.frs_locality_big_iamge_title);
-        this.aPB = (TbImageView) view.findViewById(q.frs_locality_big_iamge_pic);
+        this.aPC = (TbImageView) view.findViewById(q.frs_locality_big_iamge_pic);
     }
 }

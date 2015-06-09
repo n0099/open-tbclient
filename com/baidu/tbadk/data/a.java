@@ -23,7 +23,7 @@ public class a {
         return this.icon_url;
     }
 
-    public String yF() {
+    public String yG() {
         return this.icon_link;
     }
 
@@ -31,7 +31,7 @@ public class a {
         return this.content;
     }
 
-    public int yG() {
+    public int yH() {
         return this.ahN;
     }
 }

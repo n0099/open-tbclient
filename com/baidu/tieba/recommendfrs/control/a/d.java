@@ -10,11 +10,11 @@ import com.baidu.tieba.recommendfrs.data.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements q<g, com.baidu.tieba.recommendfrs.data.f> {
-    final /* synthetic */ b cbR;
+    final /* synthetic */ b cbS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.cbR = bVar;
+        this.cbS = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.r
@@ -30,23 +30,23 @@ public class d implements q<g, com.baidu.tieba.recommendfrs.data.f> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.ahB();
+                str = requestData.ahC();
             }
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
-                eVar = this.cbR.cbQ;
+                eVar = this.cbS.cbR;
                 if (eVar != null) {
-                    eVar2 = this.cbR.cbQ;
+                    eVar2 = this.cbS.cbR;
                     eVar2.h(str, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             com.baidu.tieba.recommendfrs.data.f data = mvcHttpResponsedMessage.getData();
-            eVar3 = this.cbR.cbQ;
+            eVar3 = this.cbS.cbR;
             if (eVar3 != null) {
-                eVar4 = this.cbR.cbQ;
-                gVar = this.cbR.cbP;
-                eVar4.a(true, data, gVar.ahH() != 0, str);
+                eVar4 = this.cbS.cbR;
+                gVar = this.cbS.cbQ;
+                eVar4.a(true, data, gVar.ahI() != 0, str);
             }
         }
     }
@@ -64,23 +64,23 @@ public class d implements q<g, com.baidu.tieba.recommendfrs.data.f> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.ahB();
+                str = requestData.ahC();
             }
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
-                eVar = this.cbR.cbQ;
+                eVar = this.cbS.cbR;
                 if (eVar != null) {
-                    eVar2 = this.cbR.cbQ;
+                    eVar2 = this.cbS.cbR;
                     eVar2.h(str, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             com.baidu.tieba.recommendfrs.data.f data = mvcSocketResponsedMessage.getData();
-            eVar3 = this.cbR.cbQ;
+            eVar3 = this.cbS.cbR;
             if (eVar3 != null) {
-                eVar4 = this.cbR.cbQ;
-                gVar = this.cbR.cbP;
-                eVar4.a(true, data, gVar.ahH() != 0, str);
+                eVar4 = this.cbS.cbR;
+                gVar = this.cbS.cbQ;
+                eVar4.a(true, data, gVar.ahI() != 0, str);
             }
         }
     }

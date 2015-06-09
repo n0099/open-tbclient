@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements View.OnClickListener {
-    private final /* synthetic */ long azU;
-    private final /* synthetic */ String azX;
-    private final /* synthetic */ String bac;
-    final /* synthetic */ bg bao;
+    private final /* synthetic */ long azV;
+    private final /* synthetic */ String azY;
+    private final /* synthetic */ String bad;
+    final /* synthetic */ bg bap;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(bg bgVar, long j, String str, String str2) {
-        this.bao = bgVar;
-        this.azU = j;
-        this.bac = str;
-        this.azX = str2;
+        this.bap = bgVar;
+        this.azV = j;
+        this.bad = str;
+        this.azY = str2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.adp.base.j jVar;
         MessageManager messageManager = MessageManager.getInstance();
-        jVar = this.bao.mContext;
-        messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(jVar.getPageActivity(), String.valueOf(this.azU), this.bac, this.azX, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+        jVar = this.bap.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(jVar.getPageActivity(), String.valueOf(this.azV), this.bad, this.azY, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
     }
 }

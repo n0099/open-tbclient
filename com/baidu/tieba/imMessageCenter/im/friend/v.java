@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements k {
-    final /* synthetic */ t bvV;
+    final /* synthetic */ t bvW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.bvV = tVar;
+        this.bvW = tVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.friend.k
@@ -21,12 +21,12 @@ public class v implements k {
             if (obj instanceof ag) {
                 ((ag) obj).setChecked(false);
             }
-            bdListView = this.bvV.mListView;
+            bdListView = this.bvW.mListView;
             View findViewWithTag = bdListView.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.a) {
-                this.bvV.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.bvW.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
             }
         }
     }

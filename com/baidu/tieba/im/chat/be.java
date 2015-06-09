@@ -4,14 +4,14 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.am;
 /* loaded from: classes.dex */
 public class be<T> extends am {
-    private T bai;
+    private T baj;
 
     public be(View view, T t) {
         super(view);
-        this.bai = t;
+        this.baj = t;
     }
 
-    public T Pu() {
-        return this.bai;
+    public T Pv() {
+        return this.baj;
     }
 }

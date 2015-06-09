@@ -2,11 +2,11 @@ package com.baidu.tieba.pb.pb.main;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

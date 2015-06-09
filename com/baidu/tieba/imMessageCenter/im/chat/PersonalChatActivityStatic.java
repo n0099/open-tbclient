@@ -5,21 +5,21 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class PersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f brV;
-    private static CustomMessageListener brW = new l(2005016);
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f brW;
+    private static CustomMessageListener brX = new l(2005016);
 
     static {
-        MessageManager.getInstance().registerListener(brW);
+        MessageManager.getInstance().registerListener(brX);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new m());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f Vr() {
-        return brV;
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f Vs() {
+        return brW;
     }
 
     public static void a(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f fVar) {
-        brV = fVar;
+        brW = fVar;
     }
 }

@@ -5,41 +5,41 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static Game cvY;
+    private static Game cvZ;
 
     static {
-        KO();
+        KP();
+        aqm();
+        GU();
         aql();
-        GT();
-        aqk();
         MessageManager.getInstance().registerListener(new ad(2002004));
     }
 
-    private static void KO() {
+    private static void KP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015002, new ae());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void GT() {
+    private static void GU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new af());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aqk() {
+    private static void aql() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001258, new ag());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aql() {
+    private static void aqm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new ah());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static Game getGame() {
-        return cvY;
+        return cvZ;
     }
 }

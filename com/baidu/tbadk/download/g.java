@@ -20,7 +20,7 @@ public class g {
     private g() {
     }
 
-    public static g zi() {
+    public static g zj() {
         return aiX;
     }
 
@@ -70,7 +70,7 @@ public class g {
                 } else {
                     downloadData.setStatus(5);
                     aiS.add(downloadData);
-                    zj();
+                    zk();
                     return;
                 }
             }
@@ -78,7 +78,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zj() {
+    public void zk() {
         if (aiY == null && !aiS.isEmpty()) {
             aiY = aiS.get(0);
             if (aiY != null) {

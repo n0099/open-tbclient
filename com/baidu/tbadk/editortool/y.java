@@ -14,7 +14,7 @@ public class y extends a {
         return 1;
     }
 
-    public static synchronized y zD() {
+    public static synchronized y zE() {
         y yVar;
         synchronized (y.class) {
             yVar = akt;
@@ -30,7 +30,7 @@ public class y extends a {
     public void a(b bVar) {
         if (this.aku == null || this.aku.isEmpty()) {
             this.aku = new LinkedList<>();
-            if (TbFaceManager.Ak().zs() > 0) {
+            if (TbFaceManager.Al().zt() > 0) {
                 x xVar = new x();
                 this.aku.add(xVar);
                 if (bVar != null) {
@@ -51,7 +51,7 @@ public class y extends a {
     }
 
     @Override // com.baidu.tbadk.editortool.a
-    public void zm() {
+    public void zn() {
     }
 
     public boolean isEmpty() {

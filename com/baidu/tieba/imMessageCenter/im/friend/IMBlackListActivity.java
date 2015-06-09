@@ -7,23 +7,23 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     private com.baidu.tbadk.core.dialog.a Ll;
-    private BlackListModel bvd;
-    private i bve;
-    private com.baidu.tieba.im.data.a bvf;
+    private BlackListModel bve;
+    private i bvf;
+    private com.baidu.tieba.im.data.a bvg;
     private com.baidu.adp.framework.listener.e mListener = new a(this, 0);
 
     private void initView() {
-        this.bve = new i(this);
+        this.bvf = new i(this);
     }
 
-    private void GY() {
-        this.bvd = new BlackListModel(this);
-        this.bvd.setUniqueId(getUniqueId());
+    private void GZ() {
+        this.bve = new BlackListModel(this);
+        this.bve.setUniqueId(getUniqueId());
     }
 
-    private void Jj() {
-        this.bvd.loadBlackList();
-        this.bve.WQ();
+    private void Jk() {
+        this.bve.loadBlackList();
+        this.bvf.WR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,21 +33,21 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         registerListener(104103, this.mListener);
         registerListener(104102, this.mListener);
         initView();
-        GY();
-        Jj();
+        GZ();
+        Jk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.bvd != null) {
-            this.bvd.cancelLoadData();
+        if (this.bve != null) {
+            this.bve.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WO() {
+    public void WP() {
         showLoadingDialog(null, new b(this));
     }
 
@@ -66,7 +66,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
 
     public void a(View view, com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.getUserId() > 0) {
-            this.bvf = aVar;
+            this.bvg = aVar;
             a(aVar);
         }
     }

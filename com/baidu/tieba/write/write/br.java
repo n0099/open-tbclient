@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
 class br implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -39,50 +39,50 @@ class br implements View.OnFocusChangeListener {
         EditText editText7;
         View view2;
         TextView textView2;
-        editText = this.cCP.cAu;
+        editText = this.cCQ.cAv;
         if (view != editText) {
-            view2 = this.cCP.mBack;
+            view2 = this.cCQ.mBack;
             if (view != view2) {
-                textView2 = this.cCP.cAz;
+                textView2 = this.cCQ.cAA;
             }
         }
         if (!z) {
-            editText2 = this.cCP.cAu;
+            editText2 = this.cCQ.cAv;
             if (view == editText2) {
-                textView = this.cCP.cAA;
+                textView = this.cCQ.cAB;
                 textView.setVisibility(0);
             }
         } else {
-            this.cCP.cCN = true;
-            this.cCP.atf();
-            tbEditorToolButtonContainer = this.cCP.cCx;
-            tbEditorToolButtonContainer.ane();
-            editorToolComponetContainer = this.cCP.cqO;
-            editText3 = this.cCP.cAu;
+            this.cCQ.cCO = true;
+            this.cCQ.atg();
+            tbEditorToolButtonContainer = this.cCQ.cCy;
+            tbEditorToolButtonContainer.anf();
+            editorToolComponetContainer = this.cCQ.cqP;
+            editText3 = this.cCQ.cAv;
             editorToolComponetContainer.ab(editText3);
         }
-        editText4 = this.cCP.cAy;
+        editText4 = this.cCQ.cAz;
         if (view == editText4) {
             if (!z) {
-                writeData = this.cCP.cuo;
+                writeData = this.cCQ.cup;
                 if (writeData.getType() == 0) {
-                    editText5 = this.cCP.cAy;
+                    editText5 = this.cCQ.cAz;
                     editText5.setHint(com.baidu.tieba.t.content);
                     return;
                 }
                 return;
             }
-            this.cCP.cCN = false;
-            writeData2 = this.cCP.cuo;
+            this.cCQ.cCO = false;
+            writeData2 = this.cCQ.cup;
             if (writeData2.getType() == 0) {
-                editText7 = this.cCP.cAy;
+                editText7 = this.cCQ.cAz;
                 editText7.setHint((CharSequence) null);
             }
-            this.cCP.atf();
-            tbEditorToolButtonContainer2 = this.cCP.cCx;
-            tbEditorToolButtonContainer2.ane();
-            editorToolComponetContainer2 = this.cCP.cqO;
-            editText6 = this.cCP.cAy;
+            this.cCQ.atg();
+            tbEditorToolButtonContainer2 = this.cCQ.cCy;
+            tbEditorToolButtonContainer2.anf();
+            editorToolComponetContainer2 = this.cCQ.cqP;
+            editText6 = this.cCQ.cAz;
             editorToolComponetContainer2.ab(editText6);
         }
     }

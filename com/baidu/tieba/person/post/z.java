@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.widget.ListView.e {
     private View apg;
-    private BaseFragmentActivity azk;
+    private BaseFragmentActivity azl;
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
 
     public z(BaseFragmentActivity baseFragmentActivity) {
-        this.azk = null;
-        this.azk = baseFragmentActivity;
+        this.azl = null;
+        this.azl = baseFragmentActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.e
     public View ng() {
-        this.mRoot = com.baidu.adp.lib.g.b.hr().inflate(this.azk.getPageContext().getContext(), com.baidu.tieba.r.new_pb_list_more, null);
-        this.mRoot.setPadding(0, this.azk.getResources().getDimensionPixelSize(com.baidu.tieba.o.listview_item_margin), 0, this.azk.getResources().getDimensionPixelSize(com.baidu.tieba.o.listview_item_margin));
+        this.mRoot = com.baidu.adp.lib.g.b.hr().inflate(this.azl.getPageContext().getContext(), com.baidu.tieba.r.new_pb_list_more, null);
+        this.mRoot.setPadding(0, this.azl.getResources().getDimensionPixelSize(com.baidu.tieba.o.listview_item_margin), 0, this.azl.getResources().getDimensionPixelSize(com.baidu.tieba.o.listview_item_margin));
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.q.pb_more_text);
         this.apg = this.mRoot.findViewById(com.baidu.tieba.q.pb_more_view);
         this.apg.setVisibility(8);
@@ -34,16 +34,16 @@ public class z extends com.baidu.adp.widget.ListView.e {
     }
 
     public void dl(int i) {
-        this.azk.getLayoutMode().j(this.apg);
+        this.azl.getLayoutMode().j(this.apg);
     }
 
-    public void JL() {
+    public void JM() {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(this.azk.getPageContext().getPageActivity().getText(com.baidu.tieba.t.loading));
+        this.mTextView.setText(this.azl.getPageContext().getPageActivity().getText(com.baidu.tieba.t.loading));
         this.apg.setVisibility(0);
     }
 
-    public void aeR() {
+    public void aeS() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
@@ -63,7 +63,7 @@ public class z extends com.baidu.adp.widget.ListView.e {
         }
     }
 
-    public void JM() {
+    public void JN() {
         this.mProgressBar.setVisibility(8);
         this.apg.setVisibility(0);
         this.mTextView.setText(com.baidu.tieba.t.load_more);

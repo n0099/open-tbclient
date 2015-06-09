@@ -11,59 +11,59 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class a {
     public float Ym;
-    private DragLayer csO;
-    private Vibrator csP;
-    private g csQ;
-    private f csR;
-    public boolean csS;
-    private float csT;
-    private e csU;
-    private Rect csV;
-    private int csW;
+    private DragLayer csP;
+    private Vibrator csQ;
+    private g csR;
+    private f csS;
+    public boolean csT;
+    private float csU;
+    private e csV;
+    private Rect csW;
     private int csX;
+    private int csY;
     private Context mContext;
     private Rect mTempRect = new Rect();
 
     public a(Context context) {
         this.mContext = context;
-        this.csP = (Vibrator) context.getSystemService("vibrator");
-        this.csT = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        this.csQ = (Vibrator) context.getSystemService("vibrator");
+        this.csU = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a(DragLayer dragLayer) {
-        this.csO = dragLayer;
+        this.csP = dragLayer;
         dragLayer.setDragController(this);
-        this.csW = this.csO.getPaddingLeft();
-        this.csX = this.csO.getPaddingRight();
+        this.csX = this.csP.getPaddingLeft();
+        this.csY = this.csP.getPaddingRight();
     }
 
     public void a(View view, Bundle bundle) {
-        this.csS = true;
-        this.csU = new e(this.mContext);
+        this.csT = true;
+        this.csV = new e(this.mContext);
         Rect rect = new Rect();
         view.getDrawingRect(rect);
-        this.csO.offsetDescendantRectToMyCoords(view, rect);
+        this.csP.offsetDescendantRectToMyCoords(view, rect);
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.csU.ate = Bitmap.createBitmap(view.getDrawingCache());
+        this.csV.ate = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
-        this.csU.aji = rect;
-        this.csU.ctA = bundle;
+        this.csV.aji = rect;
+        this.csV.ctB = bundle;
         view.setVisibility(4);
-        a(this.csU);
-        this.csO.setDragObject(this.csU);
-        this.csP.vibrate(300L);
+        a(this.csV);
+        this.csP.setDragObject(this.csV);
+        this.csQ.vibrate(300L);
     }
 
     public void endDrag() {
-        if (this.csS) {
-            this.csS = false;
-            this.csU = null;
-            this.csQ.aoW();
-            this.csQ.aoX();
-            this.csO.aoZ();
-            this.csO.invalidate();
+        if (this.csT) {
+            this.csT = false;
+            this.csV = null;
+            this.csR.aoX();
+            this.csR.aoY();
+            this.csP.apa();
+            this.csP.invalidate();
         }
     }
 
@@ -79,18 +79,18 @@ public class a {
                 endDrag();
                 break;
         }
-        return this.csS;
+        return this.csT;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.csS) {
-            if (this.csV == null) {
-                this.csV = new Rect();
-                this.csO.getDrawingRect(this.csV);
-                Rect rect = this.csV;
-                rect.top = (int) (rect.top - this.csT);
-                Rect rect2 = this.csV;
-                rect2.bottom = (int) (rect2.bottom + this.csT);
+        if (this.csT) {
+            if (this.csW == null) {
+                this.csW = new Rect();
+                this.csP.getDrawingRect(this.csW);
+                Rect rect = this.csW;
+                rect.top = (int) (rect.top - this.csU);
+                Rect rect2 = this.csW;
+                rect2.bottom = (int) (rect2.bottom + this.csU);
             }
             switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
                 case 0:
@@ -105,9 +105,9 @@ public class a {
                 case 2:
                     float x = motionEvent.getX(0);
                     this.Ym = x;
-                    this.csU.aji.offset((int) (x - this.Ym), 0);
-                    a(this.csU);
-                    aoS();
+                    this.csV.aji.offset((int) (x - this.Ym), 0);
+                    a(this.csV);
+                    aoT();
                     break;
             }
             return true;
@@ -115,50 +115,50 @@ public class a {
         return false;
     }
 
-    public void aoS() {
-        this.mTempRect.set(this.csU.aji);
-        this.csO.offsetRectIntoDescendantCoords((View) this.csQ, this.mTempRect);
-        this.csQ.d(this.mTempRect);
-        this.csO.invalidate();
-        if (this.csU.ctB) {
-            this.csQ.aoU();
-        } else if (this.csU.ctC) {
-            this.csQ.aoV();
+    public void aoT() {
+        this.mTempRect.set(this.csV.aji);
+        this.csP.offsetRectIntoDescendantCoords((View) this.csR, this.mTempRect);
+        this.csR.d(this.mTempRect);
+        this.csP.invalidate();
+        if (this.csV.ctC) {
+            this.csR.aoV();
+        } else if (this.csV.ctD) {
+            this.csR.aoW();
         } else {
-            this.csQ.aoW();
+            this.csR.aoX();
         }
     }
 
     private void a(e eVar) {
-        eVar.ctB = false;
         eVar.ctC = false;
+        eVar.ctD = false;
         Rect rect = eVar.aji;
         int width = rect.width();
-        int width2 = (this.csO.getWidth() - this.csW) - this.csX;
-        if (rect.left < this.csW) {
-            rect.left = this.csW;
+        int width2 = (this.csP.getWidth() - this.csX) - this.csY;
+        if (rect.left < this.csX) {
+            rect.left = this.csX;
             rect.right = rect.left + width;
         }
-        if (rect.right > this.csW + width2) {
-            rect.right = this.csW + width2;
+        if (rect.right > this.csX + width2) {
+            rect.right = this.csX + width2;
             rect.left = rect.right - width;
         }
-        if (rect.left < this.csW + this.csT) {
-            eVar.ctB = true;
-            eVar.ctC = false;
-        }
-        if (rect.right > (this.csW + width2) - this.csT) {
-            eVar.ctB = false;
+        if (rect.left < this.csX + this.csU) {
             eVar.ctC = true;
+            eVar.ctD = false;
+        }
+        if (rect.right > (this.csX + width2) - this.csU) {
+            eVar.ctC = false;
+            eVar.ctD = true;
         }
     }
 
     public void a(g gVar) {
-        this.csQ = gVar;
+        this.csR = gVar;
     }
 
     public void a(f fVar) {
-        this.csR = fVar;
-        this.csR.setDragController(this);
+        this.csS = fVar;
+        this.csS.setDragController(this);
     }
 }

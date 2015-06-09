@@ -8,18 +8,18 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
     private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ d brz;
+    final /* synthetic */ d brA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, TbPageContext tbPageContext) {
-        this.brz = dVar;
+        this.brA = dVar;
         this.NC = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Invite2GroupView invite2GroupView;
-        invite2GroupView = this.brz.bry;
+        invite2GroupView = this.brA.brz;
         if (invite2GroupView.getContext() instanceof Activity) {
             this.NC.showToast(t.has_recent_join);
         }

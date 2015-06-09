@@ -292,7 +292,7 @@ public class u extends com.baidu.tieba.tbadkCore.voice.b implements View.OnClick
         this.KD = 0;
         or();
         if (this.Lk != null) {
-            this.Lk.anM();
+            this.Lk.anN();
         }
     }
 
@@ -379,7 +379,7 @@ public class u extends com.baidu.tieba.tbadkCore.voice.b implements View.OnClick
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.Lk != null) {
-            this.Lk.OV();
+            this.Lk.OW();
         }
     }
 

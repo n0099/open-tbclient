@@ -79,13 +79,13 @@ public class i<T> extends com.baidu.adp.base.g<T> {
         if (co(i)) {
             if (i == 1) {
                 this.mTip.setTextColor(-11444363);
-                this.Yw.c(com.baidu.tbadk.util.b.DS().fd("pic_emotion01_1.png"), 10, false);
+                this.Yw.c(com.baidu.tbadk.util.b.DT().fd("pic_emotion01_1.png"), 10, false);
                 this.Yy.setTextColor(-5454368);
                 this.Yz.setTextColor(-9207399);
                 return;
             }
             this.mTip.setTextColor(-5065030);
-            this.Yw.c(com.baidu.tbadk.util.b.DS().fd("pic_emotion01.png"), 10, false);
+            this.Yw.c(com.baidu.tbadk.util.b.DT().fd("pic_emotion01.png"), 10, false);
             this.Yy.setTextColor(-1);
             this.Yz.setTextColor(-14277082);
         }

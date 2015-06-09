@@ -17,8 +17,8 @@ public class r implements com.baidu.adp.lib.webSocket.k {
         i = this.ahF.ahA;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.m.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.l.getUrl());
-            a.ye().ej(com.baidu.adp.framework.client.socket.l.getUrl());
-            a.ye().yi();
+            a.yf().ej(com.baidu.adp.framework.client.socket.l.getUrl());
+            a.yf().yj();
         }
         this.ahF.ahA = 0;
     }
@@ -34,7 +34,7 @@ public class r implements com.baidu.adp.lib.webSocket.k {
             i3 = this.ahF.ahA;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.m.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.ahF.yz();
+                this.ahF.yA();
             }
         }
     }

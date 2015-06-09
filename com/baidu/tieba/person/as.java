@@ -4,21 +4,21 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PersonChangeActivity bSN;
+    final /* synthetic */ PersonChangeActivity bSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PersonChangeActivity personChangeActivity) {
-        this.bSN = personChangeActivity;
+        this.bSO = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ba baVar;
         ba baVar2;
-        this.bSN.destroyWaitingDialog();
-        baVar = this.bSN.bSH;
+        this.bSO.destroyWaitingDialog();
+        baVar = this.bSO.bSI;
         if (baVar != null) {
-            baVar2 = this.bSN.bSH;
+            baVar2 = this.bSO.bSI;
             baVar2.cancel();
         }
     }

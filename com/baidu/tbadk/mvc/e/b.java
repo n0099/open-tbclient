@@ -10,19 +10,19 @@ public class b implements d, e, f {
     private boolean aos = true;
     private boolean aot = true;
 
-    public boolean BU() {
+    public boolean BV() {
         return this.aor;
     }
 
-    public boolean BV() {
+    public boolean BW() {
         return this.aos;
     }
 
-    public boolean BW() {
+    public boolean BX() {
         return this.aot;
     }
 
-    public boolean BX() {
+    public boolean BY() {
         return this.aom;
     }
 
@@ -30,11 +30,11 @@ public class b implements d, e, f {
         this.aom = z;
     }
 
-    public boolean BY() {
+    public boolean BZ() {
         return this.aon;
     }
 
-    public boolean BZ() {
+    public boolean Ca() {
         return this.aoo;
     }
 
@@ -42,7 +42,7 @@ public class b implements d, e, f {
         this.aoo = z;
     }
 
-    public boolean Ca() {
+    public boolean Cb() {
         return this.aop;
     }
 
@@ -50,7 +50,7 @@ public class b implements d, e, f {
         this.aop = z;
     }
 
-    public boolean Cb() {
+    public boolean Cc() {
         return this.aoq;
     }
 

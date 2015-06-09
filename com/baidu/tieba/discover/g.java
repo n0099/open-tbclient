@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements x {
-    final /* synthetic */ a aDS;
+    final /* synthetic */ a aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.aDS = aVar;
+        this.aDT = aVar;
     }
 
     @Override // com.baidu.tieba.discover.x
@@ -19,44 +19,44 @@ public class g implements x {
         List list2;
         List list3;
         List list4;
-        bdListView = this.aDS.aDB;
+        bdListView = this.aDT.aDC;
         bdListView.completePullRefresh();
         if (aVar != null) {
             if (!z) {
-                this.aDS.aDI = true;
+                this.aDT.aDJ = true;
             } else {
-                this.aDS.aDJ = true;
+                this.aDT.aDK = true;
             }
             if (z2) {
-                list = this.aDS.aDG;
+                list = this.aDT.aDH;
                 list.clear();
-                list2 = this.aDS.aDH;
+                list2 = this.aDT.aDI;
                 list2.clear();
-                if (aVar.Hm() != null && !aVar.Hm().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.Hm()) {
-                        if (dVar != null && dVar.Hu() != null) {
+                if (aVar.Hn() != null && !aVar.Hn().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.Hn()) {
+                        if (dVar != null && dVar.Hv() != null) {
                             if (dVar.getType() == 1) {
-                                list3 = this.aDS.aDG;
+                                list3 = this.aDT.aDH;
                                 if (list3.isEmpty()) {
-                                    this.aDS.aDG = dVar.Hu();
+                                    this.aDT.aDH = dVar.Hv();
                                 }
                             } else {
-                                list4 = this.aDS.aDH;
+                                list4 = this.aDT.aDI;
                                 list4.add(dVar);
                             }
                         }
                     }
                 }
-                this.aDS.a(aVar.Hl());
-                this.aDS.bA(true);
+                this.aDT.a(aVar.Hm());
+                this.aDT.bA(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.x
-    public void He() {
+    public void Hf() {
         BdListView bdListView;
-        bdListView = this.aDS.aDB;
+        bdListView = this.aDT.aDC;
         bdListView.completePullRefresh();
     }
 }

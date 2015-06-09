@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
-    private String aye;
     private String ayf;
-    private WeakReference<l> ayi;
+    private String ayg;
+    private WeakReference<l> ayj;
 
     public k(String str, String str2, l lVar) {
-        this.aye = str;
-        this.ayf = str2;
-        this.ayi = new WeakReference<>(lVar);
+        this.ayf = str;
+        this.ayg = str2;
+        this.ayj = new WeakReference<>(lVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: p */
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
-        str = j.ayj;
+        str = j.ayk;
         aa aaVar = new aa(str);
-        aaVar.o("forum_id", this.aye);
-        aaVar.o("user_id", this.ayf);
+        aaVar.o("forum_id", this.ayf);
+        aaVar.o("user_id", this.ayg);
         String sw = aaVar.sw();
         if (aaVar.sX().tT().qa()) {
             try {
@@ -54,7 +54,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: c */
     public void onPostExecute(ForbidReasonData forbidReasonData) {
         super.onPostExecute(forbidReasonData);
-        l lVar = this.ayi.get();
+        l lVar = this.ayj.get();
         if (lVar != null) {
             if (forbidReasonData.error.errno == 0 && bb.isEmpty(forbidReasonData.error.errMsg)) {
                 lVar.a(forbidReasonData);

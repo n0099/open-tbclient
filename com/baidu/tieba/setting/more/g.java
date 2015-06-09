@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ AppsActivity ceP;
+    final /* synthetic */ AppsActivity ceQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AppsActivity appsActivity) {
-        this.ceP = appsActivity;
+        this.ceQ = appsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ceP.refresh();
+        this.ceQ.refresh();
     }
 }

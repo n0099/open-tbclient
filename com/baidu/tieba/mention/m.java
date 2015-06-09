@@ -4,15 +4,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.y {
-    final /* synthetic */ l bGc;
+    final /* synthetic */ l bGd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bGc = lVar;
+        this.bGd = lVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.y
     public void s(BdListView bdListView) {
-        this.bGc.bg(false);
+        this.bGd.bg(false);
     }
 }

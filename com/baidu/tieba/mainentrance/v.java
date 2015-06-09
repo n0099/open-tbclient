@@ -7,11 +7,11 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.core.tabHost.c {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SquareSearchActivity squareSearchActivity) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.c
@@ -30,45 +30,45 @@ public class v implements com.baidu.tbadk.core.tabHost.c {
         FragmentTabIndicator fragmentTabIndicator6;
         FragmentTabIndicator fragmentTabIndicator7;
         if (i == 0) {
-            this.bCE.hf(0);
-            fragmentTabWidget3 = this.bCE.bBH;
+            this.bCF.hf(0);
+            fragmentTabWidget3 = this.bCF.bBI;
             fragmentTabWidget3.d(i, true);
-            fragmentTabIndicator6 = this.bCE.bBI;
+            fragmentTabIndicator6 = this.bCF.bBJ;
             fragmentTabIndicator6.setCompoundDrawablesRightResId(com.baidu.tieba.p.icon_toolbar_arrow_down);
-            fragmentTabIndicator7 = this.bCE.bBI;
+            fragmentTabIndicator7 = this.bCF.bBJ;
             fragmentTabIndicator7.cz(TbadkCoreApplication.m411getInst().getSkinType());
         }
         if (i == 1) {
             if (z) {
-                i2 = this.bCE.mMode;
+                i2 = this.bCF.mMode;
                 if (i2 == 1) {
-                    view = this.bCE.bBR;
+                    view = this.bCF.bBS;
                     if (view.getVisibility() == 0) {
-                        view2 = this.bCE.bBR;
+                        view2 = this.bCF.bBS;
                         view2.setVisibility(8);
-                        this.bCE.Yn();
-                        fragmentTabIndicator5 = this.bCE.bBI;
+                        this.bCF.Yo();
+                        fragmentTabIndicator5 = this.bCF.bBJ;
                         fragmentTabIndicator5.setCompoundDrawablesRightResId(com.baidu.tieba.p.icon_toolbar_arrow_down);
                     } else {
-                        this.bCE.Yz();
-                        fragmentTabIndicator3 = this.bCE.bBI;
+                        this.bCF.YA();
+                        fragmentTabIndicator3 = this.bCF.bBJ;
                         fragmentTabIndicator3.setCompoundDrawablesRightResId(com.baidu.tieba.p.icon_toolbar_arrow_up);
                     }
-                    fragmentTabIndicator4 = this.bCE.bBI;
+                    fragmentTabIndicator4 = this.bCF.bBJ;
                     fragmentTabIndicator4.cz(TbadkCoreApplication.m411getInst().getSkinType());
                 }
             }
-            this.bCE.hf(1);
-            fragmentTabWidget2 = this.bCE.bBH;
+            this.bCF.hf(1);
+            fragmentTabWidget2 = this.bCF.bBI;
             fragmentTabWidget2.d(i, true);
         }
         if (i == 2) {
-            this.bCE.hf(3);
-            fragmentTabWidget = this.bCE.bBH;
+            this.bCF.hf(3);
+            fragmentTabWidget = this.bCF.bBI;
             fragmentTabWidget.d(i, true);
-            fragmentTabIndicator = this.bCE.bBI;
+            fragmentTabIndicator = this.bCF.bBJ;
             fragmentTabIndicator.setCompoundDrawablesRightResId(com.baidu.tieba.p.icon_toolbar_arrow_down);
-            fragmentTabIndicator2 = this.bCE.bBI;
+            fragmentTabIndicator2 = this.bCF.bBJ;
             fragmentTabIndicator2.cz(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }

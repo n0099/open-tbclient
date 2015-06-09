@@ -14,11 +14,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements com.baidu.tbadk.editortool.v {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.v
@@ -34,21 +34,21 @@ public class bg implements com.baidu.tbadk.editortool.v {
         WriteImagesInfo writeImagesInfo6;
         WriteImagesInfo writeImagesInfo7;
         WriteImagesInfo writeImagesInfo8;
-        boolean atv;
+        boolean atw;
         TbEditorToolButtonContainer tbEditorToolButtonContainer3;
         TbEditorToolButtonContainer tbEditorToolButtonContainer4;
         WriteImagesInfo writeImagesInfo9;
         TbEditorToolButtonContainer tbEditorToolButtonContainer5;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditorToolComponetContainer editorToolComponetContainer3;
-        boolean atv2;
+        boolean atw2;
         TbEditorToolButtonContainer tbEditorToolButtonContainer6;
         EditorToolComponetContainer editorToolComponetContainer4;
         TbEditorToolButtonContainer tbEditorToolButtonContainer7;
         TbEditorToolButtonContainer tbEditorToolButtonContainer8;
         EditorToolComponetContainer editorToolComponetContainer5;
         EditorToolComponetContainer editorToolComponetContainer6;
-        boolean atv3;
+        boolean atw3;
         WriteImagesInfo writeImagesInfo10;
         TbEditorToolButtonContainer tbEditorToolButtonContainer9;
         EditorToolComponetContainer editorToolComponetContainer7;
@@ -64,124 +64,124 @@ public class bg implements com.baidu.tbadk.editortool.v {
         TbEditorToolButtonContainer tbEditorToolButtonContainer14;
         String str2;
         String str3;
-        boolean Km;
+        boolean Kn;
         TbEditorToolButtonContainer tbEditorToolButtonContainer15;
         if (i == 23) {
-            tbEditorToolButtonContainer15 = this.cCP.cCx;
-            tbEditorToolButtonContainer15.ask();
-            this.cCP.jD(8);
+            tbEditorToolButtonContainer15 = this.cCQ.cCy;
+            tbEditorToolButtonContainer15.asl();
+            this.cCQ.jD(8);
         } else if (i == 20) {
-            Km = this.cCP.Km();
-            if (Km) {
-                this.cCP.showToast(com.baidu.tieba.t.over_limit_tip);
+            Kn = this.cCQ.Kn();
+            if (Kn) {
+                this.cCQ.showToast(com.baidu.tieba.t.over_limit_tip);
             } else if (obj instanceof com.baidu.tbadk.coreExtra.data.f) {
-                this.cCP.a((com.baidu.tbadk.coreExtra.data.f) obj);
+                this.cCQ.a((com.baidu.tbadk.coreExtra.data.f) obj);
             }
         } else if (i == 21) {
-            this.cCP.atr();
+            this.cCQ.ats();
         } else if (i == 4) {
-            str = this.cCP.bKu;
+            str = this.cCQ.bKv;
             if (str != null) {
-                str2 = this.cCP.bKu;
+                str2 = this.cCQ.bKv;
                 if (str2.length() > 0) {
-                    WriteActivity writeActivity = this.cCP;
-                    str3 = this.cCP.bKu;
+                    WriteActivity writeActivity = this.cCQ;
+                    str3 = this.cCQ.bKv;
                     writeActivity.showToast(str3);
                     return;
                 }
             }
-            tbEditorToolButtonContainer14 = this.cCP.cCx;
-            tbEditorToolButtonContainer14.ask();
-            this.cCP.jD(5);
+            tbEditorToolButtonContainer14 = this.cCQ.cCy;
+            tbEditorToolButtonContainer14.asl();
+            this.cCQ.jD(5);
         } else if (i == 14) {
-            editorToolComponetContainer11 = this.cCP.cqO;
-            editorToolComponetContainer11.zQ();
-            tbEditorToolButtonContainer13 = this.cCP.cCx;
-            tbEditorToolButtonContainer13.aod();
-            this.cCP.asF();
+            editorToolComponetContainer11 = this.cCQ.cqP;
+            editorToolComponetContainer11.zR();
+            tbEditorToolButtonContainer13 = this.cCQ.cCy;
+            tbEditorToolButtonContainer13.aoe();
+            this.cCQ.asG();
         } else if (i == 15) {
-            editorToolComponetContainer6 = this.cCP.cqO;
-            editorToolComponetContainer6.zR();
-            atv3 = this.cCP.atv();
-            if (atv3) {
-                tbEditorToolButtonContainer12 = this.cCP.cCx;
-                tbEditorToolButtonContainer12.aoe();
+            editorToolComponetContainer6 = this.cCQ.cqP;
+            editorToolComponetContainer6.zS();
+            atw3 = this.cCQ.atw();
+            if (atw3) {
+                tbEditorToolButtonContainer12 = this.cCQ.cCy;
+                tbEditorToolButtonContainer12.aof();
             }
-            writeImagesInfo10 = this.cCP.writeImagesInfo;
+            writeImagesInfo10 = this.cCQ.writeImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo10.getChosedFiles();
             if (chosedFiles == null || chosedFiles.size() <= 0) {
-                tbEditorToolButtonContainer9 = this.cCP.cCx;
-                tbEditorToolButtonContainer9.zI();
-                this.cCP.cCy = false;
-                editorToolComponetContainer7 = this.cCP.cqO;
-                editorToolComponetContainer7.zI();
-                editorToolComponetContainer8 = this.cCP.cqO;
-                if (editorToolComponetContainer8.anH()) {
-                    editorToolComponetContainer9 = this.cCP.cqO;
-                    editorToolComponetContainer9.zQ();
-                    tbEditorToolButtonContainer10 = this.cCP.cCx;
-                    tbEditorToolButtonContainer10.aod();
+                tbEditorToolButtonContainer9 = this.cCQ.cCy;
+                tbEditorToolButtonContainer9.zJ();
+                this.cCQ.cCz = false;
+                editorToolComponetContainer7 = this.cCQ.cqP;
+                editorToolComponetContainer7.zJ();
+                editorToolComponetContainer8 = this.cCQ.cqP;
+                if (editorToolComponetContainer8.anI()) {
+                    editorToolComponetContainer9 = this.cCQ.cqP;
+                    editorToolComponetContainer9.zR();
+                    tbEditorToolButtonContainer10 = this.cCQ.cCy;
+                    tbEditorToolButtonContainer10.aoe();
                 }
             } else {
-                tbEditorToolButtonContainer11 = this.cCP.cCx;
+                tbEditorToolButtonContainer11 = this.cCQ.cCy;
                 tbEditorToolButtonContainer11.eC(new StringBuilder(String.valueOf(chosedFiles.size())).toString());
-                this.cCP.cCy = true;
-                editorToolComponetContainer10 = this.cCP.cqO;
+                this.cCQ.cCz = true;
+                editorToolComponetContainer10 = this.cCQ.cqP;
                 editorToolComponetContainer10.eC(new StringBuilder(String.valueOf(chosedFiles.size())).toString());
             }
-            this.cCP.asF();
+            this.cCQ.asG();
         } else if (i == 13) {
-            writeImagesInfo9 = this.cCP.writeImagesInfo;
+            writeImagesInfo9 = this.cCQ.writeImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles2 = writeImagesInfo9.getChosedFiles();
             if (chosedFiles2 == null || chosedFiles2.size() <= 0) {
-                tbEditorToolButtonContainer5 = this.cCP.cCx;
-                tbEditorToolButtonContainer5.zI();
-                this.cCP.cCy = false;
-                editorToolComponetContainer2 = this.cCP.cqO;
-                editorToolComponetContainer2.zR();
-                editorToolComponetContainer3 = this.cCP.cqO;
-                if (editorToolComponetContainer3.anH()) {
-                    editorToolComponetContainer4 = this.cCP.cqO;
-                    editorToolComponetContainer4.zQ();
-                    tbEditorToolButtonContainer7 = this.cCP.cCx;
-                    tbEditorToolButtonContainer7.aod();
+                tbEditorToolButtonContainer5 = this.cCQ.cCy;
+                tbEditorToolButtonContainer5.zJ();
+                this.cCQ.cCz = false;
+                editorToolComponetContainer2 = this.cCQ.cqP;
+                editorToolComponetContainer2.zS();
+                editorToolComponetContainer3 = this.cCQ.cqP;
+                if (editorToolComponetContainer3.anI()) {
+                    editorToolComponetContainer4 = this.cCQ.cqP;
+                    editorToolComponetContainer4.zR();
+                    tbEditorToolButtonContainer7 = this.cCQ.cCy;
+                    tbEditorToolButtonContainer7.aoe();
                 } else {
-                    atv2 = this.cCP.atv();
-                    if (atv2) {
-                        tbEditorToolButtonContainer6 = this.cCP.cCx;
-                        tbEditorToolButtonContainer6.aoe();
+                    atw2 = this.cCQ.atw();
+                    if (atw2) {
+                        tbEditorToolButtonContainer6 = this.cCQ.cCy;
+                        tbEditorToolButtonContainer6.aof();
                     }
                 }
             } else {
-                tbEditorToolButtonContainer8 = this.cCP.cCx;
+                tbEditorToolButtonContainer8 = this.cCQ.cCy;
                 tbEditorToolButtonContainer8.eC(new StringBuilder(String.valueOf(chosedFiles2.size())).toString());
-                this.cCP.cCy = true;
-                editorToolComponetContainer5 = this.cCP.cqO;
+                this.cCQ.cCz = true;
+                editorToolComponetContainer5 = this.cCQ.cqP;
                 editorToolComponetContainer5.eC(new StringBuilder(String.valueOf(chosedFiles2.size())).toString());
             }
-            this.cCP.asF();
+            this.cCQ.asG();
         } else if (i == 51) {
-            writeImagesInfo8 = this.cCP.baobaoImagesInfo;
+            writeImagesInfo8 = this.cCQ.baobaoImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles3 = writeImagesInfo8.getChosedFiles();
             if (chosedFiles3 != null && chosedFiles3.size() > 0) {
-                tbEditorToolButtonContainer4 = this.cCP.cCx;
-                tbEditorToolButtonContainer4.aod();
+                tbEditorToolButtonContainer4 = this.cCQ.cCy;
+                tbEditorToolButtonContainer4.aoe();
             } else {
-                atv = this.cCP.atv();
-                if (atv) {
-                    tbEditorToolButtonContainer3 = this.cCP.cCx;
-                    tbEditorToolButtonContainer3.aoe();
+                atw = this.cCQ.atw();
+                if (atw) {
+                    tbEditorToolButtonContainer3 = this.cCQ.cCy;
+                    tbEditorToolButtonContainer3.aof();
                 }
             }
-            this.cCP.asF();
+            this.cCQ.asG();
         } else if (i == 7) {
-            writeImagesInfo5 = this.cCP.writeImagesInfo;
+            writeImagesInfo5 = this.cCQ.writeImagesInfo;
             if (writeImagesInfo5 != null) {
-                writeImagesInfo6 = this.cCP.writeImagesInfo;
+                writeImagesInfo6 = this.cCQ.writeImagesInfo;
                 if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
                     String valueOf = String.valueOf(System.currentTimeMillis());
-                    Activity pageActivity = this.cCP.getPageContext().getPageActivity();
-                    writeImagesInfo7 = this.cCP.writeImagesInfo;
+                    Activity pageActivity = this.cCQ.getPageContext().getPageActivity();
+                    writeImagesInfo7 = this.cCQ.writeImagesInfo;
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo7.toJsonString(), valueOf);
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -189,43 +189,43 @@ public class bg implements com.baidu.tbadk.editortool.v {
             }
         } else if (i == 42) {
             int intValue = ((Integer) obj).intValue();
-            writeImagesInfo = this.cCP.writeImagesInfo;
+            writeImagesInfo = this.cCQ.writeImagesInfo;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.cCP.writeImagesInfo;
+                writeImagesInfo2 = this.cCQ.writeImagesInfo;
                 if (writeImagesInfo2.getChosedFiles() != null) {
-                    writeImagesInfo3 = this.cCP.writeImagesInfo;
+                    writeImagesInfo3 = this.cCQ.writeImagesInfo;
                     int size = writeImagesInfo3.getChosedFiles().size();
                     if (size >= 1 && intValue >= 0 && intValue < size) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        Activity pageActivity2 = this.cCP.getPageContext().getPageActivity();
-                        writeImagesInfo4 = this.cCP.writeImagesInfo;
+                        Activity pageActivity2 = this.cCQ.getPageContext().getPageActivity();
+                        writeImagesInfo4 = this.cCQ.writeImagesInfo;
                         messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(pageActivity2, 12012, writeImagesInfo4, intValue)));
                     }
                 }
             }
         } else if (i == 46) {
             if (obj instanceof String) {
-                this.cCP.bCP = (String) obj;
-                this.cCP.fF(true);
+                this.cCQ.bCQ = (String) obj;
+                this.cCQ.fF(true);
             }
-            tbEditorToolButtonContainer2 = this.cCP.cCx;
-            tbEditorToolButtonContainer2.zK();
+            tbEditorToolButtonContainer2 = this.cCQ.cCy;
+            tbEditorToolButtonContainer2.zL();
         } else if (i == 47) {
-            this.cCP.bCP = null;
-            this.cCP.fF(true);
+            this.cCQ.bCQ = null;
+            this.cCQ.fF(true);
         } else if (i != 48) {
             if (i != 55) {
                 if (i == 44 || i == 43) {
-                    editorToolComponetContainer = this.cCP.cqO;
-                    editorToolComponetContainer.anD();
-                    tbEditorToolButtonContainer = this.cCP.cCx;
-                    tbEditorToolButtonContainer.asg();
+                    editorToolComponetContainer = this.cCQ.cqP;
+                    editorToolComponetContainer.anE();
+                    tbEditorToolButtonContainer = this.cCQ.cCy;
+                    tbEditorToolButtonContainer.ash();
                 } else if (i == 57) {
-                    this.cCP.jD(57);
+                    this.cCQ.jD(57);
                 }
             }
         } else {
-            this.cCP.jF(i);
+            this.cCQ.jF(i);
         }
     }
 }

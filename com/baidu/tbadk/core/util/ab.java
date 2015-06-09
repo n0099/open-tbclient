@@ -67,9 +67,9 @@ public class ab implements s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [335=12] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x06a0  */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x06a1  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x014d  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:99:0x0453 -> B:100:0x0454). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:99:0x0454 -> B:100:0x0455). Please submit an issue!!! */
     @Override // com.baidu.tbadk.core.util.s
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -139,7 +139,7 @@ public class ab implements s {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.UT.a(str, z, 5, 100, -1, te());
+        this.UT.a(str, z, 5, 100, -1, -1, te());
         com.baidu.adp.lib.network.http.e hf = this.UT.hf();
         if (hf == null) {
             return null;
@@ -159,19 +159,8 @@ public class ab implements s {
                 if (gVar == null) {
                 }
                 return bArr;
-            } catch (Exception e8) {
+            } catch (OutOfMemoryError e8) {
                 e = e8;
-                this.UM.tT().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.t.neterror);
-                this.UM.tT().WJ = String.valueOf(String.valueOf(this.UM.tT().WH)) + "|retryCount:" + (this.UM.tU().WK != null ? this.UM.tU().WK.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.UM.tT().WH = -10;
-                BdLog.e(e.getMessage());
-                TiebaStatic.net(this.UM);
-                af.cV(this.UM.tS().tV().mUrl);
-                if (gVar == null) {
-                }
-                return bArr;
-            } catch (OutOfMemoryError e9) {
-                e = e9;
                 this.UM.tT().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.t.memoryerror);
                 this.UM.tT().WJ = String.valueOf(String.valueOf(this.UM.tT().WH)) + "|retryCount:" + (this.UM.tU().WK == null ? -1 : this.UM.tU().WK.uU) + "|" + e.getClass() + "|" + e.getMessage();
                 this.UM.tT().WH = -15;
@@ -181,8 +170,8 @@ public class ab implements s {
                 if (gVar == null) {
                 }
                 return bArr;
-            } catch (SocketException e10) {
-                e = e10;
+            } catch (SocketException e9) {
+                e = e9;
                 this.UM.tT().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.t.neterror);
                 this.UM.tT().WJ = String.valueOf(String.valueOf(this.UM.tT().WH)) + "|retryCount:" + (this.UM.tU().WK != null ? this.UM.tU().WK.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.UM.tT().WH = -12;
@@ -191,11 +180,22 @@ public class ab implements s {
                 if (gVar == null) {
                 }
                 return bArr;
-            } catch (SocketTimeoutException e11) {
-                e = e11;
+            } catch (SocketTimeoutException e10) {
+                e = e10;
                 this.UM.tT().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.t.neterror);
                 this.UM.tT().WJ = String.valueOf(String.valueOf(this.UM.tT().WH)) + "|retryCount:" + (this.UM.tU().WK != null ? this.UM.tU().WK.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.UM.tT().WH = -13;
+                TiebaStatic.net(this.UM);
+                af.cV(this.UM.tS().tV().mUrl);
+                if (gVar == null) {
+                }
+                return bArr;
+            } catch (Exception e11) {
+                e = e11;
+                this.UM.tT().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.t.neterror);
+                this.UM.tT().WJ = String.valueOf(String.valueOf(this.UM.tT().WH)) + "|retryCount:" + (this.UM.tU().WK != null ? this.UM.tU().WK.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.UM.tT().WH = -10;
+                BdLog.e(e.getMessage());
                 TiebaStatic.net(this.UM);
                 af.cV(this.UM.tS().tV().mUrl);
                 if (gVar == null) {
@@ -231,7 +231,7 @@ public class ab implements s {
                     int i2 = parseInt * 10;
                     if (i2 > 0) {
                         BdLog.isDebugMode();
-                        if (!com.baidu.tbadk.imageManager.e.Al().dN(i2)) {
+                        if (!com.baidu.tbadk.imageManager.e.Am().dN(i2)) {
                             BdLog.d("Image download cacelled. out of memory. url:[" + this.UM.tS().tV().mUrl + "], size:" + i2);
                             this.UM.tT().WH = -16;
                             TiebaStatic.net(this.UM);

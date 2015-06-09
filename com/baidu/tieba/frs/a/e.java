@@ -28,27 +28,27 @@ public class e extends av<com.baidu.tbadk.core.data.c, f> {
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) fVar);
-        fVar.aPz.setPadding(0, i - this.aMU == 0 ? this.aKj : this.aKk, 0, 0);
-        this.aMk.getLayoutMode().ab(this.mSkinType == 1);
-        this.aMk.getLayoutMode().j(view);
+        fVar.aPA.setPadding(0, i - this.aMV == 0 ? this.aKk : this.aKl, 0, 0);
+        this.aMl.getLayoutMode().ab(this.mSkinType == 1);
+        this.aMl.getLayoutMode().j(view);
         if (!cVar.PJ) {
             cVar.PJ = true;
-            this.aMk.a(cVar, "show");
-            this.aMk.b(cVar, "show");
+            this.aMl.a(cVar, "show");
+            this.aMl.b(cVar, "show");
         }
         if (n.qc().qe()) {
-            fVar.aBk.setVisibility(0);
-            fVar.aBk.c(cVar.PH.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            fVar.aBl.setVisibility(0);
+            fVar.aBl.c(cVar.PH.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            fVar.aBk.setVisibility(8);
+            fVar.aBl.setVisibility(8);
         }
         if (n.qc().qg() && !TextUtils.isEmpty(cVar.PH.PM)) {
-            fVar.aPB.setVisibility(0);
-            fVar.aPB.c(cVar.PH.PM, this.mIsFromCDN ? 30 : 31, false);
+            fVar.aPC.setVisibility(0);
+            fVar.aPC.c(cVar.PH.PM, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            fVar.aPB.setVisibility(8);
+            fVar.aPC.setVisibility(8);
         }
-        fVar.aHH.setText(cVar.PH.userName);
+        fVar.aHI.setText(cVar.PH.userName);
         if (StringUtils.isNull(cVar.PH.PL)) {
             fVar.aiA.setVisibility(8);
         } else {
@@ -56,16 +56,16 @@ public class e extends av<com.baidu.tbadk.core.data.c, f> {
             fVar.aiA.setText(cVar.PH.PL);
         }
         if (StringUtils.isNull(cVar.PH.PP)) {
-            fVar.aPC.setVisibility(8);
-        } else {
-            fVar.aPC.setVisibility(0);
-            fVar.aPC.setText(cVar.PH.PP);
-        }
-        if (StringUtils.isNull(cVar.PH.PQ)) {
             fVar.aPD.setVisibility(8);
         } else {
             fVar.aPD.setVisibility(0);
-            fVar.aPD.setText(cVar.PH.PQ);
+            fVar.aPD.setText(cVar.PH.PP);
+        }
+        if (StringUtils.isNull(cVar.PH.PQ)) {
+            fVar.aPE.setVisibility(8);
+        } else {
+            fVar.aPE.setVisibility(0);
+            fVar.aPE.setText(cVar.PH.PQ);
         }
         return view;
     }

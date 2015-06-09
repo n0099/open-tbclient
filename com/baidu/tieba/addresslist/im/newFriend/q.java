@@ -1,26 +1,26 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 /* loaded from: classes.dex */
 class q extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ com.baidu.tieba.im.data.b azO;
-    private final /* synthetic */ long azQ;
-    final /* synthetic */ p azS;
+    private final /* synthetic */ com.baidu.tieba.im.data.b azP;
+    private final /* synthetic */ long azR;
+    final /* synthetic */ p azT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, long j, com.baidu.tieba.im.data.b bVar) {
-        this.azS = pVar;
-        this.azQ = j;
-        this.azO = bVar;
+        this.azT = pVar;
+        this.azR = j;
+        this.azP = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: FQ */
+    /* renamed from: FR */
     public Void doInBackground() {
-        com.baidu.tieba.im.data.b J = ba.FW().J(this.azQ);
+        com.baidu.tieba.im.data.b J = ba.FX().J(this.azR);
         if (J != null) {
-            this.azO.setName(J.getName());
-            this.azO.setPortrait(J.getPortrait());
-            ba.FW().g(this.azO);
+            this.azP.setName(J.getName());
+            this.azP.setPortrait(J.getPortrait());
+            ba.FX().g(this.azP);
         }
         return null;
     }

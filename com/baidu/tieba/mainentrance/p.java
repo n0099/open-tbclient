@@ -8,11 +8,11 @@ import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(SquareSearchActivity squareSearchActivity) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -22,14 +22,14 @@ public class p implements View.OnTouchListener {
         EditText editText;
         EditText editText2;
         if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.bCE.bBJ;
+            linearLayoutDetectsSoftKeyboard = this.bCF.bBK;
             linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.bCE.bBJ;
+            linearLayoutDetectsSoftKeyboard2 = this.bCF.bBK;
             linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            editText = this.bCE.bBM;
+            editText = this.bCF.bBN;
             if (editText.hasFocus()) {
-                Activity pageActivity = this.bCE.getPageContext().getPageActivity();
-                editText2 = this.bCE.bBM;
+                Activity pageActivity = this.bCF.getPageContext().getPageActivity();
+                editText2 = this.bCF.bBN;
                 com.baidu.adp.lib.util.n.c(pageActivity, editText2);
                 return false;
             }

@@ -1,31 +1,31 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
 class bi implements com.baidu.tbadk.core.view.aj {
-    final /* synthetic */ bc bSZ;
+    final /* synthetic */ bc bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(bc bcVar) {
-        this.bSZ = bcVar;
+        this.bTa = bcVar;
     }
 
     @Override // com.baidu.tbadk.core.view.aj
     public void onListPullRefresh(boolean z) {
-        PersonFriendActivity aey;
+        PersonFriendActivity aez;
         bm bmVar;
         boolean z2;
-        PersonFriendActivity aey2;
+        PersonFriendActivity aez2;
         int i;
         int i2;
-        aey = this.bSZ.aey();
-        if (aey != null) {
-            this.bSZ.pageNum = 0;
-            this.bSZ.bSV = true;
-            bmVar = this.bSZ.bSR;
-            z2 = this.bSZ.mIsHost;
-            aey2 = this.bSZ.aey();
-            String uid = aey2.getUid();
-            i = this.bSZ.pageNum;
-            i2 = this.bSZ.resNum;
+        aez = this.bTa.aez();
+        if (aez != null) {
+            this.bTa.pageNum = 0;
+            this.bTa.bSW = true;
+            bmVar = this.bTa.bSS;
+            z2 = this.bTa.mIsHost;
+            aez2 = this.bTa.aez();
+            String uid = aez2.getUid();
+            i = this.bTa.pageNum;
+            i2 = this.bTa.resNum;
             bmVar.a(z2, uid, i, i2);
         }
     }

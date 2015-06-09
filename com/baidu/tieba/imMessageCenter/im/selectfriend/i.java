@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class i {
     View So;
-    HeadImageView azw;
-    TextView azx;
-    final /* synthetic */ h bwi;
+    HeadImageView azx;
+    TextView azy;
+    final /* synthetic */ h bwj;
 
     private i(h hVar) {
-        this.bwi = hVar;
+        this.bwj = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

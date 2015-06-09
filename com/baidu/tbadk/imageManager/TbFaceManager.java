@@ -24,7 +24,7 @@ public class TbFaceManager {
         public Integer type;
     }
 
-    public static TbFaceManager Ak() {
+    public static TbFaceManager Al() {
         if (amc == null) {
             amc = new TbFaceManager();
         }
@@ -48,10 +48,10 @@ public class TbFaceManager {
 
     private com.baidu.adp.widget.a.a p(int i, String str) {
         Bitmap b;
-        com.baidu.adp.widget.a.a eL = e.Al().eL(str);
+        com.baidu.adp.widget.a.a eL = e.Am().eL(str);
         if (eL == null && (b = com.baidu.adp.lib.util.e.iK().b(this.mContext, i)) != null) {
             com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(b, false, str);
-            e.Al().c(str, aVar);
+            e.Am().c(str, aVar);
             return aVar;
         }
         return eL;
@@ -70,8 +70,8 @@ public class TbFaceManager {
         return E;
     }
 
-    public int zs() {
-        return this.amd.zs();
+    public int zt() {
+        return this.amd.zt();
     }
 
     public String ew(String str) {

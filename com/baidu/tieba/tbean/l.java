@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.view.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements ad {
-    final /* synthetic */ j cvh;
+    final /* synthetic */ j cvi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.cvh = jVar;
+        this.cvi = jVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ad
     public void au(boolean z) {
         BuyTBeanActivity buyTBeanActivity;
         if (z) {
-            buyTBeanActivity = this.cvh.cuK;
+            buyTBeanActivity = this.cvi.cuL;
             buyTBeanActivity.refresh();
         }
     }

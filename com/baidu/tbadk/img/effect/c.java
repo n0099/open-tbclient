@@ -8,7 +8,7 @@ public class c {
     private static c amC = new c();
     private final HashMap<String, Class<? extends b>> amD = new HashMap<>();
 
-    public static c At() {
+    public static c Au() {
         return amC;
     }
 

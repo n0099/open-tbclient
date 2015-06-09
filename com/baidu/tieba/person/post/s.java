@@ -10,11 +10,11 @@ import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 public class s extends a {
     View So;
-    TextView bFO;
-    TripleTbImageView bUA;
-    View bUB;
-    LinearLayout bUC;
-    LiveBroadcastCard bUD;
+    TextView bFP;
+    TripleTbImageView bUB;
+    View bUC;
+    LinearLayout bUD;
+    LiveBroadcastCard bUE;
     View mContentView;
     TextView mTitle;
 
@@ -38,11 +38,11 @@ public class s extends a {
         super(view, tbPageContext);
         this.mContentView = view.findViewById(com.baidu.tieba.q.item_content);
         this.mTitle = (TextView) view.findViewById(com.baidu.tieba.q.title);
-        this.bFO = (TextView) view.findViewById(com.baidu.tieba.q.content);
-        this.bUA = (TripleTbImageView) view.findViewById(com.baidu.tieba.q.images);
-        this.bUB = view.findViewById(com.baidu.tieba.q.post_line);
-        this.bUC = (LinearLayout) view.findViewById(com.baidu.tieba.q.person_post_item_live_card);
-        this.bUD = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.q.person_post_item_feed_item_card);
+        this.bFP = (TextView) view.findViewById(com.baidu.tieba.q.content);
+        this.bUB = (TripleTbImageView) view.findViewById(com.baidu.tieba.q.images);
+        this.bUC = view.findViewById(com.baidu.tieba.q.post_line);
+        this.bUD = (LinearLayout) view.findViewById(com.baidu.tieba.q.person_post_item_live_card);
+        this.bUE = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.q.person_post_item_feed_item_card);
         this.So = view.findViewById(com.baidu.tieba.q.person_post_thread_item_divider_1);
     }
 
@@ -50,7 +50,7 @@ public class s extends a {
     public void cy(int i) {
         super.cy(i);
         ay.b(this.mTitle, com.baidu.tieba.n.cp_cont_b, 1);
-        ay.b(this.bFO, com.baidu.tieba.n.cp_cont_f, 1);
-        ay.i(this.bUB, com.baidu.tieba.n.cp_bg_line_b);
+        ay.b(this.bFP, com.baidu.tieba.n.cp_cont_f, 1);
+        ay.i(this.bUC, com.baidu.tieba.n.cp_bg_line_b);
     }
 }

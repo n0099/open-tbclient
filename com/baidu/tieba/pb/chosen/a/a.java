@@ -135,7 +135,7 @@ public class a extends BaseAdapter {
         ay.b(textView, com.baidu.tieba.n.cp_cont_b, 1);
         com.baidu.tieba.pb.d.a.e item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.d.a.h) {
-            textView.setText(((com.baidu.tieba.pb.d.a.h) item).adM());
+            textView.setText(((com.baidu.tieba.pb.d.a.h) item).adN());
         }
         return textView;
     }

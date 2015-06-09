@@ -37,7 +37,7 @@ public class c {
     }
 
     public void initSetting() {
-        j.apB();
+        j.apC();
     }
 
     public void wh() {

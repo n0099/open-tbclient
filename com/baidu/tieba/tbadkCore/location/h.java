@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ e ctM;
+    final /* synthetic */ e ctN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(e eVar, int i) {
         super(i);
-        this.ctM = eVar;
+        this.ctN = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,21 +24,21 @@ public class h extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.ctM.fi(false);
-                this.ctM.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                kVar3 = this.ctM.ctG;
+                this.ctN.fi(false);
+                this.ctN.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                kVar3 = this.ctN.ctH;
                 if (kVar3 != null) {
-                    kVar4 = this.ctM.ctG;
+                    kVar4 = this.ctN.ctH;
                     kVar4.gi(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.ctM.fi(true);
-            kVar = this.ctM.ctG;
+            this.ctN.fi(true);
+            kVar = this.ctN.ctH;
             if (kVar != null) {
-                kVar2 = this.ctM.ctG;
-                kVar2.JX();
+                kVar2 = this.ctN.ctH;
+                kVar2.JY();
             }
         }
     }

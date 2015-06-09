@@ -2,6 +2,6 @@ package com.baidu.tieba.im.e.a;
 /* loaded from: classes.dex */
 public class f extends b {
     public f() {
-        super(com.baidu.tieba.im.settingcache.c.UN(), 2001152);
+        super(com.baidu.tieba.im.settingcache.c.UO(), 2001152);
     }
 }

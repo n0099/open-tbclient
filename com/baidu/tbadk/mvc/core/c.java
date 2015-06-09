@@ -65,7 +65,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AO() {
+    public void AP() {
         this.ans = true;
         oH();
         if (this.ans && TbadkCoreApplication.m411getInst().isDebugMode()) {
@@ -79,48 +79,48 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AP() {
+    public void AQ() {
         this.ant = true;
-        AQ();
+        AR();
         if (this.ant && TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityRestart must call");
         }
     }
 
-    protected void AQ() {
+    protected void AR() {
         this.ant = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AR() {
+    public void AS() {
         this.anu = true;
-        AS();
+        AT();
         if (this.anu && TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityResume must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void AS() {
+    public void AT() {
         this.anu = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AT() {
+    public void AU() {
         this.anv = true;
-        AU();
+        AV();
         if (this.anv && TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityPause must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void AU() {
+    public void AV() {
         this.anv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AV() {
+    public void AW() {
         this.anw = true;
         onActivityStop();
         if (this.anw && TbadkCoreApplication.m411getInst().isDebugMode()) {
@@ -134,7 +134,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void AW() {
+    public void AX() {
         this.anx = true;
         onActivityDestroy();
         if (this.anx && TbadkCoreApplication.m411getInst().isDebugMode()) {
@@ -150,7 +150,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
         com.baidu.adp.lib.f.d.hl().d(this.unique_id);
     }
 
-    public boolean AX() {
+    public boolean AY() {
         return false;
     }
 
@@ -160,17 +160,17 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void AY() {
+    public void AZ() {
         this.anq = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void AZ() {
+    public void Ba() {
         this.anq = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Ba() {
+    public boolean Bb() {
         return this.anq;
     }
 
@@ -178,7 +178,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View Bb() {
+    public View Bc() {
         if (this.rootView == null) {
             this.rootView = getLayoutInflater().inflate(oK(), (ViewGroup) null);
         }
@@ -191,12 +191,12 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
         this.mContext = eVar.getPageContext();
     }
 
-    public final e<?, ?, ?> AK() {
+    public final e<?, ?, ?> AL() {
         return this.anm;
     }
 
-    public final ViewEventCenter AL() {
-        return this.anm.AL();
+    public final ViewEventCenter AM() {
+        return this.anm.AM();
     }
 
     public final View getView() {
@@ -258,7 +258,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean AM() {
+    public boolean AN() {
         return true;
     }
 
@@ -278,7 +278,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c AN() {
+    public com.baidu.tbadk.mvc.c.c AO() {
         if (this.anl == null) {
             this.anl = new com.baidu.tbadk.mvc.c.c(this.unique_id);
         }
@@ -286,17 +286,17 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, ab {
     }
 
     public boolean dS(int i) {
-        return dispatchMvcEvent(AN().dW(i));
+        return dispatchMvcEvent(AO().dW(i));
     }
 
     public boolean g(int i, boolean z) {
-        return dispatchMvcEvent(AN().i(i, z));
+        return dispatchMvcEvent(AO().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return AL().dispatchMvcEvent(bVar);
+        return AM().dispatchMvcEvent(bVar);
     }
 }

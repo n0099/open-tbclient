@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
     private String mName;
 
     public aq(SquareSearchActivity squareSearchActivity, String str) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
         this.mName = str;
     }
 
@@ -25,24 +25,24 @@ public class aq implements View.OnClickListener {
         EditText editText2;
         EditText editText3;
         if (!TextUtils.isEmpty(this.mName)) {
-            i = this.bCE.mMode;
+            i = this.bCF.mMode;
             if (i != 0) {
-                i2 = this.bCE.mMode;
+                i2 = this.bCF.mMode;
                 if (i2 == 3) {
-                    this.bCE.fE(this.mName);
+                    this.bCF.fE(this.mName);
                     return;
                 }
-                this.bCE.z(1, this.mName);
-                editText = this.bCE.bBM;
+                this.bCF.z(1, this.mName);
+                editText = this.bCF.bBN;
                 editText.setText(this.mName);
-                editText2 = this.bCE.bBM;
+                editText2 = this.bCF.bBN;
                 editText2.requestFocus();
-                editText3 = this.bCE.bBM;
+                editText3 = this.bCF.bBN;
                 Selection.setSelection(editText3.getText(), this.mName.length());
                 return;
             }
             com.baidu.tieba.tbadkCore.util.j.jH(this.mName);
-            this.bCE.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bCE.getActivity()).createNormalCfg(this.mName, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.bCF.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bCF.getActivity()).createNormalCfg(this.mName, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 }

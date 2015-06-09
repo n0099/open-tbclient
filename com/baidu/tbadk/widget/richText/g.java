@@ -94,7 +94,7 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public String Ew() {
+    public String Ex() {
         return this.auk;
     }
 
@@ -114,7 +114,7 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         this.mWidth = i;
     }
 
-    public boolean Ex() {
+    public boolean Ey() {
         return this.aul;
     }
 
@@ -122,11 +122,11 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         return this.aui;
     }
 
-    public String Ey() {
+    public String Ez() {
         return this.auj;
     }
 
-    public boolean Ez() {
+    public boolean EA() {
         return this.aum;
     }
 

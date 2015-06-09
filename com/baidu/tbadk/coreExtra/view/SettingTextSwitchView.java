@@ -20,7 +20,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        yb();
+        yc();
         c(attributeSet);
         dl(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -28,14 +28,14 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        yb();
+        yc();
         dl(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        yb();
+        yc();
         c(attributeSet);
         dl(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -76,7 +76,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.agI.setOnSwitchStateChangeListener(bVar);
     }
 
-    private void yb() {
+    private void yc() {
         com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.setting_text_switch_view, this, true);
         this.agF = (LinearLayout) findViewById(com.baidu.tieba.q.container);
         this.agG = (TextView) findViewById(com.baidu.tieba.q.text);

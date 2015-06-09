@@ -28,7 +28,7 @@ class w extends CustomMessageListener {
             if (arrayList != null) {
                 arrayList2 = this.aqu.apP;
                 if (arrayList2.size() >= 20) {
-                    this.aqu.Dq();
+                    this.aqu.Dr();
                 }
             }
         }

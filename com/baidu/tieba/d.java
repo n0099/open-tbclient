@@ -25,6 +25,6 @@ class d implements com.baidu.tbadk.core.dialog.d {
         logoActivity = bVar.avg;
         hVar = logoActivity.ave;
         hs.post(hVar);
-        com.baidu.tbadk.download.b.ze().a(this.avj, this.val$url, this.avk, 0, 1111);
+        com.baidu.tbadk.download.b.zf().a(this.avj, this.val$url, this.avk, 0, 1111);
     }
 }

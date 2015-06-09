@@ -104,15 +104,15 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
         return this.atS;
     }
 
-    public int Em() {
+    public int En() {
         return this.atT;
     }
 
-    public String En() {
+    public String Eo() {
         return this.atU;
     }
 
-    public void Eo() {
+    public void Ep() {
         if (this.mText != null) {
             this.mText = this.mText.replaceAll("\n", "");
         }

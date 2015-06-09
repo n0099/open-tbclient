@@ -67,7 +67,7 @@ public class HeadImageView extends TbClipImageView {
         if (!this.atz) {
             this.atz = true;
         } else if (this.atC != null && this.atC.aqw) {
-            this.atC.Dt();
+            this.atC.Du();
         }
     }
 }

@@ -18,9 +18,9 @@ class j extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         aj ajVar;
         if (customResponsedMessage != null) {
-            ajVar = this.this$0.cvr;
+            ajVar = this.this$0.cvs;
             ajVar.jd(0);
-            MainTabActivity.cvi = false;
+            MainTabActivity.cvj = false;
         }
     }
 }

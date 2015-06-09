@@ -79,7 +79,7 @@ public class b implements f {
         }
     }
 
-    public JSONObject ZN() {
+    public JSONObject ZO() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -98,7 +98,7 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String ZO() {
+    public String ZP() {
         return this.threadName;
     }
 
@@ -122,7 +122,7 @@ public class b implements f {
         this.forumName = str;
     }
 
-    public String ZP() {
+    public String ZQ() {
         return this.postID;
     }
 
@@ -130,7 +130,7 @@ public class b implements f {
         this.postID = str;
     }
 
-    public boolean ZQ() {
+    public boolean ZR() {
         return this.isHostOnly;
     }
 
@@ -138,7 +138,7 @@ public class b implements f {
         this.isHostOnly = z;
     }
 
-    public boolean ZR() {
+    public boolean ZS() {
         return this.isSquence;
     }
 
@@ -152,8 +152,8 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Bq() {
-        return ZN().toString();
+    public String Br() {
+        return ZO().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f

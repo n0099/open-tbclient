@@ -16,13 +16,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Integer, Integer, g> {
-    final /* synthetic */ a cuy;
-    private com.baidu.tieba.tbadkCore.d.a cux = null;
-    private String ayR = null;
-    private boolean cuw = false;
+    final /* synthetic */ a cuz;
+    private com.baidu.tieba.tbadkCore.d.a cuy = null;
+    private String ayS = null;
+    private boolean cux = false;
 
     public f(a aVar) {
-        this.cuy = aVar;
+        this.cuz = aVar;
         setPriority(3);
     }
 
@@ -53,49 +53,49 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        if (this.cuw) {
+        if (this.cux) {
             return null;
         }
-        this.cux = new com.baidu.tieba.tbadkCore.d.a();
-        com.baidu.tieba.tbadkCore.d.a aVar = this.cux;
-        writeData = this.cuy.cuo;
-        z = this.cuy.cuv;
-        this.ayR = aVar.a(writeData, z);
-        ErrorData aoQ = this.cux.aoQ();
-        if (this.cux.qa() && this.ayR != null) {
-            AntiData aoP = this.cux.aoP();
-            String error_msg = aoQ.getError_msg();
+        this.cuy = new com.baidu.tieba.tbadkCore.d.a();
+        com.baidu.tieba.tbadkCore.d.a aVar = this.cuy;
+        writeData = this.cuz.cup;
+        z = this.cuz.cuw;
+        this.ayS = aVar.a(writeData, z);
+        ErrorData aoR = this.cuy.aoR();
+        if (this.cuy.qa() && this.ayS != null) {
+            AntiData aoQ = this.cuy.aoQ();
+            String error_msg = aoR.getError_msg();
             if (m.isEmpty(error_msg)) {
                 error_msg = TbadkCoreApplication.m411getInst().getApp().getString(t.send_success);
             }
-            g gVar2 = new g(aoQ.getError_code(), error_msg, aoP);
-            writeData2 = this.cuy.cuo;
+            g gVar2 = new g(aoR.getError_code(), error_msg, aoQ);
+            writeData2 = this.cuz.cup;
             if (writeData2 != null) {
-                writeData3 = this.cuy.cuo;
+                writeData3 = this.cuz.cup;
                 if (!writeData3.isHasImages()) {
-                    writeData5 = this.cuy.cuo;
+                    writeData5 = this.cuz.cup;
                 }
                 if (!gVar2.hasError()) {
-                    writeData4 = this.cuy.cuo;
+                    writeData4 = this.cuz.cup;
                     writeData4.deleteUploadedTempImages();
                     gVar = gVar2;
                 }
             }
             gVar = gVar2;
-        } else if (aoQ != null && !StringUtils.isNull(aoQ.getError_msg())) {
-            gVar = new g(aoQ.getError_code(), aoQ.getError_msg(), null);
+        } else if (aoR != null && !StringUtils.isNull(aoR.getError_msg())) {
+            gVar = new g(aoR.getError_code(), aoR.getError_msg(), null);
         } else {
             gVar = new g(-17, TbadkCoreApplication.m411getInst().getApp().getString(t.neterror), null);
         }
         if (!gVar.hasError()) {
             try {
-                String optString2 = new JSONObject(this.ayR).optString(AddFriendActivityConfig.MSG);
+                String optString2 = new JSONObject(this.ayS).optString(AddFriendActivityConfig.MSG);
                 try {
-                    String optString3 = new JSONObject(this.ayR).optString("pre_msg");
+                    String optString3 = new JSONObject(this.ayS).optString("pre_msg");
                     try {
-                        String optString4 = new JSONObject(this.ayR).optString("color_msg");
+                        String optString4 = new JSONObject(this.ayS).optString("color_msg");
                         try {
-                            optString = new JSONObject(this.ayR).optString("tid");
+                            optString = new JSONObject(this.ayS).optString("tid");
                         } catch (JSONException e) {
                             str = optString4;
                             str2 = optString3;
@@ -104,7 +104,7 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
                             str4 = null;
                         }
                         try {
-                            str6 = new JSONObject(this.ayR).optString(Info.kBaiduPIDKey);
+                            str6 = new JSONObject(this.ayS).optString(Info.kBaiduPIDKey);
                             str5 = optString;
                             str = optString4;
                             str2 = optString3;
@@ -172,22 +172,22 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         e eVar2;
         WriteData writeData2;
         super.onPostExecute(gVar);
-        this.cuy.cum = null;
-        if (!this.cuw && gVar != null) {
+        this.cuz.cun = null;
+        if (!this.cux && gVar != null) {
             if (!gVar.hasError()) {
-                writeData = this.cuy.cuo;
+                writeData = this.cuz.cup;
                 if (writeData != null) {
-                    writeData2 = this.cuy.cuo;
+                    writeData2 = this.cuz.cup;
                     if (writeData2.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.amY();
+                        com.baidu.tieba.tbadkCore.PbEditor.a.amZ();
                     }
                 }
-                eVar = this.cuy.cuu;
+                eVar = this.cuz.cuv;
                 if (eVar == null) {
-                    dVar = this.cuy.cut;
+                    dVar = this.cuz.cuu;
                     if (dVar != null) {
-                        dVar2 = this.cuy.cut;
-                        dVar2.a(true, gVar.getErrorString(), null, null, gVar.aaG());
+                        dVar2 = this.cuz.cuu;
+                        dVar2.a(true, gVar.getErrorString(), null, null, gVar.aaH());
                         return;
                     }
                     return;
@@ -195,8 +195,8 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
                 PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(gVar.getErrorString(), gVar.getPreMsg(), gVar.getColorMsg());
                 postWriteCallBackData.setThreadId(gVar.getThreadId());
                 postWriteCallBackData.setPostId(gVar.getPostId());
-                eVar2 = this.cuy.cuu;
-                eVar2.a(true, postWriteCallBackData, null, null, gVar.aaG());
+                eVar2 = this.cuz.cuv;
+                eVar2.a(true, postWriteCallBackData, null, null, gVar.aaH());
                 return;
             }
             b(gVar);
@@ -209,23 +209,23 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         d dVar;
         d dVar2;
         e eVar2;
-        this.cuw = true;
-        if (this.cux != null) {
-            this.cux.cancel();
+        this.cux = true;
+        if (this.cuy != null) {
+            this.cuy.cancel();
         }
-        eVar = this.cuy.cuu;
+        eVar = this.cuz.cuv;
         if (eVar == null) {
-            dVar = this.cuy.cut;
+            dVar = this.cuz.cuu;
             if (dVar != null) {
-                dVar2 = this.cuy.cut;
+                dVar2 = this.cuz.cuu;
                 dVar2.a(false, null, null, null, null);
             }
         } else {
-            eVar2 = this.cuy.cuu;
+            eVar2 = this.cuz.cuv;
             eVar2.a(false, null, null, null, null);
         }
         super.cancel(true);
-        this.cuy.cum = null;
+        this.cuz.cun = null;
     }
 
     private void b(g gVar) {
@@ -242,48 +242,48 @@ public class f extends BdAsyncTask<Integer, Integer, g> {
         WriteData writeData4;
         e eVar4;
         WriteData writeData5;
-        AntiData aaG = gVar.aaG();
-        if (!gVar.apK()) {
-            eVar = this.cuy.cuu;
+        AntiData aaH = gVar.aaH();
+        if (!gVar.apL()) {
+            eVar = this.cuz.cuv;
             if (eVar == null) {
-                dVar = this.cuy.cut;
+                dVar = this.cuz.cuu;
                 if (dVar != null) {
-                    dVar2 = this.cuy.cut;
-                    dVar2.a(false, gVar.getErrorString(), null, null, gVar.aaG());
+                    dVar2 = this.cuz.cuu;
+                    dVar2.a(false, gVar.getErrorString(), null, null, gVar.aaH());
                     return;
                 }
                 return;
             }
             PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(gVar.getErrorString(), null, null);
-            eVar2 = this.cuy.cuu;
-            eVar2.a(false, postWriteCallBackData, null, null, gVar.aaG());
+            eVar2 = this.cuz.cuv;
+            eVar2.a(false, postWriteCallBackData, null, null, gVar.aaH());
             return;
         }
         l lVar = new l();
-        lVar.parserJson(this.ayR);
+        lVar.parserJson(this.ayS);
         if (lVar.getVcode_pic_url() != null) {
-            writeData = this.cuy.cuo;
+            writeData = this.cuz.cup;
             if (writeData != null) {
-                writeData2 = this.cuy.cuo;
+                writeData2 = this.cuz.cup;
                 writeData2.setVcodeMD5(lVar.getVcode_md5());
-                writeData3 = this.cuy.cuo;
+                writeData3 = this.cuz.cup;
                 writeData3.setVcodeUrl(lVar.getVcode_pic_url());
-                eVar3 = this.cuy.cuu;
+                eVar3 = this.cuz.cuv;
                 if (eVar3 == null) {
-                    dVar3 = this.cuy.cut;
+                    dVar3 = this.cuz.cuu;
                     if (dVar3 != null) {
-                        dVar4 = this.cuy.cut;
+                        dVar4 = this.cuz.cuu;
                         String errorString = gVar.getErrorString();
-                        writeData4 = this.cuy.cuo;
-                        dVar4.a(false, errorString, lVar, writeData4, aaG);
+                        writeData4 = this.cuz.cup;
+                        dVar4.a(false, errorString, lVar, writeData4, aaH);
                         return;
                     }
                     return;
                 }
                 PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(gVar.getErrorString(), null, null);
-                eVar4 = this.cuy.cuu;
-                writeData5 = this.cuy.cuo;
-                eVar4.a(false, postWriteCallBackData2, lVar, writeData5, aaG);
+                eVar4 = this.cuz.cuv;
+                writeData5 = this.cuz.cup;
+                eVar4.a(false, postWriteCallBackData2, lVar, writeData5, aaH);
             }
         }
     }

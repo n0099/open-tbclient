@@ -1,17 +1,17 @@
 package com.baidu.tieba.tbean;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ BuyTBeanActivity cuC;
+    final /* synthetic */ BuyTBeanActivity cuD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BuyTBeanActivity buyTBeanActivity) {
-        this.cuC = buyTBeanActivity;
+        this.cuD = buyTBeanActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j jVar;
-        jVar = this.cuC.cuA;
-        jVar.afQ();
+        jVar = this.cuD.cuB;
+        jVar.afR();
     }
 }

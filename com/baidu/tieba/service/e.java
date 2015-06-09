@@ -21,11 +21,11 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<String, Integer, String> {
     private aa aaG = null;
-    final /* synthetic */ FatalErrorService cdA;
+    final /* synthetic */ FatalErrorService cdB;
     Intent intent;
 
     public e(FatalErrorService fatalErrorService, Intent intent) {
-        this.cdA = fatalErrorService;
+        this.cdB = fatalErrorService;
         this.intent = intent;
     }
 
@@ -428,9 +428,9 @@ class e extends BdAsyncTask<String, Integer, String> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.cdA.mTask = null;
+        this.cdB.mTask = null;
         super.cancel(true);
-        this.cdA.stopSelf();
+        this.cdB.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -438,7 +438,7 @@ class e extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((e) str);
-        this.cdA.mTask = null;
-        this.cdA.stopSelf();
+        this.cdB.mTask = null;
+        this.cdB.stopSelf();
     }
 }

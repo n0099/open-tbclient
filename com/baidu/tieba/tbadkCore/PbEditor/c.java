@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class c extends RelativeLayout {
-    private int cqd;
-    private boolean cqe;
+    private int cqe;
+    private boolean cqf;
     private Context mContext;
     private Paint paint;
 
@@ -25,24 +25,24 @@ public class c extends RelativeLayout {
 
     public c(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cqe = true;
+        this.cqf = true;
         this.mContext = context;
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
-        this.cqd = com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
+        this.cqe = com.baidu.adp.lib.util.n.dip2px(this.mContext, 1.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.cqe) {
+        if (this.cqf) {
             this.paint.setColor(ay.getColor(com.baidu.tieba.n.cp_bg_line_b));
-            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.cqd, this.paint);
+            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.cqe, this.paint);
         }
     }
 
     public void setDrawTop(boolean z) {
-        this.cqe = z;
+        this.cqf = z;
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
@@ -78,7 +78,7 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void anc() {
+    public void and() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -88,7 +88,7 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void and() {
+    public void ane() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -98,12 +98,12 @@ public class c extends RelativeLayout {
         }
     }
 
-    public void ane() {
+    public void anf() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).anb();
+                ((EditorToolButton) childAt).anc();
             }
         }
     }

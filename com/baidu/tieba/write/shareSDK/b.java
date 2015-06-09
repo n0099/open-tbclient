@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ a cAc;
+    final /* synthetic */ a cAd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.cAc = aVar;
+        this.cAd = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,18 +20,18 @@ public class b extends HttpMessageListener {
         c cVar;
         c cVar2;
         c cVar3;
-        cVar = this.cAc.cAb;
+        cVar = this.cAd.cAc;
         if (cVar != null) {
             if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                cVar2 = this.cAc.cAb;
-                cVar2.ass();
+                cVar2 = this.cAd.cAc;
+                cVar2.ast();
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                 ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                cVar3 = this.cAc.cAb;
+                cVar3 = this.cAd.cAc;
                 cVar3.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
             }
         }

@@ -13,7 +13,7 @@ class d implements com.baidu.adp.lib.e.c<GridView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: zo */
+    /* renamed from: zp */
     public GridView hk() {
         return new GridView(this.ajA.getContext());
     }

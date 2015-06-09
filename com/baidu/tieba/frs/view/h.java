@@ -11,24 +11,24 @@ import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class h {
     private View LG;
-    private GoodGridView aRt;
-    private ImageView aRu;
+    private GoodGridView aRu;
+    private ImageView aRv;
 
     public h(Context context) {
         this.LG = null;
-        this.aRt = null;
         this.aRu = null;
+        this.aRv = null;
         this.LG = com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.dialog_good, null);
-        this.aRt = (GoodGridView) this.LG.findViewById(com.baidu.tieba.q.good_gridview);
-        this.aRu = (ImageView) this.LG.findViewById(com.baidu.tieba.q.divider_line);
+        this.aRu = (GoodGridView) this.LG.findViewById(com.baidu.tieba.q.good_gridview);
+        this.aRv = (ImageView) this.LG.findViewById(com.baidu.tieba.q.divider_line);
     }
 
     public void a(aw awVar) {
-        this.aRt.setAdapter((ListAdapter) awVar);
+        this.aRu.setAdapter((ListAdapter) awVar);
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aRt.setOnItemClickListener(onItemClickListener);
+        this.aRu.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
@@ -36,7 +36,7 @@ public class h {
     }
 
     public void changeSkinType(int i) {
-        ay.j(this.aRt, com.baidu.tieba.n.cp_bg_line_d);
-        ay.i(this.aRu, com.baidu.tieba.n.frs_goodheader_line_end);
+        ay.j(this.aRu, com.baidu.tieba.n.cp_bg_line_d);
+        ay.i(this.aRv, com.baidu.tieba.n.frs_goodheader_line_end);
     }
 }

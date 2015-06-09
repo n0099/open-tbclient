@@ -48,17 +48,17 @@ public class a {
         vp = z;
     }
 
-    public g a(String str, boolean z, int i, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) {
+    public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
         this.vq = new e();
         a(this.vq, z);
         this.vq.gY().setUrl(str);
         this.vr = new c(this.vq);
-        this.vr.i(i, i3, i2);
+        this.vr.i(i, i3, i4);
         return this.vq.gZ();
     }
 
-    public g a(String str, int i, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) {
-        return a(str, false, i, i2, i3, linkedList);
+    public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
+        return a(str, false, i, i2, i3, i4, linkedList);
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) {
@@ -158,6 +158,8 @@ public class a {
             }
             if (z) {
                 eVar.gY().p("Accept-Encoding", "gzip");
+            } else {
+                eVar.gY().p("Accept-Encoding", "");
             }
             if (vp) {
                 eVar.gY().p("Connection", "Keep-Alive");

@@ -30,19 +30,19 @@ public class b {
         this.anE = aVar2;
     }
 
-    public int Br() {
+    public int Bs() {
         return this.anA;
     }
 
-    public com.baidu.tbadk.mvc.b.a Bs() {
+    public com.baidu.tbadk.mvc.b.a Bt() {
         return this.anC;
     }
 
-    public com.baidu.tbadk.mvc.e.c Bt() {
+    public com.baidu.tbadk.mvc.e.c Bu() {
         return this.anD;
     }
 
-    public com.baidu.tbadk.mvc.a.a Bu() {
+    public com.baidu.tbadk.mvc.a.a Bv() {
         return this.anE;
     }
 
@@ -69,7 +69,7 @@ public class b {
         this.anJ = new WeakReference<>(viewGroup);
     }
 
-    public boolean Bv() {
+    public boolean Bw() {
         return this.anF;
     }
 
@@ -77,7 +77,7 @@ public class b {
         this.anF = z;
     }
 
-    public int Bw() {
+    public int Bx() {
         return this.anG;
     }
 
@@ -85,7 +85,7 @@ public class b {
         this.anG = i;
     }
 
-    public boolean Bx() {
+    public boolean By() {
         return this.anB;
     }
 

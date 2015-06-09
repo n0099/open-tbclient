@@ -27,7 +27,7 @@ public class bx implements View.OnClickListener {
         Bitmap bitmap3;
         Bitmap bitmap4;
         boolean ke2;
-        z = this.this$0.bLE;
+        z = this.this$0.bLF;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
@@ -36,11 +36,11 @@ public class bx implements View.OnClickListener {
                 this.this$0.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.this$0.bRr;
+                z2 = this.this$0.bRs;
                 if (z2) {
-                    bitmap = this.this$0.bRk;
+                    bitmap = this.this$0.bRl;
                     if (bitmap != null) {
-                        bitmap2 = this.this$0.bRk;
+                        bitmap2 = this.this$0.bRl;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                             ke = this.this$0.ke(str);
@@ -63,11 +63,11 @@ public class bx implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.this$0.bRr;
+        z3 = this.this$0.bRs;
         if (z3) {
-            bitmap3 = this.this$0.bRk;
+            bitmap3 = this.this$0.bRl;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.bRk;
+                bitmap4 = this.this$0.bRl;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                     ke2 = this.this$0.ke(str2);

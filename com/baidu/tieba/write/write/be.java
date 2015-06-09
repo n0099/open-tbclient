@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity cCP;
-    private final /* synthetic */ boolean cCS;
+    final /* synthetic */ WriteActivity cCQ;
+    private final /* synthetic */ boolean cCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity, boolean z) {
-        this.cCP = writeActivity;
-        this.cCS = z;
+        this.cCQ = writeActivity;
+        this.cCT = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,12 +28,12 @@ public class be extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.an.mAlpha);
             }
-            editText = this.cCP.cAy;
+            editText = this.cCQ.cAz;
             editText.setBackgroundDrawable(ninePatchDrawable);
-            if (this.cCS) {
-                WriteActivity writeActivity = this.cCP;
-                editText2 = this.cCP.cAy;
-                hVar = this.cCP.bOz;
+            if (this.cCT) {
+                WriteActivity writeActivity = this.cCQ;
+                editText2 = this.cCQ.cAz;
+                hVar = this.cCQ.bOA;
                 com.baidu.tieba.tbadkCore.c.a.a(writeActivity, editText2, true, hVar);
             }
         }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
     TextView aiA;
-    ImageView cAa;
+    ImageView cAb;
     View line;
 
     private n() {

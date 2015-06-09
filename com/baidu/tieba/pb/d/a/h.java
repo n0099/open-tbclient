@@ -4,20 +4,20 @@ import android.text.SpannableStringBuilder;
 import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
 public class h implements d {
-    private SpannableStringBuilder bQH = new SpannableStringBuilder();
+    private SpannableStringBuilder bQI = new SpannableStringBuilder();
 
     public h() {
     }
 
     public h(Content content) {
         if (content != null) {
-            this.bQH.append((CharSequence) content.text);
+            this.bQI.append((CharSequence) content.text);
         }
     }
 
     public void d(CharSequence charSequence) {
         if (charSequence != null) {
-            this.bQH.append(charSequence);
+            this.bQI.append(charSequence);
         }
     }
 
@@ -27,7 +27,7 @@ public class h implements d {
     }
 
     @Override // com.baidu.tieba.pb.d.a.d
-    public CharSequence adM() {
-        return this.bQH;
+    public CharSequence adN() {
+        return this.bQI;
     }
 }

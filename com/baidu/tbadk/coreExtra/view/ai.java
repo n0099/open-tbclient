@@ -20,8 +20,8 @@ public class ai implements View.OnClickListener {
         if (!TextUtils.isEmpty(this.agn.getStatisticsKey())) {
             com.baidu.tbadk.core.k.A(this.agn.getContext(), this.agn.getStatisticsKey());
         }
-        if (LivePlayingStatusMgr.xW().getGid() != 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.agn.getContext(), LivePlayingStatusMgr.xW().getGid())));
+        if (LivePlayingStatusMgr.xX().getGid() != 0) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(this.agn.getContext(), LivePlayingStatusMgr.xX().getGid())));
         }
     }
 }

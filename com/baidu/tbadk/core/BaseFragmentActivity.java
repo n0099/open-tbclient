@@ -371,7 +371,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Au();
+        return this.loadingView.Av();
     }
 
     public void hideLoadingView(View view) {

@@ -4,10 +4,10 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 class bt extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     private bt(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,8 +17,8 @@ class bt extends GestureDetector.SimpleOnGestureListener {
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (WriteActivity.h(this.cCP).anK()) {
-            WriteActivity.h(this.cCP).aa(this.cCP.getCurrentFocus());
+        if (WriteActivity.h(this.cCQ).anL()) {
+            WriteActivity.h(this.cCQ).aa(this.cCQ.getCurrentFocus());
             return true;
         }
         return super.onFling(motionEvent, motionEvent2, f, f2);

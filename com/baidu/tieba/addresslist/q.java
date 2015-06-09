@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ QuickSearchActivity azu;
+    final /* synthetic */ QuickSearchActivity azv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(QuickSearchActivity quickSearchActivity) {
-        this.azu = quickSearchActivity;
+        this.azv = quickSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,11 +19,11 @@ public class q implements View.OnClickListener {
         EditText editText;
         TextView textView;
         ListView listView;
-        editText = this.azu.azp;
+        editText = this.azv.azq;
         editText.setText("");
-        textView = this.azu.azr;
+        textView = this.azv.azs;
         textView.setVisibility(8);
-        listView = this.azu.azs;
+        listView = this.azv.azt;
         listView.setVisibility(8);
     }
 }

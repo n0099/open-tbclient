@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ PersonChangeActivity bSN;
+    final /* synthetic */ PersonChangeActivity bSO;
 
     private az(PersonChangeActivity personChangeActivity) {
-        this.bSN = personChangeActivity;
+        this.bSO = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,10 +22,10 @@ public class az extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.bSN.axE;
+        progressBar = this.bSO.axF;
         progressBar.setVisibility(0);
-        this.bSN.bSF.setImageDrawable(null);
-        this.bSN.bdE = null;
+        this.bSO.bSG.setImageDrawable(null);
+        this.bSO.bdF = null;
         super.onPreExecute();
     }
 
@@ -40,8 +40,8 @@ public class az extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.bSN.bSG = null;
-        progressBar = this.bSN.axE;
+        this.bSO.bSH = null;
+        progressBar = this.bSO.axF;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -61,18 +61,18 @@ public class az extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.tbadk.coreExtra.c.f fVar;
         com.baidu.adp.widget.a.a aVar2;
         super.onPostExecute((az) bitmap);
-        this.bSN.bSG = null;
-        progressBar = this.bSN.axE;
+        this.bSO.bSH = null;
+        progressBar = this.bSO.axF;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.bSN.bdE = new com.baidu.adp.widget.a.a(bitmap, false, null);
-            aVar = this.bSN.bdE;
-            aVar.a(this.bSN.bSF);
-            com.baidu.tbadk.imageManager.e Al = com.baidu.tbadk.imageManager.e.Al();
-            fVar = this.bSN.bSE;
-            String portrait = fVar.wH().getPortrait();
-            aVar2 = this.bSN.bdE;
-            Al.b(portrait, aVar2, true);
+            this.bSO.bdF = new com.baidu.adp.widget.a.a(bitmap, false, null);
+            aVar = this.bSO.bdF;
+            aVar.a(this.bSO.bSG);
+            com.baidu.tbadk.imageManager.e Am = com.baidu.tbadk.imageManager.e.Am();
+            fVar = this.bSO.bSF;
+            String portrait = fVar.wI().getPortrait();
+            aVar2 = this.bSO.bdF;
+            Am.b(portrait, aVar2, true);
         }
     }
 }

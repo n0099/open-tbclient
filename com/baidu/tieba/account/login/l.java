@@ -10,13 +10,13 @@ import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, Bitmap> {
     aa OE;
-    final /* synthetic */ Login2Activity ayM;
-    private volatile boolean ayP;
+    final /* synthetic */ Login2Activity ayN;
+    private volatile boolean ayQ;
 
     private l(Login2Activity login2Activity) {
-        this.ayM = login2Activity;
+        this.ayN = login2Activity;
         this.OE = null;
-        this.ayP = false;
+        this.ayQ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,12 +26,12 @@ public class l extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.ayM.ayL = null;
+        this.ayN.ayM = null;
         if (this.OE != null) {
             this.OE.gS();
             this.OE = null;
         }
-        this.ayP = true;
+        this.ayQ = true;
         super.cancel(true);
     }
 
@@ -39,7 +39,7 @@ public class l extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ImageView imageView;
-        imageView = this.ayM.axF;
+        imageView = this.ayN.axG;
         imageView.setImageDrawable(null);
     }
 
@@ -49,7 +49,7 @@ public class l extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         String str = strArr[0];
-        if (str == null || str.length() <= 0 || this.ayP) {
+        if (str == null || str.length() <= 0 || this.ayQ) {
             return null;
         }
         this.OE = new aa(str);
@@ -63,15 +63,15 @@ public class l extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.ayM.ayL = null;
+        this.ayN.ayM = null;
         if (bitmap != null) {
-            imageView2 = this.ayM.axF;
+            imageView2 = this.ayN.axG;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.ayM.axF;
+            imageView = this.ayN.axG;
             imageView.setImageResource(p.background);
         }
-        progressBar = this.ayM.mProgressBar;
+        progressBar = this.ayN.mProgressBar;
         progressBar.setVisibility(8);
         super.onPostExecute((l) bitmap);
     }

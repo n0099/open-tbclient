@@ -18,15 +18,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private t bvt;
-    private ac bvu;
-    private boolean bvx;
+    private t bvu;
+    private ac bvv;
+    private boolean bvy;
     private boolean isFromInviteChat;
     private boolean isLoaded = false;
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bvv = null;
-    private LinkedList<com.baidu.tbadk.coreExtra.relationship.a> bvw = new LinkedList<>();
-    private final AtomicBoolean bvy = new AtomicBoolean(false);
-    private CustomMessageListener bvz = new l(this, 2001188);
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bvw = null;
+    private LinkedList<com.baidu.tbadk.coreExtra.relationship.a> bvx = new LinkedList<>();
+    private final AtomicBoolean bvz = new AtomicBoolean(false);
+    private CustomMessageListener bvA = new l(this, 2001188);
     private final com.baidu.adp.framework.listener.e mListener = new m(this, 205002);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,106 +35,106 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         boolean z = false;
         super.onCreate(bundle);
         registerListener(this.mListener);
-        registerListener(this.bvz);
+        registerListener(this.bvA);
         Intent intent = getIntent();
-        GY();
+        GZ();
         if (intent != null) {
             this.isFromInviteChat = intent.getBooleanExtra(InviteFriendListActivityConfig.IS_FROM_INVITE_CHAT, false);
             z = intent.getBooleanExtra(InviteFriendListActivityConfig.KEY_FINISH_ACTIVITY, false);
-            this.bvu.initWithIntent(intent);
+            this.bvv.initWithIntent(intent);
         } else {
             this.isFromInviteChat = bundle.getBoolean(InviteFriendListActivityConfig.IS_FROM_INVITE_CHAT, false);
-            this.bvu.initWithBundle(bundle);
+            this.bvv.initWithBundle(bundle);
         }
         initView();
-        Jj();
+        Jk();
         if (z) {
-            WY();
+            WZ();
         }
     }
 
-    private void WY() {
+    private void WZ() {
         registerListener(new o(this, 2001316));
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.bvu.i(bundle);
+        this.bvv.i(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.bvu.cancelLoadData();
+        this.bvv.cancelLoadData();
     }
 
-    private void GY() {
-        this.bvu = new ac(this);
+    private void GZ() {
+        this.bvv = new ac(this);
     }
 
     private void initView() {
-        this.bvt = new t(this, this.isFromInviteChat);
-        this.bvt.gV(100);
+        this.bvu = new t(this, this.isFromInviteChat);
+        this.bvu.gV(100);
     }
 
-    private void Jj() {
-        WZ();
+    private void Jk() {
+        Xa();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         if (z && !this.isLoaded) {
-            showLoadingView(this.bvt.getRootView(), true);
+            showLoadingView(this.bvu.getRootView(), true);
         }
     }
 
-    public void WZ() {
+    public void Xa() {
         String trim;
         if (!isFinishing()) {
-            if (this.bvv == null) {
-                if (!this.bvy.get()) {
-                    this.bvy.set(true);
+            if (this.bvw == null) {
+                if (!this.bvz.get()) {
+                    this.bvz.set(true);
                     super.sendMessage(new GetContactListRequestMessage());
                     return;
                 }
                 return;
             }
-            String Xg = this.bvt.Xg();
-            if (Xg == null) {
+            String Xh = this.bvu.Xh();
+            if (Xh == null) {
                 trim = "";
             } else {
-                trim = Xg.trim();
+                trim = Xh.trim();
             }
-            if (this.bvv.isEmpty() && trim.length() > 0) {
+            if (this.bvw.isEmpty() && trim.length() > 0) {
                 showToast(getPageContext().getString(com.baidu.tieba.t.invite_friend_no_data_now));
             }
             if (trim.length() == 0) {
-                this.bvx = false;
-                this.bvt.a(this.bvv, false);
+                this.bvy = false;
+                this.bvu.a(this.bvw, false);
                 return;
             }
-            this.bvw.clear();
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.bvv) {
-                String xv = aVar.xv();
-                if (xv != null && xv.contains(trim)) {
-                    this.bvw.add(aVar);
+            this.bvx.clear();
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.bvw) {
+                String xw = aVar.xw();
+                if (xw != null && xw.contains(trim)) {
+                    this.bvx.add(aVar);
                 }
             }
-            this.bvx = true;
-            this.bvt.a((List<com.baidu.tbadk.coreExtra.relationship.a>) this.bvw, true);
+            this.bvy = true;
+            this.bvu.a((List<com.baidu.tbadk.coreExtra.relationship.a>) this.bvx, true);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bvt != null) {
-            this.bvt.Xk();
-            if (view.getId() == this.bvt.Xf()) {
-                WO();
-                this.bvu.hT(this.bvt.Xh());
+        if (this.bvu != null) {
+            this.bvu.Xl();
+            if (view.getId() == this.bvu.Xg()) {
+                WP();
+                this.bvv.hT(this.bvu.Xi());
             }
         }
     }
@@ -145,14 +145,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         com.baidu.tbadk.coreExtra.relationship.a aVar;
         super.onItemClick(adapterView, view, i, j);
         if (this.isFromInviteChat) {
-            if (this.bvx) {
-                if (this.bvw != null && i < this.bvw.size()) {
-                    aVar = this.bvw.get(i);
+            if (this.bvy) {
+                if (this.bvx != null && i < this.bvx.size()) {
+                    aVar = this.bvx.get(i);
                 }
                 aVar = null;
             } else {
-                if (this.bvv != null && i < this.bvv.size()) {
-                    aVar = this.bvv.get(i);
+                if (this.bvw != null && i < this.bvw.size()) {
+                    aVar = this.bvw.get(i);
                 }
                 aVar = null;
             }
@@ -160,27 +160,27 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.getUserName(), aVar.getUserPortrait(), 0)));
             }
         } else if (view != null && (tag = view.getTag()) != null && (tag instanceof r)) {
-            TbCheckBox tbCheckBox = ((r) tag).bvG;
+            TbCheckBox tbCheckBox = ((r) tag).bvH;
             tbCheckBox.setChecked(tbCheckBox.isChecked() ? false : true);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.bvt.Xe()) {
-            this.bvt.Xd();
+        if (i == 4 && this.bvu.Xf()) {
+            this.bvu.Xe();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    public void WO() {
+    public void WP() {
         showLoadingDialog(null, new p(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bvt.uy();
+        this.bvu.uy();
     }
 }

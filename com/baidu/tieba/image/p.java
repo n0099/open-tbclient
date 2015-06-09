@@ -40,16 +40,16 @@ public class p extends BdAsyncTask<String, Integer, String> {
         View view;
         super.onPostExecute((p) str);
         this.this$0.showToast(str);
-        this.this$0.bxu = null;
-        view = this.this$0.bxv;
+        this.this$0.bxv = null;
+        view = this.this$0.bxw;
         view.setClickable(true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         View view;
-        this.this$0.bxu = null;
-        view = this.this$0.bxv;
+        this.this$0.bxv = null;
+        view = this.this$0.bxw;
         view.setClickable(true);
         super.cancel(true);
     }

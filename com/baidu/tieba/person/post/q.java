@@ -15,9 +15,9 @@ import com.baidu.tieba.person.PersonPostModel;
 import com.baidu.tieba.person.ch;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter implements ch, b {
-    private String bTZ;
-    public PersonPostModel bUg;
-    private r bUz;
+    private r bUA;
+    private String bUa;
+    public PersonPostModel bUh;
     private BaseFragmentActivity mActivity;
     private final String mUid;
 
@@ -27,46 +27,46 @@ public class q extends BaseAdapter implements ch, b {
     }
 
     public void eq(boolean z) {
-        if (this.bUg == null) {
-            this.bUg = new PersonPostModel(this.mActivity.getPageContext());
+        if (this.bUh == null) {
+            this.bUh = new PersonPostModel(this.mActivity.getPageContext());
         }
-        this.bUg.fetchPost(this.mActivity.getPageContext(), this, z, this.mUid, true);
+        this.bUh.fetchPost(this.mActivity.getPageContext(), this, z, this.mUid, true);
     }
 
-    public void aeO() {
-        if (this.bUg != null) {
-            this.bUg.cancelLoadData();
+    public void aeP() {
+        if (this.bUh != null) {
+            this.bUh.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.ch
     public void a(PersonPostModel personPostModel, boolean z) {
         if (z) {
-            this.bUg = personPostModel;
-        } else if (this.bUg != null) {
-            this.bUg.post_list.addAll(personPostModel.post_list);
+            this.bUh = personPostModel;
+        } else if (this.bUh != null) {
+            this.bUh.post_list.addAll(personPostModel.post_list);
         }
-        if (this.bUz != null) {
-            this.bUz.b(personPostModel, z);
+        if (this.bUA != null) {
+            this.bUA.b(personPostModel, z);
         }
         notifyDataSetChanged();
     }
 
     public void a(r rVar) {
-        this.bUz = rVar;
+        this.bUA = rVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bUg == null || this.bUg.post_list == null) {
+        if (this.bUh == null || this.bUh.post_list == null) {
             return 0;
         }
-        return this.bUg.post_list.size();
+        return this.bUh.post_list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bUg.post_list.get(i);
+        return this.bUh.post_list.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -86,15 +86,15 @@ public class q extends BaseAdapter implements ch, b {
             sVar = (s) view.getTag();
         }
         if (i == 0) {
-            sVar.bTV.setVisibility(0);
+            sVar.bTW.setVisibility(0);
         } else {
-            sVar.bTV.setVisibility(8);
+            sVar.bTW.setVisibility(8);
         }
-        PersonPostModel.PostList postList = this.bUg.post_list.get(i);
-        if (this.bTZ == null) {
-            this.bTZ = postList.user_portrait;
+        PersonPostModel.PostList postList = this.bUh.post_list.get(i);
+        if (this.bUa == null) {
+            this.bUa = postList.user_portrait;
         }
-        sVar.a(postList, true, this.bTZ);
+        sVar.a(postList, true, this.bUa);
         String str = postList.title;
         if (str.trim().length() > 0) {
             sVar.mTitle.setText(str);
@@ -104,22 +104,22 @@ public class q extends BaseAdapter implements ch, b {
         }
         LiveCardData a = a(postList.anchor_info);
         if (a.getAuthorId() != 0) {
-            sVar.bUA.setVisibility(8);
-            sVar.bUC.setVisibility(0);
-            sVar.bUD.setData(a);
+            sVar.bUB.setVisibility(8);
+            sVar.bUD.setVisibility(0);
+            sVar.bUE.setData(a);
         } else {
-            sVar.bUC.setVisibility(8);
+            sVar.bUD.setVisibility(8);
             if (com.baidu.tbadk.core.n.qc().qg() && postList.media != null && postList.media.length > 0) {
                 int min = Math.min(postList.media.length, 3);
                 PersonPostModel.Media[] mediaArr = new PersonPostModel.Media[min];
                 for (int i2 = 0; i2 < min; i2++) {
                     mediaArr[i2] = postList.media[i2];
                 }
-                sVar.bUA.setVisibility(0);
-                sVar.bUA.setTags(mediaArr);
+                sVar.bUB.setVisibility(0);
+                sVar.bUB.setTags(mediaArr);
             } else {
-                sVar.bUA.setVisibility(8);
-                sVar.bUA.setTags(null);
+                sVar.bUB.setVisibility(8);
+                sVar.bUB.setTags(null);
             }
         }
         if (postList.abs_thread != null && postList.abs_thread.length > 0) {
@@ -129,23 +129,23 @@ public class q extends BaseAdapter implements ch, b {
             }
             String sb2 = sb.toString();
             if (sb2.trim().length() > 0) {
-                sVar.bFO.setText(sb2);
-                sVar.bFO.setVisibility(0);
+                sVar.bFP.setText(sb2);
+                sVar.bFP.setVisibility(0);
             } else {
-                sVar.bFO.setVisibility(8);
+                sVar.bFP.setVisibility(8);
             }
         } else {
-            sVar.bFO.setVisibility(8);
+            sVar.bFP.setVisibility(8);
         }
-        if (!sVar.bFO.isShown() && a.getAuthorId() != 0) {
-            sVar.bUB.setVisibility(8);
+        if (!sVar.bFP.isShown() && a.getAuthorId() != 0) {
+            sVar.bUC.setVisibility(8);
         } else {
-            sVar.bUB.setVisibility(0);
+            sVar.bUC.setVisibility(0);
         }
         sVar.a(this);
         sVar.cy(TbadkCoreApplication.m411getInst().getSkinType());
         ay.i(sVar.So, com.baidu.tieba.n.cp_bg_line_b);
-        sVar.bUD.onChangeSkinType(this.mActivity.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        sVar.bUE.onChangeSkinType(this.mActivity.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         this.mActivity.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().j(sVar.mContentView);
         return view;

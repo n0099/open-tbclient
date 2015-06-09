@@ -26,7 +26,7 @@ public class b {
     private b() {
     }
 
-    public static b ze() {
+    public static b zf() {
         synchronized (b.class) {
             if (aiN == null) {
                 aiN = new b();
@@ -54,11 +54,11 @@ public class b {
         eVar.setPosition(i);
         eVar.dv(i2);
         aiS.add(eVar);
-        zf();
+        zg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zf() {
+    public void zg() {
         if (aiR == null && !aiS.isEmpty()) {
             aiR = aiS.get(0);
             if (aiR != null) {
@@ -145,7 +145,7 @@ public class b {
     }
 
     public boolean er(String str) {
-        for (DownloadData downloadData : g.zi().lZ()) {
+        for (DownloadData downloadData : g.zj().lZ()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }

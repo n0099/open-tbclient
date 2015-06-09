@@ -11,23 +11,23 @@ public class h extends i {
     private int aip = 1;
     private int aiq = 1;
 
-    public int yP() {
+    public int yQ() {
         return this.aim;
     }
 
-    public int yQ() {
+    public int yR() {
         return this.ain;
     }
 
-    public int yR() {
+    public int yS() {
         return this.aio;
     }
 
-    public int yS() {
+    public int yT() {
         return this.aip;
     }
 
-    public int yT() {
+    public int yU() {
         return this.aiq;
     }
 

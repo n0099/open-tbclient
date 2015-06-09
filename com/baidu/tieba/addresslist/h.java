@@ -8,12 +8,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ e azl;
+    final /* synthetic */ e azm;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(e eVar) {
         super(2001182);
-        this.azl = eVar;
+        this.azm = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,11 +22,11 @@ public class h extends CustomMessageListener {
         com.baidu.tieba.addresslist.c.a aVar;
         BdListView bdListView;
         if (!com.baidu.tbadk.core.sharedPref.b.sl().getBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
-            bdListView = this.azl.azf;
+            bdListView = this.azm.azg;
             bdListView.completePullRefresh();
         }
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            aVar = this.azl.ayX;
+            aVar = this.azm.ayY;
             aVar.A((List) customResponsedMessage.getData());
         }
     }

@@ -4,15 +4,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 class b {
-    TextView aGH;
-    BarImageView bAR;
-    TextView bAS;
+    TextView aGI;
+    BarImageView bAS;
     TextView bAT;
-    final /* synthetic */ a bBv;
-    TextView bzp;
+    TextView bAU;
+    final /* synthetic */ a bBw;
+    TextView bzq;
 
     private b(a aVar) {
-        this.bBv = aVar;
+        this.bBw = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

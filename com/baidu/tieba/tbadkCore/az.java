@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 class az extends BdAsyncTask<Integer, Integer, Integer> {
     private com.baidu.tbadk.core.util.aa aaG = null;
-    private WeakReference<ay> crJ;
+    private WeakReference<ay> crK;
     private long mForumId;
     private String mForumName;
     private String mFrom;
@@ -17,10 +17,10 @@ class az extends BdAsyncTask<Integer, Integer, Integer> {
     public az(String str, long j, String str2, ay ayVar) {
         this.mForumName = null;
         this.mForumId = 0L;
-        this.crJ = null;
+        this.crK = null;
         this.mForumName = str;
         this.mForumId = j;
-        this.crJ = new WeakReference<>(ayVar);
+        this.crK = new WeakReference<>(ayVar);
         this.mFrom = str2;
         setPriority(3);
     }
@@ -53,7 +53,7 @@ class az extends BdAsyncTask<Integer, Integer, Integer> {
     public void onPostExecute(Integer num) {
         ay ayVar;
         super.onPostExecute((az) num);
-        if (this.crJ != null && (ayVar = this.crJ.get()) != null) {
+        if (this.crK != null && (ayVar = this.crK.get()) != null) {
             if (this.aaG != null) {
                 if (this.aaG.sX().tT().qa()) {
                     if (num.intValue() == 1) {

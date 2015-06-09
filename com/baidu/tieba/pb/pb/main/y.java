@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements bc {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bc
@@ -20,7 +20,7 @@ public class y implements bc {
         bo boVar3;
         bo boVar4;
         Object[] objArr = (Object[]) obj;
-        boVar = this.bKT.bKv;
+        boVar = this.bKU.bKw;
         String valueOf = String.valueOf(boVar.getPbData().getUserData().getUserId());
         String str = "";
         if (objArr.length > 1) {
@@ -30,13 +30,13 @@ public class y implements bc {
         if (objArr.length > 2) {
             str2 = String.valueOf(objArr[2]);
         }
-        PbActivity pbActivity = this.bKT;
-        Activity pageActivity = this.bKT.getPageContext().getPageActivity();
-        boVar2 = this.bKT.bKv;
-        String id = boVar2.getPbData().aar().getId();
-        boVar3 = this.bKT.bKv;
-        String name = boVar3.getPbData().aar().getName();
-        boVar4 = this.bKT.bKv;
-        pbActivity.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(pageActivity, id, name, boVar4.getPbData().aas().getId(), valueOf, str, str2)));
+        PbActivity pbActivity = this.bKU;
+        Activity pageActivity = this.bKU.getPageContext().getPageActivity();
+        boVar2 = this.bKU.bKw;
+        String id = boVar2.getPbData().aas().getId();
+        boVar3 = this.bKU.bKw;
+        String name = boVar3.getPbData().aas().getName();
+        boVar4 = this.bKU.bKw;
+        pbActivity.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(pageActivity, id, name, boVar4.getPbData().aat().getId(), valueOf, str, str2)));
     }
 }

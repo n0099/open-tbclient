@@ -9,23 +9,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 class r {
-    public LinearLayout ciA;
-    public TextView ciB;
-    public ImageView ciC;
-    public TextView ciD;
-    public FrameLayout ciE;
-    public TextView ciF;
-    public RelativeLayout ciG;
-    public ImageView ciH;
-    public ProgressBar ciI;
-    public TextView ciJ;
+    public BarImageView ciA;
+    public LinearLayout ciB;
+    public TextView ciC;
+    public ImageView ciD;
+    public TextView ciE;
+    public FrameLayout ciF;
+    public TextView ciG;
+    public RelativeLayout ciH;
+    public ImageView ciI;
+    public ProgressBar ciJ;
     public TextView ciK;
     public TextView ciL;
-    final /* synthetic */ o ciu;
-    public BarImageView ciz;
+    public TextView ciM;
+    final /* synthetic */ o civ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.ciu = oVar;
+        this.civ = oVar;
     }
 }

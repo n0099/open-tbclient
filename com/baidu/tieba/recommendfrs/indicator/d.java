@@ -4,10 +4,10 @@ import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
     private final int TN;
-    final /* synthetic */ ScrollFragmentTabWidget ccp;
+    final /* synthetic */ ScrollFragmentTabWidget ccq;
 
     private d(ScrollFragmentTabWidget scrollFragmentTabWidget, int i) {
-        this.ccp = scrollFragmentTabWidget;
+        this.ccq = scrollFragmentTabWidget;
         this.TN = i;
     }
 
@@ -18,6 +18,6 @@ class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ScrollFragmentTabWidget.a(this.ccp).c(this.TN, true);
+        ScrollFragmentTabWidget.a(this.ccq).c(this.TN, true);
     }
 }

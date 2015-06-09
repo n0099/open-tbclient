@@ -5,12 +5,12 @@ import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class aj extends ag {
     public void a(aa aaVar) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             hm.r("ishttp", aaVar.aqJ ? "1" : GameInfoData.NOT_FROM_DETAIL);
             hm.r("issuccess", aaVar.isSuccess ? "1" : GameInfoData.NOT_FROM_DETAIL);
-            hm.r("nettype", ah.DB().getNetType());
+            hm.r("nettype", ah.DC().getNetType());
             hm.r("ct", String.valueOf(aaVar.aqx));
             hm.r("wt", String.valueOf(aaVar.aqE));
             hm.r("qt", String.valueOf(aaVar.aqy));
@@ -26,7 +26,7 @@ public class aj extends ag {
     }
 
     public void b(aa aaVar) {
-        if (ah.DB().DC() && aaVar.aqE > 0) {
+        if (ah.DC().DD() && aaVar.aqE > 0) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "white");
             hm.r("ct", String.valueOf(aaVar.aqx));
@@ -36,7 +36,7 @@ public class aj extends ag {
     }
 
     public void c(aa aaVar) {
-        if (ah.DB().DC() && aaVar.aqF > 0) {
+        if (ah.DC().DD() && aaVar.aqF > 0) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "readCache");
             hm.r("rct", String.valueOf(aaVar.aqF));
@@ -45,7 +45,7 @@ public class aj extends ag {
     }
 
     public void d(aa aaVar) {
-        if (ah.DB().DC() && aaVar.aqG > 0) {
+        if (ah.DC().DD() && aaVar.aqG > 0) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "writeCache");
             hm.r("wct", String.valueOf(aaVar.aqG));
@@ -54,7 +54,7 @@ public class aj extends ag {
     }
 
     public void a(z zVar, String str) {
-        if (zVar != null && str != null && ah.DB().DC()) {
+        if (zVar != null && str != null && ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "resource");
             hm.r("actype", str);
@@ -67,21 +67,21 @@ public class aj extends ag {
     }
 
     public void g(h hVar) {
-        if (hVar != null && ah.DB().DC()) {
+        if (hVar != null && ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "fluency");
-            hm.r("fps", String.valueOf(hVar.Dh()));
-            hm.r("memp", String.valueOf(hVar.Dj()));
+            hm.r("fps", String.valueOf(hVar.Di()));
+            hm.r("memp", String.valueOf(hVar.Dk()));
             hm.r("cpu", String.valueOf(hVar.getCpuString()));
             com.baidu.adp.lib.stats.f.hz().a(this.subType, -1L, (String) null, hm);
         }
     }
 
     public void h(h hVar) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "gc");
-            hm.r("gc", String.valueOf(hVar.Di()));
+            hm.r("gc", String.valueOf(hVar.Dj()));
             com.baidu.adp.lib.stats.f.hz().a(this.subType, -1L, (String) null, hm);
         }
     }

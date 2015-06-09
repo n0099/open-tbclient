@@ -4,14 +4,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ax {
-    ImageView aMX;
     ImageView aMY;
-    final /* synthetic */ aw aMZ;
-    TextView awo;
+    ImageView aMZ;
+    final /* synthetic */ aw aNa;
+    TextView awp;
     ImageView mDivider;
 
     private ax(aw awVar) {
-        this.aMZ = awVar;
+        this.aNa = awVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,35 +6,35 @@ import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class e {
     private Fragment TC;
-    private String ccq;
-    private b ccr;
+    private String ccr;
+    private b ccs;
 
     public e(Context context, com.baidu.tieba.recommendfrs.control.a.b bVar, String str, float f) {
         com.baidu.tieba.recommendfrs.b bVar2 = new com.baidu.tieba.recommendfrs.b();
         bVar2.iV(str);
         bVar2.a(bVar);
         this.TC = bVar2;
-        this.ccq = str;
+        this.ccr = str;
         b bVar3 = new b(context);
         bVar3.setText(str);
         bVar3.setTextSize(0, f);
         bVar3.rU();
-        this.ccr = bVar3;
+        this.ccs = bVar3;
     }
 
-    public String ahJ() {
-        return this.ccq;
+    public String ahK() {
+        return this.ccr;
     }
 
     public boolean je(String str) {
-        return TextUtils.equals(str, this.ccq);
+        return TextUtils.equals(str, this.ccr);
     }
 
-    public Fragment ahK() {
+    public Fragment ahL() {
         return this.TC;
     }
 
-    public b ahL() {
-        return this.ccr;
+    public b ahM() {
+        return this.ccs;
     }
 }

@@ -21,89 +21,89 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener, AdapterView.OnItemClickListener {
     private TbPageContext LH;
-    private com.baidu.tbadk.mvc.j.d<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c, b> cwA;
-    private n cwB;
-    private c cwz;
-    private final CustomMessageListener cgZ = new e(this, 2001274);
-    private View.OnClickListener cwC = new g(this);
+    private c cwA;
+    private com.baidu.tbadk.mvc.j.d<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c, b> cwB;
+    private n cwC;
+    private final CustomMessageListener cha = new e(this, 2001274);
+    private View.OnClickListener cwD = new g(this);
 
     public d() {
-        apZ();
+        aqa();
     }
 
-    private void apZ() {
-        MessageManager.getInstance().registerListener(this.cgZ);
+    private void aqa() {
+        MessageManager.getInstance().registerListener(this.cha);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anV() {
+    public void anW() {
         if (this.LH != null) {
-            o.aqE().l(this.LH);
-            o.aqE().b(new h(this));
+            o.aqF().l(this.LH);
+            o.aqF().b(new h(this));
         }
     }
 
     private void j(TbPageContext tbPageContext) {
         this.LH = tbPageContext;
-        this.cwA = new com.baidu.tbadk.mvc.j.d<>(tbPageContext, b.class, r.left_navi_item, null);
-        this.cwA.bi(false);
-        o.aqE().l(tbPageContext);
-        o.aqE().b(new i(this));
+        this.cwB = new com.baidu.tbadk.mvc.j.d<>(tbPageContext, b.class, r.left_navi_item, null);
+        this.cwB.bi(false);
+        o.aqF().l(tbPageContext);
+        o.aqF().b(new i(this));
     }
 
     public c k(TbPageContext tbPageContext) {
         if (tbPageContext == null) {
             return null;
         }
-        this.cwz = new c(tbPageContext.getPageActivity());
+        this.cwA = new c(tbPageContext.getPageActivity());
         j(tbPageContext);
-        this.cwz.setListAdapter(this.cwA);
-        this.cwz.setOnPersonInfoViewClicked(this.cwC);
-        this.cwz.setOnListItemClicked(this);
-        this.cwz.setOnSettingViewClicked(this);
-        this.cwz.setOnDayNightModeViewClicked(this);
-        this.cwz.setOnVipIconLoadListener(new j(this));
+        this.cwA.setListAdapter(this.cwB);
+        this.cwA.setOnPersonInfoViewClicked(this.cwD);
+        this.cwA.setOnListItemClicked(this);
+        this.cwA.setOnSettingViewClicked(this);
+        this.cwA.setOnDayNightModeViewClicked(this);
+        this.cwA.setOnVipIconLoadListener(new j(this));
         d(tbPageContext);
-        return this.cwz;
-    }
-
-    public void aqz() {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null && this.cwz != null) {
-            this.cwz.jN(currentAccountObj.getPortrait());
-            this.cwz.setUserName(currentAccountObj.getAccount());
-            this.cwz.jO(currentAccountObj.getMemberIconUrl());
-            this.cwz.setUserSexIcon(currentAccountObj.getSex());
-        }
+        return this.cwA;
     }
 
     public void aqA() {
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null && this.cwA != null) {
+            this.cwA.jN(currentAccountObj.getPortrait());
+            this.cwA.setUserName(currentAccountObj.getAccount());
+            this.cwA.jO(currentAccountObj.getMemberIconUrl());
+            this.cwA.setUserSexIcon(currentAccountObj.getSex());
+        }
+    }
+
+    public void aqB() {
         am(4, com.baidu.tbadk.core.sharedPref.b.sl().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m411getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
     }
 
     public void am(int i, int i2) {
-        o.aqE().b(new k(this, i, i2));
+        o.aqF().b(new k(this, i, i2));
     }
 
     public void fu(boolean z) {
-        if (this.cwz != null) {
-            this.cwz.fu(z);
+        if (this.cwA != null) {
+            this.cwA.fu(z);
         }
     }
 
     public void fv(boolean z) {
-        if (this.cwz != null) {
-            this.cwz.fv(z);
+        if (this.cwA != null) {
+            this.cwA.fv(z);
         }
     }
 
     public void a(n nVar) {
-        this.cwB = nVar;
+        this.cwC = nVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.tbadkCore.f.a item = this.cwA.getItem(i);
+        com.baidu.tieba.tbadkCore.f.a item = this.cwB.getItem(i);
         if (item != null) {
             switch (item.getType()) {
                 case 0:
@@ -111,7 +111,7 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(view.getContext())));
                     return;
                 case 1:
-                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.apc() == 0 ? 0 : 1, new Object[0]);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.apd() == 0 ? 0 : 1, new Object[0]);
                     am(1, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.c(view.getContext())));
@@ -136,7 +136,7 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
                 case 6:
                 default:
                     item.onClick();
-                    o.aqE().b(new l(this));
+                    o.aqF().b(new l(this));
                     return;
                 case 7:
                     aL(view.getContext()).rL();
@@ -156,29 +156,29 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cwz.getSettingView()) {
+        if (view == this.cwA.getSettingView()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001271));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015004, new com.baidu.tbadk.core.frameworkData.c(view.getContext())));
-        } else if (view == this.cwz.getDayNightView()) {
-            aqD();
+        } else if (view == this.cwA.getDayNightView()) {
+            aqE();
         }
     }
 
-    private void aqB() {
-        if (this.cwz != null) {
+    private void aqC() {
+        if (this.cwA != null) {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                this.cwz.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(t.skin_mode_day));
+                this.cwA.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(t.skin_mode_day));
             } else {
-                this.cwz.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(t.skin_mode_night));
+                this.cwA.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(t.skin_mode_night));
             }
         }
     }
 
-    public c aqC() {
-        return this.cwz;
+    public c aqD() {
+        return this.cwA;
     }
 
-    public void aqD() {
+    public void aqE() {
         int i = 1;
         if (TbadkCoreApplication.m411getInst().getSkinType() == 0) {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
@@ -186,20 +186,20 @@ public class d implements View.OnClickListener, AdapterView.OnItemClickListener 
             i = 0;
         }
         TbadkCoreApplication.m411getInst().setSkinType(i);
-        if (this.cwB != null) {
-            this.cwB.je(i);
+        if (this.cwC != null) {
+            this.cwC.je(i);
         }
         com.baidu.tbadk.core.util.c.iL();
     }
 
     public void d(TbPageContext tbPageContext) {
-        if (this.cwz != null) {
-            this.cwz.d(tbPageContext);
-            aqB();
-        }
         if (this.cwA != null) {
-            this.cwA.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
-            this.cwA.notifyDataSetChanged();
+            this.cwA.d(tbPageContext);
+            aqC();
+        }
+        if (this.cwB != null) {
+            this.cwB.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
+            this.cwB.notifyDataSetChanged();
         }
     }
 }

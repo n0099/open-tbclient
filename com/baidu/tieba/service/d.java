@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 class d extends Thread {
-    final /* synthetic */ ClearTempService cdz;
+    final /* synthetic */ ClearTempService cdA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ClearTempService clearTempService) {
-        this.cdz = clearTempService;
+        this.cdA = clearTempService;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -22,14 +22,14 @@ class d extends Thread {
             File file = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
             File file2 = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
             File file3 = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/voice");
-            this.cdz.deleteCache(file, false);
-            this.cdz.deleteDir(file2);
-            this.cdz.deleteDir(file3);
+            this.cdA.deleteCache(file, false);
+            this.cdA.deleteDir(file2);
+            this.cdA.deleteDir(file3);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        handler = this.cdz.handler;
-        handler2 = this.cdz.handler;
+        handler = this.cdA.handler;
+        handler2 = this.cdA.handler;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

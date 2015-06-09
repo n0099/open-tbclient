@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
     private com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ AtListActivity cBt;
+    final /* synthetic */ AtListActivity cBu;
 
     private n(AtListActivity atListActivity) {
-        this.cBt = atListActivity;
+        this.cBu = atListActivity;
         this.aaG = null;
     }
 
@@ -27,7 +27,7 @@ public class n extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cBt.mProgress;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -38,8 +38,8 @@ public class n extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.cBt.cBj = null;
-        progressBar = this.cBt.mProgress;
+        this.cBu.cBk = null;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -78,53 +78,53 @@ public class n extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.a> {
         BdListView bdListView;
         LinearLayout linearLayout2;
         View view;
-        this.cBt.cBj = null;
-        progressBar = this.cBt.mProgress;
+        this.cBu.cBk = null;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(8);
-        linearLayout = this.cBt.bvM;
+        linearLayout = this.cBu.bvN;
         if (linearLayout != null) {
-            linearLayout2 = this.cBt.bvM;
+            linearLayout2 = this.cBu.bvN;
             if (linearLayout2.getVisibility() == 0) {
-                view = this.cBt.cBn;
+                view = this.cBu.cBo;
                 view.setVisibility(0);
             }
         }
         if (this.aaG.sX().tT().qa()) {
-            aVar2 = this.cBt.cBk;
+            aVar2 = this.cBu.cBl;
             aVar2.a(aVar);
-            oVar = this.cBt.cBl;
+            oVar = this.cBu.cBm;
             if (oVar != null) {
-                editText = this.cBt.mEditText;
+                editText = this.cBu.mEditText;
                 if (com.baidu.adp.lib.util.m.a(editText.getText(), "").length() != 0) {
-                    aVar3 = this.cBt.cBk;
-                    if (aVar3.asn() != null) {
-                        if (aVar != null && aVar.asc() != null && !aVar.asc().isEmpty()) {
-                            this.cBt.jA(2);
+                    aVar3 = this.cBu.cBl;
+                    if (aVar3.aso() != null) {
+                        if (aVar != null && aVar.asd() != null && !aVar.asd().isEmpty()) {
+                            this.cBu.jA(2);
                         }
-                        aVar4 = this.cBt.cBk;
-                        aVar4.asn().f(aVar.asc());
-                        oVar2 = this.cBt.cBl;
+                        aVar4 = this.cBu.cBl;
+                        aVar4.aso().f(aVar.asd());
+                        oVar2 = this.cBu.cBm;
                         oVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    if (aVar == null || aVar.asb() == null || !aVar.asb().isEmpty()) {
-                        this.cBt.jA(0);
+                    if (aVar == null || aVar.asc() == null || !aVar.asc().isEmpty()) {
+                        this.cBu.jA(0);
                     } else {
-                        this.cBt.jA(2);
+                        this.cBu.jA(2);
                     }
-                    this.cBt.cBf = aVar.asb();
-                    oVar3 = this.cBt.cBl;
-                    oVar3.setData(this.cBt.cBf);
-                    oVar4 = this.cBt.cBl;
+                    this.cBu.cBg = aVar.asc();
+                    oVar3 = this.cBu.cBm;
+                    oVar3.setData(this.cBu.cBg);
+                    oVar4 = this.cBu.cBm;
                     oVar4.notifyDataSetInvalidated();
-                    bdListView = this.cBt.mListView;
+                    bdListView = this.cBu.mListView;
                     bdListView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.cBt.showToast(this.aaG.getErrorString());
+            this.cBu.showToast(this.aaG.getErrorString());
         }
         super.onPostExecute(aVar);
     }

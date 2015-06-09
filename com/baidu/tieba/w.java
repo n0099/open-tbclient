@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
@@ -31,6 +32,7 @@ public class w extends Dialog {
     private View.OnClickListener avL;
     private View.OnClickListener avM;
     private boolean avN;
+    private boolean avO;
     private VersionData avm;
     private CombineDownload avn;
     private boolean avo;
@@ -54,6 +56,7 @@ public class w extends Dialog {
         this.avq = false;
         this.avr = false;
         this.avN = true;
+        this.avO = true;
         this.mContext = context;
     }
 
@@ -126,10 +129,10 @@ public class w extends Dialog {
         this.avB.setOnClickListener(new y(this));
         this.avy.setOnClickListener(new z(this));
         this.avx.setOnClickListener(new aa(this));
-        EP();
+        EQ();
     }
 
-    private void EP() {
+    private void EQ() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -151,6 +154,9 @@ public class w extends Dialog {
                 this.avB.setText(t.super_update);
                 ay.i((View) this.avB, p.dialog_middle_item_bg_selector);
                 this.avJ.setVisibility(0);
+                this.avO = false;
+                TiebaStatic.eventStat(getContext(), "c10008", "show", 1, new Object[0]);
+                TiebaStatic.eventStat(getContext(), "c10010", "show", 1, new Object[0]);
                 return;
             }
             this.avD.setVisibility(0);
@@ -158,14 +164,20 @@ public class w extends Dialog {
             ay.i((View) this.avB, p.dialog_single_button_bg_selector);
             this.avI.setVisibility(8);
             this.avJ.setVisibility(8);
+            this.avO = true;
+            TiebaStatic.eventStat(getContext(), "c10002", "show", 1, new Object[0]);
         } else if (this.avm == null || TextUtils.isEmpty(this.avm.getPatch()) || this.avm.getNewVersionCode() < 0) {
             this.avD.setVisibility(8);
             this.avJ.setVisibility(0);
+            TiebaStatic.eventStat(getContext(), "c10010", "show", 1, new Object[0]);
         } else {
             this.avD.setVisibility(0);
             ay.i((View) this.avB, p.dialog_middle_item_bg_selector);
             this.avB.setText(t.incremental_update);
             this.avJ.setVisibility(0);
+            this.avO = true;
+            TiebaStatic.eventStat(getContext(), "c10002", "show", 1, new Object[0]);
+            TiebaStatic.eventStat(getContext(), "c10010", "show", 1, new Object[0]);
         }
     }
 
@@ -192,7 +204,7 @@ public class w extends Dialog {
             this.avE.setVisibility(0);
             return;
         }
-        this.avK.ES();
+        this.avK.ET();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, ab abVar) {
@@ -201,7 +213,7 @@ public class w extends Dialog {
         this.avK = abVar;
     }
 
-    public void EQ() {
+    public void ER() {
         this.avE.setVisibility(8);
         this.avs.setVisibility(0);
     }

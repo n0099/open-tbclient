@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cb extends CustomMessageListener {
-    final /* synthetic */ ca baS;
+    final /* synthetic */ ca baT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cb(ca caVar, int i) {
         super(i);
-        this.baS = caVar;
+        this.baT = caVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,11 +25,11 @@ public class cb extends CustomMessageListener {
         List list2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             bc bcVar = (bc) customResponsedMessage.getData();
-            if (bcVar.bae != null && bcVar.context != null) {
-                list = this.baS.aMA;
-                list.addAll(bcVar.bae);
-                bdTypeListView = this.baS.aMl;
-                list2 = this.baS.aMA;
+            if (bcVar.baf != null && bcVar.context != null) {
+                list = this.baT.aMB;
+                list.addAll(bcVar.baf);
+                bdTypeListView = this.baT.aMm;
+                list2 = this.baT.aMB;
                 bdTypeListView.h(new ArrayList(list2));
             }
         }

@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ae extends ag {
     public static void a(int i, int i2, int i3, long j, long j2, int i4, int i5, int i6, long j3, long j4, int i7, int i8, int i9, long j5, long j6, int i10, int i11, int i12, long j7, long j8, int i13, int i14, int i15, long j9, long j10, int i16) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "dlStat");
             hm.r("c_dnum", String.valueOf(i));
@@ -38,7 +38,7 @@ public class ae extends ag {
     }
 
     public static void a(int i, int i2, long j) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("action", "dcStat");
             hm.r("dcnum", String.valueOf(i));

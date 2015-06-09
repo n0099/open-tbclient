@@ -40,7 +40,7 @@ public class p extends b {
             }
             setText(str);
         }
-        anN();
+        anO();
     }
 
     public int getState() {
@@ -51,23 +51,23 @@ public class p extends b {
     @Override // com.baidu.tieba.tbadkCore.PbEditor.b
     public void rU() {
         super.rU();
-        anN();
+        anO();
     }
 
-    private void anN() {
+    private void anO() {
         if (this.mState == 1) {
             Animatable animatable = (Animatable) ay.getDrawable(com.baidu.tieba.p.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) com.baidu.adp.base.n.C(getContext()), animatable);
-            setPadding(this.cpV + com.baidu.adp.lib.util.n.dip2px(getContext(), 3.0f), this.cpW, this.cpV, this.cpW);
+            setPadding(this.cpW + com.baidu.adp.lib.util.n.dip2px(getContext(), 3.0f), this.cpX, this.cpW, this.cpX);
             setCompoundDrawablePadding(com.baidu.adp.lib.util.n.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
             setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cpV, this.cpW, this.cpV, this.cpW);
+            setPadding(this.cpW, this.cpX, this.cpW, this.cpX);
             setCompoundDrawablePadding(0);
         } else {
             setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cpV, this.cpW, this.cpV, this.cpW);
+            setPadding(this.cpW, this.cpX, this.cpW, this.cpX);
             setCompoundDrawablePadding(0);
         }
     }

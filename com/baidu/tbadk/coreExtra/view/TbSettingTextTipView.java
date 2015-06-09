@@ -21,7 +21,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context, attributeSet);
         this.agJ = true;
         this.mContext = context;
-        yc();
+        yd();
         c(attributeSet);
     }
 
@@ -29,7 +29,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context);
         this.agJ = true;
         this.mContext = context;
-        yc();
+        yd();
     }
 
     public void displayTip() {
@@ -82,7 +82,7 @@ public class TbSettingTextTipView extends FrameLayout {
         this.agH.setBackgroundDrawable(drawable);
     }
 
-    protected void yc() {
+    protected void yd() {
         com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.tb_setting_text_tip_view, this, true);
         this.agF = (LinearLayout) findViewById(com.baidu.tieba.q.container);
         this.agG = (TextView) findViewById(com.baidu.tieba.q.text);

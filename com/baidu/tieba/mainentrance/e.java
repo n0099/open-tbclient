@@ -5,8 +5,8 @@ import tbclient.HotForum.ForumInfo;
 public class e {
     private long bBA;
     private long bBB;
-    private String bBy;
-    private long bBz;
+    private long bBC;
+    private String bBz;
     private long forumId;
     private String forumName;
 
@@ -14,26 +14,26 @@ public class e {
         return this.forumName;
     }
 
-    public String Yf() {
-        return this.bBy;
-    }
-
-    public long Yg() {
-        return this.bBA;
+    public String Yg() {
+        return this.bBz;
     }
 
     public long Yh() {
         return this.bBB;
     }
 
+    public long Yi() {
+        return this.bBC;
+    }
+
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
-            this.bBy = forumInfo.avatar;
+            this.bBz = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.bBz = forumInfo.time_out.longValue();
-            this.bBA = forumInfo.member_count.longValue();
-            this.bBB = forumInfo.thread_count.longValue();
+            this.bBA = forumInfo.time_out.longValue();
+            this.bBB = forumInfo.member_count.longValue();
+            this.bBC = forumInfo.thread_count.longValue();
         }
     }
 }

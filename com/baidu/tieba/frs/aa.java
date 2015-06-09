@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(FrsActivity frsActivity, int i) {
         super(i);
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,18 +20,18 @@ class aa extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivityStatic.aMg = true;
-            } else if (intValue == 2) {
                 FrsActivityStatic.aMh = true;
+            } else if (intValue == 2) {
+                FrsActivityStatic.aMi = true;
             }
             boolean z = intValue == 3;
-            boolean KQ = FrsActivityStatic.KQ();
-            if (z && KQ) {
-                FrsActivityStatic.aMf = false;
+            boolean KR = FrsActivityStatic.KR();
+            if (z && KR) {
+                FrsActivityStatic.aMg = false;
             } else {
-                FrsActivityStatic.aMf = true;
+                FrsActivityStatic.aMg = true;
             }
-            this.aLX.Ku();
+            this.aLY.Kv();
         }
     }
 }

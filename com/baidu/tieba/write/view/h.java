@@ -3,20 +3,20 @@ package com.baidu.tieba.write.view;
 import android.view.View;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    final /* synthetic */ f cAZ;
-    private final f cBa;
-    private final i cBb;
+    final /* synthetic */ f cBa;
+    private final f cBb;
+    private final i cBc;
 
     public h(f fVar, f fVar2, i iVar) {
-        this.cAZ = fVar;
-        this.cBa = fVar2;
-        this.cBb = iVar;
+        this.cBa = fVar;
+        this.cBb = fVar2;
+        this.cBc = iVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cBb != null) {
-            this.cBb.a(this.cBa);
+        if (this.cBc != null) {
+            this.cBc.a(this.cBb);
         }
     }
 }

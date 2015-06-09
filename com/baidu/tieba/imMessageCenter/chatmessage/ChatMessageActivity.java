@@ -18,8 +18,8 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView brA;
-    private FragmentTransaction brB;
+    private ImageView brB;
+    private FragmentTransaction brC;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -51,6 +51,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(q.view_navigation_bar);
         this.mNavigationBar.setTitleText(t.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.brA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_addchat, this.mOnClickListener);
+        this.brB = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

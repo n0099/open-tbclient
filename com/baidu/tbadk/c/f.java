@@ -23,7 +23,7 @@ public class f extends a {
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Ax() {
+    public int Ay() {
         this.currentIndex++;
         if (this.currentIndex >= this.amK) {
             this.currentIndex = 0;
@@ -55,28 +55,28 @@ public class f extends a {
         this.amK = this.XP.length;
     }
 
-    private void Ay() {
+    private void Az() {
         if (this.amI != null && (this.amI.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.amI.getBackground()).start();
         }
     }
 
-    private void Az() {
+    private void AA() {
         if (this.amI != null && (this.amI.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.amI.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.c.a
-    protected void Av() {
-        Ay();
+    protected void Aw() {
+        Az();
         this.agG.setText(this.XP[0]);
         this.agG.postDelayed(this.Iu, 200L);
     }
 
     @Override // com.baidu.tbadk.c.a
-    protected void Aw() {
-        Az();
+    protected void Ax() {
+        AA();
         this.agG.removeCallbacks(this.Iu);
     }
 
@@ -84,8 +84,8 @@ public class f extends a {
         ay.b(this.agG, n.cp_cont_c, 1);
         ay.b(this.amJ, n.cp_cont_c, 1);
         ay.j(this.amG, n.cp_bg_line_d);
-        Az();
+        AA();
         ay.i(this.amI, p.loading_animation);
-        Ay();
+        Az();
     }
 }

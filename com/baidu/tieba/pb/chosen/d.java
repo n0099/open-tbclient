@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bJa;
+    final /* synthetic */ PbChosenActivity bJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.bJa = pbChosenActivity;
+        this.bJb = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -20,15 +20,15 @@ class d extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.pb.chosen.a.h hVar;
         com.baidu.tieba.pb.chosen.a.h hVar2;
         if (responsedMessage != null) {
-            hVar = this.bJa.bIP;
-            hVar.aao();
+            hVar = this.bJb.bIQ;
+            hVar.aap();
             if (responsedMessage.hasError()) {
-                this.bJa.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bJa.getResources().getString(t.neterror) : responsedMessage.getErrorString());
+                this.bJb.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bJb.getResources().getString(t.neterror) : responsedMessage.getErrorString());
                 return;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof ChosenZanNetMessage) {
-                hVar2 = this.bJa.bIP;
+                hVar2 = this.bJb.bIQ;
                 hVar2.dN(((ChosenZanNetMessage) extra).isPraise());
             }
         }

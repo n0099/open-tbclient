@@ -1,18 +1,17 @@
 package com.baidu.tieba.setting.more;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ AppsActivity ceP;
+class h implements View.OnClickListener {
+    final /* synthetic */ AppsActivity ceQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AppsActivity appsActivity) {
-        this.ceP = appsActivity;
+        this.ceQ = appsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ceP.finish();
+        this.ceQ.finish();
     }
 }

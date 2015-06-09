@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements af {
-    final /* synthetic */ t bvV;
+    final /* synthetic */ t bvW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(t tVar) {
-        this.bvV = tVar;
+        this.bvW = tVar;
     }
 
     @Override // com.baidu.tbadk.core.view.af
@@ -18,25 +18,25 @@ public class ab implements af {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.bvV.Xk();
+        this.bvW.Xl();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
             if (z) {
-                int Xl = this.bvV.Xl();
-                inviteFriendCandidateList = this.bvV.bvL;
-                if (Xl <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.bvV.bvI;
-                    inviteFriendListActivity2 = this.bvV.bvI;
+                int Xm = this.bvW.Xm();
+                inviteFriendCandidateList = this.bvW.bvM;
+                if (Xm <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.bvW.bvJ;
+                    inviteFriendListActivity2 = this.bvW.bvJ;
                     String string = inviteFriendListActivity2.getPageContext().getString(com.baidu.tieba.t.invite_friend_exceed_max_count);
-                    i = this.bvV.bvP;
+                    i = this.bvW.bvQ;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
                     ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
                     return;
                 }
-                this.bvV.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.bvW.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
                 return;
             }
-            this.bvV.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+            this.bvW.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
         }
     }
 }

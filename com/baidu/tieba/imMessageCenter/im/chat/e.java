@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity brU;
+    final /* synthetic */ PersonalChatActivity brV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.brU = personalChatActivity;
+        this.brV = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ class e extends CustomMessageListener {
         AbsMsglistView absMsglistView2;
         AbsMsglistView absMsglistView3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001220) {
-            absMsglistView = this.brU.mListView;
+            absMsglistView = this.brV.mListView;
             if (absMsglistView != null) {
-                absMsglistView2 = this.brU.mListView;
+                absMsglistView2 = this.brV.mListView;
                 if (absMsglistView2.getAdapter() != null) {
-                    absMsglistView3 = this.brU.mListView;
+                    absMsglistView3 = this.brV.mListView;
                     absMsglistView3.getAdapter().notifyDataSetChanged();
                 }
             }

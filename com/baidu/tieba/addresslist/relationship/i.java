@@ -10,14 +10,14 @@ public class i {
     private static volatile SQLiteDatabase sDatabase;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void Gq() {
+    public static synchronized void Gr() {
         synchronized (i.class) {
             w.i(sDatabase);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase Gr() {
+    public static synchronized SQLiteDatabase Gs() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (i.class) {
             try {

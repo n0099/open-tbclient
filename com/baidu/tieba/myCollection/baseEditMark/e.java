@@ -4,50 +4,50 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.baseEditMark.a {
-    private f bHA;
+    private f bHB;
 
     public e(BaseActivity baseActivity) {
-        this.bHA = null;
-        this.bHA = new f(baseActivity);
+        this.bHB = null;
+        this.bHB = new f(baseActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void Z(boolean z) {
-        this.bHA.Z(z);
+        this.bHB.Z(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public String pp() {
-        return this.bHA.pp();
+        return this.bHB.pp();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(com.baidu.tbadk.baseEditMark.b bVar) {
-        this.bHA.a(bVar);
+        this.bHB.a(bVar);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void pr() {
-        this.bHA.pr();
+        this.bHB.pr();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void ps() {
-        this.bHA.ps();
+        this.bHB.ps();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public MarkData pt() {
-        return this.bHA.pt();
+        return this.bHB.pt();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.bHA.a(markData);
+        this.bHB.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public boolean pq() {
-        return this.bHA.pq();
+        return this.bHB.pq();
     }
 }

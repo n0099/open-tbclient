@@ -23,10 +23,10 @@ import java.util.Random;
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.g> {
     aa OE;
-    final /* synthetic */ TiebaSyncService cdE;
+    final /* synthetic */ TiebaSyncService cdF;
 
     private l(TiebaSyncService tiebaSyncService) {
-        this.cdE = tiebaSyncService;
+        this.cdF = tiebaSyncService;
         this.OE = null;
     }
 
@@ -87,13 +87,13 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
                 gVar = new com.baidu.tbadk.coreExtra.c.g();
                 try {
                     gVar.parserJson(sw);
-                    if (TbadkCoreApplication.getClientId() == null && gVar.wM().getClientId() != null && gVar.wM().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(this.cdE, gVar.wM().getClientId());
-                        TbadkCoreApplication.setClientId(gVar.wM().getClientId());
+                    if (TbadkCoreApplication.getClientId() == null && gVar.wN().getClientId() != null && gVar.wN().getClientId().length() > 0) {
+                        TbadkCoreApplication.saveClientId(this.cdF, gVar.wN().getClientId());
+                        TbadkCoreApplication.setClientId(gVar.wN().getClientId());
                     }
-                    if (gVar.wI() != null) {
-                        com.baidu.tbadk.core.sharedPref.b.sl().putInt("aladin_port", gVar.wI().vk());
-                        com.baidu.tbadk.core.sharedPref.b.sl().putInt("crash_limit_count", gVar.wI().getCrashLimitCount());
+                    if (gVar.wJ() != null) {
+                        com.baidu.tbadk.core.sharedPref.b.sl().putInt("aladin_port", gVar.wJ().vk());
+                        com.baidu.tbadk.core.sharedPref.b.sl().putInt("crash_limit_count", gVar.wJ().getCrashLimitCount());
                     }
                     TiebaSyncService.mStatistics = null;
                     return gVar;
@@ -112,7 +112,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.cdE.mSyncTask = null;
+        this.cdF.mSyncTask = null;
         if (this.OE != null) {
             this.OE.gS();
         }
@@ -147,41 +147,41 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
         com.baidu.tbadk.coreExtra.c.g gVar15;
         com.baidu.tbadk.coreExtra.c.g gVar16;
         super.onPostExecute(gVar);
-        this.cdE.mSyncTask = null;
+        this.cdF.mSyncTask = null;
         if (gVar != null) {
-            com.baidu.tbadk.util.a.DP().DQ();
-            this.cdE.mModel = gVar;
-            gVar2 = this.cdE.mModel;
-            if (gVar2.wL().hasNewVer()) {
+            com.baidu.tbadk.util.a.DQ().DR();
+            this.cdF.mModel = gVar;
+            gVar2 = this.cdF.mModel;
+            if (gVar2.wM().hasNewVer()) {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                gVar8 = this.cdE.mModel;
-                m411getInst.setVersionData(gVar8.wL());
-                this.cdE.broadcastNewVersion();
-                gVar9 = this.cdE.mModel;
-                if (gVar9.wL().forceUpdate()) {
-                    gVar14 = this.cdE.mModel;
-                    if (gVar14.wI() != null && TbadkCoreApplication.m411getInst().getResumeNum() > 0) {
+                gVar8 = this.cdF.mModel;
+                m411getInst.setVersionData(gVar8.wM());
+                this.cdF.broadcastNewVersion();
+                gVar9 = this.cdF.mModel;
+                if (gVar9.wM().forceUpdate()) {
+                    gVar14 = this.cdF.mModel;
+                    if (gVar14.wJ() != null && TbadkCoreApplication.m411getInst().getResumeNum() > 0) {
                         MessageManager messageManager = MessageManager.getInstance();
                         Application app = TbadkCoreApplication.m411getInst().getApp();
-                        gVar15 = this.cdE.mModel;
-                        VersionData wL = gVar15.wL();
-                        gVar16 = this.cdE.mModel;
-                        messageManager.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app, wL, gVar16.wK())));
+                        gVar15 = this.cdF.mModel;
+                        VersionData wM = gVar15.wM();
+                        gVar16 = this.cdF.mModel;
+                        messageManager.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app, wM, gVar16.wL())));
                     }
                 } else {
                     Long valueOf = Long.valueOf(TbadkCoreApplication.m411getInst().getUpdateNotifyTime());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
                     if (valueOf2.longValue() - valueOf.longValue() > 86400000) {
-                        gVar10 = this.cdE.mModel;
-                        if (gVar10.wL().getStrategy() == 0) {
-                            gVar11 = this.cdE.mModel;
-                            if (gVar11.wI() != null && TbadkCoreApplication.m411getInst().getResumeNum() > 0) {
+                        gVar10 = this.cdF.mModel;
+                        if (gVar10.wM().getStrategy() == 0) {
+                            gVar11 = this.cdF.mModel;
+                            if (gVar11.wJ() != null && TbadkCoreApplication.m411getInst().getResumeNum() > 0) {
                                 MessageManager messageManager2 = MessageManager.getInstance();
                                 Application app2 = TbadkCoreApplication.m411getInst().getApp();
-                                gVar12 = this.cdE.mModel;
-                                VersionData wL2 = gVar12.wL();
-                                gVar13 = this.cdE.mModel;
-                                messageManager2.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app2, wL2, gVar13.wK())));
+                                gVar12 = this.cdF.mModel;
+                                VersionData wM2 = gVar12.wM();
+                                gVar13 = this.cdF.mModel;
+                                messageManager2.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app2, wM2, gVar13.wL())));
                                 TbadkCoreApplication.m411getInst().setUpdateNotifyTime(valueOf2.longValue());
                             }
                         }
@@ -190,56 +190,56 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
             }
             TbadkCoreApplication.m411getInst().loadLcsSwitchStratgy();
             int nextInt = new Random().nextInt(10000) + 1;
-            int vj = gVar.wI().vj();
+            int vj = gVar.wJ().vj();
             if (vj > 0 && nextInt % vj == 0 && (performSampleCount = TbadkCoreApplication.m411getInst().getPerformSampleCount()) < 10) {
                 TbadkCoreApplication.m411getInst().setPerformSampleCount(performSampleCount + 1);
             }
-            gVar3 = this.cdE.mModel;
-            String wJ = gVar3.wJ();
-            if (!StringUtils.isNull(wJ)) {
-                TbadkCoreApplication.m411getInst().setConfigVersion(wJ);
+            gVar3 = this.cdF.mModel;
+            String wK = gVar3.wK();
+            if (!StringUtils.isNull(wK)) {
+                TbadkCoreApplication.m411getInst().setConfigVersion(wK);
             }
-            gVar4 = this.cdE.mModel;
-            com.baidu.tbadk.coreExtra.data.m wN = gVar4.wN();
-            if (wN != null) {
-                TbadkCoreApplication.m411getInst().getListItemRule().dB(wN.vD());
-                TbadkCoreApplication.m411getInst().getListItemRule().dD(wN.vF());
-                TbadkCoreApplication.m411getInst().getListItemRule().dC(wN.vE());
-                aq.to().c(wN.vy(), wN.vz(), wN.vA(), wN.vB(), wN.vC());
-                String vx = wN.vx();
+            gVar4 = this.cdF.mModel;
+            com.baidu.tbadk.coreExtra.data.m wO = gVar4.wO();
+            if (wO != null) {
+                TbadkCoreApplication.m411getInst().getListItemRule().dB(wO.vD());
+                TbadkCoreApplication.m411getInst().getListItemRule().dD(wO.vF());
+                TbadkCoreApplication.m411getInst().getListItemRule().dC(wO.vE());
+                aq.to().c(wO.vy(), wO.vz(), wO.vA(), wO.vB(), wO.vC());
+                String vx = wO.vx();
                 com.baidu.tbadk.core.sharedPref.b sl = com.baidu.tbadk.core.sharedPref.b.sl();
                 if (vx == null) {
                     vx = "";
                 }
                 sl.putString("apply_vip_live_room_pid", vx);
             }
-            this.cdE.stopSelf();
-            gVar5 = this.cdE.mModel;
-            if (gVar5.wI() != null) {
-                gVar6 = this.cdE.mModel;
-                if (gVar6.wI().vl() != null) {
+            this.cdF.stopSelf();
+            gVar5 = this.cdF.mModel;
+            if (gVar5.wJ() != null) {
+                gVar6 = this.cdF.mModel;
+                if (gVar6.wJ().vl() != null) {
                     TbadkCoreApplication m411getInst2 = TbadkCoreApplication.m411getInst();
-                    gVar7 = this.cdE.mModel;
-                    m411getInst2.setCheckUrl(gVar7.wI().vl().vu());
+                    gVar7 = this.cdF.mModel;
+                    m411getInst2.setCheckUrl(gVar7.wJ().vl().vu());
                     return;
                 }
                 return;
             }
             return;
         }
-        TiebaSyncService tiebaSyncService = this.cdE;
+        TiebaSyncService tiebaSyncService = this.cdF;
         i = tiebaSyncService.mHaveRetry;
         tiebaSyncService.mHaveRetry = i + 1;
-        i2 = this.cdE.mHaveRetry;
+        i2 = this.cdF.mHaveRetry;
         if (i2 < 10) {
-            handler = this.cdE.mHandler;
-            runnable = this.cdE.mRunnable;
+            handler = this.cdF.mHandler;
+            runnable = this.cdF.mRunnable;
             handler.removeCallbacks(runnable);
-            handler2 = this.cdE.mHandler;
-            runnable2 = this.cdE.mRunnable;
+            handler2 = this.cdF.mHandler;
+            runnable2 = this.cdF.mRunnable;
             handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
             return;
         }
-        this.cdE.stopSelf();
+        this.cdF.stopSelf();
     }
 }

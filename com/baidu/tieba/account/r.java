@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
 class r extends BdAsyncTask<Void, Void, AccountData> {
-    final /* synthetic */ q awx;
-    private final /* synthetic */ String awy;
+    final /* synthetic */ q awy;
+    private final /* synthetic */ String awz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar, String str) {
-        this.awx = qVar;
-        this.awy = str;
+        this.awy = qVar;
+        this.awz = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ class r extends BdAsyncTask<Void, Void, AccountData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public AccountData doInBackground(Void... voidArr) {
-        return com.baidu.tbadk.core.a.d.cd(this.awy);
+        return com.baidu.tbadk.core.a.d.cd(this.awz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,8 +33,8 @@ class r extends BdAsyncTask<Void, Void, AccountData> {
         if (accountData != null && !bb.isEmpty(accountData.getPassword())) {
             String account = accountData.getAccount();
             String password = accountData.getPassword();
-            pVar = this.awx.aww;
-            bVar = pVar.awv;
+            pVar = this.awy.awx;
+            bVar = pVar.aww;
             com.baidu.tieba.a.a.a(account, password, bVar);
         }
     }

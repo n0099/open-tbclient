@@ -6,11 +6,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements TextView.OnEditorActionListener {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SquareSearchActivity squareSearchActivity) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -22,29 +22,29 @@ public class s implements TextView.OnEditorActionListener {
         String str3;
         String str4;
         if (i == 2) {
-            i2 = this.bCE.mMode;
+            i2 = this.bCF.mMode;
             if (i2 != 0) {
-                i3 = this.bCE.mMode;
+                i3 = this.bCF.mMode;
                 if (i3 == 3) {
-                    str2 = this.bCE.bCf;
+                    str2 = this.bCF.bCg;
                     if (TextUtils.isEmpty(str2)) {
                         return true;
                     }
-                    str3 = this.bCE.bCf;
+                    str3 = this.bCF.bCg;
                     if (str3.trim().length() > 0) {
-                        SquareSearchActivity squareSearchActivity = this.bCE;
-                        str4 = this.bCE.bCf;
+                        SquareSearchActivity squareSearchActivity = this.bCF;
+                        str4 = this.bCF.bCg;
                         squareSearchActivity.fE(str4);
                         return true;
                     }
                     return true;
                 }
-                SquareSearchActivity squareSearchActivity2 = this.bCE;
-                str = this.bCE.bCf;
+                SquareSearchActivity squareSearchActivity2 = this.bCF;
+                str = this.bCF.bCg;
                 squareSearchActivity2.z(1, str);
                 return true;
             }
-            this.bCE.Yo();
+            this.bCF.Yp();
             return true;
         }
         return false;

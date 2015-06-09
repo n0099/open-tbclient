@@ -14,10 +14,10 @@ public class s implements b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.b
-    public void yk() {
+    public void yl() {
         List list;
         this.ahF.currentIndex = 0;
-        this.ahF.agT = a.ye().yh();
+        this.ahF.agT = a.yf().yi();
         list = this.ahF.agT;
         if (list == null) {
             this.ahF.ahD = false;

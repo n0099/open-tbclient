@@ -7,37 +7,37 @@ import com.baidu.tieba.im.model.BlackListModel;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
 public class s {
-    private final BlackListModel bsK;
-    private PersonalTalkSettingActivity bsL;
-    private x bsM;
+    private final BlackListModel bsL;
+    private PersonalTalkSettingActivity bsM;
+    private x bsN;
     private DataRes data;
-    private com.baidu.tbadk.coreExtra.c.a bsH = new com.baidu.tbadk.coreExtra.c.a(null);
+    private com.baidu.tbadk.coreExtra.c.a bsI = new com.baidu.tbadk.coreExtra.c.a(null);
     private boolean acr = false;
-    private boolean bsI = false;
     private boolean bsJ = false;
+    private boolean bsK = false;
     private com.baidu.adp.framework.listener.e mListener = new t(this, 0);
     private CustomMessageListener mCustomListener = new u(this, 0);
 
-    public boolean VC() {
-        return this.bsJ;
+    public boolean VD() {
+        return this.bsK;
     }
 
     public void dp(boolean z) {
-        this.bsJ = z;
+        this.bsK = z;
     }
 
-    public DataRes VD() {
+    public DataRes VE() {
         return this.data;
     }
 
-    public boolean VE() {
-        return this.bsI;
+    public boolean VF() {
+        return this.bsJ;
     }
 
     public s(PersonalTalkSettingActivity personalTalkSettingActivity, x xVar, long j) {
-        this.bsL = personalTalkSettingActivity;
-        this.bsM = xVar;
-        this.bsK = new BlackListModel(personalTalkSettingActivity);
+        this.bsM = personalTalkSettingActivity;
+        this.bsN = xVar;
+        this.bsL = new BlackListModel(personalTalkSettingActivity);
         personalTalkSettingActivity.showProgressBar();
         com.baidu.tieba.im.l.a(new v(this, j), new w(this, j, personalTalkSettingActivity));
     }
@@ -51,28 +51,28 @@ public class s {
     }
 
     public void dr(boolean z) {
-        this.bsL.showLoadingDialog(null);
+        this.bsM.showLoadingDialog(null);
         if (z) {
-            this.bsK.addToBlackList(this.data.id.longValue());
+            this.bsL.addToBlackList(this.data.id.longValue());
         } else {
-            this.bsK.removeFromBlackList(this.data.id.longValue());
+            this.bsL.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.bsH != null) {
-            this.bsH.cancel();
+        if (this.bsI != null) {
+            this.bsI.cancel();
         }
-        if (this.bsK != null) {
-            this.bsK.cancelLoadData();
+        if (this.bsL != null) {
+            this.bsL.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.e VF() {
+    public com.baidu.adp.framework.listener.e VG() {
         return this.mListener;
     }
 
-    public CustomMessageListener VG() {
+    public CustomMessageListener VH() {
         return this.mCustomListener;
     }
 }

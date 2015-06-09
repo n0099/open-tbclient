@@ -10,19 +10,19 @@ public class e {
     private int chat = 0;
     private int aih = 0;
 
-    public int yJ() {
+    public int yK() {
         return this.aif;
     }
 
-    public int yK() {
+    public int yL() {
         return this.aig;
     }
 
-    public int yL() {
+    public int yM() {
         return this.fans;
     }
 
-    public int yM() {
+    public int yN() {
         return this.aih;
     }
 

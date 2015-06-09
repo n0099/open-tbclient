@@ -18,7 +18,7 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
             ah ahVar = new ah();
             ahVar.setLike(1);
             ahVar.iz(gVar.level);
-            ahVar.setLevelName(gVar.coG);
+            ahVar.setLevelName(gVar.coH);
             ahVar.setCurScore(gVar.cur_score);
             ahVar.setLevelupScore(gVar.levelup_score);
             a(ahVar);
@@ -27,22 +27,22 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
 
     public void a(ah ahVar) {
         if (ahVar != null) {
-            this.bJD.setCurScore(ahVar.getCurScore());
-            this.bJD.setLevelupScore(ahVar.getLevelupScore());
-            this.bJD.setLike(ahVar.isLike());
-            this.bJD.setUser_level(ahVar.aky());
-            this.bJD.setLevelName(ahVar.getLevelName());
+            this.bJE.setCurScore(ahVar.getCurScore());
+            this.bJE.setLevelupScore(ahVar.getLevelupScore());
+            this.bJE.setLike(ahVar.isLike());
+            this.bJE.setUser_level(ahVar.akz());
+            this.bJE.setLevelName(ahVar.getLevelName());
         }
     }
 
     public void d(SignData signData) {
         if (signData != null) {
-            this.bJD.setSignData(signData);
+            this.bJE.setSignData(signData);
         }
     }
 
     public void a(AnchorPower anchorPower) {
-        this.bJD.setAnchorPower(anchorPower);
+        this.bJE.setAnchorPower(anchorPower);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x000f, code lost:
@@ -62,25 +62,25 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
 
     public void a(com.baidu.tbadk.core.data.o oVar) {
         if (oVar != null && !StringUtils.isNull(oVar.getId()) && this.threadList != null) {
-            int amI = amI();
+            int amJ = amJ();
             ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 for (int i = 0; i < size; i++) {
                     com.baidu.adp.widget.ListView.ai aiVar = threadList.get(i);
                     if (aiVar instanceof com.baidu.tbadk.core.data.m) {
-                        amI++;
+                        amJ++;
                     }
                     if ((aiVar instanceof com.baidu.tbadk.core.data.w) && oVar.getId().equals(((com.baidu.tbadk.core.data.w) aiVar).getId())) {
                         return;
                     }
                 }
             }
-            this.threadList.add(amI, oVar);
+            this.threadList.add(amJ, oVar);
         }
     }
 
-    public int amH() {
+    public int amI() {
         int i = 0;
         ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
         if (threadList != null && threadList.size() > 0) {
@@ -95,7 +95,7 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
         return i;
     }
 
-    public int amI() {
+    public int amJ() {
         if (this.threadList == null || this.threadList.size() <= 0) {
             return 0;
         }
@@ -117,7 +117,7 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
     public void aG(Context context) {
         com.baidu.tbadk.core.data.f bannerListData;
         int i;
-        if (this.bJD != null && (bannerListData = this.bJD.getBannerListData()) != null && bannerListData.qA() != null && this.threadList != null && this.threadList.size() > 0) {
+        if (this.bJE != null && (bannerListData = this.bJE.getBannerListData()) != null && bannerListData.qA() != null && this.threadList != null && this.threadList.size() > 0) {
             int size = this.threadList.size();
             int i2 = 0;
             while (true) {
@@ -159,8 +159,8 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
                             if (au.isInstalledPackage(context, cVar.Px)) {
                                 i = i5;
                             } else if (!TextUtils.isEmpty(cVar.Px) && !TextUtils.isEmpty(cVar.Pt)) {
-                                boolean er = com.baidu.tbadk.download.b.ze().er(cVar.Px);
-                                boolean es = com.baidu.tbadk.download.b.ze().es(cVar.Px);
+                                boolean er = com.baidu.tbadk.download.b.zf().er(cVar.Px);
+                                boolean es = com.baidu.tbadk.download.b.zf().es(cVar.Px);
                                 if (er) {
                                     cVar.Pr = 1;
                                 } else if (es) {
@@ -188,18 +188,18 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
         }
     }
 
-    public void amJ() {
+    public void amK() {
         boolean z = true;
         int i = 0;
-        if (this.bJD != null && this.bGk != null && this.bGk.qP() == 1) {
-            if (this.cpk == null || !this.cpk.amM()) {
+        if (this.bJE != null && this.bGl != null && this.bGl.qP() == 1) {
+            if (this.cpl == null || !this.cpl.amN()) {
                 z = false;
             }
-            if (this.cpi || z) {
+            if (this.cpj || z) {
                 aj ajVar = new aj();
-                ajVar.fe(this.cpi);
-                ajVar.jw(this.cpj);
-                ajVar.b(this.cpk);
+                ajVar.fe(this.cpj);
+                ajVar.jw(this.cpk);
+                ajVar.b(this.cpl);
                 ajVar.bq(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {
                     Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
@@ -215,12 +215,12 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
         }
     }
 
-    public void amK() {
-        if (aar() != null && TbadkCoreApplication.m411getInst().appResponseToIntentClass(LiveRoomEntranceActivityConfig.class)) {
-            a(aar().getAnchorPower());
-            ArrayList<LiveCardData> amx = amx();
+    public void amL() {
+        if (aas() != null && TbadkCoreApplication.m411getInst().appResponseToIntentClass(LiveRoomEntranceActivityConfig.class)) {
+            a(aas().getAnchorPower());
+            ArrayList<LiveCardData> amy = amy();
             ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
-            if (amx != null && amx.size() > 0 && threadList != null && threadList.size() > 0) {
+            if (amy != null && amy.size() > 0 && threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 int i = 0;
                 while (true) {
@@ -233,19 +233,19 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
                         break;
                     }
                 }
-                int amI = amI();
+                int amJ = amJ();
                 com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-                mVar.j(amx);
-                getThreadList().add(amI, mVar);
+                mVar.j(amy);
+                getThreadList().add(amJ, mVar);
             }
         }
     }
 
-    public void amL() {
+    public void amM() {
         com.baidu.tbadk.core.data.s recommendLikeUser;
         int i;
         int i2;
-        if (this.bJD != null && (recommendLikeUser = this.bJD.getRecommendLikeUser()) != null && recommendLikeUser.qW() != null && !TextUtils.isEmpty(recommendLikeUser.qW().getName()) && this.threadList != null && this.threadList.size() > 0) {
+        if (this.bJE != null && (recommendLikeUser = this.bJE.getRecommendLikeUser()) != null && recommendLikeUser.qW() != null && !TextUtils.isEmpty(recommendLikeUser.qW().getName()) && this.threadList != null && this.threadList.size() > 0) {
             int size = this.threadList.size();
             Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
             int i3 = 0;
@@ -287,21 +287,21 @@ public class w extends u implements com.baidu.tbadk.mvc.b.m {
             return false;
         }
         b(uVar.qK());
-        a(uVar.amu());
-        fc(uVar.amq());
-        jq(uVar.amr());
-        c(uVar.aar());
+        a(uVar.amv());
+        fc(uVar.amr());
+        jq(uVar.ams());
+        c(uVar.aas());
         setGameName(uVar.getGameName());
-        jr(uVar.amy());
-        a(uVar.ams());
-        fd(uVar.amv());
-        gX(uVar.aaw());
-        S(uVar.amx());
-        a(uVar.Zp());
-        a(uVar.amp());
-        ba(uVar.amw());
+        jr(uVar.amz());
+        a(uVar.amt());
+        fd(uVar.amw());
+        gX(uVar.aax());
+        S(uVar.amy());
+        a(uVar.Zq());
+        a(uVar.amq());
+        ba(uVar.amx());
         R(uVar.getThreadList());
-        aZ(uVar.amt());
+        aZ(uVar.amu());
         k(uVar.getUserData());
         setUserMap(uVar.getUserMap());
         return true;

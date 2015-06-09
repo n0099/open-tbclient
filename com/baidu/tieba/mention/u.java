@@ -12,16 +12,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.mvc.b.k {
     protected boolean acq;
-    protected ArrayList<FeedData> bGj = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.q bGk = new com.baidu.tbadk.core.data.q();
-    protected com.baidu.tbadk.data.e bGl = new com.baidu.tbadk.data.e();
+    protected ArrayList<FeedData> bGk = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.q bGl = new com.baidu.tbadk.core.data.q();
+    protected com.baidu.tbadk.data.e bGm = new com.baidu.tbadk.data.e();
 
-    public ArrayList<FeedData> Zo() {
-        return this.bGj;
+    public ArrayList<FeedData> Zp() {
+        return this.bGk;
     }
 
-    public com.baidu.tbadk.core.data.q Zp() {
-        return this.bGk;
+    public com.baidu.tbadk.core.data.q Zq() {
+        return this.bGl;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -33,11 +33,11 @@ public class u implements com.baidu.tbadk.mvc.b.k {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.bGj.add(feedData);
+                    this.bGk.add(feedData);
                 }
             }
-            this.bGl.parserJson(jSONObject.optJSONObject("message"));
-            this.bGk.parserJson(jSONObject.optJSONObject("page"));
+            this.bGm.parserJson(jSONObject.optJSONObject("message"));
+            this.bGl.parserJson(jSONObject.optJSONObject("page"));
             this.acq = true;
         } catch (Exception e) {
             this.acq = false;
@@ -55,10 +55,10 @@ public class u implements com.baidu.tbadk.mvc.b.k {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.bGj.add(feedData);
+                        this.bGk.add(feedData);
                     }
                 }
-                this.bGk.a(dataRes.page);
+                this.bGl.a(dataRes.page);
                 this.acq = true;
             } catch (Exception e) {
                 this.acq = false;

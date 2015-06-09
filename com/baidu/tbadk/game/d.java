@@ -17,6 +17,6 @@ class d implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001268, this.alm.Ac());
+        return new CustomResponsedMessage<>(2001268, this.alm.Ad());
     }
 }

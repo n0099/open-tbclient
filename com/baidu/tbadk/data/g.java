@@ -32,7 +32,7 @@ public class g {
         }
     }
 
-    public int yN() {
+    public int yO() {
         return this.ail;
     }
 
@@ -44,7 +44,7 @@ public class g {
         return this.url;
     }
 
-    public String yO() {
+    public String yP() {
         return this.expire_remind;
     }
 

@@ -80,7 +80,7 @@ public class BannerView extends RelativeLayout {
         this.afa = bVar;
     }
 
-    public boolean xI() {
+    public boolean xJ() {
         return this.aeZ;
     }
 

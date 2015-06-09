@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class g implements bs {
     private final /* synthetic */ AtomicBoolean RO;
-    final /* synthetic */ f cAZ;
+    final /* synthetic */ f cBa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, AtomicBoolean atomicBoolean) {
-        this.cAZ = fVar;
+        this.cBa = fVar;
         this.RO = atomicBoolean;
     }
 

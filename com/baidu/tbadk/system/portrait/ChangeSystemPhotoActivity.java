@@ -60,10 +60,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
 
     public void initData() {
         this.arJ = new ArrayList<>();
-        DO();
+        DP();
     }
 
-    private void DO() {
+    private void DP() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new e(this), session.bduss);

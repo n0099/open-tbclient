@@ -8,7 +8,7 @@ class ag extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                af.xU().sendTimeUpdateMessage();
+                af.xV().sendTimeUpdateMessage();
                 removeMessages(1);
                 sendEmptyMessageDelayed(1, 1000L);
                 return;

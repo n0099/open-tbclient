@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd extends HttpMessageListener {
-    final /* synthetic */ bc aAC;
+    final /* synthetic */ bc aAD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bd(bc bcVar, int i) {
         super(i);
-        this.aAC = bcVar;
+        this.aAD = bcVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ public class bd extends HttpMessageListener {
         bg bgVar4;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                bgVar = this.aAC.aAy;
+                bgVar = this.aAD.aAz;
                 if (bgVar != null) {
-                    bgVar2 = this.aAC.aAy;
+                    bgVar2 = this.aAD.aAz;
                     bgVar2.fB(null);
                     return;
                 }
@@ -34,9 +34,9 @@ public class bd extends HttpMessageListener {
             RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
             String errMsg = recommendFriendResponseMessage.getErrMsg();
             if (recommendFriendResponseMessage.getError() != 0) {
-                bgVar3 = this.aAC.aAy;
+                bgVar3 = this.aAD.aAz;
                 if (bgVar3 != null) {
-                    bgVar4 = this.aAC.aAy;
+                    bgVar4 = this.aAD.aAz;
                     bgVar4.fB(errMsg);
                     return;
                 }

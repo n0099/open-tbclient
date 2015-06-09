@@ -13,24 +13,24 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<String, String, Boolean> {
     private aa aaG = null;
-    String bOc;
-    final /* synthetic */ a ctS;
-    ArrayList<l> ctU;
+    String bOd;
+    final /* synthetic */ a ctT;
+    ArrayList<l> ctV;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
     private int mType;
 
     public f(a aVar, String str, String str2, String str3, int i, String str4) {
-        this.ctS = aVar;
-        this.ctU = null;
-        this.bOc = null;
+        this.ctT = aVar;
+        this.ctV = null;
+        this.bOd = null;
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
         this.mType = i;
-        this.bOc = str4;
-        this.ctU = new ArrayList<>();
+        this.bOd = str4;
+        this.ctV = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class f extends BdAsyncTask<String, String, Boolean> {
                 this.aaG.o("ntn", "");
             } else if (this.mType == 2) {
                 this.aaG.o("ntn", "set");
-                this.aaG.o("cid", this.bOc);
+                this.aaG.o("cid", this.bOd);
             } else {
                 this.aaG.o("ntn", "");
             }
@@ -63,7 +63,7 @@ public class f extends BdAsyncTask<String, String, Boolean> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         l lVar = new l();
                         lVar.parserJson(optJSONArray.optJSONObject(i));
-                        this.ctU.add(lVar);
+                        this.ctV.add(lVar);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -83,22 +83,22 @@ public class f extends BdAsyncTask<String, String, Boolean> {
         i iVar;
         i iVar2;
         super.onPostExecute(bool);
-        this.ctS.ctQ = null;
+        this.ctT.ctR = null;
         if (this.aaG == null) {
-            iVar2 = this.ctS.mLoadDataCallBack;
+            iVar2 = this.ctT.mLoadDataCallBack;
             iVar2.c(null);
             return;
         }
-        g gVar = new g(this.ctS);
+        g gVar = new g(this.ctT);
         gVar.AA = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.mType == 6) {
-                gVar.ctV = this.ctU;
+                gVar.ctW = this.ctV;
             }
         } else {
-            gVar.ctT = this.aaG.getErrorString();
+            gVar.ctU = this.aaG.getErrorString();
         }
-        iVar = this.ctS.mLoadDataCallBack;
+        iVar = this.ctT.mLoadDataCallBack;
         iVar.c(gVar);
     }
 
@@ -108,9 +108,9 @@ public class f extends BdAsyncTask<String, String, Boolean> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.ctS.ctQ = null;
+        this.ctT.ctR = null;
         super.cancel(true);
-        iVar = this.ctS.mLoadDataCallBack;
+        iVar = this.ctT.mLoadDataCallBack;
         iVar.c(null);
     }
 }

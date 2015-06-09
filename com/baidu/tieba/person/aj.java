@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class aj implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bSN;
+    final /* synthetic */ PersonChangeActivity bSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PersonChangeActivity personChangeActivity) {
-        this.bSN = personChangeActivity;
+        this.bSO = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,34 +23,34 @@ class aj implements View.OnClickListener {
         com.baidu.tbadk.coreExtra.c.f fVar4;
         com.baidu.tbadk.coreExtra.c.f fVar5;
         com.baidu.tbadk.core.dialog.a aVar;
-        fVar = this.bSN.bSE;
-        int sex = fVar.wH().getSex();
-        i = this.bSN.mSex;
+        fVar = this.bSO.bSF;
+        int sex = fVar.wI().getSex();
+        i = this.bSO.mSex;
         if (sex != i) {
-            this.bSN.bRr = true;
+            this.bSO.bRs = true;
         }
-        z = this.bSN.bRr;
+        z = this.bSO.bRs;
         if (!z) {
-            fVar2 = this.bSN.bSE;
+            fVar2 = this.bSO.bSF;
             if (fVar2 != null) {
-                fVar3 = this.bSN.bSE;
-                if (fVar3.wH().getPhotoChanged()) {
+                fVar3 = this.bSO.bSF;
+                if (fVar3.wI().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    bool = this.bSN.bSs;
+                    bool = this.bSO.bSt;
                     if (bool.booleanValue()) {
-                        fVar5 = this.bSN.bSE;
-                        intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar5.wH());
+                        fVar5 = this.bSO.bSF;
+                        intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar5.wI());
                     } else {
-                        fVar4 = this.bSN.bSE;
-                        intent.putExtra("data", fVar4.wH());
+                        fVar4 = this.bSO.bSF;
+                        intent.putExtra("data", fVar4.wI());
                     }
-                    this.bSN.setResult(-1, intent);
+                    this.bSO.setResult(-1, intent);
                 }
             }
-            this.bSN.finish();
+            this.bSO.finish();
             return;
         }
-        aVar = this.bSN.bSJ;
+        aVar = this.bSO.bSK;
         aVar.rL();
     }
 }

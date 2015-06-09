@@ -11,5 +11,5 @@ public interface b {
 
     String ew(String str);
 
-    int zs();
+    int zt();
 }

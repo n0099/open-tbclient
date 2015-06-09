@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class m extends CustomMessageListener {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(PbActivity pbActivity, int i) {
         super(i);
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,15 +21,15 @@ class m extends CustomMessageListener {
         ch chVar3;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            chVar = this.bKT.bKz;
+            chVar = this.bKU.bKA;
             if (chVar != null) {
                 if (booleanValue) {
-                    chVar3 = this.bKT.bKz;
-                    chVar3.Td();
+                    chVar3 = this.bKU.bKA;
+                    chVar3.Te();
                     return;
                 }
-                chVar2 = this.bKT.bKz;
-                chVar2.Tc();
+                chVar2 = this.bKU.bKA;
+                chVar2.Td();
             }
         }
     }

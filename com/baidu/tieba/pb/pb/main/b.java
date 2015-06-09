@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class b implements Handler.Callback {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -17,11 +17,11 @@ class b implements Handler.Callback {
         bo boVar2;
         switch (message.what) {
             case 2:
-                boVar = this.bKT.bKv;
+                boVar = this.bKU.bKw;
                 if (boVar != null) {
-                    boVar2 = this.bKT.bKv;
+                    boVar2 = this.bKU.bKw;
                     if (boVar2.pq()) {
-                        this.bKT.aaW();
+                        this.bKU.aaX();
                         break;
                     }
                 }

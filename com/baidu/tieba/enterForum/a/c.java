@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.a;
 public interface c {
     void H(int i, int i2);
 
-    void Hv();
+    void Hw();
 
     void eC(int i);
 }

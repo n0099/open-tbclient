@@ -18,7 +18,7 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String aYK = null;
+    private String aYL = null;
     private TextView mTextView = null;
     LinearLayout Yv = null;
 
@@ -36,17 +36,17 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(r.create_bar_success_activity);
         initData();
-        ON();
+        OO();
     }
 
     private void initData() {
-        this.aYK = getIntent().getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
-        if (this.aYK == null) {
-            this.aYK = "";
+        this.aYL = getIntent().getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
+        if (this.aYL == null) {
+            this.aYL = "";
         }
     }
 
-    private void ON() {
+    private void OO() {
         this.Yv = (LinearLayout) findViewById(q.container);
         this.mNavigationBar = (NavigationBar) findViewById(q.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -62,8 +62,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         getLayoutMode().j(this.Yv);
         String string = getPageContext().getString(t.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.aYK + getPageContext().getString(t.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(n.noexit_create_bar_name_text)), length, this.aYK.length() + length, 33);
+        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.aYL + getPageContext().getString(t.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(ay.getColor(n.noexit_create_bar_name_text)), length, this.aYL.length() + length, 33);
         this.mTextView.setText(spannableString);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }

@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class p extends com.baidu.tbadk.core.a.a {
-    private static p aws = null;
-    private u awt = null;
-    private final com.baidu.tbadk.core.a.b awu = new q(this);
-    private final com.baidu.tieba.a.b awv = new s(this);
+    private static p awt = null;
+    private u awu = null;
+    private final com.baidu.tbadk.core.a.b awv = new q(this);
+    private final com.baidu.tieba.a.b aww = new s(this);
 
     private p() {
     }
 
-    public static p Fc() {
-        if (aws == null) {
-            aws = new p();
+    public static p Fd() {
+        if (awt == null) {
+            awt = new p();
         }
-        return aws;
+        return awt;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -57,7 +57,7 @@ public class p extends com.baidu.tbadk.core.a.a {
             currentAccountObj.logPrint();
             com.baidu.tbadk.core.a.c ca = ca(currentAccountObj.getBDUSS());
             if (ca != null) {
-                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), ca.wk, ca.Pc, this.awu);
+                com.baidu.tieba.a.d.a(currentAccountObj.getAccount(), ca.wk, ca.Pc, this.awv);
             }
         }
     }

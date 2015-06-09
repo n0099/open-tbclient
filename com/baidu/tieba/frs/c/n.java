@@ -6,24 +6,24 @@ import com.baidu.tieba.frs.bf;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.i.b {
-    private bf aLi;
-    private FrsActivity aPE;
-    private Runnable aQh;
+    private bf aLj;
+    private FrsActivity aPF;
+    private Runnable aQi;
 
     public n(FrsActivity frsActivity) {
-        this.aPE = frsActivity;
+        this.aPF = frsActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AS() {
-        super.AS();
+    public void AT() {
+        super.AT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AU() {
-        super.AU();
+    public void AV() {
+        super.AV();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
@@ -41,9 +41,9 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void oL() {
-        this.aLi = new bf(this.aPE, this.aPE.aLJ);
-        this.aPE.a(this.aLi);
-        Cv();
+        this.aLj = new bf(this.aPF, this.aPF.aLK);
+        this.aPF.a(this.aLj);
+        Cw();
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
@@ -52,11 +52,11 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Ce() {
+    protected void Cf() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Cf() {
+    protected void Cg() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
@@ -73,8 +73,8 @@ public class n extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityDestroy() {
         super.onActivityDestroy();
-        if (this.aQh != null) {
-            com.baidu.adp.lib.g.i.hs().removeCallbacks(this.aQh);
+        if (this.aQi != null) {
+            com.baidu.adp.lib.g.i.hs().removeCallbacks(this.aQi);
         }
     }
 }

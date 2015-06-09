@@ -11,7 +11,7 @@ class u implements b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.b
-    public void yk() {
+    public void yl() {
         q qVar;
         q qVar2;
         q qVar3;
@@ -21,7 +21,7 @@ class u implements b {
         qVar = this.ahH.ahF;
         qVar.currentIndex = 0;
         qVar2 = this.ahH.ahF;
-        qVar2.agT = a.ye().yh();
+        qVar2.agT = a.yf().yi();
         qVar3 = this.ahH.ahF;
         list = qVar3.agT;
         if (list != null) {

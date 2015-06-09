@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnTouchListener {
-    final /* synthetic */ q cAL;
+    final /* synthetic */ q cAM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(q qVar) {
-        this.cAL = qVar;
+        this.cAM = qVar;
     }
 
     @Override // android.view.View.OnTouchListener

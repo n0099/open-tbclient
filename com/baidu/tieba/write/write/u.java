@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask<Object, t, t> {
     private com.baidu.tbadk.core.util.aa OE;
-    final /* synthetic */ t cBD;
+    final /* synthetic */ t cBE;
 
     private u(t tVar) {
-        this.cBD = tVar;
+        this.cBE = tVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +28,7 @@ public class u extends BdAsyncTask<Object, t, t> {
         this.OE.o("kw", obj);
         String sw = this.OE.sw();
         if (this.OE.sX().tT().qa()) {
-            writeActivity = this.cBD.cBC;
+            writeActivity = this.cBE.cBD;
             t tVar = new t(writeActivity);
             tVar.parserJson(sw);
             return tVar;
@@ -43,15 +43,15 @@ public class u extends BdAsyncTask<Object, t, t> {
     public void onPostExecute(t tVar) {
         com.baidu.adp.base.i iVar;
         super.onPostExecute(tVar);
-        this.cBD.cBA = null;
-        iVar = this.cBD.mLoadDataCallBack;
+        this.cBE.cBB = null;
+        iVar = this.cBE.mLoadDataCallBack;
         iVar.c(tVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.cBD.cBA = null;
+        this.cBE.cBB = null;
         if (this.OE != null) {
             this.OE.gS();
         }

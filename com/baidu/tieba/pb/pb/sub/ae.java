@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
 class ae implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ s bPT;
+    final /* synthetic */ s bPU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(s sVar) {
-        this.bPT = sVar;
+        this.bPU = sVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

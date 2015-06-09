@@ -12,20 +12,20 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-    private final TbPageContextSupport bvC;
-    private s bvD = null;
-    private ViewGroup bvE = null;
-    private boolean bvF;
+    private final TbPageContextSupport bvD;
+    private s bvE = null;
+    private ViewGroup bvF = null;
+    private boolean bvG;
     private af mCheckBoxStateChangedListener;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
 
     public q(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.bvC = tbPageContextSupport;
-        this.bvF = z;
+        this.bvD = tbPageContextSupport;
+        this.bvG = z;
     }
 
     public void a(s sVar) {
-        this.bvD = sVar;
+        this.bvE = sVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -60,8 +60,8 @@ public class q extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         r rVar;
-        if (this.bvE == null) {
-            this.bvE = viewGroup;
+        if (this.bvF == null) {
+            this.bvF = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar != null) {
@@ -78,42 +78,42 @@ public class q extends BaseAdapter {
     private r a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         r rVar;
         if (obj == null) {
-            rVar = Xa();
+            rVar = Xb();
         } else {
             rVar = (r) obj;
         }
-        if (this.bvD != null) {
-            this.bvD.a(rVar.rootView, aVar);
+        if (this.bvE != null) {
+            this.bvE.a(rVar.rootView, aVar);
         }
         a(aVar, rVar, aVar.getUserPortrait());
-        rVar.aBm.setText(aVar.getUserName());
-        if (this.bvF) {
-            rVar.bvG.setVisibility(8);
+        rVar.aBn.setText(aVar.getUserName());
+        if (this.bvG) {
+            rVar.bvH.setVisibility(8);
         } else {
-            rVar.bvG.setTagData(aVar);
+            rVar.bvH.setTagData(aVar);
         }
-        if (this.bvC instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.bvC).getLayoutMode().j(rVar.rootView);
+        if (this.bvD instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bvD).getLayoutMode().j(rVar.rootView);
         }
         return rVar;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, r rVar, String str) {
         if (aVar != null) {
-            rVar.bvj.setTag(str);
-            rVar.bvj.c(str, 12, false);
+            rVar.bvk.setTag(str);
+            rVar.bvk.c(str, 12, false);
         }
     }
 
-    private r Xa() {
+    private r Xb() {
         r rVar = new r(this);
-        rVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.bvC.getPageContext().getContext(), com.baidu.tieba.r.invite_friend_list_item, null);
-        rVar.bvj = (HeadImageView) rVar.rootView.findViewById(com.baidu.tieba.q.photo);
-        rVar.bvj.setIsRound(false);
-        rVar.aBm = (TextView) rVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
-        rVar.bvG = (TbCheckBox) rVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
+        rVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.bvD.getPageContext().getContext(), com.baidu.tieba.r.invite_friend_list_item, null);
+        rVar.bvk = (HeadImageView) rVar.rootView.findViewById(com.baidu.tieba.q.photo);
+        rVar.bvk.setIsRound(false);
+        rVar.aBn = (TextView) rVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
+        rVar.bvH = (TbCheckBox) rVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
         if (this.mCheckBoxStateChangedListener != null) {
-            rVar.bvG.setStatedChangedListener(this.mCheckBoxStateChangedListener);
+            rVar.bvH.setStatedChangedListener(this.mCheckBoxStateChangedListener);
         }
         rVar.rootView.setTag(rVar);
         return rVar;

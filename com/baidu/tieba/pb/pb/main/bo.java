@@ -21,38 +21,38 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class bo extends com.baidu.adp.base.f<PbActivity> {
     private static final int MAX_PAGE_NUM = com.baidu.tbadk.data.b.getPbListItemMaxNum() / 30;
-    private CustomMessageListener aAN;
-    private com.baidu.tieba.tbadkCore.e.a aFs;
-    private long aFt;
+    private CustomMessageListener aAO;
+    private com.baidu.tieba.tbadkCore.e.a aFt;
     private long aFu;
     private long aFv;
     private long aFw;
-    private String aIi;
+    private long aFx;
+    private String aIj;
     private boolean aoe;
-    private PbActivity bKZ;
     private int bLA;
     private int bLB;
     private int bLC;
-    private boolean bLD;
+    private int bLD;
     private boolean bLE;
-    private long bLF;
-    private boolean bLG;
-    private com.baidu.tieba.pb.a.b bLH;
-    private bs bLI;
-    private String bLJ;
+    private boolean bLF;
+    private long bLG;
+    private boolean bLH;
+    private com.baidu.tieba.pb.a.b bLI;
+    private bs bLJ;
     private String bLK;
-    private boolean bLL;
+    private String bLL;
     private boolean bLM;
-    private com.baidu.adp.framework.listener.a bLN;
-    private PraiseData bLO;
-    private String bLs;
+    private boolean bLN;
+    private com.baidu.adp.framework.listener.a bLO;
+    private PraiseData bLP;
+    private PbActivity bLa;
     private String bLt;
-    private boolean bLu;
+    private String bLu;
     private boolean bLv;
-    private int bLw;
+    private boolean bLw;
     private int bLx;
-    private long bLy;
-    private int bLz;
+    private int bLy;
+    private long bLz;
     private boolean isAd;
     private boolean isFromMark;
     private Context mContext;
@@ -62,47 +62,47 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
 
     public bo(PbActivity pbActivity) {
         super(pbActivity.getPageContext());
-        this.aIi = null;
-        this.bLs = null;
+        this.aIj = null;
         this.bLt = null;
-        this.bLu = false;
-        this.bLv = true;
-        this.bLw = 0;
+        this.bLu = null;
+        this.bLv = false;
+        this.bLw = true;
         this.bLx = 0;
-        this.bLy = 0L;
-        this.bLz = 1;
+        this.bLy = 0;
+        this.bLz = 0L;
         this.bLA = 1;
         this.bLB = 1;
         this.bLC = 1;
+        this.bLD = 1;
         this.isAd = false;
-        this.bLD = false;
         this.bLE = false;
+        this.bLF = false;
         this.isFromMark = false;
-        this.bLF = 0L;
-        this.bLG = false;
+        this.bLG = 0L;
+        this.bLH = false;
         this.mForumName = null;
-        this.bLH = null;
+        this.bLI = null;
         this.aoe = false;
         this.mContext = null;
-        this.bLI = null;
-        this.aFt = 0L;
+        this.bLJ = null;
         this.aFu = 0L;
         this.aFv = 0L;
         this.aFw = 0L;
+        this.aFx = 0L;
         this.opType = null;
         this.opUrl = null;
-        this.bLJ = null;
         this.bLK = null;
-        this.aFs = null;
-        this.bLM = false;
-        this.aAN = new bp(this, 2004003);
-        this.bLN = new br(this, CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
-        this.bLO = null;
-        registerListener(this.aAN);
-        registerListener(this.bLN);
-        this.bLH = new com.baidu.tieba.pb.a.b();
+        this.bLL = null;
+        this.aFt = null;
+        this.bLN = false;
+        this.aAO = new bp(this, 2004003);
+        this.bLO = new br(this, CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+        this.bLP = null;
+        registerListener(this.aAO);
+        registerListener(this.bLO);
+        this.bLI = new com.baidu.tieba.pb.a.b();
         this.mContext = pbActivity.getPageContext().getPageActivity();
-        this.bKZ = pbActivity;
+        this.bLa = pbActivity;
     }
 
     private void a(String str, boolean z, String str2, int i) {
@@ -116,105 +116,105 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     }
 
     public void initWithIntent(Intent intent) {
-        this.bLs = intent.getStringExtra("thread_id");
-        this.bLt = intent.getStringExtra("post_id");
-        this.bLu = intent.getBooleanExtra(PbActivityConfig.KEY_HOST_ONLY, false);
-        this.bLv = intent.getBooleanExtra(PbActivityConfig.KEY_SQUENCE, true);
-        this.aIi = intent.getStringExtra("st_type");
-        this.bLw = intent.getIntExtra(PbActivityConfig.KEY_IS_GOOD, 0);
-        this.bLx = intent.getIntExtra(PbActivityConfig.KEY_IS_TOP, 0);
-        this.bLy = intent.getLongExtra(PbActivityConfig.KEY_THREAD_TIME, 0L);
-        this.bLE = intent.getBooleanExtra(PbActivityConfig.KEY_FROM_FRS, false);
+        this.bLt = intent.getStringExtra("thread_id");
+        this.bLu = intent.getStringExtra("post_id");
+        this.bLv = intent.getBooleanExtra(PbActivityConfig.KEY_HOST_ONLY, false);
+        this.bLw = intent.getBooleanExtra(PbActivityConfig.KEY_SQUENCE, true);
+        this.aIj = intent.getStringExtra("st_type");
+        this.bLx = intent.getIntExtra(PbActivityConfig.KEY_IS_GOOD, 0);
+        this.bLy = intent.getIntExtra(PbActivityConfig.KEY_IS_TOP, 0);
+        this.bLz = intent.getLongExtra(PbActivityConfig.KEY_THREAD_TIME, 0L);
+        this.bLF = intent.getBooleanExtra(PbActivityConfig.KEY_FROM_FRS, false);
         this.isFromMark = intent.getBooleanExtra(PbActivityConfig.KEY_FROM_MARK, false);
         this.isAd = intent.getBooleanExtra("is_ad", false);
-        this.bLD = intent.getBooleanExtra(PbActivityConfig.KEY_IS_SUB_PB, false);
-        this.bLG = intent.getBooleanExtra("is_pv", false);
-        this.bLF = intent.getLongExtra(PbActivityConfig.KEY_MSG_ID, 0L);
+        this.bLE = intent.getBooleanExtra(PbActivityConfig.KEY_IS_SUB_PB, false);
+        this.bLH = intent.getBooleanExtra("is_pv", false);
+        this.bLG = intent.getLongExtra(PbActivityConfig.KEY_MSG_ID, 0L);
         this.mForumName = intent.getStringExtra("forum_name");
-        this.bLK = intent.getStringExtra(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY);
+        this.bLL = intent.getStringExtra(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY);
         this.opType = intent.getStringExtra(PbActivityConfig.KEY_MSG_OP_TYPE);
         this.opUrl = intent.getStringExtra(PbActivityConfig.KEY_MSG_OP_URL);
-        this.bLJ = intent.getStringExtra(PbActivityConfig.KEY_MSG_OP_STAT);
+        this.bLK = intent.getStringExtra(PbActivityConfig.KEY_MSG_OP_STAT);
     }
 
     public void initWithBundle(Bundle bundle) {
-        this.bLs = bundle.getString("thread_id");
-        this.bLt = bundle.getString("post_id");
-        this.bLu = bundle.getBoolean(PbActivityConfig.KEY_HOST_ONLY, false);
-        this.bLv = bundle.getBoolean(PbActivityConfig.KEY_SQUENCE, true);
-        this.aIi = bundle.getString("st_type");
-        this.bLw = bundle.getInt(PbActivityConfig.KEY_IS_GOOD, 0);
-        this.bLx = bundle.getInt(PbActivityConfig.KEY_IS_TOP, 0);
-        this.bLy = bundle.getLong(PbActivityConfig.KEY_THREAD_TIME);
-        this.bLE = bundle.getBoolean(PbActivityConfig.KEY_FROM_FRS, false);
+        this.bLt = bundle.getString("thread_id");
+        this.bLu = bundle.getString("post_id");
+        this.bLv = bundle.getBoolean(PbActivityConfig.KEY_HOST_ONLY, false);
+        this.bLw = bundle.getBoolean(PbActivityConfig.KEY_SQUENCE, true);
+        this.aIj = bundle.getString("st_type");
+        this.bLx = bundle.getInt(PbActivityConfig.KEY_IS_GOOD, 0);
+        this.bLy = bundle.getInt(PbActivityConfig.KEY_IS_TOP, 0);
+        this.bLz = bundle.getLong(PbActivityConfig.KEY_THREAD_TIME);
+        this.bLF = bundle.getBoolean(PbActivityConfig.KEY_FROM_FRS, false);
         this.isFromMark = bundle.getBoolean(PbActivityConfig.KEY_FROM_MARK, false);
         this.isAd = bundle.getBoolean("is_ad", false);
-        this.bLD = bundle.getBoolean(PbActivityConfig.KEY_IS_SUB_PB, false);
-        this.bLG = bundle.getBoolean("is_pv", false);
-        this.bLF = bundle.getLong(PbActivityConfig.KEY_MSG_ID, 0L);
+        this.bLE = bundle.getBoolean(PbActivityConfig.KEY_IS_SUB_PB, false);
+        this.bLH = bundle.getBoolean("is_pv", false);
+        this.bLG = bundle.getLong(PbActivityConfig.KEY_MSG_ID, 0L);
         this.mForumName = bundle.getString("forum_name");
-        this.bLK = bundle.getString(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY);
+        this.bLL = bundle.getString(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY);
     }
 
     public void saveToBundle(Bundle bundle) {
-        bundle.putString("thread_id", this.bLs);
-        bundle.putString("post_id", this.bLt);
-        bundle.putBoolean(PbActivityConfig.KEY_HOST_ONLY, this.bLu);
-        bundle.putBoolean(PbActivityConfig.KEY_SQUENCE, this.bLv);
-        bundle.putString("st_type", this.aIi);
-        bundle.putInt(PbActivityConfig.KEY_IS_GOOD, this.bLw);
-        bundle.putInt(PbActivityConfig.KEY_IS_TOP, this.bLx);
-        bundle.putLong(PbActivityConfig.KEY_THREAD_TIME, this.bLy);
-        bundle.putBoolean(PbActivityConfig.KEY_FROM_FRS, this.bLE);
+        bundle.putString("thread_id", this.bLt);
+        bundle.putString("post_id", this.bLu);
+        bundle.putBoolean(PbActivityConfig.KEY_HOST_ONLY, this.bLv);
+        bundle.putBoolean(PbActivityConfig.KEY_SQUENCE, this.bLw);
+        bundle.putString("st_type", this.aIj);
+        bundle.putInt(PbActivityConfig.KEY_IS_GOOD, this.bLx);
+        bundle.putInt(PbActivityConfig.KEY_IS_TOP, this.bLy);
+        bundle.putLong(PbActivityConfig.KEY_THREAD_TIME, this.bLz);
+        bundle.putBoolean(PbActivityConfig.KEY_FROM_FRS, this.bLF);
         bundle.putBoolean(PbActivityConfig.KEY_FROM_MARK, this.isFromMark);
-        bundle.putBoolean(PbActivityConfig.KEY_IS_SUB_PB, this.bLD);
+        bundle.putBoolean(PbActivityConfig.KEY_IS_SUB_PB, this.bLE);
         bundle.putBoolean("is_ad", this.isAd);
-        bundle.putBoolean("is_pv", this.bLG);
-        bundle.putLong(PbActivityConfig.KEY_MSG_ID, this.bLF);
-        bundle.putString(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY, this.bLK);
+        bundle.putBoolean("is_pv", this.bLH);
+        bundle.putLong(PbActivityConfig.KEY_MSG_ID, this.bLG);
+        bundle.putString(PbActivityConfig.KEY_INTENT_EXTRA_PB_CACHE_KEY, this.bLL);
     }
 
-    public String abm() {
+    public String abn() {
         StringBuilder sb = new StringBuilder(20);
-        sb.append(this.bLs);
         sb.append(this.bLt);
         sb.append(this.bLu);
         sb.append(this.bLv);
-        sb.append(this.aIi);
         sb.append(this.bLw);
+        sb.append(this.aIj);
         sb.append(this.bLx);
         sb.append(this.bLy);
-        sb.append(this.bLE);
+        sb.append(this.bLz);
+        sb.append(this.bLF);
         sb.append(this.isFromMark);
         sb.append(this.isAd);
-        sb.append(this.bLD);
+        sb.append(this.bLE);
+        sb.append(this.bLH);
         sb.append(this.bLG);
-        sb.append(this.bLF);
         sb.append(this.mForumName);
-        if (this.bLK != null) {
-            sb.append(this.bLK);
+        if (this.bLL != null) {
+            sb.append(this.bLL);
         }
         return sb.toString();
     }
 
-    public String abn() {
+    public String abo() {
         return this.mForumName;
     }
 
-    public String abo() {
-        return this.bLs;
+    public String abp() {
+        return this.bLt;
     }
 
     public boolean getHostMode() {
-        return this.bLu;
-    }
-
-    public boolean abp() {
         return this.bLv;
     }
 
     public boolean abq() {
-        return this.bLE;
+        return this.bLw;
+    }
+
+    public boolean abr() {
+        return this.bLF;
     }
 
     public boolean getIsFromMark() {
@@ -222,99 +222,99 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     }
 
     public int getIsGood() {
-        return this.bLw;
-    }
-
-    public int getIsMem() {
-        if (this.bLH == null || this.bLH.getUserData() == null) {
-            return 0;
-        }
-        return this.bLH.getUserData().getIsMem();
-    }
-
-    public int abr() {
         return this.bLx;
     }
 
-    public void setIsGood(int i) {
-        this.bLw = i;
+    public int getIsMem() {
+        if (this.bLI == null || this.bLI.getUserData() == null) {
+            return 0;
+        }
+        return this.bLI.getUserData().getIsMem();
     }
 
-    public void hz(int i) {
+    public int abs() {
+        return this.bLy;
+    }
+
+    public void setIsGood(int i) {
         this.bLx = i;
     }
 
-    public boolean abs() {
-        return this.bLD;
+    public void hz(int i) {
+        this.bLy = i;
     }
 
     public boolean abt() {
-        if (this.bLH == null) {
+        return this.bLE;
+    }
+
+    public boolean abu() {
+        if (this.bLI == null) {
             return false;
         }
-        return this.bLH.isValid();
+        return this.bLI.isValid();
     }
 
     public String ro() {
-        if (this.bLH == null || !this.bLH.pq()) {
+        if (this.bLI == null || !this.bLI.pq()) {
             return null;
         }
-        return this.bLH.pp();
+        return this.bLI.pp();
     }
 
     public boolean hA(int i) {
-        this.bLz = i;
-        if (this.bLz > this.bLH.Zp().qN()) {
-            this.bLz = this.bLH.Zp().qN();
+        this.bLA = i;
+        if (this.bLA > this.bLI.Zq().qN()) {
+            this.bLA = this.bLI.Zq().qN();
         }
-        if (this.bLz < 1) {
-            this.bLz = 1;
+        if (this.bLA < 1) {
+            this.bLA = 1;
         }
-        if (this.bLs == null) {
+        if (this.bLt == null) {
             return false;
         }
         return hD(5);
     }
 
     public void hB(int i) {
-        this.bLz = i;
         this.bLA = i;
         this.bLB = i;
+        this.bLC = i;
     }
 
     public void hC(int i) {
-        if (this.bLA < i) {
-            this.bLA = i;
-            if (this.bLA - this.bLB >= MAX_PAGE_NUM) {
-                this.bLB = (this.bLA - MAX_PAGE_NUM) + 1;
+        if (this.bLB < i) {
+            this.bLB = i;
+            if (this.bLB - this.bLC >= MAX_PAGE_NUM) {
+                this.bLC = (this.bLB - MAX_PAGE_NUM) + 1;
             }
         }
-        if (this.bLB > i) {
-            this.bLB = i;
-            if (this.bLA - this.bLB >= MAX_PAGE_NUM) {
-                this.bLA = (this.bLB + MAX_PAGE_NUM) - 1;
+        if (this.bLC > i) {
+            this.bLC = i;
+            if (this.bLB - this.bLC >= MAX_PAGE_NUM) {
+                this.bLB = (this.bLC + MAX_PAGE_NUM) - 1;
             }
         }
     }
 
     public com.baidu.tieba.pb.a.b getPbData() {
-        return this.bLH;
+        return this.bLI;
     }
 
-    public com.baidu.tbadk.core.data.q abu() {
-        if (this.bLH == null) {
+    public com.baidu.tbadk.core.data.q abv() {
+        if (this.bLI == null) {
             return null;
         }
-        return this.bLH.Zp();
+        return this.bLI.Zq();
     }
 
-    public boolean abv() {
-        if (this.bLv) {
-            if (this.bLH.Zp().qR() == 0) {
+    public boolean abw() {
+        if (this.bLw) {
+            if (this.bLI.Zq().qR() == 0) {
                 dV(true);
                 return true;
             }
-        } else if (this.bLH.Zp().qS() == 0) {
+        } else if (this.bLI.Zq().qS() == 0) {
             dW(true);
             return true;
         }
@@ -324,18 +324,18 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        if (this.bLs == null) {
+        if (this.bLt == null) {
             return false;
         }
         cancelLoadData();
-        if (this.aFs == null) {
-            this.aFs = new com.baidu.tieba.tbadkCore.e.a("pbStat");
-            this.aFs.start();
+        if (this.aFt == null) {
+            this.aFt = new com.baidu.tieba.tbadkCore.e.a("pbStat");
+            this.aFt.start();
         }
         boolean hD = hD(3);
         if (this.opType != null) {
             this.opType = null;
-            this.bLJ = null;
+            this.bLK = null;
             this.opUrl = null;
             return hD;
         }
@@ -352,18 +352,18 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     public void destory() {
         cancelLoadData();
         MessageManager.getInstance().unRegisterListener(this.unique_id);
-        Ie();
+        If();
     }
 
-    private void Ie() {
-        if (this.aFs != null) {
-            this.aFs.destory();
-            this.aFs = null;
+    private void If() {
+        if (this.aFt != null) {
+            this.aFt.destory();
+            this.aFt = null;
         }
     }
 
-    public boolean BL() {
-        return (this.bLt == null || this.bLt.equals(GameInfoData.NOT_FROM_DETAIL) || this.bLt.length() == 0) ? LoadData() : abw();
+    public boolean BM() {
+        return (this.bLu == null || this.bLu.equals(GameInfoData.NOT_FROM_DETAIL) || this.bLu.length() == 0) ? LoadData() : abx();
     }
 
     public boolean hD(int i) {
@@ -372,33 +372,33 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
         }
         this.aoe = true;
         hE(i);
-        com.baidu.tieba.pb.a.b pbData = cb.abK().getPbData();
+        com.baidu.tieba.pb.a.b pbData = cb.abL().getPbData();
         if (pbData != null) {
-            this.bLv = cb.abK().abp();
-            this.bLu = cb.abK().abM();
-            if (!this.bLv || this.bLu || this.isFromMark) {
-                this.bLL = false;
+            this.bLw = cb.abL().abq();
+            this.bLv = cb.abL().abN();
+            if (!this.bLw || this.bLv || this.isFromMark) {
+                this.bLM = false;
             }
             a(pbData, 3, false, 0, "", false, 0, 0L, 0L, true);
-            this.bLI.dR(true);
+            this.bLJ.dR(true);
             this.aoe = false;
             return false;
         }
         pbPageRequestMessage pbpagerequestmessage = new pbPageRequestMessage();
         pbpagerequestmessage.setUpdateType(i);
         pbpagerequestmessage.setLastids(com.baidu.tbadk.distribute.a.aiC);
-        if (!this.bLv || this.bLu || this.isFromMark) {
-            this.bLL = false;
+        if (!this.bLw || this.bLv || this.isFromMark) {
+            this.bLM = false;
         }
         try {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.bLs == null || this.bLs.length() == 0) {
+        if (this.bLt == null || this.bLt.length() == 0) {
             this.aoe = false;
             return false;
         }
-        pbpagerequestmessage.set_kz(com.baidu.adp.lib.g.c.c(this.bLs, 0L));
+        pbpagerequestmessage.set_kz(com.baidu.adp.lib.g.c.c(this.bLt, 0L));
         pbpagerequestmessage.set_rn(30);
         pbpagerequestmessage.set_with_floor(1);
         int M = com.baidu.adp.lib.util.n.M(TbadkCoreApplication.m411getInst().getApp());
@@ -409,94 +409,94 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
         pbpagerequestmessage.set_scr_h(Integer.valueOf(N));
         pbpagerequestmessage.set_scr_dip(f);
         pbpagerequestmessage.set_q_type(Integer.valueOf(i2));
-        if (!this.bLv) {
+        if (!this.bLw) {
             pbpagerequestmessage.set_r(1);
         }
-        if (this.bLu) {
+        if (this.bLv) {
             pbpagerequestmessage.set_lz(1);
         }
-        if (this.aIi != null) {
-            pbpagerequestmessage.set_st_type(this.aIi);
+        if (this.aIj != null) {
+            pbpagerequestmessage.set_st_type(this.aIj);
         }
-        if (this.bLG) {
-            pbpagerequestmessage.set_message_id(Integer.valueOf((int) this.bLF));
+        if (this.bLH) {
+            pbpagerequestmessage.set_message_id(Integer.valueOf((int) this.bLG));
             pbpagerequestmessage.set_message_click("1");
         }
-        if (this.bLL) {
+        if (this.bLM) {
             pbpagerequestmessage.set_banner(1);
         }
         if (this.opType != null) {
             pbpagerequestmessage.setOpType(this.opType);
             pbpagerequestmessage.setOpUrl(this.opUrl);
-            pbpagerequestmessage.setOpStat(com.baidu.adp.lib.g.c.toInt(this.bLJ, 0));
-            pbpagerequestmessage.setOpMessageID(this.bLF);
+            pbpagerequestmessage.setOpStat(com.baidu.adp.lib.g.c.toInt(this.bLK, 0));
+            pbpagerequestmessage.setOpMessageID(this.bLG);
         }
-        ArrayList<com.baidu.tieba.tbadkCore.data.j> aat = this.bLH.aat();
+        ArrayList<com.baidu.tieba.tbadkCore.data.j> aau = this.bLI.aau();
         switch (i) {
             case 1:
                 pbpagerequestmessage.set_back(0);
                 pbpagerequestmessage.set_banner(0);
                 if (!this.isFromMark) {
-                    if (!this.bLv) {
-                        if (this.bLB > 0) {
-                            pbpagerequestmessage.set_pn(Integer.valueOf(this.bLB - 1));
+                    if (!this.bLw) {
+                        if (this.bLC > 0) {
+                            pbpagerequestmessage.set_pn(Integer.valueOf(this.bLC - 1));
                         }
-                    } else if (this.bLA < this.bLC) {
-                        pbpagerequestmessage.set_pn(Integer.valueOf(this.bLA + 1));
+                    } else if (this.bLB < this.bLD) {
+                        pbpagerequestmessage.set_pn(Integer.valueOf(this.bLB + 1));
                     }
                 }
-                if (aat != null && aat.size() > 0) {
-                    int size = aat.size();
+                if (aau != null && aau.size() > 0) {
+                    int size = aau.size();
                     int i3 = 1;
                     while (size - i3 >= 0) {
-                        com.baidu.tieba.tbadkCore.data.j jVar = aat.get(size - i3);
+                        com.baidu.tieba.tbadkCore.data.j jVar = aau.get(size - i3);
                         if (jVar == null) {
                             i3++;
                         } else {
-                            this.bLt = jVar.getId();
-                            if (StringUtils.isNull(this.bLt)) {
+                            this.bLu = jVar.getId();
+                            if (StringUtils.isNull(this.bLu)) {
                                 i3++;
                             }
                         }
                     }
                 }
-                if (this.bLt != null && this.bLt.length() > 0) {
-                    pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLt, 0L));
+                if (this.bLu != null && this.bLu.length() > 0) {
+                    pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLu, 0L));
                     break;
-                } else if (!this.bLv) {
+                } else if (!this.bLw) {
                     pbpagerequestmessage.set_last(1);
                     break;
                 }
                 break;
             case 2:
-                if (aat != null && aat.size() > 0 && aat.get(0) != null) {
-                    this.bLt = aat.get(0).getId();
+                if (aau != null && aau.size() > 0 && aau.get(0) != null) {
+                    this.bLu = aau.get(0).getId();
                 }
                 pbpagerequestmessage.set_back(1);
                 pbpagerequestmessage.set_banner(0);
                 if (this.isFromMark) {
-                    if (this.bLv) {
-                        if (this.bLB > 0) {
-                            pbpagerequestmessage.set_pn(Integer.valueOf(this.bLB - 1));
+                    if (this.bLw) {
+                        if (this.bLC > 0) {
+                            pbpagerequestmessage.set_pn(Integer.valueOf(this.bLC - 1));
                         }
-                    } else if (this.bLA < this.bLC) {
-                        pbpagerequestmessage.set_pn(Integer.valueOf(this.bLA + 1));
+                    } else if (this.bLB < this.bLD) {
+                        pbpagerequestmessage.set_pn(Integer.valueOf(this.bLB + 1));
                     }
                 }
-                if (this.bLt != null && this.bLt.length() > 0) {
-                    pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLt, 0L));
+                if (this.bLu != null && this.bLu.length() > 0) {
+                    pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLu, 0L));
                     break;
                 }
                 break;
             case 3:
                 if (this.isFromMark) {
                     pbpagerequestmessage.set_banner(0);
-                    a(abD(), true, this.bLt, 3);
+                    a(abE(), true, this.bLu, 3);
                 } else {
-                    a(abD(), false, this.bLt, 3);
+                    a(abE(), false, this.bLu, 3);
                 }
                 pbpagerequestmessage.set_back(0);
-                if (this.bLv) {
+                if (this.bLw) {
                     pbpagerequestmessage.set_pn(1);
                 } else {
                     pbpagerequestmessage.set_last(1);
@@ -507,27 +507,27 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
                 }
                 break;
             case 4:
-                a(abD(), true, this.bLt, 3);
+                a(abE(), true, this.bLu, 3);
                 pbpagerequestmessage.set_st_type("store_thread");
                 pbpagerequestmessage.set_mark(1);
-                pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLt, 0L));
+                pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLu, 0L));
                 pbpagerequestmessage.set_back(0);
                 pbpagerequestmessage.set_banner(0);
                 break;
             case 5:
                 pbpagerequestmessage.set_back(0);
-                pbpagerequestmessage.set_pn(Integer.valueOf(this.bLz));
+                pbpagerequestmessage.set_pn(Integer.valueOf(this.bLA));
                 pbpagerequestmessage.set_banner(0);
                 break;
             case 6:
                 pbpagerequestmessage.set_mark(1);
-                pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLt, 0L));
+                pbpagerequestmessage.set_pid(com.baidu.adp.lib.g.c.c(this.bLu, 0L));
                 pbpagerequestmessage.set_back(0);
                 pbpagerequestmessage.set_banner(0);
                 break;
         }
         pbpagerequestmessage.setIsFromMark(Boolean.valueOf(this.isFromMark));
-        pbpagerequestmessage.setCacheKey(abD());
+        pbpagerequestmessage.setCacheKey(abE());
         pbpagerequestmessage.setContext(this.mContext);
         sendMessage(pbpagerequestmessage);
         return true;
@@ -535,26 +535,26 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
 
     protected void hE(int i) {
         boolean z = false;
-        ArrayList<com.baidu.tieba.tbadkCore.data.j> aat = this.bLH.aat();
+        ArrayList<com.baidu.tieba.tbadkCore.data.j> aau = this.bLI.aau();
         if (i == 1) {
             boolean z2 = false;
-            while (aat.size() + 30 > com.baidu.tbadk.data.b.getPbListItemMaxNum()) {
-                aat.remove(0);
+            while (aau.size() + 30 > com.baidu.tbadk.data.b.getPbListItemMaxNum()) {
+                aau.remove(0);
                 z2 = true;
             }
             if (z2) {
-                this.bLH.Zp().bp(1);
-                if (this.bLI != null) {
-                    this.bLI.a(this.bLH);
+                this.bLI.Zq().bp(1);
+                if (this.bLJ != null) {
+                    this.bLJ.a(this.bLI);
                 }
             }
         } else if (i == 2) {
-            while (aat.size() + 30 > com.baidu.tbadk.data.b.getPbListItemMaxNum()) {
-                aat.remove(aat.size() - 1);
+            while (aau.size() + 30 > com.baidu.tbadk.data.b.getPbListItemMaxNum()) {
+                aau.remove(aau.size() - 1);
                 z = true;
             }
             if (z) {
-                this.bLH.Zp().bo(1);
+                this.bLI.Zq().bo(1);
             }
         }
     }
@@ -582,18 +582,18 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     public void c(com.baidu.tieba.pb.a.b bVar) {
         if (bVar != null) {
             String str = null;
-            if (bVar.aas() != null && bVar.aas().getAuthor() != null) {
-                str = bVar.aas().getAuthor().getUserId();
+            if (bVar.aat() != null && bVar.aat().getAuthor() != null) {
+                str = bVar.aat().getAuthor().getUserId();
             }
             String str2 = str == null ? "" : str;
-            com.baidu.tbadk.core.data.w aas = bVar.aas();
-            aas.br(this.bLw);
-            aas.bq(this.bLx);
-            aas.m(this.bLy);
-            for (int i = 0; i < bVar.aat().size(); i++) {
-                com.baidu.tieba.tbadkCore.data.j jVar = bVar.aat().get(i);
-                for (int i2 = 0; i2 < jVar.aoy().size(); i2++) {
-                    jVar.aoy().get(i2).b(this.bKZ.getPageContext(), str2.equals(jVar.aoy().get(i2).getAuthor().getUserId()));
+            com.baidu.tbadk.core.data.w aat = bVar.aat();
+            aat.br(this.bLx);
+            aat.bq(this.bLy);
+            aat.m(this.bLz);
+            for (int i = 0; i < bVar.aau().size(); i++) {
+                com.baidu.tieba.tbadkCore.data.j jVar = bVar.aau().get(i);
+                for (int i2 = 0; i2 < jVar.aoz().size(); i2++) {
+                    jVar.aoz().get(i2).b(this.bLa.getPageContext(), str2.equals(jVar.aoz().get(i2).getAuthor().getUserId()));
                 }
             }
         }
@@ -603,44 +603,44 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     protected void a(com.baidu.tieba.pb.a.b bVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         int i4;
         boolean z4 = !z;
-        if (this.aFs != null && !z3) {
-            this.aFs.a(z2, z4, i2, str, i3, j, j2);
-            this.aFs = null;
+        if (this.aFt != null && !z3) {
+            this.aFt.a(z2, z4, i2, str, i3, j, j2);
+            this.aFt = null;
         }
         if (bVar == null) {
-            if (this.bLI != null) {
-                this.bLI.a(false, i2, i, 0, null, str, 1);
+            if (this.bLJ != null) {
+                this.bLJ.a(false, i2, i, 0, null, str, 1);
             }
         } else {
-            this.bLG = false;
-            if (bVar.Zp() != null) {
-                hC(bVar.Zp().qP());
-                this.bLC = bVar.Zp().qN();
+            this.bLH = false;
+            if (bVar.Zq() != null) {
+                hC(bVar.Zq().qP());
+                this.bLD = bVar.Zq().qN();
             }
-            this.bLC = this.bLC < 1 ? 1 : this.bLC;
+            this.bLD = this.bLD < 1 ? 1 : this.bLD;
             int i5 = 0;
-            ArrayList<com.baidu.tieba.tbadkCore.data.j> aat = this.bLH.aat();
+            ArrayList<com.baidu.tieba.tbadkCore.data.j> aau = this.bLI.aau();
             switch (i) {
                 case 1:
-                    this.bLH.a(bVar.Zp(), 1);
-                    if (bVar.aat() != null) {
-                        aat.addAll(bVar.aat());
+                    this.bLI.a(bVar.Zq(), 1);
+                    if (bVar.aau() != null) {
+                        aau.addAll(bVar.aau());
                         i4 = 0;
                         break;
                     }
                     i4 = i5;
                     break;
                 case 2:
-                    if (bVar.aat() != null) {
-                        i5 = bVar.aat().size() + 1;
-                        aat.addAll(0, bVar.aat());
+                    if (bVar.aau() != null) {
+                        i5 = bVar.aau().size() + 1;
+                        aau.addAll(0, bVar.aau());
                     }
-                    this.bLH.a(bVar.Zp(), 2);
+                    this.bLI.a(bVar.Zq(), 2);
                     i4 = i5;
                     break;
                 case 3:
-                    if (!this.bLv && bVar.Zp() != null) {
-                        bVar.Zp().bm(bVar.Zp().qN());
+                    if (!this.bLw && bVar.Zq() != null) {
+                        bVar.Zq().bm(bVar.Zq().qN());
                     }
                     d(bVar);
                     i4 = 0;
@@ -661,45 +661,45 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
                     i4 = i5;
                     break;
             }
-            if (this.bLH != null && this.bLH.aas() != null) {
-                PraiseData praise = this.bLH.aas().getPraise();
-                if (this.bLO != null && !praise.isPriaseDataValid()) {
-                    this.bLH.aas().setPraise(this.bLO);
+            if (this.bLI != null && this.bLI.aat() != null) {
+                PraiseData praise = this.bLI.aat().getPraise();
+                if (this.bLP != null && !praise.isPriaseDataValid()) {
+                    this.bLI.aat().setPraise(this.bLP);
                 } else {
-                    this.bLO = this.bLH.aas().getPraise();
-                    this.bLO.setPostId(this.bLH.aas().rs());
+                    this.bLP = this.bLI.aat().getPraise();
+                    this.bLP.setPostId(this.bLI.aat().rs());
                 }
-                if (bVar.Zp() != null && bVar.Zp().qP() == 1) {
-                    this.bLH.aas().k(bVar.aas().rp());
+                if (bVar.Zq() != null && bVar.Zq().qP() == 1) {
+                    this.bLI.aat().k(bVar.aat().rp());
                 }
-                this.bLH.aas().setReply_num(bVar.aas().getReply_num());
+                this.bLI.aat().setReply_num(bVar.aat().getReply_num());
             }
-            if (this.bLI != null) {
-                this.bLI.a(true, getErrorCode(), i, i4, this.bLH, this.mErrorString, 1);
+            if (this.bLJ != null) {
+                this.bLJ.a(true, getErrorCode(), i, i4, this.bLI, this.mErrorString, 1);
             }
         }
-        if (this.bLH != null && this.bLH.getUserData() != null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001200, Integer.valueOf(this.bLH.getUserData().getIsMem())));
+        if (this.bLI != null && this.bLI.getUserData() != null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001200, Integer.valueOf(this.bLI.getUserData().getIsMem())));
         }
-        if (this.bLH != null && this.bLH.aas() != null && this.bLH.aar() != null) {
+        if (this.bLI != null && this.bLI.aat() != null && this.bLI.aas() != null) {
             HistoryMessage historyMessage = new HistoryMessage();
-            historyMessage.Activity = this.bKZ;
-            historyMessage.threadId = getPbData().aas().getId();
-            historyMessage.forumName = getPbData().aar().getName();
-            historyMessage.threadName = getPbData().aas().getTitle();
+            historyMessage.Activity = this.bLa;
+            historyMessage.threadId = getPbData().aat().getId();
+            historyMessage.forumName = getPbData().aas().getName();
+            historyMessage.threadName = getPbData().aat().getTitle();
             historyMessage.isHostOnly = getHostMode();
-            historyMessage.isSquence = abp();
+            historyMessage.isSquence = abq();
             MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
         }
     }
 
     private void d(com.baidu.tieba.pb.a.b bVar) {
-        this.bLH = bVar;
-        hB(bVar.Zp().qP());
+        this.bLI = bVar;
+        hB(bVar.Zq().qP());
     }
 
-    public boolean abw() {
-        if (this.bLs == null || this.bLt == null) {
+    public boolean abx() {
+        if (this.bLt == null || this.bLu == null) {
             return false;
         }
         cancelMessage();
@@ -710,59 +710,59 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     }
 
     public boolean dV(boolean z) {
-        if (this.bLs == null || this.bLH == null) {
+        if (this.bLt == null || this.bLI == null) {
             return false;
         }
-        if (z || this.bLH.Zp().qR() != 0) {
+        if (z || this.bLI.Zq().qR() != 0) {
             return hD(1);
         }
         return false;
     }
 
     public boolean dW(boolean z) {
-        if (this.bLs == null || this.bLH == null) {
+        if (this.bLt == null || this.bLI == null) {
             return false;
         }
-        if ((z || this.bLH.Zp().qS() != 0) && this.bLH.aat() != null && this.bLH.aat().size() >= 1) {
+        if ((z || this.bLI.Zq().qS() != 0) && this.bLI.aau() != null && this.bLI.aau().size() >= 1) {
             return hD(2);
         }
         return false;
     }
 
-    public boolean abx() {
-        this.bLu = !this.bLu;
+    public boolean aby() {
+        this.bLv = !this.bLv;
         LoadData();
         return true;
     }
 
-    public boolean aby() {
-        this.bLv = !this.bLv;
+    public boolean abz() {
+        this.bLw = !this.bLw;
         return LoadData();
     }
 
-    public boolean abz() {
-        return this.bLv;
+    public boolean abA() {
+        return this.bLw;
     }
 
-    public boolean abA() {
-        return (this.bLH == null || this.bLH.aar() == null || this.bLH.aas() == null) ? false : true;
+    public boolean abB() {
+        return (this.bLI == null || this.bLI.aas() == null || this.bLI.aat() == null) ? false : true;
     }
 
     public boolean pq() {
-        if (this.bLH == null) {
+        if (this.bLI == null) {
             return false;
         }
-        return this.bLH.pq();
+        return this.bLI.pq();
     }
 
     public WriteData iq(String str) {
-        if (this.bLH == null) {
+        if (this.bLI == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumId(this.bLH.aar().getId());
-        writeData.setForumName(this.bLH.aar().getName());
-        writeData.setThreadId(this.bLs);
+        writeData.setForumId(this.bLI.aas().getId());
+        writeData.setForumName(this.bLI.aas().getName());
+        writeData.setThreadId(this.bLt);
         writeData.setIsAd(this.isAd);
         if (str == null) {
             writeData.setType(1);
@@ -778,29 +778,29 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
         if (i < 0) {
             i = 0;
         }
-        if (this.bLH == null || this.bLH.aat() == null) {
+        if (this.bLI == null || this.bLI.aau() == null) {
             return null;
         }
-        ArrayList<com.baidu.tieba.tbadkCore.data.j> aat = this.bLH.aat();
-        if (aat.size() > 0 && i == aat.size()) {
-            i = aat.size() - 1;
+        ArrayList<com.baidu.tieba.tbadkCore.data.j> aau = this.bLI.aau();
+        if (aau.size() > 0 && i == aau.size()) {
+            i = aau.size() - 1;
         }
-        if (aat.size() <= 0 || i >= aat.size()) {
+        if (aau.size() <= 0 || i >= aau.size()) {
             return null;
         }
-        return c(aat.get(i));
+        return c(aau.get(i));
     }
 
-    public MarkData abB() {
+    public MarkData abC() {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.bLs);
-        markData.setPostId(this.bLH.pp());
+        markData.setThreadId(this.bLt);
+        markData.setPostId(this.bLI.pp());
         markData.setTime(date.getTime());
-        markData.setHostMode(this.bLu);
-        markData.setSequence(Boolean.valueOf(this.bLv));
-        markData.setId(this.bLs);
+        markData.setHostMode(this.bLv);
+        markData.setSequence(Boolean.valueOf(this.bLw));
+        markData.setId(this.bLt);
         return markData;
     }
 
@@ -808,26 +808,26 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.bLs);
+        markData.setThreadId(this.bLt);
         markData.setPostId(jVar.getId());
         markData.setTime(date.getTime());
-        markData.setHostMode(this.bLu);
-        markData.setSequence(Boolean.valueOf(this.bLv));
-        markData.setId(this.bLs);
-        markData.setFloor(jVar.aoB());
+        markData.setHostMode(this.bLv);
+        markData.setSequence(Boolean.valueOf(this.bLw));
+        markData.setId(this.bLt);
+        markData.setFloor(jVar.aoC());
         return markData;
     }
 
-    public void abC() {
-        bm.abk().w(abD(), this.isFromMark);
+    public void abD() {
+        bm.abl().w(abE(), this.isFromMark);
     }
 
-    private String abD() {
-        String str = this.bLs;
-        if (this.bLu) {
+    private String abE() {
+        String str = this.bLt;
+        if (this.bLv) {
             str = String.valueOf(str) + "_host";
         }
-        if (!this.bLv) {
+        if (!this.bLw) {
             str = String.valueOf(str) + "_rev";
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -837,16 +837,16 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
     }
 
     public void dX(boolean z) {
-        if (this.bLH != null) {
-            this.bLH.Z(z);
+        if (this.bLI != null) {
+            this.bLI.Z(z);
         }
     }
 
     public void dY(boolean z) {
-        this.bLL = z;
+        this.bLM = z;
     }
 
     public void a(bs bsVar) {
-        this.bLI = bsVar;
+        this.bLJ = bsVar;
     }
 }

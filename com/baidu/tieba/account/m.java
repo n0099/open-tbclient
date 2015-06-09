@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
     private View.OnClickListener ZA;
-    private BaseActivity awl;
+    private BaseActivity awm;
     private ArrayList<AccountData> Sk = null;
-    private boolean awm = false;
+    private boolean awn = false;
 
     public m(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.awl = baseActivity;
+        this.awm = baseActivity;
         this.ZA = onClickListener;
     }
 
@@ -70,32 +70,32 @@ public class m extends BaseAdapter {
                         nVar = (n) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awl.getPageContext().getContext(), com.baidu.tieba.r.account_item, null);
+                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awm.getPageContext().getContext(), com.baidu.tieba.r.account_item, null);
                         nVar = new n(this, null);
-                        nVar.awn = (TextView) view2.findViewById(com.baidu.tieba.q.account);
-                        nVar.awp = (ImageView) view2.findViewById(com.baidu.tieba.q.active);
-                        nVar.awq = (Button) view2.findViewById(com.baidu.tieba.q.delete);
+                        nVar.awo = (TextView) view2.findViewById(com.baidu.tieba.q.account);
+                        nVar.awq = (ImageView) view2.findViewById(com.baidu.tieba.q.active);
+                        nVar.awr = (Button) view2.findViewById(com.baidu.tieba.q.delete);
                         nVar.mLine = view2.findViewById(com.baidu.tieba.q.account_item_line_layout);
-                        nVar.awq.setOnClickListener(this.ZA);
+                        nVar.awr.setOnClickListener(this.ZA);
                         view2.setTag(nVar);
                     } else {
-                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awl.getPageContext().getContext(), com.baidu.tieba.r.account_add_item, null);
+                        view2 = com.baidu.adp.lib.g.b.hr().inflate(this.awm.getPageContext().getContext(), com.baidu.tieba.r.account_add_item, null);
                         nVar = new n(this, null);
-                        nVar.awo = (TextView) view2.findViewById(com.baidu.tieba.q.add_text);
+                        nVar.awp = (TextView) view2.findViewById(com.baidu.tieba.q.add_text);
                         view2.setTag(nVar);
                     }
                     if (getItemViewType(i) == 0) {
                         AccountData accountData = (AccountData) getItem(i);
-                        nVar.awp.setVisibility(8);
                         nVar.awq.setVisibility(8);
-                        nVar.awq.setTag(accountData);
+                        nVar.awr.setVisibility(8);
+                        nVar.awr.setTag(accountData);
                         if (accountData != null) {
-                            nVar.awn.setText(accountData.getAccount());
+                            nVar.awo.setText(accountData.getAccount());
                             if (accountData.getIsActive() == 1) {
-                                nVar.awp.setVisibility(0);
-                            }
-                            if (this.awm) {
                                 nVar.awq.setVisibility(0);
+                            }
+                            if (this.awn) {
+                                nVar.awr.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
@@ -104,42 +104,42 @@ public class m extends BaseAdapter {
                             nVar.mLine.setVisibility(0);
                         }
                     }
-                    this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.awl.getLayoutMode().j(view2);
+                    this.awm.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.awm.getLayoutMode().j(view2);
                     return view2;
                 } catch (Throwable th) {
                     th = th;
-                    this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.awl.getLayoutMode().j(view);
+                    this.awm.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.awm.getLayoutMode().j(view);
                     throw th;
                 }
             } catch (Exception e) {
                 e = e;
                 BdLog.detailException(e);
-                this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-                this.awl.getLayoutMode().j(view);
+                this.awm.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+                this.awm.getLayoutMode().j(view);
                 return view;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-            this.awl.getLayoutMode().j(view);
+            this.awm.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+            this.awm.getLayoutMode().j(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.awl.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-            this.awl.getLayoutMode().j(view);
+            this.awm.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+            this.awm.getLayoutMode().j(view);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.awm = z;
+        this.awn = z;
     }
 
-    public boolean Fb() {
-        return this.awm;
+    public boolean Fc() {
+        return this.awn;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

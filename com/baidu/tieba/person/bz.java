@@ -2,20 +2,20 @@ package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ PersonListActivity bTu;
+    final /* synthetic */ PersonListActivity bTv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(PersonListActivity personListActivity) {
-        this.bTu = personListActivity;
+        this.bTv = personListActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.x
     public void onScrollToBottom() {
         ca caVar;
-        caVar = this.bTu.bTp;
+        caVar = this.bTv.bTq;
         if (!caVar.isHasMore()) {
             return;
         }
-        this.bTu.aez();
+        this.bTv.aeA();
     }
 }

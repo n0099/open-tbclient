@@ -27,12 +27,12 @@ public class bv extends bn<com.baidu.tbadk.core.data.aa, bu> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, bu buVar) {
         super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) buVar);
         if (aaVar != null) {
-            buVar.bMa.setOnClickListener(this.mItemClickListener);
-            buVar.bMa.setText(aaVar.getSummary());
-            buVar.bMa.setTag(aaVar);
-            com.baidu.tbadk.core.util.ay.j(buVar.bMb, com.baidu.tieba.n.cp_bg_line_b);
-            com.baidu.tbadk.core.util.ay.b(buVar.bMa, com.baidu.tieba.n.cp_cont_b, 1);
-            buVar.bMa.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+            buVar.bMb.setOnClickListener(this.mItemClickListener);
+            buVar.bMb.setText(aaVar.getSummary());
+            buVar.bMb.setTag(aaVar);
+            com.baidu.tbadk.core.util.ay.j(buVar.bMc, com.baidu.tieba.n.cp_bg_line_b);
+            com.baidu.tbadk.core.util.ay.b(buVar.bMb, com.baidu.tieba.n.cp_cont_b, 1);
+            buVar.bMb.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         return view;
     }

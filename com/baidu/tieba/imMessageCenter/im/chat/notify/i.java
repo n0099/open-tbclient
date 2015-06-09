@@ -6,13 +6,13 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ d bsw;
+    final /* synthetic */ d bsx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(d dVar, int i) {
         super(i);
-        this.bsw = dVar;
+        this.bsx = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,22 +29,22 @@ public class i extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            imMessageCenterModel = this.bsw.bsj;
-                            aVar = this.bsw.bcA;
+                            imMessageCenterModel = this.bsx.bsk;
+                            aVar = this.bsx.bcB;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            imMessageCenterListAdapter3 = this.bsw.bsn;
+                            imMessageCenterListAdapter3 = this.bsx.bso;
                             if (imMessageCenterListAdapter3 != null) {
-                                imMessageCenterListAdapter4 = this.bsw.bsn;
+                                imMessageCenterListAdapter4 = this.bsx.bso;
                                 imMessageCenterListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            imMessageCenterListAdapter = this.bsw.bsn;
+                            imMessageCenterListAdapter = this.bsx.bso;
                             if (imMessageCenterListAdapter != null) {
-                                imMessageCenterListAdapter2 = this.bsw.bsn;
+                                imMessageCenterListAdapter2 = this.bsx.bso;
                                 imMessageCenterListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -53,13 +53,13 @@ public class i extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.bsw.e(customResponsedMessage);
+                    this.bsx.e(customResponsedMessage);
                     return;
                 }
-                this.bsw.d(customResponsedMessage);
+                this.bsx.d(customResponsedMessage);
                 return;
             }
-            this.bsw.c(customResponsedMessage);
+            this.bsx.c(customResponsedMessage);
         }
     }
 }

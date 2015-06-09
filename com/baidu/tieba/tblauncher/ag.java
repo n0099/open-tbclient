@@ -13,7 +13,7 @@ public class ag implements CustomMessageTask.CustomRunnable<Game> {
             return null;
         }
         if (customMessage.getData() != null) {
-            MainTabActivityStatic.cvY = customMessage.getData();
+            MainTabActivityStatic.cvZ = customMessage.getData();
         }
         return new CustomResponsedMessage<>(2001258);
     }

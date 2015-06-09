@@ -44,7 +44,7 @@ public class e {
         return this.position;
     }
 
-    public int zh() {
+    public int zi() {
         return this.aiV;
     }
 

@@ -7,47 +7,47 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends CustomMessageListener {
-    final /* synthetic */ v bSb;
+    final /* synthetic */ v bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(v vVar, int i) {
         super(i);
-        this.bSb = vVar;
+        this.bSc = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonBarActivity ael;
-        PersonBarActivity ael2;
+        PersonBarActivity aem;
+        PersonBarActivity aem2;
         boolean z2;
         View view;
         View view2;
         View view3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            z = this.bSb.mIsHost;
+            z = this.bSc.mIsHost;
             if (z) {
                 u personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                ael = this.bSb.ael();
-                if (ael != null) {
-                    ael2 = this.bSb.ael();
-                    if (ael2.getRequestCode() != 23011) {
-                        view3 = this.bSb.bRT;
+                aem = this.bSc.aem();
+                if (aem != null) {
+                    aem2 = this.bSc.aem();
+                    if (aem2.getRequestCode() != 23011) {
+                        view3 = this.bSc.bRU;
                         view3.setVisibility(8);
                     } else {
-                        z2 = this.bSb.bRW;
+                        z2 = this.bSc.bRX;
                         if (!z2) {
-                            this.bSb.bRW = true;
-                            BdListView bdListView = this.bSb.mListView;
-                            view2 = this.bSb.bRT;
+                            this.bSc.bRX = true;
+                            BdListView bdListView = this.bSc.mListView;
+                            view2 = this.bSc.bRU;
                             bdListView.addHeaderView(view2);
                         }
-                        view = this.bSb.bRT;
+                        view = this.bSc.bRU;
                         view.setVisibility(0);
                     }
-                    this.bSb.a(personBarData, true);
+                    this.bSc.a(personBarData, true);
                 }
             }
         }

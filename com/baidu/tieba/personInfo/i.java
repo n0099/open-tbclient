@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bVe;
+    final /* synthetic */ PersonInfoActivity bVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bVe = personInfoActivity;
+        this.bVf = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ class i extends com.baidu.adp.framework.listener.e {
             int error = responseDeleteFriendMessage.getError();
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error == 0) {
-                adVar = this.bVe.bUU;
+                adVar = this.bVf.bUV;
                 adVar.startLoad();
             } else {
-                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.bVe.getResources().getString(com.baidu.tieba.t.neterror) : responseDeleteFriendMessage.getErrorString();
+                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.bVf.getResources().getString(com.baidu.tieba.t.neterror) : responseDeleteFriendMessage.getErrorString();
             }
-            this.bVe.showToast(errorString);
+            this.bVf.showToast(errorString);
         }
     }
 }

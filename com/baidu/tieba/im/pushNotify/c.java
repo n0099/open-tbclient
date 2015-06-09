@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b boI;
+    final /* synthetic */ b boJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.boI = bVar;
+        this.boJ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,9 +27,9 @@ public class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            list2 = this.boI.mList;
+                            list2 = this.boJ.mList;
                             if (list2 != null) {
-                                list3 = this.boI.mList;
+                                list3 = this.boJ.mList;
                                 list3.clear();
                             }
                             com.baidu.tbadk.coreExtra.messageCenter.a.vJ().c(new h());
@@ -38,23 +38,23 @@ public class c extends CustomMessageListener {
                             com.baidu.tbadk.coreExtra.messageCenter.a.vJ().vX();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.boI.mList;
+                            list = this.boJ.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.boI.bO(false);
+                            this.boJ.bO(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.boI.e(customResponsedMessage);
+                    this.boJ.e(customResponsedMessage);
                     return;
                 }
-                this.boI.d(customResponsedMessage);
+                this.boJ.d(customResponsedMessage);
                 return;
             }
-            this.boI.c(customResponsedMessage);
+            this.boJ.c(customResponsedMessage);
         }
     }
 }

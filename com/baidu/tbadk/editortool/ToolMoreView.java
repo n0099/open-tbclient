@@ -161,7 +161,7 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zI() {
+    public void zJ() {
         if (this.akY != null) {
             this.akY.setVisibility(8);
         }
@@ -177,13 +177,13 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zJ() {
+    public void zK() {
         if (this.akZ != null) {
             this.akZ.setVisibility(8);
         }
     }
 
-    public void zK() {
+    public void zL() {
         if (this.akP.getVisibility() == 0) {
             if (this.ala == null) {
                 this.ala = aW(false);
@@ -192,17 +192,17 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zL() {
+    public void zM() {
         if (this.ala != null) {
             this.ala.setVisibility(8);
         }
     }
 
-    public boolean zM() {
+    public boolean zN() {
         return this.ald != null && this.ald.getVisibility() == 0 && this.akQ != null && this.akQ.getVisibility() == 0;
     }
 
-    public void zN() {
+    public void zO() {
         if (this.akQ.getVisibility() == 0) {
             if (this.ald == null) {
                 this.ald = aW(false);
@@ -211,7 +211,7 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zO() {
+    public void zP() {
         if (this.ald != null) {
             this.ald.setVisibility(8);
         }
@@ -227,13 +227,13 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zP() {
+    public void zQ() {
         if (this.alb != null) {
             this.alb.setVisibility(8);
         }
     }
 
-    public void zQ() {
+    public void zR() {
         if (this.akO.getVisibility() == 0) {
             if (this.alc == null) {
                 this.alc = aW(false);
@@ -242,7 +242,7 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void zR() {
+    public void zS() {
         if (this.alc != null) {
             this.alc.setVisibility(8);
         }
@@ -377,14 +377,14 @@ public class ToolMoreView extends FrameLayout {
             this.akM.setVisibility(0);
             this.akQ.setVisibility(4);
             this.akL.setVisibility(4);
-            zI();
+            zJ();
             this.akX.addView(this.akP);
             this.akX.addView(this.akN);
             this.akX.addView(this.akI);
             this.akX.addView(this.akR);
             this.akP.setVisibility(4);
             this.akI.setVisibility(4);
-            zJ();
+            zK();
             this.akR.setVisibility(4);
             this.akN.setVisibility(4);
             return;
@@ -404,40 +404,40 @@ public class ToolMoreView extends FrameLayout {
         this.akX.addView(this.akI);
         this.akX.addView(this.akR);
         this.akI.setVisibility(4);
-        zJ();
+        zK();
         this.akR.setVisibility(4);
         if (TbadkCoreApplication.m411getInst().isBaobaoShouldOpen() && !this.ale) {
             this.akN.setEnabled(true);
             this.akN.setVisibility(0);
         } else {
             this.akN.setVisibility(4);
-            zP();
+            zQ();
         }
         if (TbadkCoreApplication.m411getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
             this.akP.setEnabled(false);
             this.akP.setVisibility(4);
-            zL();
+            zM();
             return;
         }
         this.akP.setEnabled(true);
         this.akP.setVisibility(0);
     }
 
-    public void zS() {
+    public void zT() {
         this.akM.setVisibility(4);
         this.akP.setVisibility(4);
-        zL();
+        zM();
         this.akN.setVisibility(4);
-        zP();
+        zQ();
         this.akN.setEnabled(false);
         this.akQ.setVisibility(4);
-        zO();
+        zP();
     }
 
-    public void zT() {
+    public void zU() {
         this.akW.setVisibility(8);
         this.akI.setVisibility(4);
-        zJ();
+        zK();
         this.akM.setVisibility(4);
         if (this.akX != null) {
             if (this.akP != null) {
@@ -455,13 +455,13 @@ public class ToolMoreView extends FrameLayout {
         this.akQ.setVisibility(4);
         this.akN.setEnabled(true);
         this.akL.setVisibility(4);
-        zP();
+        zQ();
     }
 
-    public void zU() {
+    public void zV() {
         this.akW.setVisibility(8);
         this.akI.setVisibility(4);
-        zJ();
+        zK();
         this.akM.setVisibility(4);
         if (this.akX != null) {
             if (this.akP != null) {
@@ -478,12 +478,12 @@ public class ToolMoreView extends FrameLayout {
         this.akQ.setVisibility(4);
         this.akN.setEnabled(true);
         this.akL.setVisibility(4);
-        zI();
-        zP();
-        zR();
+        zJ();
+        zQ();
+        zS();
     }
 
-    public void zV() {
+    public void zW() {
         this.akW.setVisibility(8);
         this.akI.setVisibility(4);
         this.akM.setVisibility(4);
@@ -497,8 +497,8 @@ public class ToolMoreView extends FrameLayout {
         this.akQ.setVisibility(4);
         this.akN.setEnabled(true);
         this.akL.setVisibility(4);
-        zP();
-        zJ();
+        zQ();
+        zK();
     }
 
     @Override // android.view.View
@@ -507,7 +507,7 @@ public class ToolMoreView extends FrameLayout {
         if (TbadkCoreApplication.m411getInst().isFaceShopNew()) {
             eD("N");
         } else {
-            zJ();
+            zK();
         }
     }
 

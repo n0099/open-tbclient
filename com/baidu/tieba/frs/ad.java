@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(FrsActivity frsActivity, int i) {
         super(i);
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,14 +22,14 @@ class ad extends CustomMessageListener {
         com.baidu.tieba.tbadkCore.w wVar2;
         com.baidu.tieba.frs.c.a aVar;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            wVar = this.aLX.aLl;
+            wVar = this.aLY.aLm;
             if (wVar != null) {
-                wVar2 = this.aLX.aLl;
+                wVar2 = this.aLY.aLm;
                 UserData userData = wVar2.getUserData();
                 if (userData != null) {
                     userData.setIsMem(num.intValue());
                     if (num.intValue() != 0) {
-                        aVar = this.aLX.aLA;
+                        aVar = this.aLY.aLB;
                         aVar.b(num);
                     }
                 }

@@ -56,7 +56,7 @@ public class c extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integ
             list2.remove(0);
         }
         a.arr = null;
-        this.art.zj();
+        this.art.zk();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [306=4, 308=4, 309=4, 310=4, 364=4, 366=4, 367=4, 368=4] */
@@ -293,6 +293,9 @@ public class c extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integ
         BdFileDownloadData bdFileDownloadData15;
         BdFileDownloadData bdFileDownloadData16;
         super.onPostExecute((c) num);
+        if (num == null) {
+            num = -1;
+        }
         if (num.intValue() == 0) {
             bdFileDownloadData10 = a.arr;
             if (bdFileDownloadData10.getCallback() != null) {
@@ -326,7 +329,7 @@ public class c extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integ
                     break;
                 case 5:
                 default:
-                    string = null;
+                    string = TbadkCoreApplication.m411getInst().getApp().getString(t.tb_err_unknown);
                     break;
                 case 6:
                     string = TbadkCoreApplication.m411getInst().getApp().getString(t.download_fail);
@@ -361,7 +364,7 @@ public class c extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integ
         if (!list.isEmpty()) {
             list2 = a.aiS;
             list2.remove(0);
-            this.art.zj();
+            this.art.zk();
         }
     }
 }

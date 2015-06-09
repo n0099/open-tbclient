@@ -12,65 +12,65 @@ import com.baidu.tieba.t;
 import tbclient.FinePbPage.User_Info;
 /* loaded from: classes.dex */
 public class b {
-    private HeadImageView aBk;
-    private TextView aDj;
-    private TextView aHH;
+    private HeadImageView aBl;
+    private TextView aDk;
+    private TextView aHI;
     private TextView aiA;
-    private View bJl;
-    private g bJm;
-    private TextView bJn;
+    private View bJm;
+    private g bJn;
+    private TextView bJo;
 
     public b(Context context) {
-        this.bJl = com.baidu.adp.lib.g.b.hr().inflate(context, r.chosen_pb_person_info, null);
-        this.aiA = (TextView) this.bJl.findViewById(q.chosen_pb_title);
-        this.aBk = (HeadImageView) this.bJl.findViewById(q.chosen_pb_person_info_head);
-        this.aHH = (TextView) this.bJl.findViewById(q.chosen_pb_person_info_name);
-        this.aDj = (TextView) this.bJl.findViewById(q.chosen_pb_person_info_tag);
-        this.bJn = (TextView) this.bJl.findViewById(q.chosen_pb_person_info_bar);
-        this.aBk.setRadius(n.dip2px(context, 2.0f));
+        this.bJm = com.baidu.adp.lib.g.b.hr().inflate(context, r.chosen_pb_person_info, null);
+        this.aiA = (TextView) this.bJm.findViewById(q.chosen_pb_title);
+        this.aBl = (HeadImageView) this.bJm.findViewById(q.chosen_pb_person_info_head);
+        this.aHI = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_name);
+        this.aDk = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_tag);
+        this.bJo = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_bar);
+        this.aBl.setRadius(n.dip2px(context, 2.0f));
     }
 
-    public View aam() {
-        return this.bJl;
+    public View aan() {
+        return this.bJm;
     }
 
     public void a(g gVar) {
-        this.bJm = gVar;
+        this.bJn = gVar;
     }
 
     public void ii(String str) {
-        if (!StringUtils.isNull(str) && this.aBk != null) {
-            this.aBk.c(str, 12, false);
+        if (!StringUtils.isNull(str) && this.aBl != null) {
+            this.aBl.c(str, 12, false);
         }
     }
 
     public void setName(String str) {
-        if (this.aHH != null) {
-            this.aHH.setText(str);
+        if (this.aHI != null) {
+            this.aHI.setText(str);
         }
     }
 
     public void N(Context context, String str) {
-        if (this.bJn != null) {
+        if (this.bJo != null) {
             if (StringUtils.isNull(str)) {
-                this.bJn.setVisibility(4);
+                this.bJo.setVisibility(4);
                 return;
             }
-            this.bJn.setText(context.getString(t.chosen_pb_original_bar, str));
-            this.bJn.setOnClickListener(new c(this, str));
-            this.bJn.setVisibility(0);
+            this.bJo.setText(context.getString(t.chosen_pb_original_bar, str));
+            this.bJo.setOnClickListener(new c(this, str));
+            this.bJo.setVisibility(0);
         }
     }
 
     public void ij(String str) {
-        if (this.aDj != null) {
+        if (this.aDk != null) {
             if (StringUtils.isNull(str)) {
-                this.aDj.setVisibility(8);
+                this.aDk.setVisibility(8);
                 return;
             }
-            this.aDj.setVisibility(0);
-            this.aDj.setText(str);
-            this.aDj.setOnClickListener(new d(this, str));
+            this.aDk.setVisibility(0);
+            this.aDk.setText(str);
+            this.aDk.setOnClickListener(new d(this, str));
         }
     }
 
@@ -84,15 +84,15 @@ public class b {
         if (user_Info != null) {
             setName(user_Info.name);
             ii(user_Info.portrait);
-            this.aBk.setOnClickListener(new e(this, user_Info));
-            this.aHH.setOnClickListener(new f(this, user_Info));
+            this.aBl.setOnClickListener(new e(this, user_Info));
+            this.aHI.setOnClickListener(new f(this, user_Info));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j, String str) {
-        if (this.bJm != null) {
-            this.bJm.aU(String.valueOf(j), str);
+        if (this.bJn != null) {
+            this.bJn.aU(String.valueOf(j), str);
         }
     }
 }

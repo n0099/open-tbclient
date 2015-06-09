@@ -25,14 +25,14 @@ public class u extends y {
     }
 
     public u() {
-        Df();
+        Dg();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean Dp() {
+    public boolean Dq() {
         return this.aqq;
     }
 
@@ -40,8 +40,8 @@ public class u extends y {
         this.aqq = z;
     }
 
-    public void De() {
-        Dg();
+    public void Df() {
+        Dh();
     }
 
     public void A(int i, int i2) {
@@ -61,8 +61,8 @@ public class u extends y {
         }
     }
 
-    public void Dq() {
-        Ds();
+    public void Dr() {
+        Dt();
         if (this.apP != null) {
             this.apP.clear();
         }
@@ -74,13 +74,13 @@ public class u extends y {
         }
     }
 
-    private void Df() {
+    private void Dg() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Dg() {
+    private void Dh() {
         CustomMessage customMessage = new CustomMessage(2016103, new x(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -115,11 +115,11 @@ public class u extends y {
         this.apP.add(valueOf);
     }
 
-    public String Dr() {
+    public String Ds() {
         return r(this.aqp);
     }
 
-    public String Dj() {
+    public String Dk() {
         return r(this.apO);
     }
 
@@ -146,9 +146,9 @@ public class u extends y {
         return stringBuffer.toString();
     }
 
-    private void Ds() {
+    private void Dt() {
         af afVar;
-        if (this.apO != null && this.apO.size() > 0 && this.apP != null && this.apP.size() > 0 && this.aqp != null && this.aqp.size() > 0 && (afVar = (af) ah.DB().en(this.mSubType)) != null) {
+        if (this.apO != null && this.apO.size() > 0 && this.apP != null && this.apP.size() > 0 && this.aqp != null && this.aqp.size() > 0 && (afVar = (af) ah.DC().en(this.mSubType)) != null) {
             afVar.b(this);
         }
     }

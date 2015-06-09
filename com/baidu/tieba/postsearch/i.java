@@ -10,7 +10,7 @@ class i implements CustomMessageTask.CustomRunnable<Void> {
         if (customMessage == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.util.j.apz();
+        com.baidu.tieba.tbadkCore.util.j.apA();
         return new CustomResponsedMessage<>(2009004);
     }
 }

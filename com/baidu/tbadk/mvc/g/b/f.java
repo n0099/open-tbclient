@@ -23,7 +23,7 @@ public abstract class f extends com.baidu.tbadk.mvc.i.a.a {
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        Cu().onChangeSkinType(i);
+        Cv().onChangeSkinType(i);
         return super.a(tbPageContext, i);
     }
 
@@ -40,7 +40,7 @@ public abstract class f extends com.baidu.tbadk.mvc.i.a.a {
     }
 
     @Override // com.baidu.tbadk.mvc.i.a.a
-    protected FragmentTabWidget Cu() {
+    protected FragmentTabWidget Cv() {
         if (this.aoF != null) {
             return this.aoF;
         }

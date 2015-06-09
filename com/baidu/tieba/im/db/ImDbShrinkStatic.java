@@ -4,25 +4,25 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic bfi;
-    private static long bfl = -1;
-    private static int bfm = 0;
-    private i bfj = new i(null);
-    private j bfk = null;
+    private static ImDbShrinkStatic bfj;
+    private static long bfm = -1;
+    private static int bfn = 0;
+    private i bfk = new i(null);
+    private j bfl = null;
 
     static {
-        Rs();
+        Rt();
     }
 
-    public static ImDbShrinkStatic Rs() {
-        if (bfi == null) {
+    public static ImDbShrinkStatic Rt() {
+        if (bfj == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (bfi == null) {
-                    bfi = new ImDbShrinkStatic();
+                if (bfj == null) {
+                    bfj = new ImDbShrinkStatic();
                 }
             }
         }
-        return bfi;
+        return bfj;
     }
 
     private ImDbShrinkStatic() {
@@ -30,20 +30,20 @@ public class ImDbShrinkStatic {
     }
 
     public void execute() {
-        if (this.bfk != null) {
-            this.bfk.cancel();
-            this.bfk = null;
+        if (this.bfl != null) {
+            this.bfl.cancel();
+            this.bfl = null;
         }
-        this.bfk = new j(this, null);
-        this.bfk.setParallel(TiebaIMConfig.getParallel());
-        this.bfk.setPriority(4);
-        this.bfk.execute(new String[0]);
+        this.bfl = new j(this, null);
+        this.bfl.setParallel(TiebaIMConfig.getParallel());
+        this.bfl.setPriority(4);
+        this.bfl.execute(new String[0]);
     }
 
     public void stop() {
-        if (this.bfk != null) {
-            this.bfk.cancel();
-            this.bfk = null;
+        if (this.bfl != null) {
+            this.bfl.cancel();
+            this.bfl = null;
         }
     }
 }

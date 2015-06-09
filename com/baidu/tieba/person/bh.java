@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class bh implements AdapterView.OnItemClickListener {
-    final /* synthetic */ bc bSZ;
+    final /* synthetic */ bc bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(bc bcVar) {
-        this.bSZ = bcVar;
+        this.bTa = bcVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,17 +19,17 @@ class bh implements AdapterView.OnItemClickListener {
         bk bkVar;
         bk bkVar2;
         bk bkVar3;
-        PersonFriendActivity aey;
-        bkVar = this.bSZ.bSS;
+        PersonFriendActivity aez;
+        bkVar = this.bTa.bST;
         if (bkVar != null) {
-            bkVar2 = this.bSZ.bSS;
+            bkVar2 = this.bTa.bST;
             if (bkVar2.getItemViewType(i) == 0) {
-                bkVar3 = this.bSZ.bSS;
+                bkVar3 = this.bTa.bST;
                 UserData userData = (UserData) bkVar3.getItem(i);
                 if (userData != null && userData.getUserId() != null) {
-                    bc bcVar = this.bSZ;
-                    aey = this.bSZ.aey();
-                    bcVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(aey.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+                    bc bcVar = this.bTa;
+                    aez = this.bTa.aez();
+                    bcVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(aez.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
             }
         }

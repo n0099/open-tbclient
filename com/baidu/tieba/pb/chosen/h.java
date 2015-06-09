@@ -11,10 +11,10 @@ import com.baidu.tieba.t;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class h {
-    private PbChosenActivity bJb;
+    private PbChosenActivity bJc;
 
     public h(PbChosenActivity pbChosenActivity) {
-        this.bJb = pbChosenActivity;
+        this.bJc = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -22,7 +22,7 @@ public class h {
             String str2 = aVar.getForumInfo().fromfname;
             String str3 = aVar.getForumInfo().title;
             String str4 = aVar.getForumInfo()._abstract;
-            Resources resources = this.bJb.getPageContext().getPageActivity().getResources();
+            Resources resources = this.bJc.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(t.share_content_tpl), str3, str2, str4);
             String string = resources.getString(t.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
@@ -36,12 +36,12 @@ public class h {
             if (!StringUtils.isNull(str)) {
                 gVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bJb.getPageContext().getPageActivity(), gVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bJc.getPageContext().getPageActivity(), gVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(t.share_tieba_qunzu, p.icon_unite_share_qunzu, new i(this));
             shareDialogConfig.addOutsideTextView(t.forum_friend, p.icon_unite_share_baf, new j(this));
             shareDialogConfig.setCopyLinkListener(new k(this, gVar));
-            this.bJb.sendMessage(new CustomMessage(2001283, shareDialogConfig));
+            this.bJc.sendMessage(new CustomMessage(2001283, shareDialogConfig));
         }
     }
 

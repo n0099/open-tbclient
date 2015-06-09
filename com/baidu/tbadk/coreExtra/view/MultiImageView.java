@@ -206,13 +206,13 @@ public class MultiImageView extends RelativeLayout {
         this.agu.setEnabled(false);
     }
 
-    public void xZ() {
+    public void ya() {
         if (!this.agC) {
             this.agw.setVisibility(0);
         }
     }
 
-    public void ya() {
+    public void yb() {
         if (!this.agC) {
             this.agw.setVisibility(8);
         }

@@ -191,7 +191,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     public void setData(LiveCardData liveCardData) {
         if (liveCardData != null) {
-            af.xU().b(this);
+            af.xV().b(this);
             unRegisterTimeUpdateListener();
             this.hasLivingTip = false;
             this.mGroupId = liveCardData.getGroupId();
@@ -407,7 +407,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.mCardLivingImage.setVisibility(8);
         }
         this.mCardStatus = 3;
-        af.xU().b(this);
+        af.xV().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -436,7 +436,7 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mCardStatus = 0;
         dealStatusWillStart();
         registerTimeUpdateListener();
-        af.xU().a(this);
+        af.xV().a(this);
     }
 
     private void updateStatusClose() {
@@ -508,7 +508,7 @@ public class LiveBroadcastCard extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        af.xU().b(this);
+        af.xV().b(this);
         unRegisterTimeUpdateListener();
     }
 

@@ -5,5 +5,5 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 public interface c {
     void a(boolean z, PostPrefixData postPrefixData);
 
-    void ass();
+    void ast();
 }

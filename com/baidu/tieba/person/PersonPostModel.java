@@ -14,8 +14,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int bTI = 0;
-    private static String bTJ = "";
+    private static int bTJ = 0;
+    private static String bTK = "";
     public int hide_post;
     public List<PostList> post_list;
 
@@ -41,18 +41,18 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, ch chVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(bTJ)) {
-            bTI = 1;
-            bTJ = str;
+        if (z || !str.equals(bTK)) {
+            bTJ = 1;
+            bTK = str;
         } else {
-            bTI++;
+            bTJ++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(bTJ);
-        userPostPageRequestMessage.setPn(bTI);
+        userPostPageRequestMessage.setUid(bTK);
+        userPostPageRequestMessage.setPn(bTJ);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);

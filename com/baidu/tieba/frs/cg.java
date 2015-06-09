@@ -5,12 +5,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class cg extends com.baidu.adp.widget.ListView.am {
-    LinearLayout aMH;
+    LinearLayout aMI;
     TextView mTitle;
 
     public cg(View view) {
         super(view);
-        this.aMH = (LinearLayout) view.findViewById(com.baidu.tieba.q.frs_top_item);
+        this.aMI = (LinearLayout) view.findViewById(com.baidu.tieba.q.frs_top_item);
         this.mTitle = (TextView) view.findViewById(com.baidu.tieba.q.frs_top_title);
     }
 }

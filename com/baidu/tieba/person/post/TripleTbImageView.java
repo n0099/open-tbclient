@@ -9,12 +9,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
-    private static int bUP;
+    private static int bUQ;
     public TbImageView Yd;
     public TbImageView Ye;
     public TbImageView Yf;
-    public Object[] bUO;
-    private int bUQ;
+    public Object[] bUP;
+    private int bUR;
     public final int mPadding;
 
     public TripleTbImageView(Context context) {
@@ -36,7 +36,7 @@ public class TripleTbImageView extends ViewGroup {
     }
 
     public void setTags(Object[] objArr) {
-        this.bUO = objArr;
+        this.bUP = objArr;
         if (objArr == null) {
             this.Yd.setTag(null);
             this.Ye.setTag(null);
@@ -54,7 +54,7 @@ public class TripleTbImageView extends ViewGroup {
             invalidate();
             return;
         }
-        this.bUQ = 200;
+        this.bUR = 200;
         if (length == 1) {
             a((PersonPostModel.Media) objArr[0], this.Yd);
             this.Ye.setTag(null);
@@ -80,17 +80,17 @@ public class TripleTbImageView extends ViewGroup {
                 tbImageView.setDefaultResource(com.baidu.tieba.p.pic_video);
             }
             tbImageView.setTag(media.big_pic);
-            tbImageView.a(media.big_pic, 10, this.bUQ, this.bUQ, false);
+            tbImageView.a(media.big_pic, 10, this.bUR, this.bUR, false);
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3 = 1073741823 & i;
-        if (bUP == 0) {
-            bUP = i3;
+        if (bUQ == 0) {
+            bUQ = i3;
         }
-        if (this.bUO == null || this.bUO.length == 0) {
+        if (this.bUP == null || this.bUP.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
@@ -105,7 +105,7 @@ public class TripleTbImageView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int min = Math.min(i4, getHeight());
-        if (this.bUO != null && this.bUO.length != 0) {
+        if (this.bUP != null && this.bUP.length != 0) {
             int measuredWidth = (getMeasuredWidth() - (this.mPadding * 4)) / 3;
             this.Yd.layout(this.mPadding, this.mPadding + 0, measuredWidth + this.mPadding, min > this.mPadding ? min - this.mPadding : min);
             this.Ye.layout(measuredWidth + (this.mPadding * 2), this.mPadding + 0, (this.mPadding * 2) + (measuredWidth * 2), min > this.mPadding ? min - this.mPadding : min);
@@ -122,9 +122,9 @@ public class TripleTbImageView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.bUO != null && this.bUO.length != 0) {
+        if (this.bUP != null && this.bUP.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.bUO.length) {
+            switch (this.bUP.length) {
                 case 1:
                     drawChild(canvas, this.Yd, drawingTime);
                     return;

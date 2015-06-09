@@ -30,7 +30,7 @@ public abstract class a implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.
     @Override // com.baidu.adp.lib.f.g
     /* renamed from: f */
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Al().eL(str);
+        com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Am().eL(str);
         if (eL != null) {
             eL.Gm.Go = "memory";
             eL.Gm.Gp = 0L;
@@ -142,7 +142,7 @@ public abstract class a implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.
             }
             com.baidu.adp.lib.stats.q hm2 = t.hm();
             hm2.hU();
-            com.baidu.tbadk.imageManager.e.Al().dN(TbConfig.getPbImageSize() + l.length);
+            com.baidu.tbadk.imageManager.e.Am().dN(TbConfig.getPbImageSize() + l.length);
             Rect rect = new Rect();
             StringBuilder sb = new StringBuilder(100);
             Bitmap b = b(l, rect, sb);
@@ -220,7 +220,7 @@ public abstract class a implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.
     @Override // com.baidu.adp.lib.f.g
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.e.Al().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.e.Am().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -280,7 +280,7 @@ public abstract class a implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.e.Al().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
+            com.baidu.tbadk.imageManager.e.Am().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
             return com.baidu.tbadk.core.util.c.a(bitmap, i, i2, true);
         }
         return bitmap;

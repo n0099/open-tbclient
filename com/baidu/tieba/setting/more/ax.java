@@ -1,19 +1,19 @@
 package com.baidu.tieba.setting.more;
 /* loaded from: classes.dex */
 class ax implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ SystemHelpSettingActivity cgQ;
+    final /* synthetic */ SystemHelpSettingActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cgQ = systemHelpSettingActivity;
+        this.cgR = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         az azVar;
         aVar.dismiss();
-        this.cgQ.showLoadingDialog(this.cgQ.getPageContext().getString(com.baidu.tieba.t.deleting));
-        azVar = this.cgQ.cgP;
-        azVar.ajU();
+        this.cgR.showLoadingDialog(this.cgR.getPageContext().getString(com.baidu.tieba.t.deleting));
+        azVar = this.cgR.cgQ;
+        azVar.ajV();
     }
 }

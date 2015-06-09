@@ -7,11 +7,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ c bma;
+    final /* synthetic */ c bmb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.bma = cVar;
+        this.bmb = cVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -20,7 +20,7 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
         imMessageCenterPojo.setGid("-1000");
         imMessageCenterPojo.setCustomGroupType(-8);
         imMessageCenterPojo.setIs_hidden(1);
-        com.baidu.tieba.im.db.k.Rv().a(imMessageCenterPojo);
+        com.baidu.tieba.im.db.k.Rw().a(imMessageCenterPojo);
         return null;
     }
 }

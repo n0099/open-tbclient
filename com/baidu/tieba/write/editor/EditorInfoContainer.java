@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.p;
 /* loaded from: classes.dex */
 public class EditorInfoContainer extends LinearLayout {
     private final CustomMessageListener aag;
-    protected p czu;
-    private com.baidu.tieba.tbadkCore.PbEditor.b czv;
+    protected p czv;
     private com.baidu.tieba.tbadkCore.PbEditor.b czw;
     private com.baidu.tieba.tbadkCore.PbEditor.b czx;
     private com.baidu.tieba.tbadkCore.PbEditor.b czy;
+    private com.baidu.tieba.tbadkCore.PbEditor.b czz;
 
     public EditorInfoContainer(Context context) {
         this(context, null);
@@ -33,24 +33,24 @@ public class EditorInfoContainer extends LinearLayout {
         int dimension = (int) context.getResources().getDimension(o.ds36);
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
-        this.czu = new p(context);
-        this.czv = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.czv = new p(context);
         this.czw = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
         this.czx = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.czx.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         this.czy = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
-        this.czy.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.czy.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.czz = new com.baidu.tieba.tbadkCore.PbEditor.b(context);
+        this.czz.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(o.ds16);
-        addView(this.czu, layoutParams);
         addView(this.czv, layoutParams);
         addView(this.czw, layoutParams);
         addView(this.czx, layoutParams);
         addView(this.czy, layoutParams);
-        this.czv.setVisibility(8);
+        addView(this.czz, layoutParams);
         this.czw.setVisibility(8);
         this.czx.setVisibility(8);
         this.czy.setVisibility(8);
+        this.czz.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -77,43 +77,40 @@ public class EditorInfoContainer extends LinearLayout {
     }
 
     public p getLocationInfoView() {
-        return this.czu;
+        return this.czv;
     }
 
     public void a(af afVar) {
         if (afVar != null) {
-            if (afVar.crl > 0) {
-                this.czv.setVisibility(0);
-                this.czv.setText(String.valueOf(afVar.crl));
-            } else {
-                this.czv.setVisibility(8);
-            }
             if (afVar.crm > 0) {
                 this.czw.setVisibility(0);
-                this.czw.setText(String.valueOf(afVar.crl));
+                this.czw.setText(String.valueOf(afVar.crm));
             } else {
                 this.czw.setVisibility(8);
             }
-            if (afVar.crn > 0 || afVar.crp > 0) {
+            if (afVar.crn > 0) {
                 this.czx.setVisibility(0);
-                this.czx.setText(String.valueOf(afVar.crn + afVar.crp));
+                this.czx.setText(String.valueOf(afVar.crm));
             } else {
                 this.czx.setVisibility(8);
             }
-            if (afVar.cro > 0) {
+            if (afVar.cro > 0 || afVar.crq > 0) {
                 this.czy.setVisibility(0);
-                this.czy.setText(String.valueOf(afVar.cro));
+                this.czy.setText(String.valueOf(afVar.cro + afVar.crq));
+            } else {
+                this.czy.setVisibility(8);
+            }
+            if (afVar.crp > 0) {
+                this.czz.setVisibility(0);
+                this.czz.setText(String.valueOf(afVar.crp));
                 return;
             }
-            this.czy.setVisibility(8);
+            this.czz.setVisibility(8);
         }
     }
 
     public void rU() {
         TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.czu != null) {
-            this.czu.uy();
-        }
         if (this.czv != null) {
             this.czv.uy();
         }
@@ -122,11 +119,14 @@ public class EditorInfoContainer extends LinearLayout {
         }
         if (this.czx != null) {
             this.czx.uy();
-            this.czx.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         if (this.czy != null) {
             this.czy.uy();
-            this.czy.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.czy.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        }
+        if (this.czz != null) {
+            this.czz.uy();
+            this.czz.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

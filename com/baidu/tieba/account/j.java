@@ -4,11 +4,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class j extends Thread {
-    final /* synthetic */ AccountActivity awf;
+    final /* synthetic */ AccountActivity awg;
     private String wk;
 
     public j(AccountActivity accountActivity, String str) {
-        this.awf = accountActivity;
+        this.awg = accountActivity;
         this.wk = null;
         this.wk = str;
     }

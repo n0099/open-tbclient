@@ -3,11 +3,11 @@ package com.baidu.tieba.service;
 import android.location.Address;
 /* loaded from: classes.dex */
 class q implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ UpdateInfoService cdG;
+    final /* synthetic */ UpdateInfoService cdH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(UpdateInfoService updateInfoService) {
-        this.cdG = updateInfoService;
+        this.cdH = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -20,12 +20,12 @@ class q implements com.baidu.adp.lib.d.d {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    gVar = this.cdG.mModel;
+                    gVar = this.cdH.mModel;
                     if (gVar.canSend()) {
-                        gVar2 = this.cdG.mModel;
+                        gVar2 = this.cdH.mModel;
                         gVar2.a(1, longitude, latitude);
-                        gVar3 = this.cdG.mModel;
-                        gVar3.Zv();
+                        gVar3 = this.cdH.mModel;
+                        gVar3.Zw();
                         return;
                     }
                     return;

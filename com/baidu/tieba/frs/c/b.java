@@ -20,11 +20,11 @@ import com.baidu.tieba.tbadkCore.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a aQc;
+    final /* synthetic */ a aQd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aQc = aVar;
+        this.aQd = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v11, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -45,86 +45,86 @@ public class b implements View.OnClickListener {
         FrsActivity frsActivity10;
         FrsActivity frsActivity11;
         FrsActivity frsActivity12;
-        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.aQc.getPageContext().getPageActivity());
-        frsActivity = this.aQc.aPE;
-        w KE = frsActivity.KE();
-        if (KE != null && KE.aar() != null) {
-            if (this.aQc.Ma() != null && (view == this.aQc.Ma().Mt() || view == this.aQc.Ma().MB())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.aQc.getPageContext().getPageActivity(), KE.aar().getId(), ForumDetailActivityConfig.FromType.FRS)));
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.aQd.getPageContext().getPageActivity());
+        frsActivity = this.aQd.aPF;
+        w KF = frsActivity.KF();
+        if (KF != null && KF.aas() != null) {
+            if (this.aQd.Mb() != null && (view == this.aQd.Mb().Mu() || view == this.aQd.Mb().MC())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.aQd.getPageContext().getPageActivity(), KF.aas().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
-            } else if (this.aQc.Mb() != null && (view == this.aQc.Mb().Mt() || view == this.aQc.Mb().MB())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.aQc.getPageContext().getPageActivity(), KE.aar().getId(), ForumDetailActivityConfig.FromType.FRS)));
+            } else if (this.aQd.Mc() != null && (view == this.aQd.Mc().Mu() || view == this.aQd.Mc().MC())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.aQd.getPageContext().getPageActivity(), KF.aas().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
             }
         }
-        FrsHeaderView Ma = this.aQc.Ma();
-        o Mb = this.aQc.Mb();
-        if ((Ma != null && Ma.z(view)) || (Mb != null && Mb.z(view))) {
-            com.baidu.tbadk.core.k.A(this.aQc.getPageContext().getPageActivity(), "forum_fortune_click");
+        FrsHeaderView Mb = this.aQd.Mb();
+        o Mc = this.aQd.Mc();
+        if ((Mb != null && Mb.z(view)) || (Mc != null && Mc.z(view))) {
+            com.baidu.tbadk.core.k.A(this.aQd.getPageContext().getPageActivity(), "forum_fortune_click");
             if (TbadkCoreApplication.isLogin()) {
-                frsActivity11 = this.aQc.aPE;
-                frsActivity11.KB();
+                frsActivity11 = this.aQd.aPF;
+                frsActivity11.KC();
             } else {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                frsActivity12 = this.aQc.aPE;
-                m411getInst.login(frsActivity12.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.aQc.getPageContext().getPageActivity(), (String) null, true, 18004)));
+                frsActivity12 = this.aQd.aPF;
+                m411getInst.login(frsActivity12.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.aQd.getPageContext().getPageActivity(), (String) null, true, 18004)));
             }
         }
         int id = view.getId();
         if (id == q.btn_love) {
-            frsActivity9 = this.aQc.aPE;
-            if (!frsActivity9.KF() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                frsActivity10 = this.aQc.aPE;
+            frsActivity9 = this.aQd.aPF;
+            if (!frsActivity9.KG() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                frsActivity10 = this.aQd.aPF;
                 if (frsActivity10.checkUpIsLogin()) {
-                    this.aQc.oF();
+                    this.aQd.oF();
                 }
             }
         } else if (id == q.btn_sign) {
-            frsActivity7 = this.aQc.aPE;
-            if (!frsActivity7.KF() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                frsActivity8 = this.aQc.aPE;
-                if (frsActivity8.checkUpIsLogin() && !this.aQc.Mr()) {
-                    this.aQc.Mu();
+            frsActivity7 = this.aQd.aPF;
+            if (!frsActivity7.KG() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                frsActivity8 = this.aQd.aPF;
+                if (frsActivity8.checkUpIsLogin() && !this.aQd.Ms()) {
+                    this.aQd.Mv();
                 }
             }
         } else if (id == q.frs_header_groups) {
-            frsActivity5 = this.aQc.aPE;
-            if (frsActivity5.checkUpIsLogin() && KE != null && KE.aar() != null && !com.baidu.adp.lib.util.m.isEmpty(KE.aar().getId()) && KE.amu() != null) {
-                TiebaStatic.eventStat(this.aQc.getPageContext().getPageActivity(), "im_e_glist_from_frs", "click", 1, new Object[0]);
-                FrsGroupActivityConfig frsGroupActivityConfig = new FrsGroupActivityConfig(this.aQc.getPageContext().getPageActivity(), KE.aar().getId(), KE.amu().amn() != 1);
-                frsActivity6 = this.aQc.aPE;
+            frsActivity5 = this.aQd.aPF;
+            if (frsActivity5.checkUpIsLogin() && KF != null && KF.aas() != null && !com.baidu.adp.lib.util.m.isEmpty(KF.aas().getId()) && KF.amv() != null) {
+                TiebaStatic.eventStat(this.aQd.getPageContext().getPageActivity(), "im_e_glist_from_frs", "click", 1, new Object[0]);
+                FrsGroupActivityConfig frsGroupActivityConfig = new FrsGroupActivityConfig(this.aQd.getPageContext().getPageActivity(), KF.aas().getId(), KF.amv().amo() != 1);
+                frsActivity6 = this.aQd.aPF;
                 frsActivity6.sendMessage(new CustomMessage(2002001, frsGroupActivityConfig));
             }
         } else if (id == q.frs_header_games) {
-            frsActivity4 = this.aQc.aPE;
-            if (frsActivity4.checkUpIsLogin() && KE != null && KE.amy() != null) {
-                String amy = KE.amy();
-                int cO = com.baidu.tbadk.core.util.q.cO(amy);
+            frsActivity4 = this.aQd.aPF;
+            if (frsActivity4.checkUpIsLogin() && KF != null && KF.amz() != null) {
+                String amz = KF.amz();
+                int cO = com.baidu.tbadk.core.util.q.cO(amz);
                 if (cO == 2) {
-                    com.baidu.tbadk.browser.f.b(this.aQc.getPageContext().getPageActivity(), null, amy, true);
+                    com.baidu.tbadk.browser.f.b(this.aQd.getPageContext().getPageActivity(), null, amz, true);
                 } else if (cO == 1) {
-                    String jJ = com.baidu.tieba.tbadkCore.util.k.jJ(amy);
+                    String jJ = com.baidu.tieba.tbadkCore.util.k.jJ(amz);
                     if (!TextUtils.isEmpty(jJ)) {
-                        TiebaStatic.eventStat(this.aQc.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", jJ, "ref_id", "1000601", "ref_type", "603");
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(this.aQc.getPageContext().getPageActivity(), jJ, "1000601")));
+                        TiebaStatic.eventStat(this.aQd.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", jJ, "ref_id", "1000601", "ref_type", "603");
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(this.aQd.getPageContext().getPageActivity(), jJ, "1000601")));
                     }
                 }
             }
         } else if (id == q.btn_love_content) {
-            frsActivity2 = this.aQc.aPE;
-            if (!frsActivity2.KF()) {
-                frsActivity3 = this.aQc.aPE;
-                if (!frsActivity3.KG()) {
-                    str = this.aQc.mPageType;
+            frsActivity2 = this.aQd.aPF;
+            if (!frsActivity2.KG()) {
+                frsActivity3 = this.aQd.aPF;
+                if (!frsActivity3.KH()) {
+                    str = this.aQd.mPageType;
                     if (!str.equals("normal_page")) {
-                        str2 = this.aQc.mPageType;
+                        str2 = this.aQd.mPageType;
                         if (str2.equals("frs_page")) {
-                            this.aQc.y(view);
+                            this.aQd.y(view);
                             return;
                         }
                         return;
                     }
-                    this.aQc.x(view);
+                    this.aQd.x(view);
                 }
             }
         }

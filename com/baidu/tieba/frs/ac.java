@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(FrsActivity frsActivity, int i) {
         super(i);
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ class ac extends CustomMessageListener {
         bf bfVar;
         bf bfVar2;
         if (customResponsedMessage != null) {
-            bfVar = this.aLX.aLi;
+            bfVar = this.aLY.aLj;
             if (bfVar != null) {
-                bfVar2 = this.aLX.aLi;
+                bfVar2 = this.aLY.aLj;
                 bfVar2.no();
             }
         }

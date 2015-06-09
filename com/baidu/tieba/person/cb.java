@@ -8,19 +8,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class cb {
-    TextView aJw;
-    HeadImageView aKy;
-    TextView bTA;
-    final /* synthetic */ ca bTB;
-    ImageView bTe;
-    LinearLayout bTf;
-    TextView bTg;
-    ViewGroup bTz;
-    TextView baH;
+    TextView aJx;
+    HeadImageView aKz;
+    ViewGroup bTA;
+    TextView bTB;
+    final /* synthetic */ ca bTC;
+    ImageView bTf;
+    LinearLayout bTg;
+    TextView bTh;
+    TextView baI;
     ProgressBar mProgress;
 
     private cb(ca caVar) {
-        this.bTB = caVar;
+        this.bTC = caVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

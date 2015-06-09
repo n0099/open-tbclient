@@ -8,8 +8,8 @@ public class a implements com.baidu.tbadk.mvc.b.a, k {
     private String mUserId = null;
     private String aec = null;
     private String mPortrait = null;
-    private String bOU = null;
-    private long bOV = 0;
+    private String bOV = null;
+    private long bOW = 0;
 
     public String getUserId() {
         return this.mUserId;
@@ -23,12 +23,12 @@ public class a implements com.baidu.tbadk.mvc.b.a, k {
         return this.mPortrait;
     }
 
-    public String acI() {
-        return this.bOU;
+    public String acJ() {
+        return this.bOV;
     }
 
-    public long acJ() {
-        return this.bOV;
+    public long acK() {
+        return this.bOW;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -36,8 +36,8 @@ public class a implements com.baidu.tbadk.mvc.b.a, k {
         this.mUserId = jSONObject.optString("id");
         this.aec = jSONObject.optString("name");
         this.mPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
-        this.bOU = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.NAME_SHOW);
-        this.bOV = jSONObject.optLong("zan_time") * 1000;
+        this.bOV = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.NAME_SHOW);
+        this.bOW = jSONObject.optLong("zan_time") * 1000;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k

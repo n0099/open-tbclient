@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ bf aOm;
+    final /* synthetic */ bf aOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bf bfVar) {
-        this.aOm = bfVar;
+        this.aOn = bfVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -17,10 +17,10 @@ public class bo implements com.baidu.tbadk.core.dialog.h {
         FrsActivity frsActivity2;
         eVar.dismiss();
         if (i == 0) {
-            frsActivity2 = this.aOm.aMk;
+            frsActivity2 = this.aOn.aMl;
             com.baidu.tbadk.core.util.ax.b(frsActivity2.getPageContext());
         } else if (i == 1) {
-            frsActivity = this.aOm.aMk;
+            frsActivity = this.aOn.aMl;
             com.baidu.tbadk.core.util.ax.p(frsActivity.getPageContext().getPageActivity());
         }
     }

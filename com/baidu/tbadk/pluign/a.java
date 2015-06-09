@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class a {
     private static a arA;
 
-    public static a DM() {
+    public static a DN() {
         if (arA == null) {
             synchronized (a.class) {
                 if (arA == null) {
@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public String[] DN() {
+    public String[] DO() {
         return com.baidu.tbadk.core.sharedPref.b.sl().getString("key_discover_show_plugin_list", "").split("#");
     }
 
@@ -38,14 +38,14 @@ public class a {
     }
 
     public void eY(String str) {
-        String[] DN;
-        if (!StringUtils.isNull(str) && (DN = DN()) != null && DN.length != 0) {
-            for (int i = 0; i < DN.length; i++) {
-                if (str.equals(DN[i])) {
-                    DN[i] = "";
+        String[] DO;
+        if (!StringUtils.isNull(str) && (DO = DO()) != null && DO.length != 0) {
+            for (int i = 0; i < DO.length; i++) {
+                if (str.equals(DO[i])) {
+                    DO[i] = "";
                 }
             }
-            l(DN);
+            l(DO);
         }
     }
 

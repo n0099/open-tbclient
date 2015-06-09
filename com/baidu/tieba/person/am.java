@@ -10,11 +10,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity bSN;
+    final /* synthetic */ PersonChangeActivity bSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PersonChangeActivity personChangeActivity) {
-        this.bSN = personChangeActivity;
+        this.bSO = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,23 +28,23 @@ public class am implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.bSN.mEdit;
+        editText = this.bSO.mEdit;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.bSN.bSA;
+        textView = this.bSO.bSB;
         textView.setText(String.valueOf(length));
-        linearLayout = this.bSN.bSz;
+        linearLayout = this.bSO.bSA;
         linearLayout.setVisibility(0);
-        this.bSN.hQ(0);
-        this.bSN.aet();
+        this.bSO.hQ(0);
+        this.bSO.aeu();
         if (length > 50) {
-            this.bSN.showToast(com.baidu.tieba.t.over_limit_tip);
+            this.bSO.showToast(com.baidu.tieba.t.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.bSN.mEdit;
+            editText2 = this.bSO.mEdit;
             editText2.setText(substring);
-            editText3 = this.bSN.mEdit;
+            editText3 = this.bSO.mEdit;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -60,11 +60,11 @@ public class am implements TextWatcher {
         View view;
         TextView textView;
         String replaceAll = editable.toString().replaceAll("\\s*", "");
-        fVar = this.bSN.bSE;
-        if (!replaceAll.equals(fVar.wH().getIntro())) {
-            view = this.bSN.bSt;
+        fVar = this.bSO.bSF;
+        if (!replaceAll.equals(fVar.wI().getIntro())) {
+            view = this.bSO.bSu;
             view.setEnabled(true);
-            textView = this.bSN.bjR;
+            textView = this.bSO.bjS;
             com.baidu.tbadk.core.util.ay.b(textView, com.baidu.tieba.n.cp_link_tip_a, 1);
         }
     }

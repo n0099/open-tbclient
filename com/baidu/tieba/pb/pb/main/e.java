@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 import com.baidu.location.BDLocationStatusCodes;
 /* loaded from: classes.dex */
 class e implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -25,38 +25,38 @@ class e implements AbsListView.OnScrollListener {
         ch chVar5;
         com.baidu.tbadk.performanceLog.h hVar5;
         if (i == 2 || i == 1) {
-            chVar = this.bKT.bKz;
-            chVar.acw();
-            chVar2 = this.bKT.bKz;
-            chVar2.abT();
-            this.bKT.aaN();
-            z = this.bKT.bKs;
+            chVar = this.bKU.bKA;
+            chVar.acx();
+            chVar2 = this.bKU.bKA;
+            chVar2.abU();
+            this.bKU.aaO();
+            z = this.bKU.bKt;
             if (!z) {
-                this.bKT.bKs = true;
-                chVar3 = this.bKT.bKz;
-                chVar3.acz();
+                this.bKU.bKt = true;
+                chVar3 = this.bKU.bKA;
+                chVar3.acA();
             }
         }
-        hVar = this.bKT.bKt;
+        hVar = this.bKU.bKu;
         if (hVar == null) {
-            this.bKT.bKt = new com.baidu.tbadk.performanceLog.h();
-            hVar5 = this.bKT.bKt;
+            this.bKU.bKu = new com.baidu.tbadk.performanceLog.h();
+            hVar5 = this.bKU.bKu;
             hVar5.el(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
         }
         if (i == 0) {
-            chVar4 = this.bKT.bKz;
-            if (chVar4.aca() != null) {
-                chVar5 = this.bKT.bKz;
-                chVar5.aca().notifyDataSetChanged();
+            chVar4 = this.bKU.bKA;
+            if (chVar4.acb() != null) {
+                chVar5 = this.bKU.bKA;
+                chVar5.acb().notifyDataSetChanged();
             }
-            hVar4 = this.bKT.bKt;
-            hVar4.De();
+            hVar4 = this.bKU.bKu;
+            hVar4.Df();
         } else if (i == 1) {
-            hVar3 = this.bKT.bKt;
-            hVar3.De();
+            hVar3 = this.bKU.bKu;
+            hVar3.Df();
         } else {
-            hVar2 = this.bKT.bKt;
-            hVar2.De();
+            hVar2 = this.bKU.bKu;
+            hVar2.Df();
         }
     }
 

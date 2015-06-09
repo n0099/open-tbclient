@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PersonChangeActivity bSN;
+    final /* synthetic */ PersonChangeActivity bSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PersonChangeActivity personChangeActivity) {
-        this.bSN = personChangeActivity;
+        this.bSO = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -19,19 +19,19 @@ public class ao implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.coreExtra.c.f fVar2;
         com.baidu.tbadk.coreExtra.c.f fVar3;
         aVar.dismiss();
-        fVar = this.bSN.bSE;
-        if (fVar.wH().getPhotoChanged()) {
+        fVar = this.bSO.bSF;
+        if (fVar.wI().getPhotoChanged()) {
             Intent intent = new Intent();
-            bool = this.bSN.bSs;
+            bool = this.bSO.bSt;
             if (bool.booleanValue()) {
-                fVar3 = this.bSN.bSE;
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.wH());
+                fVar3 = this.bSO.bSF;
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar3.wI());
             } else {
-                fVar2 = this.bSN.bSE;
-                intent.putExtra("data", fVar2.wH());
+                fVar2 = this.bSO.bSF;
+                intent.putExtra("data", fVar2.wI());
             }
-            this.bSN.setResult(-1, intent);
+            this.bSO.setResult(-1, intent);
         }
-        this.bSN.finish();
+        this.bSO.finish();
     }
 }

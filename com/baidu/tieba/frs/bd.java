@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class bd {
-    final /* synthetic */ ba aNf;
-    private List<LiveCardData> aNl;
+    final /* synthetic */ ba aNg;
     private List<LiveCardData> aNm;
-    private final boolean aNn;
+    private List<LiveCardData> aNn;
+    private final boolean aNo;
 
     public bd(ba baVar, List<LiveCardData> list) {
-        this.aNf = baVar;
-        this.aNl = list;
+        this.aNg = baVar;
+        this.aNm = list;
         if (list != null && list.size() > 1) {
-            this.aNn = true;
+            this.aNo = true;
         } else {
-            this.aNn = false;
+            this.aNo = false;
         }
-        this.aNm = W(this.aNl);
+        this.aNn = W(this.aNm);
     }
 
     private List<LiveCardData> W(List<LiveCardData> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null) {
             arrayList.addAll(list);
-            if (this.aNn && list.size() >= 1) {
+            if (this.aNo && list.size() >= 1) {
                 arrayList.add(0, list.get(list.size() - 1));
                 arrayList.add(list.get(0));
             }
@@ -35,8 +35,8 @@ class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int eY(int i) {
-        if (this.aNn) {
-            int size = this.aNm.size();
+        if (this.aNo) {
+            int size = this.aNn.size();
             if (i == 0) {
                 return size - 2;
             }
@@ -50,25 +50,25 @@ class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int eZ(int i) {
-        if (this.aNn) {
+        if (this.aNo) {
             return i - 1;
         }
         return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int KY() {
-        if (this.aNl == null) {
+    public int KZ() {
+        if (this.aNm == null) {
             return 0;
         }
-        return this.aNl.size();
+        return this.aNm.size();
     }
 
-    public int KZ() {
-        return this.aNn ? 1 : 0;
+    public int La() {
+        return this.aNo ? 1 : 0;
     }
 
-    public List<LiveCardData> La() {
-        return this.aNm;
+    public List<LiveCardData> Lb() {
+        return this.aNn;
     }
 }

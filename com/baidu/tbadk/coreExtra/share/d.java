@@ -85,7 +85,7 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) com.baidu.adp.lib.g.b.hr().inflate(TbadkCoreApplication.m411getInst().getContext(), r.share_icon_text, null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(xC());
+        textView.setLayoutParams(xD());
         textView.setTag(Integer.valueOf(i2));
         textView.setOnClickListener(this);
         this.aep.add(textView);
@@ -96,12 +96,12 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) com.baidu.adp.lib.g.b.hr().inflate(TbadkCoreApplication.m411getInst().getContext(), r.share_icon_text, null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(xC());
+        textView.setLayoutParams(xD());
         textView.setTag(Integer.valueOf(i2));
         return textView;
     }
 
-    public LinearLayout.LayoutParams xC() {
+    public LinearLayout.LayoutParams xD() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.gravity = 17;
@@ -183,7 +183,7 @@ public class d implements View.OnClickListener {
         }
     }
 
-    public void xD() {
+    public void xE() {
         int size = this.aep.size();
         if (size < 8) {
             for (int i = 0; i < 8 - size; i++) {
@@ -206,7 +206,7 @@ public class d implements View.OnClickListener {
             n.showToast(TbadkCoreApplication.m411getInst().getContext(), t.share_on_no_network);
             return;
         }
-        xD();
+        xE();
         this.mDialog = new AlertDialog.Builder(this.mContext).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         if (this.mContext instanceof Activity) {
@@ -218,7 +218,7 @@ public class d implements View.OnClickListener {
         window.setLayout(-1, -2);
         a(this.aex);
         window.setContentView(this.mRootView);
-        xE();
+        xF();
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -249,7 +249,7 @@ public class d implements View.OnClickListener {
                 g di = di(1);
                 if (id == q.btnShareCancel) {
                     c("share_cancel", new Object[0]);
-                    this.aex.xz();
+                    this.aex.xA();
                 } else if (id == q.btnCopy) {
                     if (this.aeq != null) {
                         this.aeq.onClick(this.aem);
@@ -358,7 +358,7 @@ public class d implements View.OnClickListener {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private void xE() {
+    private void xF() {
         int size = this.aep.size();
         for (int i = 0; i < size; i++) {
             TextView textView = this.aep.get(i);

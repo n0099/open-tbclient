@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.voice;
 /* loaded from: classes.dex */
 public interface c {
-    void OV();
+    void OW();
 
-    void anM();
+    void anN();
 }

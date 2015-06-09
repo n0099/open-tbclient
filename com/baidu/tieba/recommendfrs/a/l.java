@@ -9,11 +9,11 @@ import com.baidu.tieba.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ k ccC;
+    final /* synthetic */ k ccD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.ccC = kVar;
+        this.ccD = kVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b

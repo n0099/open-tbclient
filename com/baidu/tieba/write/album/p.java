@@ -6,10 +6,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class p {
     private List<ImageFileInfo> cyA;
-    private String cyB;
-    private List<a> cym;
-    private String cyt;
-    private List<ImageFileInfo> cyz;
+    private List<ImageFileInfo> cyB;
+    private String cyC;
+    private List<a> cyn;
+    private String cyu;
     private int mCurrentIndex;
     private WriteImagesInfo mWriteImagesInfo;
 
@@ -33,7 +33,7 @@ public class p {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> arN() {
+    public List<ImageFileInfo> arO() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -69,20 +69,20 @@ public class p {
         return 0;
     }
 
-    public String arO() {
-        return this.cyt;
+    public String arP() {
+        return this.cyu;
     }
 
     public void jX(String str) {
-        this.cyt = str;
+        this.cyu = str;
     }
 
-    public List<ImageFileInfo> arP() {
-        return this.cyz;
+    public List<ImageFileInfo> arQ() {
+        return this.cyA;
     }
 
     public void be(List<ImageFileInfo> list) {
-        this.cyz = list;
+        this.cyA = list;
     }
 
     public int getCurrentIndex() {
@@ -93,20 +93,20 @@ public class p {
         this.mCurrentIndex = i;
     }
 
-    public List<a> arQ() {
-        return this.cym;
+    public List<a> arR() {
+        return this.cyn;
     }
 
     public void bf(List<a> list) {
-        this.cym = list;
+        this.cyn = list;
     }
 
-    public List<ImageFileInfo> arR() {
-        return this.cyA;
+    public List<ImageFileInfo> arS() {
+        return this.cyB;
     }
 
     public void bg(List<ImageFileInfo> list) {
-        this.cyA = list;
+        this.cyB = list;
     }
 
     public int size() {
@@ -116,11 +116,11 @@ public class p {
         return this.mWriteImagesInfo.size();
     }
 
-    public String arS() {
-        return this.cyB;
+    public String arT() {
+        return this.cyC;
     }
 
     public void jY(String str) {
-        this.cyB = str;
+        this.cyC = str;
     }
 }

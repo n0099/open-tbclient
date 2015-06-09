@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.view.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements aj {
-    final /* synthetic */ a aFd;
+    final /* synthetic */ a aFe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(a aVar) {
-        this.aFd = aVar;
+        this.aFe = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.aj
     public void onListPullRefresh(boolean z) {
         com.baidu.tieba.enterForum.c.c cVar;
         String str;
-        cVar = this.aFd.aEM;
-        str = this.aFd.aEO;
+        cVar = this.aFe.aEN;
+        str = this.aFe.aEP;
         cVar.bJ(!StringUtils.isNull(str));
     }
 }

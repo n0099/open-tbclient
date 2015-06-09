@@ -23,18 +23,18 @@ class bu implements View.OnClickListener {
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean ke;
-        z = this.this$0.bLE;
+        z = this.this$0.bLF;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 progressBar = this.this$0.mProgress;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.bRr;
+                    z2 = this.this$0.bRs;
                     if (z2) {
-                        bitmap = this.this$0.bRk;
+                        bitmap = this.this$0.bRl;
                         if (bitmap != null) {
-                            bitmap2 = this.this$0.bRk;
+                            bitmap2 = this.this$0.bRl;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                                 ke = this.this$0.ke(str);

@@ -9,18 +9,18 @@ public class cf {
     private TbPageContext<?> Yt;
     private View.OnClickListener mClickListener;
     private View mView = null;
-    private TextView bLT = null;
-    private TextView bNe = null;
-    private ImageView bNf = null;
+    private TextView bLU = null;
+    private TextView bNf = null;
     private ImageView bNg = null;
-    private boolean bNh = true;
+    private ImageView bNh = null;
+    private boolean bNi = true;
 
-    public boolean abO() {
-        return this.bNh;
+    public boolean abP() {
+        return this.bNi;
     }
 
     public void ea(boolean z) {
-        this.bNh = z;
+        this.bNi = z;
     }
 
     public cf(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
@@ -36,18 +36,14 @@ public class cf {
     }
 
     public void eb(boolean z) {
-        this.bNg.setVisibility(z ? 0 : 8);
+        this.bNh.setVisibility(z ? 0 : 8);
     }
 
-    public TextView abE() {
-        return this.bLT;
+    public TextView abF() {
+        return this.bLU;
     }
 
-    public TextView abP() {
-        return this.bNe;
-    }
-
-    public ImageView abQ() {
+    public TextView abQ() {
         return this.bNf;
     }
 
@@ -55,15 +51,19 @@ public class cf {
         return this.bNg;
     }
 
+    public ImageView abS() {
+        return this.bNh;
+    }
+
     private void initUI() {
         this.mView = com.baidu.adp.lib.g.b.hr().inflate(this.Yt.getPageActivity(), com.baidu.tieba.r.pb_reply_view, null);
-        this.bLT = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_mark);
-        this.bLT.setOnClickListener(this.mClickListener);
-        this.bNe = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_reply);
-        this.bNe.setOnClickListener(this.mClickListener);
-        this.bNf = (ImageView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_manage);
+        this.bLU = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_mark);
+        this.bLU.setOnClickListener(this.mClickListener);
+        this.bNf = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_reply);
         this.bNf.setOnClickListener(this.mClickListener);
-        this.bNg = (ImageView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_report);
+        this.bNg = (ImageView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_manage);
         this.bNg.setOnClickListener(this.mClickListener);
+        this.bNh = (ImageView) this.mView.findViewById(com.baidu.tieba.q.pb_reply_view_item_report);
+        this.bNh.setOnClickListener(this.mClickListener);
     }
 }

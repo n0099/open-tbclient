@@ -15,12 +15,12 @@ import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 /* loaded from: classes.dex */
 public class IMTaskRegisterStatic {
     static {
-        OO();
         OP();
         OQ();
+        OR();
     }
 
-    private static void OO() {
+    private static void OP() {
         e.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         e.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         e.b(202006, PushNotifyMessageDecoder.class, false);
@@ -33,10 +33,10 @@ public class IMTaskRegisterStatic {
         e.b(104104, ResponseCheckUserMaskMessage.class, false);
     }
 
-    private static void OP() {
+    private static void OQ() {
     }
 
-    private static boolean OQ() {
+    private static boolean OR() {
         MessageManager.getInstance().addResponsedMessageRule(new f(202006));
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.b.k());
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.j());

@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 class at implements com.baidu.tieba.tbadkCore.location.k {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.k
-    public void JX() {
+    public void JY() {
         ch chVar;
         ch chVar2;
-        chVar = this.bKT.bKz;
-        if (chVar.Ki() != null) {
-            chVar2 = this.bKT.bKz;
-            chVar2.Ki().setLocationViewVisibility(8);
+        chVar = this.bKU.bKA;
+        if (chVar.Kj() != null) {
+            chVar2 = this.bKU.bKA;
+            chVar2.Kj().setLocationViewVisibility(8);
         }
     }
 
@@ -24,12 +24,12 @@ class at implements com.baidu.tieba.tbadkCore.location.k {
         ch chVar;
         ch chVar2;
         ch chVar3;
-        chVar = this.bKT.bKz;
-        if (chVar.Ki() != null) {
-            chVar2 = this.bKT.bKz;
-            chVar2.Ki().setLocationViewVisibility(0);
-            chVar3 = this.bKT.bKz;
-            chVar3.Ki().D(2, str);
+        chVar = this.bKU.bKA;
+        if (chVar.Kj() != null) {
+            chVar2 = this.bKU.bKA;
+            chVar2.Kj().setLocationViewVisibility(0);
+            chVar3 = this.bKU.bKA;
+            chVar3.Kj().D(2, str);
         }
     }
 }

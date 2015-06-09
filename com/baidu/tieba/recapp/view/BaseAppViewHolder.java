@@ -16,17 +16,17 @@ import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     protected int ajy;
-    protected TextView cbl;
     protected TextView cbm;
     protected TextView cbn;
-    protected HeadImageView cbo;
-    protected View cbp;
-
-    protected abstract void ahn();
+    protected TextView cbo;
+    protected HeadImageView cbp;
+    protected View cbq;
 
     protected abstract void aho();
 
-    protected abstract int ahp();
+    protected abstract void ahp();
+
+    protected abstract int ahq();
 
     public BaseAppViewHolder(View view) {
         super(view);
@@ -35,54 +35,54 @@ public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ahm() {
-        if (this.cbc != null && this.cbc.qu()) {
-            boolean er = b.ze().er(this.cbc.getPkgName());
-            boolean es = b.ze().es(this.cbc.getPkgName());
+    public void ahn() {
+        if (this.cbd != null && this.cbd.qu()) {
+            boolean er = b.zf().er(this.cbd.getPkgName());
+            boolean es = b.zf().es(this.cbd.getPkgName());
             if (er) {
-                this.cbc.iJ(1);
+                this.cbd.iJ(1);
             } else if (es) {
-                this.cbc.iJ(2);
+                this.cbd.iJ(2);
             } else {
-                this.cbc.iJ(0);
+                this.cbd.iJ(0);
             }
-            if (this.cbc.aou()) {
-                switch (this.cbc.aot()) {
+            if (this.cbd.aov()) {
+                switch (this.cbd.aou()) {
                     case 0:
-                        ahn();
-                        this.cbl.setText(ahp());
-                        this.cbl.setOnClickListener(d.ahj());
-                        this.rootView.setOnClickListener(a.ahi());
-                        this.cbl.setEnabled(true);
+                        aho();
+                        this.cbm.setText(ahq());
+                        this.cbm.setOnClickListener(d.ahk());
+                        this.rootView.setOnClickListener(a.ahj());
+                        this.cbm.setEnabled(true);
                         return;
                     case 1:
-                        aho();
-                        this.cbl.setText(t.downloading2);
-                        this.cbl.setOnClickListener(null);
+                        ahp();
+                        this.cbm.setText(t.downloading2);
+                        this.cbm.setOnClickListener(null);
                         this.rootView.setOnClickListener(null);
-                        this.cbl.setEnabled(false);
+                        this.cbm.setEnabled(false);
                         return;
                     case 2:
-                        ahn();
-                        this.cbl.setText(t.downloaded_install);
-                        this.cbl.setOnClickListener(d.ahj());
-                        this.rootView.setOnClickListener(a.ahi());
-                        this.cbl.setEnabled(true);
+                        aho();
+                        this.cbm.setText(t.downloaded_install);
+                        this.cbm.setOnClickListener(d.ahk());
+                        this.rootView.setOnClickListener(a.ahj());
+                        this.cbm.setEnabled(true);
                         return;
                     default:
                         return;
                 }
-            } else if (this.cbc.aov()) {
-                ahn();
-                this.cbl.setText(t.view);
-                this.cbl.setOnClickListener(g.ahk());
-                this.rootView.setOnClickListener(h.ahl());
+            } else if (this.cbd.aow()) {
+                aho();
+                this.cbm.setText(t.view);
+                this.cbm.setOnClickListener(g.ahl());
+                this.rootView.setOnClickListener(h.ahm());
             }
         }
     }
 
     public i getAppData() {
-        return this.cbc;
+        return this.cbd;
     }
 
     public String getFixedChineseString(String str) {
@@ -97,6 +97,6 @@ public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     }
 
     public static void registerHolder(int i, Class<? extends BaseAppViewHolder> cls) {
-        com.baidu.tieba.recapp.a.ahh().registerHolder(i, cls);
+        com.baidu.tieba.recapp.a.ahi().registerHolder(i, cls);
     }
 }

@@ -6,18 +6,18 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 /* loaded from: classes.dex */
 class cf implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ cc cDe;
+    final /* synthetic */ cc cDf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(cc ccVar) {
-        this.cDe = ccVar;
+        this.cDf = ccVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteImageActivity writeImageActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        writeImageActivity = this.cDe.this$0;
+        writeImageActivity = this.cDf.this$0;
         messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
         aVar.dismiss();
     }

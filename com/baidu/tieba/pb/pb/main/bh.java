@@ -16,29 +16,29 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class bh {
-    private BdTypeListView aMl;
-    private PbActivity bKZ;
-    private bw bLa;
-    private bk bLb;
-    private bl bLc;
-    private bv bLd;
-    private com.baidu.tieba.pb.a.b bLe;
+    private BdTypeListView aMm;
+    private PbActivity bLa;
+    private bw bLb;
+    private bk bLc;
+    private bl bLd;
+    private bv bLe;
+    private com.baidu.tieba.pb.a.b bLf;
     private int mImageMaxWidth;
     private int width;
-    private ArrayList<com.baidu.tieba.tbadkCore.data.j> bLf = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.tbadkCore.data.j> bLg = new ArrayList<>();
     private boolean mIsFromCDN = false;
-    private boolean bLg = true;
     private boolean bLh = true;
     private boolean bLi = true;
-    private String bLj = null;
-    private View.OnClickListener bLk = null;
-    private View.OnClickListener aPm = null;
+    private boolean bLj = true;
+    private String bLk = null;
+    private View.OnClickListener bLl = null;
+    private View.OnClickListener aPn = null;
     private com.baidu.tbadk.widget.richText.s auJ = null;
-    private com.baidu.tieba.pb.pb.sub.ag bLl = null;
-    private com.baidu.tieba.pb.b.d bKG = null;
+    private com.baidu.tieba.pb.pb.sub.ag bLm = null;
+    private com.baidu.tieba.pb.b.d bKH = null;
     private View.OnLongClickListener afC = null;
-    private List<com.baidu.adp.widget.ListView.a> aMA = new ArrayList();
-    private final CustomMessageListener aLP = new bi(this, 2001122);
+    private List<com.baidu.adp.widget.ListView.a> aMB = new ArrayList();
+    private final CustomMessageListener aLQ = new bi(this, 2001122);
 
     public bh(PbActivity pbActivity, BdTypeListView bdTypeListView) {
         this.mImageMaxWidth = 0;
@@ -46,21 +46,21 @@ public class bh {
         a(pbActivity, bdTypeListView);
         this.mImageMaxWidth = com.baidu.adp.lib.util.n.M(pbActivity.getPageContext().getPageActivity());
         this.width = this.mImageMaxWidth;
-        this.bKZ = pbActivity;
-        this.aMl = bdTypeListView;
-        pbActivity.registerListener(this.aLP);
+        this.bLa = pbActivity;
+        this.aMm = bdTypeListView;
+        pbActivity.registerListener(this.aLQ);
     }
 
     public void a(PbActivity pbActivity, BdTypeListView bdTypeListView) {
-        this.bLa = new bw(pbActivity, com.baidu.tieba.tbadkCore.data.j.cse);
-        this.bLb = new bk(pbActivity, com.baidu.tbadk.core.data.c.Pm);
-        this.bLc = new bl(pbActivity, com.baidu.tbadk.core.data.c.Pn);
-        this.bLd = new bv(pbActivity, com.baidu.tbadk.core.data.aa.Rq);
-        this.aMA.add(this.bLa);
-        this.aMA.add(this.bLb);
-        this.aMA.add(this.bLc);
-        this.aMA.add(this.bLd);
-        bdTypeListView.h(this.aMA);
+        this.bLb = new bw(pbActivity, com.baidu.tieba.tbadkCore.data.j.csf);
+        this.bLc = new bk(pbActivity, com.baidu.tbadk.core.data.c.Pm);
+        this.bLd = new bl(pbActivity, com.baidu.tbadk.core.data.c.Pn);
+        this.bLe = new bv(pbActivity, com.baidu.tbadk.core.data.aa.Rq);
+        this.aMB.add(this.bLb);
+        this.aMB.add(this.bLc);
+        this.aMB.add(this.bLd);
+        this.aMB.add(this.bLe);
+        bdTypeListView.h(this.aMB);
     }
 
     public void b(com.baidu.tieba.pb.a.b bVar) {
@@ -68,118 +68,118 @@ public class bh {
         int size;
         com.baidu.tieba.tbadkCore.data.j jVar;
         int size2;
-        if (this.bLe != bVar) {
-            z = (bVar == null || bVar.aaq()) && TbadkCoreApplication.m411getInst().isRecAppExist();
+        if (this.bLf != bVar) {
+            z = (bVar == null || bVar.aar()) && TbadkCoreApplication.m411getInst().isRecAppExist();
         } else {
             z = false;
         }
-        this.bLe = bVar;
+        this.bLf = bVar;
         if (z) {
-            abj();
+            abk();
             if (bVar != null) {
                 bVar.dP(false);
             }
         }
-        this.bLf.clear();
-        if (this.bLe != null && this.bLe.aat() != null && this.bLe.aat().size() > 0) {
-            this.bLf.addAll(this.bLe.aat());
+        this.bLg.clear();
+        if (this.bLf != null && this.bLf.aau() != null && this.bLf.aau().size() > 0) {
+            this.bLg.addAll(this.bLf.aau());
         }
-        if (bVar != null && bVar.aas() != null && bVar.aas().getAuthor() != null) {
-            this.bLj = bVar.aas().getAuthor().getUserId();
+        if (bVar != null && bVar.aat() != null && bVar.aat().getAuthor() != null) {
+            this.bLk = bVar.aat().getAuthor().getUserId();
         }
-        this.bLa.b(bVar);
-        this.bLa.setFromCDN(this.mIsFromCDN);
-        this.bLa.ir(this.bLj);
-        this.bLa.setImageMaxWidth(this.mImageMaxWidth);
-        this.bLa.setIsShowImage(this.bLg);
-        this.bLa.dT(this.bLh);
-        this.bLa.dU(this.bLi);
-        this.bLa.n(this.aPm);
-        this.bLa.t(this.bLk);
-        this.bLa.setOnImageClickListener(this.auJ);
-        this.bLa.setOnLongClickListener(this.afC);
-        this.bLa.a(this.bKG);
+        this.bLb.b(bVar);
         this.bLb.setFromCDN(this.mIsFromCDN);
+        this.bLb.ir(this.bLk);
+        this.bLb.setImageMaxWidth(this.mImageMaxWidth);
+        this.bLb.setIsShowImage(this.bLh);
+        this.bLb.dT(this.bLi);
+        this.bLb.dU(this.bLj);
+        this.bLb.n(this.aPn);
+        this.bLb.t(this.bLl);
+        this.bLb.setOnImageClickListener(this.auJ);
+        this.bLb.setOnLongClickListener(this.afC);
+        this.bLb.a(this.bKH);
         this.bLc.setFromCDN(this.mIsFromCDN);
-        ArrayList<com.baidu.adp.widget.ListView.ai> arrayList = new ArrayList<>(bVar.aat());
-        if (!this.bLi && bVar != null && bVar.aat() != null && (size = bVar.aat().size()) > 0 && (jVar = bVar.aat().get(size - 1)) != null && jVar.aoB() == 1 && (size2 = arrayList.size()) > 0) {
+        this.bLd.setFromCDN(this.mIsFromCDN);
+        ArrayList<com.baidu.adp.widget.ListView.ai> arrayList = new ArrayList<>(bVar.aau());
+        if (!this.bLj && bVar != null && bVar.aau() != null && (size = bVar.aau().size()) > 0 && (jVar = bVar.aau().get(size - 1)) != null && jVar.aoC() == 1 && (size2 = arrayList.size()) > 0) {
             arrayList.remove(size2 - 1);
         }
-        int a = a(this.bLe, arrayList, this.bLi);
+        int a = a(this.bLf, arrayList, this.bLj);
         if (a >= 0) {
-            arrayList.add(a, this.bLe.aau());
+            arrayList.add(a, this.bLf.aav());
         }
-        this.bLd.v(this.aPm);
-        this.aMl.setData(arrayList);
+        this.bLe.v(this.aPn);
+        this.aMm.setData(arrayList);
     }
 
     public int a(com.baidu.tieba.pb.a.b bVar, ArrayList<com.baidu.adp.widget.ListView.ai> arrayList, boolean z) {
-        if (bVar == null || bVar.aat() == null || bVar.aau() == null || bVar.aat().size() == 0 || bVar.aas() == null || arrayList == null) {
+        if (bVar == null || bVar.aau() == null || bVar.aav() == null || bVar.aau().size() == 0 || bVar.aat() == null || arrayList == null) {
             return -1;
         }
-        if (StringUtils.isNull(bVar.aau().getSummary())) {
+        if (StringUtils.isNull(bVar.aav().getSummary())) {
             return -1;
         }
         int size = arrayList.size();
         if (z) {
-            return (bVar.aat().get(0) == null || bVar.aat().get(0).aoB() != 1) ? -1 : 1;
+            return (bVar.aau().get(0) == null || bVar.aau().get(0).aoC() != 1) ? -1 : 1;
         } else if (size != 0) {
-            return (bVar.Zp() == null || bVar.Zp().qP() != bVar.Zp().qN()) ? -1 : 1;
+            return (bVar.Zq() == null || bVar.Zq().qP() != bVar.Zq().qN()) ? -1 : 1;
         } else {
             return 0;
         }
     }
 
     public com.baidu.adp.widget.ListView.ai ay(int i) {
-        return this.aMl.ay(i);
+        return this.aMm.ay(i);
     }
 
     public BdUniqueId hy(int i) {
-        if (this.aMl.ay(i) != null) {
-            return this.aMl.ay(i).getType();
+        if (this.aMm.ay(i) != null) {
+            return this.aMm.ay(i).getType();
         }
         return null;
     }
 
     public void notifyDataSetChanged() {
-        if (this.aMl.getAdapter() instanceof com.baidu.adp.widget.ListView.g) {
-            ((com.baidu.adp.widget.ListView.g) this.aMl.getAdapter()).notifyDataSetChanged();
+        if (this.aMm.getAdapter() instanceof com.baidu.adp.widget.ListView.g) {
+            ((com.baidu.adp.widget.ListView.g) this.aMm.getAdapter()).notifyDataSetChanged();
         }
     }
 
-    private void abj() {
+    private void abk() {
         com.baidu.tieba.tbadkCore.data.i iVar;
         int position;
-        if (this.bLe != null) {
-            ArrayList<com.baidu.tieba.tbadkCore.data.j> aat = this.bLe.aat();
-            ArrayList<com.baidu.tieba.tbadkCore.data.i> aay = this.bLe.aay();
-            if (aay != null) {
-                int size = aay.size();
-                if (aat != null && aat.size() != 0 && size != 0) {
+        if (this.bLf != null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.j> aau = this.bLf.aau();
+            ArrayList<com.baidu.tieba.tbadkCore.data.i> aaz = this.bLf.aaz();
+            if (aaz != null) {
+                int size = aaz.size();
+                if (aau != null && aau.size() != 0 && size != 0) {
                     StringBuilder sb = new StringBuilder();
-                    Iterator<com.baidu.tieba.tbadkCore.data.i> it = aay.iterator();
+                    Iterator<com.baidu.tieba.tbadkCore.data.i> it = aaz.iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.i next = it.next();
-                        if (next != null && next.aos() != null) {
-                            sb.append(next.aos());
+                        if (next != null && next.aot() != null) {
+                            sb.append(next.aot());
                             sb.append(",");
                         }
                     }
                     if (sb.length() > 1) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    Iterator<com.baidu.tieba.tbadkCore.data.i> it2 = aay.iterator();
+                    Iterator<com.baidu.tieba.tbadkCore.data.i> it2 = aaz.iterator();
                     while (it2.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.i next2 = it2.next();
                         if (next2 != null) {
-                            next2.aPL = sb.toString();
+                            next2.aPM = sb.toString();
                         }
                     }
                     SparseArray sparseArray = new SparseArray();
-                    Iterator<com.baidu.tieba.tbadkCore.data.i> it3 = aay.iterator();
+                    Iterator<com.baidu.tieba.tbadkCore.data.i> it3 = aaz.iterator();
                     while (it3.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.i next3 = it3.next();
-                        if (next3.aor() != null && next3.aor().qu() && !com.baidu.tieba.tbadkCore.au.isInstalledPackage(TbadkCoreApplication.m411getInst().getContext(), next3.aor().apk_name) && (position = next3.getPosition()) >= 2 && position < 30) {
+                        if (next3.aos() != null && next3.aos().qu() && !com.baidu.tieba.tbadkCore.au.isInstalledPackage(TbadkCoreApplication.m411getInst().getContext(), next3.aos().apk_name) && (position = next3.getPosition()) >= 2 && position < 30) {
                             sparseArray.put(position, next3);
                         }
                     }
@@ -187,7 +187,7 @@ public class bh {
                     for (int i = 0; i < sparseArray.size(); i++) {
                         com.baidu.tieba.tbadkCore.data.i iVar2 = (com.baidu.tieba.tbadkCore.data.i) sparseArray.get(sparseArray.keyAt(i));
                         if (iVar2 != null) {
-                            hashMap.put(iVar2.aos(), iVar2);
+                            hashMap.put(iVar2.aot(), iVar2);
                         }
                     }
                     sparseArray.clear();
@@ -204,15 +204,15 @@ public class bh {
                     for (int i3 = 0; i3 < arrayList.size(); i3++) {
                         com.baidu.tieba.tbadkCore.data.i iVar3 = (com.baidu.tieba.tbadkCore.data.i) sparseArray.get(((Integer) arrayList.get(i3)).intValue());
                         int position2 = iVar3.getPosition();
-                        if (position2 + i3 < aat.size()) {
-                            if (this.bLe.aar() != null) {
-                                iVar3.csd = this.bLe.aar().getId();
+                        if (position2 + i3 < aau.size()) {
+                            if (this.bLf.aas() != null) {
+                                iVar3.cse = this.bLf.aas().getId();
                             }
-                            if (this.bLe.aas() != null) {
-                                iVar3.threadId = com.baidu.adp.lib.g.c.c(this.bLe.aas().getId(), 0L);
+                            if (this.bLf.aat() != null) {
+                                iVar3.threadId = com.baidu.adp.lib.g.c.c(this.bLf.aat().getId(), 0L);
                             }
-                            aat.add(position2 + i3, iVar3);
-                            TiebaStatic.eventStat(this.bKZ.getPageContext().getContext(), "pb_show_app", "", 1, "app_name", iVar3.aor().apk_name);
+                            aau.add(position2 + i3, iVar3);
+                            TiebaStatic.eventStat(this.bLa.getPageContext().getContext(), "pb_show_app", "", 1, "app_name", iVar3.aos().apk_name);
                         } else {
                             return;
                         }
@@ -224,25 +224,25 @@ public class bh {
 
     public void setIsFromCDN(boolean z) {
         this.mIsFromCDN = z;
-        this.bLa.setFromCDN(z);
         this.bLb.setFromCDN(z);
         this.bLc.setFromCDN(z);
+        this.bLd.setFromCDN(z);
     }
 
     public void setIsShowImage(boolean z) {
-        this.bLg = z;
-    }
-
-    public void dT(boolean z) {
         this.bLh = z;
     }
 
-    public void dU(boolean z) {
+    public void dT(boolean z) {
         this.bLi = z;
     }
 
+    public void dU(boolean z) {
+        this.bLj = z;
+    }
+
     public void t(View.OnClickListener onClickListener) {
-        this.bLk = onClickListener;
+        this.bLl = onClickListener;
     }
 
     public void setOnImageClickListener(com.baidu.tbadk.widget.richText.s sVar) {
@@ -250,7 +250,7 @@ public class bh {
     }
 
     public void a(com.baidu.tieba.pb.b.d dVar) {
-        this.bKG = dVar;
+        this.bKH = dVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -258,6 +258,6 @@ public class bh {
     }
 
     public void u(View.OnClickListener onClickListener) {
-        this.aPm = onClickListener;
+        this.aPn = onClickListener;
     }
 }

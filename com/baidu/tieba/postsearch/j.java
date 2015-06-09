@@ -11,20 +11,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public List<k> bWB = new ArrayList();
-    public com.baidu.tbadk.core.data.q bXR = new com.baidu.tbadk.core.data.q();
+    public List<k> bWC = new ArrayList();
+    public com.baidu.tbadk.core.data.q bXS = new com.baidu.tbadk.core.data.q();
 
-    public boolean UD() {
-        return (this.bWB == null || this.bWB.size() == 0) ? false : true;
+    public boolean UE() {
+        return (this.bWC == null || this.bWC.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.bXR != null && this.bXR.qR() == 1;
+        return this.bXS != null && this.bXS.qR() == 1;
     }
 
     public int getCurrentPage() {
-        if (this.bXR != null) {
-            return this.bXR.qP();
+        if (this.bXS != null) {
+            return this.bXS.qP();
         }
         return 0;
     }
@@ -41,10 +41,10 @@ public class j {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bXR.parserJson(jSONObject.getJSONObject("page"));
+                this.bXS.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.bWB.clear();
+                    this.bWC.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -66,10 +66,10 @@ public class j {
                             kVar.fname = optString5;
                             kVar.tid = optLong2;
                             kVar.is_floor = optInt;
-                            kVar.bXS = optInt2;
+                            kVar.bXT = optInt2;
                             kVar.name = optString2;
                             kVar.name_show = optString;
-                            this.bWB.add(kVar);
+                            this.bWC.add(kVar);
                         }
                     }
                 }

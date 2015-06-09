@@ -8,15 +8,15 @@ import tbclient.ForumRecommend.DataRes;
 public class b {
     private int aEA;
     private int aEB;
-    private String aEC;
-    private int aED;
-    private int aEz;
+    private int aEC;
+    private String aED;
+    private int aEE;
     private boolean acq;
     private boolean amu;
     private int time = 0;
-    private c aEw = new c();
-    private v aEx = new v();
-    private f aEy = new f();
+    private c aEx = new c();
+    private v aEy = new v();
+    private f aEz = new f();
 
     public void bG(boolean z) {
         this.amu = z;
@@ -32,43 +32,43 @@ public class b {
     }
 
     public void eD(int i) {
-        this.aEB = i;
+        this.aEC = i;
     }
 
     public void setIsMem(int i) {
-        this.aED = i;
-    }
-
-    public int Hy() {
-        return this.aEz;
-    }
-
-    public void eE(int i) {
-        this.aEz = i;
+        this.aEE = i;
     }
 
     public int Hz() {
         return this.aEA;
     }
 
-    public void eF(int i) {
+    public void eE(int i) {
         this.aEA = i;
     }
 
-    public String HA() {
-        return this.aEC;
+    public int HA() {
+        return this.aEB;
+    }
+
+    public void eF(int i) {
+        this.aEB = i;
+    }
+
+    public String HB() {
+        return this.aED;
     }
 
     public void fQ(String str) {
-        this.aEC = str;
+        this.aED = str;
     }
 
     public void a(f fVar) {
-        this.aEy = fVar;
+        this.aEz = fVar;
     }
 
-    public f HB() {
-        return this.aEy;
+    public f HC() {
+        return this.aEz;
     }
 
     public void a(DataRes dataRes) {
@@ -86,15 +86,15 @@ public class b {
                 fQ(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aEw.setLevel(this.aEA);
+                this.aEx.setLevel(this.aEB);
                 if (dataRes.like_forum != null) {
-                    this.aEw.j(dataRes.like_forum);
+                    this.aEx.j(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aEx.j(dataRes.banner);
+                    this.aEy.j(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aEy.I(dataRes.recommend_forum_info);
+                    this.aEz.I(dataRes.recommend_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -102,20 +102,20 @@ public class b {
         }
     }
 
-    public v HC() {
-        return this.aEx;
+    public v HD() {
+        return this.aEy;
     }
 
     public void a(v vVar) {
-        this.aEx = vVar;
+        this.aEy = vVar;
     }
 
-    public c HD() {
-        return this.aEw;
+    public c HE() {
+        return this.aEx;
     }
 
     public void a(c cVar) {
-        this.aEw = cVar;
+        this.aEx = cVar;
     }
 
     public void al(boolean z) {
@@ -126,14 +126,14 @@ public class b {
         return this.acq;
     }
 
-    public boolean HE() {
+    public boolean HF() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.b.ahR.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.ahR.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
         if (this.acq) {
-            if (this.aEw == null || this.aEw.HG() == null || this.aEw.HG().size() < 1) {
+            if (this.aEx == null || this.aEx.HH() == null || this.aEx.HH().size() < 1) {
                 z = true;
             }
             return z;
@@ -141,9 +141,9 @@ public class b {
         return true;
     }
 
-    public boolean HF() {
-        if (this.aEw != null) {
-            return this.aEw.HF();
+    public boolean HG() {
+        if (this.aEx != null) {
+            return this.aEx.HG();
         }
         return false;
     }

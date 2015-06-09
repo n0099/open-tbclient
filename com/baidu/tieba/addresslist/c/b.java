@@ -7,26 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends f<QuickSearchActivity> {
-    private com.baidu.tieba.addresslist.b.a aBt;
-    private byte[] aBu;
+    private com.baidu.tieba.addresslist.b.a aBu;
+    private byte[] aBv;
 
     public b(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.aBu = new byte[0];
-        this.aBt = com.baidu.tieba.addresslist.b.a.FN();
+        this.aBv = new byte[0];
+        this.aBu = com.baidu.tieba.addresslist.b.a.FO();
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> fH(String str) {
-        synchronized (this.aBu) {
+        synchronized (this.aBv) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> FO = this.aBt.FO();
-            if (FO == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> FP = this.aBu.FP();
+            if (FP == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : FO) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : FP) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -35,7 +35,7 @@ public class b extends f<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : FO) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : FP) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

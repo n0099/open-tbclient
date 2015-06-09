@@ -12,18 +12,18 @@ import com.baidu.tieba.tbadkCore.au;
 import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private static a cbd;
+    private static a cbe;
 
-    public static final a ahi() {
-        if (cbd != null) {
-            return cbd;
+    public static final a ahj() {
+        if (cbe != null) {
+            return cbe;
         }
         synchronized (a.class) {
-            if (cbd == null) {
-                cbd = new a();
+            if (cbe == null) {
+                cbe = new a();
             }
         }
-        return cbd;
+        return cbe;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,26 +35,26 @@ public class a implements View.OnClickListener {
                 i appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
                 if (appData != null) {
-                    com.baidu.tbadk.distribute.a.yX().a(view.getContext(), appData.aox(), "area_click", "pb", appData.csd, appData.threadId);
-                    com.baidu.tbadk.distribute.a.yX().a(appData.aox(), appData.csd, appData.threadId, "PB", "click");
+                    com.baidu.tbadk.distribute.a.yY().a(view.getContext(), appData.aoy(), "area_click", "pb", appData.cse, appData.threadId);
+                    com.baidu.tbadk.distribute.a.yY().a(appData.aoy(), appData.cse, appData.threadId, "PB", "click");
                     TiebaStatic.eventStat(view.getContext(), "pb_ck_app", null, 1, "app_name", appData.getPkgName());
-                    int aot = appData.aot();
-                    if (aot == 0) {
+                    int aou = appData.aou();
+                    if (aou == 0) {
                         if (view.getContext() instanceof Activity) {
                             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
                             if (!k.iY()) {
                                 aVar.bu(t.frs_network_tips);
-                            } else if (StringUtils.isNull(appData.aow())) {
+                            } else if (StringUtils.isNull(appData.aox())) {
                                 aVar.bu(t.pb_app_download_ask);
                             } else {
-                                aVar.cn(appData.aow());
+                                aVar.cn(appData.aox());
                             }
                             aVar.a(t.alert_yes_button, new b(this, view, appData, position, baseAppViewHolder));
                             aVar.b(t.alert_no_button, new c(this));
                             aVar.b(view.getContext() instanceof TbPageContextSupport ? ((TbPageContextSupport) view.getContext()).getPageContext() : null);
                             aVar.rL();
                         }
-                    } else if (aot == 2) {
+                    } else if (aou == 2) {
                         au.a(view.getContext(), appData);
                         baseAppViewHolder.refresh();
                     }

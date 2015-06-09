@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ b bts;
+    final /* synthetic */ b btt;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar) {
         super(2001011);
-        this.bts = bVar;
+        this.btt = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,12 +22,12 @@ public class f extends CustomMessageListener {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
             TbadkCoreApplication.m411getInst().setProcesBackground(data.booleanValue());
             if (data.booleanValue()) {
-                this.bts.isBackground = true;
-                this.bts.du(false);
+                this.btt.isBackground = true;
+                this.btt.du(false);
                 return;
             }
-            this.bts.isBackground = false;
-            this.bts.dt(true);
+            this.btt.isBackground = false;
+            this.btt.dt(true);
         }
     }
 }

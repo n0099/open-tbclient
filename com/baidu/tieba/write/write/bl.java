@@ -4,18 +4,18 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
 class bl implements com.baidu.tbadk.imageManager.a {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.a
     public ImageSpan eI(String str) {
-        com.baidu.adp.widget.a.a eA = com.baidu.tbadk.editortool.aa.zE().eA(str);
+        com.baidu.adp.widget.a.a eA = com.baidu.tbadk.editortool.aa.zF().eA(str);
         if (eA == null) {
-            eA = com.baidu.tbadk.editortool.aa.zE().al(null, str);
+            eA = com.baidu.tbadk.editortool.aa.zF().al(null, str);
         }
         if (eA == null) {
             return null;

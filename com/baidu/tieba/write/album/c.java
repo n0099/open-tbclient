@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ b cyd;
+    final /* synthetic */ b cye;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cyd = bVar;
+        this.cye = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,43 +34,43 @@ class c implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        jVar = this.cyd.cya;
+        jVar = this.cye.cyb;
         if (jVar != null) {
-            jVar2 = this.cyd.cya;
-            i = this.cyd.mCurrentIndex;
+            jVar2 = this.cye.cyb;
+            i = this.cye.mCurrentIndex;
             ImageFileInfo jm = jVar2.jm(i);
-            pVar = this.cyd.cxU;
+            pVar = this.cye.cxV;
             if (pVar != null) {
-                albumActivity = this.cyd.cxZ;
+                albumActivity = this.cye.cya;
                 if (albumActivity != null) {
-                    jVar3 = this.cyd.cya;
-                    i2 = this.cyd.mCurrentIndex;
+                    jVar3 = this.cye.cyb;
+                    i2 = this.cye.mCurrentIndex;
                     if (jVar3.jn(i2)) {
-                        pVar2 = this.cyd.cxU;
+                        pVar2 = this.cye.cxV;
                         if (pVar2.isAdded(jm)) {
-                            albumActivity5 = this.cyd.cxZ;
+                            albumActivity5 = this.cye.cya;
                             if (albumActivity5.d(jm)) {
-                                b bVar = this.cyd;
-                                imageView3 = this.cyd.cyb;
+                                b bVar = this.cye;
+                                imageView3 = this.cye.cyc;
                                 bVar.b(imageView3, false);
-                                albumActivity6 = this.cyd.cxZ;
-                                i4 = this.cyd.mCurrentIndex;
+                                albumActivity6 = this.cye.cya;
+                                i4 = this.cye.mCurrentIndex;
                                 albumActivity6.s(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.cyd.cxZ;
+                        albumActivity2 = this.cye.cya;
                         if (albumActivity2.c(jm)) {
-                            b bVar2 = this.cyd;
-                            imageView = this.cyd.cyb;
+                            b bVar2 = this.cye;
+                            imageView = this.cye.cyc;
                             bVar2.b(imageView, true);
-                            albumActivity3 = this.cyd.cxZ;
-                            i3 = this.cyd.mCurrentIndex;
+                            albumActivity3 = this.cye.cya;
+                            i3 = this.cye.mCurrentIndex;
                             albumActivity3.s(i3, true);
-                            albumActivity4 = this.cyd.cxZ;
+                            albumActivity4 = this.cye.cya;
                             Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), com.baidu.tieba.k.album_choose_icon);
-                            imageView2 = this.cyd.cyb;
+                            imageView2 = this.cye.cyc;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

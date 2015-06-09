@@ -6,11 +6,11 @@ import com.baidu.tieba.write.album.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ a cAR;
+    final /* synthetic */ a cAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cAR = aVar;
+        this.cAS = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,16 +18,16 @@ public class b implements AdapterView.OnItemClickListener {
         l lVar;
         e eVar;
         e eVar2;
-        lVar = this.cAR.cAO;
+        lVar = this.cAS.cAP;
         com.baidu.tieba.write.album.a item = lVar.getItem(i);
         if (item instanceof com.baidu.tieba.write.album.a) {
             com.baidu.tieba.write.album.a aVar = item;
-            eVar = this.cAR.cAQ;
+            eVar = this.cAS.cAR;
             if (eVar != null) {
-                eVar2 = this.cAR.cAQ;
+                eVar2 = this.cAS.cAR;
                 eVar2.a(i, aVar);
             }
         }
-        this.cAR.Vf();
+        this.cAS.Vg();
     }
 }

@@ -10,10 +10,10 @@ public class RecommendsStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(ChosenPostActivityConfig.class, ChosenPostActivity.class);
         TbadkCoreApplication.m411getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        GQ();
+        GR();
     }
 
-    private static void GQ() {
+    private static void GR() {
         bi.tO().a(new l());
     }
 }

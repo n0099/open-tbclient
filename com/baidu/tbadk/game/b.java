@@ -21,7 +21,7 @@ public class b {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static b Aa() {
+    public static b Ab() {
         return alj;
     }
 
@@ -35,7 +35,7 @@ public class b {
         }
     }
 
-    private GameInfoData Ab() {
+    private GameInfoData Ac() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(t.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -46,10 +46,10 @@ public class b {
     }
 
     public GameInfoData getGameInfoData() {
-        return this.alk == null ? Ab() : this.alk;
+        return this.alk == null ? Ac() : this.alk;
     }
 
-    public ShareFromGameCenterMsgData Ac() {
+    public ShareFromGameCenterMsgData Ad() {
         GameInfoData gameInfoData = getGameInfoData();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
         shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());

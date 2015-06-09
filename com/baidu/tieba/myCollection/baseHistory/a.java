@@ -8,22 +8,22 @@ public class a extends com.baidu.tbadk.mvc.model.a<b, BaseActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<b> AG() {
+    public Class<b> AH() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int AH() {
+    public int AI() {
         return 2001190;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int AI() {
+    public int AJ() {
         return 2001191;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String AJ() {
+    public String AK() {
         return "tb.pb_history";
     }
 }

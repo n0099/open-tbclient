@@ -233,10 +233,10 @@ public class a extends ImageView {
         this.asE = false;
         this.asw = false;
         this.mMode = 0;
-        Ec();
+        Ed();
         if (this.mCurrentScale < this.asu) {
             this.mCurrentScale = this.asu;
-            Ed();
+            Ee();
         }
     }
 
@@ -291,7 +291,7 @@ public class a extends ImageView {
                                     if (this.mCurrentScale < this.asu / 4.0f) {
                                         this.mCurrentScale = this.asu / 4.0f;
                                     }
-                                    Ed();
+                                    Ee();
                                     break;
                                 }
                             }
@@ -357,8 +357,8 @@ public class a extends ImageView {
             this.ast.add(Float.valueOf(this.asu));
             this.mCurrentScale = this.asu;
             this.asv = this.mCurrentScale;
-            Ed();
-            Eb();
+            Ee();
+            Ec();
             return;
         }
         this.asr = 0.0f;
@@ -378,7 +378,7 @@ public class a extends ImageView {
         return ((BitmapDrawable) drawable).getBitmap();
     }
 
-    public void Eb() {
+    public void Ec() {
         if (this.asz != null) {
             this.asz.a(this, canZoomIn(), canZoomOut());
         }
@@ -411,7 +411,7 @@ public class a extends ImageView {
         int i3;
         boolean z;
         int i4;
-        if (this.WG == 2 && this.asK != 0 && !this.asB.Eh()) {
+        if (this.WG == 2 && this.asK != 0 && !this.asB.Ei()) {
             int width = getWidth();
             int height = getHeight();
             Drawable drawable = getDrawable();
@@ -577,7 +577,7 @@ public class a extends ImageView {
         this.mGestureDetector = new GestureDetector(getContext(), new c(this));
     }
 
-    private void Ec() {
+    private void Ed() {
         int i = 0;
         int scrollX = getScrollX();
         if (this.asr >= getWidth()) {
@@ -627,7 +627,7 @@ public class a extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        if (this.asB.Eh()) {
+        if (this.asB.Ei()) {
             this.asB.stopAnimation();
         }
         this.asK = 0;
@@ -643,7 +643,7 @@ public class a extends ImageView {
                 setImageBitmap(bitmap);
                 return;
             }
-            if (this.asB.Eh()) {
+            if (this.asB.Ei()) {
                 this.asB.stopAnimation();
             }
             int scrollX = getScrollX();
@@ -656,7 +656,7 @@ public class a extends ImageView {
     }
 
     public void a(byte[] bArr, Bitmap bitmap) {
-        if (this.asB.Eh()) {
+        if (this.asB.Ei()) {
             this.asB.stopAnimation();
         }
         super.setImageDrawable(null);
@@ -671,7 +671,7 @@ public class a extends ImageView {
     }
 
     public void onDestroy() {
-        if (this.asB.Eh()) {
+        if (this.asB.Ei()) {
             this.asB.stopAnimation();
         }
         super.setImageDrawable(null);
@@ -685,7 +685,7 @@ public class a extends ImageView {
     }
 
     public void release() {
-        if (this.asB.Eh()) {
+        if (this.asB.Ei()) {
             this.asB.stopAnimation();
         }
         stop();
@@ -694,7 +694,7 @@ public class a extends ImageView {
     }
 
     public void setDefaultBitmap() {
-        if (this.asB.Eh()) {
+        if (this.asB.Ei()) {
             this.asB.stopAnimation();
         }
         if (this.asM) {
@@ -714,8 +714,8 @@ public class a extends ImageView {
             } else {
                 this.ast.add(Float.valueOf(this.asu));
             }
-            Ed();
-            Eb();
+            Ee();
+            Ec();
         }
     }
 
@@ -725,19 +725,19 @@ public class a extends ImageView {
             if (size > 1) {
                 this.ast.remove(size - 1);
             }
-            Ed();
-            Eb();
+            Ee();
+            Ec();
         }
     }
 
     public void restoreSize() {
-        Eb();
+        Ec();
         if (this.WG != 1 && this.WG != 2 && this.mCurrentScale != this.asu) {
             this.ast.clear();
             this.ast.add(Float.valueOf(this.asu));
             this.mCurrentScale = this.asu;
             this.asv = this.mCurrentScale;
-            Ed();
+            Ee();
         }
     }
 
@@ -766,7 +766,7 @@ public class a extends ImageView {
         return size > 1;
     }
 
-    public void Ed() {
+    public void Ee() {
         e(false, -1, -1);
     }
 
@@ -880,7 +880,7 @@ public class a extends ImageView {
         return displayMetrics.widthPixels;
     }
 
-    public void Ee() {
+    public void Ef() {
         long j;
         f poll = this.asR.poll();
         if (poll == null) {
@@ -899,7 +899,7 @@ public class a extends ImageView {
         this.mHandler.sendEmptyMessageDelayed(2, j > 0 ? j : 0L);
     }
 
-    public f Ef() {
+    public f Eg() {
         f poll = this.asS.poll();
         if (poll == null) {
             f fVar = new f(null);
@@ -921,7 +921,7 @@ public class a extends ImageView {
         onDestroy();
     }
 
-    public boolean Eg() {
+    public boolean Eh() {
         return this.asL;
     }
 

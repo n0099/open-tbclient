@@ -11,11 +11,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm extends BdAsyncTask<Object, Integer, SignData> {
-    final /* synthetic */ cl aPs;
+    final /* synthetic */ cl aPt;
     private volatile com.baidu.tbadk.core.util.aa aaG;
 
     private cm(cl clVar) {
-        this.aPs = clVar;
+        this.aPt = clVar;
         this.aaG = null;
     }
 
@@ -58,10 +58,10 @@ public class cm extends BdAsyncTask<Object, Integer, SignData> {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
             com.baidu.tbadk.core.util.aa aaVar = this.aaG;
-            str = this.aPs.mForumName;
+            str = this.aPt.mForumName;
             aaVar.o("kw", str);
             com.baidu.tbadk.core.util.aa aaVar2 = this.aaG;
-            str2 = this.aPs.mForumId;
+            str2 = this.aPt.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
             this.aaG.sX().tS().mIsNeedTbs = true;
             sw = this.aaG.sw();
@@ -102,9 +102,9 @@ public class cm extends BdAsyncTask<Object, Integer, SignData> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.aPs.aPr = null;
+        this.aPt.aPs = null;
         super.cancel(true);
-        iVar = this.aPs.mLoadDataCallBack;
+        iVar = this.aPt.mLoadDataCallBack;
         iVar.c(null);
     }
 
@@ -115,13 +115,13 @@ public class cm extends BdAsyncTask<Object, Integer, SignData> {
     public void onPostExecute(SignData signData) {
         com.baidu.adp.base.i iVar;
         TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        this.aPs.aPr = null;
+        this.aPt.aPs = null;
         TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         if (signData == null && this.aaG != null) {
-            this.aPs.mErrorCode = this.aaG.tb();
-            this.aPs.mErrorString = this.aaG.getErrorString();
+            this.aPt.mErrorCode = this.aaG.tb();
+            this.aPt.mErrorString = this.aaG.getErrorString();
         }
-        iVar = this.aPs.mLoadDataCallBack;
+        iVar = this.aPt.mLoadDataCallBack;
         iVar.c(signData);
     }
 }

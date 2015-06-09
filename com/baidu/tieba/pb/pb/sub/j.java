@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements ap {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ap
@@ -19,13 +19,13 @@ public class j implements ap {
         s sVar2;
         String str;
         if (writeData != null) {
-            this.bPw.bPp = writeData.getContent();
-            sVar = this.bPw.bPq;
-            if (sVar.ady() != null) {
-                sVar2 = this.bPw.bPq;
-                PbEditor ady = sVar2.ady();
-                str = this.bPw.bPp;
-                ady.setContent(str);
+            this.bPx.bPq = writeData.getContent();
+            sVar = this.bPx.bPr;
+            if (sVar.adz() != null) {
+                sVar2 = this.bPx.bPr;
+                PbEditor adz = sVar2.adz();
+                str = this.bPx.bPq;
+                adz.setContent(str);
             }
         }
     }

@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ h bJB;
+    final /* synthetic */ h bJC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.bJB = hVar;
+        this.bJC = hVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,22 +20,22 @@ public class j implements View.OnClickListener {
         boolean z;
         Context context;
         ImageView imageView;
-        Animation aap;
+        Animation aaq;
         k kVar;
         k kVar2;
         boolean z2;
-        z = this.bJB.bJA;
+        z = this.bJC.bJB;
         if (!z) {
-            context = this.bJB.context;
+            context = this.bJC.context;
             if (bq.ae(context)) {
-                this.bJB.bJA = true;
-                imageView = this.bJB.bJu;
-                aap = this.bJB.aap();
-                imageView.startAnimation(aap);
-                kVar = this.bJB.bJx;
+                this.bJC.bJB = true;
+                imageView = this.bJC.bJv;
+                aaq = this.bJC.aaq();
+                imageView.startAnimation(aaq);
+                kVar = this.bJC.bJy;
                 if (kVar != null) {
-                    kVar2 = this.bJB.bJx;
-                    z2 = this.bJB.bJy;
+                    kVar2 = this.bJC.bJy;
+                    z2 = this.bJC.bJz;
                     kVar2.dM(z2);
                 }
             }

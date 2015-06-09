@@ -36,11 +36,11 @@ public class u extends com.baidu.adp.lib.a.b.a.a.i {
         return this.duration;
     }
 
-    public int EG() {
+    public int EH() {
         return this.auZ;
     }
 
-    public Object EH() {
+    public Object EI() {
         return this.ava;
     }
 

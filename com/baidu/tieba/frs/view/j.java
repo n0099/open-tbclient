@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aRv;
+    final /* synthetic */ FrsHeaderView aRw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsHeaderView frsHeaderView) {
-        this.aRv = frsHeaderView;
+        this.aRw = frsHeaderView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.aRv.LH.getPageActivity(), this.aRv.aQR, "2", "1")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.aRw.LH.getPageActivity(), this.aRw.aQS, "2", "1")));
     }
 }

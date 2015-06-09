@@ -18,7 +18,7 @@ public class i implements q {
         nVar2 = this.apY.apT;
         nVar2.stop();
         this.apY.apV = i;
-        aj ajVar = (aj) ah.DB().en(this.apY.mSubType);
+        aj ajVar = (aj) ah.DC().en(this.apY.mSubType);
         if (ajVar != null) {
             ajVar.h(this.apY);
         }

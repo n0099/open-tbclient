@@ -53,12 +53,12 @@ public class p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.
         if (this.aoj.isNeedCache() && this.aok != null && this.aok.tT() != null && this.aok.tT().qa() && q != null && (this.aoj.anX instanceof com.baidu.tbadk.mvc.b.e)) {
             com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) this.aoj.anX;
             String cacheKey = eVar.getCacheKey();
-            String AJ = eVar.AJ();
+            String AK = eVar.AK();
             String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-            if (cacheKey == null || TextUtils.isEmpty(AJ) || q == null) {
+            if (cacheKey == null || TextUtils.isEmpty(AK) || q == null) {
                 return q;
             }
-            com.baidu.adp.lib.cache.t<String> W = com.baidu.tbadk.core.b.a.rI().W(AJ, currentAccount);
+            com.baidu.adp.lib.cache.t<String> W = com.baidu.tbadk.core.b.a.rI().W(AK, currentAccount);
             if (W == null) {
                 return q;
             }
@@ -97,7 +97,7 @@ public class p<T extends com.baidu.tbadk.mvc.b.i, D extends com.baidu.tbadk.mvc.
                     BdLog.e(this.aok.tT().WJ);
                 }
             }
-            this.aoj.BS();
+            this.aoj.BT();
             rVar = ((NetModel) this.aoj).anV;
             if (rVar != null) {
                 rVar2 = ((NetModel) this.aoj).anV;

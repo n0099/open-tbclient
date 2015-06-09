@@ -19,14 +19,14 @@ class y extends CustomMessageListener {
         aj ajVar;
         aj ajVar2;
         if (customResponsedMessage != null) {
-            this.this$0.aqb();
+            this.this$0.aqc();
             if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
                 this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
             }
-            ajVar = this.this$0.cvr;
-            ajVar.aqw().aqz();
-            ajVar2 = this.this$0.cvr;
-            ajVar2.aqr();
+            ajVar = this.this$0.cvs;
+            ajVar.aqx().aqA();
+            ajVar2 = this.this$0.cvs;
+            ajVar2.aqs();
         }
     }
 }

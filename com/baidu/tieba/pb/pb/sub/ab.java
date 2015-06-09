@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ s bPT;
+    final /* synthetic */ s bPU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(s sVar) {
-        this.bPT = sVar;
+        this.bPU = sVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,18 +20,18 @@ public class ab implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         TbPageContext tbPageContext;
-        dialog = this.bPT.bNL;
+        dialog = this.bPU.bNM;
         if (dialog != null) {
-            dialog2 = this.bPT.bNL;
+            dialog2 = this.bPU.bNM;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.bPT.bNL;
-                tbPageContext = this.bPT.Yt;
+                dialog3 = this.bPU.bNM;
+                tbPageContext = this.bPU.Yt;
                 com.baidu.adp.lib.g.k.b(dialog3, tbPageContext);
             }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            this.bPT.a(((Integer) sparseArray.get(com.baidu.tieba.q.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.q.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.q.tag_del_post_is_self)).booleanValue());
+            this.bPU.a(((Integer) sparseArray.get(com.baidu.tieba.q.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.q.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.q.tag_del_post_is_self)).booleanValue());
         }
     }
 }

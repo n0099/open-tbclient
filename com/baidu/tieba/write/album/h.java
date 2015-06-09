@@ -14,18 +14,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-    final /* synthetic */ e cyi;
-    private final as cyj;
-    private final String cyk;
-    private String cyl;
-    private List<a> cym;
-    private int cyn = 1;
-    private g cyo = new i(this);
+    final /* synthetic */ e cyj;
+    private final as cyk;
+    private final String cyl;
+    private String cym;
+    private List<a> cyn;
+    private int cyo = 1;
+    private g cyp = new i(this);
 
     public h(e eVar, String str, as asVar) {
-        this.cyi = eVar;
-        this.cyj = asVar;
-        this.cyk = str;
+        this.cyj = eVar;
+        this.cyk = asVar;
+        this.cyl = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,25 +33,25 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: k */
     public List<ImageFileInfo> doInBackground(Void... voidArr) {
-        List<a> arM;
-        if (TextUtils.isEmpty(this.cyk)) {
+        List<a> arN;
+        if (TextUtils.isEmpty(this.cyl)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.cyk.equals("-1")) {
-            arM = this.cyi.arM();
-            this.cym = arM;
-            if (this.cym != null) {
-                for (a aVar : this.cym) {
+        if (this.cyl.equals("-1")) {
+            arN = this.cyj.arN();
+            this.cyn = arN;
+            if (this.cyn != null) {
+                for (a aVar : this.cyn) {
                     String albumId = aVar.getAlbumId();
                     if (!TextUtils.isEmpty(albumId)) {
-                        a(arrayList, this.cyo, albumId);
+                        a(arrayList, this.cyp, albumId);
                     }
                 }
             }
             return arrayList;
         }
-        a(arrayList, this.cyo, this.cyk);
+        a(arrayList, this.cyp, this.cyl);
         return arrayList;
     }
 
@@ -59,10 +59,10 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
         Context context;
         Context context2;
         if (list != null) {
-            context = this.cyi.mContext;
+            context = this.cyj.mContext;
             a(list, gVar, str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             if (list == null || list.size() <= 0) {
-                context2 = this.cyi.mContext;
+                context2 = this.cyj.mContext;
                 a(list, gVar, str, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             }
         }
@@ -72,8 +72,8 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        if (this.cyj != null) {
-            this.cyj.nm();
+        if (this.cyk != null) {
+            this.cyk.nm();
         }
     }
 
@@ -83,8 +83,8 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
     /* renamed from: c */
     public void onProgressUpdate(List<ImageFileInfo>... listArr) {
         super.onProgressUpdate(listArr);
-        if (listArr.length > 0 && this.cyj != null) {
-            this.cyj.a(this.cym, listArr[0], this.cyl);
+        if (listArr.length > 0 && this.cyk != null) {
+            this.cyk.a(this.cyn, listArr[0], this.cym);
         }
     }
 
@@ -94,25 +94,25 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
     /* renamed from: o */
     public void onPostExecute(List<ImageFileInfo> list) {
         super.onPostExecute(list);
-        if (this.cyj != null) {
-            this.cyj.a(this.cym, list, this.cyl);
+        if (this.cyk != null) {
+            this.cyk.a(this.cyn, list, this.cym);
         }
     }
 
     private void a(List<ImageFileInfo> list, g gVar) {
         if (list != null && gVar != null) {
-            if (this.cyn == 1 || this.cyn == 2) {
-                if (list.size() / this.cyn > 50) {
+            if (this.cyo == 1 || this.cyo == 2) {
+                if (list.size() / this.cyo > 50) {
                     if (gVar != null) {
                         gVar.bc(list);
                     }
-                    this.cyn++;
+                    this.cyo++;
                 }
-            } else if (list.size() / this.cyn > 500) {
+            } else if (list.size() / this.cyo > 500) {
                 if (gVar != null) {
                     gVar.bc(list);
                 }
-                this.cyn++;
+                this.cyo++;
             }
         }
     }
@@ -135,7 +135,7 @@ public class h extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo
                             int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
                             do {
                                 String string = cursor.getString(columnIndex);
-                                this.cyl = cursor.getString(columnIndex2);
+                                this.cym = cursor.getString(columnIndex2);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setAlbumnId(str);
                                 imageFileInfo.setFilePath(string);

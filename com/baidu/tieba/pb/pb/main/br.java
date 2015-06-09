@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ bo bLP;
+    final /* synthetic */ bo bLQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br(bo boVar, int i, int i2) {
         super(i, i2);
-        this.bLP = boVar;
+        this.bLQ = boVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0046  */
@@ -39,19 +39,19 @@ public class br extends com.baidu.adp.framework.listener.a {
         bs bsVar2;
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bLP.getUniqueId()) {
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bLQ.getUniqueId()) {
             boolean z4 = true;
             if (responsedMessage.hasError()) {
                 z4 = false;
                 if (responsedMessage.getError() == 4) {
-                    pbActivity2 = this.bLP.bKZ;
+                    pbActivity2 = this.bLQ.bLa;
                     pbActivity2.showToast(responsedMessage.getErrorString());
                     z = false;
                     if (responsedMessage instanceof pbPageSocketResponseMessage) {
                         i = 0;
                     } else {
                         pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                        this.bLP.a(pbpagesocketresponsemessage);
+                        this.bLQ.a(pbpagesocketresponsemessage);
                         i = pbpagesocketresponsemessage.getDownSize();
                     }
                     if (responsedMessage instanceof pbPageHttpResponseMessage) {
@@ -59,7 +59,7 @@ public class br extends com.baidu.adp.framework.listener.a {
                         z2 = false;
                     } else {
                         pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                        this.bLP.a(pbpagehttpresponsemessage);
+                        this.bLQ.a(pbpagehttpresponsemessage);
                         i2 = pbpagehttpresponsemessage.getDownSize();
                         z2 = true;
                     }
@@ -74,9 +74,9 @@ public class br extends com.baidu.adp.framework.listener.a {
                     objArr[2] = "ThreadId";
                     objArr[3] = pbpagerequestmessage == null ? String.valueOf(pbpagerequestmessage.get_kz()) : null;
                     com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-                    z3 = this.bLP.bLM;
+                    z3 = this.bLQ.bLN;
                     if (z3) {
-                        this.bLP.bLM = true;
+                        this.bLQ.bLN = true;
                         com.baidu.tbadk.performanceLog.aa aaVar = new com.baidu.tbadk.performanceLog.aa();
                         aaVar.el(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
                         aaVar.aqJ = z2;
@@ -88,9 +88,9 @@ public class br extends com.baidu.adp.framework.listener.a {
                         aaVar.aqC = responsedMessage.performanceData.qB;
                         aaVar.aqH = i;
                         aaVar.aqI = i2;
-                        bsVar = this.bLP.bLI;
+                        bsVar = this.bLQ.bLJ;
                         if (bsVar != null) {
-                            bsVar2 = this.bLP.bLI;
+                            bsVar2 = this.bLQ.bLJ;
                             bsVar2.e(aaVar);
                             return;
                         }
@@ -98,7 +98,7 @@ public class br extends com.baidu.adp.framework.listener.a {
                     }
                     return;
                 } else if (UtilHelper.isNetOk()) {
-                    pbActivity = this.bLP.bKZ;
+                    pbActivity = this.bLQ.bLa;
                     pbActivity.showToast(responsedMessage.getErrorString());
                 }
             }
@@ -118,7 +118,7 @@ public class br extends com.baidu.adp.framework.listener.a {
             objArr2[2] = "ThreadId";
             objArr2[3] = pbpagerequestmessage2 == null ? String.valueOf(pbpagerequestmessage2.get_kz()) : null;
             com.baidu.tbadk.core.log.b.a("pb", clientLogID2, cmd2, "resp", error2, errorString2, objArr2);
-            z3 = this.bLP.bLM;
+            z3 = this.bLQ.bLN;
             if (z3) {
             }
         }

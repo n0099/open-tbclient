@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
-    private w ciT;
-    private s ciU;
-    private v ciV;
-    private c ciW;
+    private w ciU;
+    private s ciV;
+    private v ciW;
+    private c ciX;
     public boolean pY;
 
     public u(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.ciT = null;
         this.ciU = null;
         this.ciV = null;
-        this.ciU = new s();
+        this.ciW = null;
+        this.ciV = new s();
     }
 
     public void a(v vVar) {
-        this.ciV = vVar;
+        this.ciW = vVar;
     }
 
     public void c(c cVar) {
-        this.ciW = cVar;
+        this.ciX = cVar;
     }
 
-    public c akO() {
-        return this.ciW;
+    public c akP() {
+        return this.ciX;
     }
 
-    private String akP() {
-        ArrayList<e> ako = this.ciW.ako();
-        if (ako == null) {
+    private String akQ() {
+        ArrayList<e> akp = this.ciX.akp();
+        if (akp == null) {
             return "";
         }
-        if (!this.ciW.akp()) {
+        if (!this.ciX.akq()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = ako.iterator();
+            Iterator<e> it = akp.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.aky() < this.ciW.getLevel()) {
+                if (next.akz() < this.ciX.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            ako.removeAll(arrayList);
+            akp.removeAll(arrayList);
         }
-        int size = ako.size();
+        int size = akp.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = ako.get(i);
-            if (eVar.akC()) {
-                if (!eVar.akD()) {
+            e eVar = akp.get(i);
+            if (eVar.akD()) {
+                if (!eVar.akE()) {
                     eVar.eT(true);
                 }
             }
@@ -66,19 +66,19 @@ public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        if (this.ciT != null) {
+        if (this.ciU != null) {
             return false;
         }
-        String akP = akP();
-        this.ciT = new w(this);
-        this.ciT.execute(akP);
+        String akQ = akQ();
+        this.ciU = new w(this);
+        this.ciU.execute(akQ);
         return true;
     }
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.ciT != null) {
-            this.ciT.cancel();
+        if (this.ciU != null) {
+            this.ciU.cancel();
             return true;
         }
         return false;

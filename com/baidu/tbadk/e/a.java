@@ -50,11 +50,11 @@ public class a extends com.baidu.adp.framework.a.d {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
         r0 = false;
      */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00bc  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -62,6 +62,8 @@ public class a extends com.baidu.adp.framework.a.d {
         boolean z = true;
         if ((tbHttpMessageTask.isNeedGzip() && !tbHttpMessageTask.isBDImage()) || tbHttpMessageTask.isFromCDN()) {
             httpMessage.addHeader("Accept-Encoding", "gzip");
+        } else {
+            httpMessage.addHeader("Accept-Encoding", "");
         }
         httpMessage.addHeader("Charset", "UTF-8");
         httpMessage.addHeader("User-Agent", "bdtb for Android " + TbConfig.getVersion());

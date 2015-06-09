@@ -13,19 +13,19 @@ import com.baidu.tieba.n;
 import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.recommendfrs.data.b, com.baidu.tbadk.mvc.e.c> {
-    private TbImageView aDi;
-    private TextView aDj;
-    private View aDm;
-    private TextView aEo;
+    private TbImageView aDj;
+    private TextView aDk;
+    private View aDn;
+    private TextView aEp;
     private TextView aiA;
 
     public i(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aDi = (TbImageView) view.findViewById(q.img);
+        this.aDj = (TbImageView) view.findViewById(q.img);
         this.aiA = (TextView) view.findViewById(q.title);
-        this.aEo = (TextView) view.findViewById(q.desc);
-        this.aDj = (TextView) view.findViewById(q.tag);
-        this.aDm = view.findViewById(q.divider_line);
+        this.aEp = (TextView) view.findViewById(q.desc);
+        this.aDk = (TextView) view.findViewById(q.tag);
+        this.aDn = view.findViewById(q.divider_line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,23 +34,23 @@ public class i extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.recommendfrs.data
     public void z(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.z(bVar);
         if (bVar != null) {
-            String str = (bVar.ahx() == null || bVar.ahx().size() <= 0) ? null : bVar.ahx().get(0);
-            TbImageView tbImageView = this.aDi;
-            if (!bVar.ahG()) {
+            String str = (bVar.ahy() == null || bVar.ahy().size() <= 0) ? null : bVar.ahy().get(0);
+            TbImageView tbImageView = this.aDj;
+            if (!bVar.ahH()) {
                 str = null;
             }
             tbImageView.c(str, 10, false);
             this.aiA.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
-            this.aEo.setText(UtilHelper.getFixedText(bVar.qG(), 24, true));
+            this.aEp.setText(UtilHelper.getFixedText(bVar.qG(), 24, true));
             if (StringUtils.isNull(bVar.getTag())) {
-                this.aDj.setVisibility(8);
+                this.aDk.setVisibility(8);
             } else {
-                this.aDj.setVisibility(0);
-                this.aDj.setText(UtilHelper.getFixedText(bVar.getTag(), 4, false));
+                this.aDk.setVisibility(0);
+                this.aDk.setText(UtilHelper.getFixedText(bVar.getTag(), 4, false));
             }
-            this.aDm.setVisibility(bVar.ahz() ? 0 : 4);
+            this.aDn.setVisibility(bVar.ahA() ? 0 : 4);
             com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.jL(String.valueOf(bVar.ahw()))) {
+            if (readThreadHistory != null && readThreadHistory.jL(String.valueOf(bVar.ahx()))) {
                 ay.b(this.aiA, n.cp_cont_d, 1);
             } else {
                 ay.b(this.aiA, n.cp_cont_b, 1);

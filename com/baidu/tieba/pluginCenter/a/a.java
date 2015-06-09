@@ -16,22 +16,22 @@ import com.baidu.tieba.t;
 public class a extends com.baidu.tbadk.mvc.j.a<PluginConfigWrapper, com.baidu.tbadk.mvc.e.c> {
     private TbImageView Ms;
     private TextView aiA;
-    private BdSwitchView bXE;
-    private TextView bXF;
-    private View bXG;
-    private ImageView bXH;
-    private int bXI;
+    private BdSwitchView bXF;
+    private TextView bXG;
+    private View bXH;
+    private ImageView bXI;
+    private int bXJ;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.Ms = (TbImageView) view.findViewById(q.icon);
         this.aiA = (TextView) view.findViewById(q.title);
-        this.bXE = (BdSwitchView) view.findViewById(q.switchview);
-        this.bXH = (ImageView) view.findViewById(q.downloading_forground);
-        this.bXG = view.findViewById(q.downloading_layout);
-        this.bXF = (TextView) view.findViewById(q.download_text);
-        this.bXE.setOnSwitchStateChangeListener(new b(this));
-        this.bXF.setOnClickListener(new c(this));
+        this.bXF = (BdSwitchView) view.findViewById(q.switchview);
+        this.bXI = (ImageView) view.findViewById(q.downloading_forground);
+        this.bXH = view.findViewById(q.downloading_layout);
+        this.bXG = (TextView) view.findViewById(q.download_text);
+        this.bXF.setOnSwitchStateChangeListener(new b(this));
+        this.bXG.setOnClickListener(new c(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,50 +51,50 @@ public class a extends com.baidu.tbadk.mvc.j.a<PluginConfigWrapper, com.baidu.tb
     private void b(int i, float f) {
         switch (i) {
             case 1:
-                this.bXF.setVisibility(8);
                 this.bXG.setVisibility(8);
-                this.bXE.setVisibility(0);
-                this.bXE.mu();
+                this.bXH.setVisibility(8);
+                this.bXF.setVisibility(0);
+                this.bXF.mu();
                 return;
             case 2:
-                this.bXF.setVisibility(8);
                 this.bXG.setVisibility(8);
-                this.bXE.setVisibility(0);
-                this.bXE.mt();
+                this.bXH.setVisibility(8);
+                this.bXF.setVisibility(0);
+                this.bXF.mt();
                 return;
             case 3:
+                this.bXG.setVisibility(8);
+                this.bXH.setVisibility(0);
                 this.bXF.setVisibility(8);
-                this.bXG.setVisibility(0);
-                this.bXE.setVisibility(8);
                 x(f);
                 return;
             case 4:
-                this.bXF.setVisibility(0);
-                this.bXG.setVisibility(8);
-                this.bXE.setVisibility(8);
-                this.bXF.setText(t.plugin_update);
+                this.bXG.setVisibility(0);
+                this.bXH.setVisibility(8);
+                this.bXF.setVisibility(8);
+                this.bXG.setText(t.plugin_update);
                 return;
             default:
-                this.bXF.setVisibility(0);
-                this.bXG.setVisibility(8);
-                this.bXE.setVisibility(8);
-                this.bXF.setText(t.download);
+                this.bXG.setVisibility(0);
+                this.bXH.setVisibility(8);
+                this.bXF.setVisibility(8);
+                this.bXG.setText(t.download);
                 return;
         }
     }
 
     private void x(float f) {
-        if (this.bXI == 0) {
-            this.bXI = this.bXG.getWidth();
+        if (this.bXJ == 0) {
+            this.bXJ = this.bXH.getWidth();
         }
-        int i = (int) (this.bXI * f);
+        int i = (int) (this.bXJ * f);
         if (i < 0) {
             i = 0;
         }
-        int i2 = i > this.bXI ? this.bXI : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bXH.getLayoutParams();
+        int i2 = i > this.bXJ ? this.bXJ : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bXI.getLayoutParams();
         layoutParams.width = i2;
-        this.bXH.setLayoutParams(layoutParams);
+        this.bXI.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab

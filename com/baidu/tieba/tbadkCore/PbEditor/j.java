@@ -14,25 +14,25 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    final /* synthetic */ EditorToolComponetContainer cqD;
-    private final WriteImagesInfo cqG;
+    final /* synthetic */ EditorToolComponetContainer cqE;
+    private final WriteImagesInfo cqH;
 
     public j(EditorToolComponetContainer editorToolComponetContainer, WriteImagesInfo writeImagesInfo) {
-        this.cqD = editorToolComponetContainer;
-        this.cqG = writeImagesInfo;
+        this.cqE = editorToolComponetContainer;
+        this.cqH = writeImagesInfo;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cqG == null) {
+        if (this.cqH == null) {
             return 0;
         }
-        return this.cqG.size();
+        return this.cqH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.cqG.getChosedFiles().get(i);
+        return this.cqH.getChosedFiles().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,13 +45,13 @@ public class j extends BaseAdapter {
         int i2;
         int i3;
         com.baidu.tbadk.img.e eVar;
-        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.g.b.hr().inflate(this.cqD.mContext, com.baidu.tieba.r.editor_muti_image_item, null) : view;
+        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.g.b.hr().inflate(this.cqE.mContext, com.baidu.tieba.r.editor_muti_image_item, null) : view;
         TbadkCoreApplication.m411getInst().getSkinType();
-        ImageFileInfo imageFileInfo = this.cqG.getChosedFiles().get(i);
+        ImageFileInfo imageFileInfo = this.cqH.getChosedFiles().get(i);
         int measuredWidth = viewGroup.getMeasuredWidth();
-        i2 = this.cqD.cqy;
+        i2 = this.cqE.cqz;
         int i4 = measuredWidth - (i2 * 2);
-        i3 = this.cqD.padding;
+        i3 = this.cqE.padding;
         int i5 = i4 + i3;
         FrameLayout frameLayout2 = (FrameLayout) frameLayout;
         LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.q.iv_container);
@@ -65,7 +65,7 @@ public class j extends BaseAdapter {
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.y(paddingRight, measuredHeight));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            eVar = this.cqD.cqC;
+            eVar = this.cqE.cqD;
             if (eVar.a(imageFileInfo, new k(this, viewGroup), true) != null) {
                 tbImageView.invalidate();
             }

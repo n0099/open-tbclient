@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ a bKf;
+    final /* synthetic */ a bKg;
     private String filename;
 
     public b(a aVar, String str) {
-        this.bKf = aVar;
+        this.bKg = aVar;
         this.filename = null;
         this.filename = str;
     }
@@ -33,10 +33,10 @@ public class b extends BdAsyncTask<Object, Integer, Bitmap> {
     public void cancel() {
         i iVar;
         i iVar2;
-        this.bKf.bKe = null;
-        iVar = this.bKf.mLoadDataCallBack;
+        this.bKg.bKf = null;
+        iVar = this.bKg.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.bKf.mLoadDataCallBack;
+            iVar2 = this.bKg.mLoadDataCallBack;
             iVar2.c(null);
         }
         super.cancel(true);
@@ -55,10 +55,10 @@ public class b extends BdAsyncTask<Object, Integer, Bitmap> {
         i iVar;
         i iVar2;
         super.onPostExecute((b) bitmap);
-        this.bKf.bKe = null;
-        iVar = this.bKf.mLoadDataCallBack;
+        this.bKg.bKf = null;
+        iVar = this.bKg.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.bKf.mLoadDataCallBack;
+            iVar2 = this.bKg.mLoadDataCallBack;
             iVar2.c(bitmap);
         }
     }

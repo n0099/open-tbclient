@@ -14,18 +14,18 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.j.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.e.c> {
     private TbImageView Ms;
-    private TextView aEo;
+    private TextView aEp;
     private TextView aiA;
-    private TextView bXK;
-    private ImageView bXL;
+    private TextView bXL;
+    private ImageView bXM;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.Ms = (TbImageView) view.findViewById(q.icon);
         this.aiA = (TextView) view.findViewById(q.title);
-        this.aEo = (TextView) view.findViewById(q.desc);
-        this.bXK = (TextView) view.findViewById(q.status);
-        this.bXL = (ImageView) view.findViewById(q.new_mark);
+        this.aEp = (TextView) view.findViewById(q.desc);
+        this.bXL = (TextView) view.findViewById(q.status);
+        this.bXM = (ImageView) view.findViewById(q.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,24 +38,24 @@ public class d extends com.baidu.tbadk.mvc.j.a<PluginNetConfigInfos.PluginConfig
                 this.Ms.c(pluginConfig.icon, 10, false);
             }
             this.aiA.setText(pluginConfig.display_name);
-            this.aEo.setText(pluginConfig.verbose);
+            this.aEp.setText(pluginConfig.verbose);
             if (PluginPackageManager.lM().bw(pluginConfig.package_name)) {
                 if (PluginPackageManager.lM().by(pluginConfig.package_name)) {
-                    this.bXL.setVisibility(0);
-                    this.bXK.setText(t.plugin_update);
+                    this.bXM.setVisibility(0);
+                    this.bXL.setText(t.plugin_update);
                     return;
                 }
-                this.bXL.setVisibility(8);
+                this.bXM.setVisibility(8);
                 if (PluginPackageManager.lM().bx(pluginConfig.package_name)) {
-                    this.bXK.setText(t.plugin_unenabled);
+                    this.bXL.setText(t.plugin_unenabled);
                     return;
                 } else {
-                    this.bXK.setText(t.plugin_enabled);
+                    this.bXL.setText(t.plugin_enabled);
                     return;
                 }
             }
-            this.bXL.setVisibility(8);
-            this.bXK.setText(t.plugin_disabled);
+            this.bXM.setVisibility(8);
+            this.bXL.setText(t.plugin_disabled);
         }
     }
 

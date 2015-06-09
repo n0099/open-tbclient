@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SecretSettingActivity cdW;
+    final /* synthetic */ SecretSettingActivity cdX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SecretSettingActivity secretSettingActivity, int i, int i2) {
         super(i, i2);
-        this.cdW = secretSettingActivity;
+        this.cdX = secretSettingActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,10 +25,10 @@ class e extends com.baidu.adp.framework.listener.a {
         a aVar4;
         a aVar5;
         if (responsedMessage != null) {
-            this.cdW.cdM = true;
-            this.cdW.hideProgressBar();
+            this.cdX.cdN = true;
+            this.cdX.hideProgressBar();
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.cdW.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cdW.getResources().getString(t.neterror) : responsedMessage.getErrorString());
+                this.cdX.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cdX.getResources().getString(t.neterror) : responsedMessage.getErrorString());
                 return;
             }
             a aVar6 = null;
@@ -39,21 +39,21 @@ class e extends com.baidu.adp.framework.listener.a {
                 aVar6 = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
             if (aVar6 != null) {
-                aVar = this.cdW.cdL;
+                aVar = this.cdX.cdM;
                 aVar.a(aVar6);
-                aVar2 = this.cdW.cdL;
-                aVar2.aib();
-                iVar = this.cdW.cdK;
+                aVar2 = this.cdX.cdM;
+                aVar2.aic();
+                iVar = this.cdX.cdL;
                 iVar.eE(true);
-                iVar2 = this.cdW.cdK;
-                aVar3 = this.cdW.cdL;
+                iVar2 = this.cdX.cdL;
+                aVar3 = this.cdX.cdM;
                 iVar2.c(aVar3);
-                SecretSettingActivity secretSettingActivity = this.cdW;
-                aVar4 = this.cdW.cdL;
+                SecretSettingActivity secretSettingActivity = this.cdX;
+                aVar4 = this.cdX.cdM;
                 secretSettingActivity.b(aVar4);
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                aVar5 = this.cdW.cdL;
-                m411getInst.setLocationShared(aVar5.aid());
+                aVar5 = this.cdX.cdM;
+                m411getInst.setLocationShared(aVar5.aie());
             }
         }
     }

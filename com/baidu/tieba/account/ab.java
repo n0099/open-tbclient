@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<String, Integer, Boolean> {
     private com.baidu.tbadk.core.util.aa OE;
-    final /* synthetic */ ActivationActivity awV;
+    final /* synthetic */ ActivationActivity awW;
 
     private ab(ActivationActivity activationActivity) {
-        this.awV = activationActivity;
+        this.awW = activationActivity;
         this.OE = null;
     }
 
@@ -28,12 +28,12 @@ public class ab extends BdAsyncTask<String, Integer, Boolean> {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.awV.awK = null;
-        progressBar = this.awV.awE;
+        this.awW.awL = null;
+        progressBar = this.awW.awF;
         progressBar.setVisibility(8);
-        editText = this.awV.awH;
+        editText = this.awW.awI;
         if (editText.length() == 6) {
-            relativeLayout = this.awV.awI;
+            relativeLayout = this.awW.awJ;
             relativeLayout.setEnabled(true);
         }
         if (this.OE != null) {
@@ -52,7 +52,7 @@ public class ab extends BdAsyncTask<String, Integer, Boolean> {
         try {
             this.OE = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
             com.baidu.tbadk.core.util.aa aaVar = this.OE;
-            registData = this.awV.awN;
+            registData = this.awW.awO;
             aaVar.o("phonenum", registData.getPhone());
             this.OE.sw();
             if (this.OE.sX().tT().qa()) {
@@ -75,23 +75,23 @@ public class ab extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.awV.awK = null;
-        progressBar = this.awV.awE;
+        this.awW.awL = null;
+        progressBar = this.awW.awF;
         progressBar.setVisibility(8);
-        editText = this.awV.awH;
+        editText = this.awW.awI;
         if (editText.length() == 6) {
-            relativeLayout = this.awV.awI;
+            relativeLayout = this.awW.awJ;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.awV.Fd();
+            this.awW.Fe();
             return;
         }
         String errorString = this.OE.getErrorString();
         if (errorString != null && errorString.length() > 0) {
-            textView = this.awV.afY;
+            textView = this.awW.afY;
             textView.setVisibility(0);
-            textView2 = this.awV.afY;
+            textView2 = this.awW.afY;
             textView2.setText(errorString);
         }
     }
@@ -103,13 +103,13 @@ public class ab extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.awV.awE;
+        progressBar = this.awW.awF;
         progressBar.setVisibility(0);
-        textView = this.awV.afY;
+        textView = this.awW.afY;
         textView.setVisibility(4);
-        textView2 = this.awV.afY;
+        textView2 = this.awW.afY;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.awV.awI;
+        relativeLayout = this.awW.awJ;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

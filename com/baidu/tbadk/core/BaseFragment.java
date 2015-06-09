@@ -245,7 +245,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Au();
+        return this.loadingView.Av();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

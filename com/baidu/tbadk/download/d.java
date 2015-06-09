@@ -55,7 +55,7 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.c>, List<Downloa
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : g.zi().lZ()) {
+        for (DownloadData downloadData : g.zj().lZ()) {
             Iterator<com.baidu.tbadk.core.data.c> it = this.aiU.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(it.next().Px, downloadData.getId())) {

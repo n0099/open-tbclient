@@ -28,27 +28,27 @@ public class a extends av<com.baidu.tbadk.core.data.c, b> {
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) bVar);
-        bVar.aPz.setPadding(0, i - this.aMU == 0 ? this.aKj : this.aKk, 0, 0);
-        this.aMk.getLayoutMode().ab(this.mSkinType == 1);
-        this.aMk.getLayoutMode().j(view);
+        bVar.aPA.setPadding(0, i - this.aMV == 0 ? this.aKk : this.aKl, 0, 0);
+        this.aMl.getLayoutMode().ab(this.mSkinType == 1);
+        this.aMl.getLayoutMode().j(view);
         if (!cVar.PJ) {
             cVar.PJ = true;
-            this.aMk.a(cVar, "show");
-            this.aMk.b(cVar, "show");
+            this.aMl.a(cVar, "show");
+            this.aMl.b(cVar, "show");
         }
         if (n.qc().qe()) {
-            bVar.aBk.setVisibility(0);
-            bVar.aBk.c(cVar.PH.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            bVar.aBl.setVisibility(0);
+            bVar.aBl.c(cVar.PH.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            bVar.aBk.setVisibility(8);
+            bVar.aBl.setVisibility(8);
         }
         if (n.qc().qg() && !TextUtils.isEmpty(cVar.PH.PM)) {
-            bVar.aPB.setVisibility(0);
-            bVar.aPB.c(cVar.PH.PM, this.mIsFromCDN ? 30 : 31, false);
+            bVar.aPC.setVisibility(0);
+            bVar.aPC.c(cVar.PH.PM, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            bVar.aPB.setVisibility(8);
+            bVar.aPC.setVisibility(8);
         }
-        bVar.aHH.setText(cVar.PH.userName);
+        bVar.aHI.setText(cVar.PH.userName);
         if (StringUtils.isNull(cVar.PH.PL)) {
             bVar.aiA.setVisibility(8);
         } else {

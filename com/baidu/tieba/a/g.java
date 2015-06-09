@@ -12,17 +12,17 @@ import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f {
     public long Nx;
-    private i bGN;
-    private final HttpMessageListener bGO;
+    private i bGO;
+    private final HttpMessageListener bGP;
 
     public void a(i iVar) {
-        this.bGN = iVar;
+        this.bGO = iVar;
     }
 
     public g(Context context) {
         super(null);
         this.Nx = 300000L;
-        this.bGO = new h(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.bGP = new h(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.f
@@ -39,7 +39,7 @@ public class g extends com.baidu.adp.base.f {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m411getInst().getReporyUserInfoLastTime()) >= this.Nx;
     }
 
-    public void Zv() {
+    public void Zw() {
         TbadkCoreApplication.m411getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -47,12 +47,12 @@ public class g extends com.baidu.adp.base.f {
         this.Nx = j;
     }
 
-    public void Zw() {
+    public void Zx() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.bGO);
+        messageManager.registerListener(this.bGP);
     }
 
     public void a(int i, float f, float f2) {
@@ -64,6 +64,6 @@ public class g extends com.baidu.adp.base.f {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bGO);
+        MessageManager.getInstance().unRegisterListener(this.bGP);
     }
 }

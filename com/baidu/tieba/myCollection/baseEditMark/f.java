@@ -4,63 +4,63 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f {
-    private boolean bHB;
-    private MarkData bHC;
-    private g bHD;
-    private com.baidu.tbadk.baseEditMark.b bHE;
+    private boolean bHC;
+    private MarkData bHD;
+    private g bHE;
+    private com.baidu.tbadk.baseEditMark.b bHF;
 
     public void a(com.baidu.tbadk.baseEditMark.b bVar) {
-        this.bHE = bVar;
+        this.bHF = bVar;
     }
 
     public f(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.bHB = false;
-        this.bHC = null;
+        this.bHC = false;
         this.bHD = null;
         this.bHE = null;
-        this.bHC = new MarkData();
+        this.bHF = null;
+        this.bHD = new MarkData();
     }
 
     public boolean pq() {
-        return this.bHB;
-    }
-
-    public MarkData pt() {
         return this.bHC;
     }
 
+    public MarkData pt() {
+        return this.bHD;
+    }
+
     public void a(MarkData markData) {
-        this.bHC = markData;
+        this.bHD = markData;
     }
 
     public void Z(boolean z) {
-        this.bHB = z;
+        this.bHC = z;
     }
 
     public String pp() {
-        if (this.bHC != null) {
-            return this.bHC.getPostId();
+        if (this.bHD != null) {
+            return this.bHD.getPostId();
         }
         return null;
     }
 
     public void ps() {
-        if (this.bHD != null) {
-            this.bHD.cancel();
+        if (this.bHE != null) {
+            this.bHE.cancel();
         }
-        this.bHD = new g(this, true);
-        this.bHD.setPriority(3);
-        this.bHD.execute(new Boolean[0]);
+        this.bHE = new g(this, true);
+        this.bHE.setPriority(3);
+        this.bHE.execute(new Boolean[0]);
     }
 
     public void pr() {
-        if (this.bHD != null) {
-            this.bHD.cancel();
+        if (this.bHE != null) {
+            this.bHE.cancel();
         }
-        this.bHD = new g(this, false);
-        this.bHD.setPriority(3);
-        this.bHD.execute(new Boolean[0]);
+        this.bHE = new g(this, false);
+        this.bHE.setPriority(3);
+        this.bHE.execute(new Boolean[0]);
     }
 
     @Override // com.baidu.adp.base.f
@@ -70,8 +70,8 @@ public class f extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bHD != null) {
-            this.bHD.cancel();
+        if (this.bHE != null) {
+            this.bHE.cancel();
             return false;
         }
         return false;

@@ -15,11 +15,11 @@ public class c {
         this.title = str;
     }
 
-    public int CI() {
+    public int CJ() {
         return this.aoM;
     }
 
-    public com.baidu.tbadk.mainTab.c CJ() {
+    public com.baidu.tbadk.mainTab.c CK() {
         return this.aoN;
     }
 
@@ -27,7 +27,7 @@ public class c {
         this.aoN = cVar;
     }
 
-    public String CK() {
+    public String CL() {
         return this.aoO;
     }
 
@@ -35,7 +35,7 @@ public class c {
         this.aoO = str;
     }
 
-    public int CL() {
+    public int CM() {
         return this.aoL;
     }
 

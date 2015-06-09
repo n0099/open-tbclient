@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements AbsListView.OnScrollListener {
-    final /* synthetic */ ai bGE;
+    final /* synthetic */ ai bGF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ai aiVar) {
-        this.bGE = aiVar;
+        this.bGF = aiVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -19,10 +19,10 @@ public class al implements AbsListView.OnScrollListener {
     public void onScrollStateChanged(AbsListView absListView, int i) {
         boolean z;
         if (i != 0) {
-            z = this.bGE.bGD;
+            z = this.bGF.bGE;
             if (!z) {
-                this.bGE.bGD = true;
-                this.bGE.Kk();
+                this.bGF.bGE = true;
+                this.bGF.Kl();
             }
         }
     }

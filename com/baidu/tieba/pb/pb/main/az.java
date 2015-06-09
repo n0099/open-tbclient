@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class az implements com.baidu.tieba.pb.b.e {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.b.e
@@ -16,13 +16,13 @@ class az implements com.baidu.tieba.pb.b.e {
         ch chVar;
         ch chVar2;
         ch chVar3;
-        chVar = this.bKT.bKz;
+        chVar = this.bKU.bKA;
         chVar.ee(false);
-        chVar2 = this.bKT.bKz;
+        chVar2 = this.bKU.bKA;
         chVar2.O(view);
-        chVar3 = this.bKT.bKz;
+        chVar3 = this.bKU.bKA;
         chVar3.ee(true);
-        this.bKT.aaN();
+        this.bKU.aaO();
         return true;
     }
 
@@ -35,11 +35,11 @@ class az implements com.baidu.tieba.pb.b.e {
     public boolean c(View view, MotionEvent motionEvent) {
         ch chVar;
         ch chVar2;
-        chVar = this.bKT.bKz;
-        chVar.abT();
-        this.bKT.aaN();
-        chVar2 = this.bKT.bKz;
-        chVar2.acw();
+        chVar = this.bKU.bKA;
+        chVar.abU();
+        this.bKU.aaO();
+        chVar2 = this.bKU.bKA;
+        chVar2.acx();
         return false;
     }
 }

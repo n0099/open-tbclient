@@ -3,111 +3,111 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class d implements c {
-    private Point btI;
     private Point btJ;
     private Point btK;
-    private final int btL;
+    private Point btL;
     private final int btM;
-    private e btN;
-    private int btO;
+    private final int btN;
+    private e btO;
+    private int btP;
     private float k;
 
     private int gM(int i) {
-        return (int) (((this.k * i) + this.btI.y) - (this.k * this.btI.x));
+        return (int) (((this.k * i) + this.btJ.y) - (this.k * this.btJ.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c
     public boolean execute() {
-        if (!this.btK.equals(this.btJ)) {
-            switch (this.btO) {
+        if (!this.btL.equals(this.btK)) {
+            switch (this.btP) {
                 case 0:
-                    Wi();
-                    break;
-                case 1:
-                    Wk();
-                    break;
-                case 2:
                     Wj();
                     break;
-                case 3:
+                case 1:
                     Wl();
                     break;
-                case 4:
+                case 2:
+                    Wk();
+                    break;
+                case 3:
                     Wm();
                     break;
-                case 5:
+                case 4:
                     Wn();
+                    break;
+                case 5:
+                    Wo();
                     break;
             }
             return false;
         }
-        if (this.btN != null) {
-            this.btN.Wb();
+        if (this.btO != null) {
+            this.btO.Wc();
         }
         return true;
     }
 
-    private void Wi() {
-        this.btK.y += this.btM;
-        if (this.btK.y > this.btJ.y) {
-            this.btK.y = this.btJ.y;
-        }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
-        }
-    }
-
     private void Wj() {
-        this.btK.x += this.btL;
-        if (this.btK.x > this.btJ.x) {
-            this.btK.x = this.btJ.x;
+        this.btL.y += this.btN;
+        if (this.btL.y > this.btK.y) {
+            this.btL.y = this.btK.y;
         }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
+        if (this.btO != null) {
+            this.btO.a(this.btL);
         }
     }
 
     private void Wk() {
-        this.btK.y -= this.btM;
-        if (this.btK.y < this.btJ.y) {
-            this.btK.y = this.btJ.y;
+        this.btL.x += this.btM;
+        if (this.btL.x > this.btK.x) {
+            this.btL.x = this.btK.x;
         }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
+        if (this.btO != null) {
+            this.btO.a(this.btL);
         }
     }
 
     private void Wl() {
-        this.btK.x -= this.btL;
-        if (this.btK.x < this.btJ.x) {
-            this.btK.x = this.btJ.x;
+        this.btL.y -= this.btN;
+        if (this.btL.y < this.btK.y) {
+            this.btL.y = this.btK.y;
         }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
+        if (this.btO != null) {
+            this.btO.a(this.btL);
         }
     }
 
     private void Wm() {
-        this.btK.x -= this.btL;
-        this.btK.y = gM(this.btK.x);
-        if (this.btK.x < this.btJ.x && this.btK.y < this.btJ.y) {
-            this.btK.x = this.btJ.x;
-            this.btK.y = this.btJ.y;
+        this.btL.x -= this.btM;
+        if (this.btL.x < this.btK.x) {
+            this.btL.x = this.btK.x;
         }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
+        if (this.btO != null) {
+            this.btO.a(this.btL);
         }
     }
 
     private void Wn() {
-        this.btK.x += this.btL;
-        this.btK.y = gM(this.btK.x);
-        if (this.btK.x > this.btJ.x && this.btK.y > this.btJ.y) {
-            this.btK.x = this.btJ.x;
-            this.btK.y = this.btJ.y;
+        this.btL.x -= this.btM;
+        this.btL.y = gM(this.btL.x);
+        if (this.btL.x < this.btK.x && this.btL.y < this.btK.y) {
+            this.btL.x = this.btK.x;
+            this.btL.y = this.btK.y;
         }
-        if (this.btN != null) {
-            this.btN.a(this.btK);
+        if (this.btO != null) {
+            this.btO.a(this.btL);
+        }
+    }
+
+    private void Wo() {
+        this.btL.x += this.btM;
+        this.btL.y = gM(this.btL.x);
+        if (this.btL.x > this.btK.x && this.btL.y > this.btK.y) {
+            this.btL.x = this.btK.x;
+            this.btL.y = this.btK.y;
+        }
+        if (this.btO != null) {
+            this.btO.a(this.btL);
         }
     }
 }

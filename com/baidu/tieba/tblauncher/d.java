@@ -16,7 +16,7 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.cvD = false;
+        this.this$0.cvE = false;
         this.this$0.fl(false);
     }
 }

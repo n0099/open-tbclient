@@ -12,11 +12,11 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements AdapterView.OnItemClickListener {
-    final /* synthetic */ s bPT;
+    final /* synthetic */ s bPU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(s sVar) {
-        this.bPT = sVar;
+        this.bPU = sVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -32,55 +32,55 @@ public class y implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        this.bPT.bPR = true;
-        arrayList = this.bPT.bPN;
+        this.bPU.bPS = true;
+        arrayList = this.bPU.bPO;
         if (arrayList != null) {
-            arrayList2 = this.bPT.bPN;
+            arrayList2 = this.bPU.bPO;
             if (i < arrayList2.size()) {
-                arrayList3 = this.bPT.bPN;
+                arrayList3 = this.bPU.bPO;
                 if (arrayList3.get(i) != null) {
-                    s sVar = this.bPT;
-                    arrayList4 = this.bPT.bPN;
-                    sVar.bPO = ((com.baidu.tieba.tbadkCore.data.j) arrayList4.get(i)).getId();
+                    s sVar = this.bPU;
+                    arrayList4 = this.bPU.bPO;
+                    sVar.bPP = ((com.baidu.tieba.tbadkCore.data.j) arrayList4.get(i)).getId();
                     sparseArray = (SparseArray) view.getTag();
                     if (sparseArray == null && (str = (String) sparseArray.get(com.baidu.tieba.q.tag_photo_username)) != null) {
-                        pbEditor = this.bPT.aKO;
+                        pbEditor = this.bPU.aKP;
                         String editable = pbEditor.getEditText().getText().toString();
-                        tbPageContext = this.bPT.Yt;
+                        tbPageContext = this.bPU.Yt;
                         String string = tbPageContext.getResources().getString(com.baidu.tieba.t.reply_sub_floor);
                         String str5 = "^" + string.replace("%s", ".+") + "$";
                         if (bb.isEmpty(editable) || editable.matches(str5)) {
-                            str2 = this.bPT.bPP;
+                            str2 = this.bPU.bPQ;
                             if (str2 != null) {
                                 Pattern compile = Pattern.compile(string.replace("%s", str));
-                                str3 = this.bPT.bPP;
+                                str3 = this.bPU.bPQ;
                                 if (compile.matcher(str3).lookingAt()) {
-                                    s sVar2 = this.bPT;
-                                    str4 = this.bPT.bPP;
+                                    s sVar2 = this.bPU;
+                                    str4 = this.bPU.bPQ;
                                     sVar2.iv(str4);
                                 } else {
-                                    this.bPT.iu(str);
+                                    this.bPU.iu(str);
                                 }
                             } else {
-                                this.bPT.iu(str);
+                                this.bPU.iu(str);
                             }
-                            this.bPT.d(i, view);
+                            this.bPU.d(i, view);
                             return;
                         }
                         Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(editable);
-                        this.bPT.bPP = editable;
+                        this.bPU.bPQ = editable;
                         if (!matcher.lookingAt()) {
-                            this.bPT.iu(str);
+                            this.bPU.iu(str);
                         } else {
-                            this.bPT.iv(editable);
+                            this.bPU.iv(editable);
                         }
-                        this.bPT.d(i, view);
+                        this.bPU.d(i, view);
                         return;
                     }
                 }
             }
         }
-        this.bPT.bPO = null;
+        this.bPU.bPP = null;
         sparseArray = (SparseArray) view.getTag();
         if (sparseArray == null) {
         }

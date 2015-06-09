@@ -46,16 +46,16 @@ public class al extends com.baidu.adp.framework.listener.e {
             }
             com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType);
             if (chatMessage instanceof PersonalChatMessage) {
-                c.TD().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.TE().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.TD().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.TE().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                D = c.TD().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
+                D = c.TE().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                D = c.TD().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
+                D = c.TE().D(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
             } else {
                 return;
             }

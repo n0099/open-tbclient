@@ -8,13 +8,8 @@ public class a extends com.baidu.tbadk.mvc.model.a<i, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<i> AG() {
+    public Class<i> AH() {
         return i.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.a.b
-    public int AH() {
-        return 2001265;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
@@ -23,7 +18,12 @@ public class a extends com.baidu.tbadk.mvc.model.a<i, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String AJ() {
+    public int AJ() {
+        return 2001265;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public String AK() {
         return "tb_user_atme";
     }
 }

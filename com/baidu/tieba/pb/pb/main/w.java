@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -27,37 +27,37 @@ public class w implements com.baidu.tbadk.core.dialog.h {
         bo boVar2;
         String str8;
         if (i == 0) {
-            TiebaStatic.eventStat(this.bKT.getPageContext().getPageActivity(), "pb_phone_call", "call");
-            PbActivity pbActivity = this.bKT;
-            str6 = this.bKT.mPhoneNumber;
+            TiebaStatic.eventStat(this.bKU.getPageContext().getPageActivity(), "pb_phone_call", "call");
+            PbActivity pbActivity = this.bKU;
+            str6 = this.bKU.mPhoneNumber;
             pbActivity.mPhoneNumber = str6.trim();
-            Activity pageActivity = this.bKT.getPageContext().getPageActivity();
-            str7 = this.bKT.mPhoneNumber;
+            Activity pageActivity = this.bKU.getPageContext().getPageActivity();
+            str7 = this.bKU.mPhoneNumber;
             UtilHelper.callPhone(pageActivity, str7);
-            boVar2 = this.bKT.bKv;
-            String abo = boVar2.abo();
-            str8 = this.bKT.mPhoneNumber;
-            new a(abo, str8, "1").start();
+            boVar2 = this.bKU.bKw;
+            String abp = boVar2.abp();
+            str8 = this.bKU.mPhoneNumber;
+            new a(abp, str8, "1").start();
             eVar.dismiss();
         } else if (i == 1) {
-            TiebaStatic.eventStat(this.bKT.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-            PbActivity pbActivity2 = this.bKT;
-            str3 = this.bKT.mPhoneNumber;
+            TiebaStatic.eventStat(this.bKU.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
+            PbActivity pbActivity2 = this.bKU;
+            str3 = this.bKU.mPhoneNumber;
             pbActivity2.mPhoneNumber = str3.trim();
-            Activity pageActivity2 = this.bKT.getPageContext().getPageActivity();
-            str4 = this.bKT.mPhoneNumber;
+            Activity pageActivity2 = this.bKU.getPageContext().getPageActivity();
+            str4 = this.bKU.mPhoneNumber;
             UtilHelper.smsPhone(pageActivity2, str4);
-            boVar = this.bKT.bKv;
-            String abo2 = boVar.abo();
-            str5 = this.bKT.mPhoneNumber;
-            new a(abo2, str5, "2").start();
+            boVar = this.bKU.bKw;
+            String abp2 = boVar.abp();
+            str5 = this.bKU.mPhoneNumber;
+            new a(abp2, str5, "2").start();
             eVar.dismiss();
         } else if (i == 2) {
-            PbActivity pbActivity3 = this.bKT;
-            str = this.bKT.mPhoneNumber;
+            PbActivity pbActivity3 = this.bKU;
+            str = this.bKU.mPhoneNumber;
             pbActivity3.mPhoneNumber = str.trim();
-            Activity pageActivity3 = this.bKT.getPageContext().getPageActivity();
-            str2 = this.bKT.mPhoneNumber;
+            Activity pageActivity3 = this.bKU.getPageContext().getPageActivity();
+            str2 = this.bKU.mPhoneNumber;
             UtilHelper.startBaiDuBar(pageActivity3, str2);
             eVar.dismiss();
         }

@@ -18,14 +18,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends BaseActivity<AccountActivity> {
     private NavigationBar mNavigationBar;
-    private ArrayList<AccountData> avY = null;
-    private m avZ = null;
+    private ArrayList<AccountData> avZ = null;
+    private m awa = null;
     private ListView mList = null;
-    private RelativeLayout awa = null;
-    private TextView awb = null;
-    private View.OnClickListener awc = null;
-    private k awd = null;
-    private i awe = null;
+    private RelativeLayout awb = null;
+    private TextView awc = null;
+    private View.OnClickListener awd = null;
+    private k awe = null;
+    private i awf = null;
     private final com.baidu.tbadk.core.a.b SV = new a(this);
     private Handler mHandler = new b(this);
 
@@ -34,8 +34,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.r.account_activity);
-        EW();
         EX();
+        EY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,64 +44,38 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         getLayoutMode().ab(i == 1);
-        getLayoutMode().j(this.awa);
-        this.avZ.notifyDataSetChanged();
-    }
-
-    private void EW() {
-        this.avY = com.baidu.tbadk.core.a.d.qn();
+        getLayoutMode().j(this.awb);
+        this.awa.notifyDataSetChanged();
     }
 
     private void EX() {
-        this.awa = (RelativeLayout) findViewById(com.baidu.tieba.q.account_container);
-        this.awc = new c(this);
+        this.avZ = com.baidu.tbadk.core.a.d.qn();
+    }
+
+    private void EY() {
+        this.awb = (RelativeLayout) findViewById(com.baidu.tieba.q.account_container);
+        this.awd = new c(this);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.t.account_manager));
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.r.navigation_right_button_layout, (View.OnClickListener) null);
-        this.awb = (TextView) addCustomView.findViewById(com.baidu.tieba.q.right_textview);
-        this.awb.setText(getPageContext().getString(com.baidu.tieba.t.edit));
-        ay.b(this.awb, com.baidu.tieba.n.navi_op_text, 1);
+        this.awc = (TextView) addCustomView.findViewById(com.baidu.tieba.q.right_textview);
+        this.awc.setText(getPageContext().getString(com.baidu.tieba.t.edit));
+        ay.b(this.awc, com.baidu.tieba.n.navi_op_text, 1);
         addCustomView.setOnClickListener(new e(this));
-        this.avZ = new m(this, this.awc);
-        this.avZ.setData(this.avY);
+        this.awa = new m(this, this.awd);
+        this.awa.setData(this.avZ);
         this.mList = (ListView) findViewById(com.baidu.tieba.q.list);
-        this.mList.setAdapter((ListAdapter) this.avZ);
+        this.mList.setAdapter((ListAdapter) this.awa);
         this.mList.setOnItemClickListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(AccountData accountData) {
-        if (this.awd == null) {
+        if (this.awe == null) {
             fn("account changed");
             showLoadingDialog(getPageContext().getString(com.baidu.tieba.t.account_logining), new g(this));
-            this.awd = new k(this, accountData);
-            this.awd.setPriority(3);
-            EY();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void EY() {
-        if (this.awd != null) {
-            if (Fa()) {
-                this.mHandler.removeMessages(2);
-                this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), 200L);
-                return;
-            }
-            this.awd.execute(new Object[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, AccountData accountData) {
-        if (this.awe == null) {
-            boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (z2) {
-                fn("account delete");
-            }
-            showLoadingDialog(getPageContext().getString(com.baidu.tieba.t.deleting), new h(this, z2));
-            this.awe = new i(this, z, accountData);
+            this.awe = new k(this, accountData);
             this.awe.setPriority(3);
             EZ();
         }
@@ -110,12 +84,38 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void EZ() {
         if (this.awe != null) {
-            if (Fa()) {
+            if (Fb()) {
+                this.mHandler.removeMessages(2);
+                this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), 200L);
+                return;
+            }
+            this.awe.execute(new Object[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z, AccountData accountData) {
+        if (this.awf == null) {
+            boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (z2) {
+                fn("account delete");
+            }
+            showLoadingDialog(getPageContext().getString(com.baidu.tieba.t.deleting), new h(this, z2));
+            this.awf = new i(this, z, accountData);
+            this.awf.setPriority(3);
+            Fa();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Fa() {
+        if (this.awf != null) {
+            if (Fb()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
             }
-            this.awe.execute(new Object[0]);
+            this.awf.execute(new Object[0]);
         }
     }
 
@@ -133,7 +133,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         BdSocketLinkService.startService(true, str);
     }
 
-    private boolean Fa() {
+    private boolean Fb() {
         return MessageManager.getInstance().getSocketClient().ey() > 0;
     }
 

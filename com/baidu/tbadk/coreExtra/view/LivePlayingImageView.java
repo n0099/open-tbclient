@@ -14,7 +14,7 @@ public class LivePlayingImageView extends ImageView implements q {
     private r agl;
     private String mStatisticsKey;
 
-    static /* synthetic */ int[] xV() {
+    static /* synthetic */ int[] xW() {
         int[] iArr = agm;
         if (iArr == null) {
             iArr = new int[LivePlayingStatusMgr.LivePlayingStatus.valuesCustom().length];
@@ -78,12 +78,12 @@ public class LivePlayingImageView extends ImageView implements q {
 
     private void init() {
         setOnClickListener(new ai(this));
-        a(LivePlayingStatusMgr.xW().xX());
+        a(LivePlayingStatusMgr.xX().xY());
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.q
-    public void xN() {
-        a(LivePlayingStatusMgr.xW().xX());
+    public void xO() {
+        a(LivePlayingStatusMgr.xX().xY());
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -103,7 +103,7 @@ public class LivePlayingImageView extends ImageView implements q {
     }
 
     public void a(LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus) {
-        switch (xV()[livePlayingStatus.ordinal()]) {
+        switch (xW()[livePlayingStatus.ordinal()]) {
             case 1:
                 setVisibility(8);
                 return;
@@ -131,13 +131,13 @@ public class LivePlayingImageView extends ImageView implements q {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LivePlayingStatusMgr.xW().a(this);
+        LivePlayingStatusMgr.xX().a(this);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LivePlayingStatusMgr.xW().b(this);
+        LivePlayingStatusMgr.xX().b(this);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.q

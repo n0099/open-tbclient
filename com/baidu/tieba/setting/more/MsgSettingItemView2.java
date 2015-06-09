@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class MsgSettingItemView2 extends LinearLayout {
     private View Mb;
-    private CheckBox cgL;
+    private CheckBox cgM;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         com.baidu.adp.lib.g.b.hr().a(context, com.baidu.tieba.r.msg_setting_item_view2, this, true);
-        this.cgL = (CheckBox) findViewById(com.baidu.tieba.q.setting_check_view);
+        this.cgM = (CheckBox) findViewById(com.baidu.tieba.q.setting_check_view);
         this.Mb = findViewById(com.baidu.tieba.q.bottom_line_ll);
     }
 
@@ -33,12 +33,12 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cgL.setText(str);
+        this.cgM.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cgL.setText(i);
+            this.cgM.setText(i);
         }
     }
 
@@ -51,7 +51,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     }
 
     public CheckBox getSwitchView() {
-        return this.cgL;
+        return this.cgM;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {

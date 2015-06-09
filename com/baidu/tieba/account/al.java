@@ -8,11 +8,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class al extends BdAsyncTask<String, Integer, Bitmap> {
     private com.baidu.tbadk.core.util.aa OE = null;
-    final /* synthetic */ Register2Activity axP;
+    final /* synthetic */ Register2Activity axQ;
     private String mUrl;
 
     public al(Register2Activity register2Activity, String str) {
-        this.axP = register2Activity;
+        this.axQ = register2Activity;
         this.mUrl = null;
         this.mUrl = str;
     }
@@ -20,8 +20,8 @@ public class al extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.axP.axK = null;
-        progressBar = this.axP.axE;
+        this.axQ.axL = null;
+        progressBar = this.axQ.axF;
         progressBar.setVisibility(8);
         if (this.OE != null) {
             this.OE.gS();
@@ -34,9 +34,9 @@ public class al extends BdAsyncTask<String, Integer, Bitmap> {
     public void onPreExecute() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.axP.axF;
+        imageView = this.axQ.axG;
         imageView.setImageDrawable(null);
-        progressBar = this.axP.axE;
+        progressBar = this.axQ.axF;
         progressBar.setVisibility(0);
     }
 
@@ -56,11 +56,11 @@ public class al extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((al) bitmap);
-        this.axP.axK = null;
-        progressBar = this.axP.axE;
+        this.axQ.axL = null;
+        progressBar = this.axQ.axF;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            imageView = this.axP.axF;
+            imageView = this.axQ.axG;
             imageView.setImageBitmap(bitmap);
         }
     }

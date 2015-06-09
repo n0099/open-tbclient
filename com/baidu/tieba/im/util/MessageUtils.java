@@ -17,7 +17,7 @@ public class MessageUtils {
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(c.TD().I(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(c.TE().I(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -55,12 +55,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.UK().n(personalChatMessage);
+            a.UL().n(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(c.TD().I(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(c.TE().I(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -92,13 +92,13 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.UK().n(groupChatMessage);
+            a.UL().n(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo D;
-        if (!StringUtils.isNull(str) && i == 2 && (D = c.TD().D(str, 2)) != null) {
+        if (!StringUtils.isNull(str) && i == 2 && (D = c.TE().D(str, 2)) != null) {
             long pulled_msgId = D.getPulled_msgId();
             if (pulled_msgId > D.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(h.ah(pulled_msgId), Long.parseLong(str));

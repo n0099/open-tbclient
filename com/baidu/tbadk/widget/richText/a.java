@@ -68,7 +68,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar2 = new c(8);
                     this.atM++;
-                    cVar2.a(next.Eq());
+                    cVar2.a(next.Er());
                     this.atN.add(cVar2);
                 } else if (z && next.getType() == 32) {
                     if (cVar != null) {
@@ -78,7 +78,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     cVar3.fk(next.getVideoUrl());
                     this.atN.add(cVar3);
                     cVar = new c(1);
-                    CharSequence f = next.f(context, cVar.Ep());
+                    CharSequence f = next.f(context, cVar.Eq());
                     if (f != null) {
                         cVar.append(f);
                     }
@@ -88,7 +88,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar4 = new c(512);
-                    cVar4.a(next.Es());
+                    cVar4.a(next.Et());
                     this.atN.add(cVar4);
                 } else if (next.getType() == 17) {
                     if (cVar != null) {
@@ -96,13 +96,13 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar5 = new c(17);
-                    cVar5.a(next.Eu());
+                    cVar5.a(next.Ev());
                     this.atN.add(cVar5);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    CharSequence f2 = next.f(context, cVar.Ep());
+                    CharSequence f2 = next.f(context, cVar.Eq());
                     if (f2 != null) {
                         cVar.append(f2);
                     }
@@ -149,7 +149,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public ArrayList<c> El() {
+    public ArrayList<c> Em() {
         return this.atN;
     }
 
@@ -162,8 +162,8 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         for (int i = 0; i < size; i++) {
             c cVar = this.atN.get(i);
             String cVar2 = cVar.toString();
-            if (cVar.getType() == 1 && cVar.Ev() > 0) {
-                cVar2 = cVar2.substring(cVar.Ev());
+            if (cVar.getType() == 1 && cVar.Ew() > 0) {
+                cVar2 = cVar2.substring(cVar.Ew());
             }
             if (i == size - 1 && cVar.getType() == 1 && this.atO) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.atP));

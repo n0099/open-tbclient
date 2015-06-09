@@ -2,11 +2,11 @@ package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.c {
-    final /* synthetic */ PersonInfoActivity bVe;
+    final /* synthetic */ PersonInfoActivity bVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonInfoActivity personInfoActivity) {
-        this.bVe = personInfoActivity;
+        this.bVf = personInfoActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
@@ -14,12 +14,12 @@ public class c implements com.baidu.adp.widget.ListView.c {
         v vVar;
         ad adVar;
         ad adVar2;
-        vVar = this.bVe.bUT;
-        vVar.afE();
-        adVar = this.bVe.bUU;
-        if (adVar.afI() != null) {
-            adVar2 = this.bVe.bUU;
-            adVar2.afI().nd();
+        vVar = this.bVf.bUU;
+        vVar.afF();
+        adVar = this.bVf.bUV;
+        if (adVar.afJ() != null) {
+            adVar2 = this.bVf.bUV;
+            adVar2.afJ().nd();
         }
     }
 
@@ -27,10 +27,10 @@ public class c implements com.baidu.adp.widget.ListView.c {
     public void ne() {
         ad adVar;
         ad adVar2;
-        adVar = this.bVe.bUU;
-        if (adVar.afI() != null) {
-            adVar2 = this.bVe.bUU;
-            adVar2.afI().hideProgress();
+        adVar = this.bVf.bUV;
+        if (adVar.afJ() != null) {
+            adVar2 = this.bVf.bUV;
+            adVar2.afJ().hideProgress();
         }
     }
 
@@ -38,10 +38,10 @@ public class c implements com.baidu.adp.widget.ListView.c {
     public void k(float f) {
         ad adVar;
         ad adVar2;
-        adVar = this.bVe.bUU;
-        if (adVar.afI() != null) {
-            adVar2 = this.bVe.bUU;
-            adVar2.afI().j(f);
+        adVar = this.bVf.bUV;
+        if (adVar.afJ() != null) {
+            adVar2 = this.bVf.bUV;
+            adVar2.afJ().j(f);
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 class aq extends BdAsyncTask<String, String, WriteData> {
     private final String cacheKey;
-    private final ap crq;
+    private final ap crr;
 
     public aq(String str, ap apVar) {
         setPriority(3);
-        this.crq = apVar;
+        this.crr = apVar;
         this.cacheKey = str;
     }
 
@@ -33,8 +33,8 @@ class aq extends BdAsyncTask<String, String, WriteData> {
     /* renamed from: b */
     public void onPostExecute(WriteData writeData) {
         super.onPostExecute(writeData);
-        if (this.crq != null) {
-            this.crq.a(writeData);
+        if (this.crr != null) {
+            this.crr.a(writeData);
         }
     }
 }

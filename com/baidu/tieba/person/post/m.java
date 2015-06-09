@@ -7,13 +7,13 @@ import com.baidu.tieba.person.ch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ k bUy;
+    final /* synthetic */ k bUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(k kVar, int i) {
         super(i);
-        this.bUy = kVar;
+        this.bUz = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class m extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
             UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
             if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
-                chVar2 = this.bUy.bUf;
+                chVar2 = this.bUz.bUg;
                 chVar2.a(null, false);
                 return;
             }

@@ -5,14 +5,14 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
 class f implements Animation.AnimationListener {
-    private final /* synthetic */ float aRr;
-    final /* synthetic */ e aRs;
+    private final /* synthetic */ float aRs;
+    final /* synthetic */ e aRt;
     private final /* synthetic */ View yH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, float f, View view) {
-        this.aRs = eVar;
-        this.aRr = f;
+        this.aRt = eVar;
+        this.aRs = f;
         this.yH = view;
     }
 
@@ -26,7 +26,7 @@ class f implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.aRr, 1.0f, 1.0f);
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.aRs, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(300L);
         this.yH.startAnimation(scaleAnimation);
