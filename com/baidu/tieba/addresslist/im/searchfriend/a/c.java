@@ -84,7 +84,7 @@ public class c {
         return this.userId == 0 && TextUtils.isEmpty(this.QG) && TextUtils.isEmpty(this.name);
     }
 
-    public JSONObject Gj() {
+    public JSONObject Gk() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("id", this.userId);
         jSONObject.put("name", this.name);
@@ -104,7 +104,7 @@ public class c {
         JSONObject jSONObject3 = new JSONObject();
         jSONObject3.put("distance", this.lbsInfo.getDistance());
         jSONObject3.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.lbsInfo.getTime());
-        jSONObject3.put("is_hide", this.lbsInfo.xx());
+        jSONObject3.put("is_hide", this.lbsInfo.xy());
         jSONObject.put("location", jSONObject3);
         return jSONObject;
     }
@@ -142,7 +142,7 @@ public class c {
         return this.tag_name;
     }
 
-    public String Gk() {
+    public String Gl() {
         return this.st_type;
     }
 

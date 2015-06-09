@@ -5,17 +5,17 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ k cfp;
+    final /* synthetic */ k cfq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(k kVar) {
-        this.cfp = kVar;
+        this.cfq = kVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.i iVar;
-        iVar = this.cfp.cfe;
+        iVar = this.cfq.cff;
         iVar.bD(i);
         switch (i) {
             case 0:
@@ -28,7 +28,7 @@ public class o implements AdapterView.OnItemClickListener {
                 com.baidu.tbadk.core.n.qc().bf(2);
                 break;
         }
-        this.cfp.aiK();
-        this.cfp.aiH();
+        this.cfq.aiL();
+        this.cfq.aiI();
     }
 }

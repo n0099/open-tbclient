@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements ap {
     private String avatar;
-    private int chQ;
     private int chR;
     private int chS;
     private int chT;
     private int chU;
-    private boolean chV;
+    private int chV;
     private boolean chW;
     private boolean chX;
     private boolean chY;
-    private int chZ;
+    private boolean chZ;
+    private int cia;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -31,10 +31,6 @@ public class e implements ap {
 
     public String getAvatar() {
         return this.avatar;
-    }
-
-    public int akw() {
-        return this.chQ;
     }
 
     public int akx() {
@@ -53,50 +49,54 @@ public class e implements ap {
         return this.chU;
     }
 
-    public void ix(int i) {
-        this.chQ = i;
-    }
-
-    public void iy(int i) {
-        this.chR = i;
-    }
-
-    public void iz(int i) {
-        this.chS = i;
-    }
-
-    public boolean akB() {
+    public int akB() {
         return this.chV;
     }
 
-    public void eR(boolean z) {
-        this.chV = z;
-        this.chQ = 1;
+    public void ix(int i) {
+        this.chR = i;
+    }
+
+    public void iy(int i) {
+        this.chS = i;
+    }
+
+    public void iz(int i) {
+        this.chT = i;
     }
 
     public boolean akC() {
-        return this.chX;
+        return this.chW;
     }
 
-    public void eS(boolean z) {
-        this.chX = z;
-        this.chQ = 0;
+    public void eR(boolean z) {
+        this.chW = z;
+        this.chR = 1;
     }
 
     public boolean akD() {
         return this.chY;
     }
 
-    public void eT(boolean z) {
+    public void eS(boolean z) {
         this.chY = z;
+        this.chR = 0;
     }
 
-    public int akE() {
+    public boolean akE() {
         return this.chZ;
     }
 
+    public void eT(boolean z) {
+        this.chZ = z;
+    }
+
+    public int akF() {
+        return this.cia;
+    }
+
     public void iA(int i) {
-        this.chZ = i;
+        this.cia = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements ap {
         this.errorMsg = str;
     }
 
-    public boolean akF() {
-        return this.chW;
+    public boolean akG() {
+        return this.chX;
     }
 
     public void eU(boolean z) {
-        this.chW = z;
+        this.chX = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class e implements ap {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.chQ = jSONObject.optInt("is_sign_in");
-            this.chR = jSONObject.optInt("cont_sign_num");
-            this.chS = jSONObject.optInt("user_level");
-            this.chT = jSONObject.optInt("user_exp");
-            this.chU = jSONObject.optInt("need_exp");
-            if (this.chQ != 0) {
-                this.chV = true;
-                this.chX = false;
+            this.chR = jSONObject.optInt("is_sign_in");
+            this.chS = jSONObject.optInt("cont_sign_num");
+            this.chT = jSONObject.optInt("user_level");
+            this.chU = jSONObject.optInt("user_exp");
+            this.chV = jSONObject.optInt("need_exp");
+            if (this.chR != 0) {
+                this.chW = true;
+                this.chY = false;
             }
         }
     }

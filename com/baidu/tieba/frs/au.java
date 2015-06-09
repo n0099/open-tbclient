@@ -8,13 +8,13 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class au extends com.baidu.adp.widget.ListView.am {
     static final /* synthetic */ boolean $assertionsDisabled;
-    LinearLayout aMM;
-    HeadImageView aMN;
-    TextView aMO;
+    LinearLayout aMN;
+    HeadImageView aMO;
     TextView aMP;
     TextView aMQ;
-    TbImageView aMR;
-    TextView aMS;
+    TextView aMR;
+    TbImageView aMS;
+    TextView aMT;
 
     static {
         $assertionsDisabled = !au.class.desiredAssertionStatus();
@@ -25,12 +25,12 @@ public class au extends com.baidu.adp.widget.ListView.am {
         if (!$assertionsDisabled && view == null) {
             throw new AssertionError();
         }
-        this.aMM = (LinearLayout) view.findViewById(com.baidu.tieba.q.frs_app_item_parent);
-        this.aMN = (HeadImageView) view.findViewById(com.baidu.tieba.q.frs_app_icon);
-        this.aMO = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_name);
-        this.aMP = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_time);
-        this.aMQ = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_desc);
-        this.aMR = (TbImageView) view.findViewById(com.baidu.tieba.q.frs_app_url);
-        this.aMS = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_download);
+        this.aMN = (LinearLayout) view.findViewById(com.baidu.tieba.q.frs_app_item_parent);
+        this.aMO = (HeadImageView) view.findViewById(com.baidu.tieba.q.frs_app_icon);
+        this.aMP = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_name);
+        this.aMQ = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_time);
+        this.aMR = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_desc);
+        this.aMS = (TbImageView) view.findViewById(com.baidu.tieba.q.frs_app_url);
+        this.aMT = (TextView) view.findViewById(com.baidu.tieba.q.frs_app_download);
     }
 }

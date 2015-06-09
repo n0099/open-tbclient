@@ -41,7 +41,7 @@ public class w implements com.baidu.adp.framework.client.socket.link.g {
     @Override // com.baidu.adp.framework.client.socket.link.g
     public void c(Map<String, String> map) {
         com.baidu.adp.framework.client.socket.link.g gVar;
-        UpdateClientInfoMessage yB;
+        UpdateClientInfoMessage yC;
         UpdateClientInfoMessage updateClientInfoMessage;
         com.baidu.adp.framework.client.socket.link.g gVar2;
         gVar = this.ahM.ahJ;
@@ -51,8 +51,8 @@ public class w implements com.baidu.adp.framework.client.socket.link.g {
         }
         com.baidu.adp.framework.client.socket.m.a("TbOnline", (int) BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES, 0, "begin_online", 0, "begin online");
         v vVar = this.ahM;
-        yB = this.ahM.yB();
-        vVar.ahK = yB;
+        yC = this.ahM.yC();
+        vVar.ahK = yC;
         MessageManager messageManager = MessageManager.getInstance();
         updateClientInfoMessage = this.ahM.ahK;
         messageManager.sendMessage(updateClientInfoMessage);

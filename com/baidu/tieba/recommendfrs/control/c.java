@@ -13,11 +13,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.recommendfrs.control.a.e {
-    final /* synthetic */ a cbM;
+    final /* synthetic */ a cbN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.cbM = aVar;
+        this.cbN = aVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0024, code lost:
@@ -44,43 +44,43 @@ public class c implements com.baidu.tieba.recommendfrs.control.a.e {
         List list4;
         ScrollFragmentTabHost scrollFragmentTabHost7;
         if (!TextUtils.isEmpty(str)) {
-            if (fVar != null && fVar.ahF() != null && "头条".equals(str)) {
+            if (fVar != null && fVar.ahG() != null && "头条".equals(str)) {
                 if (!z) {
-                    scrollFragmentTabHost7 = this.cbM.cbF;
+                    scrollFragmentTabHost7 = this.cbN.cbG;
                 }
-                list = this.cbM.cbJ;
-                if (list.containsAll(fVar.ahF())) {
-                    List<String> ahF = fVar.ahF();
-                    list4 = this.cbM.cbJ;
+                list = this.cbN.cbK;
+                if (list.containsAll(fVar.ahG())) {
+                    List<String> ahG = fVar.ahG();
+                    list4 = this.cbN.cbK;
                 }
-                this.cbM.cbH = true;
-                this.cbM.T(this.cbM.getView());
-                list2 = this.cbM.cbJ;
+                this.cbN.cbI = true;
+                this.cbN.T(this.cbN.getView());
+                list2 = this.cbN.cbK;
                 list2.clear();
-                list3 = this.cbM.cbJ;
-                list3.addAll(fVar.ahF());
-                scrollFragmentTabHost3 = this.cbM.cbF;
+                list3 = this.cbN.cbK;
+                list3.addAll(fVar.ahG());
+                scrollFragmentTabHost3 = this.cbN.cbG;
                 scrollFragmentTabHost3.reset();
-                float dimension = this.cbM.getResources().getDimension(o.ds28);
-                for (String str2 : fVar.ahF()) {
+                float dimension = this.cbN.getResources().getDimension(o.ds28);
+                for (String str2 : fVar.ahG()) {
                     if (!StringUtils.isNull(str2)) {
                         String fixedText = UtilHelper.getFixedText(str2, 4, false);
-                        FragmentActivity activity = this.cbM.getActivity();
-                        bVar = this.cbM.cbG;
+                        FragmentActivity activity = this.cbN.getActivity();
+                        bVar = this.cbN.cbH;
                         com.baidu.tieba.recommendfrs.indicator.e eVar = new com.baidu.tieba.recommendfrs.indicator.e(activity, bVar, fixedText, dimension);
-                        scrollFragmentTabHost6 = this.cbM.cbF;
+                        scrollFragmentTabHost6 = this.cbN.cbG;
                         scrollFragmentTabHost6.a(eVar);
                     }
                 }
-                scrollFragmentTabHost4 = this.cbM.cbF;
+                scrollFragmentTabHost4 = this.cbN.cbG;
                 scrollFragmentTabHost4.initViewPager();
-                scrollFragmentTabHost5 = this.cbM.cbF;
+                scrollFragmentTabHost5 = this.cbN.cbG;
                 scrollFragmentTabHost5.setCurrentTab(0);
                 return;
             }
-            scrollFragmentTabHost = this.cbM.cbF;
+            scrollFragmentTabHost = this.cbN.cbG;
             if (scrollFragmentTabHost.getTabcount() > 0) {
-                scrollFragmentTabHost2 = this.cbM.cbF;
+                scrollFragmentTabHost2 = this.cbN.cbG;
                 Fragment jc = scrollFragmentTabHost2.jc(str);
                 if (jc instanceof com.baidu.tieba.recommendfrs.b) {
                     ((com.baidu.tieba.recommendfrs.b) jc).a(z, fVar, z2);
@@ -96,17 +96,17 @@ public class c implements com.baidu.tieba.recommendfrs.control.a.e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.cbM.T(this.cbM.getView());
-        scrollFragmentTabHost = this.cbM.cbF;
+        this.cbN.T(this.cbN.getView());
+        scrollFragmentTabHost = this.cbN.cbG;
         if (scrollFragmentTabHost.getTabcount() > 0) {
-            scrollFragmentTabHost2 = this.cbM.cbF;
+            scrollFragmentTabHost2 = this.cbN.cbG;
             Fragment jc = scrollFragmentTabHost2.jc(str);
             if (jc instanceof com.baidu.tieba.recommendfrs.b) {
                 ((com.baidu.tieba.recommendfrs.b) jc).Q(str2, i);
             }
-        } else if (this.cbM.getPageContext() == null || this.cbM.getPageContext().getResources() == null) {
+        } else if (this.cbN.getPageContext() == null || this.cbN.getPageContext().getResources() == null) {
         } else {
-            this.cbM.showNetRefreshView(this.cbM.getView(), this.cbM.getPageContext().getResources().getString(t.net_error_text, str2, Integer.valueOf(i)), false);
+            this.cbN.showNetRefreshView(this.cbN.getView(), this.cbN.getPageContext().getResources().getString(t.net_error_text, str2, Integer.valueOf(i)), false);
         }
     }
 }

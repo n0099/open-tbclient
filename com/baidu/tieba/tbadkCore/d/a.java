@@ -26,18 +26,18 @@ import com.baidu.tieba.t;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final String csx = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS;
-    private static final String csy = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS;
-    public static final String csz = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
     private h amm;
-    private ErrorData csA;
-    private AntiData csB;
+    private ErrorData csB;
+    private AntiData csC;
+    private static final String csy = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS;
+    private static final String csz = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS;
+    public static final String csA = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
     private aa aaG = null;
     private boolean isCancelled = false;
 
     public a() {
-        this.csA = null;
-        this.csA = new ErrorData();
+        this.csB = null;
+        this.csB = new ErrorData();
     }
 
     public ImageUploadResult b(ImageFileInfo imageFileInfo) {
@@ -68,7 +68,7 @@ public class a {
             }
             this.aaG.o("newVcode", "1");
             this.aaG.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData.getContent());
-            this.aaG.setUrl(csz);
+            this.aaG.setUrl(csA);
             this.aaG.o(ImageViewerConfig.FORUM_NAME, writeData.getForumName());
             this.aaG.o("title", writeData.getTitle());
             this.aaG.o("apiKey", writeData.getShareApiKey());
@@ -125,16 +125,16 @@ public class a {
                         nVar.h("ErrCode", Integer.valueOf(dw.getErrorCode()));
                         nVar.h("ErrMsg", dw.getErrorString());
                         TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", nVar.toString());
-                        this.csA.setError_code(dw.getErrorCode());
-                        this.csA.setError_msg(dw.getErrorString());
+                        this.csB.setError_code(dw.getErrorCode());
+                        this.csB.setError_msg(dw.getErrorString());
                         return null;
                     }
                 } else {
                     n nVar2 = new n();
                     nVar2.h("audioFile", o);
                     TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", nVar2.toString());
-                    this.csA.setError_code(dw.getErrorCode());
-                    this.csA.setError_msg(dw.getErrorString());
+                    this.csB.setError_code(dw.getErrorCode());
+                    this.csB.setError_msg(dw.getErrorString());
                     return null;
                 }
             }
@@ -147,8 +147,8 @@ public class a {
                 }
                 String imagesCodeForPost = writeData.getImagesCodeForPost();
                 if ((writeData.getType() != 0 || (writeData.getType() == 0 && TextUtils.isEmpty(writeData.getTitle()))) && TextUtils.isEmpty(returnVoiceMd5) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(writeData.getContent())) {
-                    this.csA.setError_code(-53);
-                    this.csA.setError_msg(TbadkCoreApplication.m411getInst().getString(t.sand_fail));
+                    this.csB.setError_code(-53);
+                    this.csB.setError_msg(TbadkCoreApplication.m411getInst().getString(t.sand_fail));
                     return null;
                 }
                 if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
@@ -161,7 +161,7 @@ public class a {
                 this.aaG.o("new_vcode", "1");
                 this.aaG.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(writeData.getContent()) + imagesCodeForPost);
                 if (writeData.getIsBaobaoImageUploaded()) {
-                    this.aaG.o("tail_type", String.valueOf(b.csC));
+                    this.aaG.o("tail_type", String.valueOf(b.csD));
                     this.aaG.o("tail_content", writeData.getBaobaoContent());
                     writeData.setBabaoPosted(true);
                 } else {
@@ -169,7 +169,7 @@ public class a {
                 }
                 switch (writeData.getType()) {
                     case 0:
-                        this.aaG.setUrl(csx);
+                        this.aaG.setUrl(csy);
                         this.aaG.o("kw", writeData.getForumName());
                         this.aaG.o("title", writeData.getTitle());
                         this.aaG.o("is_ntitle", writeData.isNoTitle() ? "1" : GameInfoData.NOT_FROM_DETAIL);
@@ -187,7 +187,7 @@ public class a {
                         str = imagesCodeForPost;
                         break;
                     case 1:
-                        this.aaG.setUrl(csy);
+                        this.aaG.setUrl(csz);
                         this.aaG.o("tid", writeData.getThreadId());
                         this.aaG.o("kw", writeData.getForumName());
                         this.aaG.o("is_ad", writeData.getIsAd() ? "1" : GameInfoData.NOT_FROM_DETAIL);
@@ -198,7 +198,7 @@ public class a {
                         str = imagesCodeForPost;
                         break;
                     case 2:
-                        this.aaG.setUrl(csy);
+                        this.aaG.setUrl(csz);
                         this.aaG.o("tid", writeData.getThreadId());
                         this.aaG.o("kw", writeData.getForumName());
                         this.aaG.o("quote_id", String.valueOf(writeData.getFloor()));
@@ -221,17 +221,17 @@ public class a {
         }
         String sw = this.aaG.sw();
         if (this.aaG.sX().tT().qa()) {
-            this.csA.parserJson(sw);
+            this.csB.parserJson(sw);
         } else {
-            this.csA.setError_code(this.aaG.ta() ? this.aaG.tb() : this.aaG.tc());
-            this.csA.setError_msg(this.aaG.getErrorString());
+            this.csB.setError_code(this.aaG.ta() ? this.aaG.tb() : this.aaG.tc());
+            this.csB.setError_msg(this.aaG.getErrorString());
         }
-        if (this.csA.error_code != 0 && ((writeData.isHasImages() || writeData.getIsBaobao()) && m.isEmpty(String.valueOf(writeData.getContent()) + str))) {
-            this.csA.setError_msg(TbadkCoreApplication.m411getInst().getApp().getString(t.img_upload_error));
+        if (this.csB.error_code != 0 && ((writeData.isHasImages() || writeData.getIsBaobao()) && m.isEmpty(String.valueOf(writeData.getContent()) + str))) {
+            this.csB.setError_msg(TbadkCoreApplication.m411getInst().getApp().getString(t.img_upload_error));
         }
         try {
-            this.csB = new AntiData();
-            this.csB.parserJson(new JSONObject(sw).optJSONObject("anti_stat"));
+            this.csC = new AntiData();
+            this.csC.parserJson(new JSONObject(sw).optJSONObject("anti_stat"));
         } catch (Exception e) {
         }
         return sw;
@@ -254,11 +254,11 @@ public class a {
         }
     }
 
-    public AntiData aoP() {
-        return this.csB;
+    public AntiData aoQ() {
+        return this.csC;
     }
 
-    public ErrorData aoQ() {
-        return this.csA;
+    public ErrorData aoR() {
+        return this.csB;
     }
 }

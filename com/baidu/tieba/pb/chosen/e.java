@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity bJa;
+    final /* synthetic */ PbChosenActivity bJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PbChosenActivity pbChosenActivity, int i) {
         super(i);
-        this.bJa = pbChosenActivity;
+        this.bJb = pbChosenActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,18 +21,18 @@ class e extends CustomMessageListener {
         com.baidu.tieba.pb.chosen.net.b bVar;
         com.baidu.tieba.pb.chosen.net.b bVar2;
         if (customResponsedMessage instanceof ReadChosenPbCacheResponse) {
-            long longExtra = this.bJa.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
+            long longExtra = this.bJb.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
             com.baidu.tieba.pb.chosen.net.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
             if (chosenData != null && chosenData.getForumInfo() != null && chosenData.getForumInfo().ftid != null && longExtra == chosenData.getForumInfo().ftid.longValue()) {
-                this.bJa.bIU = true;
-                this.bJa.a(chosenData);
+                this.bJb.bIV = true;
+                this.bJb.a(chosenData);
             }
-            bVar = this.bJa.bIS;
+            bVar = this.bJb.bIT;
             if (bVar == null) {
-                this.bJa.bIS = new com.baidu.tieba.pb.chosen.net.b();
+                this.bJb.bIT = new com.baidu.tieba.pb.chosen.net.b();
             }
-            bVar2 = this.bJa.bIS;
-            bVar2.a(this.bJa, longExtra);
+            bVar2 = this.bJb.bIT;
+            bVar2.a(this.bJb, longExtra);
         }
     }
 }

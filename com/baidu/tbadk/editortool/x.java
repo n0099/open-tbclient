@@ -61,7 +61,7 @@ public class x extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType zB() {
+    public EmotionGroupType zC() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -86,7 +86,7 @@ public class x extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean zC() {
+    public boolean zD() {
         return true;
     }
 }

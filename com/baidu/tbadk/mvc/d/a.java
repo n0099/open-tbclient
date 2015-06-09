@@ -21,11 +21,11 @@ public abstract class a<T extends i, R extends k> extends com.baidu.tbadk.mvc.co
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        AL().addEventDelegate(this);
+        AM().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
-    public boolean AM() {
+    public boolean AN() {
         return true;
     }
 
@@ -34,7 +34,7 @@ public abstract class a<T extends i, R extends k> extends com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Br() == 16777216) {
+        if (bVar.Bs() == 16777216) {
             if (oM()) {
                 dS(33554435);
                 return true;

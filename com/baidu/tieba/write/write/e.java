@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.write;
 /* loaded from: classes.dex */
 class e implements com.baidu.tbadk.core.view.ad {
-    final /* synthetic */ AtListActivity cBt;
+    final /* synthetic */ AtListActivity cBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.cBt = atListActivity;
+        this.cBu = atListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ad
@@ -13,6 +13,6 @@ class e implements com.baidu.tbadk.core.view.ad {
         if (!z) {
             return;
         }
-        this.cBt.kc(null);
+        this.cBu.kc(null);
     }
 }

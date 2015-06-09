@@ -6,13 +6,13 @@ import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tbadk.mvc.i.b.b {
     private com.baidu.tbadk.mvc.k.a aoz;
-    private boolean bGa;
     private boolean bGb;
+    private boolean bGc;
 
     public l(MvcActivity<?, ?, ?> mvcActivity) {
         super(mvcActivity);
-        this.bGa = true;
-        this.bGb = false;
+        this.bGb = true;
+        this.bGc = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,11 +21,11 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
         super.b(cVar);
         if (cVar instanceof com.baidu.tbadk.mvc.e.b) {
             com.baidu.tbadk.mvc.e.b bVar = (com.baidu.tbadk.mvc.e.b) cVar;
-            if (bVar.Cb()) {
-                this.aoz.CQ();
-                if (bVar.BZ()) {
+            if (bVar.Cc()) {
+                this.aoz.CR();
+                if (bVar.Ca()) {
                     this.aoz.ed(com.baidu.tieba.t.loading);
-                } else if (bVar.Ca()) {
+                } else if (bVar.Cb()) {
                     this.aoz.ed(com.baidu.tieba.t.loading);
                 } else {
                     this.aoz.ee(com.baidu.tieba.t.no_more_msg);
@@ -33,10 +33,10 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
             } else {
                 this.aoz.hide();
             }
-            if (bVar.BX()) {
-                CA();
-            } else {
+            if (bVar.BY()) {
                 CB();
+            } else {
+                CC();
             }
         }
     }
@@ -45,7 +45,7 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        CB();
+        CC();
         if (this.aoz != null) {
             this.aoz.ee(com.baidu.tieba.t.no_more_msg);
         }
@@ -56,8 +56,8 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     public void oL() {
         getListView().setDividerHeight(0);
         getListView().setExOnSrollToBottomListener(new m(this));
-        Cz();
-        this.aoz = new com.baidu.tbadk.mvc.k.a(AK());
+        CA();
+        this.aoz = new com.baidu.tbadk.mvc.k.a(AL());
         this.aoz.ng();
         getListView().setNextPage(this.aoz);
     }
@@ -71,10 +71,10 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
 
     @Override // com.baidu.tbadk.mvc.i.b.b
     public void onPrimary() {
-        if (this.bGa || this.bGb) {
-            this.bGa = false;
+        if (this.bGb || this.bGc) {
             this.bGb = false;
-            Cv();
+            this.bGc = false;
+            Cw();
         }
     }
 
@@ -83,6 +83,6 @@ public abstract class l extends com.baidu.tbadk.mvc.i.d implements com.baidu.tba
     }
 
     public void dE(boolean z) {
-        this.bGb = z;
+        this.bGc = z;
     }
 }

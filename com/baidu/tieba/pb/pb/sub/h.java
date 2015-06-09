@@ -4,18 +4,18 @@ import android.view.View;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 class h implements com.baidu.adp.lib.e.c<View> {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: abf */
+    /* renamed from: abg */
     public View hk() {
-        return new PlayVoiceBnt(this.bPw.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+        return new PlayVoiceBnt(this.bPx.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

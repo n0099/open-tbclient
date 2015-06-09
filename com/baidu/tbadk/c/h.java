@@ -42,13 +42,13 @@ public class h extends a {
         }
     }
 
-    public void AA() {
+    public void AB() {
         this.amP.setVisibility(0);
         this.amO.setVisibility(0);
         ay.b(this.amN, n.cp_cont_d, 1);
     }
 
-    public void AB() {
+    public void AC() {
         this.amP.setVisibility(8);
         this.amO.setVisibility(8);
         ay.b(this.amN, n.cp_cont_b, 1);

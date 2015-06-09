@@ -14,102 +14,102 @@ import java.util.List;
 import protobuf.UploadClientLog.ClientLog;
 /* loaded from: classes.dex */
 public class c {
-    private static final HashMap<String, Long> blF = new HashMap<>();
-    private static final HashMap<String, Integer> blG = new HashMap<>();
-    private static final HashMap<String, Long> blH = new HashMap<>();
-    private static c blN;
-    private List<b> blI;
-    private List<a> blJ;
-    private String blK = null;
+    private static final HashMap<String, Long> blG = new HashMap<>();
+    private static final HashMap<String, Integer> blH = new HashMap<>();
+    private static final HashMap<String, Long> blI = new HashMap<>();
+    private static c blO;
+    private List<b> blJ;
+    private List<a> blK;
     private String blL = null;
+    private String blM = null;
     private long mLastUploadTime = -1;
-    private boolean blM = false;
+    private boolean blN = false;
     private final Handler mHandler = new d(this);
-    private com.baidu.adp.framework.listener.e blO = new e(this, 202006);
-    private final com.baidu.adp.framework.listener.e blP = new f(this, 202005);
-    private final com.baidu.adp.framework.listener.e blQ = new g(this, 202003);
-    private final CustomMessageListener blR = new h(this, 2001011);
+    private com.baidu.adp.framework.listener.e blP = new e(this, 202006);
+    private final com.baidu.adp.framework.listener.e blQ = new f(this, 202005);
+    private final com.baidu.adp.framework.listener.e blR = new g(this, 202003);
+    private final CustomMessageListener blS = new h(this, 2001011);
 
     static {
-        blF.put("2g", 60L);
-        blF.put("3g", 40L);
-        blF.put("4g", 40L);
-        blF.put("wifi", 10L);
-        blG.put("2g", 10);
-        blG.put("3g", 10);
-        blG.put("4g", 10);
-        blG.put("wifi", 10);
-        blH.put("2g", 300L);
-        blH.put("3g", 60L);
-        blH.put("4g", 60L);
-        blH.put("wifi", 5L);
-        blN = null;
-    }
-
-    public String Tk() {
-        return this.blL;
+        blG.put("2g", 60L);
+        blG.put("3g", 40L);
+        blG.put("4g", 40L);
+        blG.put("wifi", 10L);
+        blH.put("2g", 10);
+        blH.put("3g", 10);
+        blH.put("4g", 10);
+        blH.put("wifi", 10);
+        blI.put("2g", 300L);
+        blI.put("3g", 60L);
+        blI.put("4g", 60L);
+        blI.put("wifi", 5L);
+        blO = null;
     }
 
     public String Tl() {
-        return this.blK;
+        return this.blM;
     }
 
-    public void Tm() {
-        this.blK = null;
+    public String Tm() {
+        return this.blL;
+    }
+
+    public void Tn() {
         this.blL = null;
+        this.blM = null;
     }
 
-    public static synchronized c Tn() {
+    public static synchronized c To() {
         c cVar;
         synchronized (c.class) {
-            if (blN == null) {
-                blN = new c();
+            if (blO == null) {
+                blO = new c();
             }
-            cVar = blN;
+            cVar = blO;
         }
         return cVar;
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TB());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), Tz());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TC());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), TA());
     }
 
     public c() {
-        this.blI = null;
         this.blJ = null;
-        To();
+        this.blK = null;
+        Tp();
         i iVar = new i(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         BdBaseApplication.getInst().getApp().registerReceiver(iVar, intentFilter);
+        this.blK = new ArrayList();
         this.blJ = new ArrayList();
-        this.blI = new ArrayList();
     }
 
-    private void To() {
-        MessageManager.getInstance().registerListener(this.blO);
+    private void Tp() {
         MessageManager.getInstance().registerListener(this.blP);
         MessageManager.getInstance().registerListener(this.blQ);
         MessageManager.getInstance().registerListener(this.blR);
+        MessageManager.getInstance().registerListener(this.blS);
     }
 
-    public void Tp() {
+    public void Tq() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
     public void ho(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (Tx() && System.currentTimeMillis() - this.mLastUploadTime > Tz()) {
+        if (Ty() && System.currentTimeMillis() - this.mLastUploadTime > TA()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String Tq() {
+    public String Tr() {
         return String.valueOf(k.jc());
     }
 
-    public String Tr() {
+    public String Ts() {
         switch (k.jc()) {
             case 1:
                 return "wifi";
@@ -124,64 +124,64 @@ public class c {
         }
     }
 
-    public int Ts() {
+    public int Tt() {
         return TbadkCoreApplication.m411getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tt() {
-        if (!this.blM) {
-            if (this.blI != null && this.blI.size() > 0) {
+    public void Tu() {
+        if (!this.blN) {
+            if (this.blJ != null && this.blJ.size() > 0) {
                 ArrayList arrayList = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.blI.size()) {
+                    if (i2 >= this.blJ.size()) {
                         break;
                     }
-                    b bVar = this.blI.get(i2);
+                    b bVar = this.blJ.get(i2);
                     if (bVar != null && !arrayList.contains(bVar)) {
                         a aVar = new a();
                         aVar.emitTime = bVar.emitTime;
-                        aVar.blD = bVar.blD;
                         aVar.blE = bVar.blE;
-                        aVar.blC = 1;
+                        aVar.blF = bVar.blF;
+                        aVar.blD = 1;
                         arrayList.add(bVar);
-                        for (int i3 = i2; i3 < this.blI.size(); i3++) {
-                            b bVar2 = this.blI.get(i3);
-                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.blD != null && aVar.blD != null && bVar2.blD.equals(aVar.blD) && bVar2.blE == aVar.blE) {
+                        for (int i3 = i2; i3 < this.blJ.size(); i3++) {
+                            b bVar2 = this.blJ.get(i3);
+                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.blE != null && aVar.blE != null && bVar2.blE.equals(aVar.blE) && bVar2.blF == aVar.blF) {
                                 if (bVar2.emitTime != null && aVar.emitTime != null && com.baidu.adp.lib.g.c.c(bVar2.emitTime, 0L) < com.baidu.adp.lib.g.c.c(aVar.emitTime, 0L)) {
                                     aVar.emitTime = bVar2.emitTime;
                                 }
-                                aVar.blC++;
+                                aVar.blD++;
                                 arrayList.add(bVar2);
                             }
                         }
-                        this.blJ.add(aVar);
+                        this.blK.add(aVar);
                     }
                     i = i2 + 1;
                 }
             }
-            this.blI.clear();
-            if (this.blJ.size() > TA() && Tw() && k.iX()) {
+            this.blJ.clear();
+            if (this.blK.size() > TB() && Tx() && k.iX()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.blJ.size() > 100 && !Tx() && !Tw()) {
-                this.blJ.clear();
+            if (this.blK.size() > 100 && !Ty() && !Tx()) {
+                this.blK.clear();
             }
         }
     }
 
-    public void Tu() {
-        if (this.blJ.size() > 0) {
-            this.blM = true;
+    public void Tv() {
+        if (this.blK.size() > 0) {
+            this.blN = true;
             ArrayList arrayList = new ArrayList();
             ClientLog.Builder builder = new ClientLog.Builder();
-            for (a aVar : this.blJ) {
+            for (a aVar : this.blK) {
                 builder.et = aVar.emitTime;
-                builder.net = aVar.blD;
-                builder.pushcnt = Integer.valueOf(aVar.blC);
-                builder.process_type = Integer.valueOf(aVar.blE);
+                builder.net = aVar.blE;
+                builder.pushcnt = Integer.valueOf(aVar.blD);
+                builder.process_type = Integer.valueOf(aVar.blF);
                 arrayList.add(builder.build(false));
             }
             RequestUploadClientLogMessage requestUploadClientLogMessage = new RequestUploadClientLogMessage();
@@ -191,54 +191,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Tv() {
+    public boolean Tw() {
         String str;
-        com.baidu.tbadk.data.c Ty = Ty();
-        return (Ty == null || (str = Ty.aie) == null || !str.equals("1")) ? false : true;
+        com.baidu.tbadk.data.c Tz = Tz();
+        return (Tz == null || (str = Tz.aie) == null || !str.equals("1")) ? false : true;
     }
 
-    private boolean Tw() {
+    private boolean Tx() {
         String str;
-        com.baidu.tbadk.data.c Ty = Ty();
-        return Ty == null || (str = Ty.aic.get(Tr())) == null || !str.equals("-1");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean Tx() {
-        String str;
-        com.baidu.tbadk.data.c Ty = Ty();
-        return Ty == null || (str = Ty.aib.get(Tr())) == null || !str.equals("-1");
-    }
-
-    private com.baidu.tbadk.data.c Ty() {
-        return com.baidu.tbadk.data.c.yI();
+        com.baidu.tbadk.data.c Tz = Tz();
+        return Tz == null || (str = Tz.aic.get(Ts())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long Tz() {
+    public boolean Ty() {
         String str;
-        com.baidu.tbadk.data.c Ty = Ty();
-        if (Ty != null && (str = Ty.aib.get(Tr())) != null && str.length() > 0) {
+        com.baidu.tbadk.data.c Tz = Tz();
+        return Tz == null || (str = Tz.aib.get(Ts())) == null || !str.equals("-1");
+    }
+
+    private com.baidu.tbadk.data.c Tz() {
+        return com.baidu.tbadk.data.c.yJ();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long TA() {
+        String str;
+        com.baidu.tbadk.data.c Tz = Tz();
+        if (Tz != null && (str = Tz.aib.get(Ts())) != null && str.length() > 0) {
             long c = com.baidu.adp.lib.g.c.c(str, 0L);
             if (c > 2) {
                 return c * 1000;
             }
         }
-        return blF.get(Tr()).longValue() * 1000;
+        return blG.get(Ts()).longValue() * 1000;
     }
 
-    private int TA() {
+    private int TB() {
         String str;
         int i;
-        com.baidu.tbadk.data.c Ty = Ty();
-        return (Ty == null || (str = Ty.aic.get(Tr())) == null || str.length() <= 0 || (i = com.baidu.adp.lib.g.c.toInt(str, 0)) < 2) ? blG.get(Tr()).intValue() : i;
+        com.baidu.tbadk.data.c Tz = Tz();
+        return (Tz == null || (str = Tz.aic.get(Ts())) == null || str.length() <= 0 || (i = com.baidu.adp.lib.g.c.toInt(str, 0)) < 2) ? blH.get(Ts()).intValue() : i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long TB() {
+    public long TC() {
         String str;
         int i;
-        com.baidu.tbadk.data.c Ty = Ty();
-        return (Ty == null || (str = Ty.aid.get(Tr())) == null || str.length() <= 0 || (i = com.baidu.adp.lib.g.c.toInt(str, 0)) < 2) ? blH.get(Tr()).longValue() * 1000 : i * 1000;
+        com.baidu.tbadk.data.c Tz = Tz();
+        return (Tz == null || (str = Tz.aid.get(Ts())) == null || str.length() <= 0 || (i = com.baidu.adp.lib.g.c.toInt(str, 0)) < 2) ? blI.get(Ts()).longValue() * 1000 : i * 1000;
     }
 }

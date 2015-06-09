@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity awf;
+    final /* synthetic */ AccountActivity awg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.awf = accountActivity;
+        this.awg = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,25 +24,25 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         m mVar5;
-        mVar = this.awf.avZ;
-        if (!mVar.Fb()) {
-            mVar4 = this.awf.avZ;
+        mVar = this.awg.awa;
+        if (!mVar.Fc()) {
+            mVar4 = this.awg.awa;
             mVar4.setEditState(true);
-            textView3 = this.awf.awb;
+            textView3 = this.awg.awc;
             textView3.setText(com.baidu.tieba.t.done);
-            textView4 = this.awf.awb;
+            textView4 = this.awg.awc;
             ay.b(textView4, com.baidu.tieba.n.cp_link_tip_a, 1);
-            mVar5 = this.awf.avZ;
+            mVar5 = this.awg.awa;
             mVar5.notifyDataSetChanged();
             return;
         }
-        mVar2 = this.awf.avZ;
+        mVar2 = this.awg.awa;
         mVar2.setEditState(false);
-        textView = this.awf.awb;
+        textView = this.awg.awc;
         textView.setText(com.baidu.tieba.t.edit);
-        textView2 = this.awf.awb;
+        textView2 = this.awg.awc;
         ay.b(textView2, com.baidu.tieba.n.navi_op_text, 1);
-        mVar3 = this.awf.avZ;
+        mVar3 = this.awg.awa;
         mVar3.notifyDataSetChanged();
     }
 }

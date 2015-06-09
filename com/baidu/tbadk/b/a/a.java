@@ -17,11 +17,11 @@ public abstract class a {
         this.aiw = i4;
     }
 
-    public int yV() {
+    public int yW() {
         return this.iconId;
     }
 
-    public int yW() {
+    public int yX() {
         return this.aiv;
     }
 }

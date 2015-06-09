@@ -7,11 +7,11 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements TextWatcher {
-    final /* synthetic */ SearchLocationActivity czP;
+    final /* synthetic */ SearchLocationActivity czQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchLocationActivity searchLocationActivity) {
-        this.czP = searchLocationActivity;
+        this.czQ = searchLocationActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,12 +26,12 @@ public class d implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextView textView;
         TextView textView2;
-        if (StringUtils.isNull(this.czP.ahM())) {
-            textView2 = this.czP.czL;
+        if (StringUtils.isNull(this.czQ.ahN())) {
+            textView2 = this.czQ.czM;
             textView2.setEnabled(false);
             return;
         }
-        textView = this.czP.czL;
+        textView = this.czQ.czM;
         textView.setEnabled(true);
     }
 }

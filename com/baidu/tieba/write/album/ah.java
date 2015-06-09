@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.album;
 /* loaded from: classes.dex */
 class ah {
-    final /* synthetic */ ac czc;
-    boolean czh;
+    final /* synthetic */ ac czd;
+    boolean czi;
 
     private ah(ac acVar) {
-        this.czc = acVar;
+        this.czd = acVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -11,18 +11,18 @@ import com.baidu.tieba.tbadkCore.au;
 import com.baidu.tieba.tbadkCore.data.i;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d cbh;
+    private static d cbi;
 
-    public static final d ahj() {
-        if (cbh != null) {
-            return cbh;
+    public static final d ahk() {
+        if (cbi != null) {
+            return cbi;
         }
         synchronized (d.class) {
-            if (cbh == null) {
-                cbh = new d();
+            if (cbi == null) {
+                cbi = new d();
             }
         }
-        return cbh;
+        return cbi;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,8 +34,8 @@ public class d implements View.OnClickListener {
                 i appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
                 k.A(view.getContext(), "pb_tb_btc");
-                int aot = appData.aot();
-                if (aot == 0) {
+                int aou = appData.aou();
+                if (aou == 0) {
                     if (!com.baidu.adp.lib.util.k.iY() && (view.getContext() instanceof Activity)) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
                         aVar.bu(t.frs_network_tips);
@@ -49,11 +49,11 @@ public class d implements View.OnClickListener {
                         aVar.rL();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.yX().a(view.getContext(), appData.aox(), "btn_download", "pb", appData.csd, appData.threadId);
-                    com.baidu.tbadk.distribute.a.yX().a(appData.aox(), appData.csd, appData.threadId, "PB", "download");
+                    com.baidu.tbadk.distribute.a.yY().a(view.getContext(), appData.aoy(), "btn_download", "pb", appData.cse, appData.threadId);
+                    com.baidu.tbadk.distribute.a.yY().a(appData.aoy(), appData.cse, appData.threadId, "PB", "download");
                     au.a(view.getContext(), appData, position);
                     baseAppViewHolder.refresh();
-                } else if (aot == 2) {
+                } else if (aou == 2) {
                     au.a(view.getContext(), appData);
                     baseAppViewHolder.refresh();
                 }

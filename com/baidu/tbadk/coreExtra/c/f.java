@@ -14,7 +14,7 @@ public class f extends com.baidu.adp.base.f {
         }
     }
 
-    public PersonChangeData wH() {
+    public PersonChangeData wI() {
         return this.adf;
     }
 

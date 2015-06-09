@@ -49,7 +49,7 @@ class c implements View.OnClickListener {
                 intent.putExtra("jump_url", loadString);
                 TbadkCoreApplication.setIntent(intent);
                 logoActivity13 = this.avh.avg;
-                logoActivity13.EM();
+                logoActivity13.EN();
             }
         } else if (loadInt == 3) {
             String loadString2 = TbadkSettings.getInst().loadString("apk_url", "");

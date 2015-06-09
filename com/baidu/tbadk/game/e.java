@@ -12,7 +12,7 @@ public class e {
     private e() {
     }
 
-    public static e Ad() {
+    public static e Ae() {
         if (aln == null) {
             aln = new e();
         }

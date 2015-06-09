@@ -55,7 +55,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         if (aVar == null) {
             this.agi.eh(this.aaG.getErrorString());
         } else if (aVar.getUser().getUserName() != null) {
-            this.agi.xS();
+            this.agi.xT();
             accountData = this.agi.agd;
             tbPageContext = this.agi.LH;
             TbadkCoreApplication.setCurrentAccount(accountData, tbPageContext.getPageActivity());
@@ -80,7 +80,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         textView = this.agi.afZ;
         textView.setEnabled(false);
         this.agi.eh(null);
-        this.agi.xR();
+        this.agi.xS();
         super.onPreExecute();
     }
 
@@ -172,7 +172,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
                 aVar2.parserJson(sw);
                 str = aVar2;
             } else if (this.aaG.tb() == 1) {
-                this.agi.xS();
+                this.agi.xT();
                 str = 0;
                 return str;
             }

@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class c {
-    LinearLayout cuD;
     LinearLayout cuE;
-    TextView cuF;
+    LinearLayout cuF;
     TextView cuG;
-    TbImageView cuH;
-    TextView cuI;
-    View cuJ;
+    TextView cuH;
+    TbImageView cuI;
+    TextView cuJ;
+    View cuK;
 
     private c() {
     }

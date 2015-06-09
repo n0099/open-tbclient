@@ -8,53 +8,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends f<BaseFragmentActivity> {
-    private com.baidu.tieba.addresslist.b.a aBt;
+    private com.baidu.tieba.addresslist.b.a aBu;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.aBt = com.baidu.tieba.addresslist.b.a.FN();
+        this.aBu = com.baidu.tieba.addresslist.b.a.FO();
     }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
-        this.aBt.a(bVar);
+        this.aBu.a(bVar);
     }
 
     public void b(com.baidu.tieba.addresslist.b.b bVar) {
-        this.aBt.b(bVar);
+        this.aBu.b(bVar);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Gl() {
-        return this.aBt.FO();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Gm() {
+        return this.aBu.FP();
     }
 
-    public void Gm() {
+    public void Gn() {
         sendMessage(new CustomMessage(2001182));
     }
 
-    public void Gc() {
+    public void Gd() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void A(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aBt.w(list);
+        this.aBu.w(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.aBt.a(aVar);
+        this.aBu.a(aVar);
     }
 
     public void F(long j) {
-        this.aBt.F(j);
+        this.aBu.F(j);
     }
 
     public int fG(String str) {
         int i;
         if (c.ec(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> FO = this.aBt.FO();
-            if (FO != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : FO) {
-                    if (str.equals(aVar.xw())) {
-                        i = FO.indexOf(aVar);
+            List<com.baidu.tbadk.coreExtra.relationship.a> FP = this.aBu.FP();
+            if (FP != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : FP) {
+                    if (str.equals(aVar.xx())) {
+                        i = FP.indexOf(aVar);
                         break;
                     }
                 }

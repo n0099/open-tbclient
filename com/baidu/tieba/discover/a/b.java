@@ -12,7 +12,7 @@ import com.baidu.tieba.o;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private z aEl;
+    private z aEm;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public b(Context context) {
@@ -25,7 +25,7 @@ public class b extends LinearLayout {
     }
 
     public void setOnHeaderItemClickListener(z zVar) {
-        this.aEl = zVar;
+        this.aEm = zVar;
     }
 
     public void s(String str, boolean z) {
@@ -33,7 +33,7 @@ public class b extends LinearLayout {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.Hp())) {
+                if (cVar != null && str.equals(cVar.Hq())) {
                     cVar.bD(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
                         ((a) getChildAt(i)).bF(z);
@@ -58,9 +58,9 @@ public class b extends LinearLayout {
     private void a(com.baidu.tieba.discover.data.c cVar, int i, int i2) {
         if (cVar != null) {
             a aVar = new a(getContext());
-            aVar.ar(cVar.getIcon_url(), cVar.Hp());
+            aVar.ar(cVar.getIcon_url(), cVar.Hq());
             aVar.setTitle(cVar.getTitle());
-            aVar.bF(cVar.Hr());
+            aVar.bF(cVar.Hs());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {

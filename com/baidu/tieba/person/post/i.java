@@ -11,11 +11,11 @@ import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements b {
-    final /* synthetic */ g bUj;
+    final /* synthetic */ g bUk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.bUj = gVar;
+        this.bUk = gVar;
     }
 
     @Override // com.baidu.tieba.person.post.b

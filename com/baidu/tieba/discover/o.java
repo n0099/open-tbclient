@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ a aDS;
+    final /* synthetic */ a aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.aDS = aVar;
+        this.aDT = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aDS.sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(this.aDS.getPageContext().getPageActivity(), 1)));
+        this.aDT.sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(this.aDT.getPageContext().getPageActivity(), 1)));
     }
 }

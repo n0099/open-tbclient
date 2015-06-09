@@ -20,7 +20,7 @@ public class l extends CustomMessageListener {
             String name = requestNewFriendActionLocalMessage.getName();
             String portrait = requestNewFriendActionLocalMessage.getPortrait();
             String content = requestNewFriendActionLocalMessage.getContent();
-            com.baidu.tbadk.newFriends.a.CR().a(id, content, requestNewFriendActionLocalMessage.getSt_type());
+            com.baidu.tbadk.newFriends.a.CS().a(id, content, requestNewFriendActionLocalMessage.getSt_type());
             com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
             bVar.setId(id);
             bVar.setName(name);

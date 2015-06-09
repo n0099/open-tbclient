@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    final /* synthetic */ d cwD;
+    final /* synthetic */ d cwE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.cwD = dVar;
+        this.cwE = dVar;
     }
 
     @Override // android.view.View.OnClickListener

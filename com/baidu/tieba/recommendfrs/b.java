@@ -45,21 +45,21 @@ import tbclient.FineFrsPage.FineThreadInfo;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
 public class b extends BaseFragment implements x {
-    private BdListView aDB;
-    private NoNetworkView aDC;
-    private boolean aDI;
+    private BdListView aDC;
+    private NoNetworkView aDD;
     private boolean aDJ;
-    private boolean aKl;
-    private PbListView aOf;
-    private long cbA;
-    private String cbB;
-    private boolean cbC = false;
-    private int cbD = 0;
-    private com.baidu.tieba.recommendfrs.control.a.b cbv;
-    private k cbw;
-    private TextView cbx;
-    private a cby;
-    private int[] cbz;
+    private boolean aDK;
+    private boolean aKm;
+    private PbListView aOg;
+    private int[] cbA;
+    private long cbB;
+    private String cbC;
+    private boolean cbD = false;
+    private int cbE = 0;
+    private com.baidu.tieba.recommendfrs.control.a.b cbw;
+    private k cbx;
+    private TextView cby;
+    private a cbz;
     private boolean mHasMore;
     private al mPullView;
 
@@ -72,37 +72,37 @@ public class b extends BaseFragment implements x {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.cbA = System.currentTimeMillis();
+            this.cbB = System.currentTimeMillis();
             TiebaStatic.eventStat(getFragmentActivity(), "kantie_entry", null);
-            if (this.aDJ) {
+            if (this.aDK) {
                 at(true);
                 return;
-            } else if (this.aDI && !n.isNetOk()) {
+            } else if (this.aDJ && !n.isNetOk()) {
                 at(true);
                 return;
             } else if (isShow()) {
-                this.aDB.no();
+                this.aDC.no();
                 return;
             } else {
                 return;
             }
         }
-        TiebaStatic.eventStat(getFragmentActivity(), "kantie_duration", String.valueOf((System.currentTimeMillis() - this.cbA) / 1000));
+        TiebaStatic.eventStat(getFragmentActivity(), "kantie_duration", String.valueOf((System.currentTimeMillis() - this.cbB) / 1000));
     }
 
     private void at(boolean z) {
-        if (this.cby != null) {
-            for (Object obj : this.cby.CM()) {
+        if (this.cbz != null) {
+            for (Object obj : this.cbz.CN()) {
                 if (obj instanceof com.baidu.tieba.recommendfrs.data.b) {
                     ((com.baidu.tieba.recommendfrs.data.b) obj).eB(z);
                 } else if (obj instanceof com.baidu.tieba.recommendfrs.data.c) {
                     ((com.baidu.tieba.recommendfrs.data.c) obj).eB(z);
                 }
             }
-            if (this.cbw != null) {
-                this.cbw.setIsShowImage(z);
+            if (this.cbx != null) {
+                this.cbx.setIsShowImage(z);
             }
-            this.cby.notifyDataSetChanged();
+            this.cbz.notifyDataSetChanged();
             System.gc();
         }
     }
@@ -111,29 +111,29 @@ public class b extends BaseFragment implements x {
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         v(getView());
-        this.cbz = new int[2];
-        this.cbz[0] = n.M(getFragmentActivity());
-        this.cbz[1] = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(o.ds60);
-        this.cby = new a(getPageContext(), null);
-        this.aDB.setAdapter((ListAdapter) this.cby);
+        this.cbA = new int[2];
+        this.cbA[0] = n.M(getFragmentActivity());
+        this.cbA[1] = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(o.ds60);
+        this.cbz = new a(getPageContext(), null);
+        this.aDC.setAdapter((ListAdapter) this.cbz);
     }
 
     private void v(View view) {
-        this.aDC = (NoNetworkView) view.findViewById(q.view_no_network);
-        this.cbx = (TextView) view.findViewById(q.time);
-        this.cbx.setVisibility(8);
-        this.aDB = (BdListView) view.findViewById(q.listview);
+        this.aDD = (NoNetworkView) view.findViewById(q.view_no_network);
+        this.cby = (TextView) view.findViewById(q.time);
+        this.cby.setVisibility(8);
+        this.aDC = (BdListView) view.findViewById(q.listview);
         this.mPullView = new al(getPageContext());
         this.mPullView.setTag(getUniqueId());
-        this.aDB.setPullRefresh(this.mPullView);
-        this.aOf = new PbListView(getFragmentActivity());
-        this.aOf.ng();
-        this.aOf.cy(TbadkCoreApplication.m411getInst().getSkinType());
-        this.aOf.setOnClickListener(new c(this));
+        this.aDC.setPullRefresh(this.mPullView);
+        this.aOg = new PbListView(getFragmentActivity());
+        this.aOg.ng();
+        this.aOg.cy(TbadkCoreApplication.m411getInst().getSkinType());
+        this.aOg.setOnClickListener(new c(this));
         this.mPullView.a(new d(this));
-        this.aDB.setOnSrollToBottomListener(this);
-        this.aDB.setOnItemClickListener(this);
-        this.aDB.setOnScrollListener(this);
+        this.aDC.setOnSrollToBottomListener(this);
+        this.aDC.setOnItemClickListener(this);
+        this.aDC.setOnScrollListener(this);
     }
 
     public void clear() {
@@ -141,93 +141,95 @@ public class b extends BaseFragment implements x {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ahq() {
+    public int ahr() {
         com.baidu.tieba.recommendfrs.data.b bVar;
-        if (this.cby == null) {
+        if (this.cbz == null) {
             return 0;
         }
-        for (int count = this.cby.getCount() - 1; count >= 0; count--) {
-            Object item = this.cby.getItem(count);
+        for (int count = this.cbz.getCount() - 1; count >= 0; count--) {
+            Object item = this.cbz.getItem(count);
             if ((item instanceof com.baidu.tieba.recommendfrs.data.b) && (bVar = (com.baidu.tieba.recommendfrs.data.b) item) != null) {
-                return bVar.ahy();
+                return bVar.ahz();
             }
         }
         return 0;
     }
 
     public void a(com.baidu.tieba.recommendfrs.control.a.b bVar) {
-        this.cbv = bVar;
+        this.cbw = bVar;
     }
 
     public void a(boolean z, f fVar, boolean z2) {
         List<Object> list;
-        this.aDB.completePullRefresh();
-        this.aOf.ux();
-        this.aKl = false;
+        this.aDC.completePullRefresh();
+        this.aOg.ux();
+        this.aKm = false;
         if (z) {
-            this.aDJ = true;
+            this.aDK = true;
         } else {
-            this.aDI = true;
+            this.aDJ = true;
         }
         if (fVar != null) {
             this.mHasMore = fVar.getHasMore();
             if (this.mHasMore) {
-                if (this.aOf.getView().getParent() == null) {
-                    this.aDB.setNextPage(this.aOf);
+                if (this.aOg.getView().getParent() == null) {
+                    this.aDC.setNextPage(this.aOg);
                 }
             } else {
-                this.aDB.setNextPage(null);
+                this.aDC.setNextPage(null);
             }
             List<Object> a = a(z2, fVar);
             if (z2) {
-                list = this.cby.CM();
+                list = this.cbz.CN();
                 list.addAll(a);
             } else if (a != null && a.size() > 0) {
-                b(fVar.ahC(), fVar.ahG());
+                b(fVar.ahD(), fVar.ahH());
                 list = a;
             } else {
-                b(null, fVar.ahG());
+                b(null, fVar.ahH());
                 list = a;
             }
             if (list != null && list.size() <= 0) {
-                this.cby.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.cv(t.invite_friend_no_data_now), (z) null, (FrameLayout.LayoutParams) null);
+                this.cbz.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.cv(t.invite_friend_no_data_now), (z) null, (FrameLayout.LayoutParams) null);
             }
-            this.cby.s(list);
+            this.cbz.s(list);
         }
     }
 
     public void Q(String str, int i) {
-        this.aKl = false;
-        this.aOf.ux();
-        if (this.cby.CN() <= 0 && this.aDI) {
-            this.cby.a(aa.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(o.ds80)), ab.dq(str), (z) null, (FrameLayout.LayoutParams) null);
-            this.cby.s(new ArrayList());
+        this.aKm = false;
+        if (this.aOg != null) {
+            this.aOg.ux();
         }
-        this.aDB.completePullRefresh();
+        if (this.cbz.CO() <= 0 && this.aDJ) {
+            this.cbz.a(aa.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(o.ds80)), ab.dq(str), (z) null, (FrameLayout.LayoutParams) null);
+            this.cbz.s(new ArrayList());
+        }
+        this.aDC.completePullRefresh();
     }
 
     private void b(List<com.baidu.tieba.recommendfrs.data.a> list, boolean z) {
         if (list == null || list.isEmpty()) {
-            if (this.cbw != null) {
-                this.aDB.removeHeaderView(this.cbw);
-                this.cbw = null;
+            if (this.cbx != null) {
+                this.aDC.removeHeaderView(this.cbx);
+                this.cbx = null;
                 return;
             }
             return;
         }
-        if (this.cbw == null) {
+        if (this.cbx == null) {
             ey(z);
-            this.cbw.setTitle(UtilHelper.getFixedText(list.get(0).aht(), 14, true));
-            this.aDB.addHeaderView(this.cbw);
+            this.cbx.setTitle(UtilHelper.getFixedText(list.get(0).ahu(), 14, true));
+            this.aDC.addHeaderView(this.cbx);
         }
-        this.cbw.setData(list);
+        this.cbx.setData(list);
     }
 
     private void ey(boolean z) {
-        this.cbw = new k(getFragmentActivity());
-        this.cbw.d(getPageContext());
-        this.cbw.setIsShowImage(z);
-        this.cbw.setCoverFlowViewCallBack(new e(this));
+        this.cbx = new k(getFragmentActivity());
+        this.cbx.d(getPageContext());
+        this.cbx.setIsShowImage(z);
+        this.cbx.setCoverFlowViewCallBack(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -238,13 +240,13 @@ public class b extends BaseFragment implements x {
 
     private List<Object> a(boolean z, f fVar) {
         ArrayList arrayList = new ArrayList();
-        if (fVar == null || fVar.ahE() == null) {
+        if (fVar == null || fVar.ahF() == null) {
             return arrayList;
         }
         String str = null;
         int i = 0;
-        for (EverydayThread everydayThread : fVar.ahE()) {
-            if (this.cbC && (z || !arrayList.isEmpty())) {
+        for (EverydayThread everydayThread : fVar.ahF()) {
+            if (this.cbD && (z || !arrayList.isEmpty())) {
                 arrayList.add(new SimpleDateFormat("yyyy-MM-dd").format(Long.valueOf(everydayThread.show_time.intValue() * 1000)));
             }
             List<FineThreadInfo> list = everydayThread.fine_thread_list;
@@ -262,25 +264,25 @@ public class b extends BaseFragment implements x {
                         bVar.a(fineThreadInfo);
                         bVar.jb(str);
                         bVar.eA(i2 != size + (-1));
-                        bVar.eB(fVar.ahG());
+                        bVar.eB(fVar.ahH());
                         arrayList.add(bVar);
                     }
                     i2++;
                 }
             }
         }
-        if (i >= this.cbD) {
-            this.cbD = i;
-            List<Hot_Thread> ahD = fVar.ahD();
-            if (ahD != null && ahD.size() > 0) {
+        if (i >= this.cbE) {
+            this.cbE = i;
+            List<Hot_Thread> ahE = fVar.ahE();
+            if (ahE != null && ahE.size() > 0) {
                 arrayList.add(new com.baidu.tieba.recommendfrs.data.d("text_type_title", str));
-                arrayList.addAll(a(ahD, str, fVar.ahG()));
+                arrayList.addAll(a(ahE, str, fVar.ahH()));
                 arrayList.add(new com.baidu.tieba.recommendfrs.data.d("text_type_check_more", str));
             }
         }
         if (!arrayList.isEmpty() && (arrayList.get(arrayList.size() - 1) instanceof com.baidu.tieba.recommendfrs.data.b)) {
             com.baidu.tieba.recommendfrs.data.b bVar2 = (com.baidu.tieba.recommendfrs.data.b) arrayList.get(arrayList.size() - 1);
-            if (this.cbC) {
+            if (this.cbD) {
                 bVar2.eA(false);
             } else {
                 bVar2.eA(true);
@@ -307,20 +309,20 @@ public class b extends BaseFragment implements x {
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         super.onItemClick(adapterView, view, i, j);
-        Object item = this.cby.getItem(i);
+        Object item = this.cbz.getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
             com.baidu.tieba.recommendfrs.data.b bVar = (com.baidu.tieba.recommendfrs.data.b) item;
-            String str = (bVar.ahx() == null || bVar.ahx().isEmpty()) ? null : bVar.ahx().get(0);
-            TiebaStatic.eventStat(getFragmentActivity(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(bVar.ahw()));
-            aX(String.valueOf(bVar.ahw()), str);
+            String str = (bVar.ahy() == null || bVar.ahy().isEmpty()) ? null : bVar.ahy().get(0);
+            TiebaStatic.eventStat(getFragmentActivity(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(bVar.ahx()));
+            aX(String.valueOf(bVar.ahx()), str);
             l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.jL(String.valueOf(bVar.ahw()))) {
-                readThreadHistory.jK(String.valueOf(bVar.ahw()));
-                this.cby.y(item);
+            if (readThreadHistory != null && !readThreadHistory.jL(String.valueOf(bVar.ahx()))) {
+                readThreadHistory.jK(String.valueOf(bVar.ahx()));
+                this.cbz.y(item);
             }
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.c) {
             TiebaStatic.eventStat(getActivity(), "kantie_3", null);
-            long longValue = ((com.baidu.tieba.recommendfrs.data.c) item).ahA().thread_id.longValue();
+            long longValue = ((com.baidu.tieba.recommendfrs.data.c) item).ahB().thread_id.longValue();
             TiebaStatic.eventStat(getFragmentActivity(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(longValue));
             sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(longValue).toString(), null, "")));
         } else if ((item instanceof com.baidu.tieba.recommendfrs.data.d) && ((com.baidu.tieba.recommendfrs.data.d) item).getType() == "text_type_check_more" && bq.ae(getActivity())) {
@@ -331,19 +333,19 @@ public class b extends BaseFragment implements x {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (i == 1 || !this.cbC) {
-            this.cbx.setVisibility(8);
+        if (i == 1 || !this.cbD) {
+            this.cby.setVisibility(8);
             return;
         }
-        Object item = this.cby.getItem(i - this.aDB.getHeaderViewsCount());
+        Object item = this.cbz.getItem(i - this.aDC.getHeaderViewsCount());
         if (item instanceof String) {
-            this.cbx.setText((String) item);
-            this.cbx.setVisibility(0);
+            this.cby.setText((String) item);
+            this.cby.setVisibility(0);
         } else if (item instanceof h) {
-            this.cbx.setVisibility(0);
-            this.cbx.setText(((h) item).ahI());
+            this.cby.setVisibility(0);
+            this.cby.setText(((h) item).ahJ());
         }
-        if (this.cby.getItem(this.aDB.pointToPosition(0, this.cbx.getBottom() + 5) - this.aDB.getHeaderViewsCount()) instanceof String) {
+        if (this.cbz.getItem(this.aDC.pointToPosition(0, this.cby.getBottom() + 5) - this.aDC.getHeaderViewsCount()) instanceof String) {
             ez(true);
         } else {
             ez(false);
@@ -351,21 +353,21 @@ public class b extends BaseFragment implements x {
     }
 
     private void ez(boolean z) {
-        View childAt = this.aDB.getChildAt(0);
+        View childAt = this.aDC.getChildAt(0);
         int bottom = childAt != null ? childAt.getBottom() : 0;
-        if (z && bottom < this.cbz[1]) {
-            this.cbx.layout(0, bottom - this.cbz[1], this.cbz[0], bottom);
+        if (z && bottom < this.cbA[1]) {
+            this.cby.layout(0, bottom - this.cbA[1], this.cbA[0], bottom);
         } else {
-            this.cbx.layout(0, 0, this.cbz[0], this.cbz[1]);
+            this.cby.layout(0, 0, this.cbA[0], this.cbA[1]);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.x
     public void onScrollToBottom() {
-        if (this.mHasMore && n.isNetOk() && !this.aKl) {
-            this.aKl = true;
-            this.aOf.startLoadData();
-            this.cbv.B(ahq(), this.cbB);
+        if (this.mHasMore && n.isNetOk() && !this.aKm) {
+            this.aKm = true;
+            this.aOg.startLoadData();
+            this.cbw.B(ahr(), this.cbC);
         }
     }
 
@@ -373,27 +375,27 @@ public class b extends BaseFragment implements x {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         com.baidu.tbadk.f.a.a(getPageContext(), getView());
-        if (this.cby != null) {
-            this.cby.a(getPageContext(), i);
+        if (this.cbz != null) {
+            this.cbz.a(getPageContext(), i);
         }
-        if (this.cbw != null) {
-            this.cbw.d(getPageContext());
+        if (this.cbx != null) {
+            this.cbx.d(getPageContext());
         }
-        if (this.aDC != null) {
-            this.aDC.onChangeSkinType(getPageContext(), i);
+        if (this.aDD != null) {
+            this.aDD.onChangeSkinType(getPageContext(), i);
         }
         if (this.mPullView != null) {
             this.mPullView.cy(i);
         }
-        if (this.aOf != null) {
-            this.aOf.cy(i);
+        if (this.aOg != null) {
+            this.aOg.cy(i);
         }
     }
 
     public void iV(String str) {
-        this.cbB = str;
+        this.cbC = str;
         if (TextUtils.equals(str, "头条")) {
-            this.cbC = true;
+            this.cbD = true;
         }
     }
 }

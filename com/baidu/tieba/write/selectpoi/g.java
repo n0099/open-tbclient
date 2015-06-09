@@ -16,31 +16,31 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private boolean aIY = false;
-    private x aTW;
-    private com.baidu.tieba.tbadkCore.location.l czQ;
-    private SearchLocationActivity czR;
+    private boolean aIZ = false;
+    private x aTX;
+    private com.baidu.tieba.tbadkCore.location.l czR;
+    private SearchLocationActivity czS;
 
     public g(SearchLocationActivity searchLocationActivity) {
-        this.czR = searchLocationActivity;
+        this.czS = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.czQ == null || this.czQ.apq() == null || this.czQ.apq().isEmpty()) {
-            this.aIY = false;
+        if (this.czR == null || this.czR.apr() == null || this.czR.apr().isEmpty()) {
+            this.aIZ = false;
             return 1;
         }
-        this.aIY = true;
-        return this.czQ.apq().size();
+        this.aIZ = true;
+        return this.czR.apr().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.czQ == null || this.czQ.apq() == null || this.czQ.apq().isEmpty()) {
+        if (this.czR == null || this.czR.apr() == null || this.czR.apr().isEmpty()) {
             return null;
         }
-        return this.czQ.apq().get(i);
+        return this.czR.apr().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -50,7 +50,7 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.aIY) {
+        if (!this.aIZ) {
             return s(viewGroup);
         }
         h hVar = null;
@@ -58,38 +58,38 @@ public class g extends BaseAdapter {
             hVar = (h) view.getTag();
         }
         if (hVar == null) {
-            view = com.baidu.adp.lib.g.b.hr().a(this.czR.getPageContext().getPageActivity(), r.location_search_item_layout, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.hr().a(this.czS.getPageContext().getPageActivity(), r.location_search_item_layout, viewGroup, false);
             hVar = ae(view);
             view.setTag(hVar);
         }
         h hVar2 = hVar;
-        hVar2.czS.setText(this.czQ.apq().get(i).getName());
+        hVar2.czT.setText(this.czR.apr().get(i).getName());
         ay.j(hVar2.line, com.baidu.tieba.n.cp_bg_line_b);
-        ay.b(hVar2.czS, com.baidu.tieba.n.cp_cont_b, 1);
+        ay.b(hVar2.czT, com.baidu.tieba.n.cp_cont_b, 1);
         ay.i(view, p.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.tbadkCore.location.l lVar) {
-        this.czQ = lVar;
+        this.czR = lVar;
     }
 
-    public boolean asq() {
-        return this.aIY;
+    public boolean asr() {
+        return this.aIZ;
     }
 
     public h ae(View view) {
         h hVar = new h(this, null);
-        hVar.czS = (TextView) view.findViewById(q.location_search_address_name);
+        hVar.czT = (TextView) view.findViewById(q.location_search_address_name);
         hVar.line = view.findViewById(q.location_search_line);
         return hVar;
     }
 
     public View s(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.aTW = NoDataViewFactory.a(this.czR.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.cv(t.text_try_to_chage_location), null);
-        this.aTW.onChangeSkinType(this.czR.getPageContext(), skinType);
-        this.aTW.setVisibility(0);
-        return this.aTW;
+        this.aTX = NoDataViewFactory.a(this.czS.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.cv(t.text_try_to_chage_location), null);
+        this.aTX.onChangeSkinType(this.czS.getPageContext(), skinType);
+        this.aTX.setVisibility(0);
+        return this.aTX;
     }
 }

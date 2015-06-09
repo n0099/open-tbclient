@@ -7,24 +7,24 @@ import com.baidu.tieba.tbadkCore.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aFd;
-    private final /* synthetic */ ae aFe;
+    final /* synthetic */ a aFe;
+    private final /* synthetic */ ae aFf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar, ae aeVar) {
-        this.aFd = aVar;
-        this.aFe = aeVar;
+        this.aFe = aVar;
+        this.aFf = aeVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         BaseFragmentActivity baseFragmentActivity;
         if (com.baidu.adp.lib.util.n.isNetOk()) {
-            new r(this.aFd, this.aFe).execute(new ae[0]);
+            new r(this.aFe, this.aFf).execute(new ae[0]);
         } else {
-            this.aFd.showToast(t.delete_like_fail);
+            this.aFe.showToast(t.delete_like_fail);
         }
-        baseFragmentActivity = this.aFd.azk;
+        baseFragmentActivity = this.aFe.azl;
         TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
         aVar.dismiss();
     }

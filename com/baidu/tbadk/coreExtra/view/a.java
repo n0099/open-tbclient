@@ -80,7 +80,7 @@ public class a implements View.OnClickListener {
                 return;
             }
             bVar2 = this.afc.afa;
-            bVar2.xJ();
+            bVar2.xK();
             return;
         }
         str9 = this.afc.aeU;
@@ -95,7 +95,7 @@ public class a implements View.OnClickListener {
         bVar3 = this.afc.afa;
         if (bVar3 != null) {
             bVar4 = this.afc.afa;
-            bVar4.xK();
+            bVar4.xL();
         }
     }
 }

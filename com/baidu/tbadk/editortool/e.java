@@ -22,14 +22,14 @@ public class e extends BaseAdapter {
         this.ajB = uVar;
     }
 
-    public int zp() {
+    public int zq() {
         if (this.ajB == null) {
             return 0;
         }
-        return this.ajB.zz();
+        return this.ajB.zA();
     }
 
-    public u zq() {
+    public u zr() {
         return this.ajB;
     }
 
@@ -38,7 +38,7 @@ public class e extends BaseAdapter {
         if (this.ajB == null) {
             return 0;
         }
-        return this.ajB.zy();
+        return this.ajB.zz();
     }
 
     @Override // android.widget.Adapter
@@ -62,17 +62,17 @@ public class e extends BaseAdapter {
         int color;
         LinearLayout linearLayout = (LinearLayout) (view == null ? (LinearLayout) com.baidu.adp.lib.g.b.hr().inflate(TbadkCoreApplication.m411getInst().getContext(), com.baidu.tieba.r.emotion_tab_content_item, null) : view);
         if (this.ajB != null) {
-            int zz = this.ajB.zz() + i;
+            int zA = this.ajB.zA() + i;
             int measuredWidth = viewGroup.getMeasuredWidth();
             int measuredHeight = viewGroup.getMeasuredHeight();
-            int zv = measuredWidth / this.ajB.zv();
+            int zw = measuredWidth / this.ajB.zw();
             int row = measuredHeight / this.ajB.getRow();
             i2 = this.ajA.ajm;
             i3 = this.ajA.ajm;
             i4 = this.ajA.ajm;
             i5 = this.ajA.ajm;
             linearLayout.setPadding(i2 * 2, i3 * 2, i4 * 2, i5 * 2);
-            linearLayout.setLayoutParams(new AbsListView.LayoutParams(zv, row));
+            linearLayout.setLayoutParams(new AbsListView.LayoutParams(zw, row));
             TbImageView tbImageView = (TbImageView) linearLayout.findViewById(com.baidu.tieba.q.emotion_tab_content_img);
             tbImageView.setAutoChangeStyle(false);
             int i8 = com.baidu.tieba.p.btn_choose_face_selector;
@@ -80,7 +80,7 @@ public class e extends BaseAdapter {
             ay.c(tbImageView, i8, i6);
             tbImageView.setPadding(0, 0, 0, 0);
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            String dI = this.ajB.zt().dI(zz);
+            String dI = this.ajB.zu().dI(zA);
             tbImageView.setTag(dI);
             Object a = com.baidu.adp.lib.f.d.hl().a(dI, 20, new f(this), 0, 0, null, null, dI, false, null);
             com.baidu.adp.widget.a.a aVar = (a == null || !(a instanceof com.baidu.adp.widget.a.a)) ? null : (com.baidu.adp.widget.a.a) a;
@@ -89,8 +89,8 @@ public class e extends BaseAdapter {
                 tbImageView.setTag(null);
             }
             TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.q.emotion_tab_content_tip);
-            if (this.ajB.zu() == EmotionGroupType.BIG_EMOTION) {
-                String dI2 = this.ajB.zt().dI(zz);
+            if (this.ajB.zv() == EmotionGroupType.BIG_EMOTION) {
+                String dI2 = this.ajB.zu().dI(zA);
                 if (!TextUtils.isEmpty(dI2)) {
                     i7 = this.ajA.ajy;
                     if (i7 == 0) {

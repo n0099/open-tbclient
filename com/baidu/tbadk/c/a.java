@@ -11,7 +11,7 @@ public class a {
         this.amG = view;
     }
 
-    public boolean Au() {
+    public boolean Av() {
         return this.amH;
     }
 
@@ -19,21 +19,21 @@ public class a {
         if (view != null && this.amG != null && this.amG.getParent() == null) {
             this.amH = true;
             d.t(view).a(view, this.amG, z);
-            Av();
+            Aw();
         }
     }
 
     public void s(View view) {
         if (view != null && this.amG != null && this.amG.getParent() != null && (view instanceof ViewGroup)) {
-            Aw();
+            Ax();
             ((ViewGroup) view).removeView(this.amG);
             this.amH = false;
         }
     }
 
-    protected void Av() {
+    protected void Aw() {
     }
 
-    protected void Aw() {
+    protected void Ax() {
     }
 }

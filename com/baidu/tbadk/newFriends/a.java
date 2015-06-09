@@ -8,7 +8,7 @@ public class a {
     private a() {
     }
 
-    public static a CR() {
+    public static a CS() {
         return aph;
     }
 

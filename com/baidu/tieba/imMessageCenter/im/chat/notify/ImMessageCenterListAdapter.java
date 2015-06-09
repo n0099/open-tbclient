@@ -15,11 +15,11 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b {
-    private d bsz;
+    private d bsA;
 
     public ImMessageCenterListAdapter(Context context) {
         super(context);
-        this.bsz = null;
+        this.bsA = null;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -27,9 +27,9 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
         super.setData(list);
         if (TbadkCoreApplication.isLogin()) {
             if (this.mList.size() <= 0) {
-                this.bsz.dm(true);
+                this.bsA.dm(true);
             } else {
-                this.bsz.dm(false);
+                this.bsA.dm(false);
             }
         }
         notifyDataSetChanged();
@@ -40,18 +40,18 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
         ImMessageCenterShowItemData fT = getItem(i);
         if (fT != null && String.valueOf(String.valueOf(2)).equals(fT.getOwnerName())) {
             if (fT.getUnReadCount() >= 30) {
-                if (this.bsz != null) {
-                    this.bsz.dl(true);
+                if (this.bsA != null) {
+                    this.bsA.dl(true);
                 }
-            } else if (this.bsz != null) {
-                this.bsz.dl(false);
+            } else if (this.bsA != null) {
+                this.bsA.dl(false);
             }
         }
         return super.getView(i, view, viewGroup);
     }
 
     public void g(d dVar) {
-        this.bsz = dVar;
+        this.bsA = dVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -69,7 +69,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             if (!com.baidu.tbadk.coreExtra.messageCenter.c.wg().wk()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.l.UR().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.l.US().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
@@ -104,7 +104,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             if (!com.baidu.tbadk.coreExtra.messageCenter.c.wg().wo()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.g.UO().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.g.UP().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }

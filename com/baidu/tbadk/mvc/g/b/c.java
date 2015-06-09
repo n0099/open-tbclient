@@ -23,7 +23,7 @@ public abstract class c extends a {
     public void oL() {
         this.aox = (NavigationBar) getView().findViewById(q.view_navigation_bar);
         this.aoC = a(this.aox);
-        if (Ct()) {
+        if (Cu()) {
             ViewGroup viewGroup = (ViewGroup) getView();
             this.aoD = new NoNetworkView(getActivity());
             this.aoD.a(new d(this));
@@ -49,7 +49,7 @@ public abstract class c extends a {
         return r.mvc_template_navi_list;
     }
 
-    protected boolean Ct() {
+    protected boolean Cu() {
         return true;
     }
 

@@ -21,7 +21,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private a() {
     }
 
-    public static a DK() {
+    public static a DL() {
         return arq;
     }
 
@@ -52,7 +52,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 } else {
                     bdFileDownloadData.setStatus(1);
                     aiS.add(bdFileDownloadData);
-                    zj();
+                    zk();
                     return;
                 }
             }
@@ -60,7 +60,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zj() {
+    public void zk() {
         if (arr == null && !aiS.isEmpty()) {
             arr = aiS.get(0);
             if (arr != null) {

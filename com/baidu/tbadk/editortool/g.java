@@ -67,7 +67,7 @@ public class g extends PagerAdapter {
             if (i < list2.size()) {
                 list3 = this.ajA.ajr;
                 u uVar = (u) list3.get(i);
-                gridView.setNumColumns(uVar.zv());
+                gridView.setNumColumns(uVar.zw());
                 gridView.setVerticalSpacing(0);
                 gridView.setHorizontalSpacing(0);
                 gridView.setSelector(com.baidu.tieba.n.transparent);
@@ -110,19 +110,19 @@ public class g extends PagerAdapter {
                         indicatorView = this.ajA.ajf;
                         indicatorView.setVisibility(0);
                         indicatorView2 = this.ajA.ajf;
-                        indicatorView2.setCount(uVar.zw());
+                        indicatorView2.setCount(uVar.zx());
                         indicatorView3 = this.ajA.ajf;
-                        indicatorView3.setPosition(uVar.zx());
+                        indicatorView3.setPosition(uVar.zy());
                     }
                     if (uVar != null) {
-                        int zA = uVar.zA();
+                        int zB = uVar.zB();
                         i3 = this.ajA.ajt;
-                        if (zA != i3) {
-                            this.ajA.ajt = uVar.zA();
+                        if (zB != i3) {
+                            this.ajA.ajt = uVar.zB();
                             jVar = this.ajA.aju;
                             if (jVar != null) {
                                 jVar2 = this.ajA.aju;
-                                jVar2.dz(uVar.zA());
+                                jVar2.dz(uVar.zB());
                             }
                         }
                     }

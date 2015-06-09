@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.baseEditMark.MarkData;
 /* loaded from: classes.dex */
 class x extends CustomMessageListener {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(PbActivity pbActivity, int i) {
         super(i);
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,17 +21,17 @@ class x extends CustomMessageListener {
             com.baidu.tieba.pb.pb.sub.an anVar = (com.baidu.tieba.pb.pb.sub.an) customResponsedMessage.getData();
             switch (anVar.getType()) {
                 case 0:
-                    this.bKT.a((com.baidu.tieba.pb.a.c) anVar.getData());
+                    this.bKU.a((com.baidu.tieba.pb.a.c) anVar.getData());
                     return;
                 case 1:
-                    this.bKT.a((com.baidu.tieba.tbadkCore.h.c) anVar.getData());
+                    this.bKU.a((com.baidu.tieba.tbadkCore.h.c) anVar.getData());
                     return;
                 case 2:
                     if (anVar.getData() == null) {
-                        this.bKT.a(false, (MarkData) null);
+                        this.bKU.a(false, (MarkData) null);
                         return;
                     } else {
-                        this.bKT.a(true, (MarkData) anVar.getData());
+                        this.bKU.a(true, (MarkData) anVar.getData());
                         return;
                     }
                 default:

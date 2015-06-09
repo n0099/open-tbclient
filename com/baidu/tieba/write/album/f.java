@@ -5,12 +5,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, List<a>> {
-    private final o cyh;
-    final /* synthetic */ e cyi;
+    private final o cyi;
+    final /* synthetic */ e cyj;
 
     public f(e eVar, o oVar) {
-        this.cyi = eVar;
-        this.cyh = oVar;
+        this.cyj = eVar;
+        this.cyi = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,17 +18,17 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: G */
     public List<a> doInBackground(Object... objArr) {
-        List<a> arM;
-        arM = this.cyi.arM();
-        return arM;
+        List<a> arN;
+        arN = this.cyj.arN();
+        return arN;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        if (this.cyh != null) {
-            this.cyh.nm();
+        if (this.cyi != null) {
+            this.cyi.nm();
         }
     }
 
@@ -38,8 +38,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     /* renamed from: o */
     public void onPostExecute(List<a> list) {
         super.onPostExecute(list);
-        if (this.cyh != null) {
-            this.cyh.bd(list);
+        if (this.cyi != null) {
+            this.cyi.bd(list);
         }
     }
 }

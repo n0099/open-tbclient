@@ -5,7 +5,7 @@ public interface a {
 
     void xB();
 
-    void xy();
+    void xC();
 
     void xz();
 }

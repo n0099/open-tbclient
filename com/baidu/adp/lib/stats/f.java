@@ -18,6 +18,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -406,7 +407,7 @@ public class f {
         if (this.wz.inSpecStrategy()) {
             return null;
         }
-        com.baidu.adp.lib.network.http.g a = new com.baidu.adp.lib.network.a.a().a(String.valueOf(this.wo) + "?t=" + System.currentTimeMillis(), 3, -1, 30000, null);
+        com.baidu.adp.lib.network.http.g a = new com.baidu.adp.lib.network.a.a().a(String.valueOf(this.wo) + "?t=" + System.currentTimeMillis(), 3, -1, 30000, -1, (LinkedList<BasicNameValuePair>) null);
         if (a != null) {
             return new String(a.vk, "utf-8");
         }
@@ -784,7 +785,7 @@ public class f {
                 if (bdStatBase != null && (bdStatBase instanceof BdPerformanceLog) && BdStatisticsSwitchStatic.hJ()) {
                     str2 = "http://nlog.baidu.com/dplog/n";
                 }
-                com.baidu.adp.lib.network.http.g a2 = new com.baidu.adp.lib.network.a.a().a(str2, false, arrayList3, hashMap, 3, -1, null);
+                com.baidu.adp.lib.network.http.g a2 = new com.baidu.adp.lib.network.a.a().a(str2, false, arrayList3, hashMap, 3, -1, (LinkedList<BasicNameValuePair>) null);
                 if (a2 != null && a2.responseCode == 200) {
                     try {
                         if (new JSONObject(new String(a2.vk, "utf-8")).optInt("error_code", -1) == 0) {

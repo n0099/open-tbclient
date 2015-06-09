@@ -45,7 +45,7 @@ public class LivePlayingStatusMgr {
         MessageManager.getInstance().registerListener(this.agr);
     }
 
-    public static synchronized LivePlayingStatusMgr xW() {
+    public static synchronized LivePlayingStatusMgr xX() {
         LivePlayingStatusMgr livePlayingStatusMgr;
         synchronized (LivePlayingStatusMgr.class) {
             if (ago == null) {
@@ -72,7 +72,7 @@ public class LivePlayingStatusMgr {
         }
     }
 
-    public LivePlayingStatus xX() {
+    public LivePlayingStatus xY() {
         return this.agp;
     }
 
@@ -80,7 +80,7 @@ public class LivePlayingStatusMgr {
         return this.gid;
     }
 
-    public void xY() {
+    public void xZ() {
         a(0, LivePlayingStatus.IDEL);
     }
 

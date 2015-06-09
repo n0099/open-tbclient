@@ -17,7 +17,7 @@ public class h extends com.baidu.adp.framework.listener.e {
     private final SparseArray<i> ahe;
     private final HashSet<Integer> ahf;
 
-    public static h yp() {
+    public static h yq() {
         return ahg;
     }
 
@@ -34,7 +34,7 @@ public class h extends com.baidu.adp.framework.listener.e {
         if (this.ahb || this.ahf.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
             return false;
         }
-        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.ys().yu() + 20000) {
+        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.yt().yv() + 20000) {
             com.baidu.adp.framework.client.socket.m.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {

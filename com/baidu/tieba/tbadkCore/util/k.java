@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.bi;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class k {
-    private static String bKn = "tbgametype";
+    private static String bKo = "tbgametype";
 
     public static String jJ(String str) {
         String[] split;
@@ -27,7 +27,7 @@ public class k {
     public static boolean in(String str) {
         Map<String, String> de;
         if (!TextUtils.isEmpty(str) && (de = bi.de(bi.df(str))) != null) {
-            String str2 = de.get(bKn);
+            String str2 = de.get(bKo);
             return !TextUtils.isEmpty(str2) && str2.equals("1");
         }
         return false;

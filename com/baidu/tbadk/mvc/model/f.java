@@ -13,7 +13,7 @@ public class f implements Runnable {
         this.this$0 = netModel;
     }
 
-    static /* synthetic */ int[] BT() {
+    static /* synthetic */ int[] BU() {
         int[] iArr = aoh;
         if (iArr == null) {
             iArr = new int[NetModel.NetModelType.valuesCustom().length];
@@ -44,9 +44,9 @@ public class f implements Runnable {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        int[] BT = BT();
+        int[] BU = BU();
         netModelType = this.this$0.anY;
-        switch (BT[netModelType.ordinal()]) {
+        switch (BU[netModelType.ordinal()]) {
             case 1:
             case 4:
                 NetModel netModel = this.this$0;

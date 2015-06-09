@@ -10,10 +10,10 @@ public class BuyTBeanActivityStatic {
     static {
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
         com.baidu.tieba.tbadkCore.a.a.c(306001, GetYinJiResponseMessage.class, false);
-        apM();
+        apN();
     }
 
-    private static void apM() {
+    private static void apN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, com.baidu.tieba.tbadkCore.a.a.S("c/e/pay/geticonlist", 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

@@ -4,16 +4,16 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnCancelListener {
-    final /* synthetic */ WriteShareActivity cAt;
+    final /* synthetic */ WriteShareActivity cAu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteShareActivity writeShareActivity) {
-        this.cAt = writeShareActivity;
+        this.cAu = writeShareActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.cAt.destroyWaitingDialog();
-        this.cAt.asx();
+        this.cAu.destroyWaitingDialog();
+        this.cAu.asy();
     }
 }

@@ -21,26 +21,26 @@ import com.baidu.tieba.tbadkCore.u;
 import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
-    private com.baidu.tieba.tbadkCore.e.a aFs;
-    private long aFt;
+    private com.baidu.tieba.tbadkCore.e.a aFt;
     private long aFu;
     private long aFv;
     private long aFw;
-    private String aLb;
-    private int aLc;
+    private long aFx;
+    private String aLc;
     private int aLd;
-    private w aLl;
-    private FrsActivity aPE;
-    private c<FrsActivity> aPF;
-    private t aPG;
-    private long aPH;
-    private boolean aPI;
-    private String aPJ;
+    private int aLe;
+    private w aLm;
+    private FrsActivity aPF;
+    private c<FrsActivity> aPG;
+    private t aPH;
+    private long aPI;
+    private boolean aPJ;
     private String aPK;
     private String aPL;
-    private boolean aPM;
+    private String aPM;
     private boolean aPN;
-    h aPO;
+    private boolean aPO;
+    h aPP;
     private long aqE;
     private String mFrom;
     private String mPageType;
@@ -48,50 +48,50 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
 
     public a(FrsActivity frsActivity) {
         super(frsActivity);
-        this.aLb = null;
+        this.aLc = null;
         this.mType = 3;
-        this.aLd = 1;
+        this.aLe = 1;
         this.mFrom = null;
-        this.aLc = 0;
-        this.aPH = 0L;
-        this.aPI = false;
+        this.aLd = 0;
+        this.aPI = 0L;
+        this.aPJ = false;
         this.mPageType = "normal_page";
-        this.aPJ = null;
         this.aPK = null;
         this.aPL = null;
-        this.aFs = null;
+        this.aPM = null;
+        this.aFt = null;
         this.aqE = 0L;
-        this.aPM = false;
         this.aPN = false;
-        this.aFt = 0L;
+        this.aPO = false;
         this.aFu = 0L;
         this.aFv = 0L;
         this.aFw = 0L;
-        this.aPE = frsActivity;
+        this.aFx = 0L;
+        this.aPF = frsActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
         if (bundle != null) {
-            this.aLb = bundle.getString("name");
+            this.aLc = bundle.getString("name");
             this.mFrom = bundle.getString("from");
-            this.aLc = bundle.getInt(FrsActivityConfig.FLAG, 0);
-            this.aPI = bundle.getBoolean(FrsActivityConfig.GOOD, false);
+            this.aLd = bundle.getInt(FrsActivityConfig.FLAG, 0);
+            this.aPJ = bundle.getBoolean(FrsActivityConfig.GOOD, false);
         }
-        if (TextUtils.isEmpty(this.aLb)) {
-            this.aLb = "";
+        if (TextUtils.isEmpty(this.aLc)) {
+            this.aLc = "";
         }
         if (TextUtils.isEmpty(this.mFrom)) {
             this.mFrom = "";
         }
-        this.aPJ = this.mFrom;
-        this.aPG = new t();
-        this.aLl = new w();
-        this.aPF = new c<>(this.aPE.getPageContext(), this.aPG);
-        this.aPF.a((q) this);
-        this.aPF.setUniqueId(getUniqueId());
-        if (this.aLb != null && this.aLb.length() > 0) {
+        this.aPK = this.mFrom;
+        this.aPH = new t();
+        this.aLm = new w();
+        this.aPG = new c<>(this.aPF.getPageContext(), this.aPH);
+        this.aPG.a((q) this);
+        this.aPG.setUniqueId(getUniqueId());
+        if (this.aLc != null && this.aLc.length() > 0) {
             if (this.mFrom == null || this.mFrom.length() <= 0) {
                 this.mFrom = FrsActivityConfig.FRS_FROM_LIKE;
             }
@@ -101,10 +101,10 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("name", this.aLb);
+        bundle.putString("name", this.aLc);
         bundle.putString("from", this.mFrom);
-        bundle.putInt(FrsActivityConfig.FLAG, this.aLc);
-        bundle.putBoolean(FrsActivityConfig.GOOD, this.aPI);
+        bundle.putInt(FrsActivityConfig.FLAG, this.aLd);
+        bundle.putBoolean(FrsActivityConfig.GOOD, this.aPJ);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
@@ -113,10 +113,10 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     }
 
     @Override // com.baidu.tbadk.mvc.d.b
-    public boolean Bz() {
-        if (!this.aPF.isLoading() && this.aPG.getPn() > 1) {
-            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
-            tVar.setPn(this.aPG.getPn() - 1);
+    public boolean BA() {
+        if (!this.aPG.isLoading() && this.aPH.getPn() > 1) {
+            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPH), t.class);
+            tVar.setPn(this.aPH.getPn() - 1);
             a(tVar, 2);
             return true;
         }
@@ -124,12 +124,12 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    public boolean BA() {
-        if (this.aPF.isLoading()) {
+    public boolean BB() {
+        if (this.aPG.isLoading()) {
             return false;
         }
-        TiebaStatic.eventStat(this.aPE.getPageContext().getPageActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
-        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
+        TiebaStatic.eventStat(this.aPF.getPageContext().getPageActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
+        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPH), t.class);
         tVar.setPn(tVar.getPn() + 1);
         a(tVar, 1);
         return true;
@@ -137,105 +137,105 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
 
     @Override // com.baidu.tbadk.mvc.d.e
     public boolean bb(boolean z) {
-        if (this.aPF.isLoading()) {
+        if (this.aPG.isLoading()) {
             return false;
         }
-        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
+        t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPH), t.class);
         tVar.setPn(1);
         a(tVar, 3);
         return true;
     }
 
     public void fe(int i) {
-        if (!this.aPF.isLoading()) {
-            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPG), t.class);
+        if (!this.aPG.isLoading()) {
+            t tVar = (t) t.objectWithJson(t.jsonWithObject(this.aPH), t.class);
             tVar.setPn(i);
             a(tVar, 4);
         }
     }
 
-    public boolean LS() {
-        if (this.aPF.isLoading()) {
+    public boolean LT() {
+        if (this.aPG.isLoading()) {
             return false;
         }
-        this.aPI = false;
-        this.aLd = 1;
+        this.aPJ = false;
+        this.aLe = 1;
         return bb(true);
     }
 
     public boolean ff(int i) {
-        if (this.aPF.isLoading()) {
+        if (this.aPG.isLoading()) {
             return false;
         }
-        this.aPI = true;
-        this.aPH = i;
-        this.aLd = 1;
+        this.aPJ = true;
+        this.aPI = i;
+        this.aLe = 1;
         return bb(true);
     }
 
     public boolean av(String str, String str2) {
-        if (this.aPF.isLoading() || str2 == null) {
+        if (this.aPG.isLoading() || str2 == null) {
             return false;
         }
-        this.aPJ = "sidebar";
-        this.aPK = str;
-        this.aPI = false;
-        this.aLb = str2;
+        this.aPK = "sidebar";
+        this.aPL = str;
+        this.aPJ = false;
+        this.aLc = str2;
         return bb(true);
     }
 
     private void a(t tVar, int i) {
         boolean z = true;
-        this.aPE.aLG.eU(i);
-        this.aPF.a(tVar);
+        this.aPF.aLH.eU(i);
+        this.aPG.a(tVar);
         this.mType = i;
-        tVar.setKw(this.aLb);
+        tVar.setKw(this.aLc);
         if (n.qc().qg()) {
             tVar.setRn(35);
         } else {
             tVar.setRn(50);
         }
         tVar.setWithGroup(1);
-        if (this.aPI) {
+        if (this.aPJ) {
             tVar.setIsGood(1);
-            tVar.setCid((int) this.aPH);
+            tVar.setCid((int) this.aPI);
         } else {
             tVar.setIsGood(0);
             tVar.setCid(0);
         }
-        int M = com.baidu.adp.lib.util.n.M(this.aPE.getPageContext().getPageActivity());
-        int N = com.baidu.adp.lib.util.n.N(this.aPE.getPageContext().getPageActivity());
+        int M = com.baidu.adp.lib.util.n.M(this.aPF.getPageContext().getPageActivity());
+        int N = com.baidu.adp.lib.util.n.N(this.aPF.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
         int i2 = bc.tB().tD() ? 2 : 1;
         tVar.setScrW(M);
         tVar.setScrH(N);
         tVar.setScrDip(f);
         tVar.setqType(i2);
-        tVar.setLastId(this.aPL);
-        if (this.aPJ != null) {
-            tVar.setStType(this.aPJ);
-            if (this.aPJ.equalsIgnoreCase("sidebar")) {
-                tVar.setStType(this.aPK);
+        tVar.setLastId(this.aPM);
+        if (this.aPK != null) {
+            tVar.setStType(this.aPK);
+            if (this.aPK.equalsIgnoreCase("sidebar")) {
+                tVar.setStType(this.aPL);
             }
         }
-        if (FrsActivity.aLr != 0) {
-            tVar.setCtime((int) FrsActivity.aLr);
-        }
         if (FrsActivity.aLs != 0) {
-            tVar.setDataSize((int) FrsActivity.aLs);
+            tVar.setCtime((int) FrsActivity.aLs);
         }
         if (FrsActivity.aLt != 0) {
-            tVar.setNetError(FrsActivity.aLt);
+            tVar.setDataSize((int) FrsActivity.aLt);
         }
-        if (tVar.getPn() != 1 || ((!this.mPageType.equals("normal_page") && !this.mPageType.equals("frs_page")) || this.mType != 3 || this.aPI)) {
+        if (FrsActivity.aLu != 0) {
+            tVar.setNetError(FrsActivity.aLu);
+        }
+        if (tVar.getPn() != 1 || ((!this.mPageType.equals("normal_page") && !this.mPageType.equals("frs_page")) || this.mType != 3 || this.aPJ)) {
             z = false;
         }
         tVar.setUpdateType(this.mType);
         tVar.setNeedCache(z);
-        new b(this, z, this.aLb).execute(new Object[0]);
-        if (this.aFs == null) {
-            this.aFs = new com.baidu.tieba.tbadkCore.e.a("frsStat");
-            this.aFs.start();
+        new b(this, z, this.aLc).execute(new Object[0]);
+        if (this.aFt == null) {
+            this.aFt = new com.baidu.tieba.tbadkCore.e.a("frsStat");
+            this.aFt.start();
         }
     }
 
@@ -243,26 +243,26 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean a(t tVar, u uVar) {
-        this.aLl.d(uVar);
-        if (this.aLl.amp().amz() == 1) {
+        this.aLm.d(uVar);
+        if (this.aLm.amq().amA() == 1) {
             this.mPageType = "frs_page";
         } else {
             this.mPageType = "normal_page";
         }
-        if (this.aPI) {
+        if (this.aPJ) {
             this.mPageType = "good_page";
         }
         if (tVar != null) {
-            this.aPG = tVar;
-            this.aLd = this.aPG.getPn();
-            this.aLb = this.aPG.getKw();
-            this.aPE.gl(this.aLb);
-            this.aPE.setFrom(this.mFrom);
-            this.aPE.setPn(this.aLd);
-            this.aPE.setFlag(this.aLc);
+            this.aPH = tVar;
+            this.aLe = this.aPH.getPn();
+            this.aLc = this.aPH.getKw();
+            this.aPF.gl(this.aLc);
+            this.aPF.setFrom(this.mFrom);
+            this.aPF.setPn(this.aLe);
+            this.aPF.setFlag(this.aLd);
         }
-        this.aPE.aLG.a(this.mType, false, this.aPO);
-        this.aPJ = null;
+        this.aPF.aLH.a(this.mType, false, this.aPP);
+        this.aPK = null;
         return super.a((a) tVar, (t) uVar);
     }
 
@@ -270,20 +270,20 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     public void a(MvcSocketResponsedMessage<u, ?> mvcSocketResponsedMessage, MvcSocketMessage<t, u> mvcSocketMessage, MvcNetMessage<t, u> mvcNetMessage) {
         t tVar;
         h hVar = new h();
-        hVar.coH = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+        hVar.coI = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
         hVar.isSuccess = !mvcSocketResponsedMessage.hasError();
         hVar.errorCode = mvcSocketResponsedMessage.getError();
         hVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-        hVar.coI = mvcSocketResponsedMessage.getDownSize();
-        this.aPO = hVar;
+        hVar.coJ = mvcSocketResponsedMessage.getDownSize();
+        this.aPP = hVar;
         super.a(mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage);
-        LU();
-        if (this.aFs != null) {
-            this.aFs.a(false, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coI);
-            this.aFs = null;
+        LV();
+        if (this.aFt != null) {
+            this.aFt.a(false, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coJ);
+            this.aFt = null;
         }
-        if (!this.aPN) {
-            this.aPN = true;
+        if (!this.aPO) {
+            this.aPO = true;
             aa aaVar = new aa();
             aaVar.el(1000);
             aaVar.aqJ = false;
@@ -293,9 +293,9 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
             aaVar.aqA = mvcSocketResponsedMessage.performanceData.qz;
             aaVar.aqB = mvcSocketResponsedMessage.performanceData.qA;
             aaVar.aqC = mvcSocketResponsedMessage.performanceData.qB;
-            aaVar.aqH = hVar.coI;
+            aaVar.aqH = hVar.coJ;
             aaVar.aqI = 0L;
-            if (this.aPE.aLG != null) {
+            if (this.aPF.aLH != null) {
                 e(aaVar);
             }
         }
@@ -324,20 +324,20 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     public void a(MvcHttpResponsedMessage<u> mvcHttpResponsedMessage, MvcHttpMessage<t, u> mvcHttpMessage, MvcNetMessage<t, u> mvcNetMessage) {
         t tVar;
         h hVar = new h();
-        hVar.coH = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+        hVar.coI = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
         hVar.isSuccess = !mvcHttpResponsedMessage.hasError();
         hVar.errorCode = mvcHttpResponsedMessage.getError();
         hVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-        hVar.coI = mvcHttpResponsedMessage.getDownSize();
-        this.aPO = hVar;
+        hVar.coJ = mvcHttpResponsedMessage.getDownSize();
+        this.aPP = hVar;
         super.a(mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage);
-        LU();
-        if (this.aFs != null) {
-            this.aFs.a(true, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coI);
-            this.aFs = null;
+        LV();
+        if (this.aFt != null) {
+            this.aFt.a(true, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.coJ);
+            this.aFt = null;
         }
-        if (!this.aPN) {
-            this.aPN = true;
+        if (!this.aPO) {
+            this.aPO = true;
             aa aaVar = new aa();
             aaVar.el(1000);
             aaVar.aqJ = true;
@@ -348,8 +348,8 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
             aaVar.aqB = mvcHttpResponsedMessage.performanceData.qA;
             aaVar.aqC = mvcHttpResponsedMessage.performanceData.qB;
             aaVar.aqH = 0L;
-            aaVar.aqI = hVar.coI;
-            if (this.aPE.aLG != null) {
+            aaVar.aqI = hVar.coJ;
+            if (this.aPF.aLH != null) {
                 e(aaVar);
             }
         }
@@ -374,74 +374,70 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
         com.baidu.tbadk.core.log.b.a("frs", j, cmd, "http_resp", error, errorString, objArr);
     }
 
-    public void LT() {
-        if (this.aLl != null && this.aLl.aar() != null && this.aLl.aar().getBannerListData() != null) {
-            String qB = this.aLl.aar().getBannerListData().qB();
+    public void LU() {
+        if (this.aLm != null && this.aLm.aas() != null && this.aLm.aas().getBannerListData() != null) {
+            String qB = this.aLm.aas().getBannerListData().qB();
             if (!TextUtils.isEmpty(qB)) {
-                this.aPL = qB;
+                this.aPM = qB;
             }
         }
     }
 
-    public void LU() {
-        if (!this.aPM) {
-            this.aPM = true;
-            this.aqE = System.currentTimeMillis() - this.aPE.aLq;
+    public void LV() {
+        if (!this.aPN) {
+            this.aPN = true;
+            this.aqE = System.currentTimeMillis() - this.aPF.aLr;
             aa aaVar = new aa();
             aaVar.el(1000);
-            aaVar.aqx = this.aPE.createTime;
+            aaVar.aqx = this.aPF.createTime;
             aaVar.aqE = this.aqE;
-            aaVar.Dv();
+            aaVar.Dw();
         }
     }
 
     public void e(aa aaVar) {
         if (aaVar != null) {
-            aaVar.aqx = this.aPE.createTime;
-            this.aPE.createTime = 0L;
-            aaVar.aqD = this.aPE.aqD;
-            aaVar.aqE = this.aqE == 0 ? System.currentTimeMillis() - this.aPE.aLq : this.aqE;
-            aaVar.Dw();
+            aaVar.aqx = this.aPF.createTime;
+            this.aPF.createTime = 0L;
+            aaVar.aqD = this.aPF.aqD;
+            aaVar.aqE = this.aqE == 0 ? System.currentTimeMillis() - this.aPF.aLr : this.aqE;
+            aaVar.Dx();
         }
     }
 
-    public String LV() {
+    public String LW() {
         return this.mPageType;
     }
 
-    public boolean LW() {
-        return this.aPI;
+    public boolean LX() {
+        return this.aPJ;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public w LX() {
-        return this.aLl;
+    public w LY() {
+        return this.aLm;
     }
 
-    public h LY() {
-        return this.aPO;
+    public h LZ() {
+        return this.aPP;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LZ() {
-        this.aFt = System.currentTimeMillis();
-        this.aPF.BL();
+    public void Ma() {
+        this.aFu = System.currentTimeMillis();
+        this.aPG.BM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(u uVar) {
-        this.aPE.aLG.b(uVar);
-    }
-
-    public long HZ() {
-        return this.aFw;
+        this.aPF.aLH.b(uVar);
     }
 
     public long Ia() {
-        return this.aFu;
+        return this.aFx;
     }
 
     public long Ib() {
@@ -449,10 +445,14 @@ public class a extends com.baidu.tbadk.mvc.d.b<t, u> {
     }
 
     public long Ic() {
-        return this.aFt;
+        return this.aFw;
+    }
+
+    public long Id() {
+        return this.aFu;
     }
 
     public boolean isLoading() {
-        return this.aPF.isLoading();
+        return this.aPG.isLoading();
     }
 }

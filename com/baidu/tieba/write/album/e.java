@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class e {
-    private final String cye = TbConfig.getTempDirName();
-    private f cyf;
-    private h cyg;
+    private final String cyf = TbConfig.getTempDirName();
+    private f cyg;
+    private h cyh;
     private final Context mContext;
 
     public e(Context context) {
@@ -30,10 +30,10 @@ public class e {
         if (oVar == null) {
             return false;
         }
-        arK();
-        this.cyf = new f(this, oVar);
-        this.cyf.setPriority(3);
-        this.cyf.execute(new Object[0]);
+        arL();
+        this.cyg = new f(this, oVar);
+        this.cyg.setPriority(3);
+        this.cyg.execute(new Object[0]);
         return true;
     }
 
@@ -41,18 +41,11 @@ public class e {
         if (asVar == null) {
             return false;
         }
-        arL();
-        this.cyg = new h(this, str, asVar);
-        this.cyg.setPriority(3);
-        this.cyg.execute(new Void[0]);
+        arM();
+        this.cyh = new h(this, str, asVar);
+        this.cyh.setPriority(3);
+        this.cyh.execute(new Void[0]);
         return true;
-    }
-
-    public void arK() {
-        if (this.cyf != null) {
-            this.cyf.cancel();
-            this.cyf = null;
-        }
     }
 
     public void arL() {
@@ -62,8 +55,15 @@ public class e {
         }
     }
 
+    public void arM() {
+        if (this.cyh != null) {
+            this.cyh.cancel();
+            this.cyh = null;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public List<a> arM() {
+    public List<a> arN() {
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -111,7 +111,7 @@ public class e {
                                 imageFileInfo.setFilePath(string3);
                                 aVar.e(imageFileInfo);
                                 aVar.setName(string2);
-                                if (string2 != null && string2.equals(this.cye)) {
+                                if (string2 != null && string2.equals(this.cyf)) {
                                     list.add(0, aVar);
                                 } else {
                                     list.add(aVar);

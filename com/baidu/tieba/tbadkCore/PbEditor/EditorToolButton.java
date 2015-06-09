@@ -7,50 +7,50 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] cqb = {com.baidu.tieba.m.custom_state_focused};
-    protected static final int[] cqc = {com.baidu.tieba.m.custom_state_skin};
-    protected boolean cpX;
+    protected static final int[] cqc = {com.baidu.tieba.m.custom_state_focused};
+    protected static final int[] cqd = {com.baidu.tieba.m.custom_state_skin};
     protected boolean cpY;
     protected boolean cpZ;
     protected boolean cqa;
+    protected boolean cqb;
     protected Context mContext;
     protected int mSkinType;
     protected TextView mTip;
 
     public EditorToolButton(Context context) {
         super(context);
-        this.cpX = false;
-        this.cpY = true;
-        this.cpZ = false;
+        this.cpY = false;
+        this.cpZ = true;
         this.cqa = false;
+        this.cqb = false;
         this.mSkinType = 0;
         this.mContext = context;
     }
 
     public EditorToolButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cpX = false;
-        this.cpY = true;
-        this.cpZ = false;
+        this.cpY = false;
+        this.cpZ = true;
         this.cqa = false;
+        this.cqb = false;
         this.mSkinType = 0;
         this.mContext = context;
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.v.custom_state);
-        this.cpX = obtainStyledAttributes.getBoolean(1, false);
+        this.cpY = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public int[] onCreateDrawableState(int i) {
         int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
-        if (this.cpX) {
-            mergeDrawableStates(onCreateDrawableState, cqb);
+        if (this.cpY) {
+            mergeDrawableStates(onCreateDrawableState, cqc);
         }
         return onCreateDrawableState;
     }
 
-    public void CQ() {
-        if (!this.cqa) {
+    public void CR() {
+        if (!this.cqb) {
             setVisibility(0);
         }
     }
@@ -69,7 +69,7 @@ public class EditorToolButton extends ImageView {
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        if (!this.cpZ) {
+        if (!this.cqa) {
             super.setEnabled(z);
         }
     }
@@ -103,38 +103,38 @@ public class EditorToolButton extends ImageView {
 
     @Override // android.view.View
     public void setFocusable(boolean z) {
-        this.cpY = z;
+        this.cpZ = z;
         if (!z) {
-            anb();
+            anc();
         }
     }
 
-    public boolean amZ() {
-        return this.cpY;
+    public boolean ana() {
+        return this.cpZ;
     }
 
     public void setHardDisabled(boolean z) {
-        this.cpZ = z;
+        this.cqa = z;
         disable();
     }
 
     public void setHardInvisible(boolean z) {
-        this.cqa = z;
+        this.cqb = z;
         hide();
     }
 
-    public void ana() {
-        this.cpX = true;
+    public void anb() {
+        this.cpY = true;
         refreshDrawableState();
     }
 
     @Override // android.view.View
     public boolean isFocused() {
-        return this.cpX;
+        return this.cpY;
     }
 
-    public void anb() {
-        this.cpX = false;
+    public void anc() {
+        this.cpY = false;
         refreshDrawableState();
     }
 }

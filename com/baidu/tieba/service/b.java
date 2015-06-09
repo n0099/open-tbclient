@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.aj;
 /* loaded from: classes.dex */
@@ -30,6 +31,7 @@ class b extends BroadcastReceiver {
                 if (versionData != null) {
                     versionData2 = this.this$0.mVersionData;
                     aj.a(context, versionData2);
+                    TiebaStatic.eventStat(context, "c10007", "click", 1, new Object[0]);
                 }
             }
         }

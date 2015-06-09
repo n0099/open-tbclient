@@ -6,16 +6,16 @@ public class z extends y {
     public boolean aqw;
     public boolean isSuccess;
 
-    public void Dt() {
+    public void Du() {
         aj ajVar;
-        if (ah.DB().DC() && (ajVar = (aj) ah.DB().en(this.mSubType)) != null) {
+        if (ah.DC().DD() && (ajVar = (aj) ah.DC().en(this.mSubType)) != null) {
             ajVar.a(this, "head");
         }
     }
 
-    public void Du() {
+    public void Dv() {
         aj ajVar;
-        if (ah.DB().DC() && (ajVar = (aj) ah.DB().en(this.mSubType)) != null) {
+        if (ah.DC().DD() && (ajVar = (aj) ah.DC().en(this.mSubType)) != null) {
             ajVar.a(this, "img");
         }
     }

@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class j {
     View So;
-    TextView azH;
-    final /* synthetic */ h bwi;
+    TextView azI;
+    final /* synthetic */ h bwj;
 
     private j(h hVar) {
-        this.bwi = hVar;
+        this.bwj = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

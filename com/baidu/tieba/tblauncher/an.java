@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ aj cwn;
+    final /* synthetic */ aj cwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(aj ajVar) {
-        this.cwn = ajVar;
+        this.cwo = ajVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ public class an implements View.OnClickListener {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        imageView = this.cwn.cwf;
+        imageView = this.cwo.cwg;
         imageView.setVisibility(4);
         com.baidu.tbadk.core.sharedPref.b.sl().putBoolean("game_is_show_tip", false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, false));
-        mainTabActivity = this.cwn.cwh;
-        mainTabActivity2 = this.cwn.cwh;
+        mainTabActivity = this.cwo.cwi;
+        mainTabActivity2 = this.cwo.cwi;
         mainTabActivity.sendMessage(new CustomMessage(2002001, new GameCenterActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        mainTabActivity3 = this.cwn.cwh;
+        mainTabActivity3 = this.cwo.cwi;
         TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, "ref_type", "601");
     }
 }

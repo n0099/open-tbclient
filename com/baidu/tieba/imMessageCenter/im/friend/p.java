@@ -4,20 +4,20 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements DialogInterface.OnCancelListener {
-    final /* synthetic */ InviteFriendListActivity bvA;
+    final /* synthetic */ InviteFriendListActivity bvB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(InviteFriendListActivity inviteFriendListActivity) {
-        this.bvA = inviteFriendListActivity;
+        this.bvB = inviteFriendListActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ac acVar;
         ac acVar2;
-        acVar = this.bvA.bvu;
+        acVar = this.bvB.bvv;
         if (acVar != null) {
-            acVar2 = this.bvA.bvu;
+            acVar2 = this.bvB.bvv;
             acVar2.cancelLoadData();
         }
     }

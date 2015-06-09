@@ -1,11 +1,11 @@
 package com.baidu.tieba.recapp.a;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ d cbi;
+    final /* synthetic */ d cbj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.cbi = dVar;
+        this.cbj = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

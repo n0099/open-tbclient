@@ -4,18 +4,18 @@ import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKT;
-    private final /* synthetic */ dc bKU;
+    final /* synthetic */ PbActivity bKU;
+    private final /* synthetic */ dc bKV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(PbActivity pbActivity, dc dcVar) {
-        this.bKT = pbActivity;
-        this.bKU = dcVar;
+        this.bKU = pbActivity;
+        this.bKV = dcVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bKT.HidenSoftKeyPad((InputMethodManager) this.bKT.getSystemService("input_method"), this.bKU.getChatMsgView());
+        this.bKU.HidenSoftKeyPad((InputMethodManager) this.bKU.getSystemService("input_method"), this.bKV.getChatMsgView());
         aVar.dismiss();
     }
 }

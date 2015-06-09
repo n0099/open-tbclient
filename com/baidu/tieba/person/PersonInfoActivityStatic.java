@@ -16,10 +16,10 @@ public class PersonInfoActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bs());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        HL();
+        HM();
     }
 
-    private static void HL() {
+    private static void HM() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.S("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);

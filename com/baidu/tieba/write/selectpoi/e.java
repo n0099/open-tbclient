@@ -5,19 +5,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ SearchLocationActivity czP;
+    final /* synthetic */ SearchLocationActivity czQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SearchLocationActivity searchLocationActivity) {
-        this.czP = searchLocationActivity;
+        this.czQ = searchLocationActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!com.baidu.adp.lib.util.n.isNetOk()) {
-            this.czP.showToast(t.no_network_guide);
-        } else if (!StringUtils.isNull(this.czP.ahM())) {
-            this.czP.aso();
+            this.czQ.showToast(t.no_network_guide);
+        } else if (!StringUtils.isNull(this.czQ.ahN())) {
+            this.czQ.asp();
         }
     }
 }

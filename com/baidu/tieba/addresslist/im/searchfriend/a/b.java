@@ -15,11 +15,11 @@ public class b {
     String QE;
     String Qx;
     int Qz;
-    c aBs = new c();
+    c aBt = new c();
     ArrayList<String> QD = new ArrayList<>();
     ArrayList<String> QF = new ArrayList<>();
 
-    public String Gi() {
+    public String Gj() {
         return this.QE;
     }
 
@@ -30,8 +30,8 @@ public class b {
     public void a(LikeUserInfo likeUserInfo) {
         if (likeUserInfo != null) {
             this.QE = likeUserInfo.message;
-            if (likeUserInfo.user_info != null && this.aBs != null) {
-                this.aBs.a(likeUserInfo.user_info);
+            if (likeUserInfo.user_info != null && this.aBt != null) {
+                this.aBt.a(likeUserInfo.user_info);
             }
             if (likeUserInfo.forum_info != null) {
                 StringBuffer stringBuffer = new StringBuffer();
@@ -65,8 +65,8 @@ public class b {
         return this.Qx;
     }
 
-    public c Gf() {
-        return this.aBs;
+    public c Gg() {
+        return this.aBt;
     }
 
     public ArrayList<String> qX() {
@@ -94,10 +94,10 @@ public class b {
         return hashMap;
     }
 
-    public JSONObject Gj() {
+    public JSONObject Gk() {
         JSONObject jSONObject = new JSONObject();
-        if (this.aBs != null) {
-            jSONObject.put("recommend_new_user", this.aBs.Gj());
+        if (this.aBt != null) {
+            jSONObject.put("recommend_new_user", this.aBt.Gk());
         }
         jSONObject.put("common_forum", this.Qx);
         jSONObject.put("common_forum_count", this.Qz);
@@ -123,10 +123,10 @@ public class b {
 
     public void e(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aBs == null) {
-                this.aBs = new c();
+            if (this.aBt == null) {
+                this.aBt = new c();
             }
-            this.aBs.e(jSONObject.optJSONObject("recommend_new_user"));
+            this.aBt.e(jSONObject.optJSONObject("recommend_new_user"));
             this.Qx = jSONObject.optString("common_forum");
             this.Qz = jSONObject.optInt("common_forum_count");
             this.QE = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);

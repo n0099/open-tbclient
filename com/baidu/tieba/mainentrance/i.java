@@ -10,14 +10,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends BaseAdapter {
     private ArrayList<String> Sk;
-    private final String aLb;
-    private boolean bBs = true;
+    private final String aLc;
+    private boolean bBt = true;
     private final Context mContext;
 
     public i(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
         this.Sk = arrayList;
-        this.aLb = this.mContext.getText(com.baidu.tieba.t.forum).toString();
+        this.aLc = this.mContext.getText(com.baidu.tieba.t.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -25,7 +25,7 @@ public class i extends BaseAdapter {
     }
 
     public void dB(boolean z) {
-        this.bBs = z;
+        this.bBt = z;
     }
 
     @Override // android.widget.Adapter
@@ -56,7 +56,7 @@ public class i extends BaseAdapter {
         if (view == null) {
             view = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.home_dialog_search_item, null);
             jVar = new j(this, null);
-            jVar.aGH = (TextView) view.findViewById(com.baidu.tieba.q.home_lv_search_forum);
+            jVar.aGI = (TextView) view.findViewById(com.baidu.tieba.q.home_lv_search_forum);
             jVar.avA = view.findViewById(com.baidu.tieba.q.home_dialog_lv_search_forum_divider);
             view.setTag(jVar);
         } else {
@@ -65,12 +65,12 @@ public class i extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.bBs) {
-                jVar.aGH.setText(str.concat(this.aLb));
+            if (this.bBt) {
+                jVar.aGI.setText(str.concat(this.aLc));
             } else {
-                jVar.aGH.setText(str);
+                jVar.aGI.setText(str);
             }
-            ay.b(jVar.aGH, com.baidu.tieba.n.cp_cont_b, 1);
+            ay.b(jVar.aGI, com.baidu.tieba.n.cp_cont_b, 1);
             ay.j(jVar.avA, com.baidu.tieba.n.cp_bg_line_b);
             ay.i(view, com.baidu.tieba.p.addresslist_item_bg);
         }

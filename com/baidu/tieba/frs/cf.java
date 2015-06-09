@@ -26,8 +26,8 @@ public class cf extends av<com.baidu.tbadk.core.data.w, cg> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, cg cgVar) {
         BitmapDrawable bitmapDrawable;
         super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) cgVar);
-        this.aMk.getLayoutMode().ab(this.mSkinType == 1);
-        this.aMk.getLayoutMode().j(view);
+        this.aMl.getLayoutMode().ab(this.mSkinType == 1);
+        this.aMl.getLayoutMode().j(view);
         if (wVar == null) {
             return null;
         }
@@ -41,7 +41,7 @@ public class cf extends av<com.baidu.tbadk.core.data.w, cg> {
         } else {
             bitmapDrawable = wVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_notice) : null;
         }
-        com.baidu.tbadk.core.util.ay.i(cgVar.aMH, com.baidu.tieba.p.frs_top_item_bg);
+        com.baidu.tbadk.core.util.ay.i(cgVar.aMI, com.baidu.tieba.p.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

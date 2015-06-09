@@ -8,27 +8,27 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ String bJi;
-    private final /* synthetic */ int bJj;
-    final /* synthetic */ PbActivity bKT;
-    private final /* synthetic */ dc bKU;
-    private final /* synthetic */ ShareFromPBMsgData bKV;
-    private final /* synthetic */ int boi;
+    private final /* synthetic */ String bJj;
+    private final /* synthetic */ int bJk;
+    final /* synthetic */ PbActivity bKU;
+    private final /* synthetic */ dc bKV;
+    private final /* synthetic */ ShareFromPBMsgData bKW;
+    private final /* synthetic */ int boj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(PbActivity pbActivity, dc dcVar, int i, String str, int i2, ShareFromPBMsgData shareFromPBMsgData) {
-        this.bKT = pbActivity;
-        this.bKU = dcVar;
-        this.boi = i;
-        this.bJi = str;
-        this.bJj = i2;
-        this.bKV = shareFromPBMsgData;
+        this.bKU = pbActivity;
+        this.bKV = dcVar;
+        this.boj = i;
+        this.bJj = str;
+        this.bJk = i2;
+        this.bKW = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bKT.HidenSoftKeyPad((InputMethodManager) this.bKT.getSystemService("input_method"), this.bKU.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bKT.getPageContext().getPageActivity(), this.boi, this.bJi, this.bJj, "from_share", this.bKU.getLeaveMsg(), this.bKV.toChatMessageContent())));
+        this.bKU.HidenSoftKeyPad((InputMethodManager) this.bKU.getSystemService("input_method"), this.bKV.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bKU.getPageContext().getPageActivity(), this.boj, this.bJj, this.bJk, "from_share", this.bKV.getLeaveMsg(), this.bKW.toChatMessageContent())));
         aVar.dismiss();
     }
 }

@@ -142,12 +142,12 @@ public class t extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String AJ() {
+    public String AK() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Bp() {
+    public boolean Bq() {
         return false;
     }
 

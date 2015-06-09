@@ -18,70 +18,70 @@ import com.baidu.tieba.tbadkCore.data.i;
 public class PbAppViewHolder extends BaseAppViewHolder {
     public PbAppViewHolder(View view) {
         super(view);
-        this.cbm = (TextView) view.findViewById(q.recommend_title);
-        this.cbn = (TextView) view.findViewById(q.recommend_content);
-        this.cbo = (HeadImageView) view.findViewById(q.recommend_icon);
-        this.cbl = (TextView) view.findViewById(q.recommend_btn);
-        this.cbp = view.findViewById(q.divider_line);
-        this.cbo.setClickable(false);
+        this.cbn = (TextView) view.findViewById(q.recommend_title);
+        this.cbo = (TextView) view.findViewById(q.recommend_content);
+        this.cbp = (HeadImageView) view.findViewById(q.recommend_icon);
+        this.cbm = (TextView) view.findViewById(q.recommend_btn);
+        this.cbq = view.findViewById(q.divider_line);
+        this.cbp.setClickable(false);
     }
 
     @Override // com.baidu.tieba.recapp.PbRecBaseViewHolder
     public void update(i iVar, int i, boolean z) {
         super.update(iVar, i, z);
         if (iVar != null) {
-            this.cbm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ay.getDrawable(p.icon_extend), (Drawable) null);
-            this.cbm.setText(iVar.aom());
-            if (StringUtils.isNull(iVar.aoo())) {
-                this.cbn.setVisibility(8);
+            this.cbn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ay.getDrawable(p.icon_extend), (Drawable) null);
+            this.cbn.setText(iVar.aon());
+            if (StringUtils.isNull(iVar.aop())) {
+                this.cbo.setVisibility(8);
             } else {
-                this.cbn.setVisibility(0);
-                this.cbn.setText(getFixedChineseString(iVar.aoo()));
+                this.cbo.setVisibility(0);
+                this.cbo.setText(getFixedChineseString(iVar.aop()));
             }
             if (!n.qc().qe()) {
-                ViewGroup.LayoutParams layoutParams = this.cbo.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.cbp.getLayoutParams();
                 layoutParams.width = (int) this.rootView.getResources().getDimension(o.ds30);
-                this.cbo.setLayoutParams(layoutParams);
-                this.cbo.setVisibility(4);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cbn.getLayoutParams();
+                this.cbp.setLayoutParams(layoutParams);
+                this.cbp.setVisibility(4);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cbo.getLayoutParams();
                 marginLayoutParams.leftMargin = (int) this.rootView.getResources().getDimension(o.ds50);
-                this.cbn.setLayoutParams(marginLayoutParams);
+                this.cbo.setLayoutParams(marginLayoutParams);
             } else {
-                ViewGroup.LayoutParams layoutParams2 = this.cbo.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.cbp.getLayoutParams();
                 layoutParams2.width = (int) this.rootView.getResources().getDimension(o.ds60);
-                this.cbo.setLayoutParams(layoutParams2);
-                this.cbo.setVisibility(0);
-                if (!TextUtils.isEmpty(iVar.aon())) {
-                    this.cbo.c(iVar.aon(), z ? 17 : 18, false);
+                this.cbp.setLayoutParams(layoutParams2);
+                this.cbp.setVisibility(0);
+                if (!TextUtils.isEmpty(iVar.aoo())) {
+                    this.cbp.c(iVar.aoo(), z ? 17 : 18, false);
                 }
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cbn.getLayoutParams();
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cbo.getLayoutParams();
                 marginLayoutParams2.leftMargin = (int) this.rootView.getResources().getDimension(o.ds80);
-                this.cbn.setLayoutParams(marginLayoutParams2);
+                this.cbo.setLayoutParams(marginLayoutParams2);
             }
-            this.cbl.setTag(this);
+            this.cbm.setTag(this);
             this.rootView.setBackgroundDrawable(null);
-            ahm();
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected void ahn() {
-        if (this.cbl != null && this.rootView != null) {
-            ay.i((View) this.cbl, p.frs_praise_btn_bg);
-            ay.b(this.cbl, com.baidu.tieba.n.cp_cont_b, 1);
+            ahn();
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
     protected void aho() {
-        if (this.cbl != null && this.rootView != null) {
-            ay.i((View) this.cbl, p.frs_praise_btn_bg);
-            ay.b(this.cbl, com.baidu.tieba.n.cp_cont_b, 1);
+        if (this.cbm != null && this.rootView != null) {
+            ay.i((View) this.cbm, p.frs_praise_btn_bg);
+            ay.b(this.cbm, com.baidu.tieba.n.cp_cont_b, 1);
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
-    protected int ahp() {
+    protected void ahp() {
+        if (this.cbm != null && this.rootView != null) {
+            ay.i((View) this.cbm, p.frs_praise_btn_bg);
+            ay.b(this.cbm, com.baidu.tieba.n.cp_cont_b, 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.view.BaseAppViewHolder
+    protected int ahq() {
         return t.download;
     }
 }

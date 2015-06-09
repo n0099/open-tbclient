@@ -9,7 +9,7 @@ public class SDCardChangeReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         try {
-            aa.zE().zF();
+            aa.zF().zG();
         } catch (Throwable th) {
             th.printStackTrace();
         }

@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class af implements Runnable {
     private final /* synthetic */ AccountData Pa;
-    final /* synthetic */ NotLoginGuideActivity axb;
+    final /* synthetic */ NotLoginGuideActivity axc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(NotLoginGuideActivity notLoginGuideActivity, AccountData accountData) {
-        this.axb = notLoginGuideActivity;
+        this.axc = notLoginGuideActivity;
         this.Pa = accountData;
     }
 

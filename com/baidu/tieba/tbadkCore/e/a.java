@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class a {
-    private q csD;
-    private final int csE = 10;
-    private final int csF = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String csG = null;
+    private q csE;
+    private final int csF = 10;
+    private final int csG = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String csH = null;
     public boolean Xe = false;
 
     public a(String str) {
@@ -19,18 +19,18 @@ public class a {
     }
 
     public void E(String str, boolean z) {
-        this.csG = str;
+        this.csH = str;
         this.Xe = z;
-        this.csD = new q("dbg");
+        this.csE = new q("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.csD.hU();
+        this.csE.hU();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long hV = this.csD.hV();
+        long hV = this.csE.hV();
         long j2 = 0;
         long j3 = 0;
         if (z) {
@@ -42,38 +42,38 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e aoR;
-        if (this.csD != null && (aoR = aoR()) != null) {
+        e aoS;
+        if (this.csE != null && (aoS = aoS()) != null) {
             if (z) {
-                if (aoR.csL != null) {
-                    aoR.csL.num++;
+                if (aoS.csM != null) {
+                    aoS.csM.num++;
                     if (z2) {
-                        aoR.csL.csI += j2;
-                        aoR.csL.size += j;
+                        aoS.csM.csJ += j2;
+                        aoS.csM.size += j;
                     } else {
-                        aoR.csL.csJ++;
+                        aoS.csM.csK++;
                     }
                 } else {
                     return;
                 }
-            } else if (aoR.csM != null) {
-                aoR.csM.num++;
+            } else if (aoS.csN != null) {
+                aoS.csN.num++;
                 if (z2) {
-                    aoR.csM.csI += j3;
-                    aoR.csM.size += j;
+                    aoS.csN.csJ += j3;
+                    aoS.csN.size += j;
                     j2 = j3;
                 } else {
-                    aoR.csM.csJ++;
+                    aoS.csN.csK++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.csD = null;
+            this.csE = null;
             if (z2) {
-                b.a(aoR, 10);
+                b.a(aoS, 10);
             }
-            if (this.csG == "frsStat") {
+            if (this.csH == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.r("act", "frs");
@@ -90,20 +90,20 @@ public class a {
     }
 
     public void destory() {
-        e aoR;
-        if (this.csD != null && (aoR = aoR()) != null && aoR.csN != null) {
-            long hV = this.csD.hV();
+        e aoS;
+        if (this.csE != null && (aoS = aoS()) != null && aoS.csO != null) {
+            long hV = this.csE.hV();
             if (hV > 3000) {
-                d dVar = aoR.csN;
-                dVar.csI = hV + dVar.csI;
-                aoR.csN.num++;
-                b.a(aoR, 10);
+                d dVar = aoS.csO;
+                dVar.csJ = hV + dVar.csJ;
+                aoS.csO.num++;
+                b.a(aoS, 10);
             }
         }
     }
 
-    private e aoR() {
-        return b.h(this.csG, getNetType(), this.Xe);
+    private e aoS() {
+        return b.h(this.csH, getNetType(), this.Xe);
     }
 
     private String getNetType() {

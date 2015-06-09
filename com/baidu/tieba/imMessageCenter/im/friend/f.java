@@ -11,12 +11,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
     private ArrayList<com.baidu.tieba.im.data.a> Sk;
-    private IMBlackListActivity bvh;
+    private IMBlackListActivity bvi;
     private View.OnClickListener mItemClickListener = new g(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.bvh = iMBlackListActivity;
+        this.bvi = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
@@ -65,36 +65,36 @@ public class f extends BaseAdapter {
         return null;
     }
 
-    private h WP() {
+    private h WQ() {
         h hVar = new h(this, null);
-        hVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.bvh.getPageContext().getContext(), com.baidu.tieba.r.im_black_list_item, null);
-        hVar.bvj = (HeadImageView) hVar.rootView.findViewById(com.baidu.tieba.q.header_view);
-        hVar.bvj.setIsRound(true);
-        hVar.aBm = (TextView) hVar.rootView.findViewById(com.baidu.tieba.q.user_name);
-        hVar.bvk = (Button) hVar.rootView.findViewById(com.baidu.tieba.q.remove_button);
+        hVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.bvi.getPageContext().getContext(), com.baidu.tieba.r.im_black_list_item, null);
+        hVar.bvk = (HeadImageView) hVar.rootView.findViewById(com.baidu.tieba.q.header_view);
+        hVar.bvk.setIsRound(true);
+        hVar.aBn = (TextView) hVar.rootView.findViewById(com.baidu.tieba.q.user_name);
+        hVar.bvl = (Button) hVar.rootView.findViewById(com.baidu.tieba.q.remove_button);
         hVar.rootView.setTag(hVar);
-        hVar.bvk.setOnClickListener(this.mItemClickListener);
+        hVar.bvl.setOnClickListener(this.mItemClickListener);
         return hVar;
     }
 
     private h a(Object obj, com.baidu.tieba.im.data.a aVar) {
         h hVar;
         if (obj == null) {
-            hVar = WP();
+            hVar = WQ();
         } else {
             hVar = (h) obj;
         }
-        a(hVar, aVar.Ra());
-        hVar.aBm.setText(aVar.getUserName());
-        hVar.bvk.setTag(aVar);
-        this.bvh.getLayoutMode().j(hVar.rootView);
+        a(hVar, aVar.Rb());
+        hVar.aBn.setText(aVar.getUserName());
+        hVar.bvl.setTag(aVar);
+        this.bvi.getLayoutMode().j(hVar.rootView);
         return hVar;
     }
 
     private void a(h hVar, String str) {
         if (str != null) {
-            hVar.bvj.setTag(str);
-            hVar.bvj.c(str, 12, false);
+            hVar.bvk.setTag(str);
+            hVar.bvk.c(str, 12, false);
         }
     }
 }

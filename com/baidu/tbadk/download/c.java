@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         String name = eVar.getName();
         String url = eVar.getUrl();
         int position = eVar.getPosition();
-        int zh = eVar.zh();
+        int zi = eVar.zi();
         if (bb.isEmpty(key) || bb.isEmpty(name)) {
             return null;
         }
@@ -48,7 +48,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             return downloadData;
         }
         DownloadData downloadData2 = new DownloadData(key, name, url, new a());
-        downloadData2.setNotifyId(zh);
+        downloadData2.setNotifyId(zi);
         downloadData2.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
         downloadData2.setType(12);
         downloadData2.setPath(aJ);
@@ -72,7 +72,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             } else {
                 downloadData.setStatus(1);
                 this.aiT.e(downloadData);
-                g.zi().a(downloadData, 5);
+                g.zj().a(downloadData, 5);
                 NotificationHelper.showProgressNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId(), null, 0, TbadkCoreApplication.m411getInst().getApp().getString(t.download_will_begin), downloadData.getName(), true);
             }
             b.aiR = null;
@@ -80,7 +80,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             if (!list.isEmpty()) {
                 list2 = b.aiS;
                 list2.remove(0);
-                this.aiT.zf();
+                this.aiT.zg();
             }
         }
     }

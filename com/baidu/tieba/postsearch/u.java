@@ -7,13 +7,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends HttpMessageListener {
-    final /* synthetic */ t bYp;
+    final /* synthetic */ t bYq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(t tVar, int i) {
         super(i);
-        this.bYp = tVar;
+        this.bYq = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,26 +29,26 @@ public class u extends HttpMessageListener {
         if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
             int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-            this.bYp.ia(intValue);
-            hZ = this.bYp.hZ(intValue);
+            this.bYq.ia(intValue);
+            hZ = this.bYq.hZ(intValue);
             boolean z = hZ > 1;
             PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
             if (statusCode == 200 && error == 0) {
-                postSearchActivity4 = this.bYp.bXM;
+                postSearchActivity4 = this.bYq.bXN;
                 postSearchActivity4.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                this.bYp.hY(intValue);
-                this.bYp.agh();
-                this.bYp.agk();
+                this.bYq.hY(intValue);
+                this.bYq.agi();
+                this.bYq.agl();
                 return;
             }
             String errorString = postSearchHttpResponseMessage.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                postSearchActivity3 = this.bYp.bXM;
+                postSearchActivity3 = this.bYq.bXN;
                 errorString = postSearchActivity3.getResources().getString(com.baidu.tieba.t.neterror);
             }
-            postSearchActivity = this.bYp.bXM;
+            postSearchActivity = this.bYq.bXN;
             postSearchActivity.showToast(errorString);
-            postSearchActivity2 = this.bYp.bXM;
+            postSearchActivity2 = this.bYq.bXN;
             postSearchActivity2.a(intValue, null, z);
         }
     }

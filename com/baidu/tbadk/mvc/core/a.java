@@ -27,12 +27,12 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
         this.anm = eVar;
     }
 
-    public final e<?, ?, ?> AK() {
+    public final e<?, ?, ?> AL() {
         return this.anm;
     }
 
-    public final ViewEventCenter AL() {
-        return this.anm.AL();
+    public final ViewEventCenter AM() {
+        return this.anm.AM();
     }
 
     @Override // com.baidu.adp.base.f
@@ -48,7 +48,7 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean AM() {
+    public boolean AN() {
         return true;
     }
 
@@ -68,7 +68,7 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c AN() {
+    public com.baidu.tbadk.mvc.c.c AO() {
         if (this.anl == null) {
             this.anl = new com.baidu.tbadk.mvc.c.c(this.unique_id);
         }
@@ -76,17 +76,17 @@ public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.
     }
 
     public boolean dS(int i) {
-        return dispatchMvcEvent(AN().dW(i));
+        return dispatchMvcEvent(AO().dW(i));
     }
 
     public boolean g(int i, boolean z) {
-        return dispatchMvcEvent(AN().i(i, z));
+        return dispatchMvcEvent(AO().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return AL().dispatchMvcEvent(bVar);
+        return AM().dispatchMvcEvent(bVar);
     }
 }

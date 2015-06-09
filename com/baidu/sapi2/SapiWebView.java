@@ -1703,7 +1703,7 @@ public final class SapiWebView extends WebView {
     }
 
     public void loadWeixinSSOLogin() {
-        if (!com.a.a.b.g.c.P(getContext(), this.x.wxAppID).atB()) {
+        if (!com.a.a.b.g.c.P(getContext(), this.x.wxAppID).atC()) {
             if (this.H != null) {
                 this.H.handleNotInstall();
                 return;
@@ -1748,7 +1748,7 @@ public final class SapiWebView extends WebView {
                     if (!TextUtils.isEmpty(optString)) {
                         f fVar = new f();
                         fVar.scope = "snsapi_userinfo";
-                        fVar.cEE = optString;
+                        fVar.cEF = optString;
                         com.a.a.b.g.c.P(SapiWebView.this.getContext(), SapiWebView.this.x.wxAppID).b(fVar);
                         SapiWebView.this.finish();
                     } else {

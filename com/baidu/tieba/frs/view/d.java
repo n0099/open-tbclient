@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a aRp;
+    final /* synthetic */ a aRq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.aRp = aVar;
+        this.aRq = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.aRp.aQV)) {
-            com.baidu.tbadk.browser.f.a(this.aRp.LH.getPageActivity(), this.aRp.LH.getString(com.baidu.tieba.t.frs_badge_intro), this.aRp.aQV, true, false, false);
+        if (!TextUtils.isEmpty(this.aRq.aQW)) {
+            com.baidu.tbadk.browser.f.a(this.aRq.LH.getPageActivity(), this.aRq.LH.getString(com.baidu.tieba.t.frs_badge_intro), this.aRq.aQW, true, false, false);
         }
     }
 }

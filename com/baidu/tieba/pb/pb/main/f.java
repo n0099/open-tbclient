@@ -12,11 +12,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.tbadkCore.writeModel.e {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.e
@@ -44,86 +44,86 @@ class f implements com.baidu.tieba.tbadkCore.writeModel.e {
         bo boVar8;
         WriteImagesInfo writeImagesInfo2;
         WriteData writeData2;
-        this.bKT.stopVoice();
-        chVar = this.bKT.bKz;
+        this.bKU.stopVoice();
+        chVar = this.bKU.bKA;
         chVar.bT(z);
-        chVar2 = this.bKT.bKz;
-        writeImagesInfo = this.bKT.writeImagesInfo;
+        chVar2 = this.bKU.bKA;
+        writeImagesInfo = this.bKU.writeImagesInfo;
         chVar2.a(writeImagesInfo, true);
         String str = "";
         if (postWriteCallBackData != null) {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            chVar3 = this.bKT.bKz;
-            chVar3.abZ();
-            chVar4 = this.bKT.bKz;
-            chVar4.acw();
-            chVar5 = this.bKT.bKz;
-            chVar5.abT();
-            aVar = this.bKT.aJT;
-            WriteData JS = aVar.JS();
-            aVar2 = this.bKT.aJT;
+            chVar3 = this.bKU.bKA;
+            chVar3.aca();
+            chVar4 = this.bKU.bKA;
+            chVar4.acx();
+            chVar5 = this.bKU.bKA;
+            chVar5.abU();
+            aVar = this.bKU.aJU;
+            WriteData JT = aVar.JT();
+            aVar2 = this.bKU.aJU;
             aVar2.c((WriteData) null);
-            aVar3 = this.bKT.aJT;
+            aVar3 = this.bKU.aJU;
             aVar3.fj(false);
-            boVar = this.bKT.bKv;
-            boVar.abC();
-            this.bKT.a(antiData, postWriteCallBackData);
-            boVar2 = this.bKT.bKv;
-            if (!boVar2.abs()) {
-                boVar8 = this.bKT.bKv;
-                com.baidu.tieba.tbadkCore.ao.b(boVar8.abo(), (WriteData) null);
-                writeImagesInfo2 = this.bKT.baobaoImagesInfo;
+            boVar = this.bKU.bKw;
+            boVar.abD();
+            this.bKU.a(antiData, postWriteCallBackData);
+            boVar2 = this.bKU.bKw;
+            if (!boVar2.abt()) {
+                boVar8 = this.bKU.bKw;
+                com.baidu.tieba.tbadkCore.ao.b(boVar8.abp(), (WriteData) null);
+                writeImagesInfo2 = this.bKU.baobaoImagesInfo;
                 writeImagesInfo2.clear();
-                writeData2 = this.bKT.bKr;
+                writeData2 = this.bKU.bKs;
                 writeData2.setIsBaobao(false);
             }
-            if (JS != null) {
-                String floor = JS.getFloor();
-                if (JS == null || JS.getType() != 2) {
-                    boVar3 = this.bKT.bKv;
+            if (JT != null) {
+                String floor = JT.getFloor();
+                if (JT == null || JT.getType() != 2) {
+                    boVar3 = this.bKU.bKw;
                     if (boVar3.getHostMode()) {
-                        boVar5 = this.bKT.bKv;
+                        boVar5 = this.bKU.bKw;
                         com.baidu.tieba.pb.a.b pbData = boVar5.getPbData();
-                        if (pbData != null && pbData.aas() != null && pbData.aas().getAuthor() != null && (userId = pbData.aas().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            boVar6 = this.bKT.bKv;
-                            if (boVar6.abv()) {
-                                chVar7 = this.bKT.bKz;
-                                chVar7.acf();
+                        if (pbData != null && pbData.aat() != null && pbData.aat().getAuthor() != null && (userId = pbData.aat().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            boVar6 = this.bKU.bKw;
+                            if (boVar6.abw()) {
+                                chVar7 = this.bKU.bKA;
+                                chVar7.acg();
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    boVar4 = this.bKT.bKv;
-                    if (boVar4.abv()) {
-                        chVar6 = this.bKT.bKz;
-                        chVar6.acf();
+                    boVar4 = this.bKU.bKw;
+                    if (boVar4.abw()) {
+                        chVar6 = this.bKU.bKA;
+                        chVar6.acg();
                         return;
                     }
                     return;
                 }
                 if (floor != null) {
-                    boVar7 = this.bKT.bKv;
+                    boVar7 = this.bKU.bKw;
                     com.baidu.tieba.pb.a.b pbData2 = boVar7.getPbData();
-                    chVar8 = this.bKT.bKz;
+                    chVar8 = this.bKU.bKA;
                     chVar8.e(pbData2);
                 }
-                com.baidu.tieba.tbadkCore.ao.a(JS.getThreadId(), (com.baidu.tieba.tbadkCore.ap) this.bKT.getPageContext().getOrignalPage());
+                com.baidu.tieba.tbadkCore.ao.a(JT.getThreadId(), (com.baidu.tieba.tbadkCore.ap) this.bKU.getPageContext().getOrignalPage());
             }
         } else if (lVar == null || writeData == null || lVar.getVcode_pic_url() == null) {
-            this.bKT.a(antiData, str);
+            this.bKU.a(antiData, str);
         } else if (AntiHelper.e(antiData)) {
-            this.bKT.a(antiData, str);
+            this.bKU.a(antiData, str);
         } else {
             writeData.setVcodeMD5(lVar.getVcode_md5());
             writeData.setVcodeUrl(lVar.getVcode_pic_url());
             if (lVar.vv().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bKT.getPageContext().getPageActivity(), 12006, writeData, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bKU.getPageContext().getPageActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bKT.getPageContext().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bKU.getPageContext().getPageActivity(), writeData, 12006)));
             }
         }
     }

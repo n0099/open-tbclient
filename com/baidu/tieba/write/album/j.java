@@ -12,17 +12,17 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
     private int BF;
-    private com.baidu.tbadk.img.e cxX;
-    private AlbumActivity cxZ;
-    private Map<Integer, Boolean> cyq = new HashMap();
+    private com.baidu.tbadk.img.e cxY;
+    private AlbumActivity cya;
+    private Map<Integer, Boolean> cyr = new HashMap();
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
-        this.cxZ = albumActivity;
-        this.cxX = eVar;
-        this.BF = com.baidu.adp.lib.util.n.M(this.cxZ.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.n.N(this.cxZ.getPageContext().getContext()) - ((int) this.cxZ.getResources().getDimension(com.baidu.tieba.o.album_bottom_height));
+        this.cya = albumActivity;
+        this.cxY = eVar;
+        this.BF = com.baidu.adp.lib.util.n.M(this.cya.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.n.N(this.cya.getPageContext().getContext()) - ((int) this.cya.getResources().getDimension(com.baidu.tieba.o.album_bottom_height));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -56,30 +56,30 @@ public class j extends PagerAdapter {
     }
 
     public boolean jn(int i) {
-        if (this.cyq.get(Integer.valueOf(i)) == null) {
+        if (this.cyr.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.cyq.get(Integer.valueOf(i)).booleanValue();
+        return this.cyr.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.cxZ.getPageContext().getContext(), com.baidu.tieba.r.album_big_image_item, null);
+        View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.cya.getPageContext().getContext(), com.baidu.tieba.r.album_big_image_item, null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.q.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
         ImageFileInfo jm = jm(i);
-        this.cyq.put(Integer.valueOf(i), false);
+        this.cyr.put(Integer.valueOf(i), false);
         if (jm != null) {
             jm.clearPageActions();
             jm.addPageAction(com.baidu.tbadk.img.effect.d.y(this.BF, this.mMaxHeight));
             tbImageView.setTag(jm.toCachedKey(false));
-            if (this.cxX.a(jm, false) != null) {
+            if (this.cxY.a(jm, false) != null) {
                 tbImageView.invalidate();
-                this.cyq.put(Integer.valueOf(i), true);
+                this.cyr.put(Integer.valueOf(i), true);
             } else {
-                this.cxX.a(jm, new k(this, viewGroup, i), false);
+                this.cxY.a(jm, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

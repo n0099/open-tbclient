@@ -5,34 +5,34 @@ import android.view.WindowManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class o {
-    protected View btC;
+    protected View btD;
     private boolean amH = false;
-    protected WindowManager btD = (WindowManager) TbadkCoreApplication.m411getInst().getSystemService("window");
-    protected WindowManager.LayoutParams btE = Wd();
+    protected WindowManager btE = (WindowManager) TbadkCoreApplication.m411getInst().getSystemService("window");
+    protected WindowManager.LayoutParams btF = We();
 
-    public abstract WindowManager.LayoutParams Wd();
+    public abstract WindowManager.LayoutParams We();
 
     public o(View view) {
-        this.btC = view;
+        this.btD = view;
     }
 
-    public boolean We() {
-        return this.amH && this.btC.getParent() != null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Wf() {
-        if (this.btD != null && this.btE != null && this.btC.getParent() == null) {
-            this.amH = true;
-            this.btD.addView(this.btC, this.btE);
-        }
+    public boolean Wf() {
+        return this.amH && this.btD.getParent() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Wg() {
-        if (this.btD != null && this.btC.getParent() != null) {
+        if (this.btE != null && this.btF != null && this.btD.getParent() == null) {
+            this.amH = true;
+            this.btE.addView(this.btD, this.btF);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Wh() {
+        if (this.btE != null && this.btD.getParent() != null) {
             this.amH = false;
-            this.btD.removeView(this.btC);
+            this.btE.removeView(this.btD);
         }
     }
 }

@@ -5,31 +5,31 @@ import android.widget.EditText;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* loaded from: classes.dex */
 class bq implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
-        int ate;
+        int atf;
         EditText editText;
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
-        editorToolComponetContainer = this.cCP.cqO;
-        if (editorToolComponetContainer.anw()) {
-            editorToolComponetContainer2 = this.cCP.cqO;
+        editorToolComponetContainer = this.cCQ.cqP;
+        if (editorToolComponetContainer.anx()) {
+            editorToolComponetContainer2 = this.cCQ.cqP;
             editorToolComponetContainer2.hideAll();
         }
-        ate = this.cCP.ate();
-        if (ate >= 0) {
-            editText = this.cCP.cAy;
-            if (ate < editText.getText().length()) {
-                editText2 = this.cCP.cAy;
-                editText2.setSelection(ate);
+        atf = this.cCQ.atf();
+        if (atf >= 0) {
+            editText = this.cCQ.cAz;
+            if (atf < editText.getText().length()) {
+                editText2 = this.cCQ.cAz;
+                editText2.setSelection(atf);
             }
         }
     }

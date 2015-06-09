@@ -13,15 +13,15 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int Ax;
+        int Ay;
         TextView textView;
         String[] strArr;
         TextView textView2;
         Runnable runnable;
-        Ax = this.amL.Ax();
+        Ay = this.amL.Ay();
         textView = this.amL.agG;
         strArr = this.amL.XP;
-        textView.setText(strArr[Ax]);
+        textView.setText(strArr[Ay]);
         textView2 = this.amL.agG;
         runnable = this.amL.Iu;
         textView2.postDelayed(runnable, 200L);

@@ -9,7 +9,7 @@ public class i extends u implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Bq() {
+    public String Br() {
         return null;
     }
 

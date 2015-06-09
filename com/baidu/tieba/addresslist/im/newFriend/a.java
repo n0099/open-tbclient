@@ -15,7 +15,7 @@ class a extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof RequestApplyLocalMessage) {
             RequestApplyLocalMessage requestApplyLocalMessage = (RequestApplyLocalMessage) customResponsedMessage;
-            com.baidu.tbadk.newFriends.a.CR().a(requestApplyLocalMessage.getUid(), requestApplyLocalMessage.getFriendId(), requestApplyLocalMessage.getMessage());
+            com.baidu.tbadk.newFriends.a.CS().a(requestApplyLocalMessage.getUid(), requestApplyLocalMessage.getFriendId(), requestApplyLocalMessage.getMessage());
         }
     }
 }

@@ -11,116 +11,116 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.imMessageCenter.im.floatwindow.o {
-    private LinearLayout bul;
-    private ScaleAnimation bum;
+    private LinearLayout bum;
     private ScaleAnimation bun;
-    private boolean buo;
+    private ScaleAnimation buo;
     private boolean bup;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.j buq;
-    private Animation bur;
+    private boolean buq;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.j bur;
     private Animation bus;
-    private Runnable but;
-    private com.baidu.adp.lib.g.e buu;
+    private Animation but;
+    private Runnable buu;
+    private com.baidu.adp.lib.g.e buv;
     private ImageView deleteView;
 
     public f(Context context) {
         super(com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.im_chat_tip_view, null));
-        this.buo = false;
         this.bup = false;
-        this.but = new g(this);
-        this.buu = new h(this);
-        this.deleteView = (ImageView) this.btC.findViewById(com.baidu.tieba.q.im_chat_tip_view_delete);
-        this.bul = (LinearLayout) this.btC.findViewById(com.baidu.tieba.q.im_chat_tip_holder);
-        this.buq = new com.baidu.tieba.imMessageCenter.im.floatwindow.j();
+        this.buq = false;
+        this.buu = new g(this);
+        this.buv = new h(this);
+        this.deleteView = (ImageView) this.btD.findViewById(com.baidu.tieba.q.im_chat_tip_view_delete);
+        this.bum = (LinearLayout) this.btD.findViewById(com.baidu.tieba.q.im_chat_tip_holder);
+        this.bur = new com.baidu.tieba.imMessageCenter.im.floatwindow.j();
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.j Wt() {
-        if (this.buq.isEmpty()) {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.j Wu() {
+        if (this.bur.isEmpty()) {
             int[] iArr = new int[2];
             this.deleteView.getLocationOnScreen(iArr);
             if (iArr[0] != 0 && iArr[1] != 0) {
                 int measuredHeight = (this.deleteView.getMeasuredHeight() / 2) + 15;
-                this.buq.u(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+                this.bur.u(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
             }
         }
-        return this.buq;
+        return this.bur;
     }
 
     public void b(Handler handler) {
-        if (!We()) {
-            Wf();
+        if (!Wf()) {
+            Wg();
             if (handler != null) {
-                handler.removeCallbacks(this.but);
-                handler.post(this.but);
+                handler.removeCallbacks(this.buu);
+                handler.post(this.buu);
             }
         }
     }
 
     public void c(Handler handler) {
-        handler.removeCallbacks(this.but);
+        handler.removeCallbacks(this.buu);
         this.deleteView.clearAnimation();
+        this.buq = false;
         this.bup = false;
-        this.buo = false;
-        if (this.bul.getWindowToken() != null) {
-            this.bul.clearAnimation();
-            this.bul.startAnimation(Wy());
+        if (this.bum.getWindowToken() != null) {
+            this.bum.clearAnimation();
+            this.bum.startAnimation(Wz());
             return;
         }
-        Wg();
-    }
-
-    public void Wu() {
-        if (!this.bup && !this.buo) {
-            this.buo = true;
-            this.deleteView.startAnimation(Ww());
-        }
+        Wh();
     }
 
     public void Wv() {
-        if (!this.bup && this.buo) {
-            this.buo = false;
+        if (!this.buq && !this.bup) {
+            this.bup = true;
             this.deleteView.startAnimation(Wx());
         }
     }
 
-    private ScaleAnimation Ww() {
-        if (this.bum == null) {
-            this.bum = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
-            this.bum.setDuration(150L);
-            this.bum.setFillAfter(true);
-            this.bum.setAnimationListener(this.buu);
+    public void Ww() {
+        if (!this.buq && this.bup) {
+            this.bup = false;
+            this.deleteView.startAnimation(Wy());
         }
-        return this.bum;
     }
 
     private ScaleAnimation Wx() {
         if (this.bun == null) {
-            this.bun = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
+            this.bun = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
             this.bun.setDuration(150L);
             this.bun.setFillAfter(true);
-            this.bun.setAnimationListener(this.buu);
+            this.bun.setAnimationListener(this.buv);
         }
         return this.bun;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Animation Ws() {
-        if (this.bur == null) {
-            this.bur = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), com.baidu.tieba.k.float_window_tip_in_anim);
+    private ScaleAnimation Wy() {
+        if (this.buo == null) {
+            this.buo = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
+            this.buo.setDuration(150L);
+            this.buo.setFillAfter(true);
+            this.buo.setAnimationListener(this.buv);
         }
-        return this.bur;
+        return this.buo;
     }
 
-    private Animation Wy() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public Animation Wt() {
         if (this.bus == null) {
-            this.bus = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), com.baidu.tieba.k.float_window_tip_out_anim);
-            this.bus.setAnimationListener(this.buu);
+            this.bus = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), com.baidu.tieba.k.float_window_tip_in_anim);
         }
         return this.bus;
     }
 
+    private Animation Wz() {
+        if (this.but == null) {
+            this.but = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), com.baidu.tieba.k.float_window_tip_out_anim);
+            this.but.setAnimationListener(this.buv);
+        }
+        return this.but;
+    }
+
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.o
-    public WindowManager.LayoutParams Wd() {
+    public WindowManager.LayoutParams We() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -1;

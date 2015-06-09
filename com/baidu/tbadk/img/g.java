@@ -28,7 +28,7 @@ public class g extends BdAsyncTask<Void, f, f> {
                 this.amw.add(poll);
                 break;
             } else {
-                com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Al().eL(poll.amq.toCachedKey(poll.ams));
+                com.baidu.adp.widget.a.a eL = com.baidu.tbadk.imageManager.e.Am().eL(poll.amq.toCachedKey(poll.ams));
                 if (eL != null) {
                     poll.amt = eL;
                     poll.amu = true;
@@ -51,7 +51,7 @@ public class g extends BdAsyncTask<Void, f, f> {
     public void onPostExecute(f fVar) {
         super.onPostExecute(fVar);
         this.amv.amp = null;
-        this.amv.Ar();
+        this.amv.As();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class g extends BdAsyncTask<Void, f, f> {
             for (f fVar : fVarArr) {
                 com.baidu.adp.widget.a.a aVar = fVar.amt;
                 if (aVar != null && !fVar.amu) {
-                    com.baidu.tbadk.imageManager.e.Al().c(fVar.amq.toCachedKey(fVar.ams), aVar);
+                    com.baidu.tbadk.imageManager.e.Am().c(fVar.amq.toCachedKey(fVar.ams), aVar);
                 }
                 if (fVar.amr != null) {
                     fVar.amr.a(aVar, fVar.amq.toCachedKey(fVar.ams), fVar.amu);

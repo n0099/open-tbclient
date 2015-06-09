@@ -17,7 +17,7 @@ public class bk extends bn<com.baidu.tieba.tbadkCore.data.i, PbRecBaseViewHolder
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: p */
     public PbRecBaseViewHolder a(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.ahh().k(this.mContext, 1);
+        return com.baidu.tieba.recapp.a.ahi().k(this.mContext, 1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ public class bk extends bn<com.baidu.tieba.tbadkCore.data.i, PbRecBaseViewHolder
         super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.tbadkCore.data.i) pbRecBaseViewHolder);
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
         com.baidu.tieba.tbadkCore.data.i iVar2 = (com.baidu.tieba.tbadkCore.data.i) ay(i);
-        this.bKZ.getLayoutMode().ab(this.mSkinType == 1);
-        this.bKZ.getLayoutMode().j(view);
+        this.bLa.getLayoutMode().ab(this.mSkinType == 1);
+        this.bLa.getLayoutMode().j(view);
         pbRecBaseViewHolder.update(iVar2, i, this.mIsFromCDN);
         return view;
     }

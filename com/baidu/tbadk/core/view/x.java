@@ -151,32 +151,32 @@ public class x extends LinearLayout {
             this.Zy = aaVar.Zy;
             switch (uu()[aaVar.ZE.ordinal()]) {
                 case 2:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion03.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion03_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion03.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion03_1.png");
                     break;
                 case 3:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion05.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion05_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion05.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion05_1.png");
                     break;
                 case 4:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion01.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion01_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion01.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion01_1.png");
                     break;
                 case 5:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion02.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion02_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion02.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion02_1.png");
                     break;
                 case 6:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion06.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion06_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion06.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion06_1.png");
                     break;
                 case 7:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion07.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion07_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion07.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion07_1.png");
                     break;
                 case 8:
-                    this.Zu = com.baidu.tbadk.util.b.DS().fd("pic_emotion08.png");
-                    this.Zv = com.baidu.tbadk.util.b.DS().fd("pic_emotion08_1.png");
+                    this.Zu = com.baidu.tbadk.util.b.DT().fd("pic_emotion08.png");
+                    this.Zv = com.baidu.tbadk.util.b.DT().fd("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Zn.getLayoutParams();

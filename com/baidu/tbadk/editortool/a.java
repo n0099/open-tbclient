@@ -5,11 +5,11 @@ public abstract class a implements Comparable<a> {
 
     public abstract int getIndex();
 
-    protected abstract void zm();
+    protected abstract void zn();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        zm();
+        zn();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

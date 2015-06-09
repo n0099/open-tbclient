@@ -12,15 +12,15 @@ import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c> {
     private View So;
-    private ImageView aEk;
-    private ImageView aEp;
-    private TextView aGA;
+    private ImageView aEl;
+    private ImageView aEq;
+    private TextView aGB;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aGA = (TextView) view.findViewById(q.textview);
-        this.aEk = (ImageView) view.findViewById(q.red_tip);
-        this.aEp = (ImageView) view.findViewById(q.red_new_tip);
+        this.aGB = (TextView) view.findViewById(q.textview);
+        this.aEl = (ImageView) view.findViewById(q.red_tip);
+        this.aEq = (ImageView) view.findViewById(q.red_new_tip);
         this.So = view.findViewById(q.divider);
     }
 
@@ -36,34 +36,34 @@ public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.tbadkCore.f.a, co
     public void z(com.baidu.tieba.tbadkCore.f.a aVar) {
         super.z(aVar);
         if (aVar != null) {
-            if (this.aGA != null) {
+            if (this.aGB != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.apa());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.apb());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.aGA.setText(str);
-                this.aGA.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(aVar.apb()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aGB.setText(str);
+                this.aGB.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(aVar.apc()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.apc()) {
+            switch (aVar.apd()) {
                 case 1:
-                    this.aEk.setImageDrawable(null);
-                    this.aEk.setVisibility(8);
-                    ay.c(this.aEp, com.baidu.tieba.p.icon_news_head_new);
-                    this.aEp.setVisibility(0);
+                    this.aEl.setImageDrawable(null);
+                    this.aEl.setVisibility(8);
+                    ay.c(this.aEq, com.baidu.tieba.p.icon_news_head_new);
+                    this.aEq.setVisibility(0);
                     break;
                 case 2:
-                    ay.c(this.aEk, com.baidu.tieba.p.icon_news_down_bar_one);
-                    this.aEk.setVisibility(0);
-                    this.aEp.setImageDrawable(null);
-                    this.aEp.setVisibility(8);
+                    ay.c(this.aEl, com.baidu.tieba.p.icon_news_down_bar_one);
+                    this.aEl.setVisibility(0);
+                    this.aEq.setImageDrawable(null);
+                    this.aEq.setVisibility(8);
                     break;
                 default:
-                    this.aEk.setImageDrawable(null);
-                    this.aEk.setVisibility(8);
-                    this.aEp.setImageDrawable(null);
-                    this.aEp.setVisibility(8);
+                    this.aEl.setImageDrawable(null);
+                    this.aEl.setVisibility(8);
+                    this.aEq.setImageDrawable(null);
+                    this.aEq.setVisibility(8);
                     break;
             }
             if (aVar.getType() == 4) {

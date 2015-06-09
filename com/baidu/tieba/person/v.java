@@ -26,33 +26,33 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class v extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private ai bRB;
-    private String bRS;
-    private TextView bRU;
+    private ai bRC;
+    private String bRT;
+    private TextView bRV;
     public BdListView mListView = null;
-    public com.baidu.tieba.person.post.z bRL = null;
-    private ag bRM = null;
-    private int bGS = -1;
-    private String bRN = null;
-    private View bRO = null;
+    public com.baidu.tieba.person.post.z bRM = null;
+    private ag bRN = null;
+    private int bGT = -1;
+    private String bRO = null;
+    private View bRP = null;
     private com.baidu.tbadk.core.view.x mNoDataView = null;
     private com.baidu.tbadk.core.view.al mPullView = null;
-    private TextView awb = null;
-    public int bRP = 0;
+    private TextView awc = null;
+    public int bRQ = 0;
     public int pageSize = 50;
     public boolean hasMore = false;
-    private ForumData bRQ = null;
-    private boolean bRR = false;
-    private View bRT = null;
-    private int bRV = 0;
+    private ForumData bRR = null;
+    private boolean bRS = false;
+    private View bRU = null;
+    private int bRW = 0;
     private boolean mIsHost = true;
-    private boolean bQO = false;
-    private boolean bRW = false;
+    private boolean bQP = false;
+    private boolean bRX = false;
     private ArrayList<ForumData> rQ = new ArrayList<>();
-    private final com.baidu.adp.framework.listener.e bRX = new w(this, 107129);
-    private final CustomMessageListener bRY = new y(this, 2001187);
-    private HttpMessageListener bRZ = new z(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-    private HttpMessageListener bSa = new aa(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
+    private final com.baidu.adp.framework.listener.e bRY = new w(this, 107129);
+    private final CustomMessageListener bRZ = new y(this, 2001187);
+    private HttpMessageListener bSa = new z(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
+    private HttpMessageListener bSb = new aa(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
 
     static {
         com.baidu.tieba.tbadkCore.a.a.b(2001187, ci.class);
@@ -63,7 +63,7 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity ael() {
+    public PersonBarActivity aem() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonBarActivity) {
             return (PersonBarActivity) baseFragmentActivity;
@@ -80,11 +80,11 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
+        registerListener(this.bSb);
         registerListener(this.bSa);
         registerListener(this.bRZ);
         registerListener(this.bRY);
-        registerListener(this.bRX);
-        this.bRX.setSelfListener(true);
+        this.bRY.setSelfListener(true);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -105,13 +105,13 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.bRM != null) {
-            this.bRM = null;
+        if (this.bRN != null) {
+            this.bRN = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.bRZ);
         MessageManager.getInstance().unRegisterListener(this.bSa);
+        MessageManager.getInstance().unRegisterListener(this.bSb);
+        MessageManager.getInstance().unRegisterListener(this.bRZ);
         MessageManager.getInstance().unRegisterListener(this.bRY);
-        MessageManager.getInstance().unRegisterListener(this.bRX);
         super.onDestroyView();
     }
 
@@ -119,34 +119,34 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         int dimension;
         String string;
-        this.bRV = getArguments().getInt("page_type", 0);
+        this.bRW = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(com.baidu.tieba.r.friend_fragment, viewGroup, false);
-        this.bRT = com.baidu.adp.lib.g.b.hr().inflate(getActivity().getBaseContext(), com.baidu.tieba.r.friend_fragment_header, null);
-        this.bRU = (TextView) this.bRT.findViewById(com.baidu.tieba.q.header_text_describe);
-        if (ael() == null) {
+        this.bRU = com.baidu.adp.lib.g.b.hr().inflate(getActivity().getBaseContext(), com.baidu.tieba.r.friend_fragment_header, null);
+        this.bRV = (TextView) this.bRU.findViewById(com.baidu.tieba.q.header_text_describe);
+        if (aem() == null) {
             return inflate;
         }
-        this.bRS = getString(com.baidu.tieba.t.person_bar_no_more);
-        this.bRB = ael().aec();
-        this.mIsHost = ael().Ur();
-        this.bQO = ael().adS();
-        this.bRO = inflate.findViewById(com.baidu.tieba.q.friend_fragment_parent);
-        if (this.mIsHost && !this.bQO) {
-            this.awb = ael().getNavigationBar().addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.t.edit));
-            this.awb.setOnClickListener(new ab(this));
-            this.awb.setVisibility(0);
+        this.bRT = getString(com.baidu.tieba.t.person_bar_no_more);
+        this.bRC = aem().aed();
+        this.mIsHost = aem().Us();
+        this.bQP = aem().adT();
+        this.bRP = inflate.findViewById(com.baidu.tieba.q.friend_fragment_parent);
+        if (this.mIsHost && !this.bQP) {
+            this.awc = aem().getNavigationBar().addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.t.edit));
+            this.awc.setOnClickListener(new ab(this));
+            this.awc.setVisibility(0);
         }
-        this.bRM = new ag(ael(), this.bRB.aeo(), this.mIsHost, this.bQO);
-        this.bRM.iC(ael().adU());
-        this.bRM.r(new ac(this));
-        this.bRM.x(new ad(this));
+        this.bRN = new ag(aem(), this.bRC.aep(), this.mIsHost, this.bQP);
+        this.bRN.iC(aem().adV());
+        this.bRN.r(new ac(this));
+        this.bRN.x(new ad(this));
         this.mListView = (BdListView) inflate.findViewById(com.baidu.tieba.q.my_friend_list);
-        this.mListView.setAdapter((ListAdapter) this.bRM);
+        this.mListView.setAdapter((ListAdapter) this.bRN);
         this.mListView.setOnItemClickListener(new ae(this));
-        this.mPullView = new com.baidu.tbadk.core.view.al(ael().getPageContext());
+        this.mPullView = new com.baidu.tbadk.core.view.al(aem().getPageContext());
         this.mPullView.a(new af(this));
-        this.bRL = new com.baidu.tieba.person.post.z(getBaseFragmentActivity());
-        this.mListView.setNextPage(this.bRL);
+        this.bRM = new com.baidu.tieba.person.post.z(getBaseFragmentActivity());
+        this.mListView.setNextPage(this.bRM);
         this.mListView.setOnSrollToBottomListener(new x(this));
         this.mListView.setPullRefresh(this.mPullView);
         if (this.mIsHost) {
@@ -154,36 +154,36 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
             string = String.format(getString(com.baidu.tieba.t.person_bar_no_personal_info), getString(com.baidu.tieba.t.you));
         } else {
             dimension = (int) getResources().getDimension(com.baidu.tieba.o.ds80);
-            if (this.bRV == 0) {
-                string = String.format(getString(com.baidu.tieba.t.person_bar_no_personal_info), ael().Uq());
+            if (this.bRW == 0) {
+                string = String.format(getString(com.baidu.tieba.t.person_bar_no_personal_info), aem().Ur());
             } else {
                 string = getString(com.baidu.tieba.t.person_bar_no_common_info);
             }
         }
-        if (this.bQO) {
+        if (this.bQP) {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.ab.ah(string, getString(com.baidu.tieba.t.share_choose_bar_nothing_tip)), null);
         } else {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.ab.dq(string), null);
         }
-        if (this.mIsHost && ael() != null && ael().getRequestCode() != 23011) {
-            Hh();
+        if (this.mIsHost && aem() != null && aem().getRequestCode() != 23011) {
+            Hi();
         }
-        if (this.bRV == ael().Up()) {
+        if (this.bRW == aem().Uq()) {
             this.mListView.no();
         }
         return inflate;
     }
 
     public void eo(boolean z) {
-        if (this.bRM != null) {
-            this.bRM.ZG();
-            if (this.bRM.aen()) {
+        if (this.bRN != null) {
+            this.bRN.ZH();
+            if (this.bRN.aeo()) {
                 if (z) {
-                    this.bRM.setEditState(false);
+                    this.bRN.setEditState(false);
                     this.mNoDataView.setVisibility(0);
                     this.mListView.setVisibility(0);
-                    if (this.awb != null) {
-                        this.awb.setVisibility(8);
+                    if (this.awc != null) {
+                        this.awc.setVisibility(8);
                         return;
                     }
                     return;
@@ -192,35 +192,35 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
             }
             this.mNoDataView.setVisibility(8);
             this.mListView.setVisibility(0);
-            if (this.awb != null) {
-                this.awb.setVisibility(0);
+            if (this.awc != null) {
+                this.awc.setVisibility(0);
             }
-            if (ael() != null && ael().getRequestCode() == 23011 && this.awb != null) {
-                this.awb.setVisibility(8);
+            if (aem() != null && aem().getRequestCode() == 23011 && this.awc != null) {
+                this.awc.setVisibility(8);
             }
         }
     }
 
-    public ag aem() {
-        return this.bRM;
+    public ag aen() {
+        return this.bRN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WS() {
-        if (this.bRB != null) {
-            this.bRB.a(this.mIsHost, this.bRB.getId(), this.bRP, this.pageSize);
+    public void WT() {
+        if (this.bRC != null) {
+            this.bRC.a(this.mIsHost, this.bRC.getId(), this.bRQ, this.pageSize);
         }
     }
 
     public void hO(int i) {
-        if (this.bRB != null) {
-            this.bRB.a(this.mIsHost, this.bRB.getId(), i, this.pageSize);
+        if (this.bRC != null) {
+            this.bRC.a(this.mIsHost, this.bRC.getId(), i, this.pageSize);
         }
     }
 
-    public void Hh() {
-        if (this.bRB != null) {
-            this.bRB.Hh();
+    public void Hi() {
+        if (this.bRC != null) {
+            this.bRC.Hi();
         }
     }
 
@@ -230,43 +230,43 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
             if (!z) {
                 this.mListView.completePullRefresh();
             }
-            int adT = ael().adT();
+            int adU = aem().adU();
             int i = 0;
-            if (this.bRB != null && this.bRM != null) {
-                if (this.bRV == ael().Up()) {
+            if (this.bRC != null && this.bRN != null) {
+                if (this.bRW == aem().Uq()) {
                     if (z) {
-                        this.bRP = 1;
-                        this.bRB.aeo().b(uVar.aef(), uVar.aeg());
-                        this.bRB.aeo().e(uVar.aeh(), uVar.aei());
-                        this.bRB.aeo().hK(uVar.aed());
-                        this.bRB.aeo().hM(uVar.aee());
-                    } else if (this.bRP == 1) {
-                        this.bRB.aeo().b(uVar.aef(), uVar.aeg());
-                        this.bRB.aeo().e(uVar.aeh(), uVar.aei());
-                        this.bRB.aeo().hK(uVar.aed());
-                        this.bRB.aeo().hM(uVar.aee());
-                        this.bRP++;
+                        this.bRQ = 1;
+                        this.bRC.aep().b(uVar.aeg(), uVar.aeh());
+                        this.bRC.aep().e(uVar.aei(), uVar.aej());
+                        this.bRC.aep().hK(uVar.aee());
+                        this.bRC.aep().hM(uVar.aef());
+                    } else if (this.bRQ == 1) {
+                        this.bRC.aep().b(uVar.aeg(), uVar.aeh());
+                        this.bRC.aep().e(uVar.aei(), uVar.aej());
+                        this.bRC.aep().hK(uVar.aee());
+                        this.bRC.aep().hM(uVar.aef());
+                        this.bRQ++;
                     } else {
-                        this.bRB.aeo().c(uVar.aef(), uVar.aeg());
-                        this.bRB.aeo().d(uVar.aeh(), uVar.aei());
-                        this.bRB.aeo().hL(uVar.aed());
-                        this.bRB.aeo().hN(uVar.aee());
-                        this.bRP++;
+                        this.bRC.aep().c(uVar.aeg(), uVar.aeh());
+                        this.bRC.aep().d(uVar.aei(), uVar.aej());
+                        this.bRC.aep().hL(uVar.aee());
+                        this.bRC.aep().hN(uVar.aef());
+                        this.bRQ++;
                     }
                 }
-                if (this.bRV == 0) {
-                    this.bRM.L(this.bRB.aeo().aej());
+                if (this.bRW == 0) {
+                    this.bRN.L(this.bRC.aep().aek());
                 } else {
-                    this.bRM.L(this.bRB.aeo().aek());
+                    this.bRN.L(this.bRC.aep().ael());
                 }
-                if (uVar.aek() != null) {
-                    i = this.bRB.aeo().aek().size();
+                if (uVar.ael() != null) {
+                    i = this.bRC.aep().ael().size();
                 }
-                if (ael() != null) {
-                    ael().T(adT, i);
+                if (aem() != null) {
+                    aem().T(adU, i);
                 }
                 eo(true);
-                this.bRM.notifyDataSetChanged();
+                this.bRN.notifyDataSetChanged();
             }
         }
     }
@@ -275,21 +275,21 @@ public class v extends BaseFragment implements View.OnClickListener, AdapterView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.bRO != null && getBaseFragmentActivity() != null) {
+            if (this.bRP != null && getBaseFragmentActivity() != null) {
                 getBaseFragmentActivity().getPageContext().getLayoutMode().ab(i == 1);
-                getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.bRO);
+                getBaseFragmentActivity().getPageContext().getLayoutMode().j(this.bRP);
             }
             if (this.mNoDataView != null) {
                 com.baidu.tbadk.core.util.ay.i(this.mNoDataView, com.baidu.tieba.n.cp_bg_line_d);
             }
-            if (ael() != null) {
-                ael().getNavigationBar().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
+            if (aem() != null) {
+                aem().getNavigationBar().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
             if (this.mPullView != null) {
                 this.mPullView.cy(i);
             }
-            if (this.bRM != null) {
-                this.bRM.notifyDataSetChanged();
+            if (this.bRN != null) {
+                this.bRN.notifyDataSetChanged();
             }
         }
     }

@@ -5,28 +5,28 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnTouchListener {
-    final /* synthetic */ l btB;
+    final /* synthetic */ l btC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.btB = lVar;
+        this.btC = lVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z;
-        z = this.btB.btA;
+        z = this.btC.btB;
         if (z) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.btB.X((int) motionEvent.getX(), (int) motionEvent.getY());
+                    this.btC.X((int) motionEvent.getX(), (int) motionEvent.getY());
                     break;
                 case 1:
-                    this.btB.VZ();
+                    this.btC.Wa();
                     break;
                 case 2:
                     if (motionEvent.findPointerIndex(0) != -1) {
-                        this.btB.W((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
+                        this.btC.W((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
                         break;
                     }
                     break;

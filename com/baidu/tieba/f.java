@@ -11,6 +11,6 @@ public class f implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.avg.EN();
+        this.avg.EO();
     }
 }

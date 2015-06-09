@@ -4,12 +4,12 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* loaded from: classes.dex */
 public class bu {
-    public LinearLayout aKI;
-    public LiveBroadcastCard aKJ;
-    final /* synthetic */ bq aOw;
+    public LinearLayout aKJ;
+    public LiveBroadcastCard aKK;
+    final /* synthetic */ bq aOx;
     private int ajy = -1;
 
     public bu(bq bqVar) {
-        this.aOw = bqVar;
+        this.aOx = bqVar;
     }
 }

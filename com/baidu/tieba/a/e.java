@@ -14,24 +14,24 @@ import com.baidu.tieba.t;
 public class e extends BdAsyncTask<String, Integer, AccountData> {
     private final String Pc;
     private volatile aa aaG = null;
-    private final String bGJ;
-    private final com.baidu.tbadk.core.a.b bGK;
-    private final boolean bGL;
+    private final String bGK;
+    private final com.baidu.tbadk.core.a.b bGL;
+    private final boolean bGM;
     private final String mName;
 
     public e(String str, String str2, String str3, com.baidu.tbadk.core.a.b bVar, boolean z) {
         this.mName = str;
-        this.bGJ = str2;
+        this.bGK = str2;
         this.Pc = str3;
-        this.bGL = z;
-        this.bGK = bVar == null ? new f(this) : bVar;
+        this.bGM = z;
+        this.bGL = bVar == null ? new f(this) : bVar;
         setPriority(3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.bGK.cb(this.mName);
+        this.bGL.cb(this.mName);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class e extends BdAsyncTask<String, Integer, AccountData> {
         com.baidu.tbadk.core.a.c a;
         this.aaG = new aa(TbConfig.LOGIN_FULL_ADDRESS);
         this.aaG.sX().tS().mIsUseCurrentBDUSS = false;
-        this.aaG.o("bdusstoken", String.valueOf(this.bGJ) + "|" + this.Pc);
+        this.aaG.o("bdusstoken", String.valueOf(this.bGK) + "|" + this.Pc);
         this.aaG.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
         this.aaG.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
         this.aaG.sX().tS().WD = false;
@@ -55,7 +55,7 @@ public class e extends BdAsyncTask<String, Integer, AccountData> {
             accountData.setPassword("");
             accountData.setID(nVar.getUser().getUserId());
             String bduss = nVar.getUser().getBDUSS();
-            if (this.bGL && (a = k.a(p.Fc().ca(bduss))) != null) {
+            if (this.bGM && (a = k.a(p.Fd().ca(bduss))) != null) {
                 bduss = String.valueOf(a.wk) + "|" + a.Pc;
             }
             accountData.setBDUSS(bduss);
@@ -80,7 +80,7 @@ public class e extends BdAsyncTask<String, Integer, AccountData> {
         super.onPostExecute(accountData);
         ReloginManager.sg().am(false);
         if (accountData != null && accountData.getBDUSS() != null) {
-            this.bGK.a(accountData);
+            this.bGL.a(accountData);
             return;
         }
         if (this.aaG == null) {
@@ -93,7 +93,7 @@ public class e extends BdAsyncTask<String, Integer, AccountData> {
         if (str == null) {
             str = TbadkCoreApplication.m411getInst().getApp().getResources().getString(t.data_load_error);
         }
-        this.bGK.c(this.mName, i, str);
+        this.bGL.c(this.mName, i, str);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

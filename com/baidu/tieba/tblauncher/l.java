@@ -20,7 +20,7 @@ class l implements Runnable {
         if (TbadkCoreApplication.m411getInst().isAppUploadOpen()) {
             MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
             handler = this.this$0.mHandler;
-            runnable = this.this$0.cvV;
+            runnable = this.this$0.cvW;
             handler.postDelayed(runnable, 18000000L);
         }
     }

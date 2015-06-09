@@ -12,7 +12,7 @@ public class af {
     private static Handler mHandler = new ag();
     private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
-    public static af xU() {
+    public static af xV() {
         if (agk == null) {
             agk = new af();
         }

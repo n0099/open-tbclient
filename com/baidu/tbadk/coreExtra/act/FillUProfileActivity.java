@@ -78,8 +78,8 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             this.abq = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
             this.abq.a(new h(this));
         }
-        this.abq.xS();
+        this.abq.xT();
         this.abq.k(accountData);
-        this.abq.xO();
+        this.abq.xP();
     }
 }

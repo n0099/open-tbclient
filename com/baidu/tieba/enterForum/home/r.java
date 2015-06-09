@@ -14,14 +14,14 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.ae;
 /* loaded from: classes.dex */
 class r extends BdAsyncTask<ae, Integer, String> {
-    final /* synthetic */ a aFd;
-    private ae aFh;
+    final /* synthetic */ a aFe;
+    private ae aFi;
     private aa aaG = null;
 
     public r(a aVar, ae aeVar) {
-        this.aFd = aVar;
-        this.aFh = null;
-        this.aFh = aeVar;
+        this.aFe = aVar;
+        this.aFi = null;
+        this.aFi = aeVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ class r extends BdAsyncTask<ae, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(ae... aeVarArr) {
-        ae aeVar = this.aFh;
+        ae aeVar = this.aFi;
         if (aeVar != null) {
             try {
                 if (aeVar.getId() != null && aeVar.getName() != null) {
@@ -58,23 +58,23 @@ class r extends BdAsyncTask<ae, Integer, String> {
         BaseFragmentActivity baseFragmentActivity3;
         com.baidu.tieba.enterForum.d.e eVar;
         super.onPostExecute((r) str);
-        this.aFd.bH(false);
+        this.aFe.bH(false);
         if (this.aaG != null) {
             if (this.aaG.sX().tT().qa()) {
-                this.aFd.aER = true;
-                baseFragmentActivity3 = this.aFd.azk;
-                baseFragmentActivity3.showToast(this.aFd.getString(t.delete_like_success));
+                this.aFe.aES = true;
+                baseFragmentActivity3 = this.aFe.azl;
+                baseFragmentActivity3.showToast(this.aFe.getString(t.delete_like_success));
                 TbadkCoreApplication.m411getInst().setLikeBarChanged(true);
-                this.aFd.f(false, this.aFh.getId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aFh.getId()));
-                eVar = this.aFd.aEL;
-                eVar.b(this.aFh);
+                this.aFe.f(false, this.aFi.getId());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aFi.getId()));
+                eVar = this.aFe.aEM;
+                eVar.b(this.aFi);
             } else if (!StringUtils.isNull(this.aaG.getErrorString())) {
-                baseFragmentActivity2 = this.aFd.azk;
+                baseFragmentActivity2 = this.aFe.azl;
                 baseFragmentActivity2.showToast(this.aaG.getErrorString());
             } else {
-                baseFragmentActivity = this.aFd.azk;
-                baseFragmentActivity.showToast(this.aFd.getString(t.delete_like_fail));
+                baseFragmentActivity = this.aFe.azl;
+                baseFragmentActivity.showToast(this.aFe.getString(t.delete_like_fail));
             }
         }
     }
@@ -82,7 +82,7 @@ class r extends BdAsyncTask<ae, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.aFd.bH(true);
+        this.aFe.bH(true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

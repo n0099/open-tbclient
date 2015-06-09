@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.network.http.g;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.util.BdLog;
+import java.util.LinkedList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
     private static final Handler mHandler = new b();
@@ -71,7 +73,7 @@ public class a {
             return null;
         }
         try {
-            g a = new com.baidu.adp.lib.network.a.a().a(String.valueOf(this.wo) + "?t=" + System.currentTimeMillis(), 3, -1, 30000, null);
+            g a = new com.baidu.adp.lib.network.a.a().a(String.valueOf(this.wo) + "?t=" + System.currentTimeMillis(), 3, -1, 30000, -1, (LinkedList<BasicNameValuePair>) null);
             if (a != null) {
                 return new String(a.vk, "utf-8");
             }

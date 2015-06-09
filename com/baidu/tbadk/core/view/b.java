@@ -18,7 +18,7 @@ public class b {
         this.LH = null;
         this.mActivity = null;
         this.LH = tbPageContext;
-        if (this.LH != null || this.LH.getPageActivity() != null) {
+        if (this.LH != null && this.LH.getPageActivity() != null) {
             this.mActivity = this.LH.getPageActivity();
         }
     }

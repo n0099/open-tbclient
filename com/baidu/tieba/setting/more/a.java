@@ -21,10 +21,10 @@ class a implements q {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.sl().putBoolean(as.cgM, true);
+                com.baidu.tbadk.core.sharedPref.b.sl().putBoolean(as.cgN, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(com.baidu.tieba.t.setting_funtion_intro);
-                str = this.this$0.cex;
+                str = this.this$0.cey;
                 com.baidu.tbadk.browser.f.a(pageActivity, string, str, true, false, false);
             } else if (i == 4) {
                 this.this$0.sendMessage(new CustomMessage(2902050, new com.baidu.tbadk.core.frameworkData.c(this.this$0.getPageContext().getPageActivity())));

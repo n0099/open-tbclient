@@ -3,27 +3,27 @@ package com.baidu.tieba.write.editor;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b {
-    private EditorInfoContainer czA;
+    private EditorInfoContainer czB;
 
     public b(EditorInfoContainer editorInfoContainer) {
-        this.czA = editorInfoContainer;
+        this.czB = editorInfoContainer;
     }
 
     public void rU() {
-        if (this.czA != null) {
-            this.czA.rU();
+        if (this.czB != null) {
+            this.czB.rU();
         }
     }
 
     public void A(View.OnClickListener onClickListener) {
-        if (this.czA != null && this.czA.czu != null) {
-            this.czA.czu.setOnClickListener(onClickListener);
+        if (this.czB != null && this.czB.czv != null) {
+            this.czB.czv.setOnClickListener(onClickListener);
         }
     }
 
     public void D(int i, String str) {
-        if (this.czA != null && this.czA.czu != null) {
-            this.czA.czu.C(i, str);
+        if (this.czB != null && this.czB.czv != null) {
+            this.czB.czv.C(i, str);
         }
     }
 
@@ -32,15 +32,15 @@ public class b {
     }
 
     public int getLocationInfoViewState() {
-        if (this.czA == null || this.czA.czu == null) {
+        if (this.czB == null || this.czB.czv == null) {
             return 0;
         }
-        return this.czA.czu.getState();
+        return this.czB.czv.getState();
     }
 
     public void destroy() {
-        if (this.czA != null) {
-            this.czA.setVisibility(8);
+        if (this.czB != null) {
+            this.czB.setVisibility(8);
         }
     }
 }

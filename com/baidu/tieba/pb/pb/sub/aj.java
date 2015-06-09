@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ay;
 public class aj extends com.baidu.adp.widget.ListView.e {
     private Context mContext;
     private TextView mTextView = null;
-    private TextView bQl = null;
+    private TextView bQm = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
@@ -23,7 +23,7 @@ public class aj extends com.baidu.adp.widget.ListView.e {
     public View ng() {
         this.mRoot = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.new_sub_pb_list_more, null);
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.q.sub_pb_more_text);
-        this.bQl = (TextView) this.mRoot.findViewById(com.baidu.tieba.q.sub_pb_more_text_marginright);
+        this.bQm = (TextView) this.mRoot.findViewById(com.baidu.tieba.q.sub_pb_more_text_marginright);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.q.progress);
         return this.mRoot;
     }
@@ -31,14 +31,14 @@ public class aj extends com.baidu.adp.widget.ListView.e {
     public void startLoadData() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(com.baidu.tieba.t.loading));
-        adA();
+        adB();
     }
 
     public void ux() {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(this.mContext.getText(com.baidu.tieba.t.list_no_more));
-        this.bQl.setVisibility(8);
-        adA();
+        this.bQm.setVisibility(8);
+        adB();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -49,7 +49,7 @@ public class aj extends com.baidu.adp.widget.ListView.e {
         this.mTextView.setTextColor(i);
     }
 
-    public void adA() {
+    public void adB() {
         int color;
         String charSequence = this.mTextView.getText().toString();
         if (charSequence != null && !charSequence.equals("")) {

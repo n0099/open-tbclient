@@ -154,7 +154,7 @@ public class d extends Animation {
         return false;
     }
 
-    public boolean Eh() {
+    public boolean Ei() {
         return this.asY;
     }
 

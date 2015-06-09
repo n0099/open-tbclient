@@ -3,12 +3,12 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow;
 import android.view.View;
 /* loaded from: classes.dex */
 public class j {
-    private int btt;
     private int btu;
+    private int btv;
     private int radius;
 
     public boolean a(j jVar) {
-        return ((this.btt - jVar.btt) * (this.btt - jVar.btt)) + ((this.btu - jVar.btu) * (this.btu - jVar.btu)) < (this.radius + jVar.radius) * (this.radius + jVar.radius);
+        return ((this.btu - jVar.btu) * (this.btu - jVar.btu)) + ((this.btv - jVar.btv) * (this.btv - jVar.btv)) < (this.radius + jVar.radius) * (this.radius + jVar.radius);
     }
 
     public void J(View view) {
@@ -19,12 +19,12 @@ public class j {
     }
 
     public void u(int i, int i2, int i3) {
-        this.btt = i;
-        this.btu = i2;
+        this.btu = i;
+        this.btv = i2;
         this.radius = i3;
     }
 
     public boolean isEmpty() {
-        return this.btt == 0 && this.btu == 0 && this.radius == 0;
+        return this.btu == 0 && this.btv == 0 && this.radius == 0;
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity bKT;
-    private final /* synthetic */ MarkData bKX;
+    final /* synthetic */ PbActivity bKU;
+    private final /* synthetic */ MarkData bKY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity, MarkData markData) {
-        this.bKT = pbActivity;
-        this.bKX = markData;
+        this.bKU = pbActivity;
+        this.bKY = markData;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
@@ -22,19 +22,19 @@ public class aj implements DialogInterface.OnCancelListener {
         ch chVar2;
         ch chVar3;
         int[] iArr = new int[2];
-        chVar = this.bKT.bKz;
+        chVar = this.bKU.bKA;
         if (chVar != null) {
-            chVar2 = this.bKT.bKz;
+            chVar2 = this.bKU.bKA;
             if (chVar2.getView() != null) {
-                chVar3 = this.bKT.bKz;
+                chVar3 = this.bKU.bKA;
                 chVar3.getView().getLocationOnScreen(iArr);
             }
         }
         if (iArr[0] > 0) {
             Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.bKX);
-            this.bKT.setResult(-1, intent);
-            this.bKT.aaS();
+            intent.putExtra(PbActivityConfig.KEY_MARK, this.bKY);
+            this.bKU.setResult(-1, intent);
+            this.bKU.aaT();
         }
     }
 }

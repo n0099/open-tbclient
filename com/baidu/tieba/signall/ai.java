@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<Object, Integer, SignData> {
     private volatile com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ ag cjv;
+    final /* synthetic */ ag cjw;
 
     private ai(ag agVar) {
-        this.cjv = agVar;
+        this.cjw = agVar;
         this.aaG = null;
     }
 
@@ -40,10 +40,10 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
         try {
             this.aaG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
             com.baidu.tbadk.core.util.aa aaVar = this.aaG;
-            str = this.cjv.mForumName;
+            str = this.cjw.mForumName;
             aaVar.o("kw", str);
             com.baidu.tbadk.core.util.aa aaVar2 = this.aaG;
-            str2 = this.cjv.mForumId;
+            str2 = this.cjw.mForumId;
             aaVar2.o(ImageViewerConfig.FORUM_ID, str2);
             this.aaG.sX().tS().mIsNeedTbs = true;
             String sw = this.aaG.sw();
@@ -53,9 +53,9 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
             signData = new SignData();
             try {
                 signData.parserJson(sw);
-                str3 = this.cjv.mForumId;
+                str3 = this.cjw.mForumId;
                 signData.setForumId(str3);
-                str4 = this.cjv.mForumName;
+                str4 = this.cjw.mForumName;
                 signData.setForumName(str4);
                 return signData;
             } catch (Exception e2) {
@@ -76,10 +76,10 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.cjv.cjt = null;
+        this.cjw.cju = null;
         super.cancel(true);
-        ahVar = this.cjv.cju;
-        str = this.cjv.mForumId;
+        ahVar = this.cjw.cjv;
+        str = this.cjw.mForumId;
         ahVar.aZ(str, null);
     }
 
@@ -92,17 +92,17 @@ public class ai extends BdAsyncTask<Object, Integer, SignData> {
         ah ahVar2;
         String str;
         String str2;
-        this.cjv.cjt = null;
+        this.cjw.cju = null;
         if (signData != null || this.aaG == null) {
-            ahVar = this.cjv.cju;
+            ahVar = this.cjw.cjv;
             ahVar.c(signData);
             return;
         }
-        this.cjv.mErrorCode = this.aaG.tb();
-        this.cjv.mErrorString = this.aaG.getErrorString();
-        ahVar2 = this.cjv.cju;
-        str = this.cjv.mForumId;
-        str2 = this.cjv.mErrorString;
+        this.cjw.mErrorCode = this.aaG.tb();
+        this.cjw.mErrorString = this.aaG.getErrorString();
+        ahVar2 = this.cjw.cjv;
+        str = this.cjw.mForumId;
+        str2 = this.cjw.mErrorString;
         ahVar2.aZ(str, str2);
     }
 }

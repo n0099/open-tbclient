@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bCE;
+    final /* synthetic */ SquareSearchActivity bCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SquareSearchActivity squareSearchActivity) {
-        this.bCE = squareSearchActivity;
+        this.bCF = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,26 +26,26 @@ class m implements View.OnClickListener {
         String str6;
         String str7;
         boolean z;
-        str = this.bCE.bCf;
+        str = this.bCF.bCg;
         if (str != null) {
-            str2 = this.bCE.bCf;
+            str2 = this.bCF.bCg;
             if (str2.trim().length() >= 1) {
-                i = this.bCE.mMode;
+                i = this.bCF.mMode;
                 if (i != 0) {
-                    i2 = this.bCE.mMode;
+                    i2 = this.bCF.mMode;
                     if (i2 == 3) {
-                        Activity pageActivity = this.bCE.getPageContext().getPageActivity();
-                        editText = this.bCE.bBM;
+                        Activity pageActivity = this.bCF.getPageContext().getPageActivity();
+                        editText = this.bCF.bBN;
                         com.baidu.adp.lib.util.n.c(pageActivity, editText);
-                        str4 = this.bCE.bCf;
+                        str4 = this.bCF.bCg;
                         if (!TextUtils.isEmpty(str4)) {
-                            str5 = this.bCE.bCf;
+                            str5 = this.bCF.bCg;
                             if (str5.trim().length() != 0) {
-                                SquareSearchActivity squareSearchActivity = this.bCE;
-                                str6 = this.bCE.bCf;
-                                squareSearchActivity.bCf = str6.trim();
-                                SquareSearchActivity squareSearchActivity2 = this.bCE;
-                                str7 = this.bCE.bCf;
+                                SquareSearchActivity squareSearchActivity = this.bCF;
+                                str6 = this.bCF.bCg;
+                                squareSearchActivity.bCg = str6.trim();
+                                SquareSearchActivity squareSearchActivity2 = this.bCF;
+                                str7 = this.bCF.bCg;
                                 squareSearchActivity2.fE(str7);
                                 return;
                             }
@@ -53,19 +53,19 @@ class m implements View.OnClickListener {
                         }
                         return;
                     }
-                    SquareSearchActivity squareSearchActivity3 = this.bCE;
-                    str3 = this.bCE.bCf;
+                    SquareSearchActivity squareSearchActivity3 = this.bCF;
+                    str3 = this.bCF.bCg;
                     squareSearchActivity3.z(1, str3);
                     return;
                 }
-                z = this.bCE.bCm;
+                z = this.bCF.bCn;
                 if (z) {
-                    this.bCE.Yo();
+                    this.bCF.Yp();
                     return;
                 }
                 return;
             }
         }
-        this.bCE.showToast(this.bCE.getResources().getString(com.baidu.tieba.t.write_keyword));
+        this.bCF.showToast(this.bCF.getResources().getString(com.baidu.tieba.t.write_keyword));
     }
 }

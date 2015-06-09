@@ -15,7 +15,7 @@ public class au {
             } else if (com.baidu.adp.lib.util.k.iX()) {
                 yVar.iJ(1);
                 TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", yVar.getPkgName());
-                com.baidu.tbadk.download.b.ze().a(yVar.getPkgName(), yVar.getDownloadUrl(), yVar.getAppName(), i, 0);
+                com.baidu.tbadk.download.b.zf().a(yVar.getPkgName(), yVar.getDownloadUrl(), yVar.getAppName(), i, 0);
             } else {
                 com.baidu.adp.lib.util.n.showToast(context, com.baidu.tieba.t.neterror);
             }

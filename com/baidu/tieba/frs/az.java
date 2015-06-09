@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
 public class az {
-    HeadImageView aBk;
-    UserIconBox aBl;
-    TextView aBm;
+    HeadImageView aBl;
+    UserIconBox aBm;
     TextView aBn;
-    TextView aBq;
-    ImageView aBr;
-    TextView azE;
+    TextView aBo;
+    TextView aBr;
+    ImageView aBs;
+    TextView azF;
 }

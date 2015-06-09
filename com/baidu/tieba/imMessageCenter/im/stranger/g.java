@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity bwD;
+    final /* synthetic */ StrangerListActivity bwE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(StrangerListActivity strangerListActivity, int i) {
         super(i);
-        this.bwD = strangerListActivity;
+        this.bwE = strangerListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,17 +26,17 @@ class g extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            strangerListModel = this.bwD.bwy;
-                            aVar = this.bwD.bcA;
+                            strangerListModel = this.bwE.bwz;
+                            aVar = this.bwE.bcB;
                             strangerListModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            jVar = this.bwD.bwx;
+                            jVar = this.bwE.bwy;
                             if (jVar != null) {
-                                jVar2 = this.bwD.bwx;
-                                if (jVar2.Xn() != null) {
-                                    jVar3 = this.bwD.bwx;
-                                    jVar3.Xn().notifyDataSetChanged();
+                                jVar2 = this.bwE.bwy;
+                                if (jVar2.Xo() != null) {
+                                    jVar3 = this.bwE.bwy;
+                                    jVar3.Xo().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -46,13 +46,13 @@ class g extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.bwD.e(customResponsedMessage);
+                    this.bwE.e(customResponsedMessage);
                     return;
                 }
-                this.bwD.d(customResponsedMessage);
+                this.bwE.d(customResponsedMessage);
                 return;
             }
-            this.bwD.c(customResponsedMessage);
+            this.bwE.c(customResponsedMessage);
         }
     }
 }

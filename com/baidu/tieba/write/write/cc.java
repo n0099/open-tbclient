@@ -17,16 +17,16 @@ import com.baidu.tbadk.plugins.MotuPlugin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc extends BdAsyncTask<String, Void, Bitmap> {
-    private Boolean bRx;
     private Boolean bRy;
+    private Boolean bRz;
     private Bitmap bitmap;
     private String mLabel;
     final /* synthetic */ WriteImageActivity this$0;
 
     private cc(WriteImageActivity writeImageActivity) {
         this.this$0 = writeImageActivity;
-        this.bRx = false;
         this.bRy = false;
+        this.bRz = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,7 +43,7 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        z = this.this$0.bRo;
+        z = this.this$0.bRp;
         if (z) {
             PluginPackageManager.PluginStatus bB = PluginPackageManager.lM().bB(PluginCenter.NAME_MOTUSDK);
             if (!PluginCenter.getInstance().isEnable(PluginCenter.NAME_MOTUSDK) && bB != PluginPackageManager.PluginStatus.NROMAL) {
@@ -71,7 +71,7 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         }
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.cCX;
+        view = this.this$0.cCY;
         view.setEnabled(false);
     }
 
@@ -95,17 +95,17 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         this.mLabel = strArr[0];
         bitmap = this.this$0.mBitmap;
         if (bitmap == null) {
-            bitmap12 = this.this$0.bRk;
+            bitmap12 = this.this$0.bRl;
             if (bitmap12 == null) {
                 return null;
             }
         }
         if (this.mLabel.equals(GameInfoData.NOT_FROM_DETAIL) || this.mLabel.equals("1")) {
-            this.bRx = true;
-        } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
             this.bRy = true;
+        } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+            this.bRz = true;
         }
-        if (!this.bRx.booleanValue() && !this.bRy.booleanValue()) {
+        if (!this.bRy.booleanValue() && !this.bRz.booleanValue()) {
             bitmap9 = this.this$0.mBitmap;
             if (!bitmap9.isRecycled()) {
                 bitmap10 = this.this$0.mBitmap;
@@ -113,12 +113,12 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
                 this.bitmap = bitmap10.copy(bitmap11.getConfig(), true);
             }
         } else {
-            bitmap2 = this.this$0.bRk;
+            bitmap2 = this.this$0.bRl;
             if (bitmap2 != null) {
-                bitmap6 = this.this$0.bRk;
+                bitmap6 = this.this$0.bRl;
                 if (!bitmap6.isRecycled()) {
-                    bitmap7 = this.this$0.bRk;
-                    bitmap8 = this.this$0.bRk;
+                    bitmap7 = this.this$0.bRl;
+                    bitmap8 = this.this$0.bRl;
                     this.bitmap = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
@@ -133,9 +133,9 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
             if (this.bitmap.getWidth() > 900 || this.bitmap.getHeight() > 900) {
                 this.bitmap = com.baidu.tbadk.core.util.c.d(this.bitmap, TbConfig.POST_IMAGE_BIG);
             }
-            if (this.bRx.booleanValue()) {
+            if (this.bRy.booleanValue()) {
                 this.bitmap = com.baidu.tbadk.core.util.c.g(this.bitmap, Integer.parseInt(this.mLabel));
-            } else if (this.bRy.booleanValue()) {
+            } else if (this.bRz.booleanValue()) {
                 this.bitmap = com.baidu.tbadk.core.util.c.i(this.bitmap, Integer.parseInt(this.mLabel));
             } else {
                 MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -154,7 +154,7 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         View view;
         Bitmap bitmap;
         if (this.bitmap != null && !this.bitmap.isRecycled()) {
-            bitmap = this.this$0.bRk;
+            bitmap = this.this$0.bRl;
             if (bitmap != this.bitmap) {
                 this.bitmap.recycle();
             }
@@ -162,7 +162,7 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         this.bitmap = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.cCX;
+        view = this.this$0.cCY;
         view.setEnabled(true);
         super.cancel(true);
     }
@@ -191,14 +191,14 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap10;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.cCX;
+        view = this.this$0.cCY;
         view.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.this$0.bRr = true;
+            this.this$0.bRs = true;
             imageView = this.this$0.avb;
             imageView.setImageBitmap(bitmap);
             bitmap2 = this.this$0.mBitmap;
-            if (bitmap2 != null && (this.bRx.booleanValue() || this.bRy.booleanValue())) {
+            if (bitmap2 != null && (this.bRy.booleanValue() || this.bRz.booleanValue())) {
                 bitmap6 = this.this$0.mBitmap;
                 if (bitmap6.getWidth() <= 900) {
                     bitmap10 = this.this$0.mBitmap;
@@ -206,25 +206,25 @@ public class cc extends BdAsyncTask<String, Void, Bitmap> {
                 WriteImageActivity writeImageActivity = this.this$0;
                 bitmap7 = this.this$0.mBitmap;
                 writeImageActivity.mBitmap = com.baidu.tbadk.core.util.c.d(bitmap7, TbConfig.POST_IMAGE_BIG);
-                if (this.bRx.booleanValue()) {
+                if (this.bRy.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = this.this$0;
                     bitmap9 = this.this$0.mBitmap;
                     writeImageActivity2.mBitmap = com.baidu.tbadk.core.util.c.g(bitmap9, Integer.parseInt(this.mLabel));
-                } else if (this.bRy.booleanValue()) {
+                } else if (this.bRz.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = this.this$0;
                     bitmap8 = this.this$0.mBitmap;
                     writeImageActivity3.mBitmap = com.baidu.tbadk.core.util.c.i(bitmap8, Integer.parseInt(this.mLabel));
                 }
             }
-            bitmap3 = this.this$0.bRk;
+            bitmap3 = this.this$0.bRl;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.bRk;
+                bitmap4 = this.this$0.bRl;
                 if (!bitmap4.isRecycled()) {
-                    bitmap5 = this.this$0.bRk;
+                    bitmap5 = this.this$0.bRl;
                     bitmap5.recycle();
                 }
             }
-            this.this$0.bRk = bitmap;
+            this.this$0.bRl = bitmap;
         }
     }
 }

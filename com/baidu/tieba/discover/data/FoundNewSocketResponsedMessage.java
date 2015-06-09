@@ -20,7 +20,7 @@ public class FoundNewSocketResponsedMessage extends MvcSocketResponsedMessage<a,
         t<byte[]> cj;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if ((mvcNetMessage.getRequestData() instanceof b) && getData().Hk() > ((b) mvcNetMessage.getRequestData()).Hk() && (cj = com.baidu.tbadk.core.b.a.rI().cj("FoundNewCache")) != null) {
+            if ((mvcNetMessage.getRequestData() instanceof b) && getData().Hl() > ((b) mvcNetMessage.getRequestData()).Hl() && (cj = com.baidu.tbadk.core.b.a.rI().cj("FoundNewCache")) != null) {
                 cj.f("FoundNewData", bArr);
             }
         }

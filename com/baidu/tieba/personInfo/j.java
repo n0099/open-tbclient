@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity bVe;
+    final /* synthetic */ PersonInfoActivity bVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bVe = personInfoActivity;
+        this.bVf = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,12 @@ class j extends CustomMessageListener {
         v vVar2;
         ad adVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
-            vVar = this.bVe.bUT;
-            if (vVar.afx() != null) {
-                vVar2 = this.bVe.bUT;
-                vVar2.afx().setIsFriend(1);
-                adVar = this.bVe.bUU;
-                adVar.afK();
+            vVar = this.bVf.bUU;
+            if (vVar.afy() != null) {
+                vVar2 = this.bVf.bUU;
+                vVar2.afy().setIsFriend(1);
+                adVar = this.bVf.bUV;
+                adVar.afL();
             }
         }
     }

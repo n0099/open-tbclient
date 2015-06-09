@@ -26,11 +26,11 @@ public abstract class ad {
 
     public abstract int getWidth();
 
-    public abstract EmotionGroupType zB();
+    public abstract EmotionGroupType zC();
 
-    public abstract boolean zC();
+    public abstract boolean zD();
 
-    public com.baidu.adp.widget.a.a zW() {
+    public com.baidu.adp.widget.a.a zX() {
         return this.alf;
     }
 
@@ -41,7 +41,7 @@ public abstract class ad {
         this.alf = aVar;
     }
 
-    public com.baidu.adp.widget.a.a zX() {
+    public com.baidu.adp.widget.a.a zY() {
         return this.alg;
     }
 
@@ -52,7 +52,7 @@ public abstract class ad {
         this.alg = aVar;
     }
 
-    public int zY() {
+    public int zZ() {
         return this.ali;
     }
 
@@ -61,7 +61,7 @@ public abstract class ad {
         this.ali = i;
     }
 
-    public int zZ() {
+    public int Aa() {
         return this.alh;
     }
 

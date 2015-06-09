@@ -7,11 +7,11 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.j.a<String, com.baidu.tbadk.mvc.e.c> {
-    private TextView aXI;
+    private TextView aXJ;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aXI = (TextView) view.findViewById(q.text);
+        this.aXJ = (TextView) view.findViewById(q.text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class e extends com.baidu.tbadk.mvc.j.a<String, com.baidu.tbadk.mvc.e.c> 
     /* renamed from: iJ */
     public void z(String str) {
         super.z(str);
-        this.aXI.setText(str);
+        this.aXJ.setText(str);
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab

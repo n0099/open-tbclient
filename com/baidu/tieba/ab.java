@@ -2,9 +2,9 @@ package com.baidu.tieba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public interface ab {
-    void ER();
-
     void ES();
+
+    void ET();
 
     void br(boolean z);
 

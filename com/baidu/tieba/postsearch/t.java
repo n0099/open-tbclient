@@ -10,34 +10,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    public String bCf;
-    private PostSearchActivity bXM;
-    private String bYd;
-    public ArrayList<String> bYm;
-    public int bYe = 0;
+    public String bCg;
+    private PostSearchActivity bXN;
+    private String bYe;
+    public ArrayList<String> bYn;
     public int bYf = 0;
-    public int bYg = 1;
+    public int bYg = 0;
     public int bYh = 1;
     public int bYi = 1;
-    public boolean bYj = false;
+    public int bYj = 1;
     public boolean bYk = false;
     public boolean bYl = false;
-    private int bYn = 0;
-    private final HttpMessageListener bYo = new u(this, CmdConfigHttp.CMD_POST_SEARCH);
-    private CustomMessageListener bCD = new v(this, 2009001);
+    public boolean bYm = false;
+    private int bYo = 0;
+    private final HttpMessageListener bYp = new u(this, CmdConfigHttp.CMD_POST_SEARCH);
+    private CustomMessageListener bCE = new v(this, 2009001);
 
     public t(PostSearchActivity postSearchActivity) {
-        this.bXM = postSearchActivity;
-        this.bXM.registerListener(this.bCD);
-        this.bXM.registerListener(this.bYo);
+        this.bXN = postSearchActivity;
+        this.bXN.registerListener(this.bCE);
+        this.bXN.registerListener(this.bYp);
     }
 
     public boolean P(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.bCf)) {
-            agj();
+        if (!str.equals(this.bCg)) {
+            agk();
         }
         switch (i) {
             case 1:
@@ -52,70 +52,70 @@ public class t {
     }
 
     public boolean iM(String str) {
-        if (this.bYj) {
-            return false;
-        }
-        this.bCf = str;
-        this.bYn = 1;
-        this.bXM.sendMessage(hX(this.bYn));
-        this.bYj = true;
-        return true;
-    }
-
-    public boolean iN(String str) {
         if (this.bYk) {
             return false;
         }
-        this.bCf = str;
-        this.bYn = 2;
-        this.bXM.sendMessage(hX(this.bYn));
+        this.bCg = str;
+        this.bYo = 1;
+        this.bXN.sendMessage(hX(this.bYo));
         this.bYk = true;
         return true;
     }
 
-    public boolean iO(String str) {
+    public boolean iN(String str) {
         if (this.bYl) {
             return false;
         }
-        this.bCf = str;
-        this.bYn = 3;
-        this.bXM.sendMessage(hX(this.bYn));
+        this.bCg = str;
+        this.bYo = 2;
+        this.bXN.sendMessage(hX(this.bYo));
         this.bYl = true;
         return true;
     }
 
-    public void agg() {
-        this.bXM.sendMessage(new CustomMessage(2009001));
+    public boolean iO(String str) {
+        if (this.bYm) {
+            return false;
+        }
+        this.bCg = str;
+        this.bYo = 3;
+        this.bXN.sendMessage(hX(this.bYo));
+        this.bYm = true;
+        return true;
     }
 
     public void agh() {
-        if (!StringUtils.isNull(this.bCf) && !this.bCf.equals(this.bYd)) {
-            this.bXM.sendMessage(new CustomMessage(2009003, this.bCf));
-            this.bYd = this.bCf;
-        }
+        this.bXN.sendMessage(new CustomMessage(2009001));
     }
 
     public void agi() {
-        if (this.bYm != null) {
-            this.bYm.clear();
+        if (!StringUtils.isNull(this.bCg) && !this.bCg.equals(this.bYe)) {
+            this.bXN.sendMessage(new CustomMessage(2009003, this.bCg));
+            this.bYe = this.bCg;
         }
-        this.bXM.sendMessage(new CustomMessage(2009004));
     }
 
     public void agj() {
-        this.bYg = 1;
+        if (this.bYn != null) {
+            this.bYn.clear();
+        }
+        this.bXN.sendMessage(new CustomMessage(2009004));
+    }
+
+    public void agk() {
         this.bYh = 1;
         this.bYi = 1;
+        this.bYj = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agk() {
-        if (this.bYm == null) {
-            this.bYm = new ArrayList<>();
+    public void agl() {
+        if (this.bYn == null) {
+            this.bYn = new ArrayList<>();
         }
-        this.bYm.remove(this.bCf);
-        this.bYm.add(0, this.bCf);
-        aV(this.bYm);
+        this.bYn.remove(this.bCg);
+        this.bYn.add(0, this.bCg);
+        aV(this.bYn);
     }
 
     private void aV(List<String> list) {
@@ -130,25 +130,25 @@ public class t {
 
     private HttpMessage hX(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.bCf);
+        httpMessage.addParam("word", this.bCg);
         httpMessage.addParam("rn", (Object) 30);
-        httpMessage.addParam("kw", this.bXM.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.bYn));
+        httpMessage.addParam("kw", this.bXN.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.bYo));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", (Object) 1);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.bYg));
+                httpMessage.addParam("pn", Integer.valueOf(this.bYh));
                 break;
             case 2:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.bYh));
+                httpMessage.addParam("pn", Integer.valueOf(this.bYi));
                 break;
             case 3:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 1);
-                httpMessage.addParam("pn", Integer.valueOf(this.bYi));
+                httpMessage.addParam("pn", Integer.valueOf(this.bYj));
                 break;
         }
         return httpMessage;
@@ -158,13 +158,13 @@ public class t {
     public void hY(int i) {
         switch (i) {
             case 1:
-                this.bYg++;
-                return;
-            case 2:
                 this.bYh++;
                 return;
-            case 3:
+            case 2:
                 this.bYi++;
+                return;
+            case 3:
+                this.bYj++;
                 return;
             default:
                 return;
@@ -175,11 +175,11 @@ public class t {
     public int hZ(int i) {
         switch (i) {
             case 1:
-                return this.bYg;
-            case 2:
                 return this.bYh;
-            case 3:
+            case 2:
                 return this.bYi;
+            case 3:
+                return this.bYj;
             default:
                 return 0;
         }
@@ -189,15 +189,15 @@ public class t {
     public void ia(int i) {
         switch (i) {
             case 1:
-                this.bYj = false;
-            case 2:
                 this.bYk = false;
+            case 2:
+                this.bYl = false;
                 break;
             case 3:
                 break;
             default:
                 return;
         }
-        this.bYl = false;
+        this.bYm = false;
     }
 }

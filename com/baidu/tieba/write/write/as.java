@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import java.util.Date;
 /* loaded from: classes.dex */
 class as implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -23,21 +23,21 @@ class as implements TimePickerDialog.OnTimeSetListener {
         TextView textView;
         WriteData writeData5;
         WriteData writeData6;
-        writeData = this.cCP.cuo;
+        writeData = this.cCQ.cup;
         if (writeData.getLiveCardData() != null) {
             Date date = new Date();
             Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.cCP.cuo;
+            writeData2 = this.cCQ.cup;
             long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.cCP.cuo;
+            writeData3 = this.cCQ.cup;
             writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.cCP.cuo;
+            writeData4 = this.cCQ.cup;
             if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                writeData6 = this.cCP.cuo;
+                writeData6 = this.cCQ.cup;
                 writeData6.getLiveCardData().setModifyTime(true);
             }
-            textView = this.cCP.cCG;
-            writeData5 = this.cCP.cuo;
+            textView = this.cCQ.cCH;
+            writeData5 = this.cCQ.cup;
             textView.setText(com.baidu.tbadk.core.util.bb.p(writeData5.getLiveCardData().getStartTime() * 1000));
         }
     }

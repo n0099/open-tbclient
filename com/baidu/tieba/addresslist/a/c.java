@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class c {
     View So;
-    final /* synthetic */ a azG;
-    TextView azH;
+    final /* synthetic */ a azH;
+    TextView azI;
 
     private c(a aVar) {
-        this.azG = aVar;
+        this.azH = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

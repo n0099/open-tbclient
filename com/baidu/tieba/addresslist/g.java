@@ -9,12 +9,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ e azl;
+    final /* synthetic */ e azm;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar) {
         super(304001);
-        this.azl = eVar;
+        this.azm = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,10 @@ public class g extends com.baidu.adp.framework.listener.e {
         BdListView bdListView;
         com.baidu.tieba.addresslist.c.a aVar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            bdListView = this.azl.azf;
+            bdListView = this.azm.azg;
             bdListView.completePullRefresh();
             if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                this.azl.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.azl.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString(), false);
+                this.azm.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.azm.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString(), false);
                 return;
             }
             com.baidu.tieba.addresslist.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
@@ -44,7 +44,7 @@ public class g extends com.baidu.adp.framework.listener.e {
                     }
                 }
             }
-            aVar = this.azl.ayX;
+            aVar = this.azm.ayY;
             aVar.A(arrayList);
         }
     }

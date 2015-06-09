@@ -19,56 +19,56 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
     private Runnable afn;
-    private ViewGroup bvE;
-    private AlbumActivity cxZ;
-    private final int cyF;
-    private String cyG;
+    private ViewGroup bvF;
+    private final int cyG;
     private String cyH;
-    private Button cyI;
-    private View cyJ;
-    private HorizontalCustomScrollView cyK;
-    private LinearLayout cyL;
-    private RelativeLayout cyM;
-    private ImageView cyN;
-    private Fragment[] cyO;
-    private String[] cyP;
-    private FrameLayout[] cyQ;
-    private View[] cyR;
-    private int cyS;
+    private String cyI;
+    private Button cyJ;
+    private View cyK;
+    private HorizontalCustomScrollView cyL;
+    private LinearLayout cyM;
+    private RelativeLayout cyN;
+    private ImageView cyO;
+    private Fragment[] cyP;
+    private String[] cyQ;
+    private FrameLayout[] cyR;
+    private View[] cyS;
+    private int cyT;
+    private AlbumActivity cya;
     private Handler mHandler;
 
     public v(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.cyF = 2;
-        this.cyG = "tag_image";
-        this.cyH = "tag_b_image";
+        this.cyG = 2;
+        this.cyH = "tag_image";
+        this.cyI = "tag_b_image";
         this.mHandler = new Handler();
-        this.cxZ = albumActivity;
+        this.cya = albumActivity;
         a(albumActivity);
     }
 
     private void a(AlbumActivity albumActivity) {
         albumActivity.setContentView(com.baidu.tieba.r.album_activity);
-        this.bvE = (ViewGroup) albumActivity.findViewById(com.baidu.tieba.q.parent);
-        this.cyI = (Button) albumActivity.findViewById(com.baidu.tieba.q.btn_done);
-        this.cyI.setOnClickListener(albumActivity);
-        this.cyK = (HorizontalCustomScrollView) albumActivity.findViewById(com.baidu.tieba.q.bottom_scroll);
-        this.cyL = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.q.bottom_container);
-        this.cyM = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.q.lay_bottom);
-        this.cyN = (ImageView) albumActivity.findViewById(com.baidu.tieba.q.add_more);
-        this.cyJ = albumActivity.findViewById(com.baidu.tieba.q.bottom_shadow);
-        this.cyS = (int) this.cxZ.getResources().getDimension(com.baidu.tieba.o.ds90);
+        this.bvF = (ViewGroup) albumActivity.findViewById(com.baidu.tieba.q.parent);
+        this.cyJ = (Button) albumActivity.findViewById(com.baidu.tieba.q.btn_done);
+        this.cyJ.setOnClickListener(albumActivity);
+        this.cyL = (HorizontalCustomScrollView) albumActivity.findViewById(com.baidu.tieba.q.bottom_scroll);
+        this.cyM = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.q.bottom_container);
+        this.cyN = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.q.lay_bottom);
+        this.cyO = (ImageView) albumActivity.findViewById(com.baidu.tieba.q.add_more);
+        this.cyK = albumActivity.findViewById(com.baidu.tieba.q.bottom_shadow);
+        this.cyT = (int) this.cya.getResources().getDimension(com.baidu.tieba.o.ds90);
     }
 
     public void jp(int i) {
-        this.cyQ = new FrameLayout[i];
-        this.cyR = new View[i * 4];
+        this.cyR = new FrameLayout[i];
+        this.cyS = new View[i * 4];
         for (int i2 = 0; i2 < i; i2++) {
-            this.cyQ[i2] = (FrameLayout) com.baidu.adp.lib.g.b.hr().inflate(this.cxZ.getPageContext().getPageActivity(), com.baidu.tieba.r.album_bottom_item_view, null);
-            this.cyR[i2 * 4] = this.cyQ[i2].findViewById(com.baidu.tieba.q.line_top);
-            this.cyR[(i2 * 4) + 1] = this.cyQ[i2].findViewById(com.baidu.tieba.q.line_left);
-            this.cyR[(i2 * 4) + 2] = this.cyQ[i2].findViewById(com.baidu.tieba.q.line_right);
-            this.cyR[(i2 * 4) + 3] = this.cyQ[i2].findViewById(com.baidu.tieba.q.line_bottom);
+            this.cyR[i2] = (FrameLayout) com.baidu.adp.lib.g.b.hr().inflate(this.cya.getPageContext().getPageActivity(), com.baidu.tieba.r.album_bottom_item_view, null);
+            this.cyS[i2 * 4] = this.cyR[i2].findViewById(com.baidu.tieba.q.line_top);
+            this.cyS[(i2 * 4) + 1] = this.cyR[i2].findViewById(com.baidu.tieba.q.line_left);
+            this.cyS[(i2 * 4) + 2] = this.cyR[i2].findViewById(com.baidu.tieba.q.line_right);
+            this.cyS[(i2 * 4) + 3] = this.cyR[i2].findViewById(com.baidu.tieba.q.line_bottom);
         }
     }
 
@@ -80,88 +80,88 @@ public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
         return (TbImageView) frameLayout.findViewById(com.baidu.tieba.q.item_iv);
     }
 
-    public void arU() {
-        this.cyO = new Fragment[2];
-        this.cyP = new String[2];
-        this.cyO[0] = new aj();
-        this.cyP[0] = this.cyG;
-        this.cyO[1] = new b();
-        this.cyP[1] = this.cyH;
+    public void arV() {
+        this.cyP = new Fragment[2];
+        this.cyQ = new String[2];
+        this.cyP[0] = new aj();
+        this.cyQ[0] = this.cyH;
+        this.cyP[1] = new b();
+        this.cyQ[1] = this.cyI;
     }
 
     public Fragment jq(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.cyO[i];
+        return this.cyP[i];
     }
 
     public String jr(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.cyP[i];
+        return this.cyQ[i];
     }
 
     public void onChangeSkinType(int i) {
-        this.cxZ.getLayoutMode().ab(i == 1);
-        this.cxZ.getLayoutMode().j(this.bvE);
+        this.cya.getLayoutMode().ab(i == 1);
+        this.cya.getLayoutMode().j(this.bvF);
     }
 
-    public Button arV() {
-        return this.cyI;
+    public Button arW() {
+        return this.cyJ;
     }
 
-    public View arW() {
+    public View arX() {
         Fragment jq = jq(0);
         if (jq == null || !(jq instanceof aj)) {
             return null;
         }
-        return ((aj) jq).afN();
+        return ((aj) jq).afO();
     }
 
-    public View arX() {
+    public View arY() {
         Fragment jq = jq(1);
         if (jq == null || !(jq instanceof b)) {
             return null;
         }
-        return ((b) jq).afN();
+        return ((b) jq).afO();
     }
 
     public void k(boolean z, String str) {
-        this.cyI.setEnabled(z);
+        this.cyJ.setEnabled(z);
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        this.cyI.setText(str);
+        this.cyJ.setText(str);
     }
 
     public void f(ImageFileInfo imageFileInfo) {
         TbImageView a;
         if (imageFileInfo != null) {
-            int length = this.cyQ.length;
+            int length = this.cyR.length;
             for (int i = 0; i < length; i++) {
-                if (this.cyQ[i] != null && (a = a(this.cyQ[i])) != null && a.getTag() == null) {
+                if (this.cyR[i] != null && (a = a(this.cyR[i])) != null && a.getTag() == null) {
                     a.setDefaultResource(0);
                     a.setDefaultBgResource(0);
-                    a.setLayoutParams(new FrameLayout.LayoutParams(this.cyS, this.cyS));
+                    a.setLayoutParams(new FrameLayout.LayoutParams(this.cyT, this.cyT));
                     a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cyS, this.cyS);
-                    layoutParams.rightMargin = (int) this.cxZ.getResources().getDimension(com.baidu.tieba.o.ds10);
-                    this.cyQ[i].setLayoutParams(layoutParams);
-                    this.cyL.addView(this.cyQ[i], this.cyL.getChildCount() - 1);
-                    a((HorizontalScrollView) this.cyK);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cyT, this.cyT);
+                    layoutParams.rightMargin = (int) this.cya.getResources().getDimension(com.baidu.tieba.o.ds10);
+                    this.cyR[i].setLayoutParams(layoutParams);
+                    this.cyM.addView(this.cyR[i], this.cyM.getChildCount() - 1);
+                    a((HorizontalScrollView) this.cyL);
                     a.setOnClickListener(new w(this, imageFileInfo));
                     a.setTag(null);
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.y(this.cyS, this.cyS));
+                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.y(this.cyT, this.cyT));
                     a.setTag(imageFileInfo.toCachedKey(false));
-                    com.baidu.adp.widget.a.a a2 = this.cxZ.arD().a(imageFileInfo, false);
+                    com.baidu.adp.widget.a.a a2 = this.cya.arE().a(imageFileInfo, false);
                     if (a2 != null) {
                         a2.a(a);
                         return;
                     } else {
-                        this.cxZ.arD().a(imageFileInfo, new x(this, imageFileInfo), false);
+                        this.cya.arE().a(imageFileInfo, new x(this, imageFileInfo), false);
                         return;
                     }
                 }
@@ -174,14 +174,14 @@ public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
         TbImageView a;
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.y(this.cyS, this.cyS));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.y(this.cyT, this.cyT));
             if (!TextUtils.isEmpty(imageFileInfo.toCachedKey(false))) {
-                int childCount = this.cyL.getChildCount();
+                int childCount = this.cyM.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    if (this.cyL.getChildAt(i) != null && (this.cyL.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.cyL.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
+                    if (this.cyM.getChildAt(i) != null && (this.cyM.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.cyM.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
                         a.setTag(null);
                         a.setImageDrawable(null);
-                        this.cyL.removeView(frameLayout);
+                        this.cyM.removeView(frameLayout);
                         return;
                     }
                 }
@@ -190,17 +190,17 @@ public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
     }
 
     public void fy(boolean z) {
-        if (this.cyN != null) {
+        if (this.cyO != null) {
             if (z) {
-                this.cyN.setVisibility(0);
+                this.cyO.setVisibility(0);
             } else {
-                this.cyN.setVisibility(8);
+                this.cyO.setVisibility(8);
             }
         }
     }
 
     private void a(HorizontalScrollView horizontalScrollView) {
-        if (this.cyK != null) {
+        if (this.cyL != null) {
             if (this.afn == null) {
                 this.afn = new y(this, horizontalScrollView);
             }
@@ -213,27 +213,27 @@ public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
         if (this.mHandler != null && this.afn != null) {
             this.mHandler.removeCallbacks(this.afn);
         }
-        if (this.cxZ.arD() != null) {
-            this.cxZ.arD().As();
+        if (this.cya.arE() != null) {
+            this.cya.arE().At();
         }
     }
 
     public void js(int i) {
         if (i == 1) {
-            ay.c(this.cyM, com.baidu.tieba.n.album_list_bottom_bigimage_bg, 0);
-            ay.i((View) this.cyI, com.baidu.tieba.p.post_button_bg_bigimage);
-            ay.c(this.cyN, com.baidu.tieba.p.btn_add_pic_bigimage, 0);
-            ay.d(this.cyJ, com.baidu.tieba.n.album_list_bottom_bigimage_line, 0);
-            for (View view : this.cyR) {
+            ay.c(this.cyN, com.baidu.tieba.n.album_list_bottom_bigimage_bg, 0);
+            ay.i((View) this.cyJ, com.baidu.tieba.p.post_button_bg_bigimage);
+            ay.c(this.cyO, com.baidu.tieba.p.btn_add_pic_bigimage, 0);
+            ay.d(this.cyK, com.baidu.tieba.n.album_list_bottom_bigimage_line, 0);
+            for (View view : this.cyS) {
                 ay.d(view, com.baidu.tieba.n.album_list_bottom_bigimage_line, 0);
             }
             return;
         }
-        ay.i(this.cyM, com.baidu.tieba.n.album_list_bottom_bg);
-        ay.i((View) this.cyI, com.baidu.tieba.p.post_button_bg);
-        ay.i(this.cyN, com.baidu.tieba.p.btn_add_pic);
-        ay.j(this.cyJ, com.baidu.tieba.n.album_list_bottom_line);
-        for (View view2 : this.cyR) {
+        ay.i(this.cyN, com.baidu.tieba.n.album_list_bottom_bg);
+        ay.i((View) this.cyJ, com.baidu.tieba.p.post_button_bg);
+        ay.i(this.cyO, com.baidu.tieba.p.btn_add_pic);
+        ay.j(this.cyK, com.baidu.tieba.n.album_list_bottom_line);
+        for (View view2 : this.cyS) {
             ay.j(view2, com.baidu.tieba.n.album_list_bottom_line);
         }
     }

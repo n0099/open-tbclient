@@ -12,7 +12,7 @@ class e implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        f.ahP().ccX.ahV();
+        f.ahQ().ccY.ahW();
         this.this$0.finish();
     }
 }

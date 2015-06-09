@@ -10,13 +10,13 @@ import com.baidu.tieba.im.model.PersonalMsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 /* loaded from: classes.dex */
 class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FloatingPersonalChatActivity buJ;
+    final /* synthetic */ FloatingPersonalChatActivity buK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(FloatingPersonalChatActivity floatingPersonalChatActivity, int i, boolean z) {
         super(i, z);
-        this.buJ = floatingPersonalChatActivity;
+        this.buK = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,39 +36,39 @@ class s extends com.baidu.adp.framework.listener.e {
         long j2;
         MsglistModel msglistModel2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.buJ.brL = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.buJ.brL;
+            this.buK.brM = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.buK.brM;
             if (bVar != null) {
                 UserData userData = null;
-                msglistModel = this.buJ.mListModel;
+                msglistModel = this.buK.mListModel;
                 if (msglistModel instanceof PersonalMsglistModel) {
-                    msglistModel2 = this.buJ.mListModel;
+                    msglistModel2 = this.buK.mListModel;
                     userData = ((PersonalMsglistModel) msglistModel2).getUser();
                 }
                 if (userData == null) {
                     return;
                 }
-                floatingPersonalChatView = this.buJ.buH;
+                floatingPersonalChatView = this.buK.buI;
                 String userName = userData.getUserName();
-                bVar2 = this.buJ.brL;
+                bVar2 = this.buK.brM;
                 floatingPersonalChatView.a(userName, bVar2);
-                FloatingPersonalChatActivity floatingPersonalChatActivity = this.buJ;
-                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.buJ;
-                bVar3 = this.buJ.brL;
+                FloatingPersonalChatActivity floatingPersonalChatActivity = this.buK;
+                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.buK;
+                bVar3 = this.buK.brM;
                 hD = floatingPersonalChatActivity2.hD(bb.n(bVar3.getTime()));
-                floatingPersonalChatActivity.brK = hD;
-                j = this.buJ.brK;
+                floatingPersonalChatActivity.brL = hD;
+                j = this.buK.brL;
                 if (j != 0) {
-                    handler = this.buJ.mHandler;
-                    runnable = this.buJ.brP;
-                    j2 = this.buJ.brK;
+                    handler = this.buK.mHandler;
+                    runnable = this.buK.brQ;
+                    j2 = this.buK.brL;
                     handler.postDelayed(runnable, j2);
                 }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f WD = FloatingPersonalChatActivityStatic.WD();
-                str = this.buJ.brM;
+                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f WE = FloatingPersonalChatActivityStatic.WE();
+                str = this.buK.brN;
                 String str2 = String.valueOf(str) + "&" + userData.getUserId();
-                bVar4 = this.buJ.brL;
-                WD.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                bVar4 = this.buK.brM;
+                WE.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
             }
             TbadkCoreApplication.m411getInst().getAlarmManager().pn();
         }

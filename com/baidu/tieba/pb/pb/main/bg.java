@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 class bg implements com.baidu.tbadk.core.util.bk {
-    Pattern bKY = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+    Pattern bKZ = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0068, code lost:
         if (android.text.TextUtils.isEmpty(r0) == false) goto L37;
@@ -26,7 +26,7 @@ class bg implements com.baidu.tbadk.core.util.bk {
             return false;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.bKY.matcher(lowerCase);
+        Matcher matcher = this.bKZ.matcher(lowerCase);
         if (matcher.find()) {
             substring = matcher.group(1);
             str = "allthread";

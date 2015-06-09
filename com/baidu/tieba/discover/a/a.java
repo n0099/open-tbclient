@@ -17,7 +17,7 @@ import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
     private TbImageView Ms;
-    private ImageView aEk;
+    private ImageView aEl;
     private TextView aiA;
 
     public a(Context context) {
@@ -33,7 +33,7 @@ public class a extends RelativeLayout {
     private void init() {
         this.Ms = (TbImageView) findViewById(q.icon);
         this.aiA = (TextView) findViewById(q.title);
-        this.aEk = (ImageView) findViewById(q.red_tip);
+        this.aEl = (ImageView) findViewById(q.red_tip);
         this.Ms.setDefaultBgResource(0);
     }
 
@@ -53,11 +53,11 @@ public class a extends RelativeLayout {
     }
 
     public void bF(boolean z) {
-        if (this.aEk != null) {
+        if (this.aEl != null) {
             if (z) {
-                this.aEk.setVisibility(0);
+                this.aEl.setVisibility(0);
             } else {
-                this.aEk.setVisibility(8);
+                this.aEl.setVisibility(8);
             }
         }
     }

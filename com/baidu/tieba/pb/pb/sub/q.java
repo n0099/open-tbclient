@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -62,117 +62,117 @@ public class q implements View.OnClickListener {
         s sVar30;
         ak akVar6;
         s sVar31;
-        sVar = this.bPw.bPq;
-        if (view == sVar.adj()) {
-            sVar30 = this.bPw.bPq;
-            sVar30.acw();
-            akVar6 = this.bPw.bPn;
-            if (akVar6.BL()) {
-                sVar31 = this.bPw.bPq;
-                sVar31.adf();
+        sVar = this.bPx.bPr;
+        if (view == sVar.adk()) {
+            sVar30 = this.bPx.bPr;
+            sVar30.acx();
+            akVar6 = this.bPx.bPo;
+            if (akVar6.BM()) {
+                sVar31 = this.bPx.bPr;
+                sVar31.adg();
                 return;
             }
             return;
         }
-        sVar2 = this.bPw.bPq;
-        if (view != sVar2.adq()) {
-            sVar3 = this.bPw.bPq;
-            if (view == sVar3.adh()) {
-                sVar29 = this.bPw.bPq;
-                sVar29.acw();
-                this.bPw.replyPost(view);
+        sVar2 = this.bPx.bPr;
+        if (view != sVar2.adr()) {
+            sVar3 = this.bPx.bPr;
+            if (view == sVar3.adi()) {
+                sVar29 = this.bPx.bPr;
+                sVar29.acx();
+                this.bPx.replyPost(view);
                 return;
             }
-            sVar4 = this.bPw.bPq;
-            if (sVar4.adr() != null) {
-                sVar27 = this.bPw.bPq;
-                if (view == sVar27.adr().abE()) {
-                    akVar2 = this.bPw.bPn;
-                    if (akVar2.adB() != null) {
-                        NewSubPbActivity newSubPbActivity = this.bPw;
-                        akVar3 = this.bPw.bPn;
-                        newSubPbActivity.b(akVar3.adB().aaA());
+            sVar4 = this.bPx.bPr;
+            if (sVar4.ads() != null) {
+                sVar27 = this.bPx.bPr;
+                if (view == sVar27.ads().abF()) {
+                    akVar2 = this.bPx.bPo;
+                    if (akVar2.adC() != null) {
+                        NewSubPbActivity newSubPbActivity = this.bPx;
+                        akVar3 = this.bPx.bPo;
+                        newSubPbActivity.b(akVar3.adC().aaB());
                     }
-                    sVar28 = this.bPw.bPq;
-                    com.baidu.adp.lib.g.k.a(sVar28.ads(), this.bPw.getPageContext().getPageActivity());
+                    sVar28 = this.bPx.bPr;
+                    com.baidu.adp.lib.g.k.a(sVar28.adt(), this.bPx.getPageContext().getPageActivity());
                     return;
                 }
             }
-            sVar5 = this.bPw.bPq;
-            if (sVar5.ads() != null) {
-                sVar25 = this.bPw.bPq;
-                if (view == sVar25.adr().abQ()) {
-                    this.bPw.doManager(view);
-                    sVar26 = this.bPw.bPq;
-                    com.baidu.adp.lib.g.k.a(sVar26.ads(), this.bPw.getPageContext().getPageActivity());
+            sVar5 = this.bPx.bPr;
+            if (sVar5.adt() != null) {
+                sVar25 = this.bPx.bPr;
+                if (view == sVar25.ads().abR()) {
+                    this.bPx.doManager(view);
+                    sVar26 = this.bPx.bPr;
+                    com.baidu.adp.lib.g.k.a(sVar26.adt(), this.bPx.getPageContext().getPageActivity());
                     return;
                 }
             }
-            sVar6 = this.bPw.bPq;
-            if (sVar6.adr() != null) {
-                sVar22 = this.bPw.bPq;
-                if (view == sVar22.adr().abP()) {
-                    sVar23 = this.bPw.bPq;
-                    sVar23.acw();
-                    sVar24 = this.bPw.bPq;
+            sVar6 = this.bPx.bPr;
+            if (sVar6.ads() != null) {
+                sVar22 = this.bPx.bPr;
+                if (view == sVar22.ads().abQ()) {
+                    sVar23 = this.bPx.bPr;
+                    sVar23.acx();
+                    sVar24 = this.bPx.bPr;
                     sVar24.iu(null);
                     return;
                 }
             }
-            sVar7 = this.bPw.bPq;
-            if (sVar7.adr() != null) {
-                sVar20 = this.bPw.bPq;
-                if (view == sVar20.adr().abR()) {
-                    akVar = this.bPw.bPn;
-                    String ZP = akVar.ZP();
-                    sVar21 = this.bPw.bPq;
-                    com.baidu.adp.lib.g.k.a(sVar21.ads(), this.bPw.getPageContext().getPageActivity());
-                    this.bPw.im(ZP);
+            sVar7 = this.bPx.bPr;
+            if (sVar7.ads() != null) {
+                sVar20 = this.bPx.bPr;
+                if (view == sVar20.ads().abS()) {
+                    akVar = this.bPx.bPo;
+                    String ZQ = akVar.ZQ();
+                    sVar21 = this.bPx.bPr;
+                    com.baidu.adp.lib.g.k.a(sVar21.adt(), this.bPx.getPageContext().getPageActivity());
+                    this.bPx.im(ZQ);
                     return;
                 }
             }
-            sVar8 = this.bPw.bPq;
-            if (view != sVar8.adt()) {
-                sVar10 = this.bPw.bPq;
-                if (view != sVar10.adu()) {
-                    sVar11 = this.bPw.bPq;
-                    if (view != sVar11.adv()) {
-                        sVar13 = this.bPw.bPq;
-                        if (view != sVar13.adw()) {
-                            sVar14 = this.bPw.bPq;
-                            if (view != sVar14.adx()) {
-                                sVar15 = this.bPw.bPq;
-                                if (view == sVar15.ado()) {
-                                    sVar17 = this.bPw.bPq;
-                                    if (sVar17.adp()) {
-                                        sVar19 = this.bPw.bPq;
-                                        sVar19.ade();
+            sVar8 = this.bPx.bPr;
+            if (view != sVar8.adu()) {
+                sVar10 = this.bPx.bPr;
+                if (view != sVar10.adv()) {
+                    sVar11 = this.bPx.bPr;
+                    if (view != sVar11.adw()) {
+                        sVar13 = this.bPx.bPr;
+                        if (view != sVar13.adx()) {
+                            sVar14 = this.bPx.bPr;
+                            if (view != sVar14.ady()) {
+                                sVar15 = this.bPx.bPr;
+                                if (view == sVar15.adp()) {
+                                    sVar17 = this.bPx.bPr;
+                                    if (sVar17.adq()) {
+                                        sVar19 = this.bPx.bPr;
+                                        sVar19.adf();
                                         return;
                                     }
-                                    sVar18 = this.bPw.bPq;
+                                    sVar18 = this.bPx.bPr;
                                     sVar18.iu(null);
                                     return;
                                 }
-                                sVar16 = this.bPw.bPq;
-                                sVar16.acw();
-                                this.bPw.doManager(view);
+                                sVar16 = this.bPx.bPr;
+                                sVar16.acx();
+                                this.bPx.doManager(view);
                                 return;
                             }
-                            this.bPw.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(this.bPw.getPageContext().getPageActivity())));
+                            this.bPx.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(this.bPx.getPageContext().getPageActivity())));
                             return;
                         }
                     }
-                    sVar12 = this.bPw.bPq;
-                    sVar12.acw();
-                    Activity pageActivity = this.bPw.getPageContext().getPageActivity();
-                    String string = this.bPw.getPageContext().getString(com.baidu.tieba.t.user_icon_intro);
-                    str4 = NewSubPbActivity.bOI;
+                    sVar12 = this.bPx.bPr;
+                    sVar12.acx();
+                    Activity pageActivity = this.bPx.getPageContext().getPageActivity();
+                    String string = this.bPx.getPageContext().getString(com.baidu.tieba.t.user_icon_intro);
+                    str4 = NewSubPbActivity.bOJ;
                     com.baidu.tbadk.browser.f.a(pageActivity, string, String.valueOf(str4) + "?st_type=pb_user_icon", true, false, false);
                     return;
                 }
             }
-            sVar9 = this.bPw.bPq;
-            sVar9.acw();
+            sVar9 = this.bPx.bPr;
+            sVar9.acx();
             if (view instanceof HeadImageView) {
                 String userId = ((HeadImageView) view).getUserId();
                 str2 = ((HeadImageView) view).getUserName();
@@ -192,16 +192,16 @@ public class q implements View.OnClickListener {
                 }
             }
             if (str3 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bPw.getPageContext().getPageActivity(), str3, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bPx.getPageContext().getPageActivity(), str3, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
                 return;
             }
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bPw.getActivity());
-        akVar4 = this.bPw.bPn;
-        String abo = akVar4.abo();
-        akVar5 = this.bPw.bPn;
-        messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(abo, akVar5.ZP(), "")));
+        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bPx.getActivity());
+        akVar4 = this.bPx.bPo;
+        String abp = akVar4.abp();
+        akVar5 = this.bPx.bPo;
+        messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(abp, akVar5.ZQ(), "")));
     }
 }

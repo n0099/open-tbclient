@@ -10,7 +10,7 @@ public class a {
     private c agU;
     private boolean agV;
 
-    public static a ye() {
+    public static a yf() {
         a aVar;
         aVar = e.agZ;
         return aVar;
@@ -30,13 +30,13 @@ public class a {
         this();
     }
 
-    public int yf() {
+    public int yg() {
         return com.baidu.tbadk.core.sharedPref.b.sl().getInt("KeyOfSharedPrefImCount", 0);
     }
 
-    public String yg() {
-        int yf = yf();
-        if (yf >= 10) {
+    public String yh() {
+        int yg = yg();
+        if (yg >= 10) {
             com.baidu.tbadk.core.sharedPref.b.sl().putInt("KeyOfSharedPrefImCount", 0);
             com.baidu.tbadk.core.sharedPref.b.sl().putString("KeyOfSharedPrefValidIp", "");
             this.agS = null;
@@ -46,7 +46,7 @@ public class a {
             this.agS = com.baidu.tbadk.core.sharedPref.b.sl().getString("KeyOfSharedPrefValidIp", null);
         }
         if (!com.baidu.adp.lib.util.m.isEmpty(this.agS)) {
-            com.baidu.tbadk.core.sharedPref.b.sl().putInt("KeyOfSharedPrefImCount", yf + 1);
+            com.baidu.tbadk.core.sharedPref.b.sl().putInt("KeyOfSharedPrefImCount", yg + 1);
         } else {
             this.agS = null;
         }
@@ -60,18 +60,18 @@ public class a {
         }
     }
 
-    public List<String> yh() {
+    public List<String> yi() {
         if (this.agT == null) {
             this.agT = ek(com.baidu.tbadk.core.sharedPref.b.sl().getString("KeyOfSharedPrefIpList", null));
         }
         return this.agT;
     }
 
-    public void yi() {
+    public void yj() {
         this.agV = false;
     }
 
-    public boolean yj() {
+    public boolean yk() {
         return this.agV;
     }
 

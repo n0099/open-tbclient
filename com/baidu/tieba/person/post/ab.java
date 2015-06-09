@@ -10,18 +10,18 @@ import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout bUN;
+    final /* synthetic */ ReplyLinearLayout bUO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(ReplyLinearLayout replyLinearLayout) {
-        this.bUN = replyLinearLayout;
+        this.bUO = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
-            Context context = this.bUN.getContext();
+            Context context = this.bUO.getContext();
             if (GameInfoData.NOT_FROM_DETAIL.equals(strArr[3])) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_post_reply")));
                 return;

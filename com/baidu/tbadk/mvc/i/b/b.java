@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.i.b;
 /* loaded from: classes.dex */
 public interface b {
-    c CH();
+    c CI();
 
     void a(a aVar);
 

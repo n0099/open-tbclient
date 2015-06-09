@@ -12,8 +12,8 @@ import com.baidu.tieba.q;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b extends e {
-    private TextView bQK;
-    private View.OnClickListener bQL = new c(this);
+    private TextView bQL;
+    private View.OnClickListener bQM = new c(this);
     private TbPageContext<PbActivity> mPageContext;
     private View mRootView;
 
@@ -24,8 +24,8 @@ public class b extends e {
     @Override // com.baidu.adp.widget.ListView.e
     public View ng() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(r.login_see_more_layout, (ViewGroup) null);
-        this.bQK = (TextView) this.mRootView.findViewById(q.login_button);
-        this.bQK.setOnClickListener(this.bQL);
+        this.bQL = (TextView) this.mRootView.findViewById(q.login_button);
+        this.bQL.setOnClickListener(this.bQM);
         cy(TbadkCoreApplication.m411getInst().getSkinType());
         return this.mRootView;
     }

@@ -13,11 +13,11 @@ public class f {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.AD() != null) {
+        if (bVar != null && bVar.AE() != null) {
             Iterator<b> it = this.ais.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.AD() != null && next.AD().type == bVar.AD().type) {
+                if (next != null && next.AE() != null && next.AE().type == bVar.AE().type) {
                     return;
                 }
             }
@@ -25,7 +25,7 @@ public class f {
         }
     }
 
-    public ArrayList<b> AF() {
+    public ArrayList<b> AG() {
         return this.ais;
     }
 

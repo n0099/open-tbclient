@@ -4,11 +4,11 @@ import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 class aw implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ aj cwn;
+    final /* synthetic */ aj cwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(aj ajVar) {
-        this.cwn = ajVar;
+        this.cwo = ajVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer

@@ -8,62 +8,62 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.tbadk.mvc.d.d<ag, ah> implements com.baidu.tbadk.mvc.model.d<ah> {
-    private com.baidu.tbadk.mvc.e.b aCX;
-    private SingleMentionActivity bFQ;
-    private FeedData bFU;
-    private q bFV;
-    private ag bGr;
-    private af bGs;
-    private v bGt;
+    private com.baidu.tbadk.mvc.e.b aCY;
+    private SingleMentionActivity bFR;
+    private FeedData bFV;
+    private q bFW;
+    private ag bGs;
+    private af bGt;
+    private v bGu;
 
     public ae(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity);
-        this.bFQ = singleMentionActivity;
+        this.bFR = singleMentionActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        this.bGr = new ag();
-        this.bGs = new af(this.bFQ.getPageContext(), this.bGr);
-        this.bGs.a((com.baidu.tbadk.mvc.model.q) this);
-        this.bGs.setUniqueId(getUniqueId());
-        this.bGt = new v(this.bFQ.getPageContext());
-        this.bGt.a(this);
+        this.bGs = new ag();
+        this.bGt = new af(this.bFR.getPageContext(), this.bGs);
+        this.bGt.a((com.baidu.tbadk.mvc.model.q) this);
         this.bGt.setUniqueId(getUniqueId());
-        this.bFV = new q();
-        this.aCX = new com.baidu.tbadk.mvc.e.b();
+        this.bGu = new v(this.bFR.getPageContext());
+        this.bGu.a(this);
+        this.bGu.setUniqueId(getUniqueId());
+        this.bFW = new q();
+        this.aCY = new com.baidu.tbadk.mvc.e.b();
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    protected boolean BA() {
-        if (this.bGs.isLoading() || !this.aCX.Ca()) {
+    protected boolean BB() {
+        if (this.bGt.isLoading() || !this.aCY.Cb()) {
             return false;
         }
-        this.aCX.bd(true);
-        this.aCX.bf(true);
-        this.bGr.b(this.bFU);
-        this.bGs.setNeedCache(false);
-        this.bGs.BL();
-        a(this.aCX);
+        this.aCY.bd(true);
+        this.aCY.bf(true);
+        this.bGs.b(this.bFV);
+        this.bGt.setNeedCache(false);
+        this.bGt.BM();
+        a(this.aCY);
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.e
     protected boolean bb(boolean z) {
-        if (this.bGs.isLoading()) {
+        if (this.bGt.isLoading()) {
             return false;
         }
-        this.bFU = null;
-        this.bGr.reset();
-        this.bGs.setNeedCache(true);
-        this.bGs.BL();
+        this.bFV = null;
+        this.bGs.reset();
+        this.bGt.setNeedCache(true);
+        this.bGt.BM();
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean oM() {
-        this.bGt.a((com.baidu.tbadk.mvc.b.e) this.bGr);
+        this.bGu.a((com.baidu.tbadk.mvc.b.e) this.bGs);
         return true;
     }
 
@@ -73,41 +73,41 @@ public class ae extends com.baidu.tbadk.mvc.d.d<ag, ah> implements com.baidu.tba
     public boolean a(ag agVar, ah ahVar) {
         boolean a = super.a((ae) agVar, (ag) ahVar);
         if (agVar.getUpdateType() != 4) {
-            this.bFV.Zo().clear();
+            this.bFW.Zp().clear();
         }
-        this.bFV.a(ahVar);
-        if (ahVar != null && ahVar.Zo() != null && ahVar.Zo().size() > 0) {
-            this.bFU = ahVar.Zo().get(ahVar.Zo().size() - 1);
-            if (this.bFV.Zp() != null) {
-                this.aCX.be(this.bFV.Zp().qR() == 1);
+        this.bFW.a(ahVar);
+        if (ahVar != null && ahVar.Zp() != null && ahVar.Zp().size() > 0) {
+            this.bFV = ahVar.Zp().get(ahVar.Zp().size() - 1);
+            if (this.bFW.Zq() != null) {
+                this.aCY.be(this.bFW.Zq().qR() == 1);
             } else {
-                this.aCX.be(true);
+                this.aCY.be(true);
             }
             if (agVar != null) {
-                agVar.RR();
+                agVar.RS();
             }
-            this.aCX.bf(true);
+            this.aCY.bf(true);
         } else {
-            this.bFU = null;
-            this.aCX.be(false);
-            this.aCX.bf(false);
+            this.bFV = null;
+            this.aCY.be(false);
+            this.aCY.bf(false);
         }
-        this.aCX.bd(false);
-        this.aCX.bc(false);
-        b(this.bFV);
-        a(this.aCX);
+        this.aCY.bd(false);
+        this.aCY.bc(false);
+        b(this.bFW);
+        a(this.aCY);
         return a;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
     public void a(ReadCacheRespMsg<List<ah>> readCacheRespMsg, ReadCacheMessage<ah> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.bGr, readCacheRespMsg.getData().get(0));
+            a(this.bGs, readCacheRespMsg.getData().get(0));
         }
-        this.bFU = null;
-        this.bGr.reset();
-        this.bGs.setNeedCache(true);
-        this.bGs.BL();
+        this.bFV = null;
+        this.bGs.reset();
+        this.bGt.setNeedCache(true);
+        this.bGt.BM();
     }
 
     @Override // com.baidu.tbadk.mvc.model.d

@@ -8,13 +8,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity brC;
+    final /* synthetic */ ChatMessageActivity brD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.brC = chatMessageActivity;
+        this.brD = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,13 +31,13 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.brC.mFragmentManager = this.brC.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.brC;
-            fragmentManager = this.brC.mFragmentManager;
-            chatMessageActivity.brB = fragmentManager.beginTransaction();
-            fragmentTransaction = this.brC.brB;
+            this.brD.mFragmentManager = this.brD.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.brD;
+            fragmentManager = this.brD.mFragmentManager;
+            chatMessageActivity.brC = fragmentManager.beginTransaction();
+            fragmentTransaction = this.brD.brC;
             fragmentTransaction.add(q.content, fragment);
-            fragmentTransaction2 = this.brC.brB;
+            fragmentTransaction2 = this.brD.brC;
             fragmentTransaction2.commitAllowingStateLoss();
         }
     }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ k css;
-    private final /* synthetic */ p cst;
+    final /* synthetic */ k cst;
+    private final /* synthetic */ p csu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar, p pVar, TbPageContext tbPageContext) {
-        this.css = kVar;
-        this.cst = pVar;
+        this.cst = kVar;
+        this.csu = pVar;
         this.NC = tbPageContext;
     }
 
@@ -24,8 +24,8 @@ class l extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         j jVar;
         super.a((l) aVar, str, i);
         if (aVar != null && aVar.mT()) {
-            jVar = this.css.csq;
-            this.cst.setDrawable(jVar.f(aVar));
+            jVar = this.cst.csr;
+            this.csu.setDrawable(jVar.f(aVar));
             MessageManager.getInstance().sendMessage(new CustomMessage(2004005, this.NC));
         }
     }

@@ -8,10 +8,10 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, u, Void> {
-    private int bGu;
-    final /* synthetic */ e coC;
-    FRSPageRequestMessage coJ;
-    private final WeakReference<BaseActivity> coK;
+    private int bGv;
+    final /* synthetic */ e coD;
+    FRSPageRequestMessage coK;
+    private final WeakReference<BaseActivity> coL;
     private String mName;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -19,10 +19,10 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public void onPreExecute() {
         aa aaVar;
         aa aaVar2;
-        aaVar = this.coC.cou;
+        aaVar = this.coD.cov;
         if (aaVar != null) {
-            aaVar2 = this.coC.cou;
-            aaVar2.eU(this.bGu);
+            aaVar2 = this.coD.cov;
+            aaVar2.eU(this.bGv);
         }
     }
 
@@ -32,14 +32,14 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public Void doInBackground(Object... objArr) {
         boolean z;
         try {
-            z = this.coC.coz;
-            if (z && d.amo().jo(this.mName)) {
-                if (!d.amo().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
-                    d.amo().getResponseData().aar().getSignData().setIsSigned(0);
+            z = this.coD.coA;
+            if (z && d.amp().jo(this.mName)) {
+                if (!d.amp().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.mName)) {
+                    d.amp().getResponseData().aas().getSignData().setIsSigned(0);
                 }
-                publishProgress(d.amo().getResponseData());
+                publishProgress(d.amp().getResponseData());
             }
-            this.coC.aFt = System.currentTimeMillis();
+            this.coD.aFu = System.currentTimeMillis();
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -54,9 +54,9 @@ public class i extends BdAsyncTask<Object, u, Void> {
     public void onProgressUpdate(u... uVarArr) {
         aa aaVar;
         aa aaVar2;
-        aaVar = this.coC.cou;
+        aaVar = this.coD.cov;
         if (aaVar != null) {
-            aaVar2 = this.coC.cou;
+            aaVar2 = this.coD.cov;
             aaVar2.b(uVarArr.length > 0 ? uVarArr[0] : null);
         }
     }
@@ -67,14 +67,14 @@ public class i extends BdAsyncTask<Object, u, Void> {
     /* renamed from: b */
     public void onPostExecute(Void r3) {
         boolean z;
-        this.coJ.setUpdateType(this.bGu);
-        FRSPageRequestMessage fRSPageRequestMessage = this.coJ;
-        z = this.coC.coz;
+        this.coK.setUpdateType(this.bGv);
+        FRSPageRequestMessage fRSPageRequestMessage = this.coK;
+        z = this.coD.coA;
         fRSPageRequestMessage.setNeedCache(z);
-        if (this.coK != null && this.coK.get() != null) {
-            this.coK.get().sendMessage(this.coJ);
+        if (this.coL != null && this.coL.get() != null) {
+            this.coL.get().sendMessage(this.coK);
         }
-        this.coC.cox = null;
+        this.coD.coy = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,10 +88,10 @@ public class i extends BdAsyncTask<Object, u, Void> {
         aa aaVar;
         aa aaVar2;
         super.cancel(true);
-        aaVar = this.coC.cou;
+        aaVar = this.coD.cov;
         if (aaVar != null) {
-            aaVar2 = this.coC.cou;
-            aaVar2.a(this.bGu, true, null);
+            aaVar2 = this.coD.cov;
+            aaVar2.a(this.bGv, true, null);
         }
     }
 }

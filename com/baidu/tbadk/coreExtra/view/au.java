@@ -129,7 +129,7 @@ public class au extends RelativeLayout {
         this.mProgressBar.setVisibility(8);
     }
 
-    public void yd() {
+    public void ye() {
         if (this.agL != null && this.agL.getImageType() == 1) {
             this.agL.stop();
         }
@@ -139,12 +139,12 @@ public class au extends RelativeLayout {
         String str;
         if (this.agL != null && (str = (String) this.agL.getTag()) != null && com.baidu.adp.lib.util.k.iX() && this.agL != null) {
             if (this.agL.getImageType() == 1) {
-                if (this.agL.getGifCache() == null || !this.agL.Eg()) {
+                if (this.agL.getGifCache() == null || !this.agL.Eh()) {
                     p(str, z);
                 }
             } else if (this.agL.getImageType() == 2) {
                 p(str, z);
-            } else if (this.agL.getImageBitmap() == null || !this.agL.Eg()) {
+            } else if (this.agL.getImageBitmap() == null || !this.agL.Eh()) {
                 p(str, z);
             }
         }

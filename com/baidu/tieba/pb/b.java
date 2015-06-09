@@ -12,13 +12,13 @@ import java.io.File;
 /* loaded from: classes.dex */
 class b extends BdAsyncTask<String, Integer, Boolean> {
     private final String To;
-    final /* synthetic */ FileDownloader bIy;
+    final /* synthetic */ FileDownloader bIz;
     private final String mUrl;
     private aa OE = null;
-    private volatile boolean ayP = false;
+    private volatile boolean ayQ = false;
 
     public b(FileDownloader fileDownloader, String str, String str2) {
-        this.bIy = fileDownloader;
+        this.bIz = fileDownloader;
         this.mUrl = str;
         this.To = str2;
     }
@@ -31,10 +31,10 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
         File cC;
         Handler handler;
         Boolean bool = false;
-        while (!this.ayP) {
+        while (!this.ayQ) {
             try {
                 this.OE = new aa(this.mUrl);
-                handler = this.bIy.handler;
+                handler = this.bIz.handler;
                 bool = Boolean.valueOf(this.OE.a(String.valueOf(this.To) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
                 if (bool.booleanValue() || this.OE.tb() == -2) {
                     break;
@@ -60,8 +60,8 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.bIy.mDowndingTask = null;
-        this.ayP = true;
+        this.bIz.mDowndingTask = null;
+        this.ayQ = true;
         if (this.OE != null) {
             this.OE.gS();
         }
@@ -76,17 +76,17 @@ class b extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler;
         Handler handler2;
         super.onPostExecute(bool);
-        this.bIy.mDowndingTask = null;
+        this.bIz.mDowndingTask = null;
         if (bool.booleanValue()) {
-            NotificationHelper.cancelNotification(this.bIy.getBaseContext(), 10);
-            handler = this.bIy.handler;
-            handler2 = this.bIy.handler;
+            NotificationHelper.cancelNotification(this.bIz.getBaseContext(), 10);
+            handler = this.bIz.handler;
+            handler2 = this.bIz.handler;
             handler.sendMessageDelayed(handler2.obtainMessage(1, this.To), 100L);
             return;
         }
-        Context baseContext = this.bIy.getBaseContext();
-        i = this.bIy.progress;
-        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.bIy.getString(t.error_sd_error), false);
-        this.bIy.stopSelf();
+        Context baseContext = this.bIz.getBaseContext();
+        i = this.bIz.progress;
+        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.bIz.getString(t.error_sd_error), false);
+        this.bIz.stopSelf();
     }
 }

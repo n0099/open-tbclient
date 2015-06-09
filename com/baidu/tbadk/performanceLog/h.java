@@ -24,7 +24,7 @@ public class h extends y {
     private CustomMessageListener customNormalListener = new l(this, 2016100);
 
     public h() {
-        Df();
+        Dg();
     }
 
     public void onDestroy() {
@@ -37,10 +37,10 @@ public class h extends y {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void De() {
+    public void Df() {
         if (this.apQ < this.apR) {
             this.apQ++;
-            Dg();
+            Dh();
             if (this.apT == null) {
                 this.apT = new n();
                 this.apT.a(this.apX);
@@ -54,13 +54,13 @@ public class h extends y {
         }
     }
 
-    private void Df() {
+    private void Dg() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Dg() {
+    private void Dh() {
         CustomMessage customMessage = new CustomMessage(2016100, new m(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -94,15 +94,15 @@ public class h extends y {
         this.apP.add(valueOf);
     }
 
-    public String Dh() {
+    public String Di() {
         return r(this.apN);
     }
 
-    public String Di() {
+    public String Dj() {
         return String.valueOf(this.apV);
     }
 
-    public String Dj() {
+    public String Dk() {
         return r(this.apO);
     }
 
@@ -130,9 +130,9 @@ public class h extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Dk() {
+    public void Dl() {
         aj ajVar;
-        if (this.apS == this.apR && this.apR == this.apW && (ajVar = (aj) ah.DB().en(this.mSubType)) != null) {
+        if (this.apS == this.apR && this.apR == this.apW && (ajVar = (aj) ah.DC().en(this.mSubType)) != null) {
             ajVar.g(this);
         }
     }

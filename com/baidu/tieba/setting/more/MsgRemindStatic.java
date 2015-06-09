@@ -12,17 +12,17 @@ import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
 import protobuf.MaskInfo;
 /* loaded from: classes.dex */
 public class MsgRemindStatic {
-    private static boolean cga = false;
     private static boolean cgb = false;
-    private static final com.baidu.adp.framework.listener.e cgc = new an(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-    private static final CustomMessageListener cgd = new ao(2005016);
-    private static final CustomMessageListener cge = new ap(2001318);
+    private static boolean cgc = false;
+    private static final com.baidu.adp.framework.listener.e cgd = new an(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+    private static final CustomMessageListener cge = new ao(2005016);
+    private static final CustomMessageListener cgf = new ap(2001318);
     private static MaskInfo maskInfo;
 
     static {
-        MessageManager.getInstance().registerListener(cgd);
-        MessageManager.getInstance().registerListener(cgc);
         MessageManager.getInstance().registerListener(cge);
+        MessageManager.getInstance().registerListener(cgd);
+        MessageManager.getInstance().registerListener(cgf);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
     }
 
@@ -31,13 +31,13 @@ public class MsgRemindStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void aja() {
+    public static final void ajb() {
         boolean z;
         Integer num;
         String[] split;
         String[] split2;
         String[] split3;
-        if (cga && maskInfo != null && !cgb) {
+        if (cgb && maskInfo != null && !cgc) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
                 if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.sl().getBoolean(new StringBuilder("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
@@ -110,20 +110,20 @@ public class MsgRemindStatic {
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskFids) && (split3 = maskInfo.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        com.baidu.tieba.im.settingcache.h.UP().a(currentAccount, str, false, null);
+                        com.baidu.tieba.im.settingcache.h.UQ().a(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskGids) && (split2 = maskInfo.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        com.baidu.tieba.im.settingcache.c.UN().a(currentAccount, str2, false, (com.baidu.tieba.im.g<Void>) null);
+                        com.baidu.tieba.im.settingcache.c.UO().a(currentAccount, str2, false, (com.baidu.tieba.im.g<Void>) null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskUids) && (split = maskInfo.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        com.baidu.tieba.im.settingcache.j.UQ().a(currentAccount, str3, false, null);
+                        com.baidu.tieba.im.settingcache.j.UR().a(currentAccount, str3, false, null);
                     }
                 }
-                cgb = true;
+                cgc = true;
             }
         }
     }

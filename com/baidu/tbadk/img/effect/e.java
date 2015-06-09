@@ -31,7 +31,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.Al().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.Am().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
         if (this.amE == 0 || this.amE == 1) {
             return com.baidu.tbadk.core.util.c.g(bitmap, this.amE);
         }

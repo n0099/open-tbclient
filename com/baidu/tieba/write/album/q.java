@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class q {
-    private static q cyC;
-    private ContentObserver cyD;
+    private static q cyD;
+    private ContentObserver cyE;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<u> lE = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable cyE = new r(this);
+    private Runnable cyF = new r(this);
 
-    public static q arT() {
-        if (cyC == null) {
-            cyC = new q();
-            cyC.init(TbadkCoreApplication.m411getInst());
+    public static q arU() {
+        if (cyD == null) {
+            cyD = new q();
+            cyD.init(TbadkCoreApplication.m411getInst());
         }
-        return cyC;
+        return cyD;
     }
 
     private q() {
@@ -34,7 +34,7 @@ public class q {
 
     private void init(Context context) {
         this.mReceiver = new s(this);
-        this.cyD = new t(this, this.mHandler);
+        this.cyE = new t(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -43,7 +43,7 @@ public class q {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.cyD);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.cyE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,8 +52,8 @@ public class q {
             fw(true);
             return;
         }
-        this.handler.removeCallbacks(this.cyE);
-        this.handler.postDelayed(this.cyE, 2000L);
+        this.handler.removeCallbacks(this.cyF);
+        this.handler.postDelayed(this.cyF, 2000L);
     }
 
     public void fw(boolean z) {
@@ -83,7 +83,7 @@ public class q {
         removeAllListeners();
         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
         m411getInst.unregisterReceiver(this.mReceiver);
-        m411getInst.getContentResolver().unregisterContentObserver(this.cyD);
-        cyC = null;
+        m411getInst.getContentResolver().unregisterContentObserver(this.cyE);
+        cyD = null;
     }
 }

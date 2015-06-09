@@ -14,33 +14,33 @@ import com.baidu.tieba.im.util.h;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static d boJ = null;
-    private String boL;
-    private ArrayList<CustomMessageListener> boK = new ArrayList<>();
+    private static d boK = null;
+    private String boM;
+    private ArrayList<CustomMessageListener> boL = new ArrayList<>();
     private com.baidu.adp.framework.listener.e mListener = new e(this, 202006);
-    private CustomMessageListener boM = new f(this, 0);
+    private CustomMessageListener boN = new f(this, 0);
 
-    public static synchronized d Uy() {
+    public static synchronized d Uz() {
         d dVar;
         synchronized (d.class) {
-            if (boJ == null) {
-                boJ = new d();
+            if (boK == null) {
+                boK = new d();
             }
-            dVar = boJ;
+            dVar = boK;
         }
         return dVar;
     }
 
     public void open() {
-        Uz();
+        UA();
     }
 
     private d() {
     }
 
-    private void Uz() {
+    private void UA() {
         MessageManager.getInstance().registerListener(this.mListener);
-        MessageManager.getInstance().registerListener(2016014, this.boM);
+        MessageManager.getInstance().registerListener(2016014, this.boN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,19 +50,19 @@ public class d {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.m411getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-            } else if (com.baidu.tieba.im.memorycache.c.TD().isInit()) {
+            } else if (com.baidu.tieba.im.memorycache.c.TE().isInit()) {
                 String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
                 com.baidu.tbadk.core.log.b.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
                 if (!TextUtils.isEmpty(valueOf)) {
                     BdLog.i("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.b.b.Uf().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), 0);
+                        com.baidu.tieba.im.b.b.Ug().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), 0);
                         return;
                     }
                     int gv = com.baidu.tieba.im.b.a.gv(pushNotifyMessage.getGroupType());
                     if (TbadkCoreApplication.m411getInst().getCustomizedFilter() == null || TbadkCoreApplication.m411getInst().getCustomizedFilter().be(gv)) {
-                        if (com.baidu.tieba.im.memorycache.c.TD().D(String.valueOf(pushNotifyMessage.getGroupId()), gv) != null) {
-                            com.baidu.tieba.im.b.b.Uf().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), gv);
+                        if (com.baidu.tieba.im.memorycache.c.TE().D(String.valueOf(pushNotifyMessage.getGroupId()), gv) != null) {
+                            com.baidu.tieba.im.b.b.Ug().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), gv);
                         } else {
                             a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), gv);
                         }
@@ -82,11 +82,11 @@ public class d {
         }
     }
 
-    public String UA() {
-        return this.boL;
+    public String UB() {
+        return this.boM;
     }
 
     public void hs(String str) {
-        this.boL = str;
+        this.boM = str;
     }
 }

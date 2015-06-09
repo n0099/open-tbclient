@@ -31,37 +31,37 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, com.baidu.tbadk.mvc.c.a {
     private af LI;
-    private String aEO;
-    private boolean aER;
-    private long aES;
-    private ViewEventCenter aET;
-    private boolean aEU;
-    private com.baidu.tbadk.core.view.b aEV;
-    private boolean aEY;
-    private com.baidu.tbadk.core.dialog.a aFa;
-    private BaseFragmentActivity azk;
-    private com.baidu.tieba.enterForum.d.e aEL = null;
-    private com.baidu.tieba.enterForum.c.c aEM = null;
+    private String aEP;
+    private boolean aES;
+    private long aET;
+    private ViewEventCenter aEU;
+    private boolean aEV;
+    private com.baidu.tbadk.core.view.b aEW;
+    private boolean aEZ;
+    private com.baidu.tbadk.core.dialog.a aFb;
+    private BaseFragmentActivity azl;
+    private com.baidu.tieba.enterForum.d.e aEM = null;
+    private com.baidu.tieba.enterForum.c.c aEN = null;
     private boolean isFirst = true;
-    private boolean aEN = false;
-    private long aEP = -1;
-    private boolean aEQ = false;
-    private boolean aEW = true;
-    private com.baidu.adp.framework.listener.a aEX = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
-    private CustomMessageListener aEZ = new j(this, 2007008);
-    private com.baidu.adp.base.i aFb = new k(this);
-    private final com.baidu.tieba.enterForum.c.h aFc = new l(this);
+    private boolean aEO = false;
+    private long aEQ = -1;
+    private boolean aER = false;
+    private boolean aEX = true;
+    private com.baidu.adp.framework.listener.a aEY = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    private CustomMessageListener aFa = new j(this, 2007008);
+    private com.baidu.adp.base.i aFc = new k(this);
+    private final com.baidu.tieba.enterForum.c.h aFd = new l(this);
     private aj aaa = new m(this);
 
     static {
-        HL();
+        HM();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.aEW = bundle.getBoolean("key_first_start_maintab", true);
+            this.aEX = bundle.getBoolean("key_first_start_maintab", true);
         }
     }
 
@@ -70,45 +70,45 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
         if (bundle == null) {
             bundle = new Bundle();
         }
-        bundle.putBoolean("key_first_start_maintab", this.aEW);
+        bundle.putBoolean("key_first_start_maintab", this.aEX);
         super.onSaveInstanceState(bundle);
     }
 
-    private static void HL() {
+    private static void HM() {
         com.baidu.tieba.tbadkCore.a.a.a(303011, forumRecommendSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean HM() {
-        return (this.aEM.b(this.aEL.Iy(), this.aEL.Iz()) && (this.aEL.Il() == this.aEL.Ip())) ? false : true;
+    public boolean HN() {
+        return (this.aEN.b(this.aEM.Iz(), this.aEM.IA()) && (this.aEM.Im() == this.aEM.Iq())) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HN() {
+    public void HO() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, false));
-        this.aEL.Iw();
+        this.aEM.Ix();
     }
 
-    private void HO() {
+    private void HP() {
         registerListener(new n(this, 2007010));
         registerListener(new o(this, 2007011));
     }
 
-    private void HP() {
+    private void HQ() {
         registerListener(new p(this, 2007012));
     }
 
-    public void HQ() {
+    public void HR() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getFragmentActivity());
         aVar.bu(t.enter_forum_cancel_change_tip);
         aVar.a(TbadkCoreApplication.m411getInst().getString(t.enter_forum_cancel_change), new q(this));
         aVar.b(TbadkCoreApplication.m411getInst().getString(t.cancel), new c(this));
-        aVar.b(this.azk.getPageContext());
+        aVar.b(this.azl.getPageContext());
         aVar.rL();
     }
 
-    private void HR() {
+    private void HS() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getFragmentActivity());
         aVar.bu(t.recommend_dismis_affirm);
         aVar.a(TbadkCoreApplication.m411getInst().getString(t.hide), new d(this));
@@ -120,7 +120,7 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
     public void a(ae aeVar) {
         if (aeVar != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getFragmentActivity());
-            aVar.cn(String.format(this.azk.getPageContext().getString(t.attention_cancel_dialog_content), aeVar.getName()));
+            aVar.cn(String.format(this.azl.getPageContext().getString(t.attention_cancel_dialog_content), aeVar.getName()));
             aVar.a(TbadkCoreApplication.m411getInst().getString(t.confirm), new f(this, aeVar));
             aVar.b(TbadkCoreApplication.m411getInst().getString(t.cancel), new g(this));
             aVar.b(getPageContext());
@@ -129,25 +129,25 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
     }
 
     public void bH(boolean z) {
-        if (this.aEV == null) {
-            HS();
+        if (this.aEW == null) {
+            HT();
         }
-        this.aEV.ar(z);
+        this.aEW.ar(z);
     }
 
-    private void HS() {
-        this.aEV = new com.baidu.tbadk.core.view.b(getPageContext());
+    private void HT() {
+        this.aEW = new com.baidu.tbadk.core.view.b(getPageContext());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.azk = getBaseFragmentActivity();
-        this.aET = new ViewEventCenter();
-        this.aET.addEventDelegate(this);
-        registerListener(this.aEZ);
-        HO();
+        this.azl = getBaseFragmentActivity();
+        this.aEU = new ViewEventCenter();
+        this.aEU.addEventDelegate(this);
+        registerListener(this.aFa);
         HP();
+        HQ();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -158,13 +158,13 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.aEX);
-        this.aEP = System.currentTimeMillis();
+        registerListener(this.aEY);
+        this.aEQ = System.currentTimeMillis();
         initData(getArguments());
         initUI();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        this.aEU = this.aEM.hasShowForumEditGuide();
-        com.baidu.tieba.enterForum.c.a.HT().i(getFragmentActivity(), com.baidu.adp.lib.util.n.l(getFragmentActivity()));
+        this.aEV = this.aEN.hasShowForumEditGuide();
+        com.baidu.tieba.enterForum.c.a.HU().i(getFragmentActivity(), com.baidu.adp.lib.util.n.l(getFragmentActivity()));
     }
 
     private View c(LayoutInflater layoutInflater) {
@@ -172,21 +172,21 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
     }
 
     private void initUI() {
-        this.aEL = new com.baidu.tieba.enterForum.d.e(this, this.aET);
-        this.aEL.a(this.aaa);
-        this.aEL.c(new h(this));
+        this.aEM = new com.baidu.tieba.enterForum.d.e(this, this.aEU);
+        this.aEM.a(this.aaa);
+        this.aEM.c(new h(this));
     }
 
     private void initData(Bundle bundle) {
         this.isFirst = true;
-        this.aEN = false;
-        this.aEO = "";
-        this.aEM = new com.baidu.tieba.enterForum.c.c(this.azk.getPageContext());
-        this.aEM.a(this.aFc);
-        this.aES = this.aEM.Ii();
-        this.LI = new af(this.azk.getPageContext());
-        this.LI.setLoadDataCallBack(this.aFb);
-        this.aEM.a(this.aFc);
+        this.aEO = false;
+        this.aEP = "";
+        this.aEN = new com.baidu.tieba.enterForum.c.c(this.azl.getPageContext());
+        this.aEN.a(this.aFd);
+        this.aET = this.aEN.Ij();
+        this.LI = new af(this.azl.getPageContext());
+        this.LI.setLoadDataCallBack(this.aFc);
+        this.aEN.a(this.aFd);
     }
 
     public void e(boolean z, String str) {
@@ -197,48 +197,48 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
 
     public void a(com.baidu.tieba.enterForum.b.b bVar) {
         if (bVar != null) {
-            if (bVar.HC() != null && bVar.HC().rh() != null && !bVar.HC().rh().isEmpty()) {
-                this.aEL.a(getPageContext(), bVar.HC().rh().get(0));
+            if (bVar.HD() != null && bVar.HD().rh() != null && !bVar.HD().rh().isEmpty()) {
+                this.aEM.a(getPageContext(), bVar.HD().rh().get(0));
             }
-            com.baidu.tieba.enterForum.b.c HD = bVar.HD();
-            if (HD != null && HD.HG() != null) {
-                int size = HD.HG().size();
-                if (size < 5 && this.aEW && TbadkCoreApplication.isLogin()) {
+            com.baidu.tieba.enterForum.b.c HE = bVar.HE();
+            if (HE != null && HE.HH() != null) {
+                int size = HE.HH().size();
+                if (size < 5 && this.aEX && TbadkCoreApplication.isLogin()) {
                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getActivity()).createNormalCfg(2)));
                 }
-                this.aEW = false;
+                this.aEX = false;
                 if (size <= 10) {
                     if (size <= 0) {
                         if (this.mIsLogin) {
-                            this.aEL.bL(true);
+                            this.aEM.bL(true);
                         } else {
-                            this.aEL.bL(false);
+                            this.aEM.bL(false);
                         }
                     } else {
-                        this.aEL.bL(false);
+                        this.aEM.bL(false);
                     }
-                    boolean P = this.aEM.P(this.aES);
-                    List<com.baidu.tieba.enterForum.b.e> HK = bVar.HB() != null ? bVar.HB().HK() : null;
-                    if (!P || HK == null || HK.isEmpty()) {
-                        this.aEL.IB();
+                    boolean P = this.aEN.P(this.aET);
+                    List<com.baidu.tieba.enterForum.b.e> HL = bVar.HC() != null ? bVar.HC().HL() : null;
+                    if (!P || HL == null || HL.isEmpty()) {
+                        this.aEM.IC();
                     } else {
-                        this.aEL.O(HK);
+                        this.aEM.O(HL);
                     }
-                    if (!this.mIsLogin && HK != null && !HK.isEmpty()) {
-                        this.aEL.O(HK);
+                    if (!this.mIsLogin && HL != null && !HL.isEmpty()) {
+                        this.aEM.O(HL);
                     }
                 } else {
-                    this.aEL.IB();
-                    this.aEL.bL(false);
+                    this.aEM.IC();
+                    this.aEM.bL(false);
                 }
             }
-            J(HD == null ? null : HD.HG());
+            J(HE == null ? null : HE.HH());
         }
     }
 
     private void J(List<ae> list) {
         if (list != null) {
-            int eH = this.aEM.eH(0);
+            int eH = this.aEN.eH(0);
             if (eH == 0) {
                 if (list.size() > 8) {
                     eH = 2;
@@ -246,24 +246,24 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                     eH = 1;
                 }
             }
-            this.aEL.eK(eH);
+            this.aEM.eK(eH);
             if (list.size() > 500) {
                 list = list.subList(0, 500);
             }
-            this.aEL.R(this.aEM.a(list, this.aEM.Ih()));
+            this.aEM.R(this.aEN.a(list, this.aEN.Ii()));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.aEL.onStop();
+        this.aEM.onStop();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.aEQ = false;
+        this.aER = false;
         if (!isShow()) {
         }
     }
@@ -271,44 +271,44 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        this.aEL.onResume();
+        this.aEM.onResume();
         bI(false);
-        if (this.aEL.Iu()) {
+        if (this.aEM.Iv()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, Boolean.valueOf(isPrimary())));
         }
-        if (!isPrimary() && this.aFa != null) {
-            this.aFa.dismiss();
+        if (!isPrimary() && this.aFb != null) {
+            this.aFb.dismiss();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        As();
-        com.baidu.tieba.enterForum.c.a.HT().destroy();
+        At();
+        com.baidu.tieba.enterForum.c.a.HU().destroy();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aEL.onChangeSkinType(i);
+        this.aEM.onChangeSkinType(i);
     }
 
-    public void As() {
-        this.aEM.cancelLoadData();
+    public void At() {
+        this.aEN.cancelLoadData();
     }
 
     public void bI(boolean z) {
         boolean z2;
         boolean z3;
-        if (!this.aEY && this.aEM != null) {
-            String str = this.aEO;
-            this.aEO = TbadkCoreApplication.getCurrentAccount();
+        if (!this.aEZ && this.aEN != null) {
+            String str = this.aEP;
+            this.aEP = TbadkCoreApplication.getCurrentAccount();
             if (this.isFirst) {
                 this.isFirst = false;
                 z2 = true;
                 z3 = false;
-            } else if (this.aEO == null || this.aEO.equals(str)) {
+            } else if (this.aEP == null || this.aEP.equals(str)) {
                 z2 = false;
                 z3 = false;
             } else {
@@ -321,8 +321,8 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
             }
             boolean z4 = z ? true : z3;
             if (TbadkCoreApplication.m411getInst().signedForumCount() > 0) {
-                if (this.aEM != null && this.aEM.Id() != null && this.aEM.Id().HD() != null) {
-                    Iterator<ae> it = this.aEM.Id().HD().HG().iterator();
+                if (this.aEN != null && this.aEN.Ie() != null && this.aEN.Ie().HE() != null) {
+                    Iterator<ae> it = this.aEN.Ie().HE().HH().iterator();
                     while (it.hasNext()) {
                         ae next = it.next();
                         if (TbadkCoreApplication.m411getInst().hasSignedForum(next.getName())) {
@@ -339,15 +339,15 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                 if (currentAccount != null && currentAccount.length() > 0) {
                     com.baidu.tieba.tbadkCore.util.j.jG(currentAccount);
                 }
-                this.aEL.notifyDataSetChanged();
+                this.aEM.notifyDataSetChanged();
             }
             if (z2 || z4) {
-                As();
+                At();
                 if (z4) {
-                    this.aEL.no();
+                    this.aEM.no();
                 } else if (z2) {
-                    this.aEM.bK(StringUtils.isNull(this.aEO) ? false : true);
-                    this.aEL.no();
+                    this.aEN.bK(StringUtils.isNull(this.aEP) ? false : true);
+                    this.aEM.no();
                 }
             }
         }
@@ -367,16 +367,16 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        int Br = bVar.Br();
-        com.baidu.tbadk.mvc.b.a Bs = bVar.Bs();
-        switch (Br) {
+        int Bs = bVar.Bs();
+        com.baidu.tbadk.mvc.b.a Bt = bVar.Bt();
+        switch (Bs) {
             case 1:
-                if (Bs instanceof ae) {
-                    String name = ((ae) Bs).getName();
+                if (Bt instanceof ae) {
+                    String name = ((ae) Bt).getName();
                     if (bb.aT(name)) {
-                        TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "ef_recent", "click", 1, new Object[0]);
-                        this.aEQ = true;
-                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.azk.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
+                        TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "ef_recent", "click", 1, new Object[0]);
+                        this.aER = true;
+                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.azl.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
                         return true;
                     }
                     return false;
@@ -384,8 +384,8 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                 return false;
             case 2:
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, true));
-                this.aEL.eI(Bs instanceof com.baidu.tieba.enterForum.b.d ? ((com.baidu.tieba.enterForum.b.d) Bs).getPosition() : 0);
-                this.aER = false;
+                this.aEM.eI(Bt instanceof com.baidu.tieba.enterForum.b.d ? ((com.baidu.tieba.enterForum.b.d) Bt).getPosition() : 0);
+                this.aES = false;
                 if (getView() != null && getView().getParent() != null) {
                     getView().getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -393,8 +393,8 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
             case 3:
                 return true;
             case 4:
-                if (Bs instanceof ae) {
-                    a((ae) Bs);
+                if (Bt instanceof ae) {
+                    a((ae) Bt);
                     return true;
                 }
                 return false;
@@ -404,35 +404,35 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                 return false;
             case 6:
                 ArrayList arrayList = new ArrayList();
-                if (this.aEL.Ir() != null) {
-                    arrayList.addAll(this.aEL.Ir());
+                if (this.aEM.Is() != null) {
+                    arrayList.addAll(this.aEM.Is());
                 }
-                List<ae> L = this.aEM.L(this.aEL.Ir());
-                if (!arrayList.isEmpty() && this.aEM.b(arrayList, L)) {
+                List<ae> L = this.aEN.L(this.aEM.Is());
+                if (!arrayList.isEmpty() && this.aEN.b(arrayList, L)) {
                     showToast(t.enter_forum_sort_already);
                 } else {
-                    this.aEL.N(L);
+                    this.aEM.N(L);
                 }
                 return true;
             case 7:
-                this.aEL.It();
+                this.aEM.Iu();
                 return true;
             case 8:
-                HR();
+                HS();
                 return true;
             case 9:
-                this.aEL.IA();
+                this.aEM.IB();
                 if (!this.mIsLogin) {
-                    TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "notlogin_7", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "notlogin_7", "click", 1, new Object[0]);
                 }
                 return true;
             case 10:
-                if (Bs instanceof com.baidu.tieba.enterForum.b.e) {
-                    com.baidu.tieba.enterForum.b.e eVar = (com.baidu.tieba.enterForum.b.e) Bs;
+                if (Bt instanceof com.baidu.tieba.enterForum.b.e) {
+                    com.baidu.tieba.enterForum.b.e eVar = (com.baidu.tieba.enterForum.b.e) Bt;
                     String forumName = eVar.getForumName();
                     String valueOf = String.valueOf(eVar.getForumId());
                     if (bb.aT(forumName)) {
-                        TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "recom_flist_like", "click", 1, "dev_id", valueOf);
+                        TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "recom_flist_like", "click", 1, "dev_id", valueOf);
                         this.LI.ba(forumName, valueOf);
                         return true;
                     }
@@ -440,17 +440,17 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                 }
                 return false;
             case 11:
-                if (Bs instanceof com.baidu.tieba.enterForum.b.e) {
-                    com.baidu.tieba.enterForum.b.e eVar2 = (com.baidu.tieba.enterForum.b.e) Bs;
+                if (Bt instanceof com.baidu.tieba.enterForum.b.e) {
+                    com.baidu.tieba.enterForum.b.e eVar2 = (com.baidu.tieba.enterForum.b.e) Bt;
                     String forumName2 = eVar2.getForumName();
                     String valueOf2 = String.valueOf(eVar2.getForumId());
                     if (bb.aT(forumName2)) {
-                        TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "ef_recent", "click", 1, new Object[0]);
-                        this.aEQ = true;
-                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.azk.getPageContext().getPageActivity()).createNormalCfg(forumName2, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-                        TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "recom_flist_pic", "click", 1, "dev_id", valueOf2);
+                        TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "ef_recent", "click", 1, new Object[0]);
+                        this.aER = true;
+                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.azl.getPageContext().getPageActivity()).createNormalCfg(forumName2, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                        TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "recom_flist_pic", "click", 1, "dev_id", valueOf2);
                         if (!this.mIsLogin) {
-                            TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "notlogin_5", "click", 1, new Object[0]);
+                            TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "notlogin_5", "click", 1, new Object[0]);
                         }
                         return true;
                     }
@@ -458,22 +458,22 @@ public class a extends BaseFragment implements com.baidu.tbadk.imageManager.d, c
                 }
                 return false;
             case 13:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2902023, new SingleSquareActivityConfig(this.azk.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902023, new SingleSquareActivityConfig(this.azl.getPageContext().getPageActivity())));
                 if (!this.mIsLogin) {
-                    TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "notlogin_6", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "notlogin_6", "click", 1, new Object[0]);
                 }
                 return true;
             case 14:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new com.baidu.tbadk.core.frameworkData.c(this.azk.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new com.baidu.tbadk.core.frameworkData.c(this.azl.getPageContext().getPageActivity())));
                 if (!this.mIsLogin) {
-                    TiebaStatic.eventStat(this.azk.getPageContext().getPageActivity(), "notlogin_8", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.azl.getPageContext().getPageActivity(), "notlogin_8", "click", 1, new Object[0]);
                 }
                 return true;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean AM() {
+    public boolean AN() {
         return false;
     }
 }

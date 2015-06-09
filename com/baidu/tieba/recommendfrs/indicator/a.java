@@ -22,7 +22,7 @@ public class a extends FragmentPagerAdapter {
         if (i < 0 || i >= this.TA.size()) {
             return null;
         }
-        return this.TA.get(i).ahK();
+        return this.TA.get(i).ahL();
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -30,7 +30,7 @@ public class a extends FragmentPagerAdapter {
         if (i < 0 || i >= this.TA.size()) {
             return 0L;
         }
-        return this.TA.get(i).ahK().hashCode();
+        return this.TA.get(i).ahL().hashCode();
     }
 
     @Override // android.support.v4.view.PagerAdapter

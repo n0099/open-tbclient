@@ -4,77 +4,77 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private t bRA = null;
-    private ai bRB = null;
+    private t bRB = null;
+    private ai bRC = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.bQO && this.requestCode != 23011) {
+        if (this.bQP && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.bRB = new ai(getPageContext(), Ur());
-        this.bRB.setSex(getSex());
-        this.bRB.setId(getUid());
-        this.bRB.setUniqueId(getUniqueId());
+        this.bRC = new ai(getPageContext(), Us());
+        this.bRC.setSex(getSex());
+        this.bRC.setId(getUid());
+        this.bRC.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.bRA == null) {
-            this.bRA = new t(this, Ur());
+        if (this.bRB == null) {
+            this.bRB = new t(this, Us());
         }
-        return this.bRA;
-    }
-
-    public ai aec() {
         return this.bRB;
     }
 
-    @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String adN() {
-        return getPageContext().getString(com.baidu.tieba.t.person_bar_title);
+    public ai aed() {
+        return this.bRC;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public String adO() {
-        return getPageContext().getString(com.baidu.tieba.t.person_bar_no_personal_title);
+        return getPageContext().getString(com.baidu.tieba.t.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public String adP() {
-        return getPageContext().getString(com.baidu.tieba.t.person_bar_no_common_title);
+        return getPageContext().getString(com.baidu.tieba.t.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public String adQ() {
-        return getPageContext().getString(com.baidu.tieba.t.person_bar_personal);
+        return getPageContext().getString(com.baidu.tieba.t.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public String adR() {
+        return getPageContext().getString(com.baidu.tieba.t.person_bar_personal);
+    }
+
+    @Override // com.baidu.tieba.person.BasePersonInfoActivity
+    public String adS() {
         return getPageContext().getString(com.baidu.tieba.t.person_bar_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String adV() {
+    public String adW() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int adW() {
+    public int adX() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        ag aem;
+        ag aen;
         super.onPageSelected(i);
-        if (this.bRA != null && this.bRA.getItem(i) != null && (baseFragment = (BaseFragment) this.bRA.getItem(i)) != null && (baseFragment instanceof v) && (aem = ((v) baseFragment).aem()) != null) {
-            aem.setEditState(false);
-            aem.notifyDataSetChanged();
+        if (this.bRB != null && this.bRB.getItem(i) != null && (baseFragment = (BaseFragment) this.bRB.getItem(i)) != null && (baseFragment instanceof v) && (aen = ((v) baseFragment).aen()) != null) {
+            aen.setEditState(false);
+            aen.notifyDataSetChanged();
         }
     }
 

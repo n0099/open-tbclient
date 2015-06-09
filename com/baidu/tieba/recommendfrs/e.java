@@ -9,25 +9,25 @@ import com.baidu.tieba.recommendfrs.a.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> {
-    final /* synthetic */ b cbE;
+    final /* synthetic */ b cbF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.cbE = bVar;
+        this.cbF = bVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
     public void m(int i, String str) {
         k kVar;
-        kVar = this.cbE.cbw;
+        kVar = this.cbF.cbx;
         com.baidu.tieba.recommendfrs.data.a io = kVar.io(i);
         if (io != null) {
-            TiebaStatic.eventStat(this.cbE.getFragmentActivity(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String ahs = io.ahs();
-            if (!StringUtils.isNull(ahs)) {
-                bi.tO().b(this.cbE.getPageContext(), new String[]{ahs});
+            TiebaStatic.eventStat(this.cbF.getFragmentActivity(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+            String aht = io.aht();
+            if (!StringUtils.isNull(aht)) {
+                bi.tO().b(this.cbF.getPageContext(), new String[]{aht});
             } else {
-                this.cbE.aX(str, io.ahu());
+                this.cbF.aX(str, io.ahv());
             }
         }
     }
@@ -38,10 +38,10 @@ public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommen
         k kVar;
         k kVar2;
         if (aVar != null) {
-            kVar = this.cbE.cbw;
+            kVar = this.cbF.cbx;
             if (kVar != null) {
-                kVar2 = this.cbE.cbw;
-                kVar2.setTitle(UtilHelper.getFixedText(aVar.aht(), 14, true));
+                kVar2 = this.cbF.cbx;
+                kVar2.setTitle(UtilHelper.getFixedText(aVar.ahu(), 14, true));
             }
         }
     }

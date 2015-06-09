@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 class ba implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -16,25 +16,25 @@ class ba implements com.baidu.tbadk.core.dialog.d {
         ch chVar3;
         bo boVar2;
         ch chVar4;
-        this.bKT.KD();
-        boVar = this.bKT.bKv;
-        com.baidu.tbadk.core.data.q abu = boVar.abu();
-        chVar = this.bKT.bKz;
+        this.bKU.KE();
+        boVar = this.bKU.bKw;
+        com.baidu.tbadk.core.data.q abv = boVar.abv();
+        chVar = this.bKU.bKA;
         int pageNum = chVar.getPageNum();
         if (pageNum <= 0) {
-            this.bKT.showToast(com.baidu.tieba.t.pb_page_error);
-        } else if (abu == null || pageNum <= abu.qN()) {
-            chVar2 = this.bKT.bKz;
-            chVar2.acw();
-            this.bKT.stopVoice();
-            chVar3 = this.bKT.bKz;
-            chVar3.acf();
-            boVar2 = this.bKT.bKv;
-            chVar4 = this.bKT.bKz;
+            this.bKU.showToast(com.baidu.tieba.t.pb_page_error);
+        } else if (abv == null || pageNum <= abv.qN()) {
+            chVar2 = this.bKU.bKA;
+            chVar2.acx();
+            this.bKU.stopVoice();
+            chVar3 = this.bKU.bKA;
+            chVar3.acg();
+            boVar2 = this.bKU.bKw;
+            chVar4 = this.bKU.bKA;
             boVar2.hA(chVar4.getPageNum());
             aVar.dismiss();
         } else {
-            this.bKT.showToast(com.baidu.tieba.t.pb_page_error);
+            this.bKU.showToast(com.baidu.tieba.t.pb_page_error);
         }
     }
 }

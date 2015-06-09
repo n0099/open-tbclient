@@ -8,11 +8,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tieba.enterForum.c.h {
-    final /* synthetic */ a aFd;
+    final /* synthetic */ a aFe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.aFd = aVar;
+        this.aFe = aVar;
     }
 
     @Override // com.baidu.tieba.enterForum.c.h
@@ -32,70 +32,70 @@ public class l implements com.baidu.tieba.enterForum.c.h {
         com.baidu.tieba.enterForum.c.c cVar5;
         com.baidu.tieba.enterForum.d.e eVar;
         com.baidu.tieba.enterForum.d.e eVar2;
-        if (this.aFd.isAdded()) {
-            baseFragmentActivity = this.aFd.azk;
+        if (this.aFe.isAdded()) {
+            baseFragmentActivity = this.aFe.azl;
             if (UtilHelper.getNetStatusInfo(baseFragmentActivity.getPageContext().getPageActivity()) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-                eVar2 = this.aFd.aEL;
-                eVar2.IC();
+                eVar2 = this.aFe.aEM;
+                eVar2.ID();
             }
-            this.aFd.e(true, "");
+            this.aFe.e(true, "");
             if (gVar.type == 1) {
-                eVar = this.aFd.aEL;
-                eVar.Ix();
+                eVar = this.aFe.aEM;
+                eVar.Iy();
             }
-            if (gVar.aFB) {
+            if (gVar.aFC) {
                 if (gVar.type == 1) {
-                    this.aFd.aEN = true;
+                    this.aFe.aEO = true;
                     new com.baidu.tieba.enterForum.b.b();
-                    this.aFd.a(gVar.aFC);
+                    this.aFe.a(gVar.aFD);
                 } else if (gVar.type == 0) {
-                    z = this.aFd.aEN;
+                    z = this.aFe.aEO;
                     if (!z) {
                         new com.baidu.tieba.enterForum.b.b();
-                        com.baidu.tieba.enterForum.b.b bVar = gVar.aFC;
-                        cVar5 = this.aFd.aEM;
+                        com.baidu.tieba.enterForum.b.b bVar = gVar.aFD;
+                        cVar5 = this.aFe.aEN;
                         cVar5.b(bVar);
-                        this.aFd.a(bVar);
+                        this.aFe.a(bVar);
                     }
                 }
-            } else if (gVar.aFA != null && !gVar.aFA.equals("")) {
-                baseFragmentActivity2 = this.aFd.azk;
-                baseFragmentActivity2.showToast(gVar.aFA);
+            } else if (gVar.aFB != null && !gVar.aFB.equals("")) {
+                baseFragmentActivity2 = this.aFe.azl;
+                baseFragmentActivity2.showToast(gVar.aFB);
             }
             if (gVar.type == 1 && TbadkCoreApplication.m411getInst().getIsNewRegUser()) {
-                isShow = this.aFd.isShow();
+                isShow = this.aFe.isShow();
                 if (isShow) {
                     TbadkCoreApplication.m411getInst().setIsNewRegUser(false);
                 }
             }
             if (gVar.type == 1) {
-                j = this.aFd.aEP;
+                j = this.aFe.aEQ;
                 if (j > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    j2 = this.aFd.aEP;
-                    cVar = this.aFd.aEM;
-                    long Ic = cVar.Ic();
-                    j3 = this.aFd.aEP;
-                    long j4 = Ic - j3;
-                    cVar2 = this.aFd.aEM;
-                    long Ia = cVar2.Ia();
-                    cVar3 = this.aFd.aEM;
-                    long Ib = cVar3.Ib();
-                    cVar4 = this.aFd.aEM;
-                    TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, Ia, Ib, currentTimeMillis - cVar4.HZ());
-                    this.aFd.aEP = -1L;
+                    j2 = this.aFe.aEQ;
+                    cVar = this.aFe.aEN;
+                    long Id = cVar.Id();
+                    j3 = this.aFe.aEQ;
+                    long j4 = Id - j3;
+                    cVar2 = this.aFe.aEN;
+                    long Ib = cVar2.Ib();
+                    cVar3 = this.aFe.aEN;
+                    long Ic = cVar3.Ic();
+                    cVar4 = this.aFe.aEN;
+                    TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, Ib, Ic, currentTimeMillis - cVar4.Ia());
+                    this.aFe.aEQ = -1L;
                 }
             }
-            com.baidu.tieba.enterForum.b.b bVar2 = gVar.aFC;
-            if (bVar2.Hy() == 1) {
-                if (!bVar2.HF()) {
-                    baseFragmentActivity3 = this.aFd.azk;
-                    String.format(baseFragmentActivity3.getPageContext().getPageActivity().getString(t.signallforum_warning), Integer.valueOf(bVar2.Hz()));
+            com.baidu.tieba.enterForum.b.b bVar2 = gVar.aFD;
+            if (bVar2.Hz() == 1) {
+                if (!bVar2.HG()) {
+                    baseFragmentActivity3 = this.aFe.azl;
+                    String.format(baseFragmentActivity3.getPageContext().getPageActivity().getString(t.signallforum_warning), Integer.valueOf(bVar2.HA()));
                     return;
                 }
                 return;
             }
-            bVar2.HA();
+            bVar2.HB();
         }
     }
 }

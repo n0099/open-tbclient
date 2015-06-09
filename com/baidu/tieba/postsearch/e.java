@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements TextView.OnEditorActionListener {
-    final /* synthetic */ a bXO;
+    final /* synthetic */ a bXP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.bXO = aVar;
+        this.bXP = aVar;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -19,7 +19,7 @@ public class e implements TextView.OnEditorActionListener {
         if (i == 2) {
             String charSequence = textView.getText().toString();
             if (!StringUtils.isNull(charSequence)) {
-                postSearchActivity = this.bXO.bXM;
+                postSearchActivity = this.bXP.bXN;
                 postSearchActivity.iL(charSequence);
             }
             return true;

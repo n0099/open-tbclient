@@ -9,11 +9,11 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
     public final String abtest;
     public final String apk_name;
     public final String apk_url;
-    public final int crQ;
     public final int crR;
     public final int crS;
-    public final b[] crT;
-    public b crU;
+    public final int crT;
+    public final b[] crU;
+    public b crV;
     public final String ext_info;
     public final String first_name;
     public final String id;
@@ -29,7 +29,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
     public a() {
         this.id = null;
         this.name = null;
-        this.crQ = 0;
+        this.crR = 0;
         this.url = null;
         this.ios_url = null;
         this.apk_url = null;
@@ -40,20 +40,20 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         this.price = null;
         this.PC = 0;
         this.abtest = null;
-        this.crR = 0;
+        this.crS = 0;
         this.user_id = null;
         this.verify = null;
         this.ext_info = null;
-        this.crS = 0;
-        this.crT = null;
+        this.crT = 0;
         this.crU = null;
+        this.crV = null;
     }
 
     public a(App app) {
         if (app == null) {
             this.id = null;
             this.name = null;
-            this.crQ = 0;
+            this.crR = 0;
             this.url = null;
             this.ios_url = null;
             this.apk_url = null;
@@ -64,18 +64,18 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
             this.PC = 0;
             this.price = null;
             this.abtest = null;
-            this.crR = 0;
+            this.crS = 0;
             this.user_id = null;
             this.verify = null;
             this.ext_info = null;
-            this.crS = 0;
-            this.crT = null;
+            this.crT = 0;
             this.crU = null;
+            this.crV = null;
             return;
         }
         this.id = app.id;
         this.name = app.name;
-        this.crQ = app.url_type.intValue();
+        this.crR = app.url_type.intValue();
         this.url = app.url;
         this.apk_url = app.apk_url;
         this.apk_name = app.apk_name;
@@ -86,16 +86,16 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         this.PC = app.cpid.intValue();
         this.price = app.price;
         this.abtest = app.abtest;
-        this.crR = app.plan_id.intValue();
+        this.crS = app.plan_id.intValue();
         this.user_id = app.user_id;
         this.verify = app.verify;
         this.ext_info = app.ext_info;
-        this.crS = app.app_time.intValue();
-        this.crT = null;
+        this.crT = app.app_time.intValue();
+        this.crU = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.crU = new b(goodsInfo);
+                    this.crV = new b(goodsInfo);
                     return;
                 }
             }
@@ -103,17 +103,17 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public boolean qu() {
-        if (this.crQ == 2) {
+        if (this.crR == 2) {
             return false;
         }
         return qv() || qw();
     }
 
     public boolean qv() {
-        return (this.crQ != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
+        return (this.crR != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
     public boolean qw() {
-        return this.crQ == 1 && !StringUtils.isNull(this.url);
+        return this.crR == 1 && !StringUtils.isNull(this.url);
     }
 }

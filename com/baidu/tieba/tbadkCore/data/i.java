@@ -5,25 +5,25 @@ import tbclient.App;
 /* loaded from: classes.dex */
 public class i extends j implements g {
     private int Pr;
-    public String aPL;
-    private a csb;
-    public boolean csc = false;
-    public String csd;
+    public String aPM;
+    private a csc;
+    public boolean csd = false;
+    public String cse;
     public long threadId;
 
     public void b(App app) {
-        this.csb = new a(app);
+        this.csc = new a(app);
     }
 
-    public a aor() {
-        return this.csb;
+    public a aos() {
+        return this.csc;
     }
 
-    public String aos() {
-        return this.csb == null ? "" : this.csb.id;
+    public String aot() {
+        return this.csc == null ? "" : this.csc.id;
     }
 
-    public int aot() {
+    public int aou() {
         return this.Pr;
     }
 
@@ -33,141 +33,141 @@ public class i extends j implements g {
     }
 
     public boolean qu() {
-        if (this.csb == null) {
+        if (this.csc == null) {
             return false;
         }
-        return this.csb.qu();
-    }
-
-    public boolean aou() {
-        if (this.csb == null) {
-            return false;
-        }
-        return this.csb.qv();
+        return this.csc.qu();
     }
 
     public boolean aov() {
-        if (this.csb == null) {
+        if (this.csc == null) {
             return false;
         }
-        return this.csb.qw();
+        return this.csc.qv();
+    }
+
+    public boolean aow() {
+        if (this.csc == null) {
+            return false;
+        }
+        return this.csc.qw();
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getPkgName() {
-        if (this.csb == null) {
+        if (this.csc == null) {
             return null;
         }
-        return this.csb.apk_name;
+        return this.csc.apk_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getDownloadUrl() {
-        if (this.csb == null) {
+        if (this.csc == null) {
             return null;
         }
-        return this.csb.apk_url;
+        return this.csc.apk_url;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public String getAppName() {
-        return this.csb == null ? "" : this.csb.name;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.h
-    public String aom() {
-        if (this.csb == null || this.csb.crU == null) {
-            return null;
-        }
-        return this.csb.crU.user_name;
+        return this.csc == null ? "" : this.csc.name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.h
     public String aon() {
-        if (this.csb == null || this.csb.crU == null) {
+        if (this.csc == null || this.csc.crV == null) {
             return null;
         }
-        return this.csb.crU.user_portrait;
+        return this.csc.crV.user_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.h
     public String aoo() {
-        if (this.csb == null || this.csb.crU == null) {
+        if (this.csc == null || this.csc.crV == null) {
             return null;
         }
-        return this.csb.crU.thread_title;
+        return this.csc.crV.user_portrait;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.h
     public String aop() {
-        if (this.csb == null || this.csb.crU == null) {
+        if (this.csc == null || this.csc.crV == null) {
             return null;
         }
-        return this.csb.crU.thread_pic;
+        return this.csc.crV.thread_title;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.h
-    public long aoq() {
-        if (this.csb == null) {
+    public String aoq() {
+        if (this.csc == null || this.csc.crV == null) {
+            return null;
+        }
+        return this.csc.crV.thread_pic;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.h
+    public long aor() {
+        if (this.csc == null) {
             return 0L;
         }
-        return this.csb.crS * 1000;
+        return this.csc.crT * 1000;
     }
 
     public int getShowType() {
-        if (this.csb == null || this.csb.crU == null) {
+        if (this.csc == null || this.csc.crV == null) {
             return -1;
         }
-        return this.csb.crU.crV;
+        return this.csc.crV.crW;
     }
 
     public int getPosition() {
-        int i = this.csb != null ? com.baidu.adp.lib.g.c.toInt(this.csb.pos_name, 0) : 0;
+        int i = this.csc != null ? com.baidu.adp.lib.g.c.toInt(this.csc.pos_name, 0) : 0;
         if (i < 2 || i > 30) {
             return 7;
         }
         return i;
     }
 
-    public String aow() {
-        if (this.csb == null || this.csb.crU == null) {
+    public String aox() {
+        if (this.csc == null || this.csc.crV == null) {
             return null;
         }
-        return this.csb.crU.pop_window_text;
+        return this.csc.crV.pop_window_text;
     }
 
-    public com.baidu.tbadk.core.data.c aox() {
+    public com.baidu.tbadk.core.data.c aoy() {
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        if (this.csb != null) {
-            cVar.Ps = this.csb.id;
-            cVar.Pt = this.csb.name;
-            cVar.Pu = this.csb.crQ;
-            cVar.Pv = this.csb.url;
-            cVar.Pw = this.csb.apk_url;
-            cVar.Px = this.csb.apk_name;
+        if (this.csc != null) {
+            cVar.Ps = this.csc.id;
+            cVar.Pt = this.csc.name;
+            cVar.Pu = this.csc.crR;
+            cVar.Pv = this.csc.url;
+            cVar.Pw = this.csc.apk_url;
+            cVar.Px = this.csc.apk_name;
             try {
-                cVar.Py = Integer.parseInt(this.csb.pos_name.trim());
+                cVar.Py = Integer.parseInt(this.csc.pos_name.trim());
             } catch (Exception e) {
                 cVar.Py = -1;
             }
-            cVar.Pz = this.csb.first_name;
-            cVar.PA = this.csb.second_name;
-            cVar.PC = this.csb.PC;
-            cVar.abtest = this.csb.abtest;
-            cVar.PD = this.csb.crR;
-            cVar.userId = this.csb.user_id;
-            cVar.PE = this.csb.verify;
-            cVar.price = this.csb.price;
-            cVar.PF = this.csb.ext_info;
-            cVar.PG = this.csb.crS * 1000;
-            if (this.csb.crU != null) {
-                cVar.PH.PN = this.csb.crU.pop_window_text;
-                cVar.PH.PK = this.csb.crU.id;
-                cVar.PH.PM = this.csb.crU.thread_pic;
-                cVar.PH.PO = this.csb.crU.crV;
-                cVar.PH.PL = this.csb.crU.thread_title;
-                cVar.PH.userName = this.csb.crU.user_name;
-                cVar.PH.userPortrait = this.csb.crU.user_portrait;
+            cVar.Pz = this.csc.first_name;
+            cVar.PA = this.csc.second_name;
+            cVar.PC = this.csc.PC;
+            cVar.abtest = this.csc.abtest;
+            cVar.PD = this.csc.crS;
+            cVar.userId = this.csc.user_id;
+            cVar.PE = this.csc.verify;
+            cVar.price = this.csc.price;
+            cVar.PF = this.csc.ext_info;
+            cVar.PG = this.csc.crT * 1000;
+            if (this.csc.crV != null) {
+                cVar.PH.PN = this.csc.crV.pop_window_text;
+                cVar.PH.PK = this.csc.crV.id;
+                cVar.PH.PM = this.csc.crV.thread_pic;
+                cVar.PH.PO = this.csc.crV.crW;
+                cVar.PH.PL = this.csc.crV.thread_title;
+                cVar.PH.userName = this.csc.crV.user_name;
+                cVar.PH.userPortrait = this.csc.crV.user_portrait;
             }
         }
         return cVar;

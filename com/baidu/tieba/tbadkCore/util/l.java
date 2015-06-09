@@ -5,43 +5,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int bZQ;
-    private volatile HashMap<Long, Integer> cuf = new HashMap<>();
-    private volatile int cue = 0;
+    private volatile int bZR;
+    private volatile HashMap<Long, Integer> cug = new HashMap<>();
+    private volatile int cuf = 0;
 
     public l(int i) {
-        this.bZQ = i;
+        this.bZR = i;
     }
 
     public void jK(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cuf.size() >= this.bZQ) {
-                    apC();
+                if (this.cug.size() >= this.bZR) {
+                    apD();
                 }
-                this.cue++;
-                this.cuf.put(valueOf, Integer.valueOf(this.cue));
+                this.cuf++;
+                this.cug.put(valueOf, Integer.valueOf(this.cuf));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void apC() {
+    public void apD() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.cuf.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.cug.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.cuf.remove(l);
+                this.cug.remove(l);
             } else {
-                this.cuf.clear();
+                this.cug.clear();
             }
         }
     }
@@ -51,7 +51,7 @@ public class l {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cuf.get(valueOf) != null) {
+                if (this.cug.get(valueOf) != null) {
                     z = true;
                 }
             }

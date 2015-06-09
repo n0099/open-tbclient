@@ -60,7 +60,7 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         this.agi.eh(null);
-        this.agi.xR();
+        this.agi.xS();
         super.onPreExecute();
     }
 }

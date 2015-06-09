@@ -73,9 +73,9 @@ public class e {
                 this.abV.parserJson(jSONObject.optJSONObject("webview_checkurl"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
                 if (optJSONObject != null) {
-                    com.baidu.tbadk.distribute.a.yX().dt(optJSONObject.optInt("distance", 60));
-                    com.baidu.tbadk.distribute.a.yX().du(optJSONObject.optInt("items_num", 10));
-                    com.baidu.tbadk.distribute.a.yX().aT(1 == optJSONObject.optInt("ad_show", 1));
+                    com.baidu.tbadk.distribute.a.yY().dt(optJSONObject.optInt("distance", 60));
+                    com.baidu.tbadk.distribute.a.yY().du(optJSONObject.optInt("items_num", 10));
+                    com.baidu.tbadk.distribute.a.yY().aT(1 == optJSONObject.optInt("ad_show", 1));
                 }
                 TbadkCoreApplication.m411getInst().setYijianfankuiFname(this.mYijianfankuiFname);
                 if (this.abT == null) {
@@ -94,7 +94,7 @@ public class e {
                     com.baidu.tbadk.core.util.httpNet.e.getInstance().setCDNImageTimeData(aVar);
                     com.baidu.tbadk.core.util.httpNet.e.getInstance().setIpDisableTime(jSONObject.optInt("ip_unavailable_time"));
                 }
-                ah.DB().x(jSONObject.optLong("small_flow_time_out"));
+                ah.DC().x(jSONObject.optLong("small_flow_time_out"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("switch");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -168,9 +168,9 @@ public class e {
                     TbadkCoreApplication.m411getInst().setImTimeOut(new int[]{optJSONObject5.optInt("2gTo", 0) * 1000, optJSONObject5.optInt("3gTo", 0) * 1000, optJSONObject5.optInt("wifiTo", 0) * 1000});
                 }
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("imNotifyRecordStrategy");
-                com.baidu.tbadk.data.c yI = com.baidu.tbadk.data.c.yI();
+                com.baidu.tbadk.data.c yJ = com.baidu.tbadk.data.c.yJ();
                 if (optJSONObject6 != null) {
-                    yI.parserJson(optJSONObject6);
+                    yJ.parserJson(optJSONObject6);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
                 TbConfig.setPbListNum(this.abJ);

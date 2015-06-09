@@ -10,7 +10,7 @@ public class ScreenLockActivityStatic {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
             TbadkApplication.getInst().getApp().getClassLoader().loadClass(ScreenLockNotifyService.class.getName());
-            f.ahP();
+            f.ahQ();
             TbadkApplication.getInst().getApp().startService(new Intent(TbadkApplication.getInst().getApp(), ScreenLockNotifyService.class));
             BdLog.i("-------------------启动ScreenlockManager,service!");
         } catch (Exception e) {

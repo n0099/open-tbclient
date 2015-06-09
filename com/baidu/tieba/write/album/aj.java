@@ -21,16 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj extends BaseFragment implements AbsListView.OnScrollListener, u {
-    private RelativeLayout bHG;
-    private boolean bKh;
-    private View bWU;
-    private p cxU;
-    private AlbumActivity cxZ;
-    private e czk;
-    private View czl;
+    private RelativeLayout bHH;
+    private boolean bKi;
+    private View bWV;
+    private p cxV;
+    private AlbumActivity cya;
+    private e czl;
     private View czm;
-    private com.baidu.tieba.write.view.a czn;
-    private ac czo;
+    private View czn;
+    private com.baidu.tieba.write.view.a czo;
+    private ac czp;
     private GridView mGridView;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.x mNoDataView;
@@ -40,38 +40,38 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cxZ = (AlbumActivity) getBaseFragmentActivity();
-        this.cxU = this.cxZ.arC();
-        q.arT().a(this);
-        this.czk = new e(this.cxZ.getPageContext().getPageActivity());
-        this.czn = new com.baidu.tieba.write.view.a(this.cxZ);
-        this.cxU.jX("-1");
+        this.cya = (AlbumActivity) getBaseFragmentActivity();
+        this.cxV = this.cya.arD();
+        q.arU().a(this);
+        this.czl = new e(this.cya.getPageContext().getPageActivity());
+        this.czo = new com.baidu.tieba.write.view.a(this.cya);
+        this.cxV.jX("-1");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mView = layoutInflater.inflate(com.baidu.tieba.r.album_image_list_view, (ViewGroup) null);
-        this.bHG = (RelativeLayout) this.mView.findViewById(com.baidu.tieba.q.album_image_list_root);
+        this.bHH = (RelativeLayout) this.mView.findViewById(com.baidu.tieba.q.album_image_list_root);
         this.mNavigationBar = (NavigationBar) this.mView.findViewById(com.baidu.tieba.q.view_navigation_bar);
-        this.bWU = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.cxZ);
-        this.czm = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, com.baidu.tieba.r.album_iamge_title_layout, (View.OnClickListener) null);
-        this.mTitleText = (TextView) this.czm.findViewById(com.baidu.tieba.q.navigationTitle_frs);
+        this.bWV = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.cya);
+        this.czn = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, com.baidu.tieba.r.album_iamge_title_layout, (View.OnClickListener) null);
+        this.mTitleText = (TextView) this.czn.findViewById(com.baidu.tieba.q.navigationTitle_frs);
         this.mGridView = (GridView) this.mView.findViewById(com.baidu.tieba.q.gv_image_list);
-        this.czl = this.mView.findViewById(com.baidu.tieba.q.gv_foot);
-        this.czo = new ac(this.cxZ, this.cxU);
-        this.mGridView.setAdapter((ListAdapter) this.czo);
+        this.czm = this.mView.findViewById(com.baidu.tieba.q.gv_foot);
+        this.czp = new ac(this.cya, this.cxV);
+        this.mGridView.setAdapter((ListAdapter) this.czp);
         this.mGridView.setOnScrollListener(this);
         ak akVar = new ak(this);
         al alVar = new al(this);
         am amVar = new am(this);
         an anVar = new an(this);
         ao aoVar = new ao(this);
-        this.czm.setOnClickListener(anVar);
-        this.czn.a(aoVar);
-        this.czo.a(akVar);
-        this.czo.a(alVar);
-        this.czo.a(amVar);
-        this.mNoDataView = NoDataViewFactory.a(this.cxZ.getPageContext().getPageActivity(), this.bHG, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.s(com.baidu.tieba.t.album_list_no_data, com.baidu.tieba.t.album_list_no_data_1), null);
+        this.czn.setOnClickListener(anVar);
+        this.czo.a(aoVar);
+        this.czp.a(akVar);
+        this.czp.a(alVar);
+        this.czp.a(amVar);
+        this.mNoDataView = NoDataViewFactory.a(this.cya.getPageContext().getPageActivity(), this.bHH, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.s(com.baidu.tieba.t.album_list_no_data, com.baidu.tieba.t.album_list_no_data_1), null);
         return this.mView;
     }
 
@@ -83,23 +83,23 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.bKh = false;
+        this.bKi = false;
         if (isShow()) {
-            arJ();
+            arK();
         }
     }
 
-    private void arI() {
-        if (this.cxU == null && this.cxZ != null) {
-            this.cxU = this.cxZ.arC();
+    private void arJ() {
+        if (this.cxV == null && this.cya != null) {
+            this.cxV = this.cya.arD();
         }
-        if (this.cxU != null && this.cxU.arR() == null) {
-            setData(arY(), true);
+        if (this.cxV != null && this.cxV.arS() == null) {
+            setData(arZ(), true);
             jZ("-1");
         }
     }
 
-    private List<ImageFileInfo> arY() {
+    private List<ImageFileInfo> arZ() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 20; i++) {
             arrayList.add(new ImageFileInfo());
@@ -112,25 +112,25 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
 
     private void jZ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.czk.a(str, new ap(this, str));
+            this.czl.a(str, new ap(this, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arZ() {
-        this.czk.a(new aq(this));
+    public void asa() {
+        this.czl.a(new aq(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<ImageFileInfo> list, boolean z) {
-        if (this.czo != null) {
-            this.cxU.be(list);
-            this.czo.setData(list, z);
+        if (this.czp != null) {
+            this.cxV.be(list);
+            this.czp.setData(list, z);
             if (list != null) {
                 if (list.size() <= 15) {
-                    this.czl.setVisibility(0);
+                    this.czm.setVisibility(0);
                 } else {
-                    this.czl.setVisibility(8);
+                    this.czm.setVisibility(8);
                 }
             }
         }
@@ -139,25 +139,25 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cxZ.getLayoutMode().ab(i == 1);
-        this.cxZ.getLayoutMode().j(this.mView);
-        this.mNavigationBar.onChangeSkinType(this.cxZ.getPageContext(), i);
+        this.cya.getLayoutMode().ab(i == 1);
+        this.cya.getLayoutMode().j(this.mView);
+        this.mNavigationBar.onChangeSkinType(this.cya.getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    public View afN() {
-        return this.bWU;
+    public View afO() {
+        return this.bWV;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.czk != null) {
-            this.czk.arL();
+        if (this.czl != null) {
+            this.czl.arM();
         }
-        q.arT().b(this);
+        q.arU().b(this);
     }
 
     public void t(int i, boolean z) {
@@ -180,15 +180,15 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     }
 
     public void e(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.czo != null) {
-            t(this.czo.h(imageFileInfo), z);
+        if (imageFileInfo != null && this.czp != null) {
+            t(this.czp.h(imageFileInfo), z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.bKh = true;
+        this.bKi = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -198,12 +198,12 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
 
     @Override // com.baidu.tieba.write.album.u
     public void fx(boolean z) {
-        arJ();
+        arK();
     }
 
-    private void arJ() {
-        if (!isHidden() && !this.bKh) {
-            arI();
+    private void arK() {
+        if (!isHidden() && !this.bKi) {
+            arJ();
         }
     }
 
@@ -211,11 +211,11 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         super.onScroll(absListView, i, i2, i3);
         if (an(((i + i2) - 1) + 1, 3) == an(i3, 3)) {
-            if (this.czl.getVisibility() != 0) {
-                this.czl.setVisibility(0);
+            if (this.czm.getVisibility() != 0) {
+                this.czm.setVisibility(0);
             }
-        } else if (this.czl.getVisibility() == 0) {
-            this.czl.setVisibility(8);
+        } else if (this.czm.getVisibility() == 0) {
+            this.czm.setVisibility(8);
         }
     }
 
@@ -227,24 +227,24 @@ public class aj extends BaseFragment implements AbsListView.OnScrollListener, u 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.czo.fz(true);
-        } else if (this.czo.isScroll()) {
-            this.czo.fz(false);
-            asa();
+            this.czp.fz(true);
+        } else if (this.czp.isScroll()) {
+            this.czp.fz(false);
+            asb();
         }
     }
 
-    private void asa() {
+    private void asb() {
         int childCount = this.mGridView.getChildCount();
         int firstVisiblePosition = this.mGridView.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mGridView.getChildAt(i);
             if (childAt != null) {
                 HeadImageView headImageView = (HeadImageView) childAt.findViewById(com.baidu.tieba.q.pic);
-                ImageFileInfo item = this.czo.getItem(firstVisiblePosition + i);
+                ImageFileInfo item = this.czp.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.cxZ.arD().a(item, new ar(this), false, false);
+                    this.cya.arE().a(item, new ar(this), false, false);
                 }
             }
         }

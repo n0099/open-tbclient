@@ -23,28 +23,28 @@ import org.json.JSONObject;
 public class k {
     public static com.baidu.tbadk.core.a.c a(com.baidu.tbadk.core.a.c cVar) {
         com.baidu.tbadk.core.a.c cVar2;
-        String[] Zx;
+        String[] Zy;
         if (cVar == null) {
             return null;
         }
         try {
-            Zx = Zx();
+            Zy = Zy();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (Zx != null) {
+        if (Zy != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", Zy()));
-            arrayList.add(new BasicNameValuePair("cert_id", Zx[0]));
+            arrayList.add(new BasicNameValuePair("clientip", Zz()));
+            arrayList.add(new BasicNameValuePair("cert_id", Zy[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, cVar.wk);
             jSONObject.put(SapiAccountManager.SESSION_PTOKEN, cVar.Pc);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.m411getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.m411getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.e().U(Zx[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.e().U(Zy[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", c(arrayList, TbConfig.PassConfig.ENC_KEY)));
             aa aaVar = new aa(TbConfig.PassConfig.LOGIN_BDUSS_URL);
             aaVar.sX().tS().mIsNeedAddCommenParam = false;
@@ -69,7 +69,7 @@ public class k {
         return null;
     }
 
-    private static String[] Zx() {
+    private static String[] Zy() {
         try {
             aa aaVar = new aa(TbConfig.PassConfig.GET_CERT_URL);
             aaVar.sX().tS().mIsNeedAddCommenParam = false;
@@ -81,7 +81,7 @@ public class k {
         }
     }
 
-    private static String Zy() {
+    private static String Zz() {
         if (com.baidu.adp.lib.util.k.iY()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.m411getInst().getApp());
         }

@@ -84,7 +84,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return c.TD().H(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return c.TE().H(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -97,7 +97,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.Rm().aF(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.Rn().aF(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -111,7 +111,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.h
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.Rm().aE(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.Rn().aE(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

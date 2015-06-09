@@ -8,10 +8,10 @@ import com.baidu.tieba.setting.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb extends BdAsyncTask<String, String, String> {
-    final /* synthetic */ az cgT;
+    final /* synthetic */ az cgU;
 
     private bb(az azVar) {
-        this.cgT = azVar;
+        this.cgU = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class bb extends BdAsyncTask<String, String, String> {
             return "";
         }
         StringBuilder sb = new StringBuilder(String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))));
-        context = this.cgT.mContext;
+        context = this.cgU.mContext;
         return sb.append(context.getString(com.baidu.tieba.t.mebibyte)).toString();
     }
 
@@ -42,12 +42,12 @@ public class bb extends BdAsyncTask<String, String, String> {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         BaseActivity.LoadDataCallBack loadDataCallBack2;
         super.onPostExecute((bb) str);
-        this.cgT.cgS = null;
-        loadDataCallBack = this.cgT.bHv;
+        this.cgU.cgT = null;
+        loadDataCallBack = this.cgU.bHw;
         if (loadDataCallBack == null) {
             return;
         }
-        loadDataCallBack2 = this.cgT.bHv;
+        loadDataCallBack2 = this.cgU.bHw;
         loadDataCallBack2.callback(MoreModel.TaskType.GET_SIZE, str);
     }
 }

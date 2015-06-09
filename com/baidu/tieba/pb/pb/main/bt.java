@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class bt extends com.baidu.adp.base.g<PbActivity> {
-    private TextView bLT;
-    private View bLU;
-    private TextView bLV;
+    private TextView bLU;
+    private View bLV;
     private TextView bLW;
     private TextView bLX;
-    private View bLY;
-    private PbActivity bLZ;
+    private TextView bLY;
+    private View bLZ;
+    private PbActivity bMa;
     private View.OnClickListener mClickListener;
     private TextView mShareTextView;
     private View mView;
@@ -18,16 +18,16 @@ public class bt extends com.baidu.adp.base.g<PbActivity> {
     public bt(PbActivity pbActivity, View.OnClickListener onClickListener) {
         super(pbActivity.getPageContext());
         this.mView = null;
-        this.bLT = null;
-        this.mShareTextView = null;
         this.bLU = null;
+        this.mShareTextView = null;
         this.bLV = null;
         this.bLW = null;
         this.bLX = null;
         this.bLY = null;
         this.bLZ = null;
+        this.bMa = null;
         this.mClickListener = null;
-        this.bLZ = pbActivity;
+        this.bMa = pbActivity;
         this.mClickListener = onClickListener;
         initUI();
     }
@@ -36,19 +36,15 @@ public class bt extends com.baidu.adp.base.g<PbActivity> {
         return this.mView;
     }
 
-    public TextView abE() {
-        return this.bLT;
-    }
-
     public TextView abF() {
-        return this.mShareTextView;
-    }
-
-    public View abG() {
         return this.bLU;
     }
 
-    public TextView abH() {
+    public TextView abG() {
+        return this.mShareTextView;
+    }
+
+    public View abH() {
         return this.bLV;
     }
 
@@ -60,29 +56,33 @@ public class bt extends com.baidu.adp.base.g<PbActivity> {
         return this.bLX;
     }
 
+    public TextView abK() {
+        return this.bLY;
+    }
+
     public void dZ(boolean z) {
         if (z) {
-            this.bLX.setVisibility(8);
             this.bLY.setVisibility(8);
+            this.bLZ.setVisibility(8);
             return;
         }
-        this.bLX.setVisibility(0);
         this.bLY.setVisibility(0);
+        this.bLZ.setVisibility(0);
     }
 
     private void initUI() {
-        this.mView = com.baidu.adp.lib.g.b.hr().inflate(this.bLZ.getPageContext().getPageActivity(), com.baidu.tieba.r.pb_more_view, null);
-        this.bLT = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_mark);
-        this.bLT.setOnClickListener(this.mClickListener);
+        this.mView = com.baidu.adp.lib.g.b.hr().inflate(this.bMa.getPageContext().getPageActivity(), com.baidu.tieba.r.pb_more_view, null);
+        this.bLU = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_mark);
+        this.bLU.setOnClickListener(this.mClickListener);
         this.mShareTextView = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_share);
-        this.bLU = this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_line_share);
+        this.bLV = this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_line_share);
         this.mShareTextView.setOnClickListener(this.mClickListener);
-        this.bLV = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_jump);
-        this.bLV.setOnClickListener(this.mClickListener);
-        this.bLW = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_see);
+        this.bLW = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_jump);
         this.bLW.setOnClickListener(this.mClickListener);
-        this.bLX = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_report);
+        this.bLX = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_see);
         this.bLX.setOnClickListener(this.mClickListener);
-        this.bLY = this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_report_line);
+        this.bLY = (TextView) this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_report);
+        this.bLY.setOnClickListener(this.mClickListener);
+        this.bLZ = this.mView.findViewById(com.baidu.tieba.q.pb_more_view_item_report_line);
     }
 }

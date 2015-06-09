@@ -25,21 +25,21 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.setting.model.MoreModel;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements com.baidu.adp.widget.BdSwitchView.b {
-    private aa cfq;
-    private w cfs;
-    private MoreModel cfr = null;
-    private u cft = null;
+    private aa cfr;
+    private w cft;
+    private MoreModel cfs = null;
+    private u cfu = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cfq = new aa(this, aiM());
+        this.cfr = new aa(this, aiN());
         l(bundle);
         regReceiver();
     }
 
-    private q aiM() {
+    private q aiN() {
         return new r(this);
     }
 
@@ -54,8 +54,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cfq != null) {
-            this.cfq.refreshNewVersion();
+        if (this.cfr != null) {
+            this.cfr.refreshNewVersion();
         }
     }
 
@@ -63,26 +63,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cfq.onChangeSkinType(i);
+        this.cfr.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.cfq.ain();
+        this.cfr.aio();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.cfr.getPersonChangeData());
+        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.cfs.getPersonChangeData());
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            aiN();
+            aiO();
         }
         return super.onKeyDown(i, keyEvent);
     }
@@ -93,10 +93,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
         if (i2 == -1) {
             switch (i) {
                 case 101:
-                    this.cfr.setPersonChangeData((PersonChangeData) intent.getSerializableExtra("data"));
-                    this.cfr.eI(true);
-                    if (this.cfs != null) {
-                        this.cfs.i(false, true);
+                    this.cfs.setPersonChangeData((PersonChangeData) intent.getSerializableExtra("data"));
+                    this.cfs.eI(true);
+                    if (this.cft != null) {
+                        this.cft.i(false, true);
                         return;
                     }
                     return;
@@ -109,10 +109,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
         }
     }
 
-    private void aiN() {
-        if (this.cfr.aiq()) {
+    private void aiO() {
+        if (this.cfs.air()) {
             Intent intent = new Intent();
-            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cfr.getPersonChangeData());
+            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cfs.getPersonChangeData());
             setResult(-1, intent);
         }
     }
@@ -125,11 +125,11 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra(PersonChangeData.TAG_PERSON_INFO);
         }
         if (personChangeData == null) {
-            this.cfs = new w(this);
-            this.cfs.setUniqueId(getUniqueId());
-            this.cfs.setId(TbadkCoreApplication.getCurrentAccount());
-            this.cfs.setLoadDataCallBack(new s(this));
-            this.cfs.i(true, true);
+            this.cft = new w(this);
+            this.cft.setUniqueId(getUniqueId());
+            this.cft.setId(TbadkCoreApplication.getCurrentAccount());
+            this.cft.setLoadDataCallBack(new s(this));
+            this.cft.i(true, true);
         }
         b(personChangeData);
     }
@@ -137,22 +137,22 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.cfq.B(personChangeData.getPortrait(), false);
+            this.cfr.B(personChangeData.getPortrait(), false);
         }
-        this.cfr = new MoreModel(personChangeData);
-        this.cfr.setLoadDataCallBack(new t(this));
+        this.cfs = new MoreModel(personChangeData);
+        this.cfs.setLoadDataCallBack(new t(this));
     }
 
     private void regReceiver() {
-        this.cft = new u(this, null);
+        this.cfu = new u(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.cft, intentFilter);
+        registerReceiver(this.cfu, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.cft != null) {
-            unregisterReceiver(this.cft);
+        if (this.cfu != null) {
+            unregisterReceiver(this.cfu);
         }
     }
 
@@ -178,7 +178,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiO() {
+    public void aiP() {
         String str;
         String str2 = TbConfig.RECOMMEND_APP_ADDRESS;
         if (str2.indexOf("?") < 0) {
@@ -195,17 +195,17 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiP() {
+    public void aiQ() {
         sendMessage(new CustomMessage(2002001, new AboutActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiQ() {
+    public void aiR() {
         sendMessage(new CustomMessage(2002001, new BrowseSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiR() {
+    public void aiS() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.a.d.ql() <= 0) {
             TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), 1, getPageContext().getString(com.baidu.tieba.t.login_manage_account), 11003)));
@@ -215,26 +215,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiS() {
+    public void aiT() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.cfr.getPersonChangeData(), false)));
+            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.cfs.getPersonChangeData(), false)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiT() {
-        aiN();
+    public void aiU() {
+        aiO();
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiU() {
+    public void aiV() {
         sendMessage(new CustomMessage(2002001, new MsgRemindActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiV() {
+    public void aiW() {
         sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(getPageContext().getPageActivity())));
     }
 }

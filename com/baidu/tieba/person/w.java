@@ -10,13 +10,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ v bSb;
+    final /* synthetic */ v bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i) {
         super(i);
-        this.bSb = vVar;
+        this.bSc = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class w extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity ael;
+        PersonBarActivity aem;
         boolean z;
         View view;
         View view2;
@@ -39,65 +39,65 @@ public class w extends com.baidu.adp.framework.listener.e {
         ag agVar2;
         ArrayList<ForumData> arrayList2;
         ag agVar3;
-        PersonBarActivity ael2;
+        PersonBarActivity aem2;
         View view3;
         String str;
-        this.bSb.mListView.completePullRefresh();
+        this.bSc.mListView.completePullRefresh();
         if (socketResponsedMessage == null) {
-            this.bSb.showToast(this.bSb.getPageContext().getString(com.baidu.tieba.t.neterror));
+            this.bSc.showToast(this.bSc.getPageContext().getString(com.baidu.tieba.t.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                ael = this.bSb.ael();
-                if (ael != null) {
-                    ael2 = this.bSb.ael();
-                    if (ael2.getRequestCode() != 23011) {
-                        view3 = this.bSb.bRT;
+                aem = this.bSc.aem();
+                if (aem != null) {
+                    aem2 = this.bSc.aem();
+                    if (aem2.getRequestCode() != 23011) {
+                        view3 = this.bSc.bRU;
                         view3.setVisibility(8);
-                        agVar = this.bSb.bRM;
+                        agVar = this.bSc.bRN;
                         if (agVar == null) {
-                            arrayList = this.bSb.rQ;
+                            arrayList = this.bSc.rQ;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.bSb.removalDuplicate();
-                            agVar2 = this.bSb.bRM;
-                            arrayList2 = this.bSb.rQ;
+                            this.bSc.removalDuplicate();
+                            agVar2 = this.bSc.bRN;
+                            arrayList2 = this.bSc.rQ;
                             agVar2.L(arrayList2);
-                            this.bSb.hasMore = responseGetLivableForumList.hasMore();
-                            this.bSb.eo(true);
-                            agVar3 = this.bSb.bRM;
+                            this.bSc.hasMore = responseGetLivableForumList.hasMore();
+                            this.bSc.eo(true);
+                            agVar3 = this.bSc.bRN;
                             agVar3.notifyDataSetChanged();
-                            this.bSb.bRP++;
+                            this.bSc.bRQ++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.bSb.bRW;
+                z = this.bSc.bRX;
                 if (!z) {
-                    this.bSb.bRW = true;
-                    BdListView bdListView = this.bSb.mListView;
-                    view2 = this.bSb.bRT;
+                    this.bSc.bRX = true;
+                    BdListView bdListView = this.bSc.mListView;
+                    view2 = this.bSc.bRU;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.bSb.bRU;
-                    textView.setText(this.bSb.getResources().getString(com.baidu.tieba.t.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.bSb.bRU;
+                    textView = this.bSc.bRV;
+                    textView.setText(this.bSc.getResources().getString(com.baidu.tieba.t.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.bSc.bRV;
                     com.baidu.tbadk.core.util.ay.b(textView2, com.baidu.tieba.n.cp_cont_c, 1);
-                    textView3 = this.bSb.bRU;
+                    textView3 = this.bSc.bRV;
                     com.baidu.tbadk.core.util.ay.j((View) textView3, com.baidu.tieba.n.bg_page_setting);
                 }
-                view = this.bSb.bRT;
+                view = this.bSc.bRU;
                 view.setVisibility(0);
-                agVar = this.bSb.bRM;
+                agVar = this.bSc.bRN;
                 if (agVar == null) {
                 }
             } else {
-                this.bSb.showToast(responseGetLivableForumList.getErrorString());
-                com.baidu.tieba.person.post.z zVar = this.bSb.bRL;
-                str = this.bSb.bRS;
+                this.bSc.showToast(responseGetLivableForumList.getErrorString());
+                com.baidu.tieba.person.post.z zVar = this.bSc.bRM;
+                str = this.bSc.bRT;
                 zVar.iF(str);
             }
         }

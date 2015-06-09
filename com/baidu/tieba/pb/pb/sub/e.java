@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnLongClickListener {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -25,9 +25,9 @@ public class e implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            sVar = this.bPw.bPq;
-            hVar = this.bPw.bKS;
-            akVar = this.bPw.bPn;
+            sVar = this.bPx.bPr;
+            hVar = this.bPx.bKT;
+            akVar = this.bPx.bPo;
             sVar.a(hVar, akVar.isMarked());
         }
         return true;

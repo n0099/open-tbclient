@@ -18,7 +18,7 @@ public class ai extends ag {
     private long arn = -1;
     private long aro = -1;
 
-    public boolean DG() {
+    public boolean DH() {
         return this.ard;
     }
 
@@ -54,7 +54,7 @@ public class ai extends ag {
         this.ard = true;
     }
 
-    public static ai DH() {
+    public static ai DI() {
         if (arp == null) {
             synchronized (ai.class) {
                 if (arp == null) {
@@ -65,9 +65,9 @@ public class ai extends ag {
         return arp;
     }
 
-    public void DI() {
+    public void DJ() {
         if (this.are > 0) {
-            if (ah.DB().DC()) {
+            if (ah.DC().DD()) {
                 long j = this.arf - this.are;
                 long j2 = this.ark - this.arf;
                 long j3 = this.arm - this.arl;
@@ -97,11 +97,11 @@ public class ai extends ag {
                 return;
             }
         }
-        DJ();
+        DK();
     }
 
     public void D(long j) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             com.baidu.adp.lib.stats.q hm = hm();
             hm.r("procname", "remote");
             hm.r("costt", String.valueOf(j));
@@ -109,7 +109,7 @@ public class ai extends ag {
         }
     }
 
-    private void DJ() {
+    private void DK() {
         this.arc = false;
         this.ard = false;
         this.are = -1L;

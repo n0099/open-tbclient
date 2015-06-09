@@ -6,17 +6,17 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Animation.AnimationListener {
-    private final /* synthetic */ String bac;
-    final /* synthetic */ PersonalChatView bsg;
-    private final /* synthetic */ Animation bsh;
-    private final /* synthetic */ String bsi;
+    private final /* synthetic */ String bad;
+    final /* synthetic */ PersonalChatView bsh;
+    private final /* synthetic */ Animation bsi;
+    private final /* synthetic */ String bsj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.bsg = personalChatView;
-        this.bac = str;
-        this.bsi = str2;
-        this.bsh = animation;
+        this.bsh = personalChatView;
+        this.bad = str;
+        this.bsj = str2;
+        this.bsi = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -34,14 +34,14 @@ public class v implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.bsg.bsa;
+        linearLayout = this.bsh.bsb;
         linearLayout.clearAnimation();
-        textView = this.bsg.bsb;
-        personalChatActivity = this.bsg.brY;
-        textView.setText(personalChatActivity.getResources().getString(com.baidu.tieba.t.add_friend_agree_title, this.bac));
-        textView2 = this.bsg.bsc;
-        textView2.setText(this.bsi);
-        linearLayout2 = this.bsg.bsa;
-        linearLayout2.setAnimation(this.bsh);
+        textView = this.bsh.bsc;
+        personalChatActivity = this.bsh.brZ;
+        textView.setText(personalChatActivity.getResources().getString(com.baidu.tieba.t.add_friend_agree_title, this.bad));
+        textView2 = this.bsh.bsd;
+        textView2.setText(this.bsj);
+        linearLayout2 = this.bsh.bsb;
+        linearLayout2.setAnimation(this.bsi);
     }
 }

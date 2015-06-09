@@ -9,13 +9,13 @@ import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ a ctY;
+    final /* synthetic */ a ctZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.ctY = aVar;
+        this.ctZ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

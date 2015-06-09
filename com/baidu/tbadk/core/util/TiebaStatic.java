@@ -263,7 +263,7 @@ public class TiebaStatic {
             t.sA();
             t.sB();
             t.sC();
-            com.baidu.tbadk.performanceLog.ab.Dz();
+            com.baidu.tbadk.performanceLog.ab.DA();
             com.baidu.adp.lib.f.f.hn();
             com.baidu.adp.lib.stats.f.hz().save();
             sendMultiProcessBroadcast();

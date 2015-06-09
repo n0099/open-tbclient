@@ -6,17 +6,17 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private e bKc;
-    private View bKd;
+    private e bKd;
+    private View bKe;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     public d(e eVar) {
-        this.bKc = eVar;
+        this.bKd = eVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.bKd = view;
+        this.bKe = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -54,24 +54,24 @@ public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
         Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
-        if (this.bKc != null) {
-            return this.bKc.a(this.bKd, motionEvent);
+        if (this.bKd != null) {
+            return this.bKd.a(this.bKe, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.bKc != null) {
-            return this.bKc.b(this.bKd, motionEvent);
+        if (this.bKd != null) {
+            return this.bKd.b(this.bKe, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.bKc != null) {
-            return this.bKc.c(this.bKd, motionEvent);
+        if (this.bKd != null) {
+            return this.bKd.c(this.bKe, motionEvent);
         }
         return false;
     }

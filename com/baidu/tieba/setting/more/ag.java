@@ -3,23 +3,23 @@ package com.baidu.tieba.setting.more;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
 class ag implements Runnable {
-    private final /* synthetic */ boolean aZB;
-    final /* synthetic */ ae cfT;
-    private final /* synthetic */ BdSwitchView cfU;
+    private final /* synthetic */ boolean aZC;
+    final /* synthetic */ ae cfU;
+    private final /* synthetic */ BdSwitchView cfV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ae aeVar, boolean z, BdSwitchView bdSwitchView) {
-        this.cfT = aeVar;
-        this.aZB = z;
-        this.cfU = bdSwitchView;
+        this.cfU = aeVar;
+        this.aZC = z;
+        this.cfV = bdSwitchView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aZB) {
-            this.cfU.ms();
+        if (this.aZC) {
+            this.cfV.ms();
         } else {
-            this.cfU.mr();
+            this.cfV.mr();
         }
     }
 }

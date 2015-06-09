@@ -15,7 +15,7 @@ class e extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            h.yp().dq(socketResponsedMessage.getCmd());
+            h.yq().dq(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

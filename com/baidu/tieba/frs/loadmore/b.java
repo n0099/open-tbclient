@@ -7,13 +7,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a aPy;
+    final /* synthetic */ a aPz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.aPy = aVar;
+        this.aPz = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,29 +25,29 @@ public class b extends com.baidu.adp.framework.listener.a {
         FrsActivity frsActivity5;
         FrsActivity frsActivity6;
         FrsActivity frsActivity7;
-        this.aPy.aoe = false;
+        this.aPz.aoe = false;
         if (responsedMessage == null) {
-            frsActivity6 = this.aPy.aMk;
-            frsActivity7 = this.aPy.aMk;
+            frsActivity6 = this.aPz.aMl;
+            frsActivity7 = this.aPz.aMl;
             frsActivity6.onFailed(frsActivity7.getPageContext().getString(t.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsActivity5 = this.aPy.aMk;
+                frsActivity5 = this.aPz.aMl;
                 frsActivity5.onFailed(responsedMessage.getErrorString());
                 return;
             }
-            frsActivity3 = this.aPy.aMk;
-            frsActivity4 = this.aPy.aMk;
+            frsActivity3 = this.aPz.aMl;
+            frsActivity4 = this.aPz.aMl;
             frsActivity3.onFailed(frsActivity4.getPageContext().getString(t.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsActivity2 = this.aPy.aMk;
+                frsActivity2 = this.aPz.aMl;
                 frsActivity2.v(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsActivity = this.aPy.aMk;
+                frsActivity = this.aPz.aMl;
                 frsActivity.v(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
             }
-            this.aPy.aPu++;
+            this.aPz.aPv++;
         }
     }
 }

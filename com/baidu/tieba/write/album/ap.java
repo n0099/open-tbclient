@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements as {
-    final /* synthetic */ aj czp;
-    private final /* synthetic */ String czq;
+    final /* synthetic */ aj czq;
+    private final /* synthetic */ String czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(aj ajVar, String str) {
-        this.czp = ajVar;
-        this.czq = str;
+        this.czq = ajVar;
+        this.czr = str;
     }
 
     @Override // com.baidu.tieba.write.album.as
@@ -30,17 +30,17 @@ public class ap implements as {
         p pVar2;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list2);
-        if (!this.czq.equals("-1")) {
-            textView = this.czp.mTitleText;
+        if (!this.czr.equals("-1")) {
+            textView = this.czq.mTitleText;
             textView.setText(str);
-            this.czp.arZ();
+            this.czq.asa();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
             arrayList2.addAll(list);
             a aVar = new a();
             aVar.jU("-1");
-            albumActivity = this.czp.cxZ;
+            albumActivity = this.czq.cya;
             String string = albumActivity.getPageContext().getString(com.baidu.tieba.t.write_album_all);
             aVar.setName(string);
             aVar.jV(String.valueOf(arrayList.size()));
@@ -51,14 +51,14 @@ public class ap implements as {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.czp.mTitleText;
+            textView2 = this.czq.mTitleText;
             textView2.setText(string);
-            pVar = this.czp.cxU;
+            pVar = this.czq.cxV;
             pVar.bf(arrayList2);
-            pVar2 = this.czp.cxU;
+            pVar2 = this.czq.cxV;
             pVar2.bg(arrayList);
             z = true;
         }
-        this.czp.setData(arrayList, z);
+        this.czq.setData(arrayList, z);
     }
 }

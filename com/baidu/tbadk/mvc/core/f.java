@@ -18,7 +18,7 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Bc();
+        Bd();
         this.Lv = oy();
         if (this.Lv != null) {
             this.Lv.setUniqueId(getUniqueId());
@@ -29,9 +29,9 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
             this.anz.setUniqueId(getUniqueId());
             this.anz.a(this);
         }
-        this.any = AL();
-        Bd();
+        this.any = AM();
         Be();
+        Bf();
         if (getIntent() != null) {
             this.Lv.f(getIntent().getExtras());
             this.anz.h(getIntent().getExtras());
@@ -42,16 +42,13 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
             this.Lv.f(null);
             this.anz.h(null);
         }
-        Bf();
         Bg();
-        setContentView(this.anz.Bb());
+        Bh();
+        setContentView(this.anz.Bc());
         this.anz.oL();
         this.anz.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.anz.AY();
-        Bh();
-    }
-
-    protected void Bc() {
+        this.anz.AZ();
+        Bi();
     }
 
     protected void Bd() {
@@ -69,20 +66,13 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     protected void Bh() {
     }
 
+    protected void Bi() {
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onStart() {
         super.onStart();
-        Bi();
-        oA().AO();
-    }
-
-    protected void Bi() {
-    }
-
-    @Override // com.baidu.adp.plugin.pluginBase.c
-    public void onRestart() {
-        super.onRestart();
         Bj();
         oA().AP();
     }
@@ -90,12 +80,11 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     protected void Bj() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
-    public void onResume() {
-        super.onResume();
+    @Override // com.baidu.adp.plugin.pluginBase.c
+    public void onRestart() {
+        super.onRestart();
         Bk();
-        oA().AR();
+        oA().AQ();
     }
 
     protected void Bk() {
@@ -103,10 +92,10 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
-    public void onPause() {
-        super.onPause();
+    public void onResume() {
+        super.onResume();
         Bl();
-        oA().AT();
+        oA().AS();
     }
 
     protected void Bl() {
@@ -114,10 +103,10 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         Bm();
-        oA().AV();
+        oA().AU();
     }
 
     protected void Bm() {
@@ -125,13 +114,24 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         Bn();
         oA().AW();
     }
 
     protected void Bn() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    public void onDestroy() {
+        super.onDestroy();
+        Bo();
+        oA().AX();
+    }
+
+    protected void Bo() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -161,7 +161,7 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     }
 
     @Override // com.baidu.tbadk.mvc.core.e
-    public ViewEventCenter AL() {
+    public ViewEventCenter AM() {
         if (this.any == null) {
             this.any = new ViewEventCenter();
         }
@@ -175,7 +175,7 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean AM() {
+    public boolean AN() {
         return false;
     }
 

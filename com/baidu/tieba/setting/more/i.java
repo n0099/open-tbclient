@@ -9,11 +9,11 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, String> {
     private com.baidu.tbadk.core.util.aa OE = null;
-    final /* synthetic */ AppsActivity ceP;
+    final /* synthetic */ AppsActivity ceQ;
     private String url;
 
     public i(AppsActivity appsActivity, String str) {
-        this.ceP = appsActivity;
+        this.ceQ = appsActivity;
         this.url = null;
         this.url = str;
     }
@@ -24,11 +24,11 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.ceP.ceM;
+        progressBar = this.ceQ.ceN;
         progressBar.setVisibility(0);
-        linearLayout = this.ceP.ceL;
+        linearLayout = this.ceQ.ceM;
         linearLayout.setVisibility(8);
-        baseWebView = this.ceP.mWebView;
+        baseWebView = this.ceQ.mWebView;
         baseWebView.setVisibility(0);
     }
 
@@ -52,9 +52,9 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         if (this.OE != null) {
             this.OE.gS();
         }
-        progressBar = this.ceP.ceM;
+        progressBar = this.ceQ.ceN;
         progressBar.setVisibility(8);
-        this.ceP.ceK = null;
+        this.ceQ.ceL = null;
         super.cancel(true);
     }
 
@@ -63,31 +63,31 @@ public class i extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         ProgressBar progressBar;
-        boolean ait;
+        boolean aiu;
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.ceP.ceM;
+        progressBar = this.ceQ.ceN;
         progressBar.setVisibility(8);
         if (this.OE != null && this.OE.ta() && str != null && str.length() > 0) {
             com.baidu.adp.lib.g.l.ht().c(new j(this, str));
             com.baidu.tbadk.core.sharedPref.b.sl().putLong("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.ceP.mWebView;
+            baseWebView3 = this.ceQ.mWebView;
             baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             return;
         }
-        ait = this.ceP.ait();
-        if (!ait && str == null) {
-            baseWebView2 = this.ceP.mWebView;
+        aiu = this.ceQ.aiu();
+        if (!aiu && str == null) {
+            baseWebView2 = this.ceQ.mWebView;
             baseWebView2.setVisibility(8);
-            linearLayout = this.ceP.ceL;
+            linearLayout = this.ceQ.ceM;
             linearLayout.setVisibility(0);
-            this.ceP.showToast(this.ceP.getPageContext().getString(com.baidu.tieba.t.neterror));
+            this.ceQ.showToast(this.ceQ.getPageContext().getString(com.baidu.tieba.t.neterror));
             return;
         }
-        String string = this.ceP.getPageContext().getString(com.baidu.tieba.t.server_404);
-        baseWebView = this.ceP.mWebView;
+        String string = this.ceQ.getPageContext().getString(com.baidu.tieba.t.server_404);
+        baseWebView = this.ceQ.mWebView;
         baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
     }
 }

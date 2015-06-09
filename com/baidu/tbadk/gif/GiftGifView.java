@@ -220,14 +220,14 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
         super.onDetachedFromWindow();
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
-        Aj();
+        Ak();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.mHandler.removeMessages(1);
-        Aj();
+        Ak();
     }
 
     @Override // android.view.View
@@ -278,7 +278,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
     public void startLoading() {
         if (!this.alI) {
             this.alI = true;
-            Ai();
+            Aj();
         }
     }
 
@@ -295,7 +295,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
         invalidate();
     }
 
-    private void Ai() {
+    private void Aj() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
@@ -307,7 +307,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
             this.alJ = 0.0f;
         }
         invalidate();
-        Ai();
+        Aj();
     }
 
     public void setPlayCallback(g gVar) {
@@ -326,7 +326,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
             this.alT = null;
             return;
         }
-        boolean DW = com.baidu.tbadk.util.g.DW();
+        boolean DX = com.baidu.tbadk.util.g.DX();
         m B = n.B(getContext());
         if (B != null) {
             bdUniqueId = B.getUniqueId();
@@ -338,12 +338,12 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
         boolean z2 = aVar == this.alT && this.alV == bdUniqueId;
         this.alZ = !z2;
         if (!z2) {
-            Aj();
+            Ak();
         }
         this.alT = aVar;
         this.alV = bdUniqueId;
-        String str = DW ? this.alT.alv : this.alT.alu;
-        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alT.alw, this.alT.alt, Boolean.valueOf(DW), str);
+        String str = DX ? this.alT.alv : this.alT.alu;
+        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alT.alw, this.alT.alt, Boolean.valueOf(DX), str);
         if (aVar2 != null) {
             stopLoading();
             setGif(aVar2);
@@ -352,12 +352,12 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
         } else {
             startLoading();
             if (!z) {
-                com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alW, 0, 0, this.alV, this.alT.alw, this.alT.alt, Boolean.valueOf(DW), str);
+                com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alW, 0, 0, this.alV, this.alT.alw, this.alT.alt, Boolean.valueOf(DX), str);
             }
         }
     }
 
-    public void Aj() {
+    public void Ak() {
         stopLoading();
         this.alG = false;
         if (this.alT != null) {
@@ -379,15 +379,15 @@ public class GiftGifView extends ImageView implements View.OnClickListener, i, R
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.alT != null) {
-            boolean DW = com.baidu.tbadk.util.g.DW();
-            String str = DW ? this.alT.alv : this.alT.alu;
-            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alT.alw, this.alT.alt, Boolean.valueOf(DW), str);
+            boolean DX = com.baidu.tbadk.util.g.DX();
+            String str = DX ? this.alT.alv : this.alT.alu;
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alT.alw, this.alT.alt, Boolean.valueOf(DX), str);
             if (aVar != null) {
                 this.alT.als = false;
                 setGif(aVar);
             } else {
                 startLoading();
-                com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alW, 0, 0, this.alV, this.alT.alw, this.alT.alt, Boolean.valueOf(DW), str);
+                com.baidu.adp.lib.f.d.hl().a(this.alT.alt, 20, this.alW, 0, 0, this.alV, this.alT.alw, this.alT.alt, Boolean.valueOf(DX), str);
                 return;
             }
         }

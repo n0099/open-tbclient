@@ -15,29 +15,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o {
-    private static o cwG;
+    private static o cwH;
     private TbPageContext<?> LH;
-    private a cwH;
     private a cwI;
     private a cwJ;
     private a cwK;
     private a cwL;
-    private CustomMessageListener cwM = new p(this, 2001309);
+    private a cwM;
+    private CustomMessageListener cwN = new p(this, 2001309);
 
-    public static o aqE() {
-        if (cwG == null) {
+    public static o aqF() {
+        if (cwH == null) {
             synchronized (o.class) {
-                if (cwG == null) {
-                    cwG = new o();
+                if (cwH == null) {
+                    cwH = new o();
                 }
             }
         }
-        return cwG;
+        return cwH;
     }
 
     private o() {
-        this.cwM.setPriority(Integer.MAX_VALUE);
-        MessageManager.getInstance().registerListener(this.cwM);
+        this.cwN.setPriority(Integer.MAX_VALUE);
+        MessageManager.getInstance().registerListener(this.cwN);
     }
 
     public void l(TbPageContext<?> tbPageContext) {
@@ -48,19 +48,19 @@ public class o {
         CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(2001301, com.baidu.tieba.tbadkCore.g.a.class);
         CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(2001329, com.baidu.tieba.tbadkCore.b.a.class);
         if (runTask != null && runTask.getData() != null) {
-            this.cwH = new a(t.my_mark, ((com.baidu.tieba.tbadkCore.i.a) runTask.getData()).ZH(), 1);
+            this.cwI = new a(t.my_mark, ((com.baidu.tieba.tbadkCore.i.a) runTask.getData()).ZI(), 1);
         }
         if (runTask2 != null && runTask2.getData() != null) {
-            this.cwI = new a(t.my_history, ((com.baidu.tieba.tbadkCore.j.a) runTask2.getData()).ZS(), 2);
+            this.cwJ = new a(t.my_history, ((com.baidu.tieba.tbadkCore.j.a) runTask2.getData()).ZT(), 2);
         }
         if (runTask3 != null && runTask3.getData() != null) {
-            this.cwJ = new a(t.discover_item_mylive, ((com.baidu.tieba.tbadkCore.k.a) runTask3.getData()).getHomeMyLiveIconResId(), 3);
+            this.cwK = new a(t.discover_item_mylive, ((com.baidu.tieba.tbadkCore.k.a) runTask3.getData()).getHomeMyLiveIconResId(), 3);
         }
         if (runTask4 != null && runTask4.getData() != null) {
-            this.cwK = new a(t.member_center, ((com.baidu.tieba.tbadkCore.g.a) runTask4.getData()).Zf(), 4);
+            this.cwL = new a(t.member_center, ((com.baidu.tieba.tbadkCore.g.a) runTask4.getData()).Zg(), 4);
         }
         if (runTask5 != null && runTask5.getData() != null) {
-            this.cwL = new a(t.my_good_friends, ((com.baidu.tieba.tbadkCore.b.a) runTask5.getData()).FK(), 0, 0);
+            this.cwM = new a(t.my_good_friends, ((com.baidu.tieba.tbadkCore.b.a) runTask5.getData()).FL(), 0, 0);
         }
     }
 
@@ -77,27 +77,27 @@ public class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqF() {
+    public boolean aqG() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqG() {
+    public boolean aqH() {
         return TbadkCoreApplication.m411getInst().appResponseToCmd(2015005);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqH() {
+    public boolean aqI() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(PbHistoryActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqI() {
+    public boolean aqJ() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MyLiveActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aqJ() {
+    public boolean aqK() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
     }
 

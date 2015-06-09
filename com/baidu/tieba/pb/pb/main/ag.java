@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKT;
-    private final /* synthetic */ MarkData bKW;
+    final /* synthetic */ PbActivity bKU;
     private final /* synthetic */ MarkData bKX;
+    private final /* synthetic */ MarkData bKY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PbActivity pbActivity, MarkData markData, MarkData markData2) {
-        this.bKT = pbActivity;
-        this.bKW = markData;
-        this.bKX = markData2;
+        this.bKU = pbActivity;
+        this.bKX = markData;
+        this.bKY = markData2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -26,26 +26,26 @@ public class ag implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.baseEditMark.a aVar6;
         com.baidu.tbadk.baseEditMark.a aVar7;
         com.baidu.tbadk.baseEditMark.a aVar8;
-        aVar2 = this.bKT.bKw;
+        aVar2 = this.bKU.bKx;
         if (aVar2 != null) {
-            aVar3 = this.bKT.bKw;
+            aVar3 = this.bKU.bKx;
             if (aVar3.pq()) {
-                aVar7 = this.bKT.bKw;
+                aVar7 = this.bKU.bKx;
                 aVar7.pr();
-                aVar8 = this.bKT.bKw;
+                aVar8 = this.bKU.bKx;
                 aVar8.Z(false);
             }
-            aVar4 = this.bKT.bKw;
-            aVar4.a(this.bKW);
-            aVar5 = this.bKT.bKw;
+            aVar4 = this.bKU.bKx;
+            aVar4.a(this.bKX);
+            aVar5 = this.bKU.bKx;
             aVar5.Z(true);
-            aVar6 = this.bKT.bKw;
+            aVar6 = this.bKU.bKx;
             aVar6.ps();
         }
-        this.bKX.setPostId(this.bKW.getPostId());
+        this.bKY.setPostId(this.bKX.getPostId());
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.bKX);
-        this.bKT.setResult(-1, intent);
-        this.bKT.aaS();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bKY);
+        this.bKU.setResult(-1, intent);
+        this.bKU.aaT();
     }
 }

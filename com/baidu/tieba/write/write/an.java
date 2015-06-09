@@ -7,11 +7,11 @@ import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,14 +21,14 @@ public class an implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText2;
-        editText = this.cCP.cAy;
+        editText = this.cCQ.cAz;
         editText.requestFocus();
-        tbEditorToolButtonContainer = this.cCP.cCx;
-        tbEditorToolButtonContainer.ane();
-        editorToolComponetContainer = this.cCP.cqO;
-        editorToolComponetContainer.anx();
-        editorToolComponetContainer2 = this.cCP.cqO;
-        editText2 = this.cCP.cAy;
+        tbEditorToolButtonContainer = this.cCQ.cCy;
+        tbEditorToolButtonContainer.anf();
+        editorToolComponetContainer = this.cCQ.cqP;
+        editorToolComponetContainer.any();
+        editorToolComponetContainer2 = this.cCQ.cqP;
+        editText2 = this.cCQ.cAz;
         editorToolComponetContainer2.Z(editText2);
     }
 }

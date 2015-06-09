@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bTu;
+    final /* synthetic */ PersonListActivity bTv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(PersonListActivity personListActivity) {
-        this.bTu = personListActivity;
+        this.bTv = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ public class bv implements View.OnClickListener {
         ca caVar2;
         ca caVar3;
         int intValue = ((Integer) view.getTag()).intValue();
-        caVar = this.bTu.bTp;
+        caVar = this.bTv.bTq;
         if (caVar != null) {
-            caVar2 = this.bTu.bTp;
+            caVar2 = this.bTv.bTq;
             if (caVar2.getItemViewType(intValue) == 0) {
-                caVar3 = this.bTu.bTp;
+                caVar3 = this.bTv.bTq;
                 UserData userData = (UserData) caVar3.getItem(intValue);
                 if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bTu.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bTv.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
                 }
             }
         }

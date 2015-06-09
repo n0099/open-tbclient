@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.RequestApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bVe;
+    final /* synthetic */ PersonInfoActivity bVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bVe = personInfoActivity;
+        this.bVf = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ class l extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof ResponseApplyMessage) {
             ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
             if (responseApplyMessage.getError() != 0) {
-                this.bVe.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.bVe.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString());
+                this.bVf.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.bVf.getResources().getString(com.baidu.tieba.t.neterror) : socketResponsedMessage.getErrorString());
                 return;
             }
             RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
@@ -31,10 +31,10 @@ class l extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            vVar = this.bVe.bUT;
-            vVar.afx().getReplyInfo().add(replyInfo);
-            adVar = this.bVe.bUU;
-            adVar.afK();
+            vVar = this.bVf.bUU;
+            vVar.afy().getReplyInfo().add(replyInfo);
+            adVar = this.bVf.bUV;
+            adVar.afL();
         }
     }
 }

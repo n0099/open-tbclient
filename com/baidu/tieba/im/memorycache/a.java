@@ -5,19 +5,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> blS = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> blT = new ConcurrentHashMap<>();
 
     public void a(b bVar) {
-        bVar.a(this.blS.values().iterator());
+        bVar.a(this.blT.values().iterator());
     }
 
-    public void TC() {
-        this.blS.clear();
+    public void TD() {
+        this.blT.clear();
     }
 
     public void b(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.blS.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.blT.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
@@ -25,10 +25,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.blS.get(str);
+        return this.blT.get(str);
     }
 
     public boolean hq(String str) {
-        return (TextUtils.isEmpty(str) || this.blS.remove(str) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || this.blT.remove(str) == null) ? false : true;
     }
 }

@@ -4,27 +4,27 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class ac implements com.baidu.tbadk.core.a.b {
-    final /* synthetic */ NotLoginGuideActivity axb;
+    final /* synthetic */ NotLoginGuideActivity axc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(NotLoginGuideActivity notLoginGuideActivity) {
-        this.axb = notLoginGuideActivity;
+        this.axc = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.b
     public void cb(String str) {
-        if (this.axb.getLoadingDialog() == null || !this.axb.getLoadingDialog().isShowing()) {
-            this.axb.showLoadingDialog(this.axb.getPageContext().getString(com.baidu.tieba.t.sapi_logining), new ad(this));
+        if (this.axc.getLoadingDialog() == null || !this.axc.getLoadingDialog().isShowing()) {
+            this.axc.showLoadingDialog(this.axc.getPageContext().getString(com.baidu.tieba.t.sapi_logining), new ad(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.a.b
     public void a(AccountData accountData) {
-        this.axb.closeLoadingDialog();
+        this.axc.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.axb.f(accountData);
+            this.axc.f(accountData);
         } else {
-            this.axb.n(accountData);
+            this.axc.n(accountData);
         }
     }
 
@@ -32,16 +32,16 @@ class ac implements com.baidu.tbadk.core.a.b {
     public void c(String str, int i, String str2) {
         int i2;
         int i3;
-        this.axb.closeLoadingDialog();
-        i2 = this.axb.axa;
+        this.axc.closeLoadingDialog();
+        i2 = this.axc.axb;
         if (i2 != 1) {
-            i3 = this.axb.axa;
+            i3 = this.axc.axb;
             if (i3 != 2) {
                 return;
             }
-            this.axb.Fh();
+            this.axc.Fi();
             return;
         }
-        this.axb.Fg();
+        this.axc.Fh();
     }
 }

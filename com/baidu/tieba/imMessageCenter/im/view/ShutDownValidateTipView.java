@@ -18,11 +18,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     private static ArrayList<ShutDownValidateTipView> ZK = new ArrayList<>();
     private static boolean ZM;
     private ArrayList<c> ZP;
-    private TextView bwH;
-    private ImageView bwI;
-    private TextView bwJ;
+    private TextView bwI;
+    private ImageView bwJ;
     private TextView bwK;
-    private boolean bwL;
+    private TextView bwL;
+    private boolean bwM;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -44,15 +44,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(com.baidu.adp.lib.g.b.hr().inflate(context, r.shut_down_validate_tip, null));
-        this.bwI = (ImageView) findViewById(q.no_network_icon);
-        this.bwJ = (TextView) findViewById(q.no_network_guide1);
-        this.bwK = (TextView) findViewById(q.no_network_guide2);
-        this.bwH = (TextView) findViewById(q.no_network_showmore);
+        this.bwJ = (ImageView) findViewById(q.no_network_icon);
+        this.bwK = (TextView) findViewById(q.no_network_guide1);
+        this.bwL = (TextView) findViewById(q.no_network_guide2);
+        this.bwI = (TextView) findViewById(q.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.bwH != null) {
-            this.bwH.setOnClickListener(onClickListener);
+        if (this.bwI != null) {
+            this.bwI.setOnClickListener(onClickListener);
         }
     }
 
@@ -74,8 +74,8 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
-        if (z != this.bwL) {
-            this.bwL = z;
+        if (z != this.bwM) {
+            this.bwM = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -113,16 +113,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ay.c(this.bwI, p.icon_error);
+        ay.c(this.bwJ, p.icon_error);
         ay.i(findViewById(q.no_network_parent), p.bg_no_network);
         if (i == 1) {
-            this.bwJ.setTextColor(-10523526);
-            this.bwK.setTextColor(-8682095);
-            this.bwH.setTextColor(-10523526);
+            this.bwK.setTextColor(-10523526);
+            this.bwL.setTextColor(-8682095);
+            this.bwI.setTextColor(-10523526);
             return;
         }
-        this.bwJ.setTextColor(-14277082);
-        this.bwK.setTextColor(-5065030);
-        this.bwH.setTextColor(-14277082);
+        this.bwK.setTextColor(-14277082);
+        this.bwL.setTextColor(-5065030);
+        this.bwI.setTextColor(-14277082);
     }
 }

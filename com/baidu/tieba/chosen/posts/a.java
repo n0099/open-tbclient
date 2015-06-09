@@ -27,21 +27,21 @@ public class a extends com.baidu.tbadk.mvc.j.b<tinfo, com.baidu.tbadk.mvc.e.c, c
     }
 
     public void L(long j) {
-        List<tinfo> CM;
+        List<tinfo> CN;
         tinfo tinfoVar;
-        if (j > 0 && (CM = CM()) != null && CM.size() > 0) {
-            int size = CM.size();
+        if (j > 0 && (CN = CN()) != null && CN.size() > 0) {
+            int size = CN.size();
             int i = 0;
             while (true) {
                 if (i >= size) {
                     tinfoVar = null;
                     break;
                 }
-                tinfo tinfoVar2 = CM.get(i);
+                tinfo tinfoVar2 = CN.get(i);
                 if (tinfoVar2 == null || tinfoVar2.thread_id == null || tinfoVar2.thread_id.longValue() != j) {
                     i++;
                 } else {
-                    tinfoVar = CM.get(i);
+                    tinfoVar = CN.get(i);
                     break;
                 }
             }

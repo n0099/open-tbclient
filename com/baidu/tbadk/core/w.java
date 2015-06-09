@@ -11,6 +11,6 @@ public class w implements com.baidu.adp.framework.client.socket.link.l {
 
     @Override // com.baidu.adp.framework.client.socket.link.l
     public void eQ() {
-        com.baidu.tbadk.util.d.DT().a(new x(this));
+        com.baidu.tbadk.util.d.DU().a(new x(this));
     }
 }

@@ -16,16 +16,16 @@ import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Void, Bitmap> {
-    private Boolean bRx;
     private Boolean bRy;
+    private Boolean bRz;
     private Bitmap bitmap;
     private String mLabel;
     final /* synthetic */ EditHeadActivity this$0;
 
     private n(EditHeadActivity editHeadActivity) {
         this.this$0 = editHeadActivity;
-        this.bRx = false;
         this.bRy = false;
+        this.bRz = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
         if (bB == PluginPackageManager.PluginStatus.NROMAL) {
             progressBar = this.this$0.mProgress;
             progressBar.setVisibility(0);
-            view = this.this$0.bQZ;
+            view = this.this$0.bRa;
             view.setEnabled(false);
             return;
         }
@@ -83,35 +83,35 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
         this.mLabel = strArr[0];
         bitmap = this.this$0.mBitmap;
         if (bitmap == null) {
-            bitmap9 = this.this$0.bRk;
+            bitmap9 = this.this$0.bRl;
             if (bitmap9 == null) {
                 return null;
             }
         }
         if (this.mLabel.equals(GameInfoData.NOT_FROM_DETAIL) || this.mLabel.equals("1")) {
-            this.bRx = true;
-        } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
             this.bRy = true;
+        } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+            this.bRz = true;
         }
-        if (!this.bRx.booleanValue() && !this.bRy.booleanValue()) {
+        if (!this.bRy.booleanValue() && !this.bRz.booleanValue()) {
             bitmap7 = this.this$0.mBitmap;
             bitmap8 = this.this$0.mBitmap;
             this.bitmap = bitmap7.copy(bitmap8.getConfig(), true);
         } else {
-            bitmap2 = this.this$0.bRk;
+            bitmap2 = this.this$0.bRl;
             if (bitmap2 == null) {
                 bitmap3 = this.this$0.mBitmap;
                 bitmap4 = this.this$0.mBitmap;
                 this.bitmap = bitmap3.copy(bitmap4.getConfig(), true);
             } else {
-                bitmap5 = this.this$0.bRk;
-                bitmap6 = this.this$0.bRk;
+                bitmap5 = this.this$0.bRl;
+                bitmap6 = this.this$0.bRl;
                 this.bitmap = bitmap5.copy(bitmap6.getConfig(), true);
             }
         }
-        if (this.bRx.booleanValue()) {
+        if (this.bRy.booleanValue()) {
             this.bitmap = com.baidu.tbadk.core.util.c.g(this.bitmap, Integer.parseInt(this.mLabel));
-        } else if (this.bRy.booleanValue()) {
+        } else if (this.bRz.booleanValue()) {
             this.bitmap = com.baidu.tbadk.core.util.c.i(this.bitmap, Integer.parseInt(this.mLabel));
         } else {
             MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -128,7 +128,7 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
         View view;
         Bitmap bitmap;
         if (this.bitmap != null && !this.bitmap.isRecycled()) {
-            bitmap = this.this$0.bRk;
+            bitmap = this.this$0.bRl;
             if (bitmap != this.bitmap) {
                 this.bitmap.recycle();
             }
@@ -136,7 +136,7 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
         this.bitmap = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.bQZ;
+        view = this.this$0.bRa;
         view.setClickable(true);
         super.cancel(true);
     }
@@ -166,14 +166,14 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
         EditHeadsImageView editHeadsImageView2;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.bQZ;
+        view = this.this$0.bRa;
         view.setClickable(true);
-        view2 = this.this$0.bQZ;
+        view2 = this.this$0.bRa;
         view2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.this$0.bRr = true;
-            if (this.bRx.booleanValue() || this.bRy.booleanValue()) {
-                editHeadsImageView = this.this$0.bQX;
+            this.this$0.bRs = true;
+            if (this.bRy.booleanValue() || this.bRz.booleanValue()) {
+                editHeadsImageView = this.this$0.bQY;
                 editHeadsImageView.setImageBitmap(bitmap);
                 bitmap2 = this.this$0.mBitmap;
                 if (bitmap2.getWidth() <= 750) {
@@ -182,28 +182,28 @@ public class n extends BdAsyncTask<String, Void, Bitmap> {
                 EditHeadActivity editHeadActivity = this.this$0;
                 bitmap3 = this.this$0.mBitmap;
                 editHeadActivity.mBitmap = com.baidu.tbadk.core.util.c.d(bitmap3, TbConfig.POST_IMAGE_MIDDLE);
-                if (this.bRx.booleanValue()) {
+                if (this.bRy.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.this$0;
                     bitmap5 = this.this$0.mBitmap;
                     editHeadActivity2.mBitmap = com.baidu.tbadk.core.util.c.g(bitmap5, Integer.parseInt(this.mLabel));
-                } else if (this.bRy.booleanValue()) {
+                } else if (this.bRz.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.this$0;
                     bitmap4 = this.this$0.mBitmap;
                     editHeadActivity3.mBitmap = com.baidu.tbadk.core.util.c.i(bitmap4, Integer.parseInt(this.mLabel));
                 }
             } else {
-                editHeadsImageView2 = this.this$0.bQX;
+                editHeadsImageView2 = this.this$0.bQY;
                 editHeadsImageView2.replaceImageBitmap(bitmap);
             }
-            bitmap7 = this.this$0.bRk;
+            bitmap7 = this.this$0.bRl;
             if (bitmap7 != null) {
-                bitmap8 = this.this$0.bRk;
+                bitmap8 = this.this$0.bRl;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.this$0.bRk;
+                    bitmap9 = this.this$0.bRl;
                     bitmap9.recycle();
                 }
             }
-            this.this$0.bRk = bitmap;
+            this.this$0.bRl = bitmap;
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.setting.more;
 /* loaded from: classes.dex */
 class ay implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ SystemHelpSettingActivity cgQ;
+    final /* synthetic */ SystemHelpSettingActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cgQ = systemHelpSettingActivity;
+        this.cgR = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

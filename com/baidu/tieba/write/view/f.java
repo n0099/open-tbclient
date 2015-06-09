@@ -30,11 +30,11 @@ public class f {
     private DialogInterface.OnCancelListener RF;
     private String Ry;
     private String Rz;
-    private String cAU;
-    private i cAV;
+    private String cAV;
     private i cAW;
     private i cAX;
-    private DialogInterface.OnKeyListener cAY;
+    private i cAY;
+    private DialogInterface.OnKeyListener cAZ;
     protected final Activity mActivity;
     private View mContentView;
     private AlertDialog mDialog;
@@ -43,8 +43,8 @@ public class f {
     private String mTitle;
     private int Rx = -1;
     private int Sg = -1;
-    private int cAS = p.btn_blue_bg;
-    private int cAT = n.cp_cont_g;
+    private int cAT = p.btn_blue_bg;
+    private int cAU = n.cp_cont_g;
     private boolean RH = false;
     private boolean RI = true;
 
@@ -54,17 +54,17 @@ public class f {
     }
 
     public f jx(int i) {
-        this.cAS = i;
-        return this;
-    }
-
-    public f jy(int i) {
         this.cAT = i;
         return this;
     }
 
+    public f jy(int i) {
+        this.cAU = i;
+        return this;
+    }
+
     public f a(DialogInterface.OnKeyListener onKeyListener) {
-        this.cAY = onKeyListener;
+        this.cAZ = onKeyListener;
         return this;
     }
 
@@ -78,7 +78,7 @@ public class f {
     public f a(int i, i iVar) {
         if (this.mActivity != null) {
             this.Ry = this.mActivity.getResources().getString(i);
-            this.cAV = iVar;
+            this.cAW = iVar;
         }
         return this;
     }
@@ -86,7 +86,7 @@ public class f {
     public f b(int i, i iVar) {
         if (this.mActivity != null) {
             this.Rz = this.mActivity.getResources().getString(i);
-            this.cAW = iVar;
+            this.cAX = iVar;
         }
         return this;
     }
@@ -113,8 +113,8 @@ public class f {
             ImageView imageView = (ImageView) this.mRootView.findViewById(q.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(q.message);
             Button button = (Button) this.mRootView.findViewById(q.yes);
-            ay.i((View) button, this.cAS);
-            ay.b(button, this.cAT, 3);
+            ay.i((View) button, this.cAT);
+            ay.b(button, this.cAU, 3);
             Button button2 = (Button) this.mRootView.findViewById(q.no);
             Button button3 = (Button) this.mRootView.findViewById(q.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -139,8 +139,8 @@ public class f {
                 z = false;
             } else {
                 button.setText(this.Ry);
-                if (this.cAV != null) {
-                    button.setOnClickListener(new h(this, this, this.cAV));
+                if (this.cAW != null) {
+                    button.setOnClickListener(new h(this, this, this.cAW));
                 }
                 z = true;
             }
@@ -148,17 +148,17 @@ public class f {
                 z2 = false;
             } else {
                 button2.setText(this.Rz);
-                if (this.cAW != null) {
-                    button2.setOnClickListener(new h(this, this, this.cAW));
+                if (this.cAX != null) {
+                    button2.setOnClickListener(new h(this, this, this.cAX));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.cAU)) {
+            if (TextUtils.isEmpty(this.cAV)) {
                 z3 = false;
             } else {
-                button3.setText(this.cAU);
-                if (this.cAX != null) {
-                    button3.setOnClickListener(new h(this, this, this.cAX));
+                button3.setText(this.cAV);
+                if (this.cAY != null) {
+                    button3.setOnClickListener(new h(this, this, this.cAY));
                 }
                 z3 = true;
             }
@@ -238,8 +238,8 @@ public class f {
             if (this.RF != null) {
                 this.mDialog.setOnCancelListener(this.RF);
             }
-            if (this.cAY != null) {
-                this.mDialog.setOnKeyListener(this.cAY);
+            if (this.cAZ != null) {
+                this.mDialog.setOnKeyListener(this.cAZ);
             }
             if (z) {
                 k.a(this.mDialog, this.mActivity);
@@ -266,7 +266,7 @@ public class f {
         return this;
     }
 
-    public f asP() {
+    public f asQ() {
         return fC(true);
     }
 

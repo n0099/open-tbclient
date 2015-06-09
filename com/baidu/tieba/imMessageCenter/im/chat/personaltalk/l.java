@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes.dex */
 class l extends com.baidu.tieba.im.h<Boolean> {
-    final /* synthetic */ k bsG;
+    final /* synthetic */ k bsH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bsG = kVar;
+        this.bsH = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -14,9 +14,9 @@ class l extends com.baidu.tieba.im.h<Boolean> {
     public Boolean doInBackground() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
-        com.baidu.tieba.im.db.n RB = com.baidu.tieba.im.db.n.RB();
-        personalTalkSettingActivity = this.bsG.bsF;
+        com.baidu.tieba.im.db.n RC = com.baidu.tieba.im.db.n.RC();
+        personalTalkSettingActivity = this.bsH.bsG;
         j = personalTalkSettingActivity.userId;
-        return Boolean.valueOf(RB.gV(String.valueOf(j)));
+        return Boolean.valueOf(RC.gV(String.valueOf(j)));
     }
 }

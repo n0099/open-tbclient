@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ab bGq;
+    final /* synthetic */ ab bGr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(ab abVar, int i) {
         super(i);
-        this.bGq = abVar;
+        this.bGr = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,18 +24,18 @@ public class ac extends com.baidu.adp.framework.listener.e {
         SingleMentionActivity singleMentionActivity4;
         SingleMentionActivity singleMentionActivity5;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            singleMentionActivity = this.bGq.bGo;
+            singleMentionActivity = this.bGr.bGp;
             singleMentionActivity.showToast(com.baidu.tieba.t.neterror);
             return;
         }
         CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
         if (checkPostResponseMessage.hasError()) {
             if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                singleMentionActivity5 = this.bGq.bGo;
+                singleMentionActivity5 = this.bGr.bGp;
                 singleMentionActivity5.showToast(checkPostResponseMessage.getErrorString());
                 return;
             }
-            singleMentionActivity4 = this.bGq.bGo;
+            singleMentionActivity4 = this.bGr.bGp;
             singleMentionActivity4.showToast(com.baidu.tieba.t.neterror);
             return;
         }
@@ -44,13 +44,13 @@ public class ac extends com.baidu.adp.framework.listener.e {
         long quoteId = checkPostResponseMessage.getQuoteId();
         long repostId = checkPostResponseMessage.getRepostId();
         if (postState == 1) {
-            adVar = this.bGq.bGp;
+            adVar = this.bGr.bGq;
             adVar.a(forumId, quoteId, repostId);
         } else if (postState == 0) {
-            singleMentionActivity3 = this.bGq.bGo;
+            singleMentionActivity3 = this.bGr.bGp;
             singleMentionActivity3.showToast(com.baidu.tieba.t.thread_delete_tip);
         } else if (postState == -1) {
-            singleMentionActivity2 = this.bGq.bGo;
+            singleMentionActivity2 = this.bGr.bGp;
             singleMentionActivity2.showToast(com.baidu.tieba.t.thread_shield_tip);
         }
     }

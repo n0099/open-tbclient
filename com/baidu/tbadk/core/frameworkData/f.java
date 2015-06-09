@@ -14,7 +14,7 @@ class f extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-            h.yp().dp(((Integer) customResponsedMessage.getData()).intValue());
+            h.yq().dp(((Integer) customResponsedMessage.getData()).intValue());
         }
     }
 }

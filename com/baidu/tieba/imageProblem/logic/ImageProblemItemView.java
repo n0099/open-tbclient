@@ -21,21 +21,21 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView agG;
     protected TextView agH;
     protected ImageView agK;
-    protected LinearLayout byD;
-    protected TextView byE;
+    protected LinearLayout byE;
+    protected TextView byF;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        yc();
+        yd();
         c(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        yc();
+        yd();
     }
 
     public void displayTip() {
@@ -70,19 +70,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.byD.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.byE.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(o.ds26);
-            this.byD.setLayoutParams(layoutParams);
-            this.byE.setText("");
-            this.byE.setVisibility(8);
+            this.byE.setLayoutParams(layoutParams);
+            this.byF.setText("");
+            this.byF.setVisibility(8);
             return;
         }
-        this.byD.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.byD.getLayoutParams();
-        layoutParams2.bottomMargin = (int) getResources().getDimension(o.ds10);
-        this.byD.setLayoutParams(layoutParams2);
-        this.byE.setText(str);
         this.byE.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.byE.getLayoutParams();
+        layoutParams2.bottomMargin = (int) getResources().getDimension(o.ds10);
+        this.byE.setLayoutParams(layoutParams2);
+        this.byF.setText(str);
+        this.byF.setVisibility(0);
     }
 
     public void setStatus(int i) {
@@ -115,14 +115,14 @@ public class ImageProblemItemView extends FrameLayout {
         this.agH.setBackgroundDrawable(drawable);
     }
 
-    protected void yc() {
+    protected void yd() {
         b.hr().a(this.mContext, r.image_problem_item_view, this, true);
         this.agF = (LinearLayout) findViewById(q.container);
         this.agG = (TextView) findViewById(q.text);
         this.agH = (TextView) findViewById(q.tip);
         this.agK = (ImageView) findViewById(q.arrow2);
-        this.byD = (LinearLayout) findViewById(q.ll_container);
-        this.byE = (TextView) findViewById(q.tv_help);
+        this.byE = (LinearLayout) findViewById(q.ll_container);
+        this.byF = (TextView) findViewById(q.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {

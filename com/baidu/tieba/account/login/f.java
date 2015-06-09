@@ -6,23 +6,23 @@ import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements TextWatcher {
-    final /* synthetic */ Login2Activity ayM;
+    final /* synthetic */ Login2Activity ayN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Login2Activity login2Activity) {
-        this.ayM = login2Activity;
+        this.ayN = login2Activity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         boolean z;
-        z = this.ayM.ayp;
+        z = this.ayN.ayq;
         if (z) {
-            this.ayM.FC();
+            this.ayN.FD();
         }
-        this.ayM.ayq = true;
-        this.ayM.FF();
-        this.ayM.FG();
+        this.ayN.ayr = true;
+        this.ayN.FG();
+        this.ayN.FH();
     }
 
     @Override // android.text.TextWatcher
@@ -33,15 +33,15 @@ public class f implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         String str;
         String str2;
-        this.ayM.Fw();
-        str = this.ayM.mAccount;
+        this.ayN.Fx();
+        str = this.ayN.mAccount;
         if (!bb.isEmpty(str)) {
             String editable2 = editable.toString();
-            str2 = this.ayM.mAccount;
+            str2 = this.ayN.mAccount;
             if (!editable2.equals(str2)) {
                 return;
             }
-            this.ayM.FB();
+            this.ayN.FC();
         }
     }
 }

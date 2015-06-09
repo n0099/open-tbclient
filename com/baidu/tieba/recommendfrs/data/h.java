@@ -1,22 +1,22 @@
 package com.baidu.tieba.recommendfrs.data;
 /* loaded from: classes.dex */
 public class h {
-    private String cce;
-    private boolean ccf = true;
+    private String ccf;
+    private boolean ccg = true;
 
     public void jb(String str) {
-        this.cce = str;
+        this.ccf = str;
     }
 
-    public String ahI() {
-        return this.cce;
+    public String ahJ() {
+        return this.ccf;
     }
 
     public void eB(boolean z) {
-        this.ccf = z;
+        this.ccg = z;
     }
 
-    public boolean ahG() {
-        return this.ccf;
+    public boolean ahH() {
+        return this.ccg;
     }
 }

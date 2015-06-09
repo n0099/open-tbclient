@@ -20,7 +20,7 @@ public class v {
     private UpdateClientInfoMessage ahK = null;
     private final com.baidu.adp.framework.client.socket.link.g oN = new w(this);
 
-    public static synchronized v yA() {
+    public static synchronized v yB() {
         v vVar;
         synchronized (v.class) {
             if (ahL == null) {
@@ -44,7 +44,7 @@ public class v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage yB() {
+    public UpdateClientInfoMessage yC() {
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
         updateClientInfoMessage.addUserInfo("_client_type", "2");
         updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
@@ -111,20 +111,20 @@ public class v {
         return updateClientInfoMessage;
     }
 
-    public boolean yC() {
+    public boolean yD() {
         return this.ahI >= 5;
     }
 
-    public void yD() {
+    public void yE() {
         this.ahI++;
-        if (yC()) {
+        if (yD()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.uv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yE() {
+    public void yF() {
         this.ahI = 0;
         MessageManager.getInstance().getSocketClient().ew();
         NoNetworkView.uv();
@@ -133,7 +133,7 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, String str) {
-        yD();
+        yE();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 

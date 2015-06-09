@@ -7,11 +7,11 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements TextWatcher {
-    final /* synthetic */ j aAW;
+    final /* synthetic */ j aAX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.aAW = jVar;
+        this.aAX = jVar;
     }
 
     @Override // android.text.TextWatcher
@@ -27,11 +27,11 @@ public class l implements TextWatcher {
         ImageView imageView;
         ImageView imageView2;
         if (TextUtils.isEmpty(editable)) {
-            imageView2 = this.aAW.aAT;
+            imageView2 = this.aAX.aAU;
             imageView2.setVisibility(8);
             return;
         }
-        imageView = this.aAW.aAT;
+        imageView = this.aAX.aAU;
         imageView.setVisibility(0);
     }
 }

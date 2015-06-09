@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bi extends CustomMessageListener {
-    final /* synthetic */ bh bLm;
+    final /* synthetic */ bh bLn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bi(bh bhVar, int i) {
         super(i);
-        this.bLm = bhVar;
+        this.bLn = bhVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -33,30 +33,30 @@ public class bi extends CustomMessageListener {
         com.baidu.tieba.pb.a.b bVar2;
         PbActivity pbActivity;
         if (customResponsedMessage != null) {
-            bVar = this.bLm.bLe;
+            bVar = this.bLn.bLf;
             if (bVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                bVar2 = this.bLm.bLe;
-                ArrayList<com.baidu.tieba.tbadkCore.data.i> aay = bVar2.aay();
-                if (aay != null && aay.size() != 0) {
-                    Iterator<com.baidu.tieba.tbadkCore.data.i> it = aay.iterator();
+                bVar2 = this.bLn.bLf;
+                ArrayList<com.baidu.tieba.tbadkCore.data.i> aaz = bVar2.aaz();
+                if (aaz != null && aaz.size() != 0) {
+                    Iterator<com.baidu.tieba.tbadkCore.data.i> it = aaz.iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.i next = it.next();
-                        if (next != null && next.aor() != null && !TextUtils.isEmpty(next.aor().apk_name)) {
-                            com.baidu.tieba.tbadkCore.data.a aor = next.aor();
+                        if (next != null && next.aos() != null && !TextUtils.isEmpty(next.aos().apk_name)) {
+                            com.baidu.tieba.tbadkCore.data.a aos = next.aos();
                             Iterator<DownloadData> it2 = data.iterator();
                             while (true) {
                                 if (!it2.hasNext()) {
                                     break;
                                 }
                                 DownloadData next2 = it2.next();
-                                if (next2 != null && aor.apk_name.equals(next2.getId())) {
+                                if (next2 != null && aos.apk_name.equals(next2.getId())) {
                                     int status = next2.getStatus();
                                     if (status == 3 || status == 0) {
                                         next.iJ(2);
                                     } else if (status == 2 || status == 4) {
                                         if (!com.baidu.tbadk.core.util.bb.isEmpty(next2.getStatusMsg())) {
-                                            pbActivity = this.bLm.bKZ;
+                                            pbActivity = this.bLn.bLa;
                                             com.baidu.adp.lib.util.n.showToast(pbActivity.getPageContext().getContext(), next2.getStatusMsg());
                                         }
                                         next.iJ(0);
@@ -69,7 +69,7 @@ public class bi extends CustomMessageListener {
                         }
                     }
                     if (z) {
-                        this.bLm.notifyDataSetChanged();
+                        this.bLn.notifyDataSetChanged();
                     }
                 }
             }

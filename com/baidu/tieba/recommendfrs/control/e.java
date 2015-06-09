@@ -14,12 +14,12 @@ class e extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.d AD;
+        com.baidu.tbadk.mainTab.d AE;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
             ((f) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((f) customResponsedMessage.getData()).getContext() != null && (AD = recommendFrsDelegateStatic.AD()) != null) {
-                AD.anf.setArguments(new Bundle());
+            if (((f) customResponsedMessage.getData()).getContext() != null && (AE = recommendFrsDelegateStatic.AE()) != null) {
+                AE.anf.setArguments(new Bundle());
             }
         }
     }

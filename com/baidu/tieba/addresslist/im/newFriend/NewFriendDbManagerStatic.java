@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic azM = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic azN = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new a(2001222));
@@ -30,8 +30,8 @@ public class NewFriendDbManagerStatic {
     private NewFriendDbManagerStatic() {
     }
 
-    public static NewFriendDbManagerStatic FP() {
-        return azM;
+    public static NewFriendDbManagerStatic FQ() {
+        return azN;
     }
 
     public void fu(String str) {

@@ -2,24 +2,24 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.editortool.v {
-    final /* synthetic */ EditorToolComponetContainer cqD;
-    private final /* synthetic */ com.baidu.tbadk.editortool.v cqE;
+    final /* synthetic */ EditorToolComponetContainer cqE;
+    private final /* synthetic */ com.baidu.tbadk.editortool.v cqF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditorToolComponetContainer editorToolComponetContainer, com.baidu.tbadk.editortool.v vVar) {
-        this.cqD = editorToolComponetContainer;
-        this.cqE = vVar;
+        this.cqE = editorToolComponetContainer;
+        this.cqF = vVar;
     }
 
     @Override // com.baidu.tbadk.editortool.v
     public void handleAction(int i, Object obj) {
         if (i == 46) {
-            this.cqD.cqf.zK();
+            this.cqE.cqg.zL();
         } else if (i == 47) {
-            this.cqD.cqf.zL();
+            this.cqE.cqg.zM();
         } else if (i == 4) {
-            this.cqD.anB();
+            this.cqE.anC();
         }
-        this.cqE.handleAction(i, obj);
+        this.cqF.handleAction(i, obj);
     }
 }

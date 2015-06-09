@@ -9,8 +9,8 @@ import android.widget.TextView;
 public class FrsOfficalBanner extends LinearLayout {
     private com.baidu.tbadk.coreExtra.view.b afa;
     View.OnClickListener afb;
-    private TextView coZ;
-    private LinearLayout cpa;
+    private TextView cpa;
+    private LinearLayout cpb;
     private Context mContext;
 
     public FrsOfficalBanner(Context context) {
@@ -28,13 +28,13 @@ public class FrsOfficalBanner extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.frs_offical_banner_view, this);
-        this.cpa = (LinearLayout) findViewById(com.baidu.tieba.q.banner_parent);
-        this.coZ = (TextView) findViewById(com.baidu.tieba.q.tv_text);
-        this.cpa.setOnClickListener(this.afb);
+        this.cpb = (LinearLayout) findViewById(com.baidu.tieba.q.banner_parent);
+        this.cpa = (TextView) findViewById(com.baidu.tieba.q.tv_text);
+        this.cpb.setOnClickListener(this.afb);
     }
 
     public void setText(String str) {
-        this.coZ.setText(str);
+        this.cpa.setText(str);
     }
 
     public void setBannerViewClickListener(com.baidu.tbadk.coreExtra.view.b bVar) {

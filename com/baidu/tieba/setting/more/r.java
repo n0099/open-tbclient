@@ -33,8 +33,8 @@ public class r implements q {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                aaVar = this.this$0.cfq;
-                                                aaVar.aiZ();
+                                                aaVar = this.this$0.cfr;
+                                                aaVar.aja();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,31 +53,31 @@ public class r implements q {
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.aiV();
+                                            this.this$0.aiW();
                                             return;
                                         }
                                     }
-                                    this.this$0.aiO();
+                                    this.this$0.aiP();
                                     return;
                                 }
                                 this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.aiP();
+                            this.this$0.aiQ();
                             return;
                         }
-                        this.this$0.aiU();
+                        this.this$0.aiV();
                         return;
                     }
-                    this.this$0.aiQ();
+                    this.this$0.aiR();
                     return;
                 }
-                this.this$0.aiR();
+                this.this$0.aiS();
                 return;
             }
-            this.this$0.aiS();
+            this.this$0.aiT();
             return;
         }
-        this.this$0.aiT();
+        this.this$0.aiU();
     }
 }

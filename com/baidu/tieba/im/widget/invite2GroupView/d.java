@@ -8,11 +8,11 @@ import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class d implements g<Boolean> {
     private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ Invite2GroupView bry;
+    final /* synthetic */ Invite2GroupView brz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.bry = invite2GroupView;
+        this.brz = invite2GroupView;
         this.NC = tbPageContext;
     }
 
@@ -25,9 +25,9 @@ public class d implements g<Boolean> {
             bool = false;
         }
         if (!bool.booleanValue()) {
-            textView = this.bry.brw;
-            textView.setTextColor(this.bry.getContext().getResources().getColor(n.group_info_join_disable_color));
-            textView2 = this.bry.brw;
+            textView = this.brz.brx;
+            textView.setTextColor(this.brz.getContext().getResources().getColor(n.group_info_join_disable_color));
+            textView2 = this.brz.brx;
             textView2.setOnClickListener(new e(this, this.NC));
         }
     }

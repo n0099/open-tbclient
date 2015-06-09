@@ -8,31 +8,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private AntiData bxl;
-    private LinkedList<d> bxm;
-    private String bxj = null;
+    private AntiData bxm;
+    private LinkedList<d> bxn;
+    private String bxk = null;
     private String fid = null;
-    private int bxk = 0;
+    private int bxl = 0;
     private Context mContext = null;
-    private String bxn = null;
     private String bxo = null;
+    private String bxp = null;
     private String tid = null;
     private String title = null;
-    private int bxp = 0;
-
-    public String Xr() {
-        return this.bxn;
-    }
+    private int bxq = 0;
 
     public String Xs() {
         return this.bxo;
     }
 
+    public String Xt() {
+        return this.bxp;
+    }
+
     public e() {
-        this.bxl = null;
         this.bxm = null;
-        this.bxm = new LinkedList<>();
-        this.bxl = new AntiData();
+        this.bxn = null;
+        this.bxn = new LinkedList<>();
+        this.bxm = new AntiData();
     }
 
     public void u(String str, boolean z) {
@@ -43,12 +43,12 @@ public class e {
         }
     }
 
-    public LinkedList<d> Xt() {
-        return this.bxm;
+    public LinkedList<d> Xu() {
+        return this.bxn;
     }
 
-    public int Xu() {
-        return this.bxk;
+    public int Xv() {
+        return this.bxl;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -57,10 +57,10 @@ public class e {
                 gX(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.bxj = optJSONObject.optString("name");
+                    this.bxk = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.bxk = jSONObject.optInt("pic_amount", 0);
+                this.bxl = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -68,8 +68,8 @@ public class e {
                             d dVar = new d(this.mContext);
                             dVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = dVar.getIndex();
-                            if (index >= 1 && index <= this.bxk) {
-                                this.bxm.addLast(dVar);
+                            if (index >= 1 && index <= this.bxl) {
+                                this.bxn.addLast(dVar);
                             }
                         }
                     } else {
@@ -77,15 +77,15 @@ public class e {
                             d dVar2 = new d(this.mContext);
                             dVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = dVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.bxk) {
-                                this.bxm.addFirst(dVar2);
+                            if (index2 >= 1 && index2 <= this.bxl) {
+                                this.bxn.addFirst(dVar2);
                             }
                         }
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
-                this.bxn = optJSONObject2.optString("tid");
-                this.bxo = optJSONObject2.optString("title");
+                this.bxo = optJSONObject2.optString("tid");
+                this.bxp = optJSONObject2.optString("title");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -93,6 +93,6 @@ public class e {
     }
 
     public void gX(int i) {
-        this.bxp = i;
+        this.bxq = i;
     }
 }

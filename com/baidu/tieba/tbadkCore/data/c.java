@@ -16,13 +16,13 @@ public class c {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern crZ = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern csa = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String crX = null;
-    private SpannableStringBuilder crY = null;
-    private boolean crW = false;
+    private String crY = null;
+    private SpannableStringBuilder crZ = null;
+    private boolean crX = false;
 
     public static boolean ah(int i, int i2) {
         return i == 0 && i2 != 3;
@@ -44,20 +44,20 @@ public class c {
         return this.text;
     }
 
-    public String aoj() {
+    public String aok() {
         return this.c;
     }
 
-    public SpannableStringBuilder aok() {
-        return this.crY;
+    public SpannableStringBuilder aol() {
+        return this.crZ;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.crY == null) {
-            this.crY = new SpannableStringBuilder();
+        if (this.crZ == null) {
+            this.crZ = new SpannableStringBuilder();
         }
-        this.crY.append((CharSequence) spannableString);
-        return this.crY;
+        this.crZ.append((CharSequence) spannableString);
+        return this.crZ;
     }
 
     public SpannableString aH(Context context) {
@@ -120,7 +120,7 @@ public class c {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.crX = jSONObject.optString("cdn_src", null);
+                    this.crY = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class c {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.crW = true;
+                        this.crX = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -145,7 +145,7 @@ public class c {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Ak().eu(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.Al().eu(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

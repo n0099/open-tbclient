@@ -19,9 +19,9 @@ public class p implements View.OnClickListener {
         r rVar2;
         rVar = this.auX.auQ;
         if (rVar != null) {
-            e Eu = this.auY.Eu();
+            e Ev = this.auY.Ev();
             rVar2 = this.auX.auQ;
-            rVar2.a(view, Eu.alT.alw, Eu.alT.mPackageName, Eu.alT.alz, Eu.alT.alu, Eu.alT.alv, Eu.alT.alt, Eu.alT.alx, Eu.alT.aly);
+            rVar2.a(view, Ev.alT.alw, Ev.alT.mPackageName, Ev.alT.alz, Ev.alT.alu, Ev.alT.alv, Ev.alT.alt, Ev.alT.alx, Ev.alT.aly);
         }
     }
 }

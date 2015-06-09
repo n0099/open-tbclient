@@ -6,34 +6,34 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes.dex */
 public class f extends FragmentPagerAdapter {
-    private t bUd;
-    private k bUe;
-    private int[] bom;
+    private t bUe;
+    private k bUf;
+    private int[] bon;
 
     public f(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.aeM());
-        this.bUe = new k();
+        bundle.putString("key_empty_view_text", personPostActivity.aeN());
+        this.bUf = new k();
+        this.bUf.setArguments(bundle);
+        this.bUe = new t();
         this.bUe.setArguments(bundle);
-        this.bUd = new t();
-        this.bUd.setArguments(bundle);
-        this.bom = new int[]{0, 1};
+        this.bon = new int[]{0, 1};
     }
 
-    public t aeN() {
-        return this.bUd;
+    public t aeO() {
+        return this.bUe;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.bUd;
-            case 1:
                 return this.bUe;
+            case 1:
+                return this.bUf;
             default:
                 return null;
         }
@@ -45,6 +45,6 @@ public class f extends FragmentPagerAdapter {
     }
 
     public int gB(int i) {
-        return this.bom[i];
+        return this.bon[i];
     }
 }

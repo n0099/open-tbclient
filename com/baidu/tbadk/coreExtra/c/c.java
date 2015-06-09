@@ -1,9 +1,11 @@
 package com.baidu.tbadk.coreExtra.c;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.o;
@@ -92,6 +94,16 @@ public class c {
     private boolean dO(String str) {
         File cB = o.cB(bd.db(str));
         return cB != null && cB.exists() && cB.isFile();
+    }
+
+    public void wD() {
+        int versionCode = TbadkCoreApplication.m411getInst().getVersionCode();
+        int i = com.baidu.tbadk.core.sharedPref.b.sl().getInt("key_ad_version_code", -1);
+        if (i < 0 || versionCode > i) {
+            com.baidu.adp.lib.Disk.d.fp().c(new DiskFileOperate(null, bd.db(TbadkSettings.getInst().loadString("launch_config_local_url", "")), DiskFileOperate.Action.DELETE));
+            TbadkSettings.getInst().saveString("launch_config_local_url", null);
+            com.baidu.tbadk.core.sharedPref.b.sl().putInt("key_ad_version_code", versionCode);
+        }
     }
 
     private void aj(String str, String str2) {

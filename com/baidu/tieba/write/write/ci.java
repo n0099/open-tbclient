@@ -43,7 +43,7 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (ac != null) {
                     int dip2px = com.baidu.adp.lib.util.n.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                     if (Build.VERSION.SDK_INT >= 7) {
-                        z = this.this$0.bRo;
+                        z = this.this$0.bRp;
                         if (z) {
                             Bitmap f = com.baidu.tbadk.core.util.c.f(ac, dip2px);
                             if (f != null) {
@@ -52,11 +52,11 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
                                 }
                                 Bitmap a = com.baidu.tbadk.core.util.c.a(f, com.baidu.adp.lib.util.n.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), true);
                                 if (a != null) {
-                                    obj = this.this$0.cDc;
+                                    obj = this.this$0.cDd;
                                     synchronized (obj) {
-                                        this.this$0.bRs = new HashMap();
                                         this.this$0.bRt = new HashMap();
-                                        hashMap = this.this$0.bRs;
+                                        this.this$0.bRu = new HashMap();
+                                        hashMap = this.this$0.bRt;
                                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
                                     }
                                     return ac;
@@ -87,7 +87,7 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.cCX;
+        view = this.this$0.cCY;
         view.setEnabled(false);
         super.onPreExecute();
     }
@@ -95,7 +95,7 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.this$0.cCY = null;
+        this.this$0.cCZ = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
@@ -111,9 +111,9 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((ci) bitmap);
-        view = this.this$0.cCX;
+        view = this.this$0.cCY;
         view.setEnabled(true);
-        this.this$0.cCY = null;
+        this.this$0.cCZ = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
@@ -121,10 +121,10 @@ public class ci extends BdAsyncTask<Object, Integer, Bitmap> {
             imageView = this.this$0.avb;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.bRo;
+                z = this.this$0.bRp;
                 if (z) {
                     WriteImageActivity writeImageActivity = this.this$0;
-                    strArr = WriteImageActivity.bQW;
+                    strArr = WriteImageActivity.bQX;
                     writeImageActivity.w(strArr);
                 }
             }

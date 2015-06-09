@@ -3,17 +3,17 @@ package com.baidu.tieba.person.post;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 class y extends TimerTask {
-    final /* synthetic */ t bUI;
+    final /* synthetic */ t bUJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(t tVar) {
-        this.bUI = tVar;
+        this.bUJ = tVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        if (this.bUI.getActivity() != null && !this.bUI.getActivity().isFinishing()) {
-            this.bUI.getActivity().finish();
+        if (this.bUJ.getActivity() != null && !this.bUJ.getActivity().isFinishing()) {
+            this.bUJ.getActivity().finish();
         }
     }
 }

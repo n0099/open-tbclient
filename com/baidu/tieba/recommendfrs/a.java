@@ -12,11 +12,11 @@ import java.util.List;
 import tbclient.FineFrsPage.Pic;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> {
-    private static final Class<?>[] cbt = {i.class, j.class, m.class, h.class, f.class, com.baidu.tieba.recommendfrs.a.b.class, com.baidu.tieba.recommendfrs.a.d.class, com.baidu.tieba.recommendfrs.a.a.class};
-    private static final int[] cbu = {r.recommend_frs_item_pic, r.recommend_frs_item_pics, r.recommend_frs_item_time_divider, r.hot_thread_item_title, r.hot_thread_item_text, r.hot_thread_item_pic, r.hot_thread_item_multi_pic, r.hot_thread_item_more};
+    private static final Class<?>[] cbu = {i.class, j.class, m.class, h.class, f.class, com.baidu.tieba.recommendfrs.a.b.class, com.baidu.tieba.recommendfrs.a.d.class, com.baidu.tieba.recommendfrs.a.a.class};
+    private static final int[] cbv = {r.recommend_frs_item_pic, r.recommend_frs_item_pics, r.recommend_frs_item_time_divider, r.hot_thread_item_title, r.hot_thread_item_text, r.hot_thread_item_pic, r.hot_thread_item_multi_pic, r.hot_thread_item_more};
 
     public a(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, cbt, cbu, viewEventCenter);
+        super(tbPageContext, cbu, cbv, viewEventCenter);
     }
 
     @Override // com.baidu.tbadk.mvc.j.b
@@ -34,7 +34,7 @@ public class a extends com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, 
                 return 7;
             }
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.c) {
-            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).ahA().pics;
+            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).ahB().pics;
             if (list != null) {
                 int size = list.size();
                 if (size >= 3) {

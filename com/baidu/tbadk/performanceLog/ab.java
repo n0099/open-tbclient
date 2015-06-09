@@ -4,13 +4,13 @@ public class ab extends ag {
     public static int aqK = 100;
     public static int aqL = 10;
 
-    public static void Dz() {
-        if (ah.DB().DC()) {
+    public static void DA() {
+        if (ah.DC().DD()) {
             if (ad.aqP > aqL) {
-                ad.Do();
+                ad.Dp();
             }
             if (ac.aqM > aqL) {
-                ac.Do();
+                ac.Dp();
             }
         }
     }
@@ -23,12 +23,12 @@ public class ab extends ag {
             ac.aqO++;
         }
         if (ac.aqM > aqK) {
-            ac.Do();
+            ac.Dp();
         }
     }
 
     public void c(r rVar) {
-        if (ah.DB().DC()) {
+        if (ah.DC().DD()) {
             if (ad.aqP < aqK) {
                 ad.aqQ += rVar.uK;
                 ad.aqR += rVar.aqj;
@@ -39,7 +39,7 @@ public class ab extends ag {
                 ad.aqP++;
                 return;
             }
-            ad.Do();
+            ad.Dp();
         }
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.pb.main;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements Runnable {
-    final /* synthetic */ bp bLQ;
-    private final /* synthetic */ PbPageReadLocalResponseMessage bLR;
-    private final /* synthetic */ com.baidu.tieba.pb.a.b bLS;
+    final /* synthetic */ bp bLR;
+    private final /* synthetic */ PbPageReadLocalResponseMessage bLS;
+    private final /* synthetic */ com.baidu.tieba.pb.a.b bLT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.a.b bVar) {
-        this.bLQ = bpVar;
-        this.bLR = pbPageReadLocalResponseMessage;
-        this.bLS = bVar;
+        this.bLR = bpVar;
+        this.bLS = pbPageReadLocalResponseMessage;
+        this.bLT = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,11 +19,11 @@ public class bq implements Runnable {
         bs bsVar;
         bo boVar2;
         bs bsVar2;
-        boVar = this.bLQ.bLP;
-        bsVar = boVar.bLI;
-        bsVar.a(true, 0, this.bLR.getUpdateType(), 0, this.bLS, this.bLR.getErrorString(), 0);
-        boVar2 = this.bLQ.bLP;
-        bsVar2 = boVar2.bLI;
+        boVar = this.bLR.bLQ;
+        bsVar = boVar.bLJ;
+        bsVar.a(true, 0, this.bLS.getUpdateType(), 0, this.bLT, this.bLS.getErrorString(), 0);
+        boVar2 = this.bLR.bLQ;
+        bsVar2 = boVar2.bLJ;
         bsVar2.dR(false);
     }
 }

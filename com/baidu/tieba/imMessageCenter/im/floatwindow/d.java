@@ -9,27 +9,27 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.imMessageCenter.im.floatwindow.view.e {
-    final /* synthetic */ b bts;
+    final /* synthetic */ b btt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.bts = bVar;
+        this.btt = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.e
-    public void Wb() {
+    public void Wc() {
         boolean z;
         boolean z2;
         a aVar;
-        z = this.bts.btd;
+        z = this.btt.bte;
         if (!z) {
-            z2 = this.bts.btc;
+            z2 = this.btt.btd;
             if (!z2) {
-                aVar = this.bts.bth;
-                ArrayList<UserData> VM = aVar.VM();
-                if (VM != null && !VM.isEmpty()) {
-                    this.bts.VX();
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002011, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), VM)));
+                aVar = this.btt.bti;
+                ArrayList<UserData> VN = aVar.VN();
+                if (VN != null && !VN.isEmpty()) {
+                    this.btt.VY();
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002011, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), VN)));
                 }
             }
         }

@@ -46,7 +46,7 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.Al().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.Am().dN(com.baidu.tbadk.core.util.c.d(bitmap) * 2);
         if (WriteImageActivityConfig.FILTER_NAME_NORMAL.equals(this.amB)) {
             return bitmap;
         }

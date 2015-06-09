@@ -53,7 +53,7 @@ public class s extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.this$0.closeLoadingDialog();
-        this.this$0.bRj = null;
+        this.this$0.bRk = null;
         if (this.aaG != null) {
             this.aaG.gS();
         }

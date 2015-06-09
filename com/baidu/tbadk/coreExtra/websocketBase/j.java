@@ -14,10 +14,10 @@ public class j {
         this.ahk.sendEmptyMessageDelayed(0, 50000L);
         this.ahm = new k(this, null);
         this.ahm.setSelfExecute(true);
-        this.ahm.execute(String.valueOf(yq()) + str);
+        this.ahm.execute(String.valueOf(yr()) + str);
     }
 
-    private String yq() {
+    private String yr() {
         switch (com.baidu.adp.lib.util.k.jc()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -31,7 +31,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yr() {
+    public void ys() {
         if (this.ahm != null) {
             this.ahm.cancel(true);
         }

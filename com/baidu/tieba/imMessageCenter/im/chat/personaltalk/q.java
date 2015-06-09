@@ -1,17 +1,17 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes.dex */
 class q implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aDh;
-    final /* synthetic */ PersonalTalkSettingActivity bsF;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aDi;
+    final /* synthetic */ PersonalTalkSettingActivity bsG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(PersonalTalkSettingActivity personalTalkSettingActivity, com.baidu.tbadk.core.dialog.a aVar) {
-        this.bsF = personalTalkSettingActivity;
-        this.aDh = aVar;
+        this.bsG = personalTalkSettingActivity;
+        this.aDi = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aDh.dismiss();
+        this.aDi.dismiss();
     }
 }

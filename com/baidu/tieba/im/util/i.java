@@ -452,8 +452,8 @@ public class i {
             return null;
         }
         com.baidu.tieba.im.data.g gVar = new com.baidu.tieba.im.data.g();
-        gVar.beY = split[0];
-        gVar.beZ = split[1];
+        gVar.beZ = split[0];
+        gVar.bfa = split[1];
         return gVar;
     }
 }

@@ -7,12 +7,12 @@ import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
 public class u implements Runnable {
     private final /* synthetic */ int RY;
-    final /* synthetic */ s bPT;
+    final /* synthetic */ s bPU;
     private final /* synthetic */ View yH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(s sVar, View view, int i) {
-        this.bPT = sVar;
+        this.bPU = sVar;
         this.yH = view;
         this.RY = i;
     }
@@ -24,11 +24,11 @@ public class u implements Runnable {
         BdListView bdListView2;
         if (this.yH != null) {
             int[] iArr = new int[2];
-            pbEditor = this.bPT.aKO;
+            pbEditor = this.bPU.aKP;
             pbEditor.getLocationInWindow(iArr);
-            bdListView = this.bPT.mListView;
+            bdListView = this.bPU.mListView;
             bdListView.setSelectionFromTop(this.RY + 1, iArr[1] - this.yH.getHeight());
-            bdListView2 = this.bPT.mListView;
+            bdListView2 = this.bPU.mListView;
             bdListView2.invalidate();
         }
     }

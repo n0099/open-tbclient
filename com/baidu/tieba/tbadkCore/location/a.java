@@ -10,11 +10,11 @@ public class a {
     private List<b> poi_info;
     private String sn;
 
-    public String apd() {
+    public String ape() {
         return this.formatted_address;
     }
 
-    public List<b> ape() {
+    public List<b> apf() {
         return this.poi_info;
     }
 
@@ -22,7 +22,7 @@ public class a {
         this.formatted_address = str;
     }
 
-    public String apf() {
+    public String apg() {
         return this.sn;
     }
 

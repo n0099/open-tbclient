@@ -5,8 +5,6 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 public interface l {
     void a(BdSwitchView.SwitchState switchState);
 
-    void aii();
-
     void aij();
 
     void aik();
@@ -14,6 +12,8 @@ public interface l {
     void ail();
 
     void aim();
+
+    void ain();
 
     void b(BdSwitchView.SwitchState switchState);
 

@@ -15,11 +15,11 @@ public class b {
         this.name = str;
     }
 
-    public String apg() {
+    public String aph() {
         return this.addr;
     }
 
-    public String apf() {
+    public String apg() {
         return this.sn;
     }
 

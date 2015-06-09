@@ -5,11 +5,11 @@ import tbclient.Profile.ProfileResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ w cfv;
+    final /* synthetic */ w cfw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(w wVar) {
-        this.cfv = wVar;
+        this.cfw = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,13 +19,13 @@ public class y implements com.baidu.adp.lib.cache.u<byte[]> {
         boolean z;
         if (bArr != null) {
             try {
-                this.cfv.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                this.cfw.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
                 z = true;
             } catch (Exception e) {
                 z = false;
             }
             if (z) {
-                this.cfv.mUIHandler.post(new z(this));
+                this.cfw.mUIHandler.post(new z(this));
             }
         }
     }

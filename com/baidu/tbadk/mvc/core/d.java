@@ -30,7 +30,7 @@ public abstract class d extends c {
         if (cVar != null && this.ann.contains(cVar)) {
             View view = cVar.getView();
             if (view == null) {
-                view = cVar.Bb();
+                view = cVar.Bc();
                 cVar.oL();
                 cVar.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
             }
@@ -42,7 +42,7 @@ public abstract class d extends c {
                 }
             }
             view.setVisibility(0);
-            cVar.AY();
+            cVar.AZ();
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class d extends c {
             } else {
                 view.setVisibility(0);
             }
-            cVar.AZ();
+            cVar.Ba();
         }
     }
 
@@ -103,19 +103,6 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AO() {
-        super.AO();
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            c dU = dU(i);
-            if (dU != null) {
-                dU.AO();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.baidu.tbadk.mvc.core.c
     public void AP() {
         super.AP();
         int childCount = getChildCount();
@@ -129,39 +116,39 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AR() {
-        super.AR();
+    public void AQ() {
+        super.AQ();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dU = dU(i);
             if (dU != null) {
-                dU.AR();
+                dU.AQ();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AT() {
-        super.AT();
+    public void AS() {
+        super.AS();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dU = dU(i);
             if (dU != null) {
-                dU.AT();
+                dU.AS();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AV() {
-        super.AV();
+    public void AU() {
+        super.AU();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dU = dU(i);
             if (dU != null) {
-                dU.AV();
+                dU.AU();
             }
         }
     }
@@ -175,6 +162,19 @@ public abstract class d extends c {
             c dU = dU(i);
             if (dU != null) {
                 dU.AW();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void AX() {
+        super.AX();
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            c dU = dU(i);
+            if (dU != null) {
+                dU.AX();
             }
         }
     }
@@ -196,26 +196,26 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AY() {
-        super.AY();
+    public void AZ() {
+        super.AZ();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dU = dU(i);
             if (dU != null && dU.getView() != null && dU.getView().getParent() != null && dU.getView().getVisibility() == 0) {
-                dU.AY();
+                dU.AZ();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void AZ() {
-        super.AZ();
+    public void Ba() {
+        super.Ba();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dU = dU(i);
             if (dU != null && dU.getView() != null && dU.getView().getParent() != null) {
-                dU.AZ();
+                dU.Ba();
             }
         }
     }

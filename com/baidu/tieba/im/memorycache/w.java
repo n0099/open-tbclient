@@ -21,7 +21,7 @@ public class w extends CustomMessageListener {
             com.baidu.tieba.im.message.f fVar = (com.baidu.tieba.im.message.f) customResponsedMessage.getData();
             if (fVar.customGroupType != 1) {
                 if (fVar.customGroupType == 3) {
-                    c.TD().F(fVar.id, 3);
+                    c.TE().F(fVar.id, 3);
                     return;
                 }
                 return;

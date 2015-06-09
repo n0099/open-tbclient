@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    final /* synthetic */ b bQE;
+    final /* synthetic */ b bQF;
 
     private c(b bVar) {
-        this.bQE = bVar;
+        this.bQF = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,8 +24,8 @@ public class c extends ClickableSpan {
         TbPageContext<?> tbPageContext;
         String str;
         bi tO = bi.tO();
-        tbPageContext = this.bQE.pageContext;
-        str = this.bQE.url;
+        tbPageContext = this.bQF.pageContext;
+        str = this.bQF.url;
         tO.b(tbPageContext, new String[]{str});
     }
 

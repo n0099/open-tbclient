@@ -14,13 +14,13 @@ public class r extends y {
     private final Handler aqn = new s(this, Looper.getMainLooper());
     public long uK;
 
-    public void Dn() {
+    public void Do() {
         this.aqn.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Do() {
-        ab abVar = (ab) ah.DB().en(this.mSubType);
+    public void Dp() {
+        ab abVar = (ab) ah.DC().en(this.mSubType);
         if (abVar != null) {
             abVar.c(this);
         }

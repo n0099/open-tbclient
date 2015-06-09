@@ -3,22 +3,22 @@ package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class y implements com.baidu.tbadk.core.dialog.d {
     private final /* synthetic */ int RY;
-    final /* synthetic */ FrsActivity aLX;
-    private final /* synthetic */ com.baidu.tbadk.core.data.c aMe;
+    final /* synthetic */ FrsActivity aLY;
+    private final /* synthetic */ com.baidu.tbadk.core.data.c aMf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(FrsActivity frsActivity, com.baidu.tbadk.core.data.c cVar, int i) {
-        this.aLX = frsActivity;
-        this.aMe = cVar;
+        this.aLY = frsActivity;
+        this.aMf = cVar;
         this.RY = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (this.aMe.qv()) {
-            this.aLX.a(this.aMe, "area_download");
-            this.aLX.b(this.aMe, "download");
-            this.aLX.b(this.aMe, this.RY);
+        if (this.aMf.qv()) {
+            this.aLY.a(this.aMf, "area_download");
+            this.aLY.b(this.aMf, "download");
+            this.aLY.b(this.aMf, this.RY);
             aVar.dismiss();
         }
     }

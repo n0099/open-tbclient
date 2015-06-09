@@ -11,13 +11,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends HttpMessageListener {
-    final /* synthetic */ v bSb;
+    final /* synthetic */ v bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(v vVar, int i) {
         super(i);
-        this.bSb = vVar;
+        this.bSc = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,45 +37,45 @@ public class z extends HttpMessageListener {
         ag agVar2;
         ag agVar3;
         ai aiVar3;
-        this.bSb.bRR = false;
+        this.bSc.bRS = false;
         if (httpResponsedMessage.getError() == 0) {
-            aiVar = this.bSb.bRB;
-            ArrayList<ForumData> aej = aiVar.aeo().aej();
-            aiVar2 = this.bSb.bRB;
-            int aed = aiVar2.aeo().aed();
-            i = this.bSb.bGS;
-            if (i < aed) {
-                aiVar3 = this.bSb.bRB;
-                aiVar3.aeo().hK(aed - 1);
+            aiVar = this.bSc.bRC;
+            ArrayList<ForumData> aek = aiVar.aep().aek();
+            aiVar2 = this.bSc.bRC;
+            int aee = aiVar2.aep().aee();
+            i = this.bSc.bGT;
+            if (i < aee) {
+                aiVar3 = this.bSc.bRC;
+                aiVar3.aep().hK(aee - 1);
             }
-            if (aej != null) {
-                i2 = this.bSb.bGS;
+            if (aek != null) {
+                i2 = this.bSc.bGT;
                 if (i2 >= 0) {
-                    i3 = this.bSb.bGS;
-                    if (i3 < aej.size()) {
-                        i4 = this.bSb.bGS;
-                        aej.remove(i4);
+                    i3 = this.bSc.bGT;
+                    if (i3 < aek.size()) {
+                        i4 = this.bSc.bGT;
+                        aek.remove(i4);
                         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                        str = this.bSb.bRN;
+                        str = this.bSc.bRO;
                         m411getInst.delLikeForum(str);
-                        agVar = this.bSb.bRM;
+                        agVar = this.bSc.bRN;
                         if (agVar != null) {
-                            this.bSb.eo(true);
-                            agVar2 = this.bSb.bRM;
-                            agVar2.L(aej);
-                            agVar3 = this.bSb.bRM;
+                            this.bSc.eo(true);
+                            agVar2 = this.bSc.bRN;
+                            agVar2.L(aek);
+                            agVar3 = this.bSc.bRN;
                             agVar3.notifyDataSetChanged();
                         }
                     }
                 }
             }
-            this.bSb.showToast(com.baidu.tieba.t.success);
-            forumData = this.bSb.bRQ;
+            this.bSc.showToast(com.baidu.tieba.t.success);
+            forumData = this.bSc.bRR;
             if (forumData != null) {
-                forumData2 = this.bSb.bRQ;
+                forumData2 = this.bSc.bRR;
                 if (!TextUtils.isEmpty(forumData2.getId())) {
-                    v vVar = this.bSb;
-                    forumData3 = this.bSb.bRQ;
+                    v vVar = this.bSc;
+                    forumData3 = this.bSc.bRR;
                     vVar.sendMessage(new CustomMessage(2003004, forumData3.getId()));
                     return;
                 }
@@ -83,6 +83,6 @@ public class z extends HttpMessageListener {
             }
             return;
         }
-        this.bSb.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSb.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
+        this.bSc.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSc.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
     }
 }

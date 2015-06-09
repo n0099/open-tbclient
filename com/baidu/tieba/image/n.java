@@ -15,9 +15,9 @@ public class n implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         NavigationBar navigationBar;
-        navigationBar = this.this$0.aRM;
+        navigationBar = this.this$0.aRN;
         if (navigationBar.getVisibility() != 8) {
-            this.this$0.SE();
+            this.this$0.SF();
         }
     }
 }

@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class at implements com.baidu.tieba.tbadkCore.writeModel.e {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.e
@@ -30,8 +30,8 @@ class at implements com.baidu.tieba.tbadkCore.writeModel.e {
         WriteData writeData7;
         WriteData writeData8;
         WriteData writeData9;
-        this.cCP.stopVoice();
-        this.cCP.closeLoadingDialog();
+        this.cCQ.stopVoice();
+        this.cCQ.closeLoadingDialog();
         String str = "";
         if (postWriteCallBackData != null) {
             str = postWriteCallBackData.getErrorString();
@@ -42,49 +42,49 @@ class at implements com.baidu.tieba.tbadkCore.writeModel.e {
                     writeData.setVcodeMD5(lVar.getVcode_md5());
                     writeData.setVcodeUrl(lVar.getVcode_pic_url());
                     if (lVar.vv().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.cCP.getPageContext().getPageActivity(), 12006, writeData, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.cCQ.getPageContext().getPageActivity(), 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.cCP.getPageContext().getPageActivity(), writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.cCQ.getPageContext().getPageActivity(), writeData, 12006)));
                         return;
                     }
                 }
-                this.cCP.a(false, antiData, str);
+                this.cCQ.a(false, antiData, str);
                 return;
             }
-            this.cCP.a(false, antiData, str);
+            this.cCQ.a(false, antiData, str);
             return;
         }
-        this.cCP.a(true, antiData, postWriteCallBackData);
-        writeData2 = this.cCP.cuo;
+        this.cCQ.a(true, antiData, postWriteCallBackData);
+        writeData2 = this.cCQ.cup;
         if (writeData2.getType() == 0) {
-            writeData7 = this.cCP.cuo;
+            writeData7 = this.cCQ.cup;
             if (writeData7.getLiveCardData() == null) {
-                writeData9 = this.cCP.cuo;
+                writeData9 = this.cCQ.cup;
                 com.baidu.tieba.tbadkCore.ao.a(writeData9.getForumId(), (WriteData) null);
             } else {
-                writeData8 = this.cCP.cuo;
+                writeData8 = this.cCQ.cup;
                 com.baidu.tieba.tbadkCore.ao.a(writeData8.getLiveCardData().getGroupId(), (WriteData) null);
             }
         } else {
-            writeData3 = this.cCP.cuo;
+            writeData3 = this.cCQ.cup;
             if (writeData3.getType() == 1) {
-                writeData4 = this.cCP.cuo;
+                writeData4 = this.cCQ.cup;
                 com.baidu.tieba.tbadkCore.ao.b(writeData4.getThreadId(), (WriteData) null);
             }
         }
-        writeData5 = this.cCP.cuo;
+        writeData5 = this.cCQ.cup;
         if (writeData5.getLiveCardData() != null) {
-            WriteActivity writeActivity = this.cCP;
-            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.cCP.getPageContext().getPageActivity());
-            writeData6 = this.cCP.cuo;
+            WriteActivity writeActivity = this.cCQ;
+            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.cCQ.getPageContext().getPageActivity());
+            writeData6 = this.cCQ.cup;
             writeActivity.sendMessage(new CustomMessage(2003001, frsActivityConfig.createRefreshCfgShowContent(writeData6.getForumName(), "post live's thread")));
         }
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
         intent.putExtras(bundle);
-        this.cCP.setResult(-1, intent);
-        this.cCP.finish();
+        this.cCQ.setResult(-1, intent);
+        this.cCQ.finish();
     }
 }

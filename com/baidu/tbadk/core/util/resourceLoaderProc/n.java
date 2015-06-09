@@ -49,7 +49,7 @@ public class n extends a {
         if (this.XJ) {
             return null;
         }
-        com.baidu.adp.widget.a.a eK = com.baidu.tbadk.imageManager.e.Al().eK(str);
+        com.baidu.adp.widget.a.a eK = com.baidu.tbadk.imageManager.e.Am().eK(str);
         if (eK != null) {
             eK.Gm.Go = "memory";
             eK.Gm.Gp = 0L;
@@ -74,9 +74,9 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.f.g
     public void a(String str, Object obj, Object... objArr) {
-        com.baidu.tbadk.imageManager.e Al = com.baidu.tbadk.imageManager.e.Al();
+        com.baidu.tbadk.imageManager.e Am = com.baidu.tbadk.imageManager.e.Am();
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            Al.b(str, (com.baidu.adp.widget.a.a) obj);
+            Am.b(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 

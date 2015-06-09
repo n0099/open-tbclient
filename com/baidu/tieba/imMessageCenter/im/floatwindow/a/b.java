@@ -6,12 +6,12 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a btH;
+    final /* synthetic */ a btI;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, Looper looper) {
         super(looper);
-        this.btH = aVar;
+        this.btI = aVar;
     }
 
     @Override // android.os.Handler
@@ -25,7 +25,7 @@ public class b extends Handler {
                     Message obtain = Message.obtain();
                     obtain.what = 1;
                     obtain.obj = cVar;
-                    bVar = this.btH.btG;
+                    bVar = this.btI.btH;
                     bVar.sendMessage(obtain);
                     return;
                 }

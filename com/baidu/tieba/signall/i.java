@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class i {
-    private static final String cii = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
+    private static final String cij = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
     private com.baidu.tbadk.core.util.aa OE = null;
 
     public String jf(String str) {
@@ -14,7 +14,7 @@ public class i {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.OE = new com.baidu.tbadk.core.util.aa(cii);
+        this.OE = new com.baidu.tbadk.core.util.aa(cij);
         this.OE.o("user_id", str2);
         this.OE.o("forum_ids", str);
         this.OE.sX().tS().WD = true;

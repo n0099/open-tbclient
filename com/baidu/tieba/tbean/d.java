@@ -8,15 +8,15 @@ import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
-    private BuyTBeanActivity cuK;
-    private i cuL;
+    private BuyTBeanActivity cuL;
+    private i cuM;
     private List<IconInfo> iconInfoList;
     private UserInfo userInfo;
 
     public d(BuyTBeanActivity buyTBeanActivity, i iVar) {
         super(buyTBeanActivity.getPageContext());
-        this.cuK = buyTBeanActivity;
-        this.cuL = iVar;
+        this.cuL = buyTBeanActivity;
+        this.cuM = iVar;
     }
 
     public UserInfo getUserInfo() {
@@ -27,23 +27,23 @@ public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
         return bb(this.iconInfoList);
     }
 
-    public void apN() {
+    public void apO() {
         sendMessage(new GetYinJiRequestMessage());
     }
 
-    public void apO() {
+    public void apP() {
         e eVar = new e(this, 306001);
         eVar.setSelfListener(true);
         registerListener(eVar);
     }
 
-    public void apP() {
+    public void apQ() {
         f fVar = new f(this, CmdConfigHttp.CMD_HTTP_GET_YINJI);
         fVar.setSelfListener(true);
         registerListener(fVar);
     }
 
-    public void apQ() {
+    public void apR() {
         registerListener(new g(this, CmdConfigHttp.GETPAYINFO_CMD));
     }
 

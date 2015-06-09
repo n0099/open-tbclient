@@ -3,26 +3,26 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class ai implements com.baidu.tieba.tbadkCore.location.j {
-    final /* synthetic */ PbActivity bKT;
+    final /* synthetic */ PbActivity bKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbActivity pbActivity) {
-        this.bKT = pbActivity;
+        this.bKU = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.j
-    public void JW() {
+    public void JX() {
         ch chVar;
         ch chVar2;
         ch chVar3;
-        chVar = this.bKT.bKz;
-        if (chVar.Ki() != null) {
-            chVar2 = this.bKT.bKz;
-            if (chVar2.Ki().getLocationViewVisibility() == 0) {
-                this.bKT.showToast(com.baidu.tieba.t.no_network_guide);
+        chVar = this.bKU.bKA;
+        if (chVar.Kj() != null) {
+            chVar2 = this.bKU.bKA;
+            if (chVar2.Kj().getLocationViewVisibility() == 0) {
+                this.bKU.showToast(com.baidu.tieba.t.no_network_guide);
             }
-            chVar3 = this.bKT.bKz;
-            chVar3.Ki().setLocationInfoViewState(0);
+            chVar3 = this.bKU.bKA;
+            chVar3.Kj().setLocationInfoViewState(0);
         }
     }
 
@@ -31,18 +31,18 @@ class ai implements com.baidu.tieba.tbadkCore.location.j {
         ch chVar;
         ch chVar2;
         ch chVar3;
-        chVar = this.bKT.bKz;
-        if (chVar.Ki() != null) {
-            chVar2 = this.bKT.bKz;
-            if (chVar2.Ki().getLocationViewVisibility() == 0) {
-                PbActivity pbActivity = this.bKT;
+        chVar = this.bKU.bKA;
+        if (chVar.Kj() != null) {
+            chVar2 = this.bKU.bKA;
+            if (chVar2.Kj().getLocationViewVisibility() == 0) {
+                PbActivity pbActivity = this.bKU;
                 if (StringUtils.isNull(str)) {
-                    str = this.bKT.getPageContext().getString(com.baidu.tieba.t.location_fail);
+                    str = this.bKU.getPageContext().getString(com.baidu.tieba.t.location_fail);
                 }
                 pbActivity.showToast(str);
             }
-            chVar3 = this.bKT.bKz;
-            chVar3.Ki().setLocationInfoViewState(0);
+            chVar3 = this.bKU.bKA;
+            chVar3.Kj().setLocationInfoViewState(0);
         }
     }
 
@@ -50,11 +50,11 @@ class ai implements com.baidu.tieba.tbadkCore.location.j {
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
         ch chVar;
         ch chVar2;
-        if (aVar != null && !StringUtils.isNull(aVar.apd())) {
-            chVar = this.bKT.bKz;
-            if (chVar.Ki() != null) {
-                chVar2 = this.bKT.bKz;
-                chVar2.Ki().D(2, aVar.apd());
+        if (aVar != null && !StringUtils.isNull(aVar.ape())) {
+            chVar = this.bKU.bKA;
+            if (chVar.Kj() != null) {
+                chVar2 = this.bKU.bKA;
+                chVar2.Kj().D(2, aVar.ape());
                 return;
             }
             return;

@@ -10,21 +10,21 @@ import tbclient.HotThread.tinfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c aDs;
-    private final /* synthetic */ tinfo aDt;
+    final /* synthetic */ c aDt;
+    private final /* synthetic */ tinfo aDu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, tinfo tinfoVar) {
-        this.aDs = cVar;
-        this.aDt = tinfoVar;
+        this.aDt = cVar;
+        this.aDu = tinfoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str = this.aDt.forum_name;
+        String str = this.aDu.forum_name;
         if (bb.aT(str)) {
-            TiebaStatic.eventStat(this.aDs.getActivity(), "kantie_6", null, 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aDs.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+            TiebaStatic.eventStat(this.aDt.getActivity(), "kantie_6", null, 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aDt.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
         }
     }
 }

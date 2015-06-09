@@ -47,8 +47,8 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             c cVar = (c) view.getTag();
-            cVar.aiz.setImageResource(this.aiy.get(i).yV());
-            cVar.aiA.setText(this.aiy.get(i).yW());
+            cVar.aiz.setImageResource(this.aiy.get(i).yW());
+            cVar.aiA.setText(this.aiy.get(i).yX());
             cVar.aiB.setText(i);
             return view;
         }

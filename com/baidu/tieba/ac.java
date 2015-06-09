@@ -14,7 +14,7 @@ public class ac implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         w wVar;
-        wVar = this.this$0.avV;
+        wVar = this.this$0.avW;
         wVar.dismiss();
         this.this$0.finish();
     }

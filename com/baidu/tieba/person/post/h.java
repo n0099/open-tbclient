@@ -5,11 +5,11 @@ import com.baidu.tieba.person.ch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ch {
-    final /* synthetic */ g bUj;
+    final /* synthetic */ g bUk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.bUj = gVar;
+        this.bUk = gVar;
     }
 
     @Override // com.baidu.tieba.person.ch
@@ -19,19 +19,19 @@ public class h implements ch {
         ch chVar;
         ch chVar2;
         if (z) {
-            this.bUj.bUg = personPostModel;
+            this.bUk.bUh = personPostModel;
         } else {
-            personPostModel2 = this.bUj.bUg;
+            personPostModel2 = this.bUk.bUh;
             if (personPostModel2 != null) {
-                personPostModel3 = this.bUj.bUg;
+                personPostModel3 = this.bUk.bUh;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        chVar = this.bUj.bUf;
+        chVar = this.bUk.bUg;
         if (chVar != null) {
-            chVar2 = this.bUj.bUf;
+            chVar2 = this.bUk.bUg;
             chVar2.a(personPostModel, z);
         }
-        this.bUj.notifyDataSetChanged();
+        this.bUk.notifyDataSetChanged();
     }
 }

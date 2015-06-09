@@ -10,6 +10,7 @@ public class i {
     private com.baidu.tbadk.coreExtra.c.c avl = new com.baidu.tbadk.coreExtra.c.c();
 
     public Bitmap ar(Context context) {
+        this.avl.wD();
         String wB = this.avl.wB();
         Bitmap bitmap = null;
         if (!StringUtils.isNull(wB)) {

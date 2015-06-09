@@ -20,7 +20,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     private int ahu = this.aht;
     private PingMessage ahv = null;
 
-    public static PingManager ys() {
+    public static PingManager yt() {
         if (ahq == null) {
             synchronized (PingManager.class) {
                 if (ahq == null) {
@@ -84,7 +84,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         bVar.k(false);
         MessageManager.getInstance().registerTask(bVar);
         this.ahv = new PingMessage();
-        yt();
+        yu();
         n nVar = new n(this, 1003);
         MessageManager.getInstance().registerListener(new o(this, 2001011));
         MessageManager.getInstance().registerListener(nVar);
@@ -114,7 +114,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         }
     }
 
-    public void yt() {
+    public void yu() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.m411getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
             this.ahs = socketHeartBeatStratgy[0] * 1000;
@@ -128,7 +128,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         }
     }
 
-    public int yu() {
+    public int yv() {
         return this.ahs;
     }
 

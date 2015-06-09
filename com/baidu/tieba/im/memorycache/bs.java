@@ -19,7 +19,7 @@ public class bs extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ImMessageCenterPojo)) {
-            c.TD().g((ImMessageCenterPojo) customResponsedMessage.getData());
+            c.TE().g((ImMessageCenterPojo) customResponsedMessage.getData());
         }
     }
 }

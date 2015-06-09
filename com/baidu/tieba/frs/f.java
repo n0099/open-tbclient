@@ -5,11 +5,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.tbadkCore.at {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsActivity frsActivity) {
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.at
@@ -18,16 +18,16 @@ class f implements com.baidu.tieba.tbadkCore.at {
         com.baidu.tbadk.core.data.w wVar;
         com.baidu.tbadk.core.data.w wVar2;
         int i = 1;
-        z = this.aLX.aJP;
+        z = this.aLY.aJQ;
         if (z) {
-            wVar = this.aLX.aKX;
+            wVar = this.aLY.aKY;
             if (wVar != null) {
-                wVar2 = this.aLX.aKX;
+                wVar2 = this.aLY.aKY;
                 if (wVar2.getPraise().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.aLX.eS(i);
+            this.aLY.eS(i);
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
     }
@@ -35,9 +35,9 @@ class f implements com.baidu.tieba.tbadkCore.at {
     @Override // com.baidu.tieba.tbadkCore.at
     public void fB(String str) {
         boolean z;
-        z = this.aLX.aJP;
+        z = this.aLY.aJQ;
         if (z && !TextUtils.isEmpty(str)) {
-            this.aLX.showToast(str);
+            this.aLY.showToast(str);
         }
     }
 }

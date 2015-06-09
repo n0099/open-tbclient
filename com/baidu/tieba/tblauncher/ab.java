@@ -26,17 +26,17 @@ class ab extends CustomMessageListener {
         aj ajVar;
         aj ajVar2;
         int i2;
-        this.this$0.cvB = false;
-        i = this.this$0.cvt;
+        this.this$0.cvC = false;
+        i = this.this$0.cvu;
         if (i <= 0) {
-            i2 = this.this$0.cvw;
+            i2 = this.this$0.cvx;
             if (i2 <= 0) {
                 z = false;
                 if (z) {
-                    ajVar = this.this$0.cvr;
+                    ajVar = this.this$0.cvs;
                     ajVar.fo(false);
-                    ajVar2 = this.this$0.cvr;
-                    ajVar2.aqw().fu(false);
+                    ajVar2 = this.this$0.cvs;
+                    ajVar2.aqx().fu(false);
                     return;
                 }
                 return;

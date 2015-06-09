@@ -32,7 +32,7 @@ public class ak extends CustomMessageListener {
                 if ("310".equals(parseFromEventContent.mEventId)) {
                     i4 = this.ags.gid;
                     if (i4 != 0) {
-                        this.ags.xY();
+                        this.ags.xZ();
                     }
                 } else if ("307".equals(parseFromEventContent.mEventId)) {
                     this.ags.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);

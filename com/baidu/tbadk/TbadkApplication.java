@@ -104,7 +104,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         init(getContext());
-        PluginPackageManager.lM().a(a.DK(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
+        PluginPackageManager.lM().a(a.DL(), new com.baidu.tbadk.d.d(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
         initSettings();
         if (isMainProcess(true)) {
             UninstallInquirer.getInstance().startProcessBySwitch();
@@ -116,9 +116,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSignedForum();
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
-        ai.DH().z(System.currentTimeMillis());
+        ai.DI().z(System.currentTimeMillis());
         if (this.isRemoteProcess) {
-            ai.DH().D(System.currentTimeMillis() - this.processCreateTime);
+            ai.DI().D(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             NASLib.onAppStart(this);

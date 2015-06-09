@@ -12,9 +12,9 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class q extends LinearLayout {
-    private ViewEventCenter aET;
-    private View aGw;
-    private BannerView aGx;
+    private ViewEventCenter aEU;
+    private View aGx;
+    private BannerView aGy;
 
     public q(Context context) {
         this(context, null);
@@ -26,7 +26,7 @@ public class q extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aET = viewEventCenter;
+        this.aEU = viewEventCenter;
     }
 
     public void init() {
@@ -38,13 +38,13 @@ public class q extends LinearLayout {
 
     public void b(TbPageContext<?> tbPageContext, com.baidu.tbadk.core.data.u uVar) {
         if (uVar != null) {
-            if (this.aGx == null) {
+            if (this.aGy == null) {
                 ((ViewStub) findViewById(com.baidu.tieba.q.viewstub_banner)).inflate();
-                this.aGx = (BannerView) findViewById(com.baidu.tieba.q.home_like_banner_view);
+                this.aGy = (BannerView) findViewById(com.baidu.tieba.q.home_like_banner_view);
             }
-            this.aGx.reset();
-            this.aGx.setBannerType("enterforum_banner");
-            this.aGx.a(tbPageContext, uVar.rg(), uVar.getLink());
+            this.aGy.reset();
+            this.aGy.setBannerType("enterforum_banner");
+            this.aGy.a(tbPageContext, uVar.rg(), uVar.getLink());
             String link = uVar.getLink();
             if (link != null && link.startsWith("game:detail:")) {
                 TiebaStatic.eventStat(tbPageContext.getPageActivity(), "game_show", "show", 1, "ref_id", "4000401");
@@ -54,25 +54,25 @@ public class q extends LinearLayout {
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
-            if (this.aGw == null) {
-                IG();
+            if (this.aGx == null) {
+                IH();
             }
-            com.baidu.tbadk.f.a.a(tbPageContext, this.aGw);
-            this.aGw.setVisibility(0);
-        } else if (this.aGw != null) {
-            this.aGw.setVisibility(8);
+            com.baidu.tbadk.f.a.a(tbPageContext, this.aGx);
+            this.aGx.setVisibility(0);
+        } else if (this.aGx != null) {
+            this.aGx.setVisibility(8);
         }
     }
 
-    public void IG() {
-        this.aGw = ((ViewStub) findViewById(com.baidu.tieba.q.viewstub_guide)).inflate();
-        this.aGw.findViewById(com.baidu.tieba.q.enterforum_guide_find_interest).setOnClickListener(new s(this));
+    public void IH() {
+        this.aGx = ((ViewStub) findViewById(com.baidu.tieba.q.viewstub_guide)).inflate();
+        this.aGx.findViewById(com.baidu.tieba.q.enterforum_guide_find_interest).setOnClickListener(new s(this));
     }
 
     public void d(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.f.a.a(tbPageContext, this);
-        if (this.aGx != null) {
-            this.aGx.oG();
+        if (this.aGy != null) {
+            this.aGy.oG();
         }
     }
 }

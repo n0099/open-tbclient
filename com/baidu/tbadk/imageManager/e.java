@@ -7,7 +7,7 @@ public class e {
     private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> amf;
     private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> amg;
 
-    public static e Al() {
+    public static e Am() {
         return ame;
     }
 
@@ -18,7 +18,7 @@ public class e {
         this.amg = new g(this, 0);
     }
 
-    public int Am() {
+    public int An() {
         return this.amg.gl();
     }
 

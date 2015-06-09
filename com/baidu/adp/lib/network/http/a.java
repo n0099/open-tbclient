@@ -59,34 +59,52 @@ public class a {
     }
 
     private HttpURLConnection a(URL url) {
+        HttpURLConnection httpURLConnection;
+        Exception e;
         String jg;
+        HttpURLConnection httpURLConnection2 = null;
         try {
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (!k.iX()) {
-            return null;
-        }
-        if (k.iZ() && (jg = k.jg()) != null && jg.length() > 0) {
-            if (k.aS(jg) && k.ji()) {
-                StringBuilder sb = new StringBuilder(80);
-                sb.append("http://");
-                sb.append(jg);
-                String file = url.getFile();
-                if (file != null && file.startsWith("?")) {
-                    sb.append("/");
+            if (k.iX()) {
+                if (k.iZ() && (jg = k.jg()) != null && jg.length() > 0) {
+                    if (k.aS(jg) && k.ji()) {
+                        StringBuilder sb = new StringBuilder(80);
+                        sb.append("http://");
+                        sb.append(jg);
+                        String file = url.getFile();
+                        if (file != null && file.startsWith("?")) {
+                            sb.append("/");
+                        }
+                        sb.append(file);
+                        httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                        try {
+                            this.oj.gY().p("X-Online-Host", url.getHost());
+                            httpURLConnection2 = httpURLConnection;
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            return httpURLConnection;
+                        }
+                    } else {
+                        httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(jg, k.jh())));
+                    }
                 }
-                sb.append(file);
-                this.uH = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                this.oj.gY().p("X-Online-Host", url.getHost());
-            } else {
-                this.uH = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(jg, k.jh())));
+                if (httpURLConnection2 == null) {
+                    try {
+                        return (HttpURLConnection) url.openConnection();
+                    } catch (Exception e3) {
+                        httpURLConnection = httpURLConnection2;
+                        e = e3;
+                        e.printStackTrace();
+                        return httpURLConnection;
+                    }
+                }
+                return httpURLConnection2;
             }
+            return null;
+        } catch (Exception e4) {
+            httpURLConnection = null;
+            e = e4;
         }
-        if (this.uH == null) {
-            this.uH = (HttpURLConnection) url.openConnection();
-        }
-        return this.uH;
     }
 
     public void a(int i, int i2, d dVar) {
@@ -99,7 +117,7 @@ public class a {
             throw new BdHttpCancelException();
         }
         dVar.uZ = -2;
-        HttpURLConnection a = a(url);
+        this.uH = a(url);
         dVar.uZ = -3;
         long currentTimeMillis = System.currentTimeMillis();
         try {
@@ -109,13 +127,13 @@ public class a {
             this.uH.setRequestMethod("GET");
             this.uH.setConnectTimeout(i2);
             this.uH.setReadTimeout(i);
-            this.oj.gY().c(a);
+            this.oj.gY().c(this.uH);
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();
             }
             dVar.uW = new Date().getTime() - currentTimeMillis;
             dVar.uZ = -4;
-            a.connect();
+            this.uH.connect();
             this.uI = System.currentTimeMillis();
             dVar.uZ = -5;
             dVar.uS = (new Date().getTime() - currentTimeMillis) - dVar.uW;
@@ -205,7 +223,7 @@ public class a {
                 throw new BdHttpCancelException();
             }
             dVar.uZ = -2;
-            HttpURLConnection a = a(url);
+            this.uH = a(url);
             dVar.uZ = -3;
             System.currentTimeMillis();
             if (this.uH == null) {
@@ -220,14 +238,14 @@ public class a {
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();
             }
-            this.oj.gY().c(a);
+            this.oj.gY().c(this.uH);
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
             dVar.uW = new Date().getTime() - time;
             dVar.uZ = -4;
-            a.connect();
+            this.uH.connect();
             this.uI = System.currentTimeMillis();
             dVar.uZ = -5;
             dVar.uS = (new Date().getTime() - time) - dVar.uW;
@@ -238,7 +256,7 @@ public class a {
                 this.uN.schedule(this.uM, 45000L);
             }
             dVar.uZ = -6;
-            this.oj.gY().a(a, boundary, dVar);
+            this.oj.gY().a(this.uH, boundary, dVar);
             dVar.uZ = -7;
             if (com.baidu.adp.lib.network.a.b.al(this.uH.getContentType())) {
                 this.uH.disconnect();
@@ -269,7 +287,7 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [560=6, 561=6, 562=6, 563=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [561=6, 562=6, 563=6, 564=6] */
     public boolean a(String str, h hVar, int i, int i2, boolean z, d dVar, boolean z2) {
         InputStream inputStream;
         String headerField;
@@ -300,6 +318,7 @@ public class a {
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
                 this.uH.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                this.oj.gY().c(this.uH);
                 this.uH.connect();
                 this.uI = System.currentTimeMillis();
                 this.oj.gZ().responseCode = this.uH.getResponseCode();
@@ -414,7 +433,7 @@ public class a {
                 throw new BdHttpCancelException();
             }
             dVar.uZ = -2;
-            HttpURLConnection a = a(url);
+            this.uH = a(url);
             dVar.uZ = -3;
             long currentTimeMillis = System.currentTimeMillis();
             if (this.uH == null) {
@@ -429,13 +448,13 @@ public class a {
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();
             }
-            this.oj.gY().c(a);
+            this.oj.gY().c(this.uH);
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();
             }
             dVar.uW = System.currentTimeMillis() - currentTimeMillis;
             dVar.uZ = -4;
-            a.connect();
+            this.uH.connect();
             this.uI = System.currentTimeMillis();
             dVar.uZ = -5;
             dVar.uS = (System.currentTimeMillis() - currentTimeMillis) - dVar.uW;
@@ -443,7 +462,7 @@ public class a {
                 throw new BdHttpCancelException();
             }
             dVar.uZ = -6;
-            this.oj.gY().a(a, dVar);
+            this.oj.gY().a(this.uH, dVar);
             dVar.uZ = -7;
             if (this.oj.gZ().vi) {
                 throw new BdHttpCancelException();

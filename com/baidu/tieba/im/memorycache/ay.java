@@ -9,28 +9,28 @@ import com.baidu.tieba.im.message.ResponseMemoryNotifyUpdataGroupMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo bmQ;
-    final /* synthetic */ ax bne;
+    private final /* synthetic */ ImMessageCenterPojo bmR;
+    final /* synthetic */ ax bnf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ax axVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bne = axVar;
-        this.bmQ = imMessageCenterPojo;
+        this.bnf = axVar;
+        this.bmR = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.Rq().Rr();
-            com.baidu.tieba.im.db.k.Rv().a(this.bmQ);
-            if (this.bmQ.getCustomGroupType() == 1) {
-                com.baidu.tieba.im.db.c.Rm().gW(this.bmQ.getGid());
+            com.baidu.tieba.im.db.g.Rr().Rs();
+            com.baidu.tieba.im.db.k.Rw().a(this.bmR);
+            if (this.bmR.getCustomGroupType() == 1) {
+                com.baidu.tieba.im.db.c.Rn().gW(this.bmR.getGid());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.Rq().endTransaction();
+            com.baidu.tieba.im.db.g.Rr().endTransaction();
         }
-        return new ResponseMemoryNotifyUpdataGroupMessage(this.bmQ);
+        return new ResponseMemoryNotifyUpdataGroupMessage(this.bmR);
     }
 }

@@ -23,16 +23,16 @@ class i implements AdapterView.OnItemClickListener {
         if (vVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
             e eVar = (e) adapterView.getAdapter();
-            if (eVar != null && eVar.zq() != null) {
-                u zq = eVar.zq();
-                int zp = eVar.zp();
-                ad zt = zq.zt();
-                fVar.setName(zq.zt().dI(zp + i));
-                fVar.a(zt.zB());
-                fVar.dA(zt.getGroupName());
-                fVar.setPid(zt.getGroupId());
-                fVar.setWidth(zt.getWidth());
-                fVar.setHeight(zt.getHeight());
+            if (eVar != null && eVar.zr() != null) {
+                u zr = eVar.zr();
+                int zq = eVar.zq();
+                ad zu = zr.zu();
+                fVar.setName(zr.zu().dI(zq + i));
+                fVar.a(zu.zC());
+                fVar.dA(zu.getGroupName());
+                fVar.setPid(zu.getGroupId());
+                fVar.setWidth(zu.getWidth());
+                fVar.setHeight(zu.getHeight());
                 emotionTabContentView2 = this.ajD.ajA;
                 vVar2 = emotionTabContentView2.ajx;
                 vVar2.handleAction(20, fVar);

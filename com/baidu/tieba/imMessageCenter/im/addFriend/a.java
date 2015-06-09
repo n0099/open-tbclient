@@ -10,13 +10,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity brI;
+    final /* synthetic */ AddFriendActivity brJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.brI = addFriendActivity;
+        this.brJ = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,19 +30,19 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.brI.userId;
-                str2 = this.brI.name;
+                str = this.brJ.userId;
+                str2 = this.brJ.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001197, new i(str, str2)));
-                z = this.brI.brH;
+                z = this.brJ.brI;
                 if (z) {
-                    this.brI.showToast(this.brI.getPageContext().getPageActivity().getString(t.add_ok_but_level_is_lower), false);
+                    this.brJ.showToast(this.brJ.getPageContext().getPageActivity().getString(t.add_ok_but_level_is_lower), false);
                 } else {
-                    this.brI.showToast(this.brI.getPageContext().getPageActivity().getString(t.group_apply_succ), false);
+                    this.brJ.showToast(this.brJ.getPageContext().getPageActivity().getString(t.group_apply_succ), false);
                 }
-                this.brI.finish();
+                this.brJ.finish();
                 return;
             }
-            BdToast.a(this.brI.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).rR();
+            BdToast.a(this.brJ.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).rR();
         }
     }
 }

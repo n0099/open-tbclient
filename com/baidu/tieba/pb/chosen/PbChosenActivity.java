@@ -25,32 +25,32 @@ import tbclient.FinePbPage.User_Info;
 public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
     private NavigationBar aox;
     private BdListView aoy;
-    private com.baidu.tieba.pb.chosen.a.b bIO;
-    private com.baidu.tieba.pb.chosen.a.h bIP;
-    private boolean bIQ;
-    private com.baidu.tieba.pb.chosen.net.zan.a bIR;
-    private com.baidu.tieba.pb.chosen.net.b bIS;
-    private h bIT;
-    private com.baidu.tieba.pb.chosen.a.a bIV;
+    private com.baidu.tieba.pb.chosen.a.b bIP;
+    private com.baidu.tieba.pb.chosen.a.h bIQ;
+    private boolean bIR;
+    private com.baidu.tieba.pb.chosen.net.zan.a bIS;
+    private com.baidu.tieba.pb.chosen.net.b bIT;
+    private h bIU;
+    private com.baidu.tieba.pb.chosen.a.a bIW;
     private com.baidu.tieba.pb.chosen.net.a chosenData;
     private View rootView;
     private long startTime;
     private String shareUrl = null;
-    private boolean aIY = false;
-    private boolean bIU = false;
-    private com.baidu.tieba.pb.chosen.a.k bIW = new a(this);
-    private com.baidu.tieba.pb.chosen.a.g bIX = new b(this);
+    private boolean aIZ = false;
+    private boolean bIV = false;
+    private com.baidu.tieba.pb.chosen.a.k bIX = new a(this);
+    private com.baidu.tieba.pb.chosen.a.g bIY = new b(this);
     private com.baidu.adp.framework.listener.a aiI = new c(this, CmdConfigHttp.CMD_GET_FINE_PB, 307003);
-    private com.baidu.adp.framework.listener.a bIY = new d(this, CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, 307005);
-    private CustomMessageListener bIZ = new e(this, 2001321);
+    private com.baidu.adp.framework.listener.a bIZ = new d(this, CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, 307005);
+    private CustomMessageListener bJa = new e(this, 2001321);
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
         long longExtra = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-        if (this.bIS == null) {
-            this.bIS = new com.baidu.tieba.pb.chosen.net.b();
+        if (this.bIT == null) {
+            this.bIT = new com.baidu.tieba.pb.chosen.net.b();
         }
-        this.bIS.a(this, longExtra);
+        this.bIT.a(this, longExtra);
         hideNetRefreshView(this.rootView);
         showLoadingView(this.rootView, true);
     }
@@ -58,23 +58,23 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.pb.chosen.net.a aVar) {
         if (aVar != null) {
-            this.aIY = true;
+            this.aIZ = true;
             hideLoadingView(this.rootView);
             this.chosenData = aVar;
             User_Info userInfo = aVar.getUserInfo();
             if (userInfo != null) {
-                this.bIO.a(userInfo);
+                this.bIP.a(userInfo);
             }
             ForumInfo forumInfo = aVar.getForumInfo();
             if (forumInfo != null) {
-                this.bIP.a(forumInfo);
-                this.bIO.setTitle(forumInfo.title);
-                this.bIO.ij(forumInfo.tag);
-                this.bIO.N(getPageContext().getPageActivity(), forumInfo.fromfname);
+                this.bIQ.a(forumInfo);
+                this.bIP.setTitle(forumInfo.title);
+                this.bIP.ij(forumInfo.tag);
+                this.bIP.N(getPageContext().getPageActivity(), forumInfo.fromfname);
                 com.baidu.tieba.pb.d.a aVar2 = new com.baidu.tieba.pb.d.a();
                 aVar2.a(getPageContext(), aVar.getForumInfo().content);
-                this.bIV.aS(aVar2.getData());
-                this.bIV.notifyDataSetChanged();
+                this.bIW.aS(aVar2.getData());
+                this.bIW.notifyDataSetChanged();
             }
             this.aoy.setVisibility(0);
         }
@@ -87,20 +87,20 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
         setContentView(r.chosen_pb_layout);
         this.rootView = findViewById(q.chosen_pb_root);
         this.aoy = (BdListView) findViewById(q.chosen_pb_listview);
-        this.bIV = new com.baidu.tieba.pb.chosen.a.a(getPageContext().getPageActivity());
-        this.aoy.setAdapter((ListAdapter) this.bIV);
-        this.bIO = new com.baidu.tieba.pb.chosen.a.b(getPageContext().getPageActivity());
-        this.bIP = new com.baidu.tieba.pb.chosen.a.h(getPageContext().getPageActivity());
-        this.bIO.a(this.bIX);
-        this.bIP.a(this.bIW);
-        this.aoy.addHeaderView(this.bIO.aam());
-        this.aoy.addFooterView(this.bIP.aan());
+        this.bIW = new com.baidu.tieba.pb.chosen.a.a(getPageContext().getPageActivity());
+        this.aoy.setAdapter((ListAdapter) this.bIW);
+        this.bIP = new com.baidu.tieba.pb.chosen.a.b(getPageContext().getPageActivity());
+        this.bIQ = new com.baidu.tieba.pb.chosen.a.h(getPageContext().getPageActivity());
+        this.bIP.a(this.bIY);
+        this.bIQ.a(this.bIX);
+        this.aoy.addHeaderView(this.bIP.aan());
+        this.aoy.addFooterView(this.bIQ.aao());
         this.aox = (NavigationBar) findViewById(q.view_navigation_bar);
-        MM();
-        registerListener(this.bIY);
+        MN();
         registerListener(this.bIZ);
+        registerListener(this.bJa);
         registerListener(this.aiI);
-        aaj();
+        aak();
         this.shareUrl = getIntent().getStringExtra(PbChosenActivityConfig.KEY_SHARE_URL);
         this.startTime = SystemClock.elapsedRealtime();
         if (getIntent().getIntExtra("from", 1) == 2) {
@@ -112,8 +112,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.bIQ && !this.bIU) {
-            this.bIQ = true;
+        if (z && !this.bIR && !this.bIV) {
+            this.bIR = true;
             showLoadingView(this.rootView, true);
         }
     }
@@ -123,7 +123,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
         return this.aoy;
     }
 
-    private void MM() {
+    private void MN() {
         if (this.aox != null) {
             this.aox.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
             this.aox.setTitleText(t.chosen_pb_title);
@@ -131,7 +131,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
         }
     }
 
-    private void aaj() {
+    private void aak() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001321, new com.baidu.tieba.pb.chosen.cache.b());
         MessageManager.getInstance().sendMessage(new CustomMessage(2001321), customMessageTask);
     }
@@ -166,8 +166,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getPageContext().getLayoutMode().ab(i == 1);
-        getPageContext().getLayoutMode().j(this.bIO.aam());
         getPageContext().getLayoutMode().j(this.bIP.aan());
+        getPageContext().getLayoutMode().j(this.bIQ.aao());
         if (this.aox != null) {
             this.aox.onChangeSkinType(getPageContext(), i);
         }

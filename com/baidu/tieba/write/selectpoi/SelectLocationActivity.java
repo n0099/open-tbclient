@@ -16,10 +16,10 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
     private BdListView aoy;
-    private ImageView czU;
-    private l czV;
-    private AdapterView.OnItemClickListener czW = new i(this);
-    private CustomMessageListener czX = new j(this, 2002013);
+    private ImageView czV;
+    private l czW;
+    private AdapterView.OnItemClickListener czX = new i(this);
+    private CustomMessageListener czY = new j(this, 2002013);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -27,20 +27,20 @@ public class SelectLocationActivity extends NavigationBarActivity {
         super.onCreate(bundle);
         setContentView(r.select_location_activity);
         this.aox.setTitleText(t.select_position_title);
-        this.czU = (ImageView) this.aox.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_search, (View.OnClickListener) null);
-        this.czU.setOnClickListener(new k(this));
+        this.czV = (ImageView) this.aox.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_search, (View.OnClickListener) null);
+        this.czV.setOnClickListener(new k(this));
         this.aoy = (BdListView) findViewById(q.select_position_list);
-        this.czV = new l(this);
-        this.aoy.setAdapter((ListAdapter) this.czV);
-        this.aoy.setOnItemClickListener(this.czW);
-        registerListener(this.czX);
+        this.czW = new l(this);
+        this.aoy.setAdapter((ListAdapter) this.czW);
+        this.aoy.setOnItemClickListener(this.czX);
+        registerListener(this.czY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.czV.notifyDataSetChanged();
+        this.czW.notifyDataSetChanged();
     }
 
     @Override // android.app.Activity

@@ -11,11 +11,11 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     private com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ AtListActivity cBt;
+    final /* synthetic */ AtListActivity cBu;
     private String mString;
 
     private m(AtListActivity atListActivity) {
-        this.cBt = atListActivity;
+        this.cBu = atListActivity;
         this.aaG = null;
         this.mString = null;
     }
@@ -29,7 +29,7 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cBt.mProgress;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -37,9 +37,9 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.cBt.cBi = null;
+        this.cBu.cBj = null;
         this.mString = null;
-        progressBar = this.cBt.mProgress;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -59,10 +59,10 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
             String sw = this.aaG.sw();
             if (this.aaG.sX().tT().qa()) {
                 com.baidu.tieba.write.a.b bVar = new com.baidu.tieba.write.a.b();
-                aVar = this.cBt.cBk;
-                com.baidu.tieba.write.a.a asm = aVar.asm();
-                if (asm != null) {
-                    bVar.a(sw, asm.asc());
+                aVar = this.cBu.cBl;
+                com.baidu.tieba.write.a.a asn = aVar.asn();
+                if (asn != null) {
+                    bVar.a(sw, asn.asd());
                     return bVar;
                 }
                 bVar.a(sw, (HashMap<String, String>) null);
@@ -83,29 +83,29 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
         o oVar;
         o oVar2;
         BdListView bdListView;
-        this.cBt.cBi = null;
-        progressBar = this.cBt.mProgress;
+        this.cBu.cBj = null;
+        progressBar = this.cBu.mProgress;
         progressBar.setVisibility(8);
         if (this.aaG.sX().tT().qa() && this.mString != null) {
-            editText = this.cBt.mEditText;
+            editText = this.cBu.mEditText;
             if (com.baidu.adp.lib.util.m.a(editText.getText(), "").equals(this.mString)) {
-                if (bVar == null || bVar.asd().isEmpty()) {
-                    this.cBt.jA(1);
+                if (bVar == null || bVar.ase().isEmpty()) {
+                    this.cBu.jA(1);
                 } else {
-                    this.cBt.jA(0);
+                    this.cBu.jA(0);
                 }
-                aVar = this.cBt.cBk;
+                aVar = this.cBu.cBl;
                 aVar.a(bVar);
-                oVar = this.cBt.cBl;
-                oVar.setData(bVar.asd());
-                oVar2 = this.cBt.cBl;
+                oVar = this.cBu.cBm;
+                oVar.setData(bVar.ase());
+                oVar2 = this.cBu.cBm;
                 oVar2.notifyDataSetInvalidated();
-                bdListView = this.cBt.mListView;
+                bdListView = this.cBu.mListView;
                 bdListView.setSelection(0);
                 super.onPostExecute(bVar);
             }
         }
-        this.cBt.showToast(this.aaG.getErrorString());
+        this.cBu.showToast(this.aaG.getErrorString());
         super.onPostExecute(bVar);
     }
 }

@@ -15,8 +15,8 @@ public abstract class e<T extends i, R extends k> extends c<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.Br() == 16777217) {
-            if (bb(bVar.Bv())) {
+        if (bVar.Bs() == 16777217) {
+            if (bb(bVar.Bw())) {
                 dS(33554437);
                 return true;
             }

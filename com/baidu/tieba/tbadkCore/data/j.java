@@ -36,49 +36,49 @@ import tbclient.SubPost;
 import tbclient.SubPostList;
 /* loaded from: classes.dex */
 public class j implements ai, ap {
-    public static final BdUniqueId cse = BdUniqueId.gen();
+    public static final BdUniqueId csf = BdUniqueId.gen();
     private String authorId;
     private String bimg_url;
-    private String csg;
-    private ArrayList<j> csi;
-    private ArrayList<j> csl;
-    private int csn;
-    private com.baidu.tbadk.data.a cso;
-    private com.baidu.tbadk.data.d csp;
+    private String csh;
+    private ArrayList<j> csj;
+    private ArrayList<j> csm;
+    private int cso;
+    private com.baidu.tbadk.data.a csp;
+    private com.baidu.tbadk.data.d csq;
     private HashMap<String, MetaData> userMap;
-    private boolean csj = false;
-    private com.baidu.tbadk.widget.richText.a csm = null;
+    private boolean csk = false;
+    private com.baidu.tbadk.widget.richText.a csn = null;
     private String id = null;
     private String title = null;
-    private int csf = 0;
+    private int csg = 0;
     private long time = 0;
     private MetaData author = new MetaData();
-    private ArrayList<c> bxf = new ArrayList<>();
-    private ArrayList<c> bxN = new ArrayList<>();
-    private int csh = 0;
-    private int csk = 0;
+    private ArrayList<c> bxg = new ArrayList<>();
+    private ArrayList<c> bxO = new ArrayList<>();
+    private int csi = 0;
+    private int csl = 0;
 
     public j() {
-        this.csi = null;
-        this.csl = null;
-        this.csi = new ArrayList<>();
-        this.csl = new ArrayList<>();
+        this.csj = null;
+        this.csm = null;
+        this.csj = new ArrayList<>();
+        this.csm = new ArrayList<>();
     }
 
-    public ArrayList<j> aoy() {
-        return this.csi;
+    public ArrayList<j> aoz() {
+        return this.csj;
     }
 
-    public void aoz() {
-        this.csh--;
+    public void aoA() {
+        this.csi--;
     }
 
     public void iP(int i) {
-        this.csh = i;
+        this.csi = i;
     }
 
-    public ArrayList<j> aoA() {
-        return this.csl;
+    public ArrayList<j> aoB() {
+        return this.csm;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
@@ -97,12 +97,12 @@ public class j implements ai, ap {
         this.title = str;
     }
 
-    public int aoB() {
-        return this.csf;
+    public int aoC() {
+        return this.csg;
     }
 
     public void iQ(int i) {
-        this.csf = i;
+        this.csg = i;
     }
 
     public long getTime() {
@@ -121,20 +121,20 @@ public class j implements ai, ap {
         this.author = metaData;
     }
 
-    public com.baidu.tbadk.widget.richText.a aoC() {
-        return this.csm;
+    public com.baidu.tbadk.widget.richText.a aoD() {
+        return this.csn;
     }
 
     public String getBimg_url() {
         return this.bimg_url;
     }
 
-    public com.baidu.tbadk.data.a aoD() {
-        return this.cso;
+    public com.baidu.tbadk.data.a aoE() {
+        return this.csp;
     }
 
-    public com.baidu.tbadk.data.d aoE() {
-        return this.csp;
+    public com.baidu.tbadk.data.d aoF() {
+        return this.csq;
     }
 
     public void b(TbPageContext<?> tbPageContext, boolean z) {
@@ -144,7 +144,7 @@ public class j implements ai, ap {
         u uVar;
         com.baidu.tbadk.widget.richText.c cVar;
         Bitmap ck;
-        if (tbPageContext != null && this.csm != null && this.csm.El() != null) {
+        if (tbPageContext != null && this.csn != null && this.csn.Em() != null) {
             ArrayList<IconData> tShowInfo = getAuthor().getTShowInfo();
             if (tShowInfo != null) {
                 tShowInfo.size();
@@ -194,26 +194,26 @@ public class j implements ai, ap {
                 }
             }
             spannableString.setSpan(mVar, 0, length, 18);
-            ArrayList<com.baidu.tbadk.widget.richText.c> El = this.csm.El();
-            if (El != null && El.size() > 0) {
-                com.baidu.tbadk.widget.richText.c cVar2 = El.get(0);
-                if (cVar2.Er() != null) {
+            ArrayList<com.baidu.tbadk.widget.richText.c> Em = this.csn.Em();
+            if (Em != null && Em.size() > 0) {
+                com.baidu.tbadk.widget.richText.c cVar2 = Em.get(0);
+                if (cVar2.Es() != null) {
                     cVar2.et(sb.length());
-                    cVar2.Er().insert(0, (CharSequence) spannableString);
+                    cVar2.Es().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
-                    if (i4 >= El.size()) {
+                    if (i4 >= Em.size()) {
                         uVar = null;
                         break;
-                    } else if (El.get(i4) == null || El.get(i4).getType() != 512) {
+                    } else if (Em.get(i4) == null || Em.get(i4).getType() != 512) {
                         i3 = i4 + 1;
                     } else {
-                        u Es = El.get(i4).Es();
-                        El.remove(i4);
-                        uVar = Es;
+                        u Et = Em.get(i4).Et();
+                        Em.remove(i4);
+                        uVar = Et;
                         break;
                     }
                 }
@@ -225,7 +225,7 @@ public class j implements ai, ap {
                 }
                 cVar.et(sb.length());
                 cVar.append(spannableString);
-                El.add(0, cVar);
+                Em.add(0, cVar);
             }
         }
     }
@@ -241,24 +241,24 @@ public class j implements ai, ap {
         return bitmapDrawable;
     }
 
-    public int aoF() {
-        return this.csh;
+    public int aoG() {
+        return this.csi;
     }
 
-    public int aoG() {
-        return this.csk;
+    public int aoH() {
+        return this.csl;
     }
 
     public void aI(Context context) {
         int type;
         int i;
         int i2;
-        if (this.bxf != null) {
+        if (this.bxg != null) {
             int i3 = -1;
-            int size = this.bxN.size();
+            int size = this.bxO.size();
             if (size > 0) {
                 try {
-                    i3 = this.bxN.get(size - 1).getType();
+                    i3 = this.bxO.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -266,21 +266,21 @@ public class j implements ai, ap {
             }
             int i4 = 0;
             int i5 = i3;
-            while (i4 < this.bxf.size()) {
-                c cVar = this.bxf.get(i4);
+            while (i4 < this.bxg.size()) {
+                c cVar = this.bxg.get(i4);
                 if (c.ai(i5, cVar.getType())) {
-                    this.bxN.get(size - 1).a(cVar.aH(context));
+                    this.bxO.get(size - 1).a(cVar.aH(context));
                     i2 = size;
                     i = i5;
                 } else {
                     if (cVar.getType() == 3 || cVar.getType() == 2 || cVar.getType() == 11) {
-                        this.bxN.add(cVar);
+                        this.bxO.add(cVar);
                         type = cVar.getType();
                     } else {
                         c cVar2 = new c();
                         cVar2.setType(0);
                         cVar2.a(cVar.aH(context));
-                        this.bxN.add(cVar2);
+                        this.bxO.add(cVar2);
                         type = 0;
                     }
                     i = type;
@@ -295,24 +295,24 @@ public class j implements ai, ap {
 
     public void aJ(Context context) {
         try {
-            if (this.csm != null) {
+            if (this.csn != null) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-                clipboardManager.setText(this.csm.toString());
+                clipboardManager.setText(this.csn.toString());
                 clipboardManager.getText();
                 return;
             }
-            if (this.bxN == null || this.bxN.size() == 0) {
+            if (this.bxO == null || this.bxO.size() == 0) {
                 aI(context);
             }
-            ArrayList<c> arrayList = this.bxN;
+            ArrayList<c> arrayList = this.bxO;
             if (arrayList != null) {
                 StringBuilder sb = new StringBuilder();
                 Iterator<c> it = arrayList.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
                     if (next.getType() == 0) {
-                        if (next.aok() != null) {
-                            sb.append((CharSequence) next.aok());
+                        if (next.aol() != null) {
+                            sb.append((CharSequence) next.aol());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -321,14 +321,14 @@ public class j implements ai, ap {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(t.voice_str));
                     } else if (next.getType() == 2) {
-                        String ew = TbFaceManager.Ak().ew(next.getText());
+                        String ew = TbFaceManager.Al().ew(next.getText());
                         if (ew != null) {
                             sb.append("[");
                             sb.append(ew);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !bb.isEmpty(next.aoj())) {
-                        sb.append("[").append(next.aoj()).append("]");
+                    } else if (next.getType() == 11 && !bb.isEmpty(next.aok())) {
+                        sb.append("[").append(next.aok()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -350,7 +350,7 @@ public class j implements ai, ap {
             try {
                 this.id = String.valueOf(subPostList.id);
                 this.title = subPostList.title;
-                this.csf = subPostList.floor.intValue();
+                this.csg = subPostList.floor.intValue();
                 this.time = subPostList.time.intValue() * 1000;
                 this.authorId = String.valueOf(subPostList.author_id);
                 MetaData metaData2 = new MetaData();
@@ -361,7 +361,7 @@ public class j implements ai, ap {
                 if ((this.author.getUserId() == null || this.author.getUserId().length() <= 0 || this.author.getUserId().equals(GameInfoData.NOT_FROM_DETAIL)) && metaData2 != null) {
                     this.author = metaData2;
                 }
-                this.csm = TbRichTextView.a(context, subPostList.content, z);
+                this.csn = TbRichTextView.a(context, subPostList.content, z);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -373,9 +373,9 @@ public class j implements ai, ap {
             try {
                 this.id = String.valueOf(post.id);
                 this.title = post.title;
-                this.csf = post.floor.intValue();
+                this.csg = post.floor.intValue();
                 this.time = post.time.intValue() * 1000;
-                this.csg = post.time_ex;
+                this.csh = post.time_ex;
                 this.authorId = String.valueOf(post.author_id);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals(GameInfoData.NOT_FROM_DETAIL)) {
                     MetaData metaData = this.userMap.get(this.authorId);
@@ -385,9 +385,9 @@ public class j implements ai, ap {
                 } else {
                     this.author.parserProtobuf(post.author);
                 }
-                this.csh = post.sub_post_number.intValue();
-                this.csk = post.add_post_number.intValue();
-                this.csm = TbRichTextView.a(context, post.content, true);
+                this.csi = post.sub_post_number.intValue();
+                this.csl = post.add_post_number.intValue();
+                this.csn = TbRichTextView.a(context, post.content, true);
                 SubPost subPost = post.sub_post_list;
                 if (subPost != null) {
                     List<SubPostList> list = subPost.sub_post_list;
@@ -396,7 +396,7 @@ public class j implements ai, ap {
                             j jVar = new j();
                             jVar.setUserMap(this.userMap);
                             jVar.a(list.get(i), context);
-                            this.csi.add(jVar);
+                            this.csj.add(jVar);
                         }
                     }
                 }
@@ -408,23 +408,23 @@ public class j implements ai, ap {
                             j jVar2 = new j();
                             jVar2.setUserMap(this.userMap);
                             jVar2.a(subPostList, context);
-                            this.csl.add(jVar2);
+                            this.csm.add(jVar2);
                         }
                     }
                 }
                 this.bimg_url = post.bimg_url;
-                if (this.csl.size() >= 5) {
-                    this.csn = 5;
+                if (this.csm.size() >= 5) {
+                    this.cso = 5;
                 } else {
-                    this.csn = this.csl.size();
+                    this.cso = this.csm.size();
                 }
                 if (post.tail_info != null) {
-                    this.cso = new com.baidu.tbadk.data.a();
-                    this.cso.a(post.tail_info);
+                    this.csp = new com.baidu.tbadk.data.a();
+                    this.csp.a(post.tail_info);
                 }
                 if (post.lbs_info != null) {
-                    this.csp = new com.baidu.tbadk.data.d();
-                    this.csp.a(post.lbs_info);
+                    this.csq = new com.baidu.tbadk.data.d();
+                    this.csq.a(post.lbs_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -433,18 +433,18 @@ public class j implements ai, ap {
     }
 
     public String aK(Context context) {
-        ArrayList<com.baidu.tbadk.widget.richText.c> El;
-        if (this.csm == null || (El = this.csm.El()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Em;
+        if (this.csn == null || (Em = this.csn.Em()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = El.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = Em.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.Er().toString());
+                stringBuffer.append(next.Es().toString());
             } else if (next.getType() == 17) {
-                String str = next.Eu().alT.alt;
+                String str = next.Ev().alT.alt;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -459,25 +459,25 @@ public class j implements ai, ap {
         return stringBuffer.toString();
     }
 
-    public int aoH() {
-        return this.csn;
+    public int aoI() {
+        return this.cso;
     }
 
     public void iR(int i) {
-        this.csn = i;
+        this.cso = i;
     }
 
-    public ao aoI() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> El;
-        if (this.csm != null && (El = this.csm.El()) != null) {
-            Iterator<com.baidu.tbadk.widget.richText.c> it = El.iterator();
+    public ao aoJ() {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Em;
+        if (this.csn != null && (Em = this.csn.Em()) != null) {
+            Iterator<com.baidu.tbadk.widget.richText.c> it = Em.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 if (next.getType() == 8) {
                     ao aoVar = new ao();
-                    aoVar.width = next.Eq().getWidth();
-                    aoVar.height = next.Eq().getHeight();
-                    aoVar.Ri = next.Eq().Ey();
+                    aoVar.width = next.Er().getWidth();
+                    aoVar.height = next.Er().getHeight();
+                    aoVar.Ri = next.Er().Ez();
                     aoVar.Vx = 17;
                     return aoVar;
                 }
@@ -489,26 +489,26 @@ public class j implements ai, ap {
 
     @Override // com.baidu.tbadk.core.util.ap
     public ArrayList<ao> getImages() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> El;
-        if (this.csm == null || (El = this.csm.El()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Em;
+        if (this.csn == null || (Em = this.csn.Em()) == null) {
             return null;
         }
         ArrayList<ao> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = El.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = Em.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 8) {
                 ao aoVar = new ao();
-                aoVar.width = next.Eq().getWidth();
-                aoVar.height = next.Eq().getHeight();
-                aoVar.Ri = next.Eq().Ey();
+                aoVar.width = next.Er().getWidth();
+                aoVar.height = next.Er().getHeight();
+                aoVar.Ri = next.Er().Ez();
                 aoVar.Vx = 17;
                 arrayList.add(aoVar);
-            } else if (next.Eu() != null) {
+            } else if (next.Ev() != null) {
                 ao aoVar2 = new ao();
-                aoVar2.width = next.Eu().alT.alx;
-                aoVar2.height = next.Eu().alT.aly;
-                aoVar2.Vy = next.Eu();
+                aoVar2.width = next.Ev().alT.alx;
+                aoVar2.height = next.Ev().alT.aly;
+                aoVar2.Vy = next.Ev();
                 aoVar2.Vx = 20;
                 arrayList.add(aoVar2);
             }
@@ -516,10 +516,10 @@ public class j implements ai, ap {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.csn) {
+            if (i2 >= this.cso) {
                 break;
             }
-            arrayList.addAll(this.csl.get(i2).getImages());
+            arrayList.addAll(this.csm.get(i2).getImages());
             i = i2 + 1;
         }
         if (!TextUtils.isEmpty(this.bimg_url)) {
@@ -537,8 +537,8 @@ public class j implements ai, ap {
         aoVar4.Ri = this.author.getPortrait();
         aoVar4.Vx = 12;
         arrayList.add(aoVar4);
-        if (this.csl != null) {
-            Iterator<j> it2 = this.csl.iterator();
+        if (this.csm != null) {
+            Iterator<j> it2 = this.csm.iterator();
             while (it2.hasNext()) {
                 arrayList.addAll(it2.next().getImages());
             }
@@ -548,14 +548,14 @@ public class j implements ai, ap {
 
     @Override // com.baidu.adp.widget.ListView.ai
     public BdUniqueId getType() {
-        return cse;
+        return csf;
     }
 
-    public boolean aoJ() {
-        return this.csj;
+    public boolean aoK() {
+        return this.csk;
     }
 
     public void fg(boolean z) {
-        this.csj = z;
+        this.csk = z;
     }
 }

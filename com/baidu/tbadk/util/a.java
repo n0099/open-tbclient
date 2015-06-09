@@ -9,7 +9,7 @@ public class a {
     private a() {
     }
 
-    public static synchronized a DP() {
+    public static synchronized a DQ() {
         a aVar;
         synchronized (a.class) {
             if (asc == null) {
@@ -20,14 +20,14 @@ public class a {
         return aVar;
     }
 
-    public void DQ() {
-        String DR = DR();
-        if (!TextUtils.isEmpty(DR)) {
-            com.baidu.adp.lib.f.d.hl().a(DR, 10, null, 0, 0, null, new Object[0]);
+    public void DR() {
+        String DS = DS();
+        if (!TextUtils.isEmpty(DS)) {
+            com.baidu.adp.lib.f.d.hl().a(DS, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String DR() {
+    public String DS() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 }

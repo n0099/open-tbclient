@@ -240,7 +240,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
         if (runTask2 != null && runTask2.getData() != null) {
             this.mFloatRecordView = (av) runTask2.getData();
         }
-        if (!com.baidu.tieba.tbadkCore.voice.d.apG()) {
+        if (!com.baidu.tieba.tbadkCore.voice.d.apH()) {
             this.mBtnMsgSendGovoice = (ImageView) msglistActivity.findViewById(com.baidu.tieba.q.btn_msgsend_govoice);
             if (this.mBtnMsgSendSoftkey != null) {
                 this.mBtnMsgSendSoftkey.setVisibility(8);
@@ -307,7 +307,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
         this.mLayMsgsendMore = (ToolMoreView) talkableActivity.findViewById(com.baidu.tieba.q.lay_msgsend_more);
         this.mLayMsgsendMore.setVisibility(8);
         this.mLayMsgsendMore.setOnClickListener(talkableActivity);
-        this.mLayMsgsendMore.zS();
+        this.mLayMsgsendMore.zT();
         initExpression(talkableActivity);
     }
 
@@ -356,7 +356,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
     }
 
     private void sendmsgShowVoice() {
-        if (com.baidu.tieba.tbadkCore.voice.d.apG()) {
+        if (com.baidu.tieba.tbadkCore.voice.d.apH()) {
             if (this.mLayMsgSendVoice != null) {
                 this.mLayMsgSendVoice.setVisibility(0);
             }
@@ -433,9 +433,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.personal_lbs_title_name.setText(str);
         if (bVar != null) {
-            if (bVar.xx() < 0 || bVar.xx() > 1) {
+            if (bVar.xy() < 0 || bVar.xy() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (bVar.xx() == 1) {
+            } else if (bVar.xy() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(com.baidu.tieba.t.contact_yinshen));
                 this.personal_lbs_shadow.setVisibility(8);
@@ -776,7 +776,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.g<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.OV();
+            this.mCallback.OW();
         }
     }
 

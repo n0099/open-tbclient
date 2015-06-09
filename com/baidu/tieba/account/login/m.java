@@ -14,18 +14,18 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<Object, Integer, n> {
-    final /* synthetic */ Login2Activity ayM;
-    ArrayList<BasicNameValuePair> ayQ;
+    final /* synthetic */ Login2Activity ayN;
+    ArrayList<BasicNameValuePair> ayR;
     private String mUrl;
     private aa aaG = null;
-    private String ayR = null;
+    private String ayS = null;
 
     public m(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.ayM = login2Activity;
+        this.ayN = login2Activity;
         this.mUrl = null;
-        this.ayQ = null;
+        this.ayR = null;
         this.mUrl = str;
-        this.ayQ = arrayList;
+        this.ayR = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,19 +36,19 @@ public class m extends BdAsyncTask<Object, Integer, n> {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
-        Login2Activity login2Activity = this.ayM;
-        InputMethodManager inputMethodManager = this.ayM.mInputManager;
-        editText = this.ayM.ayr;
+        Login2Activity login2Activity = this.ayN;
+        InputMethodManager inputMethodManager = this.ayN.mInputManager;
+        editText = this.ayN.ays;
         login2Activity.HidenSoftKeyPad(inputMethodManager, editText);
-        Login2Activity login2Activity2 = this.ayM;
-        InputMethodManager inputMethodManager2 = this.ayM.mInputManager;
-        editText2 = this.ayM.ays;
+        Login2Activity login2Activity2 = this.ayN;
+        InputMethodManager inputMethodManager2 = this.ayN.mInputManager;
+        editText2 = this.ayN.ayt;
         login2Activity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        progressBar = this.ayM.ayw;
+        progressBar = this.ayN.ayx;
         progressBar.setVisibility(0);
-        textView = this.ayM.axt;
+        textView = this.ayN.axu;
         textView.setVisibility(4);
-        textView2 = this.ayM.ayG;
+        textView2 = this.ayN.ayH;
         textView2.setText(t.account_login_loading);
     }
 
@@ -61,14 +61,14 @@ public class m extends BdAsyncTask<Object, Integer, n> {
         Exception e;
         try {
             this.aaG = new aa(this.mUrl);
-            this.aaG.n(this.ayQ);
-            this.ayR = this.aaG.sw();
-            if (!this.aaG.sX().tT().qa() || this.ayR == null) {
+            this.aaG.n(this.ayR);
+            this.ayS = this.aaG.sw();
+            if (!this.aaG.sX().tT().qa() || this.ayS == null) {
                 return null;
             }
             nVar = new n();
             try {
-                nVar.parserJson(this.ayR);
+                nVar.parserJson(this.ayS);
                 return nVar;
             } catch (Exception e2) {
                 e = e2;
@@ -96,48 +96,48 @@ public class m extends BdAsyncTask<Object, Integer, n> {
         TextView textView7;
         String str;
         EditText editText;
-        progressBar = this.ayM.ayw;
+        progressBar = this.ayN.ayx;
         progressBar.setVisibility(8);
-        textView = this.ayM.ayG;
+        textView = this.ayN.ayH;
         textView.setText(t.account_login);
-        this.ayM.FE();
+        this.ayN.FF();
         if (nVar != null) {
-            this.ayM.ayK = nVar;
-            this.ayM.uZ();
+            this.ayN.ayL = nVar;
+            this.ayN.uZ();
         } else if (this.aaG != null) {
             if ((!this.aaG.ta() || this.aaG.tb() != 5) && this.aaG.tb() != 6) {
-                textView2 = this.ayM.axt;
+                textView2 = this.ayN.axu;
                 textView2.setVisibility(0);
-                textView3 = this.ayM.axt;
+                textView3 = this.ayN.axu;
                 textView3.setText(this.aaG.getErrorString());
-                textView4 = this.ayM.ayF;
+                textView4 = this.ayN.ayG;
                 textView4.setVisibility(8);
-                this.ayM.FA();
+                this.ayN.FB();
             } else {
                 com.baidu.tbadk.coreExtra.data.l lVar = new com.baidu.tbadk.coreExtra.data.l();
-                lVar.parserJson(this.ayR);
+                lVar.parserJson(this.ayS);
                 if (lVar.getVcode_pic_url() == null) {
-                    textView5 = this.ayM.axt;
+                    textView5 = this.ayN.axu;
                     textView5.setVisibility(0);
-                    textView6 = this.ayM.axt;
+                    textView6 = this.ayN.axu;
                     textView6.setText(this.aaG.getErrorString());
-                    textView7 = this.ayM.ayF;
+                    textView7 = this.ayN.ayG;
                     textView7.setVisibility(8);
-                    this.ayM.FA();
+                    this.ayN.FB();
                 } else {
-                    this.ayM.aym = lVar.getVcode_md5();
-                    this.ayM.mVcodeUrl = lVar.getVcode_pic_url();
-                    Login2Activity login2Activity = this.ayM;
-                    str = this.ayM.mVcodeUrl;
+                    this.ayN.ayn = lVar.getVcode_md5();
+                    this.ayN.mVcodeUrl = lVar.getVcode_pic_url();
+                    Login2Activity login2Activity = this.ayN;
+                    str = this.ayN.mVcodeUrl;
                     login2Activity.fq(str);
-                    this.ayM.FB();
-                    Login2Activity login2Activity2 = this.ayM;
-                    editText = this.ayM.ayr;
+                    this.ayN.FC();
+                    Login2Activity login2Activity2 = this.ayN;
+                    editText = this.ayN.ays;
                     login2Activity2.mAccount = editText.getText().toString();
                 }
             }
         }
-        this.ayM.ayJ = null;
+        this.ayN.ayK = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -149,10 +149,10 @@ public class m extends BdAsyncTask<Object, Integer, n> {
             this.aaG.gS();
             this.aaG = null;
         }
-        progressBar = this.ayM.ayw;
+        progressBar = this.ayN.ayx;
         progressBar.setVisibility(8);
-        textView = this.ayM.ayG;
+        textView = this.ayN.ayH;
         textView.setText(t.account_login);
-        this.ayM.FE();
+        this.ayN.FF();
     }
 }

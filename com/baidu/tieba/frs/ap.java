@@ -5,18 +5,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ ao aME;
-    private final /* synthetic */ View aMF;
+    final /* synthetic */ ao aMF;
+    private final /* synthetic */ View aMG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar, View view) {
-        this.aME = aoVar;
-        this.aMF = view;
+        this.aMF = aoVar;
+        this.aMG = view;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return this.aMF;
+        return this.aMG;
     }
 
     @Override // com.baidu.adp.lib.guide.b

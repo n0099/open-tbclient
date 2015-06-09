@@ -11,7 +11,7 @@ public class d {
     private d() {
     }
 
-    public static d DT() {
+    public static d DU() {
         return asf;
     }
 
@@ -25,7 +25,7 @@ public class d {
         this.asg.execute(new String[0]);
     }
 
-    public boolean DU() {
+    public boolean DV() {
         int i;
         long j = 0;
         byte[] aN = com.baidu.adp.lib.util.f.aN("crash_hour_record.log");

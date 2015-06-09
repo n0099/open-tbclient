@@ -9,11 +9,11 @@ import android.widget.EditText;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity cCh;
+    final /* synthetic */ VcodeActivity cCi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(VcodeActivity vcodeActivity) {
-        this.cCh = vcodeActivity;
+        this.cCi = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,29 +27,29 @@ class ad implements View.OnClickListener {
         ah ahVar2;
         ah ahVar3;
         ah ahVar4;
-        VcodeActivity vcodeActivity = this.cCh;
-        inputMethodManager = this.cCh.mInputManager;
-        editText = this.cCh.mEdit;
+        VcodeActivity vcodeActivity = this.cCi;
+        inputMethodManager = this.cCi.mInputManager;
+        editText = this.cCi.mEdit;
         vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        VcodeActivity vcodeActivity2 = this.cCh;
-        Activity pageActivity = this.cCh.getPageContext().getPageActivity();
-        String string = this.cCh.getPageContext().getString(com.baidu.tieba.t.sending);
-        onCancelListener = this.cCh.bSI;
+        VcodeActivity vcodeActivity2 = this.cCi;
+        Activity pageActivity = this.cCi.getPageContext().getPageActivity();
+        String string = this.cCi.getPageContext().getString(com.baidu.tieba.t.sending);
+        onCancelListener = this.cCi.bSJ;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(pageActivity, "", string, true, false, onCancelListener);
-        progressDialog = this.cCh.mWaitingDialog;
+        progressDialog = this.cCi.mWaitingDialog;
         progressDialog.setCanceledOnTouchOutside(false);
-        ahVar = this.cCh.cCf;
+        ahVar = this.cCi.cCg;
         if (ahVar != null) {
-            ahVar4 = this.cCh.cCf;
+            ahVar4 = this.cCi.cCg;
             ahVar4.cancel();
         }
-        VcodeActivity vcodeActivity3 = this.cCh;
-        VcodeActivity vcodeActivity4 = this.cCh;
-        writeData = this.cCh.cBR;
-        vcodeActivity3.cCf = new ah(vcodeActivity4, writeData);
-        ahVar2 = this.cCh.cCf;
+        VcodeActivity vcodeActivity3 = this.cCi;
+        VcodeActivity vcodeActivity4 = this.cCi;
+        writeData = this.cCi.cBS;
+        vcodeActivity3.cCg = new ah(vcodeActivity4, writeData);
+        ahVar2 = this.cCi.cCg;
         ahVar2.setPriority(3);
-        ahVar3 = this.cCh.cCf;
+        ahVar3 = this.cCi.cCg;
         ahVar3.execute(0);
     }
 }

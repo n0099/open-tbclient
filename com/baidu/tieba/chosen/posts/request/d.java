@@ -15,7 +15,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> GS() {
+    public List<tinfo> GT() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -72,7 +72,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Bo() {
+    public byte[] Bp() {
         return null;
     }
 }

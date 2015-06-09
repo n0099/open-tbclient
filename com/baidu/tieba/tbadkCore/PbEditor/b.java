@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class b extends TextView {
     private int ajy;
-    private GradientDrawable cpU;
-    protected int cpV;
+    private GradientDrawable cpV;
     protected int cpW;
+    protected int cpX;
 
     public b(Context context) {
         this(context, null);
@@ -24,9 +24,9 @@ public class b extends TextView {
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.ajy = -1;
-        this.cpV = (int) context.getResources().getDimension(com.baidu.tieba.o.ds18);
-        this.cpW = (int) context.getResources().getDimension(com.baidu.tieba.o.ds6);
-        setPadding(this.cpV, this.cpW, this.cpV, this.cpW);
+        this.cpW = (int) context.getResources().getDimension(com.baidu.tieba.o.ds18);
+        this.cpX = (int) context.getResources().getDimension(com.baidu.tieba.o.ds6);
+        setPadding(this.cpW, this.cpX, this.cpW, this.cpX);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(com.baidu.tieba.o.ds24));
@@ -48,12 +48,12 @@ public class b extends TextView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void rU() {
-        if (this.cpU == null) {
-            this.cpU = new GradientDrawable();
-            this.cpU.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.o.ds24));
+        if (this.cpV == null) {
+            this.cpV = new GradientDrawable();
+            this.cpV.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.o.ds24));
         }
         ay.b(this, com.baidu.tieba.n.cp_cont_c, 1);
-        this.cpU.setColor(ay.getColor(com.baidu.tieba.n.cp_bg_line_e));
-        setBackgroundDrawable(this.cpU);
+        this.cpV.setColor(ay.getColor(com.baidu.tieba.n.cp_bg_line_e));
+        setBackgroundDrawable(this.cpV);
     }
 }

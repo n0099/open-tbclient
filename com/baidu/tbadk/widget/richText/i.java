@@ -32,28 +32,28 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         this.aub = eVar;
     }
 
-    public g Eq() {
+    public g Er() {
         if (this.mType == 8) {
             return this.atX;
         }
         return null;
     }
 
-    public u Es() {
+    public u Et() {
         if (this.mType == 512 || this.mType == 768) {
             return this.atZ;
         }
         return null;
     }
 
-    public e Eu() {
+    public e Ev() {
         if (this.mType == 17) {
             return this.aub;
         }
         return null;
     }
 
-    public SpannableString EA() {
+    public SpannableString EB() {
         if (this.mType != 1 || this.auo == null) {
             return null;
         }
@@ -69,8 +69,8 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            if (this.auo.Em() == 1) {
-                a = a(context, this.mType, this.auo.getText(), this.auo.En());
+            if (this.auo.En() == 1) {
+                a = a(context, this.mType, this.auo.getText(), this.auo.Eo());
             } else {
                 a = a(context, this.mType, this.auo.getText(), this.auo.getText());
             }
@@ -106,8 +106,8 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         if (this.mType != 32 || this.auo == null) {
             return null;
         }
-        if (this.auo.Em() == 1) {
-            return this.auo.En();
+        if (this.auo.En() == 1) {
+            return this.auo.Eo();
         }
         return this.auo.getText();
     }
@@ -116,8 +116,8 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         if (this.mType != 2 || this.auo == null) {
             return null;
         }
-        if (this.auo.Em() == 1) {
-            return a(context, this.mType, this.auo.getText(), this.auo.En());
+        if (this.auo.En() == 1) {
+            return a(context, this.mType, this.auo.getText(), this.auo.Eo());
         }
         return a(context, this.mType, this.auo.getText(), this.auo.getLink());
     }
@@ -152,14 +152,14 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         int eu;
         com.baidu.tbadk.imageManager.c eH;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.auo != null && this.auo.getText() != null && this.auo.getLink() != null && (eu = TbFaceManager.Ak().eu((text = this.auo.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.Ak().ew(text) + ")";
+        if (this.mType == 4 && this.auo != null && this.auo.getText() != null && this.auo.getLink() != null && (eu = TbFaceManager.Al().eu((text = this.auo.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.Al().ew(text) + ")";
             spannableString = new SpannableString(String.valueOf(str) + " ");
             f fVar = new f(TbadkCoreApplication.m411getInst().getContext(), eu);
             if (arrayList != null) {
                 arrayList.add(fVar);
             }
-            if (TbFaceManager.Ak().eH(text) != null) {
+            if (TbFaceManager.Al().eH(text) != null) {
                 int width = (int) (eH.getWidth() * 0.5d);
                 fVar.setBounds(new Rect(0, 0, width, width));
             } else {
@@ -185,7 +185,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
     public CharSequence f(Context context, ArrayList<f> arrayList) {
         switch (this.mType) {
             case 1:
-                return EA();
+                return EB();
             case 2:
                 return al(context);
             case 4:
@@ -242,7 +242,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                 default:
                     this.auo = new b(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.Ak().eu(this.auo.getText()) <= 0) {
+                        if (TbFaceManager.Al().eu(this.auo.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.m411getInst().getString(com.baidu.tieba.t.editor_express) + "]";
@@ -262,7 +262,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                     break;
             }
             if (this.mType != 1 && this.auo != null) {
-                this.auo.Eo();
+                this.auo.Ep();
             }
         } catch (Exception e) {
         }
@@ -300,7 +300,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
             } else {
                 this.auo = new b(jSONObject);
                 if (this.mType == 4) {
-                    int eu = TbFaceManager.Ak().eu(this.auo.getText());
+                    int eu = TbFaceManager.Al().eu(this.auo.getText());
                     String optString = jSONObject.optString("c");
                     if (eu <= 0) {
                         this.mType = 1;
@@ -318,7 +318,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                 }
             }
             if (this.mType != 1 && this.auo != null) {
-                this.auo.Eo();
+                this.auo.Ep();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

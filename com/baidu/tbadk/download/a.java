@@ -9,9 +9,9 @@ public class a implements f {
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.ze().f(downloadData);
+                b.zf().f(downloadData);
             }
-            b.ze().e(downloadData);
+            b.zf().e(downloadData);
         }
     }
 
@@ -41,6 +41,6 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.download.f
     public void a(DownloadData downloadData, int i, String str) {
-        b.ze().g(downloadData);
+        b.zf().g(downloadData);
     }
 }

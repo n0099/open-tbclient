@@ -12,12 +12,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    final /* synthetic */ QuickSearchActivity azu;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> azv;
+    final /* synthetic */ QuickSearchActivity azv;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> azw;
 
     private s(QuickSearchActivity quickSearchActivity) {
-        this.azu = quickSearchActivity;
-        this.azv = new ArrayList();
+        this.azv = quickSearchActivity;
+        this.azw = new ArrayList();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,13 +26,13 @@ public class s extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.azv = list;
+        this.azw = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.azv != null) {
-            return this.azv.size();
+        if (this.azw != null) {
+            return this.azw.size();
         }
         return 0;
     }
@@ -41,10 +41,10 @@ public class s extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: ey */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.azv == null || i < 0 || i >= getCount()) {
+        if (this.azw == null || i < 0 || i >= getCount()) {
             return null;
         }
-        return this.azv.get(i);
+        return this.azw.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,17 +55,17 @@ public class s extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         t tVar;
-        com.baidu.tbadk.core.c layoutMode = this.azu.getLayoutMode();
+        com.baidu.tbadk.core.c layoutMode = this.azv.getLayoutMode();
         TbadkCoreApplication.m411getInst().getSkinType();
         com.baidu.tbadk.coreExtra.relationship.a item = getItem(i);
         if (item == null) {
             return null;
         }
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.hr().inflate(this.azu.getPageContext().getPageActivity(), com.baidu.tieba.r.quick_search_item, null);
-            t tVar2 = new t(this.azu, null);
-            tVar2.azw = (HeadImageView) view.findViewById(com.baidu.tieba.q.quick_search_item_icon);
-            tVar2.azx = (TextView) view.findViewById(com.baidu.tieba.q.quick_search_item_text);
+            view = com.baidu.adp.lib.g.b.hr().inflate(this.azv.getPageContext().getPageActivity(), com.baidu.tieba.r.quick_search_item, null);
+            t tVar2 = new t(this.azv, null);
+            tVar2.azx = (HeadImageView) view.findViewById(com.baidu.tieba.q.quick_search_item_icon);
+            tVar2.azy = (TextView) view.findViewById(com.baidu.tieba.q.quick_search_item_text);
             view.setTag(tVar2);
             tVar = tVar2;
         } else {
@@ -74,9 +74,9 @@ public class s extends BaseAdapter {
         layoutMode.j(view);
         ay.i(view, com.baidu.tieba.p.addresslist_item_bg);
         if (item.getUserName() != null) {
-            tVar.azx.setText(item.getUserName());
+            tVar.azy.setText(item.getUserName());
         }
-        tVar.azw.c(item.getUserPortrait(), 12, false);
+        tVar.azx.c(item.getUserPortrait(), 12, false);
         return view;
     }
 }

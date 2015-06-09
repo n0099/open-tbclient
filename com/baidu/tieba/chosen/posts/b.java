@@ -13,15 +13,15 @@ import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> {
-    private ChosenPostActivity aCU;
-    private com.baidu.tieba.chosen.posts.request.b aCV;
-    private com.baidu.tieba.chosen.posts.request.a aCW;
-    private com.baidu.tbadk.mvc.e.b aCX;
-    private com.baidu.tieba.chosen.posts.request.c aCY;
-    private com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> aCZ;
-    private com.baidu.adp.framework.listener.a aDa;
+    private ChosenPostActivity aCV;
+    private com.baidu.tieba.chosen.posts.request.b aCW;
+    private com.baidu.tieba.chosen.posts.request.a aCX;
+    private com.baidu.tbadk.mvc.e.b aCY;
+    private com.baidu.tieba.chosen.posts.request.c aCZ;
+    private com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> aDa;
+    private com.baidu.adp.framework.listener.a aDb;
 
-    private void GN() {
+    private void GO() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(307007);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -29,7 +29,7 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void GO() {
+    private void GP() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.S(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
@@ -41,26 +41,26 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4102, null, null, null);
         bVar.setExtra(Long.valueOf(j));
         bVar.setUniqueId(getUniqueId());
-        AL().dispatchMvcEvent(bVar);
+        AM().dispatchMvcEvent(bVar);
     }
 
     public b(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity);
-        this.aCX = new com.baidu.tbadk.mvc.e.b();
-        this.aCZ = new c(this);
-        this.aDa = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.aCU = chosenPostActivity;
+        this.aCY = new com.baidu.tbadk.mvc.e.b();
+        this.aDa = new c(this);
+        this.aDb = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
+        this.aCV = chosenPostActivity;
+        GP();
         GO();
-        GN();
-        registerListener(this.aDa);
-        AL().addEventDelegate(this);
+        registerListener(this.aDb);
+        AM().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.d, com.baidu.tbadk.mvc.d.e, com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.Br() == 4100) {
-            this.aCV.BL();
-        } else if (bVar.Br() == 4101) {
+        if (bVar.Bs() == 4100) {
+            this.aCW.BM();
+        } else if (bVar.Bs() == 4101) {
             Object extra = bVar.getExtra();
             if (extra instanceof tinfo) {
                 tinfo tinfoVar = (tinfo) extra;
@@ -75,7 +75,7 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
 
     @Override // com.baidu.tbadk.mvc.d.a
     protected boolean oM() {
-        this.aCW.BD();
+        this.aCX.BE();
         return true;
     }
 
@@ -85,9 +85,9 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
     public boolean a(com.baidu.tieba.chosen.posts.request.c cVar, com.baidu.tieba.chosen.posts.request.d dVar) {
         b(dVar);
         if (dVar != null) {
-            this.aCX.bc(false);
-            this.aCX.bd(false);
-            a(this.aCX);
+            this.aCY.bc(false);
+            this.aCY.bd(false);
+            a(this.aCY);
             return true;
         }
         return true;
@@ -96,31 +96,31 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
     @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        this.aCY = new com.baidu.tieba.chosen.posts.request.c();
-        this.aCV = new com.baidu.tieba.chosen.posts.request.b(this.aCU.getPageContext(), this.aCY);
-        this.aCV.a((q) this);
-        this.aCW = new com.baidu.tieba.chosen.posts.request.a(this.aCU.getPageContext());
-        this.aCW.a(this.aCZ);
+        this.aCZ = new com.baidu.tieba.chosen.posts.request.c();
+        this.aCW = new com.baidu.tieba.chosen.posts.request.b(this.aCV.getPageContext(), this.aCZ);
+        this.aCW.a((q) this);
+        this.aCX = new com.baidu.tieba.chosen.posts.request.a(this.aCV.getPageContext());
+        this.aCX.a(this.aDa);
     }
 
     @Override // com.baidu.tbadk.mvc.d.e
     protected boolean bb(boolean z) {
-        this.aCX.bc(true);
-        a(this.aCX);
+        this.aCY.bc(true);
+        a(this.aCY);
         by(true);
-        this.aCY.GR();
-        this.aCV.BL();
+        this.aCZ.GS();
+        this.aCW.BM();
         return true;
     }
 
     @Override // com.baidu.tbadk.mvc.d.d
-    protected boolean BA() {
-        this.aCY.GR();
-        this.aCV.BL();
-        this.aCX.bd(true);
-        this.aCX.bf(true);
+    protected boolean BB() {
+        this.aCZ.GS();
+        this.aCW.BM();
+        this.aCY.bd(true);
+        this.aCY.bf(true);
         by(false);
-        a(this.aCX);
+        a(this.aCY);
         return true;
     }
 
@@ -132,6 +132,6 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
             bVar = new com.baidu.tbadk.mvc.c.b(4098, null, null, null);
         }
         bVar.setUniqueId(getUniqueId());
-        AL().dispatchMvcEvent(bVar);
+        AM().dispatchMvcEvent(bVar);
     }
 }

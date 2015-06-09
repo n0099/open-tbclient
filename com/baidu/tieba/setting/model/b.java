@@ -17,10 +17,10 @@ import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, g> {
     aa OE;
-    final /* synthetic */ a cer;
+    final /* synthetic */ a ces;
 
     private b(a aVar) {
-        this.cer = aVar;
+        this.ces = aVar;
         this.OE = null;
     }
 
@@ -68,10 +68,10 @@ public class b extends BdAsyncTask<String, Integer, g> {
             gVar = new g();
             try {
                 gVar.parserJson(sw);
-                if (TbadkCoreApplication.getClientId() == null && gVar.wM().getClientId() != null && gVar.wM().getClientId().length() > 0) {
-                    context = this.cer.mContext;
-                    TbadkCoreApplication.saveClientId(context, gVar.wM().getClientId());
-                    TbadkCoreApplication.setClientId(gVar.wM().getClientId());
+                if (TbadkCoreApplication.getClientId() == null && gVar.wN().getClientId() != null && gVar.wN().getClientId().length() > 0) {
+                    context = this.ces.mContext;
+                    TbadkCoreApplication.saveClientId(context, gVar.wN().getClientId());
+                    TbadkCoreApplication.setClientId(gVar.wN().getClientId());
                     return gVar;
                 }
                 return gVar;
@@ -88,7 +88,7 @@ public class b extends BdAsyncTask<String, Integer, g> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.cer.ceq = null;
+        this.ces.cer = null;
         if (this.OE != null) {
             this.OE.gS();
         }
@@ -101,7 +101,7 @@ public class b extends BdAsyncTask<String, Integer, g> {
     /* renamed from: a */
     public void onPostExecute(g gVar) {
         super.onPostExecute(gVar);
-        this.cer.ceq = null;
-        this.cer.mLoadDataCallBack.c(gVar);
+        this.ces.cer = null;
+        this.ces.mLoadDataCallBack.c(gVar);
     }
 }

@@ -29,7 +29,7 @@ public class al {
                     if (da > 0) {
                         if (z) {
                             Bitmap image = ba.tw().getImage(db);
-                            com.baidu.tbadk.imageManager.e.Al().dN(da);
+                            com.baidu.tbadk.imageManager.e.Am().dN(da);
                             if (image != null) {
                                 a(str, image, z2, ba.tw().cZ(db), z3, db);
                             }
@@ -72,7 +72,7 @@ public class al {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.e.Al().c(str, aVar);
+        com.baidu.tbadk.imageManager.e.Am().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

@@ -13,7 +13,7 @@ public class a implements ag {
     private boolean mIsChecked = false;
     private int mUserType;
 
-    public String xv() {
+    public String xw() {
         StringBuilder sb = new StringBuilder(64);
         if (this.aec != null) {
             sb.append(this.aec);
@@ -60,7 +60,7 @@ public class a implements ag {
         this.aeg = str;
     }
 
-    public String xw() {
+    public String xx() {
         return this.aeg;
     }
 

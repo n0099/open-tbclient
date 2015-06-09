@@ -11,6 +11,6 @@ class ah implements CustomMessageTask.CustomRunnable<Long> {
         if (customMessage == null) {
             return null;
         }
-        return new ResponseNewFriendDataMessage(ba.FW().J(customMessage.getData().longValue()));
+        return new ResponseNewFriendDataMessage(ba.FX().J(customMessage.getData().longValue()));
     }
 }

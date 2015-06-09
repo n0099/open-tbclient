@@ -26,9 +26,9 @@ public class b extends CustomMessageListener {
                 com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgGiftNum(0);
                 com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgLiveVip(0);
                 com.baidu.tbadk.coreExtra.messageCenter.a.vJ().wb();
-                l.OR();
-                n.RB().Rj();
-                com.baidu.tieba.im.db.m.RA().Rj();
+                l.OS();
+                n.RC().Rk();
+                com.baidu.tieba.im.db.m.RB().Rk();
             }
             l.a(new c(this, isNull), new d(this));
         }

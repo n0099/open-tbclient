@@ -2,12 +2,12 @@ package com.baidu.tieba.tbadkCore.h;
 /* loaded from: classes.dex */
 public class c {
     public boolean AA;
-    public int ctR;
-    final /* synthetic */ a ctS;
-    public String ctT;
+    public int ctS;
+    final /* synthetic */ a ctT;
+    public String ctU;
     public String mPostId;
 
     public c(a aVar) {
-        this.ctS = aVar;
+        this.ctT = aVar;
     }
 }

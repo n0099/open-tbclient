@@ -17,24 +17,24 @@ public class c {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                dVar.bwr = optJSONObject.optString("title");
+                dVar.bws = optJSONObject.optString("title");
                 dVar.replyContent = optJSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                dVar.bwu = optJSONObject.optString("quote_content");
-                dVar.bww = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                dVar.bwv = optJSONObject.optString("quote_content");
+                dVar.bwx = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 dVar.threadId = optJSONObject.optString("thread_id");
                 dVar.postId = optJSONObject.optString("post_id");
                 dVar.type = optJSONObject.optInt("type");
                 dVar.title = optJSONObject.optString("title");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    dVar.bws = optJSONObject2.optString("id");
-                    dVar.bwv = optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
-                    dVar.bwt = optJSONObject2.optInt("gender");
+                    dVar.bwt = optJSONObject2.optString("id");
+                    dVar.bww = optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
+                    dVar.bwu = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    dVar.bwp = optJSONObject3.optString("id");
-                    dVar.bwq = optJSONObject3.optInt("gender");
+                    dVar.bwq = optJSONObject3.optString("id");
+                    dVar.bwr = optJSONObject3.optInt("gender");
                 }
             }
             return dVar;

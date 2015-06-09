@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends CustomMessageListener {
-    final /* synthetic */ s bsN;
+    final /* synthetic */ s bsO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(s sVar, int i) {
         super(i);
-        this.bsN = sVar;
+        this.bsO = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,29 +30,29 @@ public class u extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.bsN.bsL;
+                personalTalkSettingActivity = this.bsO.bsM;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.bsN.bsL;
+                    personalTalkSettingActivity2 = this.bsO.bsM;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.bsN.acr = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.bsN.bsL;
+            this.bsO.acr = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.bsO.bsM;
             if (personalTalkSettingActivity3 != null) {
-                z = this.bsN.acr;
+                z = this.bsO.acr;
                 if (z) {
-                    personalTalkSettingActivity5 = this.bsN.bsL;
+                    personalTalkSettingActivity5 = this.bsO.bsM;
                     personalTalkSettingActivity5.showToast(com.baidu.tieba.t.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.bsN.bsL;
+                    personalTalkSettingActivity4 = this.bsO.bsM;
                     personalTalkSettingActivity4.showToast(com.baidu.tieba.t.remove_succ);
                 }
             }
-            xVar = this.bsN.bsM;
+            xVar = this.bsO.bsN;
             if (xVar != null) {
-                xVar2 = this.bsN.bsM;
+                xVar2 = this.bsO.bsN;
                 xVar2.uv();
             }
         }

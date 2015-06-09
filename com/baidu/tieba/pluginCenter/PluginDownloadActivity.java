@@ -11,17 +11,17 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity> {
-    private PluginNetConfigInfos.PluginConfig bXo;
-    private i bXq;
-    private boolean bXr;
+    private PluginNetConfigInfos.PluginConfig bXp;
+    private i bXr;
+    private boolean bXs;
     private boolean mFinished;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bXo = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
-        if (this.bXo == null) {
+        this.bXp = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
+        if (this.bXp == null) {
             showToast(getPageContext().getString(t.plugin_config_not_found), false);
             finish();
             return;
@@ -29,17 +29,17 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.bXq = new i(this, getPageContext().getPageActivity(), u.common_alert_dialog);
-        this.bXq.setCancelable(false);
-        this.bXq.setOnKeyListener(new g(this));
-        this.bXq.setOnDismissListener(new h(this));
+        this.bXr = new i(this, getPageContext().getPageActivity(), u.common_alert_dialog);
+        this.bXr.setCancelable(false);
+        this.bXr.setOnKeyListener(new g(this));
+        this.bXr.setOnDismissListener(new h(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.bXq.show();
+        this.bXr.show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().ab(i == 1);
-        getLayoutMode().j(this.bXq.findViewById(q.dialog_layout));
+        getLayoutMode().j(this.bXr.findViewById(q.dialog_layout));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.bXo != null) {
-            PluginPackageManager.lM().bz(this.bXo.package_name);
+        if (this.bXp != null) {
+            PluginPackageManager.lM().bz(this.bXp.package_name);
         }
         super.onDestroy();
     }

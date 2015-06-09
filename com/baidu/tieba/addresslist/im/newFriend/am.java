@@ -3,11 +3,11 @@ package com.baidu.tieba.addresslist.im.newFriend;
 import android.view.View;
 /* loaded from: classes.dex */
 class am implements ak {
-    final /* synthetic */ NewFriendsActivity aAs;
+    final /* synthetic */ NewFriendsActivity aAt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NewFriendsActivity newFriendsActivity) {
-        this.aAs = newFriendsActivity;
+        this.aAt = newFriendsActivity;
     }
 
     @Override // com.baidu.tieba.addresslist.im.newFriend.ak
@@ -16,9 +16,9 @@ class am implements ak {
             if (bVar.getStatus() != 1) {
                 return;
             }
-            this.aAs.e(bVar);
+            this.aAt.e(bVar);
             return;
         }
-        this.aAs.d(bVar);
+        this.aAt.d(bVar);
     }
 }

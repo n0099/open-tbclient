@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.view.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ a aQc;
+    final /* synthetic */ a aQd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.aQc = aVar;
+        this.aQd = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,47 +31,47 @@ public class c implements Runnable {
         o oVar2;
         FrsActivity frsActivity2;
         com.baidu.adp.lib.guide.d dVar2;
-        i = this.aQc.mScrollState;
+        i = this.aQd.mScrollState;
         if (i == 0) {
-            bdListView = this.aQc.aPQ;
+            bdListView = this.aQd.aPR;
             if (bdListView.np()) {
-                dVar = this.aQc.aPV;
+                dVar = this.aQd.aPW;
                 if (dVar != null) {
-                    dVar2 = this.aQc.aPV;
+                    dVar2 = this.aQd.aPW;
                     dVar2.dismiss();
                 }
-                z = this.aQc.aPZ;
+                z = this.aQd.aQa;
                 if (!z) {
-                    i2 = this.aQc.mIsLike;
+                    i2 = this.aQd.mIsLike;
                     if (i2 == 1) {
-                        str = this.aQc.aNR;
+                        str = this.aQd.aNS;
                         if (str == "frs_page") {
-                            oVar = this.aQc.aPS;
+                            oVar = this.aQd.aPT;
                             if (oVar != null) {
-                                oVar2 = this.aQc.aPS;
-                                if (oVar2.MA()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aKV, true);
-                                    this.aQc.Mg();
-                                    frsActivity2 = this.aQc.aPE;
-                                    frsActivity2.aKZ = true;
-                                    this.aQc.aPZ = true;
+                                oVar2 = this.aQd.aPT;
+                                if (oVar2.MB()) {
+                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aKW, true);
+                                    this.aQd.Mh();
+                                    frsActivity2 = this.aQd.aPF;
+                                    frsActivity2.aLa = true;
+                                    this.aQd.aQa = true;
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        str2 = this.aQc.aNR;
+                        str2 = this.aQd.aNS;
                         if (str2 == "normal_page") {
-                            frsHeaderView = this.aQc.aPR;
+                            frsHeaderView = this.aQd.aPS;
                             if (frsHeaderView != null) {
-                                frsHeaderView2 = this.aQc.aPR;
-                                if (frsHeaderView2.MA()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aKV, true);
-                                    this.aQc.Mg();
-                                    frsActivity = this.aQc.aPE;
-                                    frsActivity.aKZ = true;
-                                    this.aQc.aPZ = true;
+                                frsHeaderView2 = this.aQd.aPS;
+                                if (frsHeaderView2.MB()) {
+                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aKW, true);
+                                    this.aQd.Mh();
+                                    frsActivity = this.aQd.aPF;
+                                    frsActivity.aLa = true;
+                                    this.aQd.aQa = true;
                                 }
                             }
                         }

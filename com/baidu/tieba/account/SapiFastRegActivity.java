@@ -26,12 +26,12 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
     private SapiWebView abp;
     private boolean abu;
     private View abw;
-    private TextView axR;
+    private TextView axS;
     private View mBack;
     private int mFrom;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.coreExtra.view.t abq = null;
-    private String axQ = null;
+    private String axR = null;
     private final com.baidu.tbadk.core.a.b SV = new an(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,10 +53,10 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         this.mBack.setOnClickListener(this);
         this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.t.account_regedit));
         this.abw = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.r.navigation_right_button_layout, (View.OnClickListener) null);
-        this.axR = (TextView) this.abw.findViewById(com.baidu.tieba.q.right_textview);
-        this.axR.setText(getPageContext().getString(com.baidu.tieba.t.login));
-        ay.b(this.axR, com.baidu.tieba.n.navi_op_text, 1);
-        this.axR.setOnClickListener(this);
+        this.axS = (TextView) this.abw.findViewById(com.baidu.tieba.q.right_textview);
+        this.axS.setText(getPageContext().getString(com.baidu.tieba.t.login));
+        ay.b(this.axS, com.baidu.tieba.n.navi_op_text, 1);
+        this.axS.setOnClickListener(this);
         this.abp = (SapiWebView) findViewById(com.baidu.tieba.q.sapi_webview);
         com.baidu.tbadk.core.a.f.a(getPageContext().getContext(), this.abp);
         this.abp.setOnFinishCallback(new ao(this));
@@ -70,13 +70,13 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
             this.abq = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
             this.abq.a(new aq(this));
         }
-        this.abq.xS();
+        this.abq.xT();
         this.abq.k(accountData);
-        this.abq.xO();
+        this.abq.xP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fu() {
+    public void Fv() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -90,7 +90,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         TbadkCoreApplication.setCurrentAccount(accountData, getBaseContext());
         if (this.mFrom == 4) {
             Intent intent = new Intent();
-            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.axQ);
+            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.axR);
             setResult(-1, intent);
             finish();
             return;
@@ -113,7 +113,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
     public void onClick(View view) {
         if (view == this.mBack) {
             finish();
-        } else if (view == this.axR) {
+        } else if (view == this.axS) {
             if (this.mFrom == 1) {
                 finish();
             } else {

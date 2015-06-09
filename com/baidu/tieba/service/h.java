@@ -13,10 +13,10 @@ import com.baidu.tieba.aj;
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.a.j> {
     aa OE;
-    final /* synthetic */ SyncLoginService cdB;
+    final /* synthetic */ SyncLoginService cdC;
 
     private h(SyncLoginService syncLoginService) {
-        this.cdB = syncLoginService;
+        this.cdC = syncLoginService;
         this.OE = null;
     }
 
@@ -91,7 +91,7 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.a.j> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.cdB.mSyncTask = null;
+        this.cdC.mSyncTask = null;
         if (this.OE != null) {
             this.OE.gS();
         }
@@ -104,6 +104,6 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.a.j> {
     /* renamed from: a */
     public void onPostExecute(com.baidu.tieba.a.j jVar) {
         super.onPostExecute(jVar);
-        this.cdB.mSyncTask = null;
+        this.cdC.mSyncTask = null;
     }
 }

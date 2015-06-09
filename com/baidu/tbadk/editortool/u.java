@@ -19,7 +19,7 @@ public class u {
         this.akq = adVar;
     }
 
-    public ad zt() {
+    public ad zu() {
         return this.akq;
     }
 
@@ -27,7 +27,7 @@ public class u {
         this.akl = emotionGroupType;
     }
 
-    public EmotionGroupType zu() {
+    public EmotionGroupType zv() {
         return this.akl;
     }
 
@@ -43,7 +43,7 @@ public class u {
         this.column = i;
     }
 
-    public int zv() {
+    public int zw() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class u {
         this.aks = i;
     }
 
-    public int zw() {
+    public int zx() {
         return this.aks;
     }
 
@@ -59,7 +59,7 @@ public class u {
         this.akr = i;
     }
 
-    public int zx() {
+    public int zy() {
         return this.akr;
     }
 
@@ -67,7 +67,7 @@ public class u {
         this.akm = i;
     }
 
-    public int zy() {
+    public int zz() {
         return this.akm;
     }
 
@@ -75,7 +75,7 @@ public class u {
         this.ako = i;
     }
 
-    public int zz() {
+    public int zA() {
         return this.ako;
     }
 
@@ -95,7 +95,7 @@ public class u {
         this.akn = i;
     }
 
-    public int zA() {
+    public int zB() {
         return this.akn;
     }
 }

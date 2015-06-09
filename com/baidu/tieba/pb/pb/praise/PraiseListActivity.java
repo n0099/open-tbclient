@@ -10,21 +10,21 @@ import com.baidu.tbadk.mvc.core.MvcActivity;
 import com.baidu.tbadk.util.i;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends MvcActivity<h, e, PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.mvc.c.a {
-    private h bOW = null;
-    private e bOX = null;
+    private h bOX = null;
+    private e bOY = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        AL().addEventDelegate(this);
+        AM().addEventDelegate(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == oA().getPageHeadView()) {
-            if (!oy().bPc.acP()) {
-                i.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(oy().bPc.getThreadId(), null, "praise_list"));
+            if (!oy().bPd.acQ()) {
+                i.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(oy().bPd.getThreadId(), null, "praise_list"));
             }
             finish();
         }
@@ -33,28 +33,28 @@ public class PraiseListActivity extends MvcActivity<h, e, PraiseListActivity> im
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a aVar;
-        if (i >= 0 && i < oy().bPb.acO().size() && (aVar = oy().bPb.acO().get(i)) != null) {
-            i.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.acI(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        if (i >= 0 && i < oy().bPc.acP().size() && (aVar = oy().bPc.acP().get(i)) != null) {
+            i.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.acJ(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: acK */
-    public e oy() {
-        if (this.bOX == null) {
-            this.bOX = new e(this);
-        }
-        return this.bOX;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
     /* renamed from: acL */
-    public h oA() {
-        if (this.bOW == null) {
-            this.bOW = new h(this);
+    public e oy() {
+        if (this.bOY == null) {
+            this.bOY = new e(this);
         }
-        return this.bOW;
+        return this.bOY;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.mvc.core.e
+    /* renamed from: acM */
+    public h oA() {
+        if (this.bOX == null) {
+            this.bOX = new h(this);
+        }
+        return this.bOX;
     }
 }

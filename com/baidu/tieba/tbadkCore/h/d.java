@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.aa;
 public class d extends BdAsyncTask<String, Integer, String> {
     private aa aaG;
     private String aec;
-    private String bIM;
-    final /* synthetic */ a ctS;
+    private String bIN;
+    final /* synthetic */ a ctT;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
@@ -20,7 +20,7 @@ public class d extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(String... strArr) {
         this.aaG = new aa(strArr[0]);
-        this.aaG.o("day", this.bIM);
+        this.aaG.o("day", this.bIN);
         this.aaG.o("un", this.aec);
         this.aaG.o(ImageViewerConfig.FORUM_ID, this.mForumId);
         this.aaG.o("word", this.mForumName);
@@ -40,9 +40,9 @@ public class d extends BdAsyncTask<String, Integer, String> {
         if (this.aaG != null) {
             this.aaG.gS();
         }
-        this.ctS.ctP = null;
+        this.ctT.ctQ = null;
         super.cancel(true);
-        iVar = this.ctS.mLoadDataCallBack;
+        iVar = this.ctT.mLoadDataCallBack;
         iVar.c(null);
     }
 
@@ -53,20 +53,20 @@ public class d extends BdAsyncTask<String, Integer, String> {
         i iVar;
         i iVar2;
         super.onPostExecute((d) str);
-        this.ctS.ctP = null;
+        this.ctT.ctQ = null;
         if (this.aaG == null) {
-            iVar2 = this.ctS.mLoadDataCallBack;
+            iVar2 = this.ctT.mLoadDataCallBack;
             iVar2.c(null);
             return;
         }
-        e eVar = new e(this.ctS);
+        e eVar = new e(this.ctT);
         if (str == null) {
             eVar.AA = true;
         } else {
             eVar.AA = false;
-            eVar.ctT = str;
+            eVar.ctU = str;
         }
-        iVar = this.ctS.mLoadDataCallBack;
+        iVar = this.ctT.mLoadDataCallBack;
         iVar.c(eVar);
     }
 }

@@ -13,23 +13,23 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
     private ArrayList<MetaData> Sk;
-    private AtListActivity cBu;
-    private boolean cBw;
+    private AtListActivity cBv;
+    private boolean cBx;
     private com.baidu.tbadk.core.view.af mCheckBoxStateChangedListener;
     private final Context mContext;
-    private q cBv = null;
-    private ViewGroup bvE = null;
+    private q cBw = null;
+    private ViewGroup bvF = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(q qVar) {
-        this.cBv = qVar;
+        this.cBw = qVar;
     }
 
     public o(AtListActivity atListActivity, boolean z) {
-        this.cBw = true;
-        this.cBu = atListActivity;
-        this.mContext = this.cBu.getPageContext().getContext();
-        this.cBw = z;
+        this.cBx = true;
+        this.cBv = atListActivity;
+        this.mContext = this.cBv.getPageContext().getContext();
+        this.cBx = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -68,8 +68,8 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         p pVar;
-        if (this.bvE == null) {
-            this.bvE = viewGroup;
+        if (this.bvF == null) {
+            this.bvF = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -87,37 +87,37 @@ public class o extends BaseAdapter {
         p pVar;
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (obj == null) {
-            pVar = asQ();
+            pVar = asR();
         } else {
             pVar = (p) obj;
         }
-        if (this.cBv != null) {
-            this.cBv.a(pVar.rootView, metaData);
+        if (this.cBw != null) {
+            this.cBw.a(pVar.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        pVar.aBm.setText(metaData.getName_show());
-        pVar.bvG.setTagData(metaData);
-        pVar.bvj.setTag(portrait);
-        if (this.cBw) {
-            pVar.bvG.setVisibility(0);
+        pVar.aBn.setText(metaData.getName_show());
+        pVar.bvH.setTagData(metaData);
+        pVar.bvk.setTag(portrait);
+        if (this.cBx) {
+            pVar.bvH.setVisibility(0);
         } else {
-            pVar.bvG.setVisibility(8);
+            pVar.bvH.setVisibility(8);
         }
-        pVar.bvj.c(portrait, 12, false);
-        this.cBu.getPageContext().getLayoutMode().ab(skinType == 1);
-        this.cBu.getPageContext().getLayoutMode().j(pVar.rootView);
+        pVar.bvk.c(portrait, 12, false);
+        this.cBv.getPageContext().getLayoutMode().ab(skinType == 1);
+        this.cBv.getPageContext().getLayoutMode().j(pVar.rootView);
         return pVar;
     }
 
-    private p asQ() {
+    private p asR() {
         p pVar = new p(this, null);
         pVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.invite_friend_list_item, null);
-        pVar.bvj = (HeadImageView) pVar.rootView.findViewById(com.baidu.tieba.q.photo);
-        pVar.bvj.setIsRound(false);
-        pVar.aBm = (TextView) pVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
-        pVar.bvG = (TbCheckBox) pVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
+        pVar.bvk = (HeadImageView) pVar.rootView.findViewById(com.baidu.tieba.q.photo);
+        pVar.bvk.setIsRound(false);
+        pVar.aBn = (TextView) pVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
+        pVar.bvH = (TbCheckBox) pVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
         if (this.mCheckBoxStateChangedListener != null) {
-            pVar.bvG.setStatedChangedListener(this.mCheckBoxStateChangedListener);
+            pVar.bvH.setStatedChangedListener(this.mCheckBoxStateChangedListener);
         }
         pVar.rootView.setTag(pVar);
         return pVar;

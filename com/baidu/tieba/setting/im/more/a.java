@@ -4,61 +4,61 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
     private int aio;
-    private int cdH;
     private int cdI;
-    private boolean cdJ;
+    private int cdJ;
+    private boolean cdK;
 
-    public boolean ahZ() {
+    public boolean aia() {
         com.baidu.tbadk.core.sharedPref.b sl = com.baidu.tbadk.core.sharedPref.b.sl();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.cdH = sl.getInt("post" + currentAccount, 0);
-        this.cdI = sl.getInt("like" + currentAccount, 0);
+        this.cdI = sl.getInt("post" + currentAccount, 0);
+        this.cdJ = sl.getInt("like" + currentAccount, 0);
         this.aio = sl.getInt("group" + currentAccount, 0);
-        this.cdJ = TbadkCoreApplication.m411getInst().getLocationShared();
-        return (this.cdH == 0 && this.cdI == 0 && this.aio == 0) ? false : true;
+        this.cdK = TbadkCoreApplication.m411getInst().getLocationShared();
+        return (this.cdI == 0 && this.cdJ == 0 && this.aio == 0) ? false : true;
     }
 
     public void a(a aVar) {
-        this.cdH = aVar.cdH;
         this.cdI = aVar.cdI;
-        this.aio = aVar.aio;
         this.cdJ = aVar.cdJ;
+        this.aio = aVar.aio;
+        this.cdK = aVar.cdK;
     }
 
-    public int aia() {
-        return this.cdH;
+    public int aib() {
+        return this.cdI;
     }
 
     public void R(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.sl().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void aib() {
+    public void aic() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b sl = com.baidu.tbadk.core.sharedPref.b.sl();
-        sl.putInt("post" + currentAccount, this.cdH);
-        sl.putInt("like" + currentAccount, this.cdI);
+        sl.putInt("post" + currentAccount, this.cdI);
+        sl.putInt("like" + currentAccount, this.cdJ);
         sl.putInt("group" + currentAccount, this.aio);
-        TbadkCoreApplication.m411getInst().setLocationShared(this.cdJ);
+        TbadkCoreApplication.m411getInst().setLocationShared(this.cdK);
     }
 
     public void iq(int i) {
-        if (i <= 3 && i >= 1) {
-            this.cdH = i;
-        }
-    }
-
-    public int aic() {
-        return this.cdI;
-    }
-
-    public void ir(int i) {
         if (i <= 3 && i >= 1) {
             this.cdI = i;
         }
     }
 
-    public int yR() {
+    public int aid() {
+        return this.cdJ;
+    }
+
+    public void ir(int i) {
+        if (i <= 3 && i >= 1) {
+            this.cdJ = i;
+        }
+    }
+
+    public int yS() {
         return this.aio;
     }
 
@@ -68,17 +68,17 @@ public class a {
         }
     }
 
-    public boolean aid() {
-        return this.cdJ;
+    public boolean aie() {
+        return this.cdK;
     }
 
     public void it(int i) {
         switch (i) {
             case 1:
-                this.cdJ = true;
+                this.cdK = true;
                 return;
             default:
-                this.cdJ = false;
+                this.cdK = false;
                 return;
         }
     }

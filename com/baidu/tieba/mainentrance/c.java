@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.BarImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private List<e> bBw;
+    private List<e> bBx;
     private BaseActivity<?> mActivity;
 
     public c(BaseActivity<?> baseActivity) {
@@ -19,16 +19,16 @@ public class c extends BaseAdapter {
     }
 
     public void aM(List<e> list) {
-        this.bBw = list;
+        this.bBx = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bBw == null) {
+        if (this.bBx == null) {
             return 0;
         }
-        return this.bBw.size();
+        return this.bBx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class c extends BaseAdapter {
         if (i < 0 || i >= count) {
             return null;
         }
-        return this.bBw.get(i);
+        return this.bBx.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,11 +53,11 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = com.baidu.adp.lib.g.b.hr().inflate(this.mActivity.getPageContext().getPageActivity(), com.baidu.tieba.r.square_dialog_search_item, null);
             d dVar2 = new d(this, null);
-            dVar2.bAR = (BarImageView) view.findViewById(com.baidu.tieba.q.forum_avatar);
-            dVar2.bAR.setGifIconSupport(false);
-            dVar2.aGH = (TextView) view.findViewById(com.baidu.tieba.q.name);
-            dVar2.bAS = (TextView) view.findViewById(com.baidu.tieba.q.member_count);
-            dVar2.bAT = (TextView) view.findViewById(com.baidu.tieba.q.thread_count);
+            dVar2.bAS = (BarImageView) view.findViewById(com.baidu.tieba.q.forum_avatar);
+            dVar2.bAS.setGifIconSupport(false);
+            dVar2.aGI = (TextView) view.findViewById(com.baidu.tieba.q.name);
+            dVar2.bAT = (TextView) view.findViewById(com.baidu.tieba.q.member_count);
+            dVar2.bAU = (TextView) view.findViewById(com.baidu.tieba.q.thread_count);
             view.setTag(dVar2);
             dVar = dVar2;
         } else {
@@ -66,12 +66,12 @@ public class c extends BaseAdapter {
         e item = getItem(i);
         if (item != null) {
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-            String Yf = item.Yf();
-            dVar.bAR.setTag(Yf);
-            dVar.bAR.c(Yf, 10, false);
-            dVar.aGH.setText(item.getForumName());
-            dVar.bAS.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_attention_tv)) + ai(item.Yg()));
-            dVar.bAT.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_thread_tv)) + ai(item.Yh()));
+            String Yg = item.Yg();
+            dVar.bAS.setTag(Yg);
+            dVar.bAS.c(Yg, 10, false);
+            dVar.aGI.setText(item.getForumName());
+            dVar.bAT.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_attention_tv)) + ai(item.Yh()));
+            dVar.bAU.setText(String.valueOf(this.mActivity.getPageContext().getString(com.baidu.tieba.t.forum_list_thread_tv)) + ai(item.Yi()));
             if (i == getCount() - 1) {
                 view.findViewById(com.baidu.tieba.q.square_lv_search_forum_divider).setVisibility(8);
             } else {

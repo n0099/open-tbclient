@@ -40,10 +40,10 @@ public class m implements Thread.UncaughtExceptionHandler {
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         if (TbConfig.getDebugSwitch() && d(th)) {
-            DY();
+            DZ();
         }
-        DZ();
-        if (!Ea()) {
+        Ea();
+        if (!Eb()) {
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
@@ -69,7 +69,7 @@ public class m implements Thread.UncaughtExceptionHandler {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 this.asn = new com.baidu.tbadk.core.data.j();
                 this.asn.info = new String(byteArray);
-                DX();
+                DY();
                 a(thread, th);
                 com.baidu.adp.lib.b.f.gD().crash(this.asn.info);
                 com.baidu.adp.lib.stats.f.hz().handleException();
@@ -132,7 +132,7 @@ public class m implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void DX() {
+    private void DY() {
         if (this.asn != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.asn));
             if (this.asn.Qd != null) {
@@ -296,7 +296,7 @@ public class m implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    private void DY() {
+    private void DZ() {
         try {
             File file = new File(aso);
             if (!file.exists()) {
@@ -308,7 +308,7 @@ public class m implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void DZ() {
+    private void Ea() {
         int i;
         long j = 0;
         byte[] aN = com.baidu.adp.lib.util.f.aN("crash_hour_record.log");
@@ -331,7 +331,7 @@ public class m implements Thread.UncaughtExceptionHandler {
         com.baidu.adp.lib.util.f.e("crash_hour_record.log", (String.valueOf(j != j2 ? 1 : i + 1) + ":" + j2).getBytes());
     }
 
-    private boolean Ea() {
+    private boolean Eb() {
         int i;
         int i2;
         int i3 = 10;

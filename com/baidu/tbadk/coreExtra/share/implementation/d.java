@@ -37,20 +37,20 @@ public class d implements BdSocialShareSdkDelegate.ShareCallback {
     public void onCancelOfBaiduListener() {
         c cVar;
         cVar = this.aeQ.aeL;
-        cVar.xG();
+        cVar.xH();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onCompleteOfBaiduListener() {
         c cVar;
         cVar = this.aeQ.aeL;
-        cVar.xF();
+        cVar.xG();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
     public void onErrorOfBaiduListener() {
         c cVar;
         cVar = this.aeQ.aeL;
-        cVar.xH();
+        cVar.xI();
     }
 }

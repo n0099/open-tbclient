@@ -17,12 +17,12 @@ public class b implements Handler.Callback {
         boolean z;
         switch (message.what) {
             case 0:
-                this.asX.Ee();
+                this.asX.Ef();
                 break;
             case 1:
                 z = this.asX.asW;
                 if (z) {
-                    this.asX.Ee();
+                    this.asX.Ef();
                     break;
                 }
                 break;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 public class f {
-    public static f ym() {
+    public static f yn() {
         f fVar;
         fVar = g.aha;
         return fVar;
@@ -15,7 +15,7 @@ public class f {
         this();
     }
 
-    public void yn() {
+    public void yo() {
         em("kLCSError=1");
     }
 

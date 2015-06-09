@@ -41,19 +41,19 @@ public class e {
         }
     }
 
-    public int wD() {
+    public int wE() {
         return this.ada;
     }
 
-    public int wE() {
+    public int wF() {
         return this.adb;
     }
 
-    public int wF() {
+    public int wG() {
         return this.adc;
     }
 
-    public int[] wG() {
+    public int[] wH() {
         return this.ade;
     }
 

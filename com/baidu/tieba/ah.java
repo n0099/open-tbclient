@@ -39,7 +39,7 @@ public class ah implements ab {
                 this.this$0.showToast(t.download_begin_tip);
                 z3 = this.this$0.avr;
                 if (z3) {
-                    wVar = this.this$0.avV;
+                    wVar = this.this$0.avW;
                     wVar.dismiss();
                     this.this$0.finish();
                     return;
@@ -63,7 +63,7 @@ public class ah implements ab {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void bs(boolean z) {
-        boolean EV;
+        boolean EW;
         boolean z2;
         CombineDownload combineDownload;
         boolean z3;
@@ -72,16 +72,16 @@ public class ah implements ab {
         CombineDownload combineDownload2;
         w wVar2;
         boolean z4 = true;
-        EV = this.this$0.EV();
-        if (EV) {
-            wVar2 = this.this$0.avV;
+        EW = this.this$0.EW();
+        if (EW) {
+            wVar2 = this.this$0.avW;
             wVar2.dismiss();
             this.this$0.finish();
             return;
         }
         if (aj.a(this.this$0.getPageContext().getPageActivity().getPackageManager())) {
             Activity pageActivity = this.this$0.getPageContext().getPageActivity();
-            versionData = this.this$0.avT;
+            versionData = this.this$0.avU;
             aj.a(pageActivity, versionData);
             UpdateDialog updateDialog = this.this$0;
             if (z) {
@@ -105,27 +105,27 @@ public class ah implements ab {
         }
         z3 = this.this$0.avr;
         if (!z3) {
-            wVar = this.this$0.avV;
+            wVar = this.this$0.avW;
             wVar.dismiss();
             this.this$0.finish();
         }
     }
 
     @Override // com.baidu.tieba.ab
-    public void ES() {
+    public void ET() {
         w wVar;
-        wVar = this.this$0.avV;
+        wVar = this.this$0.avW;
         wVar.dismiss();
         this.this$0.finish();
     }
 
     @Override // com.baidu.tieba.ab
     public void stopService() {
-        this.this$0.EU();
+        this.this$0.EV();
     }
 
     @Override // com.baidu.tieba.ab
-    public void ER() {
+    public void ES() {
         this.this$0.finish();
     }
 }

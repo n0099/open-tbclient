@@ -12,15 +12,15 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<String, Integer, Bitmap> {
     volatile com.baidu.tbadk.core.util.aa OE;
-    private volatile boolean ayP;
-    final /* synthetic */ VcodeActivity cCh;
-    com.baidu.tbadk.coreExtra.data.l cCi;
+    private volatile boolean ayQ;
+    final /* synthetic */ VcodeActivity cCi;
+    com.baidu.tbadk.coreExtra.data.l cCj;
 
     private ag(VcodeActivity vcodeActivity) {
-        this.cCh = vcodeActivity;
+        this.cCi = vcodeActivity;
         this.OE = null;
-        this.cCi = null;
-        this.ayP = false;
+        this.cCj = null;
+        this.ayQ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,12 +31,12 @@ public class ag extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.cCh.cCg = null;
+        this.cCi.cCh = null;
         if (this.OE != null) {
             this.OE.gS();
         }
-        this.ayP = true;
-        progressBar = this.cCh.mProgressBar;
+        this.ayQ = true;
+        progressBar = this.cCi.mProgressBar;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -56,36 +56,36 @@ public class ag extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0) {
             this.OE = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             com.baidu.tbadk.core.util.aa aaVar = this.OE;
-            writeData = this.cCh.cBR;
+            writeData = this.cCi.cBS;
             aaVar.o(ImageViewerConfig.FORUM_ID, writeData.getForumId());
             com.baidu.tbadk.core.util.aa aaVar2 = this.OE;
-            writeData2 = this.cCh.cBR;
+            writeData2 = this.cCi.cBS;
             aaVar2.o("kw", writeData2.getForumName());
             this.OE.o("new_vcode", "1");
             com.baidu.tbadk.core.util.aa aaVar3 = this.OE;
-            writeData3 = this.cCh.cBR;
+            writeData3 = this.cCi.cBS;
             aaVar3.o("title", writeData3.getTitle());
             com.baidu.tbadk.core.util.aa aaVar4 = this.OE;
-            writeData4 = this.cCh.cBR;
+            writeData4 = this.cCi.cBS;
             aaVar4.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData4.getContent());
-            writeData5 = this.cCh.cBR;
+            writeData5 = this.cCi.cBS;
             if (writeData5.getType() == 0) {
                 this.OE.o("pub_type", "1");
             } else {
                 this.OE.o("pub_type", "2");
                 com.baidu.tbadk.core.util.aa aaVar5 = this.OE;
-                writeData6 = this.cCh.cBR;
+                writeData6 = this.cCi.cBS;
                 aaVar5.o("tid", writeData6.getThreadId());
             }
             String sw = this.OE.sw();
             if (!this.OE.sX().tT().qa()) {
                 return null;
             }
-            this.cCi = new com.baidu.tbadk.coreExtra.data.l();
-            this.cCi.parserJson(sw);
-            str = this.cCi.getVcode_pic_url();
+            this.cCj = new com.baidu.tbadk.coreExtra.data.l();
+            this.cCj.parserJson(sw);
+            str = this.cCj.getVcode_pic_url();
         }
-        if (this.ayP) {
+        if (this.ayQ) {
             return null;
         }
         this.OE = new com.baidu.tbadk.core.util.aa(str);
@@ -100,18 +100,18 @@ public class ag extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData;
         WriteData writeData2;
         ImageView imageView;
-        this.cCh.cCg = null;
+        this.cCi.cCh = null;
         if (bitmap != null) {
-            imageView = this.cCh.avb;
+            imageView = this.cCi.avb;
             imageView.setImageBitmap(bitmap);
         }
-        progressBar = this.cCh.mProgressBar;
+        progressBar = this.cCi.mProgressBar;
         progressBar.setVisibility(8);
-        if (this.cCi != null) {
-            writeData = this.cCh.cBR;
-            writeData.setVcodeMD5(this.cCi.getVcode_md5());
-            writeData2 = this.cCh.cBR;
-            writeData2.setVcodeUrl(this.cCi.getVcode_pic_url());
+        if (this.cCj != null) {
+            writeData = this.cCi.cBS;
+            writeData.setVcodeMD5(this.cCj.getVcode_md5());
+            writeData2 = this.cCi.cBS;
+            writeData2.setVcodeUrl(this.cCj.getVcode_pic_url());
         }
         super.onPostExecute((ag) bitmap);
     }

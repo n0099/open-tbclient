@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> {
-    final /* synthetic */ b aDb;
+    final /* synthetic */ b aDc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aDb = bVar;
+        this.aDc = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -24,13 +24,13 @@ public class c implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.pos
         List<com.baidu.tieba.chosen.posts.request.d> data = readCacheRespMsg.getData();
         if (data != null && !data.isEmpty() && (dVar = data.get(0)) != null) {
             com.baidu.tbadk.mvc.c.b bVar2 = new com.baidu.tbadk.mvc.c.b(FragmentTransaction.TRANSIT_FRAGMENT_FADE, dVar, null, null);
-            bVar2.setUniqueId(this.aDb.getUniqueId());
-            this.aDb.AL().dispatchMvcEvent(bVar2);
+            bVar2.setUniqueId(this.aDc.getUniqueId());
+            this.aDc.AM().dispatchMvcEvent(bVar2);
         }
-        cVar = this.aDb.aCY;
-        cVar.GR();
-        bVar = this.aDb.aCV;
-        bVar.BL();
+        cVar = this.aDc.aCZ;
+        cVar.GS();
+        bVar = this.aDc.aCW;
+        bVar.BM();
     }
 
     @Override // com.baidu.tbadk.mvc.model.d

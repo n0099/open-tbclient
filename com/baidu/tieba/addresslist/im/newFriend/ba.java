@@ -9,28 +9,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba aAu;
+    private static ba aAv;
 
     private ba() {
     }
 
-    public static synchronized ba FW() {
+    public static synchronized ba FX() {
         ba baVar;
         synchronized (ba.class) {
-            if (aAu == null) {
-                aAu = new ba();
+            if (aAv == null) {
+                aAv = new ba();
             }
-            baVar = aAu;
+            baVar = aAv;
         }
         return baVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=5] */
-    public int FX() {
+    public int FY() {
         int i = 0;
         Cursor cursor = null;
         try {
-            cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+            cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
             if (cursor != null && cursor.moveToNext()) {
                 i = cursor.getInt(0);
             }
@@ -44,19 +44,19 @@ public class ba {
         return i;
     }
 
-    public void FY() {
+    public void FZ() {
         ContentValues contentValues = new ContentValues();
         contentValues.put("isread", (Integer) 1);
-        com.baidu.tieba.im.db.g.Rq().update("tb_new_friends", contentValues, null, null);
+        com.baidu.tieba.im.db.g.Rr().update("tb_new_friends", contentValues, null, null);
     }
 
     public boolean H(long j) {
-        return a(com.baidu.tieba.im.db.f.Ro(), j);
+        return a(com.baidu.tieba.im.db.f.Rp(), j);
     }
 
     private boolean a(SQLiteDatabase sQLiteDatabase, long j) {
         try {
-            return com.baidu.tieba.im.db.g.Rq().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            return com.baidu.tieba.im.db.g.Rr().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -73,14 +73,14 @@ public class ba {
     private boolean b(SQLiteDatabase sQLiteDatabase, long j) {
         boolean z = true;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = com.baidu.tieba.im.db.f.Ro();
+            sQLiteDatabase = com.baidu.tieba.im.db.f.Rp();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor = null;
             try {
                 try {
                     try {
-                        cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
                         if (cursor != null) {
                         }
                         z = false;
@@ -105,7 +105,7 @@ public class ba {
     }
 
     public boolean I(long j) {
-        return b(com.baidu.tieba.im.db.f.Ro(), j);
+        return b(com.baidu.tieba.im.db.f.Rp(), j);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [176=5] */
@@ -113,13 +113,13 @@ public class ba {
         Cursor cursor;
         Cursor cursor2;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = com.baidu.tieba.im.db.f.Ro();
+            sQLiteDatabase = com.baidu.tieba.im.db.f.Rp();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor3 = null;
             try {
                 try {
-                    cursor2 = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends", new String[0]);
+                    cursor2 = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends", new String[0]);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToNext()) {
@@ -172,7 +172,7 @@ public class ba {
     private int q(SQLiteDatabase sQLiteDatabase) {
         int i = 0;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = com.baidu.tieba.im.db.f.Ro();
+            sQLiteDatabase = com.baidu.tieba.im.db.f.Rp();
         }
         Cursor cursor = null;
         try {
@@ -184,7 +184,7 @@ public class ba {
             com.baidu.adp.lib.util.w.b(cursor);
         }
         if (sQLiteDatabase != null) {
-            cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends", new String[0]);
+            cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends", new String[0]);
             if (cursor == null || !cursor.moveToFirst()) {
                 com.baidu.adp.lib.util.w.b(cursor);
             } else {
@@ -196,7 +196,7 @@ public class ba {
 
     public void g(com.baidu.tieba.im.data.b bVar) {
         try {
-            a(com.baidu.tieba.im.db.f.Ro(), bVar);
+            a(com.baidu.tieba.im.db.f.Rp(), bVar);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -205,7 +205,7 @@ public class ba {
     public void z(List<com.baidu.tieba.im.data.b> list) {
         try {
             for (com.baidu.tieba.im.data.b bVar : list) {
-                a(com.baidu.tieba.im.db.f.Ro(), bVar);
+                a(com.baidu.tieba.im.db.f.Rp(), bVar);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -215,7 +215,7 @@ public class ba {
     private void a(SQLiteDatabase sQLiteDatabase, com.baidu.tieba.im.data.b bVar) {
         if (bVar != null && bVar.getId() != 0 && !TextUtils.isEmpty(bVar.getName())) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = com.baidu.tieba.im.db.f.Ro();
+                sQLiteDatabase = com.baidu.tieba.im.db.f.Rp();
             }
             if (sQLiteDatabase != null) {
                 a(sQLiteDatabase, bVar.getId());
@@ -229,21 +229,21 @@ public class ba {
                     contentValues.put("uportrait", bVar.getPortrait());
                     contentValues.put("ucontent", bVar.getContent());
                     contentValues.put("ustatus", Integer.valueOf(bVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(bVar.Rb()));
-                    com.baidu.tieba.im.db.g.Rq().insert("tb_new_friends", null, contentValues);
+                    contentValues.put("isread", Integer.valueOf(bVar.Rc()));
+                    com.baidu.tieba.im.db.g.Rr().insert("tb_new_friends", null, contentValues);
                 }
             }
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [296=4] */
-    public List<com.baidu.tieba.im.data.b> FZ() {
+    public List<com.baidu.tieba.im.data.b> Ga() {
         Cursor cursor = null;
-        SQLiteDatabase Ro = com.baidu.tieba.im.db.f.Ro();
+        SQLiteDatabase Rp = com.baidu.tieba.im.db.f.Rp();
         ArrayList arrayList = new ArrayList();
         try {
-            if (Ro != null) {
-                cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
+            if (Rp != null) {
+                cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
@@ -269,16 +269,16 @@ public class ba {
 
     public int h(com.baidu.tieba.im.data.b bVar) {
         int i = 0;
-        SQLiteDatabase Ro = com.baidu.tieba.im.db.f.Ro();
-        if (Ro != null) {
+        SQLiteDatabase Rp = com.baidu.tieba.im.db.f.Rp();
+        if (Rp != null) {
             try {
-                if (b(Ro, bVar.getId())) {
+                if (b(Rp, bVar.getId())) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("ustatus", Integer.valueOf(bVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(bVar.Rb()));
-                    i = com.baidu.tieba.im.db.g.Rq().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(bVar.getId())});
+                    contentValues.put("isread", Integer.valueOf(bVar.Rc()));
+                    i = com.baidu.tieba.im.db.g.Rr().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(bVar.getId())});
                 } else {
-                    a(Ro, bVar);
+                    a(Rp, bVar);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -288,11 +288,11 @@ public class ba {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [358=4] */
-    public List<com.baidu.tieba.im.data.b> Ga() {
+    public List<com.baidu.tieba.im.data.b> Gb() {
         ArrayList arrayList = new ArrayList();
         Cursor cursor = null;
         try {
-            cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+            cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
@@ -304,7 +304,7 @@ public class ba {
                     bVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
                     arrayList.add(bVar);
                 }
-                FY();
+                FZ();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -323,7 +323,7 @@ public class ba {
         Cursor cursor = null;
         try {
             try {
-                cursor = com.baidu.tieba.im.db.g.Rq().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                cursor = com.baidu.tieba.im.db.g.Rr().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
                 if (cursor != null && cursor.moveToNext()) {
                     bVar.fY(cursor.getInt(cursor.getColumnIndex("isread")));
                     bVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));

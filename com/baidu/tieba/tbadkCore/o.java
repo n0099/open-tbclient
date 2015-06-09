@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class o {
-    private int coY;
+    private int coZ;
     private String icon;
     private int time;
     private String title;
@@ -19,7 +19,7 @@ public class o {
     }
 
     public void iI(int i) {
-        this.coY = i;
+        this.coZ = i;
     }
 
     public String getTitle() {

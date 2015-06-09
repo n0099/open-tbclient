@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cCP;
+    final /* synthetic */ WriteActivity cCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.cCP = writeActivity;
+        this.cCQ = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,18 +22,18 @@ public class ax implements View.OnClickListener {
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer;
         boolean z;
-        WriteActivity writeActivity = this.cCP;
-        inputMethodManager = this.cCP.mInputManager;
-        editText = this.cCP.cAu;
+        WriteActivity writeActivity = this.cCQ;
+        inputMethodManager = this.cCQ.mInputManager;
+        editText = this.cCQ.cAv;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cCP;
-        inputMethodManager2 = this.cCP.mInputManager;
-        editText2 = this.cCP.cAy;
+        WriteActivity writeActivity2 = this.cCQ;
+        inputMethodManager2 = this.cCQ.mInputManager;
+        editText2 = this.cCQ.cAz;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.cCP.cqO;
+        editorToolComponetContainer = this.cCQ.cqP;
         editorToolComponetContainer.hideAll();
-        this.cCP.asA();
-        z = this.cCP.cCk;
+        this.cCQ.asB();
+        z = this.cCQ.cCl;
         if (z) {
             com.baidu.adp.lib.h.a.iB().iG();
         }

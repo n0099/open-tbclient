@@ -14,7 +14,7 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class CreateBarGuideActivity extends NavigationBarActivity {
     private x Mn;
-    private z aYN = null;
+    private z aYO = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -22,8 +22,8 @@ public class CreateBarGuideActivity extends NavigationBarActivity {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra(CreateBarGuideActivityConfig.EXTRA_KEY_FORUM_NAME);
         this.aox.setTitleText(t.frs_create_forum);
-        this.aYN = z.a(new y(getResources().getString(t.create_bar), new f(this, stringExtra)));
-        this.Mn = NoDataViewFactory.a(getPageContext().getPageActivity(), getRootView(), aa.a(NoDataViewFactory.ImgType.CREATE), ab.k(getResources().getString(t.frs_remind_noforum), getResources().getString(t.frs_remind_create), stringExtra), this.aYN);
+        this.aYO = z.a(new y(getResources().getString(t.create_bar), new f(this, stringExtra)));
+        this.Mn = NoDataViewFactory.a(getPageContext().getPageActivity(), getRootView(), aa.a(NoDataViewFactory.ImgType.CREATE), ab.k(getResources().getString(t.frs_remind_noforum), getResources().getString(t.frs_remind_create), stringExtra), this.aYO);
         this.Mn.setVisibility(0);
     }
 

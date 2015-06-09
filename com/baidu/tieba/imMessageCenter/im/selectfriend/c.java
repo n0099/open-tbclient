@@ -7,11 +7,11 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SelectFriendActivity bwe;
+    final /* synthetic */ SelectFriendActivity bwf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SelectFriendActivity selectFriendActivity) {
-        this.bwe = selectFriendActivity;
+        this.bwf = selectFriendActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,29 +19,29 @@ class c implements AdapterView.OnItemClickListener {
         int i2;
         CustomMessageListener customMessageListener;
         CustomMessageListener customMessageListener2;
-        com.baidu.tbadk.coreExtra.relationship.a item = this.bwe.bwb.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.bwf.bwc.getItem(i);
         if (item != null) {
             long userId = item.getUserId();
             String userName = item.getUserName();
             String userPortrait = item.getUserPortrait();
-            i2 = this.bwe.bwa;
+            i2 = this.bwf.bwb;
             if (i2 == 0) {
-                customMessageListener = this.bwe.bwc;
+                customMessageListener = this.bwf.bwd;
                 if (customMessageListener == null) {
-                    this.bwe.bwc = new d(this, 2001268, userId, userName, userPortrait);
-                    SelectFriendActivity selectFriendActivity = this.bwe;
-                    customMessageListener2 = this.bwe.bwc;
+                    this.bwf.bwd = new d(this, 2001268, userId, userName, userPortrait);
+                    SelectFriendActivity selectFriendActivity = this.bwf;
+                    customMessageListener2 = this.bwf.bwd;
                     selectFriendActivity.registerListener(customMessageListener2);
                 }
-                this.bwe.sendMessage(new CustomMessage(2001268));
+                this.bwf.sendMessage(new CustomMessage(2001268));
                 return;
             }
             Intent intent = new Intent();
             intent.putExtra("key_user_id", userId);
             intent.putExtra("key_user_name", userName);
             intent.putExtra("key_user_portait", userPortrait);
-            this.bwe.setResult(-1, intent);
-            this.bwe.finish();
+            this.bwf.setResult(-1, intent);
+            this.bwf.finish();
         }
     }
 }

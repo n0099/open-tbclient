@@ -5,13 +5,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements b {
-    final /* synthetic */ c bma;
-    private final /* synthetic */ ImMessageCenterPojo bme;
+    final /* synthetic */ c bmb;
+    private final /* synthetic */ ImMessageCenterPojo bmf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bma = cVar;
-        this.bme = imMessageCenterPojo;
+        this.bmb = cVar;
+        this.bmf = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.memorycache.b
@@ -19,14 +19,14 @@ public class j implements b {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 4 && next.getIs_hidden() == 0 && (next.getUserType() == 1 || next.getUserType() == 3)) {
-                if (this.bme.getLast_content_time() < next.getLast_content_time()) {
-                    this.bme.setLast_content(next.getLast_content());
-                    this.bme.setLast_content_time(next.getLast_content_time());
-                    this.bme.setLast_rid(next.getLast_rid());
-                    this.bme.setLast_user_name(next.getLast_user_name());
+                if (this.bmf.getLast_content_time() < next.getLast_content_time()) {
+                    this.bmf.setLast_content(next.getLast_content());
+                    this.bmf.setLast_content_time(next.getLast_content_time());
+                    this.bmf.setLast_rid(next.getLast_rid());
+                    this.bmf.setLast_user_name(next.getLast_user_name());
                 }
-                this.bme.setIs_hidden(0);
-                this.bme.setUnread_count(next.getUnread_count() + this.bme.getUnread_count());
+                this.bmf.setIs_hidden(0);
+                this.bmf.setUnread_count(next.getUnread_count() + this.bmf.getUnread_count());
             }
         }
     }

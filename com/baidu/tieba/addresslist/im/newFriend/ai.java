@@ -12,27 +12,27 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ai extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> aAb = new SparseArray<>();
-    private static HashMap<aj, Integer> aAc = new HashMap<>();
+    private static SparseArray<Integer> aAc = new SparseArray<>();
     private static HashMap<aj, Integer> aAd = new HashMap<>();
-    private NewFriendsActivity aAa;
-    private ak aAe;
+    private static HashMap<aj, Integer> aAe = new HashMap<>();
+    private NewFriendsActivity aAb;
+    private ak aAf;
     private List<com.baidu.tieba.im.data.b> data;
 
     static {
-        aAb.put(0, Integer.valueOf(com.baidu.tieba.t.add));
-        aAb.put(4, Integer.valueOf(com.baidu.tieba.t.added));
-        aAb.put(1, Integer.valueOf(com.baidu.tieba.t.pass));
-        aAb.put(2, Integer.valueOf(com.baidu.tieba.t.passed));
-        aAb.put(3, Integer.valueOf(com.baidu.tieba.t.waiting));
-        aAc.put(new aj(false), Integer.valueOf(com.baidu.tieba.p.btn_pass));
-        aAc.put(new aj(true), Integer.valueOf(com.baidu.tieba.p.btn_agree));
-        aAd.put(new aj(false), Integer.valueOf(com.baidu.tieba.n.btn_pass_text_color));
-        aAd.put(new aj(true), Integer.valueOf(com.baidu.tieba.n.btn_agree_text_color));
+        aAc.put(0, Integer.valueOf(com.baidu.tieba.t.add));
+        aAc.put(4, Integer.valueOf(com.baidu.tieba.t.added));
+        aAc.put(1, Integer.valueOf(com.baidu.tieba.t.pass));
+        aAc.put(2, Integer.valueOf(com.baidu.tieba.t.passed));
+        aAc.put(3, Integer.valueOf(com.baidu.tieba.t.waiting));
+        aAd.put(new aj(false), Integer.valueOf(com.baidu.tieba.p.btn_pass));
+        aAd.put(new aj(true), Integer.valueOf(com.baidu.tieba.p.btn_agree));
+        aAe.put(new aj(false), Integer.valueOf(com.baidu.tieba.n.btn_pass_text_color));
+        aAe.put(new aj(true), Integer.valueOf(com.baidu.tieba.n.btn_agree_text_color));
     }
 
     public ai(NewFriendsActivity newFriendsActivity) {
-        this.aAa = newFriendsActivity;
+        this.aAb = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -62,25 +62,25 @@ public class ai extends BaseAdapter implements View.OnClickListener {
         } else {
             view = com.baidu.adp.lib.g.b.hr().inflate(viewGroup.getContext(), com.baidu.tieba.r.add_new_friend_list_item, null);
             alVar = new al(null);
-            alVar.aAg = (HeadImageView) view.findViewById(com.baidu.tieba.q.friend_icon);
-            alVar.aAh = (TextView) view.findViewById(com.baidu.tieba.q.friend_name);
-            alVar.aAi = (TextView) view.findViewById(com.baidu.tieba.q.friend_info);
-            alVar.aAj = (TextView) view.findViewById(com.baidu.tieba.q.friend_add_btn);
+            alVar.aAh = (HeadImageView) view.findViewById(com.baidu.tieba.q.friend_icon);
+            alVar.aAi = (TextView) view.findViewById(com.baidu.tieba.q.friend_name);
+            alVar.aAj = (TextView) view.findViewById(com.baidu.tieba.q.friend_info);
+            alVar.aAk = (TextView) view.findViewById(com.baidu.tieba.q.friend_add_btn);
             view.setTag(alVar);
         }
         com.baidu.tieba.im.data.b item = getItem(i);
         alVar.c(item);
-        alVar.aAj.setTag(Integer.valueOf(i));
-        alVar.aAj.setOnClickListener(this);
-        this.aAa.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.aAa.getLayoutMode().j(view);
-        Integer num = aAc.get(new aj(item.getStatus() == 1));
+        alVar.aAk.setTag(Integer.valueOf(i));
+        alVar.aAk.setOnClickListener(this);
+        this.aAb.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.aAb.getLayoutMode().j(view);
+        Integer num = aAd.get(new aj(item.getStatus() == 1));
         if (num != null) {
-            com.baidu.tbadk.core.util.ay.i((View) alVar.aAj, num.intValue());
+            com.baidu.tbadk.core.util.ay.i((View) alVar.aAk, num.intValue());
         }
-        Integer num2 = aAd.get(new aj(item.getStatus() == 1));
+        Integer num2 = aAe.get(new aj(item.getStatus() == 1));
         if (num2 != null) {
-            com.baidu.tbadk.core.util.ay.b(alVar.aAj, num2.intValue(), 1);
+            com.baidu.tbadk.core.util.ay.b(alVar.aAk, num2.intValue(), 1);
         }
         return view;
     }
@@ -135,14 +135,14 @@ public class ai extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aAe != null) {
+        if (this.aAf != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.aAe.a(id, intValue, view, getItem(intValue));
+            this.aAf.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(ak akVar) {
-        this.aAe = akVar;
+        this.aAf = akVar;
     }
 }

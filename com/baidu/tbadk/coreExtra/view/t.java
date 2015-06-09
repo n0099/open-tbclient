@@ -68,7 +68,7 @@ public class t {
         this.age = xVar;
     }
 
-    public void xO() {
+    public void xP() {
         if (this.afN == null) {
             this.afM = com.baidu.adp.lib.g.b.hr().inflate(this.LH.getPageActivity(), com.baidu.tieba.r.main_input_username, null);
             this.afO = (EditText) this.afM.findViewById(com.baidu.tieba.q.account);
@@ -89,7 +89,7 @@ public class t {
             this.afT.setOnCheckedChangeListener(this.afR);
             this.afU.setOnCheckedChangeListener(this.afR);
             this.agb = (TextView) this.afM.findViewById(com.baidu.tieba.q.phone_info);
-            xR();
+            xS();
             this.afN = new Dialog(this.LH.getPageActivity(), com.baidu.tieba.u.input_username_dialog);
             this.afN.setCanceledOnTouchOutside(false);
             this.afN.setCancelable(false);
@@ -98,7 +98,7 @@ public class t {
         }
         if (!this.afN.isShowing()) {
             this.afO.setText((CharSequence) null);
-            xR();
+            xS();
             eh(null);
             if (this.agc == null || this.agc.length() <= 0) {
                 this.agb.setText("Hi," + this.LH.getString(com.baidu.tieba.t.bar_friend));
@@ -115,7 +115,7 @@ public class t {
         }
     }
 
-    public void xP() {
+    public void xQ() {
         String editable = this.afO.getText().toString();
         if (editable == null || editable.length() <= 0) {
             eh(this.LH.getString(com.baidu.tieba.t.input_name));
@@ -134,7 +134,7 @@ public class t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xQ() {
+    public void xR() {
         if (this.agf != null) {
             this.agf.g(null);
         }
@@ -181,14 +181,14 @@ public class t {
             this.afX.cancel();
             this.afX = null;
         }
-        xS();
+        xT();
     }
 
     public boolean isShowing() {
         return this.afN != null && this.afN.isShowing();
     }
 
-    public void xR() {
+    public void xS() {
         this.afP.setVisibility(8);
         this.afP.clearCheck();
         this.afQ.setVisibility(8);
@@ -201,7 +201,7 @@ public class t {
         this.afU.setChecked(false);
     }
 
-    public void xS() {
+    public void xT() {
         if (this.afN != null && this.afN.isShowing()) {
             com.baidu.adp.lib.g.k.b(this.afN, this.LH);
         }

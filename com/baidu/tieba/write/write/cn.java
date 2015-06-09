@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class cn extends PopupWindow {
     private LinearLayout agF;
-    private co cDu;
+    private co cDv;
     private Context context;
     private int count;
     private int mCurrentIndex;
@@ -62,7 +62,7 @@ public class cn extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new cp(this.count, this.cDu));
+        view.setOnClickListener(new cp(this.count, this.cDv));
         this.agF.addView(view);
         this.count++;
     }
@@ -80,6 +80,6 @@ public class cn extends PopupWindow {
     }
 
     public void a(co coVar) {
-        this.cDu = coVar;
+        this.cDv = coVar;
     }
 }

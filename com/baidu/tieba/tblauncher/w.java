@@ -21,10 +21,10 @@ class w extends CustomMessageListener {
         aj ajVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            ajVar = this.this$0.cvr;
+            ajVar = this.this$0.cvs;
             if (booleanValue) {
-                ajVar2 = this.this$0.cvr;
-                if (ajVar2.aqm()) {
+                ajVar2 = this.this$0.cvs;
+                if (ajVar2.aqn()) {
                     z = true;
                     ajVar.fr(z);
                 }

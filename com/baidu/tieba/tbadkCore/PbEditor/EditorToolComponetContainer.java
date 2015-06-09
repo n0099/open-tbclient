@@ -32,51 +32,51 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     protected LinearLayout Yv;
     private com.baidu.tbadk.editortool.v ajx;
     private boolean ale;
-    private WriteImagesInfo cqA;
+    protected final af cqA;
     private WriteImagesInfo cqB;
-    private com.baidu.tbadk.img.e cqC;
-    protected ToolMoreView cqf;
-    protected EmotionTabHost cqg;
-    protected com.baidu.tieba.tbadkCore.voice.b cqh;
-    protected com.baidu.tieba.tbadkCore.voice.c cqi;
-    protected View cqj;
+    private WriteImagesInfo cqC;
+    private com.baidu.tbadk.img.e cqD;
+    protected ToolMoreView cqg;
+    protected EmotionTabHost cqh;
+    protected com.baidu.tieba.tbadkCore.voice.b cqi;
+    protected com.baidu.tieba.tbadkCore.voice.c cqj;
     protected View cqk;
-    protected DragContainer cql;
-    protected DragLayer cqm;
-    protected DragHorizonScrollView cqn;
-    protected DragContainer cqo;
-    protected DragLayer cqp;
-    protected DragHorizonScrollView cqq;
-    protected TextView cqr;
+    protected View cql;
+    protected DragContainer cqm;
+    protected DragLayer cqn;
+    protected DragHorizonScrollView cqo;
+    protected DragContainer cqp;
+    protected DragLayer cqq;
+    protected DragHorizonScrollView cqr;
     protected TextView cqs;
-    protected o cqt;
-    protected boolean cqu;
-    private final boolean cqv;
-    private boolean cqw;
+    protected TextView cqt;
+    protected o cqu;
+    protected boolean cqv;
+    private final boolean cqw;
     private boolean cqx;
-    private int cqy;
-    protected final af cqz;
+    private boolean cqy;
+    private int cqz;
     protected Context mContext;
     private int padding;
 
     public EditorToolComponetContainer(Context context) {
         super(context);
-        this.cqu = false;
-        this.cqv = true;
+        this.cqv = false;
+        this.cqw = true;
         this.ale = false;
-        this.cqx = true;
-        this.cqz = new af();
+        this.cqy = true;
+        this.cqA = new af();
         this.mContext = context;
         initialize();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cqu = false;
-        this.cqv = true;
+        this.cqv = false;
+        this.cqw = true;
         this.ale = false;
-        this.cqx = true;
-        this.cqz = new af();
+        this.cqy = true;
+        this.cqA = new af();
         this.mContext = context;
         initialize();
     }
@@ -84,25 +84,25 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     protected void initialize() {
         com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.editor_tool_container, this, true);
         this.Yv = (LinearLayout) findViewById(com.baidu.tieba.q.tools_container);
-        this.cqf = (ToolMoreView) findViewById(com.baidu.tieba.q.tool_view);
-        this.cqk = findViewById(com.baidu.tieba.q.pb_foot_down_shadow);
-        if (a.amW() && this.cqf.getBaobao() != null && this.cqf.getBaobao().isShown()) {
-            this.cqf.eE("N");
+        this.cqg = (ToolMoreView) findViewById(com.baidu.tieba.q.tool_view);
+        this.cql = findViewById(com.baidu.tieba.q.pb_foot_down_shadow);
+        if (a.amX() && this.cqg.getBaobao() != null && this.cqg.getBaobao().isShown()) {
+            this.cqg.eE("N");
         }
     }
 
-    private void anf() {
-        if (this.cqh == null) {
+    private void ang() {
+        if (this.cqi == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, com.baidu.tieba.tbadkCore.voice.b.class, this.mContext);
             if (runTask != null && runTask.getData() != null) {
-                this.cqh = (com.baidu.tieba.tbadkCore.voice.b) runTask.getData();
+                this.cqi = (com.baidu.tieba.tbadkCore.voice.b) runTask.getData();
             }
-            if (this.cqh != null) {
-                this.Yv.addView(this.cqh, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
-                this.cqh.setVisibility(8);
-                ay.i(this.cqh, com.baidu.tieba.n.record_voice_container_bg);
-                if (this.cqi != null) {
-                    this.cqh.setCallback(this.cqi);
+            if (this.cqi != null) {
+                this.Yv.addView(this.cqi, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
+                this.cqi.setVisibility(8);
+                ay.i(this.cqi, com.baidu.tieba.n.record_voice_container_bg);
+                if (this.cqj != null) {
+                    this.cqi.setCallback(this.cqj);
                 }
                 if (this.ajx != null) {
                     this.ajx.handleAction(54, null);
@@ -111,139 +111,186 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         }
     }
 
-    private void ang() {
-        if (this.cqg == null) {
-            this.cqg = new EmotionTabHost(this.mContext);
-            this.Yv.addView(this.cqg, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
-            this.cqg.setVisibility(8);
-            this.cqg.setShowBigEmotion(!this.cqw);
-            this.cqg.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            this.cqg.setOnDataSelected(new d(this));
-        }
-    }
-
     private void anh() {
-        if (this.cql == null) {
-            com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.editor_tool_container_image, this.Yv);
-            this.cql = (DragContainer) findViewById(com.baidu.tieba.q.muti_image_upload);
-            this.cqm = (DragLayer) findViewById(com.baidu.tieba.q.muti_image_upload_draglayer);
-            this.cqn = (DragHorizonScrollView) findViewById(com.baidu.tieba.q.muti_image_upload_dragscrollview);
-            com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(getContext());
-            aVar.a(this.cqm);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cqn);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cqn);
-            this.cqs = (TextView) findViewById(com.baidu.tieba.q.muti_image_tips);
-            this.cqy = getResources().getDimensionPixelSize(com.baidu.tieba.o.editor_muti_image_upload_scrollview_paddingleft);
-            this.padding = getResources().getDimensionPixelSize(com.baidu.tieba.o.default_gap_24);
-            this.cqn.setAddView(iL(7));
-            this.cqn.setOnSwapDataListener(this);
-            this.cqn.setMaxItemNum(10);
-            if (this.cqC == null) {
-                this.cqC = new com.baidu.tbadk.img.e(this.mContext);
-            }
-            ay.b(this.cqs, com.baidu.tieba.n.cp_cont_c, 1);
+        if (this.cqh == null) {
+            this.cqh = new EmotionTabHost(this.mContext);
+            this.Yv.addView(this.cqh, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
+            this.cqh.setVisibility(8);
+            this.cqh.setShowBigEmotion(!this.cqx);
+            this.cqh.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+            this.cqh.setOnDataSelected(new d(this));
         }
     }
 
     private void ani() {
-        if (this.cqo == null) {
-            com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.editor_tool_container_baobao, this.Yv);
-            this.cqo = (DragContainer) findViewById(com.baidu.tieba.q.baobao_image_upload);
-            this.cqp = (DragLayer) findViewById(com.baidu.tieba.q.baobao_image_upload_draglayer);
-            this.cqq = (DragHorizonScrollView) findViewById(com.baidu.tieba.q.baobao_image_upload_dragscrollview);
-            this.cqr = (TextView) findViewById(com.baidu.tieba.q.baobao_image_tips);
+        if (this.cqm == null) {
+            com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.editor_tool_container_image, this.Yv);
+            this.cqm = (DragContainer) findViewById(com.baidu.tieba.q.muti_image_upload);
+            this.cqn = (DragLayer) findViewById(com.baidu.tieba.q.muti_image_upload_draglayer);
+            this.cqo = (DragHorizonScrollView) findViewById(com.baidu.tieba.q.muti_image_upload_dragscrollview);
             com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(getContext());
-            aVar.a(this.cqp);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cqq);
-            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cqq);
-            this.cqq.setAddView(iL(48));
-            this.cqq.setOnSwapDataListener(this);
-            this.cqq.setMaxItemNum(1);
-            this.cqq.setCenterStart(true);
-            if (this.cqC == null) {
-                this.cqC = new com.baidu.tbadk.img.e(this.mContext);
+            aVar.a(this.cqn);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cqo);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cqo);
+            this.cqt = (TextView) findViewById(com.baidu.tieba.q.muti_image_tips);
+            this.cqz = getResources().getDimensionPixelSize(com.baidu.tieba.o.editor_muti_image_upload_scrollview_paddingleft);
+            this.padding = getResources().getDimensionPixelSize(com.baidu.tieba.o.default_gap_24);
+            this.cqo.setAddView(iL(7));
+            this.cqo.setOnSwapDataListener(this);
+            this.cqo.setMaxItemNum(10);
+            if (this.cqD == null) {
+                this.cqD = new com.baidu.tbadk.img.e(this.mContext);
             }
+            ay.b(this.cqt, com.baidu.tieba.n.cp_cont_c, 1);
         }
     }
 
     private void anj() {
-        if (this.cqt == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001289, o.class, this.mContext);
-            if (runTask != null && runTask.getData() != null) {
-                this.cqt = (o) runTask.getData();
-            }
-            if (this.cqt != null) {
-                this.Yv.addView(this.cqt, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
-                this.cqt.setVisibility(8);
-                this.cqt.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-                this.cqt.setOnDataSelected(new e(this));
+        if (this.cqp == null) {
+            com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.editor_tool_container_baobao, this.Yv);
+            this.cqp = (DragContainer) findViewById(com.baidu.tieba.q.baobao_image_upload);
+            this.cqq = (DragLayer) findViewById(com.baidu.tieba.q.baobao_image_upload_draglayer);
+            this.cqr = (DragHorizonScrollView) findViewById(com.baidu.tieba.q.baobao_image_upload_dragscrollview);
+            this.cqs = (TextView) findViewById(com.baidu.tieba.q.baobao_image_tips);
+            com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(getContext());
+            aVar.a(this.cqq);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.g) this.cqr);
+            aVar.a((com.baidu.tieba.tbadkCore.imgView.f) this.cqr);
+            this.cqr.setAddView(iL(48));
+            this.cqr.setOnSwapDataListener(this);
+            this.cqr.setMaxItemNum(1);
+            this.cqr.setCenterStart(true);
+            if (this.cqD == null) {
+                this.cqD = new com.baidu.tbadk.img.e(this.mContext);
             }
         }
     }
 
-    protected void ank() {
+    private void ank() {
+        if (this.cqu == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001289, o.class, this.mContext);
+            if (runTask != null && runTask.getData() != null) {
+                this.cqu = (o) runTask.getData();
+            }
+            if (this.cqu != null) {
+                this.Yv.addView(this.cqu, new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.pb_editor_faceview_height)));
+                this.cqu.setVisibility(8);
+                this.cqu.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+                this.cqu.setOnDataSelected(new e(this));
+            }
+        }
+    }
+
+    protected void anl() {
         com.baidu.adp.base.m B = com.baidu.adp.base.n.B(this.mContext);
         if (B != null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2010041, this.cqz);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2010041, this.cqA);
             customResponsedMessage.setOrginalMessage(new CustomMessage(2010041, B.getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessageToUI(customResponsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anl() {
-        if (anH()) {
-            this.cqz.cro = 1;
+    public void anm() {
+        if (anI()) {
+            this.cqA.crp = 1;
         } else {
-            this.cqz.cro = 0;
-        }
-        if (this.cqA != null && this.cqA.getChosedFiles() != null && this.cqA.getChosedFiles().size() > 0) {
-            this.cqz.crn = this.cqA.getChosedFiles().size();
-        } else {
-            this.cqz.crn = 0;
+            this.cqA.crp = 0;
         }
         if (this.cqB != null && this.cqB.getChosedFiles() != null && this.cqB.getChosedFiles().size() > 0) {
-            this.cqz.crp = this.cqB.getChosedFiles().size();
+            this.cqA.cro = this.cqB.getChosedFiles().size();
         } else {
-            this.cqz.crp = 0;
+            this.cqA.cro = 0;
         }
-        ank();
+        if (this.cqC != null && this.cqC.getChosedFiles() != null && this.cqC.getChosedFiles().size() > 0) {
+            this.cqA.crq = this.cqC.getChosedFiles().size();
+        } else {
+            this.cqA.crq = 0;
+        }
+        anl();
     }
 
     public void setHideBaobao(boolean z) {
         this.ale = z;
-        if (this.cqf != null) {
-            this.cqf.setHideBaobao(z);
-            if (z && a.amW()) {
-                this.cqf.zP();
+        if (this.cqg != null) {
+            this.cqg.setHideBaobao(z);
+            if (z && a.amX()) {
+                this.cqg.zQ();
             }
         }
     }
 
     public void setShadowBackground(int i) {
-        if (this.cqk != null) {
-            ay.j(this.cqk, i);
+        if (this.cql != null) {
+            ay.j(this.cql, i);
         }
     }
 
     public void setShadowHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (i > 0 && (layoutParams = this.cqk.getLayoutParams()) != null) {
+        if (i > 0 && (layoutParams = this.cql.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.cqk.setLayoutParams(layoutParams);
+            this.cql.setLayoutParams(layoutParams);
         }
     }
 
     public void setFrom(int i) {
-        if (this.cqg != null) {
-            this.cqg.setFrom(i);
+        if (this.cqh != null) {
+            this.cqh.setFrom(i);
         }
     }
 
-    protected void anm() {
-        ang();
-        this.cqk.setVisibility(0);
+    protected void ann() {
+        anh();
+        this.cql.setVisibility(0);
         if (TbadkCoreApplication.m411getInst().getKeyboardHeight() > 0) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqh.getLayoutParams();
+            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+            this.cqh.setLayoutParams(layoutParams);
+        }
+        this.cqh.setVisibility(0);
+    }
+
+    protected void ano() {
+        if (this.cqh != null) {
+            this.cqh.setVisibility(8);
+        }
+    }
+
+    public void anp() {
+        if (this.cqg != null) {
+            this.cqg.zR();
+        }
+    }
+
+    public void aca() {
+        if (this.cqg != null) {
+            this.cqg.zS();
+        }
+    }
+
+    protected void acm() {
+        ang();
+        if (this.cqi != null) {
+            this.cql.setVisibility(0);
+            if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqi.getLayoutParams();
+                layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+                this.cqi.setLayoutParams(layoutParams);
+            }
+            this.cqi.setVisibility(0);
+        }
+    }
+
+    protected void acl() {
+        if (this.cqi != null) {
+            this.cqi.setVisibility(8);
+        }
+    }
+
+    protected void anq() {
+        this.cql.setVisibility(0);
+        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqg.getLayoutParams();
             layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
             this.cqg.setLayoutParams(layoutParams);
@@ -251,401 +298,354 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.cqg.setVisibility(0);
     }
 
-    protected void ann() {
-        if (this.cqg != null) {
-            this.cqg.setVisibility(8);
-        }
-    }
-
-    public void ano() {
-        if (this.cqf != null) {
-            this.cqf.zQ();
-        }
-    }
-
-    public void abZ() {
-        if (this.cqf != null) {
-            this.cqf.zR();
-        }
-    }
-
-    protected void acl() {
-        anf();
-        if (this.cqh != null) {
-            this.cqk.setVisibility(0);
-            if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqh.getLayoutParams();
-                layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-                this.cqh.setLayoutParams(layoutParams);
-            }
-            this.cqh.setVisibility(0);
-        }
-    }
-
-    protected void ack() {
-        if (this.cqh != null) {
-            this.cqh.setVisibility(8);
-        }
-    }
-
-    protected void anp() {
-        this.cqk.setVisibility(0);
-        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqf.getLayoutParams();
-            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.cqf.setLayoutParams(layoutParams);
-        }
-        this.cqf.setVisibility(0);
-    }
-
-    public void anq() {
-        if (this.cql != null) {
-            this.cql.setVisibility(8);
-        }
-    }
-
     public void anr() {
-        anh();
-        this.cqk.setVisibility(0);
-        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cql.getLayoutParams();
-            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.cql.setLayoutParams(layoutParams);
+        if (this.cqm != null) {
+            this.cqm.setVisibility(8);
         }
-        this.cql.setVisibility(0);
     }
 
     public void ans() {
-        if (this.cqo != null) {
-            this.cqo.setVisibility(8);
+        ani();
+        this.cql.setVisibility(0);
+        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqm.getLayoutParams();
+            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+            this.cqm.setLayoutParams(layoutParams);
         }
+        this.cqm.setVisibility(0);
     }
 
-    public void zP() {
-        this.cqf.zP();
-    }
-
-    public void eC(String str) {
-        if (this.cqf != null) {
-            this.cqf.eC(str);
-        }
-    }
-
-    public void zI() {
-        if (this.cqf != null) {
-            this.cqf.zI();
+    public void ant() {
+        if (this.cqp != null) {
+            this.cqp.setVisibility(8);
         }
     }
 
     public void zQ() {
-        if (this.cqf != null) {
-            this.cqf.zQ();
+        this.cqg.zQ();
+    }
+
+    public void eC(String str) {
+        if (this.cqg != null) {
+            this.cqg.eC(str);
+        }
+    }
+
+    public void zJ() {
+        if (this.cqg != null) {
+            this.cqg.zJ();
         }
     }
 
     public void zR() {
-        if (this.cqf != null) {
-            this.cqf.zR();
+        if (this.cqg != null) {
+            this.cqg.zR();
         }
     }
 
-    public boolean zM() {
-        if (this.cqf == null) {
+    public void zS() {
+        if (this.cqg != null) {
+            this.cqg.zS();
+        }
+    }
+
+    public boolean zN() {
+        if (this.cqg == null) {
             return false;
         }
-        return this.cqf.zM();
-    }
-
-    public void zN() {
-        if (this.cqf != null) {
-            this.cqf.zN();
-        }
+        return this.cqg.zN();
     }
 
     public void zO() {
-        if (this.cqf != null) {
-            this.cqf.zO();
+        if (this.cqg != null) {
+            this.cqg.zO();
         }
     }
 
-    public void ant() {
-        ani();
-        this.cqk.setVisibility(0);
-        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqo.getLayoutParams();
-            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.cqo.setLayoutParams(layoutParams);
+    public void zP() {
+        if (this.cqg != null) {
+            this.cqg.zP();
         }
-        this.cqo.setVisibility(0);
-        if (TextUtils.isEmpty(this.cqr.getText())) {
-            this.cqr.setText(com.baidu.tieba.t.baobao_remind);
+    }
+
+    public void anu() {
+        anj();
+        this.cql.setVisibility(0);
+        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqp.getLayoutParams();
+            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+            this.cqp.setLayoutParams(layoutParams);
+        }
+        this.cqp.setVisibility(0);
+        if (TextUtils.isEmpty(this.cqs.getText())) {
+            this.cqs.setText(com.baidu.tieba.t.baobao_remind);
         }
     }
 
     protected void hideMore() {
-        this.cqf.setVisibility(8);
-    }
-
-    protected void anu() {
-        anj();
-        this.cqk.setVisibility(0);
-        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqt.getLayoutParams();
-            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
-            this.cqt.setLayoutParams(layoutParams);
-        }
-        this.cqt.setVisibility(0);
+        this.cqg.setVisibility(8);
     }
 
     protected void anv() {
-        if (this.cqt != null) {
-            this.cqt.setVisibility(8);
+        ank();
+        this.cql.setVisibility(0);
+        if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqu.getLayoutParams();
+            layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
+            this.cqu.setLayoutParams(layoutParams);
+        }
+        this.cqu.setVisibility(0);
+    }
+
+    protected void anw() {
+        if (this.cqu != null) {
+            this.cqu.setVisibility(8);
         }
     }
 
     public void Z(View view) {
         if (view != null) {
             com.baidu.adp.lib.util.n.d(this.mContext, view);
-            this.cqu = true;
+            this.cqv = true;
         }
     }
 
     public void aa(View view) {
         if (view != null) {
             com.baidu.adp.lib.util.n.c(this.mContext, view);
-            this.cqu = false;
+            this.cqv = false;
         }
     }
 
-    public boolean anw() {
-        return this.cqf.getVisibility() == 0 || (this.cqh != null && this.cqh.getVisibility() == 0) || ((this.cqg != null && this.cqg.getVisibility() == 0) || ((this.cql != null && this.cql.getVisibility() == 0) || ((this.cqt != null && this.cqt.getVisibility() == 0) || (this.cqo != null && this.cqo.getVisibility() == 0))));
+    public boolean anx() {
+        return this.cqg.getVisibility() == 0 || (this.cqi != null && this.cqi.getVisibility() == 0) || ((this.cqh != null && this.cqh.getVisibility() == 0) || ((this.cqm != null && this.cqm.getVisibility() == 0) || ((this.cqu != null && this.cqu.getVisibility() == 0) || (this.cqp != null && this.cqp.getVisibility() == 0))));
     }
 
     public void hideAll() {
-        anx();
-        aa(this.cqj);
-    }
-
-    public void anx() {
-        this.cqk.setVisibility(8);
-        hideMore();
-        ack();
-        ann();
-        anq();
-        anv();
-        ans();
+        any();
+        aa(this.cqk);
     }
 
     public void any() {
+        this.cql.setVisibility(8);
+        hideMore();
+        acl();
+        ano();
+        anr();
+        anw();
+        ant();
+    }
+
+    public void anz() {
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed()) {
-            if (this.cqf != null && this.cqf.getVisibility() == 0) {
-                anp();
-            } else if (this.cqg != null && this.cqg.getVisibility() == 0) {
-                anm();
+            if (this.cqg != null && this.cqg.getVisibility() == 0) {
+                anq();
             } else if (this.cqh != null && this.cqh.getVisibility() == 0) {
-                acl();
-            } else if (this.cql != null && this.cql.getVisibility() == 0) {
-                anr();
-            } else if (this.cqt != null && this.cqt.getVisibility() == 0) {
+                ann();
+            } else if (this.cqi != null && this.cqi.getVisibility() == 0) {
+                acm();
+            } else if (this.cqm != null && this.cqm.getVisibility() == 0) {
+                ans();
+            } else if (this.cqu != null && this.cqu.getVisibility() == 0) {
+                anv();
+            } else if (this.cqp != null && this.cqp.getVisibility() == 0) {
                 anu();
-            } else if (this.cqo != null && this.cqo.getVisibility() == 0) {
-                ant();
             }
         }
     }
 
-    public boolean acE() {
-        return this.cqx;
+    public boolean acF() {
+        return this.cqy;
     }
 
     public void setAudioCanUse(boolean z) {
-        this.cqx = z;
-    }
-
-    public void anz() {
-        hideAll();
-        anp();
+        this.cqy = z;
     }
 
     public void anA() {
         hideAll();
-        anm();
+        anq();
     }
 
     public void anB() {
-        if (acE()) {
-            hideAll();
-            acl();
-        }
+        hideAll();
+        ann();
     }
 
     public void anC() {
-        hideAll();
-        anr();
+        if (acF()) {
+            hideAll();
+            acm();
+        }
     }
 
     public void anD() {
         hideAll();
-        anu();
+        ans();
     }
 
     public void anE() {
         hideAll();
-        ant();
+        anv();
+    }
+
+    public void anF() {
+        hideAll();
+        anu();
     }
 
     public void ab(View view) {
-        if (!this.cqu) {
+        if (!this.cqv) {
             hideAll();
-            this.cqj = view;
+            this.cqk = view;
             Z(view);
         }
     }
 
-    public boolean anF() {
-        BaseAdapter adapter;
-        return (this.cqn == null || (adapter = this.cqn.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
-    }
-
     public boolean anG() {
         BaseAdapter adapter;
-        return (this.cqq == null || (adapter = this.cqq.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
+        return (this.cqo == null || (adapter = this.cqo.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
     }
 
     public boolean anH() {
+        BaseAdapter adapter;
+        return (this.cqr == null || (adapter = this.cqr.getAdapter()) == null || adapter.getCount() <= 0) ? false : true;
+    }
+
+    public boolean anI() {
         VoiceData.VoiceModel voiceModel;
-        return (this.cqh == null || (voiceModel = this.cqh.getVoiceModel()) == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
+        return (this.cqi == null || (voiceModel = this.cqi.getVoiceModel()) == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        if (this.cqh == null) {
+        if (this.cqi == null) {
             return null;
         }
-        return this.cqh.getVoiceModel();
+        return this.cqi.getVoiceModel();
     }
 
-    public void anI() {
-        if (this.cqi != null) {
-            this.cqi.anM();
+    public void anJ() {
+        if (this.cqj != null) {
+            this.cqj.anN();
         }
     }
 
     public void setAudioData(VoiceData.VoiceModel voiceModel) {
-        if (this.cqh != null && voiceModel != null) {
-            this.cqh.a(voiceModel);
-        }
-    }
-
-    public void Kq() {
-        if (this.cqh != null) {
-            this.cqh.ov();
-        }
-    }
-
-    public void clearData() {
-        if (this.cqh != null) {
-            this.cqh.reset();
-            setImage(null);
-            this.cqf.zP();
+        if (this.cqi != null && voiceModel != null) {
+            this.cqi.a(voiceModel);
         }
     }
 
     public void Kr() {
-        if (this.cqh != null) {
-            this.cqh.onStopingRecorder();
+        if (this.cqi != null) {
+            this.cqi.ov();
         }
     }
 
-    public void anJ() {
-        Kr();
+    public void clearData() {
+        if (this.cqi != null) {
+            this.cqi.reset();
+            setImage(null);
+            this.cqg.zQ();
+        }
+    }
+
+    public void Ks() {
+        if (this.cqi != null) {
+            this.cqi.onStopingRecorder();
+        }
+    }
+
+    public void anK() {
+        Ks();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.v vVar) {
         this.ajx = new f(this, vVar);
-        this.cqf.setOnClickListener(new g(this));
-        this.cqi = new h(this);
-        if (this.cqh != null) {
-            this.cqh.setCallback(this.cqi);
+        this.cqg.setOnClickListener(new g(this));
+        this.cqj = new h(this);
+        if (this.cqi != null) {
+            this.cqi.setCallback(this.cqj);
         }
     }
 
-    public boolean anK() {
-        return this.cqu;
+    public boolean anL() {
+        return this.cqv;
     }
 
     public void setImage(Bitmap bitmap) {
         if (bitmap == null) {
-            this.cqf.setmImagetype(0);
+            this.cqg.setmImagetype(0);
         }
-        this.cqf.setImage(bitmap);
+        this.cqg.setImage(bitmap);
     }
 
     public void aX(boolean z) {
-        this.cqw = z;
-        this.cqf.aX(z);
-        if (this.cqg != null) {
-            this.cqg.setShowBigEmotion(!z);
+        this.cqx = z;
+        this.cqg.aX(z);
+        if (this.cqh != null) {
+            this.cqh.setShowBigEmotion(!z);
         }
-    }
-
-    public void zU() {
-        this.cqf.zU();
-    }
-
-    public void zT() {
-        this.cqf.zT();
     }
 
     public void zV() {
-        this.cqf.zV();
+        this.cqg.zV();
+    }
+
+    public void zU() {
+        this.cqg.zU();
+    }
+
+    public void zW() {
+        this.cqg.zW();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cqg != null) {
-            this.cqg.onChangeSkinType(i);
-        }
-        this.cqf.onChangeSkinType(i);
-        if (this.cqt != null) {
-            this.cqt.onChangeSkinType(i);
-        }
         if (this.cqh != null) {
-            ay.i(this.cqh, com.baidu.tieba.n.record_voice_container_bg);
+            this.cqh.onChangeSkinType(i);
+        }
+        this.cqg.onChangeSkinType(i);
+        if (this.cqu != null) {
+            this.cqu.onChangeSkinType(i);
+        }
+        if (this.cqi != null) {
+            ay.i(this.cqi, com.baidu.tieba.n.record_voice_container_bg);
         }
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        anh();
-        this.cqA = writeImagesInfo;
-        this.cqn.a(new j(this, writeImagesInfo), z);
-        int maxItemNum = this.cqn.getMaxItemNum();
+        ani();
+        this.cqB = writeImagesInfo;
+        this.cqo.a(new j(this, writeImagesInfo), z);
+        int maxItemNum = this.cqo.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!av.aof().aog() && size > 1) {
-            this.cqs.setText(com.baidu.tieba.t.editor_mutiiamge_drag_tip);
-            av.aof().ff(true);
+        if (!av.aog().aoh() && size > 1) {
+            this.cqt.setText(com.baidu.tieba.t.editor_mutiiamge_drag_tip);
+            av.aog().ff(true);
         } else {
-            this.cqs.setText(getResources().getString(com.baidu.tieba.t.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.cqt.setText(getResources().getString(com.baidu.tieba.t.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
-            this.cqf.eC(new StringBuilder(String.valueOf(size)).toString());
+            this.cqg.eC(new StringBuilder(String.valueOf(size)).toString());
         } else {
-            this.cqf.zI();
+            this.cqg.zJ();
         }
         this.ajx.handleAction(13, null);
-        anl();
+        anm();
     }
 
     public void setBaobaoUris(WriteImagesInfo writeImagesInfo) {
-        ani();
-        this.cqB = writeImagesInfo;
-        this.cqq.a((BaseAdapter) new j(this, this.cqB), false);
+        anj();
+        this.cqC = writeImagesInfo;
+        this.cqr.a((BaseAdapter) new j(this, this.cqC), false);
         this.ajx.handleAction(51, null);
-        if (this.cqB.size() > 0) {
-            this.cqf.eE("1");
+        if (this.cqC.size() > 0) {
+            this.cqg.eE("1");
         } else {
-            this.cqf.zP();
+            this.cqg.zQ();
         }
         this.ajx.handleAction(51, null);
-        anl();
+        anm();
     }
 
     private View iL(int i) {
@@ -660,19 +660,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return imageView;
     }
 
-    public void anL() {
-        if (this.cqn != null) {
-            this.cqn.notifyDataSetChanged();
+    public void anM() {
+        if (this.cqo != null) {
+            this.cqo.notifyDataSetChanged();
         }
-        if (this.cqq != null) {
-            this.cqq.notifyDataSetChanged();
+        if (this.cqr != null) {
+            this.cqr.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
     public void ag(int i, int i2) {
-        if (i != i2 && this.cqA != null && this.cqA.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.cqA.getChosedFiles();
+        if (i != i2 && this.cqB != null && this.cqB.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.cqB.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }
@@ -684,12 +684,12 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     public void refresh() {
-        if (this.cqw) {
-            this.cqf.zL();
-        } else if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cqw) {
-            this.cqf.zL();
+        if (this.cqx) {
+            this.cqg.zM();
+        } else if (TextUtils.isEmpty(TbadkCoreApplication.m411getInst().getDefaultBubble()) && !this.cqx) {
+            this.cqg.zM();
         } else {
-            this.cqf.zK();
+            this.cqg.zL();
         }
     }
 }

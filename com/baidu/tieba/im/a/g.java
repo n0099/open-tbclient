@@ -17,7 +17,7 @@ class g extends com.baidu.adp.framework.listener.e {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsePullMessage) && socketResponsedMessage.getError() == 0) {
-            this.this$0.Tm();
+            this.this$0.Tn();
         }
     }
 }

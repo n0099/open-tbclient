@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ boolean aZB;
-    final /* synthetic */ PersonalTalkSettingActivity bsF;
+    private final /* synthetic */ boolean aZC;
+    final /* synthetic */ PersonalTalkSettingActivity bsG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
-        this.bsF = personalTalkSettingActivity;
-        this.aZB = z;
+        this.bsG = personalTalkSettingActivity;
+        this.aZC = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,17 +20,17 @@ public class r extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         long j;
         long j2;
-        if (!this.aZB) {
-            com.baidu.tieba.im.settingcache.j UQ = com.baidu.tieba.im.settingcache.j.UQ();
+        if (!this.aZC) {
+            com.baidu.tieba.im.settingcache.j UR = com.baidu.tieba.im.settingcache.j.UR();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            j2 = this.bsF.userId;
-            UQ.e(currentAccount, String.valueOf(j2), false);
+            j2 = this.bsG.userId;
+            UR.e(currentAccount, String.valueOf(j2), false);
             return null;
         }
-        com.baidu.tieba.im.settingcache.j UQ2 = com.baidu.tieba.im.settingcache.j.UQ();
+        com.baidu.tieba.im.settingcache.j UR2 = com.baidu.tieba.im.settingcache.j.UR();
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        j = this.bsF.userId;
-        UQ2.e(currentAccount2, String.valueOf(j), true);
+        j = this.bsG.userId;
+        UR2.e(currentAccount2, String.valueOf(j), true);
         return null;
     }
 }

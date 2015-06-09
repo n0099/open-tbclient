@@ -8,11 +8,11 @@ import com.baidu.adp.lib.util.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnTouchListener {
-    final /* synthetic */ CreateBarActivity aYM;
+    final /* synthetic */ CreateBarActivity aYN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(CreateBarActivity createBarActivity) {
-        this.aYM = createBarActivity;
+        this.aYN = createBarActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -22,16 +22,16 @@ public class c implements View.OnTouchListener {
         EditText editText3;
         EditText editText4;
         if (motionEvent.getAction() == 0) {
-            editText = this.aYM.aYA;
+            editText = this.aYN.aYB;
             if (editText.hasFocus()) {
-                Activity pageActivity = this.aYM.getPageContext().getPageActivity();
-                editText4 = this.aYM.aYA;
+                Activity pageActivity = this.aYN.getPageContext().getPageActivity();
+                editText4 = this.aYN.aYB;
                 n.c(pageActivity, editText4);
             }
-            editText2 = this.aYM.axx;
+            editText2 = this.aYN.axy;
             if (editText2.hasFocus()) {
-                Activity pageActivity2 = this.aYM.getPageContext().getPageActivity();
-                editText3 = this.aYM.axx;
+                Activity pageActivity2 = this.aYN.getPageContext().getPageActivity();
+                editText3 = this.aYN.axy;
                 n.c(pageActivity2, editText3);
                 return false;
             }

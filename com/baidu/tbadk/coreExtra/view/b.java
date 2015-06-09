@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.view;
 /* loaded from: classes.dex */
 public interface b {
-    void xJ();
-
     void xK();
+
+    void xL();
 }

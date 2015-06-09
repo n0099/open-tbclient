@@ -6,86 +6,86 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private String aLb;
-    private ArrayList<String> bwN;
-    private String bwP;
+    private String aLc;
+    private ArrayList<String> bwO;
     private String bwQ;
-    private boolean bwW;
-    private String bwO = null;
+    private String bwR;
+    private boolean bwX;
+    private String bwP = null;
     private String afH = null;
-    private boolean bwR = false;
-    private boolean bwS = true;
-    private b bwT = null;
-    private int bwU = 0;
-    private boolean bwV = false;
-    private c bwX = null;
-    private HashMap<String, String> bwY = new HashMap<>();
+    private boolean bwS = false;
+    private boolean bwT = true;
+    private b bwU = null;
+    private int bwV = 0;
+    private boolean bwW = false;
+    private c bwY = null;
+    private HashMap<String, String> bwZ = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.bwN = null;
-        this.bwP = null;
-        this.aLb = null;
+        this.bwO = null;
         this.bwQ = null;
-        this.bwW = false;
-        this.bwN = arrayList;
-        if (this.bwN == null) {
-            this.bwN = new ArrayList<>();
+        this.aLc = null;
+        this.bwR = null;
+        this.bwX = false;
+        this.bwO = arrayList;
+        if (this.bwO == null) {
+            this.bwO = new ArrayList<>();
         }
-        int size = this.bwN.size();
+        int size = this.bwO.size();
         for (int i = 0; i < size; i++) {
-            String str4 = this.bwN.get(i);
-            this.bwY.put(hV(str4), str4);
+            String str4 = this.bwO.get(i);
+            this.bwZ.put(hV(str4), str4);
         }
-        this.bwP = str2;
-        this.aLb = str;
-        this.bwQ = str3;
-        if (this.bwQ == null) {
-            this.bwW = true;
+        this.bwQ = str2;
+        this.aLc = str;
+        this.bwR = str3;
+        if (this.bwR == null) {
+            this.bwX = true;
         }
     }
 
     public void dw(boolean z) {
-        this.bwS = z;
-    }
-
-    public void Xp() {
-        if (!this.bwR && !this.bwW) {
-            c(this.bwP, this.bwQ, 10, 0);
-        }
+        this.bwT = z;
     }
 
     public void Xq() {
-        if (!this.bwW) {
-            if (!this.bwR) {
-                Xp();
-            } else if (this.bwO != null && this.bwO.length() > 0) {
-                this.bwS = true;
-                c(this.bwO, null, 0, 10);
+        if (!this.bwS && !this.bwX) {
+            c(this.bwQ, this.bwR, 10, 0);
+        }
+    }
+
+    public void Xr() {
+        if (!this.bwX) {
+            if (!this.bwS) {
+                Xq();
+            } else if (this.bwP != null && this.bwP.length() > 0) {
+                this.bwT = true;
+                c(this.bwP, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.bwT != null) {
-            if (str2 == null || !str2.equals(this.bwT.getPicId())) {
-                this.bwT.cancel();
+        if (this.bwU != null) {
+            if (str2 == null || !str2.equals(this.bwU.getPicId())) {
+                this.bwU.cancel();
             } else {
                 return;
             }
         }
-        this.bwT = new b(this, str, str2, i, i2);
-        this.bwT.setPriority(3);
-        this.bwT.execute(new Object[0]);
+        this.bwU = new b(this, str, str2, i, i2);
+        this.bwU.setPriority(3);
+        this.bwU.execute(new Object[0]);
     }
 
     public void a(c cVar) {
-        this.bwX = cVar;
+        this.bwY = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(d dVar) {
-        if (dVar.Ew() != null && dVar.Ew().length() > 0) {
-            return dVar.Ew();
+        if (dVar.Ex() != null && dVar.Ex().length() > 0) {
+            return dVar.Ex();
         }
         StringBuilder sb = new StringBuilder(150);
         if (dVar.getHeight() * dVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {

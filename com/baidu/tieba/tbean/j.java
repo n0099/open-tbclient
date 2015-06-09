@@ -25,116 +25,116 @@ import tbclient.GetIconList.Discount;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWatcher, View.OnClickListener {
-    private int beo;
-    private TextView cuF;
-    private BuyTBeanActivity cuK;
-    private CustomScrollView cuN;
-    private NavigationBar cuO;
-    private NoNetworkView cuP;
-    private HorizontalListView cuQ;
-    private LinearLayoutDetectsSoftKeyboard cuR;
-    private b cuS;
-    private TextView cuT;
-    private LinearLayout cuU;
+    private int bep;
+    private TextView cuG;
+    private BuyTBeanActivity cuL;
+    private CustomScrollView cuO;
+    private NavigationBar cuP;
+    private NoNetworkView cuQ;
+    private HorizontalListView cuR;
+    private LinearLayoutDetectsSoftKeyboard cuS;
+    private b cuT;
+    private TextView cuU;
     private LinearLayout cuV;
-    private TextView cuW;
-    private EditText cuX;
-    private TextView cuY;
+    private LinearLayout cuW;
+    private TextView cuX;
+    private EditText cuY;
     private TextView cuZ;
     private TextView cva;
-    private boolean cvb;
+    private TextView cvb;
     private boolean cvc;
-    private d cvd;
-    private int cve;
+    private boolean cvd;
+    private d cve;
     private int cvf;
     private int cvg;
+    private int cvh;
 
     public j(BuyTBeanActivity buyTBeanActivity) {
         super(buyTBeanActivity.getPageContext());
-        this.cuK = buyTBeanActivity;
+        this.cuL = buyTBeanActivity;
         initUI();
-        this.cuK.getWindow().setSoftInputMode(1);
+        this.cuL.getWindow().setSoftInputMode(1);
     }
 
     private void initUI() {
-        this.cuK.setContentView(r.buy_tbean_activity);
-        this.cuR = (LinearLayoutDetectsSoftKeyboard) this.cuK.findViewById(q.buy_tbean_root_ll);
-        this.cuR.setOnSoftKeyBoardShownListener(new k(this));
-        this.cuN = (CustomScrollView) this.cuK.findViewById(q.buy_tbean_scroll_view);
-        this.cuQ = (HorizontalListView) this.cuK.findViewById(q.tbean_listview);
-        this.cuO = (NavigationBar) this.cuK.findViewById(q.buy_tbean_navigation_bar);
-        this.cuP = (NoNetworkView) this.cuK.findViewById(q.buy_tbean_no_network);
-        this.cuP.a(new l(this));
-        this.cuO.setTitleText(t.buy_tbean_title);
-        this.cuO.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cuS = new b(this);
-        this.cuQ.setAdapter((ListAdapter) this.cuS);
-        this.cuQ.setOnItemClickListener(new m(this));
-        this.cuT = (TextView) this.cuK.findViewById(q.dq_num_tv);
-        this.cuT.setText(ja(0));
-        this.cuW = (TextView) this.cuK.findViewById(q.yinji_time_tv);
-        this.cuU = (LinearLayout) this.cuK.findViewById(q.yinji_num_minus_ll);
-        this.cuV = (LinearLayout) this.cuK.findViewById(q.yinji_num_plus_ll);
-        this.cuU.setOnClickListener(this);
+        this.cuL.setContentView(r.buy_tbean_activity);
+        this.cuS = (LinearLayoutDetectsSoftKeyboard) this.cuL.findViewById(q.buy_tbean_root_ll);
+        this.cuS.setOnSoftKeyBoardShownListener(new k(this));
+        this.cuO = (CustomScrollView) this.cuL.findViewById(q.buy_tbean_scroll_view);
+        this.cuR = (HorizontalListView) this.cuL.findViewById(q.tbean_listview);
+        this.cuP = (NavigationBar) this.cuL.findViewById(q.buy_tbean_navigation_bar);
+        this.cuQ = (NoNetworkView) this.cuL.findViewById(q.buy_tbean_no_network);
+        this.cuQ.a(new l(this));
+        this.cuP.setTitleText(t.buy_tbean_title);
+        this.cuP.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cuT = new b(this);
+        this.cuR.setAdapter((ListAdapter) this.cuT);
+        this.cuR.setOnItemClickListener(new m(this));
+        this.cuU = (TextView) this.cuL.findViewById(q.dq_num_tv);
+        this.cuU.setText(ja(0));
+        this.cuX = (TextView) this.cuL.findViewById(q.yinji_time_tv);
+        this.cuV = (LinearLayout) this.cuL.findViewById(q.yinji_num_minus_ll);
+        this.cuW = (LinearLayout) this.cuL.findViewById(q.yinji_num_plus_ll);
         this.cuV.setOnClickListener(this);
-        this.cuX = (EditText) this.cuK.findViewById(q.yinji_num_et);
-        this.cuX.setText("1");
-        this.cuX.addTextChangedListener(this);
-        this.cuX.setOnFocusChangeListener(new n(this));
-        this.cuX.setOnClickListener(new o(this));
-        this.cuF = (TextView) this.cuK.findViewById(q.tbean_num_tv);
-        this.cuY = (TextView) this.cuK.findViewById(q.buy_btn_tv);
-        this.cuY.setOnClickListener(this.cuK);
-        this.cuZ = (TextView) this.cuK.findViewById(q.bottom_tip_tv);
-        this.cuZ.setOnClickListener(this.cuK);
+        this.cuW.setOnClickListener(this);
+        this.cuY = (EditText) this.cuL.findViewById(q.yinji_num_et);
+        this.cuY.setText("1");
+        this.cuY.addTextChangedListener(this);
+        this.cuY.setOnFocusChangeListener(new n(this));
+        this.cuY.setOnClickListener(new o(this));
+        this.cuG = (TextView) this.cuL.findViewById(q.tbean_num_tv);
+        this.cuZ = (TextView) this.cuL.findViewById(q.buy_btn_tv);
+        this.cuZ.setOnClickListener(this.cuL);
+        this.cva = (TextView) this.cuL.findViewById(q.bottom_tip_tv);
+        this.cva.setOnClickListener(this.cuL);
         if (TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
-            this.cuZ.setVisibility(4);
+            this.cva.setVisibility(4);
         }
-        this.cva = (TextView) this.cuK.findViewById(q.wanted_tbean_num);
+        this.cvb = (TextView) this.cuL.findViewById(q.wanted_tbean_num);
     }
 
     public void e(d dVar) {
         if (dVar != null && dVar.getIconInfoList() != null) {
-            this.cvd = dVar;
-            this.cuN.setVisibility(0);
-            this.cuS.setData(dVar.getIconInfoList());
-            this.beo = apT();
-            this.cuS.iZ(this.beo);
-            this.cuK.mHandler.postDelayed(new p(this), 300L);
-            afl();
-            apR();
-            this.cuS.notifyDataSetChanged();
+            this.cve = dVar;
+            this.cuO.setVisibility(0);
+            this.cuT.setData(dVar.getIconInfoList());
+            this.bep = apU();
+            this.cuT.iZ(this.bep);
+            this.cuL.mHandler.postDelayed(new p(this), 300L);
+            afm();
+            apS();
+            this.cuT.notifyDataSetChanged();
         }
     }
 
-    private void apR() {
-        if (this.cuK != null && this.cvd != null && this.cvd.getUserInfo() != null) {
-            long apL = this.cuK.apL();
-            int intValue = this.cvd.getUserInfo().scores_total.intValue();
-            if (apL <= 0 || intValue >= apL) {
-                this.cva.setVisibility(4);
-            } else if (this.cvd.getUserInfo().scores_total.intValue() < this.cuK.apL()) {
-                this.cva.setVisibility(0);
-                this.cva.setText(ao(apL - intValue));
+    private void apS() {
+        if (this.cuL != null && this.cve != null && this.cve.getUserInfo() != null) {
+            long apM = this.cuL.apM();
+            int intValue = this.cve.getUserInfo().scores_total.intValue();
+            if (apM <= 0 || intValue >= apM) {
+                this.cvb.setVisibility(4);
+            } else if (this.cve.getUserInfo().scores_total.intValue() < this.cuL.apM()) {
+                this.cvb.setVisibility(0);
+                this.cvb.setText(ao(apM - intValue));
             }
         }
     }
 
-    public void apS() {
-        this.cuN.setVisibility(8);
+    public void apT() {
+        this.cuO.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.cuK.getLayoutMode().ab(i == 1);
-        this.cuK.getLayoutMode().j(this.cuR);
-        this.cuO.onChangeSkinType(getPageContext(), i);
+        this.cuL.getLayoutMode().ab(i == 1);
+        this.cuL.getLayoutMode().j(this.cuS);
         this.cuP.onChangeSkinType(getPageContext(), i);
+        this.cuQ.onChangeSkinType(getPageContext(), i);
     }
 
     private SpannableString ja(int i) {
         String str;
-        String str2 = String.valueOf(this.cuK.getPageContext().getString(t.dq_left_bracket)) + " " + i + this.cuK.getPageContext().getString(t.dq_right_bracket);
-        int length = (String.valueOf(this.cuK.getPageContext().getString(t.cost_dq_string)) + " " + i + " ").length();
+        String str2 = String.valueOf(this.cuL.getPageContext().getString(t.dq_left_bracket)) + " " + i + this.cuL.getPageContext().getString(t.dq_right_bracket);
+        int length = (String.valueOf(this.cuL.getPageContext().getString(t.cost_dq_string)) + " " + i + " ").length();
         int length2 = str2.length();
         SpannableString spannableString = new SpannableString(String.valueOf(str) + str2);
         spannableString.setSpan(new ForegroundColorSpan(ay.getColor(com.baidu.tieba.n.cp_cont_b)), 0, length, 33);
@@ -143,9 +143,9 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
     }
 
     private SpannableString ao(long j) {
-        String string = this.cuK.getPageContext().getString(t.tbean_wanted_tip);
+        String string = this.cuL.getPageContext().getString(t.tbean_wanted_tip);
         String sb = new StringBuilder(String.valueOf(j)).toString();
-        String string2 = this.cuK.getPageContext().getString(t.tbean_title);
+        String string2 = this.cuL.getPageContext().getString(t.tbean_title);
         int length = string.length();
         int length2 = sb.length();
         int length3 = string2.length();
@@ -157,15 +157,15 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afl() {
+    public void afm() {
         IconInfo iconInfo;
-        if (this.cvd != null && this.cvd.getIconInfoList() != null && this.beo >= 0 && this.beo < this.cvd.getIconInfoList().size() && (iconInfo = this.cvd.getIconInfoList().get(this.beo)) != null) {
-            this.cuX.setText("1");
-            this.cuF.setText(String.valueOf(this.cuK.getPageContext().getString(t.get_tbean_title)) + " " + a(iconInfo));
-            this.cuT.setText(ja(jb(iconInfo.dubi.intValue())));
-            this.cve = jb(iconInfo.dubi.intValue());
-            this.cuW.setText(String.format(getString(t.yinji_valid_time), iconInfo.duration));
-            this.cuZ.setText(String.valueOf(String.format(getString(t.super_mem_tbean_tip), Integer.valueOf(this.cvg))) + "%");
+        if (this.cve != null && this.cve.getIconInfoList() != null && this.bep >= 0 && this.bep < this.cve.getIconInfoList().size() && (iconInfo = this.cve.getIconInfoList().get(this.bep)) != null) {
+            this.cuY.setText("1");
+            this.cuG.setText(String.valueOf(this.cuL.getPageContext().getString(t.get_tbean_title)) + " " + a(iconInfo));
+            this.cuU.setText(ja(jb(iconInfo.dubi.intValue())));
+            this.cvf = jb(iconInfo.dubi.intValue());
+            this.cuX.setText(String.format(getString(t.yinji_valid_time), iconInfo.duration));
+            this.cva.setText(String.valueOf(String.format(getString(t.super_mem_tbean_tip), Integer.valueOf(this.cvh))) + "%");
         }
     }
 
@@ -173,14 +173,14 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
     public void onClick(View view) {
         int i;
         if (view.getId() == q.yinji_num_minus_ll) {
-            int i2 = com.baidu.adp.lib.g.c.toInt(this.cuX.getText().toString(), 0);
+            int i2 = com.baidu.adp.lib.g.c.toInt(this.cuY.getText().toString(), 0);
             if (i2 > 1) {
-                this.cuX.setText(new StringBuilder(String.valueOf(i2 - 1)).toString());
-                this.cuX.setSelection(this.cuX.getText().length());
+                this.cuY.setText(new StringBuilder(String.valueOf(i2 - 1)).toString());
+                this.cuY.setSelection(this.cuY.getText().length());
             }
-        } else if (view.getId() == q.yinji_num_plus_ll && (i = com.baidu.adp.lib.g.c.toInt(this.cuX.getText().toString(), 0)) < 9999) {
-            this.cuX.setText(new StringBuilder(String.valueOf(i + 1)).toString());
-            this.cuX.setSelection(this.cuX.getText().length());
+        } else if (view.getId() == q.yinji_num_plus_ll && (i = com.baidu.adp.lib.g.c.toInt(this.cuY.getText().toString(), 0)) < 9999) {
+            this.cuY.setText(new StringBuilder(String.valueOf(i + 1)).toString());
+            this.cuY.setSelection(this.cuY.getText().length());
         }
     }
 
@@ -191,15 +191,15 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         IconInfo iconInfo;
-        if (this.cvd != null && this.cvd.getIconInfoList() != null && this.beo >= 0 && this.beo < this.cvd.getIconInfoList().size() && (iconInfo = this.cvd.getIconInfoList().get(this.beo)) != null) {
-            this.cvf = com.baidu.adp.lib.g.c.toInt(this.cuX.getText().toString(), 0);
-            if (this.cvf == 0) {
-                this.cuX.setText("1");
-                this.cuX.setSelection(this.cuX.getText().length());
+        if (this.cve != null && this.cve.getIconInfoList() != null && this.bep >= 0 && this.bep < this.cve.getIconInfoList().size() && (iconInfo = this.cve.getIconInfoList().get(this.bep)) != null) {
+            this.cvg = com.baidu.adp.lib.g.c.toInt(this.cuY.getText().toString(), 0);
+            if (this.cvg == 0) {
+                this.cuY.setText("1");
+                this.cuY.setSelection(this.cuY.getText().length());
             }
-            this.cuF.setText(String.valueOf(this.cuK.getPageContext().getString(t.get_tbean_title)) + " " + (a(iconInfo) * this.cvf));
-            this.cuT.setText(ja(jb(iconInfo.dubi.intValue()) * this.cvf));
-            this.cve = jb(iconInfo.dubi.intValue()) * this.cvf;
+            this.cuG.setText(String.valueOf(this.cuL.getPageContext().getString(t.get_tbean_title)) + " " + (a(iconInfo) * this.cvg));
+            this.cuU.setText(ja(jb(iconInfo.dubi.intValue()) * this.cvg));
+            this.cvf = jb(iconInfo.dubi.intValue()) * this.cvg;
         }
     }
 
@@ -207,26 +207,26 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
     public void afterTextChanged(Editable editable) {
     }
 
-    private int apT() {
+    private int apU() {
         IconInfo iconInfo;
-        if (this.cvd == null || this.cvd.getIconInfoList() == null || this.cuK == null || this.cvd.getUserInfo() == null) {
+        if (this.cve == null || this.cve.getIconInfoList() == null || this.cuL == null || this.cve.getUserInfo() == null) {
             return 0;
         }
-        long apL = this.cuK.apL();
-        int intValue = this.cvd.getUserInfo().scores_total.intValue();
+        long apM = this.cuL.apM();
+        int intValue = this.cve.getUserInfo().scores_total.intValue();
         int i = 0;
-        for (int i2 = 0; i2 < this.cvd.getIconInfoList().size() && ((iconInfo = this.cvd.getIconInfoList().get(i2)) == null || apL > a(iconInfo) + intValue); i2++) {
+        for (int i2 = 0; i2 < this.cve.getIconInfoList().size() && ((iconInfo = this.cve.getIconInfoList().get(i2)) == null || apM > a(iconInfo) + intValue); i2++) {
             i++;
         }
-        if (i > this.cvd.getIconInfoList().size() - 1) {
-            return this.cvd.getIconInfoList().size() - 1;
+        if (i > this.cve.getIconInfoList().size() - 1) {
+            return this.cve.getIconInfoList().size() - 1;
         }
         return i;
     }
 
     public int a(IconInfo iconInfo) {
         Discount discount;
-        if (iconInfo != null && iconInfo.discount != null && this.cvd != null && this.cvd.getUserInfo() != null) {
+        if (iconInfo != null && iconInfo.discount != null && this.cve != null && this.cve.getUserInfo() != null) {
             List<Discount> list = iconInfo.discount;
             int i = 0;
             for (int i2 = 0; i2 < list.size() && ((discount = list.get(i2)) == null || iconInfo.non_member_t.intValue() > discount.recharge.intValue()); i2++) {
@@ -236,10 +236,10 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
                 i = list.size() - 1;
             }
             r2 = list.get(i) != null ? (int) ((list.get(i).rebate.intValue() * iconInfo.non_member_t.intValue()) / 100.0f) : 0;
-            if (this.cvd.getUserInfo().is_mem.intValue() != 2) {
+            if (this.cve.getUserInfo().is_mem.intValue() != 2) {
                 r2 = iconInfo.non_member_t.intValue();
             }
-            this.cvg = list.get(i).rebate.intValue() - 100;
+            this.cvh = list.get(i).rebate.intValue() - 100;
         }
         return r2;
     }
@@ -248,34 +248,34 @@ public class j extends com.baidu.adp.base.g<BuyTBeanActivity> implements TextWat
         return (int) (i / 100.0f);
     }
 
-    public int apU() {
-        return this.beo;
-    }
-
     public int apV() {
-        return this.cve;
+        return this.bep;
     }
 
     public int apW() {
         return this.cvf;
     }
 
-    public String getString(int i) {
-        return this.cuK.getPageContext().getString(i);
+    public int apX() {
+        return this.cvg;
     }
 
-    public void afQ() {
-        if (this.cvb && !this.cvc) {
-            this.cuX.clearFocus();
-            com.baidu.adp.lib.util.n.c(this.cuK.getPageContext().getPageActivity(), this.cuX);
+    public String getString(int i) {
+        return this.cuL.getPageContext().getString(i);
+    }
+
+    public void afR() {
+        if (this.cvc && !this.cvd) {
+            this.cuY.clearFocus();
+            com.baidu.adp.lib.util.n.c(this.cuL.getPageContext().getPageActivity(), this.cuY);
         }
     }
 
     public void fk(boolean z) {
-        this.cvc = z;
+        this.cvd = z;
     }
 
-    public boolean apX() {
-        return this.cvb;
+    public boolean apY() {
+        return this.cvc;
     }
 }

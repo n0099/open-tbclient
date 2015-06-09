@@ -245,8 +245,8 @@ public class a {
     */
     private void a(int i, int i2, h hVar) {
         boolean z;
+        String xb;
         String xa;
-        String wZ;
         String str;
         boolean z2 = false;
         boolean z3 = true;
@@ -301,80 +301,80 @@ public class a {
                             a(26, null, sb3.toString(), sb3.toString());
                         }
                     } else if (i2 == 16) {
-                        int wQ = (!c.wg().wv() || c.wg().wj() <= 0) ? 0 : hVar.wQ() - hVar.wX();
-                        long xi = (!c.wg().wo() || c.wg().wj() <= 0) ? 0L : hVar.xi();
-                        boolean z4 = xi > 0;
-                        long j = wQ + xi;
+                        int wR = (!c.wg().wv() || c.wg().wj() <= 0) ? 0 : hVar.wR() - hVar.wY();
+                        long xj = (!c.wg().wo() || c.wg().wj() <= 0) ? 0L : hVar.xj();
+                        boolean z4 = xj > 0;
+                        long j = wR + xj;
                         if (j > 1) {
                             stringBuffer.append(String.format(this.acs.getString(t.notify_chat), Long.valueOf(j)));
                             a(16, (String) null, stringBuffer.toString(), stringBuffer.toString(), z4);
                         } else if (j == 1) {
-                            hVar.xl();
-                            hVar.xj();
-                            if (xi == 1) {
-                                xa = hVar.xl();
-                                str = hVar.xj();
-                                wZ = String.valueOf(xa) + "：" + str;
-                            } else if (wQ == 1) {
+                            hVar.xm();
+                            hVar.xk();
+                            if (xj == 1) {
+                                xb = hVar.xm();
+                                str = hVar.xk();
+                                xa = String.valueOf(xb) + "：" + str;
+                            } else if (wR == 1) {
+                                xb = hVar.xb();
                                 xa = hVar.xa();
-                                wZ = hVar.wZ();
-                                str = wZ;
+                                str = xa;
                             } else {
                                 return;
                             }
                             if (TextUtils.isEmpty(str)) {
                                 str = stringBuffer.append(String.format(this.acs.getString(t.notify_chat), Long.valueOf(j))).toString();
                             }
-                            if (TextUtils.isEmpty(wZ)) {
-                                wZ = str;
+                            if (TextUtils.isEmpty(xa)) {
+                                xa = str;
                             }
-                            a(16, xa, str, wZ, z4);
+                            a(16, xb, str, xa, z4);
                         }
                     } else if (i2 == 19) {
-                        List<j> xs = hVar.xs();
-                        if (xs != null && xs.size() != 0) {
-                            for (j jVar : xs) {
+                        List<j> xt = hVar.xt();
+                        if (xt != null && xt.size() != 0) {
+                            for (j jVar : xt) {
                                 if (jVar != null && !StringUtils.isNull(jVar.content) && jVar.gid != 0 && jVar.unReadCount > jVar.adZ) {
                                     a(jVar);
                                 }
                             }
                         }
                     } else if (i2 == 27) {
-                        List<i> xt = hVar.xt();
-                        if (xt != null && xt.size() != 0) {
-                            for (i iVar : xt) {
+                        List<i> xu = hVar.xu();
+                        if (xu != null && xu.size() != 0) {
+                            for (i iVar : xu) {
                                 if (iVar != null && !StringUtils.isNull(iVar.content) && iVar.gid != 0 && iVar.unReadCount > iVar.adZ) {
                                     a(iVar);
                                 }
                             }
                         }
                     } else if (c.wg().wv() && c.wg().wj() > 0) {
-                        if (hVar.wR() + hVar.wT() > 0) {
-                            if (hVar.wR() > 0 && !vS()) {
-                                long wR = hVar.wR() - hVar.wS();
-                                if (wR > 0) {
-                                    stringBuffer.append(String.format(this.acs.getString(t.notify_updates), Long.valueOf(wR)));
+                        if (hVar.wS() + hVar.wU() > 0) {
+                            if (hVar.wS() > 0 && !vS()) {
+                                long wS = hVar.wS() - hVar.wT();
+                                if (wS > 0) {
+                                    stringBuffer.append(String.format(this.acs.getString(t.notify_updates), Long.valueOf(wS)));
                                     z = false;
                                     z2 = true;
-                                } else if (hVar.wS() > 0) {
+                                } else if (hVar.wT() > 0) {
                                     z = true;
                                 }
-                                if (hVar.wT() > 0 || vR()) {
+                                if (hVar.wU() > 0 || vR()) {
                                     z3 = z2;
                                 } else if (!z2) {
-                                    stringBuffer.append(String.format(this.acs.getString(t.notify_validate), Integer.valueOf(hVar.wT())));
+                                    stringBuffer.append(String.format(this.acs.getString(t.notify_validate), Integer.valueOf(hVar.wU())));
                                 } else {
-                                    stringBuffer.append(String.format(this.acs.getString(t.notify_validate_1), Integer.valueOf(hVar.wT())));
+                                    stringBuffer.append(String.format(this.acs.getString(t.notify_validate_1), Integer.valueOf(hVar.wU())));
                                 }
                                 if (z3) {
                                     a(17, null, stringBuffer.toString(), stringBuffer.toString());
                                 }
                                 if (z) {
-                                    a(18, hVar.xc(), hVar.xd(), hVar.xd());
+                                    a(18, hVar.xd(), hVar.xe(), hVar.xe());
                                 }
                             }
                             z = false;
-                            if (hVar.wT() > 0) {
+                            if (hVar.wU() > 0) {
                             }
                             z3 = z2;
                             if (z3) {
@@ -382,8 +382,8 @@ public class a {
                             if (z) {
                             }
                         }
-                        if (hVar.xm() > 0 && !vT()) {
-                            String format2 = String.format(this.acs.getString(t.notify_live), Integer.valueOf(hVar.xm()));
+                        if (hVar.xn() > 0 && !vT()) {
+                            String format2 = String.format(this.acs.getString(t.notify_live), Integer.valueOf(hVar.xn()));
                             a(21, null, format2, format2);
                         }
                     }
@@ -484,7 +484,7 @@ public class a {
     public Intent e(int i, boolean z) {
         String str = "";
         if (z) {
-            Set<String> keySet = this.acC.xk().keySet();
+            Set<String> keySet = this.acC.xl().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
             }
@@ -496,11 +496,11 @@ public class a {
         intent.putExtra("reply_me", this.acu);
         intent.putExtra("fans", this.acy);
         intent.putExtra("chat", getMsgChat());
-        intent.putExtra("group_msg", this.acC.wQ() - this.acC.wX());
-        intent.putExtra("group_msg_validate", this.acC.wT());
-        intent.putExtra("group_msg_updates", this.acC.wR());
-        intent.putExtra("live_notify_msg_updates", this.acC.xm());
-        intent.putExtra("officialbar_msg", this.acC.wU());
+        intent.putExtra("group_msg", this.acC.wR() - this.acC.wY());
+        intent.putExtra("group_msg_validate", this.acC.wU());
+        intent.putExtra("group_msg_updates", this.acC.wS());
+        intent.putExtra("live_notify_msg_updates", this.acC.xn());
+        intent.putExtra("officialbar_msg", this.acC.wV());
         intent.putExtra("privateGid", str);
         return intent;
     }
@@ -508,7 +508,7 @@ public class a {
     public Intent vM() {
         Intent intent = new Intent(this.acs, DealIntentService.class);
         intent.putExtra("class", 14);
-        intent.putExtra("group_msg_updates", this.acC.wS());
+        intent.putExtra("group_msg_updates", this.acC.wT());
         return intent;
     }
 
@@ -536,7 +536,7 @@ public class a {
     }
 
     public int vQ() {
-        return this.acC.xi();
+        return this.acC.xj();
     }
 
     public void dJ(String str) {
@@ -549,10 +549,10 @@ public class a {
             vO();
             return;
         }
-        HashMap<String, String> xe = we.xe();
-        if (xe == null || xe.isEmpty()) {
+        HashMap<String, String> xf = we.xf();
+        if (xf == null || xf.isEmpty()) {
             vO();
-        } else if (xe.containsKey(str)) {
+        } else if (xf.containsKey(str)) {
             vO();
         }
     }
@@ -567,10 +567,10 @@ public class a {
             vO();
             return;
         }
-        HashMap<String, String> xk = we.xk();
-        if (xk == null || xk.isEmpty()) {
+        HashMap<String, String> xl = we.xl();
+        if (xl == null || xl.isEmpty()) {
             vO();
-        } else if (xk.containsKey(str)) {
+        } else if (xl.containsKey(str)) {
             vO();
         }
     }
@@ -596,14 +596,14 @@ public class a {
         if (we == null) {
             vU();
         } else if (1 == i) {
-            if (we.wR() <= 0) {
+            if (we.wS() <= 0) {
                 vU();
             }
         } else if (2 == i) {
-            if (we.wT() <= 0) {
+            if (we.wU() <= 0) {
                 vU();
             }
-        } else if (3 == i && we.xm() <= 0) {
+        } else if (3 == i && we.xn() <= 0) {
             NotificationHelper.cancelNotification(this.acs, 21);
         }
     }
@@ -654,8 +654,8 @@ public class a {
         newsNotifyMessage.setMsgReplyme(getMsgReplyme());
         newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
         newsNotifyMessage.setMsgLiveVip(getMsgLiveVip());
-        newsNotifyMessage.setMsgPrivateChat(this.acC.xi());
-        newsNotifyMessage.setMsgStrangerChat(this.acC.xp());
+        newsNotifyMessage.setMsgPrivateChat(this.acC.xj());
+        newsNotifyMessage.setMsgStrangerChat(this.acC.xq());
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
@@ -664,13 +664,13 @@ public class a {
             NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
             newsNotifyMessage.setMsgAtme(getMsgAtme());
             newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-            newsNotifyMessage.setMsgChat(((((hVar.xi() + hVar.wQ()) + hVar.xp()) + hVar.xo()) + hVar.xu()) - hVar.wX());
+            newsNotifyMessage.setMsgChat(((((hVar.xj() + hVar.wR()) + hVar.xq()) + hVar.xp()) + hVar.xv()) - hVar.wY());
             newsNotifyMessage.setMsgFans(getMsgFans());
             newsNotifyMessage.setMsgReplyme(getMsgReplyme());
             newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
             newsNotifyMessage.setMsgLiveVip(getMsgLiveVip());
-            newsNotifyMessage.setMsgPrivateChat(hVar.xi());
-            newsNotifyMessage.setMsgStrangerChat(hVar.xp());
+            newsNotifyMessage.setMsgPrivateChat(hVar.xj());
+            newsNotifyMessage.setMsgStrangerChat(hVar.xq());
             MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
         }
     }
@@ -701,7 +701,7 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=5] */
     public int wc() {
-        return ((((this.acC.xi() + this.acC.wQ()) + this.acC.xp()) + this.acC.xo()) + this.acC.xu()) - this.acC.wX();
+        return ((((this.acC.xj() + this.acC.wR()) + this.acC.xq()) + this.acC.xp()) + this.acC.xv()) - this.acC.wY();
     }
 
     public int getMsgFans() {
@@ -781,19 +781,19 @@ public class a {
     */
     public void b(h hVar) {
         long j;
-        int wU;
+        int wV;
         int i = 0;
         if (hVar != null) {
             this.acC = hVar;
-            this.acw = (hVar.wQ() - hVar.wX()) + hVar.xi() + hVar.xo() + hVar.xu();
+            this.acw = (hVar.wR() - hVar.wY()) + hVar.xj() + hVar.xp() + hVar.xv();
             a(hVar);
-            if (hVar.wY()) {
+            if (hVar.wZ()) {
                 this.acD = null;
                 mHandler.removeMessages(0);
             }
-            if (hVar.wY()) {
+            if (hVar.wZ()) {
                 if (c.wg().wv() && c.wg().wj() > 0) {
-                    i = hVar.wQ() - hVar.wX();
+                    i = hVar.wR() - hVar.wY();
                 }
                 if (c.wg().wo() && c.wg().wj() > 0) {
                     boolean wx = c.wg().wx();
@@ -801,24 +801,24 @@ public class a {
                     boolean isMIUIRom = TbadkCoreApplication.m411getInst().isMIUIRom();
                     boolean isFloatingWindowOpened = TbadkCoreApplication.m411getInst().isFloatingWindowOpened();
                     if (isMIUIRom) {
-                        j = hVar.xi();
+                        j = hVar.xj();
                     } else if (isFloatingWindowOpened) {
                         if (!wx || isProcessBackground) {
-                            j = hVar.xi();
+                            j = hVar.xj();
                         }
                     } else {
-                        j = hVar.xi();
+                        j = hVar.xj();
                     }
-                    if ((i <= 0 || j > 0) && ((i > hVar.xb() - hVar.wX() && i > 0) || j > hVar.wV())) {
+                    if ((i <= 0 || j > 0) && ((i > hVar.xc() - hVar.wY() && i > 0) || j > hVar.wW())) {
                         a(1, 16, hVar);
                     }
-                    wU = hVar.wU();
-                    if (wU > 0 && wU > hVar.xh()) {
+                    wV = hVar.wV();
+                    if (wV > 0 && wV > hVar.xi()) {
                         a(1, 19, hVar);
                     }
-                    if (hVar.wR() <= hVar.xf() || hVar.wT() > hVar.xg()) {
-                        if (hVar.wR() > hVar.xf() || hVar.wT() != hVar.xg() || !vS()) {
-                            if (hVar.wR() == hVar.xf() || hVar.wT() <= hVar.xg() || !vR()) {
+                    if (hVar.wS() <= hVar.xg() || hVar.wU() > hVar.xh()) {
+                        if (hVar.wS() > hVar.xg() || hVar.wU() != hVar.xh() || !vS()) {
+                            if (hVar.wS() == hVar.xg() || hVar.wU() <= hVar.xh() || !vR()) {
                                 a(1, 17, hVar);
                             } else {
                                 return;
@@ -827,11 +827,11 @@ public class a {
                             return;
                         }
                     }
-                    if (hVar.xm() > hVar.xn() && !vT()) {
+                    if (hVar.xn() > hVar.xo() && !vT()) {
                         TiebaStatic.eventStat(this.acs, "message_broadcast_receive", "");
                         a(1, 21, hVar);
                     }
-                    if (hVar.xq() <= hVar.xr()) {
+                    if (hVar.xr() <= hVar.xs()) {
                         a(1, 27, hVar);
                         return;
                     }
@@ -841,22 +841,22 @@ public class a {
                 if (i <= 0) {
                 }
                 a(1, 16, hVar);
-                wU = hVar.wU();
-                if (wU > 0) {
+                wV = hVar.wV();
+                if (wV > 0) {
                     a(1, 19, hVar);
                 }
-                if (hVar.wR() <= hVar.xf()) {
+                if (hVar.wS() <= hVar.xg()) {
                 }
-                if (hVar.wR() > hVar.xf()) {
+                if (hVar.wS() > hVar.xg()) {
                 }
-                if (hVar.wR() == hVar.xf()) {
+                if (hVar.wS() == hVar.xg()) {
                 }
                 a(1, 17, hVar);
-                if (hVar.xm() > hVar.xn()) {
+                if (hVar.xn() > hVar.xo()) {
                     TiebaStatic.eventStat(this.acs, "message_broadcast_receive", "");
                     a(1, 21, hVar);
                 }
-                if (hVar.xq() <= hVar.xr()) {
+                if (hVar.xr() <= hVar.xs()) {
                 }
             }
         }

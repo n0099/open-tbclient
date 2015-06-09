@@ -11,19 +11,19 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Boolean, String, a> {
-    private i bHw;
-    final /* synthetic */ a bHx;
+    private i bHx;
+    final /* synthetic */ a bHy;
     private int offset;
     private aa OE = null;
-    private String bHy = null;
-    Boolean bHz = false;
+    private String bHz = null;
+    Boolean bHA = false;
 
     public c(a aVar, int i) {
-        this.bHx = aVar;
+        this.bHy = aVar;
         this.offset = 0;
-        this.bHw = null;
+        this.bHx = null;
         this.offset = i;
-        this.bHw = new i();
+        this.bHx = new i();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,46 +41,46 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        this.bHz = boolArr[0];
+        this.bHA = boolArr[0];
         a aVar = new a();
-        if (this.bHz.booleanValue()) {
+        if (this.bHA.booleanValue()) {
             t<String> ck = com.baidu.tbadk.core.b.a.rI().ck("tb.my_bookmarks");
             if (ck != null) {
                 publishProgress(ck.get(TbadkCoreApplication.getCurrentAccount()));
             }
-            arrayList3 = this.bHx.bHr;
+            arrayList3 = this.bHy.bHs;
             if (arrayList3 == null) {
-                this.bHx.bHr = new ArrayList();
+                this.bHy.bHs = new ArrayList();
             } else {
-                arrayList4 = this.bHx.bHr;
+                arrayList4 = this.bHy.bHs;
                 arrayList4.clear();
             }
-            this.bHx.bHs = 0;
+            this.bHy.bHt = 0;
         }
         this.OE = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_GETSTORE);
         this.OE.o("user_id", TbadkCoreApplication.getCurrentAccount());
-        z = this.bHx.bHu;
+        z = this.bHy.bHv;
         if (z) {
             this.OE.o("offset", String.valueOf(0));
         } else {
             this.OE.o("offset", String.valueOf(this.offset));
         }
         this.OE.o("rn", String.valueOf(20));
-        this.bHy = this.OE.sw();
-        this.bHw.parserJson(this.bHy);
+        this.bHz = this.OE.sw();
+        this.bHx.parserJson(this.bHz);
         if (this.OE.sX().tT().qa()) {
-            aVar.ib(this.bHy);
+            aVar.ib(this.bHz);
             if (this.offset == 0) {
-                arrayList = this.bHx.bHr;
+                arrayList = this.bHy.bHs;
                 if (arrayList == null) {
-                    this.bHx.bHr = new ArrayList();
+                    this.bHy.bHs = new ArrayList();
                 } else {
-                    arrayList2 = this.bHx.bHr;
+                    arrayList2 = this.bHy.bHs;
                     arrayList2.clear();
                 }
-                this.bHx.bHs = 0;
-                if (this.bHz.booleanValue()) {
-                    gc(this.bHy);
+                this.bHy.bHt = 0;
+                if (this.bHA.booleanValue()) {
+                    gc(this.bHz);
                 }
             }
         }
@@ -105,16 +105,16 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         String str = strArr[0];
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
-            ic = this.bHx.ic(str);
-            if (this.bHz.booleanValue()) {
-                this.bHx.H(ic);
+            ic = this.bHy.ic(str);
+            if (this.bHA.booleanValue()) {
+                this.bHy.H(ic);
             } else {
-                this.bHx.I(ic);
+                this.bHy.I(ic);
             }
         } else {
-            this.bHx.H(arrayList);
+            this.bHy.H(arrayList);
         }
-        this.bHx.bHv.callback(0, null, true);
+        this.bHy.bHw.callback(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -123,7 +123,7 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         if (this.OE != null) {
             this.OE.gS();
         }
-        this.bHx.bHo = null;
+        this.bHy.bHp = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,32 +134,32 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         if (aVar == null) {
             aVar = new a();
         }
-        this.bHx.bHo = null;
-        this.bHx.bHs = aVar.getCount();
-        ArrayList<MarkData> ZJ = aVar.ZJ();
-        if (this.bHz.booleanValue()) {
-            if (ZJ != null && ZJ.size() != 0) {
-                this.bHx.H(ZJ);
+        this.bHy.bHp = null;
+        this.bHy.bHt = aVar.getCount();
+        ArrayList<MarkData> ZK = aVar.ZK();
+        if (this.bHA.booleanValue()) {
+            if (ZK != null && ZK.size() != 0) {
+                this.bHy.H(ZK);
             }
         } else {
-            this.bHx.I(ZJ);
+            this.bHy.I(ZK);
         }
-        Iterator<MarkData> it = ZJ.iterator();
+        Iterator<MarkData> it = ZK.iterator();
         int i = 0;
         while (it.hasNext()) {
             if (it.next().getNewCounts() > 0) {
                 int i2 = i + 1;
-                this.bHx.hq(i2);
+                this.bHy.hq(i2);
                 i = i2;
             }
         }
-        if (this.bHx.bHv != null) {
+        if (this.bHy.bHw != null) {
             if (this.OE.sX().tT().qa()) {
-                this.bHx.bHv.callback(0, this.bHw.getErrorString(), false);
+                this.bHy.bHw.callback(0, this.bHx.getErrorString(), false);
             } else {
-                this.bHx.bHv.callback(3, this.OE.getErrorString());
+                this.bHy.bHw.callback(3, this.OE.getErrorString());
             }
         }
-        this.bHx.bHu = false;
+        this.bHy.bHv = false;
     }
 }

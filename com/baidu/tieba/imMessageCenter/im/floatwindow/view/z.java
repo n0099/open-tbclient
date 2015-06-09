@@ -4,25 +4,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class z extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ UserData bbS;
-    final /* synthetic */ FloatingPersonalChatActivity buJ;
+    private final /* synthetic */ UserData bbT;
+    final /* synthetic */ FloatingPersonalChatActivity buK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FloatingPersonalChatActivity floatingPersonalChatActivity, UserData userData) {
-        this.buJ = floatingPersonalChatActivity;
-        this.bbS = userData;
+        this.buK = floatingPersonalChatActivity;
+        this.bbT = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: FQ */
+    /* renamed from: FR */
     public Void doInBackground() {
         String str;
-        if (this.bbS != null) {
-            com.baidu.tieba.im.settingcache.j UQ = com.baidu.tieba.im.settingcache.j.UQ();
+        if (this.bbT != null) {
+            com.baidu.tieba.im.settingcache.j UR = com.baidu.tieba.im.settingcache.j.UR();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            str = this.buJ.ase;
-            UQ.a(currentAccount, str, this.bbS);
+            str = this.buK.ase;
+            UR.a(currentAccount, str, this.bbT);
             return null;
         }
         return null;

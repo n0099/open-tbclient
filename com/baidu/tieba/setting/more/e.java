@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d ceH;
-    private final /* synthetic */ q ceI;
+    final /* synthetic */ d ceI;
+    private final /* synthetic */ q ceJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, q qVar) {
-        this.ceH = dVar;
-        this.ceI = qVar;
+        this.ceI = dVar;
+        this.ceJ = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,33 +22,33 @@ public class e implements View.OnClickListener {
         TextView textView;
         long j;
         int i;
-        settingTextTestNewView = this.ceH.ceD;
+        settingTextTestNewView = this.ceI.ceE;
         if (view == settingTextTestNewView) {
-            this.ceI.iu(1);
+            this.ceJ.iu(1);
             return;
         }
-        tbSettingTextTipView = this.ceH.ceE;
+        tbSettingTextTipView = this.ceI.ceF;
         if (view == tbSettingTextTipView) {
-            this.ceI.iu(2);
+            this.ceJ.iu(2);
             return;
         }
-        textView = this.ceH.ceC;
+        textView = this.ceI.ceD;
         if (view == textView) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.ceH.cez;
+            j = this.ceI.ceA;
             if (currentTimeMillis - j >= 2000) {
-                this.ceH.cey = 0;
+                this.ceI.cez = 0;
             } else {
-                d dVar = this.ceH;
-                i = dVar.cey;
+                d dVar = this.ceI;
+                i = dVar.cez;
                 int i2 = i + 1;
-                dVar.cey = i2;
+                dVar.cez = i2;
                 if (i2 >= 14) {
-                    this.ceI.iu(4);
-                    this.ceH.cey = 0;
+                    this.ceJ.iu(4);
+                    this.ceI.cez = 0;
                 }
             }
-            this.ceH.cez = System.currentTimeMillis();
+            this.ceI.ceA = System.currentTimeMillis();
         }
     }
 }

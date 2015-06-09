@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class am implements z {
-    final /* synthetic */ aj czp;
+    final /* synthetic */ aj czq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(aj ajVar) {
-        this.czp = ajVar;
+        this.czq = ajVar;
     }
 
     @Override // com.baidu.tieba.write.album.z
@@ -19,21 +19,21 @@ class am implements z {
         p pVar3;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        pVar = this.czp.cxU;
+        pVar = this.czq.cxV;
         int maxImagesAllowed = pVar.getMaxImagesAllowed();
-        pVar2 = this.czp.cxU;
+        pVar2 = this.czq.cxV;
         if (pVar2.size() < maxImagesAllowed) {
-            pVar3 = this.czp.cxU;
-            String arS = pVar3.arS();
-            if (!TextUtils.isEmpty(arS)) {
-                albumActivity2 = this.czp.cxZ;
-                ax.a(albumActivity2.getPageContext(), arS);
+            pVar3 = this.czq.cxV;
+            String arT = pVar3.arT();
+            if (!TextUtils.isEmpty(arT)) {
+                albumActivity2 = this.czq.cya;
+                ax.a(albumActivity2.getPageContext(), arT);
                 return;
             }
-            albumActivity = this.czp.cxZ;
+            albumActivity = this.czq.cya;
             ax.b(albumActivity.getPageContext());
             return;
         }
-        this.czp.showToast(String.format(this.czp.getPageContext().getString(com.baidu.tieba.t.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.czq.showToast(String.format(this.czq.getPageContext().getString(com.baidu.tieba.t.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

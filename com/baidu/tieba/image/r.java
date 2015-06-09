@@ -5,23 +5,23 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class r {
-    private ArrayList<com.baidu.tieba.tbadkCore.data.c> bxf = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.tbadkCore.data.c> bxN = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.tbadkCore.data.c> bxg = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.tbadkCore.data.c> bxO = new ArrayList<>();
 
     public void setContent(ArrayList<com.baidu.tieba.tbadkCore.data.c> arrayList) {
-        this.bxf = arrayList;
+        this.bxg = arrayList;
     }
 
     public void aA(Context context) {
         int i;
         int i2;
         int i3;
-        if (this.bxf != null) {
+        if (this.bxg != null) {
             int i4 = -1;
-            int size = this.bxN.size();
+            int size = this.bxO.size();
             if (size > 0) {
                 try {
-                    i4 = this.bxN.get(size - 1).getType();
+                    i4 = this.bxO.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -29,24 +29,24 @@ public class r {
             }
             int i5 = 0;
             int i6 = i4;
-            while (i5 < this.bxf.size()) {
-                com.baidu.tieba.tbadkCore.data.c cVar = this.bxf.get(i5);
+            while (i5 < this.bxg.size()) {
+                com.baidu.tieba.tbadkCore.data.c cVar = this.bxg.get(i5);
                 if (com.baidu.tieba.tbadkCore.data.c.ah(i6, cVar.getType())) {
-                    this.bxN.get(size - 1).a(cVar.aH(context));
+                    this.bxO.get(size - 1).a(cVar.aH(context));
                     i3 = size;
                     i2 = i6;
                 } else {
                     if (cVar.getType() == 3) {
-                        this.bxN.add(cVar);
+                        this.bxO.add(cVar);
                         i = 3;
                     } else if (cVar.getType() == 11) {
-                        this.bxN.add(cVar);
+                        this.bxO.add(cVar);
                         i = 11;
                     } else {
                         com.baidu.tieba.tbadkCore.data.c cVar2 = new com.baidu.tieba.tbadkCore.data.c();
                         cVar2.setType(0);
                         cVar2.a(cVar.aH(context));
-                        this.bxN.add(cVar2);
+                        this.bxO.add(cVar2);
                         i = 0;
                     }
                     i2 = i;

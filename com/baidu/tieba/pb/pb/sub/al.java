@@ -8,13 +8,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ ak bQA;
+    final /* synthetic */ ak bQB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public al(ak akVar, int i, int i2) {
         super(i, i2);
-        this.bQA = akVar;
+        this.bQB = akVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -62,20 +62,20 @@ public class al extends com.baidu.adp.framework.listener.a {
         NewSubPbActivity newSubPbActivity4;
         long j4 = 0;
         String str5 = null;
-        bdUniqueId = this.bQA.unique_id;
+        bdUniqueId = this.bQB.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.bQA.aoe = false;
+            this.bQB.aoe = false;
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    newSubPbActivity4 = this.bQA.bQs;
+                    newSubPbActivity4 = this.bQB.bQt;
                     errorString = newSubPbActivity4.getResources().getString(com.baidu.tieba.t.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                newSubPbActivity2 = this.bQA.bQs;
+                newSubPbActivity2 = this.bQB.bQt;
                 newSubPbActivity2.showToast(errorString);
                 if (responsedMessage.getError() == 4) {
-                    newSubPbActivity3 = this.bQA.bQs;
+                    newSubPbActivity3 = this.bQB.bQt;
                     newSubPbActivity3.finish();
                 }
             }
@@ -85,7 +85,7 @@ public class al extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.bQA.b(subPbHttpResponseMessage.pbFloorData);
+                        this.bQB.b(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -102,37 +102,37 @@ public class al extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.bQA.b(subPbSocketResponseMessage.pbFloorData);
+                        this.bQB.b(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.bQA.bQx;
+            arrayList = this.bQB.bQy;
             if (arrayList != null) {
-                arrayList2 = this.bQA.bQx;
+                arrayList2 = this.bQB.bQy;
                 if (arrayList2.size() > 0) {
                     try {
-                        arrayList4 = this.bQA.bQx;
+                        arrayList4 = this.bQB.bQy;
                         for (int size = arrayList4.size() - 1; size >= 0; size--) {
-                            arrayList5 = this.bQA.bQx;
-                            cVar7 = this.bQA.bQt;
+                            arrayList5 = this.bQB.bQy;
+                            cVar7 = this.bQB.bQu;
                             cVar7.b((com.baidu.tieba.pb.a.c) arrayList5.get(size), true);
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList3 = this.bQA.bQx;
+                    arrayList3 = this.bQB.bQy;
                     arrayList3.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString2 = responsedMessage.getErrorString();
-            aVar = this.bQA.aFs;
+            aVar = this.bQB.aFt;
             if (aVar == null) {
-                this.bQA.aFs = new com.baidu.tieba.tbadkCore.e.a("pbfloorStat");
+                this.bQB.aFt = new com.baidu.tieba.tbadkCore.e.a("pbfloorStat");
             }
-            aVar2 = this.bQA.aFs;
+            aVar2 = this.bQB.aFt;
             if (aVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -150,15 +150,15 @@ public class al extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i4 = downSize2;
                     }
-                    aVar3 = this.bQA.aFs;
+                    aVar3 = this.bQB.aFt;
                     aVar3.a(z, true, error, errorString2, i4, j3, j2);
-                    this.bQA.aFs = new com.baidu.tieba.tbadkCore.e.a("pbfloorStat");
-                    this.bQA.aFs = null;
+                    this.bQB.aFt = new com.baidu.tieba.tbadkCore.e.a("pbfloorStat");
+                    this.bQB.aFt = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    amVar = this.bQA.bQu;
+                    amVar = this.bQB.bQv;
                     if (amVar != null) {
-                        amVar2 = this.bQA.bQu;
+                        amVar2 = this.bQB.bQv;
                         amVar2.a(false, error, errorString2, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
@@ -167,71 +167,71 @@ public class al extends com.baidu.adp.framework.listener.a {
                     } else {
                         cVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (cVar.aaz().errorno.intValue() != 0) {
-                        amVar5 = this.bQA.bQu;
+                    if (cVar.aaA().errorno.intValue() != 0) {
+                        amVar5 = this.bQB.bQv;
                         if (amVar5 != null) {
-                            amVar6 = this.bQA.bQu;
-                            amVar6.a(false, cVar.bJW.errorno.intValue(), cVar.bJW.errmsg, null);
+                            amVar6 = this.bQB.bQv;
+                            amVar6.a(false, cVar.bJX.errorno.intValue(), cVar.bJX.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (cVar.aaH() != null && cVar.aaH().getAuthor() != null) {
-                        str5 = cVar.aaH().getAuthor().getUserId();
+                    if (cVar.aaI() != null && cVar.aaI().getAuthor() != null) {
+                        str5 = cVar.aaI().getAuthor().getUserId();
                     }
-                    for (int i5 = 0; i5 < cVar.aaC().size(); i5++) {
-                        boolean equals = str5.equals(cVar.aaC().get(i5).getAuthor().getUserId());
-                        newSubPbActivity = this.bQA.bQs;
-                        cVar.aaC().get(i5).b(newSubPbActivity.getPageContext(), equals);
+                    for (int i5 = 0; i5 < cVar.aaD().size(); i5++) {
+                        boolean equals = str5.equals(cVar.aaD().get(i5).getAuthor().getUserId());
+                        newSubPbActivity = this.bQB.bQt;
+                        cVar.aaD().get(i5).b(newSubPbActivity.getPageContext(), equals);
                     }
-                    if (cVar.aaA() != null) {
-                        this.bQA.postID = cVar.aaA().getId();
+                    if (cVar.aaB() != null) {
+                        this.bQB.postID = cVar.aaB().getId();
                     }
-                    if (cVar.aaH() != null) {
-                        this.bQA.bQm = cVar.aaH().getId();
-                        this.bQA.bJV = cVar.pq();
-                        this.bQA.bQr = cVar.aaH().ro();
+                    if (cVar.aaI() != null) {
+                        this.bQB.bQn = cVar.aaI().getId();
+                        this.bQB.bJW = cVar.pq();
+                        this.bQB.bQs = cVar.aaI().ro();
                     }
-                    str = this.bQA.bQr;
+                    str = this.bQB.bQs;
                     if (str != null) {
-                        str2 = this.bQA.postID;
+                        str2 = this.bQB.postID;
                         if (str2 != null) {
-                            str3 = this.bQA.bQr;
-                            str4 = this.bQA.postID;
+                            str3 = this.bQB.bQs;
+                            str4 = this.bQB.postID;
                             if (str3.equals(str4)) {
-                                this.bQA.bJV = true;
+                                this.bQB.bJW = true;
                             }
                         }
                     }
-                    ArrayList<com.baidu.tieba.tbadkCore.data.j> aaC = cVar.aaC();
-                    if (aaC == null || aaC.size() == 0) {
-                        cVar2 = this.bQA.bQt;
+                    ArrayList<com.baidu.tieba.tbadkCore.data.j> aaD = cVar.aaD();
+                    if (aaD == null || aaD.size() == 0) {
+                        cVar2 = this.bQB.bQu;
                         cVar.aJ(cVar2.getCurrentPage());
                     }
-                    i = this.bQA.mLoadType;
+                    i = this.bQB.mLoadType;
                     if (i != 1) {
-                        i2 = this.bQA.mLoadType;
+                        i2 = this.bQB.mLoadType;
                         if (i2 != 2) {
-                            i3 = this.bQA.mLoadType;
+                            i3 = this.bQB.mLoadType;
                             if (i3 == 3) {
-                                cVar4 = this.bQA.bQt;
+                                cVar4 = this.bQB.bQu;
                                 cVar4.a(cVar, false);
                             } else {
-                                cVar3 = this.bQA.bQt;
+                                cVar3 = this.bQB.bQu;
                                 cVar3.b(cVar, false);
                             }
                         } else {
-                            cVar5 = this.bQA.bQt;
+                            cVar5 = this.bQB.bQu;
                             cVar5.b(cVar, true);
                         }
                     } else {
-                        this.bQA.bQt = cVar;
+                        this.bQB.bQu = cVar;
                     }
-                    amVar3 = this.bQA.bQu;
+                    amVar3 = this.bQB.bQv;
                     if (amVar3 != null) {
-                        boolean z2 = this.bQA.adC();
-                        amVar4 = this.bQA.bQu;
-                        cVar6 = this.bQA.bQt;
+                        boolean z2 = this.bQB.adD();
+                        amVar4 = this.bQB.bQv;
+                        cVar6 = this.bQB.bQu;
                         amVar4.a(z2, error, errorString2, cVar6);
                     }
                 }

@@ -65,7 +65,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
 
     protected abstract int oP();
 
-    static /* synthetic */ int[] BT() {
+    static /* synthetic */ int[] BU() {
         int[] iArr = aoh;
         if (iArr == null) {
             iArr = new int[NetModelType.valuesCustom().length];
@@ -115,14 +115,14 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
         this.isNeedCache = z;
     }
 
-    public Runnable BK() {
+    public Runnable BL() {
         if (this.aog == null) {
             this.aog = new f(this);
         }
         return this.aog;
     }
 
-    public boolean BL() {
+    public boolean BM() {
         if (this.anW == null && this.anV == null && TbadkCoreApplication.m411getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
@@ -130,18 +130,18 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
             this.aof = com.baidu.adp.lib.util.n.isNetOk();
         }
         if (this.timeout >= 10) {
-            com.baidu.adp.lib.g.i.hs().postDelayed(BK(), this.timeout * 1000);
+            com.baidu.adp.lib.g.i.hs().postDelayed(BL(), this.timeout * 1000);
         }
-        switch (BT()[this.anY.ordinal()]) {
+        switch (BU()[this.anY.ordinal()]) {
             case 1:
-                BM();
+                BN();
                 if (!this.aof) {
                     com.baidu.adp.lib.g.i.hs().post(new i(this));
                     return false;
                 }
                 this.aoe = true;
-                BQ();
-                BN();
+                BR();
+                BO();
                 MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.anX, oN());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
                 HashMap<String, Object> oS = this.anX.oS();
@@ -155,14 +155,14 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
                 sendMessage(mvcHttpMessage);
                 return true;
             case 2:
-                BM();
+                BN();
                 if (!this.aof) {
                     com.baidu.adp.lib.g.i.hs().post(new j(this));
                     return false;
                 }
                 this.aoe = true;
-                BR();
-                BN();
+                BS();
+                BO();
                 MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.anX, oP());
                 mvcSocketMessage.setResponseDataClass(getResponseDataClass());
                 mvcSocketMessage.setNeedCache(isNeedCache());
@@ -170,15 +170,15 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
                 sendMessage(mvcSocketMessage);
                 return true;
             case 3:
-                BM();
+                BN();
                 if (!this.aof) {
                     com.baidu.adp.lib.g.i.hs().post(new h(this));
                     return false;
                 }
                 this.aoe = true;
-                BP();
-                BR();
-                BN();
+                BQ();
+                BS();
+                BO();
                 MvcNetMessage mvcNetMessage = new MvcNetMessage(this.anX, oN(), oP());
                 mvcNetMessage.setNeedCache(isNeedCache());
                 mvcNetMessage.setResponseDataClass(getResponseDataClass());
@@ -186,7 +186,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
                 sendMessage(mvcNetMessage);
                 return true;
             case 4:
-                BM();
+                BN();
                 if (!this.aof) {
                     com.baidu.adp.lib.g.i.hs().post(new k(this));
                     return false;
@@ -202,7 +202,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
         }
     }
 
-    private void BM() {
+    private void BN() {
         if (!this.aod) {
             l lVar = new l(this, 2001121);
             lVar.setTag(getUniqueId());
@@ -211,9 +211,9 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
         }
     }
 
-    private void BN() {
+    private void BO() {
         if (!this.aoc) {
-            switch (BT()[this.anY.ordinal()]) {
+            switch (BU()[this.anY.ordinal()]) {
                 case 1:
                     o oVar = new o(this, oN(), true);
                     oVar.setTag(getUniqueId());
@@ -240,7 +240,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
         return MvcProtobufHttpResponsedMessage.class;
     }
 
-    protected Class<? extends MvcJsonHttpResponsedMessage> BO() {
+    protected Class<? extends MvcJsonHttpResponsedMessage> BP() {
         return MvcJsonHttpResponsedMessage.class;
     }
 
@@ -252,7 +252,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
         return this.aoe;
     }
 
-    private void BP() {
+    private void BQ() {
         if (!this.aoa && MessageManager.getInstance().findTask(oN()) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(oN(), String.valueOf(TbConfig.SERVER_ADDRESS) + oO() + "?cmd=" + oP());
             tbHttpMessageTask.setResponsedClass(oR());
@@ -266,10 +266,10 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
     protected void a(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void BQ() {
+    private void BR() {
         if (!this.aoa && MessageManager.getInstance().findTask(oN()) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(oN(), String.valueOf(TbConfig.SERVER_ADDRESS) + oO());
-            tbHttpMessageTask.setResponsedClass(BO());
+            tbHttpMessageTask.setResponsedClass(BP());
             b(tbHttpMessageTask);
             MessageManager.getInstance().unRegisterTask(oN());
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -280,7 +280,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
     protected void b(TbHttpMessageTask tbHttpMessageTask) {
     }
 
-    private void BR() {
+    private void BS() {
         if (!this.aob && MessageManager.getInstance().findTask(oP()) == null) {
             com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(oP());
             bVar.setResponsedClass(oQ());
@@ -364,7 +364,7 @@ public abstract class NetModel<T extends com.baidu.tbadk.mvc.b.i, D extends com.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BS() {
+    public void BT() {
         this.anZ = null;
     }
 

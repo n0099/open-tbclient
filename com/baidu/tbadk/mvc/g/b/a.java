@@ -14,15 +14,15 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     protected BdListView aoy;
     protected com.baidu.tbadk.mvc.k.a aoz;
 
-    protected abstract com.baidu.tbadk.mvc.j.c<?, ?, ?> Cg();
-
-    protected abstract boolean Ch();
+    protected abstract com.baidu.tbadk.mvc.j.c<?, ?, ?> Ch();
 
     protected abstract boolean Ci();
 
     protected abstract boolean Cj();
 
     protected abstract boolean Ck();
+
+    protected abstract boolean Cl();
 
     protected abstract List<View> t(BdListView bdListView);
 
@@ -36,8 +36,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void oH() {
         super.oH();
-        if (Cg() != null) {
-            Cg().oH();
+        if (Ch() != null) {
+            Ch().oH();
         }
     }
 
@@ -45,8 +45,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityStop() {
         super.onActivityStop();
-        if (Cg() != null) {
-            Cg().onActivityStop();
+        if (Ch() != null) {
+            Ch().onActivityStop();
         }
     }
 
@@ -60,47 +60,47 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
         super.b(cVar);
         if (cVar instanceof com.baidu.tbadk.mvc.e.b) {
             com.baidu.tbadk.mvc.e.b bVar = (com.baidu.tbadk.mvc.e.b) cVar;
-            if (Ch() && bVar.BY()) {
-                if (bVar.BX()) {
-                    CA();
-                } else {
+            if (Ci() && bVar.BZ()) {
+                if (bVar.BY()) {
                     CB();
+                } else {
+                    CC();
                 }
             }
-            if (Ci() && this.aoz != null) {
-                boolean z2 = Cg() == null || Cg().CN() != 0;
-                if (bVar.Cb() && z2) {
-                    this.aoz.CQ();
-                    if (bVar.BZ()) {
-                        this.aoz.ed(Cl());
-                    } else if (bVar.Ca()) {
-                        this.aoz.ef(Cm());
-                    } else if (Co()) {
+            if (Cj() && this.aoz != null) {
+                boolean z2 = Ch() == null || Ch().CO() != 0;
+                if (bVar.Cc() && z2) {
+                    this.aoz.CR();
+                    if (bVar.Ca()) {
+                        this.aoz.ed(Cm());
+                    } else if (bVar.Cb()) {
+                        this.aoz.ef(Cn());
+                    } else if (Cp()) {
                         this.aoz.hide();
                     } else {
-                        this.aoz.ee(Cn());
+                        this.aoz.ee(Co());
                     }
                 } else {
                     this.aoz.hide();
                 }
             }
-            if (Cj() && this.aoA != null) {
-                if (Cg() != null && Cg().CN() == 0) {
+            if (Ck() && this.aoA != null) {
+                if (Ch() != null && Ch().CO() == 0) {
                     z = false;
                 }
-                if (bVar.BW() && z) {
-                    this.aoA.CQ();
-                    if (bVar.BU()) {
-                        this.aoA.eg(Cp());
+                if (bVar.BX() && z) {
+                    this.aoA.CR();
+                    if (bVar.BV()) {
+                        this.aoA.eg(Cq());
                         return;
-                    } else if (bVar.BV()) {
-                        this.aoA.ef(Cq());
+                    } else if (bVar.BW()) {
+                        this.aoA.ef(Cr());
                         return;
-                    } else if (Cs()) {
+                    } else if (Ct()) {
                         this.aoA.hide();
                         return;
                     } else {
-                        this.aoA.eh(Cr());
+                        this.aoA.eh(Cs());
                         return;
                     }
                 }
@@ -113,21 +113,21 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        if (Ch()) {
-            CB();
+        if (Ci()) {
+            CC();
         }
-        if (Ci() && this.aoz != null) {
-            if (Co()) {
+        if (Cj() && this.aoz != null) {
+            if (Cp()) {
                 this.aoz.hide();
             } else {
-                this.aoz.ee(Cn());
+                this.aoz.ee(Co());
             }
         }
-        if (Cj() && this.aoA != null) {
-            if (Cs()) {
+        if (Ck() && this.aoA != null) {
+            if (Ct()) {
                 this.aoA.hide();
             } else {
-                this.aoA.eh(Cr());
+                this.aoA.eh(Cs());
             }
         }
     }
@@ -146,36 +146,36 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
         this.aoy = (BdListView) getView().findViewById(q.view_list);
         t(this.aoy);
         u(this.aoy);
-        if (Ch()) {
-            Cz();
-        }
         if (Ci()) {
-            this.aoz = new com.baidu.tbadk.mvc.k.a(AK());
+            CA();
+        }
+        if (Cj()) {
+            this.aoz = new com.baidu.tbadk.mvc.k.a(AL());
             this.aoy.setNextPage(this.aoz);
             this.aoz.hide();
         }
-        if (Cj()) {
-            this.aoA = new com.baidu.tbadk.mvc.k.b(AK());
+        if (Ck()) {
+            this.aoA = new com.baidu.tbadk.mvc.k.b(AL());
             this.aoy.setPrePage(this.aoA);
             this.aoA.hide();
         }
-        if (Ck()) {
+        if (Cl()) {
             this.aoy.setExOnSrollToBottomListener(new b(this));
         }
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (Cg() != null) {
-            Cg().a(tbPageContext, i);
+        if (Ch() != null) {
+            Ch().a(tbPageContext, i);
         }
-        if (Ch()) {
-            CE().cy(i);
+        if (Ci()) {
+            CF().cy(i);
         }
-        if (Ci() && this.aoz != null) {
+        if (Cj() && this.aoz != null) {
             this.aoz.a(tbPageContext, i);
         }
-        if (Cj() && this.aoA != null) {
+        if (Ck() && this.aoA != null) {
             this.aoA.a(tbPageContext, i);
         }
         super.a(tbPageContext, i);
@@ -188,11 +188,11 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Ce() {
+    protected void Cf() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void Cf() {
+    protected void Cg() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
@@ -200,35 +200,35 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
         return this.aoy;
     }
 
-    protected int Cl() {
-        return t.loading;
-    }
-
     protected int Cm() {
-        return t.click_load_more;
+        return t.loading;
     }
 
     protected int Cn() {
-        return 0;
-    }
-
-    protected boolean Co() {
-        return false;
-    }
-
-    protected int Cp() {
-        return t.loading;
-    }
-
-    protected int Cq() {
         return t.click_load_more;
     }
 
-    protected int Cr() {
+    protected int Co() {
         return 0;
     }
 
-    protected boolean Cs() {
+    protected boolean Cp() {
+        return false;
+    }
+
+    protected int Cq() {
+        return t.loading;
+    }
+
+    protected int Cr() {
+        return t.click_load_more;
+    }
+
+    protected int Cs() {
+        return 0;
+    }
+
+    protected boolean Ct() {
         return false;
     }
 }

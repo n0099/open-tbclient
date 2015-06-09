@@ -77,10 +77,10 @@ public class EmotionTabHost extends LinearLayout implements j, s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.ajW = aa.zE().zG();
+        this.ajW = aa.zF().zH();
         if ((this.ajW == null || this.ajW.size() <= 0) && this.aka < 3) {
             this.aka++;
-            aa.zE().zF();
+            aa.zF().zG();
             return;
         }
         this.ajU.setDatas(this.ajW);
@@ -127,7 +127,7 @@ public class EmotionTabHost extends LinearLayout implements j, s {
             ad adVar = this.ajW.get(i);
             this.ajT.b(this.ajW, i);
             if (this.ajY) {
-                if (adVar.zB() == EmotionGroupType.LOCAL) {
+                if (adVar.zC() == EmotionGroupType.LOCAL) {
                     this.ajU.setShowDelete(true);
                 } else {
                     this.ajU.setShowDelete(false);

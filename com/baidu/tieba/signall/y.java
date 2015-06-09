@@ -5,11 +5,11 @@ import android.widget.Scroller;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements Runnable {
-    final /* synthetic */ x cjg;
+    final /* synthetic */ x cjh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.cjg = xVar;
+        this.cjh = xVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,38 +25,38 @@ public class y implements Runnable {
         int i;
         Scroller scroller4;
         Runnable runnable2;
-        scroller = this.cjg.mScroller;
+        scroller = this.cjh.mScroller;
         if (!scroller.computeScrollOffset()) {
-            progressBar = this.cjg.mProgress;
+            progressBar = this.cjh.mProgress;
             int progress = progressBar.getProgress();
-            progressBar2 = this.cjg.mProgress;
+            progressBar2 = this.cjh.mProgress;
             int max = (progressBar2.getMax() * 9) / 10;
             if (progress < max) {
-                scroller2 = this.cjg.mScroller;
+                scroller2 = this.cjh.mScroller;
                 scroller2.startScroll(progress, 0, max - progress, 0, 5000);
-                this.cjg.post(this);
+                this.cjh.post(this);
                 return;
             }
             return;
         }
-        scroller3 = this.cjg.mScroller;
+        scroller3 = this.cjh.mScroller;
         int currX = scroller3.getCurrX();
-        progressBar3 = this.cjg.mProgress;
+        progressBar3 = this.cjh.mProgress;
         if (currX >= (progressBar3.getMax() * 9) / 10) {
-            i = this.cjg.ciZ;
+            i = this.cjh.cja;
             if (i != 2) {
-                scroller4 = this.cjg.mScroller;
+                scroller4 = this.cjh.mScroller;
                 scroller4.forceFinished(true);
-                x xVar = this.cjg;
-                runnable2 = this.cjg.cje;
+                x xVar = this.cjh;
+                runnable2 = this.cjh.cjf;
                 xVar.postDelayed(runnable2, 2000L);
                 return;
             }
         }
-        progressBar4 = this.cjg.mProgress;
+        progressBar4 = this.cjh.mProgress;
         progressBar4.setProgress(currX);
-        x xVar2 = this.cjg;
-        runnable = this.cjg.cjd;
+        x xVar2 = this.cjh;
+        runnable = this.cjh.cje;
         xVar2.postDelayed(runnable, 16L);
     }
 }

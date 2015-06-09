@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.h
@@ -17,16 +17,16 @@ public class d implements com.baidu.tbadk.core.dialog.h {
         ak akVar2;
         eVar.dismiss();
         com.baidu.tieba.tbadkCore.data.j jVar = null;
-        akVar = this.bPw.bPn;
-        if (akVar.adB() != null) {
-            akVar2 = this.bPw.bPn;
-            jVar = akVar2.adB().aaA();
+        akVar = this.bPx.bPo;
+        if (akVar.adC() != null) {
+            akVar2 = this.bPx.bPo;
+            jVar = akVar2.adC().aaB();
         }
         if (jVar != null) {
             if (i == 0) {
-                jVar.aJ(this.bPw.getPageContext().getPageActivity());
+                jVar.aJ(this.bPx.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.bPw.b(jVar);
+                this.bPx.b(jVar);
             }
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements r {
-    final /* synthetic */ NewSubPbActivity bPw;
+    final /* synthetic */ NewSubPbActivity bPx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NewSubPbActivity newSubPbActivity) {
-        this.bPw = newSubPbActivity;
+        this.bPx = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.r
@@ -24,14 +24,14 @@ public class n implements r {
         ak akVar7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        akVar = this.bPw.bPn;
-        if (akVar.adB() != null) {
-            akVar5 = this.bPw.bPn;
-            if (akVar5.adB().aaH() != null) {
-                akVar6 = this.bPw.bPn;
-                if (akVar6.adB().aaH().getAuthor() != null) {
-                    akVar7 = this.bPw.bPn;
-                    str = String.valueOf(akVar7.adB().aaH().getAuthor().getUserId());
+        akVar = this.bPx.bPo;
+        if (akVar.adC() != null) {
+            akVar5 = this.bPx.bPo;
+            if (akVar5.adC().aaI() != null) {
+                akVar6 = this.bPx.bPo;
+                if (akVar6.adC().aaI().getAuthor() != null) {
+                    akVar7 = this.bPx.bPo;
+                    str = String.valueOf(akVar7.adC().aaI().getAuthor().getUserId());
                 }
             }
         }
@@ -43,13 +43,13 @@ public class n implements r {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.bPw;
-        Activity pageActivity = this.bPw.getPageContext().getPageActivity();
-        akVar2 = this.bPw.bPn;
-        String id = akVar2.adB().aaF().getId();
-        akVar3 = this.bPw.bPn;
-        String name = akVar3.adB().aaF().getName();
-        akVar4 = this.bPw.bPn;
-        newSubPbActivity.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(pageActivity, id, name, akVar4.adB().aaH().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.bPx;
+        Activity pageActivity = this.bPx.getPageContext().getPageActivity();
+        akVar2 = this.bPx.bPo;
+        String id = akVar2.adC().aaG().getId();
+        akVar3 = this.bPx.bPo;
+        String name = akVar3.adC().aaG().getName();
+        akVar4 = this.bPx.bPo;
+        newSubPbActivity.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(pageActivity, id, name, akVar4.adC().aaI().getId(), str, str2, str3)));
     }
 }

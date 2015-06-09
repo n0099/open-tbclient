@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class d implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsActivity frsActivity) {
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -25,37 +25,37 @@ class d implements AbsListView.OnScrollListener {
         com.baidu.adp.widget.ListView.ak akVar;
         bf bfVar5;
         com.baidu.tieba.frs.c.a aVar2;
-        aVar = this.aLX.aLA;
+        aVar = this.aLY.aLB;
         if (aVar != null) {
-            aVar2 = this.aLX.aLA;
+            aVar2 = this.aLY.aLB;
             aVar2.setScrollState(i);
         }
         if (i == 2 || i == 1) {
-            z = this.aLX.aLu;
+            z = this.aLY.aLv;
             if (!z) {
-                this.aLX.aLu = true;
-                bfVar = this.aLX.aLi;
-                bfVar.Lz();
+                this.aLY.aLv = true;
+                bfVar = this.aLY.aLj;
+                bfVar.LA();
             }
         }
-        if (this.aLX.aLv == null) {
-            this.aLX.aLv = new com.baidu.tbadk.performanceLog.h();
-            this.aLX.aLv.el(1000);
+        if (this.aLY.aLw == null) {
+            this.aLY.aLw = new com.baidu.tbadk.performanceLog.h();
+            this.aLY.aLw.el(1000);
         }
         if (i == 0) {
-            bfVar4 = this.aLX.aLi;
-            akVar = this.aLX.aLT;
+            bfVar4 = this.aLY.aLj;
+            akVar = this.aLY.aLU;
             bfVar4.a(akVar);
-            bfVar5 = this.aLX.aLi;
+            bfVar5 = this.aLY.aLj;
             bfVar5.cc(false);
-            this.aLX.Jf = false;
+            this.aLY.Jf = false;
         } else {
-            bfVar2 = this.aLX.aLi;
+            bfVar2 = this.aLY.aLj;
             bfVar2.a((com.baidu.adp.widget.ListView.ak) null);
-            bfVar3 = this.aLX.aLi;
+            bfVar3 = this.aLY.aLj;
             bfVar3.cc(true);
-            this.aLX.Jf = true;
+            this.aLY.Jf = true;
         }
-        this.aLX.aLv.De();
+        this.aLY.aLw.Df();
     }
 }

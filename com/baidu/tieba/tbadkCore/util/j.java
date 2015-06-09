@@ -12,14 +12,14 @@ import com.baidu.tbadk.game.GameInfoData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j {
-    private static Boolean cuc = true;
     private static Boolean cud = true;
+    private static Boolean cue = true;
 
     public static void jG(String str) {
         E(13, str);
     }
 
-    public static void apv() {
+    public static void apw() {
         iW(2);
     }
 
@@ -36,11 +36,11 @@ public class j {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), str});
     }
 
-    public static ArrayList<String> apw() {
+    public static ArrayList<String> apx() {
         return iX(0);
     }
 
-    public static ArrayList<String> apx() {
+    public static ArrayList<String> apy() {
         return iX(1);
     }
 
@@ -120,11 +120,11 @@ public class j {
         }
     }
 
-    public static void apy() {
+    public static void apz() {
         iY(0);
     }
 
-    public static void apz() {
+    public static void apA() {
         iY(1);
     }
 
@@ -142,7 +142,7 @@ public class j {
         }
     }
 
-    public static ArrayList<MarkData> apA() {
+    public static ArrayList<MarkData> apB() {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -198,7 +198,7 @@ public class j {
     }
 
     public static void h(Boolean bool) {
-        cuc = bool;
+        cud = bool;
     }
 
     public static void wh() {
@@ -222,7 +222,7 @@ public class j {
         }
     }
 
-    public static void apB() {
+    public static void apC() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

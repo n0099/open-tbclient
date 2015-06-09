@@ -12,11 +12,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements com.baidu.tieba.tbadkCore.writeModel.d {
-    final /* synthetic */ ai bGE;
+    final /* synthetic */ ai bGF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ai aiVar) {
-        this.bGE = aiVar;
+        this.bGF = aiVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.d
@@ -26,38 +26,38 @@ public class aj implements com.baidu.tieba.tbadkCore.writeModel.d {
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         com.baidu.tieba.tbadkCore.writeModel.a aVar3;
         com.baidu.tbadk.mvc.j.d dVar;
-        this.bGE.bT(z);
-        ai aiVar = this.bGE;
-        writeImagesInfo = this.bGE.mWriteImagesInfo;
+        this.bGF.bT(z);
+        ai aiVar = this.bGF;
+        writeImagesInfo = this.bGF.mWriteImagesInfo;
         aiVar.a(writeImagesInfo, true);
         if (z) {
-            this.bGE.Kk();
+            this.bGF.Kl();
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
-            aVar = this.bGE.aJT;
-            aVar.JS();
-            aVar2 = this.bGE.aJT;
+            aVar = this.bGF.aJU;
+            aVar.JT();
+            aVar2 = this.bGF.aJU;
             aVar2.c((WriteData) null);
-            aVar3 = this.bGE.aJT;
+            aVar3 = this.bGF.aJU;
             aVar3.fj(false);
-            this.bGE.a(antiData, str);
-            this.bGE.dF(true);
-            dVar = this.bGE.aDF;
+            this.bGF.a(antiData, str);
+            this.bGF.dF(true);
+            dVar = this.bGF.aDG;
             dVar.notifyDataSetChanged();
         } else if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
                 writeData.setVcodeMD5(lVar.getVcode_md5());
                 writeData.setVcodeUrl(lVar.getVcode_pic_url());
                 if (lVar.vv().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bGE.getActivity(), 12006, writeData, false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bGF.getActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bGE.getActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bGF.getActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.bGE.a(antiData, str);
+            this.bGF.a(antiData, str);
         } else {
-            this.bGE.a(antiData, str);
+            this.bGF.a(antiData, str);
         }
     }
 }

@@ -7,19 +7,19 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnTouchListener {
-    final /* synthetic */ AtListActivity cBt;
+    final /* synthetic */ AtListActivity cBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.cBt = atListActivity;
+        this.cBu = atListActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         EditText editText;
         if (motionEvent.getAction() == 0) {
-            Activity pageActivity = this.cBt.getPageContext().getPageActivity();
-            editText = this.cBt.mEditText;
+            Activity pageActivity = this.cBu.getPageContext().getPageActivity();
+            editText = this.cBu.mEditText;
             com.baidu.adp.lib.util.n.c(pageActivity, editText);
             return false;
         }

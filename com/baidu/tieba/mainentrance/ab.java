@@ -11,19 +11,19 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bCE;
-    private final /* synthetic */ TextView bCF;
-    private final /* synthetic */ ImageView bCG;
-    private final /* synthetic */ TextView bCH;
-    private final /* synthetic */ ImageView bCI;
+    final /* synthetic */ SquareSearchActivity bCF;
+    private final /* synthetic */ TextView bCG;
+    private final /* synthetic */ ImageView bCH;
+    private final /* synthetic */ TextView bCI;
+    private final /* synthetic */ ImageView bCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(SquareSearchActivity squareSearchActivity, TextView textView, ImageView imageView, TextView textView2, ImageView imageView2) {
-        this.bCE = squareSearchActivity;
-        this.bCF = textView;
-        this.bCG = imageView;
-        this.bCH = textView2;
-        this.bCI = imageView2;
+        this.bCF = squareSearchActivity;
+        this.bCG = textView;
+        this.bCH = imageView;
+        this.bCI = textView2;
+        this.bCJ = imageView2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,24 +33,24 @@ public class ab implements View.OnClickListener {
         FragmentTabIndicator fragmentTabIndicator2;
         String str;
         String str2;
-        this.bCE.bCo = true;
-        this.bCF.setTextColor(ay.getColor(com.baidu.tieba.n.cp_cont_c));
-        this.bCG.setVisibility(8);
-        this.bCH.setTextColor(ay.getColor(com.baidu.tieba.n.cp_link_tip_a));
-        this.bCI.setVisibility(0);
-        view2 = this.bCE.bBR;
+        this.bCF.bCp = true;
+        this.bCG.setTextColor(ay.getColor(com.baidu.tieba.n.cp_cont_c));
+        this.bCH.setVisibility(8);
+        this.bCI.setTextColor(ay.getColor(com.baidu.tieba.n.cp_link_tip_a));
+        this.bCJ.setVisibility(0);
+        view2 = this.bCF.bBS;
         view2.setVisibility(8);
-        fragmentTabIndicator = this.bCE.bBI;
+        fragmentTabIndicator = this.bCF.bBJ;
         fragmentTabIndicator.setCompoundDrawablesRightResId(com.baidu.tieba.p.icon_toolbar_arrow_down);
-        fragmentTabIndicator2 = this.bCE.bBI;
+        fragmentTabIndicator2 = this.bCF.bBJ;
         fragmentTabIndicator2.cz(TbadkCoreApplication.m411getInst().getSkinType());
-        this.bCE.Yn();
-        str = this.bCE.bCf;
+        this.bCF.Yo();
+        str = this.bCF.bCg;
         if (!TextUtils.isEmpty(str)) {
-            SquareSearchActivity squareSearchActivity = this.bCE;
-            str2 = this.bCE.bCf;
+            SquareSearchActivity squareSearchActivity = this.bCF;
+            str2 = this.bCF.bCg;
             squareSearchActivity.z(1, str2);
         }
-        TiebaStatic.eventStat(this.bCE.getPageContext().getPageActivity(), "search_3", "click", 1, new Object[0]);
+        TiebaStatic.eventStat(this.bCF.getPageContext().getPageActivity(), "search_3", "click", 1, new Object[0]);
     }
 }

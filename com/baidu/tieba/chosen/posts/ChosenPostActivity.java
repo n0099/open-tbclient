@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public class ChosenPostActivity extends MvcActivity<com.baidu.tbadk.mvc.core.c, b, ChosenPostActivity> {
-    private b aCS;
-    private e aCT;
+    private b aCT;
+    private e aCU;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        AL().addEventDelegate(this);
+        AM().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.Br()) {
+        switch (bVar.Bs()) {
             case 4096:
                 b(bVar);
                 break;
@@ -26,28 +26,28 @@ public class ChosenPostActivity extends MvcActivity<com.baidu.tbadk.mvc.core.c, 
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
-        com.baidu.tbadk.mvc.b.a Bs = bVar.Bs();
-        if (Bs instanceof com.baidu.tieba.chosen.posts.a.h) {
-            sendMessage(((com.baidu.tieba.chosen.posts.a.h) Bs).as(getBaseContext()));
+        com.baidu.tbadk.mvc.b.a Bt = bVar.Bt();
+        if (Bt instanceof com.baidu.tieba.chosen.posts.a.h) {
+            sendMessage(((com.baidu.tieba.chosen.posts.a.h) Bt).as(getBaseContext()));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: GM */
+    /* renamed from: GN */
     public b oy() {
-        if (this.aCS == null) {
-            this.aCS = new b(this);
+        if (this.aCT == null) {
+            this.aCT = new b(this);
         }
-        return this.aCS;
+        return this.aCT;
     }
 
     @Override // com.baidu.tbadk.mvc.core.e
     public com.baidu.tbadk.mvc.core.c oA() {
-        if (this.aCT == null) {
-            this.aCT = new e();
+        if (this.aCU == null) {
+            this.aCU = new e();
         }
-        return this.aCT;
+        return this.aCU;
     }
 
     @Override // com.baidu.tbadk.mvc.core.MvcActivity

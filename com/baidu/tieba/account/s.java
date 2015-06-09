@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements com.baidu.tieba.a.b {
-    final /* synthetic */ p aww;
+    final /* synthetic */ p awx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.aww = pVar;
+        this.awx = pVar;
     }
 
     @Override // com.baidu.tieba.a.b
@@ -17,9 +17,9 @@ public class s implements com.baidu.tieba.a.b {
         u uVar;
         u uVar2;
         new t(this, accountData).execute(new Void[0]);
-        uVar = this.aww.awt;
+        uVar = this.awx.awu;
         if (uVar != null) {
-            uVar2 = this.aww.awt;
+            uVar2 = this.awx.awu;
             uVar2.onSuccess();
         }
     }

@@ -5,8 +5,8 @@ import java.util.List;
 import tbclient.FineFrsPage.FineThreadInfo;
 /* loaded from: classes.dex */
 public class b extends h {
-    private int cbV;
-    private boolean cbW;
+    private int cbW;
+    private boolean cbX;
     private String desc;
     private long ftid;
     private String tag;
@@ -29,14 +29,14 @@ public class b extends h {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.cbV = fineThreadInfo.publish_time.intValue();
+                this.cbW = fineThreadInfo.publish_time.intValue();
             }
             this.tag = fineThreadInfo.tag;
         }
         return this;
     }
 
-    public long ahw() {
+    public long ahx() {
         return this.ftid;
     }
 
@@ -52,23 +52,23 @@ public class b extends h {
         return this.desc;
     }
 
-    public List<String> ahx() {
+    public List<String> ahy() {
         return this.thumbnail;
     }
 
-    public int ahy() {
-        return this.cbV;
+    public int ahz() {
+        return this.cbW;
     }
 
     public String getTag() {
         return this.tag;
     }
 
-    public boolean ahz() {
-        return this.cbW;
+    public boolean ahA() {
+        return this.cbX;
     }
 
     public void eA(boolean z) {
-        this.cbW = z;
+        this.cbX = z;
     }
 }

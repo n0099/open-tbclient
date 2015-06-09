@@ -10,16 +10,16 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, AccountData> {
-    final /* synthetic */ AccountActivity awf;
-    private AccountData awj;
-    private boolean awk;
+    final /* synthetic */ AccountActivity awg;
+    private AccountData awk;
+    private boolean awl;
     private int mType = 0;
 
     public i(AccountActivity accountActivity, boolean z, AccountData accountData) {
-        this.awf = accountActivity;
-        this.awk = false;
-        this.awj = accountData;
-        this.awk = z;
+        this.awg = accountActivity;
+        this.awl = false;
+        this.awk = accountData;
+        this.awl = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,14 +38,14 @@ public class i extends BdAsyncTask<Object, Integer, AccountData> {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            if (this.awk) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.awj.getID()));
+            if (this.awl) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.awk.getID()));
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.awj.getID()));
-            o.deleteAccountAllInfo(this.awj.getID());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.awk.getID()));
+            o.deleteAccountAllInfo(this.awk.getID());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            com.baidu.tbadk.core.sharedPref.b.sl().remove("get_addresslist_switch" + this.awj.getID());
-            if (this.awj.getID().equals(currentAccount)) {
+            com.baidu.tbadk.core.sharedPref.b.sl().remove("get_addresslist_switch" + this.awk.getID());
+            if (this.awk.getID().equals(currentAccount)) {
                 com.baidu.tbadk.coreExtra.act.l uV = com.baidu.tbadk.coreExtra.act.a.uV();
                 if (uV != null) {
                     uV.va();
@@ -55,7 +55,7 @@ public class i extends BdAsyncTask<Object, Integer, AccountData> {
             }
             com.baidu.tbadk.coreExtra.act.l uV2 = com.baidu.tbadk.coreExtra.act.a.uV();
             if (uV2 != null) {
-                uV2.j(this.awj);
+                uV2.j(this.awk);
             }
             this.mType = 0;
             return null;
@@ -72,27 +72,27 @@ public class i extends BdAsyncTask<Object, Integer, AccountData> {
     public void onPostExecute(AccountData accountData) {
         ArrayList arrayList;
         m mVar;
-        if (this.awj != null) {
-            new j(this.awf, this.awj.getBDUSS()).start();
+        if (this.awk != null) {
+            new j(this.awg, this.awk.getBDUSS()).start();
         }
-        this.awf.closeLoadingDialog();
+        this.awg.closeLoadingDialog();
         if (this.mType != 0) {
-            TbadkCoreApplication.setCurrentAccount(null, this.awf.getPageContext().getPageActivity());
+            TbadkCoreApplication.setCurrentAccount(null, this.awg.getPageContext().getPageActivity());
         }
         switch (this.mType) {
             case 0:
-                this.awf.showToast(this.awf.getPageContext().getString(com.baidu.tieba.t.success));
-                arrayList = this.awf.avY;
-                arrayList.remove(this.awj);
-                this.awj = null;
-                mVar = this.awf.avZ;
+                this.awg.showToast(this.awg.getPageContext().getString(com.baidu.tieba.t.success));
+                arrayList = this.awg.avZ;
+                arrayList.remove(this.awk);
+                this.awk = null;
+                mVar = this.awg.awa;
                 mVar.notifyDataSetChanged();
                 break;
             case 2:
                 TbadkCoreApplication.m411getInst().onUserChanged();
-                com.baidu.tbadk.core.c.b.a(this.awf.getPageContext().getPageActivity(), 11, false);
+                com.baidu.tbadk.core.c.b.a(this.awg.getPageContext().getPageActivity(), 11, false);
                 break;
         }
-        this.awf.awe = null;
+        this.awg.awf = null;
     }
 }

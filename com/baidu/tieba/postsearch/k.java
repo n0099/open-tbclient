@@ -1,7 +1,7 @@
 package com.baidu.tieba.postsearch;
 /* loaded from: classes.dex */
 public class k {
-    public int bXS;
+    public int bXT;
     public String content;
     public String fname;
     public int is_floor;

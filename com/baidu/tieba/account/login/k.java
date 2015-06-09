@@ -2,16 +2,16 @@ package com.baidu.tieba.account.login;
 /* loaded from: classes.dex */
 class k {
     String SY;
-    final /* synthetic */ Login2Activity ayM;
-    int ayN;
+    final /* synthetic */ Login2Activity ayN;
     int ayO;
-    boolean ayq;
+    int ayP;
+    boolean ayr;
     String mAccount;
     String mPassword;
     String mVcode;
 
     private k(Login2Activity login2Activity) {
-        this.ayM = login2Activity;
+        this.ayN = login2Activity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

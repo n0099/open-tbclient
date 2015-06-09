@@ -5,12 +5,12 @@ import android.widget.TimePicker;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 class ai implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ MsgRemindActivity cfS;
+    final /* synthetic */ MsgRemindActivity cfT;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(MsgRemindActivity msgRemindActivity, int i) {
-        this.cfS = msgRemindActivity;
+        this.cfT = msgRemindActivity;
         this.val$id = i;
     }
 
@@ -20,8 +20,8 @@ class ai implements TimePickerDialog.OnTimeSetListener {
         ar arVar2;
         if (this.val$id == com.baidu.tieba.q.sign_remind) {
             com.baidu.tbadk.coreExtra.messageCenter.c.wg().setSignAlertTime(i, i2);
-            arVar2 = this.cfS.cfP;
-            arVar2.ajo();
+            arVar2 = this.cfT.cfQ;
+            arVar2.ajp();
         } else if (this.val$id == com.baidu.tieba.q.no_disturb_end_time || this.val$id == com.baidu.tieba.q.no_disturb_start_time) {
             String str = String.valueOf(String.valueOf(i < 10 ? GameInfoData.NOT_FROM_DETAIL : "") + i) + ":" + (String.valueOf(i2 < 10 ? GameInfoData.NOT_FROM_DETAIL : "") + i2);
             if (this.val$id == com.baidu.tieba.q.no_disturb_start_time) {
@@ -29,8 +29,8 @@ class ai implements TimePickerDialog.OnTimeSetListener {
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.c.wg().dM(str);
             }
-            arVar = this.cfS.cfP;
-            arVar.ajp();
+            arVar = this.cfT.cfQ;
+            arVar.ajq();
         }
     }
 }

@@ -19,7 +19,7 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.e.Al().eL(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.e.Am().eL(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2) {
@@ -33,7 +33,7 @@ public class e {
             fVar.amq = imageFileInfo;
             fVar.ams = z;
             this.amo.add(fVar);
-            Ar();
+            As();
             return null;
         }
         return a;
@@ -44,14 +44,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ar() {
+    public void As() {
         if (this.amp == null && !this.amo.isEmpty()) {
             this.amp = new g(this, this.amo);
             this.amp.execute(new Void[0]);
         }
     }
 
-    public void As() {
+    public void At() {
         this.amo = new ConcurrentLinkedQueue();
         if (this.amp != null) {
             this.amp.cancel(true);
@@ -72,14 +72,14 @@ public class e {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.At().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
+                return com.baidu.tbadk.img.effect.c.Au().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.At().b(imageFileInfo.getFilePath(), linkedList);
+                return com.baidu.tbadk.img.effect.c.Au().b(imageFileInfo.getFilePath(), linkedList);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class ce {
-    private long aOR;
     private long aOS;
     private long aOT;
+    private long aOU;
 
     public ce(Context context) {
         Q(0L);
@@ -13,22 +13,22 @@ public class ce {
     }
 
     public void Q(long j) {
-        this.aOR = j;
-    }
-
-    public long LI() {
-        return this.aOR + this.aOS;
-    }
-
-    public void R(long j) {
         this.aOS = j;
     }
 
     public long LJ() {
-        return this.aOT;
+        return this.aOS + this.aOT;
+    }
+
+    public void R(long j) {
+        this.aOT = j;
+    }
+
+    public long LK() {
+        return this.aOU;
     }
 
     public void S(long j) {
-        this.aOT = j;
+        this.aOU = j;
     }
 }

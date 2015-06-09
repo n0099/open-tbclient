@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AccountActivity awf;
+    final /* synthetic */ AccountActivity awg;
     private AccountData mAccount;
 
     public k(AccountActivity accountActivity, AccountData accountData) {
-        this.awf = accountActivity;
+        this.awg = accountActivity;
         this.mAccount = null;
         this.mAccount = accountData;
     }
@@ -52,7 +52,7 @@ public class k extends BdAsyncTask<Object, Integer, Boolean> {
         com.baidu.tbadk.core.a.a qi = com.baidu.tbadk.core.a.a.qi();
         String account = this.mAccount.getAccount();
         String bduss = this.mAccount.getBDUSS();
-        bVar = this.awf.SV;
+        bVar = this.awg.SV;
         qi.a(account, bduss, "", bVar);
     }
 }

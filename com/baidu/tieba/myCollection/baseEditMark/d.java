@@ -9,13 +9,13 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<a, Integer, Boolean> {
     private aa OE;
-    private i bHw;
-    final /* synthetic */ a bHx;
+    private i bHx;
+    final /* synthetic */ a bHy;
 
     private d(a aVar) {
-        this.bHx = aVar;
+        this.bHy = aVar;
         this.OE = null;
-        this.bHw = null;
+        this.bHx = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.bHw = new i();
+        this.bHx = new i();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,25 +36,25 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     public Boolean doInBackground(a... aVarArr) {
         a aVar = new a();
         try {
-            aVar.ZL();
+            aVar.ZM();
             this.OE = new aa();
             this.OE.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
-            int ZM = this.bHx.ZM();
-            if (aVar.getCount() - 1 <= ZM) {
-                ZM = aVar.getCount() - 1;
+            int ZN = this.bHy.ZN();
+            if (aVar.getCount() - 1 <= ZN) {
+                ZN = aVar.getCount() - 1;
             }
-            while (ZM >= 0) {
-                String af = aVar.af(ZM, 20);
+            while (ZN >= 0) {
+                String af = aVar.af(ZN, 20);
                 this.OE.n(new ArrayList<>());
                 this.OE.o("data", af);
-                this.bHw.parserJson(this.OE.sw());
-                if (!this.OE.sX().tT().qa() || this.bHw.getErrorCode() != 0) {
+                this.bHx.parserJson(this.OE.sw());
+                if (!this.OE.sX().tT().qa() || this.bHx.getErrorCode() != 0) {
                     break;
                 }
-                ZM -= 20;
+                ZN -= 20;
             }
-            this.bHx.hs(ZM);
-            if (ZM >= 0) {
+            this.bHy.hs(ZN);
+            if (ZN >= 0) {
                 return false;
             }
             return true;
@@ -70,9 +70,9 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
         if (this.OE != null) {
             this.OE.gS();
         }
-        this.bHx.bHp = null;
-        if (this.bHx.bHv != null) {
-            this.bHx.bHv.callback(1, false, null, false);
+        this.bHy.bHq = null;
+        if (this.bHy.bHw != null) {
+            this.bHy.bHw.callback(1, false, null, false);
         }
     }
 
@@ -84,21 +84,21 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.bHx.bHp = null;
+        this.bHy.bHq = null;
         if (bool.booleanValue()) {
-            arrayList = this.bHx.bHr;
+            arrayList = this.bHy.bHs;
             arrayList.clear();
             str = null;
             z = false;
         } else if (this.OE.sX().tT().qa()) {
-            str = this.bHw.getErrorString();
+            str = this.bHx.getErrorString();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.bHx.bHv != null) {
-            this.bHx.bHv.callback(1, bool, str, Boolean.valueOf(z));
+        if (this.bHy.bHw != null) {
+            this.bHy.bHw.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

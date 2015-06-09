@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class r implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
@@ -22,24 +22,24 @@ class r implements SlidingMenu.OnOpenedListener {
         com.baidu.tieba.tbadkCore.w wVar;
         com.baidu.tieba.tbadkCore.w wVar2;
         com.baidu.tieba.tbadkCore.w wVar3;
-        this.aLX.setSwipeBackEnabled(false);
-        bfVar = this.aLX.aLi;
-        ceVar = this.aLX.aLn;
+        this.aLY.setSwipeBackEnabled(false);
+        bfVar = this.aLY.aLj;
+        ceVar = this.aLY.aLo;
         bfVar.a(ceVar);
-        kVar = this.aLX.aLB;
-        ceVar2 = this.aLX.aLn;
+        kVar = this.aLY.aLC;
+        ceVar2 = this.aLY.aLo;
         kVar.a(ceVar2);
-        TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
-        wVar = this.aLX.aLl;
+        TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
+        wVar = this.aLY.aLm;
         if (wVar != null) {
-            wVar2 = this.aLX.aLl;
-            if (wVar2.aar() != null) {
-                wVar3 = this.aLX.aLl;
-                ArrayList<com.baidu.tbadk.core.data.r> recommendForumData = wVar3.aar().getRecommendForumData();
+            wVar2 = this.aLY.aLm;
+            if (wVar2.aas() != null) {
+                wVar3 = this.aLY.aLm;
+                ArrayList<com.baidu.tbadk.core.data.r> recommendForumData = wVar3.aas().getRecommendForumData();
                 if (recommendForumData != null) {
                     Iterator<com.baidu.tbadk.core.data.r> it = recommendForumData.iterator();
                     while (it.hasNext()) {
-                        TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().Qv);
+                        TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().Qv);
                     }
                 }
             }

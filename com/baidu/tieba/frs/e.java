@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class e implements an {
-    final /* synthetic */ FrsActivity aLX;
+    final /* synthetic */ FrsActivity aLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.aLX = frsActivity;
+        this.aLY = frsActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v52, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -30,24 +30,24 @@ class e implements an {
         com.baidu.tieba.tbadkCore.w wVar3;
         com.baidu.tieba.tbadkCore.w wVar4;
         String str;
-        bfVar = this.aLX.aLi;
-        if (i != bfVar.Lw().KT()) {
-            bfVar2 = this.aLX.aLi;
-            if (i != bfVar2.Lw().Kg()) {
-                bfVar3 = this.aLX.aLi;
-                if (i != bfVar3.Lw().KV()) {
-                    bfVar4 = this.aLX.aLi;
-                    if (i != bfVar4.Lw().KU()) {
-                        bfVar5 = this.aLX.aLi;
-                        if (i == bfVar5.Lw().KW() && this.aLX.checkUpIsLogin()) {
-                            com.baidu.tbadk.core.k.B(this.aLX.getParent(), "my_service_ck");
-                            wVar2 = this.aLX.aLl;
+        bfVar = this.aLY.aLj;
+        if (i != bfVar.Lx().KU()) {
+            bfVar2 = this.aLY.aLj;
+            if (i != bfVar2.Lx().Kh()) {
+                bfVar3 = this.aLY.aLj;
+                if (i != bfVar3.Lx().KW()) {
+                    bfVar4 = this.aLY.aLj;
+                    if (i != bfVar4.Lx().KV()) {
+                        bfVar5 = this.aLY.aLj;
+                        if (i == bfVar5.Lx().KX() && this.aLY.checkUpIsLogin()) {
+                            com.baidu.tbadk.core.k.B(this.aLY.getParent(), "my_service_ck");
+                            wVar2 = this.aLY.aLm;
                             if (wVar2 != null) {
-                                wVar3 = this.aLX.aLl;
-                                if (wVar3.aar() != null) {
-                                    wVar4 = this.aLX.aLl;
-                                    ForumData aar = wVar4.aar();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aLX.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.c(aar.getId(), 0L), aar.getName(), aar.getImage_url(), 0)));
+                                wVar3 = this.aLY.aLm;
+                                if (wVar3.aas() != null) {
+                                    wVar4 = this.aLY.aLm;
+                                    ForumData aas = wVar4.aas();
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aLY.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.c(aas.getId(), 0L), aas.getName(), aas.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -55,27 +55,27 @@ class e implements an {
                             return;
                         }
                         return;
-                    } else if (this.aLX.checkUpIsLogin()) {
-                        com.baidu.tbadk.core.k.A(this.aLX.getParent(), "forum_fortune_click");
-                        this.aLX.KB();
+                    } else if (this.aLY.checkUpIsLogin()) {
+                        com.baidu.tbadk.core.k.A(this.aLY.getParent(), "forum_fortune_click");
+                        this.aLY.KC();
                         return;
                     } else {
                         return;
                     }
                 }
-                TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "consume_1", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "consume_1", "click", 1, new Object[0]);
                 return;
             }
-            FrsActivity frsActivity = this.aLX;
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aLX.getPageContext().getPageActivity());
-            str = this.aLX.aLb;
+            FrsActivity frsActivity = this.aLY;
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aLY.getPageContext().getPageActivity());
+            str = this.aLY.aLc;
             frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(wVar, str, null, 18003, true, false, false)));
-        } else if (this.aLX.checkUpIsLogin() && wVar != null && wVar.rp() != null && wVar.rp().get(0) != null && !StringUtils.isNull(wVar.rp().get(0).getUrl())) {
-            com.baidu.tbadk.core.util.bi.tO().b(this.aLX.getPageContext(), new String[]{wVar.rp().get(0).getUrl()});
+        } else if (this.aLY.checkUpIsLogin() && wVar != null && wVar.rp() != null && wVar.rp().get(0) != null && !StringUtils.isNull(wVar.rp().get(0).getUrl())) {
+            com.baidu.tbadk.core.util.bi.tO().b(this.aLY.getPageContext(), new String[]{wVar.rp().get(0).getUrl()});
             if (wVar.rp().get(0).qq() == 1) {
-                TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
+                TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
             } else if (wVar.rp().get(0).qq() == 2) {
-                TiebaStatic.eventStat(this.aLX.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
+                TiebaStatic.eventStat(this.aLY.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
             }
         }
     }

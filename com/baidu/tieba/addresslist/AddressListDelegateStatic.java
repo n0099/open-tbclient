@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView ayT;
-    CustomMessageListener ayU = new b(this, 2001180);
-    CustomMessageListener ayV = new c(this, 2001189);
+    private ImageView ayU;
+    CustomMessageListener ayV = new b(this, 2001180);
+    CustomMessageListener ayW = new c(this, 2001189);
 
     public AddressListDelegateStatic() {
-        this.ayU.setPriority(6);
-        MessageManager.getInstance().registerListener(this.ayU);
         this.ayV.setPriority(6);
         MessageManager.getInstance().registerListener(this.ayV);
+        this.ayW.setPriority(6);
+        MessageManager.getInstance().registerListener(this.ayW);
     }
 
     static {
@@ -31,7 +31,7 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d AC() {
+    public com.baidu.tbadk.mainTab.d AD() {
         if (isAvailable()) {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
             dVar.anf = new e();
@@ -46,13 +46,13 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aj(Context context) {
         this.amS = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.fragmenttabindicator, null);
-        this.ayT = new ImageView(context);
+        this.ayU = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.ane = this.amS;
         cVar.ur = com.baidu.adp.lib.util.n.dip2px(context, 7.0f);
-        cVar.view = this.ayT;
+        cVar.view = this.ayU;
         cVar.anc = com.baidu.tieba.p.icon_news_down_bar_one;
-        this.ayT.setVisibility(8);
+        this.ayU.setVisibility(8);
         this.amS.a("addresslist", cVar);
         return this.amS;
     }

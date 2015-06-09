@@ -4,26 +4,26 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cr implements View.OnClickListener {
-    final /* synthetic */ ch bOF;
+    final /* synthetic */ ch bOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cr(ch chVar) {
-        this.bOF = chVar;
+        this.bOG = chVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         boolean z;
-        pbActivity = this.bOF.bKZ;
+        pbActivity = this.bOG.bLa;
         if (pbActivity.checkUpIsLogin()) {
-            this.bOF.WO();
-            if (this.bOF.bKL != null) {
-                bd bdVar = this.bOF.bKL;
-                z = this.bOF.bLi;
+            this.bOG.WP();
+            if (this.bOG.bKM != null) {
+                bd bdVar = this.bOG.bKM;
+                z = this.bOG.bLj;
                 bdVar.dS(z);
             }
-            this.bOF.aco();
+            this.bOG.acp();
         }
     }
 }

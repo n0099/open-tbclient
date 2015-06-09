@@ -14,19 +14,19 @@ public class t implements l {
     @Override // com.baidu.tbadk.coreExtra.websocketBase.l
     public void aQ(boolean z) {
         List list;
-        f.ym().dm(z ? 2 : 1);
+        f.yn().dm(z ? 2 : 1);
         if (z) {
-            this.ahF.agT = a.ye().yh();
+            this.ahF.agT = a.yf().yi();
             list = this.ahF.agT;
             if (list != null) {
                 this.ahF.ep("change ip to reconnect with DNS' failed.");
                 return;
             } else {
-                a.ye().a(new u(this));
+                a.yf().a(new u(this));
                 return;
             }
         }
         this.ahF.ahD = false;
-        this.ahF.yy();
+        this.ahF.yz();
     }
 }

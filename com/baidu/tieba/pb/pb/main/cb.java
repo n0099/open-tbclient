@@ -4,33 +4,33 @@ import android.os.Parcelable;
 import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class cb {
-    private com.baidu.tieba.pb.a.b bLH;
-    private boolean bLu;
+    private com.baidu.tieba.pb.a.b bLI;
     private boolean bLv;
-    private String bMZ;
-    private boolean bNa;
+    private boolean bLw;
+    private String bNa;
     private boolean bNb;
-    private Parcelable bNc;
+    private boolean bNc;
+    private Parcelable bNd;
 
     static {
         MessageManager.getInstance().registerListener(new cc(2005016));
         MessageManager.getInstance().registerListener(new cd(2004006));
     }
 
-    public static cb abK() {
+    public static cb abL() {
         cb cbVar;
-        cbVar = ce.bNd;
+        cbVar = ce.bNe;
         return cbVar;
     }
 
     private cb() {
-        this.bMZ = null;
-        this.bNa = false;
-        this.bLH = null;
+        this.bNa = null;
         this.bNb = false;
-        this.bNc = null;
-        this.bLv = true;
-        this.bLu = false;
+        this.bLI = null;
+        this.bNc = false;
+        this.bNd = null;
+        this.bLw = true;
+        this.bLv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,87 +39,87 @@ public class cb {
     }
 
     public void y(String str, boolean z) {
-        this.bNa = false;
+        this.bNb = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.bMZ = null;
-        } else if (!str.equals(this.bMZ)) {
+            this.bNa = null;
+        } else if (!str.equals(this.bNa)) {
             reset();
-            this.bMZ = str;
+            this.bNa = str;
         } else {
-            this.bNa = true;
+            this.bNb = true;
         }
     }
 
     public com.baidu.tieba.pb.a.b getPbData() {
-        if (!this.bNa) {
-            this.bNb = false;
+        if (!this.bNb) {
+            this.bNc = false;
             return null;
-        } else if (this.bLH != null && this.bLH.aat() != null && this.bLH.aat().size() > 0) {
-            this.bNb = true;
-            com.baidu.tieba.pb.a.b bVar = this.bLH;
-            this.bLH = null;
+        } else if (this.bLI != null && this.bLI.aau() != null && this.bLI.aau().size() > 0) {
+            this.bNc = true;
+            com.baidu.tieba.pb.a.b bVar = this.bLI;
+            this.bLI = null;
             return bVar;
         } else {
-            this.bNb = false;
-            this.bLH = null;
+            this.bNc = false;
+            this.bLI = null;
             return null;
         }
     }
 
-    public Parcelable abL() {
-        if (this.bNb) {
-            this.bNb = false;
-            Parcelable parcelable = this.bNc;
-            this.bNc = null;
+    public Parcelable abM() {
+        if (this.bNc) {
+            this.bNc = false;
+            Parcelable parcelable = this.bNd;
+            this.bNd = null;
             return parcelable;
         }
-        this.bNc = null;
+        this.bNd = null;
         return null;
     }
 
-    public boolean abp() {
+    public boolean abq() {
+        return this.bLw;
+    }
+
+    public boolean abN() {
         return this.bLv;
     }
 
-    public boolean abM() {
-        return this.bLu;
-    }
-
     public boolean a(com.baidu.tieba.pb.a.b bVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.bNa = false;
-        if (this.bMZ == null) {
+        this.bNb = false;
+        if (this.bNa == null) {
             reset();
             return false;
         } else if (bVar == null) {
             reset();
             return false;
-        } else if (bVar.aat() == null) {
+        } else if (bVar.aau() == null) {
             reset();
             return false;
-        } else if (bVar.aat().size() < 1) {
+        } else if (bVar.aau().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
             reset();
             return false;
         } else {
-            this.bLH = bVar;
-            this.bNb = false;
-            this.bNc = parcelable;
-            this.bLv = z;
-            this.bLu = z2;
+            this.bLI = bVar;
+            this.bNc = false;
+            this.bNd = parcelable;
+            this.bLw = z;
+            this.bLv = z2;
             return true;
         }
     }
 
     public void reset() {
-        this.bNa = false;
-        this.bLH = null;
         this.bNb = false;
-        this.bNc = null;
+        this.bLI = null;
+        this.bNc = false;
+        this.bNd = null;
     }
 }

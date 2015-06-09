@@ -89,7 +89,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
         this.anD = s;
     }
 
-    public List<D> CM() {
+    public List<D> CN() {
         return this.aoR == null ? new ArrayList() : new ArrayList(this.aoR);
     }
 
@@ -104,7 +104,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
         return this.aoR.size();
     }
 
-    public int CN() {
+    public int CO() {
         if (this.aoR == null) {
             return 0;
         }
@@ -201,7 +201,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void CO() {
+    public void CP() {
         if (this.aoY != null && this.aoX != null) {
             this.aoY.removeView(this.aoX);
             this.aoX = null;
@@ -245,7 +245,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean CP() {
+    public boolean CQ() {
         return this.aoR != null && this.aoR.size() == 0;
     }
 }

@@ -25,28 +25,28 @@ public class ai extends BroadcastReceiver {
         w wVar3;
         w wVar4;
         w wVar5;
-        this.this$0.avP = intent.getBooleanExtra("action_background_downloading", false);
-        z = this.this$0.avP;
+        this.this$0.avQ = intent.getBooleanExtra("action_background_downloading", false);
+        z = this.this$0.avQ;
         if (z) {
             this.this$0.showToast(t.background_updating);
-            wVar5 = this.this$0.avV;
+            wVar5 = this.this$0.avW;
             wVar5.dismiss();
             this.this$0.finish();
         } else if (intent.getBooleanExtra("action_update_complete", false)) {
-            wVar4 = this.this$0.avV;
+            wVar4 = this.this$0.avW;
             wVar4.dismiss();
             this.this$0.finish();
         } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
-            wVar3 = this.this$0.avV;
+            wVar3 = this.this$0.avW;
             wVar3.dismiss();
             this.this$0.showToast(this.this$0.getPageContext().getString(t.update_app_error));
             this.this$0.finish();
-            this.this$0.EU();
+            this.this$0.EV();
         } else {
             int intExtra = intent.getIntExtra("action_update_download_progress", 0);
-            wVar = this.this$0.avV;
+            wVar = this.this$0.avW;
             if (wVar != null) {
-                wVar2 = this.this$0.avV;
+                wVar2 = this.this$0.avW;
                 wVar2.updateProgress(intExtra);
             }
         }
