@@ -1,54 +1,30 @@
 package com.baidu.tbadk.download;
+
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    final /* synthetic */ b aiT;
-    private int aiV;
-    private String key;
-    private String name;
-    private int position;
-    private String url;
+public class e extends Handler {
+    final /* synthetic */ d aoi;
 
-    public e(b bVar) {
-        this.aiT = bVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(d dVar, Looper looper) {
+        super(looper);
+        this.aoi = dVar;
     }
 
-    public void setKey(String str) {
-        this.key = str;
-    }
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setPosition(int i) {
-        this.position = i;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
-    public int zi() {
-        return this.aiV;
-    }
-
-    public void dv(int i) {
-        this.aiV = i;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        if (message.what == 900002 && message.arg2 > 0 && d.aof != null) {
+            d.aof.setLength(message.arg1);
+            d.aof.setSize(message.arg2);
+            d.aof.setStatus(1);
+            if (d.aof.getCallback() != null) {
+                d.aof.getCallback().a(d.aof);
+            }
+        }
     }
 }

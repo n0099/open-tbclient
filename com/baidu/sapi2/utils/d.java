@@ -1,83 +1,45 @@
 package com.baidu.sapi2.utils;
-
-import android.text.TextUtils;
-import com.baidu.android.common.security.Base64;
-import com.baidu.android.common.security.RSAUtil;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.security.cert.X509Certificate;
 /* loaded from: classes.dex */
-public class d {
-    public static byte[] a(String str, String str2) {
-        if (str == null || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        try {
-            Cipher cipher = Cipher.getInstance("RSA/NONE/NoPadding");
-            cipher.init(1, X509Certificate.getInstance(new ByteArrayInputStream(str2.getBytes())).getPublicKey());
-            return cipher.doFinal(str.getBytes("UTF-8"));
-        } catch (Throwable th) {
-            L.e(th);
-            return null;
-        }
-    }
-
-    public static String b(String str, String str2) {
-        if (str == null || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        try {
-            Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
-            PublicKey a = a(str2);
-            if (a != null) {
-                cipher.init(2, a);
-                return new String(cipher.doFinal(Base64.decode(str.getBytes())), "UTF8");
-            }
-        } catch (Throwable th) {
-            L.e(th);
-        }
-        return null;
-    }
-
-    private static PublicKey a(String str) {
-        String readLine;
-        PublicKey publicKey = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(str.getBytes("UTF-8"))));
-            StringBuilder sb = new StringBuilder();
-            while (true) {
-                readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    if (readLine.contains("-----BEGIN PUBLIC KEY-----")) {
-                        while (true) {
-                            readLine = bufferedReader.readLine();
-                            if (readLine == null || readLine.contains("-----END PUBLIC KEY-----")) {
-                                break;
-                            }
-                            sb.append(readLine.trim());
-                        }
-                    }
-                } else {
-                    break;
-                }
-            }
-            bufferedReader.close();
-            if (TextUtils.isEmpty(readLine)) {
-                return null;
-            }
-            publicKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(sb.toString().getBytes())));
-            return publicKey;
-        } catch (Throwable th) {
-            L.e(th);
-            return publicKey;
-        }
-    }
+public interface d {
+    public static final String A = "/yunid/device/service/status";
+    public static final String B = "/yunid/device/reg";
+    public static final String C = "/yunid/device/login";
+    public static final String D = "/yunid/device/forcereg";
+    public static final String E = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String F = "/v2/security/sapibindwidgetsend";
+    public static final String G = "/v2/security/sapibindwidgetbind";
+    public static final String H = "/v2/sapi/getvoiceid";
+    public static final String I = "/v2/sapi/regvoice";
+    public static final String J = "/v2/sapi/voicelogin";
+    public static final String K = "/v2/sapi/updatevoicepassword";
+    public static final String L = "baiduvoice35hy12";
+    public static final String M = "/v2/sapi/sdk-e7e3227a11d7e4d3a3a1a8ea89bc76d8";
+    public static final String N = "/v2/sapi/sdk-9fc05608ec97ba19262c82c1aa7770e7";
+    public static final String O = "/export/mobilesdk/update.txt";
+    public static final String a = "/v2/sapi/login";
+    public static final String b = "/wp/login/proxy";
+    public static final String c = "http://119.75.220.29";
+    public static final String d = "http://220.181.111.48";
+    public static final String e = "http://123.125.115.81";
+    public static final String f = "/cgi-bin/genimage?";
+    public static final String g = "/v2/sapi/applyregcode";
+    public static final String h = "/v2/sapi/phoneregverify";
+    public static final String i = "/v2/sapi/reg/quick";
+    public static final String j = "2512457640";
+    public static final String k = "/phoenix/account/ssologin";
+    public static final String l = "/phoenix/account/ssologin";
+    public static final String m = "/phoenix/account/startlogin";
+    public static final String n = "/phoenix/account/afterauth";
+    public static final String o = "/phoenix/account/finishbind";
+    public static final String p = "/v2/sapi/qrlogin?lp=pc";
+    public static final String q = "/v2/sapi/qrlogin?lp=app";
+    public static final String r = "/v2/sapi/smsgetlogin";
+    public static final String s = "10698000036592";
+    public static final String t = "/v2/sapi/getdpass";
+    public static final String u = "AES/CBC/PKCS5Padding";
+    public static final String v = "AES";
+    public static final String w = "8070605040302010";
+    public static final String x = "js52je)927!hsm^%3m";
+    public static final String y = "AES/CBC/NoPadding";
+    public static final String z = "/static/appsapi/conf/config.txt";
 }

@@ -18,7 +18,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         AddGroupResIdl addGroupResIdl = (AddGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, AddGroupResIdl.class);
         setError(addGroupResIdl.error.errorno.intValue());
@@ -37,7 +37,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
             addGroupInfoData.setNotice(groupInfo.notice);
             addGroupInfoData.setAlbum(groupInfo.album);
             addGroupInfoData.setStatus(groupInfo.status.intValue());
-            addGroupInfoData.setAuthorId(groupInfo.authorId.intValue());
+            addGroupInfoData.setAuthorId(groupInfo.authorId.longValue());
             addGroupInfoData.setAuthorName(groupInfo.authorName);
             addGroupInfoData.setCreateTime(groupInfo.createTime.intValue());
             addGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());

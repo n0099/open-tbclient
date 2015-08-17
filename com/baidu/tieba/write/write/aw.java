@@ -1,38 +1,42 @@
 package com.baidu.tieba.write.write;
 
-import java.util.ArrayList;
+import android.graphics.drawable.NinePatchDrawable;
+import android.widget.EditText;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.base.i {
-    final /* synthetic */ WriteActivity cCQ;
+public class aw extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ WriteActivity cUM;
+    private final /* synthetic */ boolean cUP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+    public aw(WriteActivity writeActivity, boolean z) {
+        this.cUM = writeActivity;
+        this.cUP = z;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.cCQ.hideProgressBar();
-        if (obj == null || !(obj instanceof t)) {
-            feedBackTopListView = this.cCQ.cCo;
-            feedBackTopListView.setVisibility(8);
-            this.cCQ.showToast(com.baidu.tieba.t.neterror);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        EditText editText;
+        EditText editText2;
+        a.InterfaceC0069a interfaceC0069a;
+        super.a((aw) aVar, str, i);
+        if (aVar != null && aVar.nc() != null && aVar.ng() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m411getInst().getResources(), aVar.nc(), aVar.nc().getNinePatchChunk(), aVar.ng(), null);
+            if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
+                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ab.mAlpha);
+            }
+            editText = this.cUM.cSo;
+            editText.setBackgroundDrawable(ninePatchDrawable);
+            if (this.cUP) {
+                WriteActivity writeActivity = this.cUM;
+                editText2 = this.cUM.cSo;
+                interfaceC0069a = this.cUM.cfd;
+                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, editText2, true, interfaceC0069a);
+            }
         }
-        t tVar = (t) obj;
-        if (tVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.cCQ.cCo;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.w> asS = tVar.asS();
-        feedBackTopListView3 = this.cCQ.cCo;
-        feedBackTopListView3.a(asS, this.cCQ.getPageContext());
     }
 }

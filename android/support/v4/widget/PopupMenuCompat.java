@@ -12,7 +12,7 @@ public class PopupMenuCompat {
     }
 
     /* loaded from: classes.dex */
-    class BasePopupMenuImpl implements PopupMenuImpl {
+    static class BasePopupMenuImpl implements PopupMenuImpl {
         BasePopupMenuImpl() {
         }
 
@@ -23,7 +23,7 @@ public class PopupMenuCompat {
     }
 
     /* loaded from: classes.dex */
-    class KitKatPopupMenuImpl extends BasePopupMenuImpl {
+    static class KitKatPopupMenuImpl extends BasePopupMenuImpl {
         KitKatPopupMenuImpl() {
         }
 

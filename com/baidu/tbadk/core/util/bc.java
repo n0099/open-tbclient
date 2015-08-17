@@ -1,109 +1,86 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc {
-    private static bc Wd = null;
-    private boolean We = false;
-    private boolean Wf = false;
-    private int Wg = TbConfig.POST_IMAGE_SMALL;
-    private String Wh = String.valueOf(45);
+public class bc implements bb.a {
+    private final /* synthetic */ int abx;
+    private final /* synthetic */ boolean aby;
 
-    public static bc tB() {
-        if (Wd == null) {
-            synchronized (bc.class) {
-                Wd = new bc();
-            }
-        }
-        return Wd;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(int i, boolean z) {
+        this.abx = i;
+        this.aby = z;
     }
 
-    public bc() {
-        tE();
-        tC();
-    }
-
-    private void tC() {
-        tI();
-        tJ();
-        tK();
-    }
-
-    public void an(boolean z) {
-        this.Wf = z;
-    }
-
-    public boolean tD() {
-        return this.Wf;
-    }
-
-    public void ao(boolean z) {
-        this.We = z;
-        tC();
-    }
-
-    private void tE() {
-        this.We = com.baidu.adp.lib.util.k.iY();
-    }
-
-    public boolean tF() {
-        return this.We;
-    }
-
-    public String tG() {
-        return this.Wh;
-    }
-
-    public int tH() {
-        tK();
-        return this.Wg;
-    }
-
-    public void tI() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.n.qc().getViewImageQuality() != 0 ? com.baidu.tbadk.core.n.qc().getViewImageQuality() != 1 : !this.We) {
-            z = false;
-        }
-        an(z);
-    }
-
-    public void tJ() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.n.qc().getViewImageQuality() == 0) {
-            if (tF()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.n.qc().getViewImageQuality() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.Wh = valueOf;
-    }
-
-    public void tK() {
-        int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.n.qc().qf()) {
-            case 0:
-                if (!tF()) {
-                    i = 600;
-                    break;
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public boolean n(View view) {
+        int at;
+        int at2;
+        int at3;
+        int at4;
+        Object tag = view.getTag();
+        if (tag != null) {
+            if ("skin_text_group".equals(tag)) {
+                bb.c((TextView) view, this.abx);
+                return false;
+            } else if ("skin_text_content".equals(tag)) {
+                bb.c((TextView) view, this.abx);
+                return false;
+            } else if ("skin_text_num".equals(tag)) {
+                bb.k((TextView) view, this.abx);
+                return false;
+            } else if ("skin_check_box".equals(tag)) {
+                bb.a((CheckBox) view, this.abx);
+                return false;
+            } else if ("skin_sidebar_content".equals(tag)) {
+                ((TextView) view).setTextAppearance(TbadkCoreApplication.m411getInst().getApp(), this.aby ? i.j.sidebar_content_1 : i.j.sidebar_content);
+                return false;
+            } else if ("skin_more_up".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    at4 = bb.at(this.aby);
+                    ((RadioButton) view).setTextColor(at4);
                 }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 750;
-                break;
-            case 3:
-                i = 600;
-                break;
-            default:
-                i = 750;
-                break;
+                al.i(view, i.e.more_up);
+                return false;
+            } else if ("skin_more_middle".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    at3 = bb.at(this.aby);
+                    ((RadioButton) view).setTextColor(at3);
+                }
+                al.i(view, i.e.more_middle);
+                return false;
+            } else if ("skin_more_down".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    at2 = bb.at(this.aby);
+                    ((RadioButton) view).setTextColor(at2);
+                }
+                al.i(view, i.e.more_down);
+                return false;
+            } else if ("skin_more_all".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    at = bb.at(this.aby);
+                    ((RadioButton) view).setTextColor(at);
+                }
+                al.i(view, i.e.more_all);
+                return false;
+            } else if ("skin_arrow".equals(tag)) {
+                al.c((ImageView) view, i.e.icon_ba_top_arrow_big);
+                return false;
+            } else if ("skin_list_line".equals(tag)) {
+                bb.k(view, this.abx);
+                return false;
+            } else {
+                return false;
+            }
         }
-        this.Wg = i;
-    }
-
-    public static boolean tL() {
-        return o.fo() && com.baidu.adp.gif.f.fn();
+        return false;
     }
 }

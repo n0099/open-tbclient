@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -19,7 +19,6 @@ public class TbConfig {
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
-    public static final String APP_UPLOAD = "c/s/ualist";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final int BIG_PHOTO_MAX_SIZE = 110;
@@ -32,7 +31,7 @@ public class TbConfig {
     private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
-    public static final int BUILD_NUMBER = 168;
+    public static final int BUILD_NUMBER = 369;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -40,7 +39,6 @@ public class TbConfig {
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
-    public static final boolean COULD_UPDATE = true;
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
     public static final String DELETE_MY_GAME = "c/c/game/delmygame";
@@ -57,6 +55,7 @@ public class TbConfig {
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
     public static final String FATAL_ERROR_NATIVE_DIR = "crash_ndk";
+    public static final String FEED_BACK_WEB_VIEW_URL = "http://tieba.baidu.com/mo/q/feedback";
     public static final String FINE_PB_PAGE = "c/f/choiceness/finepbpage";
     public static final String FINE_PB_PRAISE = "c/f/choiceness/finezan";
     public static final String FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/voice_fin_chunk_upload";
@@ -78,20 +77,27 @@ public class TbConfig {
     public static final String FUNCTION_INTRO_WEBVIEW = "mo/q/topic_page/110_1";
     public static final String GAME_SEARCH_RESULT = "c/u/game/searchGame";
     public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
+    public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
+    public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
     public static final String GET_GAME_CATEGORY = "c/u/game/getgamecategory";
     public static final String GET_GAME_GATEGORY_DETAIL = "c/u/game/getgamecategorydetail";
     public static final String GET_HOT_FORUM_URL = "c/f/forum/hotforum";
     public static final String GET_HOT_GAME = "c/u/game/getHotGameList";
     public static final String GET_IP_LIST = "c/s/getipinfo";
+    public static final String GET_LEVEL_INFO_URL = "c/f/forum/getLevelInfo";
+    public static final String GET_MEMBER_INFO = "c/f/forum/getMemberInfo";
     public static final String GET_MY_GAMELIST = "c/u/game/getmygamelist";
     public static final String GET_MY_POST = "c/f/frs/getmypost";
     public static final String GET_NEW_GAME = "c/u/game/getNewGameList";
     public static final String GET_OPEN_USER_INFO = "c/e/xiuba/getopenid";
+    public static final String GET_ORDER = "c/e/mema/getOrder";
     public static final String GET_PACKAGE_DETAIL = "c/e/faces/getfacelist";
     public static final String GET_PACKAGE_DOWNLOAD_URL = "c/e/faces/dpack";
     public static final String GET_PACKAGE_LIST = "c/e/faces/getpacklist";
     public static final String GET_PACKAGE_PURCHASE_RECORDS = "c/e/faces/getpackhis";
+    public static final String GET_PAY_CONFIG = "c/s/getClientConfig";
+    public static final String GET_PRIVATE_INFO = "c/u/user/getPrivateInfo";
     public static final String GET_SINGLE_GAME = "c/u/game/getsinglegamelist";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
@@ -120,7 +126,6 @@ public class TbConfig {
     public static final String LOCAL_PIC_DIR = "photos";
     public static final String LOG_ERROR_FILE = "log_error.log";
     public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync3.js";
-    public static final String LOG_SYNC_SWITCH_OLD = "http://tb1.bdstatic.com/tb/client/logsync2.js";
     public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
     public static final String MAIN_PACKAGE_NAME = "com.baidu.tieba";
@@ -137,7 +142,7 @@ public class TbConfig {
     public static final int MAX_HOME_ICON_NUM = 3;
     public static final int MAX_PB_ICON_NUM = 3;
     public static final int MAX_PB_PIC_ONEPOST = 10;
-    public static final int MAX_PERSON_INFO_ICON_NUM = 4;
+    public static final int MAX_PERSON_INFO_ICON_NUM = 9;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
     public static final int MAX_PRELOAD_PIC_NUM = 13;
     public static final int MAX_SDRAM_PHOTO_NUM = 50;
@@ -171,6 +176,7 @@ public class TbConfig {
     public static final int NOTIFY_LIVE_NOTIFY = 21;
     public static final int NOTIFY_LIVING_VIP = 27;
     public static final int NOTIFY_OFFICIAL_MESSAGE = 19;
+    public static final int NOTIFY_PLUGIN_INSTALLING = 1000;
     public static final int NOTIFY_PUSH_ID = 15;
     public static final int NOTIFY_RECOMMEND_MESSAGE_ID = 13;
     public static final int NOTIFY_REPLY_ME_ID = 24;
@@ -188,6 +194,8 @@ public class TbConfig {
     public static final String PERSON_HEAD_FILE = "tieba_head_image";
     public static final String PHONE_DATEBASE_NAME = "baidu_tieba.db";
     public static final int PHOTO_DELAY_TIME = 90;
+    public static final String PHOTO_LIVE_COVER_FILE = "tieba_photo_live_cover_image";
+    public static final String PHOTO_LIVE_SET_COVER = "/c/c/post/setLiveCover";
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
@@ -227,6 +235,11 @@ public class TbConfig {
     public static final String ST_TYPE_USE = "use";
     public static final String SW_APID = "sw";
     public static final String SYNC_ACTIVE = "sync_active";
+    public static final String TAIL_ADD = "c/u/tail/addTail";
+    public static final String TAIL_DELETE = "c/u/tail/deleteTail";
+    public static final String TAIL_GET = "c/u/tail/getTails";
+    public static final String TAIL_SET = "c/u/tail/setTail";
+    public static final String TAIL_UPDATE = "c/u/tail/updateTail";
     public static final int THREAD_GIF_MIN_USE_MEMORY = 6291456;
     public static final String TMP_DATABASE_NAME = "tieba_database.db";
     public static final String TMP_LOGBAK_DIR_NAME = "logbak";
@@ -250,6 +263,10 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
+    public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
+    public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
+    public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
+    public static final String USER_MUTE_QUERY = "c/u/user/userMuteQuery";
     public static final int USER_PHOTO_AUTO = 0;
     public static final int USER_PHOTO_CLOSE = 2;
     public static final int USER_PHOTO_OPEN = 1;
@@ -266,6 +283,7 @@ public class TbConfig {
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
     public static final String WEIXIN_PARTNER_ID = "1219850201";
+    public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
@@ -274,6 +292,7 @@ public class TbConfig {
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
+    public static boolean KUANG_TEST_MODE = false;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
     private static String VERSION = "";
@@ -283,6 +302,8 @@ public class TbConfig {
     public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
     private static int THREAD_IMAGE_MAX_WIDTH = PB_IMAGE_NEW_MAX_WIDTH;
     private static boolean sThreadImageMaxInited = false;
+    public static final String TRANSFER_PICTURE_ID = String.valueOf(SERVER_ADDRESS) + "c/c/img/transferUrl2Pid";
+    public static final String GET_AUTHORIZE_ID = String.valueOf(SERVER_ADDRESS) + "c/s/uidTransform";
     private static int FRIEND_PHOTO_MAX_SIZE = 80;
     private static int VERSION_TYPE = 3;
     public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
@@ -295,12 +316,14 @@ public class TbConfig {
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
     public static final String IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
     public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
+    public static String ADD_USER_ATTR_URL = "/c/c/user/addUserAttr";
+    public static boolean COULD_UPDATE = true;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
 
     /* loaded from: classes.dex */
-    public final class PassConfig {
+    public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
         public static final String ENC_KEY = "6e93e7659ae637845c7f83abee68a740";
@@ -409,7 +432,7 @@ public class TbConfig {
 
     public static int initPbImageSize(Context context) {
         int i = PB_IMAGE_NEW_MAX_WIDTH;
-        int dip2px = n.dip2px(context, 427.0f);
+        int dip2px = k.dip2px(context, 427.0f);
         if (dip2px <= 640) {
             i = dip2px;
         }
@@ -541,7 +564,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(n.M(context) * n.N(context));
+            int sqrt = (int) Math.sqrt(k.K(context) * k.L(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

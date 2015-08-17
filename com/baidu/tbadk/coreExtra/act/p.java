@@ -1,18 +1,19 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.sapi2.SapiWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class p implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ LoginActivity abx;
+class p implements Runnable {
+    final /* synthetic */ n agF;
+    private final /* synthetic */ AccountData agG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(LoginActivity loginActivity) {
-        this.abx = loginActivity;
+    public p(n nVar, AccountData accountData) {
+        this.agF = nVar;
+        this.agG = accountData;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.abx.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.a.b.b(this.agG);
     }
 }

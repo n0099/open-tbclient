@@ -1,45 +1,42 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ e ctN;
+public class h extends HttpMessageListener {
+    final /* synthetic */ d cKp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(e eVar, int i) {
+    public h(d dVar, int i) {
         super(i);
-        this.ctN = eVar;
+        this.cKp = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        k kVar;
-        k kVar2;
-        k kVar3;
-        k kVar4;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                this.ctN.fi(false);
-                this.ctN.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                kVar3 = this.ctN.ctH;
-                if (kVar3 != null) {
-                    kVar4 = this.ctN.ctH;
-                    kVar4.gi(responsedSelectLocation.getName());
-                    return;
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        d.a aVar;
+        d.a aVar2;
+        if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
+            BdLog.i("mOpenShareLocSwitchListener response error!");
+            aVar = this.cKp.cKi;
+            if (aVar != null) {
+                String str = null;
+                if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
+                    str = httpResponsedMessage.getErrorString();
                 }
+                aVar2 = this.cKp.cKi;
+                aVar2.eO(str);
                 return;
             }
-            this.ctN.fi(true);
-            kVar = this.ctN.ctH;
-            if (kVar != null) {
-                kVar2 = this.ctN.ctH;
-                kVar2.JY();
-            }
+            return;
         }
+        TbadkCoreApplication.m411getInst().setLocationShared(true);
+        this.cKp.aqF();
     }
 }

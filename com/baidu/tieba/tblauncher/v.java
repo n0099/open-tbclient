@@ -1,11 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import protobuf.ConfigVersion;
 /* loaded from: classes.dex */
-class v extends CustomMessageListener {
+class v extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,17 +16,14 @@ class v extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
-            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
-                BdLog.e("transform error");
-            } else if (MainTabActivity.cvj) {
-                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
-                ajVar = this.this$0.cvs;
-                ajVar.jd(msgReplyme);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
             }
+            this.this$0.kF(configVersion.sync);
         }
     }
 }

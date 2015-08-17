@@ -39,14 +39,14 @@ public class LiveGroupHistoryData {
     }
 
     /* loaded from: classes.dex */
-    public final class History {
+    public static final class History {
         private long endTime;
         private int groupId;
         private int likers;
         private int listeners;
         private String playUrl;
         private long startTime;
-        private int userId;
+        private long userId;
 
         public int getGroupId() {
             return this.groupId;
@@ -72,12 +72,12 @@ public class LiveGroupHistoryData {
             this.endTime = j;
         }
 
-        public int getUserId() {
+        public long getUserId() {
             return this.userId;
         }
 
-        public void setUserId(int i) {
-            this.userId = i;
+        public void setUserId(long j) {
+            this.userId = j;
         }
 
         public int getListeners() {

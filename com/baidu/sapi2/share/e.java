@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.L;
-import com.baidu.sapi2.utils.i;
+import com.baidu.sapi2.utils.SapiDataEncryptor;
 /* loaded from: classes.dex */
 public final class e {
     private static String a = null;
@@ -18,7 +18,7 @@ public final class e {
             return null;
         }
         try {
-            return com.baidu.sapi2.utils.b.a(new i(com.baidu.sapi2.utils.g.v, com.baidu.sapi2.utils.g.u).a(str, com.baidu.sapi2.utils.g.w, a(context)));
+            return SapiDataEncryptor.a(new com.baidu.sapi2.utils.f(com.baidu.sapi2.utils.d.v, com.baidu.sapi2.utils.d.u).a(str, com.baidu.sapi2.utils.d.w, a(context)));
         } catch (Exception e) {
             L.e(e);
             return null;
@@ -30,7 +30,7 @@ public final class e {
             return null;
         }
         try {
-            return new String(new i(com.baidu.sapi2.utils.g.v, com.baidu.sapi2.utils.g.u).a(com.baidu.sapi2.utils.b.d(str), com.baidu.sapi2.utils.g.w, a(context))).trim();
+            return new String(new com.baidu.sapi2.utils.f(com.baidu.sapi2.utils.d.v, com.baidu.sapi2.utils.d.u).a(SapiDataEncryptor.d(str), com.baidu.sapi2.utils.d.w, a(context))).trim();
         } catch (Exception e) {
             L.e(e);
             return null;

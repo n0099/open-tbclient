@@ -1,78 +1,108 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.cache.o;
+import com.baidu.location.BDLocationStatusCodes;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class bi extends CustomMessageListener {
-    final /* synthetic */ bh bLn;
+public class bi {
+    private static bi cbM;
+    private com.baidu.adp.lib.cache.o<byte[]> cbN = null;
+    private com.baidu.adp.lib.cache.o<byte[]> cbO = null;
+    private long cbP = 0;
+    private long cbQ = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bi(bh bhVar, int i) {
-        super(i);
-        this.bLn = bhVar;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        com.baidu.tieba.pb.a.b bVar;
-        List<DownloadData> data;
-        com.baidu.tieba.pb.a.b bVar2;
-        PbActivity pbActivity;
-        if (customResponsedMessage != null) {
-            bVar = this.bLn.bLf;
-            if (bVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                bVar2 = this.bLn.bLf;
-                ArrayList<com.baidu.tieba.tbadkCore.data.i> aaz = bVar2.aaz();
-                if (aaz != null && aaz.size() != 0) {
-                    Iterator<com.baidu.tieba.tbadkCore.data.i> it = aaz.iterator();
-                    boolean z = false;
-                    while (it.hasNext()) {
-                        com.baidu.tieba.tbadkCore.data.i next = it.next();
-                        if (next != null && next.aos() != null && !TextUtils.isEmpty(next.aos().apk_name)) {
-                            com.baidu.tieba.tbadkCore.data.a aos = next.aos();
-                            Iterator<DownloadData> it2 = data.iterator();
-                            while (true) {
-                                if (!it2.hasNext()) {
-                                    break;
-                                }
-                                DownloadData next2 = it2.next();
-                                if (next2 != null && aos.apk_name.equals(next2.getId())) {
-                                    int status = next2.getStatus();
-                                    if (status == 3 || status == 0) {
-                                        next.iJ(2);
-                                    } else if (status == 2 || status == 4) {
-                                        if (!com.baidu.tbadk.core.util.bb.isEmpty(next2.getStatusMsg())) {
-                                            pbActivity = this.bLn.bLa;
-                                            com.baidu.adp.lib.util.n.showToast(pbActivity.getPageContext().getContext(), next2.getStatusMsg());
-                                        }
-                                        next.iJ(0);
-                                    } else if (status == 1) {
-                                        next.iJ(1);
-                                    }
-                                    z = true;
-                                }
-                            }
-                        }
-                    }
-                    if (z) {
-                        this.bLn.notifyDataSetChanged();
-                    }
-                }
+    public static synchronized bi adv() {
+        bi biVar;
+        synchronized (bi.class) {
+            if (cbM == null) {
+                cbM = new bi();
             }
+            biVar = cbM;
+        }
+        return biVar;
+    }
+
+    private bi() {
+        KG();
+    }
+
+    private void KG() {
+        if (this.cbN == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.cbN = com.baidu.tbadk.core.b.a.sM().cj("tb.pb_mark");
+            this.cbQ = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.cbO == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.cbO = com.baidu.tbadk.core.b.a.sM().cj("tb.pb_normal");
+            this.cbP = System.currentTimeMillis() - currentTimeMillis2;
+        }
+    }
+
+    public void w(String str, boolean z) {
+        if (z) {
+            if (this.cbN != null && str != null) {
+                this.cbN.b(str, new byte[0], 0L);
+            }
+        } else if (this.cbO != null && str != null) {
+            this.cbO.b(str, new byte[0], 0L);
+        }
+    }
+
+    public byte[] x(String str, boolean z) {
+        o.b<byte[]> ac;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.cbN != null && str != null) {
+                ac = this.cbN.ac(str);
+                j = this.cbQ;
+            }
+            ac = null;
+        } else {
+            if (this.cbO != null && str != null) {
+                ac = this.cbO.ac(str);
+                j = this.cbP;
+            }
+            ac = null;
+        }
+        if (ac == null || ac.so == null) {
+            return null;
+        }
+        com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
+        tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        tVar.axs = (System.currentTimeMillis() - currentTimeMillis) + j;
+        tVar.Ea();
+        return ac.so;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            KG();
+            if (z) {
+                this.cbN.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.cbO.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
+            tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            tVar.axt = currentTimeMillis2;
+            tVar.Eb();
+        }
+    }
+
+    public void m(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            KG();
+            this.cbN.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
+            tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            tVar.axt = currentTimeMillis2;
+            tVar.Eb();
         }
     }
 }

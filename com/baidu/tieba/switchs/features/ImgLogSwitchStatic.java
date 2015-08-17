@@ -1,7 +1,7 @@
 package com.baidu.tieba.switchs.features;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class ImgLogSwitchStatic extends a {
     public static final String IMG_LOG = "img_log";
@@ -9,7 +9,7 @@ public class ImgLogSwitchStatic extends a {
     public static final int ON_TYPE = 0;
 
     static {
-        f.gD().l(ImgLogSwitchStatic.class);
+        e.gy().e(ImgLogSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

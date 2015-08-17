@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class GroupCardActivityConfig extends c {
+public class GroupCardActivityConfig extends IntentConfig {
     public static String GROUP_PORTRAIT = "groupportrait";
 
     public GroupCardActivityConfig(Context context, long j, String str, String str2) {

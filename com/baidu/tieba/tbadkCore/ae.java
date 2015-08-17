@@ -1,77 +1,49 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.LikeForum;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.ad;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.mvc.b.a {
-    private String aEH;
-    private int aQX;
-    private int cpJ;
-    private String mId;
-    private String mName;
-    private int mType;
+public class ae extends HttpMessageListener {
+    final /* synthetic */ ad cHU;
 
-    public ae() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(ad adVar, int i) {
+        super(i);
+        this.cHU = adVar;
     }
 
-    public ae(int i) {
-        this.mType = i;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public void iK(int i) {
-        this.cpJ = i;
-    }
-
-    public int amP() {
-        return this.cpJ;
-    }
-
-    public void setLevel(int i) {
-        this.aQX = i;
-    }
-
-    public int getLevel() {
-        return this.aQX;
-    }
-
-    public String getAvatar() {
-        return this.aEH;
-    }
-
-    public void a(LikeForum likeForum) {
-        if (likeForum != null) {
-            a(likeForum, null);
-        }
-    }
-
-    public void a(LikeForum likeForum, Context context) {
-        if (likeForum != null) {
-            try {
-                this.mId = String.valueOf(likeForum.forum_id);
-                this.mName = likeForum.forum_name;
-                this.cpJ = likeForum.is_sign.intValue();
-                this.aQX = likeForum.level_id.intValue();
-                this.aEH = likeForum.avatar;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        ad.a aVar;
+        ad.a aVar2;
+        ad.a aVar3;
+        ad.a aVar4;
+        ad.a aVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+            if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                aVar = this.cHU.cHT;
+                if (aVar != null) {
+                    aVar2 = this.cHU.cHT;
+                    aVar2.bF(null);
+                    return;
+                }
+                return;
+            }
+            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+            if (praiseResponseMessage.getError() == 0) {
+                aVar5 = this.cHU.cHT;
+                aVar5.fU(praiseResponseMessage.getErrMsg());
+                return;
+            }
+            aVar3 = this.cHU.cHT;
+            if (aVar3 != null) {
+                aVar4 = this.cHU.cHT;
+                aVar4.bF(praiseResponseMessage.getErrMsg());
             }
         }
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public void setType(int i) {
-        this.mType = i;
     }
 }

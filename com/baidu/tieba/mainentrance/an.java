@@ -1,26 +1,16 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-class an extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity bCF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.bCF = squareSearchActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
-            return;
+class an implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(SquareSearchActivity.class);
         }
-        this.bCF.a(5, (ArrayList) data);
+        return null;
     }
 }

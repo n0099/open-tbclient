@@ -1,29 +1,29 @@
 package com.baidu.tbadk.widget.richText;
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbRichTextView auX;
+class l extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbRichTextView aCn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(TbRichTextView tbRichTextView) {
-        this.auX = tbRichTextView;
+        this.aCn = tbRichTextView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.auX.d(aVar);
+        this.aCn.d(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.f.b
     public void onProgressUpdate(Object... objArr) {
         super.onProgressUpdate(objArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void am(String str) {
-        super.am(str);
+    @Override // com.baidu.adp.lib.f.b
+    public void al(String str) {
+        super.al(str);
     }
 }

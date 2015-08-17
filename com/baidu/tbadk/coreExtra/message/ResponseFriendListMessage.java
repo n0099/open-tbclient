@@ -4,13 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.relationship.a;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
-    private LinkedList<com.baidu.tbadk.coreExtra.relationship.a> friendList;
+    private LinkedList<a> friendList;
 
     public ResponseFriendListMessage(int i) {
         super(CmdConfigHttp.CMD_GET_FRIEND_LIST);
@@ -28,9 +29,9 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
+                            a aVar = new a();
                             aVar.setUserName(metaData.getName_show());
-                            aVar.dZ(metaData.getPortrait());
+                            aVar.ec(metaData.getPortrait());
                             aVar.setUserId(metaData.getUserIdLong());
                             this.friendList.add(aVar);
                         }
@@ -42,7 +43,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public LinkedList<com.baidu.tbadk.coreExtra.relationship.a> getFriendList() {
+    public LinkedList<a> getFriendList() {
         return this.friendList;
     }
 }

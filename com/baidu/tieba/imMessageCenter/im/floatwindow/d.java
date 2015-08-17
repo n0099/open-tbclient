@@ -5,32 +5,30 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FloatingPersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.imMessageCenter.im.floatwindow.view.e {
-    final /* synthetic */ b btt;
+public class d implements a.InterfaceC0062a {
+    final /* synthetic */ b bHk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.btt = bVar;
+        this.bHk = bVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.e
-    public void Wc() {
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0062a
+    public void XJ() {
         boolean z;
         boolean z2;
-        a aVar;
-        z = this.btt.bte;
+        ArrayList<UserData> Xu;
+        z = this.bHk.bGW;
         if (!z) {
-            z2 = this.btt.btd;
-            if (!z2) {
-                aVar = this.btt.bti;
-                ArrayList<UserData> VN = aVar.VN();
-                if (VN != null && !VN.isEmpty()) {
-                    this.btt.VY();
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002011, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), VN)));
-                }
+            z2 = this.bHk.bGV;
+            if (!z2 && (Xu = this.bHk.bHa.Xu()) != null && !Xu.isEmpty()) {
+                this.bHk.XF();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), Xu)));
             }
         }
     }

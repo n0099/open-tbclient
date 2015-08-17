@@ -21,8 +21,11 @@ public final class QueryOwnerGagListReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryOwnerGagListReqIdl> {
+    public static final class Builder extends Message.Builder<QueryOwnerGagListReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryOwnerGagListReqIdl queryOwnerGagListReqIdl) {
             super(queryOwnerGagListReqIdl);

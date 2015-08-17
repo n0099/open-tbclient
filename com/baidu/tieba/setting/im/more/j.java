@@ -2,69 +2,78 @@ package com.baidu.tieba.setting.im.more;
 
 import android.view.View;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.setting.im.more.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ i ceq;
+    final /* synthetic */ i cvU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.ceq = iVar;
+        this.cvU = iVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        l lVar;
+        i.a aVar;
         View view2;
         TbSettingTextTipView tbSettingTextTipView;
         TbSettingTextTipView tbSettingTextTipView2;
         TbSettingTextTipView tbSettingTextTipView3;
         TbSettingTextTipView tbSettingTextTipView4;
         TbSettingTextTipView tbSettingTextTipView5;
-        l lVar2;
-        l lVar3;
-        l lVar4;
-        l lVar5;
-        l lVar6;
-        l lVar7;
-        lVar = this.ceq.cdT;
-        if (lVar != null) {
-            view2 = this.ceq.mBack;
+        TbSettingTextTipView tbSettingTextTipView6;
+        i.a aVar2;
+        i.a aVar3;
+        i.a aVar4;
+        i.a aVar5;
+        i.a aVar6;
+        i.a aVar7;
+        i.a aVar8;
+        aVar = this.cvU.cvT;
+        if (aVar != null) {
+            view2 = this.cvU.mBack;
             if (view != view2) {
-                tbSettingTextTipView = this.ceq.cec;
+                tbSettingTextTipView = this.cvU.cvE;
                 if (view != tbSettingTextTipView) {
-                    tbSettingTextTipView2 = this.ceq.ced;
+                    tbSettingTextTipView2 = this.cvU.cvF;
                     if (view != tbSettingTextTipView2) {
-                        tbSettingTextTipView3 = this.ceq.cee;
+                        tbSettingTextTipView3 = this.cvU.cvG;
                         if (view != tbSettingTextTipView3) {
-                            tbSettingTextTipView4 = this.ceq.ceg;
+                            tbSettingTextTipView4 = this.cvU.cvJ;
                             if (view != tbSettingTextTipView4) {
-                                tbSettingTextTipView5 = this.ceq.cel;
+                                tbSettingTextTipView5 = this.cvU.cvO;
                                 if (view != tbSettingTextTipView5) {
+                                    tbSettingTextTipView6 = this.cvU.cvH;
+                                    if (view != tbSettingTextTipView6) {
+                                        return;
+                                    }
+                                    aVar2 = this.cvU.cvT;
+                                    aVar2.akD();
                                     return;
                                 }
-                                lVar2 = this.ceq.cdT;
-                                lVar2.ain();
+                                aVar3 = this.cvU.cvT;
+                                aVar3.akE();
                                 return;
                             }
-                            lVar3 = this.ceq.cdT;
-                            lVar3.aik();
+                            aVar4 = this.cvU.cvT;
+                            aVar4.akA();
                             return;
                         }
-                        lVar4 = this.ceq.cdT;
-                        lVar4.ail();
+                        aVar5 = this.cvU.cvT;
+                        aVar5.akB();
                         return;
                     }
-                    lVar5 = this.ceq.cdT;
-                    lVar5.aim();
+                    aVar6 = this.cvU.cvT;
+                    aVar6.akC();
                     return;
                 }
-                lVar6 = this.ceq.cdT;
-                lVar6.aij();
+                aVar7 = this.cvU.cvT;
+                aVar7.akz();
                 return;
             }
-            lVar7 = this.ceq.cdT;
-            lVar7.onBackPressed();
+            aVar8 = this.cvU.cvT;
+            aVar8.onBackPressed();
         }
     }
 }

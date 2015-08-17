@@ -5,13 +5,13 @@ import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class BannerData extends com.baidu.tbadk.core.data.g implements Serializable {
+public class BannerData extends com.baidu.tbadk.core.data.e implements Serializable {
     private static final long serialVersionUID = -7774063518930689243L;
     private int mOpen = 0;
     private String mUrl = null;
     private String mResultUrl = null;
 
-    @Override // com.baidu.tbadk.core.data.g
+    @Override // com.baidu.tbadk.core.data.e
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

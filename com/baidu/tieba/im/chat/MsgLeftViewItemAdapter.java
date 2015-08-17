@@ -4,9 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.chat.ap;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgLeftViewItemAdapter extends bd<MsgleftView> {
+public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     private boolean mNeedShowName;
 
     public MsgLeftViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
@@ -14,36 +15,44 @@ public class MsgLeftViewItemAdapter extends bd<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void cA(boolean z) {
+    public void cF(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: o */
-    public be<MsgleftView> a(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.mPageContext);
-        return new bf(this, msgleftView.getConvertView(), msgleftView);
+    /* renamed from: t */
+    public ap.a<MsgleftView> a(ViewGroup viewGroup) {
+        MsgleftView msgleftView = new MsgleftView(this.Mr);
+        return new a(msgleftView.getConvertView(), msgleftView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.bd
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<MsgleftView> beVar) {
-        super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        MsgleftView Pv = beVar.Pv();
-        Pv.fR(this.bai);
-        Pv.cA(this.mNeedShowName);
+    @Override // com.baidu.tieba.im.chat.ap
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
+        MsgleftView Rg = aVar.Rg();
+        Rg.gs(this.boe);
+        Rg.cF(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        Pv.a(this.aZZ);
-        Pv.setOnItemViewLongClickListener(this.baa);
-        Pv.setPosition(i);
-        Pv.V(this.mCurrentTime);
-        Pv.U(chatMessage.getCacheData().getLastMsgTime());
-        Pv.a(viewGroup, chatMessage);
-        Pv.b(viewGroup, chatMessage);
-        this.mPageContext.getLayoutMode().ab(false);
-        this.mPageContext.getLayoutMode().j(view);
+        Rg.a(this.bnV);
+        Rg.setOnItemViewLongClickListener(this.bnW);
+        Rg.setPosition(i);
+        Rg.af(this.mCurrentTime);
+        Rg.ae(chatMessage.getCacheData().getLastMsgTime());
+        Rg.a(viewGroup, chatMessage);
+        Rg.b(viewGroup, chatMessage);
+        this.Mr.getLayoutMode().ad(false);
+        this.Mr.getLayoutMode().k(view);
         return view;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends ap.a<MsgleftView> {
+        public a(View view, MsgleftView msgleftView) {
+            super(view, msgleftView);
+        }
     }
 }

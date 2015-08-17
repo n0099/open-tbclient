@@ -3,16 +3,23 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
+import com.baidu.sapi2.callback.FillUserProfileCallback;
+import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetHistoryPortraitsCallback;
 import com.baidu.sapi2.callback.GetPopularPortraitsCallback;
 import com.baidu.sapi2.callback.GetRegCodeCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.callback.LoginCallback;
+import com.baidu.sapi2.callback.QrPcLoginCallback;
 import com.baidu.sapi2.callback.QuickUserRegCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SetPopularPortraitCallback;
+import com.baidu.sapi2.callback.SetPortraitCallback;
 import com.baidu.sapi2.callback.VoiceCheckCallback;
+import com.baidu.sapi2.callback.VoiceCodeSetCallback;
 import com.baidu.sapi2.callback.VoiceLoginCallback;
 import com.baidu.sapi2.dto.GetHistoryPortraitsDTO;
 import com.baidu.sapi2.dto.LoginDTO;
@@ -20,6 +27,7 @@ import com.baidu.sapi2.dto.PhoneRegDTO;
 import com.baidu.sapi2.dto.QuickUserRegDTO;
 import com.baidu.sapi2.dto.SetPopularPortraitDTO;
 import com.baidu.sapi2.dto.VoiceCheckDTO;
+import com.baidu.sapi2.dto.VoiceCodeSetDTO;
 import com.baidu.sapi2.result.DynamicPwdLoginResult;
 import com.baidu.sapi2.result.FastRegResult;
 import com.baidu.sapi2.result.GetCaptchaResult;
@@ -27,8 +35,8 @@ import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.result.LoginResult;
 import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.result.PhoneRegResult;
+import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.VoiceRegResult;
-import com.baidu.sapi2.shell.callback.FillUserProfileCallBack;
 import com.baidu.sapi2.shell.callback.FillUsernameCallBack;
 import com.baidu.sapi2.shell.callback.GetUserInfoCallBack;
 import com.baidu.sapi2.shell.callback.QrAppLoginCallBack;
@@ -43,7 +51,6 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.game.GameInfoData;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -51,16 +58,16 @@ import org.apache.http.message.BasicNameValuePair;
 public final class SapiAccountService {
     private static final String a = "native";
     private SapiConfiguration b = SapiAccountManager.getInstance().getSapiConfiguration();
-    private c c;
+    private a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SapiAccountService(Context context) {
-        this.c = new c(context);
+        this.c = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.c.e() + "?" + j();
+        return this.c.f() + "?" + j();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -69,7 +76,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
-        return this.c.f() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.g() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -78,7 +85,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
-        return this.c.g() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.h() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -86,7 +93,7 @@ public final class SapiAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
         arrayList.add(new BasicNameValuePair("banner", "1"));
-        return this.c.h() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.i() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -103,21 +110,21 @@ public final class SapiAccountService {
     public String e() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.k() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.l() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.l() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.m() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String g() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.m() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.n() + "?" + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -127,26 +134,20 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("showtype", "phone"));
         arrayList.add(new BasicNameValuePair("device", "wap"));
         arrayList.add(new BasicNameValuePair("adapter", "apps"));
-        return this.c.i() + j() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.j() + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String i() {
-        if (this.b == null) {
-            return null;
-        }
-        return this.c.j();
+        return this.c.k();
     }
 
     String j() {
-        if (this.b == null) {
-            throw new IllegalStateException(SapiAccountManager.class.getSimpleName() + " have not been initialized");
-        }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", SocialConstants.ANDROID_CLIENT_TYPE));
         arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : ""));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
@@ -162,12 +163,9 @@ public final class SapiAccountService {
                 arrayList.add(new BasicNameValuePair("regtype", "2"));
             }
         }
-        if (this.b.collapseFastLoginArea) {
-            arrayList.add(new BasicNameValuePair("otherLoginStyle", "1"));
-        }
         arrayList.add(new BasicNameValuePair("lPlayout", String.valueOf(this.b.configurableViewLayout.ordinal())));
         if (!this.b.showRegLink) {
-            arrayList.add(new BasicNameValuePair("regLink", GameInfoData.NOT_FROM_DETAIL));
+            arrayList.add(new BasicNameValuePair("regLink", "0"));
         }
         if (!TextUtils.isEmpty(this.b.fastRegTitleText)) {
             try {
@@ -184,17 +182,14 @@ public final class SapiAccountService {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(SocialType socialType, String str, String str2) {
-        if (this.b == null) {
-            return null;
-        }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
-        arrayList.add(new BasicNameValuePair("access_token", str));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACCESS_TOKEN, str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
-        return this.c.v() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.w() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -206,7 +201,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("app_key", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("scope", "snsapi_login"));
-        return this.c.x() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.y() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -216,44 +211,32 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("code", str));
         arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("display", a));
-        return this.c.y() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.z() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String l() {
-        if (this.b == null) {
-            return null;
-        }
-        return this.c.w();
+        return this.c.x();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(SocialType socialType) {
-        if (this.b == null) {
-            return null;
-        }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
-        return this.c.x() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.y() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String m() {
-        if (this.b == null) {
-            return null;
-        }
-        return this.c.y();
+        return this.c.z();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String n() {
-        if (this.b == null) {
-            return null;
-        }
-        return this.c.z();
+        return this.c.A();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -263,23 +246,33 @@ public final class SapiAccountService {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void o() {
-        this.c.c();
+        this.c.b();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void p() {
+        this.c.d();
     }
 
     public void verifyOtp(String str, String str2, String str3) {
-        this.c.a(str, str2, str3);
+        this.c.a(str, str2, str3, 1);
     }
 
     public void cancelRequest() {
         this.c.a();
     }
 
+    @Deprecated
     public void fillUsername(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3) {
         this.c.a(fillUsernameCallBack, str, str2, str3);
     }
 
-    public void fillUserProfile(FillUserProfileCallBack fillUserProfileCallBack, String str) {
-        this.c.a(fillUserProfileCallBack, str);
+    public void fillUsername(FillUsernameCallback fillUsernameCallback, String str, String str2) {
+        this.c.a(fillUsernameCallback, str, str2);
+    }
+
+    public void fillUserProfile(FillUserProfileCallback fillUserProfileCallback, String str) {
+        this.c.a(fillUserProfileCallback, str);
     }
 
     public void voiceCheck(VoiceCheckCallback voiceCheckCallback, VoiceCheckDTO voiceCheckDTO) {
@@ -298,8 +291,17 @@ public final class SapiAccountService {
         this.c.a(voiceLoginCallback, str, str2);
     }
 
+    public void voiceCodeSet(VoiceCodeSetCallback voiceCodeSetCallback, VoiceCodeSetDTO voiceCodeSetDTO) {
+        this.c.a(voiceCodeSetCallback, voiceCodeSetDTO);
+    }
+
+    @Deprecated
     public void setPortrait(SapiCallBack<SapiResponse> sapiCallBack, String str, String str2, String str3, byte[] bArr, String str4) {
         this.c.a(sapiCallBack, str, str2, str3, bArr, str4);
+    }
+
+    public void setPortrait(SetPortraitCallback setPortraitCallback, String str, byte[] bArr, String str2) {
+        this.c.a(setPortraitCallback, str, bArr, str2);
     }
 
     public void setPopularPortrait(SetPopularPortraitCallback setPopularPortraitCallback, SetPopularPortraitDTO setPopularPortraitDTO) {
@@ -328,15 +330,26 @@ public final class SapiAccountService {
         this.c.a(getUserInfoCallBack, str);
     }
 
+    @Deprecated
     public void qrPCLogin(QrPCLoginCallBack qrPCLoginCallBack, String str, String str2, String str3, String str4, String str5) {
         this.c.a(qrPCLoginCallBack, str, str2, str3, str4, str5);
     }
 
+    public void qrPcLogin(QrPcLoginCallback qrPcLoginCallback, String str, String str2, String str3) {
+        this.c.a(qrPcLoginCallback, str, str2, str3);
+    }
+
+    @Deprecated
     public void qrAppLogin(QrAppLoginCallBack qrAppLoginCallBack, String str, String str2) {
         this.c.a(qrAppLoginCallBack, str, str2);
     }
 
-    public boolean fastReg(SapiCallBack<SapiAccountResponse> sapiCallBack, String str) {
+    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
+        this.c.b(sapiCallback, str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str) {
         return this.c.b(sapiCallBack, str);
     }
 
@@ -362,8 +375,13 @@ public final class SapiAccountService {
         return this.c.a(sapiCallBack, str, str2, true);
     }
 
+    @Deprecated
     public void dynamicPwdLogin(SapiCallback<DynamicPwdLoginResult> sapiCallback, String str, String str2) {
         this.c.a(sapiCallback, str, str2);
+    }
+
+    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2) {
+        this.c.a(dynamicPwdLoginCallback, str, str2);
     }
 
     public void relogin(SapiCallBack<SapiResponse> sapiCallBack, SapiAccount.ReloginCredentials reloginCredentials) {
@@ -374,21 +392,24 @@ public final class SapiAccountService {
         return this.c.a(reloginCredentials);
     }
 
+    @Deprecated
     public void deviceLoginCheck() {
-        this.c.d();
+        this.c.e();
     }
 
+    @Deprecated
     public boolean isDeviceLoginAvailable() {
         return d.a(this.b.context).b();
     }
 
+    @Deprecated
     public boolean deviceLogin(SapiCallBack<SapiResponse> sapiCallBack) {
         if (!d.a(this.b.context).b()) {
             return false;
         }
         String a2 = d.a(this.b.context).a();
         if (TextUtils.isEmpty(a2) || "null".equalsIgnoreCase(a2)) {
-            return this.c.b(sapiCallBack);
+            return this.c.a(sapiCallBack);
         }
         return this.c.d(sapiCallBack, a2);
     }
@@ -407,7 +428,7 @@ public final class SapiAccountService {
     }
 
     public String getCaptchaKey() {
-        return this.c.b();
+        return this.c.c();
     }
 
     public void getCaptcha(SapiCallback<GetCaptchaResult> sapiCallback) {

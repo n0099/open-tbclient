@@ -127,7 +127,7 @@ public final class DataRes extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataRes> {
+    public static final class Builder extends Message.Builder<DataRes> {
         public List<ActivityInfo> activity;
         public Integer alreadyCreateNum;
         public Integer canCreateMember;
@@ -140,6 +140,9 @@ public final class DataRes extends Message {
         public Integer leftCreateNum;
         public List<UserInfo> member;
         public List<Photo> photo;
+
+        public Builder() {
+        }
 
         public Builder(DataRes dataRes) {
             super(dataRes);

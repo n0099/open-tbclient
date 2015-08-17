@@ -21,8 +21,11 @@ public final class DelGroupReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DelGroupReqIdl> {
+    public static final class Builder extends Message.Builder<DelGroupReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(DelGroupReqIdl delGroupReqIdl) {
             super(delGroupReqIdl);

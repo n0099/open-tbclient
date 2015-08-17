@@ -1,20 +1,29 @@
 package com.baidu.tieba.tblauncher.a;
 
-import java.util.List;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.core.message.b {
-    final /* synthetic */ d cwE;
+public class i implements View.OnClickListener {
+    final /* synthetic */ d cNj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.cwE = dVar;
+        this.cNj = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.message.b
-    public void k(List<com.baidu.tieba.tbadkCore.f.a> list) {
-        com.baidu.tbadk.mvc.j.d dVar;
-        dVar = this.cwE.cwB;
-        dVar.s(list);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_PORTRAIT_CLICK));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), currentAccountObj.getID(), currentAccountObj.getAccount())));
+        }
     }
 }

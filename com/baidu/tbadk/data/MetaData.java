@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class MetaData extends i implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.c.c(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -160,7 +161,7 @@ public class MetaData extends i implements Serializable {
         this.gender = i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0009: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r1v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Long)] */
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = new StringBuilder().append(user.id).toString();
@@ -222,8 +223,8 @@ public class MetaData extends i implements Serializable {
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
-                this.name_show = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.NAME_SHOW);
-                this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
+                this.name_show = jSONObject.optString(IntentConfig.NAME_SHOW);
+                this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
@@ -245,8 +246,5 @@ public class MetaData extends i implements Serializable {
                 BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public void logPrint() {
     }
 }

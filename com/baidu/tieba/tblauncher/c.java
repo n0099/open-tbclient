@@ -14,9 +14,36 @@ class c extends CustomMessageListener {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.cvD = false;
-        this.this$0.fl(false);
+        int i;
+        boolean z;
+        ai aiVar;
+        ai aiVar2;
+        int i2;
+        this.this$0.cMd = false;
+        i = this.this$0.cLV;
+        if (i <= 0) {
+            i2 = this.this$0.cLY;
+            if (i2 <= 0) {
+                z = false;
+                if (z) {
+                    aiVar = this.this$0.cLT;
+                    aiVar.fG(false);
+                    aiVar2 = this.this$0.cLT;
+                    aiVar2.arY().fM(false);
+                    return;
+                }
+                return;
+            }
+        }
+        z = true;
+        if (z) {
+        }
     }
 }

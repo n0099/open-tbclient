@@ -1,13 +1,11 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import android.content.Intent;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class i {
-    public static ArrayList<String> U(Intent intent) {
-        if (intent == null) {
-            return null;
-        }
-        return intent.getStringArrayListExtra(com.baidu.tbadk.core.frameworkData.c.NAME_SHOW);
+class i implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.sharedPref.b.ts().putBoolean("anti_vcode_no_longer_tip", true);
+        aVar.dismiss();
     }
 }

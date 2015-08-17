@@ -9,45 +9,45 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d CH = null;
-    private Map<Class<?>, Class<?>> CC;
-    private Map<Class<?>, Class<?>> CE;
-    private int CF = 0;
-    private int CG = 0;
+    private static volatile d Cp = null;
+    private Map<Class<?>, Class<?>> Cl;
+    private Map<Class<?>, Class<?>> Cm;
+    private int Cn = 0;
+    private int Co = 0;
 
-    public static d kL() {
-        if (CH == null) {
+    public static d kE() {
+        if (Cp == null) {
             synchronized (d.class) {
-                if (CH == null) {
-                    CH = new d();
+                if (Cp == null) {
+                    Cp = new d();
                 }
             }
         }
-        return CH;
+        return Cp;
     }
 
     private d() {
-        this.CC = null;
-        this.CE = null;
-        this.CC = new HashMap();
-        this.CE = new HashMap();
+        this.Cl = null;
+        this.Cm = null;
+        this.Cl = new HashMap();
+        this.Cm = new HashMap();
     }
 
-    public Class<?> m(Class<?> cls) {
+    public Class<?> f(Class<?> cls) {
         if (cls == null) {
             return null;
         }
         if (h.class.isAssignableFrom(cls)) {
-            Class<?> cls2 = this.CC.get(cls);
+            Class<?> cls2 = this.Cl.get(cls);
             if (cls2 == null) {
-                if (this.CF == 20) {
+                if (this.Cn == 20) {
                     BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
                     return null;
                 }
-                this.CF++;
+                this.Cn++;
                 try {
-                    cls2 = Class.forName(String.valueOf("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy") + this.CF);
-                    this.CC.put(cls, cls2);
+                    cls2 = Class.forName(String.valueOf("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy") + this.Cn);
+                    this.Cl.put(cls, cls2);
                     return cls2;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -56,16 +56,16 @@ public class d {
             }
             return cls2;
         } else if (f.class.isAssignableFrom(cls)) {
-            Class<?> cls3 = this.CE.get(cls);
+            Class<?> cls3 = this.Cm.get(cls);
             if (cls3 == null) {
-                if (this.CG == 10) {
+                if (this.Co == 10) {
                     BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                     return null;
                 }
-                this.CG++;
+                this.Co++;
                 try {
-                    cls3 = Class.forName(String.valueOf("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy") + this.CG);
-                    this.CE.put(cls, cls3);
+                    cls3 = Class.forName(String.valueOf("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy") + this.Co);
+                    this.Cm.put(cls, cls3);
                     return cls3;
                 } catch (Exception e2) {
                     BdLog.e(e2);

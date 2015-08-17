@@ -1,27 +1,32 @@
 package com.baidu.tbadk.core.view;
-
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ i YA;
-    private final /* synthetic */ int YB;
-    private final /* synthetic */ String YC;
+public class j implements Runnable {
+    final /* synthetic */ HaloView adD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, TbPageContext tbPageContext, int i, String str) {
-        this.YA = iVar;
-        this.NC = tbPageContext;
-        this.YB = i;
-        this.YC = str;
+    public j(HaloView haloView) {
+        this.adD = haloView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbadkCoreApplication.m411getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.NC.getPageActivity(), this.YB, this.YC, 11003)));
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        boolean z2;
+        int i;
+        z = this.adD.adC;
+        if (!z) {
+            z2 = this.adD.adA;
+            if (!z2) {
+                HaloView haloView = this.adD;
+                HaloView haloView2 = this.adD;
+                i = haloView2.adB;
+                int i2 = i + 1;
+                haloView2.adB = i2;
+                haloView.adB = i2 % 4;
+            }
+            this.adD.postDelayed(this, 800L);
+            this.adD.invalidate();
+        }
     }
 }

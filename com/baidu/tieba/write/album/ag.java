@@ -1,47 +1,39 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import android.view.animation.AnimationUtils;
-import com.baidu.tbadk.core.util.ay;
+import android.text.TextUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    private final /* synthetic */ int RY;
-    final /* synthetic */ ac czd;
-    private final /* synthetic */ ah cze;
-    private final /* synthetic */ ImageFileInfo czf;
-    private final /* synthetic */ p czg;
-    private final /* synthetic */ ai czh;
+class ag implements v {
+    final /* synthetic */ ad cRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(ac acVar, ah ahVar, p pVar, ImageFileInfo imageFileInfo, int i, ai aiVar) {
-        this.czd = acVar;
-        this.cze = ahVar;
-        this.czg = pVar;
-        this.czf = imageFileInfo;
-        this.RY = i;
-        this.czh = aiVar;
+    public ag(ad adVar) {
+        this.cRf = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ab abVar;
-        ab abVar2;
+    @Override // com.baidu.tieba.write.album.v
+    public void a(int i, ImageFileInfo imageFileInfo) {
+        m mVar;
+        m mVar2;
+        m mVar3;
         AlbumActivity albumActivity;
-        abVar = this.czd.czc;
-        if (abVar != null && this.cze.czi) {
-            boolean isAdded = this.czg.isAdded(this.czf);
-            abVar2 = this.czd.czc;
-            if (abVar2.a(this.RY, this.czf, !isAdded)) {
-                if (!isAdded) {
-                    ay.i(this.czh.bzx, com.baidu.tieba.p.chx_camera_pic_s);
-                    albumActivity = this.czd.cya;
-                    this.czh.bzx.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), com.baidu.tieba.k.album_choose_icon));
-                    return;
-                }
-                ay.i(this.czh.bzx, com.baidu.tieba.p.chx_camera_pic_n);
+        AlbumActivity albumActivity2;
+        mVar = this.cRf.cPJ;
+        int maxImagesAllowed = mVar.getMaxImagesAllowed();
+        mVar2 = this.cRf.cPJ;
+        if (mVar2.size() < maxImagesAllowed) {
+            mVar3 = this.cRf.cPJ;
+            String atQ = mVar3.atQ();
+            if (!TextUtils.isEmpty(atQ)) {
+                albumActivity2 = this.cRf.cPQ;
+                com.baidu.tbadk.core.util.ak.a(albumActivity2.getPageContext(), atQ);
+                return;
             }
+            albumActivity = this.cRf.cPQ;
+            com.baidu.tbadk.core.util.ak.c(albumActivity.getPageContext());
+            return;
         }
+        this.cRf.showToast(String.format(this.cRf.getPageContext().getString(i.C0057i.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

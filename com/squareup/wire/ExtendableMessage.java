@@ -46,7 +46,7 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
     }
 
     /* loaded from: classes.dex */
-    public abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
+    public static abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
         ExtensionMap<T> extensionMap;
 
         protected ExtendableBuilder() {

@@ -1,479 +1,360 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.style.ForegroundColorSpan;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import com.baidu.tieba.i;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 /* loaded from: classes.dex */
-public class aq {
-    private static aq VH;
-    private av[] VA;
-    private boolean VC;
-    private boolean VD;
-    private Drawable[] Vz;
-    private int VE = -1315344;
-    private int VF = -14670029;
-    private PorterDuffColorFilter VG = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
-    private int[] VB = {com.baidu.tieba.p.listview_pull_refresh01, com.baidu.tieba.p.listview_pull_refresh02};
+public class aq extends com.baidu.adp.lib.util.j {
+    private static long aaT = 86400000;
+    private static long aaU = 3600000;
+    private static long aaV = TbConfig.USE_TIME_INTERVAL;
+    private static long aaW = 1000;
+    private static String aaX = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_hour_before);
+    private static String aaY = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_min_before);
+    private static String aaZ = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_sec_before);
+    private static Date aba = new Date();
 
-    private aq() {
-    }
-
-    public static aq to() {
-        synchronized (aq.class) {
-            if (VH == null) {
-                VH = new aq();
-            }
+    static {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        if (timeZone != null) {
+            yq.setTimeZone(timeZone);
+            yr.setTimeZone(timeZone);
+            ys.setTimeZone(timeZone);
+            yt.setTimeZone(timeZone);
+            yu.setTimeZone(timeZone);
+            yv.setTimeZone(timeZone);
+            yw.setTimeZone(timeZone);
+            yx.setTimeZone(timeZone);
+            yy.setTimeZone(timeZone);
+            yz.setTimeZone(timeZone);
         }
-        return VH;
     }
 
-    public void c(String str, String str2, String str3, String str4, String str5) {
-        int i = -1315344;
-        int i2 = -14670029;
-        if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str5)) {
-            com.baidu.tbadk.core.sharedPref.b.sl().putInt("pullview_background_color_day", -1315344);
-            com.baidu.tbadk.core.sharedPref.b.sl().putInt("pullview_background_color_night", -14670029);
+    public static String uC() {
+        String format;
+        Date date = new Date();
+        synchronized (yy) {
+            format = yy.format(date);
+        }
+        return format;
+    }
+
+    public static String o(int i, int i2, int i3) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1, i);
+        calendar.set(2, i2);
+        calendar.set(5, i3);
+        switch (calendar.get(7)) {
+            case 1:
+                return String.valueOf("周") + "日";
+            case 2:
+                return String.valueOf("周") + "一";
+            case 3:
+                return String.valueOf("周") + "二";
+            case 4:
+                return String.valueOf("周") + "三";
+            case 5:
+                return String.valueOf("周") + "四";
+            case 6:
+                return String.valueOf("周") + "五";
+            case 7:
+                return String.valueOf("周") + "六";
+            default:
+                return "周";
+        }
+    }
+
+    public static int uD() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
+    }
+
+    public static String e(Date date) {
+        return date == null ? "" : a(new Date(), date);
+    }
+
+    public static String a(Date date, Date date2) {
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
+            }
+            return d(date2);
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
+            if (time < j) {
+                return "半分钟前";
+            }
+            long j2 = j * 60;
+            if (time < j2) {
+                return String.valueOf(String.valueOf((time * 60) / j2)) + "分钟前";
+            }
+            long j3 = j2 * 24;
+            if (time < j3) {
+                if (day == 0) {
+                    return b(date2);
+                }
+                return "1天前";
+            }
+            long j4 = j3 * 31;
+            if (time < j4) {
+                return String.valueOf(String.valueOf((time * 31) / j4)) + "天前";
+            }
+            if (time < j4 + 86400000) {
+                return "1个月前";
+            }
+            return d(date2);
         } else {
-            int i3 = com.baidu.tbadk.core.sharedPref.b.sl().getInt("pullview_background_color_day", -1315344);
-            int i4 = com.baidu.tbadk.core.sharedPref.b.sl().getInt("pullview_background_color_night", -14670029);
-            try {
-                i = Color.parseColor(str4);
-            } catch (Exception e) {
-            }
-            try {
-                i2 = Color.parseColor(str5);
-            } catch (Exception e2) {
-            }
-            if (i3 != i || i2 != i4) {
-                com.baidu.tbadk.core.sharedPref.b.sl().putInt("pullview_background_color_day", i);
-                com.baidu.tbadk.core.sharedPref.b.sl().putInt("pullview_background_color_night", i2);
-                this.VE = i;
-                this.VF = i2;
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
-            }
+            return "刚刚";
         }
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.g.l.ht().b(new ar(this));
-            return;
-        }
-        String string = com.baidu.tbadk.core.sharedPref.b.sl().getString("pull_image_url", "");
-        int i5 = com.baidu.adp.lib.g.c.toInt(str3, 0);
-        if (str.equals(string)) {
-            if (cg(i5)) {
-                tp();
-                return;
-            } else if (tt()) {
-                com.baidu.adp.lib.g.l.ht().b(new as(this, str2, i5, str));
-                return;
-            } else {
-                c(str, str2, i5);
-                return;
-            }
-        }
-        c(str, str2, com.baidu.adp.lib.g.c.toInt(str3, 0));
     }
 
-    public void tp() {
-        com.baidu.adp.lib.g.l.ht().b(new at(this));
+    public static String f(Date date) {
+        return b(new Date(), date);
     }
 
-    public AnimationDrawable cd(int i) {
-        Drawable[] drawableArr;
-        if (this.Vz != null) {
-            boolean z = i == 1;
-            AnimationDrawable animationDrawable = new AnimationDrawable();
-            animationDrawable.setColorFilter(z ? this.VG : null);
-            for (Drawable drawable : this.Vz) {
-                if (drawable != null) {
-                    animationDrawable.addFrame(drawable, 100);
+    public static String b(Date date, Date date2) {
+        String format;
+        String format2;
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
+            }
+            return d(date2);
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
+            if (time < j) {
+                return "半分钟前";
+            }
+            long j2 = j * 60;
+            if (time < j2) {
+                return String.valueOf(String.valueOf((time * 60) / j2)) + "分钟前";
+            }
+            long j3 = j2 * 24;
+            if (time < j3) {
+                if (day == 0) {
+                    return b(date2);
                 }
+                return "1天前";
             }
-            return animationDrawable;
-        }
-        return null;
-    }
-
-    public AnimationDrawable ce(int i) {
-        av[] avVarArr;
-        if (this.VA == null) {
-            this.VA = new av[this.VB.length];
-            for (int i2 = 0; i2 < this.VB.length; i2++) {
-                this.VA[i2] = new av();
+            long j4 = j3 * 31;
+            if (time < j4) {
+                return String.valueOf(String.valueOf((time * 31) / j4)) + "天前";
             }
-        }
-        boolean z = i == 1;
-        if (z && !this.VC) {
-            this.VC = true;
-            for (int i3 = 0; i3 < this.VB.length; i3++) {
-                this.VA[i3].VP = ay.n(1, this.VB[i3]);
+            if (time < j4 + 86400000) {
+                return "1个月前";
             }
-        }
-        if (!z && !this.VD) {
-            this.VD = true;
-            for (int i4 = 0; i4 < this.VB.length; i4++) {
-                this.VA[i4].VO = ay.n(0, this.VB[i4]);
-            }
-        }
-        AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (av avVar : this.VA) {
-            if (avVar != null) {
-                animationDrawable.addFrame(z ? avVar.VP : avVar.VO, 100);
-            }
-        }
-        return animationDrawable;
-    }
-
-    public int cf(int i) {
-        if (i == 1) {
-            return this.VF;
-        }
-        return this.VE;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tq() {
-        boolean z = false;
-        String string = com.baidu.tbadk.core.sharedPref.b.sl().getString("pull_image_url", "");
-        int i = com.baidu.tbadk.core.sharedPref.b.sl().getInt("pull_image_num", 0);
-        this.VE = com.baidu.tbadk.core.sharedPref.b.sl().getInt("pullview_background_color_day", -1315344);
-        this.VF = com.baidu.tbadk.core.sharedPref.b.sl().getInt("pullview_background_color_night", -14670029);
-        if (!TextUtils.isEmpty(string)) {
-            if (i > 0 && cg(i)) {
-                this.Vz = new Drawable[i];
-                File tr = tr();
-                if (tr != null) {
-                    File[] listFiles = tr.listFiles();
-                    for (int i2 = 1; i2 <= i; i2++) {
-                        this.Vz[i2 - 1] = a(listFiles, String.valueOf(i2) + ".");
-                    }
+            if (date.getYear() == date2.getYear()) {
+                synchronized (yz) {
+                    format2 = yz.format(date2);
                 }
+                return format2;
             }
-            if (this.Vz != null) {
-                Drawable[] drawableArr = this.Vz;
-                int length = drawableArr.length;
-                int i3 = 0;
-                while (true) {
-                    if (i3 >= length) {
-                        z = true;
-                        break;
-                    }
-                    if (drawableArr[i3] == null) {
-                        break;
-                    }
-                    i3++;
-                }
+            synchronized (yv) {
+                format = yv.format(date2);
             }
-            if (!z) {
-                this.Vz = null;
-            }
+            return format;
         } else {
-            this.Vz = null;
+            return "刚刚";
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016203, true));
     }
 
-    private Drawable a(File[] fileArr, String str) {
-        File file;
-        if (fileArr == null || fileArr.length == 0 || TextUtils.isEmpty(str)) {
-            return null;
+    public static String l(long j) {
+        long abs = Math.abs(System.currentTimeMillis() - (1000 * j));
+        if (abs <= 120000) {
+            return "刚刚";
         }
-        int length = fileArr.length;
-        int i = 0;
-        while (true) {
-            if (i >= length) {
-                file = null;
-                break;
+        if (abs >= Long.MAX_VALUE) {
+            return "一个月前";
+        }
+        if (abs / aaT != 0) {
+            if (abs / aaT > 30) {
+                return "一个月前";
             }
-            file = fileArr[i];
-            if (file != null && file.isFile() && file.length() > 0 && file.getName().startsWith(str)) {
-                break;
-            }
-            i++;
+            return String.valueOf(abs / aaT) + "天前";
+        } else if (abs / aaU != 0) {
+            return String.valueOf(abs / aaU) + "小时前";
+        } else {
+            return String.valueOf(abs / aaV) + "分钟前";
         }
-        if (file != null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 1;
-            Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-            if (decodeFile != null) {
-                return new BitmapDrawable(decodeFile);
-            }
-            return null;
-        }
-        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean cg(int i) {
-        File tr = tr();
-        if (tr == null) {
-            return false;
+    public static String ag(String str, String str2) {
+        String str3;
+        Exception exc;
+        String replaceAll;
+        if (StringUtils.isNull(str)) {
+            return "";
         }
-        File[] listFiles = tr.listFiles();
-        if (listFiles == null || listFiles.length < i) {
-            return false;
+        if (StringUtils.isNull(str2)) {
+            str2 = "#007bd1";
         }
-        int i2 = 0;
-        for (int i3 = 1; i3 <= i; i3++) {
-            if (b(tr, String.valueOf(i3) + ".")) {
-                i2++;
-            }
-        }
-        return i2 == i;
-    }
-
-    private boolean b(File file, String str) {
-        File[] listFiles;
-        for (File file2 : file.listFiles()) {
-            if (file2.exists() && file2.isFile() && !TextUtils.isEmpty(file2.getName()) && file2.getName().startsWith(str) && file2.length() > 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private File tr() {
-        return r(new File(TbadkCoreApplication.m411getInst().getFilesDir(), "pullImages" + File.separator + TbConfig.IMAGE_CACHE_DIR_NAME));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public File ts() {
-        File file = new File(TbadkCoreApplication.m411getInst().getFilesDir(), "pullImages" + File.separator + "download");
-        r(file);
-        if (file.exists() && file.isDirectory()) {
-            return new File(file, "pullFile.zip");
-        }
-        return null;
-    }
-
-    private boolean tt() {
-        File ts = ts();
-        return ts != null && ts.exists() && ts.isFile() && ts.length() > 0;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [468=4] */
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean c(File file, String str) {
-        FileInputStream fileInputStream;
-        String e;
-        boolean z = false;
-        if (file != null) {
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        e = com.baidu.adp.lib.util.ac.e(fileInputStream);
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        com.baidu.adp.lib.util.w.d(fileInputStream);
-                        return z;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.adp.lib.util.w.d(fileInputStream);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream = null;
-                com.baidu.adp.lib.util.w.d(fileInputStream);
-                throw th;
-            }
-            if (!TextUtils.isEmpty(e)) {
-                if (e.equalsIgnoreCase(str)) {
-                    com.baidu.adp.lib.util.w.d(fileInputStream);
-                    z = true;
-                }
-            }
-            com.baidu.adp.lib.util.w.d(fileInputStream);
-        }
-        return z;
-    }
-
-    private void c(String str, String str2, int i) {
-        com.baidu.adp.lib.g.l.ht().b(new au(this, str, str2, i));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(String str, String str2, int i) {
-        tv();
-        com.baidu.tbadk.core.sharedPref.b.sl().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.sl().remove("pull_image_num");
-        com.baidu.tbadk.core.sharedPref.b.sl().remove("pullview_background_color_day");
-        com.baidu.tbadk.core.sharedPref.b.sl().remove("pullview_background_color_night");
-        cX(str);
-        File ts = ts();
-        if (c(ts, str2)) {
-            com.baidu.tbadk.core.sharedPref.b.sl().putString("pull_image_url", str);
-            com.baidu.tbadk.core.sharedPref.b.sl().putInt("pull_image_num", i);
-            q(ts);
-            tq();
-            return;
-        }
-        deleteDir(ts);
-    }
-
-    private void cX(String str) {
-        DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
         try {
-            HttpResponse execute = defaultHttpClient.execute(new HttpGet(str));
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                h(execute.getEntity().getContent());
-            }
+            replaceAll = str.replaceAll("<em>", "<font color='" + str2 + "'>");
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            defaultHttpClient.getConnectionManager().shutdown();
+            str3 = null;
+            exc = e;
+        }
+        try {
+            return replaceAll.replaceAll("</em>", "</font>");
+        } catch (Exception e2) {
+            str3 = replaceAll;
+            exc = e2;
+            BdLog.e(exc.toString());
+            return str3;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void q(File file) {
-        ZipInputStream zipInputStream;
-        if (file != null) {
-            try {
-                zipInputStream = new ZipInputStream(new FileInputStream(file));
-                while (true) {
-                    try {
-                        try {
-                            ZipEntry nextEntry = zipInputStream.getNextEntry();
-                            if (nextEntry != null) {
-                                if (!nextEntry.isDirectory()) {
-                                    String name = nextEntry.getName();
-                                    if (!TextUtils.isEmpty(name) && name.contains(File.separator)) {
-                                        a(name.substring(name.lastIndexOf(File.separator)), zipInputStream);
-                                    }
-                                }
-                            } else {
-                                com.baidu.adp.lib.util.w.d(zipInputStream);
-                                return;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            com.baidu.adp.lib.util.w.d(zipInputStream);
-                            return;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        com.baidu.adp.lib.util.w.d(zipInputStream);
-                        throw th;
+    public static String m(long j) {
+        String g;
+        synchronized (aba) {
+            aba.setTime(j);
+            g = g(aba);
+        }
+        return g;
+    }
+
+    private static String g(Date date) {
+        if (date == null) {
+            return "";
+        }
+        long time = new Date().getTime() - date.getTime();
+        if (time < aaT && time > 0) {
+            if (time < aaU) {
+                if (time < aaV) {
+                    long j = time / aaW;
+                    if (j == 0) {
+                        j = 1;
                     }
+                    return String.valueOf(String.valueOf(j)) + aaZ;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                zipInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                zipInputStream = null;
-                com.baidu.adp.lib.util.w.d(zipInputStream);
-                throw th;
+                return String.valueOf(String.valueOf(time / aaV)) + aaY;
             }
+            return String.valueOf(String.valueOf(time / aaU)) + aaX;
         }
+        return d(date);
     }
 
-    private void a(String str, InputStream inputStream) {
-        File tr = tr();
-        if (tr != null && inputStream != null) {
-            c(inputStream, new File(tr, str));
+    public static String n(long j) {
+        String valueOf;
+        Date date = new Date(j);
+        if (date.getMinutes() < 10) {
+            valueOf = "0" + date.getMinutes();
+        } else {
+            valueOf = String.valueOf(date.getMinutes());
         }
+        return date.getHours() > 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
     }
 
-    private void h(InputStream inputStream) {
-        c(inputStream, ts());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tu() {
-        File ts = ts();
-        if (ts != null && ts.isFile() && ts.exists()) {
-            ts.delete();
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
+    @Deprecated
+    public static String ct(int i) {
+        if (i > 9999) {
+            return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
+        if (i < 0) {
+            return "0";
+        }
+        return new StringBuilder().append(i).toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tv() {
-        deleteDir(new File(TbadkCoreApplication.m411getInst().getFilesDir(), "pullImages"));
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 long)] */
+    public static String o(long j) {
+        if (j > 9999) {
+            return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(((float) j) / 10000.0f));
+        }
+        if (j < 0) {
+            return "0";
+        }
+        return new StringBuilder().append(j).toString();
     }
 
-    private void c(InputStream inputStream, File file) {
-        FileOutputStream fileOutputStream;
-        if (file != null && inputStream != null) {
-            try {
-                fileOutputStream = new FileOutputStream(file);
-                try {
-                    try {
-                        byte[] bArr = new byte[512];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read != -1) {
-                                fileOutputStream.write(bArr, 0, read);
-                            } else {
-                                com.baidu.adp.lib.util.w.b(fileOutputStream);
-                                return;
-                            }
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        com.baidu.adp.lib.util.w.b(fileOutputStream);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.adp.lib.util.w.b(fileOutputStream);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream = null;
-                com.baidu.adp.lib.util.w.b(fileOutputStream);
-                throw th;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 long)] */
+    public static String p(long j) {
+        if (j > 9999999) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
+                round--;
             }
+            return String.valueOf(round) + "w";
+        } else if (j < 0) {
+            return "0";
+        } else {
+            return new StringBuilder().append(j).toString();
         }
     }
 
-    private File r(File file) {
-        if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-            return null;
-        }
-        return file;
-    }
-
-    private void deleteDir(File file) {
-        if (file != null) {
-            if (file.isFile()) {
-                file.delete();
-            } else if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    deleteDir(file2);
-                }
-                file.delete();
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 long)] */
+    public static String q(long j) {
+        if (j > 9999) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
+                round--;
             }
+            return String.valueOf(round) + "w";
+        } else if (j < 0) {
+            return "0";
+        } else {
+            return new StringBuilder().append(j).toString();
         }
+    }
+
+    public static SpannableString a(Context context, String str, String str2, int i, boolean z) {
+        int lastIndexOf;
+        if (TextUtils.isEmpty(str) || i <= 0) {
+            return new SpannableString("");
+        }
+        SpannableString spannableString = new SpannableString(str);
+        if (TextUtils.isEmpty(str2) || !str.contains(str2)) {
+            return spannableString;
+        }
+        if (z) {
+            lastIndexOf = str.indexOf(str2);
+        } else {
+            lastIndexOf = str.lastIndexOf(str2);
+        }
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(i)), lastIndexOf, str2.length() + lastIndexOf, 33);
+        return spannableString;
+    }
+
+    public static String a(long j, String str) {
+        Date date;
+        if (String.valueOf(j).length() == 10) {
+            date = new Date(1000 * j);
+        } else {
+            date = new Date(j);
+        }
+        return new SimpleDateFormat(str).format(date);
+    }
+
+    public static String db(String str) {
+        return isEmpty(str) ? "" : "\u202d" + str + "\u202c";
+    }
+
+    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
+        return spannableStringBuilder == null ? new SpannableStringBuilder("") : new SpannableStringBuilder("\u202d").append((CharSequence) spannableStringBuilder).append((CharSequence) "\u202c");
     }
 }

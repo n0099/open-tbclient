@@ -1,39 +1,23 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class ac implements CustomMessageTask.CustomRunnable<String> {
+    final /* synthetic */ ab bAH;
+    private final /* synthetic */ ImMessageCenterPojo bzR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public ac(ab abVar, ImMessageCenterPojo imMessageCenterPojo) {
+        this.bAH = abVar;
+        this.bzR = imMessageCenterPojo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.message.g data;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-            c.TE().a(data.customGroupType, data.bnq, data.id, data.type);
-            ImMessageCenterPojo D = c.TE().D(data.id, data.customGroupType);
-            if (D != null) {
-                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, D));
-                customMessageTask.setParallel(TiebaIMConfig.getParallel());
-                customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-                customMessageTask.setPriority(4);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
-            }
-        }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        com.baidu.tieba.im.db.i.Te().a(this.bzR, 2);
+        return null;
     }
 }

@@ -1,35 +1,55 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class i implements com.baidu.tbadk.core.dialog.h {
-    private final /* synthetic */ ImMessageCenterShowItemData bsz;
-    final /* synthetic */ StrangerListActivity bwE;
-    private final /* synthetic */ int bwF;
+public class i extends com.baidu.adp.base.f<StrangerListActivity> {
+    private StrangerListActivity bKq;
+    private StrangerListAdapter bKw;
+    private View bKx;
+    private BdListView mBdListView;
+    private NavigationBar mNavigationBar;
+    private ViewGroup mRootView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bwE = strangerListActivity;
-        this.bwF = i;
-        this.bsz = imMessageCenterShowItemData;
+    public i(StrangerListActivity strangerListActivity) {
+        super(strangerListActivity.getPageContext());
+        strangerListActivity.setContentView(i.g.officialbar_msg_activity);
+        this.bKq = strangerListActivity;
+        f(strangerListActivity);
+        g(strangerListActivity);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        StrangerListModel strangerListModel;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        StrangerListModel strangerListModel2;
-        eVar.dismiss();
-        if (this.bwF == 1) {
-            strangerListModel2 = this.bwE.bwz;
-            strangerListModel2.Xn();
-            this.bwE.finish();
-            return;
-        }
-        strangerListModel = this.bwE.bwz;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.bsz;
-        aVar = this.bwE.bcB;
-        strangerListModel.deleteItem(imMessageCenterShowItemData, aVar);
+    private void f(StrangerListActivity strangerListActivity) {
+        this.mNavigationBar = (NavigationBar) strangerListActivity.findViewById(i.f.view_navigation_bar);
+        this.mNavigationBar.setTitleText(strangerListActivity.getPageContext().getString(i.C0057i.stranger_list_activity_title));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bKx = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.stranger_delete, this.bKq);
+        this.mRootView = (ViewGroup) strangerListActivity.findViewById(i.f.root_view);
+    }
+
+    public void onChangeSkinType(int i) {
+        this.bKq.getLayoutMode().ad(i == 1);
+        this.bKq.getLayoutMode().k(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.bKq.getPageContext(), i);
+    }
+
+    private void g(StrangerListActivity strangerListActivity) {
+        this.mBdListView = (BdListView) strangerListActivity.findViewById(i.f.msg_list);
+        this.mBdListView.setOnItemClickListener(strangerListActivity);
+        this.mBdListView.setOnItemLongClickListener(strangerListActivity);
+        this.bKw = new StrangerListAdapter(strangerListActivity);
+        this.mBdListView.setAdapter((ListAdapter) this.bKw);
+    }
+
+    public StrangerListAdapter YU() {
+        return this.bKw;
+    }
+
+    public View YV() {
+        return this.bKx;
     }
 }

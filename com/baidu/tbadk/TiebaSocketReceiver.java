@@ -4,19 +4,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.util.httpNet.f;
 /* loaded from: classes.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            if (k.iX()) {
+            if (i.iO()) {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
-                synchronized (ImgHttpClient.class) {
-                    ImgHttpClient.WV.removeParameter("http.route.default-proxy");
-                    ImgHttpClient.WT = null;
+                synchronized (f.class) {
+                    f.abV.removeParameter("http.route.default-proxy");
+                    f.abT = null;
                 }
                 return;
             }

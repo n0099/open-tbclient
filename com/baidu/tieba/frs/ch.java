@@ -1,48 +1,82 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.PagerAdapter;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import java.util.ArrayList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class ch extends PagerAdapter {
-    private ArrayList<LiveBroadcastCard> Qj;
+public class ch extends bc<com.baidu.tieba.tbadkCore.y, cg> implements View.OnClickListener {
+    private boolean aYc;
 
-    public ch(ArrayList<LiveBroadcastCard> arrayList) {
-        this.Qj = arrayList;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ch(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
+        this.aYc = TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        if (this.Qj == null) {
-            return 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: k */
+    public cg a(ViewGroup viewGroup) {
+        return new cg(LayoutInflater.from(this.mContext).inflate(i.g.frs_official_account_item, (ViewGroup) null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bc, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.y yVar, cg cgVar) {
+        super.a(i, view, viewGroup, (ViewGroup) yVar, (com.baidu.tieba.tbadkCore.y) cgVar);
+        if (yVar.apr()) {
+            String aps = yVar.aps();
+            if (aps != null) {
+                cgVar.aXZ.setText(aps);
+            } else if (this.aUy.acG() != null && this.aUy.acG().getName() != null) {
+                cgVar.aXZ.setText(this.mContext.getString(i.C0057i.get_fortune_hint_format, this.aUy.acG().getName()));
+            }
+            cgVar.aXY.setTag(Integer.valueOf(i));
+            cgVar.aXY.setOnClickListener(this);
+            cgVar.aXY.setVisibility(0);
+        } else {
+            cgVar.aXY.setVisibility(8);
         }
-        return this.Qj.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.Qj == null || i < 0 || i >= this.Qj.size()) {
-            return null;
+        com.baidu.tieba.tbadkCore.o apt = yVar.apt();
+        if (apt != null && apt.apn() && !TextUtils.isEmpty(apt.apo())) {
+            cgVar.aYb.setText(apt.apo());
+            cgVar.aYa.setTag(Integer.valueOf(i));
+            cgVar.aYa.setOnClickListener(this);
+            cgVar.aYa.setVisibility(0);
+        } else {
+            cgVar.aYa.setVisibility(8);
         }
-        LiveBroadcastCard liveBroadcastCard = this.Qj.get(i);
-        if (liveBroadcastCard != null && liveBroadcastCard.getParent() != null && (liveBroadcastCard.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) liveBroadcastCard.getParent()).removeView(liveBroadcastCard);
+        this.aSJ.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSJ.getLayoutMode().k(view);
+        if (!this.aYc && !yVar.apr()) {
+            return new View(this.mContext);
         }
-        viewGroup.addView(liveBroadcastCard);
-        return this.Qj.get(i);
+        return view;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (this.Qj != null && i >= 0 && i < this.Qj.size()) {
-            viewGroup.removeView(this.Qj.get(i));
+    public int LI() {
+        return i.f.frs_fortune_bag_item;
+    }
+
+    public int LK() {
+        return i.f.frs_my_service_item;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.aWk != null) {
+            int id = view.getId();
+            int intValue = ((Integer) view.getTag()).intValue();
+            View childAt = this.aTA.getChildAt(intValue - (this.aTA.getFirstVisiblePosition() - this.aTA.getHeaderViewsCount()));
+            this.aWk.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.v) aA(intValue));
         }
     }
 }

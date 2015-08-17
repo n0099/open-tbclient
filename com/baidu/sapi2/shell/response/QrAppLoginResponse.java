@@ -1,4 +1,5 @@
 package com.baidu.sapi2.shell.response;
+@Deprecated
 /* loaded from: classes.dex */
 public class QrAppLoginResponse extends SapiResponse {
     public String city;

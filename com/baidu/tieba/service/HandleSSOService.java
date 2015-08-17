@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class HandleSSOService extends Service {
     private com.baidu.tieba.a serviceImpl;
@@ -41,7 +42,7 @@ public class HandleSSOService extends Service {
     }
 
     private com.baidu.tieba.a createHandleSSOServiceImpl() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2902060, com.baidu.tieba.a.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_HANDLE_SSOSERVICE_IMPL, com.baidu.tieba.a.class);
         if (runTask != null) {
             return (com.baidu.tieba.a) runTask.getData();
         }

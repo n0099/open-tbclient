@@ -3,21 +3,21 @@ package com.baidu.tieba.enterForum.d;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-class f extends com.baidu.tbadk.mvc.j.b<Object, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c>> {
-    final /* synthetic */ e aGa;
+class f extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
+    final /* synthetic */ e aNA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, clsArr, iArr, viewEventCenter);
-        this.aGa = eVar;
+        this.aNA = eVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.j.b
-    public int ec(int i) {
+    @Override // com.baidu.tbadk.mvc.g.b
+    public int ej(int i) {
         Object item = getItem(i);
-        if (item instanceof com.baidu.tieba.tbadkCore.ae) {
-            if (((com.baidu.tieba.tbadkCore.ae) item).getType() == 1) {
+        if (item instanceof com.baidu.tieba.tbadkCore.u) {
+            if (((com.baidu.tieba.tbadkCore.u) item).getType() == 1) {
                 return 1;
             }
         } else if (item instanceof com.baidu.tieba.enterForum.b.a) {

@@ -11,7 +11,6 @@ import android.os.Message;
 import com.baidu.location.au;
 import com.baidu.location.u;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.game.GameInfoData;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Locale;
@@ -41,7 +40,7 @@ public class a1 implements a0, n {
     private final String i6 = I + "/ls.db";
     private boolean i2 = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends AsyncTask {
         private a() {
@@ -88,7 +87,7 @@ public class a1 implements a0, n {
     }
 
     /* loaded from: classes.dex */
-    class b extends AsyncTask {
+    private class b extends AsyncTask {
         private b() {
         }
 
@@ -530,7 +529,7 @@ public class a1 implements a0, n {
                     if (jSONObject2.has("clf")) {
                         z = false;
                         String string = jSONObject2.getString("clf");
-                        if (string.equals(GameInfoData.NOT_FROM_DETAIL)) {
+                        if (string.equals("0")) {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
                             d = Double.parseDouble(jSONObject3.getString("x"));
                             d2 = Double.parseDouble(jSONObject3.getString("y"));

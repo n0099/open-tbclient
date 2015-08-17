@@ -1,106 +1,39 @@
 package com.baidu.tieba.a;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tieba.account.p;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.a.d;
+import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask<String, Integer, AccountData> {
-    private final String Pc;
-    private volatile aa aaG = null;
-    private final String bGK;
-    private final com.baidu.tbadk.core.a.b bGL;
-    private final boolean bGM;
-    private final String mName;
+public class e extends HttpMessageListener {
+    final /* synthetic */ d bWJ;
 
-    public e(String str, String str2, String str3, com.baidu.tbadk.core.a.b bVar, boolean z) {
-        this.mName = str;
-        this.bGK = str2;
-        this.Pc = str3;
-        this.bGM = z;
-        this.bGL = bVar == null ? new f(this) : bVar;
-        setPriority(3);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        this.bGL.cb(this.mName);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(d dVar, int i) {
+        super(i);
+        this.bWJ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: t */
-    public AccountData doInBackground(String... strArr) {
-        com.baidu.tbadk.core.a.c a;
-        this.aaG = new aa(TbConfig.LOGIN_FULL_ADDRESS);
-        this.aaG.sX().tS().mIsUseCurrentBDUSS = false;
-        this.aaG.o("bdusstoken", String.valueOf(this.bGK) + "|" + this.Pc);
-        this.aaG.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
-        this.aaG.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        this.aaG.sX().tS().WD = false;
-        String sw = this.aaG.sw();
-        if (this.aaG.sX().tT().qa() && sw != null) {
-            n nVar = new n();
-            nVar.parserJson(sw);
-            AccountData accountData = new AccountData();
-            accountData.setAccount(nVar.getUser().getUserName());
-            accountData.setPassword("");
-            accountData.setID(nVar.getUser().getUserId());
-            String bduss = nVar.getUser().getBDUSS();
-            if (this.bGM && (a = k.a(p.Fd().ca(bduss))) != null) {
-                bduss = String.valueOf(a.wk) + "|" + a.Pc;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        d.a aVar;
+        d.a aVar2;
+        d.a aVar3;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
+            aVar = this.bWJ.bWH;
+            if (aVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+                ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
+                if (responseReportUserInfoMessage.getErrorCode() == 0) {
+                    aVar3 = this.bWJ.bWH;
+                    aVar3.ic(responseReportUserInfoMessage.getTimeInterval());
+                    return;
+                }
+                aVar2 = this.bWJ.bWH;
+                aVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
             }
-            accountData.setBDUSS(bduss);
-            accountData.setPortrait(nVar.getUser().getPortrait());
-            accountData.setIsActive(1);
-            if (nVar.qK() != null) {
-                accountData.setTbs(nVar.qK().getTbs());
-                return accountData;
-            }
-            return accountData;
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: m */
-    public void onPostExecute(AccountData accountData) {
-        String str;
-        int i;
-        super.onPostExecute(accountData);
-        ReloginManager.sg().am(false);
-        if (accountData != null && accountData.getBDUSS() != null) {
-            this.bGL.a(accountData);
-            return;
-        }
-        if (this.aaG == null) {
-            str = null;
-            i = 0;
-        } else {
-            str = this.aaG.getErrorString();
-            i = this.aaG.tb();
-        }
-        if (str == null) {
-            str = TbadkCoreApplication.m411getInst().getApp().getResources().getString(t.data_load_error);
-        }
-        this.bGL.c(this.mName, i, str);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.aaG != null) {
-            this.aaG.gS();
         }
     }
 }

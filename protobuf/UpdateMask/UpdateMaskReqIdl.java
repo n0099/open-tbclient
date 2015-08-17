@@ -21,8 +21,11 @@ public final class UpdateMaskReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateMaskReqIdl> {
+    public static final class Builder extends Message.Builder<UpdateMaskReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(UpdateMaskReqIdl updateMaskReqIdl) {
             super(updateMaskReqIdl);

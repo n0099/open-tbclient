@@ -27,8 +27,11 @@ public final class Gift extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<Gift> {
+    public static final class Builder extends Message.Builder<Gift> {
         public Integer version;
+
+        public Builder() {
+        }
 
         public Builder(Gift gift) {
             super(gift);

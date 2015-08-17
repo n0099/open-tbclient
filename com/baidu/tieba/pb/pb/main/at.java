@@ -1,35 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tieba.tbadkCore.h.a;
 /* loaded from: classes.dex */
-class at implements com.baidu.tieba.tbadkCore.location.k {
-    final /* synthetic */ PbActivity bKU;
+class at extends CustomMessageListener {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at(PbActivity pbActivity, int i) {
+        super(i);
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.k
-    public void JY() {
-        ch chVar;
-        ch chVar2;
-        chVar = this.bKU.bKA;
-        if (chVar.Kj() != null) {
-            chVar2 = this.bKU.bKA;
-            chVar2.Kj().setLocationViewVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.k
-    public void gi(String str) {
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        chVar = this.bKU.bKA;
-        if (chVar.Kj() != null) {
-            chVar2 = this.bKU.bKA;
-            chVar2.Kj().setLocationViewVisibility(0);
-            chVar3 = this.bKU.bKA;
-            chVar3.Kj().D(2, str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            com.baidu.tieba.pb.pb.sub.am amVar = (com.baidu.tieba.pb.pb.sub.am) customResponsedMessage.getData();
+            switch (amVar.getType()) {
+                case 0:
+                    this.cbo.a((com.baidu.tieba.pb.a.c) amVar.getData());
+                    return;
+                case 1:
+                    this.cbo.a((a.b) amVar.getData());
+                    return;
+                case 2:
+                    if (amVar.getData() == null) {
+                        this.cbo.a(false, (MarkData) null);
+                        return;
+                    } else {
+                        this.cbo.a(true, (MarkData) amVar.getData());
+                        return;
+                    }
+                default:
+                    return;
+            }
         }
     }
 }

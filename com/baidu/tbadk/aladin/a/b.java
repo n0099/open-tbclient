@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String Nq;
+    private String Sa;
     private int errorCode = 0;
     private Intent intent;
     private String response;
@@ -20,7 +20,7 @@ public class b {
         }
     }
 
-    public boolean pi() {
+    public boolean qi() {
         HashMap<String, String> i;
         if (this.url == null || (i = i(this.url.split("&"))) == null) {
             return false;
@@ -33,8 +33,8 @@ public class b {
                     if ("intent".equals(key)) {
                         bP(value);
                     } else if (!Info.kBaiduTimeKey.equals(key) && "callback".equals(key)) {
-                        this.Nq = value;
-                        pj();
+                        this.Sa = value;
+                        qj();
                     }
                 }
             }
@@ -111,9 +111,9 @@ public class b {
         }
     }
 
-    private void pj() {
-        if (this.Nq != null) {
-            this.response = String.valueOf(this.Nq) + "({\"error\":" + this.errorCode + "})";
+    private void qj() {
+        if (this.Sa != null) {
+            this.response = String.valueOf(this.Sa) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
@@ -142,15 +142,15 @@ public class b {
         return this.intent;
     }
 
-    public String getResponse() {
+    public String qk() {
         if (this.response == null) {
-            pj();
+            qj();
         }
         return this.response;
     }
 
     public void setErrorCode(int i) {
         this.errorCode = i;
-        pj();
+        qj();
     }
 }

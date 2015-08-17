@@ -1,69 +1,49 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
-    final /* synthetic */ FloatingPersonalChatActivity buK;
+class t implements View.OnClickListener {
+    final /* synthetic */ FloatingPersonalChatActivity bIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
-        super(i);
-        this.buK = floatingPersonalChatActivity;
+    public t(FloatingPersonalChatActivity floatingPersonalChatActivity) {
+        this.bIA = floatingPersonalChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
         FloatingPersonalChatView floatingPersonalChatView;
-        FloatingPersonalChatView floatingPersonalChatView2;
-        FloatingPersonalChatView floatingPersonalChatView3;
-        FloatingPersonalChatView floatingPersonalChatView4;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                String content = p.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
-                        if (optJSONObject != null) {
-                            long optLong = optJSONObject.optLong("user_id");
-                            if (optLong != 0) {
-                                if (!cmd.equals("apply_new_friend")) {
-                                    if (!cmd.equals("passed_new_friend")) {
-                                        if (!cmd.equals("apply_reply_message")) {
-                                            if (!cmd.equals("apply_add_friend")) {
-                                                if (!cmd.equals("apply_pass_friend")) {
-                                                    return;
-                                                }
-                                                floatingPersonalChatView = this.buK.buI;
-                                                floatingPersonalChatView.c(optLong, 3);
-                                                return;
-                                            }
-                                            floatingPersonalChatView2 = this.buK.buI;
-                                            floatingPersonalChatView2.c(optLong, 2);
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    floatingPersonalChatView3 = this.buK.buI;
-                                    floatingPersonalChatView3.c(optLong, 3);
-                                    return;
-                                }
-                                floatingPersonalChatView4 = this.buK.buI;
-                                floatingPersonalChatView4.c(optLong, 4);
-                            }
-                        }
-                    } catch (JSONException e) {
-                        BdLog.i(e.getMessage());
+        String str2;
+        String str3;
+        String str4;
+        for (UserData userData : FloatingPersonalChatActivityStatic.getList()) {
+            if (userData != null) {
+                str = this.bIA.azh;
+                if (TextUtils.equals(str, userData.getUserId())) {
+                    floatingPersonalChatView = this.bIA.bIy;
+                    str2 = this.bIA.azh;
+                    int it = floatingPersonalChatView.it(str2);
+                    if (it == 0) {
+                        MessageManager messageManager = MessageManager.getInstance();
+                        Context context = this.bIA.getPageContext().getContext();
+                        str4 = this.bIA.azh;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(str4), userData.getUserName(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
+                        return;
+                    } else if (it == 4) {
+                        com.baidu.tbadk.newFriends.a Du = com.baidu.tbadk.newFriends.a.Du();
+                        str3 = this.bIA.azh;
+                        Du.b(com.baidu.adp.lib.g.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+                        return;
+                    } else {
+                        return;
                     }
                 }
             }

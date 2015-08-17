@@ -8,26 +8,31 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
-    Rect aji;
-    private d cxU;
+    Rect aps;
+    private a cPt;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void dH(boolean z);
+    }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aji = new Rect();
+        this.aps = new Rect();
     }
 
-    public void setOnSoftKeyBoardShownListener(d dVar) {
-        this.cxU = dVar;
+    public void setOnSoftKeyBoardShownListener(a aVar) {
+        this.cPt = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i2);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.aji);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.aji.top) - size;
-        if (this.cxU != null) {
-            this.cxU.dC(height > 128);
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.aps);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.aps.top) - size;
+        if (this.cPt != null) {
+            this.cPt.dH(height > 128);
         }
         super.onMeasure(i, i2);
     }

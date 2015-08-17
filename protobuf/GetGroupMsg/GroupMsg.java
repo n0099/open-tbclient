@@ -44,10 +44,13 @@ public final class GroupMsg extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GroupMsg> {
+    public static final class Builder extends Message.Builder<GroupMsg> {
         public GroupInfo groupInfo;
         public Integer hasMore;
         public List<MsgInfo> msgList;
+
+        public Builder() {
+        }
 
         public Builder(GroupMsg groupMsg) {
             super(groupMsg);

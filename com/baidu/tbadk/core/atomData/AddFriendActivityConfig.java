@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class AddFriendActivityConfig extends c {
+public class AddFriendActivityConfig extends IntentConfig {
     public static final String DEFAULT_MESSAGE = "default_message";
     public static final String FROM = "from";
     public static final String IS_USER_CLIENT_LOWER = "is_user_client_lower";
@@ -26,8 +26,8 @@ public class AddFriendActivityConfig extends c {
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5) {
         super(context);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra(c.NAME_SHOW, str2);
-        getIntent().putExtra(c.PORTRAIT, str3);
+        getIntent().putExtra(IntentConfig.NAME_SHOW, str2);
+        getIntent().putExtra(IntentConfig.PORTRAIT, str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);
         getIntent().putExtra("st_type", str5);
@@ -36,8 +36,8 @@ public class AddFriendActivityConfig extends c {
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         super(context);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra(c.NAME_SHOW, str2);
-        getIntent().putExtra(c.PORTRAIT, str3);
+        getIntent().putExtra(IntentConfig.NAME_SHOW, str2);
+        getIntent().putExtra(IntentConfig.PORTRAIT, str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);
         getIntent().putExtra("st_type", str5);

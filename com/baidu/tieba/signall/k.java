@@ -1,32 +1,37 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tieba.signall.f;
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity cis;
+class k implements f.a {
+    final /* synthetic */ SignAllForumActivity cAF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(SignAllForumActivity signAllForumActivity, int i) {
-        super(i);
-        this.cis = signAllForumActivity;
+    public k(SignAllForumActivity signAllForumActivity) {
+        this.cAF = signAllForumActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ae aeVar;
-        ae aeVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-            aeVar = this.cis.cik;
-            c akX = aeVar.akX();
-            if (akX != null) {
-                akX.b((SignData) customResponsedMessage.getData());
-                aeVar2 = this.cis.cik;
-                aeVar2.akY().notifyDataSetChanged();
-            }
+    @Override // com.baidu.tieba.signall.f.a
+    public void a(c cVar) {
+        z zVar;
+        z zVar2;
+        zVar = this.cAF.cAx;
+        zVar.Jl();
+        a amO = cVar.amO();
+        if (amO != null && amO.getErrorNumber() == 0) {
+            zVar2 = this.cAF.cAx;
+            zVar2.d(cVar);
+            return;
         }
+        this.cAF.showToast(amO.getUserMsg(), false);
+        this.cAF.finish();
+    }
+
+    @Override // com.baidu.tieba.signall.f.a
+    public void hD(String str) {
+        z zVar;
+        zVar = this.cAF.cAx;
+        zVar.Jl();
+        this.cAF.showToast(str, false);
+        this.cAF.finish();
     }
 }

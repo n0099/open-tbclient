@@ -1,38 +1,42 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ t bvW;
+public class x implements TbCheckBox.a {
+    final /* synthetic */ p bJM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(t tVar) {
-        this.bvW = tVar;
+    public x(p pVar) {
+        this.bJM = pVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        View view2;
-        View view3;
-        EditText editText;
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.a
+    public void handler(TbCheckBox tbCheckBox, boolean z, Object obj) {
+        InviteFriendCandidateList inviteFriendCandidateList;
         InviteFriendListActivity inviteFriendListActivity;
-        EditText editText2;
-        textView = this.bvW.bvS;
-        textView.setVisibility(8);
-        view2 = this.bvW.bvU;
-        view2.setVisibility(8);
-        view3 = this.bvW.bvT;
-        view3.setVisibility(0);
-        editText = this.bvW.mEditText;
-        editText.requestFocus();
-        inviteFriendListActivity = this.bvW.bvJ;
-        Activity pageActivity = inviteFriendListActivity.getPageContext().getPageActivity();
-        editText2 = this.bvW.mEditText;
-        com.baidu.adp.lib.util.n.d(pageActivity, editText2);
+        InviteFriendListActivity inviteFriendListActivity2;
+        int i;
+        this.bJM.YR();
+        if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
+            if (z) {
+                int YS = this.bJM.YS();
+                inviteFriendCandidateList = this.bJM.bJC;
+                if (YS <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.bJM.bJz;
+                    inviteFriendListActivity2 = this.bJM.bJz;
+                    String string = inviteFriendListActivity2.getPageContext().getString(i.C0057i.invite_friend_exceed_max_count);
+                    i = this.bJM.bJG;
+                    inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
+                    tbCheckBox.setChecked(false);
+                    ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
+                    return;
+                }
+                this.bJM.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                return;
+            }
+            this.bJM.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+        }
     }
 }

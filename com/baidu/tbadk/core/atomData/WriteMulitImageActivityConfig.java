@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-public class WriteMulitImageActivityConfig extends c {
+public class WriteMulitImageActivityConfig extends IntentConfig {
     public static final String EXTRA_IMG_CURRENT_INDEX = "CurrentImgIndex";
     public static final String EXTRA_WRITE_IMG_INFO_JSON_STR = "WriteImgsInfoJsonStr";
 

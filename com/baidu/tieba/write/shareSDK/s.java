@@ -1,24 +1,37 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.widget.LinearLayout;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.write.write.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ q cAM;
+public class s implements View.OnClickListener {
+    final /* synthetic */ o cSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.cAM = qVar;
+    public s(o oVar) {
+        this.cSC = oVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        linearLayout = this.cAM.cAF;
-        TbImageView tbImageView = (TbImageView) linearLayout.findViewWithTag(str);
-        if (tbImageView != null && aVar != null) {
-            tbImageView.invalidate();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        bx bxVar;
+        WriteShareActivity writeShareActivity;
+        WriteShareActivity writeShareActivity2;
+        WriteShareActivity writeShareActivity3;
+        WriteShareActivity writeShareActivity4;
+        textView = this.cSC.cSq;
+        textView.setSelected(true);
+        bxVar = this.cSC.cSr;
+        writeShareActivity = this.cSC.cSz;
+        int dip2px = com.baidu.adp.lib.util.k.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
+        writeShareActivity2 = this.cSC.cSz;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(bxVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
+        writeShareActivity3 = this.cSC.cSz;
+        if (writeShareActivity3 != null) {
+            writeShareActivity4 = this.cSC.cSz;
+            writeShareActivity4.aus();
         }
     }
 }

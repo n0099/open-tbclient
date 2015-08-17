@@ -19,7 +19,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     private static Context a;
     private static LoginShareStrategy b;
     private static com.baidu.sapi2.d c;
-    private static g d;
+    private static f d;
     private static boolean e = false;
     private static Handler f;
     private static Handler g;
@@ -107,11 +107,11 @@ public final class ShareReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class b implements g {
+    public class b implements f {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.g
+        @Override // com.baidu.sapi2.share.f
         public void a(ShareModel shareModel) {
             if (shareModel != null && ShareReceiver.b != LoginShareStrategy.DISABLED) {
                 switch (d.a[shareModel.b().ordinal()]) {
@@ -135,7 +135,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     }
 
     /* loaded from: classes.dex */
-    /* synthetic */ class d {
+    static /* synthetic */ class d {
         static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
 
         static {
@@ -175,8 +175,8 @@ public final class ShareReceiver extends BroadcastReceiver {
         }
         com.baidu.sapi2.share.a.b(a, b, shareModel2);
         intent.putExtra("LOGIN_SHARE_MODEL", shareModel2);
-        if (c.p() != null) {
-            intent.putExtra("RELOGIN_CREDENTIALS", e.a(a, c.p().toString()));
+        if (c.n() != null) {
+            intent.putExtra("RELOGIN_CREDENTIALS", e.a(a, c.n().toString()));
         }
         intent.putExtra("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         if (Build.VERSION.SDK_INT > 11) {

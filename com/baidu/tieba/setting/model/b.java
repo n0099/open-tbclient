@@ -1,107 +1,56 @@
 package com.baidu.tieba.setting.model;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.n;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.coreExtra.c.g;
-import com.baidu.tbadk.coreExtra.messageCenter.c;
-import com.baidu.tbadk.game.GameInfoData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<String, Integer, g> {
-    aa OE;
-    final /* synthetic */ a ces;
+public class b extends com.baidu.adp.base.e {
+    private boolean ays;
+    private boolean coi;
 
-    private b(a aVar) {
-        this.ces = aVar;
-        this.OE = null;
+    public b() {
+        super(null);
+        this.ays = false;
+        this.coi = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, b bVar) {
-        this(aVar);
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        super.onPreExecute();
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        this.ays = false;
+        this.coi = false;
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: y */
-    public g doInBackground(String... strArr) {
-        g gVar;
-        Exception e;
-        Context context;
-        try {
-            this.OE = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
-            this.OE.o("_os_version", Build.VERSION.RELEASE);
-            StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(n.M(TbadkCoreApplication.m411getInst().getApp())));
-            stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(n.N(TbadkCoreApplication.m411getInst().getApp())));
-            this.OE.o("_phone_screen", stringBuffer.toString());
-            if (c.wg().wj() > 0) {
-                this.OE.o("_msg_status", GameInfoData.NOT_FROM_DETAIL);
-            } else {
-                this.OE.o("_msg_status", "1");
-            }
-            String packageName = TbadkCoreApplication.m411getInst().getPackageName();
-            this.OE.o("package", packageName);
-            this.OE.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
-            this.OE.o("signmd5", bd.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.OE.o("md5", UtilHelper.getTiebaApkMd5());
-            String sw = this.OE.sw();
-            if (!this.OE.sX().tT().qa()) {
-                return null;
-            }
-            gVar = new g();
-            try {
-                gVar.parserJson(sw);
-                if (TbadkCoreApplication.getClientId() == null && gVar.wN().getClientId() != null && gVar.wN().getClientId().length() > 0) {
-                    context = this.ces.mContext;
-                    TbadkCoreApplication.saveClientId(context, gVar.wN().getClientId());
-                    TbadkCoreApplication.setClientId(gVar.wN().getClientId());
-                    return gVar;
-                }
-                return gVar;
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                return gVar;
-            }
-        } catch (Exception e3) {
-            gVar = null;
-            e = e3;
+    private PrivateInfoNetMessage akI() {
+        return new PrivateInfoNetMessage();
+    }
+
+    public boolean akJ() {
+        if (this.ays) {
+            return false;
         }
+        this.ays = true;
+        this.coi = false;
+        sendMessage(akI());
+        return true;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.ces.cer = null;
-        if (this.OE != null) {
-            this.OE.gS();
-        }
-        super.cancel(true);
+    public boolean isLoading() {
+        return this.ays;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(g gVar) {
-        super.onPostExecute(gVar);
-        this.ces.cer = null;
-        this.ces.mLoadDataCallBack.c(gVar);
+    public void setLoading(boolean z) {
+        this.ays = z;
+    }
+
+    public boolean isFinished() {
+        return this.coi;
+    }
+
+    public void fa(boolean z) {
+        this.coi = z;
     }
 }

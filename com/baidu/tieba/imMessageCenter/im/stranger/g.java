@@ -1,58 +1,37 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class g extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity bwE;
+class g implements com.baidu.tieba.im.chat.notify.a {
+    final /* synthetic */ StrangerListActivity bKu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(StrangerListActivity strangerListActivity, int i) {
-        super(i);
-        this.bwE = strangerListActivity;
+    public g(StrangerListActivity strangerListActivity) {
+        this.bKu = strangerListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        j jVar;
-        j jVar2;
-        j jVar3;
+    @Override // com.baidu.tieba.im.chat.notify.a
+    public void onComplete() {
+        i iVar;
+        i iVar2;
         StrangerListModel strangerListModel;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2016002) {
-                if (customResponsedMessage.getCmd() != 2016004) {
-                    if (customResponsedMessage.getCmd() != 2016007) {
-                        if (customResponsedMessage.getCmd() == 2016001) {
-                            strangerListModel = this.bwE.bwz;
-                            aVar = this.bwE.bcB;
-                            strangerListModel.setData(null, aVar);
-                            return;
-                        } else if (customResponsedMessage.getCmd() == 2016011) {
-                            jVar = this.bwE.bwy;
-                            if (jVar != null) {
-                                jVar2 = this.bwE.bwy;
-                                if (jVar2.Xo() != null) {
-                                    jVar3 = this.bwE.bwy;
-                                    jVar3.Xo().notifyDataSetChanged();
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        } else {
-                            return;
-                        }
+        StrangerListModel strangerListModel2;
+        i iVar3;
+        StrangerListModel strangerListModel3;
+        iVar = this.bKu.bKo;
+        if (iVar != null) {
+            iVar2 = this.bKu.bKo;
+            if (iVar2.YU() != null) {
+                strangerListModel = this.bKu.bKp;
+                if (strangerListModel != null) {
+                    strangerListModel2 = this.bKu.bKp;
+                    if (strangerListModel2.getData().size() == 0) {
+                        this.bKu.finish();
                     }
-                    this.bwE.e(customResponsedMessage);
-                    return;
+                    iVar3 = this.bKu.bKo;
+                    StrangerListAdapter YU = iVar3.YU();
+                    strangerListModel3 = this.bKu.bKp;
+                    YU.setData(strangerListModel3.getData());
                 }
-                this.bwE.d(customResponsedMessage);
-                return;
             }
-            this.bwE.c(customResponsedMessage);
         }
     }
 }

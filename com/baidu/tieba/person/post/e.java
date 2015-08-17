@@ -1,23 +1,50 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
-    final /* synthetic */ PersonPostActivity bUd;
+public class e extends FragmentPagerAdapter {
+    private int[] bCa;
+    private p ckL;
+    private i ckM;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(PersonPostActivity personPostActivity) {
-        this.bUd = personPostActivity;
+        super(personPostActivity.getSupportFragmentManager());
+        Bundle bundle = new Bundle();
+        bundle.putString("key_uid", personPostActivity.getUid());
+        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
+        bundle.putString("key_empty_view_text", personPostActivity.agF());
+        this.ckM = new i();
+        this.ckM.setArguments(bundle);
+        this.ckL = new p();
+        this.ckL.setArguments(bundle);
+        this.bCa = new int[]{0, 1};
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bUd.bnX = com.baidu.tbadk.core.a.j.bi(4) % 3;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
-        httpMessage.addParam("opt", "post");
-        httpMessage.addParam("val", String.valueOf(this.bUd.bnX + 1));
-        this.bUd.sendMessage(httpMessage);
+    public p agG() {
+        return this.ckL;
+    }
+
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        switch (i) {
+            case 0:
+                return this.ckL;
+            case 1:
+                return this.ckM;
+            default:
+                return null;
+        }
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return 2;
+    }
+
+    public int hf(int i) {
+        return this.bCa[i];
     }
 }

@@ -1,19 +1,85 @@
 package com.baidu.adp.widget.ListView;
-/* loaded from: classes.dex */
-public class d {
-    public int Hi;
-    public int Hj;
-    public int startX;
-    public int startY;
 
-    public d(int i, int i2, int i3, int i4) {
-        this.startX = i;
-        this.startY = i2;
-        this.Hi = i3;
-        this.Hj = i4;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import java.security.InvalidParameterException;
+/* loaded from: classes.dex */
+public abstract class d {
+    private Context mContext;
+    private View mView = null;
+    private boolean Hl = true;
+    private int Hm = 0;
+    private int Hn = 0;
+
+    public abstract void R(boolean z);
+
+    public abstract void S(boolean z);
+
+    public abstract void T(boolean z);
+
+    public abstract View nq();
+
+    public abstract void nr();
+
+    public abstract void ns();
+
+    public d(Context context) {
+        this.mContext = null;
+        if (context == null) {
+            throw new InvalidParameterException("BdIListPullView context is null");
+        }
+        this.mContext = context;
     }
 
-    public int l(float f) {
-        return (int) (this.startY + (f / 2.5f));
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public final View getView() {
+        if (this.mView == null) {
+            this.mView = nq();
+            if (this.mView == null) {
+                throw new IllegalStateException("BdIListPullView getView is null");
+            }
+            f(this.mView);
+            this.Hm = this.mView.getMeasuredHeight();
+            this.Hn = this.mView.getMeasuredWidth();
+        }
+        return this.mView;
+    }
+
+    public void setPadding(int i, int i2, int i3, int i4) {
+        if (this.mView != null) {
+            this.mView.setPadding(i, i2, i3, i4);
+        }
+    }
+
+    public boolean isEnable() {
+        return this.Hl;
+    }
+
+    public void U(boolean z) {
+        this.Hl = z;
+    }
+
+    private void f(View view) {
+        int makeMeasureSpec;
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(-1, -2);
+        }
+        int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+        int i = layoutParams.height;
+        if (i > 0) {
+            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
+        } else {
+            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+        }
+        view.measure(childMeasureSpec, makeMeasureSpec);
+    }
+
+    public int nt() {
+        return this.Hm;
     }
 }

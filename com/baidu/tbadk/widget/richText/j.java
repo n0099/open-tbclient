@@ -1,37 +1,56 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.tbadk.gif.GifView;
+import android.text.SpannableString;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-public interface j {
-    com.baidu.adp.lib.e.b<GifView> getGifViewPool();
+public class j {
+    private int aBD;
+    private int height;
+    private String thumbUrl;
+    private String videoUrl;
+    private int width;
 
-    com.baidu.adp.lib.e.b<ImageView> getImageViewPool();
+    public void b(PbContent pbContent) {
+        if (pbContent != null) {
+            this.videoUrl = pbContent.link;
+            this.thumbUrl = pbContent.src;
+            this.width = pbContent.width.intValue();
+            this.height = pbContent.height.intValue();
+            this.aBD = pbContent.e_type.intValue();
+        }
+    }
 
-    ListView getListView();
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
 
-    int getRichTextViewId();
+    public String getThumbUrl() {
+        return this.thumbUrl;
+    }
 
-    com.baidu.adp.lib.e.b<TextView> getTextViewPool();
+    public int getWidth() {
+        return this.width;
+    }
 
-    com.baidu.adp.lib.e.b<LinearLayout> getTextVoiceViewPool();
+    public int getHeight() {
+        return this.height;
+    }
 
-    com.baidu.adp.lib.e.b<View> getVoiceViewPool();
+    public SpannableString fF(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        SpannableString spannableString = new SpannableString(str);
+        spannableString.setSpan(new g(2, this.videoUrl), 0, str.length() - 1, 33);
+        return spannableString;
+    }
 
-    void onAtClicked(Context context, String str);
+    public boolean Fq() {
+        return this.aBD == 12;
+    }
 
-    void onLinkClicked(Context context, String str);
-
-    void onPhoneClicked(Context context, String str, String str2);
-
-    void onSongClicked(Context context, String str);
-
-    void onVideoClicked(Context context, String str);
-
-    void onVideoP2PClicked(Context context, String str);
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoUrl) && !StringUtils.isNull(this.thumbUrl) && this.width > 0 && this.height > 0;
+    }
 }

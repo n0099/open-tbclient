@@ -5,12 +5,17 @@ import java.security.InvalidParameterException;
 public class c {
     private int mDefaultType;
     private String mName;
-    private d mSwitchListener;
+    private a mSwitchListener;
     private int mMaxCrashTimes = 0;
-    private String[] tH = null;
+    private String[] tG = null;
     private int mOffType = 0;
 
-    public c(String str, int i, d dVar) {
+    /* loaded from: classes.dex */
+    public interface a {
+        void b(String str, int i, boolean z);
+    }
+
+    public c(String str, int i, a aVar) {
         this.mName = null;
         this.mSwitchListener = null;
         this.mDefaultType = 0;
@@ -18,13 +23,13 @@ public class c {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.mSwitchListener = dVar;
+        this.mSwitchListener = aVar;
         this.mDefaultType = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
         this.mMaxCrashTimes = i;
-        this.tH = strArr;
+        this.tG = strArr;
         this.mOffType = i2;
     }
 
@@ -36,8 +41,8 @@ public class c {
         return this.mMaxCrashTimes;
     }
 
-    public String[] gA() {
-        return this.tH;
+    public String[] gv() {
+        return this.tG;
     }
 
     public int getOffType() {
@@ -50,7 +55,7 @@ public class c {
 
     public void b(int i, boolean z) {
         if (this.mSwitchListener != null) {
-            this.mSwitchListener.a(this.mName, i, z);
+            this.mSwitchListener.b(this.mName, i, z);
         }
     }
 }

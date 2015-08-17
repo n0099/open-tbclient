@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class a implements f {
-    @Override // com.baidu.tbadk.download.f
+public class a implements c {
+    @Override // com.baidu.tbadk.download.c
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.zf().f(downloadData);
+                b.Ap().f(downloadData);
             }
-            b.zf().e(downloadData);
+            b.Ap().e(downloadData);
         }
     }
 
-    @Override // com.baidu.tbadk.download.f
+    @Override // com.baidu.tbadk.download.c
     public boolean b(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -24,7 +24,7 @@ public class a implements f {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.f
+    @Override // com.baidu.tbadk.download.c
     public boolean c(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -33,14 +33,14 @@ public class a implements f {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.f
+    @Override // com.baidu.tbadk.download.c
     public void d(DownloadData downloadData) {
         NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId());
         UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
     }
 
-    @Override // com.baidu.tbadk.download.f
+    @Override // com.baidu.tbadk.download.c
     public void a(DownloadData downloadData, int i, String str) {
-        b.zf().g(downloadData);
+        b.Ap().g(downloadData);
     }
 }

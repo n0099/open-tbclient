@@ -5,7 +5,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.base.c>> {
+class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.base.c>> {
     private static final long serialVersionUID = -1737585838278753290L;
     private String mLogDir;
     private boolean mMustSuccess;
@@ -25,9 +25,9 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.st
         ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2 = get(i);
         ArrayList<String> arrayList3 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String ap = ap(arrayList2.get(i2).mFileName);
-            if (!TextUtils.isEmpty(ap)) {
-                for (String str : ap.split("\r\n")) {
+            String ay = ay(arrayList2.get(i2).mFileName);
+            if (!TextUtils.isEmpty(ay)) {
+                for (String str : ay.split("\r\n")) {
                     if (size > 0) {
                         Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -47,16 +47,16 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.st
         return arrayList3;
     }
 
-    private String ap(String str) {
-        com.baidu.adp.lib.Disk.ops.e eVar = new com.baidu.adp.lib.Disk.ops.e(this.mLogDir, str, DiskFileOperate.Action.READ);
-        eVar.q(this.mUseSdCard);
+    private String ay(String str) {
+        com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(this.mLogDir, str, DiskFileOperate.Action.READ);
+        dVar.q(this.mUseSdCard);
         if (!this.mMustSuccess) {
-            eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            eVar.G(3);
+            dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+            dVar.I(3);
         }
-        com.baidu.adp.lib.Disk.d.fp().b(eVar);
-        if (eVar.isSuccess()) {
-            return eVar.getContent();
+        com.baidu.adp.lib.Disk.d.fm().b(dVar);
+        if (dVar.isSuccess()) {
+            return dVar.getContent();
         }
         return null;
     }

@@ -1,47 +1,23 @@
 package com.baidu.tieba.personInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.widget.ListView.c {
-    final /* synthetic */ PersonInfoActivity bVf;
+class c extends CustomMessageListener {
+    final /* synthetic */ PersonInfoActivity clO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(PersonInfoActivity personInfoActivity) {
-        this.bVf = personInfoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(PersonInfoActivity personInfoActivity, int i) {
+        super(i);
+        this.clO = personInfoActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public void nf() {
-        v vVar;
-        ad adVar;
-        ad adVar2;
-        vVar = this.bVf.bUU;
-        vVar.afF();
-        adVar = this.bVf.bUV;
-        if (adVar.afJ() != null) {
-            adVar2 = this.bVf.bUV;
-            adVar2.afJ().nd();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void ne() {
-        ad adVar;
-        ad adVar2;
-        adVar = this.bVf.bUV;
-        if (adVar.afJ() != null) {
-            adVar2 = this.bVf.bUV;
-            adVar2.afJ().hideProgress();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void k(float f) {
-        ad adVar;
-        ad adVar2;
-        adVar = this.bVf.bUV;
-        if (adVar.afJ() != null) {
-            adVar2 = this.bVf.bUV;
-            adVar2.afJ().j(f);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ag agVar;
+        agVar = this.clO.clD;
+        agVar.iP(0);
     }
 }

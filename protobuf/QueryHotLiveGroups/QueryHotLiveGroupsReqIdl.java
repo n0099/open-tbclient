@@ -21,8 +21,11 @@ public final class QueryHotLiveGroupsReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryHotLiveGroupsReqIdl> {
+    public static final class Builder extends Message.Builder<QueryHotLiveGroupsReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryHotLiveGroupsReqIdl queryHotLiveGroupsReqIdl) {
             super(queryHotLiveGroupsReqIdl);

@@ -1,65 +1,44 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class k {
-    private int Qe;
-    private String Qf;
-    private String Qg;
-    private int mType;
-    private String mValue;
+    private String class_name = null;
+    private int UZ = 0;
 
-    public int qE() {
-        return this.Qe;
+    public void ce(String str) {
+        this.class_name = str;
     }
 
-    public String qF() {
-        return this.Qf;
+    public String rJ() {
+        return this.class_name;
     }
 
-    public String getValue() {
-        return this.mValue;
+    public void bs(int i) {
+        this.UZ = i;
     }
 
-    public int getType() {
-        return this.mType;
-    }
-
-    public String qG() {
-        return this.Qg;
+    public int rK() {
+        return this.UZ;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Qe = jSONObject.optInt("bannerType");
-                this.Qf = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.Qg = jSONObject.optString("desc");
+                this.UZ = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.Qe = banner.banner_type.intValue();
-            this.Qf = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.Qg = banner.desc;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.UZ = classify.class_id.intValue();
+            this.class_name = classify.class_name;
         }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.Qe == 1 || this.Qe == 4 || this.Qe == 2 || this.Qe == 3 : this.mType == 2 && !StringUtils.isNull(this.Qg);
     }
 }

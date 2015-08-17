@@ -4,14 +4,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.stats.p;
-import com.baidu.adp.lib.util.ac;
+import com.baidu.adp.lib.util.t;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.httpNet.g;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.httpNet.h;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -50,11 +50,11 @@ public class a extends com.baidu.adp.framework.a.d {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00ab, code lost:
         r0 = false;
      */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00bc  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0076  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -70,11 +70,7 @@ public class a extends com.baidu.adp.framework.a.d {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
-        String hT = p.hT();
-        if (!TextUtils.isEmpty(hT)) {
-            httpMessage.addHeader("sid", hT);
-        }
-        String netType = g.getNetType();
+        String netType = h.getNetType();
         if (!TextUtils.isEmpty(netType)) {
             httpMessage.addHeader("net", netType);
         }
@@ -83,13 +79,13 @@ public class a extends com.baidu.adp.framework.a.d {
                 if (!z) {
                     httpMessage.addHeader("Connection", "Keep-Alive");
                 } else {
-                    httpMessage.addHeader("Connection", com.baidu.tbadk.core.frameworkData.c.CLOSE);
+                    httpMessage.addHeader("Connection", IntentConfig.CLOSE);
                 }
             } else if (!z) {
             }
         }
         httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-        httpMessage.addHeader("cuid", TbadkCoreApplication.m411getInst().getCuid());
+        httpMessage.addHeader(SocialConstants.PARAM_CUID, TbadkCoreApplication.m411getInst().getCuid());
     }
 
     private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
@@ -112,22 +108,22 @@ public class a extends com.baidu.adp.framework.a.d {
         if (from != null && from.length() > 0) {
             httpMessage.addParam("from", from);
         }
-        String netType = g.getNetType();
+        String netType = h.getNetType();
         if (netType != null) {
-            String vf = com.baidu.tbadk.coreExtra.a.a.vd().vf();
+            String wn = com.baidu.tbadk.coreExtra.a.a.wl().wn();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    vf = String.valueOf(vf) + "ka=open";
+                    wn = String.valueOf(wn) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                vf = String.valueOf(vf) + "ka=open";
+                wn = String.valueOf(wn) + "ka=open";
             }
-            httpMessage.addHeader("Cookie", vf);
+            httpMessage.addHeader("Cookie", wn);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
         }
-        httpMessage.addParam("cuid", TbadkCoreApplication.m411getInst().getCuid());
+        httpMessage.addParam(SocialConstants.PARAM_CUID, TbadkCoreApplication.m411getInst().getCuid());
         httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
     }
@@ -154,22 +150,22 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, ac.toMd5(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.toMd5(stringBuffer.toString()));
     }
 
     private void e(HttpMessage httpMessage) {
-        aj tl = ai.tl();
-        if (tl != null) {
-            httpMessage.addParam("stTime", String.valueOf(tl.mTime));
-            httpMessage.addParam("stSize", String.valueOf(tl.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(tl.Vm));
-            httpMessage.addParam("stMode", String.valueOf(tl.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(tl.Vl));
+        z.a un = z.un();
+        if (un != null) {
+            httpMessage.addParam("stTime", String.valueOf(un.mTime));
+            httpMessage.addParam("stSize", String.valueOf(un.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(un.aaj));
+            httpMessage.addParam("stMode", String.valueOf(un.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(un.aai));
         }
-        int cb = ai.cb(0);
-        if (cb == 0 && tl != null) {
-            cb = tl.Vm;
+        int ch = z.ch(0);
+        if (ch == 0 && un != null) {
+            ch = un.aaj;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cb));
+        httpMessage.addParam("stErrorNums", String.valueOf(ch));
     }
 }

@@ -1,53 +1,38 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class bb implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ba aNg;
-    private final /* synthetic */ bd aNh;
-    private final /* synthetic */ IndicatorView aNi;
-    private final /* synthetic */ ch aNj;
-    private final /* synthetic */ ViewPager aNk;
+public class bb extends x.a {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    public LinearLayout aWd;
+    public HeadImageView aWe;
+    public TextView aWf;
+    public TextView aWg;
+    public TextView aWh;
+    public TbImageView aWi;
+    public TextView aWj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar, bd bdVar, IndicatorView indicatorView, ch chVar, ViewPager viewPager) {
-        this.aNg = baVar;
-        this.aNh = bdVar;
-        this.aNi = indicatorView;
-        this.aNj = chVar;
-        this.aNk = viewPager;
+    static {
+        $assertionsDisabled = !bb.class.desiredAssertionStatus();
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        int eY;
-        int eZ;
-        eY = this.aNh.eY(i);
-        if (eY == i && this.aNi != null) {
-            IndicatorView indicatorView = this.aNi;
-            eZ = this.aNh.eZ(i);
-            indicatorView.setPosition(eZ);
+    public bb(View view) {
+        super(view);
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        int count;
-        if (i == 0 && (count = this.aNj.getCount()) > 1) {
-            int currentItem = this.aNk.getCurrentItem();
-            int i2 = count - 2;
-            if (currentItem < 1) {
-                this.aNk.setCurrentItem(i2, false);
-                this.aNk.invalidate();
-            } else if (currentItem > i2) {
-                this.aNk.setCurrentItem(1, false);
-                this.aNk.invalidate();
-            }
-        }
+        this.aWd = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
+        this.aWe = (HeadImageView) view.findViewById(i.f.frs_app_icon);
+        this.aWf = (TextView) view.findViewById(i.f.frs_app_name);
+        this.aWg = (TextView) view.findViewById(i.f.frs_app_time);
+        this.aWh = (TextView) view.findViewById(i.f.frs_app_desc);
+        this.aWi = (TbImageView) view.findViewById(i.f.frs_app_url);
+        this.aWj = (TextView) view.findViewById(i.f.frs_app_download);
     }
 }

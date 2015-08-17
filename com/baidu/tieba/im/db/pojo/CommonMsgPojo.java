@@ -2,8 +2,8 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.adp.lib.g.c;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.c.a;
@@ -13,6 +13,7 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.util.h;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo extends i implements Serializable {
@@ -78,9 +79,9 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.bpq);
+                this.gid = String.valueOf(a.bDd);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.bpr);
+                this.gid = String.valueOf(a.bDe);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -195,7 +196,7 @@ public class CommonMsgPojo extends i implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            com.baidu.tieba.im.util.i.v(personalChatMessage);
+            h.v(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -224,7 +225,7 @@ public class CommonMsgPojo extends i implements Serializable {
             personalChatMessage.setContent(this.content);
             userInfo = personalChatMessage.getUserInfo();
             if (userInfo != null) {
-                if (m.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                if (j.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
                     oldUserData2.setToUserData(userInfo);
                 }
                 try {
@@ -236,7 +237,7 @@ public class CommonMsgPojo extends i implements Serializable {
             }
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
-                if (m.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                if (j.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
                     oldUserData.setToUserData(toUserInfo);
                 }
                 try {
@@ -245,7 +246,7 @@ public class CommonMsgPojo extends i implements Serializable {
                 }
                 personalChatMessage.setToUserId(j5);
             }
-            com.baidu.tieba.im.util.i.v(personalChatMessage);
+            h.v(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -273,7 +274,7 @@ public class CommonMsgPojo extends i implements Serializable {
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
         }
-        com.baidu.tieba.im.util.i.v(personalChatMessage);
+        h.v(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }
@@ -329,7 +330,7 @@ public class CommonMsgPojo extends i implements Serializable {
         if (this.user_info_data == null || this.to_user_info_data == null) {
             return null;
         }
-        if (c.c(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+        if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
             return this.to_user_info_data;
         }
         return this.user_info_data;

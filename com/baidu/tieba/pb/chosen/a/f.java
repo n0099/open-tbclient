@@ -1,21 +1,20 @@
 package com.baidu.tieba.pb.chosen.a;
 
 import android.view.View;
-import tbclient.FinePbPage.User_Info;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ b bJp;
-    private final /* synthetic */ User_Info bJs;
+    final /* synthetic */ e bZB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b bVar, User_Info user_Info) {
-        this.bJp = bVar;
-        this.bJs = user_Info;
+    public f(e eVar) {
+        this.bZB = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bJp.d(this.bJs.id.longValue(), this.bJs.name);
+        if (this.bZB.bZv != null) {
+            this.bZB.bZv.acy();
+        }
     }
 }

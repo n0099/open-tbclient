@@ -1,38 +1,23 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.RequestGetLivableForumList;
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af implements com.baidu.tbadk.core.view.aj {
-    final /* synthetic */ v bSc;
+public class af implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity cjt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(v vVar) {
-        this.bSc = vVar;
+    public af(PersonChangeActivity personChangeActivity) {
+        this.cjt = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.aj
-    public void onListPullRefresh(boolean z) {
-        PersonBarActivity aem;
-        PersonBarActivity aem2;
-        PersonBarActivity aem3;
-        aem = this.bSc.aem();
-        if (aem != null) {
-            this.bSc.bRQ = 1;
-            aem2 = this.bSc.aem();
-            if (aem2 != null) {
-                aem3 = this.bSc.aem();
-                if (aem3.getRequestCode() == 23011) {
-                    RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
-                    requestGetLivableForumList.setGetLikeForum(1);
-                    requestGetLivableForumList.setPageNo(this.bSc.bRQ);
-                    requestGetLivableForumList.setPageSize(this.bSc.pageSize);
-                    requestGetLivableForumList.setUserId(com.baidu.adp.lib.g.c.toInt(TbadkCoreApplication.getCurrentAccount(), 0));
-                    this.bSc.sendMessage(requestGetLivableForumList);
-                    return;
-                }
-            }
-            this.bSc.WT();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.cjt.cjk = true;
+            return false;
         }
+        return false;
     }
 }

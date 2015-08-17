@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
@@ -56,7 +55,7 @@ public class IconData extends i implements Serializable {
             try {
                 this.icon = jSONObject.optString("icon");
                 this.name = jSONObject.optString("name");
-                this.url = jSONObject.optString(ImageViewerConfig.URL);
+                this.url = jSONObject.optString("url");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

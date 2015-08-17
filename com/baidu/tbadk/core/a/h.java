@@ -1,20 +1,21 @@
 package com.baidu.tbadk.core.a;
 
-import android.view.View;
-import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-class h implements View.OnClickListener {
-    private final /* synthetic */ SapiWebView Pd;
-    private final /* synthetic */ View Pe;
+public class h {
+    public static HashMap<String, Integer> TV = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(SapiWebView sapiWebView, View view) {
-        this.Pd = sapiWebView;
-        this.Pe = view;
+    public static int br(int i) {
+        String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i;
+        if (TV.containsKey(str)) {
+            return TV.get(str).intValue();
+        }
+        TV.put(str, 1);
+        return 1;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.Pd.post(new i(this, this.Pe, this.Pd));
+    public static void w(int i, int i2) {
+        TV.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
     }
 }

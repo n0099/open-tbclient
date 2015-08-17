@@ -1,23 +1,15 @@
 package com.baidu.adp.framework.client.socket.link;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import java.util.Map;
 /* loaded from: classes.dex */
-class e implements ServiceConnection {
-    final /* synthetic */ BdSocketLinkService this$0;
+public interface e {
+    void I(String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(BdSocketLinkService bdSocketLinkService) {
-        this.this$0 = bdSocketLinkService;
-    }
+    void a(com.baidu.adp.lib.webSocket.c cVar);
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        BdSocketDaemonService.startService();
-    }
+    void b(Map<String, String> map);
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-    }
+    boolean k(int i, String str);
+
+    void s(byte[] bArr);
 }

@@ -12,7 +12,7 @@ public class ListPopupWindowCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseListPopupWindowImpl implements ListPopupWindowImpl {
+    static class BaseListPopupWindowImpl implements ListPopupWindowImpl {
         BaseListPopupWindowImpl() {
         }
 
@@ -23,7 +23,7 @@ public class ListPopupWindowCompat {
     }
 
     /* loaded from: classes.dex */
-    class KitKatListPopupWindowImpl extends BaseListPopupWindowImpl {
+    static class KitKatListPopupWindowImpl extends BaseListPopupWindowImpl {
         KitKatListPopupWindowImpl() {
         }
 

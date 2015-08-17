@@ -238,7 +238,7 @@ public class u implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends PhoneStateListener {
         public b() {

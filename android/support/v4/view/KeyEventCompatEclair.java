@@ -4,9 +4,6 @@ import android.view.KeyEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class KeyEventCompatEclair {
-    KeyEventCompatEclair() {
-    }
-
     public static Object getKeyDispatcherState(View view) {
         return view.getKeyDispatcherState();
     }

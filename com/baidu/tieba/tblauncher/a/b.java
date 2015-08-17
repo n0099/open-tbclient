@@ -6,70 +6,70 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.q;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.e.c> {
-    private View So;
-    private ImageView aEl;
-    private ImageView aEq;
-    private TextView aGB;
+public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.d.b> {
+    private View Xi;
+    private ImageView aLK;
+    private ImageView aLP;
+    private TextView aOb;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aGB = (TextView) view.findViewById(q.textview);
-        this.aEl = (ImageView) view.findViewById(q.red_tip);
-        this.aEq = (ImageView) view.findViewById(q.red_new_tip);
-        this.So = view.findViewById(q.divider);
+        this.aOb = (TextView) view.findViewById(i.f.textview);
+        this.aLK = (ImageView) view.findViewById(i.f.red_tip);
+        this.aLP = (ImageView) view.findViewById(i.f.red_new_tip);
+        this.Xi = view.findViewById(i.f.divider);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.j.e
+    @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: a */
-    public void z(com.baidu.tieba.tbadkCore.f.a aVar) {
-        super.z(aVar);
+    public void A(com.baidu.tieba.tbadkCore.f.a aVar) {
+        super.A(aVar);
         if (aVar != null) {
-            if (this.aGB != null) {
+            if (this.aOb != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.apb());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.aqv());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.aGB.setText(str);
-                this.aGB.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(aVar.apc()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aOb.setText(str);
+                this.aOb.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(aVar.aqw()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.apd()) {
+            switch (aVar.aqx()) {
                 case 1:
-                    this.aEl.setImageDrawable(null);
-                    this.aEl.setVisibility(8);
-                    ay.c(this.aEq, com.baidu.tieba.p.icon_news_head_new);
-                    this.aEq.setVisibility(0);
+                    this.aLK.setImageDrawable(null);
+                    this.aLK.setVisibility(8);
+                    al.c(this.aLP, i.e.icon_news_head_new);
+                    this.aLP.setVisibility(0);
                     break;
                 case 2:
-                    ay.c(this.aEl, com.baidu.tieba.p.icon_news_down_bar_one);
-                    this.aEl.setVisibility(0);
-                    this.aEq.setImageDrawable(null);
-                    this.aEq.setVisibility(8);
+                    al.c(this.aLK, i.e.icon_news_down_bar_one);
+                    this.aLK.setVisibility(0);
+                    this.aLP.setImageDrawable(null);
+                    this.aLP.setVisibility(8);
                     break;
                 default:
-                    this.aEl.setImageDrawable(null);
-                    this.aEl.setVisibility(8);
-                    this.aEq.setImageDrawable(null);
-                    this.aEq.setVisibility(8);
+                    this.aLK.setImageDrawable(null);
+                    this.aLK.setVisibility(8);
+                    this.aLP.setImageDrawable(null);
+                    this.aLP.setVisibility(8);
                     break;
             }
             if (aVar.getType() == 4) {
-                this.So.setVisibility(0);
+                this.Xi.setVisibility(0);
             } else {
-                this.So.setVisibility(8);
+                this.Xi.setVisibility(8);
             }
         }
     }

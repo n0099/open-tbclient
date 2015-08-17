@@ -12,7 +12,10 @@ public final class PushNotifyReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<PushNotifyReqIdl> {
+    public static final class Builder extends Message.Builder<PushNotifyReqIdl> {
+        public Builder() {
+        }
+
         public Builder(PushNotifyReqIdl pushNotifyReqIdl) {
             super(pushNotifyReqIdl);
         }

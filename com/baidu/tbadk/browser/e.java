@@ -1,7 +1,18 @@
 package com.baidu.tbadk.browser;
 
-import android.app.Activity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 /* loaded from: classes.dex */
-public interface e {
-    Object o(Activity activity);
+class e implements BaseWebViewActivity.a {
+    final /* synthetic */ BaseWebViewActivity Sl;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(BaseWebViewActivity baseWebViewActivity) {
+        this.Sl = baseWebViewActivity;
+    }
+
+    @Override // com.baidu.tbadk.browser.BaseWebViewActivity.a
+    public Object b(TbPageContext<?> tbPageContext) {
+        return new XiubaTbJsBridge(tbPageContext);
+    }
 }

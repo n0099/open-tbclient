@@ -1,94 +1,32 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class p {
-    public static final String TX = TbadkCoreApplication.m411getInst().getApp().getFileStreamPath("").getAbsolutePath();
+public abstract class p {
+    public static p Zb = null;
 
-    public static boolean cK(String str) {
-        try {
-            return new File(new StringBuilder(String.valueOf(TX)).append("/").append(str).toString()).exists();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "FileHelper.checkFile " + str);
-            return false;
-        }
-    }
+    public abstract com.baidu.tbadk.core.data.f getmCdnLogData();
 
-    public static boolean cL(String str) {
-        try {
-            File file = new File(String.valueOf(TX) + "/" + str);
-            if (file.exists()) {
-                return false;
-            }
-            return file.createNewFile();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "FileHelper.createFile " + str);
-            return false;
-        }
-    }
+    public abstract void insertErrorData(int i, String str);
 
-    public static void p(File file) {
-        try {
-            if (file.exists()) {
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    int length = listFiles.length;
-                    for (int i = 0; i < length; i++) {
-                        if (listFiles[i].isFile()) {
-                            listFiles[i].delete();
-                        } else {
-                            p(listFiles[i]);
-                        }
+    public abstract void insertNormalData(long j, String str);
+
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.f fVar);
+
+    public static p getInstance() {
+        if (Zb == null) {
+            synchronized (p.class) {
+                if (Zb == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, p.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        Zb = (p) runTask.getData();
                     }
-                }
-                file.delete();
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "FileHelper.deleteFileOrDir");
-        }
-    }
-
-    public static boolean cM(String str) {
-        try {
-            File file = new File(String.valueOf(TX) + "/" + str);
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    return false;
-                }
-                p(file);
-            }
-            return file.mkdirs();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "FileHelper.cleanDirectory " + str);
-            return false;
-        }
-    }
-
-    public static String cN(String str) {
-        String str2 = null;
-        try {
-            File file = new File(String.valueOf(TX) + "/" + str);
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                int length = listFiles.length;
-                long j = 0;
-                for (int i = 0; i < length; i++) {
-                    if (j > listFiles[i].lastModified()) {
-                        j = listFiles[i].lastModified();
-                        str2 = listFiles[i].getName();
-                    }
+                    return Zb;
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "FileHelper.getLatestFileName " + str);
         }
-        return str2;
+        return Zb;
     }
 }

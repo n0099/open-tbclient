@@ -26,9 +26,12 @@ public final class ForumOwnerManageLivegroupResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ForumOwnerManageLivegroupResIdl> {
+    public static final class Builder extends Message.Builder<ForumOwnerManageLivegroupResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(ForumOwnerManageLivegroupResIdl forumOwnerManageLivegroupResIdl) {
             super(forumOwnerManageLivegroupResIdl);

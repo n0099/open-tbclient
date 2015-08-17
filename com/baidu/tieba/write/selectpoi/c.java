@@ -1,28 +1,37 @@
 package com.baidu.tieba.write.selectpoi;
 
-import android.app.Activity;
 import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tieba.tbadkCore.location.i;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ SearchLocationActivity czQ;
+class c implements AdapterView.OnItemClickListener {
+    final /* synthetic */ SearchLocationActivity cRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SearchLocationActivity searchLocationActivity) {
-        this.czQ = searchLocationActivity;
+        this.cRE = searchLocationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        editText = this.czQ.bBN;
-        if (editText.hasFocus()) {
-            Activity pageActivity = this.czQ.getPageContext().getPageActivity();
-            editText2 = this.czQ.bBN;
-            com.baidu.adp.lib.util.n.c(pageActivity, editText2);
-            this.czQ.closeActivity();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        h hVar;
+        h hVar2;
+        h hVar3;
+        hVar = this.cRE.cRy;
+        if (hVar != null) {
+            hVar2 = this.cRE.cRy;
+            if (hVar2.auh()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
+                MessageManager messageManager = MessageManager.getInstance();
+                hVar3 = this.cRE.cRy;
+                i.a aVar = (i.a) hVar3.getItem(i);
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.getName(), aVar.getName(), aVar.getScreatString()));
+                this.cRE.finish();
+            }
         }
     }
 }

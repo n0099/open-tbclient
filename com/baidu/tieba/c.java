@@ -6,15 +6,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.LogoActivity;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ b avh;
+    final /* synthetic */ b aCz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.avh = bVar;
+        this.aCz = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,63 +39,69 @@ class c implements View.OnClickListener {
         LogoActivity logoActivity10;
         com.baidu.tbadk.core.dialog.a aVar6;
         LogoActivity logoActivity11;
+        LogoActivity.a aVar7;
         LogoActivity logoActivity12;
         LogoActivity logoActivity13;
+        LogoActivity logoActivity14;
         int loadInt = TbadkSettings.getInst().loadInt("url_type", 0);
         if (loadInt == 1) {
-            String loadString = TbadkSettings.getInst().loadString(ImageViewerConfig.URL, "");
+            String loadString = TbadkSettings.getInst().loadString("url", "");
             if (!StringUtils.isNull(loadString)) {
                 Intent intent = new Intent();
                 intent.putExtra("class", 30);
                 intent.putExtra("jump_url", loadString);
                 TbadkCoreApplication.setIntent(intent);
-                logoActivity13 = this.avh.avg;
-                logoActivity13.EN();
+                logoActivity14 = this.aCz.aCy;
+                logoActivity14.FD();
             }
         } else if (loadInt == 3) {
             String loadString2 = TbadkSettings.getInst().loadString("apk_url", "");
             String loadString3 = TbadkSettings.getInst().loadString("apk_name", "");
             if (!StringUtils.isNull(loadString2) && !StringUtils.isNull(loadString3)) {
-                logoActivity = this.avh.avg;
+                logoActivity = this.aCz.aCy;
                 if (UtilHelper.isInstallApk(logoActivity.getPageContext().getPageActivity(), loadString3)) {
-                    logoActivity12 = this.avh.avg;
-                    logoActivity12.showToast(t.logo_down_app_has_installed);
+                    logoActivity13 = this.aCz.aCy;
+                    logoActivity13.showToast(i.C0057i.logo_down_app_has_installed);
                     return;
                 }
                 String loadString4 = TbadkSettings.getInst().loadString("apk_size", "");
                 if (StringUtils.isNull(loadString4)) {
-                    logoActivity11 = this.avh.avg;
-                    format = logoActivity11.getResources().getString(t.logo_down_dialog_msg);
+                    logoActivity12 = this.aCz.aCy;
+                    format = logoActivity12.getResources().getString(i.C0057i.logo_down_dialog_msg);
                 } else {
-                    logoActivity2 = this.avh.avg;
-                    format = String.format(logoActivity2.getResources().getString(t.logo_down_dialog_fmt_msg), loadString4);
+                    logoActivity2 = this.aCz.aCy;
+                    format = String.format(logoActivity2.getResources().getString(i.C0057i.logo_down_dialog_fmt_msg), loadString4);
                 }
                 String loadString5 = TbadkSettings.getInst().loadString("app_name", "");
                 if (StringUtils.isNull(loadString5)) {
                     loadString5 = "应用安装包";
                 }
-                logoActivity3 = this.avh.avg;
-                logoActivity4 = this.avh.avg;
-                logoActivity3.Ll = new com.baidu.tbadk.core.dialog.a(logoActivity4.getPageContext().getPageActivity());
-                logoActivity5 = this.avh.avg;
-                aVar = logoActivity5.Ll;
+                logoActivity3 = this.aCz.aCy;
+                logoActivity4 = this.aCz.aCy;
+                logoActivity3.Lt = new com.baidu.tbadk.core.dialog.a(logoActivity4.getPageContext().getPageActivity());
+                logoActivity5 = this.aCz.aCy;
+                aVar = logoActivity5.Lt;
                 aVar.cn(format);
-                logoActivity6 = this.avh.avg;
-                aVar2 = logoActivity6.Ll;
-                aVar2.ag(false);
-                logoActivity7 = this.avh.avg;
-                aVar3 = logoActivity7.Ll;
-                aVar3.a(TbadkCoreApplication.m411getInst().getString(t.logo_down_dialog_yes), new d(this, loadString3, loadString2, loadString5));
-                logoActivity8 = this.avh.avg;
-                aVar4 = logoActivity8.Ll;
-                aVar4.b(TbadkCoreApplication.m411getInst().getString(t.logo_down_dialog_no), new e(this));
-                logoActivity9 = this.avh.avg;
-                aVar5 = logoActivity9.Ll;
-                baseActivity = this.avh.avg;
+                logoActivity6 = this.aCz.aCy;
+                aVar2 = logoActivity6.Lt;
+                aVar2.aj(false);
+                logoActivity7 = this.aCz.aCy;
+                aVar3 = logoActivity7.Lt;
+                aVar3.a(TbadkCoreApplication.m411getInst().getString(i.C0057i.logo_down_dialog_yes), new d(this, loadString3, loadString2, loadString5));
+                logoActivity8 = this.aCz.aCy;
+                aVar4 = logoActivity8.Lt;
+                aVar4.b(TbadkCoreApplication.m411getInst().getString(i.C0057i.logo_down_dialog_no), new e(this));
+                logoActivity9 = this.aCz.aCy;
+                aVar5 = logoActivity9.Lt;
+                baseActivity = this.aCz.aCy;
                 aVar5.b(baseActivity.getPageContext());
-                logoActivity10 = this.avh.avg;
-                aVar6 = logoActivity10.Ll;
-                aVar6.rL();
+                logoActivity10 = this.aCz.aCy;
+                aVar6 = logoActivity10.Lt;
+                aVar6.sP();
+                com.baidu.adp.lib.g.h hi = com.baidu.adp.lib.g.h.hi();
+                logoActivity11 = this.aCz.aCy;
+                aVar7 = logoActivity11.aCw;
+                hi.removeCallbacks(aVar7);
             }
         }
     }

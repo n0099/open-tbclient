@@ -1,314 +1,283 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileRequestMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.i;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.PostInfoList;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.f<PersonInfoActivity> {
-    private boolean aYg;
-    private AntiData bJV;
-    private CustomMessageListener bTH;
-    private boolean bWA;
-    private String bWB;
-    private List<PersonInfoPostList> bWC;
-    private PersonTainInfo bWD;
-    private com.baidu.tbadk.coreExtra.c.a bWE;
-    private long bWF;
-    private int bWG;
-    private boolean bWz;
-    private String mId;
-    private String mName;
-    private UserData mUserData;
-    private String stType;
+public class v {
+    private TextView bIw;
+    private TextView bYb;
+    private View bmf;
+    private TextView bpf;
+    private PersonInfoActivity cjU;
+    private ImageView cmA;
+    private float cmB = 360.0f;
+    private RelativeLayout cmC;
+    private HeadImageView cmD;
+    private UserIconBox cmE;
+    private ImageView cmF;
+    private TextView cmG;
+    private TextView cmH;
+    private UserIconBox cmI;
+    private TextView cmJ;
+    private LinearLayout cmK;
+    private ImageView cmL;
+    private LinearLayout cmM;
+    private ImageView cmN;
+    private LinearLayout cmO;
+    private ImageView cmP;
+    private BdExpandImageView cmz;
+    private Bitmap mBitmap;
+    private boolean mIsHost;
+    private View mRootView;
 
-    public long afw() {
-        return this.bWF;
+    public v(PersonInfoActivity personInfoActivity, boolean z) {
+        this.cjU = personInfoActivity;
+        this.mIsHost = z;
+        this.mRootView = LayoutInflater.from(this.cjU.getPageContext().getPageActivity()).inflate(i.g.personinfo_head_view, (ViewGroup) null);
+        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.cjU.getResources().getDimensionPixelSize(i.d.ds372)));
+        initView();
     }
 
-    public void am(long j) {
-        this.bWF = j;
+    private void initView() {
+        this.bmf = this.mRootView.findViewById(i.f.root);
+        this.cmz = (BdExpandImageView) this.mRootView.findViewById(i.f.expand_image);
+        this.cmA = (ImageView) this.mRootView.findViewById(i.f.refresh_image);
+        this.cmC = (RelativeLayout) this.mRootView.findViewById(i.f.head);
+        this.cmD = (HeadImageView) this.mRootView.findViewById(i.f.user_head);
+        this.cmE = (UserIconBox) this.mRootView.findViewById(i.f.user_vip_icon);
+        this.cmE.setOnClickListener(this.cjU);
+        this.bYb = (TextView) this.mRootView.findViewById(i.f.user_name);
+        this.cmF = (ImageView) this.mRootView.findViewById(i.f.user_sex);
+        this.cmG = (TextView) this.mRootView.findViewById(i.f.user_bar_age);
+        this.cmH = (TextView) this.mRootView.findViewById(i.f.user_bar_age_num);
+        this.cmI = (UserIconBox) this.mRootView.findViewById(i.f.user_icon);
+        this.cmI.setOnClickListener(this.cjU);
+        this.cmJ = (TextView) this.mRootView.findViewById(i.f.btn_attention);
+        this.cmJ.setOnClickListener(this.cjU);
+        this.cmL = (ImageView) this.mRootView.findViewById(i.f.iv_site);
+        this.cmK = (LinearLayout) this.mRootView.findViewById(i.f.dis_time);
+        this.cmM = (LinearLayout) this.mRootView.findViewById(i.f.time_ll);
+        this.cmN = (ImageView) this.mRootView.findViewById(i.f.iv_time);
+        this.bIw = (TextView) this.mRootView.findViewById(i.f.distance);
+        this.bpf = (TextView) this.mRootView.findViewById(i.f.time);
+        this.cmO = (LinearLayout) this.mRootView.findViewById(i.f.my_gift_ll);
+        this.cmO.setOnClickListener(this.cjU);
+        this.cmP = (ImageView) this.mRootView.findViewById(i.f.my_gift);
+        ahm();
+        ahn();
     }
 
-    public void hW(int i) {
-        this.bWG = i;
+    public void ahk() {
+        com.baidu.tbadk.imageManager.c.Ce().ee(1152000);
+        for (int i = 0; i < 3; i++) {
+            this.mBitmap = al.e((Resources) null, i.e.bg_mycenter_banner);
+            if (this.mBitmap != null) {
+                this.cmz.setImageBitmap(this.mBitmap);
+                return;
+            }
+        }
     }
 
-    public AntiData aaH() {
-        return this.bJV;
+    public void ahl() {
+        if (this.mBitmap != null) {
+            this.mBitmap.recycle();
+            com.baidu.tbadk.core.util.c.ca(i.e.bg_mycenter_banner);
+            System.gc();
+        }
+        if (this.cmD != null) {
+            this.cmD.Cb();
+        }
+        this.cmz.setImageBitmap(null);
     }
 
-    public void a(AntiData antiData) {
-        this.bJV = antiData;
+    private void ahm() {
+        if (TbadkCoreApplication.m411getInst().isGiftSwitchOn()) {
+            this.cmO.setVisibility(0);
+        } else {
+            this.cmO.setVisibility(8);
+        }
+        if (this.mIsHost || TbadkCoreApplication.m411getInst().getIntentClass(MyGiftListActivityConfig.class) == null) {
+            this.cmO.setVisibility(8);
+            this.cmJ.setVisibility(8);
+            this.cmK.setVisibility(8);
+        }
     }
 
-    public UserData getUserData() {
-        return this.mUserData;
+    public void oQ() {
+        al.j(this.bmf, i.c.cp_bg_line_c);
+        al.b(this.bYb, i.c.cp_cont_g, 1);
+        al.b(this.cmG, i.c.cp_cont_g, 1);
+        al.b(this.cmH, i.c.cp_cont_g, 1);
+        al.i(this.cmO, i.e.personinfo_head_icon);
+        al.c(this.cmP, i.e.icon_mycenter_gift);
+        al.i(this.cmK, i.e.bg_mycenter_bar);
+        al.i((View) this.cmJ, i.e.bg_mycenter_bar);
+        al.b(this.cmJ, i.c.cp_cont_g, 1);
+        al.b(this.bIw, i.c.cp_cont_g, 1);
+        al.b(this.bpf, i.c.cp_cont_g, 1);
+        al.i(this.cmL, i.e.icon_mycenter_bar_site);
+        al.i(this.cmN, i.e.icon_mycenter_bar_date);
     }
 
-    public void k(UserData userData) {
+    private void ahn() {
+        this.cmD.setIsRound(true);
+        this.cmD.setDrawBorder(false);
+        this.cmD.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        if (PersonInfoActivityConfig.IS_SUPPORT_EDIT) {
+            this.cmD.setOnClickListener(this.cjU);
+        }
+    }
+
+    public HeadImageView aho() {
+        return this.cmD;
+    }
+
+    public UserIconBox ahp() {
+        return this.cmI;
+    }
+
+    public void j(float f) {
+        if (!this.cmA.isShown()) {
+            this.cmA.setVisibility(0);
+            this.cmA.setImageDrawable(this.cjU.getResources().getDrawable(i.e.icon_pop_refresh));
+        }
+        RotateAnimation rotateAnimation = new RotateAnimation(this.cmB, f, 1, 0.5f, 1, 0.5f);
+        rotateAnimation.setFillBefore(true);
+        rotateAnimation.setFillAfter(true);
+        this.cmA.startAnimation(rotateAnimation);
+        this.cmB = f;
+    }
+
+    public void hideProgress() {
+        this.cmA.clearAnimation();
+        this.cmA.setImageDrawable(null);
+        this.cmA.setVisibility(8);
+    }
+
+    public void nn() {
+        if (!this.cmA.isShown()) {
+            this.cmA.setVisibility(0);
+            this.cmA.setImageDrawable(this.cjU.getResources().getDrawable(i.e.icon_pop_refresh));
+        }
+        this.cmA.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.cjU.getPageContext().getPageActivity(), i.a.user_info_center_head_rotate));
+    }
+
+    public void ahi() {
+        w agL = this.cjU.agL();
+        UserData userData = agL.getUserData();
+        f(userData);
+        d(agL.ahu(), userData);
+    }
+
+    private void d(PersonTainInfo personTainInfo, UserData userData) {
+        com.baidu.tbadk.data.g personPrivate;
+        if (personTainInfo != null) {
+            int isFriend = personTainInfo.getIsFriend();
+            int Aa = (userData == null || (personPrivate = userData.getPersonPrivate()) == null) ? 1 : personPrivate.Aa();
+            if (Aa == 1 || (Aa == 2 && isFriend == 1)) {
+                DistanceInfo distanceInfo = personTainInfo.getDistanceInfo();
+                if (distanceInfo != null) {
+                    String distance = distanceInfo.getDistance();
+                    String timeFormat = distanceInfo.getTimeFormat();
+                    this.bIw.setText(distance);
+                    this.bpf.setText(timeFormat);
+                    return;
+                }
+                return;
+            }
+            this.cmM.setVisibility(8);
+            this.bIw.setText(i.C0057i.lbs_private);
+        }
+    }
+
+    private void f(UserData userData) {
         if (userData != null) {
-            setName(userData.getUserName());
-        }
-        this.mUserData = userData;
-    }
-
-    public List<PersonInfoPostList> afx() {
-        return this.bWC;
-    }
-
-    public PersonTainInfo afy() {
-        return this.bWD;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public v(PersonInfoActivity personInfoActivity) {
-        super(personInfoActivity.getPageContext());
-        this.bWC = new ArrayList();
-        this.bWE = new com.baidu.tbadk.coreExtra.c.a(this.mLoadDataCallBack);
-        this.bTH = new w(this, 2001235);
-    }
-
-    public boolean getIsSelf() {
-        return this.aYg;
-    }
-
-    public void setIsSelf(boolean z) {
-        this.aYg = z;
-    }
-
-    public boolean afz() {
-        return this.bWz;
-    }
-
-    public void es(boolean z) {
-        this.bWz = z;
-    }
-
-    public boolean afA() {
-        return this.bWA;
-    }
-
-    public void et(boolean z) {
-        this.bWA = z;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public void setId(String str) {
-        this.mId = str;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public void setName(String str) {
-        this.mName = str;
-    }
-
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String afB() {
-        return this.bWB;
-    }
-
-    public void iH(String str) {
-        this.bWB = str;
-    }
-
-    public void a(PersonChangeData personChangeData) {
-        this.mUserData.setSex(personChangeData.getSex());
-        this.mUserData.setUserName(personChangeData.getName());
-        this.mUserData.setIntro(personChangeData.getIntro());
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void afC() {
-        if (this.mUserData != null && this.bWE != null) {
-            this.bWE.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId());
-        }
-    }
-
-    public void afD() {
-        MessageManager.getInstance().unRegisterListener(this.bTH);
-    }
-
-    public void aeH() {
-        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2001235, new y());
-        aVar.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aVar);
-        registerListener(this.bTH);
-    }
-
-    public void afE() {
-        sendMessage(new RequestPersonInfoMessage());
-    }
-
-    public void afF() {
-        ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-        if (TbadkCoreApplication.getCurrentAccount() != null) {
-            profileRequestMessage.set_uid(Integer.valueOf(com.baidu.adp.lib.g.c.toInt(TbadkCoreApplication.getCurrentAccount(), 0)));
-        }
-        profileRequestMessage.set_need_post_count(1);
-        profileRequestMessage.set_pn(1);
-        profileRequestMessage.set_rn(20);
-        profileRequestMessage.set_has_plist(1);
-        profileRequestMessage.set_from_db(false);
-        profileRequestMessage.set_error_hint(true);
-        profileRequestMessage.setSelf(getIsSelf());
-        if (!getIsSelf()) {
-            profileRequestMessage.set_friend_uid(Long.valueOf(com.baidu.adp.lib.g.c.c(getId(), 0L)));
-            profileRequestMessage.set_is_guest(1);
-        }
-        if (afB() != null) {
-            try {
-                profileRequestMessage.set_st_type(afB());
-            } catch (Exception e) {
-                BdLog.detailException(e);
+            String portrait = userData.getPortrait();
+            if (!TextUtils.isEmpty(portrait)) {
+                this.cmD.d(portrait, 25, false);
             }
-        }
-        sendMessage(profileRequestMessage);
-    }
-
-    public void a(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        if (profileSocketResponseMessage != null) {
-            b(profileSocketResponseMessage);
-            a(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
-        }
-    }
-
-    public void a(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        if (profileHttpResponseMessage != null) {
-            b(profileHttpResponseMessage);
-            a(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
-        }
-    }
-
-    public void a(boolean z, String str, boolean z2, boolean z3) {
-        if (!z) {
-            if (getIsSelf()) {
-                com.baidu.tbadk.getUserInfo.b.Ag().a(this.mUserData);
+            ArrayList<IconData> tShowInfo = userData.getTShowInfo();
+            if (tShowInfo != null && tShowInfo.size() > 0) {
+                this.cmE.setVisibility(0);
+                this.cmE.a(tShowInfo, tShowInfo.size(), this.cjU.getResources().getDimensionPixelSize(i.d.ds34), this.cjU.getResources().getDimensionPixelSize(i.d.ds34), this.cjU.getResources().getDimensionPixelSize(i.d.ds10), true);
+            } else {
+                this.cmE.setVisibility(8);
             }
-            UserData userData = this.mUserData;
-            if (userData != null) {
-                k(userData);
+            String name_show = userData.getName_show();
+            String str = com.baidu.tbadk.util.k.fB(name_show) > 14 ? String.valueOf(com.baidu.tbadk.util.k.f(name_show, 0, 14)) + "..." : name_show;
+            int isMem = userData.getIsMem();
+            if (!TextUtils.isEmpty(str)) {
+                this.bYb.setText(str);
+                if (isMem != 0) {
+                    al.b(this.bYb, i.c.cp_other_b, 1);
+                }
             }
-            AntiData aaH = aaH();
-            if (aaH != null) {
-                a(aaH);
+            int sex = userData.getSex();
+            if (sex == 1) {
+                al.i(this.cmF, i.e.icon_pop_boy);
+            } else if (sex == 2) {
+                al.i(this.cmF, i.e.icon_pop_girl);
+            } else {
+                this.cmF.setVisibility(8);
             }
-            this.mLoadDataCallBack.c(true);
-            return;
-        }
-        if (z3) {
-            setErrorString(str);
-        }
-        this.mLoadDataCallBack.c(false);
-    }
-
-    public void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        if (profileHttpResponseMessage != null) {
-            try {
-                if (this.mUserData == null) {
-                    this.mUserData = new UserData();
-                }
-                this.mUserData.parserProtobuf(profileHttpResponseMessage.GetUser());
-                if (this.bWD == null) {
-                    this.bWD = new PersonTainInfo();
-                }
-                this.bWD.parseProto(profileHttpResponseMessage.GetTainfo());
-                if (this.bJV == null) {
-                    this.bJV = new AntiData();
-                }
-                this.bJV.parserProtobuf(profileHttpResponseMessage.GetAntiStat());
-                this.bJV.setUser_id(this.mUserData.getUserId());
-                this.bJV.setUser_name(this.mUserData.getUserName());
-                this.bWC.clear();
-                List<PostInfoList> GetPostList = profileHttpResponseMessage.GetPostList();
-                if (GetPostList != null) {
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 < GetPostList.size()) {
-                            PersonInfoPostList personInfoPostList = new PersonInfoPostList();
-                            personInfoPostList.parseProto(GetPostList.get(i2));
-                            this.bWC.add(personInfoPostList);
-                            i = i2 + 1;
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            String tb_age = userData.getTb_age();
+            if (!TextUtils.isEmpty(name_show)) {
+                this.cmH.setText(String.valueOf(tb_age) + this.cjU.getResources().getString(i.C0057i.user_info_center_head_viewpager_tb_age));
             }
+            this.cmI.a(userData.getIconInfo(), 9, this.cjU.getResources().getDimensionPixelSize(i.d.ds34), this.cjU.getResources().getDimensionPixelSize(i.d.ds34), this.cjU.getResources().getDimensionPixelSize(i.d.ds10), true);
+            if (userData.getHave_attention() == 1) {
+                this.cmJ.setText(i.C0057i.attention_cancel);
+            } else {
+                this.cmJ.setText(i.C0057i.attention);
+            }
+            g(userData);
         }
     }
 
-    public void b(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        if (profileSocketResponseMessage != null) {
-            try {
-                if (this.mUserData == null) {
-                    this.mUserData = new UserData();
-                }
-                this.mUserData.parserProtobuf(profileSocketResponseMessage.GetUser());
-                if (this.bWD == null) {
-                    this.bWD = new PersonTainInfo();
-                }
-                this.bWD.parseProto(profileSocketResponseMessage.GetTainfo());
-                if (this.bJV == null) {
-                    this.bJV = new AntiData();
-                }
-                this.bJV.parserProtobuf(profileSocketResponseMessage.GetAntiStat());
-                this.bJV.setUser_id(this.mUserData.getUserId());
-                this.bJV.setUser_name(this.mUserData.getUserName());
-                this.bWC.clear();
-                List<PostInfoList> GetPostList = profileSocketResponseMessage.GetPostList();
-                if (GetPostList != null) {
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 < GetPostList.size()) {
-                            PersonInfoPostList personInfoPostList = new PersonInfoPostList();
-                            personInfoPostList.parseProto(GetPostList.get(i2));
-                            this.bWC.add(personInfoPostList);
-                            i = i2 + 1;
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    private void g(UserData userData) {
+        if (userData.getIsOfficialAccount() == 1) {
+            this.cmJ.setVisibility(8);
+            this.cmM.setVisibility(8);
+            this.cmK.setVisibility(8);
+            this.cmO.setVisibility(8);
         }
+    }
+
+    public LinearLayout ahq() {
+        return this.cmO;
+    }
+
+    public TextView ahr() {
+        return this.cmJ;
+    }
+
+    public UserIconBox ahs() {
+        return this.cmE;
+    }
+
+    public View getRootView() {
+        return this.mRootView;
     }
 }

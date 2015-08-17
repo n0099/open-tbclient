@@ -1,23 +1,37 @@
 package com.baidu.tieba.write.selectpoi;
 
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
-    final /* synthetic */ SearchLocationActivity czQ;
+public class e implements TextWatcher {
+    final /* synthetic */ SearchLocationActivity cRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SearchLocationActivity searchLocationActivity) {
-        this.czQ = searchLocationActivity;
+        this.cRE = searchLocationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!com.baidu.adp.lib.util.n.isNetOk()) {
-            this.czQ.showToast(t.no_network_guide);
-        } else if (!StringUtils.isNull(this.czQ.ahN())) {
-            this.czQ.asp();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        TextView textView;
+        TextView textView2;
+        if (StringUtils.isNull(this.cRE.aka())) {
+            textView2 = this.cRE.cRA;
+            textView2.setEnabled(false);
+            return;
         }
+        textView = this.cRE.cRA;
+        textView.setEnabled(true);
     }
 }

@@ -10,12 +10,14 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
+    public static final int NEW_PHOTO_LIVE = 4;
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
     public static final int SHARE_SDK = 3;
     public static int SHARE_SDK_LOCAL_IMAGE = 1;
     public static int SHARE_SDK_NET_IMAGE = 0;
     public static final String THREAD_TYPE_LBS = "7";
+    public static final int UPDATE_PHOTO_LIVE = 5;
     private WriteImagesInfo baobaoImagesInfo;
     private boolean isAd;
     private boolean isBabaoPosted;
@@ -55,6 +57,8 @@ public class WriteData implements Serializable {
     private String mVcodeMD5;
     private String mVcodeUrl;
     private String mVoiceMd5;
+    private PhotoUrlData photoLiveCoverUlrData;
+    private VideoInfo videoInfo;
     private WriteImagesInfo writeImagesInfo;
 
     public boolean isBabaoPosted() {
@@ -104,10 +108,13 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (com.baidu.adp.lib.util.m.isEmpty(this.mContent) && com.baidu.adp.lib.util.m.isEmpty(this.mTitle)) {
+        if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
-                    return this.liveCardData != null && this.liveCardData.isModifyTime();
+                    if (this.liveCardData == null || !this.liveCardData.isModifyTime()) {
+                        return (this.videoInfo != null && this.videoInfo.isAvaliable()) || this.photoLiveCoverUlrData != null;
+                    }
+                    return true;
                 }
                 return true;
             }
@@ -130,8 +137,14 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo != null) {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
+            if (this.videoInfo != null) {
+                jSONObject.put(VideoInfo.DRAFT_JSON_NAME, this.videoInfo.toJsonObject());
+            }
             if (this.baobaoImagesInfo != null) {
                 jSONObject.put("baobaoImagesInfo", this.baobaoImagesInfo.toJson());
+            }
+            if (this.photoLiveCoverUlrData != null) {
+                jSONObject.put("photoLiveCoverUlrData", this.photoLiveCoverUlrData.toJson());
             }
         } catch (Exception e) {
         }
@@ -139,7 +152,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (com.baidu.adp.lib.util.m.isEmpty(str)) {
+        if (com.baidu.adp.lib.util.j.isEmpty(str)) {
             return null;
         }
         try {
@@ -155,15 +168,25 @@ public class WriteData implements Serializable {
                 writeData.liveCardData = new LiveCardData();
                 writeData.liveCardData.parseDraftJson(optJSONObject);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("writeImagesInfo");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(VideoInfo.DRAFT_JSON_NAME);
             if (optJSONObject2 != null) {
-                writeData.writeImagesInfo = new WriteImagesInfo();
-                writeData.writeImagesInfo.parseJson(optJSONObject2);
+                writeData.videoInfo = new VideoInfo();
+                writeData.videoInfo.parseJsonObject(optJSONObject2);
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("baobaoImagesInfo");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("writeImagesInfo");
             if (optJSONObject3 != null) {
+                writeData.writeImagesInfo = new WriteImagesInfo();
+                writeData.writeImagesInfo.parseJson(optJSONObject3);
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("baobaoImagesInfo");
+            if (optJSONObject4 != null) {
                 writeData.baobaoImagesInfo = new WriteImagesInfo();
-                writeData.baobaoImagesInfo.parseJson(optJSONObject3);
+                writeData.baobaoImagesInfo.parseJson(optJSONObject4);
+            }
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("photoLiveCoverUlrData");
+            if (optJSONObject5 != null) {
+                writeData.photoLiveCoverUlrData = new PhotoUrlData();
+                writeData.photoLiveCoverUlrData.parseJson(optJSONObject5);
             }
             return writeData;
         } catch (Exception e) {
@@ -307,6 +330,14 @@ public class WriteData implements Serializable {
         return this.mIsBaobao;
     }
 
+    public PhotoUrlData getPhotoLiveCoverUlrData() {
+        return this.photoLiveCoverUlrData;
+    }
+
+    public void setPhotoLiveCoverUlrData(PhotoUrlData photoUrlData) {
+        this.photoLiveCoverUlrData = photoUrlData;
+    }
+
     public void setVoice(String str) {
         if (str != null && this.mVoiceMd5 != null) {
             if (!str.equals(this.mVoiceMd5)) {
@@ -336,6 +367,14 @@ public class WriteData implements Serializable {
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         this.writeImagesInfo = writeImagesInfo;
+    }
+
+    public void setVideoInfo(VideoInfo videoInfo) {
+        this.videoInfo = videoInfo;
+    }
+
+    public VideoInfo getVideoInfo() {
+        return this.videoInfo;
     }
 
     public WriteImagesInfo getBaobaoImagesInfo() {
@@ -369,7 +408,7 @@ public class WriteData implements Serializable {
                 int i3 = 0;
                 while (i3 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i3);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.m.isEmpty(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.j.isEmpty(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -389,7 +428,7 @@ public class WriteData implements Serializable {
                 int i4 = 0;
                 while (i4 < chosedFiles2.size()) {
                     ImageFileInfo imageFileInfo2 = chosedFiles2.get(i4);
-                    if (imageFileInfo2.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.m.isEmpty(imageFileInfo2.getFilePath())) {
+                    if (imageFileInfo2.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.j.isEmpty(imageFileInfo2.getFilePath())) {
                         File file2 = new File(imageFileInfo2.getFilePath());
                         if (file2.exists()) {
                             file2.delete();

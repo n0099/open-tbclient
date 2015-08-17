@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import com.baidu.tbadk.game.GameInfoData;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
@@ -16,7 +15,7 @@ public class MD5Util {
                 hexString = hexString.toUpperCase();
             }
             if (hexString.length() == 1) {
-                sb.append(GameInfoData.NOT_FROM_DETAIL);
+                sb.append("0");
             }
             sb.append(hexString).append(str);
         }

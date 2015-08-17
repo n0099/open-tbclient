@@ -35,7 +35,7 @@ public class AccessibilityServiceInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityServiceInfoStubImpl implements AccessibilityServiceInfoVersionImpl {
+    static class AccessibilityServiceInfoStubImpl implements AccessibilityServiceInfoVersionImpl {
         AccessibilityServiceInfoStubImpl() {
         }
 
@@ -71,7 +71,7 @@ public class AccessibilityServiceInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityServiceInfoIcsImpl extends AccessibilityServiceInfoStubImpl {
+    static class AccessibilityServiceInfoIcsImpl extends AccessibilityServiceInfoStubImpl {
         AccessibilityServiceInfoIcsImpl() {
         }
 
@@ -107,7 +107,7 @@ public class AccessibilityServiceInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityServiceInfoJellyBeanMr2 extends AccessibilityServiceInfoIcsImpl {
+    static class AccessibilityServiceInfoJellyBeanMr2 extends AccessibilityServiceInfoIcsImpl {
         AccessibilityServiceInfoJellyBeanMr2() {
         }
 

@@ -1,21 +1,25 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements Runnable {
+public class k extends CustomMessageListener {
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(NetModel netModel) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(NetModel netModel, int i) {
+        super(i);
         this.this$0 = netModel;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbPageContext tbPageContext;
-        NetModel netModel = this.this$0;
-        tbPageContext = this.this$0.mPageContext;
-        netModel.r(-1, tbPageContext.getString(com.baidu.tieba.t.neterror));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            this.this$0.avw = com.baidu.adp.lib.util.i.iO();
+        }
     }
 }

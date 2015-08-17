@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private final Map<String, String> Nr = new HashMap(20);
+    private final Map<String, String> Sb = new HashMap(20);
     private String content = "";
 
-    public String pk() {
+    public String ql() {
         StringBuilder sb = new StringBuilder();
         sb.append("HTTP/");
         sb.append("1.0");
@@ -16,7 +16,7 @@ public class c {
         sb.append(" ");
         sb.append("ok");
         sb.append("\n");
-        for (Map.Entry<String, String> entry : this.Nr.entrySet()) {
+        for (Map.Entry<String, String> entry : this.Sb.entrySet()) {
             if (entry != null) {
                 String key = entry.getKey();
                 String value = entry.getValue();
@@ -41,7 +41,7 @@ public class c {
 
     public void S(String str, String str2) {
         if (str != null && str2 != null) {
-            this.Nr.put(str, str2);
+            this.Sb.put(str, str2);
         }
     }
 }

@@ -1,37 +1,27 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa {
-    NoDataViewFactory.ImgType ZE = NoDataViewFactory.ImgType.NONE;
-    int ZF = -1;
-    int Zy = -1;
-    int mHeight = -1;
-    int mWidth = -1;
+public class aa extends CustomMessageListener {
+    final /* synthetic */ z afj;
 
-    private aa() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(z zVar, int i) {
+        super(i);
+        this.afj = zVar;
     }
 
-    public static aa a(NoDataViewFactory.ImgType imgType, int i) {
-        aa aaVar = new aa();
-        aaVar.ZE = imgType;
-        aaVar.ZF = i;
-        return aaVar;
-    }
-
-    public static aa a(NoDataViewFactory.ImgType imgType, int i, int i2, int i3, int i4) {
-        aa aaVar = new aa();
-        aaVar.ZE = imgType;
-        aaVar.Zy = i;
-        aaVar.ZF = i2;
-        aaVar.mHeight = i3;
-        aaVar.mWidth = i4;
-        return aaVar;
-    }
-
-    public static aa a(NoDataViewFactory.ImgType imgType) {
-        aa aaVar = new aa();
-        aaVar.ZE = imgType;
-        return aaVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        z = this.afj.afg;
+        if (z) {
+            this.afj.cG(TbadkCoreApplication.m411getInst().getSkinType());
+        }
     }
 }

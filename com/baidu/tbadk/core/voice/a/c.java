@@ -4,22 +4,22 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.f.g;
+import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.httpNet.h;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.httpNet.i;
+import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.resourceLoaderProc.d;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class c implements g<a> {
-    @Override // com.baidu.adp.lib.f.g
-    public boolean ho() {
+public class c implements e<a> {
+    @Override // com.baidu.adp.lib.f.e
+    public boolean hf() {
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.g
+    @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
@@ -29,21 +29,21 @@ public class c implements g<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.vx = dVar;
+            aVar.vt = dVar;
         }
-        diskFileOperate.fr();
+        diskFileOperate.fn();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String fJ = diskFileOperate.fJ();
+        String fE = diskFileOperate.fE();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = fJ;
+        aVar2.path = fE;
         return aVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.g
+    @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         String str3;
@@ -53,40 +53,40 @@ public class c implements g<a> {
             str4 = String.valueOf(objArr[0]);
         }
         a aVar2 = new a();
-        h hVar = new h();
+        i iVar = new i();
         if (aVar != null) {
-            aVar.vx = hVar;
+            aVar.vt = iVar;
         }
-        byte[] dj = hVar.dj(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!hVar.ub()) {
+        byte[] dk = iVar.dk(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!iVar.vf()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = l.getString(t.neterror);
+            aVar2.error_msg = l.getString(i.C0057i.neterror);
             return aVar2;
-        } else if (dj == null || dj.length == 0) {
+        } else if (dk == null || dk.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = l.getString(t.voice_cache_error_no_file);
+            aVar2.error_msg = l.getString(i.C0057i.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dj == null || dj.length == 0) {
+            } else if (dk == null || dk.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.o(false);
-                diskFileOperate.setData(dj);
+                diskFileOperate.setData(dk);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.vx = dVar;
+                    aVar.vt = dVar;
                 }
-                diskFileOperate.fr();
-                if (diskFileOperate.isSuccess() && diskFileOperate.fF() != null) {
-                    str5 = diskFileOperate.fF().getAbsolutePath();
+                diskFileOperate.fn();
+                if (diskFileOperate.isSuccess() && diskFileOperate.fB() != null) {
+                    str5 = diskFileOperate.fB().getAbsolutePath();
                     i3 = 0;
-                } else if (o.su() < dj.length) {
+                } else if (n.tB() < dk.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,28 +97,28 @@ public class c implements g<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.cA(i3);
+                aVar2.error_msg = a.cJ(i3);
             }
             return aVar2;
         }
     }
 
-    @Override // com.baidu.adp.lib.f.g
+    @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
     }
 
-    @Override // com.baidu.adp.lib.f.g
-    public BdAsyncTaskParallel hp() {
+    @Override // com.baidu.adp.lib.f.e
+    public BdAsyncTaskParallel hg() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.f.g
-    public int hq() {
+    @Override // com.baidu.adp.lib.f.e
+    public int hh() {
         return 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.g
+    @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public a c(String str, String str2, Object... objArr) {
         return null;

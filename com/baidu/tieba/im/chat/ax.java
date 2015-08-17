@@ -1,5 +1,18 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ax {
-    void onFirstHistoryPageLoaded();
+public class ax implements View.OnClickListener {
+    final /* synthetic */ as boC;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(as asVar) {
+        this.boC = asVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.boC.bnV.onItemViewClick(view, 4, this.boC.anz, 0L);
+    }
 }

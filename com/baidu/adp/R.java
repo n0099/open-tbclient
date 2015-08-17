@@ -3,15 +3,13 @@ package com.baidu.adp;
 public final class R {
 
     /* loaded from: classes.dex */
-    public final class anim {
+    public static final class anim {
         public static final int adp_down_to_up = 0x7f040000;
         public static final int adp_up_to_down = 0x7f040001;
-        public static final int base_slide_right_in = 0x7f040003;
-        public static final int base_slide_right_out = 0x7f040004;
     }
 
     /* loaded from: classes.dex */
-    public final class attr {
+    public static final class attr {
         public static final int adjustViewBounds = 0x7f01000b;
         public static final int adpFooterDurationTime = 0x7f010017;
         public static final int adpFooterNeedRefreshDelta = 0x7f010014;
@@ -73,68 +71,65 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class color {
+    public static final class color {
         public static final int swipe_layout_night_bg = 0x7f070001;
         public static final int swipe_layout_normal_bg = 0x7f070000;
         public static final int transparent = 0x7f070002;
     }
 
     /* loaded from: classes.dex */
-    public final class dimen {
+    public static final class dimen {
         public static final int adp_foot_need_refresh_delta = 0x7f080001;
         public static final int adp_head_need_refresh_delta = 0x7f080000;
         public static final int adp_head_view_height = 0x7f080002;
     }
 
     /* loaded from: classes.dex */
-    public final class drawable {
-        public static final int adp_down_arrow = 0x7f020004;
-        public static final int bg_game_switch_close = 0x7f020171;
-        public static final int bg_game_switch_open = 0x7f020175;
-        public static final int btn_game_handle = 0x7f020325;
-        public static final int icon_gif = 0x7f0206f0;
-        public static final int listview_pull_refresh01 = 0x7f020a3b;
-        public static final int listview_pull_refresh02 = 0x7f020a3d;
-        public static final int pull_icon = 0x7f020b2f;
-        public static final int pull_loading = 0x7f020b30;
-        public static final int pull_progressbar = 0x7f020b31;
+    public static final class drawable {
+        public static final int adp_down_arrow = 0x7f020005;
+        public static final int bg_switch_close = 0x7f020213;
+        public static final int bg_switch_open = 0x7f020214;
+        public static final int btn_handle = 0x7f020338;
+        public static final int icon_gif = 0x7f0206fe;
+        public static final int listview_pull_refresh01 = 0x7f020aa5;
+        public static final int listview_pull_refresh02 = 0x7f020aa7;
     }
 
     /* loaded from: classes.dex */
-    public final class id {
+    public static final class id {
         public static final int both = 0x7f060005;
         public static final int common = 0x7f060000;
         public static final int disabled = 0x7f060002;
-        public static final int foot_layout_progress = 0x7f060307;
-        public static final int foot_layout_text = 0x7f060306;
-        public static final int foot_ly = 0x7f060309;
-        public static final int head_layout_left_arrow = 0x7f060304;
-        public static final int head_layout_left_progressbar = 0x7f060305;
-        public static final int head_layout_refresh_time = 0x7f060303;
-        public static final int head_layout_title = 0x7f060302;
-        public static final int head_ly = 0x7f060308;
-        public static final int head_text_container = 0x7f060301;
+        public static final int foot_layout_progress = 0x7f06031d;
+        public static final int foot_layout_text = 0x7f06031c;
+        public static final int foot_ly = 0x7f06031f;
+        public static final int head_layout_left_arrow = 0x7f06031a;
+        public static final int head_layout_left_progressbar = 0x7f06031b;
+        public static final int head_layout_refresh_time = 0x7f060319;
+        public static final int head_layout_title = 0x7f060318;
+        public static final int head_ly = 0x7f06031e;
+        public static final int head_text_container = 0x7f060317;
         public static final int manualOnly = 0x7f060006;
         public static final int pullFromEnd = 0x7f060004;
         public static final int pullFromStart = 0x7f060003;
-        public static final int pull_content = 0x7f060c68;
-        public static final int pull_image = 0x7f060c67;
-        public static final int pull_root = 0x7f060c66;
-        public static final int pull_text = 0x7f060c69;
-        public static final int pull_time = 0x7f060c6a;
+        public static final int pull_content = 0x7f060cc0;
+        public static final int pull_image = 0x7f060cbf;
+        public static final int pull_root = 0x7f060cbe;
+        public static final int pull_text = 0x7f060cc1;
+        public static final int pull_time = 0x7f060cc2;
         public static final int shader = 0x7f060001;
     }
 
     /* loaded from: classes.dex */
-    public final class layout {
+    public static final class layout {
         public static final int adp_default_header_layout = 0x7f030023;
         public static final int adp_detault_footer_layout = 0x7f030024;
         public static final int adp_pull_refresh_scroll_view = 0x7f030025;
-        public static final int pull_view = 0x7f03025d;
+        public static final int pull_view = 0x7f030256;
     }
 
     /* loaded from: classes.dex */
-    public final class string {
+    public static final class string {
         public static final int FileWriteError = 0x7f090020;
         public static final int Waiting = 0x7f090010;
         public static final int adp_label_name = 0x7f090000;
@@ -160,8 +155,23 @@ public final class R {
         public static final int item_open = 0x7f090006;
         public static final int lcsReOnlineSucc = 0x7f090021;
         public static final int load_res_failed = 0x7f090023;
+        public static final int location_all_offline = 0x7f09003c;
+        public static final int location_gps_offline = 0x7f09003a;
+        public static final int location_net_offline = 0x7f09003b;
+        public static final int location_out_time = 0x7f09003d;
         public static final int memoryerror = 0x7f09001d;
         public static final int neterror = 0x7f09001c;
+        public static final int plugin_tip_installing = 0x7f090030;
+        public static final int pluginstatus_btn_restartapp = 0x7f090038;
+        public static final int pluginstatus_click_detail = 0x7f090039;
+        public static final int pluginstatus_resolve_need_restart = 0x7f090034;
+        public static final int pluginstatus_resolve_rom_too_small = 0x7f090032;
+        public static final int pluginstatus_resolve_unknown = 0x7f090036;
+        public static final int pluginstatus_tip_need_restart = 0x7f090033;
+        public static final int pluginstatus_tip_rom_too_small = 0x7f090031;
+        public static final int pluginstatus_tip_timeout_last = 0x7f090037;
+        public static final int pluginstatus_tip_title = 0x7f09002f;
+        public static final int pluginstatus_tip_unknown = 0x7f090035;
         public static final int prompt = 0x7f09000d;
         public static final int prompt_close_debug = 0x7f09000e;
         public static final int prompt_switch = 0x7f09000f;
@@ -185,7 +195,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class style {
+    public static final class style {
         public static final int AppBaseTheme = 0x7f0a0000;
         public static final int AppTheme = 0x7f0a0001;
         public static final int swipeback_activity_style = 0x7f0a0003;
@@ -193,7 +203,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class styleable {
+    public static final class styleable {
         public static final int AdpPullToRefreshScrollView_adpFooterDurationTime = 0x00000005;
         public static final int AdpPullToRefreshScrollView_adpFooterNeedRefreshDelta = 0x00000002;
         public static final int AdpPullToRefreshScrollView_adpHeaderDurationTime = 0x00000004;

@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class FrsActivityConfig extends c {
+public class FrsActivityConfig extends IntentConfig {
     public static final String ADD_SEARCH = "add_search";
     public static final String BACK_SPECIAL = "back_special";
     public static final String CONTENT_SHOW = "content_show";

@@ -3,10 +3,25 @@ package com.baidu.ueg.lib;
 import java.nio.charset.Charset;
 /* loaded from: classes.dex */
 public class d {
-    public static final Charset cDV = Charset.forName("ISO-8859-1");
-    public static final Charset cDW = Charset.forName("US-ASCII");
-    public static final Charset cDX = Charset.forName("UTF-16");
-    public static final Charset cDY = Charset.forName("UTF-16BE");
-    public static final Charset cDZ = Charset.forName("UTF-16LE");
-    public static final Charset UTF_8 = Charset.forName("UTF-8");
+    private static byte[] a(String str, Charset charset) {
+        if (str == null) {
+            return null;
+        }
+        return str.getBytes(charset);
+    }
+
+    public static byte[] li(String str) {
+        return a(str, c.UTF_8);
+    }
+
+    private static String a(byte[] bArr, Charset charset) {
+        if (bArr == null) {
+            return null;
+        }
+        return new String(bArr, charset);
+    }
+
+    public static String Y(byte[] bArr) {
+        return a(bArr, c.UTF_8);
+    }
 }

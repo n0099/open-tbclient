@@ -14,7 +14,7 @@ public class ConnectivityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
+    static class BaseConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
         BaseConnectivityManagerCompatImpl() {
         }
 
@@ -35,7 +35,7 @@ public class ConnectivityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    class GingerbreadConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
+    static class GingerbreadConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
         GingerbreadConnectivityManagerCompatImpl() {
         }
 
@@ -46,7 +46,7 @@ public class ConnectivityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    class HoneycombMR2ConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
+    static class HoneycombMR2ConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
         HoneycombMR2ConnectivityManagerCompatImpl() {
         }
 
@@ -57,7 +57,7 @@ public class ConnectivityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    class JellyBeanConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
+    static class JellyBeanConnectivityManagerCompatImpl implements ConnectivityManagerCompatImpl {
         JellyBeanConnectivityManagerCompatImpl() {
         }
 

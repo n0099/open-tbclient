@@ -9,8 +9,6 @@ import java.io.PrintWriter;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes.dex */
 public abstract class AsyncTaskLoader<D> extends Loader<D> {
-    static final boolean DEBUG = false;
-    static final String TAG = "AsyncTaskLoader";
     volatile AsyncTaskLoader<D>.LoadTask mCancellingTask;
     Handler mHandler;
     long mLastLoadCompleteTime;

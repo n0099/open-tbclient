@@ -1,48 +1,77 @@
 package com.baidu.sapi2.utils;
 
-import android.content.Context;
-import com.baidu.sapi2.SapiAccountManager;
-import java.util.ArrayList;
-import java.util.List;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
 public class f {
-    static List<String> b = new ArrayList();
-    static int c;
-    Context a;
+    private static final String a = "UTF-8";
+    private static final String b = "AES/CBC/NoPadding";
+    private static final String c = "AES";
+    private String d;
+    private String e;
+    private String f;
 
-    private void e() {
-        b.clear();
-        b.add(g.c);
-        b.add(g.d);
-        b.add(g.e);
+    public f() {
+        this("AES", "AES/CBC/NoPadding", a);
     }
 
-    public f(Context context) {
-        this.a = context;
-        d();
-        e();
+    public f(String str, String str2) {
+        this(str, str2, a);
     }
 
-    public String a() {
-        String url = SapiAccountManager.getInstance().getSapiConfiguration().environment.getURL();
-        if (c > 0) {
-            if (c > b.size()) {
-                c = 1;
-            }
-            return b.get(c - 1);
+    public f(String str, String str2, String str3) {
+        this.d = a;
+        this.e = "AES/CBC/NoPadding";
+        this.f = "AES";
+        this.f = str;
+        this.e = str2;
+        this.d = str3;
+    }
+
+    public byte[] a(String str, String str2, String str3) {
+        if (str == null || str.length() == 0) {
+            throw new Exception("Empty string");
         }
-        return url;
+        try {
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.d));
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f);
+            Cipher cipher = Cipher.getInstance(this.e);
+            cipher.init(1, secretKeySpec, ivParameterSpec);
+            return cipher.doFinal(a(str).getBytes());
+        } catch (NoSuchAlgorithmException e) {
+            L.e(e);
+            return null;
+        } catch (NoSuchPaddingException e2) {
+            L.e(e2);
+            return null;
+        }
     }
 
-    public void b() {
-        c++;
+    public byte[] a(byte[] bArr, String str, String str2) {
+        if (bArr == null || bArr.length == 0) {
+            throw new Exception("Empty string");
+        }
+        byte[] bArr2 = new byte[0];
+        try {
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
+            Cipher cipher = Cipher.getInstance(this.e);
+            cipher.init(2, secretKeySpec, ivParameterSpec);
+            return cipher.doFinal(bArr);
+        } catch (Throwable th) {
+            L.e(th);
+            return bArr2;
+        }
     }
 
-    public boolean c() {
-        return c >= b.size();
-    }
-
-    public void d() {
-        c = 0;
+    private static String a(String str) {
+        int length = 16 - (str.length() % 16);
+        for (int i = 0; i < length; i++) {
+            str = str + ' ';
+        }
+        return str;
     }
 }

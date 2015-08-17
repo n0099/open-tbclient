@@ -1,42 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.tbadkCore.h.a;
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity bKU;
+class l extends com.baidu.adp.base.g {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        WriteImagesInfo writeImagesInfo;
-        String str;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        eVar.dismiss();
-        this.bKU.KE();
-        if (i == 0) {
-            writeImagesInfo = this.bKU.writeImagesInfo;
-            if (writeImagesInfo.getChosedFiles() != null) {
-                writeImagesInfo2 = this.bKU.writeImagesInfo;
-                int size = writeImagesInfo2.getChosedFiles().size();
-                writeImagesInfo3 = this.bKU.writeImagesInfo;
-                if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
-                    this.bKU.showToast(String.format(this.bKU.getPageContext().getString(com.baidu.tieba.t.editor_mutiiamge_max), 10));
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        cb cbVar;
+        com.baidu.tieba.tbadkCore.h.a aVar;
+        com.baidu.tieba.tbadkCore.h.a aVar2;
+        com.baidu.tieba.tbadkCore.h.a aVar3;
+        bk bkVar;
+        if (obj != null) {
+            aVar2 = this.cbo.caN;
+            switch (aVar2.getLoadDataMode()) {
+                case 0:
+                    bkVar = this.cbo.caL;
+                    bkVar.adK();
+                    this.cbo.a((a.b) obj);
                     return;
-                }
+                case 1:
+                    this.cbo.a((a.d) obj);
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    PbActivity pbActivity = this.cbo;
+                    aVar3 = this.cbo.caN;
+                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
+                    return;
+                case 6:
+                    this.cbo.a((a.f) obj);
+                    return;
+                default:
+                    return;
             }
-            this.bKU.aJS = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.bKU.getPageContext();
-            str = this.bKU.aJS;
-            com.baidu.tbadk.core.util.ax.a(pageContext, str);
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.ax.p(this.bKU.getPageContext().getPageActivity());
         }
+        cbVar = this.cbo.caQ;
+        aVar = this.cbo.caN;
+        cbVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

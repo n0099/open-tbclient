@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
+import com.baidu.tbadk.TbConfig;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class ViewDragHelper {
-    private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
     public static final int DIRECTION_HORIZONTAL = 1;
     public static final int DIRECTION_VERTICAL = 2;
@@ -21,14 +21,11 @@ public class ViewDragHelper {
     public static final int EDGE_BOTTOM = 8;
     public static final int EDGE_LEFT = 1;
     public static final int EDGE_RIGHT = 2;
-    private static final int EDGE_SIZE = 20;
     public static final int EDGE_TOP = 4;
     public static final int INVALID_POINTER = -1;
-    private static final int MAX_SETTLE_DURATION = 600;
     public static final int STATE_DRAGGING = 1;
     public static final int STATE_IDLE = 0;
     public static final int STATE_SETTLING = 2;
-    private static final String TAG = "ViewDragHelper";
     private static final Interpolator sInterpolator = new Interpolator() { // from class: android.support.v4.widget.ViewDragHelper.1
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
@@ -65,7 +62,7 @@ public class ViewDragHelper {
     };
 
     /* loaded from: classes.dex */
-    public abstract class Callback {
+    public static abstract class Callback {
         public abstract boolean tryCaptureView(View view, int i);
 
         public void onViewDragStateChanged(int i) {
@@ -257,7 +254,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, 600);
+        return Math.min(abs, (int) TbConfig.POST_IMAGE_SMALL);
     }
 
     private int clampMag(int i, int i2, int i3) {

@@ -1,29 +1,72 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
-import com.baidu.tieba.im.chat.AbsMsglistView;
-import com.baidu.tieba.im.chat.ax;
-import com.baidu.tieba.im.model.MsglistModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class r implements ax {
-    final /* synthetic */ FloatingPersonalChatActivity buK;
+class r extends CustomMessageListener {
+    final /* synthetic */ FloatingPersonalChatActivity bIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.buK = floatingPersonalChatActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
+        super(i);
+        this.bIA = floatingPersonalChatActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.ax
-    public void onFirstHistoryPageLoaded() {
-        String str;
-        AbsMsglistView absMsglistView;
-        MsglistModel msglistModel;
-        str = this.buK.ase;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(str, 2)));
-        absMsglistView = this.buK.mListView;
-        msglistModel = this.buK.mListModel;
-        absMsglistView.refreshGo2New(msglistModel.getData());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo p;
+        FloatingPersonalChatView floatingPersonalChatView;
+        FloatingPersonalChatView floatingPersonalChatView2;
+        FloatingPersonalChatView floatingPersonalChatView3;
+        FloatingPersonalChatView floatingPersonalChatView4;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
+            String cmd = p.getCmd();
+            if (!TextUtils.isEmpty(cmd)) {
+                String content = p.getContent();
+                if (!TextUtils.isEmpty(content)) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
+                        if (optJSONObject != null) {
+                            long optLong = optJSONObject.optLong("user_id");
+                            if (optLong != 0) {
+                                if (!cmd.equals("apply_new_friend")) {
+                                    if (!cmd.equals("passed_new_friend")) {
+                                        if (!cmd.equals("apply_reply_message")) {
+                                            if (!cmd.equals("apply_add_friend")) {
+                                                if (!cmd.equals("apply_pass_friend")) {
+                                                    return;
+                                                }
+                                                floatingPersonalChatView = this.bIA.bIy;
+                                                floatingPersonalChatView.c(optLong, 3);
+                                                return;
+                                            }
+                                            floatingPersonalChatView2 = this.bIA.bIy;
+                                            floatingPersonalChatView2.c(optLong, 2);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    floatingPersonalChatView3 = this.bIA.bIy;
+                                    floatingPersonalChatView3.c(optLong, 3);
+                                    return;
+                                }
+                                floatingPersonalChatView4 = this.bIA.bIy;
+                                floatingPersonalChatView4.c(optLong, 4);
+                            }
+                        }
+                    } catch (JSONException e) {
+                        BdLog.i(e.getMessage());
+                    }
+                }
+            }
+        }
     }
 }

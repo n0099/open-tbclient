@@ -1,36 +1,22 @@
 package com.baidu.tbadk.core.util;
-
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai {
-    private static ArrayList<aj> Vj = new ArrayList<>();
-    public static AtomicInteger Vk = new AtomicInteger(0);
+public class ai implements Runnable {
+    final /* synthetic */ ae aaF;
+    private final /* synthetic */ String aaG;
+    private final /* synthetic */ String aaJ;
+    private final /* synthetic */ int aaK;
 
-    public static int cb(int i) {
-        return Vk.getAndSet(i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ae aeVar, String str, String str2, int i) {
+        this.aaF = aeVar;
+        this.aaJ = str;
+        this.aaG = str2;
+        this.aaK = i;
     }
 
-    public static int cc(int i) {
-        return Vk.addAndGet(i);
-    }
-
-    public static synchronized void a(aj ajVar) {
-        synchronized (ai.class) {
-            if (ajVar != null) {
-                if (Vj.size() <= 20) {
-                    Vj.add(ajVar);
-                }
-            }
-        }
-    }
-
-    public static synchronized aj tl() {
-        aj remove;
-        synchronized (ai.class) {
-            int size = Vj.size();
-            remove = size > 0 ? Vj.remove(size - 1) : null;
-        }
-        return remove;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.aaF.d(this.aaJ, this.aaG, this.aaK);
     }
 }

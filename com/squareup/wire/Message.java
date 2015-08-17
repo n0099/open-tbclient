@@ -336,10 +336,13 @@ public abstract class Message {
     }
 
     /* loaded from: classes.dex */
-    public abstract class Builder<T extends Message> {
+    public static abstract class Builder<T extends Message> {
         UnknownFieldMap unknownFieldMap;
 
         public abstract T build(boolean z);
+
+        public Builder() {
+        }
 
         public Builder(Message message) {
             if (message != null && message.unknownFields != null) {

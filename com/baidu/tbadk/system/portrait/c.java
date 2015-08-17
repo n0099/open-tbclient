@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ ChangeSystemPhotoActivity arP;
+    final /* synthetic */ ChangeSystemPhotoActivity ayX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.arP = changeSystemPhotoActivity;
+        this.ayX = changeSystemPhotoActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,12 +17,12 @@ public class c implements View.OnClickListener {
         int i;
         ArrayList arrayList;
         int i2;
-        i = this.arP.arK;
+        i = this.ayX.ayR;
         if (i != -1) {
-            ChangeSystemPhotoActivity changeSystemPhotoActivity = this.arP;
-            arrayList = this.arP.arJ;
-            i2 = this.arP.arK;
-            changeSystemPhotoActivity.a((k) arrayList.get(i2));
+            ChangeSystemPhotoActivity changeSystemPhotoActivity = this.ayX;
+            arrayList = this.ayX.ayQ;
+            i2 = this.ayX.ayR;
+            changeSystemPhotoActivity.a((i) arrayList.get(i2));
         }
     }
 }

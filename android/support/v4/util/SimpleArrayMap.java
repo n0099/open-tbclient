@@ -3,10 +3,6 @@ package android.support.v4.util;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class SimpleArrayMap<K, V> {
-    private static final int BASE_SIZE = 4;
-    private static final int CACHE_SIZE = 10;
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ArrayMap";
     static Object[] mBaseCache;
     static int mBaseCacheSize;
     static Object[] mTwiceBaseCache;

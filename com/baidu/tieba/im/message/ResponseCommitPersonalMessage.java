@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.adp.lib.stats.a;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 /* loaded from: classes.dex */
@@ -31,15 +32,18 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         CommitPersonalMsgResIdl commitPersonalMsgResIdl = (CommitPersonalMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPersonalMsgResIdl.class);
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (getError() == 0) {
+            if (commitPersonalMsgResIdl.data == null) {
+                a.hk().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+            }
             long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(com.baidu.tieba.im.util.h.ag(longValue));
+            setMsgId(com.baidu.tieba.im.util.g.ap(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

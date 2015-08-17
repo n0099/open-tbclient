@@ -4,36 +4,36 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private int aif = 0;
-    private int aig = 0;
+    private int anl = 0;
+    private int anm = 0;
     private int fans = 0;
     private int chat = 0;
-    private int aih = 0;
+    private int bookmark = 0;
 
-    public int yK() {
-        return this.aif;
+    public int zU() {
+        return this.anl;
     }
 
-    public int yL() {
-        return this.aig;
+    public int zV() {
+        return this.anm;
     }
 
-    public int yM() {
+    public int zW() {
         return this.fans;
     }
 
-    public int yN() {
-        return this.aih;
+    public int zX() {
+        return this.bookmark;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aif = jSONObject.optInt("replyme", 0);
-                this.aig = jSONObject.optInt("atme", 0);
+                this.anl = jSONObject.optInt("replyme", 0);
+                this.anm = jSONObject.optInt("atme", 0);
                 this.fans = jSONObject.optInt("fans", 0);
                 this.chat = jSONObject.optInt("pletter", 0);
-                this.aih = jSONObject.optInt("bookmark", 0);
+                this.bookmark = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

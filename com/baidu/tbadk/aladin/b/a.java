@@ -13,11 +13,11 @@ public class a {
         if (intent != null) {
             String stringExtra = intent.getStringExtra("type");
             if (stringExtra == null) {
-                if (com.baidu.tbadk.core.c.b.se() != null) {
+                if (com.baidu.tbadk.core.c.b.tl() != null) {
                     return true;
                 }
             } else if (stringExtra.equals("web")) {
-                if (!TextUtils.isEmpty(intent.getStringExtra(ImageViewerConfig.URL))) {
+                if (!TextUtils.isEmpty(intent.getStringExtra("url"))) {
                     return true;
                 }
             } else if (stringExtra.equals("pb")) {

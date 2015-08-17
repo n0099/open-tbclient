@@ -1,24 +1,17 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard agj;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(LiveBroadcastCard liveBroadcastCard) {
-        this.agj = liveBroadcastCard;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ah ahVar;
-        ah ahVar2;
-        ahVar = this.agj.mDeleteListener;
-        if (ahVar != null) {
-            ahVar2 = this.agj.mDeleteListener;
-            ahVar2.onDeleteClick(view);
+class ac implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<j> run(CustomMessage<Activity> customMessage) {
+        if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Activity)) {
+            return null;
         }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_LIVE_PLAY_IMAGE, new LivePlayingImageView(customMessage.getData()));
     }
 }

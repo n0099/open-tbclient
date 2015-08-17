@@ -26,9 +26,12 @@ public final class CommitPersonalMsgResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitPersonalMsgResIdl> {
+    public static final class Builder extends Message.Builder<CommitPersonalMsgResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(CommitPersonalMsgResIdl commitPersonalMsgResIdl) {
             super(commitPersonalMsgResIdl);

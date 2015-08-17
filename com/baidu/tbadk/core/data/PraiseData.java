@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.game.GameInfoData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -113,14 +112,14 @@ public class PraiseData extends com.baidu.adp.lib.a.b.a.a.i implements Serializa
         if (zan != null) {
             this.num = zan.num.intValue();
             this.isLike = zan.is_liked.intValue();
-            List<Integer> list = zan.liker_id;
+            List<Long> list = zan.liker_id;
             if (list != null && list.size() > 0) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < list.size()) {
-                        String num = list.get(i2).toString();
-                        if (this.userMap != null && num != null && !num.equals(GameInfoData.NOT_FROM_DETAIL) && (metaData = this.userMap.get(num)) != null) {
+                        String l = list.get(i2).toString();
+                        if (this.userMap != null && l != null && !l.equals("0") && (metaData = this.userMap.get(l)) != null) {
                             this.users.add(metaData);
                         }
                         i = i2 + 1;

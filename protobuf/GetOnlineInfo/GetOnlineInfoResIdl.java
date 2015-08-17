@@ -26,9 +26,12 @@ public final class GetOnlineInfoResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GetOnlineInfoResIdl> {
+    public static final class Builder extends Message.Builder<GetOnlineInfoResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(GetOnlineInfoResIdl getOnlineInfoResIdl) {
             super(getOnlineInfoResIdl);

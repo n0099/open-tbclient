@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.data.a;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import protobuf.GetMaskInfo.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static final int FALSE = 0;
-    private ArrayList<com.baidu.tieba.im.data.a> blackList;
+    private ArrayList<a> blackList;
     private int isMask;
     private String list;
 
@@ -18,7 +19,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         GetMaskInfoResIdl getMaskInfoResIdl = (GetMaskInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMaskInfoResIdl.class);
         setError(getMaskInfoResIdl.error.errorno.intValue());
@@ -31,9 +32,9 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 List<UserInfo> list = getMaskInfoResIdl.data.users;
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
-                    aVar.gQ(list.get(i2).portrait);
-                    aVar.setUserId(list.get(i2).uid.intValue());
+                    a aVar = new a();
+                    aVar.hp(list.get(i2).portrait);
+                    aVar.setUserId(list.get(i2).uid.longValue());
                     aVar.setUserName(list.get(i2).name);
                     this.blackList.add(aVar);
                 }
@@ -53,7 +54,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         return this.list;
     }
 
-    public ArrayList<com.baidu.tieba.im.data.a> getBlackList() {
+    public ArrayList<a> getBlackList() {
         return this.blackList;
     }
 }

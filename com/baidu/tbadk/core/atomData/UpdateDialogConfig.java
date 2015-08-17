@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class UpdateDialogConfig extends c {
+public class UpdateDialogConfig extends IntentConfig {
     public static final String KEY_AS_APK_URL = "as_apk_url";
     public static final String KEY_OTHER_APK_DATA = "other_apk_data";
     public static final String KEY_OTHER_APK_URL = "other_apk_url";
@@ -27,12 +27,12 @@ public class UpdateDialogConfig extends c {
         TbadkCoreApplication.m411getInst().setCombineDownload(combineDownload);
     }
 
-    @Override // com.baidu.tbadk.core.frameworkData.c
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(t.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(i.C0057i.live_error_system_not_support));
         return false;
     }
 }

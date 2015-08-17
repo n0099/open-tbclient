@@ -3,26 +3,35 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> LH;
-    private String aeT;
-    private String aeU;
-    private Button aeV;
-    private TbImageView aeW;
-    private boolean aeX;
-    private float aeY;
-    private boolean aeZ;
-    private b afa;
-    View.OnClickListener afb;
+    private TbPageContext<?> LS;
+    private String aka;
+    private String akb;
+    private Button akc;
+    private TbImageView akd;
+    private boolean ake;
+    private float akf;
+    private boolean akg;
+    private a akh;
+    View.OnClickListener aki;
     private String link;
     private String type;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void yT();
+
+        void yU();
+    }
 
     public void setBannerType(String str) {
         this.type = str;
@@ -30,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeT = "";
-        this.aeU = "";
-        this.aeX = false;
-        this.aeY = 0.1388889f;
-        this.aeZ = false;
-        this.afb = new a(this);
+        this.aka = "";
+        this.akb = "";
+        this.ake = false;
+        this.akf = 0.1388889f;
+        this.akg = false;
+        this.aki = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -44,30 +53,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.bannerview, this);
-        this.aeV = (Button) findViewById(com.baidu.tieba.q.btn_close);
-        this.aeV.setOnClickListener(this.afb);
-        this.aeW = (TbImageView) findViewById(com.baidu.tieba.q.banner_image);
-        this.aeW.setAutoChangeStyle(true);
-        this.aeW.setOnClickListener(this.afb);
+        LayoutInflater.from(context).inflate(i.g.bannerview, this);
+        this.akc = (Button) findViewById(i.f.btn_close);
+        this.akc.setOnClickListener(this.aki);
+        this.akd = (TbImageView) findViewById(i.f.banner_image);
+        this.akd.setAutoChangeStyle(true);
+        this.akd.setOnClickListener(this.aki);
     }
 
-    public void setBannerViewEvent(com.baidu.tbadk.widget.n nVar) {
-        if (this.aeW != null && nVar != null) {
-            this.aeW.setEvent(nVar);
+    public void setBannerViewEvent(TbImageView.a aVar) {
+        if (this.akd != null && aVar != null) {
+            this.akd.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.LH = tbPageContext;
+        this.LS = tbPageContext;
         this.link = str2;
-        this.aeZ = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.akg = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.aeX && this.aeZ) {
-            ViewGroup.LayoutParams layoutParams = this.aeW.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.n.M(getContext()) * this.aeY) + 0.5d);
-            this.aeW.setLayoutParams(layoutParams);
-            this.aeW.a(str, 10, 720, 100, false);
+        if (!this.ake && this.akg) {
+            ViewGroup.LayoutParams layoutParams = this.akd.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.akf) + 0.5d);
+            this.akd.setLayoutParams(layoutParams);
+            this.akd.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -76,20 +85,20 @@ public class BannerView extends RelativeLayout {
         a(tbPageContext, str, "");
     }
 
-    public void setBannerViewClickListener(b bVar) {
-        this.afa = bVar;
+    public void setBannerViewClickListener(a aVar) {
+        this.akh = aVar;
     }
 
-    public boolean xJ() {
-        return this.aeZ;
+    public boolean yS() {
+        return this.akg;
     }
 
     public void reset() {
-        this.aeX = false;
-        this.aeZ = false;
+        this.ake = false;
+        this.akg = false;
     }
 
-    public void oG() {
-        this.aeW.postInvalidate();
+    public void oQ() {
+        this.akd.postInvalidate();
     }
 }

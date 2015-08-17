@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class ImMessageCenterActivityConfig extends c {
+public class ImMessageCenterActivityConfig extends IntentConfig {
     public ImMessageCenterActivityConfig(Context context) {
         super(context);
     }

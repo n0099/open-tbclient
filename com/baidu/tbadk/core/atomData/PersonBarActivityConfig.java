@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PersonBarActivityConfig extends c {
+public class PersonBarActivityConfig extends IntentConfig {
     public static final String BAR_ID = "bar_id";
     public static final String BAR_NAME = "bar_name";
     public static final String IS_CHOOSE_BAR_MODE = "is_choose_bar_mode";

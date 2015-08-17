@@ -5,11 +5,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class h implements bk {
-    @Override // com.baidu.tbadk.core.util.bk
+class h implements ax.a {
+    @Override // com.baidu.tbadk.core.util.ax.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 2 ? strArr[2] : null;
@@ -23,10 +24,10 @@ class h implements bk {
                         }
                         String substring = str.substring(5);
                         if (!TextUtils.isEmpty(substring)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2902028, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring, str2)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_RANK, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring, str2)));
                         }
                     } else {
-                        Static.c(tbPageContext, str.substring(3), tbPageContext.getString(t.kn_zhibo), false, true, false, false);
+                        Static.c(tbPageContext, str.substring(3), tbPageContext.getString(i.C0057i.kn_zhibo), false, true, false, false);
                     }
                 } else {
                     Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);

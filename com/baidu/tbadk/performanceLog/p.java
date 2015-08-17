@@ -1,31 +1,21 @@
 package com.baidu.tbadk.performanceLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.performanceLog.o;
 /* loaded from: classes.dex */
-public class p implements e {
-    final /* synthetic */ n aqh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.aqh = nVar;
-    }
-
-    /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
-    @Override // com.baidu.tbadk.performanceLog.e
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void eU(String str) {
-        String[] strArr;
-        String[] strArr2;
-        int i;
-        for (int i2 = 0; i2 < strArr.length; i2++) {
-            strArr2 = this.aqh.aqc;
-            if (str.contains(strArr2[i2])) {
-                n nVar = this.aqh;
-                i = nVar.apV;
-                nVar.apV = i + 1;
-                return;
-            }
+class p implements CustomMessageTask.CustomRunnable<o.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<o.a> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
+        o.a data = customMessage.getData();
+        data.awM = y.Ee().Eg();
+        data.awN = y.Ee().Ei();
+        data.axi = y.Ee().Eh();
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, data);
     }
 }

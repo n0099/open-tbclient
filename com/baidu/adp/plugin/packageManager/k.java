@@ -1,79 +1,52 @@
 package com.baidu.adp.plugin.packageManager;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.plugin.PluginCenter;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.R;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
-public class k extends BroadcastReceiver {
-    final /* synthetic */ PluginPackageManager this$0;
+class k implements com.baidu.adp.plugin.install.b {
+    final /* synthetic */ j DF;
+    private final /* synthetic */ BdFileDownloadData DG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PluginPackageManager pluginPackageManager) {
-        this.this$0 = pluginPackageManager;
+    public k(j jVar, BdFileDownloadData bdFileDownloadData) {
+        this.DF = jVar;
+        this.DG = bdFileDownloadData;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String str;
-        String str2;
-        boolean z;
-        boolean z2 = true;
-        if (intent != null && "com.baidu.adp.plugin.currentpath".equals(intent.getAction())) {
-            Bundle resultExtras = getResultExtras(true);
-            String str3 = "";
-            if (resultExtras != null) {
-                str3 = resultExtras.getString("package_name");
-            }
-            if (!TextUtils.isEmpty(str3) && resultExtras != null) {
-                str = str3;
-                str2 = resultExtras.getString("current_path");
-            } else if (intent.getExtras() == null) {
-                str = str3;
-                str2 = "";
+    @Override // com.baidu.adp.plugin.install.b
+    public void bd(String str) {
+        PluginPackageManager pluginPackageManager;
+        d dVar;
+        PluginPackageManager pluginPackageManager2;
+        d dVar2;
+        pluginPackageManager = this.DF.this$0;
+        dVar = pluginPackageManager.DA;
+        if (dVar != null) {
+            pluginPackageManager2 = this.DF.this$0;
+            dVar2 = pluginPackageManager2.DA;
+            dVar2.a(this.DG, 0, "");
+        }
+    }
+
+    @Override // com.baidu.adp.plugin.install.b
+    public void C(String str, String str2) {
+        PluginPackageManager pluginPackageManager;
+        d dVar;
+        String str3;
+        PluginPackageManager pluginPackageManager2;
+        d dVar2;
+        pluginPackageManager = this.DF.this$0;
+        dVar = pluginPackageManager.DA;
+        if (dVar != null) {
+            if ("rom_size".equals(str2)) {
+                str3 = BdBaseApplication.getInst().getString(R.string.rom_too_small);
             } else {
-                str = intent.getExtras().getString("package_name");
-                str2 = intent.getExtras().getString("current_path");
+                str3 = "";
             }
-            String str4 = "";
-            if (PluginCenter.getInstance().getPlugin(str) != null) {
-                str4 = PluginCenter.getInstance().getPlugin(str).kx();
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = str4;
-                } else {
-                    String[] split = str2.split(",");
-                    int length = split.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            if (split[i].equals(str4)) {
-                                break;
-                            }
-                            i++;
-                        } else {
-                            z2 = false;
-                            break;
-                        }
-                    }
-                    if (!z2) {
-                        str2 = String.valueOf(str2) + "," + str4;
-                    }
-                }
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("package_name", str);
-            bundle.putString("current_path", str2);
-            setResultExtras(bundle);
-            z = this.this$0.Dx;
-            if (!z) {
-                return;
-            }
-            this.this$0.N(str, str2);
+            pluginPackageManager2 = this.DF.this$0;
+            dVar2 = pluginPackageManager2.DA;
+            dVar2.a(this.DG, -1, str3);
         }
     }
 }

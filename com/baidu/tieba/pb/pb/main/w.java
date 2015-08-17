@@ -1,65 +1,52 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity bKU;
+public class w implements View.OnTouchListener {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        bo boVar;
-        String str5;
-        String str6;
-        String str7;
-        bo boVar2;
-        String str8;
-        if (i == 0) {
-            TiebaStatic.eventStat(this.bKU.getPageContext().getPageActivity(), "pb_phone_call", "call");
-            PbActivity pbActivity = this.bKU;
-            str6 = this.bKU.mPhoneNumber;
-            pbActivity.mPhoneNumber = str6.trim();
-            Activity pageActivity = this.bKU.getPageContext().getPageActivity();
-            str7 = this.bKU.mPhoneNumber;
-            UtilHelper.callPhone(pageActivity, str7);
-            boVar2 = this.bKU.bKw;
-            String abp = boVar2.abp();
-            str8 = this.bKU.mPhoneNumber;
-            new a(abp, str8, "1").start();
-            eVar.dismiss();
-        } else if (i == 1) {
-            TiebaStatic.eventStat(this.bKU.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-            PbActivity pbActivity2 = this.bKU;
-            str3 = this.bKU.mPhoneNumber;
-            pbActivity2.mPhoneNumber = str3.trim();
-            Activity pageActivity2 = this.bKU.getPageContext().getPageActivity();
-            str4 = this.bKU.mPhoneNumber;
-            UtilHelper.smsPhone(pageActivity2, str4);
-            boVar = this.bKU.bKw;
-            String abp2 = boVar.abp();
-            str5 = this.bKU.mPhoneNumber;
-            new a(abp2, str5, "2").start();
-            eVar.dismiss();
-        } else if (i == 2) {
-            PbActivity pbActivity3 = this.bKU;
-            str = this.bKU.mPhoneNumber;
-            pbActivity3.mPhoneNumber = str.trim();
-            Activity pageActivity3 = this.bKU.getPageContext().getPageActivity();
-            str2 = this.bKU.mPhoneNumber;
-            UtilHelper.startBaiDuBar(pageActivity3, str2);
-            eVar.dismiss();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        MorePopupWindow morePopupWindow;
+        MorePopupWindow morePopupWindow2;
+        MorePopupWindow morePopupWindow3;
+        MorePopupWindow morePopupWindow4;
+        MorePopupWindow morePopupWindow5;
+        MorePopupWindow morePopupWindow6;
+        MorePopupWindow morePopupWindow7;
+        MorePopupWindow morePopupWindow8;
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        morePopupWindow = this.cbo.caU;
+        if (morePopupWindow.getContentView() == null) {
+            return false;
         }
+        morePopupWindow2 = this.cbo.caU;
+        int top = morePopupWindow2.getContentView().getTop();
+        morePopupWindow3 = this.cbo.caU;
+        int right = morePopupWindow3.getContentView().getRight();
+        morePopupWindow4 = this.cbo.caU;
+        int bottom = morePopupWindow4.getContentView().getBottom();
+        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
+            morePopupWindow6 = this.cbo.caU;
+            if (morePopupWindow6.isShowing()) {
+                morePopupWindow7 = this.cbo.caU;
+                com.baidu.adp.lib.g.j.a(morePopupWindow7, this.cbo.getPageContext().getPageActivity());
+                morePopupWindow8 = this.cbo.caU;
+                morePopupWindow8.setIsIntercepted(true);
+                return true;
+            }
+        }
+        morePopupWindow5 = this.cbo.caU;
+        morePopupWindow5.setIsIntercepted(false);
+        return false;
     }
 }

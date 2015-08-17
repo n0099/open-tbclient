@@ -1,21 +1,27 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import java.util.LinkedList;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ LinkedList bbW;
-    final /* synthetic */ ab buL;
+public class ac implements View.OnClickListener {
+    final /* synthetic */ FloatingPersonalChatView bIP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar, LinkedList linkedList) {
-        this.buL = abVar;
-        this.bbW = linkedList;
+    public ac(FloatingPersonalChatView floatingPersonalChatView) {
+        this.bIP = floatingPersonalChatView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: FR */
-    public Void doInBackground() {
-        return com.baidu.tieba.im.db.n.RC().j(this.bbW);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        if (view.getTag() instanceof Integer) {
+            int intValue = ((Integer) view.getTag()).intValue();
+            i = this.bIP.currentIndex;
+            if (i == intValue) {
+                this.bIP.Yq();
+            } else {
+                this.bIP.hw(intValue);
+            }
+        }
     }
 }

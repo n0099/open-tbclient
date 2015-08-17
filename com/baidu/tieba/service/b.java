@@ -1,39 +1,20 @@
 package com.baidu.tieba.service;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.aj;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class b extends BroadcastReceiver {
-    final /* synthetic */ AsInstallService this$0;
-
-    private b(AsInstallService asInstallService) {
-        this.this$0 = asInstallService;
-    }
+class b extends Handler {
+    final /* synthetic */ ClearTempService cvb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(AsInstallService asInstallService, b bVar) {
-        this(asInstallService);
+    public b(ClearTempService clearTempService) {
+        this.cvb = clearTempService;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        VersionData versionData;
-        VersionData versionData2;
-        if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
-            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart)) {
-                versionData = this.this$0.mVersionData;
-                if (versionData != null) {
-                    versionData2 = this.this$0.mVersionData;
-                    aj.a(context, versionData2);
-                    TiebaStatic.eventStat(context, "c10007", "click", 1, new Object[0]);
-                }
-            }
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        this.cvb.stopSelf();
+        this.cvb.thread = null;
     }
 }

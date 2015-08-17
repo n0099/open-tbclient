@@ -3,8 +3,11 @@ package com.baidu.tieba.setting.more;
 import android.app.Activity;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class a implements q {
+class a implements r {
     final /* synthetic */ AboutActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,22 +15,22 @@ class a implements q {
         this.this$0 = aboutActivity;
     }
 
-    @Override // com.baidu.tieba.setting.more.q
-    public void iu(int i) {
+    @Override // com.baidu.tieba.setting.more.r
+    public void jo(int i) {
         String str;
         if (i == 0) {
             this.this$0.finish();
         } else if (i != 1) {
             if (i == 2) {
-                this.this$0.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
+                this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.sl().putBoolean(as.cgN, true);
+                com.baidu.tbadk.core.sharedPref.b.ts().putBoolean(ao.cyM, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
-                String string = this.this$0.getPageContext().getString(com.baidu.tieba.t.setting_funtion_intro);
-                str = this.this$0.cey;
+                String string = this.this$0.getPageContext().getString(i.C0057i.setting_funtion_intro);
+                str = this.this$0.cwn;
                 com.baidu.tbadk.browser.f.a(pageActivity, string, str, true, false, false);
             } else if (i == 4) {
-                this.this$0.sendMessage(new CustomMessage(2902050, new com.baidu.tbadk.core.frameworkData.c(this.this$0.getPageContext().getPageActivity())));
+                this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_TRAFFICS_STATS, new IntentConfig(this.this$0.getPageContext().getPageActivity())));
             }
         } else {
             this.this$0.checkUpdata();

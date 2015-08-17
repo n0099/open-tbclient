@@ -2,7 +2,9 @@ package com.baidu.tieba.tblauncher.a;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -14,22 +16,26 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tieba.i;
+import java.util.List;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private TextView bHV;
-    private HeadImageView bWm;
-    private ImageView cwt;
-    private TbImageView cwu;
-    private ImageView cwv;
-    private TbImageView cww;
-    private ListView cwx;
-    private TextView cwy;
-    private TextView cwz;
+    private TextView bYb;
+    private ImageView cMV;
+    private TbImageView cMW;
+    private ImageView cMX;
+    private TbImageView cMY;
+    private ListView cMZ;
+    private TextView cNa;
+    private TextView cNb;
+    private UserIconBox cNc;
+    private HeadImageView cmD;
 
     public c(Context context) {
         this(context, null);
@@ -41,191 +47,210 @@ public class c extends LinearLayout {
     }
 
     private void initUI() {
-        com.baidu.adp.lib.g.b.hr().a(getContext(), r.main_tab_left_navigation, this, true);
+        LayoutInflater.from(getContext()).inflate(i.g.main_tab_left_navigation, (ViewGroup) this, true);
         setOrientation(1);
-        this.bWm = (HeadImageView) findViewById(q.user_head);
-        this.cwt = (ImageView) findViewById(q.user_head_red_tip);
-        this.cwu = (TbImageView) findViewById(q.user_vip_icon);
-        this.cwv = (ImageView) findViewById(q.left_navi_setting_red_tip);
-        this.bHV = (TextView) findViewById(q.user_name);
-        this.cww = (TbImageView) findViewById(q.user_sex);
-        this.cwx = (ListView) findViewById(q.left_navi_listview);
-        this.cwy = (TextView) findViewById(q.left_navi_setting);
-        this.cwz = (TextView) findViewById(q.left_navi_daynight);
-        com.baidu.adp.lib.util.n.a(getContext(), this.cwz, 15, 10, 10, 10);
-        afq();
-        aqz();
-        if (this.cwz != null) {
-            if (!LL()) {
+        this.cmD = (HeadImageView) findViewById(i.f.user_head);
+        this.cMV = (ImageView) findViewById(i.f.user_head_red_tip);
+        this.cMW = (TbImageView) findViewById(i.f.user_vip_icon);
+        this.cMX = (ImageView) findViewById(i.f.left_navi_setting_red_tip);
+        this.bYb = (TextView) findViewById(i.f.user_name);
+        this.cMY = (TbImageView) findViewById(i.f.user_sex);
+        this.cMZ = (ListView) findViewById(i.f.left_navi_listview);
+        this.cNa = (TextView) findViewById(i.f.left_navi_setting);
+        this.cNb = (TextView) findViewById(i.f.left_navi_daynight);
+        this.cNc = (UserIconBox) findViewById(i.f.user_icon);
+        com.baidu.adp.lib.util.k.a(getContext(), this.cNb, 15, 10, 10, 10);
+        ahn();
+        asa();
+        if (this.cNb != null) {
+            if (!MA()) {
                 TbadkCoreApplication.m411getInst().setSkinType(0);
-                this.cwz.setVisibility(8);
+                this.cNb.setVisibility(8);
                 return;
             }
-            this.cwz.setVisibility(0);
+            this.cNb.setVisibility(0);
         }
     }
 
-    public boolean LL() {
-        return MessageManager.getInstance().runTask(2001288, Boolean.class) != null;
+    public boolean MA() {
+        return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
     public void setOnSettingViewClicked(View.OnClickListener onClickListener) {
-        if (this.cwy != null) {
-            this.cwy.setOnClickListener(onClickListener);
+        if (this.cNa != null) {
+            this.cNa.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setUserIconOnClickListener(View.OnClickListener onClickListener) {
+        if (this.cNc != null) {
+            this.cNc.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnDayNightModeViewClicked(View.OnClickListener onClickListener) {
-        if (this.cwz != null) {
-            this.cwz.setOnClickListener(onClickListener);
+        if (this.cNb != null) {
+            this.cNb.setOnClickListener(onClickListener);
         }
     }
 
-    public void setOnVipIconLoadListener(com.baidu.tbadk.widget.n nVar) {
-        if (this.cwu != null) {
-            this.cwu.setEvent(nVar);
+    public void setOnVipIconLoadListener(TbImageView.a aVar) {
+        if (this.cMW != null) {
+            this.cMW.setEvent(aVar);
         }
     }
 
     public void setOnPersonInfoViewClicked(View.OnClickListener onClickListener) {
-        if (this.bWm != null) {
-            this.bWm.setOnClickListener(onClickListener);
+        if (this.cmD != null) {
+            this.cmD.setOnClickListener(onClickListener);
         }
-        if (this.bHV != null) {
-            this.bHV.setOnClickListener(onClickListener);
+        if (this.bYb != null) {
+            this.bYb.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnListItemClicked(AdapterView.OnItemClickListener onItemClickListener) {
-        if (this.cwx != null) {
-            this.cwx.setOnItemClickListener(onItemClickListener);
+        if (this.cMZ != null) {
+            this.cMZ.setOnItemClickListener(onItemClickListener);
         }
     }
 
-    private void afq() {
-        if (this.bWm != null) {
-            this.bWm.setIsRound(true);
-            this.bWm.setDefaultBgResource(0);
-            this.bWm.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.bWm.setDefaultResource(com.baidu.tieba.p.pic_mycenter_avatar_def);
+    private void ahn() {
+        if (this.cmD != null) {
+            this.cmD.setIsRound(true);
+            this.cmD.setDefaultBgResource(0);
+            this.cmD.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 
     public TbImageView getUserHeadView() {
-        return this.bWm;
+        return this.cmD;
     }
 
-    public void ft(boolean z) {
-        if (this.cwu != null) {
+    public void fL(boolean z) {
+        if (this.cMW != null) {
             if (z) {
-                this.cwu.setVisibility(0);
+                this.cMW.setVisibility(0);
             } else {
-                this.cwu.setVisibility(8);
+                this.cMW.setVisibility(8);
             }
         }
     }
 
-    private void aqz() {
-        this.cwu.setGifIconSupport(false);
-        this.cwu.setVisibility(8);
+    private void asa() {
+        this.cMW.setGifIconSupport(false);
+        this.cMW.setVisibility(8);
     }
 
-    public void fu(boolean z) {
-        if (this.cwt != null) {
+    public void fM(boolean z) {
+        if (this.cMV != null) {
             if (z) {
-                ay.c(this.cwt, com.baidu.tieba.p.icon_news_down_bar_one);
-                this.cwt.setVisibility(0);
+                al.c(this.cMV, i.e.icon_news_down_bar_one);
+                this.cMV.setVisibility(0);
                 return;
             }
-            this.cwt.setImageDrawable(null);
-            this.cwt.setVisibility(8);
+            this.cMV.setImageDrawable(null);
+            this.cMV.setVisibility(8);
         }
     }
 
-    public void fv(boolean z) {
-        if (this.cwv != null) {
+    public void fN(boolean z) {
+        if (this.cMX != null) {
             if (z) {
-                ay.c(this.cwv, com.baidu.tieba.p.icon_news_down_bar_one);
-                this.cwv.setVisibility(0);
+                al.c(this.cMX, i.e.icon_news_down_bar_one);
+                this.cMX.setVisibility(0);
                 return;
             }
-            this.cwv.setImageDrawable(null);
-            this.cwv.setVisibility(8);
+            this.cMX.setImageDrawable(null);
+            this.cMX.setVisibility(8);
         }
     }
 
-    public void jN(String str) {
-        if (this.bWm != null && !StringUtils.isNull(str)) {
-            this.bWm.setVisibility(0);
-            this.bWm.c(str, 25, false);
+    public void kG(String str) {
+        if (this.cmD != null && !StringUtils.isNull(str)) {
+            this.cmD.setVisibility(0);
+            this.cmD.d(str, 25, false);
         }
     }
 
-    public void jO(String str) {
-        if (this.cwu != null) {
+    public void kH(String str) {
+        if (this.cMW != null) {
             if (!StringUtils.isNull(str)) {
-                this.cwu.c(str, 21, false);
+                this.cMW.d(str, 21, false);
             } else {
-                this.cwu.setVisibility(8);
+                this.cMW.setVisibility(8);
             }
         }
     }
 
     public void setUserSexIcon(int i) {
-        if (this.cww != null) {
+        if (this.cMY != null) {
             if (i == 1) {
-                this.cww.setVisibility(0);
-                this.cww.setImageResource(com.baidu.tieba.p.icon_pop_boy);
+                this.cMY.setVisibility(0);
+                this.cMY.setImageResource(i.e.icon_pop_boy);
             } else if (i == 2) {
-                this.cww.setVisibility(0);
-                this.cww.setImageResource(com.baidu.tieba.p.icon_pop_girl);
+                this.cMY.setVisibility(0);
+                this.cMY.setImageResource(i.e.icon_pop_girl);
             } else {
-                this.cww.setVisibility(8);
+                this.cMY.setVisibility(8);
             }
         }
     }
 
+    public void bk(List<IconData> list) {
+        if (list != null) {
+            this.cNc.a(list, 9, getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds12), true);
+        }
+    }
+
     public void setUserName(String str) {
-        if (this.bHV != null) {
-            this.bHV.setText(str);
+        if (this.bYb != null) {
+            this.bYb.setText(str);
         }
     }
 
     public void setListAdapter(BaseAdapter baseAdapter) {
-        if (this.cwx != null) {
-            this.cwx.setAdapter((ListAdapter) baseAdapter);
+        if (this.cMZ != null) {
+            this.cMZ.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public TextView getSettingView() {
-        return this.cwy;
+        return this.cNa;
     }
 
     public TextView getDayNightView() {
-        return this.cwz;
+        return this.cNb;
     }
 
     public void setDayNightViewText(String str) {
-        if (this.cwz != null) {
-            this.cwz.setText(str);
+        if (this.cNb != null) {
+            this.cNb.setText(str);
         }
     }
 
-    public void d(TbPageContext<?> tbPageContext) {
+    public void e(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.f.a.a(tbPageContext, this);
         boolean z = TbadkCoreApplication.m411getInst().getSkinType() == 1;
-        this.bWm.setIsNight(z);
-        if (this.cwt.getVisibility() == 0) {
-            ay.c(this.cwt, com.baidu.tieba.p.icon_news_down_bar_one);
+        this.cmD.setIsNight(z);
+        if (this.cMV.getVisibility() == 0) {
+            al.c(this.cMV, i.e.icon_news_down_bar_one);
         }
-        if (this.cwu.getVisibility() == 0) {
-            this.cwu.setIsNight(z);
+        if (this.cMW.getVisibility() == 0) {
+            this.cMW.setIsNight(z);
         }
-        if (this.cww.getVisibility() == 0) {
-            this.cww.setIsNight(z);
+        if (this.cMY.getVisibility() == 0) {
+            this.cMY.setIsNight(z);
         }
-        if (this.cwv.getVisibility() == 0) {
-            ay.c(this.cwv, com.baidu.tieba.p.icon_news_down_bar_one);
+        if (this.cMX.getVisibility() == 0) {
+            al.c(this.cMX, i.e.icon_news_down_bar_one);
         }
+        if (this.cNc != null) {
+            this.cNc.cI(TbadkCoreApplication.m411getInst().getSkinType());
+        }
+    }
+
+    public View getUserIconView() {
+        return this.cNc;
     }
 }

@@ -1,67 +1,37 @@
 package com.baidu.tbadk.core.view;
 
 import android.app.Activity;
-import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t {
-    private View Zf;
-    private int Zg;
-    private ViewGroup.LayoutParams Zh;
-    private Runnable Zi;
-    private int mScreenHeight;
+public class t implements View.OnClickListener {
+    final /* synthetic */ NavigationBar ael;
 
-    public static void r(Activity activity) {
-        new t(activity);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(NavigationBar navigationBar) {
+        this.ael = navigationBar;
     }
 
-    private t(Activity activity) {
-        this.Zf = (View) ((FrameLayout) activity.findViewById(16908290)).getParent();
-        this.Zf.getViewTreeObserver().addOnGlobalLayoutListener(new u(this));
-        this.Zh = this.Zf.getLayoutParams();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ur() {
-        int height = this.Zf.getHeight();
-        if (height > this.mScreenHeight) {
-            this.mScreenHeight = height;
-        }
-        int us = us();
-        if (us != this.Zg) {
-            int i = this.mScreenHeight;
-            int i2 = i - us;
-            if (i2 > i / 4) {
-                this.Zh.height = i - i2;
-                cu(200);
-            } else {
-                this.Zh.height = i;
-                ut();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.ael.mClickIsVaild;
+        if (z) {
+            int id = view.getId();
+            if (id == i.f.navigationBarGoBack) {
+                activity2 = this.ael.mCurrentActivity;
+                activity2.finish();
+            } else if (id == i.f.navigationBarHome) {
+                MessageManager messageManager = MessageManager.getInstance();
+                activity = this.ael.mCurrentActivity;
+                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
             }
-            this.Zg = us;
         }
-    }
-
-    private int us() {
-        Rect rect = new Rect();
-        this.Zf.getWindowVisibleDisplayFrame(rect);
-        return rect.bottom;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ut() {
-        this.Zf.requestLayout();
-    }
-
-    private void cu(int i) {
-        if (this.Zi != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Zi);
-            this.Zi = null;
-        }
-        this.Zi = new v(this);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.Zi, i);
     }
 }

@@ -12,7 +12,7 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         int i2;
         String str;

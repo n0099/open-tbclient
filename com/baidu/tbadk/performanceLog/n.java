@@ -1,55 +1,29 @@
 package com.baidu.tbadk.performanceLog;
 
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.tbadk.performanceLog.m;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.a.a.a {
-    private String aqb = "dalvikvm";
-    private String[] aqc = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private f aqd = null;
-    private int apV = 0;
-    private final int aqe = 10000;
-    private q aqf = null;
-    private final Handler aqg = new o(this);
+public class n extends Handler {
+    final /* synthetic */ m axb;
 
-    @Override // com.baidu.adp.a.a.a
-    public void start() {
-        if (!dN()) {
-            super.start();
-            this.aqg.sendEmptyMessageDelayed(0, 10000L);
-            Dm();
-            try {
-                f.a(this.aqb, new p(this));
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(m mVar, Looper looper) {
+        super(looper);
+        this.axb = mVar;
     }
 
-    @Override // com.baidu.adp.a.a.a
-    public void stop() {
-        super.stop();
-        Dn();
-    }
-
-    private void Dm() {
-        if (this.aqd == null) {
-            this.aqd = new f();
-        }
-        if (!this.aqd.dN()) {
-            new Thread(this.aqd).start();
-        }
-    }
-
-    private void Dn() {
-        if (this.aqd != null && this.aqd.dN()) {
-            this.aqd.stop();
-        }
-    }
-
-    public void a(q qVar) {
-        if (this.aqf == null) {
-            this.aqf = qVar;
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        m.a aVar;
+        m.a aVar2;
+        this.axb.awZ = new m.a();
+        aVar = this.axb.awZ;
+        aVar.setSelfExecute(true);
+        aVar2 = this.axb.awZ;
+        aVar2.execute(new String[0]);
     }
 }

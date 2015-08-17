@@ -1,45 +1,66 @@
 package com.baidu.tbadk.widget;
 
-import android.graphics.Bitmap;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.g.j;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.gif.GiftGifView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class e extends Thread {
-    final /* synthetic */ a asX;
+public class e implements DialogInterface.OnCancelListener, View.OnClickListener {
+    private Dialog aAw;
+    private LinearLayout aAx;
+    private GiftGifView aAy;
+    private Activity mActivity;
+    private ProgressDialog mWaitingDialog;
 
-    private e(a aVar) {
-        this.asX = aVar;
+    public e(Activity activity) {
+        this.mActivity = activity;
+        init();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(a aVar, e eVar) {
-        this(aVar);
+    private void init() {
+        this.aAw = ET();
+        this.aAx = (LinearLayout) this.aAw.findViewById(i.f.gift_gif_ll);
+        this.aAy = (GiftGifView) this.aAw.findViewById(i.f.gift_gif_view);
+        this.aAx.setOnClickListener(this);
+        this.aAy.setOnClickListener(this);
+        this.aAy.setAutoPlay(true);
+        this.aAy.setPlayCallback(new f(this));
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        while (a.l(this.asX) == 1 && a.m(this.asX) != null && a.n(this.asX) > 0 && a.o(this.asX) > 0 && a.p(this.asX) > 0) {
-            try {
-                a.m(this.asX).D(a.q(this.asX));
-                f Eg = this.asX.Eg();
-                if (Eg.ate == null || (Eg.ate.getWidth() != a.o(this.asX) && Eg.ate.getHeight() != a.p(this.asX))) {
-                    Eg.ate = Bitmap.createBitmap(a.o(this.asX), a.p(this.asX), Bitmap.Config.ARGB_8888);
-                }
-                a.m(this.asX).a(Eg.ate, null);
-                Eg.delay = a.m(this.asX).E(a.q(this.asX));
-                a aVar = this.asX;
-                a.a(aVar, a.q(aVar) + 1);
-                if (Eg.ate == null) {
-                    a aVar2 = this.asX;
-                    a.a(aVar2, a.q(aVar2) + 1);
-                }
-                a aVar3 = this.asX;
-                a.a(aVar3, a.q(aVar3) % a.n(this.asX));
-                a.r(this.asX).put(Eg);
-                if (a.c(this.asX)) {
-                    this.asX.mHandler.sendEmptyMessage(1);
-                }
-            } catch (Exception e) {
-                return;
-            }
+    public void fC(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
+            aVar.asY = str;
+            aVar.ata = str;
+            this.aAy.setIsHide(false);
+            this.aAy.a(aVar);
+            this.mWaitingDialog = k.a(this.mActivity, this.mActivity.getString(i.C0057i.loading), this);
         }
+    }
+
+    private Dialog ET() {
+        Dialog dialog = new Dialog(this.mActivity, i.j.dialog_full_screen);
+        dialog.setContentView(i.g.gif_play_dialog);
+        dialog.setOnDismissListener(new g(this));
+        return dialog;
+    }
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.aAy.Cb();
+        j.b(this.aAw, this.mActivity);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aAy.stop();
+        j.b(this.aAw, this.mActivity);
     }
 }

@@ -8,5 +8,5 @@ public interface c {
 
     void e(String str, Object obj);
 
-    Set<String> fR();
+    Set<String> fM();
 }

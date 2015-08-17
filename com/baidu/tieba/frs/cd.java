@@ -2,27 +2,28 @@ package com.baidu.tieba.frs;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements View.OnClickListener {
-    final /* synthetic */ ca aOP;
-    private final /* synthetic */ com.baidu.tbadk.core.data.s aOR;
+    final /* synthetic */ bz aXQ;
+    private final /* synthetic */ com.baidu.tbadk.core.data.v aXR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(ca caVar, com.baidu.tbadk.core.data.s sVar) {
-        this.aOP = caVar;
-        this.aOR = sVar;
+    public cd(bz bzVar, com.baidu.tbadk.core.data.v vVar) {
+        this.aXQ = bzVar;
+        this.aXR = vVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        com.baidu.tbadk.core.data.s sVar = (com.baidu.tbadk.core.data.s) view.getTag(com.baidu.tieba.q.tag_first);
-        int intValue = ((Integer) view.getTag(com.baidu.tieba.q.tag_second)).intValue();
-        FrsActivity frsActivity = this.aOP.aMl;
-        context = this.aOP.mContext;
-        frsActivity.sendMessage(new CustomMessage(2010000, new ImageViewerConfig(context).createConfig(this.aOR.qY(), intValue, this.aOR.qU(), "", "", true, sVar.qY().get(this.aOR.qY().size() - 1), true)));
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aXQ.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXR.getAuthor().getUserId(), this.aXR.getAuthor().getName_show(), this.aXQ.aUy.acG().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

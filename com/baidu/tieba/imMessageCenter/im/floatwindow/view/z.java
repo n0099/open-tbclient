@@ -1,29 +1,24 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FloatingPersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class z extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ UserData bbT;
-    final /* synthetic */ FloatingPersonalChatActivity buK;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(FloatingPersonalChatActivity floatingPersonalChatActivity, UserData userData) {
-        this.buK = floatingPersonalChatActivity;
-        this.bbT = userData;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: FR */
-    public Void doInBackground() {
-        String str;
-        if (this.bbT != null) {
-            com.baidu.tieba.im.settingcache.j UR = com.baidu.tieba.im.settingcache.j.UR();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            str = this.buK.ase;
-            UR.a(currentAccount, str, this.bbT);
-            return null;
+public class z implements CustomMessageTask.CustomRunnable<FloatingPersonalChatActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<FloatingPersonalChatActivityConfig> run(CustomMessage<FloatingPersonalChatActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            FloatingPersonalChatActivityStatic.mUserDataList = customMessage.getData().getUserDataList();
+            UserData userData = customMessage.getData().getUserData();
+            if (userData != null) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(String.valueOf(userData.getUserId()));
+                com.baidu.tieba.im.l.a(new aa(this, linkedList), new ab(this, customMessage));
+            }
         }
         return null;
     }

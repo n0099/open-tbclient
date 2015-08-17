@@ -7,37 +7,37 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-    private final /* synthetic */ TbPageContext NC;
-    private final /* synthetic */ String ND;
-    private final /* synthetic */ boolean NE;
-    private final /* synthetic */ boolean NF;
-    private final /* synthetic */ boolean NG;
-    private final /* synthetic */ boolean NH;
+    private final /* synthetic */ TbPageContext Sn;
+    private final /* synthetic */ String So;
+    private final /* synthetic */ boolean Sp;
+    private final /* synthetic */ boolean Sq;
+    private final /* synthetic */ boolean Sr;
+    private final /* synthetic */ boolean Ss;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.NC = tbPageContext;
+        this.Sn = tbPageContext;
         this.val$url = str;
-        this.ND = str2;
-        this.NE = z;
-        this.NF = z2;
-        this.NG = z3;
-        this.NH = z4;
+        this.So = str2;
+        this.Sp = z;
+        this.Sq = z2;
+        this.Sr = z3;
+        this.Ss = z4;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        boolean pw;
+        boolean qx;
         super.handleMessage(message);
         if (message.what != 1) {
             return;
         }
-        pw = Static.pw();
-        if (!pw) {
-            TiebaStatic.eventStat(this.NC.getPageActivity(), "url_3", null);
+        qx = Static.qx();
+        if (!qx) {
+            TiebaStatic.eventStat(this.Sn.getPageActivity(), "url_3", null);
         } else {
-            Static.c(this.NC, this.val$url, this.ND, this.NE, this.NF, this.NG, this.NH);
+            Static.c(this.Sn, this.val$url, this.So, this.Sp, this.Sq, this.Sr, this.Ss);
         }
     }
 }

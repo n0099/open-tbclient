@@ -17,7 +17,6 @@ import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.Arrays;
-import java.util.Map;
 /* loaded from: classes.dex */
 public final class b {
     static final String a = "LOGIN_SHARE_MODEL";
@@ -76,26 +75,26 @@ public final class b {
 
         /* renamed from: com.baidu.sapi2.share.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class C0009a implements a.b {
-            C0009a() {
+        class C0029a implements a.b {
+            C0029a() {
             }
 
             /* renamed from: com.baidu.sapi2.share.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            class ServiceConnectionC0010a implements ServiceConnection {
+            class ServiceConnectionC0030a implements ServiceConnection {
                 final /* synthetic */ Intent a;
 
-                ServiceConnectionC0010a(Intent intent) {
+                ServiceConnectionC0030a(Intent intent) {
                     this.a = intent;
                 }
 
                 /* renamed from: com.baidu.sapi2.share.b$a$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes.dex */
-                class RunnableC0011a implements Runnable {
+                class RunnableC0031a implements Runnable {
                     final /* synthetic */ IBinder a;
                     final /* synthetic */ ServiceConnection b;
 
-                    RunnableC0011a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    RunnableC0031a(IBinder iBinder, ServiceConnection serviceConnection) {
                         this.a = iBinder;
                         this.b = serviceConnection;
                     }
@@ -103,8 +102,8 @@ public final class b {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            if (!this.a.transact(0, b.a(new ShareModel(ShareEvent.VALIDATE, a.this.b, Arrays.asList(a.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0010a.this.a != null) {
-                                C0009a.this.a(ServiceConnectionC0010a.this.a);
+                            if (!this.a.transact(0, b.a(new ShareModel(ShareEvent.VALIDATE, a.this.b, Arrays.asList(a.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0030a.this.a != null) {
+                                C0029a.this.a(ServiceConnectionC0030a.this.a);
                             }
                             b.g.context.unbindService(this.b);
                         } catch (Throwable th) {
@@ -115,7 +114,7 @@ public final class b {
 
                 @Override // android.content.ServiceConnection
                 public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                    a.this.a.post(new RunnableC0011a(iBinder, this));
+                    a.this.a.post(new RunnableC0031a(iBinder, this));
                 }
 
                 @Override // android.content.ServiceConnection
@@ -126,7 +125,7 @@ public final class b {
             @Override // com.baidu.sapi2.share.a.b
             public void a(Intent intent, Intent intent2) {
                 try {
-                    b.g.context.bindService(intent, new ServiceConnectionC0010a(intent2), 1);
+                    b.g.context.bindService(intent, new ServiceConnectionC0030a(intent2), 1);
                 } catch (Throwable th) {
                     L.e(th);
                 }
@@ -140,7 +139,7 @@ public final class b {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.sapi2.share.a.a(b.g.context, new C0009a(), !this.c);
+            com.baidu.sapi2.share.a.a(b.g.context, new C0029a(), !this.c);
         }
     }
 
@@ -150,18 +149,18 @@ public final class b {
             HandlerThread handlerThread = new HandlerThread("InvalidateThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
-            handler.post(new RunnableC0012b(handler, sapiAccount));
+            handler.post(new RunnableC0032b(handler, sapiAccount));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0012b implements Runnable {
+    public class RunnableC0032b implements Runnable {
         final /* synthetic */ Handler a;
         final /* synthetic */ SapiAccount b;
 
-        RunnableC0012b(Handler handler, SapiAccount sapiAccount) {
+        RunnableC0032b(Handler handler, SapiAccount sapiAccount) {
             this.a = handler;
             this.b = sapiAccount;
         }
@@ -174,20 +173,20 @@ public final class b {
 
             /* renamed from: com.baidu.sapi2.share.b$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            class ServiceConnectionC0013a implements ServiceConnection {
+            class ServiceConnectionC0033a implements ServiceConnection {
                 final /* synthetic */ Intent a;
 
-                ServiceConnectionC0013a(Intent intent) {
+                ServiceConnectionC0033a(Intent intent) {
                     this.a = intent;
                 }
 
                 /* renamed from: com.baidu.sapi2.share.b$b$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes.dex */
-                class RunnableC0014a implements Runnable {
+                class RunnableC0034a implements Runnable {
                     final /* synthetic */ IBinder a;
                     final /* synthetic */ ServiceConnection b;
 
-                    RunnableC0014a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    RunnableC0034a(IBinder iBinder, ServiceConnection serviceConnection) {
                         this.a = iBinder;
                         this.b = serviceConnection;
                     }
@@ -195,8 +194,8 @@ public final class b {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            if (!this.a.transact(0, b.a(new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0012b.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0013a.this.a != null) {
-                                a.this.a(ServiceConnectionC0013a.this.a);
+                            if (!this.a.transact(0, b.a(new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0032b.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0033a.this.a != null) {
+                                a.this.a(ServiceConnectionC0033a.this.a);
                             }
                             b.g.context.unbindService(this.b);
                         } catch (Throwable th) {
@@ -207,7 +206,7 @@ public final class b {
 
                 @Override // android.content.ServiceConnection
                 public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                    RunnableC0012b.this.a.post(new RunnableC0014a(iBinder, this));
+                    RunnableC0032b.this.a.post(new RunnableC0034a(iBinder, this));
                 }
 
                 @Override // android.content.ServiceConnection
@@ -218,7 +217,7 @@ public final class b {
             @Override // com.baidu.sapi2.share.a.b
             public void a(Intent intent, Intent intent2) {
                 try {
-                    b.g.context.bindService(intent, new ServiceConnectionC0013a(intent2), 1);
+                    b.g.context.bindService(intent, new ServiceConnectionC0033a(intent2), 1);
                 } catch (Throwable th) {
                     L.e(th);
                 }
@@ -226,7 +225,7 @@ public final class b {
 
             @Override // com.baidu.sapi2.share.a.b
             public void a(Intent intent) {
-                b.a(intent, new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0012b.this.b)));
+                b.a(intent, new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0032b.this.b)));
             }
         }
 
@@ -239,125 +238,15 @@ public final class b {
     public static void b() {
         if (h.g()) {
             if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-                h();
+                e();
             }
-            i();
+            f();
         } else if (!h.h() && g.loginShareStrategy() == LoginShareStrategy.SILENT) {
-            h();
+            e();
         }
     }
 
-    public static void c() {
-        if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-            if (h.d() != null || h.e().size() != 0 || h.f().size() != 0) {
-                Map<String, Integer> o = h.o();
-                if (o.containsKey(g.tpl) && o.get(g.tpl).intValue() != h.j()) {
-                    HandlerThread handlerThread = new HandlerThread("SendThread");
-                    handlerThread.start();
-                    Handler handler = new Handler(handlerThread.getLooper());
-                    handler.post(new d(handler, o));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    final class d implements Runnable {
-        final /* synthetic */ Handler a;
-        final /* synthetic */ Map b;
-
-        d(Handler handler, Map map) {
-            this.a = handler;
-            this.b = map;
-        }
-
-        /* loaded from: classes.dex */
-        class a implements a.b {
-            a() {
-            }
-
-            /* renamed from: com.baidu.sapi2.share.b$d$a$a  reason: collision with other inner class name */
-            /* loaded from: classes.dex */
-            class ServiceConnectionC0017a implements ServiceConnection {
-                final /* synthetic */ Intent a;
-
-                ServiceConnectionC0017a(Intent intent) {
-                    this.a = intent;
-                }
-
-                /* renamed from: com.baidu.sapi2.share.b$d$a$a$a  reason: collision with other inner class name */
-                /* loaded from: classes.dex */
-                class RunnableC0018a implements Runnable {
-                    final /* synthetic */ IBinder a;
-                    final /* synthetic */ ServiceConnection b;
-
-                    RunnableC0018a(IBinder iBinder, ServiceConnection serviceConnection) {
-                        this.a = iBinder;
-                        this.b = serviceConnection;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        try {
-                            if (!this.a.transact(0, b.a(b.g()), Parcel.obtain(), 0) && ServiceConnectionC0017a.this.a != null) {
-                                a.this.a(ServiceConnectionC0017a.this.a);
-                            }
-                            b.g.context.unbindService(this.b);
-                        } catch (Throwable th) {
-                            L.e(th);
-                        }
-                    }
-                }
-
-                @Override // android.content.ServiceConnection
-                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                    d.this.a.post(new RunnableC0018a(iBinder, this));
-                }
-
-                @Override // android.content.ServiceConnection
-                public void onServiceDisconnected(ComponentName componentName) {
-                }
-            }
-
-            @Override // com.baidu.sapi2.share.a.b
-            public void a(Intent intent, Intent intent2) {
-                try {
-                    b.g.context.bindService(intent, new ServiceConnectionC0017a(intent2), 1);
-                } catch (Throwable th) {
-                    L.e(th);
-                }
-            }
-
-            @Override // com.baidu.sapi2.share.a.b
-            public void a(Intent intent) {
-                b.a(intent, b.g());
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            com.baidu.sapi2.share.a.a(b.g.context, (a.b) new a(), false);
-            b.h.a(((Integer) this.b.get(b.g.tpl)).intValue());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static ShareModel g() {
-        ShareModel shareModel = new ShareModel(ShareEvent.VALIDATE);
-        SapiAccount d2 = h.d();
-        if (d2 != null) {
-            d2.app = SapiUtils.getAppName(g.context);
-            shareModel.a(d2);
-        }
-        shareModel.a().addAll(h.e());
-        shareModel.a().addAll(h.f());
-        for (SapiAccount sapiAccount : shareModel.a()) {
-            sapiAccount.app = SapiUtils.getAppName(g.context);
-        }
-        return shareModel;
-    }
-
-    private static void h() {
+    private static void e() {
         HandlerThread handlerThread = new HandlerThread("SyncThread");
         handlerThread.start();
         Handler handler = new Handler(handlerThread.getLooper());
@@ -380,20 +269,20 @@ public final class b {
 
             /* renamed from: com.baidu.sapi2.share.b$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            class ServiceConnectionC0015a implements ServiceConnection {
+            class ServiceConnectionC0035a implements ServiceConnection {
                 final /* synthetic */ Intent a;
 
-                ServiceConnectionC0015a(Intent intent) {
+                ServiceConnectionC0035a(Intent intent) {
                     this.a = intent;
                 }
 
                 /* renamed from: com.baidu.sapi2.share.b$c$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes.dex */
-                class RunnableC0016a implements Runnable {
+                class RunnableC0036a implements Runnable {
                     final /* synthetic */ IBinder a;
                     final /* synthetic */ ServiceConnection b;
 
-                    RunnableC0016a(IBinder iBinder, ServiceConnection serviceConnection) {
+                    RunnableC0036a(IBinder iBinder, ServiceConnection serviceConnection) {
                         this.a = iBinder;
                         this.b = serviceConnection;
                     }
@@ -405,8 +294,8 @@ public final class b {
                             Parcel obtain = Parcel.obtain();
                             if (this.a.transact(0, a, obtain, 0)) {
                                 b.b(obtain);
-                            } else if (ServiceConnectionC0015a.this.a != null) {
-                                a.this.a(ServiceConnectionC0015a.this.a);
+                            } else if (ServiceConnectionC0035a.this.a != null) {
+                                a.this.a(ServiceConnectionC0035a.this.a);
                             }
                             b.g.context.unbindService(this.b);
                         } catch (Throwable th) {
@@ -417,7 +306,7 @@ public final class b {
 
                 @Override // android.content.ServiceConnection
                 public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                    c.this.a.post(new RunnableC0016a(iBinder, this));
+                    c.this.a.post(new RunnableC0036a(iBinder, this));
                 }
 
                 @Override // android.content.ServiceConnection
@@ -428,7 +317,7 @@ public final class b {
             @Override // com.baidu.sapi2.share.a.b
             public void a(Intent intent, Intent intent2) {
                 try {
-                    b.g.context.bindService(intent, new ServiceConnectionC0015a(intent2), 1);
+                    b.g.context.bindService(intent, new ServiceConnectionC0035a(intent2), 1);
                 } catch (Throwable th) {
                     L.e(th);
                 }
@@ -461,8 +350,8 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class e implements Runnable {
-        e() {
+    public final class d implements Runnable {
+        d() {
         }
 
         @Override // java.lang.Runnable
@@ -475,16 +364,16 @@ public final class b {
         }
     }
 
-    private static void i() {
-        new Thread(new e()).start();
+    private static void f() {
+        new Thread(new d()).start();
     }
 
     static void a(Intent intent, ShareModel shareModel) {
         try {
             com.baidu.sapi2.share.a.b(g.context, g.loginShareStrategy(), shareModel);
             intent.putExtra(a, shareModel);
-            if (h.p() != null) {
-                intent.putExtra(b, com.baidu.sapi2.share.e.a(g.context, h.p().toString()));
+            if (h.n() != null) {
+                intent.putExtra(b, e.a(g.context, h.n().toString()));
             }
             intent.putExtra(c, g.environment);
             g.context.sendBroadcast(intent, f);
@@ -498,8 +387,8 @@ public final class b {
         Bundle bundle = new Bundle();
         com.baidu.sapi2.share.a.b(g.context, g.loginShareStrategy(), shareModel);
         bundle.putParcelable(a, shareModel);
-        if (h.p() != null) {
-            bundle.putString(b, com.baidu.sapi2.share.e.a(g.context, h.p().toString()));
+        if (h.n() != null) {
+            bundle.putString(b, e.a(g.context, h.n().toString()));
         }
         bundle.putSerializable(c, g.environment);
         obtain.writeBundle(bundle);

@@ -1,22 +1,30 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ b btt;
+public class e {
+    private int bHl;
+    private int bHm;
+    private int radius;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(b bVar) {
-        super(2005016);
-        this.btt = bVar;
+    public boolean a(e eVar) {
+        return ((this.bHl - eVar.bHl) * (this.bHl - eVar.bHl)) + ((this.bHm - eVar.bHm) * (this.bHm - eVar.bHm)) < (this.radius + eVar.radius) * (this.radius + eVar.radius);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.btt.du(true);
-        }
+    public void O(View view) {
+        int[] iArr = new int[2];
+        view.getLocationOnScreen(iArr);
+        int measuredHeight = view.getMeasuredHeight() / 2;
+        s(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+    }
+
+    public void s(int i, int i2, int i3) {
+        this.bHl = i;
+        this.bHm = i2;
+        this.radius = i3;
+    }
+
+    public boolean isEmpty() {
+        return this.bHl == 0 && this.bHm == 0 && this.radius == 0;
     }
 }

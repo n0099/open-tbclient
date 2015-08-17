@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.settingcache;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.cache.t;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h bpX = new h();
+    private static h bDK = new h();
 
     private h() {
     }
 
-    public static h UQ() {
-        return bpX;
+    public static h Wx() {
+        return bDK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +24,8 @@ public class h extends a {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bpP) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bpP.get(str3);
+        synchronized (this.bDC) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bDC.get(str3);
             officialSettingItemData = (aVar == null || !(aVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) aVar;
         }
         if (officialSettingItemData == null) {
@@ -34,7 +33,7 @@ public class h extends a {
             officialSettingItemData2.setMyUid(str);
             officialSettingItemData2.setToUid(str2);
             officialSettingItemData2.setAcceptNotify(true);
-            if (n.jl()) {
+            if (com.baidu.adp.lib.util.k.je()) {
                 a(officialSettingItemData2, null);
                 return officialSettingItemData2;
             }
@@ -44,8 +43,8 @@ public class h extends a {
         return officialSettingItemData;
     }
 
-    public void Rm() {
-        super.s(OfficialSettingItemData.class);
+    public void SU() {
+        super.l(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
@@ -59,8 +58,8 @@ public class h extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public t<String> UN() {
-        return com.baidu.tbadk.core.b.a.rI().ck("tb.im_official_chat_setting");
+    public o<String> Wu() {
+        return com.baidu.tbadk.core.b.a.sM().ck("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +74,13 @@ public class h extends a {
                 }
                 return;
             }
-            t<String> UN = UN();
+            o<String> Wu = Wu();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.bpP) {
-                this.bpP.put(str, officialSettingItemData);
+            synchronized (this.bDC) {
+                this.bDC.put(str, officialSettingItemData);
             }
-            UN.f(str, jsonStrWithObject);
+            Wu.f(str, jsonStrWithObject);
         }
     }
 
@@ -98,8 +97,8 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.bpP) {
-                this.bpP.put(str, officialSettingItemData);
+            synchronized (this.bDC) {
+                this.bDC.put(str, officialSettingItemData);
             }
             com.baidu.tieba.im.l.a(new i(this, officialSettingItemData, str), gVar);
         }

@@ -16,7 +16,7 @@ public class PersonPostListData extends i implements Serializable {
     public int hide_post = 0;
 
     /* loaded from: classes.dex */
-    public class Content implements Serializable {
+    public static class Content implements Serializable {
         public Abs[] post_content = new Abs[0];
         public long create_time = 0;
     }
@@ -114,7 +114,7 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class PostList extends a implements Serializable {
+    public static class PostList extends a implements Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -151,7 +151,7 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class Abs implements Serializable {
+    public static class Abs implements Serializable {
         public int type = 0;
         public String text = "";
         public String src = "";
@@ -168,7 +168,7 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class Quote implements Serializable {
+    public static class Quote implements Serializable {
         public long post_id = 0;
         public String user_name = "";
         public long user_id = 0;
@@ -193,7 +193,7 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class Media implements Serializable {
+    public static class Media implements Serializable {
         public int type = 0;
         public String small_pic = "";
         public String big_pic = "";
@@ -216,12 +216,12 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class AnchorInfo implements Serializable {
+    public static class AnchorInfo implements Serializable {
         public String portrait = "";
         public String name = "";
         public long start_time = 0;
         public int status = 0;
-        public int author_id = 0;
+        public long author_id = 0;
         public String author_name = "";
         public int listeners = 0;
         public int likers = 0;
@@ -229,7 +229,7 @@ public class PersonPostListData extends i implements Serializable {
         public String intro = "";
         public String publisherPortrait = "";
         public String publisher_name = "";
-        public int publisher_id = 0;
+        public long publisher_id = 0;
 
         public void parserData(tbclient.AnchorInfo anchorInfo) {
             if (anchorInfo != null) {
@@ -238,7 +238,7 @@ public class PersonPostListData extends i implements Serializable {
                     this.name = anchorInfo.name;
                     this.start_time = anchorInfo.start_time.intValue();
                     this.status = anchorInfo.status.intValue();
-                    this.author_id = anchorInfo.author_id.intValue();
+                    this.author_id = anchorInfo.author_id.longValue();
                     this.author_name = anchorInfo.author_name;
                     this.listeners = anchorInfo.listeners.intValue();
                     this.likers = anchorInfo.likers.intValue();
@@ -246,7 +246,7 @@ public class PersonPostListData extends i implements Serializable {
                     this.intro = anchorInfo.intro;
                     this.publisherPortrait = anchorInfo.publisherPortrait;
                     this.publisher_name = anchorInfo.publisherName;
-                    this.publisher_id = anchorInfo.publisherId.intValue();
+                    this.publisher_id = anchorInfo.publisherId.longValue();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -255,7 +255,7 @@ public class PersonPostListData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class LbsInfo implements Serializable {
+    public static class LbsInfo implements Serializable {
         public String lat = "";
         public String lon = "";
         public String town = "";

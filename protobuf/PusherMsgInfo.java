@@ -81,7 +81,7 @@ public final class PusherMsgInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<PusherMsgInfo> {
+    public static final class Builder extends Message.Builder<PusherMsgInfo> {
         public String content;
         public String et;
         public Integer groupId;
@@ -89,6 +89,9 @@ public final class PusherMsgInfo extends Message {
         public Long msgId;
         public Long pushTime;
         public Integer type;
+
+        public Builder() {
+        }
 
         public Builder(PusherMsgInfo pusherMsgInfo) {
             super(pusherMsgInfo);

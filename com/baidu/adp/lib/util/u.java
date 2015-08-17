@@ -1,24 +1,22 @@
 package com.baidu.adp.lib.util;
+
+import com.baidu.adp.base.BdBaseApplication;
+import dalvik.system.DexFile;
+import java.util.Enumeration;
 /* loaded from: classes.dex */
-class u extends BlockingLinkedDeque<E>.s {
-    final /* synthetic */ BlockingLinkedDeque yP;
+public class u {
+    public static String SUFFIX = "Static";
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    private u(BlockingLinkedDeque blockingLinkedDeque) {
-        super(blockingLinkedDeque);
-        this.yP = blockingLinkedDeque;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(BlockingLinkedDeque blockingLinkedDeque, u uVar) {
-        this(blockingLinkedDeque);
-    }
-
-    v<E> jt() {
-        return this.yP.first;
-    }
-
-    v<E> c(v<E> vVar) {
-        return vVar.yN;
+    public static void jp() {
+        try {
+            Enumeration<String> entries = new DexFile(BdBaseApplication.getInst().getApp().getPackageCodePath()).entries();
+            while (entries.hasMoreElements()) {
+                String nextElement = entries.nextElement();
+                if (nextElement.endsWith(SUFFIX)) {
+                    Class.forName(nextElement);
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 }

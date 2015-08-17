@@ -1,47 +1,74 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class be extends HttpMessageListener {
-    final /* synthetic */ bc bTa;
+public class be extends com.baidu.adp.base.e {
+    private static final String aHU = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
+    private static TbHttpMessageTask aHV = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aHU);
+    private com.baidu.tieba.person.a.a mData;
+    private String mId;
+    private boolean mIsHost;
+    private int mSex;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(bc bcVar, int i) {
-        super(i);
-        this.bTa = bcVar;
+    static {
+        aHV.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHV);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aez;
-        PersonFriendActivity aez2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
-            this.bTa.bSX = false;
-            aez = this.bTa.aez();
-            if (aez != null) {
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aez2 = this.bTa.aez();
-                if (tag == aez2.getUniqueId()) {
-                    this.bTa.mListView.completePullRefresh();
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
-                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
-                        if (personFriendResponseMessage.getError() == 0) {
-                            this.bTa.a(personFriendResponseMessage.getPersonListData(), false);
-                            return;
-                        } else {
-                            this.bTa.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bTa.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
-                            return;
-                        }
-                    }
-                    this.bTa.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bTa.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
-                }
-            }
+    public be(TbPageContext tbPageContext, boolean z) {
+        super(tbPageContext);
+        this.mData = new com.baidu.tieba.person.a.a();
+        this.mIsHost = z;
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public void setData(com.baidu.tieba.person.a.a aVar) {
+        this.mData = aVar;
+    }
+
+    public com.baidu.tieba.person.a.a getData() {
+        return this.mData;
+    }
+
+    public void HX() {
+        super.sendMessage(new PersonFriendByUidLocalMessage());
+    }
+
+    public void a(boolean z, String str, int i, int i2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
+        if (!z) {
+            httpMessage.addParam("friend_uid", str);
+            httpMessage.addParam("is_guest", String.valueOf(1));
+            httpMessage.setExtra(str);
         }
+        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(i)).toString());
+        httpMessage.addParam("res_num", new StringBuilder(String.valueOf(i2)).toString());
+        super.sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

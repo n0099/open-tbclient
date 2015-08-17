@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +19,7 @@ public class ShareFromPBMsgData implements Serializable {
     public String toChatMessageContent() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("forumName", this.forumName);
+            jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.forumName);
             jSONObject.put("postID", this.postId);
             jSONObject.put("themeContent", this.content);
             jSONObject.put("themeID", this.threadId);

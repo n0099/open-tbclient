@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.lib.g.j;
+import com.baidu.adp.lib.g.i;
 /* loaded from: classes.dex */
 public class AladinServer extends BdBaseService {
     private a mTcpListener = null;
 
     public static void start(Context context) {
-        j.f(context, new Intent(context, AladinServer.class));
+        i.f(context, new Intent(context, AladinServer.class));
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -20,7 +20,7 @@ public class AladinServer extends BdBaseService {
     }
 
     public void reStartListener() {
-        if (this.mTcpListener == null || !this.mTcpListener.pg()) {
+        if (this.mTcpListener == null || !this.mTcpListener.qg()) {
             if (this.mTcpListener != null) {
                 this.mTcpListener.quit();
             }

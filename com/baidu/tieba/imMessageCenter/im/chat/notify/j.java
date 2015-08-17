@@ -1,34 +1,34 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ d bsx;
+public class j implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ e bGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(d dVar) {
-        this.bsx = dVar;
+    public j(e eVar) {
+        this.bGo = eVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.notify.a
-    public void onComplete() {
-        BdListView bdListView;
-        ImMessageCenterModel imMessageCenterModel;
-        BdListView bdListView2;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterListAdapter imMessageCenterListAdapter;
-        ImMessageCenterModel imMessageCenterModel2;
-        bdListView = this.bsx.bsn;
-        if (bdListView != null) {
-            imMessageCenterModel = this.bsx.bsk;
-            if (imMessageCenterModel != null) {
-                bdListView2 = this.bsx.bsn;
-                bdListView2.completePullRefresh();
-                imMessageCenterListAdapter = this.bsx.bso;
-                imMessageCenterModel2 = this.bsx.bsk;
-                imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
-            }
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        if (i < 0) {
+            return false;
         }
+        e eVar = this.bGo;
+        imMessageCenterListAdapter = this.bGo.bGf;
+        eVar.bGd = imMessageCenterListAdapter.getItem(i);
+        e eVar2 = this.bGo;
+        imMessageCenterShowItemData = this.bGo.bGd;
+        eVar2.c(imMessageCenterShowItemData);
+        if (this.bGo.bGi != null) {
+            this.bGo.bGi.sS();
+        }
+        return true;
     }
 }

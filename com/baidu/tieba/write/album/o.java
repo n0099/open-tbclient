@@ -1,9 +1,15 @@
 package com.baidu.tieba.write.album;
-
-import java.util.List;
 /* loaded from: classes.dex */
-public interface o {
-    void bd(List<a> list);
+class o implements Runnable {
+    final /* synthetic */ n this$0;
 
-    void nm();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(n nVar) {
+        this.this$0 = nVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.this$0.fR(false);
+    }
 }

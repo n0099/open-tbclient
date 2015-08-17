@@ -18,20 +18,20 @@ public class bo extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo D;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (D = c.TE().D("-1003", -4)) != null) {
+        ImMessageCenterPojo G;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (G = b.Vl().G("-1004", -5)) != null) {
             Object data = customResponsedMessage.getData();
             if (data == null) {
-                D.setUnread_count(0);
-                D.setIs_hidden(1);
-                this.this$0.k(D);
+                G.setUnread_count(0);
+                G.setIs_hidden(1);
+                this.this$0.k(G);
             } else if (data instanceof ImMessageCenterPojo) {
                 ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                D.setLast_content(imMessageCenterPojo.getLast_content());
-                D.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                D.setUnread_count(0);
-                D.setIs_hidden(0);
-                this.this$0.k(D);
+                G.setLast_content(imMessageCenterPojo.getLast_content());
+                G.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                G.setUnread_count(0);
+                G.setIs_hidden(0);
+                this.this$0.k(G);
             }
         }
     }

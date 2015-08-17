@@ -1,34 +1,20 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ d bsx;
-    private final /* synthetic */ ImMessageCenterShowItemData bsz;
+public class n implements View.OnClickListener {
+    final /* synthetic */ e bGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(d dVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bsx = dVar;
-        this.bsz = imMessageCenterShowItemData;
+    public n(e eVar) {
+        this.bGo = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        ImMessageCenterModel imMessageCenterModel;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        eVar.dismiss();
-        switch (i) {
-            case 0:
-                imMessageCenterModel = this.bsx.bsk;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.bsz;
-                aVar = this.bsx.bcB;
-                imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.sharedPref.b.ts().putBoolean("is_shut_down_validate", true);
+        this.bGo.dr(false);
+        this.bGo.dp(false);
     }
 }

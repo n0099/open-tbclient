@@ -1,7 +1,7 @@
 package com.baidu.adp.widget.ListView;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface u {
-    void onClick(View view);
+    BdUniqueId getType();
 }

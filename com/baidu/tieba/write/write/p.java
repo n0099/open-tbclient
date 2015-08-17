@@ -1,23 +1,29 @@
 package com.baidu.tieba.write.write;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p {
-    public TextView aBn;
-    public TbCheckBox bvH;
-    public HeadImageView bvk;
-    final /* synthetic */ o cBy;
-    public View rootView;
-
-    private p(o oVar) {
-        this.cBy = oVar;
-    }
+public class p implements View.OnClickListener {
+    private final /* synthetic */ String ayD;
+    final /* synthetic */ FeedBackTopListView cTw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(o oVar, p pVar) {
-        this(oVar);
+    public p(FeedBackTopListView feedBackTopListView, String str) {
+        this.cTw = feedBackTopListView;
+        this.ayD = str;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.cTw.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.ayD, null, WriteActivityConfig.FEED_BACK)));
     }
 }

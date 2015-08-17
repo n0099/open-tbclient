@@ -31,9 +31,12 @@ public final class PusherMsg extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<PusherMsg> {
+    public static final class Builder extends Message.Builder<PusherMsg> {
         public Integer cmd;
         public PusherMsgInfo data;
+
+        public Builder() {
+        }
 
         public Builder(PusherMsg pusherMsg) {
             super(pusherMsg);

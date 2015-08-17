@@ -3,15 +3,15 @@ package com.baidu.tieba.pluginCenter;
 import android.view.View;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ PluginDetailActivity bXq;
+    final /* synthetic */ PluginDetailActivity coj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PluginDetailActivity pluginDetailActivity) {
-        this.bXq = pluginDetailActivity;
+        this.coj = pluginDetailActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bXq.closeActivity();
+        this.coj.closeActivity();
     }
 }

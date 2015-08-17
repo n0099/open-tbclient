@@ -1,39 +1,30 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ e bsy;
-    private final /* synthetic */ ImMessageCenterShowItemData bsz;
+public class f extends CustomMessageListener {
+    final /* synthetic */ e bGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.bsy = eVar;
-        this.bsz = imMessageCenterShowItemData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i) {
+        super(i);
+        this.bGo = eVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && this.bsz != null) {
-            this.bsz.setUnReadCount(0);
-            if (this.bsz.getOwnerName().equals("2")) {
-                com.baidu.tieba.im.db.d.Ro().gY("apply_join_group");
-            } else if (this.bsz.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                com.baidu.tieba.im.db.d.Ro().gY("group_intro_change");
-                com.baidu.tieba.im.db.d.Ro().gY("group_name_change");
-                com.baidu.tieba.im.db.d.Ro().gY("group_notice_change");
-                com.baidu.tieba.im.db.d.Ro().gY("group_level_up");
-                com.baidu.tieba.im.db.d.Ro().gY("dismiss_group");
-                com.baidu.tieba.im.db.d.Ro().gY("kick_out");
-                com.baidu.tieba.im.db.d.Ro().gY("group_activitys_change");
-            } else if (this.bsz.getOwnerName().equals("6")) {
-                com.baidu.tieba.im.db.d.Ro().gY("live_notify");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterListAdapter imMessageCenterListAdapter;
+        ImMessageCenterListAdapter imMessageCenterListAdapter2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            imMessageCenterListAdapter = this.bGo.bGf;
+            if (imMessageCenterListAdapter != null) {
+                imMessageCenterListAdapter2 = this.bGo.bGf;
+                imMessageCenterListAdapter2.notifyDataSetChanged();
             }
         }
-        return null;
     }
 }

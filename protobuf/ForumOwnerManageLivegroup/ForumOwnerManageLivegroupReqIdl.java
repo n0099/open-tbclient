@@ -21,8 +21,11 @@ public final class ForumOwnerManageLivegroupReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ForumOwnerManageLivegroupReqIdl> {
+    public static final class Builder extends Message.Builder<ForumOwnerManageLivegroupReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(ForumOwnerManageLivegroupReqIdl forumOwnerManageLivegroupReqIdl) {
             super(forumOwnerManageLivegroupReqIdl);

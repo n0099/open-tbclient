@@ -38,9 +38,12 @@ public final class PushNotifyResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<PushNotifyResIdl> {
+    public static final class Builder extends Message.Builder<PushNotifyResIdl> {
         public List<PusherMsg> multiMsg;
         public Long pushTime;
+
+        public Builder() {
+        }
 
         public Builder(PushNotifyResIdl pushNotifyResIdl) {
             super(pushNotifyResIdl);

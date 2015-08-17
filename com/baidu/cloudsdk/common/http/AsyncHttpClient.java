@@ -279,7 +279,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
     }
 
     /* loaded from: classes.dex */
-    class InflatingEntity extends HttpEntityWrapper {
+    private static class InflatingEntity extends HttpEntityWrapper {
         public InflatingEntity(HttpEntity httpEntity) {
             super(httpEntity);
         }

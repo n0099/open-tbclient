@@ -32,7 +32,7 @@ public class AccessibilityEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityEventStubImpl implements AccessibilityEventVersionImpl {
+    static class AccessibilityEventStubImpl implements AccessibilityEventVersionImpl {
         AccessibilityEventStubImpl() {
         }
 
@@ -52,7 +52,7 @@ public class AccessibilityEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityEventIcsImpl extends AccessibilityEventStubImpl {
+    static class AccessibilityEventIcsImpl extends AccessibilityEventStubImpl {
         AccessibilityEventIcsImpl() {
         }
 

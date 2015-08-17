@@ -21,8 +21,11 @@ public final class AddGroupUsersReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<AddGroupUsersReqIdl> {
+    public static final class Builder extends Message.Builder<AddGroupUsersReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(AddGroupUsersReqIdl addGroupUsersReqIdl) {
             super(addGroupUsersReqIdl);

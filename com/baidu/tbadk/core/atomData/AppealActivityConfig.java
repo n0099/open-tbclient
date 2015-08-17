@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class AppealActivityConfig extends c {
+public class AppealActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
+    public static boolean isExistActivity = false;
 
     public AppealActivityConfig(Context context, String str, String str2, String str3) {
         super(context);

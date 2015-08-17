@@ -1,65 +1,67 @@
 package com.baidu.tieba.frs.a;
 
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.n;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.m;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.av;
-import com.baidu.tieba.r;
+import com.baidu.tieba.frs.bc;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class c extends av<com.baidu.tbadk.core.data.c, d> {
-    public c(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
-        super(frsActivity, bdUniqueId);
+public class c extends bc<com.baidu.tbadk.core.data.c, d> {
+    public c(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: m */
+    /* renamed from: r */
     public d a(ViewGroup viewGroup) {
-        return new d(com.baidu.adp.lib.g.b.hr().inflate(this.mContext, r.frs_locality_bar_normal, null));
+        return new d(LayoutInflater.from(this.mContext).inflate(i.g.frs_locality_bar_normal, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bc, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) dVar);
-        dVar.aPA.setPadding(0, i - this.aMV == 0 ? this.aKk : this.aKl, 0, 0);
-        this.aMl.getLayoutMode().ab(this.mSkinType == 1);
-        this.aMl.getLayoutMode().j(view);
-        if (!cVar.PJ) {
-            cVar.PJ = true;
-            this.aMl.a(cVar, "show");
-            this.aMl.b(cVar, "show");
+        dVar.ban.setPadding(0, i - this.aWl == 0 ? this.aTw : this.aTx, 0, 0);
+        this.aSJ.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSJ.getLayoutMode().k(view);
+        if (!cVar.Uw && (this.aSJ instanceof FrsActivity)) {
+            cVar.Uw = true;
+            ((FrsActivity) this.aSJ).a(cVar, "show");
+            ((FrsActivity) this.aSJ).b(cVar, "show");
         }
-        if (n.qc().qe()) {
-            dVar.aBl.setVisibility(0);
-            dVar.aBl.c(cVar.PH.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.rd().rf()) {
+            dVar.aIG.setVisibility(0);
+            dVar.aIG.d(cVar.Uv.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            dVar.aBl.setVisibility(8);
+            dVar.aIG.setVisibility(8);
         }
-        if (n.qc().qg() && !TextUtils.isEmpty(cVar.PH.PM)) {
-            dVar.aPC.setVisibility(0);
-            dVar.aPC.c(cVar.PH.PM, this.mIsFromCDN ? 30 : 31, false);
+        if (m.rd().rh() && !TextUtils.isEmpty(cVar.Uv.Uz)) {
+            dVar.bap.setVisibility(0);
+            dVar.bap.d(cVar.Uv.Uz, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            dVar.aPC.setVisibility(8);
+            dVar.bap.setVisibility(8);
         }
-        dVar.aHI.setText(cVar.PH.userName);
-        if (StringUtils.isNull(cVar.PH.PL)) {
-            dVar.aiA.setVisibility(8);
+        dVar.aPi.setText(cVar.Uv.userName);
+        if (StringUtils.isNull(cVar.Uv.Uy)) {
+            dVar.anH.setVisibility(8);
         } else {
-            dVar.aiA.setVisibility(0);
-            dVar.aiA.setText(cVar.PH.PL);
+            dVar.anH.setVisibility(0);
+            dVar.anH.setText(cVar.Uv.Uy);
         }
-        if (StringUtils.isNull(cVar.PH.PP)) {
-            dVar.aPD.setVisibility(8);
+        if (StringUtils.isNull(cVar.Uv.UC)) {
+            dVar.baq.setVisibility(8);
         } else {
-            dVar.aPD.setVisibility(0);
-            dVar.aPD.setText(cVar.PH.PP);
+            dVar.baq.setVisibility(0);
+            dVar.baq.setText(cVar.Uv.UC);
         }
         return view;
     }

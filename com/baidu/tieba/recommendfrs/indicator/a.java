@@ -1,62 +1,165 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.BaseFragment;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends FragmentPagerAdapter {
-    private List<e> TA;
-    private int mPrimaryPosition;
+public class a extends PagerAdapter {
+    private Context mContext;
+    private int mPrimaryPosition = -1;
+    private com.baidu.tieba.recommendfrs.b csx = new b(this);
+    private ArrayList<com.baidu.tieba.recommendfrs.data.e> rM = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.recommendfrs.d> ctj = new ArrayList<>();
 
-    public a(FragmentManager fragmentManager, List<e> list) {
-        super(fragmentManager);
-        this.mPrimaryPosition = -1;
-        this.TA = list;
+    public a(Context context, com.baidu.tieba.recommendfrs.a aVar) {
+        this.mContext = context;
+        this.ctj.add(a(aVar));
+        this.ctj.add(a(aVar));
+        this.ctj.add(a(aVar));
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i < 0 || i >= this.TA.size()) {
-            return null;
-        }
-        return this.TA.get(i).ahL();
+    private com.baidu.tieba.recommendfrs.d a(com.baidu.tieba.recommendfrs.a aVar) {
+        com.baidu.tieba.recommendfrs.d dVar = new com.baidu.tieba.recommendfrs.d(this.mContext);
+        dVar.setCallback(aVar);
+        dVar.setScrollCallback(this.csx);
+        return dVar;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public long getItemId(int i) {
-        if (i < 0 || i >= this.TA.size()) {
-            return 0L;
+    public void p(List<com.baidu.tieba.recommendfrs.data.e> list) {
+        if (this.rM == null) {
+            this.rM = new ArrayList<>();
         }
-        return this.TA.get(i).ahL().hashCode();
+        this.rM.clear();
+        if (list != null && list.size() > 0) {
+            this.rM.addAll(list);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void a(boolean z, String str, com.baidu.tieba.recommendfrs.data.g gVar, boolean z2) {
+        if (this.rM != null && !this.rM.isEmpty()) {
+            Iterator<com.baidu.tieba.recommendfrs.data.e> it = this.rM.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.recommendfrs.data.e next = it.next();
+                if (next != null && TextUtils.equals(str, next.getTag())) {
+                    next.a(z, gVar, z2);
+                    notifyDataSetChanged();
+                    a(str, next);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void i(String str, String str2, int i) {
+        if (this.ctj != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.ctj.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.recommendfrs.d next = it.next();
+                if (next != null && next.jQ(str)) {
+                    next.V(str2, i);
+                    return;
+                }
+            }
+        }
+    }
+
+    private void a(String str, com.baidu.tieba.recommendfrs.data.e eVar) {
+        if (this.ctj != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.ctj.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.recommendfrs.d next = it.next();
+                if (next != null && next.jQ(str)) {
+                    next.a(eVar, false);
+                    return;
+                }
+            }
+        }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.TA.size();
+        if (this.rM == null) {
+            return 0;
+        }
+        return this.rM.size();
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
+    @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.mPrimaryPosition != i) {
-            if (this.mPrimaryPosition != -1) {
-                ((BaseFragment) getItem(this.mPrimaryPosition)).setPrimary(false);
-            }
             this.mPrimaryPosition = i;
-            if (obj instanceof BaseFragment) {
-                ((BaseFragment) obj).setPrimary(true);
+            if (obj instanceof com.baidu.tieba.recommendfrs.d) {
+                ((com.baidu.tieba.recommendfrs.d) obj).ajo();
             }
         }
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
+    public int jX(String str) {
+        if (this.rM == null) {
+            return -1;
+        }
+        int count = getCount();
+        for (int i = 0; i < count; i++) {
+            com.baidu.tieba.recommendfrs.data.e eVar = this.rM.get(i);
+            if (eVar != null && TextUtils.equals(eVar.getTag(), str)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void clear() {
+        if (this.rM != null) {
+            this.rM.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        com.baidu.tieba.recommendfrs.d dVar = this.ctj.get(i % 3);
+        if (dVar.getParent() != null) {
+            viewGroup.removeView(dVar);
+        }
+        dVar.a(this.rM.get(i), true);
+        viewGroup.addView(dVar);
+        return dVar;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        Fragment item = getItem(i);
-        if (item instanceof com.baidu.tieba.recommendfrs.b) {
-            ((com.baidu.tieba.recommendfrs.b) item).clear();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public CharSequence getPageTitle(int i) {
+        int count = getCount();
+        if (i < 0 || i >= count || this.rM == null || this.rM.get(i) == null) {
+            return null;
+        }
+        return this.rM.get(i).getTag();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    public void cI(int i) {
+        if (this.ctj != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.ctj.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.recommendfrs.d next = it.next();
+                if (next != null) {
+                    next.onChangeSkinType(i);
+                }
+            }
         }
     }
 }

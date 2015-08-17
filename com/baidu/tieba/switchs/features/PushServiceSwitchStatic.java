@@ -1,7 +1,7 @@
 package com.baidu.tieba.switchs.features;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class PushServiceSwitchStatic extends a {
     public static final int DEFAULT_TYPE = 0;
@@ -10,7 +10,7 @@ public class PushServiceSwitchStatic extends a {
     public static final String[] PUSHSERVICE_KEY;
 
     static {
-        f.gD().l(PushServiceSwitchStatic.class);
+        e.gy().e(PushServiceSwitchStatic.class);
         PUSHSERVICE_KEY = new String[]{"com.baidu.android.pushservice", "com.baidu.android.moplus", "com.baidu.android.nebula", "com.baidu.android.systemmonitor", "com.baidu.loc.strWebApp"};
     }
 

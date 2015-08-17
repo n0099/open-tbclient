@@ -1,24 +1,33 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.Activity;
-import android.widget.EditText;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements Runnable {
-    final /* synthetic */ SquareSearchActivity bCF;
+public class n implements View.OnTouchListener {
+    final /* synthetic */ SquareSearchActivity bQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(SquareSearchActivity squareSearchActivity) {
-        this.bCF = squareSearchActivity;
+        this.bQZ = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditText editText2;
-        editText = this.bCF.bBN;
-        editText.requestFocus();
-        Activity pageActivity = this.bCF.getPageContext().getPageActivity();
-        editText2 = this.bCF.bBN;
-        com.baidu.adp.lib.util.n.d(pageActivity, editText2);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
+        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
+        if (motionEvent.getAction() == 0) {
+            linearLayoutDetectsSoftKeyboard = this.bQZ.bPY;
+            linearLayoutDetectsSoftKeyboard.setFocusable(true);
+            linearLayoutDetectsSoftKeyboard2 = this.bQZ.bPY;
+            linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
+            if (this.bQZ.bQb.hasFocus()) {
+                com.baidu.adp.lib.util.k.c(this.bQZ.getPageContext().getPageActivity(), this.bQZ.bQb);
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }

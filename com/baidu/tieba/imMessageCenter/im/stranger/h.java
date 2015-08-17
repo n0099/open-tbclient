@@ -1,37 +1,36 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
+
+import android.view.View;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ StrangerListActivity bwE;
+class h implements c.b {
+    private final /* synthetic */ ImMessageCenterShowItemData bGp;
+    final /* synthetic */ StrangerListActivity bKu;
+    private final /* synthetic */ int bKv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(StrangerListActivity strangerListActivity) {
-        this.bwE = strangerListActivity;
+    public h(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.bKu = strangerListActivity;
+        this.bKv = i;
+        this.bGp = imMessageCenterShowItemData;
     }
 
-    @Override // com.baidu.tieba.im.chat.notify.a
-    public void onComplete() {
-        j jVar;
-        j jVar2;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         StrangerListModel strangerListModel;
+        com.baidu.tieba.im.chat.notify.a aVar;
         StrangerListModel strangerListModel2;
-        j jVar3;
-        StrangerListModel strangerListModel3;
-        jVar = this.bwE.bwy;
-        if (jVar != null) {
-            jVar2 = this.bwE.bwy;
-            if (jVar2.Xo() != null) {
-                strangerListModel = this.bwE.bwz;
-                if (strangerListModel != null) {
-                    strangerListModel2 = this.bwE.bwz;
-                    if (strangerListModel2.getData().size() == 0) {
-                        this.bwE.finish();
-                    }
-                    jVar3 = this.bwE.bwy;
-                    StrangerListAdapter Xo = jVar3.Xo();
-                    strangerListModel3 = this.bwE.bwz;
-                    Xo.setData(strangerListModel3.getData());
-                }
-            }
+        cVar.dismiss();
+        if (this.bKv == 1) {
+            strangerListModel2 = this.bKu.bKp;
+            strangerListModel2.YT();
+            this.bKu.finish();
+            return;
         }
+        strangerListModel = this.bKu.bKp;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.bGp;
+        aVar = this.bKu.bqv;
+        strangerListModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

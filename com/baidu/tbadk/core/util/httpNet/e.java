@@ -2,11 +2,12 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e WM = null;
-    public boolean WL = false;
+    private static e abM = null;
+    public boolean abL = false;
 
     public abstract com.baidu.tbadk.cdnOptimize.a getCDNImageTimeData();
 
@@ -29,17 +30,17 @@ public abstract class e {
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (WM == null) {
+        if (abM == null) {
             synchronized (e.class) {
-                if (WM == null) {
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016102, e.class);
+                if (abM == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        WM = (e) runTask.getData();
+                        abM = (e) runTask.getData();
                     }
-                    return WM;
+                    return abM;
                 }
             }
         }
-        return WM;
+        return abM;
     }
 }

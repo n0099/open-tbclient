@@ -1,17 +1,16 @@
 package com.baidu.tbadk.core.util;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah {
-    int action;
-    int count;
-    int port;
-    final /* synthetic */ af this$0;
-
-    private ah(af afVar) {
-        this.this$0 = afVar;
-    }
+public class ah implements Runnable {
+    final /* synthetic */ ae aaF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(af afVar, ah ahVar) {
-        this(afVar);
+    public ah(ae aeVar) {
+        this.aaF = aeVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.aaF.us();
     }
 }

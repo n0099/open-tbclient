@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ a bpy;
+    final /* synthetic */ a bDl;
     private final /* synthetic */ ChatMessage val$chatMessage;
     private final /* synthetic */ PersonalChatMessage val$personalChatMessage;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
-        this.bpy = aVar;
+        this.bDl = aVar;
         this.val$personalChatMessage = personalChatMessage;
         this.val$chatMessage = chatMessage;
     }
@@ -23,6 +23,6 @@ public class l implements com.baidu.tieba.im.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         this.val$personalChatMessage.setLogTime(System.currentTimeMillis());
         MessageManager.getInstance().sendMessage(this.val$personalChatMessage);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(this.val$personalChatMessage.getToUserId()), 2, this.val$chatMessage, 3)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.val$personalChatMessage.getToUserId()), 2, this.val$chatMessage, 3)));
     }
 }

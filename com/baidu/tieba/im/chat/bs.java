@@ -1,19 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tbadk.img.a;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements View.OnLongClickListener {
-    final /* synthetic */ bk baH;
+public class bs implements a.InterfaceC0050a<ChatMessage> {
+    final /* synthetic */ TalkableActivity boV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bk bkVar) {
-        this.baH = bkVar;
+    public bs(TalkableActivity talkableActivity) {
+        this.boV = talkableActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.baH.baa.onItemViewLongClick(view, 3, this.baH.mPosition, 0L);
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.a.InterfaceC0050a
+    /* renamed from: a */
+    public void b(int i, ChatMessage chatMessage) {
+        this.boV.mListView.updateAdapter(i, chatMessage);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.c;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class TiebaIMConfig {
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
@@ -30,7 +30,7 @@ public class TiebaIMConfig {
     }
 
     public static int getMaxChatImageWidthInPx(Context context) {
-        return n.dip2px(context, 300.0f);
+        return k.dip2px(context, 300.0f);
     }
 
     public static BdAsyncTaskParallel getParallel() {

@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class ImageViewerConfig extends c {
+public class ImageViewerConfig extends IntentConfig {
     public static final String ASSIST_URLS = "assist_urls";
     public static final String COUNT = "count";
     public static final String DATA_NOT_VALID = "data_not_valid";
@@ -42,7 +42,7 @@ public class ImageViewerConfig extends c {
         if (arrayList != null && arrayList.size() > 0) {
             cutAssistUrls(hashMap);
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra(URL, arrayList);
+            intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra(INDEX, i);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");

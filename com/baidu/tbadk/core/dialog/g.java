@@ -1,10 +1,32 @@
 package com.baidu.tbadk.core.dialog;
-
-import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class g {
-    public static final int Sa = u.dialog_ani_b2t;
-    public static final int Sb = u.dialog_ani_t2b;
-    public static final int Sc = u.dialog_ani_l2r;
-    public static final int Sd = u.dialog_ani_r2l;
+public class g {
+    private boolean Xk;
+    private String desc;
+    private String tip;
+
+    public g() {
+    }
+
+    public g(String str, String str2, boolean z) {
+        this.tip = str;
+        this.desc = str2;
+        this.Xk = z;
+    }
+
+    public String sY() {
+        return this.tip;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public boolean isChecked() {
+        return this.Xk;
+    }
+
+    public void setChecked(boolean z) {
+        this.Xk = z;
+    }
 }

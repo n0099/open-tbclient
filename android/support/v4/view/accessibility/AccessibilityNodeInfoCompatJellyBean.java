@@ -5,9 +5,6 @@ import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes.dex */
 class AccessibilityNodeInfoCompatJellyBean {
-    AccessibilityNodeInfoCompatJellyBean() {
-    }
-
     public static void addChild(Object obj, View view, int i) {
         ((AccessibilityNodeInfo) obj).addChild(view, i);
     }

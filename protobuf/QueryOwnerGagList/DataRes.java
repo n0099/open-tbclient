@@ -48,10 +48,13 @@ public final class DataRes extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataRes> {
+    public static final class Builder extends Message.Builder<DataRes> {
         public Integer gagers;
         public Integer hasMore;
         public List<UserInfo> userList;
+
+        public Builder() {
+        }
 
         public Builder(DataRes dataRes) {
             super(dataRes);

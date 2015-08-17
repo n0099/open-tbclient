@@ -5,32 +5,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements h {
-    private Object rR;
+    private Object rN;
 
     public a(Object obj) {
         if (obj != null && obj.getClass().isArray()) {
-            this.rR = obj;
+            this.rN = obj;
         }
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        if (this.rR != null) {
-            Class<?> componentType = this.rR.getClass().getComponentType();
+        if (this.rN != null) {
+            Class<?> componentType = this.rN.getClass().getComponentType();
             if (componentType == Character.TYPE) {
-                return String.valueOf((char[]) this.rR);
+                return String.valueOf((char[]) this.rN);
             }
             if (componentType == Byte.TYPE) {
                 try {
-                    com.baidu.adp.lib.util.c.d((byte[]) this.rR, 0);
+                    com.baidu.adp.lib.util.c.encodeBytes((byte[]) this.rN, 0);
                 } catch (Exception e) {
                     return null;
                 }
             } else {
-                int length = Array.getLength(this.rR);
+                int length = Array.getLength(this.rN);
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < length; i++) {
-                    Object a = com.baidu.adp.lib.a.b.a.e.f.h(Array.get(this.rR, i)).a(new com.baidu.adp.lib.a.b.a.e.c(componentType));
+                    Object a = com.baidu.adp.lib.a.b.a.e.f.i(Array.get(this.rN, i)).a(new com.baidu.adp.lib.a.b.a.e.c(componentType));
                     if (a != null) {
                         jSONArray.put(a);
                     }
@@ -43,39 +43,39 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        if (this.rR != null) {
-            Class<?> componentType = this.rR.getClass().getComponentType();
+        if (this.rN != null) {
+            Class<?> componentType = this.rN.getClass().getComponentType();
             if (componentType == Boolean.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Byte.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Character.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Double.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Float.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Integer.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Long.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == Short.TYPE) {
-                return this.rR;
+                return this.rN;
             }
             if (componentType == String.class) {
-                return this.rR;
+                return this.rN;
             }
-            int length = Array.getLength(this.rR);
+            int length = Array.getLength(this.rN);
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < length; i++) {
-                Object a = com.baidu.adp.lib.a.b.a.e.f.h(Array.get(this.rR, i)).a(new com.baidu.adp.lib.a.b.a.e.c(componentType));
+                Object a = com.baidu.adp.lib.a.b.a.e.f.i(Array.get(this.rN, i)).a(new com.baidu.adp.lib.a.b.a.e.c(componentType));
                 if (a != null) {
                     jSONArray.put(a);
                 }
@@ -92,7 +92,7 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rR;
+        return this.rN;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -112,6 +112,6 @@ public class a implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rR;
+        return this.rN;
     }
 }

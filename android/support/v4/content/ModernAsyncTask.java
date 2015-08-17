@@ -18,12 +18,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 abstract class ModernAsyncTask<Params, Progress, Result> {
-    private static final int CORE_POOL_SIZE = 5;
-    private static final int KEEP_ALIVE = 1;
-    private static final String LOG_TAG = "AsyncTask";
-    private static final int MAXIMUM_POOL_SIZE = 128;
-    private static final int MESSAGE_POST_PROGRESS = 2;
-    private static final int MESSAGE_POST_RESULT = 1;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: android.support.v4.content.ModernAsyncTask.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -52,7 +46,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
             try {
                 ModernAsyncTask.this.postResultIfNotInvoked(get());
             } catch (InterruptedException e) {
-                Log.w(ModernAsyncTask.LOG_TAG, e);
+                Log.w("AsyncTask", e);
             } catch (CancellationException e2) {
                 ModernAsyncTask.this.postResultIfNotInvoked(null);
             } catch (ExecutionException e3) {
@@ -72,14 +66,6 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
 
     protected abstract Result doInBackground(Params... paramsArr);
 
-    public static void init() {
-        sHandler.getLooper();
-    }
-
-    public static void setDefaultExecutor(Executor executor) {
-        sDefaultExecutor = executor;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void postResultIfNotInvoked(Result result) {
         if (!this.mTaskInvoked.get()) {
@@ -91,10 +77,6 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     public Result postResult(Result result) {
         sHandler.obtainMessage(1, new AsyncTaskResult(this, result)).sendToTarget();
         return result;
-    }
-
-    public final Status getStatus() {
-        return this.mStatus;
     }
 
     protected void onPreExecute() {
@@ -121,18 +103,6 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return this.mFuture.cancel(z);
     }
 
-    public final Result get() {
-        return this.mFuture.get();
-    }
-
-    public final Result get(long j, TimeUnit timeUnit) {
-        return this.mFuture.get(j, timeUnit);
-    }
-
-    public final ModernAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
-        return executeOnExecutor(sDefaultExecutor, paramsArr);
-    }
-
     public final ModernAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.mStatus != Status.PENDING) {
             switch (this.mStatus) {
@@ -149,16 +119,6 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         return this;
     }
 
-    public static void execute(Runnable runnable) {
-        sDefaultExecutor.execute(runnable);
-    }
-
-    protected final void publishProgress(Progress... progressArr) {
-        if (!isCancelled()) {
-            sHandler.obtainMessage(2, new AsyncTaskResult(this, progressArr)).sendToTarget();
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void finish(Result result) {
         if (isCancelled()) {
@@ -169,9 +129,9 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         this.mStatus = Status.FINISHED;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class InternalHandler extends Handler {
+    public static class InternalHandler extends Handler {
         private InternalHandler() {
         }
 
@@ -191,18 +151,17 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
+    private static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
         Params[] mParams;
 
         private WorkerRunnable() {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class AsyncTaskResult<Data> {
+    public static class AsyncTaskResult<Data> {
         final Data[] mData;
         final ModernAsyncTask mTask;
 

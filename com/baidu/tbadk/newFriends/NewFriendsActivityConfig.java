@@ -1,9 +1,9 @@
 package com.baidu.tbadk.newFriends;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class NewFriendsActivityConfig extends c {
+public class NewFriendsActivityConfig extends IntentConfig {
     public NewFriendsActivityConfig(Context context) {
         super(context);
     }

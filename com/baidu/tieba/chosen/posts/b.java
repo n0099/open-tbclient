@@ -4,24 +4,31 @@ import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.mvc.model.q;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tbadk.mvc.model.a;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.chosen.unlike.UnlikeHttpResponse;
 import com.baidu.tieba.chosen.unlike.UnlikeRequest;
 import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> {
-    private ChosenPostActivity aCV;
-    private com.baidu.tieba.chosen.posts.request.b aCW;
-    private com.baidu.tieba.chosen.posts.request.a aCX;
-    private com.baidu.tbadk.mvc.e.b aCY;
-    private com.baidu.tieba.chosen.posts.request.c aCZ;
-    private com.baidu.tbadk.mvc.model.d<com.baidu.tieba.chosen.posts.request.d> aDa;
-    private com.baidu.adp.framework.listener.a aDb;
+public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetModel.b<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> {
+    private ChosenPostActivity aKo;
+    private com.baidu.tieba.chosen.posts.request.b aKp;
+    private com.baidu.tieba.chosen.posts.request.a aKq;
+    private com.baidu.tbadk.mvc.d.a aKr;
+    private com.baidu.tieba.chosen.posts.request.c aKs;
+    private a.InterfaceC0052a<com.baidu.tieba.chosen.posts.request.d> aKt;
+    private com.baidu.adp.framework.listener.a aKu;
 
-    private void GO() {
+    private void HD() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(307007);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -29,38 +36,37 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void GP() {
+    private void HE() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.S(TbConfig.HOT_THREAD_UNLIKE, 307007));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.Z(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void M(long j) {
+    public void O(long j) {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4102, null, null, null);
         bVar.setExtra(Long.valueOf(j));
         bVar.setUniqueId(getUniqueId());
-        AM().dispatchMvcEvent(bVar);
+        this.aKo.oH().dispatchMvcEvent(bVar);
     }
 
     public b(ChosenPostActivity chosenPostActivity) {
-        super(chosenPostActivity);
-        this.aCY = new com.baidu.tbadk.mvc.e.b();
-        this.aDa = new c(this);
-        this.aDb = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.aCV = chosenPostActivity;
-        GP();
-        GO();
-        registerListener(this.aDb);
-        AM().addEventDelegate(this);
+        super(chosenPostActivity.getPageContext());
+        this.aKr = new com.baidu.tbadk.mvc.d.a();
+        this.aKt = new c(this);
+        this.aKu = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
+        this.aKo = chosenPostActivity;
+        HE();
+        HD();
+        registerListener(this.aKu);
     }
 
-    @Override // com.baidu.tbadk.mvc.d.d, com.baidu.tbadk.mvc.d.e, com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.Bs() == 4100) {
-            this.aCW.BM();
-        } else if (bVar.Bs() == 4101) {
+        if (bVar.CG() == 4100) {
+            this.aKp.CV();
+            return false;
+        } else if (bVar.CG() == 4101) {
             Object extra = bVar.getExtra();
             if (extra instanceof tinfo) {
                 tinfo tinfoVar = (tinfo) extra;
@@ -68,63 +74,61 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
                 unlikeRequest.setThreadId(tinfoVar.thread_id.longValue());
                 unlikeRequest.setType(tinfoVar.type.intValue());
                 sendMessage(unlikeRequest);
+                return false;
             }
+            return false;
+        } else {
+            return false;
         }
-        return super.a(bVar);
     }
 
-    @Override // com.baidu.tbadk.mvc.d.a
-    protected boolean oM() {
-        this.aCX.BE();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean oT() {
+        this.aKq.CL();
         return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.d.a
-    public boolean a(com.baidu.tieba.chosen.posts.request.c cVar, com.baidu.tieba.chosen.posts.request.d dVar) {
-        b(dVar);
+    protected boolean a(com.baidu.tieba.chosen.posts.request.c cVar, com.baidu.tieba.chosen.posts.request.d dVar) {
+        this.aKo.HC().a(dVar);
         if (dVar != null) {
-            this.aCY.bc(false);
-            this.aCY.bd(false);
-            a(this.aCY);
+            this.aKr.be(false);
+            this.aKr.bf(false);
+            this.aKo.HC().d(this.aKr);
             return true;
         }
         return true;
     }
 
-    @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
-        super.f(bundle);
-        this.aCZ = new com.baidu.tieba.chosen.posts.request.c();
-        this.aCW = new com.baidu.tieba.chosen.posts.request.b(this.aCV.getPageContext(), this.aCZ);
-        this.aCW.a((q) this);
-        this.aCX = new com.baidu.tieba.chosen.posts.request.a(this.aCV.getPageContext());
-        this.aCX.a(this.aDa);
+        this.aKs = new com.baidu.tieba.chosen.posts.request.c();
+        this.aKp = new com.baidu.tieba.chosen.posts.request.b(this.aKo.getPageContext(), this.aKs);
+        this.aKp.a(this);
+        this.aKq = new com.baidu.tieba.chosen.posts.request.a(this.aKo.getPageContext());
+        this.aKq.a(this.aKt);
     }
 
-    @Override // com.baidu.tbadk.mvc.d.e
-    protected boolean bb(boolean z) {
-        this.aCY.bc(true);
-        a(this.aCY);
-        by(true);
-        this.aCZ.GS();
-        this.aCW.BM();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean bz(boolean z) {
+        this.aKr.be(true);
+        this.aKo.HC().d(this.aKr);
+        bA(true);
+        this.aKs.HJ();
+        this.aKp.CV();
         return true;
     }
 
-    @Override // com.baidu.tbadk.mvc.d.d
-    protected boolean BB() {
-        this.aCZ.GS();
-        this.aCW.BM();
-        this.aCY.bd(true);
-        this.aCY.bf(true);
-        by(false);
-        a(this.aCY);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean HF() {
+        this.aKs.HJ();
+        this.aKp.CV();
+        this.aKr.bf(true);
+        this.aKr.bh(true);
+        bA(false);
+        this.aKo.HC().d(this.aKr);
         return true;
     }
 
-    private void by(boolean z) {
+    private void bA(boolean z) {
         com.baidu.tbadk.mvc.c.b bVar;
         if (z) {
             bVar = new com.baidu.tbadk.mvc.c.b(4097, null, null, null);
@@ -132,6 +136,66 @@ public class b extends com.baidu.tbadk.mvc.d.d<com.baidu.tieba.chosen.posts.requ
             bVar = new com.baidu.tbadk.mvc.c.b(4098, null, null, null);
         }
         bVar.setUniqueId(getUniqueId());
-        AM().dispatchMvcEvent(bVar);
+        this.aKo.oH().dispatchMvcEvent(bVar);
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.c
+    public void a(MvcHttpResponsedMessage<com.baidu.tieba.chosen.posts.request.d> mvcHttpResponsedMessage, MvcHttpMessage<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> mvcHttpMessage, MvcNetMessage<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> mvcNetMessage) {
+        com.baidu.tieba.chosen.posts.request.d dVar;
+        if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
+            dVar = null;
+        } else {
+            dVar = mvcHttpResponsedMessage.getData();
+            r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
+            if (mvcNetMessage != null) {
+                r1 = mvcNetMessage.getRequestData();
+            }
+        }
+        if (r1 == null || dVar == null || !a(r1, dVar)) {
+            if (mvcHttpResponsedMessage != null) {
+                this.mErrorCode = mvcHttpResponsedMessage.getError();
+                this.mErrorString = mvcHttpResponsedMessage.getErrorString();
+            }
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.mErrorCode);
+            errorData.setError_msg(this.mErrorString);
+            this.aKo.a(errorData);
+            this.aKo.HC().a(errorData);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.d
+    public void a(MvcSocketResponsedMessage<com.baidu.tieba.chosen.posts.request.d, ?> mvcSocketResponsedMessage, MvcSocketMessage<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> mvcSocketMessage, MvcNetMessage<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> mvcNetMessage) {
+        com.baidu.tieba.chosen.posts.request.d dVar;
+        if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
+            dVar = null;
+        } else {
+            dVar = mvcSocketResponsedMessage.getData();
+            r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
+            if (mvcNetMessage != null) {
+                r1 = mvcNetMessage.getRequestData();
+            }
+        }
+        if (r1 == null || dVar == null || !a(r1, dVar)) {
+            if (mvcSocketResponsedMessage != null) {
+                this.mErrorCode = mvcSocketResponsedMessage.getError();
+                this.mErrorString = mvcSocketResponsedMessage.getErrorString();
+            }
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.mErrorCode);
+            errorData.setError_msg(this.mErrorString);
+            this.aKo.a(errorData);
+            this.aKo.HC().a(errorData);
+        }
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

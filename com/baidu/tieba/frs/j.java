@@ -1,45 +1,27 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class j implements com.baidu.tbadk.core.view.ad {
-    final /* synthetic */ FrsActivity aLY;
+class j implements View.OnClickListener {
+    final /* synthetic */ FrsActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.aLY = frsActivity;
+        this.this$0 = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.ad
-    public void au(boolean z) {
-        bf bfVar;
-        com.baidu.tieba.tbadkCore.w wVar;
-        bf bfVar2;
-        boolean z2;
-        bf bfVar3;
-        bf bfVar4;
-        com.baidu.tieba.tbadkCore.w wVar2;
-        if (z) {
-            bfVar = this.aLY.aLj;
-            if (!bfVar.KG()) {
-                wVar = this.aLY.aLm;
-                if (wVar != null) {
-                    wVar2 = this.aLY.aLm;
-                    if (wVar2.getThreadList().size() != 0) {
-                        return;
-                    }
-                }
-                FrsActivity frsActivity = this.aLY;
-                bfVar2 = this.aLY.aLj;
-                frsActivity.hideNetRefreshView(bfVar2.getRootView());
-                z2 = this.aLY.aKZ;
-                if (!z2) {
-                    FrsActivity frsActivity2 = this.aLY;
-                    bfVar3 = this.aLY.aLj;
-                    frsActivity2.showLoadingView(bfVar3.getRootView(), true);
-                    bfVar4 = this.aLY.aLj;
-                    bfVar4.Lw();
-                }
-                this.aLY.refresh();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bl blVar;
+        int intValue = ((Integer) view.getTag()).intValue();
+        blVar = this.this$0.aUw;
+        com.baidu.adp.widget.ListView.u aA = blVar.Mj().aA(intValue);
+        if (aA instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aA;
+            if (!cVar.rx()) {
+                return;
             }
+            this.this$0.a(cVar);
         }
     }
 }

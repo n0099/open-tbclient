@@ -1,7 +1,13 @@
 package com.baidu.adp.lib.d;
 
-import android.location.Address;
+import com.baidu.adp.lib.d.a;
 /* loaded from: classes.dex */
 public interface d {
-    void b(int i, String str, Address address);
+    void A(boolean z);
+
+    void a(a.b bVar);
+
+    void destroy();
+
+    void gI();
 }

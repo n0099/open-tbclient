@@ -48,17 +48,17 @@ public class SearchFriendResult extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class UserInfo extends i implements Serializable {
+    public static class UserInfo extends i implements Serializable {
         private static final long serialVersionUID = -4475845825063348182L;
         private String portrait;
-        private int user_id;
+        private long user_id;
         private String user_name;
 
-        public void setUserId(int i) {
-            this.user_id = i;
+        public void setUserId(long j) {
+            this.user_id = j;
         }
 
-        public int getUserId() {
+        public long getUserId() {
             return this.user_id;
         }
 

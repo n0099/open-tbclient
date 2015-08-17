@@ -1,21 +1,30 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ w bGo;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar) {
-        this.bGo = wVar;
+public class y extends com.baidu.tbadk.mvc.model.a<aj, SingleMentionActivity> {
+    public y(TbPageContext<SingleMentionActivity> tbPageContext) {
+        super(tbPageContext);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter AM;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9485, this.bGo.getData(), null, null);
-        AM = this.bGo.AM();
-        AM.dispatchMvcEvent(bVar);
+    @Override // com.baidu.tbadk.mvc.model.a
+    public Class<aj> CR() {
+        return aj.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public int CS() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public int CT() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public String CD() {
+        return "tb_user_replyme";
     }
 }

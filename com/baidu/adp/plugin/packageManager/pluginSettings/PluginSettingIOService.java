@@ -3,10 +3,12 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -29,16 +31,126 @@ public class PluginSettingIOService extends Service {
     public static final int MSG_UPDATE_SETTINGS = 5;
     public static final int MSG_WRITE_SETTINGS = 4;
     ArrayList<Messenger> mClients = new ArrayList<>();
-    private Messenger mMessenger = new Messenger(new g(this));
+    private Messenger mMessenger = new Messenger(new a());
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return this.mMessenger.getBinder();
     }
 
+    /* loaded from: classes.dex */
+    class a extends Handler {
+        a() {
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Bundle data;
+            Bundle data2;
+            Bundle data3;
+            Bundle data4;
+            Bundle data5;
+            Bundle data6;
+            Bundle data7;
+            Serializable serializable;
+            switch (message.what) {
+                case 1:
+                    PluginSettingIOService.this.mClients.add(message.replyTo);
+                    return;
+                case 2:
+                    PluginSettingIOService.this.mClients.remove(message.replyTo);
+                    return;
+                case 3:
+                case 5:
+                default:
+                    return;
+                case 4:
+                    Bundle data8 = message.getData();
+                    if (data8 != null && (serializable = data8.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
+                        PluginSettings pluginSettings = (PluginSettings) data8.getSerializable("plugin_settings");
+                        PluginSettingIOService.this.save(pluginSettings, null);
+                        PluginSettingIOService.this.sendUpdateMsg(pluginSettings);
+                        return;
+                    }
+                    return;
+                case 6:
+                    if (b.ml().mm() != null && (data5 = message.getData()) != null) {
+                        boolean z = data5.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
+                        PluginSetting findPluginSetting = b.ml().mm().findPluginSetting(data5.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        if (findPluginSetting != null) {
+                            findPluginSetting.forbidden = z;
+                            PluginSettingIOService.this.save(b.ml().mm(), null);
+                            PluginSettingIOService.this.sendUpdateMsg(6, data5);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                case 7:
+                    if (b.ml().mm() != null && (data3 = message.getData()) != null) {
+                        b.ml().mm().removePluginSetting(data3.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSettingIOService.this.save(b.ml().mm(), null);
+                        PluginSettingIOService.this.sendUpdateMsg(7, data3);
+                        return;
+                    }
+                    return;
+                case 8:
+                    if (b.ml().mm() != null && (data7 = message.getData()) != null) {
+                        b.ml().mm().setAllPluginEnable(data7.getBoolean(PluginSettingIOService.KEY_ENABLE));
+                        PluginSettingIOService.this.save(b.ml().mm(), null);
+                        PluginSettingIOService.this.sendUpdateMsg(8, data7);
+                        return;
+                    }
+                    return;
+                case 9:
+                    if (b.ml().mm() != null && (data6 = message.getData()) != null) {
+                        boolean z2 = data6.getBoolean(PluginSettingIOService.KEY_ENABLE);
+                        PluginSetting findPluginSetting2 = b.ml().mm().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        if (findPluginSetting2 != null) {
+                            findPluginSetting2.enable = z2;
+                            PluginSettingIOService.this.save(b.ml().mm(), null);
+                            PluginSettingIOService.this.sendUpdateMsg(9, data6);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                case 10:
+                    if (b.ml().mm() != null && (data2 = message.getData()) != null) {
+                        b.ml().mm().setContainerSetting(data2.getString(PluginSettingIOService.KEY_VERSION));
+                        PluginSettingIOService.this.save(b.ml().mm(), null);
+                        PluginSettingIOService.this.sendUpdateMsg(10, data2);
+                        return;
+                    }
+                    return;
+                case 11:
+                    if (b.ml().mm() != null && (data4 = message.getData()) != null) {
+                        int i = data4.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
+                        PluginSetting findPluginSetting3 = b.ml().mm().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        if (findPluginSetting3 != null) {
+                            findPluginSetting3.installStatus = i;
+                            PluginSettingIOService.this.save(b.ml().mm(), null);
+                            PluginSettingIOService.this.sendUpdateMsg(11, data4);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                case 12:
+                    if (b.ml().mm() != null && (data = message.getData()) != null) {
+                        b.ml().mm().setForbiddenFeatures(data.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
+                        PluginSettingIOService.this.save(b.ml().mm(), null);
+                        PluginSettingIOService.this.sendUpdateMsg(12, data);
+                        return;
+                    }
+                    return;
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void save(PluginSettings pluginSettings, l lVar) {
-        e.me().save(pluginSettings, lVar);
+    public void save(PluginSettings pluginSettings, e eVar) {
+        b.ml().save(pluginSettings, eVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,6 +164,7 @@ public class PluginSettingIOService extends Service {
                 try {
                     next.send(obtain);
                 } catch (RemoteException e) {
+                } catch (Exception e2) {
                 }
             }
         }

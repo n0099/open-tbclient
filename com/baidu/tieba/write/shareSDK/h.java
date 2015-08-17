@@ -1,30 +1,24 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.tieba.write.view.e;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.write.view.i {
-    final /* synthetic */ WriteShareActivity cAu;
+class h implements e.b {
+    final /* synthetic */ WriteShareActivity cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(WriteShareActivity writeShareActivity) {
-        this.cAu = writeShareActivity;
+        this.cSj = writeShareActivity;
     }
 
-    @Override // com.baidu.tieba.write.view.i
-    public void a(com.baidu.tieba.write.view.f fVar) {
-        InputMethodManager inputMethodManager;
-        q qVar;
-        InputMethodManager inputMethodManager2;
-        q qVar2;
-        WriteShareActivity writeShareActivity = this.cAu;
-        inputMethodManager = this.cAu.mInputManager;
-        qVar = this.cAu.cAf;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, qVar.asI());
-        WriteShareActivity writeShareActivity2 = this.cAu;
-        inputMethodManager2 = this.cAu.mInputManager;
-        qVar2 = this.cAu.cAf;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, qVar2.asJ());
-        this.cAu.asB();
-        fVar.dismiss();
+    @Override // com.baidu.tieba.write.view.e.b
+    public void a(com.baidu.tieba.write.view.e eVar) {
+        boolean z;
+        eVar.dismiss();
+        z = this.cSj.cRW;
+        if (!z) {
+            this.cSj.setResult(0);
+        }
+        com.baidu.tbadk.core.c.b.a(this.cSj.getPageContext().getPageActivity(), 200, false);
+        this.cSj.finish();
     }
 }

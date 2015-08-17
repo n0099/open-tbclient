@@ -1,37 +1,36 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg extends CustomMessageListener {
+public class bg implements a.b {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
+    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
         this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo D;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (D = c.TE().D("-1002", -3)) != null) {
-            Object data = customResponsedMessage.getData();
-            if (data == null) {
-                D.setUnread_count(0);
-                D.setIs_hidden(1);
-                this.this$0.k(D);
-            } else if (data instanceof ImMessageCenterPojo) {
-                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                D.setLast_content(imMessageCenterPojo.getLast_content());
-                D.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                D.setUnread_count(0);
-                D.setIs_hidden(0);
-                this.this$0.k(D);
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
+        b.Vl().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        if (z) {
+            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void e(String str, List<CommonMsgPojo> list) {
+        if (list != null && list.size() != 0) {
+            for (CommonMsgPojo commonMsgPojo : list) {
+                if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
+                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.hg(commonMsgPojo.getContent());
+                }
             }
         }
     }

@@ -1,19 +1,29 @@
 package com.baidu.tieba.tblauncher.a;
 
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.core.message.b {
-    final /* synthetic */ d cwE;
+public class l implements TbImageView.a {
+    final /* synthetic */ d cNj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.cwE = dVar;
+        this.cNj = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.message.b
-    public void k(List<com.baidu.tieba.tbadkCore.f.a> list) {
-        com.baidu.tbadk.mvc.j.d dVar;
-        dVar = this.cwE.cwB;
-        dVar.s(list);
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onComplete(String str, boolean z) {
+        AccountData currentAccountObj;
+        c cVar;
+        if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
+            cVar = this.cNj.cNd;
+            cVar.fL(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

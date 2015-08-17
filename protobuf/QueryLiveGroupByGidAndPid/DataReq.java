@@ -5,11 +5,11 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final Integer DEFAULT_GROUPID = 0;
-    public static final Integer DEFAULT_PUBLISHERID = 0;
+    public static final Long DEFAULT_PUBLISHERID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer groupId;
-    @ProtoField(tag = 2, type = Message.Datatype.INT32)
-    public final Integer publisherId;
+    @ProtoField(tag = 2, type = Message.Datatype.INT64)
+    public final Long publisherId;
 
     /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
         this(builder, z);
@@ -36,9 +36,12 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public Integer groupId;
-        public Integer publisherId;
+        public Long publisherId;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

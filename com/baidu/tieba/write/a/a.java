@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private final ArrayList<MetaData> czs = new ArrayList<>();
-    private HashMap<String, String> czt = null;
+    private final ArrayList<MetaData> cRh = new ArrayList<>();
+    private HashMap<String, String> cRi = null;
 
-    public void b(JSONObject jSONObject, boolean z) {
+    public void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.czt == null) {
-                        this.czt = new HashMap<>();
+                    if (this.cRi == null) {
+                        this.cRi = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class a {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.czs.add(metaData);
+                        this.cRh.add(metaData);
                         if (z) {
-                            this.czt.put(metaData.getName_show(), metaData.getPortrait());
+                            this.cRi.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,19 +40,19 @@ public class a {
         }
     }
 
-    public void ka(String str) {
+    public void la(String str) {
         try {
-            b(new JSONObject(str), true);
+            c(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> asc() {
-        return this.czs;
+    public ArrayList<MetaData> atZ() {
+        return this.cRh;
     }
 
-    public HashMap<String, String> asd() {
-        return this.czt;
+    public HashMap<String, String> aua() {
+        return this.cRi;
     }
 }

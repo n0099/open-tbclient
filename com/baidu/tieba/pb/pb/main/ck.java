@@ -1,41 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
 import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements Animation.AnimationListener {
-    final /* synthetic */ ch bOG;
+public class ck implements View.OnClickListener {
+    final /* synthetic */ cb cfj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(ch chVar) {
-        this.bOG = chVar;
+    public ck(cb cbVar) {
+        this.cfj = cbVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        PbEditor pbEditor;
-        View view2;
-        PbEditor pbEditor2;
-        ch chVar = this.bOG;
-        view = this.bOG.bOk;
-        chVar.bOo = view.getVisibility() == 0;
-        pbEditor = this.bOG.bOi;
-        if (pbEditor != null) {
-            pbEditor2 = this.bOG.bOi;
-            pbEditor2.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.cfj.ceB;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.cfj.ceB;
+            pbActivity = this.cfj.cbx;
+            com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
         }
-        view2 = this.bOG.bOk;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

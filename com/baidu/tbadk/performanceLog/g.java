@@ -1,37 +1,35 @@
 package com.baidu.tbadk.performanceLog;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends Thread {
-    private boolean apL = false;
-    final /* synthetic */ f apM;
-    private InputStream in;
+public class g implements a.InterfaceC0053a {
+    final /* synthetic */ e awL;
 
-    public g(f fVar, InputStream inputStream) {
-        this.apM = fVar;
-        this.in = inputStream;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(e eVar) {
+        this.awL = eVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        int read;
-        byte[] bArr = new byte[8192];
-        while (!this.apL && (read = this.in.read(bArr)) != -1) {
-            try {
-                String str = new String(bArr, 0, read);
-                if (str != null) {
-                    this.apM.eV(str);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
-            }
+    @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0053a
+    public void en(int i) {
+        int i2;
+        int i3;
+        int i4;
+        a aVar;
+        a aVar2;
+        e eVar = this.awL;
+        i2 = eVar.awJ;
+        eVar.awJ = i2 + 1;
+        i3 = this.awL.awE;
+        i4 = this.awL.awJ;
+        if (i3 == i4) {
+            aVar = this.awL.awH;
+            aVar.a((a.InterfaceC0053a) null);
+            aVar2 = this.awL.awH;
+            aVar2.stop();
+            this.awL.DN();
         }
-    }
-
-    public synchronized void finish() {
-        this.apL = true;
+        this.awL.eo(i);
     }
 }

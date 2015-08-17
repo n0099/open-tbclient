@@ -72,13 +72,16 @@ public final class ForumRalatedInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ForumRalatedInfo> {
+    public static final class Builder extends Message.Builder<ForumRalatedInfo> {
         public String avatar;
         public Integer curScore;
         public Integer forumId;
         public Integer leftScore;
         public Integer level;
         public String name;
+
+        public Builder() {
+        }
 
         public Builder(ForumRalatedInfo forumRalatedInfo) {
             super(forumRalatedInfo);

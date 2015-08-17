@@ -1,15 +1,17 @@
 package com.baidu.tieba.discover;
+
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aDT;
+public class d implements a.b {
+    final /* synthetic */ a aLq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.aDT = aVar;
+        this.aLq = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
     }

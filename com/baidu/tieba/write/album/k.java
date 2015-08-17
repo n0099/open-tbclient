@@ -1,29 +1,23 @@
 package com.baidu.tieba.write.album;
 
 import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-import java.util.Map;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class k implements com.baidu.tbadk.imageManager.d {
-    private final /* synthetic */ int RY;
-    final /* synthetic */ j cys;
-    private final /* synthetic */ ViewGroup cyt;
+class k implements com.baidu.tbadk.imageManager.b {
+    private final /* synthetic */ ViewGroup arp;
+    final /* synthetic */ j cQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar, ViewGroup viewGroup, int i) {
-        this.cys = jVar;
-        this.cyt = viewGroup;
-        this.RY = i;
+    public k(j jVar, ViewGroup viewGroup) {
+        this.cQl = jVar;
+        this.arp = viewGroup;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
+    @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        Map map;
-        TbImageView tbImageView = (TbImageView) this.cyt.findViewWithTag(str);
-        if (tbImageView != null && aVar != null) {
-            tbImageView.invalidate();
-            map = this.cys.cyr;
-            map.put(Integer.valueOf(this.RY), true);
+        HeadImageView headImageView = (HeadImageView) this.arp.findViewWithTag(str);
+        if (headImageView != null && aVar != null) {
+            headImageView.invalidate();
         }
     }
 }

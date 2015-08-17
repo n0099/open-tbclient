@@ -15,8 +15,6 @@ import android.view.ViewGroup;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class CustomViewBehind extends ViewGroup {
-    private static final int MARGIN_THRESHOLD = 48;
-    private static final String TAG = "CustomViewBehind";
     private boolean mChildrenEnabled;
     private View mContent;
     private float mFadeDegree;
@@ -243,7 +241,7 @@ public class CustomViewBehind extends ViewGroup {
             }
         }
         if (r0 == 4) {
-            Log.v(TAG, "behind INVISIBLE");
+            Log.v("CustomViewBehind", "behind INVISIBLE");
         }
         setVisibility(r0);
     }

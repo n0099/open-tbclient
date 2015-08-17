@@ -22,8 +22,11 @@ public final class UpdateMaskInfoResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateMaskInfoResIdl> {
+    public static final class Builder extends Message.Builder<UpdateMaskInfoResIdl> {
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(UpdateMaskInfoResIdl updateMaskInfoResIdl) {
             super(updateMaskInfoResIdl);

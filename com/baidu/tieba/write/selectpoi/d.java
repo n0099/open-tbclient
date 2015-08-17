@@ -1,37 +1,28 @@
 package com.baidu.tieba.write.selectpoi;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements TextWatcher {
-    final /* synthetic */ SearchLocationActivity czQ;
+public class d implements View.OnClickListener {
+    final /* synthetic */ SearchLocationActivity cRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchLocationActivity searchLocationActivity) {
-        this.czQ = searchLocationActivity;
+        this.cRE = searchLocationActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        TextView textView;
-        TextView textView2;
-        if (StringUtils.isNull(this.czQ.ahN())) {
-            textView2 = this.czQ.czM;
-            textView2.setEnabled(false);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        EditText editText2;
+        editText = this.cRE.bQb;
+        if (editText.hasFocus()) {
+            Activity pageActivity = this.cRE.getPageContext().getPageActivity();
+            editText2 = this.cRE.bQb;
+            com.baidu.adp.lib.util.k.c(pageActivity, editText2);
+            this.cRE.closeActivity();
         }
-        textView = this.czQ.czM;
-        textView.setEnabled(true);
     }
 }

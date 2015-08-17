@@ -20,17 +20,10 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class FileProvider extends ContentProvider {
-    private static final String ATTR_NAME = "name";
-    private static final String ATTR_PATH = "path";
-    private static final String META_DATA_FILE_PROVIDER_PATHS = "android.support.FILE_PROVIDER_PATHS";
-    private static final String TAG_CACHE_PATH = "cache-path";
-    private static final String TAG_EXTERNAL = "external-path";
-    private static final String TAG_FILES_PATH = "files-path";
-    private static final String TAG_ROOT_PATH = "root-path";
-    private PathStrategy mStrategy;
     private static final String[] COLUMNS = {"_display_name", "_size"};
     private static final File DEVICE_ROOT = new File("/");
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
+    private PathStrategy mStrategy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -152,7 +145,7 @@ public class FileProvider extends ContentProvider {
     private static PathStrategy parsePathStrategy(Context context, String str) {
         File buildPath;
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
+        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
         if (loadXmlMetaData == null) {
             throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
         }
@@ -162,15 +155,15 @@ public class FileProvider extends ContentProvider {
                 if (next == 2) {
                     String name = loadXmlMetaData.getName();
                     String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, ATTR_PATH);
-                    if (TAG_ROOT_PATH.equals(name)) {
+                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                    if ("root-path".equals(name)) {
                         buildPath = buildPath(DEVICE_ROOT, attributeValue2);
-                    } else if (TAG_FILES_PATH.equals(name)) {
+                    } else if ("files-path".equals(name)) {
                         buildPath = buildPath(context.getFilesDir(), attributeValue2);
-                    } else if (TAG_CACHE_PATH.equals(name)) {
+                    } else if ("cache-path".equals(name)) {
                         buildPath = buildPath(context.getCacheDir(), attributeValue2);
                     } else {
-                        buildPath = TAG_EXTERNAL.equals(name) ? buildPath(Environment.getExternalStorageDirectory(), attributeValue2) : null;
+                        buildPath = "external-path".equals(name) ? buildPath(Environment.getExternalStorageDirectory(), attributeValue2) : null;
                     }
                     if (buildPath != null) {
                         simplePathStrategy.addRoot(attributeValue, buildPath);
@@ -184,7 +177,7 @@ public class FileProvider extends ContentProvider {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class SimplePathStrategy implements PathStrategy {
+    public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();
 

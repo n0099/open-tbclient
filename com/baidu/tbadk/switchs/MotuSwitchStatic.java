@@ -1,14 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class MotuSwitchStatic extends a {
-    public static final String[] arD;
+    public static final String[] ayK;
 
     static {
-        f.gD().l(MotuSwitchStatic.class);
-        arD = new String[]{"cn.jingling.lib"};
+        e.gy().e(MotuSwitchStatic.class);
+        ayK = new String[]{"cn.jingling.lib"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class MotuSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return arD;
+        return ayK;
     }
 
     @Override // com.baidu.adp.lib.b.a

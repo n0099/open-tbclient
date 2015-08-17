@@ -8,32 +8,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    al Ii;
+    x Il;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Ii = null;
+        this.Il = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ii = null;
+        this.Il = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Ii = null;
+        this.Il = null;
         init();
     }
 
     private void init() {
-        if (this.Ii == null) {
-            this.Ii = new al();
+        if (this.Il == null) {
+            this.Il = new x();
         }
-        super.setOnItemClickListener(new ag(this));
-        super.setOnItemLongClickListener(new ah(this));
+        super.setOnItemClickListener(new s(this));
+        super.setOnItemLongClickListener(new t(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
@@ -49,20 +49,20 @@ public class BdTypeListView extends BdListView {
     public void h(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Ii.a(it.next());
+            this.Il.a(it.next());
         }
-        setAdapter((ListAdapter) this.Ii);
+        setAdapter((ListAdapter) this.Il);
     }
 
-    public void setData(List<ai> list) {
-        this.Ii.setData(list);
+    public void setData(List<u> list) {
+        this.Il.setData(list);
     }
 
-    public List<ai> getData() {
-        return this.Ii.getData();
+    public List<u> getData() {
+        return this.Il.getData();
     }
 
-    public ai ay(int i) {
-        return this.Ii.getItem(i);
+    public u aA(int i) {
+        return this.Il.getItem(i);
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a cbN;
+    final /* synthetic */ a csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.cbN = aVar;
+        this.csI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,13 +25,13 @@ public class b extends CustomMessageListener {
             Object data = customResponsedMessage.getData();
             if (data instanceof String) {
                 String str = (String) data;
-                scrollFragmentTabHost = this.cbN.cbG;
+                scrollFragmentTabHost = this.csI.csC;
                 if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.cbN.cbG;
-                    int jd = scrollFragmentTabHost2.jd(str);
-                    if (jd > 0) {
-                        scrollFragmentTabHost3 = this.cbN.cbG;
-                        scrollFragmentTabHost3.setCurrentTab(jd);
+                    scrollFragmentTabHost2 = this.csI.csC;
+                    int jY = scrollFragmentTabHost2.jY(str);
+                    if (jY >= 0) {
+                        scrollFragmentTabHost3 = this.csI.csC;
+                        scrollFragmentTabHost3.setCurrentTab(jY);
                     }
                 }
             }

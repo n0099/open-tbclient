@@ -11,7 +11,7 @@ public class BuypropsData extends i implements Serializable {
     private String usermsg;
 
     /* loaded from: classes.dex */
-    public class PayInfo extends i implements Serializable {
+    public static class PayInfo extends i implements Serializable {
         private static final long serialVersionUID = -8302988741059705808L;
         private int amount;
         private String bduss;

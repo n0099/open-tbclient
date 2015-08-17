@@ -5,9 +5,6 @@ import android.view.View;
 import android.view.ViewParent;
 /* loaded from: classes.dex */
 class ViewCompatJB {
-    ViewCompatJB() {
-    }
-
     public static boolean hasTransientState(View view) {
         return view.hasTransientState();
     }

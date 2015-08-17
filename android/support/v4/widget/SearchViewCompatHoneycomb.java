@@ -11,17 +11,10 @@ class SearchViewCompatHoneycomb {
 
     /* loaded from: classes.dex */
     interface OnCloseListenerCompatBridge {
-        boolean onClose();
     }
 
     /* loaded from: classes.dex */
     interface OnQueryTextListenerCompatBridge {
-        boolean onQueryTextChange(String str);
-
-        boolean onQueryTextSubmit(String str);
-    }
-
-    SearchViewCompatHoneycomb() {
     }
 
     public static View newSearchView(Context context) {
@@ -35,15 +28,6 @@ class SearchViewCompatHoneycomb {
 
     public static Object newOnQueryTextListener(final OnQueryTextListenerCompatBridge onQueryTextListenerCompatBridge) {
         return new SearchView.OnQueryTextListener() { // from class: android.support.v4.widget.SearchViewCompatHoneycomb.1
-            @Override // android.widget.SearchView.OnQueryTextListener
-            public boolean onQueryTextSubmit(String str) {
-                return OnQueryTextListenerCompatBridge.this.onQueryTextSubmit(str);
-            }
-
-            @Override // android.widget.SearchView.OnQueryTextListener
-            public boolean onQueryTextChange(String str) {
-                return OnQueryTextListenerCompatBridge.this.onQueryTextChange(str);
-            }
         };
     }
 
@@ -53,10 +37,6 @@ class SearchViewCompatHoneycomb {
 
     public static Object newOnCloseListener(final OnCloseListenerCompatBridge onCloseListenerCompatBridge) {
         return new SearchView.OnCloseListener() { // from class: android.support.v4.widget.SearchViewCompatHoneycomb.2
-            @Override // android.widget.SearchView.OnCloseListener
-            public boolean onClose() {
-                return OnCloseListenerCompatBridge.this.onClose();
-            }
         };
     }
 

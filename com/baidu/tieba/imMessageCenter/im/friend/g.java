@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ f bvj;
+    final /* synthetic */ f bJa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.bvj = fVar;
+        this.bJa = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,7 +16,7 @@ public class g implements View.OnClickListener {
         IMBlackListActivity iMBlackListActivity;
         Object tag = view.getTag();
         if (tag != null && (tag instanceof com.baidu.tieba.im.data.a)) {
-            iMBlackListActivity = this.bvj.bvi;
+            iMBlackListActivity = this.bJa.bIY;
             iMBlackListActivity.a(view, (com.baidu.tieba.im.data.a) tag);
         }
     }

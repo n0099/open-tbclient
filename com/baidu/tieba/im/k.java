@@ -24,10 +24,10 @@ class k extends com.baidu.adp.framework.listener.e {
             if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(",")) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
                 for (String str : split) {
                     if (id.equals(str)) {
-                        com.baidu.tieba.im.message.f fVar = new com.baidu.tieba.im.message.f();
-                        fVar.customGroupType = 1;
-                        fVar.id = responseRemoveMembersMessage.getGroupId();
-                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(fVar));
+                        MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
+                        aVar.customGroupType = 1;
+                        aVar.id = responseRemoveMembersMessage.getGroupId();
+                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
                         return;
                     }
                 }

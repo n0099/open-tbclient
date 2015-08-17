@@ -2,7 +2,6 @@ package com.baidu.adp.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import com.baidu.megapp.ma.MAApplication;
 /* loaded from: classes.dex */
@@ -15,27 +14,22 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        l.dJ().a(super.getResources());
+        j.dK().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
 
-    @Override // android.app.Application, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        super.onLowMemory();
-    }
-
-    public void initBdBaseApp(Application application) {
+    private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.n.L(application);
+        com.baidu.adp.lib.util.k.J(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.lD().init();
+        com.baidu.adp.plugin.c.a.lK().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -48,16 +42,6 @@ public class BdBaseApplication extends MAApplication {
 
     public Context getContext() {
         return this.mContext;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public String getPackageName() {
-        return super.getPackageName();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public PackageManager getPackageManager() {
-        return super.getPackageManager();
     }
 
     private void initWorkMode() {
@@ -77,11 +61,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.e.iK().K(this.mContext);
+        com.baidu.adp.lib.util.d.iw().I(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.dF().dG();
+        a.dF().dH();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -99,12 +83,12 @@ public class BdBaseApplication extends MAApplication {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = l.dJ().getResources();
+        Resources resources = j.dK().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 
     public void setIsPluginResourceOpen(boolean z) {
-        this.mIsPluginResourceOpen = z;
+        this.mIsPluginResourceOpen = true;
     }
 
     public boolean getIsPluginResourcOpen() {

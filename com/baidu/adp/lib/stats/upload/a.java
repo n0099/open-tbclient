@@ -1,17 +1,19 @@
 package com.baidu.adp.lib.stats.upload;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a {
-    public static BdUploadingLogInfo a(com.baidu.adp.lib.stats.base.a aVar) {
+    public static BdUploadingLogInfo a(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
         ArrayList arrayList;
         long j;
-        ArrayList<com.baidu.adp.lib.stats.base.c> b = b(aVar);
-        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(com.baidu.adp.lib.h.a.iB().iC(), aVar.ij(), aVar.ik());
+        ArrayList<com.baidu.adp.lib.stats.base.c> b = b(aVar, z);
+        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(com.baidu.adp.lib.stats.a.hk().ho(), aVar.ib(), aVar.ic());
         if (b != null && b.size() > 0) {
             if (b.size() > 1) {
                 Collections.sort(b, new com.baidu.adp.lib.stats.base.d());
@@ -22,7 +24,7 @@ public class a {
             long j2 = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.c cVar = b.get(i);
-                long j3 = j2 + cVar.wX;
+                long j3 = j2 + cVar.wW;
                 arrayList2.add(cVar);
                 if (j3 >= 102400) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -43,16 +45,20 @@ public class a {
         return bdUploadingLogInfo;
     }
 
-    private static ArrayList<com.baidu.adp.lib.stats.base.c> b(com.baidu.adp.lib.stats.base.a aVar) {
+    private static ArrayList<com.baidu.adp.lib.stats.base.c> b(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
         ArrayList<com.baidu.adp.lib.stats.base.c> arrayList;
         ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2 = new ArrayList<>();
-        File[] E = com.baidu.adp.lib.stats.base.b.E(aVar.ij());
-        if (E != null) {
-            for (File file : E) {
+        File[] c = com.baidu.adp.lib.stats.base.b.c(aVar.ib(), z);
+        if (c != null) {
+            for (File file : c) {
                 if (file.isFile()) {
                     String name = file.getName();
-                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.il()) && name.contains("Uploading")) {
-                        arrayList2.add(new com.baidu.adp.lib.stats.base.c(name, file.length(), file.lastModified()));
+                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.id()) && name.contains("Uploading")) {
+                        long length = file.length();
+                        if (z && file.getPath().contains("/notUpload")) {
+                            name = "notUpload/" + file.getName();
+                        }
+                        arrayList2.add(new com.baidu.adp.lib.stats.base.c(name, length, file.lastModified()));
                     }
                 }
             }
@@ -60,13 +66,13 @@ public class a {
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList<com.baidu.adp.lib.stats.base.c> arrayList3 = new ArrayList<>();
         ArrayList arrayList4 = new ArrayList();
-        if (aVar.il() != "stat") {
+        if (aVar.id() != "stat") {
             Iterator<com.baidu.adp.lib.stats.base.c> it = arrayList2.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.c next = it.next();
                 if (next != null) {
-                    long j = next.wY;
-                    if (j != 0 && j + 2592000000L < currentTimeMillis) {
+                    long j = next.wX;
+                    if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {
                         arrayList3.add(next);
@@ -78,7 +84,7 @@ public class a {
             arrayList = arrayList2;
         }
         if (arrayList4.size() > 0) {
-            com.baidu.adp.lib.stats.base.b.a(arrayList4, aVar.ij());
+            com.baidu.adp.lib.stats.base.b.a(arrayList4, aVar.ib());
         }
         return arrayList;
     }

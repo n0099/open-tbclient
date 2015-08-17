@@ -21,8 +21,11 @@ public final class AddGroupReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<AddGroupReqIdl> {
+    public static final class Builder extends Message.Builder<AddGroupReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(AddGroupReqIdl addGroupReqIdl) {
             super(addGroupReqIdl);

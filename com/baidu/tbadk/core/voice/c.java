@@ -1,4 +1,6 @@
 package com.baidu.tbadk.core.voice;
+
+import com.baidu.tbadk.core.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
@@ -11,8 +13,7 @@ public class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        i playView;
-        playView = this.this$0.getPlayView();
+        VoiceManager.b playView = this.this$0.getPlayView();
         if (playView != null) {
             this.this$0.startPlay(playView);
         }

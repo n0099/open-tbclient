@@ -1,46 +1,32 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
+import com.baidu.tbadk.coreExtra.view.ProgressCountDownView;
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard agj;
+class ab extends TbCountDownTimer {
+    final /* synthetic */ ProgressCountDownView alL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(LiveBroadcastCard liveBroadcastCard) {
-        this.agj = liveBroadcastCard;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.alL = progressCountDownView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ad adVar;
-        ae aeVar;
-        ae aeVar2;
-        String str;
-        Context context;
-        String str2;
-        ad adVar2;
-        adVar = this.agj.mCardOnClickDispatch;
-        if (adVar != null) {
-            adVar2 = this.agj.mCardOnClickDispatch;
-            if (!adVar2.xU()) {
-                return;
-            }
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onTick(long j) {
+        this.alL.refreshPregress(j);
+        this.alL.refreshText(j);
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onFinish() {
+        ProgressCountDownView.a aVar;
+        ProgressCountDownView.a aVar2;
+        aVar = this.alL.mListerner;
+        if (aVar != null) {
+            aVar2 = this.alL.mListerner;
+            aVar2.onFinish();
         }
-        aeVar = this.agj.mCardListener;
-        if (aeVar != null) {
-            aeVar2 = this.agj.mCardListener;
-            aeVar2.onClick(this.agj);
-            return;
-        }
-        str = this.agj.mStatisticsKey;
-        if (!TextUtils.isEmpty(str)) {
-            context = this.agj.mContext;
-            str2 = this.agj.mStatisticsKey;
-            com.baidu.tbadk.core.k.A(context, str2);
-        }
-        this.agj.goToLiveBroadcastAcvitity();
     }
 }

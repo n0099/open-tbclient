@@ -13,6 +13,7 @@ import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
@@ -28,6 +29,16 @@ public class NotificationHelper {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    public static void cancelAllNotification(Context context) {
+        if (context != null) {
+            try {
+                ((NotificationManager) context.getSystemService("notification")).cancelAll();
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 
@@ -51,7 +62,7 @@ public class NotificationHelper {
                         PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
                     }
                     lastProgressNotifiyId = i;
-                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.m411getInst().getResources().getDrawable(com.baidu.tieba.p.icon)).getBitmap());
+                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.m411getInst().getResources().getDrawable(i.e.icon)).getBitmap());
                     PROGRESS_BUILDER.setContent(null);
                     notif_excption = PROGRESS_BUILDER.build();
                     notif_excption.contentIntent = activity;
@@ -83,16 +94,16 @@ public class NotificationHelper {
 
     private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
         Notification notif_excption;
-        ak switchData = getSwitchData(context);
+        a switchData = getSwitchData(context);
         if (switchData == null) {
             return false;
         }
-        if (bb.isEmpty(str)) {
-            str = context.getString(com.baidu.tieba.t.app_name);
+        if (aq.isEmpty(str)) {
+            str = context.getString(i.C0057i.app_name);
         }
         try {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.m411getInst());
-            builder.setContentTitle(str).setContentText(str2).setSmallIcon(com.baidu.tieba.p.icon_notify).setTicker(str3);
+            builder.setContentTitle(str).setContentText(str2).setSmallIcon(i.e.icon_notify).setTicker(str3);
             builder.setContent(remoteViews);
             notif_excption = builder.build();
             notif_excption.contentIntent = pendingIntent;
@@ -101,11 +112,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.Vo) {
+            if (!switchData.aal) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.Vn) {
+            if (!switchData.aak) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -113,7 +124,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.Vp) {
+            if (switchData.aam) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -129,40 +140,40 @@ public class NotificationHelper {
         return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, z);
     }
 
-    private static ak getSwitchData(Context context) {
-        ak akVar = new ak();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.vL() && com.baidu.tbadk.coreExtra.messageCenter.a.vK()) {
+    private static a getSwitchData(Context context) {
+        a aVar = new a();
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.wV() && com.baidu.tbadk.coreExtra.messageCenter.a.wU()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.m411getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.wg().wp()) {
-                    akVar.Vn = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xq().xz()) {
+                    aVar.aak = true;
                     if (z || z2) {
-                        akVar.Vn = false;
+                        aVar.aak = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.wg().ws()) {
-                    akVar.Vo = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xq().xC()) {
+                    aVar.aal = true;
                     if (z) {
-                        akVar.Vo = false;
+                        aVar.aal = false;
                     }
                     if (z2) {
-                        akVar.Vo = true;
+                        aVar.aal = true;
                     }
                 }
                 TbadkCoreApplication.m411getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.wg().wq()) {
-            akVar.Vp = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.xq().xA()) {
+            aVar.aam = true;
         }
-        return akVar;
+        return aVar;
     }
 
     private static Notification notif_excption(Context context) {
-        return new Notification(com.baidu.tieba.p.icon, context.getString(com.baidu.tieba.t.notify_text), System.currentTimeMillis());
+        return new Notification(i.e.icon, context.getString(i.C0057i.notify_text), System.currentTimeMillis());
     }
 
     private static boolean processNotification(Context context, int i, Notification notification) {
@@ -181,5 +192,16 @@ public class NotificationHelper {
 
     public static boolean canSupportClickPendingIntent() {
         return Build.VERSION.SDK_INT >= 11;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public static class a {
+        boolean aak = false;
+        boolean aal = false;
+        boolean aam = false;
+
+        a() {
+        }
     }
 }

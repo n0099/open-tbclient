@@ -1,19 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
+class aa extends com.baidu.tieba.im.h<Void> {
+    final /* synthetic */ z bIB;
+    private final /* synthetic */ LinkedList bpR;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(int i) {
-        super(i);
+    public aa(z zVar, LinkedList linkedList) {
+        this.bIB = zVar;
+        this.bpR = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            FloatingPersonalChatActivityStatic.brW = null;
-        }
+    @Override // com.baidu.tieba.im.h
+    /* renamed from: GD */
+    public Void doInBackground() {
+        return com.baidu.tieba.im.db.l.Tk().k(this.bpR);
     }
 }

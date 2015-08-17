@@ -1,20 +1,16 @@
 package com.baidu.tieba.screenlocknotify;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("android.intent.action.SCREEN_ON")) {
-            f.ahQ().ccZ = 1;
-        } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-            f.ahQ().ccZ = 1;
-            f.ahQ().ccY.ahW();
-        } else if (action.equals("android.intent.action.USER_PRESENT")) {
-            f.ahQ().ccZ = 0;
-        }
+public class l implements Runnable {
+    final /* synthetic */ g cuF;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(g gVar) {
+        this.cuF = gVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.cuF.cuw.akl();
     }
 }

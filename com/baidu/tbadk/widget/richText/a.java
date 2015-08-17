@@ -1,6 +1,8 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,123 +10,126 @@ import org.json.JSONArray;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.lib.a.b.a.a.i {
-    private ArrayList<i> atL;
-    private int atM;
-    private ArrayList<c> atN;
-    public boolean atO;
-    public int atP;
-    private String atQ;
-    private String atR;
+    private ArrayList<h> aAX;
+    private int aAY;
+    private ArrayList<c> aAZ;
+    public boolean aBa;
+    public int aBb;
+    private String aBc;
+    private String aBd;
+    private String aBe;
 
     public a(Context context, List<PbContent> list, boolean z) {
-        this.atL = null;
-        this.atM = 0;
-        this.atN = null;
+        this.aAX = null;
+        this.aAY = 0;
+        this.aAZ = null;
         a(context, list, -1, z);
     }
 
     public a(Context context, JSONArray jSONArray, int i) {
-        this.atL = null;
-        this.atM = 0;
-        this.atN = null;
+        this.aAX = null;
+        this.aAY = 0;
+        this.aAZ = null;
         a(context, jSONArray, i, false);
     }
 
     private void a(Context context, JSONArray jSONArray, int i, boolean z) {
         b(context, jSONArray, i, z);
-        ak(context);
+        ao(context);
     }
 
     private void a(Context context, List<PbContent> list, int i, boolean z) {
         b(context, list, i, z);
-        ak(context);
+        ao(context);
     }
 
     public a(Context context, ArrayList<c> arrayList) {
-        this.atL = null;
-        this.atM = 0;
-        this.atN = null;
-        this.atN = arrayList;
-        ak(context);
+        this.aAX = null;
+        this.aAY = 0;
+        this.aAZ = null;
+        this.aAZ = arrayList;
+        ao(context);
     }
 
-    private void ak(Context context) {
-        this.atQ = context.getString(com.baidu.tieba.t.pic_str);
-        this.atR = context.getString(com.baidu.tieba.t.voice_str);
+    private void ao(Context context) {
+        this.aBc = context.getString(i.C0057i.pic_str);
+        this.aBd = context.getString(i.C0057i.voice_str);
+        this.aBe = context.getString(i.C0057i.video_text);
     }
 
     private void b(Context context, int i, boolean z) {
-        if (this.atL != null) {
-            this.atN = new ArrayList<>();
-            this.atM = 0;
-            Iterator<i> it = this.atL.iterator();
+        if (this.aAX != null) {
+            this.aAZ = new ArrayList<>();
+            this.aAY = 0;
+            Iterator<h> it = this.aAX.iterator();
             c cVar = null;
             while (it.hasNext()) {
-                i next = it.next();
+                h next = it.next();
                 if (next.getType() == 8) {
                     if (cVar != null) {
-                        this.atN.add(cVar);
+                        this.aAZ.add(cVar);
                         cVar = null;
                     }
                     c cVar2 = new c(8);
-                    this.atM++;
-                    cVar2.a(next.Er());
-                    this.atN.add(cVar2);
+                    this.aAY++;
+                    cVar2.a(next.Fb());
+                    this.aAZ.add(cVar2);
                 } else if (z && next.getType() == 32) {
                     if (cVar != null) {
-                        this.atN.add(cVar);
+                        this.aAZ.add(cVar);
                     }
                     c cVar3 = new c(32);
-                    cVar3.fk(next.getVideoUrl());
-                    this.atN.add(cVar3);
+                    cVar3.fD(next.getVideoUrl());
+                    cVar3.a(next.Ff());
+                    this.aAZ.add(cVar3);
                     cVar = new c(1);
-                    CharSequence f = next.f(context, cVar.Eq());
-                    if (f != null) {
-                        cVar.append(f);
+                    CharSequence y = next.y(cVar.Fa());
+                    if (y != null) {
+                        cVar.append(y);
                     }
                 } else if (next.getType() == 512) {
                     if (cVar != null) {
-                        this.atN.add(cVar);
+                        this.aAZ.add(cVar);
                         cVar = null;
                     }
                     c cVar4 = new c(512);
-                    cVar4.a(next.Et());
-                    this.atN.add(cVar4);
+                    cVar4.a(next.Fd());
+                    this.aAZ.add(cVar4);
                 } else if (next.getType() == 17) {
                     if (cVar != null) {
-                        this.atN.add(cVar);
+                        this.aAZ.add(cVar);
                         cVar = null;
                     }
                     c cVar5 = new c(17);
-                    cVar5.a(next.Ev());
-                    this.atN.add(cVar5);
+                    cVar5.a(next.Fg());
+                    this.aAZ.add(cVar5);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    CharSequence f2 = next.f(context, cVar.Eq());
-                    if (f2 != null) {
-                        cVar.append(f2);
+                    CharSequence y2 = next.y(cVar.Fa());
+                    if (y2 != null) {
+                        cVar.append(y2);
                     }
                 }
             }
             if (cVar != null) {
-                this.atN.add(cVar);
+                this.aAZ.add(cVar);
             }
-            this.atL.clear();
-            this.atL = null;
+            this.aAX.clear();
+            this.aAX = null;
         }
     }
 
     private void b(Context context, JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.atL = new ArrayList<>();
+            this.aAX = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
-                i iVar = new i();
-                iVar.parserJson(jSONArray.optJSONObject(i2));
-                if ((iVar.getType() & i) != 0) {
-                    this.atL.add(iVar);
+                h hVar = new h();
+                hVar.parserJson(jSONArray.optJSONObject(i2));
+                if ((hVar.getType() & i) != 0) {
+                    this.aAX.add(hVar);
                 }
             }
             b(context, i, z);
@@ -133,15 +138,15 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
 
     private void b(Context context, List<PbContent> list, int i, boolean z) {
         if (list != null) {
-            this.atL = new ArrayList<>();
+            this.aAX = new ArrayList<>();
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 PbContent pbContent = list.get(i2);
                 if (pbContent != null) {
-                    i iVar = new i();
-                    iVar.a(pbContent);
-                    if ((iVar.getType() & i) != 0) {
-                        this.atL.add(iVar);
+                    h hVar = new h();
+                    hVar.a(pbContent);
+                    if ((hVar.getType() & i) != 0) {
+                        this.aAX.add(hVar);
                     }
                 }
             }
@@ -149,28 +154,34 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public ArrayList<c> Em() {
-        return this.atN;
+    public ArrayList<c> EW() {
+        return this.aAZ;
     }
 
     public String toString() {
-        if (this.atN == null) {
+        if (this.aAZ == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder(100);
-        int size = this.atN.size();
+        int size = this.aAZ.size();
         for (int i = 0; i < size; i++) {
-            c cVar = this.atN.get(i);
+            c cVar = this.aAZ.get(i);
             String cVar2 = cVar.toString();
-            if (cVar.getType() == 1 && cVar.Ew() > 0) {
-                cVar2 = cVar2.substring(cVar.Ew());
+            if (cVar.getType() == 1 && cVar.Fh() > 0) {
+                cVar2 = cVar2.substring(cVar.Fh());
             }
-            if (i == size - 1 && cVar.getType() == 1 && this.atO) {
-                sb.append(cVar2.substring(0, cVar2.length() - this.atP));
+            if (i == size - 1 && cVar.getType() == 1 && this.aBa) {
+                sb.append(cVar2.substring(0, cVar2.length() - this.aBb));
             } else if (cVar.getType() == 8) {
-                sb.append(this.atQ);
+                sb.append(this.aBc);
             } else if (cVar.getType() == 512) {
-                sb.append(this.atR);
+                sb.append(this.aBd);
+            } else if (cVar.getType() == 32 && cVar.Ff() != null) {
+                if (StringUtils.isNull(cVar.Ff().getVideoUrl())) {
+                    sb.append(cVar2);
+                } else {
+                    sb.append(this.aBe).append(cVar.Ff().getVideoUrl());
+                }
             } else {
                 sb.append(cVar2);
             }

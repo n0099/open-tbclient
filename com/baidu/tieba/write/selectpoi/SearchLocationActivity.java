@@ -3,6 +3,8 @@ package com.baidu.tieba.write.selectpoi;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,104 +13,108 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.p;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tieba.i;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 import com.baidu.tieba.tbadkCore.location.LocationSearchNetRequestMessage;
+import com.baidu.tieba.tbadkCore.location.a;
+import com.baidu.tieba.tbadkCore.location.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
-    private EditText bBN;
-    private com.baidu.tieba.tbadkCore.location.l czJ;
-    private g czK;
-    private LinearLayout czL;
-    private TextView czM;
-    private ImageView czN;
-    private com.baidu.adp.framework.listener.a czO = new a(this, CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
-    private AdapterView.OnItemClickListener czP = new b(this);
+    private EditText bQb;
+    private TextView cRA;
+    private ImageView cRB;
+    private com.baidu.tieba.tbadkCore.location.i cRx;
+    private h cRy;
+    private LinearLayout cRz;
+    private InputMethodManager mInputManager;
     private BdListView mListView;
+    private com.baidu.adp.framework.listener.a cRC = new a(this, CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
+    private final AbsListView.OnScrollListener HB = new b(this);
+    private AdapterView.OnItemClickListener cRD = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.czO);
-        SearchLocationActivityStatic.asq();
-        setContentView(r.search_location_layout);
+        registerListener(this.cRC);
+        SearchLocationActivityStatic.aug();
+        setContentView(i.g.search_location_layout);
         initUI();
         initData();
     }
 
     public void initUI() {
-        this.aox.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.czL = (LinearLayout) this.aox.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, r.search_location_edit_layout, (View.OnClickListener) null);
-        this.czN = (ImageView) this.czL.findViewById(q.search_bar_icon);
-        this.bBN = (EditText) this.czL.findViewById(q.search_location_editview);
-        this.bBN.addTextChangedListener(new d(this));
-        this.czM = (TextView) this.czL.findViewById(q.search_location_bt_search_s);
-        this.czM.setEnabled(false);
-        this.czM.setOnClickListener(new e(this));
-        this.mListView = (BdListView) findViewById(q.search_position_list);
-        this.czK = new g(this);
-        this.mListView.setAdapter((ListAdapter) this.czK);
-        this.mListView.setOnItemClickListener(this.czP);
+        this.mInputManager = (InputMethodManager) getSystemService("input_method");
+        this.aIc.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
+        this.cRz = (LinearLayout) this.aIc.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.search_location_edit_layout, (View.OnClickListener) null);
+        this.cRB = (ImageView) this.cRz.findViewById(i.f.search_bar_icon);
+        this.bQb = (EditText) this.cRz.findViewById(i.f.search_location_editview);
+        this.bQb.addTextChangedListener(new e(this));
+        this.cRA = (TextView) this.cRz.findViewById(i.f.search_location_bt_search_s);
+        this.cRA.setEnabled(false);
+        this.cRA.setOnClickListener(new f(this));
+        this.mListView = (BdListView) findViewById(i.f.search_position_list);
+        this.cRy = new h(this);
+        this.mListView.setAdapter((ListAdapter) this.cRy);
+        this.mListView.setOnItemClickListener(this.cRD);
+        this.mListView.setOnScrollListener(this.HB);
     }
 
     public void initData() {
-        this.czJ = new com.baidu.tieba.tbadkCore.location.l();
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.api().getLocationData();
+        this.cRx = new com.baidu.tieba.tbadkCore.location.i();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aqC().getLocationData();
         if (locationData != null) {
-            this.czJ.U(a(locationData.apf(), locationData.ape(), locationData.apg()));
+            this.cRx.Z(a(locationData.aqz(), locationData.aqy(), locationData.aqA()));
         }
-        this.czK.a(this.czJ);
-        this.czK.notifyDataSetChanged();
+        this.cRy.a(this.cRx);
+        this.cRy.notifyDataSetChanged();
     }
 
-    private ArrayList<com.baidu.tieba.tbadkCore.location.m> a(List<com.baidu.tieba.tbadkCore.location.b> list, String str, String str2) {
+    private ArrayList<i.a> a(List<a.C0073a> list, String str, String str2) {
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<com.baidu.tieba.tbadkCore.location.m> arrayList = new ArrayList<>();
-        com.baidu.tieba.tbadkCore.location.b bVar = null;
-        for (com.baidu.tieba.tbadkCore.location.b bVar2 : list) {
-            if (bVar2 != null && !TextUtils.isEmpty(bVar2.getName())) {
-                if (TextUtils.equals(bVar2.getName(), str)) {
-                    bVar = bVar2;
+        ArrayList<i.a> arrayList = new ArrayList<>();
+        a.C0073a c0073a = null;
+        for (a.C0073a c0073a2 : list) {
+            if (c0073a2 != null && !TextUtils.isEmpty(c0073a2.getName())) {
+                if (TextUtils.equals(c0073a2.getName(), str)) {
+                    c0073a = c0073a2;
                 } else {
-                    com.baidu.tieba.tbadkCore.location.m mVar = new com.baidu.tieba.tbadkCore.location.m();
-                    mVar.setName(bVar2.getName());
-                    mVar.jF(bVar2.apg());
-                    arrayList.add(mVar);
+                    i.a aVar = new i.a();
+                    aVar.setName(c0073a2.getName());
+                    aVar.ky(c0073a2.aqA());
+                    arrayList.add(aVar);
                 }
             }
         }
-        if (bVar != null) {
-            com.baidu.tieba.tbadkCore.location.m mVar2 = new com.baidu.tieba.tbadkCore.location.m();
-            mVar2.setName(bVar.getName());
-            mVar2.jF(bVar.apg());
-            arrayList.add(0, mVar2);
+        if (c0073a != null) {
+            i.a aVar2 = new i.a();
+            aVar2.setName(c0073a.getName());
+            aVar2.ky(c0073a.aqA());
+            arrayList.add(0, aVar2);
         } else {
-            com.baidu.tieba.tbadkCore.location.m mVar3 = new com.baidu.tieba.tbadkCore.location.m();
-            mVar3.setName(str);
-            mVar3.jF(str2);
-            arrayList.add(0, mVar3);
+            i.a aVar3 = new i.a();
+            aVar3.setName(str);
+            aVar3.ky(str2);
+            arrayList.add(0, aVar3);
         }
         return arrayList;
     }
 
-    public void asp() {
+    public void auf() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
-        locationSearchNetRequestMessage.setAddrName(ahN());
+        locationSearchNetRequestMessage.setAddrName(aka());
         sendMessage(locationSearchNetRequestMessage);
     }
 
-    public String ahN() {
-        if (this.bBN != null) {
-            return com.baidu.adp.lib.util.m.a(this.bBN.getText(), null);
+    public String aka() {
+        if (this.bQb != null) {
+            return com.baidu.adp.lib.util.j.a(this.bQb.getText(), null);
         }
         return null;
     }
@@ -117,16 +123,16 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ay.i((View) this.czM, p.btn_titlebar_finish);
-        ay.c(this.czN, p.icon_search_ba);
-        ay.b(this.czM, com.baidu.tieba.n.search_location_button_color, 3);
+        al.i((View) this.cRA, i.e.btn_titlebar_finish);
+        al.c(this.cRB, i.e.icon_search_ba);
+        al.b(this.cRA, i.c.search_location_button_color, 3);
         if (i == 1) {
-            this.bBN.setTextColor(-6574132);
-            this.bBN.setHintTextColor(-11643034);
+            this.bQb.setTextColor(-6574132);
+            this.bQb.setHintTextColor(-11643034);
         } else {
-            this.bBN.setTextColor(-2300171);
-            this.bBN.setHintTextColor(-10195067);
+            this.bQb.setTextColor(-2300171);
+            this.bQb.setHintTextColor(-10195067);
         }
-        this.czK.notifyDataSetChanged();
+        this.cRy.notifyDataSetChanged();
     }
 }

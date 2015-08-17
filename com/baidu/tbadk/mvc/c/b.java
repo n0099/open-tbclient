@@ -1,96 +1,64 @@
 package com.baidu.tbadk.mvc.c;
 
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int anA;
-    private boolean anB = true;
-    private com.baidu.tbadk.mvc.b.a anC;
-    private com.baidu.tbadk.mvc.e.c anD;
-    private com.baidu.tbadk.mvc.a.a anE;
-    private boolean anF;
-    private int anG;
-    private Object anH;
-    private WeakReference<View> anI;
-    private WeakReference<ViewGroup> anJ;
+    private int auU;
+    private boolean auV = true;
+    private com.baidu.tbadk.mvc.b.a auW;
+    private com.baidu.tbadk.mvc.d.b auX;
+    private com.baidu.tbadk.mvc.a.a auY;
+    private int auZ;
+    private Object ava;
+    private WeakReference<View> avb;
     private BdUniqueId uniqueId;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public b(int i) {
-        this.anA = i;
+    public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
+        this.auU = i;
+        this.auW = aVar;
+        this.auX = bVar;
+        this.auY = aVar2;
     }
 
-    public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.e.c cVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.anA = i;
-        this.anC = aVar;
-        this.anD = cVar;
-        this.anE = aVar2;
+    public int CG() {
+        return this.auU;
     }
 
-    public int Bs() {
-        return this.anA;
-    }
-
-    public com.baidu.tbadk.mvc.b.a Bt() {
-        return this.anC;
-    }
-
-    public com.baidu.tbadk.mvc.e.c Bu() {
-        return this.anD;
-    }
-
-    public com.baidu.tbadk.mvc.a.a Bv() {
-        return this.anE;
+    public com.baidu.tbadk.mvc.b.a CH() {
+        return this.auW;
     }
 
     public Object getExtra() {
-        return this.anH;
+        return this.ava;
     }
 
     public void setExtra(Object obj) {
-        this.anH = obj;
+        this.ava = obj;
     }
 
     public View getView() {
-        if (this.anI != null) {
-            return this.anI.get();
+        if (this.avb != null) {
+            return this.avb.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.anI = new WeakReference<>(view);
+        this.avb = new WeakReference<>(view);
     }
 
-    public void d(ViewGroup viewGroup) {
-        this.anJ = new WeakReference<>(viewGroup);
+    public int CI() {
+        return this.auZ;
     }
 
-    public boolean Bw() {
-        return this.anF;
+    public void eh(int i) {
+        this.auZ = i;
     }
 
-    public void aZ(boolean z) {
-        this.anF = z;
-    }
-
-    public int Bx() {
-        return this.anG;
-    }
-
-    public void dV(int i) {
-        this.anG = i;
-    }
-
-    public boolean By() {
-        return this.anB;
-    }
-
-    public void ba(boolean z) {
-        this.anB = z;
+    public boolean CJ() {
+        return this.auV;
     }
 
     public BdUniqueId getUniqueId() {

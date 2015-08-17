@@ -1,100 +1,66 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bb;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
-    private int cpO;
-    private int cpP;
-    private int cur_score;
-    private String fid;
-    private int is_like;
-    private String level_name;
-    private int levelup_score;
-    private int user_level;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ U9InfoView cIi;
 
-    public ah() {
-        setLike(0);
-        this.cpO = 0;
-        this.cpP = 0;
-        this.user_level = 0;
-        setLevelName("");
-        setCurScore(0);
-        setLevelupScore(0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(U9InfoView u9InfoView) {
+        this.cIi = u9InfoView;
     }
 
-    public String getFid() {
-        return this.fid;
-    }
-
-    public void jv(String str) {
-        this.fid = str;
-    }
-
-    public int akz() {
-        return this.user_level;
-    }
-
-    public void iz(int i) {
-        if (i >= 0) {
-            this.user_level = i;
-        }
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                setLike(jSONObject.optInt("is_like", 0));
-                this.cpO = jSONObject.optInt("is_black", 0);
-                this.cpP = jSONObject.optInt("like_num", 0);
-                this.user_level = jSONObject.optInt("level_id", 0);
-                setLevelName(jSONObject.optString("level_name", ""));
-                setLevelupScore(jSONObject.optInt("levelup_score", 0));
-                setCurScore(jSONObject.optInt("cur_score", 0));
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        RelativeLayout relativeLayout;
+        LinearLayout linearLayout;
+        com.baidu.tbadk.core.data.z zVar;
+        Context context2;
+        Context context3;
+        com.baidu.tbadk.core.data.z zVar2;
+        com.baidu.tbadk.core.data.w wVar;
+        Context context4;
+        Context context5;
+        com.baidu.tbadk.core.data.w wVar2;
+        context = this.cIi.mContext;
+        if (bb.ah(context) && com.baidu.adp.lib.util.k.jf()) {
+            relativeLayout = this.cIi.cHY;
+            if (view != relativeLayout) {
+                linearLayout = this.cIi.cHZ;
+                if (view == linearLayout) {
+                    zVar = this.cIi.news_info;
+                    if (!TextUtils.isEmpty(zVar.sL())) {
+                        context2 = this.cIi.mContext;
+                        TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
+                        ax uR = ax.uR();
+                        context3 = this.cIi.mContext;
+                        zVar2 = this.cIi.news_info;
+                        uR.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{zVar2.sL()});
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            wVar = this.cIi.top_code;
+            if (!TextUtils.isEmpty(wVar.sF())) {
+                context4 = this.cIi.mContext;
+                TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
+                ax uR2 = ax.uR();
+                context5 = this.cIi.mContext;
+                wVar2 = this.cIi.top_code;
+                uR2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{wVar2.sF()});
             }
         }
-    }
-
-    public void setLike(int i) {
-        this.is_like = i;
-    }
-
-    public int isLike() {
-        return this.is_like;
-    }
-
-    public void setLevelName(String str) {
-        this.level_name = str;
-    }
-
-    public String getLevelName() {
-        return this.level_name;
-    }
-
-    public void setCurScore(int i) {
-        this.cur_score = i;
-    }
-
-    public int getCurScore() {
-        return this.cur_score;
-    }
-
-    public void setLevelupScore(int i) {
-        this.levelup_score = i;
-    }
-
-    public int getLevelupScore() {
-        return this.levelup_score;
     }
 }

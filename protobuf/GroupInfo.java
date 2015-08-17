@@ -1,6 +1,7 @@
 package protobuf;
 
 import com.baidu.location.a0;
+import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -22,8 +23,8 @@ public final class GroupInfo extends Message {
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
     public final String album;
-    @ProtoField(tag = 14, type = Message.Datatype.INT32)
-    public final Integer authorId;
+    @ProtoField(tag = 14, type = Message.Datatype.INT64)
+    public final Long authorId;
     @ProtoField(tag = DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
@@ -60,7 +61,7 @@ public final class GroupInfo extends Message {
     public final Integer isMemberGroup;
     @ProtoField(tag = 32, type = Message.Datatype.INT32)
     public final Integer isNewlyCreate;
-    @ProtoField(tag = 33, type = Message.Datatype.INT32)
+    @ProtoField(tag = LiveCardData.LIVETYPE_PHOTOLIVE, type = Message.Datatype.INT32)
     public final Integer isRecentlyReply;
     @ProtoField(tag = 21, type = Message.Datatype.INT64)
     public final Long lastMsgId;
@@ -92,7 +93,7 @@ public final class GroupInfo extends Message {
     public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
     public static final Integer DEFAULT_STATUS = 0;
     public static final Integer DEFAULT_FLAG = 0;
-    public static final Integer DEFAULT_AUTHORID = 0;
+    public static final Long DEFAULT_AUTHORID = 0L;
     public static final Integer DEFAULT_CREATETIME = 0;
     public static final Integer DEFAULT_MAXMEMBERNUM = 0;
     public static final Integer DEFAULT_MEMBERNUM = 0;
@@ -326,10 +327,10 @@ public final class GroupInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GroupInfo> {
+    public static final class Builder extends Message.Builder<GroupInfo> {
         public Integer activeDay;
         public String album;
-        public Integer authorId;
+        public Long authorId;
         public Integer authorIsMeizhi;
         public String authorName;
         public String authorPortrait;
@@ -361,6 +362,9 @@ public final class GroupInfo extends Message {
         public String portrait;
         public String position;
         public Integer status;
+
+        public Builder() {
+        }
 
         public Builder(GroupInfo groupInfo) {
             super(groupInfo);

@@ -1,33 +1,31 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.write.write.AtSelectFriendList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements s {
-    final /* synthetic */ AtListActivity cBu;
+public class j implements AtSelectFriendList.a {
+    final /* synthetic */ AtListActivity cTk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(AtListActivity atListActivity) {
-        this.cBu = atListActivity;
+        this.cTk = atListActivity;
     }
 
-    @Override // com.baidu.tieba.write.write.s
+    @Override // com.baidu.tieba.write.write.AtSelectFriendList.a
     public void a(View view, Object obj) {
-        BdListView bdListView;
         if (obj != null) {
-            if (obj instanceof com.baidu.tbadk.core.view.ag) {
-                ((com.baidu.tbadk.core.view.ag) obj).setChecked(false);
+            if (obj instanceof TbCheckBox.b) {
+                ((TbCheckBox.b) obj).setChecked(false);
             }
-            bdListView = this.cBu.mListView;
-            View findViewWithTag = bdListView.findViewWithTag(obj);
+            View findViewWithTag = this.cTk.mListView.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (!(obj instanceof MetaData)) {
             } else {
-                this.cBu.c((MetaData) obj);
+                this.cTk.b((MetaData) obj);
             }
         }
     }

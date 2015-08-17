@@ -40,10 +40,13 @@ public final class GameEnter extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GameEnter> {
+    public static final class Builder extends Message.Builder<GameEnter> {
         public String libaoUrl;
         public RateList rateList;
         public String singleTagName;
+
+        public Builder() {
+        }
 
         public Builder(GameEnter gameEnter) {
             super(gameEnter);

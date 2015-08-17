@@ -1,48 +1,33 @@
 package com.baidu.adp.newwidget.a;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Path;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class m extends l {
-    private boolean BO;
-    private Path Ca;
-    private Rect mRect;
+public class m extends j {
+    protected Rect mRect = new Rect();
 
-    private void c(Rect rect) {
-        boolean z = false;
-        if (rect != null) {
-            if (this.Ca == null || this.BO != this.Bp.BO) {
-                z = true;
-            }
-            if (this.mRect == null || !this.mRect.contains(rect)) {
-                z = true;
-            }
-            this.BO = this.Bp.BO;
-            if (z) {
-                this.mRect = rect;
-                this.Ca = new Path();
-                if (this.BO) {
-                    this.Ca.addCircle((rect.right + rect.left) / 2, (rect.top + rect.bottom) / 2, Math.min(rect.width(), rect.height()) / 2, Path.Direction.CCW);
-                } else {
-                    this.Ca.addRoundRect(new RectF(rect), this.Bp.mRadius, this.Bp.mRadius, Path.Direction.CCW);
-                }
-                this.Ca.close();
-            }
+    @Override // com.baidu.adp.newwidget.a.c, com.baidu.adp.newwidget.a.a
+    public void b(Canvas canvas, d dVar, ImageView imageView) {
+        if (this.AX != null) {
+            canvas.concat(this.AX);
         }
-    }
-
-    @Override // com.baidu.adp.newwidget.a.a
-    protected void a(Canvas canvas, Drawable drawable) {
         canvas.save();
-        c(drawable.getBounds());
-        try {
-            canvas.clipPath(this.Ca);
-        } catch (Exception e) {
+        if (this.BS) {
+            try {
+                canvas.clipPath(this.BP);
+            } catch (Error e) {
+            }
         }
-        drawable.draw(canvas);
+        if (dVar.kj()) {
+            Bitmap bitmap = dVar.Bw.getBitmap();
+            this.mRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            canvas.drawBitmap(bitmap, this.mRect, this.AY, this.mPaint);
+        } else {
+            this.mRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
+            dVar.Bx.a(canvas, this.mRect, this.AY, this.mPaint);
+        }
         canvas.restore();
     }
 }

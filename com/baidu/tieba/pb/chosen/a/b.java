@@ -2,97 +2,73 @@ package com.baidu.tieba.pb.chosen.a;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewStub;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.n;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
-import tbclient.FinePbPage.User_Info;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.chosen.a.d;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private HeadImageView aBl;
-    private TextView aDk;
-    private TextView aHI;
-    private TextView aiA;
-    private View bJm;
-    private g bJn;
-    private TextView bJo;
+    private TextView aII;
+    private d.a bYQ;
+    private HeadImageView bZk;
+    private TbRichTextView bZl;
+    private ViewStub bZm;
+    private ImageView bZn;
+    private View line;
+    private View rootView;
 
-    public b(Context context) {
-        this.bJm = com.baidu.adp.lib.g.b.hr().inflate(context, r.chosen_pb_person_info, null);
-        this.aiA = (TextView) this.bJm.findViewById(q.chosen_pb_title);
-        this.aBl = (HeadImageView) this.bJm.findViewById(q.chosen_pb_person_info_head);
-        this.aHI = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_name);
-        this.aDk = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_tag);
-        this.bJo = (TextView) this.bJm.findViewById(q.chosen_pb_person_info_bar);
-        this.aBl.setRadius(n.dip2px(context, 2.0f));
+    public b(ViewStub viewStub, d.a aVar) {
+        this.bZm = viewStub;
+        this.bYQ = aVar;
     }
 
-    public View aan() {
-        return this.bJm;
-    }
-
-    public void a(g gVar) {
-        this.bJn = gVar;
-    }
-
-    public void ii(String str) {
-        if (!StringUtils.isNull(str) && this.aBl != null) {
-            this.aBl.c(str, 12, false);
+    private void initView() {
+        if (this.rootView == null) {
+            this.rootView = this.bZm.inflate();
+            this.bZk = (HeadImageView) this.rootView.findViewById(i.f.chosen_pb_comment_head);
+            this.aII = (TextView) this.rootView.findViewById(i.f.chosen_pb_comment_name);
+            this.bZl = (TbRichTextView) this.rootView.findViewById(i.f.chosen_pb_comment_content);
+            this.bZn = (ImageView) this.rootView.findViewById(i.f.chosen_pb_comment_reply);
+            this.line = this.rootView.findViewById(i.f.chosen_pb_comment_line);
+            this.bZl.setTextSize(TbConfig.getContentSize());
+            ta();
         }
     }
 
-    public void setName(String str) {
-        if (this.aHI != null) {
-            this.aHI.setText(str);
+    public void dY(boolean z) {
+        if (this.rootView != null) {
+            this.rootView.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void N(Context context, String str) {
-        if (this.bJo != null) {
-            if (StringUtils.isNull(str)) {
-                this.bJo.setVisibility(4);
-                return;
-            }
-            this.bJo.setText(context.getString(t.chosen_pb_original_bar, str));
-            this.bJo.setOnClickListener(new c(this, str));
-            this.bJo.setVisibility(0);
+    public void ta() {
+        al.b(this.aII, i.c.cp_cont_f, 1);
+        al.c(this.bZn, i.e.btn_comment_list);
+        al.j(this.line, i.c.cp_bg_line_b);
+        if (this.bZl != null) {
+            this.bZl.setTextColor(al.getColor(i.c.cp_cont_b));
         }
     }
 
-    public void ij(String str) {
-        if (this.aDk != null) {
-            if (StringUtils.isNull(str)) {
-                this.aDk.setVisibility(8);
-                return;
-            }
-            this.aDk.setVisibility(0);
-            this.aDk.setText(str);
-            this.aDk.setOnClickListener(new d(this, str));
+    public boolean a(Context context, Post post, User user) {
+        if (post == null || user == null || post.content == null || post.content.isEmpty()) {
+            dY(false);
+            return false;
         }
-    }
-
-    public void setTitle(String str) {
-        if (this.aiA != null) {
-            this.aiA.setText(str);
-        }
-    }
-
-    public void a(User_Info user_Info) {
-        if (user_Info != null) {
-            setName(user_Info.name);
-            ii(user_Info.portrait);
-            this.aBl.setOnClickListener(new e(this, user_Info));
-            this.aHI.setOnClickListener(new f(this, user_Info));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(long j, String str) {
-        if (this.bJn != null) {
-            this.bJn.aU(String.valueOf(j), str);
-        }
+        initView();
+        dY(true);
+        this.aII.setText(user.name_show);
+        this.bZn.setOnClickListener(new c(this, post));
+        this.bZk.d(user.portrait, 12, false);
+        this.bZl.setVisibility(0);
+        this.bZl.setText(TbRichTextView.b(context, post.content, false));
+        return true;
     }
 }

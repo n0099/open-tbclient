@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.w;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PbActivityConfig extends c {
+public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
     public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FROM_SEARCHBOX = "from_searchbox";
@@ -36,7 +36,9 @@ public class PbActivityConfig extends c {
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
+    public static final String QUERY_WORD = "query_word";
     public static final String START_FOR_RESULT = "1";
+    public static final boolean isBottomHaveShared = true;
     private final Context mContext;
 
     public PbActivityConfig(Context context) {
@@ -50,9 +52,9 @@ public class PbActivityConfig extends c {
             intent.putExtra("thread_id", str);
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
-            intent.putExtra(KEY_FROM_FRS, true);
+            intent.putExtra("from_frs", true);
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra(c.REQUEST_CODE, i);
+            intent.putExtra("request_code", i);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -84,6 +86,22 @@ public class PbActivityConfig extends c {
             intent.putExtra("from", str4);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || FROM_SEARCHBOX.equals(str4)) {
+                intent.addFlags(268435456);
+            }
+        }
+        return this;
+    }
+
+    public PbActivityConfig createNormalCfg(String str, String str2, String str3, String str4, String str5) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("from", str4);
+            intent.putExtra(QUERY_WORD, str5);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
                 intent.addFlags(268435456);
             }
         }
@@ -137,10 +155,10 @@ public class PbActivityConfig extends c {
         intent.putExtra(KEY_HOST_ONLY, z);
         intent.putExtra(KEY_SQUENCE, z2);
         intent.putExtra("st_type", str3);
-        intent.putExtra(KEY_FROM_MARK, true);
+        intent.putExtra("from_mark", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-        intent.putExtra(c.REQUEST_CODE, i);
+        intent.putExtra("request_code", i);
         return this;
     }
 
@@ -155,23 +173,23 @@ public class PbActivityConfig extends c {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(w wVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (wVar != null) {
+    public PbActivityConfig createFromThreadCfg(v vVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (vVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", wVar.getId());
-            intent.putExtra(KEY_IS_GOOD, wVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, wVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, wVar.getLast_time_int());
+            intent.putExtra("thread_id", vVar.getId());
+            intent.putExtra(KEY_IS_GOOD, vVar.getIs_good());
+            intent.putExtra(KEY_IS_TOP, vVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, vVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra(KEY_FROM_FRS, wVar.getIs_top() != 2);
+            intent.putExtra("from_frs", vVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
             intent.putExtra("forum_name", str);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra(c.REQUEST_CODE, i);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (wVar.getPraise() == null ? 0L : wVar.getPraise().getNum()));
+            intent.putExtra("request_code", i);
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (vVar.getPraise() == null ? 0L : vVar.getPraise().getNum()));
         }
         return this;
     }

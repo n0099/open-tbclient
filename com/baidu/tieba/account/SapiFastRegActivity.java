@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -12,112 +13,118 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
-    private SapiWebView abp;
-    private boolean abu;
-    private View abw;
-    private TextView axS;
+    private LinearLayout Mg;
+    private TextView aFj;
+    private View agA;
+    private SapiWebView ags;
+    private boolean agx;
     private View mBack;
     private int mFrom;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.t abq = null;
-    private String axR = null;
-    private final com.baidu.tbadk.core.a.b SV = new an(this);
+    private com.baidu.tbadk.coreExtra.view.l agt = null;
+    private String aFi = null;
+    private final a.InterfaceC0040a XQ = new ae(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(com.baidu.tieba.r.layout_sapi_webview_fastreg);
+        setContentView(i.g.layout_sapi_webview_fastreg);
         initData(bundle);
-        uX();
+        wb();
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            bq.a((View) this.abp, com.baidu.tieba.n.cp_link_tip_b, false);
+            bb.a((View) this.ags, i.c.cp_link_tip_b, false);
         }
     }
 
-    protected void uX() {
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.sapi_reg_navi);
+    protected void wb() {
+        this.Mg = (LinearLayout) findViewById(i.f.layout_root);
+        this.mNavigationBar = (NavigationBar) findViewById(i.f.sapi_reg_navi);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.t.account_regedit));
-        this.abw = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.r.navigation_right_button_layout, (View.OnClickListener) null);
-        this.axS = (TextView) this.abw.findViewById(com.baidu.tieba.q.right_textview);
-        this.axS.setText(getPageContext().getString(com.baidu.tieba.t.login));
-        ay.b(this.axS, com.baidu.tieba.n.navi_op_text, 1);
-        this.axS.setOnClickListener(this);
-        this.abp = (SapiWebView) findViewById(com.baidu.tieba.q.sapi_webview);
-        com.baidu.tbadk.core.a.f.a(getPageContext().getContext(), this.abp);
-        this.abp.setOnFinishCallback(new ao(this));
-        this.abp.setAuthorizationListener(new ap(this));
-        this.abp.loadFastReg();
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.account_regedit));
+        this.agA = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, (View.OnClickListener) null);
+        this.aFj = (TextView) this.agA.findViewById(i.f.right_textview);
+        this.aFj.setText(getPageContext().getString(i.C0057i.login));
+        al.b(this.aFj, i.c.navi_op_text, 1);
+        this.aFj.setOnClickListener(this);
+        this.ags = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getContext(), this.ags);
+        this.ags.setOnFinishCallback(new af(this));
+        this.ags.setAuthorizationListener(new ag(this));
+        this.ags.loadFastReg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AccountData accountData) {
-        if (this.abq == null) {
-            this.abq = new com.baidu.tbadk.coreExtra.view.t(getPageContext());
-            this.abq.a(new aq(this));
+        if (this.agt == null) {
+            this.agt = new com.baidu.tbadk.coreExtra.view.l(getPageContext());
+            this.agt.a(new ah(this));
         }
-        this.abq.xT();
-        this.abq.k(accountData);
-        this.abq.xP();
+        this.agt.zc();
+        this.agt.l(accountData);
+        this.agt.yY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fv() {
+    public void Gj() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.qi().a(session.username, session.bduss, session.ptoken, this.SV);
+            com.baidu.tbadk.core.a.a.rj().a(session.username, session.bduss, session.ptoken, this.XQ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(AccountData accountData) {
-        com.baidu.tbadk.core.a.d.b(accountData);
-        TbadkCoreApplication.setCurrentAccount(accountData, getBaseContext());
+    public void r(AccountData accountData) {
+        com.baidu.tbadk.core.a.b.b(accountData);
+        TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
         if (this.mFrom == 4) {
             Intent intent = new Intent();
-            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.axR);
+            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.aFi);
             setResult(-1, intent);
             finish();
             return;
         }
-        vb();
-        uY();
+        wh();
+        wc();
     }
 
     private void initData(Bundle bundle) {
         if (bundle == null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
-            this.abu = getIntent().getBooleanExtra(com.baidu.tbadk.core.frameworkData.c.CLOSE, false);
+            this.agx = getIntent().getBooleanExtra(IntentConfig.CLOSE, false);
             return;
         }
         this.mFrom = bundle.getInt("from", -1);
-        this.abu = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.c.CLOSE, false);
+        this.agx = bundle.getBoolean(IntentConfig.CLOSE, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.mBack) {
             finish();
-        } else if (view == this.axS) {
+        } else if (view == this.aFj) {
             if (this.mFrom == 1) {
                 finish();
             } else {
-                TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), 2, true, 11038)));
+                TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) getPageContext().getPageActivity(), 2, true, 11038)));
             }
         }
     }
@@ -138,29 +145,47 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), 0);
     }
 
-    private void uY() {
-        int i = 1;
+    private void wc() {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m411getInst().onUserChanged();
-        if (this.abu) {
+        if (this.agx) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_11", "click", 1, new Object[0]);
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
-            if (intExtra != -1) {
-                i = intExtra;
-            } else if (com.baidu.tbadk.core.sharedPref.b.sl().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                com.baidu.tbadk.core.sharedPref.b.sl().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+            if (intExtra == -1) {
+                if (com.baidu.tbadk.core.sharedPref.b.ts().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    com.baidu.tbadk.core.sharedPref.b.ts().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                    intExtra = 1;
+                } else {
+                    intExtra = 1;
+                }
             }
-            com.baidu.tbadk.core.c.b.a(getPageContext().getPageActivity(), i, false);
+            com.baidu.tbadk.core.c.b.a(getPageContext().getPageActivity(), intExtra, false);
         }
         finish();
     }
 
-    private void vb() {
+    private void wh() {
         if (this.mFrom == 3 && TbadkCoreApplication.m411getInst().getIsFirstUse()) {
-            com.baidu.adp.lib.g.l.ht().b(new ar(this));
+            com.baidu.adp.lib.g.k.hj().b(new ai(this));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.agt != null) {
+            this.agt.onDestroy();
+        }
+        if (this.mNavigationBar != null) {
+            this.mNavigationBar.release();
+        }
+        if (this.Mg != null) {
+            this.Mg.removeAllViews();
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.adp.a.a;
 public class a {
     private boolean nG = false;
 
-    public boolean dN() {
+    public boolean dO() {
         return this.nG;
     }
 

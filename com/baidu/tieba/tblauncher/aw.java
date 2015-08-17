@@ -2,18 +2,19 @@ package com.baidu.tieba.tblauncher;
 
 import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ aj cwo;
+public class aw implements SlidingMenu.CanvasTransformer {
+    final /* synthetic */ ai cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(aj ajVar) {
-        this.cwo = ajVar;
+    public aw(ai aiVar) {
+        this.cMQ = aiVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
     public void transformCanvas(Canvas canvas, float f) {
-        float f2 = (0.2f * f) + 0.8f;
+        float f2 = 1.0f - (0.2f * f);
         canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
     }
 }

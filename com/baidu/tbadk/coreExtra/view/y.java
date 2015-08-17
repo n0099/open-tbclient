@@ -1,66 +1,82 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbPageContext;
+import android.support.v4.view.ViewPager;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
-    private com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ t agi;
-    private String mAccount;
-    private String mUrl;
+public class y implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ MultiImageView alK;
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.agi.afX = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(MultiImageView multiImageView) {
+        this.alK = multiImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: j */
-    public com.baidu.tbadk.coreExtra.data.a doInBackground(String... strArr) {
-        this.aaG = new com.baidu.tbadk.core.util.aa(this.mUrl);
-        this.aaG.o("un", this.mAccount);
-        String sw = this.aaG.sw();
-        if (!this.aaG.ta() || this.aaG.tb() != 36) {
-            return null;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.alK.alF;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.alK.alF;
+            onPageChangeListener2.onPageScrollStateChanged(i);
         }
-        com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-        aVar.parserJson(sw);
-        return aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.coreExtra.data.a aVar) {
-        TbPageContext tbPageContext;
-        super.onPostExecute(aVar);
-        this.agi.afX = null;
-        if (!this.aaG.ta()) {
-            this.agi.eh(this.aaG.getErrorString());
-        } else if (this.aaG.tb() == 0) {
-            t tVar = this.agi;
-            tbPageContext = this.agi.LH;
-            tVar.eh(tbPageContext.getString(com.baidu.tieba.t.name_not_use));
-        } else if (this.aaG.tb() == 36) {
-            this.agi.eh(this.aaG.getErrorString());
-            if (aVar != null) {
-                this.agi.p(aVar.qL());
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.alK.alF;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.alK.alF;
+            onPageChangeListener2.onPageScrolled(i, f, i2);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        i iVar;
+        i iVar2;
+        boolean z;
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        i iVar3;
+        boolean z2;
+        i iVar4;
+        com.baidu.tbadk.widget.a imageView;
+        i iVar5;
+        iVar = this.alK.alE;
+        View findViewWithTag = iVar.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof ae) && (imageView = ((ae) findViewWithTag).getImageView()) != null) {
+            iVar5 = this.alK.alE;
+            iVar5.setSelectedView(imageView);
+            imageView.restoreSize();
+        }
+        iVar2 = this.alK.alE;
+        int childCount = iVar2.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            iVar4 = this.alK.alE;
+            View childAt = iVar4.getChildAt(i2);
+            if (childAt != null && (childAt instanceof ae)) {
+                ((ae) childAt).zn();
             }
-        } else {
-            this.agi.eh(this.aaG.getErrorString());
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        this.agi.eh(null);
-        this.agi.xS();
-        super.onPreExecute();
+        z = this.alK.alI;
+        if (z && (com.baidu.adp.lib.util.i.iS() || com.baidu.adp.lib.util.i.iP())) {
+            for (int i3 = 0; i3 < childCount; i3++) {
+                iVar3 = this.alK.alE;
+                View childAt2 = iVar3.getChildAt(i3);
+                if (childAt2 != null && (childAt2 instanceof ae)) {
+                    z2 = this.alK.akR;
+                    ((ae) childAt2).aS(z2);
+                }
+            }
+        }
+        onPageChangeListener = this.alK.alF;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.alK.alF;
+            onPageChangeListener2.onPageSelected(i);
+        }
     }
 }

@@ -8,15 +8,11 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class LocalBroadcastManager {
-    private static final boolean DEBUG = false;
-    static final int MSG_EXEC_PENDING_BROADCASTS = 1;
-    private static final String TAG = "LocalBroadcastManager";
     private static LocalBroadcastManager mInstance;
     private static final Object mLock = new Object();
     private final Context mAppContext;
@@ -25,9 +21,9 @@ public class LocalBroadcastManager {
     private final HashMap<String, ArrayList<ReceiverRecord>> mActions = new HashMap<>();
     private final ArrayList<BroadcastRecord> mPendingBroadcasts = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ReceiverRecord {
+    public static class ReceiverRecord {
         boolean broadcasting;
         final IntentFilter filter;
         final BroadcastReceiver receiver;
@@ -48,9 +44,9 @@ public class LocalBroadcastManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class BroadcastRecord {
+    public static class BroadcastRecord {
         final Intent intent;
         final ArrayList<ReceiverRecord> receivers;
 
@@ -151,31 +147,31 @@ public class LocalBroadcastManager {
             Set<String> categories = intent.getCategories();
             boolean z = (intent.getFlags() & 8) != 0;
             if (z) {
-                Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
+                Log.v("LocalBroadcastManager", "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
             }
             ArrayList<ReceiverRecord> arrayList2 = this.mActions.get(intent.getAction());
             if (arrayList2 != null) {
                 if (z) {
-                    Log.v(TAG, "Action list: " + arrayList2);
+                    Log.v("LocalBroadcastManager", "Action list: " + arrayList2);
                 }
                 ArrayList arrayList3 = null;
                 int i = 0;
                 while (i < arrayList2.size()) {
                     ReceiverRecord receiverRecord = arrayList2.get(i);
                     if (z) {
-                        Log.v(TAG, "Matching against filter " + receiverRecord.filter);
+                        Log.v("LocalBroadcastManager", "Matching against filter " + receiverRecord.filter);
                     }
                     if (receiverRecord.broadcasting) {
                         if (z) {
-                            Log.v(TAG, "  Filter's target already added");
+                            Log.v("LocalBroadcastManager", "  Filter's target already added");
                             arrayList = arrayList3;
                         }
                         arrayList = arrayList3;
                     } else {
-                        int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, TAG);
+                        int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, "LocalBroadcastManager");
                         if (match >= 0) {
                             if (z) {
-                                Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
+                                Log.v("LocalBroadcastManager", "  Filter matched!  match=0x" + Integer.toHexString(match));
                             }
                             arrayList = arrayList3 == null ? new ArrayList() : arrayList3;
                             arrayList.add(receiverRecord);
@@ -183,7 +179,7 @@ public class LocalBroadcastManager {
                         } else {
                             if (z) {
                                 switch (match) {
-                                    case SapiErrorCode.IP_HAS_NO_AUTHORITY /* -4 */:
+                                    case -4:
                                         str = "category";
                                         break;
                                     case -3:
@@ -199,7 +195,7 @@ public class LocalBroadcastManager {
                                         str = "unknown reason";
                                         break;
                                 }
-                                Log.v(TAG, "  Filter did not match: " + str);
+                                Log.v("LocalBroadcastManager", "  Filter did not match: " + str);
                             }
                             arrayList = arrayList3;
                         }

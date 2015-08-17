@@ -1,21 +1,23 @@
 package com.baidu.tieba.write.shareSDK;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements PopupWindow.OnDismissListener {
-    final /* synthetic */ q cAM;
+public class w implements View.OnTouchListener {
+    final /* synthetic */ o cSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(q qVar) {
-        this.cAM = qVar;
+    public w(o oVar) {
+        this.cSC = oVar;
     }
 
-    @Override // android.widget.PopupWindow.OnDismissListener
-    public void onDismiss() {
-        View view;
-        view = this.cAM.cAE;
-        view.setSelected(false);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            return false;
+        }
+        return false;
     }
 }

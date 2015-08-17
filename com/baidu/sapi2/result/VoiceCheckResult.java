@@ -19,10 +19,11 @@ public class VoiceCheckResult extends SapiResult {
     public boolean needVerify;
     public boolean signUp;
     public String uid;
+    public int voiceCode;
 
     public VoiceCheckResult() {
         this.msgMap.put(2, RESULT_MSG_ACCOUNT_NOT_EXIST);
-        this.msgMap.put(3, RESULT_MSG_INCOMPLETE_USER);
+        this.msgMap.put(3, "用户尚未正常化，无法使用此功能");
         this.msgMap.put(4, RESULT_MSG_USER_FORBIDDEN);
         this.msgMap.put(400021, "用户登录状态失效，请重新登录");
         this.msgMap.put(RESULT_CODE_ACCOUNT_TYPE_CONFLICT, RESULT_MSG_ACCOUNT_TYPE_CONFLICT);

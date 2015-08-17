@@ -1,100 +1,209 @@
 package com.baidu.sapi2.utils;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
-import com.baidu.cloudsdk.common.http.AsyncHttpClient;
-import com.baidu.cloudsdk.common.http.HttpResponseHandler;
-import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.android.common.security.MD5Util;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
 public class a {
-    private static final String a = "http://nsclick.baidu.com/v.gif";
-    private static final Map<String, String> b = new HashMap();
-
-    static {
-        b.put(Info.kBaiduPIDKey, "111");
-        b.put("type", "1023");
-        b.put("device", "android");
-    }
-
-    public static void a(String str, Map<String, String> map) {
-        if (!TextUtils.isEmpty(str)) {
+    public static void a(Context context) {
+        if (context != null) {
             try {
-                SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-                com.baidu.sapi2.d.a(sapiConfiguration.context).a(str, map);
-                if (SapiUtils.hasActiveNetwork(sapiConfiguration.context)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.putAll(b);
-                    hashMap.put("name", str);
-                    hashMap.put("tpl", sapiConfiguration.tpl);
-                    hashMap.put("app_version", SapiUtils.getVersionName(sapiConfiguration.context));
-                    hashMap.put("sdk_version", SapiAccountManager.VERSION_NAME);
-                    if (!TextUtils.isEmpty(sapiConfiguration.clientId)) {
-                        hashMap.put("cuid", sapiConfiguration.clientId);
-                    }
-                    hashMap.put("login_share_strategy", sapiConfiguration.loginShareStrategy().getStrValue());
-                    hashMap.put("v", String.valueOf(new Date().getTime()));
-                    if (map != null) {
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                                hashMap.put(entry.getKey(), entry.getValue());
-                            }
-                        }
-                    }
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0019a(sapiConfiguration, hashMap, str));
+                FileInputStream fileInputStream = new FileInputStream("/system/etc/hosts");
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str = new String(bArr);
+                if (!TextUtils.isEmpty(str) && str.contains("passport.baidu.com")) {
+                    com.baidu.sapi2.d.a(context).b(true);
+                } else {
+                    com.baidu.sapi2.d.a(context).b(false);
                 }
+                fileInputStream.close();
             } catch (Throwable th) {
+                com.baidu.sapi2.d.a(context).b(false);
                 L.e(th);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.baidu.sapi2.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public final class RunnableC0019a implements Runnable {
-        final /* synthetic */ SapiConfiguration a;
-        final /* synthetic */ Map b;
-        final /* synthetic */ String c;
-
-        RunnableC0019a(SapiConfiguration sapiConfiguration, Map map, String str) {
-            this.a = sapiConfiguration;
-            this.b = map;
-            this.c = str;
+    public static String b(Context context) {
+        if (context == null) {
+            return null;
         }
+        return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+    }
 
-        /* renamed from: com.baidu.sapi2.utils.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        class HandlerC0020a extends HttpResponseHandler {
-            HandlerC0020a() {
-            }
-
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onSuccess(int i, String str) {
-                com.baidu.sapi2.d.a(RunnableC0019a.this.a.context).e(RunnableC0019a.this.c);
-            }
+    public static String c(Context context) {
+        if (context == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            new AsyncHttpClient().get(this.a.context, a.a, new RequestParams(this.b), new HandlerC0020a());
+        try {
+            WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+            return TextUtils.isEmpty(connectionInfo.getMacAddress()) ? "" : connectionInfo.getMacAddress();
+        } catch (Exception e) {
+            return "";
         }
     }
 
-    public static void a() {
+    public static String a() {
         try {
-            for (Map.Entry<String, Map<String, String>> entry : com.baidu.sapi2.d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).r().entrySet()) {
-                a(entry.getKey(), entry.getValue());
+            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String b() {
+        try {
+            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String c() {
+        try {
+            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String d(Context context) {
+        return MD5Util.toMd5((b(context) + c(context)).getBytes(), false).replace("\n", "");
+    }
+
+    public static String d() {
+        return "os_version=" + a() + "&brand_name=" + b() + "&brand_model=" + c() + "&os_type=Android";
+    }
+
+    /* renamed from: com.baidu.sapi2.utils.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0038a {
+        private static final String a = "MD5";
+        private static final String b = "AES";
+        private static final String c = "UTF-8";
+        private static final int d = 16;
+        private static final int e = 16;
+
+        private static byte[] b(String str) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(a);
+                messageDigest.update(str.getBytes());
+                return messageDigest.digest();
+            } catch (NoSuchAlgorithmException e2) {
+                L.e(e2);
+                return null;
             }
-        } catch (Throwable th) {
-            L.e(th);
+        }
+
+        public static String a(byte[] bArr) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+            }
+            return sb.toString();
+        }
+
+        public static String b(byte[] bArr) {
+            int i;
+            StringBuilder sb = new StringBuilder();
+            int length = bArr.length * 8;
+            byte b2 = 0;
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 6;
+            int i5 = 0;
+            do {
+                if (i5 > 0 && i4 > 0) {
+                    b2 = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> (8 - i4)))) & 63);
+                    i5 = 8 - i4;
+                    i4 = 6 - i5;
+                } else if (i5 == 0) {
+                    b2 = (byte) ((bArr[i3] & 255) >> (8 - i4));
+                    i5 = 2;
+                    i4 = 4;
+                } else if (i4 == 0) {
+                    b2 = (byte) (bArr[i3] & 63);
+                    i4 = 6;
+                    i5 = 0;
+                }
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
+                i2 += 6;
+                i3 = i2 / 8;
+                i = length - i2;
+            } while (i >= 6);
+            if (i > 0) {
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
+            }
+            int i6 = length % 3;
+            for (int i7 = 0; i7 < i6; i7++) {
+                sb.append("=");
+            }
+            return sb.toString();
+        }
+
+        public static String a(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                String b2 = b(str.getBytes(c));
+                return a(b2 + "." + a(b(b2 + d.x)), d.x);
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        public static String a(String str, String str2) {
+            try {
+                String a2 = a(b(str2.trim()));
+                String substring = a2.substring(0, 16);
+                String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
+                Cipher cipher = Cipher.getInstance(d.y);
+                cipher.init(1, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
+                return b(cipher.doFinal(c(str.getBytes(c))));
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        public static String b(String str, String str2) {
+            try {
+                String a2 = a(b(str2.trim()));
+                String substring = a2.substring(0, 16);
+                String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
+                Cipher cipher = Cipher.getInstance(d.y);
+                cipher.init(2, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
+                return b(cipher.doFinal(c(str.getBytes(c))));
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        private static byte[] c(byte[] bArr) {
+            if (bArr.length % 16 != 0) {
+                byte[] bArr2 = new byte[((bArr.length / 16) + 1) * 16];
+                System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
+                for (int length = bArr.length; length < bArr2.length; length++) {
+                    bArr2[length] = 0;
+                }
+                return bArr2;
+            }
+            return bArr;
         }
     }
 }

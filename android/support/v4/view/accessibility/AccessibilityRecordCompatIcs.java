@@ -6,9 +6,6 @@ import android.view.accessibility.AccessibilityRecord;
 import java.util.List;
 /* loaded from: classes.dex */
 class AccessibilityRecordCompatIcs {
-    AccessibilityRecordCompatIcs() {
-    }
-
     public static Object obtain() {
         return AccessibilityRecord.obtain();
     }

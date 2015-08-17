@@ -45,10 +45,13 @@ public final class DataRes extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataRes> {
+    public static final class Builder extends Message.Builder<DataRes> {
         public Integer groupId;
         public Long msgId;
         public Long recordId;
+
+        public Builder() {
+        }
 
         public Builder(DataRes dataRes) {
             super(dataRes);

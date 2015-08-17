@@ -47,10 +47,13 @@ public final class ReqData extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ReqData> {
+    public static final class Builder extends Message.Builder<ReqData> {
         public String container_version;
         public String forbidden_feature;
         public List<Plugin_setting> plugin_settings_list;
+
+        public Builder() {
+        }
 
         public Builder(ReqData reqData) {
             super(reqData);

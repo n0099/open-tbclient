@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb.pb.sub;
+
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements Runnable {
-    final /* synthetic */ s bPU;
-    private final /* synthetic */ String bPV;
+public class v implements a.b {
+    final /* synthetic */ t cgt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar, String str) {
-        this.bPU = sVar;
-        this.bPV = str;
+    public v(t tVar) {
+        this.cgt = tVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bPU.iw(this.bPV);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

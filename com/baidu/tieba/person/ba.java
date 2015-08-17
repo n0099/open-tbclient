@@ -1,85 +1,38 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<String, Integer, String> {
-    private com.baidu.tbadk.core.util.aa OE = null;
-    private com.baidu.tbadk.coreExtra.c.f bSF;
-    final /* synthetic */ PersonChangeActivity bSO;
+class ba implements AdapterView.OnItemClickListener {
+    final /* synthetic */ av cjG;
 
-    public ba(PersonChangeActivity personChangeActivity, com.baidu.tbadk.coreExtra.c.f fVar) {
-        this.bSO = personChangeActivity;
-        this.bSF = null;
-        this.bSF = fVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ba(av avVar) {
+        this.cjG = avVar;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.bSO.bSI = null;
-        if (this.OE != null) {
-            this.OE.gS();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Boolean bool;
-        this.bSO.bSI = null;
-        this.bSO.closeLoadingDialog();
-        if (this.OE != null) {
-            if (this.OE.sX().tT().qa()) {
-                this.bSO.showToast(this.bSO.getPageContext().getString(com.baidu.tieba.t.success));
-                Intent intent = new Intent();
-                bool = this.bSO.bSt;
-                if (bool.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.bSF.wI());
-                } else {
-                    intent.putExtra("data", this.bSF.wI());
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bd bdVar;
+        bd bdVar2;
+        bd bdVar3;
+        PersonFriendActivity agq;
+        bdVar = this.cjG.cjy;
+        if (bdVar != null) {
+            bdVar2 = this.cjG.cjy;
+            if (bdVar2.getItemViewType(i) == 0) {
+                bdVar3 = this.cjG.cjy;
+                UserData userData = (UserData) bdVar3.getItem(i);
+                if (userData != null && userData.getUserId() != null) {
+                    av avVar = this.cjG;
+                    agq = this.cjG.agq();
+                    avVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(agq.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
-                TbadkCoreApplication.m411getInst().setPersonChangeData(this.bSF.wI());
-                this.bSO.setResult(-1, intent);
-                this.bSO.finish();
-            } else {
-                this.bSO.showToast(this.OE.getErrorString());
             }
         }
-        super.onPostExecute((ba) str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.bSO;
-        String string = this.bSO.getPageContext().getString(com.baidu.tieba.t.saving);
-        onCancelListener = this.bSO.bSJ;
-        personChangeActivity.showLoadingDialog(string, onCancelListener);
-        super.onPreExecute();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) {
-        if (this.bSF != null) {
-            this.OE = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_MODIFY);
-            this.OE.o(MyGiftListActivityConfig.USER_SEX, String.valueOf(this.bSF.wI().getSex()));
-            this.OE.o("intro", this.bSF.wI().getIntro());
-            this.OE.sz();
-            if (this.OE.sX().tT().qa()) {
-                com.baidu.tieba.tbadkCore.util.j.apw();
-            }
-        }
-        return null;
     }
 }

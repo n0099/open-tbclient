@@ -3,9 +3,6 @@ package android.support.v4.view;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class ViewGroupCompatJellybeanMR2 {
-    ViewGroupCompatJellybeanMR2() {
-    }
-
     public static int getLayoutMode(ViewGroup viewGroup) {
         return viewGroup.getLayoutMode();
     }

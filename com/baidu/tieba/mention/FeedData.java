@@ -4,6 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +17,13 @@ import tbclient.Zan;
 /* loaded from: classes.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_ZAN = "zan";
-    private static final long serialVersionUID = 6674573822882830667L;
+    private static final long serialVersionUID = -7837936115460478133L;
     private int isFloor;
     private String mPraiseItemType;
     private String quote_pid;
     private int mPraiseNum = 0;
     private int mPraiseLiked = 0;
-    private List<k> mPraiseList = null;
+    private List<LikeData> mPraiseList = null;
     private int type = 0;
     private long time = 0;
     private String title = null;
@@ -46,7 +47,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.mPraiseLiked;
     }
 
-    public List<k> getPraiseList() {
+    public List<LikeData> getPraiseList() {
         return this.mPraiseList;
     }
 
@@ -115,13 +116,13 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
-            jSONObject2.put(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, this.replyer.getPortrait());
+            jSONObject2.put(IntentConfig.PORTRAIT, this.replyer.getPortrait());
             jSONObject2.put("gender", this.replyer.getGender());
             jSONObject.put("replyer", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("id", this.quote_user.getUserId());
             jSONObject3.put("name", this.quote_user.getUserName());
-            jSONObject3.put(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, this.quote_user.getPortrait());
+            jSONObject3.put(IntentConfig.PORTRAIT, this.quote_user.getPortrait());
             jSONObject3.put("gender", this.quote_user.getGender());
             jSONObject.put("quote_user", jSONObject3);
             jSONArray.put(jSONObject);
@@ -145,7 +146,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = jSONObject.optInt("is_floor");
                 this.quote_pid = jSONObject.optString("quote_pid");
                 this.mPraiseItemType = jSONObject.optString("item_type");
-                if (!com.baidu.adp.lib.util.m.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) {
+                if (!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) {
                     JSONObject optJSONObject = jSONObject.optJSONObject(TYPE_ZAN);
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt("is_liked");
@@ -153,9 +154,9 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                     if (optJSONArray != null) {
                         this.mPraiseList = new ArrayList();
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            k kVar = new k();
-                            kVar.parserJson(optJSONArray.optJSONObject(i));
-                            this.mPraiseList.add(kVar);
+                            LikeData likeData = new LikeData();
+                            likeData.parserJson(optJSONArray.optJSONObject(i));
+                            this.mPraiseList.add(likeData);
                         }
                     }
                 }
@@ -182,7 +183,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = replyList.is_floor.intValue();
                 this.quote_pid = String.valueOf(replyList.quote_pid);
                 this.mPraiseItemType = replyList.item_type;
-                if (!com.baidu.adp.lib.util.m.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN) && (zan = replyList.zan) != null) {
+                if (!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN) && (zan = replyList.zan) != null) {
                     this.mPraiseNum = zan.num.intValue();
                     this.mPraiseLiked = zan.is_liked.intValue();
                     List<User> list = zan.liker_list;
@@ -194,9 +195,9 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                             if (i2 >= list.size()) {
                                 break;
                             }
-                            k kVar = new k();
-                            kVar.a(list.get(i2));
-                            this.mPraiseList.add(kVar);
+                            LikeData likeData = new LikeData();
+                            likeData.parserProtoBuf(list.get(i2));
+                            this.mPraiseList.add(likeData);
                             i = i2 + 1;
                         }
                     }

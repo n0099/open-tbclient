@@ -5,28 +5,30 @@ import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class DynamicHeightListView extends ListView {
     private int maxHeight;
 
     public DynamicHeightListView(Context context) {
         super(context);
-        this.maxHeight = com.baidu.adp.lib.util.n.d(getContext(), com.baidu.tieba.o.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.d(TbadkCoreApplication.m411getInst(), i.d.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maxHeight = com.baidu.adp.lib.util.n.d(getContext(), com.baidu.tieba.o.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.d(TbadkCoreApplication.m411getInst(), i.d.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maxHeight = com.baidu.adp.lib.util.n.d(getContext(), com.baidu.tieba.o.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.d(TbadkCoreApplication.m411getInst(), i.d.ds484);
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (getMeasuredHeight() > this.maxHeight) {
+        if (getMeasuredHeight() > this.maxHeight && this.maxHeight > 0) {
             setMeasuredDimension(View.MeasureSpec.getSize(i), this.maxHeight);
             return;
         }

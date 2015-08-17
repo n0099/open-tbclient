@@ -26,9 +26,12 @@ public final class QueryLiveGroupHistoryResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryLiveGroupHistoryResIdl> {
+    public static final class Builder extends Message.Builder<QueryLiveGroupHistoryResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryLiveGroupHistoryResIdl queryLiveGroupHistoryResIdl) {
             super(queryLiveGroupHistoryResIdl);

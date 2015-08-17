@@ -1,26 +1,82 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.location.BDLocationStatusCodes;
+import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
+import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ PingManager ahw;
+public class o implements com.baidu.adp.framework.client.socket.link.e {
+    final /* synthetic */ n amS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(PingManager pingManager, int i) {
-        super(i);
-        this.ahw = pingManager;
+    public o(n nVar) {
+        this.amS = nVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null) {
-            return;
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void s(byte[] bArr) {
+        com.baidu.adp.framework.client.socket.link.e eVar;
+        com.baidu.adp.framework.client.socket.link.e eVar2;
+        eVar = this.amS.amP;
+        if (eVar != null) {
+            eVar2 = this.amS.amP;
+            eVar2.s(bArr);
         }
-        this.ahw.a((BackgroundSwitchMessage) customResponsedMessage);
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public boolean k(int i, String str) {
+        com.baidu.adp.framework.client.socket.link.e eVar;
+        com.baidu.adp.framework.client.socket.link.e eVar2;
+        eVar = this.amS.amP;
+        if (eVar != null) {
+            eVar2 = this.amS.amP;
+            eVar2.k(i, str);
+            return false;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void b(Map<String, String> map) {
+        com.baidu.adp.framework.client.socket.link.e eVar;
+        UpdateClientInfoMessage zM;
+        UpdateClientInfoMessage updateClientInfoMessage;
+        com.baidu.adp.framework.client.socket.link.e eVar2;
+        eVar = this.amS.amP;
+        if (eVar != null) {
+            eVar2 = this.amS.amP;
+            eVar2.b(map);
+        }
+        com.baidu.adp.framework.client.socket.k.a("TbOnline", (int) BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES, 0, "begin_online", 0, "begin online");
+        n nVar = this.amS;
+        zM = this.amS.zM();
+        nVar.amQ = zM;
+        MessageManager messageManager = MessageManager.getInstance();
+        updateClientInfoMessage = this.amS.amQ;
+        messageManager.sendMessage(updateClientInfoMessage);
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void a(com.baidu.adp.lib.webSocket.c cVar) {
+        com.baidu.adp.framework.client.socket.link.e eVar;
+        com.baidu.adp.framework.client.socket.link.e eVar2;
+        eVar = this.amS.amP;
+        if (eVar != null) {
+            eVar2 = this.amS.amP;
+            eVar2.a(cVar);
+        }
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void I(String str) {
+        com.baidu.adp.framework.client.socket.link.e eVar;
+        com.baidu.adp.framework.client.socket.link.e eVar2;
+        eVar = this.amS.amP;
+        if (eVar != null) {
+            eVar2 = this.amS.amP;
+            eVar2.I(str);
+        }
     }
 }

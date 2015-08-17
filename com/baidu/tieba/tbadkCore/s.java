@@ -1,29 +1,27 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
+import android.app.Dialog;
+import android.os.Bundle;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView cpg;
+public class s extends Dialog {
+    private View.OnTouchListener aXA;
+    private View mConvertView;
+    private ProgressBar mProgressBar;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(FrsPraiseView frsPraiseView) {
-        this.cpg = frsPraiseView;
+    @Override // android.app.Dialog
+    protected void onStop() {
+        super.onStop();
+        this.mProgressBar.setVisibility(8);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.cpg.cpf;
-        MetaData metaData = praiseData.getUser().get(0);
-        if (metaData != null) {
-            context = this.cpg.mContext;
-            com.baidu.tbadk.util.i.a(2002003, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
-        }
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(this.mConvertView);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        getWindow().getDecorView().setOnTouchListener(this.aXA);
     }
 }

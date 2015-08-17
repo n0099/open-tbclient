@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivityConfig extends c {
+public class GroupAddressLocateActivityConfig extends IntentConfig {
     public static final String INTENT_DATA_IS_HIDDEN_ADDRESS = "IntentDataIsHiddenAddress";
     public static final String INTENT_DATA_OLD_ADDRESS = "IntentDataOldAddress";
     public static final String INTENT_DATA_OLD_BUSINESS = "IntentDataOldBusiness";

@@ -1,47 +1,52 @@
 package com.baidu.tieba.pb.pb.praise;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.q;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
+public class b {
     private HeadImageView mItemHead;
     private ImageView mItemLineBottom;
     private TextView mItemName;
     private TextView mItemTime;
+    private View mItemView;
 
-    public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view, viewEventCenter);
+    public static b f(Context context, View view) {
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
+            return new b(context);
+        }
+        return (b) view.getTag();
+    }
+
+    private b(Context context) {
+        this.mItemView = null;
         this.mItemHead = null;
         this.mItemName = null;
         this.mItemTime = null;
         this.mItemLineBottom = null;
-        this.mItemHead = (HeadImageView) view.findViewById(q.zan_list_item_head);
-        this.mItemName = (TextView) view.findViewById(q.zan_list_item_name);
-        this.mItemTime = (TextView) view.findViewById(q.zan_list_item_time);
-        this.mItemLineBottom = (ImageView) view.findViewById(q.zan_list_item_line_bottom);
+        this.mItemView = LayoutInflater.from(context).inflate(i.g.zan_list_item, (ViewGroup) null);
+        this.mItemHead = (HeadImageView) this.mItemView.findViewById(i.f.zan_list_item_head);
+        this.mItemName = (TextView) this.mItemView.findViewById(i.f.zan_list_item_name);
+        this.mItemTime = (TextView) this.mItemView.findViewById(i.f.zan_list_item_time);
+        this.mItemLineBottom = (ImageView) this.mItemView.findViewById(i.f.zan_list_item_line_bottom);
         this.mItemLineBottom.setVisibility(0);
+        this.mItemView.setTag(this);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
-    public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
-        return true;
+    public View getView() {
+        return this.mItemView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.j.e
-    /* renamed from: a */
-    public void z(a aVar) {
-        super.z(aVar);
-        this.mItemName.setText(aVar.getUserName());
+    public void setData(String str, String str2, long j, boolean z) {
+        this.mItemName.setText(str);
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(bb.o(aVar.acK()));
-        this.mItemHead.c(aVar.getPortrait(), 28, false);
+        this.mItemTime.setText(aq.m(j));
+        this.mItemHead.d(str2, 28, false);
     }
 }

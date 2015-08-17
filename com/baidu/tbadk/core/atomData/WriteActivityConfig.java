@@ -1,14 +1,15 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class WriteActivityConfig extends c {
+public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String BAOBAO_IMAGES = "baobao_images";
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";
@@ -33,6 +34,7 @@ public class WriteActivityConfig extends c {
     public static final String LIVE_GROUP_ZAN_COUNT = "live_group_zan_count";
     public static final String LIVE_TIME_IS_MODIFY = "live_time_is_modify";
     public static final String MEMBER_TYPE = "mem_type";
+    public static final String PHOTO_LIVE_COVER_IMAGE = "photolivecoverimage";
     public static final String PHOTO_NAME = "photo_name";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String REFRESH_PIC = "refresh_pic";
@@ -46,8 +48,8 @@ public class WriteActivityConfig extends c {
         super(activity);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
-        if (antiData != null && antiData.getIfpost() == 0) {
-            n.showToast(activity, antiData.getForbid_info());
+        if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
+            k.showToast(activity, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);
@@ -74,7 +76,7 @@ public class WriteActivityConfig extends c {
             getIntent().putExtra(FLOOR_ID, str4);
         }
         if (i2 > 0) {
-            getIntent().putExtra(FLOOR_NUM, i2);
+            getIntent().putExtra("floor_num", i2);
         }
         if (str5 != null) {
             getIntent().putExtra(SUB_USER_NAME, str5);

@@ -1,7 +1,50 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.View;
+import org.json.JSONObject;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-public interface r {
-    void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2);
+public class r extends com.baidu.adp.lib.a.b.a.a.i {
+    private int aCq;
+    private Object aCr;
+    private int duration;
+    private String md5;
+
+    public r() {
+    }
+
+    public r(PbContent pbContent) {
+        if (pbContent != null) {
+            this.md5 = pbContent.voice_md5;
+            this.duration = pbContent.during_time.intValue() / 1000;
+            this.aCq = pbContent.is_sub.intValue();
+        }
+    }
+
+    public r(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.md5 = jSONObject.optString("voice_md5");
+            this.duration = jSONObject.optInt("during_time") / 1000;
+            this.aCq = jSONObject.optInt("is_sub");
+        }
+    }
+
+    public String wo() {
+        return this.md5;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public int Fw() {
+        return this.aCq;
+    }
+
+    public Object Fx() {
+        return this.aCr;
+    }
+
+    public void B(Object obj) {
+        this.aCr = obj;
+    }
 }

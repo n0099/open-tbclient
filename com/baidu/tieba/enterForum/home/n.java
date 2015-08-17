@@ -1,28 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends CustomMessageListener {
-    final /* synthetic */ a aFe;
+public class n extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ d aMD;
+    private final /* synthetic */ String aMF;
+    private final /* synthetic */ boolean aMG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(a aVar, int i) {
-        super(i);
-        this.aFe = aVar;
+    public n(d dVar, String str, boolean z) {
+        this.aMD = dVar;
+        this.aMF = str;
+        this.aMG = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean HN;
-        HN = this.aFe.HN();
-        if (!HN) {
-            this.aFe.HO();
-        } else {
-            this.aFe.HR();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.aMF)) {
+            com.baidu.tieba.im.settingcache.h.Wx().e(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aMF), this.aMG);
         }
+        return null;
     }
 }

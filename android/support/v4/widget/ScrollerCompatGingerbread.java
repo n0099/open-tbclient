@@ -5,9 +5,6 @@ import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 /* loaded from: classes.dex */
 class ScrollerCompatGingerbread {
-    ScrollerCompatGingerbread() {
-    }
-
     public static Object createScroller(Context context, Interpolator interpolator) {
         return interpolator != null ? new OverScroller(context, interpolator) : new OverScroller(context);
     }

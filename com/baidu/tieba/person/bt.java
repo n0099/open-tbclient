@@ -1,49 +1,57 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.personInfo.PersonInfoActivity;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i;
+import com.baidu.tieba.person.bs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends com.baidu.adp.base.g {
-    TextView bTl;
-    TextView bTm;
-    View mView;
+public class bt extends HttpMessageListener {
+    final /* synthetic */ bs ckq;
 
-    public bt(PersonInfoActivity personInfoActivity) {
-        super(personInfoActivity.getPageContext());
-        a(personInfoActivity);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bt(bs bsVar, int i) {
+        super(i);
+        this.ckq = bsVar;
     }
 
-    private void a(PersonInfoActivity personInfoActivity) {
-        this.mView = com.baidu.adp.lib.g.b.hr().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.r.person_info_more_view, null);
-        this.bTl = (TextView) this.mView.findViewById(com.baidu.tieba.q.person_info_more_view_item_friend);
-        this.bTl.setOnClickListener(personInfoActivity);
-        this.bTm = (TextView) this.mView.findViewById(com.baidu.tieba.q.person_info_more_view_item_black);
-        this.bTm.setOnClickListener(personInfoActivity);
-    }
-
-    public void f(boolean z, boolean z2) {
-        if (z) {
-            this.bTl.setVisibility(0);
-        } else {
-            this.bTl.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        bs.a aVar;
+        String errorString;
+        bs.a aVar2;
+        PersonListActivity personListActivity;
+        bs.a aVar3;
+        bs.a aVar4;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002004 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            int error = httpResponsedMessage.getError();
+            if (statusCode != 200 || error != 0) {
+                aVar = this.ckq.ckc;
+                if (aVar != null) {
+                    if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                        personListActivity = this.ckq.cko;
+                        errorString = personListActivity.getResources().getString(i.C0057i.neterror);
+                    } else {
+                        errorString = httpResponsedMessage.getErrorString();
+                    }
+                    aVar2 = this.ckq.ckc;
+                    aVar2.B(errorString, false);
+                    return;
+                }
+                return;
+            }
+            ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
+            responseNetPersonListMessage.setModel(this.ckq);
+            com.baidu.tieba.person.a.a data = responseNetPersonListMessage.getData();
+            aVar3 = this.ckq.ckc;
+            if (aVar3 != null) {
+                aVar4 = this.ckq.ckc;
+                aVar4.d(data, false);
+            }
         }
-        if (z2) {
-            this.bTm.setText(com.baidu.tieba.t.remove_block_chat);
-        } else {
-            this.bTm.setText(com.baidu.tieba.t.block_chat_message);
-        }
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public View aeC() {
-        return this.bTl;
-    }
-
-    public View aeD() {
-        return this.bTm;
     }
 }

@@ -1,36 +1,108 @@
 package com.baidu.adp.lib.webSocket;
+
+import com.baidu.adp.lib.webSocket.g;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i {
-    private static final int[] zL = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    private int mPos;
-    private int mState;
+public class i implements g.a {
+    final /* synthetic */ h zG;
 
-    public i() {
-        reset();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(h hVar) {
+        this.zG = hVar;
     }
 
-    public void reset() {
-        this.mState = 0;
-        this.mPos = 0;
-    }
-
-    public boolean isValid() {
-        return this.mState == 0;
-    }
-
-    public boolean f(byte[] bArr, int i, int i2) {
-        for (int i3 = i; i3 < i + i2; i3++) {
-            this.mState = zL[(this.mState << 4) + 256 + zL[bArr[i3] & 255]];
-            if (this.mState == 1) {
-                this.mPos += i3;
-                return false;
-            }
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void I(String str) {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).I(str);
         }
-        this.mPos += i2;
-        return true;
     }
 
-    public boolean r(byte[] bArr) {
-        return f(bArr, 0, bArr.length);
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void F(byte[] bArr) {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).F(bArr);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void w(byte[] bArr) {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).w(bArr);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void c(Map<String, String> map) {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).c(map);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void l(int i, String str) {
+        ArrayList arrayList;
+        this.zG.zD = null;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).l(i, str);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void a(c cVar) {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).a(cVar);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void jA() {
+        ArrayList arrayList;
+        arrayList = this.zG.zE;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((g.a) it.next()).jA();
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void b(c cVar) {
+        if (cVar != null) {
+            cVar.eh();
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void a(int i, c cVar) {
+        if (cVar != null) {
+            cVar.y(i);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g.a
+    public void c(c cVar) {
+        if (cVar != null) {
+            cVar.ei();
+        }
     }
 }

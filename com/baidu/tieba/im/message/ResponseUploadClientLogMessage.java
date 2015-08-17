@@ -10,7 +10,7 @@ public class ResponseUploadClientLogMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         UploadClientLogResIdl uploadClientLogResIdl = (UploadClientLogResIdl) new Wire(new Class[0]).parseFrom(bArr, UploadClientLogResIdl.class);
         if (uploadClientLogResIdl != null) {

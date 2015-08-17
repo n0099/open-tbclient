@@ -1,54 +1,33 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
-public class j {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+public class j extends Thread {
+    private int azq;
+    private int azr;
+    private String type = null;
+
+    public j(int i, int i2) {
+        this.azq = 0;
+        this.azr = 0;
+        this.azq = i;
+        this.azr = i2;
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.m411getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.m411getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m411getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.m411getInst().getTbs();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        v vVar = new v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        vVar.o("img_num", String.valueOf(this.azq));
+        vVar.o("img_total", String.valueOf(this.azr));
+        if (this.type != null) {
+            vVar.o("img_type", this.type);
         }
+        vVar.tD();
     }
 }

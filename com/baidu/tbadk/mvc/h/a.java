@@ -1,96 +1,86 @@
 package com.baidu.tbadk.mvc.h;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.c;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.c.b;
-import com.baidu.tbadk.mvc.e.c;
-import java.security.InvalidParameterException;
+import com.baidu.tieba.i;
+import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes.dex */
-public class a {
-    public static final void a(View view, int i, Object obj) {
-        if (view != null && obj != null) {
-            if ((i >>> 24) < 2) {
-                if (TbadkCoreApplication.m411getInst().isDebugMode()) {
-                    throw new InvalidParameterException("The key must be an application-specific resource id.");
-                }
-                return;
-            }
-            view.setTag(i, obj);
-        }
+public class a extends c implements r {
+    private TbPageContextSupport<?> awg;
+    private View awh;
+    private int padding;
+    private TextView mTextView = null;
+    private ProgressBar mProgressBar = null;
+    private View.OnClickListener mOnClickListener = null;
+    private View mRoot = null;
+
+    public a(TbPageContextSupport<?> tbPageContextSupport) {
+        this.awg = null;
+        this.awg = tbPageContextSupport;
+        this.padding = this.awg.getPageContext().getResources().getDimensionPixelSize(i.d.listview_item_margin);
     }
 
-    public static final void a(b bVar, View view) {
-        if (bVar != null && view != null) {
-            int Bs = bVar.Bs();
-            BdUniqueId uniqueId = bVar.getUniqueId();
-            com.baidu.tbadk.mvc.b.a Bt = bVar.Bt();
-            c Bu = bVar.Bu();
-            com.baidu.tbadk.mvc.a.a Bv = bVar.Bv();
-            Object extra = bVar.getExtra();
-            boolean Bw = bVar.Bw();
-            int Bx = bVar.Bx();
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(50331648, Integer.valueOf(Bs));
-            sparseArray.put(51380224, uniqueId);
-            sparseArray.put(52428800, Bt);
-            sparseArray.put(53477376, Bu);
-            sparseArray.put(54525952, Bv);
-            sparseArray.put(58720256, extra);
-            sparseArray.put(59768832, Boolean.valueOf(Bw));
-            sparseArray.put(67108864, Integer.valueOf(Bx));
-            a(sparseArray, view);
-        }
+    @Override // com.baidu.adp.widget.ListView.c
+    public View nq() {
+        this.mRoot = LayoutInflater.from(this.awg.getPageContext().getPageActivity()).inflate(i.g.new_pb_list_more, (ViewGroup) null);
+        this.mRoot.setPadding(0, this.padding, 0, this.padding);
+        this.mTextView = (TextView) this.mRoot.findViewById(i.f.pb_more_text);
+        this.awh = this.mRoot.findViewById(i.f.pb_more_view);
+        this.awh.setVisibility(8);
+        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(i.f.progress);
+        a(this.awg.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.awh.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.mRoot;
     }
 
-    public static final b u(View view) {
-        if (view != null) {
-            Object tag = view.getTag(50331648);
-            Object tag2 = view.getTag(51380224);
-            Object tag3 = view.getTag(52428800);
-            Object tag4 = view.getTag(53477376);
-            Object tag5 = view.getTag(54525952);
-            Object tag6 = view.getTag(58720256);
-            Object tag7 = view.getTag(59768832);
-            Object tag8 = view.getTag(67108864);
-            if ((tag instanceof Integer) && ((tag2 == null || (tag2 instanceof BdUniqueId)) && ((tag3 == null || (tag3 instanceof com.baidu.tbadk.mvc.b.a)) && ((tag4 == null || (tag4 instanceof c)) && ((tag5 == null || (tag5 instanceof com.baidu.tbadk.mvc.a.a)) && ((tag7 == null || (tag7 instanceof Boolean)) && (tag8 == null || (tag8 instanceof Integer)))))))) {
-                int intValue = ((Integer) tag).intValue();
-                BdUniqueId bdUniqueId = (BdUniqueId) tag2;
-                boolean booleanValue = ((Boolean) tag7).booleanValue();
-                int intValue2 = ((Integer) tag8).intValue();
-                b bVar = new b(intValue, (com.baidu.tbadk.mvc.b.a) tag3, (c) tag4, (com.baidu.tbadk.mvc.a.a) tag5);
-                bVar.setUniqueId(bdUniqueId);
-                bVar.setExtra(tag6);
-                bVar.aZ(booleanValue);
-                bVar.dV(intValue2);
-                return bVar;
-            }
-        }
-        return null;
+    @Override // com.baidu.tieba.tbadkCore.r
+    public boolean a(TbPageContext<?> tbPageContext, int i) {
+        this.awg.getPageContext().getLayoutMode().k(this.awh);
+        return true;
     }
 
-    public static final void a(b bVar, Dialog dialog) {
-        if (bVar != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
-            a(bVar, dialog.getWindow().getDecorView());
-        }
+    public void hide() {
+        this.awh.setVisibility(8);
+        this.mRoot.setPadding(0, 0, 0, 0);
     }
 
-    public static final b a(Dialog dialog) {
-        if (dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
-            return null;
-        }
-        return u(dialog.getWindow().getDecorView());
+    public void oy() {
+        this.awh.setVisibility(0);
+        this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public static final void a(SparseArray<Object> sparseArray, View view) {
-        if (sparseArray != null && view != null) {
-            int size = sparseArray.size();
-            for (int i = 0; i < size; i++) {
-                int keyAt = sparseArray.keyAt(i);
-                a(view, keyAt, sparseArray.get(keyAt));
-            }
+    public void ek(int i) {
+        this.mProgressBar.setVisibility(0);
+        this.mTextView.setText(i);
+        this.awh.setVisibility(0);
+    }
+
+    public void el(int i) {
+        this.mProgressBar.setVisibility(8);
+        this.mTextView.setText(i);
+    }
+
+    public void em(int i) {
+        this.mProgressBar.setVisibility(8);
+        this.mTextView.setText(i);
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+        if (this.mOnClickListener != null) {
+            this.mOnClickListener.onClick(this.mRoot);
         }
     }
 }

@@ -1,36 +1,30 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class bx implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bTv;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(PersonListActivity personListActivity) {
-        this.bTv = personListActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ca caVar;
-        ca caVar2;
-        ca caVar3;
-        if (view.getTag() instanceof Integer) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            caVar = this.bTv.bTq;
-            if (caVar != null) {
-                caVar2 = this.bTv.bTq;
-                if (caVar2.getItemViewType(this.bTv.bSU) == 0) {
-                    caVar3 = this.bTv.bTq;
-                    UserData userData = (UserData) caVar3.getItem(intValue);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.bTv.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
-                }
+public class bx implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PersonFriendByUidLocalMessage)) {
+            return null;
+        }
+        String str = "";
+        if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+            str = TbadkCoreApplication.getCurrentAccountObj().getID();
+        }
+        String str2 = com.baidu.tbadk.core.b.a.sM().ck("tb.my_pages").get("personal_myfollow_" + str);
+        ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
+        if (str2 != null) {
+            try {
+                responsePersonFriendByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY, str2);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+        return responsePersonFriendByUidLocalMessage;
     }
 }

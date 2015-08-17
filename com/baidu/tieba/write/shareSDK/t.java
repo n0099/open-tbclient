@@ -1,40 +1,36 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.write.write.cn;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tieba.write.write.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ q cAM;
+public class t implements bx.a {
+    final /* synthetic */ o cSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar) {
-        this.cAM = qVar;
+    public t(o oVar) {
+        this.cSC = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        View view2;
-        cn cnVar;
+    @Override // com.baidu.tieba.write.write.bx.a
+    public void kq(int i) {
         WriteShareActivity writeShareActivity;
+        TextView textView;
+        PostPrefixData postPrefixData;
+        bx bxVar;
+        bx bxVar2;
         WriteShareActivity writeShareActivity2;
-        WriteShareActivity writeShareActivity3;
-        WriteShareActivity writeShareActivity4;
-        textView = this.cAM.cAB;
-        textView.setVisibility(0);
-        view2 = this.cAM.cAE;
-        view2.setSelected(true);
-        cnVar = this.cAM.cAC;
-        writeShareActivity = this.cAM.cAK;
-        int dip2px = com.baidu.adp.lib.util.n.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.cAM.cAK;
-        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(cnVar, view, dip2px, com.baidu.adp.lib.util.n.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.cAM.cAK;
-        if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.cAM.cAK;
-            writeShareActivity4.asC();
-        }
+        writeShareActivity = this.cSC.cSz;
+        writeShareActivity.kp(i);
+        textView = this.cSC.cSq;
+        postPrefixData = this.cSC.mPrefixData;
+        textView.setText(postPrefixData.getPrefixs().get(i));
+        bxVar = this.cSC.cSr;
+        bxVar.kj(i);
+        this.cSC.auw();
+        bxVar2 = this.cSC.cSr;
+        writeShareActivity2 = this.cSC.cSz;
+        com.baidu.adp.lib.g.j.a(bxVar2, writeShareActivity2.getPageContext().getPageActivity());
     }
 }

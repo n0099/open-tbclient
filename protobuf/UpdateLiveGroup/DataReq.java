@@ -83,7 +83,7 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public List<String> backgrounds;
         public Integer groupId;
         public String intro;
@@ -91,6 +91,9 @@ public final class DataReq extends Message {
         public String name;
         public String portrait;
         public String signature;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

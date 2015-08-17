@@ -1,42 +1,33 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.MemoryItemRemoveMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ u bmQ;
-    private final /* synthetic */ ImMessageCenterPojo bmR;
-    private final /* synthetic */ ChatMessage bmS;
-    private final /* synthetic */ SocketResponsedMessage bmT;
+public class v extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.bmQ = uVar;
-        this.bmR = imMessageCenterPojo;
-        this.bmS = chatMessage;
-        this.bmT = socketResponsedMessage;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof CustomMessage)) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryItemRemoveMessage.a)) {
+            MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
+            if (aVar.customGroupType != 1) {
+                if (aVar.customGroupType == 3) {
+                    b.Vl().I(aVar.id, 3);
+                    return;
+                }
+                return;
+            }
+            this.this$0.hT(aVar.id);
         }
-        try {
-            com.baidu.tieba.im.db.g.Rr().Rs();
-            com.baidu.tieba.im.db.k.Rw().a(this.bmR, 3);
-            com.baidu.tieba.im.db.c.Rn().b(this.bmS.getGroupId(), String.valueOf(this.bmS.getRecordId()), String.valueOf(this.bmS.getMsgId()), this.bmS.getLocalData().getStatus().shortValue());
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        } finally {
-            com.baidu.tieba.im.db.g.Rr().endTransaction();
-        }
-        return new CustomResponsedMessage<>(2016012, this.bmT);
     }
 }

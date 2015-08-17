@@ -1,107 +1,36 @@
 package com.baidu.tieba.setting.more;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ aa cfP;
+class ad implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ MsgRemindActivity cxX;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(aa aaVar) {
-        this.cfP = aaVar;
+    public ad(MsgRemindActivity msgRemindActivity, int i) {
+        this.cxX = msgRemindActivity;
+        this.val$id = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        SettingTextImageView settingTextImageView;
-        TbSettingTextTipView tbSettingTextTipView;
-        TbSettingTextTipView tbSettingTextTipView2;
-        TbSettingTextTipView tbSettingTextTipView3;
-        TbSettingTextTipView tbSettingTextTipView4;
-        SettingTextVersionView settingTextVersionView;
-        TbSettingTextTipView tbSettingTextTipView5;
-        TbSettingTextTipView tbSettingTextTipView6;
-        TbSettingTextNewDotView tbSettingTextNewDotView;
-        TextView textView;
-        q qVar;
-        q qVar2;
-        q qVar3;
-        q qVar4;
-        q qVar5;
-        q qVar6;
-        q qVar7;
-        q qVar8;
-        q qVar9;
-        q qVar10;
-        q qVar11;
-        view2 = this.cfP.cfO;
-        if (view == view2) {
-            qVar11 = this.cfP.cfz;
-            qVar11.iu(0);
-            return;
-        }
-        settingTextImageView = this.cfP.cfC;
-        if (view == settingTextImageView) {
-            qVar10 = this.cfP.cfz;
-            qVar10.iu(1);
-            return;
-        }
-        tbSettingTextTipView = this.cfP.cfD;
-        if (view == tbSettingTextTipView) {
-            qVar9 = this.cfP.cfz;
-            qVar9.iu(2);
-            return;
-        }
-        tbSettingTextTipView2 = this.cfP.cfE;
-        if (view == tbSettingTextTipView2) {
-            qVar8 = this.cfP.cfz;
-            qVar8.iu(3);
-            return;
-        }
-        tbSettingTextTipView3 = this.cfP.cfF;
-        if (view == tbSettingTextTipView3) {
-            qVar7 = this.cfP.cfz;
-            qVar7.iu(4);
-            return;
-        }
-        tbSettingTextTipView4 = this.cfP.cfG;
-        if (view == tbSettingTextTipView4) {
-            qVar6 = this.cfP.cfz;
-            qVar6.iu(9);
-            return;
-        }
-        settingTextVersionView = this.cfP.cfH;
-        if (view == settingTextVersionView) {
-            qVar5 = this.cfP.cfz;
-            qVar5.iu(6);
-            return;
-        }
-        tbSettingTextTipView5 = this.cfP.cfI;
-        if (view == tbSettingTextTipView5) {
-            qVar4 = this.cfP.cfz;
-            qVar4.iu(7);
-            return;
-        }
-        tbSettingTextTipView6 = this.cfP.cfJ;
-        if (view == tbSettingTextTipView6) {
-            qVar3 = this.cfP.cfz;
-            qVar3.iu(8);
-            return;
-        }
-        tbSettingTextNewDotView = this.cfP.cfL;
-        if (view == tbSettingTextNewDotView) {
-            qVar2 = this.cfP.cfz;
-            qVar2.iu(5);
-            return;
-        }
-        textView = this.cfP.cfM;
-        if (view == textView) {
-            qVar = this.cfP.cfz;
-            qVar.iu(10);
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        ae aeVar;
+        ae aeVar2;
+        if (this.val$id == i.f.sign_remind) {
+            com.baidu.tbadk.coreExtra.messageCenter.c.xq().setSignAlertTime(i, i2);
+            aeVar2 = this.cxX.cxV;
+            aeVar2.alQ();
+        } else if (this.val$id == i.f.no_disturb_end_time || this.val$id == i.f.no_disturb_start_time) {
+            String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
+            if (this.val$id == i.f.no_disturb_start_time) {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xq().dO(str);
+            } else {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xq().dP(str);
+            }
+            aeVar = this.cxX.cxV;
+            aeVar.alR();
         }
     }
 }

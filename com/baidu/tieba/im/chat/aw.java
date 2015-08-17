@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface aw {
-    RelativeLayout getBtnSendVoice();
+public class aw implements View.OnLongClickListener {
+    final /* synthetic */ as boC;
 
-    int om();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(as asVar) {
+        this.boC = asVar;
+    }
 
-    ImageView on();
-
-    ImageView oo();
-
-    LinearLayout op();
-
-    void refreshSendVoiceText(boolean z);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.boC.bnW.onItemViewLongClick(view, 11, this.boC.anz, 0L);
+        return true;
+    }
 }

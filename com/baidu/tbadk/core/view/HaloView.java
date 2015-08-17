@@ -7,12 +7,14 @@ import android.graphics.Paint;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class HaloView extends View {
-    Runnable Iu;
-    private boolean YD;
-    private int YE;
-    private boolean YF;
+    Runnable Ix;
+    private boolean adA;
+    private int adB;
+    private boolean adC;
     private final Context mContext;
     private final Paint mPaint;
 
@@ -22,27 +24,27 @@ public class HaloView extends View {
 
     public HaloView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.YD = false;
-        this.YE = 0;
-        this.YF = false;
-        this.Iu = new m(this);
+        this.adA = false;
+        this.adB = 0;
+        this.adC = false;
+        this.Ix = new j(this);
         this.mContext = context;
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.v.HaloView);
-        this.YD = obtainStyledAttributes.getBoolean(0, false);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.k.HaloView);
+        this.adA = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
-        if (this.YD) {
+        if (this.adA) {
             this.mPaint.setStyle(Paint.Style.FILL);
         } else {
             this.mPaint.setStyle(Paint.Style.STROKE);
         }
-        postDelayed(this.Iu, 800L);
+        postDelayed(this.Ix, 800L);
     }
 
     public void setIsBlack(boolean z) {
-        this.YD = z;
-        if (this.YD) {
+        this.adA = z;
+        if (this.adA) {
             this.mPaint.setStyle(Paint.Style.FILL);
         } else {
             this.mPaint.setStyle(Paint.Style.STROKE);
@@ -54,29 +56,29 @@ public class HaloView extends View {
     protected void onDraw(Canvas canvas) {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
-        if (!this.YD) {
-            int d = com.baidu.adp.lib.util.n.d(this.mContext, com.baidu.tieba.o.ds70);
-            int d2 = com.baidu.adp.lib.util.n.d(this.mContext, com.baidu.tieba.o.ds90);
-            int d3 = com.baidu.adp.lib.util.n.d(this.mContext, com.baidu.tieba.o.ds30);
-            int d4 = com.baidu.adp.lib.util.n.d(this.mContext, com.baidu.tieba.o.ds60);
-            if (this.YE >= 1) {
+        if (!this.adA) {
+            int d = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds70);
+            int d2 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds90);
+            int d3 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds30);
+            int d4 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds60);
+            if (this.adB >= 1) {
                 this.mPaint.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d3);
                 canvas.drawCircle(width, height, d, this.mPaint);
             }
-            if (this.YE >= 2) {
+            if (this.adB >= 2) {
                 this.mPaint.setARGB(20, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d4);
                 canvas.drawCircle(width, height, (d3 / 2) + d, this.mPaint);
             }
-            if (this.YE >= 3) {
+            if (this.adB >= 3) {
                 this.mPaint.setARGB(15, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d2);
                 canvas.drawCircle(width, height, d + d3, this.mPaint);
             }
         } else {
-            int d5 = com.baidu.adp.lib.util.n.d(this.mContext, com.baidu.tieba.o.ds120);
-            this.mPaint.setARGB(102, 0, 0, 0);
+            int d5 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds120);
+            this.mPaint.setARGB(SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY, 0, 0, 0);
             this.mPaint.setStrokeWidth(d5);
             canvas.drawCircle(width, height, d5, this.mPaint);
         }
@@ -84,6 +86,6 @@ public class HaloView extends View {
     }
 
     public void onDestroy() {
-        this.YF = true;
+        this.adC = true;
     }
 }

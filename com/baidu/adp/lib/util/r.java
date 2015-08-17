@@ -1,6 +1,9 @@
 package com.baidu.adp.lib.util;
 
-import java.util.concurrent.BlockingQueue;
+import java.util.UUID;
 /* loaded from: classes.dex */
-public interface r extends x, BlockingQueue {
+public class r {
+    public static String jo() {
+        return UUID.randomUUID().toString();
+    }
 }

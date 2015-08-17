@@ -2,23 +2,23 @@ package com.baidu.tieba.discover.a;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.discover.u;
-import com.baidu.tieba.p;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TbImageView Ms;
-    private ImageView aEl;
-    private TextView aiA;
+    private TbImageView MF;
+    private ImageView aLK;
+    private TextView anH;
 
     public a(Context context) {
         this(context, null);
@@ -26,45 +26,45 @@ public class a extends RelativeLayout {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        com.baidu.adp.lib.g.b.hr().a(getContext(), r.discover_header_item, this, true);
+        LayoutInflater.from(getContext()).inflate(i.g.discover_header_item, (ViewGroup) this, true);
         init();
     }
 
     private void init() {
-        this.Ms = (TbImageView) findViewById(q.icon);
-        this.aiA = (TextView) findViewById(q.title);
-        this.aEl = (ImageView) findViewById(q.red_tip);
-        this.Ms.setDefaultBgResource(0);
+        this.MF = (TbImageView) findViewById(i.f.icon);
+        this.anH = (TextView) findViewById(i.f.title);
+        this.aLK = (ImageView) findViewById(i.f.red_tip);
+        this.MF.setDefaultBgResource(0);
     }
 
     public void ar(String str, String str2) {
-        if (this.Ms != null) {
-            this.Ms.setDefaultResource(u.fM(str2));
+        if (this.MF != null) {
+            this.MF.setDefaultResource(u.gf(str2));
             if (!StringUtils.isNull(str)) {
-                this.Ms.c(str, 10, false);
+                this.MF.d(str, 10, false);
             }
         }
     }
 
     public void setTitle(String str) {
-        if (this.aiA != null) {
-            this.aiA.setText(str);
+        if (this.anH != null) {
+            this.anH.setText(str);
         }
     }
 
-    public void bF(boolean z) {
-        if (this.aEl != null) {
+    public void bH(boolean z) {
+        if (this.aLK != null) {
             if (z) {
-                this.aEl.setVisibility(0);
+                this.aLK.setVisibility(0);
             } else {
-                this.aEl.setVisibility(8);
+                this.aLK.setVisibility(8);
             }
         }
     }
 
-    public void d(TbPageContext<?> tbPageContext) {
+    public void e(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.f.a.a(tbPageContext, this);
-        ay.i(this, p.addresslist_item_bg);
-        this.Ms.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        al.i(this, i.e.addresslist_item_bg);
+        this.MF.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
     }
 }

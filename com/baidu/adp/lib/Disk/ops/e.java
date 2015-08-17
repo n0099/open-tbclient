@@ -1,50 +1,35 @@
 package com.baidu.adp.lib.Disk.ops;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e extends DiskFileOperate {
-    private String mContent;
-    private String rP;
+public class e extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
+    private ArrayList<String> rM;
 
-    public e(String str, String str2, DiskFileOperate.Action action) {
+    public e(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
         super(str, str2, action);
-        this.mContent = null;
-        this.rP = "UTF-8";
+        this.rM = arrayList;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean k(byte[] bArr) {
-        if (bArr == null) {
+    @Override // com.baidu.adp.lib.Disk.a
+    public boolean c(File file) {
+        if (this.rM == null) {
             return false;
         }
-        try {
-            this.mContent = new String(bArr, this.rP);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] fA() {
-        if (this.mContent != null) {
-            try {
-                return this.mContent.getBytes(this.rP);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+        if (file != null) {
+            String name = file.getName();
+            if (!TextUtils.isEmpty(name)) {
+                Iterator<String> it = this.rM.iterator();
+                while (it.hasNext()) {
+                    if (name.equals(it.next())) {
+                        return true;
+                    }
+                }
             }
         }
-        return null;
-    }
-
-    public String getContent() {
-        return this.mContent;
-    }
-
-    public void setContent(String str) {
-        this.mContent = str;
+        return false;
     }
 }

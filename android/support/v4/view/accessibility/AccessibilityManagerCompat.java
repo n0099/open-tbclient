@@ -26,14 +26,14 @@ public class AccessibilityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class AccessibilityStateChangeListenerCompat {
+    public static abstract class AccessibilityStateChangeListenerCompat {
         final Object mListener = AccessibilityManagerCompat.IMPL.newAccessiblityStateChangeListener(this);
 
         public abstract void onAccessibilityStateChanged(boolean z);
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityManagerStubImpl implements AccessibilityManagerVersionImpl {
+    static class AccessibilityManagerStubImpl implements AccessibilityManagerVersionImpl {
         AccessibilityManagerStubImpl() {
         }
 
@@ -69,17 +69,13 @@ public class AccessibilityManagerCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityManagerIcsImpl extends AccessibilityManagerStubImpl {
+    static class AccessibilityManagerIcsImpl extends AccessibilityManagerStubImpl {
         AccessibilityManagerIcsImpl() {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityManagerCompat.AccessibilityManagerStubImpl, android.support.v4.view.accessibility.AccessibilityManagerCompat.AccessibilityManagerVersionImpl
         public Object newAccessiblityStateChangeListener(final AccessibilityStateChangeListenerCompat accessibilityStateChangeListenerCompat) {
             return AccessibilityManagerCompatIcs.newAccessibilityStateChangeListener(new AccessibilityManagerCompatIcs.AccessibilityStateChangeListenerBridge() { // from class: android.support.v4.view.accessibility.AccessibilityManagerCompat.AccessibilityManagerIcsImpl.1
-                @Override // android.support.v4.view.accessibility.AccessibilityManagerCompatIcs.AccessibilityStateChangeListenerBridge
-                public void onAccessibilityStateChanged(boolean z) {
-                    accessibilityStateChangeListenerCompat.onAccessibilityStateChanged(z);
-                }
             });
         }
 

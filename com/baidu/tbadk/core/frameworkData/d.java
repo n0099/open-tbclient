@@ -1,24 +1,21 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.framework.a.k;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.coreExtra.websocketBase.h;
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-class d extends k {
+class d extends j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(int i) {
         super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
+    @Override // com.baidu.adp.framework.a.g
     /* renamed from: d */
-    public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !h.yq().dn(socketMessage.getCmd())) {
-            return null;
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null) {
+            com.baidu.tbadk.coreExtra.websocketBase.d.zz().dA(socketResponsedMessage.getCmd());
         }
-        return socketMessage;
+        return socketResponsedMessage;
     }
 }

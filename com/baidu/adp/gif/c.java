@@ -1,20 +1,10 @@
 package com.baidu.adp.gif;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
-public interface c {
-    boolean D(int i);
-
-    int E(int i);
-
-    boolean a(Bitmap bitmap, Canvas canvas);
-
-    void close();
-
-    int fl();
-
-    int getHeight();
-
-    int getWidth();
+class c extends h {
+    @Override // com.baidu.adp.lib.util.h
+    public void l(boolean z) {
+        NSGif.qU = z;
+    }
 }

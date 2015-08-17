@@ -24,7 +24,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         QueryLiveGroupsByFidResIdl queryLiveGroupsByFidResIdl = (QueryLiveGroupsByFidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupsByFidResIdl.class);
         setError(queryLiveGroupsByFidResIdl.error.errorno.intValue());
@@ -36,7 +36,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
             for (int i2 = 0; i2 < queryLiveGroupsByFidResIdl.data.groups.size(); i2++) {
                 LiveCardData liveCardData = new LiveCardData();
                 LiveGroupInfo liveGroupInfo = queryLiveGroupsByFidResIdl.data.groups.get(i2);
-                liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
+                liveCardData.setAuthorId(liveGroupInfo.authorId.longValue());
                 liveCardData.setAuthorName(liveGroupInfo.authorName);
                 liveCardData.setBackground(liveGroupInfo.background);
                 liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
@@ -50,7 +50,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 liveCardData.setListeners(liveGroupInfo.listeners.intValue());
                 liveCardData.setName(liveGroupInfo.name);
                 liveCardData.setPortrait(liveGroupInfo.portrait);
-                liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
+                liveCardData.setPublisherId(liveGroupInfo.publisherId.longValue());
                 liveCardData.setPublisherName(liveGroupInfo.publisherName);
                 liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
                 liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
@@ -73,7 +73,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 for (int i3 = 0; i3 < queryLiveGroupsByFidResIdl.data.hotGroups.size(); i3++) {
                     LiveCardData liveCardData2 = new LiveCardData();
                     LiveGroupInfo liveGroupInfo2 = queryLiveGroupsByFidResIdl.data.hotGroups.get(i3);
-                    liveCardData2.setAuthorId(liveGroupInfo2.authorId.intValue());
+                    liveCardData2.setAuthorId(liveGroupInfo2.authorId.longValue());
                     liveCardData2.setAuthorName(liveGroupInfo2.authorName);
                     liveCardData2.setBackground(liveGroupInfo2.background);
                     liveCardData2.setCreateTime(liveGroupInfo2.createTime.intValue());
@@ -87,7 +87,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                     liveCardData2.setListeners(liveGroupInfo2.listeners.intValue());
                     liveCardData2.setName(liveGroupInfo2.name);
                     liveCardData2.setPortrait(liveGroupInfo2.portrait);
-                    liveCardData2.setPublisherId(liveGroupInfo2.publisherId.intValue());
+                    liveCardData2.setPublisherId(liveGroupInfo2.publisherId.longValue());
                     liveCardData2.setPublisherName(liveGroupInfo2.publisherName);
                     liveCardData2.setPublisherPortrait(liveGroupInfo2.publisherPortrait);
                     liveCardData2.setIsVip(liveGroupInfo2.isVip.intValue());

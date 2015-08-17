@@ -6,10 +6,16 @@ import org.json.JSONObject;
 import tbclient.Media;
 /* loaded from: classes.dex */
 public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static final int EXT_TYPE_XIAOYING = 12;
+    private int e_type = -1;
     private int type = -1;
     private String pic_url = null;
     private String video_url = null;
     private String src_pic = null;
+
+    public boolean isXiaoying() {
+        return this.type == 5 && this.e_type == 12;
+    }
 
     public String getSrc_pic() {
         return this.src_pic;
@@ -73,6 +79,7 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
             } else if (this.type == 5) {
                 this.pic_url = media.vpic;
                 this.video_url = media.vsrc;
+                this.e_type = media.e_type.intValue();
             }
         }
     }

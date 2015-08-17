@@ -1,28 +1,33 @@
 package com.baidu.tieba.service;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
+import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AsInstallService extends BdBaseService {
     private static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
     private static final String SCHEME_PACKAGE_ADDED = "package";
     private static boolean sIsReceiving;
     private Handler mHandler;
-    private b mReceiver;
+    private a mReceiver;
     private Runnable mStopReceivingRunnable;
     private VersionData mVersionData;
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mReceiver = new b(this, null);
+        this.mReceiver = new a(this, null);
         this.mHandler = new Handler();
-        this.mStopReceivingRunnable = new a(this);
+        this.mStopReceivingRunnable = new com.baidu.tieba.service.a(this);
     }
 
     @Override // android.app.Service
@@ -33,7 +38,7 @@ public class AsInstallService extends BdBaseService {
             if (intent != null) {
                 this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
             }
-            this.mReceiver = new b(this, null);
+            this.mReceiver = new a(this, null);
             IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
             intentFilter.addDataScheme(SCHEME_PACKAGE_ADDED);
             registerReceiver(this.mReceiver, intentFilter);
@@ -56,5 +61,26 @@ public class AsInstallService extends BdBaseService {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    /* loaded from: classes.dex */
+    private class a extends BroadcastReceiver {
+        private a() {
+        }
+
+        /* synthetic */ a(AsInstallService asInstallService, a aVar) {
+            this();
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
+                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
+                if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && AsInstallService.this.mVersionData != null) {
+                    t.a(context, AsInstallService.this.mVersionData);
+                    TiebaStatic.log("c10007");
+                }
+            }
+        }
     }
 }

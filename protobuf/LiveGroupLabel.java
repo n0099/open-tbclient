@@ -45,10 +45,13 @@ public final class LiveGroupLabel extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LiveGroupLabel> {
+    public static final class Builder extends Message.Builder<LiveGroupLabel> {
         public Integer labelId;
         public String labelName;
         public Integer type;
+
+        public Builder() {
+        }
 
         public Builder(LiveGroupLabel liveGroupLabel) {
             super(liveGroupLabel);

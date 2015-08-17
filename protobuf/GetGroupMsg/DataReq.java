@@ -111,7 +111,7 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public String gettype;
         public List<GroupLastId> groupMids;
         public Integer height;
@@ -122,6 +122,9 @@ public final class DataReq extends Message {
         public Integer smallHeight;
         public Integer smallWidth;
         public Integer width;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

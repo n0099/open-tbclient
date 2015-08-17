@@ -1,152 +1,31 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class p extends BaseAdapter {
-    private PersonInfoActivity bVg;
-    private z bVh;
-    private q bVi;
-    private r bVj;
-    private t bVk;
-    private x bVl;
-    private boolean mIsHost;
+class p extends CustomMessageListener {
+    final /* synthetic */ PersonInfoActivity clO;
 
-    public p(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bVg = personInfoActivity;
-        this.mIsHost = z;
-        this.bVh = new z(this.bVg, this.mIsHost);
-        this.bVi = new q(this.bVg, this.mIsHost);
-        this.bVj = new r(this.bVg, this.mIsHost);
-        this.bVk = new t(this.bVg, this.mIsHost);
-        this.bVl = new x(this.bVg, this.mIsHost);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(PersonInfoActivity personInfoActivity, int i) {
+        super(i);
+        this.clO = personInfoActivity;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return this.mIsHost ? 4 : 5;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        if (this.mIsHost) {
-            switch (i) {
-                case 0:
-                default:
-                    return 0;
-                case 1:
-                    return 2;
-                case 2:
-                    return 3;
-                case 3:
-                    return 4;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        w wVar;
+        w wVar2;
+        if (customResponsedMessage != null) {
+            Long l = (Long) customResponsedMessage.getData();
+            wVar = this.clO.clC;
+            long c = com.baidu.adp.lib.g.b.c(wVar.getId(), 0L);
+            if (l != null && c == l.longValue()) {
+                wVar2 = this.clO.clC;
+                wVar2.ahB();
             }
         }
-        switch (i) {
-            case 0:
-            default:
-                return 0;
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            case 4:
-                return 4;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.mIsHost ? 4 : 5;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        if (itemViewType == 0) {
-            this.bVh.afm();
-            return this.bVh.getRootView();
-        } else if (itemViewType == 1) {
-            this.bVi.afm();
-            return this.bVi.getRootView();
-        } else if (itemViewType == 2) {
-            this.bVj.afm();
-            return this.bVj.getRootView();
-        } else if (itemViewType == 3) {
-            this.bVk.afm();
-            return this.bVk.getRootView();
-        } else if (itemViewType == 4) {
-            this.bVl.afm();
-            return this.bVl.getRootView();
-        } else {
-            return null;
-        }
-    }
-
-    public RelativeLayout afa() {
-        return this.bVj.afa();
-    }
-
-    public void afb() {
-        this.bVj.afb();
-    }
-
-    public RelativeLayout afc() {
-        return this.bVi.afl();
-    }
-
-    public RelativeLayout afd() {
-        return this.bVi.afd();
-    }
-
-    public TextView afe() {
-        return this.bVj.afe();
-    }
-
-    public RelativeLayout aff() {
-        return this.bVi.aff();
-    }
-
-    public RelativeLayout afg() {
-        return this.bVj.afg();
-    }
-
-    public RelativeLayout afh() {
-        return this.bVj.afh();
-    }
-
-    public RelativeLayout afi() {
-        return this.bVk.afi();
-    }
-
-    public RelativeLayout afj() {
-        return this.bVk.afd();
-    }
-
-    public RelativeLayout afk() {
-        return this.bVl.afk();
-    }
-
-    public void er(boolean z) {
-        this.bVj.er(z);
-    }
-
-    public void hV(int i) {
-        this.bVj.hV(i);
     }
 }

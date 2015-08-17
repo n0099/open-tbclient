@@ -1,29 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKU;
+public class ao implements a.b {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.bKU.bKj;
-        aVar2.dismiss();
-        str = this.bKU.bKk;
-        if (!TextUtils.isEmpty(str)) {
-            Activity pageActivity = this.bKU.getPageContext().getPageActivity();
-            str2 = this.bKU.bKk;
-            com.baidu.tbadk.browser.f.b(pageActivity, false, str2);
+        aVar.dismiss();
+        if (!com.baidu.tbadk.core.util.n.fl()) {
+            this.cbo.showToast(com.baidu.tbadk.core.util.n.ty());
+        } else {
+            FileDownloader.download(this.cbo.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.cbo.getPageContext().getString(i.C0057i.download_baidu_video));
         }
     }
 }

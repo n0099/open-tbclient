@@ -3,23 +3,23 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private final String bKh;
-    private final String bwQ;
-    private final String mPhoneNumber;
+    private final String bKG;
+    private final String cay;
+    private final String caz;
 
     public a(String str, String str2, String str3) {
-        this.bwQ = str;
-        this.mPhoneNumber = str2;
-        this.bKh = str3;
+        this.bKG = str;
+        this.cay = str2;
+        this.caz = str3;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tbadk.core.util.aa aaVar = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/clientcall");
-        aaVar.o("tid", this.bwQ);
-        aaVar.o("phonenum", this.mPhoneNumber);
-        aaVar.o("optype", this.bKh);
-        aaVar.sw();
+        com.baidu.tbadk.core.util.v vVar = new com.baidu.tbadk.core.util.v(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/clientcall");
+        vVar.o("tid", this.bKG);
+        vVar.o("phonenum", this.cay);
+        vVar.o("optype", this.caz);
+        vVar.tD();
     }
 }

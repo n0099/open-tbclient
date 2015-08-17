@@ -1,56 +1,40 @@
 package com.baidu.adp.plugin.packageManager;
 
 import android.text.TextUtils;
+import com.baidu.adp.plugin.packageManager.a;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import java.util.ArrayList;
-import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    private static volatile g Dr;
-    private ArrayList<String> Dj = new ArrayList<>();
-    private h Ds;
+public class g implements a.c {
+    final /* synthetic */ PluginPackageManager this$0;
 
-    public static g lL() {
-        if (Dr == null) {
-            synchronized (g.class) {
-                if (Dr == null) {
-                    Dr = new g();
-                }
-            }
-        }
-        return Dr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(PluginPackageManager pluginPackageManager) {
+        this.this$0 = pluginPackageManager;
     }
 
-    private g() {
-    }
-
-    public void a(PluginSetting pluginSetting) {
+    @Override // com.baidu.adp.plugin.packageManager.a.c
+    public void J(String str, String str2) {
+        PluginSetting findPluginSetting;
         boolean z;
-        if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Dj.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().findPluginSetting(str)) != null) {
+            if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().bB(str);
+            } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
+                String[] split = findPluginSetting.getAbandon_apk_path().split(",");
+                String str3 = "";
+                for (String str4 : split) {
+                    if (!str2.equals(str4)) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str3 = String.valueOf(str3) + ",";
+                        }
+                        str3 = String.valueOf(str3) + str4;
+                    }
                 }
-                String next = it.next();
-                if (next != null && next.equals(pluginSetting.packageName)) {
-                    z = true;
-                    break;
-                }
+                com.baidu.adp.plugin.packageManager.pluginSettings.c mp = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp();
+                z = this.this$0.Dt;
+                mp.b(str, str3, z);
             }
-            if (!z) {
-                this.Dj.add(pluginSetting.packageName);
-            }
-            lH();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void lH() {
-        if (this.Dj.size() > 0 && this.Ds == null) {
-            this.Ds = new h(this, this.Dj.get(0));
-            this.Ds.execute(new String[0]);
         }
     }
 }

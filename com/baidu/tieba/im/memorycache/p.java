@@ -1,27 +1,25 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.memorycache.a;
 import java.util.Iterator;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements b {
-    final /* synthetic */ c bmb;
+public class p implements a.InterfaceC0059a {
+    final /* synthetic */ b bzO;
+    private final /* synthetic */ List bzP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(c cVar) {
-        this.bmb = cVar;
+    public p(b bVar, List list) {
+        this.bzO = bVar;
+        this.bzP = list;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.b
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
-            ImMessageCenterPojo next = it.next();
-            next.setIs_hidden(1);
-            next.setLast_content("");
-            next.setLast_content_time(0L);
-            next.setLast_user_name("");
-            next.setUnread_count(0);
-            next.setSend_status(0);
+            this.bzP.add(it.next());
         }
     }
 }

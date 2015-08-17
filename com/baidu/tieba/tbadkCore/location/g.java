@@ -1,31 +1,46 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import android.location.Address;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ e ctN;
+public class g extends CustomMessageListener {
+    final /* synthetic */ d cKp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar) {
-        this.ctN = eVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(d dVar, int i) {
+        super(i);
+        this.cKp = dVar;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void b(int i, String str, Address address) {
-        j jVar;
-        j jVar2;
-        if (i == 0 && address != null) {
-            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
-            this.ctN.bb(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
-            return;
-        }
-        BdLog.i("mGetLonAndLatCallback error!");
-        jVar = this.ctN.ctG;
-        if (jVar != null) {
-            jVar2 = this.ctN.ctG;
-            jVar2.gh(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        d.b bVar;
+        d.b bVar2;
+        d.b bVar3;
+        d.b bVar4;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                this.cKp.fA(false);
+                this.cKp.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.cKp.cKj;
+                if (bVar3 != null) {
+                    bVar4 = this.cKp.cKj;
+                    bVar4.eP(responsedSelectLocation.getName());
+                    return;
+                }
+                return;
+            }
+            this.cKp.fA(true);
+            bVar = this.cKp.cKj;
+            if (bVar != null) {
+                bVar2 = this.cKp.cKj;
+                bVar2.BG();
+            }
         }
     }
 }

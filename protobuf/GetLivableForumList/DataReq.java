@@ -14,9 +14,9 @@ public final class DataReq extends Message {
     public final Integer pageNo;
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
     public final Integer pageSize;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer userId;
-    public static final Integer DEFAULT_USERID = 0;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long userId;
+    public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_FILTERFLAG = 0;
     public static final Integer DEFAULT_MINLEVEL = 0;
     public static final Integer DEFAULT_LIKEFORUMFLAG = 0;
@@ -72,13 +72,16 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public Integer filterFlag;
         public Integer likeForumFlag;
         public Integer minLevel;
         public Integer pageNo;
         public Integer pageSize;
-        public Integer userId;
+        public Long userId;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

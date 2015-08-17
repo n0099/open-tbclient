@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class OfficialBarHistoryActivityConfig extends c {
+public class OfficialBarHistoryActivityConfig extends IntentConfig {
     public OfficialBarHistoryActivityConfig(Context context, int i) {
         super(context);
         getIntent().putExtra("forum_id", i);

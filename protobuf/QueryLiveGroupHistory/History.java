@@ -17,12 +17,12 @@ public final class History extends Message {
     public final String playUrl;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer startTime;
-    @ProtoField(tag = 4, type = Message.Datatype.INT32)
-    public final Integer userId;
+    @ProtoField(tag = 4, type = Message.Datatype.INT64)
+    public final Long userId;
     public static final Integer DEFAULT_GROUPID = 0;
     public static final Integer DEFAULT_STARTTIME = 0;
     public static final Integer DEFAULT_ENDTIME = 0;
-    public static final Integer DEFAULT_USERID = 0;
+    public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_LISTENERS = 0;
     public static final Integer DEFAULT_LIKERS = 0;
 
@@ -81,14 +81,17 @@ public final class History extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<History> {
+    public static final class Builder extends Message.Builder<History> {
         public Integer endTime;
         public Integer groupId;
         public Integer likers;
         public Integer listeners;
         public String playUrl;
         public Integer startTime;
-        public Integer userId;
+        public Long userId;
+
+        public Builder() {
+        }
 
         public Builder(History history) {
             super(history);

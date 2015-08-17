@@ -1,8 +1,11 @@
 package com.baidu.tieba.im.data;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class GroupPermData implements Serializable {
+public class GroupPermData implements u, Serializable {
+    public static final BdUniqueId TYPE_FRS_CREATE_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5660832418912851013L;
     private int canCreateNormal;
     private int canCreateNormalNum;
@@ -13,7 +16,16 @@ public class GroupPermData implements Serializable {
     private String createNormalTip;
     private String createOfficialTip;
     private String createPersonalTip;
+    private String forumId;
     private int isManager;
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
 
     public int getIsManager() {
         return this.isManager;
@@ -105,5 +117,10 @@ public class GroupPermData implements Serializable {
 
     public void setCanCreatePersonalNum(int i) {
         this.canCreatePersonalNum = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return TYPE_FRS_CREATE_GROUP;
     }
 }

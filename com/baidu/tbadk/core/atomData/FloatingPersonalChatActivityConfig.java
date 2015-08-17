@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
 /* loaded from: classes.dex */
-public class FloatingPersonalChatActivityConfig extends c {
+public class FloatingPersonalChatActivityConfig extends IntentConfig {
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
     public static final String KEY_IS_FRIEND = "key_is_friend";
@@ -28,7 +28,7 @@ public class FloatingPersonalChatActivityConfig extends c {
         if (list != null && list.size() != 0) {
             this.mUserDataList = list;
             Intent intent = getIntent();
-            intent.putExtra(c.IS_ACCEPT_NOTIFY, true);
+            intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
             intent.putExtra("chat_mode", 1);
             intent.putExtra("user", list.get(list.size() - 1));
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());

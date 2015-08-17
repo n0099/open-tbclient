@@ -1,40 +1,78 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class aj implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity bKU;
-    private final /* synthetic */ MarkData bKY;
+class aj implements com.baidu.adp.lib.e.c<ImageView> {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(PbActivity pbActivity, MarkData markData) {
-        this.bKU = pbActivity;
-        this.bKY = markData;
+    public aj(PbActivity pbActivity) {
+        this.cbo = pbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        int[] iArr = new int[2];
-        chVar = this.bKU.bKA;
-        if (chVar != null) {
-            chVar2 = this.bKU.bKA;
-            if (chVar2.getView() != null) {
-                chVar3 = this.bKU.bKA;
-                chVar3.getView().getLocationOnScreen(iArr);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: ado */
+    public ImageView hb() {
+        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cbo.getPageContext().getPageActivity());
+        boolean rh = com.baidu.tbadk.core.m.rd().rh();
+        dVar.setDefaultBg(com.baidu.tbadk.core.util.al.getDrawable(i.c.pb_default_image_bg));
+        if (rh) {
+            dVar.setAdjustViewBounds(false);
+            dVar.setInterceptOnClick(false);
+        } else {
+            dVar.setDefaultResource(i.e.icon_click);
+            dVar.setAdjustViewBounds(true);
+            dVar.setInterceptOnClick(true);
+        }
+        return dVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public void l(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).stopLoading();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public ImageView m(ImageView imageView) {
+        if (imageView instanceof TbImageView) {
+            TbImageView tbImageView = (TbImageView) imageView;
+            tbImageView.setTag(null);
+            if (com.baidu.tbadk.core.m.rd().rh()) {
+                tbImageView.setAdjustViewBounds(false);
+                tbImageView.setInterceptOnClick(false);
+            } else {
+                tbImageView.setDefaultResource(i.e.icon_click);
+                tbImageView.setAdjustViewBounds(true);
+                tbImageView.setInterceptOnClick(true);
             }
         }
-        if (iArr[0] > 0) {
-            Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.bKY);
-            this.bKU.setResult(-1, intent);
-            this.bKU.aaT();
+        return imageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public ImageView n(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).stopLoading();
         }
+        return imageView;
     }
 }

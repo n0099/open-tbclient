@@ -1,21 +1,20 @@
 package com.baidu.tieba.personInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.i {
-    final /* synthetic */ PersonInfoActivity bVf;
+class d implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ PersonInfoActivity clO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonInfoActivity personInfoActivity) {
-        this.bVf = personInfoActivity;
+        this.clO = personInfoActivity;
     }
 
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        ad adVar;
-        ad adVar2;
-        adVar = this.bVf.bUV;
-        adVar.hideProgress();
-        adVar2 = this.bVf.bUV;
-        adVar2.afL();
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        this.clO.clz = 1;
+        TiebaStatic.log(com.baidu.tieba.usermute.m.cPj);
     }
 }

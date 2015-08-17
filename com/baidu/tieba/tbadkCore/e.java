@@ -1,27 +1,32 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes.dex */
-public class e {
-    private long aFu;
-    private boolean coA;
-    private final w cou;
-    private aa cov;
-    private z cow;
-    private boolean cox;
-    private i coy;
-    private f coz;
 
-    public void fb(boolean z) {
-        this.cox = z;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class e implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ FrsCommonImageLayout cGS;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(FrsCommonImageLayout frsCommonImageLayout) {
+        this.cGS = frsCommonImageLayout;
     }
 
-    public void clear() {
-        if (this.coy != null) {
-            this.coy.cancel();
-            this.coy = null;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.cGS.cGL;
+            if (bVar != null) {
+                bVar2 = this.cGS.cGL;
+                bVar2.k((TbImageView) view2);
+            }
         }
-        if (this.coz != null) {
-            this.coz.cancel();
-            this.coz = null;
-        }
+    }
+
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

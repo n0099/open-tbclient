@@ -1,29 +1,41 @@
 package com.baidu.tieba.mention;
 
-import android.widget.AbsListView;
+import com.baidu.tieba.mention.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements AbsListView.OnScrollListener {
-    final /* synthetic */ ai bGF;
+public class al implements ae.a {
+    final /* synthetic */ ak bWv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar) {
-        this.bGF = aiVar;
+    public al(ak akVar) {
+        this.bWv = akVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        boolean z;
-        if (i != 0) {
-            z = this.bGF.bGE;
-            if (!z) {
-                this.bGF.bGE = true;
-                this.bGF.Kl();
+    @Override // com.baidu.tieba.mention.ae.a
+    public void d(long j, long j2, long j3) {
+        com.baidu.tbadk.editortools.c.n nVar;
+        FeedData feedData;
+        com.baidu.tbadk.editortools.c.n nVar2;
+        FeedData feedData2;
+        com.baidu.tbadk.editortools.c.n nVar3;
+        FeedData feedData3;
+        this.bWv.mForumId = String.valueOf(j);
+        this.bWv.bWr = j2;
+        this.bWv.bWs = j3;
+        nVar = this.bWv.bWp;
+        if (nVar != null) {
+            feedData = this.bWv.bWq;
+            if (feedData.getIsFloor()) {
+                feedData2 = this.bWv.bWq;
+                if (feedData2.getReplyer() != null) {
+                    nVar3 = this.bWv.bWp;
+                    feedData3 = this.bWv.bWq;
+                    nVar3.eR(feedData3.getReplyer().getUserName());
+                    return;
+                }
             }
+            nVar2 = this.bWv.bWp;
+            nVar2.eR(null);
         }
     }
 }

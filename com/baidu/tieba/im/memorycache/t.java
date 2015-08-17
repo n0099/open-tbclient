@@ -1,24 +1,49 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements b {
-    final /* synthetic */ c bmb;
-    private final /* synthetic */ List bmc;
+public class t extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(c cVar, List list) {
-        this.bmb = cVar;
-        this.bmc = list;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.b
-    public void a(Iterator<ImMessageCenterPojo> it) {
-        while (it.hasNext()) {
-            this.bmc.add(it.next());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitGroupMessage)) {
+            ChatMessage chatMessage = (ChatMessage) socketResponsedMessage.getOrginalMessage();
+            if (chatMessage.getLocalData() == null) {
+                chatMessage.setLocalData(new MsgLocalData());
+            }
+            if (socketResponsedMessage.hasError()) {
+                chatMessage.getLocalData().setStatus((short) 2);
+            } else {
+                chatMessage.getLocalData().setStatus((short) 3);
+                long msgId = ((ResponseCommitGroupMessage) socketResponsedMessage).getMsgId();
+                long recordId = ((ResponseCommitGroupMessage) socketResponsedMessage).getRecordId();
+                chatMessage.setMsgId(msgId);
+                chatMessage.setRecordId(recordId);
+            }
+            com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+            b.Vl().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new u(this, b.Vl().G(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
+            customMessageTask.setParallel(TiebaIMConfig.getParallel());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+            customMessageTask.setPriority(4);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
         }
     }
 }

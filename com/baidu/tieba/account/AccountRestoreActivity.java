@@ -7,9 +7,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.PageType;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     private static final String PAGE_TYPE = "page_type";
@@ -21,15 +23,15 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.r.account_restore_activity);
+        setContentView(i.g.account_restore_activity);
         this.mPageType = getIntent().getStringExtra(PAGE_TYPE);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.t.anti_account_restore));
-        this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.q.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.anti_account_restore));
+        this.mWebView = (BaseWebView) findViewById(i.f.webview_acc_restore);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.addJavascriptInterface(this, "AccountJsBridge");
-        com.baidu.tbadk.browser.f.U(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.W(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 
@@ -45,7 +47,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (PageType.PERSON_INFO.toString().equals(this.mPageType)) {
             TbadkCoreApplication.setRefreshFlag(true);
         } else if (PageType.FRS.toString().equals(this.mPageType)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH, null));
         }
         finish();
     }

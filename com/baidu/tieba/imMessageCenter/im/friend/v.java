@@ -1,33 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tbadk.core.view.ag;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements k {
-    final /* synthetic */ t bvW;
+public class v implements View.OnClickListener {
+    final /* synthetic */ p bJM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar) {
-        this.bvW = tVar;
+    public v(p pVar) {
+        this.bJM = pVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.friend.k
-    public void a(View view, Object obj) {
-        BdListView bdListView;
-        if (obj != null) {
-            if (obj instanceof ag) {
-                ((ag) obj).setChecked(false);
-            }
-            bdListView = this.bvW.mListView;
-            View findViewWithTag = bdListView.findViewWithTag(obj);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
-                ((TbCheckBox) findViewWithTag).setChecked(false);
-            } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.a) {
-                this.bvW.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        editText = this.bJM.bEb;
+        editText.getText().clear();
     }
 }

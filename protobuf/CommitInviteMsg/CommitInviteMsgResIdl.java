@@ -26,9 +26,12 @@ public final class CommitInviteMsgResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitInviteMsgResIdl> {
+    public static final class Builder extends Message.Builder<CommitInviteMsgResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(CommitInviteMsgResIdl commitInviteMsgResIdl) {
             super(commitInviteMsgResIdl);

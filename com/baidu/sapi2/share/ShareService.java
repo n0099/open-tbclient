@@ -41,7 +41,7 @@ public final class ShareService extends Service {
     }
 
     /* loaded from: classes.dex */
-    class a extends Binder {
+    private class a extends Binder {
         private a() {
         }
 
@@ -60,7 +60,7 @@ public final class ShareService extends Service {
                 if (ShareService.this.e == null) {
                     ShareService.this.e = new Handler(Looper.getMainLooper());
                 }
-                ShareService.this.e.post(new RunnableC0007a());
+                ShareService.this.e.post(new RunnableC0027a());
             }
             if (!ShareService.d) {
                 ShareService.this.a((Context) ShareService.this);
@@ -97,8 +97,8 @@ public final class ShareService extends Service {
 
         /* renamed from: com.baidu.sapi2.share.ShareService$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC0007a implements Runnable {
-            RunnableC0007a() {
+        class RunnableC0027a implements Runnable {
+            RunnableC0027a() {
             }
 
             @Override // java.lang.Runnable
@@ -111,7 +111,7 @@ public final class ShareService extends Service {
     }
 
     /* loaded from: classes.dex */
-    /* synthetic */ class b {
+    static /* synthetic */ class b {
         static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
 
         static {
@@ -156,8 +156,8 @@ public final class ShareService extends Service {
         }
         com.baidu.sapi2.share.a.b(a, b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
-        if (c.p() != null) {
-            bundle.putString("RELOGIN_CREDENTIALS", e.a(a, c.p().toString()));
+        if (c.n() != null) {
+            bundle.putString("RELOGIN_CREDENTIALS", e.a(a, c.n().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         parcel.writeBundle(bundle);

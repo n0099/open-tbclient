@@ -12,14 +12,18 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.tbadk.game.GameInfoData;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.SimpleTimeZone;
 import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 /* loaded from: classes.dex */
@@ -30,6 +34,7 @@ public class SapiUtils {
     public static final String QR_LOGIN_LP_PC = "pc";
     static final String a = "cmd";
     static final String b = "error";
+    static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     public static boolean isValidAccount(SapiAccount sapiAccount) {
         return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
@@ -138,10 +143,11 @@ public class SapiUtils {
             return false;
         }
         try {
+            String a2 = a(str);
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("http://www.baidu.com", "BDUSS=" + str + ";domain=baidu.com;path=/");
+            cookieManager.setCookie("http://www.baidu.com", a2);
             CookieSyncManager.getInstance().sync();
             return true;
         } catch (Throwable th) {
@@ -165,8 +171,17 @@ public class SapiUtils {
         }
     }
 
+    static String a(String str) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
+        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(1, 8);
+        return "BDUSS=" + str + ";domain=baidu.com;path=/;expires=" + simpleDateFormat.format(calendar.getTime());
+    }
+
     public static List<String> getAuthorizedDomains(Context context) {
-        return context == null ? Collections.emptyList() : com.baidu.sapi2.d.a(context).m();
+        return context == null ? Collections.emptyList() : com.baidu.sapi2.d.a(context).l();
     }
 
     public static String getAppName(Context context) {
@@ -183,7 +198,7 @@ public class SapiUtils {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (Throwable th) {
             L.e(th);
-            return GameInfoData.NOT_FROM_DETAIL;
+            return "0";
         }
     }
 
@@ -253,11 +268,11 @@ public class SapiUtils {
 
     public static String getFastRegChannel(Context context) {
         if (context != null) {
-            String n = com.baidu.sapi2.d.a(context).n();
-            if (!TextUtils.isEmpty(n)) {
-                return n;
+            String m = com.baidu.sapi2.d.a(context).m();
+            if (!TextUtils.isEmpty(m)) {
+                return m;
             }
         }
-        return g.s;
+        return d.s;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import protobuf.GetPrivateInfo.GetPrivateInfoResIdl;
+import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 /* loaded from: classes.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     private a privacyData;
@@ -17,21 +17,28 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         GetPrivateInfoResIdl getPrivateInfoResIdl = (GetPrivateInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPrivateInfoResIdl.class);
-        if (getPrivateInfoResIdl != null && getPrivateInfoResIdl.data != null) {
+        if (getPrivateInfoResIdl.error != null) {
+            setError(getPrivateInfoResIdl.error.errorno.intValue());
+            setErrorString(getPrivateInfoResIdl.error.errmsg);
+        }
+        if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.ir(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.jk(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.is(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.jl(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.iq(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.jj(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.it(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.jm(getPrivateInfoResIdl.data.location.intValue());
+            }
+            if (getPrivateInfoResIdl.data.user != null) {
+                this.privacyData.a(getPrivateInfoResIdl.data.user);
             }
         }
     }

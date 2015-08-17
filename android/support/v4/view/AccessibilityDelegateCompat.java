@@ -42,7 +42,7 @@ public class AccessibilityDelegateCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityDelegateStubImpl implements AccessibilityDelegateImpl {
+    static class AccessibilityDelegateStubImpl implements AccessibilityDelegateImpl {
         AccessibilityDelegateStubImpl() {
         }
 
@@ -98,7 +98,7 @@ public class AccessibilityDelegateCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityDelegateIcsImpl extends AccessibilityDelegateStubImpl {
+    static class AccessibilityDelegateIcsImpl extends AccessibilityDelegateStubImpl {
         AccessibilityDelegateIcsImpl() {
         }
 
@@ -184,7 +184,7 @@ public class AccessibilityDelegateCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityDelegateJellyBeanImpl extends AccessibilityDelegateIcsImpl {
+    static class AccessibilityDelegateJellyBeanImpl extends AccessibilityDelegateIcsImpl {
         AccessibilityDelegateJellyBeanImpl() {
         }
 

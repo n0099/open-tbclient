@@ -1,47 +1,24 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.content.DialogInterface;
-import android.view.KeyEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class l implements DialogInterface.OnKeyListener {
-    final /* synthetic */ WriteShareActivity cAu;
+class l implements View.OnClickListener {
+    final /* synthetic */ WriteShareActivity cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(WriteShareActivity writeShareActivity) {
-        this.cAu = writeShareActivity;
+        this.cSj = writeShareActivity;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        q qVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         boolean z;
-        q qVar2;
-        q qVar3;
-        q qVar4;
-        if (i == 4) {
-            qVar = this.cAu.cAf;
-            if (qVar != null) {
-                qVar2 = this.cAu.cAf;
-                if (qVar2.asK() != null) {
-                    qVar3 = this.cAu.cAf;
-                    if (qVar3.asK().isShowing()) {
-                        qVar4 = this.cAu.cAf;
-                        com.baidu.adp.lib.g.k.a(qVar4.asK(), this.cAu.getPageContext().getPageActivity());
-                        return true;
-                    }
-                }
-            }
-            this.cAu.asy();
-            z = this.cAu.cAi;
-            if (z) {
-                this.cAu.setResult(-1);
-            } else {
-                this.cAu.setResult(0);
-            }
-            com.baidu.tbadk.core.c.b.a(this.cAu.getPageContext().getPageActivity(), 200, false);
-            this.cAu.finish();
-            return true;
+        this.cSj.auo();
+        z = this.cSj.cRW;
+        if (z) {
+            this.cSj.setResult(-1);
         }
-        return false;
+        com.baidu.tbadk.core.c.b.a(this.cSj.getPageContext().getPageActivity(), 200, false);
+        this.cSj.finish();
     }
 }

@@ -1,27 +1,28 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
+import android.database.DataSetObserver;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ i YA;
+class k extends DataSetObserver {
+    final /* synthetic */ HorizontalListView adW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar, TbPageContext tbPageContext) {
-        this.YA = iVar;
-        this.NC = tbPageContext;
+    public k(HorizontalListView horizontalListView) {
+        this.adW = horizontalListView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        RegisterActivityConfig registerActivityConfig = new RegisterActivityConfig(this.NC.getPageActivity());
-        registerActivityConfig.setRequestCode(22002);
-        registerActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, registerActivityConfig));
+    @Override // android.database.DataSetObserver
+    public void onChanged() {
+        synchronized (this.adW) {
+            this.adW.adQ = true;
+        }
+        this.adW.invalidate();
+        this.adW.requestLayout();
+    }
+
+    @Override // android.database.DataSetObserver
+    public void onInvalidated() {
+        this.adW.reset();
+        this.adW.invalidate();
+        this.adW.requestLayout();
     }
 }

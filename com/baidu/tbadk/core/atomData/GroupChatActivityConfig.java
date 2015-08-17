@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class GroupChatActivityConfig extends c {
+public class GroupChatActivityConfig extends IntentConfig {
     public static final String AUTO_SEND_EXTRA_MSG = "auto_send_extra_msg";
     public static final String AUTO_SEND_TEXT_MSG = "auto_send_text_msg";
     public static final String GROUP_AUTHOR_ID = "group_author_id";
@@ -37,7 +37,7 @@ public class GroupChatActivityConfig extends c {
         intent.putExtra(GROUP_OBJ_TP, str2);
         intent.putExtra("chat_mode", 0);
         intent.putExtra("group", groupData);
-        intent.putExtra(c.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
@@ -56,7 +56,7 @@ public class GroupChatActivityConfig extends c {
         intent.putExtra(GROUP_OBJ_TP, str2);
         intent.putExtra("chat_mode", 0);
         intent.putExtra("group", groupData);
-        intent.putExtra(c.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         if (str3 != null) {
             intent.putExtra(AUTO_SEND_TEXT_MSG, str3);
         }
@@ -66,7 +66,7 @@ public class GroupChatActivityConfig extends c {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    @Override // com.baidu.tbadk.core.frameworkData.c
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         GroupData groupData = getGroupData();
         return (groupData == null || groupData.getGroupId() == 0) ? false : true;

@@ -13,13 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     private static final PagerTitleStripImpl IMPL;
-    private static final float SIDE_ALPHA = 0.6f;
-    private static final String TAG = "PagerTitleStrip";
-    private static final int TEXT_SPACING = 16;
     TextView mCurrText;
     private int mGravity;
     private int mLastKnownCurrentPage;
@@ -52,7 +50,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     }
 
     /* loaded from: classes.dex */
-    class PagerTitleStripImplBase implements PagerTitleStripImpl {
+    static class PagerTitleStripImplBase implements PagerTitleStripImpl {
         PagerTitleStripImplBase() {
         }
 
@@ -63,7 +61,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     }
 
     /* loaded from: classes.dex */
-    class PagerTitleStripImplIcs implements PagerTitleStripImpl {
+    static class PagerTitleStripImplIcs implements PagerTitleStripImpl {
         PagerTitleStripImplIcs() {
         }
 
@@ -117,7 +115,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         this.mGravity = obtainStyledAttributes.getInteger(3, 80);
         obtainStyledAttributes.recycle();
         this.mTextColor = this.mCurrText.getTextColors().getDefaultColor();
-        setNonPrimaryAlpha(SIDE_ALPHA);
+        setNonPrimaryAlpha(0.6f);
         this.mPrevText.setEllipsize(TextUtils.TruncateAt.END);
         this.mCurrText.setEllipsize(TextUtils.TruncateAt.END);
         this.mNextText.setEllipsize(TextUtils.TruncateAt.END);
@@ -282,7 +280,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         int i11 = max - baseline2;
         int i12 = max - baseline3;
         int max2 = Math.max(Math.max(this.mPrevText.getMeasuredHeight() + i10, this.mCurrText.getMeasuredHeight() + i11), this.mNextText.getMeasuredHeight() + i12);
-        switch (this.mGravity & 112) {
+        switch (this.mGravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY) {
             case 16:
                 int i13 = (((height - paddingTop) - paddingBottom) - max2) / 2;
                 i2 = i13 + i10;
@@ -349,7 +347,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         return background.getIntrinsicHeight();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class PageListener extends DataSetObserver implements ViewPager.OnAdapterChangeListener, ViewPager.OnPageChangeListener {
         private int mScrollState;

@@ -3,54 +3,62 @@ package com.baidu.adp.newwidget.a;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends c {
-    private k Ch;
-    protected Path Cf = new Path();
-    protected Paint Cg = null;
-    protected boolean Ci = false;
+    private a BR;
+    protected Path BP = new Path();
+    protected Paint BQ = null;
+    protected boolean BS = false;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        Path a(RectF rectF);
+
+        void c(Canvas canvas);
+    }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a;
+        Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.Ch != null && (a = this.Ch.a(kl())) != null) {
-            this.Cf.set(a);
-            if (this.Cg == null) {
-                this.Cg = new Paint();
-                this.Cg.setStyle(Paint.Style.STROKE);
-                this.Cg.setAntiAlias(true);
-                this.Cg.setColor(637534208);
-                this.Cg.setDither(true);
-                this.Cg.setStrokeWidth(2.0f);
+        if (this.BR != null && (a2 = this.BR.a(ke())) != null) {
+            this.BP.set(a2);
+            if (this.BQ == null) {
+                this.BQ = new Paint();
+                this.BQ.setStyle(Paint.Style.STROKE);
+                this.BQ.setAntiAlias(true);
+                this.BQ.setColor(637534208);
+                this.BQ.setDither(true);
+                this.BQ.setStrokeWidth(2.0f);
             }
-            kt();
+            km();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.Ci) {
-            canvas.drawPath(this.Cf, this.Cg);
-            if (this.Ch != null) {
-                this.Ch.b(canvas);
+        if (this.BS) {
+            canvas.drawPath(this.BP, this.BQ);
+            if (this.BR != null) {
+                this.BR.c(canvas);
             }
         }
     }
 
-    public void kt() {
+    public void km() {
     }
 
-    public void ku() {
+    public void kn() {
     }
 
-    public void a(k kVar) {
-        this.Ch = kVar;
+    public void a(a aVar) {
+        this.BR = aVar;
     }
 
     public void G(boolean z) {
-        this.Ci = z;
+        this.BS = z;
     }
 }

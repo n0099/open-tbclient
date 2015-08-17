@@ -1,8 +1,11 @@
 package com.baidu.adp.lib.asyncTask;
 
+import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import com.baidu.adp.BdUniqueId;
 import java.util.LinkedList;
+import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -11,8 +14,8 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final f sDefaultExecutor = f.fW();
-    private static final d sHandler = new d(Looper.getMainLooper());
+    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.fR();
+    private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
     private int mTag = 0;
@@ -22,8 +25,8 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private final AtomicBoolean mTaskInvoked = new AtomicBoolean(false);
     private final AtomicBoolean mPreCancelInvoked = new AtomicBoolean(false);
     private boolean mIsTimeout = false;
-    private final e<Params, Result> mWorker = new a(this);
-    private final k<Result> mFuture = new b(this, this.mWorker, this);
+    private final c<Params, Result> mWorker = new com.baidu.adp.lib.asyncTask.a(this);
+    private final g<Result> mFuture = new com.baidu.adp.lib.asyncTask.b(this, this.mWorker, this);
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskStatus {
@@ -31,7 +34,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         RUNNING,
         FINISHED;
 
-        /* JADX DEBUG: Replace access to removed values field (sA) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (sx) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskStatus[] valuesCustom() {
             BdAsyncTaskStatus[] valuesCustom = values();
@@ -144,7 +147,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     public Result postResult(Result result) {
         if (this.mTaskInvoked.compareAndSet(false, true)) {
-            sHandler.obtainMessage(1, new c(this, result)).sendToTarget();
+            sHandler.obtainMessage(1, new a(this, result)).sendToTarget();
             return result;
         }
         return null;
@@ -229,7 +232,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void publishProgress(Progress... progressArr) {
         if (!isCancelled()) {
-            sHandler.obtainMessage(2, new c(this, progressArr)).sendToTarget();
+            sHandler.obtainMessage(2, new a(this, progressArr)).sendToTarget();
         }
     }
 
@@ -241,6 +244,55 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             onPostExecute(result);
         }
         this.mStatus = BdAsyncTaskStatus.FINISHED;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class b extends Handler {
+        public b(Looper looper) {
+            super(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            a aVar = (a) message.obj;
+            switch (message.what) {
+                case 1:
+                    aVar.sw.finish(aVar.mData[0]);
+                    return;
+                case 2:
+                    aVar.sw.onProgressUpdate(aVar.mData);
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static abstract class c<Params, Result> implements Callable<Result> {
+        Params[] mParams;
+
+        private c() {
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ c(c cVar) {
+            this();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a<Data> {
+        final Data[] mData;
+        final BdAsyncTask sw;
+
+        a(BdAsyncTask bdAsyncTask, Data... dataArr) {
+            this.sw = bdAsyncTask;
+            this.mData = dataArr;
+        }
     }
 
     public static void removeAllTask(BdUniqueId bdUniqueId) {

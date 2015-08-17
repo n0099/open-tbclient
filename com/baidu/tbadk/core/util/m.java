@@ -1,15 +1,36 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Build;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class m extends Thread {
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
-        aaVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-        aaVar.o("os_version", Build.VERSION.RELEASE);
-        aaVar.sw();
+public class m {
+    private StringBuilder YY;
+
+    public m() {
+        this.YY = null;
+        this.YY = null;
+    }
+
+    public void h(String str, Object obj) {
+        if (!aq.isEmpty(str) && obj != null) {
+            try {
+                if (this.YY == null) {
+                    this.YY = new StringBuilder();
+                    this.YY.append(str);
+                    this.YY.append("=");
+                    this.YY.append(obj.toString());
+                } else {
+                    this.YY.append("|");
+                    this.YY.append(str);
+                    this.YY.append("=");
+                    this.YY.append(obj.toString());
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public String toString() {
+        return this.YY != null ? this.YY.toString() : "";
     }
 }

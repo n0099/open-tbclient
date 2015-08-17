@@ -1,20 +1,16 @@
 package com.baidu.adp.lib.util;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.widget.Toast;
 /* loaded from: classes.dex */
-class l extends BroadcastReceiver {
-    private l() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(l lVar) {
-        this();
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        k.a(k.jj());
+class l implements Runnable {
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        Toast toast2;
+        toast = k.yE;
+        if (toast != null) {
+            toast2 = k.yE;
+            toast2.cancel();
+        }
     }
 }

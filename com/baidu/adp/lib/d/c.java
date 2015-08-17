@@ -1,15 +1,18 @@
 package com.baidu.adp.lib.d;
 
+import android.location.Address;
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.adp.R;
+import com.baidu.adp.base.BdBaseApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Handler.Callback {
-    final /* synthetic */ a uG;
+    final /* synthetic */ a uD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.uG = aVar;
+        this.uD = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -18,26 +21,26 @@ public class c implements Handler.Callback {
         int i2;
         switch (message.what) {
             case 0:
-                this.uG.gN();
+                this.uD.gH();
                 String str = "";
-                i = this.uG.errorCode;
+                i = this.uD.errorCode;
                 switch (i) {
                     case 1:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS功能";
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
                         break;
                     case 2:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启无线网络定位功能";
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
                         break;
                     case 3:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS或者无线网络定位功能";
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
                         break;
                     case 4:
-                        str = "糟糕！定位失败，请稍后再试";
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
                         break;
                 }
-                a aVar = this.uG;
-                i2 = this.uG.errorCode;
-                aVar.a(i2, str, null);
+                a aVar = this.uD;
+                i2 = this.uD.errorCode;
+                aVar.a(i2, str, (Address) null);
                 return false;
             default:
                 return false;

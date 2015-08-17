@@ -1,15 +1,22 @@
 package com.baidu.tieba.setting.more;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class aw implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ SystemHelpSettingActivity cgR;
+class aw extends CustomMessageListener {
+    final /* synthetic */ av cyZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cgR = systemHelpSettingActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aw(av avVar, int i) {
+        super(i);
+        this.cyZ = avVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() != 2001310) {
+        }
     }
 }

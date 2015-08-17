@@ -24,7 +24,6 @@ public final class SapiConfiguration {
     private boolean b;
     public String clientId;
     public String clientIp;
-    public final boolean collapseFastLoginArea;
     public final Switch configurableViewLayout;
     public final Context context;
     public final boolean customActionBarEnabled;
@@ -66,22 +65,21 @@ public final class SapiConfiguration {
         this.fastRegConfirmMsg = builder.m;
         this.skin = builder.n;
         this.presetPhoneNumber = builder.o;
-        this.collapseFastLoginArea = builder.p;
-        this.customActionBarEnabled = builder.q;
-        this.showRegLink = builder.r;
-        this.configurableViewLayout = builder.s;
-        this.fastRegTitleText = builder.t;
-        this.debug = builder.u;
-        this.smsLoginConfig = builder.v;
-        this.uniteVerify = builder.w;
-        this.syncCacheOnInit = builder.x;
-        this.silentShareOnUpgrade = builder.y;
-        this.quickUserEnabled = builder.z;
-        this.b = builder.A;
+        this.customActionBarEnabled = builder.p;
+        this.showRegLink = builder.q;
+        this.configurableViewLayout = builder.r;
+        this.fastRegTitleText = builder.s;
+        this.debug = builder.t;
+        this.smsLoginConfig = builder.u;
+        this.uniteVerify = builder.v;
+        this.syncCacheOnInit = builder.w;
+        this.silentShareOnUpgrade = builder.x;
+        this.quickUserEnabled = builder.y;
+        this.b = builder.z;
     }
 
     /* loaded from: classes.dex */
-    public class Builder {
+    public static class Builder {
         private Context a;
         private String b;
         private String c;
@@ -96,19 +94,18 @@ public final class SapiConfiguration {
         private String m;
         private String n;
         private String o;
-        private String t;
-        private SmsLoginConfig v;
+        private String s;
+        private SmsLoginConfig u;
         private boolean l = false;
         private boolean p = false;
-        private boolean q = false;
-        private boolean r = true;
-        private Switch s = Switch.OFF;
-        private boolean u = false;
-        private boolean w = false;
+        private boolean q = true;
+        private Switch r = Switch.OFF;
+        private boolean t = false;
+        private boolean v = false;
+        private boolean w = true;
         private boolean x = true;
-        private boolean y = true;
+        private boolean y = false;
         private boolean z = false;
-        private boolean A = false;
 
         public Builder(Context context) {
             this.a = context.getApplicationContext();
@@ -121,6 +118,7 @@ public final class SapiConfiguration {
             return this;
         }
 
+        @Deprecated
         public Builder setDeviceLoginSignKey(String str) {
             this.e = str;
             return this;
@@ -146,38 +144,33 @@ public final class SapiConfiguration {
             return this;
         }
 
-        public Builder collapseFastLoginArea(boolean z) {
-            this.p = z;
-            return this;
-        }
-
         public Builder showRegLink(boolean z) {
-            this.r = z;
+            this.q = z;
             return this;
         }
 
         public Builder configurableViewLayout(Switch r1) {
-            this.s = r1;
+            this.r = r1;
             return this;
         }
 
         public Builder fastRegTitleText(String str) {
-            this.t = str;
+            this.s = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.u = z;
+            this.t = z;
             return this;
         }
 
         public Builder syncCacheOnInit(boolean z) {
-            this.x = z;
+            this.w = z;
             return this;
         }
 
         public Builder silentShareOnUpgrade(boolean z) {
-            this.y = z;
+            this.x = z;
             return this;
         }
 
@@ -215,27 +208,27 @@ public final class SapiConfiguration {
         }
 
         public Builder customActionBar(boolean z) {
-            this.q = z;
+            this.p = z;
             return this;
         }
 
         public Builder enableQuickUser(boolean z) {
-            this.z = z;
+            this.y = z;
             return this;
         }
 
         public Builder enableB2CSync(boolean z) {
-            this.A = z;
+            this.z = z;
             return this;
         }
 
         public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
-            this.v = smsLoginConfig;
+            this.u = smsLoginConfig;
             return this;
         }
 
         public Builder uniteVerify(boolean z) {
-            this.w = z;
+            this.v = z;
             return this;
         }
 
@@ -258,19 +251,19 @@ public final class SapiConfiguration {
             if (this.j == null) {
                 this.j = new ArrayList();
             }
-            if (this.v == null) {
-                this.v = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
+            if (this.u == null) {
+                this.u = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
             }
-            if (this.s == null) {
-                this.s = Switch.OFF;
+            if (this.r == null) {
+                this.r = Switch.OFF;
             }
-            L.enable(this.u);
+            L.enable(this.t);
             return new SapiConfiguration(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public class SmsLoginConfig {
+    public static class SmsLoginConfig {
         public final Switch flagLoginBtnType;
         public final Switch flagShowFastRegLink;
         public final Switch flagShowLoginLink;
@@ -296,27 +289,23 @@ public final class SapiConfiguration {
             this.flagLoginBtnType = r3;
             this.flagShowFastRegLink = r4;
         }
-
-        public String toString() {
-            return String.valueOf(this.flagShowLoginLink.ordinal()) + this.flagShowSmsLoginLink.ordinal() + this.flagLoginBtnType.ordinal();
-        }
     }
 
     public LoginShareStrategy loginShareStrategy() {
         if (this.quickUserEnabled) {
             return LoginShareStrategy.DISABLED;
         }
-        b k = d.a(this.context).k();
-        if (k.e().containsKey(this.tpl) && k.e().get(this.tpl) != null) {
-            return k.e().get(this.tpl);
+        c j = d.a(this.context).j();
+        if (j.d().containsKey(this.tpl) && j.d().get(this.tpl) != null) {
+            return j.d().get(this.tpl);
         }
-        if (k.d() != null) {
-            return k.d();
+        if (j.c() != null) {
+            return j.c();
         }
         return this.a;
     }
 
     public boolean b2cSyncEnabled() {
-        return this.b && d.a(this.context).k().b() && (this.context.getPackageName().matches("com.baidu.searchbox(.*)") || this.context.getPackageName().matches("com.baidu.sapi2.(.*)"));
+        return this.b && d.a(this.context).j().b() && (this.context.getPackageName().matches("com.baidu.searchbox(.*)") || this.context.getPackageName().matches("com.baidu.sapi2.(.*)"));
     }
 }

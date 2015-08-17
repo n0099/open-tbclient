@@ -1,6 +1,10 @@
 package com.baidu.adp.widget;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
-public interface i {
-    void at(int i);
+class i implements Interpolator {
+    @Override // android.animation.TimeInterpolator
+    public float getInterpolation(float f) {
+        return f * f * f * f * f;
+    }
 }

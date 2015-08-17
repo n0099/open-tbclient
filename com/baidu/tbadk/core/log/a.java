@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.log;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.f;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ class a extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
-            f.hz().au((String) customResponsedMessage.getData());
+            com.baidu.adp.lib.stats.a.hk().ao((String) customResponsedMessage.getData());
         }
     }
 }

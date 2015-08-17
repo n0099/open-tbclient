@@ -108,7 +108,7 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public String business;
         public Integer flag;
         public Integer forumId;
@@ -119,6 +119,9 @@ public final class DataReq extends Message {
         public String name;
         public String portrait;
         public String position;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

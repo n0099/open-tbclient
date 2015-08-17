@@ -1,23 +1,26 @@
 package com.baidu.tieba.frs.view;
 
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
-    final /* synthetic */ o aRB;
-    private final /* synthetic */ PopupWindow aRx;
+public class s implements View.OnTouchListener {
+    private final /* synthetic */ PopupWindow bcV;
+    final /* synthetic */ p bcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar, PopupWindow popupWindow) {
-        this.aRB = oVar;
-        this.aRx = popupWindow;
+    public s(p pVar, PopupWindow popupWindow) {
+        this.bcY = pVar;
+        this.bcV = popupWindow;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aRx.dismiss();
-        this.aRB.aMl.aLa = false;
-        com.baidu.tbadk.browser.f.a(this.aRB.LH.getPageActivity(), this.aRB.LH.getResources().getString(com.baidu.tieba.t.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 4) {
+            com.baidu.adp.lib.g.j.a(this.bcV);
+            this.bcY.aVx.aUn = false;
+        }
+        return false;
     }
 }

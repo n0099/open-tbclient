@@ -1,33 +1,40 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.img.WriteImagesInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity bVf;
+public class j implements c.b {
+    final /* synthetic */ PersonInfoActivity clO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(PersonInfoActivity personInfoActivity, int i) {
-        super(i);
-        this.bVf = personInfoActivity;
+    public j(PersonInfoActivity personInfoActivity) {
+        this.clO = personInfoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        v vVar;
-        v vVar2;
-        ad adVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
-            vVar = this.bVf.bUU;
-            if (vVar.afy() != null) {
-                vVar2 = this.bVf.bUU;
-                vVar2.afy().setIsFriend(1);
-                adVar = this.bVf.bUV;
-                adVar.afL();
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        WriteImagesInfo writeImagesInfo;
+        if (i != 0) {
+            if (i == 1) {
+                Activity pageActivity = this.clO.getPageContext().getPageActivity();
+                writeImagesInfo = this.clO.writeImagesInfo;
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo.toJsonString());
+                albumActivityConfig.setRequestCode(12002);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
+            } else if (i == 2) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.clO.getPageContext().getPageActivity(), 12014)));
             }
+        } else {
+            this.clO.agS();
         }
+        cVar.dismiss();
     }
 }

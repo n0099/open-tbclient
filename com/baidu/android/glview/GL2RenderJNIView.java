@@ -33,9 +33,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
     private boolean mfixed;
     private boolean mloaded;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
+    public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         private static int EGL_OPENGL_ES2_BIT = 4;
         private static int[] s_configAttribs2 = {12324, 4, 12323, 4, 12322, 4, 12352, EGL_OPENGL_ES2_BIT, 12344};
         protected int mAlphaSize;
@@ -115,9 +115,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class ContextFactory implements GLSurfaceView.EGLContextFactory {
+    public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         private static int EGL_CONTEXT_CLIENT_VERSION = 12440;
 
         private ContextFactory() {
@@ -138,7 +138,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Renderer implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
         public boolean mAllocSurfaceTex;

@@ -1,15 +1,18 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface av extends com.baidu.adp.lib.voice.j {
-    void closeRecordCancel();
+public class av implements View.OnClickListener {
+    final /* synthetic */ as boC;
 
-    void closeRecordTooShort();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(as asVar) {
+        this.boC = asVar;
+    }
 
-    void showRecordCancel();
-
-    void showRecordTooShort();
-
-    void startRecordVoice();
-
-    void stopRecordVoice();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.boC.bnV.onItemViewClick(view, 12, this.boC.anz, 0L);
+    }
 }

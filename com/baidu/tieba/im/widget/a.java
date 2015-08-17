@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.widget;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T bqX;
+    private T bEL;
     private int subType;
     private String title;
 
@@ -31,18 +32,18 @@ public class a<T> {
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
                             r2.setContent(optJSONObject.optString("themeContent"));
-                            r2.setForumName(optJSONObject.optString("forumName"));
+                            r2.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r2.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            this.bqX = r2;
+                            this.bEL = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
                             r1.setContent(optJSONObject.optString("themeContent"));
-                            r1.setForumName(optJSONObject.optString("forumName"));
+                            r1.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r1.setPostId(optJSONObject.optString("postID"));
                             r1.setThreadId(optJSONObject.optString("themeID"));
@@ -52,7 +53,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.bqX = r1;
+                            this.bEL = r1;
                             i = 1;
                         }
                     }
@@ -63,11 +64,11 @@ public class a<T> {
         return i;
     }
 
-    public int Vi() {
+    public int WP() {
         return this.subType;
     }
 
-    public T Vj() {
-        return this.bqX;
+    public T WQ() {
+        return this.bEL;
     }
 }

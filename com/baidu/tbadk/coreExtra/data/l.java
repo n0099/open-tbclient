@@ -2,12 +2,13 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String acf = null;
+    private String ahl = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -17,8 +18,8 @@ public class l {
         return this.vcode_pic_url;
     }
 
-    public String vv() {
-        return this.acf;
+    public String wC() {
+        return this.ahl;
     }
 
     public void parserJson(String str) {
@@ -26,7 +27,7 @@ public class l {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
             if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject("anti");
+                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             }
             parserJson(optJSONObject);
         } catch (Exception e) {
@@ -39,7 +40,7 @@ public class l {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.acf = jSONObject.optString("vcode_type");
+                this.ahl = jSONObject.optString("vcode_type");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -16,7 +16,7 @@ public class ResponseOperateFrsLiveListMessage extends TbSocketReponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         ForumOwnerManageLivegroupResIdl forumOwnerManageLivegroupResIdl = (ForumOwnerManageLivegroupResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumOwnerManageLivegroupResIdl.class);
         setError(forumOwnerManageLivegroupResIdl.error.errorno.intValue());

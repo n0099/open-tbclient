@@ -1,28 +1,22 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-class af implements View.OnClickListener {
-    private final /* synthetic */ int RY;
-    final /* synthetic */ ac czd;
-    private final /* synthetic */ ImageFileInfo czf;
+class af implements w {
+    final /* synthetic */ ad cRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ac acVar, int i, ImageFileInfo imageFileInfo) {
-        this.czd = acVar;
-        this.RY = i;
-        this.czf = imageFileInfo;
+    public af(ad adVar) {
+        this.cRf = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        z zVar2;
-        zVar = this.czd.czb;
-        if (zVar != null) {
-            zVar2 = this.czd.czb;
-            zVar2.a(this.RY, this.czf);
-        }
+    @Override // com.baidu.tieba.write.album.w
+    public void a(int i, ImageFileInfo imageFileInfo) {
+        m mVar;
+        AlbumActivity albumActivity;
+        mVar = this.cRf.cPJ;
+        mVar.kj(i);
+        albumActivity = this.cRf.cPQ;
+        albumActivity.ke(1);
     }
 }

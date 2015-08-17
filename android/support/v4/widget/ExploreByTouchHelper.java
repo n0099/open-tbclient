@@ -281,7 +281,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     /* loaded from: classes.dex */
-    class ExploreByTouchNodeProvider extends AccessibilityNodeProviderCompat {
+    private class ExploreByTouchNodeProvider extends AccessibilityNodeProviderCompat {
         private ExploreByTouchNodeProvider() {
         }
 

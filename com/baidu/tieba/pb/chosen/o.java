@@ -1,19 +1,21 @@
 package com.baidu.tieba.pb.chosen;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class o implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ PbChosenActivity bJg;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.l bJh;
+class o extends CustomMessageListener {
+    final /* synthetic */ PbChosenActivity bYY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.l lVar) {
-        this.bJg = pbChosenActivity;
-        this.bJh = lVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(PbChosenActivity pbChosenActivity, int i) {
+        super(i);
+        this.bYY = pbChosenActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.adp.lib.util.n.c(this.bJg.getPageContext().getPageActivity(), this.bJh.getChatMsgView());
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.bYY.a(true, customResponsedMessage);
     }
 }

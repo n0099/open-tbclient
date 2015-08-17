@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.MyGroupInfo;
@@ -39,7 +40,7 @@ public class MyGroup extends i implements Serializable {
         if (jSONObject != null) {
             this.mGroupName = jSONObject.optString("group_name");
             this.mGroupId = jSONObject.optLong("group_id");
-            this.mGroupPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.c.PORTRAIT);
+            this.mGroupPortrait = jSONObject.optString(IntentConfig.PORTRAIT);
         }
     }
 

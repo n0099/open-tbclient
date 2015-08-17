@@ -1,22 +1,45 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class au implements Runnable {
-    final /* synthetic */ aq VI;
-    private final /* synthetic */ String VJ;
-    private final /* synthetic */ String VM;
-    private final /* synthetic */ int VN;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(aq aqVar, String str, String str2, int i) {
-        this.VI = aqVar;
-        this.VM = str;
-        this.VJ = str2;
-        this.VN = i;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.TbConfig;
+/* loaded from: classes.dex */
+public class au extends com.baidu.adp.base.a.d {
+    public au() {
+        super(n.xV + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.VI.d(this.VM, this.VJ, this.VN);
+    @Override // com.baidu.adp.base.a.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i <= 9) {
+            m(sQLiteDatabase);
+        }
+        if (i < 11) {
+            b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
+            b(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
+            if (i > 9) {
+                b(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.base.a.d
+    public void c(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+        m(sQLiteDatabase);
+    }
+
+    @Override // com.baidu.adp.base.a.d
+    public void e(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS pb_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS friend_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
+    }
+
+    private void m(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }
 }

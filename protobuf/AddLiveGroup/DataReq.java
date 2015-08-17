@@ -14,13 +14,13 @@ public final class DataReq extends Message {
     public final Integer labelId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = 5, type = Message.Datatype.INT32)
-    public final Integer publisherId;
+    @ProtoField(tag = 5, type = Message.Datatype.INT64)
+    public final Long publisherId;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String publisherName;
     public static final Integer DEFAULT_FORUMID = 0;
     public static final Integer DEFAULT_GROUPTYPE = 0;
-    public static final Integer DEFAULT_PUBLISHERID = 0;
+    public static final Long DEFAULT_PUBLISHERID = 0L;
     public static final Integer DEFAULT_LABELID = 0;
 
     /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
@@ -72,13 +72,16 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public Integer forumId;
         public Integer groupType;
         public Integer labelId;
         public String name;
-        public Integer publisherId;
+        public Long publisherId;
         public String publisherName;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

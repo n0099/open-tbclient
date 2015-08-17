@@ -6,19 +6,19 @@ import protobuf.QueryLiveGroupByGidAndPid.QueryLiveGroupByGidAndPidReqIdl;
 /* loaded from: classes.dex */
 public class RequestLiveRoomIntroMessage extends TbSocketMessage {
     private int mGroupId;
-    private int mPublisherId;
+    private long mPublisherId;
 
     public RequestLiveRoomIntroMessage() {
         super(107004);
         this.mGroupId = 0;
-        this.mPublisherId = 0;
+        this.mPublisherId = 0L;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
         builder.groupId = Integer.valueOf(getGroupId());
-        builder.publisherId = Integer.valueOf(getPublisherId());
+        builder.publisherId = Long.valueOf(getPublisherId());
         QueryLiveGroupByGidAndPidReqIdl.Builder builder2 = new QueryLiveGroupByGidAndPidReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
@@ -32,11 +32,11 @@ public class RequestLiveRoomIntroMessage extends TbSocketMessage {
         return this.mGroupId;
     }
 
-    public void setPublisherId(int i) {
-        this.mPublisherId = i;
+    public void setPublisherId(long j) {
+        this.mPublisherId = j;
     }
 
-    public int getPublisherId() {
+    public long getPublisherId() {
         return this.mPublisherId;
     }
 }

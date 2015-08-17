@@ -6,47 +6,47 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String rd = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String re = String.valueOf(this.rd) + "/baidu/";
-    private String rf;
+    private final String ra = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String rb = String.valueOf(this.ra) + "/baidu/";
+    private String rc;
 
     public b() {
-        this.rf = null;
+        this.rc = null;
         try {
-            this.rf = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.rc = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void O(String str) {
+    public void N(String str) {
         if (str != null) {
-            this.re = String.valueOf(this.rd) + "/" + str + "/";
+            this.rb = String.valueOf(this.ra) + "/" + str + "/";
         }
     }
 
-    public boolean fo() {
+    public boolean fl() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public String a(String str, boolean z, boolean z2) {
+    public String b(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!fo()) {
+            if (!fl()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.re) + str + "/";
+                str2 = String.valueOf(this.rb) + str + "/";
             } else {
-                str2 = this.re;
+                str2 = this.rb;
             }
-        } else if (this.rf == null) {
+        } else if (this.rc == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = String.valueOf(this.rf) + str + "/";
+                str2 = String.valueOf(this.rc) + str + "/";
             } else {
-                str2 = this.rf;
+                str2 = this.rc;
             }
         }
         File file = new File(str2);
@@ -60,18 +60,18 @@ public class b {
     }
 
     public File a(String str, String str2, boolean z, boolean z2) {
-        String a;
-        if (str2 == null || (a = a(str, z, z2)) == null) {
+        String b;
+        if (str2 == null || (b = b(str, z, z2)) == null) {
             return null;
         }
-        return new File(String.valueOf(a) + str2);
+        return new File(String.valueOf(b) + str2);
     }
 
-    public File b(String str, boolean z, boolean z2) {
-        String a = a(str, z, z2);
-        if (a == null) {
+    public File c(String str, boolean z, boolean z2) {
+        String b = b(str, z, z2);
+        if (b == null) {
             return null;
         }
-        return new File(a);
+        return new File(b);
     }
 }

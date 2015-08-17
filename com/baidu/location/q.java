@@ -54,7 +54,7 @@ public class q implements a0, n {
     private static au.b cu = null;
     private static q cO = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends t {
         private String du;
@@ -82,7 +82,7 @@ public class q implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends t {
         boolean dw = false;

@@ -1,35 +1,28 @@
 package com.baidu.tieba.write.selectpoi;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.app.Activity;
+import android.widget.AbsListView;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchLocationActivity czQ;
+class b implements AbsListView.OnScrollListener {
+    final /* synthetic */ SearchLocationActivity cRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SearchLocationActivity searchLocationActivity) {
-        this.czQ = searchLocationActivity;
+        this.cRE = searchLocationActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        g gVar;
-        g gVar2;
-        g gVar3;
-        gVar = this.czQ.czK;
-        if (gVar != null) {
-            gVar2 = this.czQ.czK;
-            if (gVar2.asr()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
-                MessageManager messageManager = MessageManager.getInstance();
-                gVar3 = this.czQ.czK;
-                com.baidu.tieba.tbadkCore.location.m mVar = (com.baidu.tieba.tbadkCore.location.m) gVar3.getItem(i);
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, mVar.getName(), mVar.getName(), mVar.getScreatString()));
-                this.czQ.finish();
-            }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        EditText editText;
+        if (i == 2 || i == 1) {
+            Activity pageActivity = this.cRE.getPageContext().getPageActivity();
+            editText = this.cRE.bQb;
+            com.baidu.adp.lib.util.k.c(pageActivity, editText);
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

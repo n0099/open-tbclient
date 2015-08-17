@@ -25,10 +25,7 @@ public class KeyEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseKeyEventVersionImpl implements KeyEventVersionImpl {
-        private static final int META_ALL_MASK = 247;
-        private static final int META_MODIFIER_MASK = 247;
-
+    static class BaseKeyEventVersionImpl implements KeyEventVersionImpl {
         BaseKeyEventVersionImpl() {
         }
 
@@ -88,7 +85,7 @@ public class KeyEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class EclairKeyEventVersionImpl extends BaseKeyEventVersionImpl {
+    static class EclairKeyEventVersionImpl extends BaseKeyEventVersionImpl {
         EclairKeyEventVersionImpl() {
         }
 
@@ -114,7 +111,7 @@ public class KeyEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class HoneycombKeyEventVersionImpl extends EclairKeyEventVersionImpl {
+    static class HoneycombKeyEventVersionImpl extends EclairKeyEventVersionImpl {
         HoneycombKeyEventVersionImpl() {
         }
 

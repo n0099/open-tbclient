@@ -1,18 +1,33 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r {
-    public TextView aBn;
-    public TbCheckBox bvH;
-    final /* synthetic */ q bvI;
-    public HeadImageView bvk;
-    public View rootView;
+public class r implements InviteFriendCandidateList.a {
+    final /* synthetic */ p bJM;
 
-    public r(q qVar) {
-        this.bvI = qVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(p pVar) {
+        this.bJM = pVar;
+    }
+
+    @Override // com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList.a
+    public void a(View view, Object obj) {
+        BdListView bdListView;
+        if (obj != null) {
+            if (obj instanceof TbCheckBox.b) {
+                ((TbCheckBox.b) obj).setChecked(false);
+            }
+            bdListView = this.bJM.mListView;
+            View findViewWithTag = bdListView.findViewWithTag(obj);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
+                ((TbCheckBox) findViewWithTag).setChecked(false);
+            } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.a) {
+                this.bJM.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+            }
+        }
     }
 }

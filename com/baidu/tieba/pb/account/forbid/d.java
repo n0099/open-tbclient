@@ -3,38 +3,40 @@ package com.baidu.tieba.pb.account.forbid;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.q;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.account.forbid.ForbidActivity;
+import com.baidu.tieba.pb.account.forbid.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements n {
-    final /* synthetic */ ForbidActivity bIF;
+public class d implements g.b {
+    final /* synthetic */ ForbidActivity bYr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ForbidActivity forbidActivity) {
-        this.bIF = forbidActivity;
+        this.bYr = forbidActivity;
     }
 
-    @Override // com.baidu.tieba.pb.account.forbid.n
+    @Override // com.baidu.tieba.pb.account.forbid.g.b
     public void a(ForbidTplData forbidTplData) {
         TextView textView;
         String str;
         BdListView bdListView;
-        e eVar;
-        textView = this.bIF.bIC;
-        str = this.bIF.aec;
+        ForbidActivity.a aVar;
+        textView = this.bYr.bYo;
+        str = this.bYr.ajl;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.bIF.findViewById(q.radio_forbid_3).setVisibility(0);
-            this.bIF.findViewById(q.radio_forbid_10).setVisibility(0);
+            this.bYr.findViewById(i.f.radio_forbid_3).setVisibility(0);
+            this.bYr.findViewById(i.f.radio_forbid_10).setVisibility(0);
         }
-        this.bIF.bID = new e(forbidTplData.reason);
-        bdListView = this.bIF.mListView;
-        eVar = this.bIF.bID;
-        bdListView.setAdapter((ListAdapter) eVar);
+        this.bYr.bYp = new ForbidActivity.a(forbidTplData.reason);
+        bdListView = this.bYr.mListView;
+        aVar = this.bYr.bYp;
+        bdListView.setAdapter((ListAdapter) aVar);
     }
 
-    @Override // com.baidu.tieba.pb.account.forbid.n
+    @Override // com.baidu.tieba.pb.account.forbid.g.b
     public void b(ForbidTplData forbidTplData) {
-        this.bIF.showToast(forbidTplData.error.errMsg);
+        this.bYr.showToast(forbidTplData.error.errMsg);
     }
 }

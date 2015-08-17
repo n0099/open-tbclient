@@ -4,41 +4,41 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements g {
-    final /* synthetic */ BdPullRefreshScrollView IT;
+    final /* synthetic */ BdPullRefreshScrollView IX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.IT = bdPullRefreshScrollView;
+        this.IX = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void ns() {
+    public void nC() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         a aVar;
         a aVar2;
-        k kVar;
-        k kVar2;
-        state = this.IT.Iw;
+        BdPullRefreshScrollView.b bVar;
+        BdPullRefreshScrollView.b bVar2;
+        state = this.IX.Iz;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.IT.Iw;
+            state2 = this.IX.Iz;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.IT;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.IX;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                aVar = this.IT.IJ;
+                aVar = this.IX.IM;
                 bdPullRefreshScrollView.a(state3, aVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.IT;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.IX;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        aVar2 = this.IT.IJ;
+        aVar2 = this.IX.IM;
         bdPullRefreshScrollView2.a(state4, aVar2);
-        kVar = this.IT.IM;
-        if (kVar != null) {
-            kVar2 = this.IT.IM;
-            kVar2.nP();
+        bVar = this.IX.IP;
+        if (bVar != null) {
+            bVar2 = this.IX.IP;
+            bVar2.nY();
         }
     }
 }

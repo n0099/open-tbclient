@@ -22,7 +22,7 @@ public class ViewGroupCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewGroupCompatStubImpl implements ViewGroupCompatImpl {
+    static class ViewGroupCompatStubImpl implements ViewGroupCompatImpl {
         ViewGroupCompatStubImpl() {
         }
 
@@ -46,7 +46,7 @@ public class ViewGroupCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewGroupCompatHCImpl extends ViewGroupCompatStubImpl {
+    static class ViewGroupCompatHCImpl extends ViewGroupCompatStubImpl {
         ViewGroupCompatHCImpl() {
         }
 
@@ -57,7 +57,7 @@ public class ViewGroupCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewGroupCompatIcsImpl extends ViewGroupCompatHCImpl {
+    static class ViewGroupCompatIcsImpl extends ViewGroupCompatHCImpl {
         ViewGroupCompatIcsImpl() {
         }
 
@@ -68,7 +68,7 @@ public class ViewGroupCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewGroupCompatJellybeanMR2Impl extends ViewGroupCompatIcsImpl {
+    static class ViewGroupCompatJellybeanMR2Impl extends ViewGroupCompatIcsImpl {
         ViewGroupCompatJellybeanMR2Impl() {
         }
 

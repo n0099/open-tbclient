@@ -4,6 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.live.message.RequestMyLiveListLocalMessage;
 import com.baidu.tbadk.live.message.ResponseMyLiveListLocalMessage;
 /* loaded from: classes.dex */
@@ -18,10 +19,10 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        byte[] bArr = com.baidu.tbadk.core.b.a.rI().cj("tb.live_hotlist").get("mylive_" + valueOf + currentAccount);
+        byte[] bArr = com.baidu.tbadk.core.b.a.sM().cj("tb.live_hotlist").get("mylive_" + valueOf + currentAccount);
         ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = new ResponseMyLiveListLocalMessage();
         try {
-            responseMyLiveListLocalMessage.decodeInBackGround(2001165, bArr);
+            responseMyLiveListLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_MYLIVE_LOCAL, bArr);
         } catch (Exception e) {
             e.printStackTrace();
         }

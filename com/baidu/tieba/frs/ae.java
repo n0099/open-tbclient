@@ -1,26 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ae extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsActivity aLY;
+class ae extends CustomMessageListener {
+    final /* synthetic */ FrsActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(FrsActivity frsActivity, int i, int i2) {
-        super(i, i2);
-        this.aLY = frsActivity;
+    public ae(FrsActivity frsActivity, int i) {
+        super(i);
+        this.this$0 = frsActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-            this.aLY.a(getMyPostHttpResponseMessage.getError(), StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString()) ? this.aLY.getResources().getString(com.baidu.tieba.t.neterror) : getMyPostHttpResponseMessage.getErrorString(), getMyPostHttpResponseMessage.getResponseData());
-        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-            this.aLY.a(getMyPostSocketResponseMessage.getError(), StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString()) ? this.aLY.getResources().getString(com.baidu.tieba.t.neterror) : getMyPostSocketResponseMessage.getErrorString(), getMyPostSocketResponseMessage.getResponseData());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.i)) {
+            com.baidu.tbadk.coreExtra.data.i iVar = (com.baidu.tbadk.coreExtra.data.i) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(iVar.userId) && !TextUtils.isEmpty(iVar.userName)) {
+                blVar = this.this$0.aUw;
+                if (blVar != null) {
+                    blVar2 = this.this$0.aUw;
+                    if (blVar2.Mj() != null) {
+                        blVar3 = this.this$0.aUw;
+                        blVar3.Mj().aq(iVar.userId, iVar.userName);
+                    }
+                }
+            }
         }
     }
 }

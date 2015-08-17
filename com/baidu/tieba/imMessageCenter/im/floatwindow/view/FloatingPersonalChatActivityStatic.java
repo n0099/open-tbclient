@@ -4,17 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FloatingPersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f brW;
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e bFK;
     private static List<UserData> mUserDataList = null;
-    private static CustomMessageListener brX = new aa(2005016);
+    private static CustomMessageListener bFL = new y(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
-        MessageManager.getInstance().registerListener(brX);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002011, new ab());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerListener(bFL);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new z());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
@@ -22,11 +23,11 @@ public class FloatingPersonalChatActivityStatic {
         return mUserDataList;
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f WE() {
-        return brW;
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e Yl() {
+        return bFK;
     }
 
-    public static void c(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f fVar) {
-        brW = fVar;
+    public static void c(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e eVar) {
+        bFK = eVar;
     }
 }

@@ -2,18 +2,21 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private View Mb;
-    private TextView cgJ;
-    private TextView cgK;
-    private BdSwitchView cgL;
+    private View Mn;
+    private TextView cyD;
+    private TextView cyE;
+    private BdSwitchView cyF;
 
     public MsgSettingItemView(Context context) {
         super(context);
@@ -27,24 +30,24 @@ public class MsgSettingItemView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        com.baidu.adp.lib.g.b.hr().a(context, com.baidu.tieba.r.msg_setting_item_view, this, true);
-        this.cgJ = (TextView) findViewById(com.baidu.tieba.q.setting_text);
-        this.cgK = (TextView) findViewById(com.baidu.tieba.q.setting_tip);
-        this.cgL = (BdSwitchView) findViewById(com.baidu.tieba.q.setting_switch);
-        com.baidu.adp.lib.util.n.a(context, this.cgL, 10, 10, 10, 10);
-        this.Mb = findViewById(com.baidu.tieba.q.bottom_line_ll);
+        LayoutInflater.from(context).inflate(i.g.msg_setting_item_view, (ViewGroup) this, true);
+        this.cyD = (TextView) findViewById(i.f.setting_text);
+        this.cyE = (TextView) findViewById(i.f.setting_tip);
+        this.cyF = (BdSwitchView) findViewById(i.f.setting_switch);
+        com.baidu.adp.lib.util.k.a(context, this.cyF, 10, 10, 10, 10);
+        this.Mn = findViewById(i.f.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cgJ.setText(str);
+        this.cyD.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cgJ.setText(i);
+            this.cyD.setText(i);
         }
     }
 
@@ -52,57 +55,57 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cgK.setVisibility(0);
-        this.cgK.setText(str);
+        this.cyE.setVisibility(0);
+        this.cyE.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.cgK.setVisibility(0);
-            this.cgK.setText(i);
+            this.cyE.setVisibility(0);
+            this.cyE.setText(i);
         }
     }
 
-    public void mu() {
-        this.cgL.mu();
+    public void mE() {
+        this.cyF.mE();
     }
 
-    public void mt() {
-        this.cgL.mt();
+    public void mD() {
+        this.cyF.mD();
     }
 
-    public void ms() {
-        this.cgL.ms();
+    public void mC() {
+        this.cyF.mC();
     }
 
-    public void mr() {
-        this.cgL.mr();
+    public void mB() {
+        this.cyF.mB();
     }
 
-    public boolean hJ() {
-        return this.cgL.hJ();
+    public boolean hz() {
+        return this.cyF.hz();
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.Mb.setVisibility(0);
+            this.Mn.setVisibility(0);
         } else {
-            this.Mb.setVisibility(8);
+            this.Mn.setVisibility(8);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.cgL;
+        return this.cyF;
     }
 
-    public void setOnSwitchStateChangeListener(com.baidu.adp.widget.BdSwitchView.b bVar) {
-        this.cgL.setOnSwitchStateChangeListener(bVar);
+    public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
+        this.cyF.setOnSwitchStateChangeListener(aVar);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ab(i == 1);
-        tbPageContext.getLayoutMode().j(this);
-        this.cgL.a(com.baidu.tbadk.core.util.ay.ck(com.baidu.tieba.p.bg_game_switch_open), com.baidu.tbadk.core.util.ay.ck(com.baidu.tieba.p.bg_game_switch_close), com.baidu.tbadk.core.util.ay.ck(com.baidu.tieba.p.btn_game_handle));
-        com.baidu.tbadk.core.util.ay.j(this, com.baidu.tieba.n.cp_bg_line_d);
+        tbPageContext.getLayoutMode().ad(i == 1);
+        tbPageContext.getLayoutMode().k(this);
+        this.cyF.a(com.baidu.tbadk.core.util.al.cq(i.e.bg_switch_open), com.baidu.tbadk.core.util.al.cq(i.e.bg_switch_close), com.baidu.tbadk.core.util.al.cq(i.e.btn_handle));
+        com.baidu.tbadk.core.util.al.j(this, i.c.cp_bg_line_d);
     }
 }

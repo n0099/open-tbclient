@@ -1,19 +1,16 @@
 package com.baidu.tieba.mainentrance;
-
-import android.view.View;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class j {
-    TextView aGI;
-    View avA;
-    final /* synthetic */ i bBH;
-
-    private j(i iVar) {
-        this.bBH = iVar;
-    }
+class j implements Runnable {
+    final /* synthetic */ SquareSearchActivity bQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(i iVar, j jVar) {
-        this(iVar);
+    public j(SquareSearchActivity squareSearchActivity) {
+        this.bQZ = squareSearchActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bQZ.bQb.requestFocus();
+        com.baidu.adp.lib.util.k.d(this.bQZ.getPageContext().getPageActivity(), this.bQZ.bQb);
     }
 }

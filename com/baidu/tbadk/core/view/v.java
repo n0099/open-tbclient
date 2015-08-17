@@ -1,16 +1,25 @@
 package com.baidu.tbadk.core.view;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class v implements Runnable {
-    final /* synthetic */ t Zj;
+class v implements Animation.AnimationListener {
+    final /* synthetic */ NoNetworkView aeQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar) {
-        this.Zj = tVar;
+    public v(NoNetworkView noNetworkView) {
+        this.aeQ = noNetworkView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.Zj.ut();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.aeQ.setVisibility(8);
     }
 }

@@ -1,18 +1,12 @@
 package com.baidu.ueg.lib;
 
-import java.util.Arrays;
+import java.nio.charset.Charset;
 /* loaded from: classes.dex */
-class c {
-    byte[] buffer;
-    int cDQ;
-    long cDR;
-    int cDS;
-    int cDT;
-    int cDU;
-    boolean eof;
-    int pos;
-
-    public String toString() {
-        return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.cDT), Boolean.valueOf(this.eof), Integer.valueOf(this.cDQ), Long.valueOf(this.cDR), Integer.valueOf(this.cDU), Integer.valueOf(this.pos), Integer.valueOf(this.cDS));
-    }
+public class c {
+    public static final Charset cWO = Charset.forName("ISO-8859-1");
+    public static final Charset cWP = Charset.forName("US-ASCII");
+    public static final Charset cWQ = Charset.forName("UTF-16");
+    public static final Charset cWR = Charset.forName("UTF-16BE");
+    public static final Charset cWS = Charset.forName("UTF-16LE");
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
 }

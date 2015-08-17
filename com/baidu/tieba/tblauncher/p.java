@@ -17,16 +17,16 @@ public class p extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
-        aj ajVar2;
-        aj ajVar3;
+        ai aiVar;
+        ai aiVar2;
+        ai aiVar3;
         boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : false;
-        ajVar = this.this$0.cvs;
-        ajVar.fq(booleanValue);
-        ajVar2 = this.this$0.cvs;
-        if (ajVar2.aqw() != null) {
-            ajVar3 = this.this$0.cvs;
-            ajVar3.aqw().setEnabled(booleanValue ? false : true);
+        aiVar = this.this$0.cLT;
+        aiVar.fI(booleanValue);
+        aiVar2 = this.this$0.cLT;
+        if (aiVar2.arX() != null) {
+            aiVar3 = this.this$0.cLT;
+            aiVar3.arX().setEnabled(booleanValue ? false : true);
         }
     }
 }

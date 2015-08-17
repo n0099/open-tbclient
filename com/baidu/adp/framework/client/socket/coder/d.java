@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.client.socket.coder;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.ae;
+import com.baidu.adp.lib.util.v;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
@@ -10,7 +10,7 @@ public class d {
     private SecretKey pV = null;
     private byte[] pW = null;
 
-    public static d eL() {
+    public static d eM() {
         if (pU == null) {
             synchronized (d.class) {
                 if (pU == null) {
@@ -21,16 +21,16 @@ public class d {
         return pU;
     }
 
-    public void i(byte[] bArr) {
+    public void v(byte[] bArr) {
         try {
-            PublicKey q = ae.q(bArr);
-            String ad = ae.ad(32);
-            byte[] bArr2 = new byte[ad.length()];
-            for (int i = 0; i < ad.length(); i++) {
-                bArr2[i] = (byte) ad.charAt(i);
+            PublicKey D = v.D(bArr);
+            String af = v.af(32);
+            byte[] bArr2 = new byte[af.length()];
+            for (int i = 0; i < af.length(); i++) {
+                bArr2[i] = (byte) af.charAt(i);
             }
-            this.pV = ae.aZ(ad);
-            this.pW = ae.a(q, bArr2);
+            this.pV = v.aV(af);
+            this.pW = v.a(D, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
             this.pV = null;
@@ -41,7 +41,7 @@ public class d {
     private d() {
     }
 
-    public byte[] eM() {
+    public byte[] eN() {
         return this.pW;
     }
 

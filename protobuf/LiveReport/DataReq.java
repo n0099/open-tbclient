@@ -15,8 +15,8 @@ public final class DataReq extends Message {
     public final String background;
     @ProtoField(tag = 10, type = Message.Datatype.UINT32)
     public final Integer create_time;
-    @ProtoField(tag = 8, type = Message.Datatype.UINT32)
-    public final Integer create_uid;
+    @ProtoField(tag = 8, type = Message.Datatype.INT64)
+    public final Long create_uid;
     @ProtoField(tag = 9, type = Message.Datatype.STRING)
     public final String create_uname;
     @ProtoField(tag = 4, type = Message.Datatype.UINT64)
@@ -44,7 +44,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_FORUM_ID = 0L;
     public static final Integer DEFAULT_GROUP_TYPE = 0;
     public static final Long DEFAULT_THREAD_ID = 0L;
-    public static final Integer DEFAULT_CREATE_UID = 0;
+    public static final Long DEFAULT_CREATE_UID = 0L;
     public static final Integer DEFAULT_CREATE_TIME = 0;
 
     /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
@@ -144,10 +144,10 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public String background;
         public Integer create_time;
-        public Integer create_uid;
+        public Long create_uid;
         public String create_uname;
         public Long forum_id;
         public String forum_name;
@@ -159,6 +159,9 @@ public final class DataReq extends Message {
         public String portrait;
         public Integer report_type;
         public Long thread_id;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

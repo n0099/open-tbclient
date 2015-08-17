@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class ForumRankActivityConfig extends c {
+public class ForumRankActivityConfig extends IntentConfig {
     public static final String ID = "id";
     public static final String ST_TYPE = "st_type";
 

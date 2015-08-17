@@ -1,33 +1,63 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Profile.ProfileResIdl;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class y implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        ProfileResIdl profileResIdl;
-        ResponsePersonInfoMessage responsePersonInfoMessage = null;
-        if (customMessage instanceof RequestPersonInfoMessage) {
-            try {
-                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.b.a.rI().V("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
-            } catch (IOException e) {
-                e.printStackTrace();
-                profileResIdl = null;
+public class y {
+    private PersonInfoActivity cjU;
+    private View clV;
+    private RelativeLayout cmZ;
+    private TextView cna;
+    private ImageView cnb;
+    private ImageView cnc;
+    private View mRootView;
+
+    public y(PersonInfoActivity personInfoActivity) {
+        this.cjU = personInfoActivity;
+        this.mRootView = LayoutInflater.from(this.cjU.getPageContext().getPageActivity()).inflate(i.g.personinfo_my_mark_view, (ViewGroup) null);
+        initView();
+    }
+
+    private void initView() {
+        this.clV = this.mRootView.findViewById(i.f.root_next);
+        this.cmZ = (RelativeLayout) this.mRootView.findViewById(i.f.bookmark);
+        this.cna = (TextView) this.mRootView.findViewById(i.f.bookmark_num);
+        this.cnb = (ImageView) this.mRootView.findViewById(i.f.bookmark_icon);
+        this.cnc = (ImageView) this.mRootView.findViewById(i.f.bookmark_arrow);
+        this.cmZ.setOnClickListener(this.cjU);
+    }
+
+    public RelativeLayout agY() {
+        return this.cmZ;
+    }
+
+    public void ahi() {
+        UserData userData = this.cjU.agL().getUserData();
+        if (userData != null) {
+            this.cna.setText(String.valueOf(userData.getMarkCount()));
+            if (userData.getMarkCount() <= 0) {
+                al.b(this.cna, i.c.cp_cont_e, 1);
+                this.cnc.setVisibility(8);
+            } else {
+                al.b(this.cna, i.c.cp_cont_b, 1);
+                this.cnc.setVisibility(0);
             }
-            responsePersonInfoMessage = new ResponsePersonInfoMessage();
-            if (profileResIdl != null) {
-                responsePersonInfoMessage.setUser(profileResIdl.data.user);
-                responsePersonInfoMessage.setAnti_stat(profileResIdl.data.anti_stat);
-                responsePersonInfoMessage.setTainfo(profileResIdl.data.tainfo);
-                responsePersonInfoMessage.setPost_list(profileResIdl.data.post_list);
+            if (userData.getNewMarkCount() > 0) {
+                this.cnb.setVisibility(0);
+            } else {
+                this.cnb.setVisibility(8);
             }
         }
-        return responsePersonInfoMessage;
+    }
+
+    public View getRootView() {
+        return this.mRootView;
     }
 }

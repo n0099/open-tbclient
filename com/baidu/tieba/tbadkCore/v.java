@@ -1,88 +1,148 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.Fans;
-import tbclient.FrsPage.Size;
-import tbclient.FrsPage.StarInfo;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class v {
-    private int cpt = 0;
-    private int cpu = 0;
-    private String cpv = null;
-    private String cpw = null;
-    private int cpx = 0;
-    private int cpy = 0;
-    private int cpz = 0;
-    private int cpA = 0;
-    private int cpB = 0;
-    private int cpC = 0;
-    private long cpD = 0;
-    private long cpE = 0;
-    private boolean cpF = false;
-    private long cpG = 0;
-    private String cpH = null;
+public class v extends com.baidu.adp.base.e {
+    private String cHE;
+    private a cHF;
+    private String cHG;
+    private String from;
+    private String mForumId;
+    private String mForumName;
 
-    public int amA() {
-        return this.cpt;
+    public v(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.mForumName = null;
+        this.mForumId = null;
+        this.cHE = null;
+        this.cHF = null;
     }
 
-    public String amB() {
-        return this.cpv;
+    public void setFrom(String str) {
+        this.from = str;
     }
 
-    public String amC() {
-        return this.cpw;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    public int amD() {
-        return this.cpz;
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 
-    public int amE() {
-        return this.cpA;
+    public void MF() {
+        if (this.cHF != null) {
+            this.cHF.cancel();
+            this.cHF = null;
+        }
     }
 
-    public boolean amF() {
-        return this.cpF;
+    public void r(String str, String str2, String str3) {
+        ba(str, str2);
+        this.cHE = str3;
     }
 
-    public long amG() {
-        return this.cpG;
+    public void ba(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.cHF == null) {
+            this.mForumName = str;
+            this.mForumId = str2;
+            this.cHF = new a(this, null);
+            this.cHF.setPriority(2);
+            this.cHF.execute(new Object[0]);
+        }
     }
 
-    public String amH() {
-        return this.cpH;
+    public boolean apq() {
+        return this.cHF != null;
     }
 
-    public void a(StarInfo starInfo) {
-        if (starInfo != null) {
-            this.cpt = starInfo.has_frs_star.intValue();
-            if (this.cpt == 1) {
-                this.cpv = starInfo.top;
-                this.cpw = starInfo.head;
-                Fans fans = starInfo.fans;
-                this.cpx = fans.is_get.intValue();
-                this.cpy = fans.num.intValue();
-                this.cpu = fans.open.intValue();
-                this.cpD = fans.left_time.intValue();
-                this.cpE = this.cpD;
-                Size size = starInfo.top_size;
-                if (size != null) {
-                    this.cpz = size.width.intValue();
-                    this.cpA = size.height.intValue();
+    public void kq(String str) {
+        this.cHG = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<Object, Integer, w> {
+        private volatile com.baidu.tbadk.core.util.v afJ;
+
+        private a() {
+            this.afJ = null;
+        }
+
+        /* synthetic */ a(v vVar, a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: E */
+        public w doInBackground(Object... objArr) {
+            try {
+                this.afJ = new com.baidu.tbadk.core.util.v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+                this.afJ.o("kw", v.this.mForumName);
+                this.afJ.o(ImageViewerConfig.FORUM_ID, v.this.mForumId);
+                this.afJ.o("st_type", v.this.from);
+                if (!StringUtils.isNull(v.this.cHG)) {
+                    this.afJ.o("dev_id", v.this.cHG);
                 }
-                Size size2 = starInfo.head_size;
-                if (size2 != null) {
-                    this.cpB = size2.width.intValue();
-                    this.cpC = size2.height.intValue();
+                if (!TextUtils.isEmpty(v.this.cHE)) {
+                    this.afJ.o("pagefrom", v.this.cHE);
                 }
+                this.afJ.ue().uV().mIsNeedTbs = true;
+                String tD = this.afJ.tD();
+                if (this.afJ.ue().uW().rb() && tD != null) {
+                    w wVar = new w();
+                    wVar.parserJson(tD);
+                    wVar.kr(v.this.mForumId);
+                    return wVar;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            this.cpF = starInfo.trade != null;
-            if (this.cpF) {
-                if (starInfo.trade.time != null) {
-                    this.cpG = starInfo.trade.time.intValue();
-                }
-                this.cpH = starInfo.trade.url;
+            return null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(w wVar) {
+            v.this.cHF = null;
+            if (wVar != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.g.b.c(wVar.getFid(), 0L))));
+                TbadkCoreApplication.m411getInst().addLikeForum(v.this.mForumName);
             }
+            if (wVar == null && this.afJ != null) {
+                v.this.mErrorCode = this.afJ.ui();
+                v.this.mErrorString = this.afJ.getErrorString();
+            }
+            if (v.this.mLoadDataCallBack != null) {
+                v.this.mLoadDataCallBack.d(wVar);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            if (this.afJ != null) {
+                this.afJ.gM();
+                this.afJ = null;
+            }
+            v.this.cHF = null;
+            super.cancel(true);
+            v.this.mLoadDataCallBack.d(null);
         }
     }
 }

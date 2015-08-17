@@ -1,10 +1,11 @@
 package com.baidu.tieba.person;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
-    private u data;
+    private q data;
     private int errCode;
     private String resultString;
 
@@ -19,14 +20,14 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public PersonBarResponseMessage(int i) {
         super(i);
         this.errCode = 0;
-        this.data = new u();
+        this.data = new q();
     }
 
-    public void setPersonBarData(u uVar) {
-        this.data = uVar;
+    public void setPersonBarData(q qVar) {
+        this.data = qVar;
     }
 
-    public u getPersonBarData() {
+    public q getPersonBarData() {
         return this.data;
     }
 
@@ -44,7 +45,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt("error_code");
+            this.errCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
             this.data.parserJson(jSONObject);
         }
     }

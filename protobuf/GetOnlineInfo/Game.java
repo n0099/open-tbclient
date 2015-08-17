@@ -49,11 +49,14 @@ public final class Game extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<Game> {
+    public static final class Builder extends Message.Builder<Game> {
         public GameEnter gameEnter;
         public Long gameLastLaunchtime;
         public Long game_last_launchtime;
         public Integer hasGameCenter;
+
+        public Builder() {
+        }
 
         public Builder(Game game) {
             super(game);

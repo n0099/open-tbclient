@@ -7,6 +7,8 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,8 +22,8 @@ public final class SapiAccountManager {
     public static final String SESSION_PTOKEN = "ptoken";
     public static final String SESSION_STOKEN = "stoken";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 55;
-    public static final String VERSION_NAME = "6.10.1";
+    public static final int VERSION_CODE = 64;
+    public static final String VERSION_NAME = "6.11.2";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static SapiAccountService c;
@@ -40,7 +42,7 @@ public final class SapiAccountManager {
     }
 
     static {
-        f.addAll(Arrays.asList("uid", SESSION_DISPLAYNAME, SESSION_BDUSS, SESSION_PTOKEN, SESSION_STOKEN));
+        f.addAll(Arrays.asList("uid", SESSION_DISPLAYNAME, "bduss", SESSION_PTOKEN, SESSION_STOKEN));
     }
 
     public static synchronized SapiAccountManager getInstance() {
@@ -70,10 +72,10 @@ public final class SapiAccountManager {
                     public void run() {
                         Looper.prepare();
                         int versionCode = SapiUtils.getVersionCode(sapiConfiguration.context);
-                        if (sapiConfiguration.silentShareOnUpgrade && versionCode > d.a(sapiConfiguration.context).z()) {
+                        if (sapiConfiguration.silentShareOnUpgrade && versionCode > d.a(sapiConfiguration.context).x()) {
                             SapiUtils.resetSilentShareStatus(sapiConfiguration.context);
                         }
-                        d.a(sapiConfiguration.context).c(versionCode);
+                        d.a(sapiConfiguration.context).b(versionCode);
                         sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
                         sapiConfiguration.clientIp = SapiUtils.getLocalIpAddress();
                         com.baidu.sapi2.share.b.b();
@@ -83,10 +85,11 @@ public final class SapiAccountManager {
                         if (!TextUtils.isEmpty(sapiConfiguration.deviceLoginSignKey)) {
                             SapiAccountManager.c.deviceLoginCheck();
                         }
-                        com.baidu.sapi2.utils.a.a();
+                        StatService.a();
                         d.a(sapiConfiguration.context).b(SapiAccountManager.VERSION_NAME);
                         d.a(sapiConfiguration.context).a(sapiConfiguration.loginShareStrategy());
-                        com.baidu.sapi2.utils.c.a(sapiConfiguration.context);
+                        com.baidu.sapi2.utils.a.a(sapiConfiguration.context);
+                        SapiAccountManager.c.o();
                         Looper.loop();
                     }
                 }).start();
@@ -112,6 +115,7 @@ public final class SapiAccountManager {
     }
 
     public void logout() {
+        StatService.a("logout", Collections.singletonMap("di", e.b("sdk_api_logout")));
         removeLoginAccount(getSession());
     }
 

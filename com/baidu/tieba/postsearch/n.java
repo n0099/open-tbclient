@@ -1,28 +1,22 @@
 package com.baidu.tieba.postsearch;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l bXZ;
+public class n implements View.OnTouchListener {
+    final /* synthetic */ k coS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.bXZ = lVar;
+    public n(k kVar) {
+        this.coS = kVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        BdListView bdListView;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         PostSearchActivity postSearchActivity;
-        PostSearchActivity postSearchActivity2;
-        bdListView = this.bXZ.bXV;
-        String str = (String) bdListView.getItemAtPosition(i);
-        postSearchActivity = this.bXZ.bXN;
-        postSearchActivity.iK(str);
-        postSearchActivity2 = this.bXZ.bXN;
-        postSearchActivity2.iL(str);
+        postSearchActivity = this.coS.coG;
+        postSearchActivity.ahP();
+        return false;
     }
 }

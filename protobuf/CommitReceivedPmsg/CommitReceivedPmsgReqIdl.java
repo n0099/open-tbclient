@@ -21,8 +21,11 @@ public final class CommitReceivedPmsgReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitReceivedPmsgReqIdl> {
+    public static final class Builder extends Message.Builder<CommitReceivedPmsgReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(CommitReceivedPmsgReqIdl commitReceivedPmsgReqIdl) {
             super(commitReceivedPmsgReqIdl);

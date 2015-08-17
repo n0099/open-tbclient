@@ -1,7 +1,10 @@
 package com.baidu.tieba.im.message;
+
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.im.message.LoadHistoryMessage;
 /* loaded from: classes.dex */
 public class LoadGroupHistoryMessage extends LoadHistoryMessage {
-    public LoadGroupHistoryMessage(c cVar) {
-        super(2001149, cVar);
+    public LoadGroupHistoryMessage(LoadHistoryMessage.a aVar) {
+        super(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, aVar);
     }
 }

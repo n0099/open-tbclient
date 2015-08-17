@@ -4,8 +4,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
     public static final Locale ROOT = new Locale("", "");
-    private static String mD = "Arab";
-    private static String mE = "Hebr";
+    private static String mG = "Arab";
+    private static String mH = "Hebr";
 
     public static String htmlEncode(String str) {
         StringBuilder sb = new StringBuilder();
@@ -41,7 +41,7 @@ public class TextUtilsCompat {
             if (script == null) {
                 return c(locale);
             }
-            if (script.equalsIgnoreCase(mD) || script.equalsIgnoreCase(mE)) {
+            if (script.equalsIgnoreCase(mG) || script.equalsIgnoreCase(mH)) {
                 return 1;
             }
         }

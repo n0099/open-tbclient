@@ -1,31 +1,23 @@
 package com.baidu.tbadk.core;
 
+import android.content.Intent;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import java.util.HashMap;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.c> {
-    final /* synthetic */ TbadkCoreApplication OW;
+public class y implements CustomMessageTask.CustomRunnable<Intent> {
+    final /* synthetic */ TbadkCoreApplication TJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(TbadkCoreApplication tbadkCoreApplication) {
-        this.OW = tbadkCoreApplication;
+        this.TJ = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.frameworkData.c> run(CustomMessage<com.baidu.tbadk.core.frameworkData.c> customMessage) {
-        HashMap hashMap;
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tbadk.core.frameworkData.c data = customMessage.getData();
-            hashMap = this.OW.mActicyConfig;
-            Class<?> cls = (Class) hashMap.get(data.getClass());
-            if (cls != null) {
-                data.getIntent().setClass(customMessage.getData().getContext(), cls);
-                data.run();
-            }
-        }
+    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
+        UtilHelper.commenDealIntent(this.TJ.getApp(), customMessage.getData());
         return null;
     }
 }

@@ -7,8 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
+import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tieba.im.settingcache.j;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -18,16 +20,16 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         super(tbPageContext);
     }
 
-    public void Xn() {
+    public void YT() {
         LinkedList linkedList = new LinkedList();
         Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
         while (it.hasNext()) {
             String friendId = it.next().getFriendId();
             if (!TextUtils.isEmpty(friendId)) {
-                linkedList.add(new com.baidu.tieba.im.message.h(friendId, 2, false));
+                linkedList.add(new MemoryModifyVisibilityMessage.a(friendId, 2, false));
             }
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearStrangerItemsMessage(new com.baidu.tieba.im.message.e(linkedList), true));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearStrangerItemsMessage(new MemoryClearStrangerItemsMessage.a(linkedList), true));
         this.mList.clear();
     }
 
@@ -40,7 +42,8 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            PersonalSettingItemData aJ = com.baidu.tieba.im.settingcache.j.UR().aJ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            buildNormalItem.setOwnerName(String.valueOf(7));
+            PersonalSettingItemData aJ = j.Wy().aJ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (aJ != null) {
                 buildNormalItem.setGroupSetting(aJ);
             }

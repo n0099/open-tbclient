@@ -1,14 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class BaiduWebviewSwitchStatic extends a {
-    public static final String[] arB;
+    public static final String[] ayI;
 
     static {
-        f.gD().l(BaiduWebviewSwitchStatic.class);
-        arB = new String[]{"com.baidu.browser"};
+        e.gy().e(BaiduWebviewSwitchStatic.class);
+        ayI = new String[]{"com.baidu.browser"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class BaiduWebviewSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return arB;
+        return ayI;
     }
 
     @Override // com.baidu.adp.lib.b.a

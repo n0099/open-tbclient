@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ShareSDKImageView extends TbClipImageView {
-    private int XL;
-    private int XM;
+    private int acI;
+    private int acJ;
 
     public ShareSDKImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +19,8 @@ public class ShareSDKImageView extends TbClipImageView {
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.XL = com.baidu.tieba.p.pic_share_link;
-        this.XM = com.baidu.tieba.n.cp_cont_e;
+        this.acI = i.e.pic_share_link;
+        this.acJ = i.c.cp_cont_e;
         init();
     }
 
@@ -28,7 +29,7 @@ public class ShareSDKImageView extends TbClipImageView {
         setGifIconSupport(false);
         setDrawBorder(false);
         setIsRound(false);
-        setDefaultResource(this.XL);
-        setDefaultBgResource(this.XM);
+        setDefaultResource(this.acI);
+        setDefaultBgResource(this.acJ);
     }
 }

@@ -1,106 +1,118 @@
 package com.baidu.adp.lib.util;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.concurrent.locks.ReentrantLock;
+import android.database.Cursor;
+import com.baidu.adp.lib.cache.o;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-abstract class s implements Iterator<E> {
-    E nextItem;
-    v<E> yN;
-    private v<E> yO;
-    final /* synthetic */ BlockingLinkedDeque yP;
-
-    abstract v<E> c(v<E> vVar);
-
-    abstract v<E> jt();
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: E */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Multi-variable type inference failed */
-    public s(BlockingLinkedDeque blockingLinkedDeque) {
-        this.yP = blockingLinkedDeque;
-        ReentrantLock reentrantLock = blockingLinkedDeque.lock;
-        reentrantLock.lock();
+public class s {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
+    public static List<o.b<String>> b(com.baidu.adp.lib.cache.o<String> oVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
         try {
-            this.yN = jt();
-            this.nextItem = this.yN == null ? 0 : this.yN.item;
-        } finally {
-            reentrantLock.unlock();
+            cursor = d(oVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
         }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
-        r3 = r3;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private v<E> d(v<E> vVar) {
-        Object obj;
-        while (true) {
-            v<E> c = c(obj);
-            if (c == 0) {
-                return null;
-            }
-            if (c.item == 0) {
-                if (c == obj) {
-                    return jt();
+        if (cursor == null) {
+            return null;
+        }
+        while (cursor.moveToNext()) {
+            try {
+                o.b bVar = new o.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.tx = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.tg = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.so = cursor.getString(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    com.baidu.adp.lib.g.a.b(cursor);
+                    Collections.sort(linkedList, new a(null));
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.b(cursor);
                 }
-                obj = c;
-            } else {
-                return c;
             }
         }
+        Collections.sort(linkedList, new a(null));
+        return linkedList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: E */
-    /* JADX WARN: Multi-variable type inference failed */
-    void advance() {
-        ReentrantLock reentrantLock = this.yP.lock;
-        reentrantLock.lock();
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    public static List<o.b<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
         try {
-            this.yN = d(this.yN);
-            this.nextItem = this.yN == null ? 0 : this.yN.item;
-        } finally {
-            reentrantLock.unlock();
+            cursor = d(oVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
         }
-    }
-
-    @Override // java.util.Iterator
-    public boolean hasNext() {
-        return this.yN != null;
-    }
-
-    @Override // java.util.Iterator
-    public E next() {
-        if (this.yN == null) {
-            throw new NoSuchElementException();
+        if (cursor == null) {
+            return null;
         }
-        this.yO = this.yN;
-        E e = this.nextItem;
-        advance();
-        return e;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        v<E> vVar = this.yO;
-        if (vVar == 0) {
-            throw new IllegalStateException();
-        }
-        this.yO = null;
-        ReentrantLock reentrantLock = this.yP.lock;
-        reentrantLock.lock();
-        try {
-            if (vVar.item != 0) {
-                this.yP.unlink(vVar);
+        while (cursor.moveToNext()) {
+            try {
+                o.b bVar = new o.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.tx = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.tg = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.so = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    com.baidu.adp.lib.g.a.b(cursor);
+                    Collections.sort(linkedList, new a(null));
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.b(cursor);
+                }
             }
-        } finally {
-            reentrantLock.unlock();
+        }
+        Collections.sort(linkedList, new a(null));
+        return linkedList;
+    }
+
+    private static Cursor d(com.baidu.adp.lib.cache.o<?> oVar) {
+        if (oVar != null && (oVar instanceof o.c)) {
+            o.c cVar = (o.c) oVar;
+            if (cVar.gr() instanceof com.baidu.adp.lib.cache.k) {
+                com.baidu.adp.lib.cache.c gn = ((com.baidu.adp.lib.cache.k) cVar.gr()).gn();
+                return gn.d(gn.ge().dL(), cVar.gq());
+            }
+            return null;
+        }
+        return null;
+    }
+
+    /* loaded from: classes.dex */
+    private static class a implements Comparator<o.b<?>> {
+        private a() {
+        }
+
+        /* synthetic */ a(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(o.b<?> bVar, o.b<?> bVar2) {
+            if (bVar.tx == bVar2.tx) {
+                return 0;
+            }
+            return bVar.tx > bVar2.tx ? -1 : 1;
         }
     }
 }

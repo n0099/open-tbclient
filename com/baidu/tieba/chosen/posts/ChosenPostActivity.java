@@ -1,56 +1,90 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.mvc.core.MvcActivity;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class ChosenPostActivity extends MvcActivity<com.baidu.tbadk.mvc.core.c, b, ChosenPostActivity> {
-    private b aCT;
-    private e aCU;
+public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
+    private ViewEventCenter LD;
+    private b aKm;
+    private e aKn;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        AM().addEventDelegate(this);
+        oH().addEventDelegate(this);
+        this.aKm = HB();
+        this.aKn = HC();
+        if (getIntent() != null) {
+            this.aKm.f(getIntent().getExtras());
+        } else if (bundle != null) {
+            this.aKm.f(bundle);
+        } else {
+            this.aKm.f(null);
+        }
+        setContentView(this.aKn.pb());
+        this.aKn.oS();
+        this.aKn.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.mvc.c.a
+    public b HB() {
+        if (this.aKm == null) {
+            this.aKm = new b(this);
+        }
+        return this.aKm;
+    }
+
+    public e HC() {
+        if (this.aKn == null) {
+            this.aKn = new e(this);
+        }
+        return this.aKn;
+    }
+
+    public ViewEventCenter oH() {
+        if (this.LD == null) {
+            this.LD = new ViewEventCenter();
+        }
+        return this.LD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.c.a
+    public boolean oK() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.Bs()) {
+        switch (bVar.CG()) {
             case 4096:
                 b(bVar);
                 break;
         }
-        return super.a(bVar);
+        return HC().a(bVar) || HB().a(bVar);
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
-        com.baidu.tbadk.mvc.b.a Bt = bVar.Bt();
-        if (Bt instanceof com.baidu.tieba.chosen.posts.a.h) {
-            sendMessage(((com.baidu.tieba.chosen.posts.a.h) Bt).as(getBaseContext()));
+        com.baidu.tbadk.mvc.b.a CH = bVar.CH();
+        if (CH instanceof com.baidu.tieba.chosen.posts.a.h) {
+            sendMessage(((com.baidu.tieba.chosen.posts.a.h) CH).at(getPageContext().getPageActivity()));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: GN */
-    public b oy() {
-        if (this.aCT == null) {
-            this.aCT = new b(this);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(ErrorData errorData) {
+        if (errorData != null && !StringUtils.isNull(errorData.error_msg)) {
+            showToast(errorData.error_msg);
         }
-        return this.aCT;
     }
 
-    @Override // com.baidu.tbadk.mvc.core.e
-    public com.baidu.tbadk.mvc.core.c oA() {
-        if (this.aCU == null) {
-            this.aCU = new e();
-        }
-        return this.aCU;
-    }
-
-    @Override // com.baidu.tbadk.mvc.core.MvcActivity
-    protected void a(ErrorData errorData) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        HC().onChangeSkinType(getPageContext(), i);
     }
 }

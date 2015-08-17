@@ -1,24 +1,22 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aRw;
-    private final /* synthetic */ PopupWindow aRx;
+class m implements a.b {
+    final /* synthetic */ FrsHeaderView bcU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
-        this.aRw = frsHeaderView;
-        this.aRx = popupWindow;
+    public m(FrsHeaderView frsHeaderView) {
+        this.bcU = frsHeaderView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aRx.dismiss();
-        this.aRw.aMl.aLa = false;
-        com.baidu.tbadk.browser.f.a(this.aRw.LH.getPageActivity(), this.aRw.LH.getResources().getString(com.baidu.tieba.t.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.bcU.LS.getPageActivity(), this.bcU.mMemberType, "exp_acce", 2)));
+        aVar.dismiss();
     }
 }

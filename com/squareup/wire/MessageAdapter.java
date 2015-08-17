@@ -135,7 +135,7 @@ public final class MessageAdapter<M extends Message> {
     }
 
     /* loaded from: classes.dex */
-    public final class FieldInfo {
+    public static final class FieldInfo {
         private final Field builderMethod;
         final Message.Datatype datatype;
         final Class<? extends ProtoEnum> enumType;
@@ -777,9 +777,9 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class Storage {
+    public static class Storage {
         private final Map<Integer, List<Object>> map;
 
         private Storage() {

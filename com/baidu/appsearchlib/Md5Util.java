@@ -1,6 +1,5 @@
 package com.baidu.appsearchlib;
 
-import com.baidu.tbadk.game.GameInfoData;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class Md5Util {
@@ -20,7 +19,7 @@ public class Md5Util {
         StringBuilder sb = new StringBuilder(40);
         for (byte b : digest) {
             if (((b & 255) >> 4) == 0) {
-                sb.append(GameInfoData.NOT_FROM_DETAIL).append(Integer.toHexString(b & 255));
+                sb.append("0").append(Integer.toHexString(b & 255));
             } else {
                 sb.append(Integer.toHexString(b & 255));
             }

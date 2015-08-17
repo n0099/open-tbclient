@@ -1,5 +1,8 @@
 package com.baidu.tieba.setting.more;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -7,20 +10,22 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.i;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private d cev;
-    private com.baidu.tieba.setting.model.a cew;
-    private c cex = null;
-    private String cey = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private c cwk;
+    private com.baidu.tieba.setting.model.a cwl;
+    private a cwm = null;
+    private String cwn = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cev = new d(this, new a(this));
-        this.cev.ait();
+        this.cwk = new c(this, new com.baidu.tieba.setting.more.a(this));
+        this.cwk.akQ();
         regReceiver();
     }
 
@@ -28,8 +33,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cev != null) {
-            this.cev.ait();
+        if (this.cwk != null) {
+            this.cwk.akQ();
         }
     }
 
@@ -38,11 +43,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onDestroy() {
         super.onDestroy();
         unregReceiver();
-        if (this.cew != null) {
-            this.cew.cancelLoadData();
+        if (this.cwl != null) {
+            this.cwl.cancelLoadData();
         }
-        if (this.cev != null) {
-            this.cev.hideProgress();
+        if (this.cwk != null) {
+            this.cwk.hideProgress();
         }
     }
 
@@ -50,64 +55,82 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.cev != null) {
-            this.cev.dl(i);
+        if (this.cwk != null) {
+            this.cwk.dw(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.cew == null) {
-            this.cew = new com.baidu.tieba.setting.model.a(this, new b(this));
+        if (this.cwl == null) {
+            this.cwl = new com.baidu.tieba.setting.model.a(this, new b(this));
         } else {
-            this.cew.cancelLoadData();
+            this.cwl.cancelLoadData();
         }
-        this.cew.aiq();
-        if (this.cev != null) {
-            this.cev.ais();
+        this.cwl.akH();
+        if (this.cwk != null) {
+            this.cwk.akP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void C(Object obj) {
-        if (this.cev != null) {
-            this.cev.hideProgress();
+    public void G(Object obj) {
+        if (this.cwk != null) {
+            this.cwk.hideProgress();
         }
-        com.baidu.tbadk.coreExtra.c.g gVar = obj != null ? (com.baidu.tbadk.coreExtra.c.g) obj : null;
-        if (gVar != null) {
-            TbadkCoreApplication.m411getInst().setVersionData(gVar.wM());
+        com.baidu.tbadk.coreExtra.c.e eVar = obj != null ? (com.baidu.tbadk.coreExtra.c.e) obj : null;
+        if (eVar != null) {
+            TbadkCoreApplication.m411getInst().setVersionData(eVar.xV());
             TbadkCoreApplication.m411getInst().refreshNewVersion(false);
-            if (gVar.wM().hasNewVer()) {
-                if (gVar.wM().forceUpdate()) {
-                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.wM(), gVar.wL())));
+            if (eVar.xV().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (eVar.xV().forceUpdate()) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), eVar.xV(), eVar.xU())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), gVar.wM(), gVar.wL()));
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), eVar.xV(), eVar.xU()));
                     TbadkCoreApplication.m411getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             } else {
-                showToast(getResources().getString(com.baidu.tieba.t.neednot_update));
+                showToast(getResources().getString(i.C0057i.neednot_update));
             }
-            if (this.cev != null) {
-                this.cev.ait();
+            if (this.cwk != null) {
+                this.cwk.akQ();
                 return;
             }
             return;
         }
-        showToast(getResources().getString(com.baidu.tieba.t.neterror));
+        showToast(getResources().getString(i.C0057i.neterror));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends BroadcastReceiver {
+        private a() {
+        }
+
+        /* synthetic */ a(AboutActivity aboutActivity, a aVar) {
+            this();
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (AboutActivity.this.cwk != null) {
+                AboutActivity.this.cwk.akQ();
+            }
+        }
     }
 
     private void regReceiver() {
-        this.cex = new c(this, null);
+        this.cwm = new a(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.cex, intentFilter);
+        registerReceiver(this.cwm, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.cex != null) {
-            unregisterReceiver(this.cex);
+        if (this.cwm != null) {
+            unregisterReceiver(this.cwm);
         }
     }
 }

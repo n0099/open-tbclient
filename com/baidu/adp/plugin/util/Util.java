@@ -1,6 +1,7 @@
 package com.baidu.adp.plugin.util;
 
 import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.support.v4.media.TransportMediator;
@@ -22,7 +23,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (EM) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (EN) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -33,7 +34,7 @@ public final class Util {
         }
     }
 
-    public static i g(InputStream inputStream) {
+    public static g f(InputStream inputStream) {
         if (inputStream == null) {
             return null;
         }
@@ -41,23 +42,36 @@ public final class Util {
         if (inputStream.read(new byte[4]) == -1 || inputStream.read(bArr, 0, bArr.length) == -1) {
             return null;
         }
-        int e = e(bArr, 6);
-        int e2 = e(bArr, 8);
-        i iVar = new i();
-        iVar.set(((e2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
-        return iVar;
+        int d = d(bArr, 6);
+        int d2 = d(bArr, 8);
+        g gVar = new g();
+        gVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        return gVar;
     }
 
-    private static int e(byte[] bArr, int i) {
+    private static int d(byte[] bArr, int i) {
         if (bArr == null) {
             return 0;
         }
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
+    public static final boolean j(long j) {
+        long mz = mz();
+        if (j <= 0) {
+            return mz <= 0 || mz >= 31457280;
+        }
+        int i = 10;
+        if (Build.VERSION.SDK_INT < 19) {
+            i = 6;
+        }
+        long j2 = i * j;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mz;
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 91=4, 92=4, 93=4, 94=4, 96=4, 99=4] */
-    public static String b(InputStream inputStream, File file) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [142=4, 144=4, 145=4, 146=4, 147=4, 149=4, 152=4] */
+    public static String a(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
         }
@@ -124,9 +138,9 @@ public final class Util {
         }
     }
 
-    public static void f(File file) {
+    public static void i(File file) {
         if (file != null && file.exists()) {
-            h(file);
+            g(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -135,14 +149,14 @@ public final class Util {
         }
     }
 
-    public static void h(File file) {
+    public static void g(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            i(file2);
+                            h(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -154,10 +168,10 @@ public final class Util {
         }
     }
 
-    public static void i(File file) {
+    public static void h(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                f(file);
+                i(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -168,15 +182,15 @@ public final class Util {
         }
     }
 
-    public static File bL(String str) {
-        PluginSetting bs = PluginPackageManager.lM().bs(str);
-        if (bs == null || bs.apkPath == null || bs.apkPath.length() <= ".apk".length()) {
+    public static File bI(String str) {
+        PluginSetting bm = PluginPackageManager.lT().bm(str);
+        if (bm == null || bm.apkPath == null || bm.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bs.apkPath.substring(0, bs.apkPath.length() - ".apk".length()));
+        return new File(bm.apkPath.substring(0, bm.apkPath.length() - ".apk".length()));
     }
 
-    public static File mo() {
+    public static File my() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -237,7 +251,7 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("has_res", false);
     }
 
-    public static VersionCompare R(String str, String str2) {
+    public static VersionCompare P(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -253,12 +267,12 @@ public final class Util {
         int length2 = split2.length;
         int i = length < length2 ? length : length2;
         for (int i2 = 0; i2 < i; i2++) {
-            int i3 = com.baidu.adp.lib.g.c.toInt(split[i2], 0);
-            int i4 = com.baidu.adp.lib.g.c.toInt(split2[i2], 0);
-            if (i3 > i4) {
+            int g = com.baidu.adp.lib.g.b.g(split[i2], 0);
+            int g2 = com.baidu.adp.lib.g.b.g(split2[i2], 0);
+            if (g > g2) {
                 return VersionCompare.GREATER;
             }
-            if (i3 < i4) {
+            if (g < g2) {
                 return VersionCompare.LESS;
             }
         }
@@ -278,7 +292,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bM(String str) {
+    public static String bJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -289,10 +303,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return mo() + File.separator + e(pluginSetting);
+        return my() + File.separator + e(pluginSetting);
     }
 
-    public static long mp() {
+    public static long mz() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

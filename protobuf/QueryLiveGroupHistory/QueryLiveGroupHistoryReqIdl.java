@@ -21,8 +21,11 @@ public final class QueryLiveGroupHistoryReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryLiveGroupHistoryReqIdl> {
+    public static final class Builder extends Message.Builder<QueryLiveGroupHistoryReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryLiveGroupHistoryReqIdl queryLiveGroupHistoryReqIdl) {
             super(queryLiveGroupHistoryReqIdl);

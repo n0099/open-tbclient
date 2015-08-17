@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 class ActivityCompatJB {
-    ActivityCompatJB() {
-    }
-
     public static void startActivity(Context context, Intent intent, Bundle bundle) {
         context.startActivity(intent, bundle);
     }

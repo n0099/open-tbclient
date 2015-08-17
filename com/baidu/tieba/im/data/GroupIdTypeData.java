@@ -4,17 +4,17 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class GroupIdTypeData implements Serializable {
     private static final long serialVersionUID = 8219037456828991840L;
-    private int groupId;
+    private long groupId;
     private int groupType;
     private int mCustomType = 1;
     private int userType;
 
-    public int getGroupId() {
+    public long getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(int i) {
-        this.groupId = i;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public int getGroupType() {

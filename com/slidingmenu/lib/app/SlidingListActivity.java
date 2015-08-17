@@ -6,9 +6,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class SlidingListActivity extends ListActivity implements SlidingActivityBase {
+public class SlidingListActivity extends ListActivity {
     private SlidingActivityHelper mHelper;
 
     @Override // android.app.Activity
@@ -55,49 +54,12 @@ public class SlidingListActivity extends ListActivity implements SlidingActivity
         this.mHelper.registerAboveContentView(view, layoutParams);
     }
 
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void setBehindContentView(int i) {
-        setBehindContentView(getLayoutInflater().inflate(i, (ViewGroup) null));
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
     public void setBehindContentView(View view) {
         setBehindContentView(view, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
     public void setBehindContentView(View view, ViewGroup.LayoutParams layoutParams) {
         this.mHelper.setBehindContentView(view, layoutParams);
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public SlidingMenu getSlidingMenu() {
-        return this.mHelper.getSlidingMenu();
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void toggle() {
-        this.mHelper.toggle();
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void showContent() {
-        this.mHelper.showContent();
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void showMenu() {
-        this.mHelper.showMenu();
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void showSecondaryMenu() {
-        this.mHelper.showSecondaryMenu();
-    }
-
-    @Override // com.slidingmenu.lib.app.SlidingActivityBase
-    public void setSlidingActionBarEnabled(boolean z) {
-        this.mHelper.setSlidingActionBarEnabled(z);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.a;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* loaded from: classes.dex */
-class i extends BroadcastReceiver {
-    final /* synthetic */ c this$0;
-
-    private i(c cVar) {
-        this.this$0 = cVar;
-    }
+class i extends CustomMessageListener {
+    final /* synthetic */ c bzF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(c cVar, i iVar) {
-        this(cVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(c cVar, int i) {
+        super(i);
+        this.bzF = cVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.ho(this.this$0.Tr());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            this.bzF.hQ(this.bzF.UY());
+        }
     }
 }

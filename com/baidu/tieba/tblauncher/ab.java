@@ -14,36 +14,23 @@ class ab extends CustomMessageListener {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        boolean z;
-        aj ajVar;
-        aj ajVar2;
-        int i2;
-        this.this$0.cvC = false;
-        i = this.this$0.cvu;
-        if (i <= 0) {
-            i2 = this.this$0.cvx;
-            if (i2 <= 0) {
-                z = false;
-                if (z) {
-                    ajVar = this.this$0.cvs;
-                    ajVar.fo(false);
-                    ajVar2 = this.this$0.cvs;
-                    ajVar2.aqx().fu(false);
-                    return;
+        ai aiVar;
+        ai aiVar2;
+        ai aiVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
+            this.this$0.arE();
+            aiVar = this.this$0.cLT;
+            if (aiVar != null) {
+                aiVar2 = this.this$0.cLT;
+                if (aiVar2.arW() != null) {
+                    MainTabActivity mainTabActivity = this.this$0;
+                    aiVar3 = this.this$0.cLT;
+                    mainTabActivity.cLM = aiVar3.arW().getCurrentTabType();
                 }
-                return;
             }
-        }
-        z = true;
-        if (z) {
+            this.this$0.cLO = true;
         }
     }
 }

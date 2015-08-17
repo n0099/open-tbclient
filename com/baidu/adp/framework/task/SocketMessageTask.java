@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean qP;
-    private boolean qQ;
-    private boolean qR;
-    private DupLicateMode qS;
+    private boolean qM;
+    private boolean qN;
+    private boolean qO;
+    private DupLicateMode qP;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (qT) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qQ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,31 +30,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.qP = false;
-        this.qQ = false;
-        this.qR = true;
-        this.qS = DupLicateMode.NONE;
+        this.qM = false;
+        this.qN = false;
+        this.qO = true;
+        this.qP = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.t(this.mCmd);
+        return FrameHelper.v(this.mCmd);
     }
 
     public void i(boolean z) {
-        this.qP = z;
+        this.qM = z;
     }
 
-    public boolean fg() {
-        return this.qP;
+    public boolean fd() {
+        return this.qM;
     }
 
-    public boolean fh() {
-        return this.qQ;
+    public boolean fe() {
+        return this.qN;
     }
 
     public void j(boolean z) {
-        this.qQ = z;
+        this.qN = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -65,19 +65,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean fi() {
-        return this.qR;
+    public boolean ff() {
+        return this.qO;
     }
 
     public void k(boolean z) {
-        this.qR = z;
+        this.qO = z;
     }
 
-    public DupLicateMode fj() {
-        return this.qS;
+    public DupLicateMode fg() {
+        return this.qP;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.qS = dupLicateMode;
+        this.qP = dupLicateMode;
     }
 }

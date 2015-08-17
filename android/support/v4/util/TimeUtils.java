@@ -4,9 +4,6 @@ import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
-    private static final int SECONDS_PER_DAY = 86400;
-    private static final int SECONDS_PER_HOUR = 3600;
-    private static final int SECONDS_PER_MINUTE = 60;
     private static final Object sFormatSync = new Object();
     private static char[] sFormatStr = new char[24];
 
@@ -78,22 +75,22 @@ public class TimeUtils {
         int i8 = (int) (j % 1000);
         int floor = (int) Math.floor(j / 1000);
         int i9 = 0;
-        if (floor > SECONDS_PER_DAY) {
-            i9 = floor / SECONDS_PER_DAY;
-            floor -= SECONDS_PER_DAY * i9;
+        if (floor > 86400) {
+            i9 = floor / 86400;
+            floor -= 86400 * i9;
         }
-        if (floor > SECONDS_PER_HOUR) {
-            int i10 = floor / SECONDS_PER_HOUR;
+        if (floor > 3600) {
+            int i10 = floor / 3600;
             i2 = i10;
-            i3 = floor - (i10 * SECONDS_PER_HOUR);
+            i3 = floor - (i10 * 3600);
         } else {
             i2 = 0;
             i3 = floor;
         }
-        if (i3 > SECONDS_PER_MINUTE) {
-            int i11 = i3 / SECONDS_PER_MINUTE;
+        if (i3 > 60) {
+            int i11 = i3 / 60;
             i4 = i11;
-            i5 = i3 - (i11 * SECONDS_PER_MINUTE);
+            i5 = i3 - (i11 * 60);
         } else {
             i4 = 0;
             i5 = i3;

@@ -1,57 +1,82 @@
 package com.baidu.tieba.write.album;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ b cye;
+class d implements View.OnClickListener {
+    final /* synthetic */ c cPT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar) {
-        this.cye = bVar;
+    public d(c cVar) {
+        this.cPT = cVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        h hVar;
+        h hVar2;
+        int i;
+        m mVar;
+        AlbumActivity albumActivity;
+        h hVar3;
         int i2;
-        j jVar;
-        p pVar;
-        j jVar2;
-        int i3;
-        p pVar2;
+        m mVar2;
+        AlbumActivity albumActivity2;
         ImageView imageView;
+        AlbumActivity albumActivity3;
+        int i3;
+        AlbumActivity albumActivity4;
         ImageView imageView2;
-        this.cye.mCurrentIndex = i;
-        b bVar = this.cye;
-        i2 = this.cye.mCurrentIndex;
-        bVar.jl(i2 + 1);
-        jVar = this.cye.cyb;
-        if (jVar != null) {
-            pVar = this.cye.cxV;
-            if (pVar != null) {
-                jVar2 = this.cye.cyb;
-                i3 = this.cye.mCurrentIndex;
-                ImageFileInfo jm = jVar2.jm(i3);
-                pVar2 = this.cye.cxV;
-                if (pVar2.isAdded(jm)) {
-                    b bVar2 = this.cye;
-                    imageView2 = this.cye.cyc;
-                    bVar2.b(imageView2, true);
-                    return;
+        AlbumActivity albumActivity5;
+        ImageView imageView3;
+        AlbumActivity albumActivity6;
+        int i4;
+        hVar = this.cPT.cPR;
+        if (hVar != null) {
+            hVar2 = this.cPT.cPR;
+            i = this.cPT.apO;
+            ImageFileInfo kg = hVar2.kg(i);
+            mVar = this.cPT.cPJ;
+            if (mVar != null) {
+                albumActivity = this.cPT.cPQ;
+                if (albumActivity != null) {
+                    hVar3 = this.cPT.cPR;
+                    i2 = this.cPT.apO;
+                    if (hVar3.kh(i2)) {
+                        mVar2 = this.cPT.cPJ;
+                        if (mVar2.isAdded(kg)) {
+                            albumActivity5 = this.cPT.cPQ;
+                            if (albumActivity5.d(kg)) {
+                                c cVar = this.cPT;
+                                imageView3 = this.cPT.cPS;
+                                cVar.b(imageView3, false);
+                                albumActivity6 = this.cPT.cPQ;
+                                i4 = this.cPT.apO;
+                                albumActivity6.q(i4, false);
+                                return;
+                            }
+                            return;
+                        }
+                        albumActivity2 = this.cPT.cPQ;
+                        if (albumActivity2.c(kg)) {
+                            c cVar2 = this.cPT;
+                            imageView = this.cPT.cPS;
+                            cVar2.b(imageView, true);
+                            albumActivity3 = this.cPT.cPQ;
+                            i3 = this.cPT.apO;
+                            albumActivity3.q(i3, true);
+                            albumActivity4 = this.cPT.cPQ;
+                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), i.a.album_choose_icon);
+                            imageView2 = this.cPT.cPS;
+                            imageView2.startAnimation(loadAnimation);
+                        }
+                    }
                 }
-                b bVar3 = this.cye;
-                imageView = this.cye.cyc;
-                bVar3.b(imageView, false);
             }
         }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
     }
 }

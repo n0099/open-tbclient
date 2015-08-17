@@ -30,9 +30,12 @@ public final class UpdateClientInfoReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateClientInfoReqIdl> {
+    public static final class Builder extends Message.Builder<UpdateClientInfoReqIdl> {
         public String cuid;
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(UpdateClientInfoReqIdl updateClientInfoReqIdl) {
             super(updateClientInfoReqIdl);

@@ -16,7 +16,7 @@ public class ProfileRequestMessage extends NetMessage {
     private Integer pn;
     private Integer rn;
     private String st_type;
-    private Integer uid;
+    private Long uid;
 
     public ProfileRequestMessage() {
         super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
@@ -46,12 +46,12 @@ public class ProfileRequestMessage extends NetMessage {
         this.error_hint = z;
     }
 
-    public Integer get_uid() {
+    public Long get_uid() {
         return this.uid;
     }
 
-    public void set_uid(Integer num) {
-        this.uid = num;
+    public void set_uid(Long l) {
+        this.uid = l;
     }
 
     public Integer get_need_post_count() {
@@ -123,7 +123,7 @@ public class ProfileRequestMessage extends NetMessage {
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
             if (z) {
-                com.baidu.tbadk.util.j.a(builder, true);
+                com.baidu.tbadk.util.g.a(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);

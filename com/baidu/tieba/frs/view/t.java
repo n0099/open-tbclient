@@ -1,25 +1,20 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.PopupWindow;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements View.OnTouchListener {
-    final /* synthetic */ o aRB;
-    private final /* synthetic */ PopupWindow aRx;
+public class t implements a.b {
+    final /* synthetic */ p bcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(o oVar, PopupWindow popupWindow) {
-        this.aRB = oVar;
-        this.aRx = popupWindow;
+    public t(p pVar) {
+        this.bcY = pVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 4) {
-            com.baidu.adp.lib.g.k.a(this.aRx);
-            this.aRB.aMl.aLa = false;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        TiebaStatic.eventStat(this.bcY.aVx.getPageContext().getPageActivity(), "consume_7", "click");
+        aVar.dismiss();
     }
 }

@@ -4,10 +4,10 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aEh;
-    private boolean aEi;
-    private int aEj;
-    private boolean aEk;
+    private boolean aLG;
+    private boolean aLH;
+    private int aLI;
+    private boolean aLJ;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -32,11 +32,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aEh = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aLG = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aEi = z;
+        this.aLH = z;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class c {
         return this.icon_url;
     }
 
-    public void fO(String str) {
+    public void gh(String str) {
         this.icon_url = str;
     }
 
@@ -56,51 +56,51 @@ public class c {
         this.title = str;
     }
 
-    public String Ho() {
+    public String Id() {
         return this.link_url;
     }
 
-    public String Hp() {
+    public String Ie() {
         return this.describe;
     }
 
-    public String Hq() {
+    public String If() {
         return this.statistics;
     }
 
-    public void fP(String str) {
+    public void gi(String str) {
         this.statistics = str;
     }
 
-    public boolean Hr() {
-        return this.aEh;
-    }
-
-    public void bC(boolean z) {
-        this.aEh = z;
-    }
-
-    public boolean Hs() {
-        return this.aEi;
-    }
-
-    public void bD(boolean z) {
-        this.aEi = z;
-    }
-
-    public int Ht() {
-        return this.aEj;
-    }
-
-    public void eB(int i) {
-        this.aEj = i;
-    }
-
-    public boolean Hu() {
-        return this.aEk;
+    public boolean Ig() {
+        return this.aLG;
     }
 
     public void bE(boolean z) {
-        this.aEk = z;
+        this.aLG = z;
+    }
+
+    public boolean Ih() {
+        return this.aLH;
+    }
+
+    public void bF(boolean z) {
+        this.aLH = z;
+    }
+
+    public int Ii() {
+        return this.aLI;
+    }
+
+    public void eH(int i) {
+        this.aLI = i;
+    }
+
+    public boolean Ij() {
+        return this.aLJ;
+    }
+
+    public void bG(boolean z) {
+        this.aLJ = z;
     }
 }

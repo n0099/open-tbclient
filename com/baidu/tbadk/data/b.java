@@ -4,19 +4,19 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends TbConfig {
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
-    public static final Long ahO = 3600000L;
-    public static final Long ahP = 36000000L;
-    public static final Long ahQ = 36000000L;
-    public static final Long ahR = 86400000L;
+    public static final Long amU = 3600000L;
+    public static final Long amV = 36000000L;
+    public static final Long amW = 36000000L;
+    public static final Long amX = 86400000L;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
-    public static final String ahS = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
-    public static final String ahT = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
-    public static int ahU = 80;
+    public static final String amY = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
+    public static final String amZ = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
+    public static int ana = 80;
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static final Long ahV = 3600000L;
+    public static final Long anb = 3600000L;
 
-    public static final String yI() {
+    public static final String zS() {
         return "com.baidu.tieba.broadcast.service";
     }
 

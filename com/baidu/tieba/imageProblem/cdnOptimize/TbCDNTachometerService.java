@@ -14,15 +14,14 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.g.c;
-import com.baidu.adp.lib.g.j;
+import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.i;
 import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +37,7 @@ public class TbCDNTachometerService extends BdBaseService {
     public static final String TB_CDNIP_BROADCASE_NUM = "com.baidu.tbadk.opTimize.tbCdnIpBroadCastNum";
     private static Object lock = new Object();
     private static long lastTachometerTime = 0;
-    private static CustomMessageTask customNormalTask = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.1
+    private static CustomMessageTask customNormalTask = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<CustomMsgData> customMessage) {
             boolean z;
@@ -46,33 +45,33 @@ public class TbCDNTachometerService extends BdBaseService {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.bxT == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.bLI == null) {
                         return null;
                     }
                     String str = "";
-                    if (data.bxQ == null) {
-                        if (data.pos < data.ipListData.bxT.size()) {
-                            ArrayList<String> arrayList = data.ipListData.bxT.get(data.pos);
+                    if (data.bLF == null) {
+                        if (data.pos < data.ipListData.bLI.size()) {
+                            ArrayList<String> arrayList = data.ipListData.bLI.get(data.pos);
                             if (arrayList.size() > 0) {
                                 z = false;
                                 str = arrayList.get(0);
                             }
                         }
                         z = false;
-                    } else if (data.bxQ.length() <= 0) {
+                    } else if (data.bLF.length() <= 0) {
                         return null;
                     } else {
-                        str = data.bxQ;
+                        str = data.bLF;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.bxV, data.ipListData.bxS, data.isNormal);
-                        data.Gp = System.currentTimeMillis() - currentTimeMillis;
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.bLK, data.ipListData.bLH, data.isNormal);
+                        data.Gq = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.bxQ = str;
+                            data.bLF = str;
                         }
-                        return new CustomResponsedMessage<>(2017000, data);
+                        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -99,7 +98,7 @@ public class TbCDNTachometerService extends BdBaseService {
     private long lastNotifyIpTime = 0;
     private int lastNotifyIpCount = 0;
     private int numOfThrowIp = 0;
-    private CustomMessageListener customNormalListener = new CustomMessageListener(2017000) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.2
+    private CustomMessageListener customNormalListener = new CustomMessageListener(CmdConfigCustom.CMD_CDN_TACHOMETER) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -110,9 +109,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData != null) {
                         String str = customMsgData.cdnIp;
                         boolean z = customMsgData.isSuccess;
-                        long j = customMsgData.Gp;
+                        long j = customMsgData.Gq;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.bxQ != null && customMsgData.bxQ.length() > 0) {
+                        if (customMsgData.bLF != null && customMsgData.bLF.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -137,7 +136,7 @@ public class TbCDNTachometerService extends BdBaseService {
                                         String[] split = ((String) TbCDNTachometerService.this.belowOnePointFiveIpList.get(i3)).split("_");
                                         if (split.length < 2) {
                                             i = i4;
-                                        } else if (c.c(split[1], 0L) > j) {
+                                        } else if (b.c(split[1], 0L) > j) {
                                             i4 = i3;
                                             break;
                                         } else {
@@ -190,22 +189,22 @@ public class TbCDNTachometerService extends BdBaseService {
     };
 
     static {
-        customNormalTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        customNormalTask.a(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        customNormalTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        customNormalTask.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
         MessageManager.getInstance().registerTask(customNormalTask);
     }
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && k.iY() && TbadkCoreApplication.m411getInst().isMainProcess(true)) {
+        if (context != null && i.iP() && TbadkCoreApplication.m411getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = b.sl().getLong(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.ts().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= TACHOMETER_INTERVAL) {
                         lastTachometerTime = currentTimeMillis;
-                        b.sl().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.ts().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }
@@ -213,7 +212,7 @@ public class TbCDNTachometerService extends BdBaseService {
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);
             intent.putExtra("isNormal", z);
-            j.f(context, intent);
+            com.baidu.adp.lib.g.i.f(context, intent);
         }
     }
 
@@ -269,30 +268,30 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData == null || tbCdnIpListData.bxR != 0) {
+        if (tbCdnIpListData == null || tbCdnIpListData.bLG != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.bxU) {
+        } else if (!tbCdnIpListData.bLJ) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.bxT.size() == 0) {
+        } else if (tbCdnIpListData.bLI.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.bxT);
+            breakUpIpList(tbCdnIpListData.bLI);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.bxV;
-            String str3 = tbCdnIpListData.bxS;
+            String str2 = tbCdnIpListData.bLK;
+            String str3 = tbCdnIpListData.bLH;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.bxT.size();
+                int size = tbCdnIpListData.bLI.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.bxQ = "c.hiphotos.baidu.com";
-                    CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
+                    customMsgData.bLF = "c.hiphotos.baidu.com";
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_CDN_TACHOMETER, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.bxT.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.bLI.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -303,7 +302,7 @@ public class TbCDNTachometerService extends BdBaseService {
                     CustomMsgData customMsgData2 = new CustomMsgData(tbCdnIpListData, i);
                     customMsgData2.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData2.isNormal = this.isNormal;
-                    CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
+                    CustomMessage customMessage2 = new CustomMessage((int) CmdConfigCustom.CMD_CDN_TACHOMETER, customMsgData2);
                     customMessage2.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage2);
                 }
@@ -407,17 +406,17 @@ public class TbCDNTachometerService extends BdBaseService {
         sendBroadcast(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class CustomMsgData {
-        public long Gp;
+        public long Gq;
         public String cdnIp;
         public TbCdnTachometerModel cdnTachometerModel;
         public TbCdnIpListData ipListData;
         public boolean isSuccess;
         public int pos;
         private boolean isNormal = false;
-        private String bxQ = null;
+        private String bLF = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

@@ -26,9 +26,12 @@ public final class LivegroupOwnerGagResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LivegroupOwnerGagResIdl> {
+    public static final class Builder extends Message.Builder<LivegroupOwnerGagResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(LivegroupOwnerGagResIdl livegroupOwnerGagResIdl) {
             super(livegroupOwnerGagResIdl);

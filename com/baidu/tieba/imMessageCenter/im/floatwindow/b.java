@@ -5,84 +5,94 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tieba.i;
+import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
+import com.baidu.tieba.imMessageCenter.im.floatwindow.view.h;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b btc;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a btf;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.f btg;
-    private k bth;
-    private boolean btd = false;
+    private static b bGU;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a bGX;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e bGY;
+    private f bGZ;
+    private boolean bGV = false;
     private boolean isBackground = false;
-    private boolean bte = false;
-    private a bti = new a();
-    private ArrayList<String> btj = new ArrayList<>();
+    private boolean bGW = false;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.a bHa = new com.baidu.tieba.imMessageCenter.im.floatwindow.a();
+    private ArrayList<String> bHb = new ArrayList<>();
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private i btk = new i(this);
-    private h btl = new h(this);
-    private e btm = new e(this);
-    private f bto = new f(this);
-    private g btp = new g(this);
-    private n btq = new c(this);
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e btr = new d(this);
+    private e bHc = new e();
+    private d bHd = new d();
+    private a bHe = new a();
+    private C0061b bHf = new C0061b();
+    private c bHg = new c();
+    private i bHh = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
+    private a.InterfaceC0062a bHi = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
 
-    public static synchronized b VQ() {
+    public static synchronized b Xx() {
         b bVar;
         synchronized (b.class) {
-            if (btc == null) {
-                btc = new b();
+            if (bGU == null) {
+                bGU = new b();
             }
-            bVar = btc;
+            bVar = bGU;
         }
         return bVar;
     }
 
-    public boolean hJ(String str) {
-        return this.btj.contains(str);
+    public boolean im(String str) {
+        return this.bHb.contains(str);
     }
 
-    public void hK(String str) {
-        if (!StringUtils.isNull(str) && !this.btj.contains(str)) {
-            this.btj.add(str);
+    public void in(String str) {
+        if (!StringUtils.isNull(str) && !this.bHb.contains(str)) {
+            this.bHb.add(str);
         }
     }
 
-    public void hL(String str) {
+    public void io(String str) {
         if (!StringUtils.isNull(str)) {
-            this.btj.remove(str);
+            this.bHb.remove(str);
         }
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.btl);
-        MessageManager.getInstance().registerListener(this.btm);
-        MessageManager.getInstance().registerListener(this.btk);
-        MessageManager.getInstance().registerListener(this.bto);
-        MessageManager.getInstance().registerListener(this.btp);
+        MessageManager.getInstance().registerListener(this.bHd);
+        MessageManager.getInstance().registerListener(this.bHe);
+        MessageManager.getInstance().registerListener(this.bHc);
+        MessageManager.getInstance().registerListener(this.bHf);
+        MessageManager.getInstance().registerListener(this.bHg);
     }
 
-    public void dt(boolean z) {
-        if (!VR()) {
-            if (this.bti.VP()) {
-                VT();
-                if (!VV().Wf()) {
-                    VV().a(this.handler, z);
+    public void dw(boolean z) {
+        if (!Xy()) {
+            if (this.bHa.Xw()) {
+                XA();
+                if (!XC().XM()) {
+                    XC().a(this.handler, z);
                     return;
                 }
                 return;
             }
-            du(false);
+            dx(false);
         }
     }
 
-    private boolean VR() {
-        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.btd || !VS() || com.baidu.tbadk.coreExtra.messageCenter.c.wg().wj() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.wg().wo();
+    private boolean Xy() {
+        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.bGV || !Xz() || com.baidu.tbadk.coreExtra.messageCenter.c.xq().xt() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy();
     }
 
-    private boolean VS() {
+    private boolean Xz() {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningTasks(5);
         if (runningTasks == null || runningTasks.size() <= 0) {
             return false;
@@ -95,124 +105,249 @@ public class b {
         return ("com.baidu.tieba.LogoActivity".equalsIgnoreCase(className) || "com.baidu.tieba.guide.NewUserGuideActivity".equalsIgnoreCase(className) || "com.baidu.tieba.topRec.TopRecActivity".equalsIgnoreCase(className) || "com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(className)) ? false : true;
     }
 
-    public void hM(String str) {
+    public void ip(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bti.hG(str);
-            VV().z(this.bti.VM());
+            this.bHa.ij(str);
+            XC().F(this.bHa.Xt());
         }
     }
 
-    public void hN(String str) {
-        this.bti.hH(str);
-        if (!this.bti.VP()) {
-            du(false);
+    public void iq(String str) {
+        this.bHa.ik(str);
+        if (!this.bHa.Xw()) {
+            dx(false);
         } else {
-            VT();
+            XA();
         }
     }
 
-    private void VT() {
-        VV().z(this.bti.VM());
-        VV().gO(this.bti.VL());
+    private void XA() {
+        XC().F(this.bHa.Xt());
+        XC().hs(this.bHa.Xs());
     }
 
-    public void du(boolean z) {
-        if (this.btf != null) {
-            VW().c(this.handler);
-            this.btf.Wh();
+    public void dx(boolean z) {
+        if (this.bGX != null) {
+            XD().c(this.handler);
+            this.bGX.XO();
             if (z) {
-                this.btf.Z(0, getPaddingTop());
-                this.bti.removeAll();
+                this.bGX.am(0, getPaddingTop());
+                this.bHa.removeAll();
             }
         }
     }
 
-    public void J(String str, int i) {
-        if (VX().Wf()) {
-            VX().K(str, i);
+    public void M(String str, int i) {
+        if (XE().XM()) {
+            XE().N(str, i);
         }
     }
 
     public void a(int i, int i2, String str, int i3) {
-        VX().b(i, i2, str, i3);
-        VW().b(this.handler);
+        XE().b(i, i2, str, i3);
+        XD().b(this.handler);
     }
 
-    public void V(int i, int i2) {
-        VX().Y(i, i2);
-        if (a(VX().Wd(), this.btg.Wu())) {
-            VW().Wv();
+    public void ai(int i, int i2) {
+        XE().al(i, i2);
+        if (a(XE().XK(), this.bGY.Yb())) {
+            XD().Yc();
         } else {
-            VW().Ww();
+            XD().Yd();
         }
     }
 
-    public void a(com.baidu.tieba.imMessageCenter.im.floatwindow.view.m mVar) {
-        if (a(VX().Wd(), VW().Wu())) {
-            mVar.WD();
+    public void a(h.a aVar) {
+        if (a(XE().XK(), XD().Yb())) {
+            aVar.Yk();
         }
-        VX().Wh();
-        VW().c(this.handler);
+        XE().XO();
+        XD().c(this.handler);
     }
 
-    public void VU() {
-        this.bte = true;
-        VV().Ws();
+    public void XB() {
+        this.bGW = true;
+        XC().XZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(j jVar, j jVar2) {
-        return jVar.a(jVar2);
+    public boolean a(com.baidu.tieba.imMessageCenter.im.floatwindow.e eVar, com.baidu.tieba.imMessageCenter.im.floatwindow.e eVar2) {
+        return eVar.a(eVar2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a VV() {
-        if (this.btf == null) {
-            this.btf = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m411getInst());
-            this.btf.a(this.btq);
-            this.btf.a(this.btr);
-            this.btf.Z(0, getPaddingTop());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC() {
+        if (this.bGX == null) {
+            this.bGX = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m411getInst());
+            this.bGX.a(this.bHh);
+            this.bGX.a(this.bHi);
+            this.bGX.am(0, getPaddingTop());
         }
-        return this.btf;
+        return this.bGX;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.f VW() {
-        if (this.btg == null) {
-            this.btg = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.f(TbadkCoreApplication.m411getInst());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD() {
+        if (this.bGY == null) {
+            this.bGY = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m411getInst());
         }
-        return this.btg;
+        return this.bGY;
     }
 
     private int getPaddingTop() {
-        int I = com.baidu.adp.lib.util.a.I(TbadkCoreApplication.m411getInst());
-        if (I == 0) {
-            I = 25;
+        int G = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
+        if (G == 0) {
+            G = 25;
         }
         Resources resources = TbadkCoreApplication.m411getInst().getResources();
-        int J = com.baidu.adp.lib.util.a.J(TbadkCoreApplication.m411getInst());
-        if (J == 0) {
-            J = resources.getDimensionPixelSize(com.baidu.tieba.o.navigation_bar_height);
+        int H = com.baidu.adp.lib.util.a.H(TbadkCoreApplication.m411getInst());
+        if (H == 0) {
+            H = resources.getDimensionPixelSize(i.d.navigation_bar_height);
         }
-        return I + J + resources.getDimensionPixelSize(com.baidu.tieba.o.ds40);
+        return G + H + resources.getDimensionPixelSize(i.d.ds40);
     }
 
-    private k VX() {
-        if (this.bth == null) {
-            this.bth = new k();
+    private f XE() {
+        if (this.bGZ == null) {
+            this.bGZ = new f();
         }
-        return this.bth;
+        return this.bGZ;
     }
 
-    public void VY() {
-        this.btd = true;
-        this.bti.VJ();
-        VV().setTouchable(false);
+    public void XF() {
+        this.bGV = true;
+        this.bHa.Xq();
+        XC().setTouchable(false);
     }
 
-    public void VZ() {
-        this.btd = false;
-        this.bti.VK();
-        VV().setTouchable(true);
+    public void XG() {
+        this.bGV = false;
+        this.bHa.Xr();
+        XC().setTouchable(true);
+    }
+
+    /* loaded from: classes.dex */
+    private class d extends CustomMessageListener {
+        public d() {
+            super(CmdConfigCustom.MEMORY_CHANGED);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int v;
+            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xH() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xt() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy()) {
+                ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
+                if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.bHb.contains(data.getGid())) {
+                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xq().xu() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.Wy().aK(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
+                        if (2 == data.getCustomGroupType()) {
+                            v = b.this.bHa.u(data);
+                        } else {
+                            v = -7 == data.getCustomGroupType() ? b.this.bHa.v(data) : 0;
+                        }
+                        if (v != 0 && v != 3) {
+                            b.this.dw(true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class e extends CustomMessageListener {
+        public e() {
+            super(CmdConfigCustom.CMD_FLOAT_WINDOW_SWITCH_CHANGED);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof WindowSwitchResponse) {
+                WindowSwitchResponse windowSwitchResponse = (WindowSwitchResponse) customResponsedMessage;
+                int switchType = windowSwitchResponse.getSwitchType();
+                boolean isOpen = windowSwitchResponse.isOpen();
+                switch (switchType) {
+                    case 0:
+                    case 1:
+                    case 3:
+                        if (!isOpen) {
+                            b.this.dx(true);
+                            return;
+                        }
+                        return;
+                    case 2:
+                        if (!isOpen && b.this.bHa.Xv()) {
+                            b.this.dw(false);
+                            return;
+                        }
+                        return;
+                    case 4:
+                        if (isOpen) {
+                            b.this.dw(true);
+                            return;
+                        } else {
+                            b.this.dx(false);
+                            return;
+                        }
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class a extends CustomMessageListener {
+        public a() {
+            super(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                b.this.dx(true);
+            }
+        }
+    }
+
+    /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private class C0061b extends CustomMessageListener {
+        public C0061b() {
+            super(CmdConfigCustom.CMD_BACKGROUND_SWTICH);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Boolean data;
+            if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
+                TbadkCoreApplication.m411getInst().setProcesBackground(data.booleanValue());
+                if (data.booleanValue()) {
+                    b.this.isBackground = true;
+                    b.this.dx(false);
+                    return;
+                }
+                b.this.isBackground = false;
+                b.this.dw(true);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class c extends CustomMessageListener {
+        public c() {
+            super(CmdConfigCustom.IM_DELETE_IM_DB);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015) {
+                b.this.dx(true);
+            }
+        }
     }
 }

@@ -25,17 +25,6 @@ import android.widget.RelativeLayout;
 import com.slidingmenu.lib.CustomViewAbove;
 /* loaded from: classes.dex */
 public class SlidingMenu extends RelativeLayout {
-    public static final int FADE_TYPE_BEHIND = 1;
-    public static final int FADE_TYPE_WHOLE = 0;
-    public static final int LEFT = 0;
-    public static final int LEFT_RIGHT = 2;
-    public static final int RIGHT = 1;
-    public static final int SLIDING_CONTENT = 1;
-    public static final int SLIDING_WINDOW = 0;
-    private static final String TAG = "SlidingMenu";
-    public static final int TOUCHMODE_FULLSCREEN = 1;
-    public static final int TOUCHMODE_MARGIN = 0;
-    public static final int TOUCHMODE_NONE = 2;
     private OnAboveViewScrollListener mAboveViewScrollListener;
     private boolean mActionbarOverlay;
     private OnCloseListener mCloseListener;
@@ -75,12 +64,7 @@ public class SlidingMenu extends RelativeLayout {
     }
 
     public SlidingMenu(Context context) {
-        this(context, (AttributeSet) null);
-    }
-
-    public SlidingMenu(Activity activity, int i) {
-        this(activity, (AttributeSet) null);
-        attachToActivity(activity, i);
+        this(context, null);
     }
 
     public SlidingMenu(Context context, AttributeSet attributeSet) {
@@ -100,9 +84,6 @@ public class SlidingMenu extends RelativeLayout {
         this.mViewAbove.setCustomViewBehind(this.mViewBehind);
         this.mViewBehind.setCustomViewAbove(this.mViewAbove);
         this.mViewAbove.setOnPageChangeListener(new CustomViewAbove.OnPageChangeListener() { // from class: com.slidingmenu.lib.SlidingMenu.1
-            public static final int POSITION_CLOSE = 1;
-            public static final int POSITION_OPEN = 0;
-
             @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
                 if (SlidingMenu.this.mAboveViewScrollListener != null) {
@@ -253,10 +234,6 @@ public class SlidingMenu extends RelativeLayout {
         return this.mViewAbove.getPercentOpen();
     }
 
-    public boolean isSlidingEnabled() {
-        return this.mViewAbove.isSlidingEnabled();
-    }
-
     public void setMode(int i) {
         if (i != 0 && i != 1 && i != 2) {
             throw new IllegalStateException("SlidingMenu mode must be LEFT, RIGHT, or LEFT_RIGHT");
@@ -280,16 +257,8 @@ public class SlidingMenu extends RelativeLayout {
         setSlidingEnabled(true);
     }
 
-    public void showMenu() {
-        showMenu(true);
-    }
-
     public void showMenu(boolean z) {
         this.mViewAbove.setCurrentItem(0, z);
-    }
-
-    public void showSecondaryMenu() {
-        showSecondaryMenu(true);
     }
 
     public void showSecondaryMenu(boolean z) {
@@ -302,10 +271,6 @@ public class SlidingMenu extends RelativeLayout {
 
     public void showContent(boolean z) {
         this.mViewAbove.setCurrentItem(1, z);
-    }
-
-    public void toggle() {
-        toggle(true);
     }
 
     public void toggle(boolean z) {
@@ -458,18 +423,6 @@ public class SlidingMenu extends RelativeLayout {
         this.mViewBehind.setSelectorBitmap(bitmap);
     }
 
-    public void addIgnoredView(View view) {
-        this.mViewAbove.addIgnoredView(view);
-    }
-
-    public void removeIgnoredView(View view) {
-        this.mViewAbove.removeIgnoredView(view);
-    }
-
-    public void clearIgnoredViews() {
-        this.mViewAbove.clearIgnoredViews();
-    }
-
     public void setOnOpenListener(OnOpenListener onOpenListener) {
         this.mOpenListener = onOpenListener;
     }
@@ -491,7 +444,7 @@ public class SlidingMenu extends RelativeLayout {
     }
 
     /* loaded from: classes.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.slidingmenu.lib.SlidingMenu.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -553,7 +506,7 @@ public class SlidingMenu extends RelativeLayout {
         int i3 = rect.top;
         int i4 = rect.bottom;
         if (!this.mActionbarOverlay) {
-            Log.v(TAG, "setting padding!");
+            Log.v("SlidingMenu", "setting padding!");
             setPadding(i, i3, i2, i4);
             return true;
         }
@@ -567,7 +520,7 @@ public class SlidingMenu extends RelativeLayout {
                 this.mHandler.post(new Runnable() { // from class: com.slidingmenu.lib.SlidingMenu.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        Log.v(SlidingMenu.TAG, "changing layerType. hardware? " + (i == 2));
+                        Log.v("SlidingMenu", "changing layerType. hardware? " + (i == 2));
                         SlidingMenu.this.getContent().setLayerType(i, null);
                         SlidingMenu.this.getMenu().setLayerType(i, null);
                         if (SlidingMenu.this.getSecondaryMenu() != null) {

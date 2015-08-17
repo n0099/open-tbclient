@@ -1,44 +1,26 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class i {
-    private static final String cij = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
-    private com.baidu.tbadk.core.util.aa OE = null;
+class i extends CustomMessageListener {
+    final /* synthetic */ SignAllForumActivity cAF;
 
-    public String jf(String str) {
-        AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-        String str2 = null;
-        if (currentAccountObj != null) {
-            str2 = currentAccountObj.getID();
-        }
-        this.OE = new com.baidu.tbadk.core.util.aa(cij);
-        this.OE.o("user_id", str2);
-        this.OE.o("forum_ids", str);
-        this.OE.sX().tS().WD = true;
-        this.OE.sX().tS().mIsNeedTbs = true;
-        return this.OE.sw();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(SignAllForumActivity signAllForumActivity, int i) {
+        super(i);
+        this.cAF = signAllForumActivity;
     }
 
-    public void cancel() {
-        if (this.OE != null) {
-            this.OE.gS();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Integer num;
+        z zVar;
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
+            zVar = this.cAF.cAx;
+            zVar.anw().setHasPrivilege(true);
         }
-    }
-
-    public boolean qa() {
-        if (this.OE != null) {
-            return this.OE.sX().tT().qa();
-        }
-        return false;
-    }
-
-    public String qb() {
-        if (this.OE != null) {
-            return this.OE.getErrorString();
-        }
-        return null;
     }
 }

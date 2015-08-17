@@ -16,10 +16,11 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && com.baidu.tbadk.core.c.b.se() == null) {
-            ai aiVar = new ai();
-            aiVar.a(this.this$0);
-            com.baidu.tbadk.core.c.b.a(aiVar);
+        ai aiVar;
+        if (customResponsedMessage != null) {
+            aiVar = this.this$0.cLT;
+            aiVar.jY(0);
+            MainTabActivity.cLK = false;
         }
     }
 }

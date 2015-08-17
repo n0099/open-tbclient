@@ -16,7 +16,7 @@ public class ResponseAddFriendMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         AddFriendResIdl addFriendResIdl = (AddFriendResIdl) new Wire(new Class[0]).parseFrom(bArr, AddFriendResIdl.class);
         setError(addFriendResIdl.error.errorno.intValue());

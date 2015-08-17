@@ -1,18 +1,17 @@
 package com.baidu.tieba.write.write;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cCQ;
+class aq implements Runnable {
+    final /* synthetic */ ap cUO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+    public aq(ap apVar) {
+        this.cUO = apVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cCQ.showDialog(com.baidu.tieba.q.live_time_rel);
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteActivity writeActivity;
+        writeActivity = this.cUO.cUM;
+        writeActivity.finish();
     }
 }

@@ -69,7 +69,7 @@ public class z implements a0, n {
     private final int fX = 3;
     private final int fG = 4;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements GpsStatus.Listener, GpsStatus.NmeaListener {
         private long a;
@@ -220,7 +220,7 @@ public class z implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b implements LocationListener {
         private b() {
@@ -265,7 +265,7 @@ public class z implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c implements LocationListener {
 

@@ -22,8 +22,11 @@ public final class LiveReportResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LiveReportResIdl> {
+    public static final class Builder extends Message.Builder<LiveReportResIdl> {
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(LiveReportResIdl liveReportResIdl) {
             super(liveReportResIdl);

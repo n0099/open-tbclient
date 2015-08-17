@@ -26,9 +26,12 @@ public final class QueryLiveGroupByGidResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryLiveGroupByGidResIdl> {
+    public static final class Builder extends Message.Builder<QueryLiveGroupByGidResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryLiveGroupByGidResIdl queryLiveGroupByGidResIdl) {
             super(queryLiveGroupByGidResIdl);

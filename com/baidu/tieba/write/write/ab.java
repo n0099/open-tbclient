@@ -1,20 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends CustomMessageListener {
+public class ab implements View.OnClickListener {
+    final /* synthetic */ WriteActivity cUM;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(int i) {
-        super(i);
+    public ab(WriteActivity writeActivity) {
+        this.cUM = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.j) && com.baidu.tbadk.core.util.bg.tM() != null && com.baidu.tbadk.core.util.bg.tM().indexOf("NewVcode") != -1) {
-            TbadkCoreApplication.m411getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m411getInst().getNewVcodeWebviewCrashCount() + 1);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        WriteActivity writeActivity = this.cUM;
+        str = this.cUM.arU;
+        writeActivity.showToast(str);
     }
 }

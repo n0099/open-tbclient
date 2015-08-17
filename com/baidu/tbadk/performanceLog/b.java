@@ -1,23 +1,25 @@
 package com.baidu.tbadk.performanceLog;
+
+import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a apD;
+    final /* synthetic */ a awq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.apD = aVar;
+        this.awq = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        d dVar;
-        d dVar2;
-        if (this.apD.dN()) {
-            dVar = this.apD.apB;
-            dVar.invalidate();
-            dVar2 = this.apD.apB;
-            dVar2.post(this);
+        a.b bVar;
+        a.b bVar2;
+        if (this.awq.dO()) {
+            bVar = this.awq.awo;
+            bVar.invalidate();
+            bVar2 = this.awq.awo;
+            bVar2.post(this);
         }
     }
 }

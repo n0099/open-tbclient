@@ -1,27 +1,65 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ad {
-    private static boolean jt(String str) {
-        String[] stringArray = TbadkCoreApplication.m411getInst().getApp().getResources().getStringArray(com.baidu.tieba.l.voice_black_frs_list);
-        String string = TbadkCoreApplication.m411getInst().getApp().getResources().getString(com.baidu.tieba.t.forum);
-        int length = stringArray.length;
-        for (int i = 0; i < length; i++) {
-            if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
-                return true;
-            }
+public class ad extends com.baidu.adp.base.e {
+    private static final String aHU = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aHV = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aHU);
+    private final HttpMessageListener aHW;
+    private a cHT;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void bF(String str);
+
+        void fU(String str);
+    }
+
+    static {
+        aHV.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHV);
+    }
+
+    public ad(TbPageContext tbPageContext, a aVar) {
+        super(tbPageContext);
+        this.cHT = null;
+        this.aHW = new ae(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.cHT = aVar;
+    }
+
+    public void registerListener() {
+        registerListener(this.aHW);
+    }
+
+    public void a(String str, String str2, int i, String str3) {
+        String str4;
+        if (i == 1) {
+            str4 = "unlike";
+        } else {
+            str4 = "like";
         }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        httpMessage.addParam("st_type", str4);
+        httpMessage.addParam("action", str4);
+        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
+        httpMessage.addParam("st_param", str3);
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
         return false;
     }
 
-    public static boolean a(String str, Boolean bool) {
-        if (com.baidu.adp.lib.b.f.gD().ai("voice") == 0) {
-            if ((str == null || !jt(str)) && bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
         return false;
     }
 }

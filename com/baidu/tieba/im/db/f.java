@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.w;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.HashMap;
@@ -14,9 +13,9 @@ import java.util.LinkedList;
 public class f {
     private static String nD = null;
     private static volatile SQLiteDatabase nz = null;
-    public static HashMap<String, SQLiteDatabase> bfh = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> bsX = new HashMap<>();
 
-    public static synchronized SQLiteDatabase Rp() {
+    public static synchronized SQLiteDatabase SX() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -27,13 +26,13 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (bfh.containsKey(str)) {
-                    sQLiteDatabase = bfh.get(str);
+                if (bsX.containsKey(str)) {
+                    sQLiteDatabase = bsX.get(str);
                 } else if (nz != null && str.equals(nD) && nz.isOpen()) {
                     sQLiteDatabase = nz;
                 } else {
                     if (nz != null) {
-                        w.i(nz);
+                        com.baidu.adp.lib.util.o.h(nz);
                     }
                     e eVar = new e(TbadkCoreApplication.m411getInst().getApp(), str);
                     nD = str;
@@ -45,16 +44,16 @@ public class f {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> Rq() {
+    public static LinkedList<String> SY() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase Rp = Rp();
+        SQLiteDatabase SX = SX();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (Rp != null) {
+        if (SX != null) {
             try {
-                cursor2 = Rp.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = SX.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -67,17 +66,17 @@ public class f {
                         try {
                             TiebaStatic.printDBExceptionLog(exc, "ImDatabaseManager.getAllTables", new Object[0]);
                             exc.printStackTrace();
-                            w.b(cursor);
+                            com.baidu.adp.lib.util.o.b(cursor);
                             return linkedList;
                         } catch (Throwable th2) {
                             th = th2;
-                            w.b(cursor);
+                            com.baidu.adp.lib.util.o.b(cursor);
                             throw th;
                         }
                     } catch (Throwable th3) {
                         cursor = cursor2;
                         th = th3;
-                        w.b(cursor);
+                        com.baidu.adp.lib.util.o.b(cursor);
                         throw th;
                     }
                 }
@@ -89,24 +88,24 @@ public class f {
                 th = th4;
             }
         }
-        w.b(cursor2);
+        com.baidu.adp.lib.util.o.b(cursor2);
         return linkedList;
     }
 
-    public static void hc(String str) {
+    public static void hB(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.Rr().Rs();
-                Iterator<String> it = Rq().iterator();
+                g.SZ().Ta();
+                Iterator<String> it = SY().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.Rr().update("tb_message_center", contentValues, null, null);
+                            g.SZ().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.Rr().a(next, null, null);
+                            g.SZ().a(next, null, null);
                         }
                     }
                 }
@@ -115,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.Rr().endTransaction();
+            g.SZ().endTransaction();
         }
     }
 }

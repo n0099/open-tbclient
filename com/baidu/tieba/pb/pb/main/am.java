@@ -1,42 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.FileDownloader;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements com.baidu.adp.lib.e.c<View> {
-    final /* synthetic */ PbActivity bKU;
+public class am implements a.b {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: abg */
-    public View hk() {
-        return new PlayVoiceBnt(this.bKU.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: L */
-    public void k(View view) {
-        ((PlayVoiceBnt) view).reset();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: M */
-    public View l(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: N */
-    public View m(View view) {
-        ((PlayVoiceBnt) view).reset();
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.cbo.caB;
+        aVar2.dismiss();
+        if (com.baidu.tbadk.core.util.n.fl()) {
+            str = this.cbo.aPL;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.iP()) {
+                Activity pageActivity = this.cbo.getPageContext().getPageActivity();
+                str2 = this.cbo.aPL;
+                FileDownloader.download(pageActivity, str2, null, this.cbo.getPageContext().getString(i.C0057i.download_iqiyi_app));
+                return;
+            }
+            return;
+        }
+        this.cbo.showToast(com.baidu.tbadk.core.util.n.ty());
     }
 }

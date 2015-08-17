@@ -1,43 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.c.a;
 /* loaded from: classes.dex */
-class bf implements com.baidu.tieba.tbadkCore.location.j {
-    final /* synthetic */ WriteActivity cCQ;
+class bf implements a.InterfaceC0069a {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+        this.cUM = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void JX() {
-        com.baidu.tieba.write.editor.b bVar;
-        this.cCQ.showToast(com.baidu.tieba.t.no_network_guide);
-        bVar = this.cCQ.cCx;
-        bVar.setLocationInfoViewState(0);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void gh(String str) {
-        com.baidu.tieba.write.editor.b bVar;
-        WriteActivity writeActivity = this.cCQ;
-        if (StringUtils.isNull(str)) {
-            str = this.cCQ.getPageContext().getString(com.baidu.tieba.t.location_fail);
-        }
-        writeActivity.showToast(str);
-        bVar = this.cCQ.cCx;
-        bVar.setLocationInfoViewState(0);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        com.baidu.tieba.write.editor.b bVar;
-        if (aVar != null && !StringUtils.isNull(aVar.ape())) {
-            bVar = this.cCQ.cCx;
-            bVar.D(2, aVar.ape());
-            return;
-        }
-        gh(null);
+    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0069a
+    public void np() {
+        com.baidu.tbadk.editortools.j jVar;
+        this.cUM.bRT = null;
+        this.cUM.fZ(false);
+        jVar = this.cUM.cUo;
+        jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

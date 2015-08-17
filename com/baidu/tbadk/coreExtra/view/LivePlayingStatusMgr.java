@@ -5,18 +5,19 @@ import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class LivePlayingStatusMgr {
-    private static LivePlayingStatusMgr ago;
-    private ArrayList<SoftReference<LivePlayingImageView>> agq;
+    private static LivePlayingStatusMgr alv;
+    private ArrayList<SoftReference<LivePlayingImageView>> alx;
     private int gid;
-    private LivePlayingStatus agp = LivePlayingStatus.IDEL;
-    private final CustomMessageListener mCustomMessageListener = new aj(this, 2001161);
-    private final CustomMessageListener agr = new ak(this, 2001166);
-    private final Handler mHandler = new al(this);
+    private LivePlayingStatus alw = LivePlayingStatus.IDEL;
+    private final CustomMessageListener mCustomMessageListener = new u(this, CmdConfigCustom.CMD_LIVE_STATUS_CHANGE);
+    private final CustomMessageListener aly = new v(this, CmdConfigCustom.CMD_LIVE_CHAT_ROOM_EVENT);
+    private final Handler mHandler = new w(this);
 
     /* loaded from: classes.dex */
     public enum LivePlayingStatus {
@@ -26,7 +27,7 @@ public class LivePlayingStatusMgr {
         PAUSE,
         NO_PUBLISHER;
 
-        /* JADX DEBUG: Replace access to removed values field (agt) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (alA) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static LivePlayingStatus[] valuesCustom() {
             LivePlayingStatus[] valuesCustom = values();
@@ -38,32 +39,32 @@ public class LivePlayingStatusMgr {
     }
 
     private LivePlayingStatusMgr() {
-        this.agq = null;
+        this.alx = null;
         BdLog.addLogPackage("com.baidu.tbadk.coreExtra.view");
-        this.agq = new ArrayList<>();
+        this.alx = new ArrayList<>();
         MessageManager.getInstance().registerListener(this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.agr);
+        MessageManager.getInstance().registerListener(this.aly);
     }
 
-    public static synchronized LivePlayingStatusMgr xX() {
+    public static synchronized LivePlayingStatusMgr zg() {
         LivePlayingStatusMgr livePlayingStatusMgr;
         synchronized (LivePlayingStatusMgr.class) {
-            if (ago == null) {
-                ago = new LivePlayingStatusMgr();
+            if (alv == null) {
+                alv = new LivePlayingStatusMgr();
             }
-            livePlayingStatusMgr = ago;
+            livePlayingStatusMgr = alv;
         }
         return livePlayingStatusMgr;
     }
 
     public void a(LivePlayingImageView livePlayingImageView) {
         if (livePlayingImageView != null) {
-            this.agq.add(new SoftReference<>(livePlayingImageView));
+            this.alx.add(new SoftReference<>(livePlayingImageView));
         }
     }
 
     public void b(LivePlayingImageView livePlayingImageView) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.agq.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.alx.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView) && next.get() == livePlayingImageView) {
@@ -72,15 +73,15 @@ public class LivePlayingStatusMgr {
         }
     }
 
-    public LivePlayingStatus xY() {
-        return this.agp;
+    public LivePlayingStatus zh() {
+        return this.alw;
     }
 
     public int getGid() {
         return this.gid;
     }
 
-    public void xZ() {
+    public void zi() {
         a(0, LivePlayingStatus.IDEL);
     }
 
@@ -93,7 +94,7 @@ public class LivePlayingStatusMgr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LivePlayingStatus livePlayingStatus) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.agq.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.alx.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView)) {

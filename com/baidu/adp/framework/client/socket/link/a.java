@@ -18,12 +18,12 @@ class a implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        i iVar;
-        i iVar2;
-        iVar = BdSocketDaemonService.sCallBack;
-        if (iVar != null) {
-            iVar2 = BdSocketDaemonService.sCallBack;
-            iVar2.eO();
+        g gVar;
+        g gVar2;
+        gVar = BdSocketDaemonService.sCallBack;
+        if (gVar != null) {
+            gVar2 = BdSocketDaemonService.sCallBack;
+            gVar2.eP();
             return;
         }
         BdSocketLinkService.startService(false, "restart");

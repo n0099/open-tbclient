@@ -2,7 +2,6 @@ package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends CustomMessageListener {
@@ -18,8 +17,11 @@ public class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
-            this.this$0.TQ();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.this$0.bzU = null;
+            com.baidu.tieba.im.c.a.hh(0);
+            com.baidu.tieba.im.c.a.hi(0);
+            b.Vl().init();
         }
     }
 }

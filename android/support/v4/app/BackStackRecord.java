@@ -9,15 +9,6 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, Runnable {
-    static final int OP_ADD = 1;
-    static final int OP_ATTACH = 7;
-    static final int OP_DETACH = 6;
-    static final int OP_HIDE = 4;
-    static final int OP_NULL = 0;
-    static final int OP_REMOVE = 3;
-    static final int OP_REPLACE = 2;
-    static final int OP_SHOW = 5;
-    static final String TAG = "FragmentManager";
     boolean mAddToBackStack;
     int mBreadCrumbShortTitleRes;
     CharSequence mBreadCrumbShortTitleText;
@@ -40,7 +31,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class Op {
+    public static final class Op {
         int cmd;
         int enterAnim;
         int exitAnim;
@@ -426,13 +417,13 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public void bumpBackStackNesting(int i) {
         if (this.mAddToBackStack) {
             if (FragmentManagerImpl.DEBUG) {
-                Log.v(TAG, "Bump nesting in " + this + " by " + i);
+                Log.v("FragmentManager", "Bump nesting in " + this + " by " + i);
             }
             for (Op op = this.mHead; op != null; op = op.next) {
                 if (op.fragment != null) {
                     op.fragment.mBackStackNesting += i;
                     if (FragmentManagerImpl.DEBUG) {
-                        Log.v(TAG, "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
+                        Log.v("FragmentManager", "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
                     }
                 }
                 if (op.removed != null) {
@@ -440,7 +431,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         Fragment fragment = op.removed.get(size);
                         fragment.mBackStackNesting += i;
                         if (FragmentManagerImpl.DEBUG) {
-                            Log.v(TAG, "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
+                            Log.v("FragmentManager", "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
                         }
                     }
                 }
@@ -463,8 +454,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             throw new IllegalStateException("commit already called");
         }
         if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "Commit: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
+            Log.v("FragmentManager", "Commit: " + this);
+            dump("  ", null, new PrintWriter(new LogWriter("FragmentManager")), null);
         }
         this.mCommitted = true;
         if (this.mAddToBackStack) {
@@ -480,7 +471,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public void run() {
         Fragment fragment;
         if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "Run: " + this);
+            Log.v("FragmentManager", "Run: " + this);
         }
         if (this.mAddToBackStack && this.mIndex < 0) {
             throw new IllegalStateException("addToBackStack() called after commit()");
@@ -500,7 +491,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                         for (int i = 0; i < this.mManager.mAdded.size(); i++) {
                             Fragment fragment4 = this.mManager.mAdded.get(i);
                             if (FragmentManagerImpl.DEBUG) {
-                                Log.v(TAG, "OP_REPLACE: adding=" + fragment + " old=" + fragment4);
+                                Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment + " old=" + fragment4);
                             }
                             if (fragment == null || fragment4.mContainerId == fragment.mContainerId) {
                                 if (fragment4 == fragment) {
@@ -515,7 +506,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                                     if (this.mAddToBackStack) {
                                         fragment4.mBackStackNesting++;
                                         if (FragmentManagerImpl.DEBUG) {
-                                            Log.v(TAG, "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
+                                            Log.v("FragmentManager", "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
                                         }
                                     }
                                     this.mManager.removeFragment(fragment4, this.mTransition, this.mTransitionStyle);
@@ -569,8 +560,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
 
     public void popFromBackStack(boolean z) {
         if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "popFromBackStack: " + this);
-            dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
+            Log.v("FragmentManager", "popFromBackStack: " + this);
+            dump("  ", null, new PrintWriter(new LogWriter("FragmentManager")), null);
         }
         bumpBackStackNesting(-1);
         for (Op op = this.mTail; op != null; op = op.prev) {
@@ -637,14 +628,6 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
     public String getName() {
         return this.mName;
-    }
-
-    public int getTransition() {
-        return this.mTransition;
-    }
-
-    public int getTransitionStyle() {
-        return this.mTransitionStyle;
     }
 
     @Override // android.support.v4.app.FragmentTransaction

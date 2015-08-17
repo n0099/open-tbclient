@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
+import com.baidu.tieba.im.message.RequestSendPVTJMessage;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+public class bi implements a.b {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,25 +19,22 @@ public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
         this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.TE().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.Vl().e(imMessageCenterPojo);
+        if (z) {
+            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
+        }
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
-        if (list != null && list.size() != 0) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo.getMsg_type() == 11) {
-                    String content = commonMsgPojo.getContent();
-                    try {
-                        String optString = new JSONObject(content).optString("eventId");
-                        if (Info.kBaiduPIDValue.equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
-                        }
-                    } catch (JSONException e) {
-                        BdLog.detailException(e);
-                    }
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void e(String str, List<CommonMsgPojo> list) {
+        for (CommonMsgPojo commonMsgPojo : list) {
+            if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
+                RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
+                com.baidu.tieba.im.data.g a = com.baidu.tieba.im.util.h.a(commonMsgPojo);
+                if (a != null) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bsP, "task_id", a.bsQ);
                 }
             }
         }

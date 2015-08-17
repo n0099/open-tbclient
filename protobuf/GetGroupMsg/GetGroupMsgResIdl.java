@@ -26,9 +26,12 @@ public final class GetGroupMsgResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GetGroupMsgResIdl> {
+    public static final class Builder extends Message.Builder<GetGroupMsgResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(GetGroupMsgResIdl getGroupMsgResIdl) {
             super(getGroupMsgResIdl);

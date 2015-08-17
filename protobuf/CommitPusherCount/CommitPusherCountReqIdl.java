@@ -21,8 +21,11 @@ public final class CommitPusherCountReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitPusherCountReqIdl> {
+    public static final class Builder extends Message.Builder<CommitPusherCountReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(CommitPusherCountReqIdl commitPusherCountReqIdl) {
             super(commitPusherCountReqIdl);

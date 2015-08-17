@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
 /* loaded from: classes.dex */
-public class RequestPersonalMsgReadMessage extends TbSocketMessage implements com.baidu.adp.framework.client.socket.a {
+public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a {
     private long hasSentMsgId;
     private long toUid;
 
@@ -19,7 +20,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements co
     protected Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = Integer.valueOf(com.baidu.tieba.im.c.a.bpq);
+            builder.groupId = Integer.valueOf(com.baidu.tieba.im.c.a.bDd);
             builder.msgType = 22;
             builder.msgId = Long.valueOf(this.hasSentMsgId);
             builder.toUid = Long.valueOf(this.toUid);

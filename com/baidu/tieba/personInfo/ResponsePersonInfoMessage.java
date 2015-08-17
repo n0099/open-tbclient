@@ -1,6 +1,7 @@
 package com.baidu.tieba.personInfo;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 import tbclient.Anti;
 import tbclient.PostInfoList;
@@ -46,6 +47,6 @@ public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
     }
 
     public ResponsePersonInfoMessage() {
-        super(2001235);
+        super(CmdConfigCustom.CMD_CACHE_PERSONINFO);
     }
 }

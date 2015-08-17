@@ -1,27 +1,27 @@
 package com.baidu.adp.newwidget.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f BZ = new f();
+    public static f BJ = new f();
 
     private f() {
     }
 
-    public static f ks() {
-        return BZ;
+    public static f kl() {
+        return BJ;
     }
 
-    public a ak(int i) {
+    public a am(int i) {
         switch (i) {
             case 0:
                 return new c();
             case 1:
-                return new l();
+                return new k();
             case 2:
                 return new h();
             case 3:
-                return new n();
-            case 4:
                 return new m();
+            case 4:
+                return new l();
             case 5:
                 return new g();
             default:

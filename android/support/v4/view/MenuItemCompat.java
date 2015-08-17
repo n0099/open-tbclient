@@ -14,7 +14,6 @@ public class MenuItemCompat {
     public static final int SHOW_AS_ACTION_IF_ROOM = 1;
     public static final int SHOW_AS_ACTION_NEVER = 0;
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
-    private static final String TAG = "MenuItemCompat";
 
     /* loaded from: classes.dex */
     interface MenuVersionImpl {
@@ -43,7 +42,7 @@ public class MenuItemCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseMenuVersionImpl implements MenuVersionImpl {
+    static class BaseMenuVersionImpl implements MenuVersionImpl {
         BaseMenuVersionImpl() {
         }
 
@@ -88,7 +87,7 @@ public class MenuItemCompat {
     }
 
     /* loaded from: classes.dex */
-    class HoneycombMenuVersionImpl implements MenuVersionImpl {
+    static class HoneycombMenuVersionImpl implements MenuVersionImpl {
         HoneycombMenuVersionImpl() {
         }
 
@@ -134,7 +133,7 @@ public class MenuItemCompat {
     }
 
     /* loaded from: classes.dex */
-    class IcsMenuVersionImpl extends HoneycombMenuVersionImpl {
+    static class IcsMenuVersionImpl extends HoneycombMenuVersionImpl {
         IcsMenuVersionImpl() {
         }
 
@@ -156,15 +155,6 @@ public class MenuItemCompat {
         @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
         public MenuItem setOnActionExpandListener(MenuItem menuItem, final OnActionExpandListener onActionExpandListener) {
             return onActionExpandListener == null ? MenuItemCompatIcs.setOnActionExpandListener(menuItem, null) : MenuItemCompatIcs.setOnActionExpandListener(menuItem, new MenuItemCompatIcs.SupportActionExpandProxy() { // from class: android.support.v4.view.MenuItemCompat.IcsMenuVersionImpl.1
-                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
-                public boolean onMenuItemActionExpand(MenuItem menuItem2) {
-                    return onActionExpandListener.onMenuItemActionExpand(menuItem2);
-                }
-
-                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
-                public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
-                    return onActionExpandListener.onMenuItemActionCollapse(menuItem2);
-                }
             });
         }
     }
@@ -204,7 +194,7 @@ public class MenuItemCompat {
         if (menuItem instanceof SupportMenuItem) {
             return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
         }
-        Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
+        Log.w("MenuItemCompat", "setActionProvider: item does not implement SupportMenuItem; ignoring");
         return menuItem;
     }
 
@@ -212,7 +202,7 @@ public class MenuItemCompat {
         if (menuItem instanceof SupportMenuItem) {
             return ((SupportMenuItem) menuItem).getSupportActionProvider();
         }
-        Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
+        Log.w("MenuItemCompat", "getActionProvider: item does not implement SupportMenuItem; returning null");
         return null;
     }
 

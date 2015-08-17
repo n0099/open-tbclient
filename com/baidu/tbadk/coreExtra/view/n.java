@@ -1,16 +1,18 @@
 package com.baidu.tbadk.coreExtra.view;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ j afv;
+public class n implements View.OnClickListener {
+    final /* synthetic */ l alp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(j jVar) {
-        this.afv = jVar;
+    public n(l lVar) {
+        this.alp = lVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.alp.yZ();
     }
 }

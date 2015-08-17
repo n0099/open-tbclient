@@ -1,24 +1,18 @@
 package com.baidu.tieba.screenlocknotify;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ f cdh;
+public class h extends Handler {
+    final /* synthetic */ g cuF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, int i) {
-        super(i);
-        this.cdh = fVar;
+    public h(g gVar) {
+        this.cuF = gVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016004) {
-            this.cdh.d(customResponsedMessage);
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
     }
 }

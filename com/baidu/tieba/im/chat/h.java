@@ -1,61 +1,38 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.FrameLayout;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ AbsMsgImageActivity aZm;
-    byte[] mData;
-    String mUrl;
+public class h implements com.baidu.tbadk.editortools.b {
+    final /* synthetic */ AbsMsglistView bnk;
 
-    public h(AbsMsgImageActivity absMsgImageActivity, String str, byte[] bArr) {
-        this.aZm = absMsgImageActivity;
-        this.mUrl = null;
-        this.mData = null;
-        this.mUrl = str;
-        this.mData = bArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(AbsMsglistView absMsglistView) {
+        this.bnk = absMsglistView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.o.a(this.mUrl, this.mData, this.aZm.getPageContext().getPageActivity())) {
-            case -2:
-                return com.baidu.tbadk.core.util.o.sr();
-            case -1:
-            default:
-                return this.aZm.getPageContext().getString(com.baidu.tieba.t.save_error);
-            case 0:
-                return this.aZm.getPageContext().getString(com.baidu.tieba.t.save_image_to_album);
+    @Override // com.baidu.tbadk.editortools.b
+    public void a(com.baidu.tbadk.editortools.a aVar) {
+        if (aVar != null) {
+            if (aVar.code == 24) {
+                if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.f)) {
+                    com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) aVar.data;
+                    EmotionGroupType wu = fVar.wu();
+                    String name = fVar.getName();
+                    if (wu != EmotionGroupType.LOCAL && name != null) {
+                        this.bnk.mContext.sendBigEmotionMsg(fVar);
+                        this.bnk.onSendEmotion();
+                    }
+                }
+            } else if (aVar.code == 8) {
+                this.bnk.mContext.sendTextMsg();
+            } else if (aVar.code == 4) {
+                if (aVar.data != null && (aVar.data instanceof String)) {
+                    this.bnk.mTextContent = (String) aVar.data;
+                }
+            } else if (aVar.code == 14) {
+                this.bnk.mContext.openImageView();
+            }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        FrameLayout frameLayout;
-        super.onPostExecute((h) str);
-        this.aZm.aYX = null;
-        frameLayout = this.aZm.aYY;
-        frameLayout.setClickable(true);
-        this.aZm.showToast(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        FrameLayout frameLayout;
-        this.aZm.aYX = null;
-        frameLayout = this.aZm.aYY;
-        frameLayout.setClickable(true);
-        super.cancel(true);
     }
 }

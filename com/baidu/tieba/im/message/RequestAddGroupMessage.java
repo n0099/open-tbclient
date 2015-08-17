@@ -117,10 +117,10 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         builder.intro = getIntro();
         builder.portrait = getPortrait();
         builder.position = getPosition();
-        builder.lng = Double.valueOf(com.baidu.adp.lib.g.c.a(getLng(), 0.0d));
+        builder.lng = Double.valueOf(com.baidu.adp.lib.g.b.a(getLng(), 0.0d));
         builder.groupType = Integer.valueOf(getGroupType());
         builder.flag = Integer.valueOf(getFlag());
-        builder.lat = Double.valueOf(com.baidu.adp.lib.g.c.a(getLat(), 0.0d));
+        builder.lat = Double.valueOf(com.baidu.adp.lib.g.b.a(getLat(), 0.0d));
         builder.forumId = Integer.valueOf(getForumId());
         AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
         builder2.data = builder.build(false);

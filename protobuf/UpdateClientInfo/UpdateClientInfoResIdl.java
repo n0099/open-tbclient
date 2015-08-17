@@ -26,9 +26,12 @@ public final class UpdateClientInfoResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateClientInfoResIdl> {
+    public static final class Builder extends Message.Builder<UpdateClientInfoResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(UpdateClientInfoResIdl updateClientInfoResIdl) {
             super(updateClientInfoResIdl);

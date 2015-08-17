@@ -1,13 +1,21 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bf extends be<MsgleftView> {
-    final /* synthetic */ MsgLeftViewItemAdapter bak;
+public class bf implements View.OnLongClickListener {
+    final /* synthetic */ MsgleftView boI;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bf(MsgLeftViewItemAdapter msgLeftViewItemAdapter, View view, MsgleftView msgleftView) {
-        super(view, msgleftView);
-        this.bak = msgLeftViewItemAdapter;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bf(MsgleftView msgleftView) {
+        this.boI = msgleftView;
+    }
+
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        TouchType touchType;
+        touchType = this.boI.boG;
+        touchType.set(true);
+        return true;
     }
 }

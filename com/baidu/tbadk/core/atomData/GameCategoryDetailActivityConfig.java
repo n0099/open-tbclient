@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class GameCategoryDetailActivityConfig extends c {
+public class GameCategoryDetailActivityConfig extends IntentConfig {
     public static final String CATEGORY_ID = "category_id";
     public static final String CATEGORY_TITLE = "category_title";
 

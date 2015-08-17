@@ -2,32 +2,27 @@ package com.baidu.tieba.signall;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class SignAllForumStatic {
-    private static com.baidu.tbadk.b.d bIo;
-    private static View.OnClickListener mClickListener = new ab();
+    private static com.baidu.tbadk.b.d bYi;
+    private static View.OnClickListener mClickListener = new w();
     private static Context mContext;
 
     static {
-        Ah();
-        ac acVar = new ac(2009501);
-        acVar.setPriority(3);
-        MessageManager.getInstance().registerListener(acVar);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2009503, null));
-        if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
-            TiebaStatic.eventStat(BdBaseApplication.getInst().getApp(), "plugin_signall_static", null);
-        }
+        BY();
+        x xVar = new x(CmdConfigCustom.DISCOVER_ADD_VIEW);
+        xVar.setPriority(3);
+        MessageManager.getInstance().registerListener(xVar);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DISCOVER_NEED_ADD_VIEW, null));
     }
 
-    private static void Ah() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010030, new ad());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+    private static void BY() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new y());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

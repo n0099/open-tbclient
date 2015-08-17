@@ -1,44 +1,41 @@
 package com.baidu.adp.widget.ListView;
 
-import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends DataSetObserver {
-    final /* synthetic */ g Ht;
+public class h implements Runnable {
+    final /* synthetic */ BdListView HU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.Ht = gVar;
+    public h(BdListView bdListView) {
+        this.HU = bdListView;
     }
 
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        DataSetObserver dataSetObserver;
-        i iVar;
-        i iVar2;
-        DataSetObserver dataSetObserver2;
-        super.onChanged();
-        dataSetObserver = this.Ht.mDataSetObserver;
-        if (dataSetObserver != null) {
-            dataSetObserver2 = this.Ht.mDataSetObserver;
-            dataSetObserver2.onChanged();
+    @Override // java.lang.Runnable
+    public void run() {
+        int childCount = this.HU.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            refreshImage(this.HU.getChildAt(i));
         }
-        iVar = this.Ht.Hs;
-        if (iVar != null) {
-            iVar2 = this.Ht.Hs;
-            iVar2.nm();
+        com.baidu.adp.base.k A = com.baidu.adp.base.l.A(this.HU.getContext());
+        if (A != null) {
+            A.onPreLoad(this.HU);
         }
     }
 
-    @Override // android.database.DataSetObserver
-    public void onInvalidated() {
-        DataSetObserver dataSetObserver;
-        DataSetObserver dataSetObserver2;
-        super.onInvalidated();
-        dataSetObserver = this.Ht.mDataSetObserver;
-        if (dataSetObserver != null) {
-            dataSetObserver2 = this.Ht.mDataSetObserver;
-            dataSetObserver2.onInvalidated();
+    private void refreshImage(View view) {
+        if (view != null) {
+            if (view instanceof com.baidu.adp.newwidget.a.i) {
+                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            }
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    refreshImage(viewGroup.getChildAt(i));
+                }
+            }
         }
     }
 }

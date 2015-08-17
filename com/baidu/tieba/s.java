@@ -1,7 +1,26 @@
 package com.baidu.tieba;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s {
-    public static final int baidu_protocol = 2131034112;
-    public static final int browser_tnconfig = 2131034113;
-    public static final int zeus_page_error = 2131034114;
+public class s implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        this.this$0.aDo.FH();
+        UpdateDialog updateDialog = this.this$0;
+        z = this.this$0.aDj;
+        z2 = this.this$0.aDk;
+        z3 = this.this$0.aDl;
+        updateDialog.b(z, z2, z3);
+    }
 }

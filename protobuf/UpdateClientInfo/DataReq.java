@@ -118,7 +118,7 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public String bduss;
         public String device;
         public Integer groupId;
@@ -130,6 +130,9 @@ public final class DataReq extends Message {
         public ByteString secretKey;
         public Integer unread_msg;
         public Integer width;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

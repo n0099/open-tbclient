@@ -1,20 +1,29 @@
 package com.baidu.tieba.write.album;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends BroadcastReceiver {
-    final /* synthetic */ q this$0;
+public class s implements View.OnClickListener {
+    final /* synthetic */ r cQJ;
+    private final /* synthetic */ ImageFileInfo cQK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.this$0 = qVar;
+    public s(r rVar, ImageFileInfo imageFileInfo) {
+        this.cQJ = rVar;
+        this.cQK = imageFileInfo;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.X(intent);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlbumActivity albumActivity;
+        AlbumActivity albumActivity2;
+        AlbumActivity albumActivity3;
+        albumActivity = this.cQJ.cPQ;
+        albumActivity.d(this.cQK);
+        albumActivity2 = this.cQJ.cPQ;
+        albumActivity2.c(this.cQK, false);
+        albumActivity3 = this.cQJ.cPQ;
+        albumActivity3.d(this.cQK, false);
     }
 }

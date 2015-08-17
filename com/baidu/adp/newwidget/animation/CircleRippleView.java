@@ -3,11 +3,11 @@ package com.baidu.adp.newwidget.animation;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
@@ -16,7 +16,6 @@ import com.baidu.adp.R;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class CircleRippleView extends FrameLayout {
-    private static final long RIPPLE_ANIMATION_UNIT_TIME = 650;
     private AnimationSet[] mAnimationSetList;
     private Drawable mCircleImage;
     private int mCircleSize;
@@ -90,44 +89,33 @@ public class CircleRippleView extends FrameLayout {
         animationSet.setDuration(1950L);
         animationSet.setFillEnabled(true);
         animationSet.setFillBefore(true);
-        animationSet.setStartOffset(RIPPLE_ANIMATION_UNIT_TIME * i);
+        animationSet.setStartOffset(650 * i);
         animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
         animationSet.setAnimationListener(new a(this, imageView));
         return animationSet;
     }
 
-    public void startAnimation() {
-        if (this.mRippleBitmapSoftRef == null) {
-            loadRippleBitmap();
-            if (this.mRippleBitmapSoftRef == null) {
-                return;
-            }
-        }
-        Bitmap bitmap = this.mRippleBitmapSoftRef.get();
-        if (bitmap != null) {
-            for (int i = 0; i < this.mImageViewList.length; i++) {
-                this.mImageViewList[i].setImageBitmap(bitmap);
-                this.mImageViewList[i].setVisibility(0);
-                this.mImageViewList[i].setAnimation(this.mAnimationSetList[i]);
-                this.mImageViewList[i].startAnimation(this.mAnimationSetList[i]);
-            }
-        }
-    }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a implements Animation.AnimationListener {
+        private ImageView mImageView;
 
-    public void stopAnimation() {
-        for (int i = 0; i < this.mImageViewList.length; i++) {
-            this.mImageViewList[i].setImageDrawable(null);
-            this.mImageViewList[i].setVisibility(8);
-            this.mImageViewList[i].clearAnimation();
-            if (this.mRippleBitmapSoftRef != null) {
-                this.mRippleBitmapSoftRef = null;
-            }
+        public a(CircleRippleView circleRippleView, ImageView imageView) {
+            this.mImageView = imageView;
         }
-    }
 
-    private void loadRippleBitmap() {
-        if (this.mCircleImage != null && (this.mCircleImage instanceof BitmapDrawable)) {
-            this.mRippleBitmapSoftRef = new SoftReference<>(((BitmapDrawable) this.mCircleImage).getBitmap());
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            this.mImageView.setVisibility(8);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            animation.setStartOffset(0L);
         }
     }
 }

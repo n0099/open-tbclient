@@ -15,9 +15,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ListFragment extends Fragment {
-    static final int INTERNAL_EMPTY_ID = 16711681;
-    static final int INTERNAL_LIST_CONTAINER_ID = 16711683;
-    static final int INTERNAL_PROGRESS_CONTAINER_ID = 16711682;
     ListAdapter mAdapter;
     CharSequence mEmptyText;
     View mEmptyView;
@@ -45,16 +42,16 @@ public class ListFragment extends Fragment {
         FragmentActivity activity = getActivity();
         FrameLayout frameLayout = new FrameLayout(activity);
         LinearLayout linearLayout = new LinearLayout(activity);
-        linearLayout.setId(INTERNAL_PROGRESS_CONTAINER_ID);
+        linearLayout.setId(16711682);
         linearLayout.setOrientation(1);
         linearLayout.setVisibility(8);
         linearLayout.setGravity(17);
         linearLayout.addView(new ProgressBar(activity, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout frameLayout2 = new FrameLayout(activity);
-        frameLayout2.setId(INTERNAL_LIST_CONTAINER_ID);
+        frameLayout2.setId(16711683);
         TextView textView = new TextView(getActivity());
-        textView.setId(INTERNAL_EMPTY_ID);
+        textView.setId(16711681);
         textView.setGravity(17);
         frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
         ListView listView = new ListView(getActivity());
@@ -182,14 +179,14 @@ public class ListFragment extends Fragment {
             if (view instanceof ListView) {
                 this.mList = (ListView) view;
             } else {
-                this.mStandardEmptyView = (TextView) view.findViewById(INTERNAL_EMPTY_ID);
+                this.mStandardEmptyView = (TextView) view.findViewById(16711681);
                 if (this.mStandardEmptyView == null) {
                     this.mEmptyView = view.findViewById(16908292);
                 } else {
                     this.mStandardEmptyView.setVisibility(8);
                 }
-                this.mProgressContainer = view.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
-                this.mListContainer = view.findViewById(INTERNAL_LIST_CONTAINER_ID);
+                this.mProgressContainer = view.findViewById(16711682);
+                this.mListContainer = view.findViewById(16711683);
                 View findViewById = view.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {

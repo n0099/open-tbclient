@@ -12,7 +12,7 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private transient f aiW;
+    private transient c aod;
     private String check;
     private String description;
     private int errorCode;
@@ -47,7 +47,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aiW = null;
+        this.aod = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -61,14 +61,14 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aiW = null;
+        this.aod = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, f fVar) {
+    public DownloadData(String str, String str2, String str3, c cVar) {
         this.status = 5;
         this.type = 10;
         this.length = 0L;
@@ -76,13 +76,13 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aiW = null;
+        this.aod = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aiW = fVar;
+        this.aod = cVar;
         this.status = 5;
     }
 
@@ -182,12 +182,12 @@ public class DownloadData implements Serializable {
         this.check = str;
     }
 
-    public f getCallback() {
-        return this.aiW;
+    public c getCallback() {
+        return this.aod;
     }
 
-    public void setCallback(f fVar) {
-        this.aiW = fVar;
+    public void setCallback(c cVar) {
+        this.aod = cVar;
     }
 
     public String getStatusMsg() {
@@ -220,5 +220,12 @@ public class DownloadData implements Serializable {
 
     public void setErrorCode(int i) {
         this.errorCode = i;
+    }
+
+    public int getProcess() {
+        if (getLength() > 0 && getSize() > 0) {
+            return (int) ((getLength() * 100) / getSize());
+        }
+        return 0;
     }
 }

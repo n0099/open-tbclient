@@ -1,18 +1,14 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
-public class au implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bSO;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(PersonChangeActivity personChangeActivity) {
-        this.bSO = personChangeActivity;
+public class au extends d {
+    public au(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bSO.aev();
+    @Override // com.baidu.tieba.person.d
+    protected BaseFragment afQ() {
+        return new av();
     }
 }

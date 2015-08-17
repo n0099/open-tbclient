@@ -1,35 +1,54 @@
 package com.baidu.tbadk.util;
+
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean DW() {
-        return DX();
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
     }
 
-    public static boolean DX() {
-        return com.baidu.tbadk.core.util.o.fo() && com.baidu.adp.gif.f.fn();
-    }
-
-    public static boolean fe(String str) {
-        if (str == null) {
-            return false;
+    public static void a(Object obj, boolean z, boolean z2) {
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkCoreApplication.getClientId();
+                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                    builder.subapp_type = TbConfig.getSubappType();
+                }
+                if (!TbadkCoreApplication.m411getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkCoreApplication.m411getInst().getImei();
+                builder.from = TbadkCoreApplication.getFrom();
+                builder.cuid = TbadkCoreApplication.m411getInst().getCuid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z) {
+                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
+                }
+                if (z2) {
+                    builder.tbs = TbadkCoreApplication.m411getInst().getTbs();
+                }
+                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
+            }
         }
-        if (ff(str)) {
-            return true;
-        }
-        int indexOf = str.indexOf("imgsrc");
-        if (indexOf <= 0 || indexOf >= 20) {
-            return (com.baidu.adp.lib.b.f.gD().ai("portrait_cdn_open") != 0) && fg(str);
-        }
-        return true;
-    }
-
-    public static boolean ff(String str) {
-        int indexOf;
-        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
-    }
-
-    public static boolean fg(String str) {
-        int indexOf;
-        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }
 }

@@ -2,27 +2,37 @@ package com.baidu.tieba.pb.chosen.a;
 
 import android.content.Context;
 import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.n;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.o;
+import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private List<com.baidu.tieba.pb.d.a.e> list = new ArrayList();
+    private List<com.baidu.tieba.pb.c.a.d> list = new ArrayList();
     private int maxWidth;
+    private int padding;
+
+    /* renamed from: com.baidu.tieba.pb.chosen.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0066a {
+        TbImageView bZj;
+    }
 
     public a(Context context) {
         this.maxWidth = 0;
+        this.padding = 0;
         this.context = context;
-        this.maxWidth = n.M(context) - (((int) context.getResources().getDimension(o.ds30)) * 2);
+        this.maxWidth = com.baidu.adp.lib.util.k.K(context) - (((int) context.getResources().getDimension(i.d.ds30)) * 2);
+        this.padding = context.getResources().getDimensionPixelSize(i.d.ds32);
     }
 
     @Override // android.widget.Adapter
@@ -33,7 +43,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void aS(List<com.baidu.tieba.pb.d.a.e> list) {
+    public void aW(List<com.baidu.tieba.pb.c.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -42,8 +52,8 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: hu */
-    public com.baidu.tieba.pb.d.a.e getItem(int i) {
+    /* renamed from: il */
+    public com.baidu.tieba.pb.c.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -72,14 +82,14 @@ public class a extends BaseAdapter {
         if (i < 0 || i >= this.list.size()) {
             return super.getItemViewType(i);
         }
-        com.baidu.tieba.pb.d.a.e eVar = this.list.get(i);
-        if (eVar == null) {
+        com.baidu.tieba.pb.c.a.d dVar = this.list.get(i);
+        if (dVar == null) {
             return super.getItemViewType(i);
         }
-        if (eVar.getType() == 0) {
+        if (dVar.getType() == 0) {
             return 0;
         }
-        if (eVar.getType() == 3) {
+        if (dVar.getType() == 3) {
             return 1;
         }
         return super.getItemViewType(i);
@@ -89,53 +99,78 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            return c(i, view);
+            return d(i, view);
         }
         if (itemViewType != 1) {
             return null;
         }
-        return b(i, view);
-    }
-
-    private View b(int i, View view) {
-        TbImageView tbImageView;
-        if (view instanceof TbImageView) {
-            tbImageView = (TbImageView) view;
-        } else {
-            tbImageView = new TbImageView(this.context);
-        }
-        com.baidu.tieba.pb.d.a.e item = getItem(i);
-        if (item instanceof com.baidu.tieba.pb.d.a.f) {
-            com.baidu.tieba.pb.d.a.f fVar = (com.baidu.tieba.pb.d.a.f) item;
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            int i2 = this.maxWidth;
-            int hJ = fVar.hJ(i2);
-            if (layoutParams == null) {
-                layoutParams = new AbsListView.LayoutParams(i2, hJ);
-            } else {
-                layoutParams.height = hJ;
-                layoutParams.width = i2;
-            }
-            tbImageView.setLayoutParams(layoutParams);
-            tbImageView.c(fVar.getSrc(), 17, false);
-        }
-        return tbImageView;
+        return c(i, view);
     }
 
     private View c(int i, View view) {
+        C0066a c0066a;
+        if (view == null || !(view.getTag() instanceof C0066a)) {
+            view = LayoutInflater.from(this.context).inflate(i.g.chosen_pb_image_item, (ViewGroup) null);
+            c0066a = new C0066a();
+            c0066a.bZj = (TbImageView) view.findViewById(i.f.pb_chosen_list_image);
+            view.setTag(c0066a);
+        } else {
+            c0066a = (C0066a) view.getTag();
+        }
+        com.baidu.tieba.pb.c.a.d item = getItem(i);
+        if (item instanceof com.baidu.tieba.pb.c.a.e) {
+            com.baidu.tieba.pb.c.a.e eVar = (com.baidu.tieba.pb.c.a.e) item;
+            ViewGroup.LayoutParams layoutParams = c0066a.bZj.getLayoutParams();
+            int i2 = this.maxWidth;
+            int iD = eVar.iD(i2);
+            if (layoutParams == null) {
+                layoutParams = new AbsListView.LayoutParams(i2, iD);
+            } else {
+                layoutParams.height = iD;
+                layoutParams.width = i2;
+            }
+            c0066a.bZj.setLayoutParams(layoutParams);
+            c0066a.bZj.d(eVar.getSrc(), 17, false);
+        }
+        return view;
+    }
+
+    private View d(int i, View view) {
         TextView textView;
         if (view instanceof TextView) {
             textView = (TextView) view;
         } else {
             textView = new TextView(this.context);
-            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(o.fontsize32));
+            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(i.d.fontsize32));
             textView.setLineSpacing(0.0f, 1.2f);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setPadding(this.padding, 0, this.padding, 0);
         }
-        ay.b(textView, com.baidu.tieba.n.cp_cont_b, 1);
-        com.baidu.tieba.pb.d.a.e item = getItem(i);
-        if (item instanceof com.baidu.tieba.pb.d.a.h) {
-            textView.setText(((com.baidu.tieba.pb.d.a.h) item).adN());
+        com.baidu.tieba.pb.c.a.d item = getItem(i);
+        if (item instanceof com.baidu.tieba.pb.c.a.g) {
+            com.baidu.tieba.pb.c.a.g gVar = (com.baidu.tieba.pb.c.a.g) item;
+            textView.setText(gVar.afA());
+            switch (gVar.afC()) {
+                case 1:
+                    textView.setGravity(17);
+                    break;
+                case 2:
+                    textView.setGravity(5);
+                    break;
+                default:
+                    textView.setGravity(3);
+                    break;
+            }
+            if (!StringUtils.isNull(gVar.afD())) {
+                if (!al.a(textView, gVar.afD())) {
+                    al.b(textView, i.c.cp_cont_b, 1);
+                }
+            } else {
+                al.b(textView, i.c.cp_cont_b, 1);
+            }
+            if (gVar.getTextSize() > 0) {
+                textView.setTextSize(0, gVar.getTextSize());
+            }
         }
         return textView;
     }

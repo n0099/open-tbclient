@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 /* loaded from: classes.dex */
-public class i {
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, c cVar) {
-        a.a(groupMsgData, imMessageCenterPojo, cVar, new j(), false);
+class i implements a.c {
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
+    public boolean hh(String str) {
+        return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(1) && str.equals(ChatStatusManager.getInst().getCurId(1));
     }
 }

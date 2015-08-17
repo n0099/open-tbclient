@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message.chat;
 
-import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
@@ -19,7 +19,7 @@ public class OfficialChatMessage extends ChatMessage {
             builder.toUid = Long.valueOf(getToUserId());
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
-            if (c.c(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
+            if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
                 userType = getUserInfo().getUserType();
             } else {
                 userType = getToUserInfo().getUserType();

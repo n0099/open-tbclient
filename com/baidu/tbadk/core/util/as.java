@@ -1,38 +1,82 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
-public class as implements Runnable {
-    final /* synthetic */ aq VI;
-    private final /* synthetic */ String VJ;
-    private final /* synthetic */ int VK;
-    private final /* synthetic */ String VL;
+public class as {
+    private static final char[] yT = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(aq aqVar, String str, int i, String str2) {
-        this.VI = aqVar;
-        this.VJ = str;
-        this.VK = i;
-        this.VL = str2;
+    public static String b(PackageInfo packageInfo) {
+        long j = 0;
+        String c = c(packageInfo);
+        if (c == null || c.length() < 32) {
+            return "-1";
+        }
+        String substring = c.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
+        }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        File ts;
-        boolean c;
-        boolean cg;
-        ts = this.VI.ts();
-        c = this.VI.c(ts, this.VJ);
-        if (c) {
-            this.VI.q(ts);
-            cg = this.VI.cg(this.VK);
-            if (cg) {
-                this.VI.tq();
-                return;
+    private static String c(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
+            return null;
+        }
+        try {
+            return com.baidu.adp.lib.util.t.B(packageInfo.signatures[0].toCharsString().getBytes());
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
+    public static String P(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr[i] = yT[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = yT[b & 15];
+            }
+            return new String(cArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String d(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.t.e(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
         }
-        this.VI.tu();
-        this.VI.d(this.VL, this.VJ, this.VK);
+        return null;
+    }
+
+    public static String dc(String str) {
+        return com.baidu.adp.lib.util.t.toMd5(str);
     }
 }

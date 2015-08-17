@@ -1,42 +1,27 @@
 package com.baidu.tieba.a;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<Object, Object, AccountData> {
-    private final b bGJ;
-    private final String mAccount;
-    private final String mPassword;
+public class c implements a.InterfaceC0040a {
+    final /* synthetic */ b.a bWG;
 
-    public c(String str, String str2, b bVar) {
-        this.mAccount = str;
-        this.mPassword = str2;
-        this.bGJ = bVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b.a aVar) {
+        this.bWG = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public AccountData doInBackground(Object... objArr) {
-        AccountData aR;
-        aR = a.aR(this.mAccount, this.mPassword);
-        return aR;
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void cb(String str) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: m */
-    public void onPostExecute(AccountData accountData) {
-        super.onPostExecute(accountData);
-        if (this.bGJ != null) {
-            if (accountData != null) {
-                this.bGJ.a(accountData);
-            } else {
-                this.bGJ.fp(this.mAccount);
-            }
-        }
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void a(AccountData accountData) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void c(String str, int i, String str2) {
     }
 }

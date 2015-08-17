@@ -4,16 +4,17 @@ import android.widget.ImageView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity bQT;
+    final /* synthetic */ BasePersonInfoActivity chw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BasePersonInfoActivity basePersonInfoActivity, int i) {
         super(i);
-        this.bQT = basePersonInfoActivity;
+        this.chw = basePersonInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,24 +29,24 @@ public class a extends HttpMessageListener {
         int i3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int adX = this.bQT.adX();
-                iArr = BasePersonInfoActivity.bof;
-                i = this.bQT.bnX;
-                com.baidu.tbadk.core.a.j.l(adX, iArr[i]);
-                imageView = this.bQT.bnZ;
-                iArr2 = BasePersonInfoActivity.bod;
-                i2 = this.bQT.bnX;
-                com.baidu.tbadk.core.util.ay.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.bQT;
-                TbPageContext pageContext = this.bQT.getPageContext();
-                iArr3 = BasePersonInfoActivity.boe;
-                i3 = this.bQT.bnX;
-                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), com.baidu.tieba.p.icon_toast_info);
+                int afO = this.chw.afO();
+                iArr = BasePersonInfoActivity.bBS;
+                i = this.chw.bBK;
+                com.baidu.tbadk.core.a.h.w(afO, iArr[i]);
+                imageView = this.chw.bBM;
+                iArr2 = BasePersonInfoActivity.bBQ;
+                i2 = this.chw.bBK;
+                com.baidu.tbadk.core.util.al.c(imageView, iArr2[i2]);
+                BasePersonInfoActivity basePersonInfoActivity = this.chw;
+                TbPageContext pageContext = this.chw.getPageContext();
+                iArr3 = BasePersonInfoActivity.bBR;
+                i3 = this.chw.bBK;
+                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), i.e.icon_toast_info);
                 return;
             }
-            this.bQT.showToast(httpResponsedMessage.getErrorString());
+            this.chw.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.bQT.showToast(this.bQT.getPageContext().getString(com.baidu.tieba.t.neterror));
+        this.chw.showToast(this.chw.getPageContext().getString(i.C0057i.neterror));
     }
 }

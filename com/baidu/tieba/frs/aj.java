@@ -1,17 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-class aj implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsActivity.class);
-            customMessage.getData().startActivity();
+class aj extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3) {
+                FrsActivityStatic.aVt = true;
+            } else if (intValue == 2) {
+                FrsActivityStatic.aVu = true;
+            }
+            boolean z = intValue == 3;
+            boolean LE = FrsActivityStatic.LE();
+            if (z && LE) {
+                FrsActivityStatic.aVs = false;
+            } else {
+                FrsActivityStatic.aVs = true;
+            }
         }
-        return null;
     }
 }

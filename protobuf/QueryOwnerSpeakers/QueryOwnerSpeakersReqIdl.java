@@ -21,8 +21,11 @@ public final class QueryOwnerSpeakersReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryOwnerSpeakersReqIdl> {
+    public static final class Builder extends Message.Builder<QueryOwnerSpeakersReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryOwnerSpeakersReqIdl queryOwnerSpeakersReqIdl) {
             super(queryOwnerSpeakersReqIdl);

@@ -24,7 +24,7 @@ public class TrafficStatsCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
+    static class BaseTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
         private ThreadLocal<SocketTags> mThreadSocketTags = new ThreadLocal<SocketTags>() { // from class: android.support.v4.net.TrafficStatsCompat.BaseTrafficStatsCompatImpl.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -35,9 +35,9 @@ public class TrafficStatsCompat {
             }
         };
 
-        /* JADX INFO: Access modifiers changed from: package-private */
+        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes.dex */
-        public class SocketTags {
+        public static class SocketTags {
             public int statsTag;
 
             private SocketTags() {
@@ -81,7 +81,7 @@ public class TrafficStatsCompat {
     }
 
     /* loaded from: classes.dex */
-    class IcsTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
+    static class IcsTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
         IcsTrafficStatsCompatImpl() {
         }
 

@@ -21,8 +21,11 @@ public final class UpdateLiveGroupReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateLiveGroupReqIdl> {
+    public static final class Builder extends Message.Builder<UpdateLiveGroupReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(UpdateLiveGroupReqIdl updateLiveGroupReqIdl) {
             super(updateLiveGroupReqIdl);

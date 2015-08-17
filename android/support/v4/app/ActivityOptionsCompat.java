@@ -20,7 +20,7 @@ public class ActivityOptionsCompat {
     }
 
     /* loaded from: classes.dex */
-    class ActivityOptionsImplJB extends ActivityOptionsCompat {
+    private static class ActivityOptionsImplJB extends ActivityOptionsCompat {
         private final ActivityOptionsCompatJB mImpl;
 
         ActivityOptionsImplJB(ActivityOptionsCompatJB activityOptionsCompatJB) {

@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.base.f;
+import com.baidu.adp.base.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.n;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class LocalPicModel extends f implements Serializable {
+public class LocalPicModel extends e implements Serializable {
     private static final long serialVersionUID = -339604626740227228L;
     private String mDName;
     private String mDPath;
@@ -28,7 +28,7 @@ public class LocalPicModel extends f implements Serializable {
         this.mDName = str4;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
@@ -43,7 +43,7 @@ public class LocalPicModel extends f implements Serializable {
         return true;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         if (this.mImageTask != null) {
             this.mImageTask.cancel();
@@ -52,7 +52,7 @@ public class LocalPicModel extends f implements Serializable {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
         private GetImageTask() {
@@ -68,14 +68,14 @@ public class LocalPicModel extends f implements Serializable {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public ResponseData doInBackground(Object... objArr) {
             String str = "im_" + String.valueOf(System.currentTimeMillis());
-            String e = o.e(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, String.valueOf(str) + "_send");
+            String e = n.e(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, String.valueOf(str) + "_send");
             String str2 = String.valueOf(str) + "_display";
-            String e2 = o.e(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-            Bitmap ac = o.ac(TiebaIMConfig.POST_IMAGE_PATH, str2);
-            if (e == null || e2 == null || ac == null) {
+            String e2 = n.e(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
+            Bitmap ab = n.ab(TiebaIMConfig.POST_IMAGE_PATH, str2);
+            if (e == null || e2 == null || ab == null) {
                 return null;
             }
-            return new ResponseData(ac, e, e2);
+            return new ResponseData(ab, e, e2);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -91,13 +91,13 @@ public class LocalPicModel extends f implements Serializable {
             super.onPostExecute((GetImageTask) responseData);
             LocalPicModel.this.mImageTask = null;
             if (LocalPicModel.this.mLoadDataCallBack != null) {
-                LocalPicModel.this.mLoadDataCallBack.c(responseData);
+                LocalPicModel.this.mLoadDataCallBack.d(responseData);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class ResponseData implements Serializable {
+    public static class ResponseData implements Serializable {
         private static final long serialVersionUID = -9099542245580007084L;
         private Bitmap mBitmap;
         private String mDPathGen;

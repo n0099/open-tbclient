@@ -1,17 +1,29 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class q {
-    public static int cO(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            if (str.startsWith("game:detail")) {
-                return 1;
-            }
-            if (str.startsWith("http")) {
-                return 2;
-            }
-        }
-        return 0;
-    }
+public interface q {
+    void a(BasicNameValuePair basicNameValuePair);
+
+    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
+
+    void d(String str, byte[] bArr);
+
+    void gM();
+
+    void m(ArrayList<BasicNameValuePair> arrayList);
+
+    void o(String str, String str2);
+
+    ArrayList<BasicNameValuePair> tC();
+
+    String tD();
+
+    byte[] tE();
+
+    String tF();
+
+    String tG();
 }

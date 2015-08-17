@@ -152,7 +152,7 @@ public final class MsgInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<MsgInfo> {
+    public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer createTime;
         public Integer duration;
@@ -169,6 +169,9 @@ public final class MsgInfo extends Message {
         public UserInfo toUserInfo;
         public Long userId;
         public UserInfo userInfo;
+
+        public Builder() {
+        }
 
         public Builder(MsgInfo msgInfo) {
             super(msgInfo);

@@ -1,25 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class p implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity bKU;
+class p implements BdListView.e {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        eVar.dismiss();
-        if (this.bKU.bKS != null) {
-            if (i == 0) {
-                this.bKU.bKS.aJ(this.bKU.getPageContext().getPageActivity());
-                this.bKU.bKS = null;
-            } else if (i == 1 && this.bKU.checkUpIsLogin()) {
-                this.bKU.b(this.bKU.bKS);
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void onScrollToBottom() {
+        boolean z;
+        bk bkVar;
+        cb cbVar;
+        bk bkVar2;
+        cb cbVar2;
+        z = this.cbo.mIsLogin;
+        if (z) {
+            bkVar = this.cbo.caL;
+            if (bkVar.ek(false)) {
+                cbVar2 = this.cbo.caQ;
+                cbVar2.aen();
+                TiebaStatic.eventStat(this.cbo.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+                return;
             }
+            cbVar = this.cbo.caQ;
+            bkVar2 = this.cbo.caL;
+            cbVar.k(bkVar2.getPbData());
         }
     }
 }

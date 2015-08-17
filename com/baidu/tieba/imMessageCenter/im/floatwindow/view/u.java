@@ -1,38 +1,25 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import android.location.Address;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.im.model.PersonalMsglistModel;
-import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.RequestPersonalLbsInfoMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class u implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ FloatingPersonalChatActivity buK;
+class u extends CustomMessageListener {
+    final /* synthetic */ FloatingPersonalChatActivity bIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.buK = floatingPersonalChatActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
+        super(i);
+        this.bIA = floatingPersonalChatActivity;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void b(int i, String str, Address address) {
-        MsglistModel msglistModel;
-        UserData userData;
-        MsglistModel msglistModel2;
-        if (i == 0 && address != null) {
-            String valueOf = String.valueOf(address.getLatitude());
-            String valueOf2 = String.valueOf(address.getLongitude());
-            msglistModel = this.buK.mListModel;
-            if (msglistModel instanceof PersonalMsglistModel) {
-                msglistModel2 = this.buK.mListModel;
-                userData = ((PersonalMsglistModel) msglistModel2).getUser();
-            } else {
-                userData = null;
-            }
-            if (userData != null) {
-                this.buK.mUser = userData;
-                this.buK.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        FloatingPersonalChatView floatingPersonalChatView;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016004) {
+            floatingPersonalChatView = this.bIA.bIy;
+            floatingPersonalChatView.i(customResponsedMessage);
         }
     }
 }

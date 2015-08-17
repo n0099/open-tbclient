@@ -1,51 +1,52 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.a.a;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class v implements Runnable {
-    final /* synthetic */ ActivationActivity awW;
+class v implements a.InterfaceC0040a {
+    final /* synthetic */ NotLoginGuideActivity aEu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(ActivationActivity activationActivity) {
-        this.awW = activationActivity;
+    public v(NotLoginGuideActivity notLoginGuideActivity) {
+        this.aEu = notLoginGuideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void cb(String str) {
+        if (this.aEu.getLoadingDialog() == null || !this.aEu.getLoadingDialog().isShowing()) {
+            this.aEu.showLoadingDialog(this.aEu.getPageContext().getString(i.C0057i.sapi_logining), new w(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void a(AccountData accountData) {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
+        this.aEu.closeLoadingDialog();
+        if (TextUtils.isEmpty(accountData.getAccount())) {
+            this.aEu.f(accountData);
+        } else {
+            this.aEu.q(accountData);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void c(String str, int i, String str2) {
         int i2;
         int i3;
-        TextView textView;
-        Handler handler;
-        Runnable runnable;
-        TextView textView2;
-        aa aaVar;
-        RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.awW;
-        i = activationActivity.EL;
-        activationActivity.EL = i - 1;
-        i2 = this.awW.EL;
-        if (i2 <= 0) {
-            this.awW.awN = true;
-            textView2 = this.awW.awH;
-            textView2.setText(this.awW.getPageContext().getString(com.baidu.tieba.t.resend_code));
-            aaVar = this.awW.awM;
-            if (aaVar == null) {
-                relativeLayout = this.awW.awK;
-                relativeLayout.setEnabled(true);
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
+        this.aEu.closeLoadingDialog();
+        i2 = this.aEu.aEs;
+        if (i2 != 1) {
+            i3 = this.aEu.aEs;
+            if (i3 != 2) {
                 return;
             }
+            this.aEu.FW();
             return;
         }
-        String string = this.awW.getPageContext().getString(com.baidu.tieba.t.resend_code_second);
-        i3 = this.awW.EL;
-        String format = String.format(string, Integer.valueOf(i3));
-        textView = this.awW.awH;
-        textView.setText(format);
-        handler = this.awW.mHandler;
-        runnable = this.awW.mRunnable;
-        handler.postDelayed(runnable, 1000L);
+        this.aEu.FV();
     }
 }

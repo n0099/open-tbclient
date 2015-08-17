@@ -54,11 +54,14 @@ public final class GradeInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GradeInfo> {
+    public static final class Builder extends Message.Builder<GradeInfo> {
         public Integer grade;
         public String intro;
         public Integer maxMemberNum;
         public Integer thresholdDay;
+
+        public Builder() {
+        }
 
         public Builder(GradeInfo gradeInfo) {
             super(gradeInfo);

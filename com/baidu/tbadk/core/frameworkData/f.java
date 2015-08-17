@@ -1,20 +1,13 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.websocketBase.h;
+import com.baidu.adp.lib.util.u;
 /* loaded from: classes.dex */
-class f extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-            h.yq().dp(((Integer) customResponsedMessage.getData()).intValue());
+public class f {
+    public static void initial() {
+        try {
+            u.jp();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

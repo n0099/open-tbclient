@@ -42,7 +42,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         UpdateClientInfoResIdl updateClientInfoResIdl = (UpdateClientInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateClientInfoResIdl.class);
         setError(updateClientInfoResIdl.error.errorno.intValue());
@@ -73,7 +73,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             }
             this.maskInfo = updateClientInfoResIdl.data.maskInfo;
             this.configVersion = updateClientInfoResIdl.data.configVersion;
-            this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.intValue() != 0;
+            this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.longValue() != 0;
         }
     }
 }

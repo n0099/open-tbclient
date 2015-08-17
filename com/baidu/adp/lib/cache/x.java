@@ -1,119 +1,81 @@
 package com.baidu.adp.lib.cache;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class x<T> implements w<T> {
-    private boolean tA = false;
-    protected final s<T> tB;
-    protected final String tg;
-
-    public x(String str, s<T> sVar) {
-        this.tg = str;
-        this.tB = sVar;
+public class x extends c<String> {
+    public x(com.baidu.adp.base.a.b bVar) {
+        super(bVar);
     }
 
-    @Override // com.baidu.adp.lib.cache.t
-    public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.n.jl()) {
-            if (this.tA) {
-                throw new RuntimeException("access db in main thread!");
+    @Override // com.baidu.adp.lib.cache.c
+    public String P(String str) {
+        String str2 = "cache_kv_t" + Math.abs(str.hashCode());
+        this.sP.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        return str2;
+    }
+
+    @Override // com.baidu.adp.lib.cache.c
+    public void a(String str, String str2, int i, int i2) {
+    }
+
+    @Override // com.baidu.adp.lib.cache.c
+    public int ga() {
+        return 1;
+    }
+
+    /* JADX WARN: Type inference failed for: r2v15, types: [T, java.lang.String] */
+    @Override // com.baidu.adp.lib.cache.c
+    protected h<String> c(SQLiteDatabase sQLiteDatabase, String str) {
+        Cursor cursor;
+        Throwable th;
+        h<String> hVar = null;
+        try {
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sQ + " where m_key = ?", new String[]{str});
+            try {
+                if (cursor.moveToNext()) {
+                    hVar = new h<>();
+                    hVar.tc = cursor.getString(0);
+                    hVar.te = cursor.getLong(1);
+                    hVar.tf = cursor.getLong(2);
+                    hVar.tg = cursor.getLong(3);
+                    hVar.so = cursor.getString(4);
+                    com.baidu.adp.lib.g.a.b(cursor);
+                } else {
+                    com.baidu.adp.lib.g.a.b(cursor);
+                }
+                return hVar;
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.g.a.b(cursor);
+                throw th;
             }
-            BdLog.detailException("access db in main thread!", new Exception());
-        }
-        return this.tB.l(this.tg, str);
-    }
-
-    @Override // com.baidu.adp.lib.cache.t
-    public v<T> ad(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.n.jl()) {
-            if (this.tA) {
-                throw new RuntimeException("access db in main thread!");
-            }
-            BdLog.detailException("access db in main thread!", new Exception());
-        }
-        return this.tB.m(this.tg, str);
-    }
-
-    @Override // com.baidu.adp.lib.cache.t
-    public void a(String str, T t, long j) {
-        if (str == null) {
-            throw new NullPointerException("BdKVCache key cannot be null!");
-        }
-        long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.n.jl()) {
-            if (this.tA) {
-                throw new RuntimeException("access db in main thread!");
-            }
-            BdLog.detailException("access db in main thread!", new Exception());
-        }
-        if (currentTimeMillis <= System.currentTimeMillis()) {
-            remove(str);
-        } else {
-            this.tB.a(this.tg, str, t, currentTimeMillis);
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
         }
     }
 
-    @Override // com.baidu.adp.lib.cache.t
-    public void f(String str, T t) {
-        a(str, t, 315532800000L);
+    @Override // com.baidu.adp.lib.cache.c
+    protected ContentValues a(h<String> hVar) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("m_key", hVar.tc);
+        contentValues.put("m_value", hVar.so);
+        contentValues.put("saveTime", Long.valueOf(hVar.te));
+        contentValues.put("lastHitTime", Long.valueOf(hVar.tf));
+        contentValues.put("timeToExpire", Long.valueOf(hVar.tg));
+        return contentValues;
     }
 
-    @Override // com.baidu.adp.lib.cache.t
-    public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.n.jl()) {
-            if (this.tA) {
-                throw new RuntimeException("access db in main thread!");
-            }
-            BdLog.detailException("access db in main thread!", new Exception());
-        }
-        this.tB.n(this.tg, str);
+    @Override // com.baidu.adp.lib.cache.c
+    public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
+        return sQLiteDatabase.rawQuery("select * from " + this.sQ, new String[0]);
     }
 
-    @Override // com.baidu.adp.lib.cache.t
-    public void a(String str, u<T> uVar) {
-        com.baidu.adp.lib.g.l.ht().c(new y(this, str, uVar));
-    }
-
-    @Override // com.baidu.adp.lib.cache.t
-    public void b(String str, T t, long j) {
-        com.baidu.adp.lib.g.l.ht().c(new z(this, str, t, j));
-    }
-
-    @Override // com.baidu.adp.lib.cache.t
-    public void g(String str, T t) {
-        b(str, t, 315532800000L);
-    }
-
-    @Override // com.baidu.adp.lib.cache.t
-    public void ae(String str) {
-        com.baidu.adp.lib.g.l.ht().c(new aa(this, str));
-    }
-
-    @Override // com.baidu.adp.lib.cache.w
-    public String gv() {
-        return this.tg;
-    }
-
-    @Override // com.baidu.adp.lib.cache.w
-    public s<T> gw() {
-        return this.tB;
-    }
-
-    public void gy() {
-        this.tB.ac(this.tg);
-    }
-
-    protected void gz() {
-        f gk = gw().gk();
-        if (gk instanceof h) {
-            ((h) gk).release();
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.w
-    public void gx() {
-        this.tB.ab(this.tg);
-        gz();
+    @Override // com.baidu.adp.lib.cache.c
+    protected boolean Q(String str) {
+        this.sP.E("DROP TABLE IF EXISTS " + this.sQ);
+        return true;
     }
 }

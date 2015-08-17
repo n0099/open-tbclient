@@ -1,46 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl extends com.baidu.adp.base.f {
-    private cm aPs;
-    private String mForumId;
-    private String mForumName;
+public class cl implements View.OnClickListener {
+    final /* synthetic */ cj aYj;
+    private final /* synthetic */ com.baidu.tbadk.core.data.q aYk;
 
-    public cl(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.mForumName = null;
-        this.mForumId = null;
-        this.aPs = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cl(cj cjVar, com.baidu.tbadk.core.data.q qVar) {
+        this.aYj = cjVar;
+        this.aYk = qVar;
     }
 
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void LQ() {
-        if (this.aPs != null) {
-            this.aPs.cancel();
-            this.aPs = null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        com.baidu.tbadk.core.data.r rZ = this.aYk.rZ();
+        if (com.baidu.adp.lib.util.i.iO()) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.aYj.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(rZ.getUserId()), rZ.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            return;
         }
-    }
-
-    public void au(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aPs == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.aPs = new cm(this, null);
-            this.aPs.setPriority(2);
-            this.aPs.execute(new Object[0]);
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        }
+        this.aYj.aSJ.showToast(i.C0057i.im_error_default);
     }
 }

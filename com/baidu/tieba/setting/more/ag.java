@@ -1,25 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements Runnable {
-    private final /* synthetic */ boolean aZC;
-    final /* synthetic */ ae cfU;
-    private final /* synthetic */ BdSwitchView cfV;
+public class ag implements SapiWebView.OnBackCallback {
+    final /* synthetic */ SapiWebViewActivity cyI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(ae aeVar, boolean z, BdSwitchView bdSwitchView) {
-        this.cfU = aeVar;
-        this.aZC = z;
-        this.cfV = bdSwitchView;
+    public ag(SapiWebViewActivity sapiWebViewActivity) {
+        this.cyI = sapiWebViewActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.aZC) {
-            this.cfV.ms();
-        } else {
-            this.cfV.mr();
-        }
+    @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+    public void onBack() {
+        this.cyI.goBack();
     }
 }

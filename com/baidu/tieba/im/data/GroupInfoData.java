@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements ap, Serializable {
+public class GroupInfoData extends com.baidu.tbadk.core.util.a implements u, ad, Serializable {
+    public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
-    private int authorId;
+    private long authorId;
     private int authorIsMeizhi;
     private String authorName;
     private int forumId;
     private String forumName;
     private String forumShowName;
+    private int from;
     private int grade;
     private int groupId;
     private String intro;
@@ -96,7 +100,7 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements ap, Se
         this.memberNum = i;
     }
 
-    public int getAuthorId() {
+    public long getAuthorId() {
         return this.authorId;
     }
 
@@ -112,8 +116,8 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements ap, Se
         this.authorIsMeizhi = i;
     }
 
-    public void setAuthorId(int i) {
-        this.authorId = i;
+    public void setAuthorId(long j) {
+        this.authorId = j;
     }
 
     public String getAuthorName() {
@@ -155,13 +159,26 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements ap, Se
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ap
-    public ArrayList<ao> getImages() {
-        ArrayList<ao> arrayList = new ArrayList<>();
-        ao aoVar = new ao();
-        aoVar.Ri = this.portrait;
-        aoVar.Vx = 10;
-        arrayList.add(aoVar);
+    @Override // com.baidu.tbadk.core.util.ad
+    public ArrayList<ac> getImages() {
+        ArrayList<ac> arrayList = new ArrayList<>();
+        ac acVar = new ac();
+        acVar.VY = this.portrait;
+        acVar.aau = 10;
+        arrayList.add(acVar);
         return arrayList;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return TYPE_FRS_GROUP;
+    }
+
+    public int getFrom() {
+        return this.from;
+    }
+
+    public void setFrom(int i) {
+        this.from = i;
     }
 }

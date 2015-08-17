@@ -9,25 +9,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private boolean bsY = true;
-    private ArrayList<String> bsZ = new ArrayList<>();
-    private HashMap<String, ImMessageCenterPojo> bta = new HashMap<>();
-    private HashMap<String, Integer> btb = new HashMap<>();
+    private boolean bGQ = true;
+    private ArrayList<String> bGR = new ArrayList<>();
+    private HashMap<String, ImMessageCenterPojo> bGS = new HashMap<>();
+    private HashMap<String, Integer> bGT = new HashMap<>();
 
-    public void VJ() {
-        this.bsY = false;
+    public void Xq() {
+        this.bGQ = false;
     }
 
-    public void VK() {
-        this.bsY = true;
+    public void Xr() {
+        this.bGQ = true;
     }
 
     private void p(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!StringUtils.isNull(gid)) {
-                this.bta.remove(gid);
-                this.bta.put(gid, imMessageCenterPojo);
+                this.bGS.remove(gid);
+                this.bGS.put(gid, imMessageCenterPojo);
             }
         }
     }
@@ -37,14 +37,14 @@ public class a {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!StringUtils.isNull(gid)) {
-                this.bsZ.add(gid);
-                this.bta.put(gid, imMessageCenterPojo);
-                this.btb.put(gid, Integer.valueOf(imMessageCenterPojo.getUnread_count()));
-                if (this.bsY && (size = this.bsZ.size()) >= 4) {
-                    for (String str : this.bsZ.subList(0, size - 4)) {
-                        this.bsZ.remove(str);
-                        this.bta.remove(str);
-                        this.btb.remove(str);
+                this.bGR.add(gid);
+                this.bGS.put(gid, imMessageCenterPojo);
+                this.bGT.put(gid, Integer.valueOf(imMessageCenterPojo.getUnread_count()));
+                if (this.bGQ && (size = this.bGR.size()) >= 4) {
+                    for (String str : this.bGR.subList(0, size - 4)) {
+                        this.bGR.remove(str);
+                        this.bGS.remove(str);
+                        this.bGT.remove(str);
                     }
                 }
             }
@@ -53,34 +53,34 @@ public class a {
 
     private void r(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            hG(imMessageCenterPojo.getGid());
+            ij(imMessageCenterPojo.getGid());
         }
     }
 
-    public void hG(String str) {
+    public void ij(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bsZ.remove(str);
-            this.bsZ.add(str);
+            this.bGR.remove(str);
+            this.bGR.add(str);
         }
     }
 
-    public void hH(String str) {
+    public void ik(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bsZ.remove(str);
-            this.btb.remove(str);
-            this.bta.remove(str);
+            this.bGR.remove(str);
+            this.bGT.remove(str);
+            this.bGS.remove(str);
         }
     }
 
     public void removeAll() {
-        this.bsZ.clear();
-        this.btb.clear();
-        this.bta.clear();
+        this.bGR.clear();
+        this.bGT.clear();
+        this.bGS.clear();
     }
 
-    public int VL() {
+    public int Xs() {
         int i = 0;
-        Iterator<ImMessageCenterPojo> it = this.bta.values().iterator();
+        Iterator<ImMessageCenterPojo> it = this.bGS.values().iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -91,12 +91,12 @@ public class a {
         }
     }
 
-    public ArrayList<String> VM() {
+    public ArrayList<String> Xt() {
         ArrayList<String> arrayList = new ArrayList<>();
-        int size = this.bsZ.size() - 1;
+        int size = this.bGR.size() - 1;
         if (size >= 0) {
             for (int i = size; i >= 0; i--) {
-                ImMessageCenterPojo imMessageCenterPojo = this.bta.get(this.bsZ.get(i));
+                ImMessageCenterPojo imMessageCenterPojo = this.bGS.get(this.bGR.get(i));
                 if (imMessageCenterPojo != null) {
                     arrayList.add(imMessageCenterPojo.getGroup_head());
                 }
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         String gid = imMessageCenterPojo.getGid();
-        return (StringUtils.isNull(gid) || (imMessageCenterPojo2 = this.bta.get(gid)) == null || imMessageCenterPojo2 == imMessageCenterPojo) ? false : true;
+        return (StringUtils.isNull(gid) || (imMessageCenterPojo2 = this.bGS.get(gid)) == null || imMessageCenterPojo2 == imMessageCenterPojo) ? false : true;
     }
 
     private boolean t(ImMessageCenterPojo imMessageCenterPojo) {
@@ -122,7 +122,7 @@ public class a {
         if (StringUtils.isNull(gid)) {
             return false;
         }
-        Integer num = this.btb.get(gid);
+        Integer num = this.bGT.get(gid);
         return num == null || num.intValue() != imMessageCenterPojo.getUnread_count();
     }
 
@@ -131,14 +131,14 @@ public class a {
             return 0;
         }
         if (imMessageCenterPojo.getIs_hidden() == 1) {
-            hH(imMessageCenterPojo.getGid());
+            ik(imMessageCenterPojo.getGid());
             return 5;
         } else if (imMessageCenterPojo.getUnread_count() > 0) {
             if (s(imMessageCenterPojo)) {
                 p(imMessageCenterPojo);
                 return 4;
             } else if (t(imMessageCenterPojo)) {
-                if (this.bsZ.contains(imMessageCenterPojo.getGid())) {
+                if (this.bGR.contains(imMessageCenterPojo.getGid())) {
                     r(imMessageCenterPojo);
                     return 1;
                 }
@@ -148,7 +148,7 @@ public class a {
                 return 0;
             }
         } else {
-            hI(imMessageCenterPojo.getGid());
+            il(imMessageCenterPojo.getGid());
             return 3;
         }
     }
@@ -157,23 +157,23 @@ public class a {
         if (imMessageCenterPojo == null) {
             return 0;
         }
-        return ((imMessageCenterPojo.getIs_hidden() == 1) && VO()) ? 6 : 0;
+        return ((imMessageCenterPojo.getIs_hidden() == 1) && Xv()) ? 6 : 0;
     }
 
-    private void hI(String str) {
-        if (!StringUtils.isNull(str) && this.btb.containsKey(str)) {
-            this.btb.put(str, 0);
+    private void il(String str) {
+        if (!StringUtils.isNull(str) && this.bGT.containsKey(str)) {
+            this.bGT.put(str, 0);
         }
     }
 
-    public ArrayList<UserData> VN() {
-        if (this.bsZ == null || this.bsZ.isEmpty()) {
+    public ArrayList<UserData> Xu() {
+        if (this.bGR == null || this.bGR.isEmpty()) {
             return null;
         }
         ArrayList<UserData> arrayList = new ArrayList<>();
-        int size = this.bsZ.size();
+        int size = this.bGR.size();
         for (int i = 0; i < size; i++) {
-            ImMessageCenterPojo imMessageCenterPojo = this.bta.get(this.bsZ.get(i));
+            ImMessageCenterPojo imMessageCenterPojo = this.bGS.get(this.bGR.get(i));
             if (imMessageCenterPojo != null) {
                 UserData userData = new UserData();
                 userData.setUserId(imMessageCenterPojo.getGid());
@@ -191,14 +191,14 @@ public class a {
         return arrayList;
     }
 
-    public boolean VO() {
-        Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.bta.entrySet().iterator();
+    public boolean Xv() {
+        Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.bGS.entrySet().iterator();
         boolean z = false;
         while (it.hasNext()) {
             ImMessageCenterPojo value = it.next().getValue();
             if (value.getIsFriend() != 1) {
-                this.bsZ.remove(value.getGid());
-                this.btb.remove(value.getGid());
+                this.bGR.remove(value.getGid());
+                this.bGT.remove(value.getGid());
                 it.remove();
                 z = true;
             }
@@ -206,7 +206,7 @@ public class a {
         return z;
     }
 
-    public boolean VP() {
-        return (this.bsZ == null || this.bsZ.isEmpty()) ? false : true;
+    public boolean Xw() {
+        return (this.bGR == null || this.bGR.isEmpty()) ? false : true;
     }
 }

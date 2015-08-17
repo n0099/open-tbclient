@@ -1,71 +1,60 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class aa extends HttpMessageListener {
-    final /* synthetic */ v bSc;
+class aa implements AdapterView.OnItemClickListener {
+    final /* synthetic */ r ciI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(v vVar, int i) {
-        super(i);
-        this.bSc = vVar;
+    public aa(r rVar) {
+        this.ciI = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        String str;
-        PersonBarActivity aem;
-        String str2;
-        PersonBarActivity aem2;
-        String str3;
-        String str4;
-        ai aiVar;
-        ai aiVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-            aem = this.bSc.aem();
-            if (aem != null) {
-                this.bSc.mListView.completePullRefresh();
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aem2 = this.bSc.aem();
-                if (tag == aem2.getUniqueId()) {
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
-                        PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
-                        if (personBarResponseMessage.getErrCode() == 0) {
-                            u personBarData = personBarResponseMessage.getPersonBarData();
-                            aiVar = this.bSc.bRC;
-                            aiVar.hP(this.bSc.bRQ);
-                            aiVar2 = this.bSc.bRC;
-                            aiVar2.iD(personBarResponseMessage.getResultString());
-                            this.bSc.a(personBarData, false);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ac acVar;
+        boolean z;
+        ac acVar2;
+        PersonBarActivity agd;
+        boolean z2;
+        PersonBarActivity agd2;
+        PersonBarActivity agd3;
+        PersonBarActivity agd4;
+        acVar = this.ciI.cis;
+        if (acVar.getItem(i) != null) {
+            z = this.ciI.cix;
+            if (!z) {
+                this.ciI.bWM = i;
+                acVar2 = this.ciI.cis;
+                ForumData forumData = (ForumData) acVar2.getItem(i);
+                if (forumData != null) {
+                    agd = this.ciI.agd();
+                    if (agd != null) {
+                        z2 = this.ciI.chs;
+                        if (z2) {
+                            Intent intent = new Intent();
+                            intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
+                            intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
+                            agd3 = this.ciI.agd();
+                            this.ciI.agd();
+                            agd3.setResult(-1, intent);
+                            agd4 = this.ciI.agd();
+                            agd4.finish();
                             return;
                         }
-                        this.bSc.showToast(httpResponsedMessage.getErrorString());
-                        com.baidu.tieba.person.post.z zVar = this.bSc.bRM;
-                        str4 = this.bSc.bRT;
-                        zVar.iF(str4);
-                        return;
+                        r rVar = this.ciI;
+                        agd2 = this.ciI.agd();
+                        rVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(agd2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
-                    this.bSc.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.bSc.getResources().getString(com.baidu.tieba.t.neterror) : httpResponsedMessage.getErrorString());
-                    com.baidu.tieba.person.post.z zVar2 = this.bSc.bRM;
-                    str3 = this.bSc.bRT;
-                    zVar2.iF(str3);
-                    return;
                 }
-                return;
             }
-            com.baidu.tieba.person.post.z zVar3 = this.bSc.bRM;
-            str2 = this.bSc.bRT;
-            zVar3.iF(str2);
-            return;
         }
-        com.baidu.tieba.person.post.z zVar4 = this.bSc.bRM;
-        str = this.bSc.bRT;
-        zVar4.iF(str);
     }
 }

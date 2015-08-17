@@ -1,37 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.person.UserPostPageRequestMessage;
-import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.person.ch;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.x;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ k bUz;
+class m implements x.a {
+    final /* synthetic */ i clg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(k kVar, int i) {
-        super(i);
-        this.bUz = kVar;
+    public m(i iVar) {
+        this.clg = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ch chVar;
-        ch chVar2;
-        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
-            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
-            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
-                chVar2 = this.bUz.bUg;
-                chVar2.a(null, false);
-                return;
-            }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
-            if (!userPostPageRequestMessage.isThread() && (chVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                chVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
-            }
-        }
+    @Override // com.baidu.tbadk.core.view.x.a
+    public void onListPullRefresh(boolean z) {
+        f fVar;
+        fVar = this.clg.ckX;
+        fVar.eI(true);
     }
 }

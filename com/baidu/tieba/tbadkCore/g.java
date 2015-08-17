@@ -1,11 +1,57 @@
 package com.baidu.tieba.tbadkCore;
+
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class g {
-    public boolean coE;
-    public boolean coF;
-    public int coG;
-    public String coH;
-    public int cur_score;
-    public int level;
-    public int levelup_score;
+    private int cGT;
+    private String icon;
+    private int time;
+    private String title;
+    private int type;
+    private String url;
+
+    public String getIcon() {
+        return this.icon;
+    }
+
+    public void setIcon(String str) {
+        this.icon = str;
+    }
+
+    public void jD(int i) {
+        this.cGT = i;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setTime(int i) {
+        this.time = i;
+    }
+
+    public void a(StarEnter starEnter) {
+        setIcon(starEnter.icon);
+        setTime(starEnter.time.intValue());
+        setTitle(starEnter.title);
+        setType(starEnter.type.intValue());
+        setUrl(starEnter.url);
+        jD(starEnter.weight.intValue());
+    }
 }

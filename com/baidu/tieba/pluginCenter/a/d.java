@@ -9,57 +9,56 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.q;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tbadk.mvc.j.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.e.c> {
-    private TbImageView Ms;
-    private TextView aEp;
-    private TextView aiA;
-    private TextView bXL;
-    private ImageView bXM;
+public class d extends com.baidu.tbadk.mvc.g.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.d.b> {
+    private TbImageView MF;
+    private TextView aLO;
+    private TextView anH;
+    private TextView coE;
+    private ImageView coF;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.Ms = (TbImageView) view.findViewById(q.icon);
-        this.aiA = (TextView) view.findViewById(q.title);
-        this.aEp = (TextView) view.findViewById(q.desc);
-        this.bXL = (TextView) view.findViewById(q.status);
-        this.bXM = (ImageView) view.findViewById(q.new_mark);
+        this.MF = (TbImageView) view.findViewById(i.f.icon);
+        this.anH = (TextView) view.findViewById(i.f.title);
+        this.aLO = (TextView) view.findViewById(i.f.desc);
+        this.coE = (TextView) view.findViewById(i.f.status);
+        this.coF = (ImageView) view.findViewById(i.f.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.j.e
+    @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: c */
-    public void z(PluginNetConfigInfos.PluginConfig pluginConfig) {
-        super.z(pluginConfig);
+    public void A(PluginNetConfigInfos.PluginConfig pluginConfig) {
+        super.A(pluginConfig);
         if (pluginConfig != null) {
             if (!StringUtils.isNull(pluginConfig.icon)) {
-                this.Ms.c(pluginConfig.icon, 10, false);
+                this.MF.d(pluginConfig.icon, 10, false);
             }
-            this.aiA.setText(pluginConfig.display_name);
-            this.aEp.setText(pluginConfig.verbose);
-            if (PluginPackageManager.lM().bw(pluginConfig.package_name)) {
-                if (PluginPackageManager.lM().by(pluginConfig.package_name)) {
-                    this.bXM.setVisibility(0);
-                    this.bXL.setText(t.plugin_update);
+            this.anH.setText(pluginConfig.display_name);
+            this.aLO.setText(pluginConfig.verbose);
+            if (PluginPackageManager.lT().bq(pluginConfig.package_name)) {
+                if (PluginPackageManager.lT().bs(pluginConfig.package_name)) {
+                    this.coF.setVisibility(0);
+                    this.coE.setText(i.C0057i.plugin_update);
                     return;
                 }
-                this.bXM.setVisibility(8);
-                if (PluginPackageManager.lM().bx(pluginConfig.package_name)) {
-                    this.bXL.setText(t.plugin_unenabled);
+                this.coF.setVisibility(8);
+                if (PluginPackageManager.lT().br(pluginConfig.package_name)) {
+                    this.coE.setText(i.C0057i.plugin_unenabled);
                     return;
                 } else {
-                    this.bXL.setText(t.plugin_enabled);
+                    this.coE.setText(i.C0057i.plugin_enabled);
                     return;
                 }
             }
-            this.bXM.setVisibility(8);
-            this.bXL.setText(t.plugin_disabled);
+            this.coF.setVisibility(8);
+            this.coE.setText(i.C0057i.plugin_disabled);
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
         return true;

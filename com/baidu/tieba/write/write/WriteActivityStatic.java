@@ -6,6 +6,6 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 public class WriteActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
-        com.baidu.tieba.tbadkCore.location.e.apo();
+        com.baidu.tieba.tbadkCore.location.d.aqI();
     }
 }

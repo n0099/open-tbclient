@@ -36,7 +36,7 @@ public class EdgeEffectCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseEdgeEffectImpl implements EdgeEffectImpl {
+    static class BaseEdgeEffectImpl implements EdgeEffectImpl {
         BaseEdgeEffectImpl() {
         }
 
@@ -80,7 +80,7 @@ public class EdgeEffectCompat {
     }
 
     /* loaded from: classes.dex */
-    class EdgeEffectIcsImpl implements EdgeEffectImpl {
+    static class EdgeEffectIcsImpl implements EdgeEffectImpl {
         EdgeEffectIcsImpl() {
         }
 

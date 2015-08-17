@@ -1,19 +1,14 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
-class p implements Runnable {
-    final /* synthetic */ n bRA;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.bRA = nVar;
+public class p extends d {
+    public p(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditHeadActivity editHeadActivity;
-        editHeadActivity = this.bRA.this$0;
-        editHeadActivity.iB(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+    @Override // com.baidu.tieba.person.d
+    protected BaseFragment afQ() {
+        return new r();
     }
 }

@@ -1,25 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af implements Runnable {
-    private final /* synthetic */ boolean aZC;
-    final /* synthetic */ ae cfU;
-    private final /* synthetic */ BdSwitchView cfV;
+public class af implements View.OnClickListener {
+    final /* synthetic */ SapiWebViewActivity cyI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ae aeVar, boolean z, BdSwitchView bdSwitchView) {
-        this.cfU = aeVar;
-        this.aZC = z;
-        this.cfV = bdSwitchView;
+    public af(SapiWebViewActivity sapiWebViewActivity) {
+        this.cyI = sapiWebViewActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.aZC) {
-            this.cfV.mr();
-        } else {
-            this.cfV.ms();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cyI.goBack();
     }
 }

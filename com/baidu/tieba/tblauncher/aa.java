@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,21 +18,30 @@ class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
-        aj ajVar2;
-        aj ajVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.aqe();
-            ajVar = this.this$0.cvs;
-            if (ajVar != null) {
-                ajVar2 = this.this$0.cvs;
-                if (ajVar2.aqv() != null) {
-                    MainTabActivity mainTabActivity = this.this$0;
-                    ajVar3 = this.this$0.cvs;
-                    mainTabActivity.cvl = ajVar3.aqv().getCurrentTabType();
+        ArrayList<com.baidu.tbadk.mainTab.b> CB;
+        ai aiVar;
+        boolean z;
+        ai aiVar2;
+        int i;
+        boolean z2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (CB = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).CB()) != null && CB.size() != 0) {
+            aiVar = this.this$0.cLT;
+            aiVar.aa(CB);
+            z = this.this$0.cLN;
+            if (!z) {
+                z2 = this.this$0.cLO;
+                if (!z2) {
+                    this.this$0.T(this.this$0.getIntent());
+                    this.this$0.cLN = false;
+                    this.this$0.cLO = false;
                 }
             }
-            this.this$0.cvn = true;
+            aiVar2 = this.this$0.cLT;
+            FragmentTabHost arW = aiVar2.arW();
+            i = this.this$0.cLM;
+            arW.setCurrentTabByType(i);
+            this.this$0.cLN = false;
+            this.this$0.cLO = false;
         }
     }
 }

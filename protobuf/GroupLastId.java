@@ -36,9 +36,12 @@ public final class GroupLastId extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GroupLastId> {
+    public static final class Builder extends Message.Builder<GroupLastId> {
         public Integer groupId;
         public Long lastMsgId;
+
+        public Builder() {
+        }
 
         public Builder(GroupLastId groupLastId) {
             super(groupLastId);

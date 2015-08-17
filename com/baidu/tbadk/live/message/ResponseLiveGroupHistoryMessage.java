@@ -20,7 +20,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         int i2 = 0;
         QueryLiveGroupHistoryResIdl queryLiveGroupHistoryResIdl = (QueryLiveGroupHistoryResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupHistoryResIdl.class);
@@ -31,7 +31,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
                 this.liveGroupHistoryData = new LiveGroupHistoryData();
                 this.liveGroupHistoryData.setHasMore(queryLiveGroupHistoryResIdl.data.hasMore.intValue());
                 LiveCardData liveCardData = new LiveCardData();
-                liveCardData.setAuthorId(queryLiveGroupHistoryResIdl.data.group.authorId.intValue());
+                liveCardData.setAuthorId(queryLiveGroupHistoryResIdl.data.group.authorId.longValue());
                 liveCardData.setAuthorName(queryLiveGroupHistoryResIdl.data.group.authorName);
                 liveCardData.setBackground(queryLiveGroupHistoryResIdl.data.group.background);
                 liveCardData.setCreateTime(queryLiveGroupHistoryResIdl.data.group.createTime.intValue());
@@ -44,7 +44,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
                 liveCardData.setListeners(queryLiveGroupHistoryResIdl.data.group.listeners.intValue());
                 liveCardData.setName(queryLiveGroupHistoryResIdl.data.group.name);
                 liveCardData.setPortrait(queryLiveGroupHistoryResIdl.data.group.portrait);
-                liveCardData.setPublisherId(queryLiveGroupHistoryResIdl.data.group.publisherId.intValue());
+                liveCardData.setPublisherId(queryLiveGroupHistoryResIdl.data.group.publisherId.longValue());
                 liveCardData.setPublisherName(queryLiveGroupHistoryResIdl.data.group.publisherName);
                 liveCardData.setPublisherPortrait(queryLiveGroupHistoryResIdl.data.group.publisherPortrait);
                 liveCardData.setIsVip(queryLiveGroupHistoryResIdl.data.group.isVip.intValue());
@@ -61,7 +61,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
                         history2.setGroupId(history.groupId.intValue());
                         history2.setStartTime(history.startTime.intValue());
                         history2.setEndTime(history.endTime.intValue());
-                        history2.setUserId(history.userId.intValue());
+                        history2.setUserId(history.userId.longValue());
                         history2.setListeners(history.listeners.intValue());
                         history2.setLikers(history.likers.intValue());
                         history2.setPlayUrl(history.playUrl);

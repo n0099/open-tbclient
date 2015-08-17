@@ -1,25 +1,16 @@
 package com.baidu.tieba.person;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
-class bj implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ bc bTa;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bc bcVar) {
-        this.bTa = bcVar;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.x
-    public void onScrollToBottom() {
-        boolean z;
-        bm bmVar;
-        z = this.bTa.bSX;
-        if (!z) {
-            this.bTa.bSW = false;
-            bc bcVar = this.bTa;
-            bmVar = this.bTa.bSS;
-            bcVar.pageNum = bmVar.getData().Zq().qP() + 1;
-            this.bTa.bSX = true;
-            this.bTa.aeA();
+class bj implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            PersonInfoActivityStatic.a(customMessage.getData());
         }
+        return null;
     }
 }

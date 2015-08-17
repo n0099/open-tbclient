@@ -1,26 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import com.baidu.tieba.tblauncher.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ aj cwo;
+public class ak implements d.a {
+    final /* synthetic */ ai cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.cwo = ajVar;
+    public ak(ai aiVar) {
+        this.cMQ = aiVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        com.baidu.adp.lib.g.i.hs().postDelayed(new al(this), 200L);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // com.baidu.tieba.tblauncher.a.d.a
+    public void fc(int i) {
+        this.cMQ.onChangeSkinType(i);
     }
 }

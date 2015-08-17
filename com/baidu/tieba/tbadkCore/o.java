@@ -1,57 +1,23 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.StarEnter;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class o {
-    private int coZ;
-    private String icon;
-    private int time;
-    private String title;
-    private int type;
-    private String url;
+    private boolean cHC;
+    private String menu_name;
 
-    public String getIcon() {
-        return this.icon;
+    public boolean apn() {
+        return this.cHC;
     }
 
-    public void setIcon(String str) {
-        this.icon = str;
+    public String apo() {
+        return this.menu_name;
     }
 
-    public void iI(int i) {
-        this.coZ = i;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public void setTime(int i) {
-        this.time = i;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        setType(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        iI(starEnter.weight.intValue());
+    public void a(GconAccount gconAccount) {
+        if (gconAccount != null) {
+            this.cHC = gconAccount.has_account.intValue() == 1;
+            this.menu_name = gconAccount.menu_name;
+        }
     }
 }

@@ -1,20 +1,21 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private Date Pi;
+    private Date TX;
     private int errorCode;
     private String errorMsg;
 
-    protected abstract void d(JSONObject jSONObject);
+    protected abstract void h(JSONObject jSONObject);
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public boolean qp() {
+    public boolean rq() {
         return this.errorMsg != null;
     }
 
@@ -37,9 +38,9 @@ public abstract class a {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.errorCode = jSONObject.optInt("error_code", 0);
+            this.errorCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
             if (this.errorCode != 0) {
-                setErrorMsg(jSONObject.optString("error_msg", "网络不稳定，请稍后再试"));
+                setErrorMsg(jSONObject.optString(SocialConstants.PARAM_ERROR_MSG, "网络不稳定，请稍后再试"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
@@ -52,9 +53,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.Pi = new Date(optLong * 1000);
+                this.TX = new Date(optLong * 1000);
             }
-            d(jSONObject);
+            h(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不稳定，请稍后再试");
             e.printStackTrace();

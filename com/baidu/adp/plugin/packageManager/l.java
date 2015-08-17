@@ -1,39 +1,42 @@
 package com.baidu.adp.plugin.packageManager;
 
-import android.text.TextUtils;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import android.os.Build;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements d {
+public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.f {
+    private final /* synthetic */ String DH;
     final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(PluginPackageManager pluginPackageManager) {
+    public l(PluginPackageManager pluginPackageManager, String str) {
         this.this$0 = pluginPackageManager;
+        this.DH = str;
     }
 
-    @Override // com.baidu.adp.plugin.packageManager.d
-    public void L(String str, String str2) {
-        PluginSetting findPluginSetting;
-        boolean z;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.h.mi().findPluginSetting(str)) != null) {
-            if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
-                com.baidu.adp.plugin.packageManager.pluginSettings.h.mi().bH(str);
-            } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
-                String[] split = findPluginSetting.getAbandon_apk_path().split(",");
-                String str3 = "";
-                for (String str4 : split) {
-                    if (!str2.equals(str4)) {
-                        if (!TextUtils.isEmpty(str3)) {
-                            str3 = String.valueOf(str3) + ",";
-                        }
-                        str3 = String.valueOf(str3) + str4;
-                    }
-                }
-                com.baidu.adp.plugin.packageManager.pluginSettings.h mi = com.baidu.adp.plugin.packageManager.pluginSettings.h.mi();
-                z = this.this$0.Dx;
-                mi.b(str, str3, z);
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x0016, code lost:
+        if (r0 != false) goto L12;
+     */
+    @Override // com.baidu.adp.plugin.packageManager.pluginSettings.f
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(PluginSettings pluginSettings) {
+        boolean M;
+        this.this$0.Dx = true;
+        if (pluginSettings != null) {
+            if (pluginSettings != null) {
+                M = this.this$0.M(this.DH, pluginSettings.getContainerVersion());
             }
+            this.this$0.lX();
+            if (Build.VERSION.SDK_INT > 10) {
+                this.this$0.lZ();
+                return;
+            }
+            return;
         }
+        this.this$0.Dw = System.currentTimeMillis();
+        this.this$0.lY();
+        this.this$0.lV();
     }
 }

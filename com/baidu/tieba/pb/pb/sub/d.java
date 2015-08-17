@@ -1,33 +1,29 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ NewSubPbActivity bPx;
+public class d implements AbsListView.OnScrollListener {
+    final /* synthetic */ NewSubPbActivity cfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NewSubPbActivity newSubPbActivity) {
-        this.bPx = newSubPbActivity;
+        this.cfY = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        ak akVar;
-        ak akVar2;
-        eVar.dismiss();
-        com.baidu.tieba.tbadkCore.data.j jVar = null;
-        akVar = this.bPx.bPo;
-        if (akVar.adC() != null) {
-            akVar2 = this.bPx.bPo;
-            jVar = akVar2.adC().aaB();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        t tVar;
+        com.baidu.tbadk.editortools.c.n nVar;
+        if (i == 2 || i == 1) {
+            tVar = this.cfY.cfR;
+            tVar.aeA();
         }
-        if (jVar != null) {
-            if (i == 0) {
-                jVar.aJ(this.bPx.getPageContext().getPageActivity());
-            } else if (i == 1) {
-                this.bPx.b(jVar);
-            }
-        }
+        nVar = this.cfY.bWp;
+        nVar.BL();
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

@@ -18,7 +18,7 @@ public class HotForumNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.lyo = Integer.valueOf(this.lyo);
         if (z) {
-            com.baidu.tbadk.util.j.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         HotForumReqIdl.Builder builder2 = new HotForumReqIdl.Builder();
         builder2.data = builder.build(false);

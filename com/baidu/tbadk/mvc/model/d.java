@@ -1,13 +1,12 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import java.util.List;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.mvc.b.j;
+import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
-public interface d<T> {
-    void a(ReadCacheRespMsg<List<T>> readCacheRespMsg, ReadCacheMessage<T> readCacheMessage);
-
-    void a(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
+public abstract class d<T extends com.baidu.tbadk.mvc.b.h, D extends com.baidu.tbadk.mvc.b.j, ActivityType> extends NetModel<T, D, ActivityType> {
+    public d(TbPageContext<ActivityType> tbPageContext, T t) {
+        super(tbPageContext, t, NetModel.NetModelType.TYPE_AUTO);
+    }
 }

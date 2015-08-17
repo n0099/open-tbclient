@@ -1,21 +1,23 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.plugins.XiaoyingUtil;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView auX;
-    private final /* synthetic */ c auY;
+public class o implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aCn;
+    private final /* synthetic */ j aCo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(TbRichTextView tbRichTextView, c cVar) {
-        this.auX = tbRichTextView;
-        this.auY = cVar;
+    public o(TbRichTextView tbRichTextView, j jVar) {
+        this.aCn = tbRichTextView;
+        this.aCo = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((this.auX.getContext() instanceof j) && this.auY.Es() != null) {
-            ((j) this.auX.getContext()).onVideoClicked(this.auX.getContext(), this.auY.Es().toString());
-        }
+        TiebaStatic.log("c10067");
+        XiaoyingUtil.startPlayXiaoyingVideo(this.aCn.getContext(), this.aCo.getVideoUrl());
     }
 }

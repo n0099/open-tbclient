@@ -9,7 +9,7 @@ public class a {
     private static volatile a oa;
     private SparseArray<String> ob;
 
-    public static a dS() {
+    public static a dT() {
         if (oa == null) {
             synchronized (a.class) {
                 if (oa == null) {
@@ -59,7 +59,7 @@ public class a {
         }
     }
 
-    public String q(int i) {
+    public String s(int i) {
         String str = this.ob.get(i);
         if (str != null) {
             return str;

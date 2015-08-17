@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class EmotionImageActivityConfig extends c {
+public class EmotionImageActivityConfig extends IntentConfig {
     public EmotionImageActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2, int i3) {
         super(context);
         Intent intent = getIntent();

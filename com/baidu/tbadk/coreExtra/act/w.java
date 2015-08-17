@@ -1,13 +1,26 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.sapi2.SapiWebView;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements CustomMessageTask.CustomRunnable<Activity> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<l> run(CustomMessage<Activity> customMessage) {
-        return new CustomResponsedMessage<>(2001275, u.vc());
+public class w extends TimerTask {
+    final /* synthetic */ LoginActivity agE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(LoginActivity loginActivity) {
+        this.agE = loginActivity;
+    }
+
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        SapiWebView sapiWebView;
+        SapiWebView sapiWebView2;
+        sapiWebView = this.agE.agw;
+        if (sapiWebView != null) {
+            sapiWebView2 = this.agE.agw;
+            sapiWebView2.destroy();
+            this.agE.agw = null;
+        }
     }
 }

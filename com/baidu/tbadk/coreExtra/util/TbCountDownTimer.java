@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 public abstract class TbCountDownTimer {
-    private static final int MSG = 1;
     private final long mCountdownInterval;
     private Handler mHandler = new b(this);
     private long mMillisInFuture;
@@ -34,20 +33,5 @@ public abstract class TbCountDownTimer {
             tbCountDownTimer = this;
         }
         return tbCountDownTimer;
-    }
-
-    public final synchronized void pause() {
-        long elapsedRealtime = this.mStopTimeInFuture - SystemClock.elapsedRealtime();
-        if (elapsedRealtime <= 0) {
-            onFinish();
-        }
-        this.mHandler.removeMessages(1);
-        this.mMillisInFuture = elapsedRealtime;
-    }
-
-    public final synchronized void restart(long j) {
-        cancel();
-        this.mMillisInFuture = j;
-        start();
     }
 }

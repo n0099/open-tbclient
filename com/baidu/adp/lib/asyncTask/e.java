@@ -1,15 +1,33 @@
 package com.baidu.adp.lib.asyncTask;
 
-import java.util.concurrent.Callable;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-abstract class e<Params, Result> implements Callable<Result> {
-    Params[] mParams;
-
-    private e() {
-    }
+public class e extends Handler {
+    final /* synthetic */ c sI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(e eVar) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(c cVar, Looper looper) {
+        super(looper);
+        this.sI = cVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        if (message.what == 1) {
+            if (message.obj == null || !(message.obj instanceof c.a)) {
+                return;
+            }
+            this.sI.b((c.a) message.obj);
+        } else if (message.what == 2 && message.obj != null && (message.obj instanceof c.a)) {
+            this.sI.e((c.a) message.obj);
+            BdBaseApplication.getInst().isDebugMode();
+        }
     }
 }

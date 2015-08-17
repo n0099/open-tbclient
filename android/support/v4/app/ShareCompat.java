@@ -30,7 +30,7 @@ public class ShareCompat {
     }
 
     /* loaded from: classes.dex */
-    class ShareCompatImplBase implements ShareCompatImpl {
+    static class ShareCompatImplBase implements ShareCompatImpl {
         ShareCompatImplBase() {
         }
 
@@ -73,7 +73,7 @@ public class ShareCompat {
     }
 
     /* loaded from: classes.dex */
-    class ShareCompatImplICS extends ShareCompatImplBase {
+    static class ShareCompatImplICS extends ShareCompatImplBase {
         ShareCompatImplICS() {
         }
 
@@ -91,7 +91,7 @@ public class ShareCompat {
     }
 
     /* loaded from: classes.dex */
-    class ShareCompatImplJB extends ShareCompatImplICS {
+    static class ShareCompatImplJB extends ShareCompatImplICS {
         ShareCompatImplJB() {
         }
 
@@ -145,7 +145,7 @@ public class ShareCompat {
     }
 
     /* loaded from: classes.dex */
-    public class IntentBuilder {
+    public static class IntentBuilder {
         private Activity mActivity;
         private ArrayList<String> mBccAddresses;
         private ArrayList<String> mCcAddresses;
@@ -351,8 +351,7 @@ public class ShareCompat {
     }
 
     /* loaded from: classes.dex */
-    public class IntentReader {
-        private static final String TAG = "IntentReader";
+    public static class IntentReader {
         private Activity mActivity;
         private ComponentName mCallingActivity;
         private String mCallingPackage;
@@ -463,7 +462,7 @@ public class ShareCompat {
             try {
                 return this.mActivity.getPackageManager().getActivityIcon(this.mCallingActivity);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, "Could not retrieve icon for calling activity", e);
+                Log.e("IntentReader", "Could not retrieve icon for calling activity", e);
                 return null;
             }
         }
@@ -475,7 +474,7 @@ public class ShareCompat {
             try {
                 return this.mActivity.getPackageManager().getApplicationIcon(this.mCallingPackage);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, "Could not retrieve icon for calling application", e);
+                Log.e("IntentReader", "Could not retrieve icon for calling application", e);
                 return null;
             }
         }
@@ -488,7 +487,7 @@ public class ShareCompat {
             try {
                 return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, "Could not retrieve label for calling application", e);
+                Log.e("IntentReader", "Could not retrieve label for calling application", e);
                 return null;
             }
         }

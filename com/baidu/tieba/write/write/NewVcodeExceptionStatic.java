@@ -1,9 +1,10 @@
 package com.baidu.tieba.write.write;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class NewVcodeExceptionStatic {
     static {
-        MessageManager.getInstance().registerListener(new ab(2016301));
+        MessageManager.getInstance().registerListener(new t(CmdConfigCustom.UEXCEPTION_MESSAGE));
     }
 }

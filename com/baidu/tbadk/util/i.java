@@ -1,14 +1,26 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i {
-    public static final <T extends com.baidu.tbadk.core.frameworkData.c> void c(T t) {
-        a(2002001, t);
+public class i extends CustomMessageListener {
+    final /* synthetic */ h azo;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(h hVar, int i) {
+        super(i);
+        this.azo = hVar;
     }
 
-    public static final <T extends com.baidu.tbadk.core.frameworkData.c> void a(int i, T t) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
+            return;
+        }
+        this.azo.EG();
     }
 }

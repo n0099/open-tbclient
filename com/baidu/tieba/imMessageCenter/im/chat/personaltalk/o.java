@@ -1,19 +1,17 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class o implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PersonalTalkSettingActivity bsG;
+class o implements a.b {
+    final /* synthetic */ PersonalTalkSettingActivity bGx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.bsG = personalTalkSettingActivity;
+        this.bGx = personalTalkSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        s sVar;
         aVar.dismiss();
-        com.baidu.tbadk.core.k.A(this.bsG.getPageContext().getContext(), "personalchat_morepage_addblack");
-        sVar = this.bsG.bsE;
-        sVar.dr(true);
     }
 }

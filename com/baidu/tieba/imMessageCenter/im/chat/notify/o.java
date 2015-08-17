@@ -1,17 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.support.v4.app.Fragment;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.InvokeNewImMessageCenterFragmentConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {
-        if (customMessage == null) {
-            return null;
+public class o implements View.OnClickListener {
+    final /* synthetic */ e bGo;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(e eVar) {
+        this.bGo = eVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (TbadkCoreApplication.isLogin()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.bGo.getPageContext().getPageActivity(), true, true)));
         }
-        return new CustomResponsedMessage<>(2008002, new d());
     }
 }

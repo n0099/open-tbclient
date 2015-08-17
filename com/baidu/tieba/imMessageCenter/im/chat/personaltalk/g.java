@@ -1,25 +1,28 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalTalkSettingActivity bsG;
+public class g implements Runnable {
+    final /* synthetic */ PersonalTalkSettingActivity bGx;
+    private final /* synthetic */ boolean bGy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(PersonalTalkSettingActivity personalTalkSettingActivity, int i) {
-        super(i);
-        this.bsG = personalTalkSettingActivity;
+    public g(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
+        this.bGx = personalTalkSettingActivity;
+        this.bGy = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.bsG.closeLoadingDialog();
-        if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
-            this.bsG.d(!((ResponseUpdateMaskInfoMessage) socketResponsedMessage).hasError(), ((RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask());
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        w wVar;
+        w wVar2;
+        w wVar3;
+        wVar = this.bGx.bGu;
+        wVar.a((BdSwitchView.a) null);
+        wVar2 = this.bGx.bGu;
+        wVar2.dv(!this.bGy);
+        wVar3 = this.bGx.bGu;
+        wVar3.a(this.bGx);
     }
 }

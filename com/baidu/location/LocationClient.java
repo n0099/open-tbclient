@@ -91,7 +91,7 @@ public final class LocationClient implements a0, n {
     private long j2 = 0;
     private BDErrorReport jW = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends Handler {
         private a() {
@@ -150,7 +150,7 @@ public final class LocationClient implements a0, n {
                         return;
                     }
                     return;
-                case 55:
+                case a0.B /* 55 */:
                     if (LocationClient.this.kh.f21goto) {
                         LocationClient.this.jR = false;
                         return;
@@ -169,7 +169,7 @@ public final class LocationClient implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b implements Runnable {
         private b() {

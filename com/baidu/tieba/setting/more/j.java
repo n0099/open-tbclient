@@ -1,20 +1,17 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class j implements Runnable {
-    final /* synthetic */ i ceR;
-    private final /* synthetic */ String ceS;
+class j implements View.OnClickListener {
+    final /* synthetic */ AppsActivity cwV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, String str) {
-        this.ceR = iVar;
-        this.ceS = str;
+    public j(AppsActivity appsActivity) {
+        this.cwV = appsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbadkCoreApplication.m411getInst().cashNoAccountData(this.ceS, 7);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cwV.finish();
     }
 }

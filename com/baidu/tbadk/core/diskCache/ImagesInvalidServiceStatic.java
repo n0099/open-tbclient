@@ -4,26 +4,27 @@ import android.content.Intent;
 import android.os.Handler;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.g.j;
+import com.baidu.adp.lib.g.i;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean Ss = false;
-    private static Handler oy = new b();
+    private static boolean Xl = false;
+    private static Handler oy = new a();
 
     static {
-        MessageManager.getInstance().registerListener(new c(2001011));
+        MessageManager.getInstance().registerListener(new b(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void startService() {
-        j.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
     public static void stopService() {
-        j.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void al(boolean z) {
-        Ss = z;
+    public static void ap(boolean z) {
+        Xl = z;
     }
 }

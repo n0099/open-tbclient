@@ -5,38 +5,38 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SecretSettingActivity cdX;
-    private final /* synthetic */ String cea;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.i ceb;
+    final /* synthetic */ SecretSettingActivity cvA;
+    private final /* synthetic */ String cvD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(SecretSettingActivity secretSettingActivity, String str, com.baidu.tbadk.core.dialog.i iVar) {
-        this.cdX = secretSettingActivity;
-        this.cea = str;
-        this.ceb = iVar;
+    public h(SecretSettingActivity secretSettingActivity, String str) {
+        this.cvA = secretSettingActivity;
+        this.cvD = str;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.cdX.showProgressBar();
+        com.baidu.tbadk.core.dialog.e eVar;
+        this.cvA.showProgressBar();
         switch (i) {
             case 0:
-                this.cdX.T(this.cea, 1);
+                this.cvA.X(this.cvD, 1);
                 break;
             case 1:
-                this.cdX.T(this.cea, 2);
+                this.cvA.X(this.cvD, 2);
                 break;
             case 2:
-                this.cdX.T(this.cea, 3);
+                this.cvA.X(this.cvD, 3);
                 break;
         }
-        this.ceb.bD(i);
-        if ("group".equals(this.cea)) {
-            this.cdX.cdS = i + 1;
-        } else if ("post".equals(this.cea)) {
-            this.cdX.cdR = i + 1;
-        } else if ("like".equals(this.cea)) {
-            this.cdX.cdQ = i + 1;
+        eVar = this.cvA.cvv;
+        eVar.bL(i);
+        if ("group".equals(this.cvD)) {
+            this.cvA.cvu = i + 1;
+        } else if ("post".equals(this.cvD)) {
+            this.cvA.cvt = i + 1;
+        } else if ("like".equals(this.cvD)) {
+            this.cvA.cvs = i + 1;
         }
     }
 }

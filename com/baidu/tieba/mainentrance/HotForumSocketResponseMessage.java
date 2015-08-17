@@ -8,18 +8,18 @@ import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 /* loaded from: classes.dex */
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
-    private List<e> forumInfoList;
+    private List<c> forumInfoList;
 
     public HotForumSocketResponseMessage() {
         super(303116);
     }
 
-    public List<e> getForumInfoList() {
+    public List<c> getForumInfoList() {
         return this.forumInfoList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         HotForumResIdl hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class);
         if (hotForumResIdl != null) {
@@ -32,9 +32,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                 if (hotForumResIdl.data.forum_info != null) {
                     for (ForumInfo forumInfo : hotForumResIdl.data.forum_info) {
                         if (forumInfo != null) {
-                            e eVar = new e();
-                            eVar.a(forumInfo);
-                            this.forumInfoList.add(eVar);
+                            c cVar = new c();
+                            cVar.a(forumInfo);
+                            this.forumInfoList.add(cVar);
                         }
                     }
                 }

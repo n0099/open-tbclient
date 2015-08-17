@@ -1,21 +1,27 @@
 package com.baidu.tieba.frs.view;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aRw;
+public class i {
+    View mView = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsHeaderView frsHeaderView) {
-        this.aRw = frsHeaderView;
+    public i(View view, Context context) {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902027, new ForumDetailActivityConfig(this.aRw.LH.getContext(), this.aRw.mForumId, ForumDetailActivityConfig.FromType.FRS)));
+    public void setForumName(String str) {
+    }
+
+    public void show() {
+    }
+
+    public void hide() {
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+    }
+
+    public boolean F(View view) {
+        return false;
     }
 }

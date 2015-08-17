@@ -1,114 +1,111 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
 import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.location.BDLocationStatusCodes;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import java.util.HashSet;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.location.LocationClientOption;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.framework.listener.e {
-    private static h ahg = new h();
-    private boolean ahb;
-    private int ahc;
-    private long ahd;
-    private final SparseArray<i> ahe;
-    private final HashSet<Integer> ahf;
+public class h {
+    private boolean amD = false;
+    private int amE = 0;
 
-    public static h yq() {
-        return ahg;
-    }
-
-    private h() {
-        super(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        this.ahc = 3;
-        this.ahd = 300000L;
-        this.ahe = new SparseArray<>();
-        this.ahf = new HashSet<>();
-        MessageManager.getInstance().registerListener(0, this);
-    }
-
-    public boolean dn(int i) {
-        if (this.ahb || this.ahf.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
-            return false;
-        }
-        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.yt().yv() + 20000) {
-            com.baidu.adp.framework.client.socket.m.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            return false;
-        } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
-            return false;
-        } else {
-            if (!TiebaIMConfig.defaultUrl.equals(com.baidu.adp.framework.client.socket.l.getUrl())) {
-                com.baidu.adp.framework.client.socket.m.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "retryiplist");
-                return false;
+    public void eq(String str) {
+        int lastIndexOf;
+        Exception e;
+        String str2;
+        int i;
+        int i2;
+        String str3 = null;
+        int i3 = 0;
+        this.amD = false;
+        this.amE = 0;
+        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+            try {
+                str2 = str.substring(5, lastIndexOf);
+            } catch (Exception e2) {
+                e = e2;
+                str2 = null;
             }
-            i iVar = this.ahe.get(i);
-            if (iVar != null && iVar.ahi) {
-                if (Math.abs(System.currentTimeMillis() - iVar.ahj) <= this.ahd) {
-                    return false;
+            try {
+                str3 = str.substring(lastIndexOf + 1);
+            } catch (Exception e3) {
+                e = e3;
+                BdLog.e(e.getMessage());
+                if (TextUtils.isEmpty(str2)) {
                 }
-                iVar.reset();
-            }
-            return true;
-        }
-    }
-
-    public void reset() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.ahe.size()) {
-                this.ahe.valueAt(i2).reset();
-                i = i2 + 1;
-            } else {
                 return;
             }
-        }
-    }
-
-    public void dp(int i) {
-        i iVar = this.ahe.get(i);
-        if (iVar == null) {
-            iVar = new i(null);
-            this.ahe.append(i, iVar);
-        }
-        if (iVar != null) {
-            iVar.onError(this.ahc);
-        }
-    }
-
-    public void dq(int i) {
-        this.ahe.remove(i);
-    }
-
-    public void aP(boolean z) {
-        this.ahb = z;
-    }
-
-    public void b(int[] iArr) {
-        if (iArr != null && iArr.length > 0) {
-            this.ahf.clear();
-            for (int i : iArr) {
-                this.ahf.add(Integer.valueOf(i));
+            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                int i4 = 0;
+                int i5 = 0;
+                while (i4 < 3) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), zG());
+                            if (socket.isConnected()) {
+                                int i6 = i3 + 1;
+                                int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
+                                this.amD = true;
+                                i = i6;
+                                i2 = currentTimeMillis2;
+                            } else {
+                                i = i3;
+                                i2 = i5;
+                            }
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                        } catch (Exception e5) {
+                            i = i3;
+                            i2 = i5;
+                            BdLog.e(e5.getMessage());
+                            try {
+                                socket.close();
+                            } catch (Exception e6) {
+                                BdLog.e(e6.getMessage());
+                            }
+                        }
+                        i4++;
+                        i5 = i2;
+                        i3 = i;
+                    } catch (Throwable th) {
+                        try {
+                            socket.close();
+                        } catch (Exception e7) {
+                            BdLog.e(e7.getMessage());
+                        }
+                        throw th;
+                    }
+                }
+                if (this.amD && i3 > 0) {
+                    this.amE = i5 / i3;
+                }
             }
         }
     }
 
-    public void dr(int i) {
-        this.ahc = i;
+    public boolean isSucc() {
+        return this.amD;
     }
 
-    public void v(long j) {
-        this.ahd = j;
+    public int zF() {
+        return this.amE;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if ((socketResponsedMessage instanceof ResponseOnlineMessage) && ((ResponseOnlineMessage) socketResponsedMessage).getError() == 0) {
-            reset();
+    private int zG() {
+        switch (com.baidu.adp.lib.util.i.iU()) {
+            case 1:
+                return LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+            case 2:
+                return 10000;
+            case 3:
+            default:
+                return 5000;
         }
     }
 }

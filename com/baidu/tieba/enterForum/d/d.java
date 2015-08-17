@@ -2,11 +2,11 @@ package com.baidu.tieba.enterForum.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c aFP;
+    final /* synthetic */ c aNo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aFP = cVar;
+        this.aNo = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,22 +15,22 @@ public class d implements Runnable {
         int i2;
         int i3;
         int i4;
-        i = this.aFP.mOffset;
+        i = this.aNo.mOffset;
         if (i != 0) {
-            i2 = this.aFP.mOffset;
+            i2 = this.aNo.mOffset;
             boolean z = i2 > 0;
-            com.baidu.tieba.enterForum.c.b HZ = com.baidu.tieba.enterForum.c.b.HZ();
-            c cVar = this.aFP;
+            com.baidu.tieba.enterForum.c.b IM = com.baidu.tieba.enterForum.c.b.IM();
+            c cVar = this.aNo;
             if (z) {
-                i4 = this.aFP.aFM;
+                i4 = this.aNo.aNl;
             } else {
-                i3 = this.aFP.aFM;
+                i3 = this.aNo.aNl;
                 i4 = -i3;
             }
-            if (!HZ.a(cVar, i4, 200)) {
-                this.aFP.setSelection(z ? this.aFP.getFirstVisiblePosition() + 1 : this.aFP.getFirstVisiblePosition() - 1);
+            if (!IM.a(cVar, i4, 200)) {
+                this.aNo.setSelection(z ? this.aNo.getFirstVisiblePosition() + 1 : this.aNo.getFirstVisiblePosition() - 1);
             }
         }
-        com.baidu.adp.lib.g.i.hs().postDelayed(this, 200L);
+        com.baidu.adp.lib.g.h.hi().postDelayed(this, 200L);
     }
 }

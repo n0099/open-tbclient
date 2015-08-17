@@ -8,7 +8,7 @@ import android.os.Parcel;
 public interface IPackageDeleteObserver extends IInterface {
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IPackageDeleteObserver {
+    public static abstract class Stub extends Binder implements IPackageDeleteObserver {
         public static IPackageDeleteObserver asInterface(IBinder iBinder) {
             return null;
         }

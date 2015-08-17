@@ -45,10 +45,13 @@ public final class IconInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<IconInfo> {
+    public static final class Builder extends Message.Builder<IconInfo> {
         public String iconUrl;
         public String name;
         public Integer weight;
+
+        public Builder() {
+        }
 
         public Builder(IconInfo iconInfo) {
             super(iconInfo);

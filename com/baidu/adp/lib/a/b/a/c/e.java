@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements c {
-    public JSONObject sh;
+    private JSONObject se;
 
     public e(JSONObject jSONObject) {
-        this.sh = jSONObject;
+        this.se = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> fR() {
-        Iterator<String> keys = this.sh.keys();
+    public Set<String> fM() {
+        Iterator<String> keys = this.se.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -31,13 +31,13 @@ public class e implements c {
     }
 
     public Object getObject(String str) {
-        return this.sh.opt(str);
+        return this.se.opt(str);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public void e(String str, Object obj) {
         try {
-            this.sh.putOpt(str, obj);
+            this.se.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -48,9 +48,9 @@ public class e implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);
-            com.baidu.adp.lib.a.b.a.d.h i = com.baidu.adp.lib.a.b.a.e.g.i(object);
-            if (i != null) {
-                return i.g(cVar);
+            com.baidu.adp.lib.a.b.a.d.h j = com.baidu.adp.lib.a.b.a.e.g.j(object);
+            if (j != null) {
+                return j.g(cVar);
             }
             return object;
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.chosen.posts.request;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mvc.b.k;
+import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -11,11 +11,11 @@ import tbclient.Error;
 import tbclient.HotThread.HotThreadResIdl;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.mvc.b.b, k {
+public class d implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> GT() {
+    public List<tinfo> HK() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -42,11 +42,11 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
         return true;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.k
-    public void c(JSONObject jSONObject) {
+    @Override // com.baidu.tbadk.mvc.b.j
+    public void g(JSONObject jSONObject) {
     }
 
-    @Override // com.baidu.tbadk.mvc.b.k
+    @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
         if (message instanceof HotThreadResIdl) {
             HotThreadResIdl hotThreadResIdl = (HotThreadResIdl) message;
@@ -61,7 +61,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean A(byte[] bArr) {
+    public boolean R(byte[] bArr) {
         try {
             a((HotThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, HotThreadResIdl.class));
             return true;
@@ -72,7 +72,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, k {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Bp() {
+    public byte[] CC() {
         return null;
     }
 }

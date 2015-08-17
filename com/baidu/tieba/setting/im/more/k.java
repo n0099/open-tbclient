@@ -2,44 +2,45 @@ package com.baidu.tieba.setting.im.more;
 
 import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tieba.setting.im.more.i;
 import com.baidu.tieba.setting.more.MsgSettingItemView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.widget.BdSwitchView.b {
-    final /* synthetic */ i ceq;
+public class k implements BdSwitchView.a {
+    final /* synthetic */ i cvU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.ceq = iVar;
+        this.cvU = iVar;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.b
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         MsgSettingItemView msgSettingItemView;
         MsgSettingItemView msgSettingItemView2;
-        l lVar;
-        l lVar2;
-        l lVar3;
-        l lVar4;
-        msgSettingItemView = this.ceq.ceh;
+        i.a aVar;
+        i.a aVar2;
+        i.a aVar3;
+        i.a aVar4;
+        msgSettingItemView = this.cvU.cvK;
         if (view != msgSettingItemView.getSwitchView()) {
-            msgSettingItemView2 = this.ceq.cej;
+            msgSettingItemView2 = this.cvU.cvM;
             if (view != msgSettingItemView2.getSwitchView()) {
                 return;
             }
-            lVar = this.ceq.cdT;
-            if (lVar == null) {
+            aVar = this.cvU.cvT;
+            if (aVar == null) {
                 return;
             }
-            lVar2 = this.ceq.cdT;
-            lVar2.b(switchState);
+            aVar2 = this.cvU.cvT;
+            aVar2.b(switchState);
             return;
         }
-        lVar3 = this.ceq.cdT;
-        if (lVar3 == null) {
+        aVar3 = this.cvU.cvT;
+        if (aVar3 == null) {
             return;
         }
-        lVar4 = this.ceq.cdT;
-        lVar4.a(switchState);
+        aVar4 = this.cvU.cvT;
+        aVar4.a(switchState);
     }
 }

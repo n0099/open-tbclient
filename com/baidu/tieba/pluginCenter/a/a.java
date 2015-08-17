@@ -7,99 +7,100 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 import com.baidu.tieba.pluginCenter.PluginConfigWrapper;
-import com.baidu.tieba.q;
-import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.mvc.j.a<PluginConfigWrapper, com.baidu.tbadk.mvc.e.c> {
-    private TbImageView Ms;
-    private TextView aiA;
-    private BdSwitchView bXF;
-    private TextView bXG;
-    private View bXH;
-    private ImageView bXI;
-    private int bXJ;
+public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tbadk.mvc.d.b> {
+    private TbImageView MF;
+    private TextView anH;
+    private View coA;
+    private ImageView coB;
+    private int coC;
+    private BdSwitchView coy;
+    private TextView coz;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.Ms = (TbImageView) view.findViewById(q.icon);
-        this.aiA = (TextView) view.findViewById(q.title);
-        this.bXF = (BdSwitchView) view.findViewById(q.switchview);
-        this.bXI = (ImageView) view.findViewById(q.downloading_forground);
-        this.bXH = view.findViewById(q.downloading_layout);
-        this.bXG = (TextView) view.findViewById(q.download_text);
-        this.bXF.setOnSwitchStateChangeListener(new b(this));
-        this.bXG.setOnClickListener(new c(this));
+        this.MF = (TbImageView) view.findViewById(i.f.icon);
+        this.anH = (TextView) view.findViewById(i.f.title);
+        this.coy = (BdSwitchView) view.findViewById(i.f.switchview);
+        this.coB = (ImageView) view.findViewById(i.f.downloading_forground);
+        this.coA = view.findViewById(i.f.downloading_layout);
+        this.coz = (TextView) view.findViewById(i.f.download_text);
+        this.coy.setOnSwitchStateChangeListener(new b(this));
+        this.coz.setOnClickListener(new c(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.j.e
+    @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: b */
-    public void z(PluginConfigWrapper pluginConfigWrapper) {
-        super.z(pluginConfigWrapper);
+    public void A(PluginConfigWrapper pluginConfigWrapper) {
+        super.A(pluginConfigWrapper);
         if (pluginConfigWrapper != null) {
             if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-                this.Ms.c(pluginConfigWrapper.icon, 10, false);
+                this.MF.d(pluginConfigWrapper.icon, 10, false);
             }
-            this.aiA.setText(pluginConfigWrapper.display_name);
-            b(pluginConfigWrapper.getDownLoadStatus(), pluginConfigWrapper.getDownLoadPercent());
+            this.anH.setText(pluginConfigWrapper.display_name);
+            c(pluginConfigWrapper.getDownLoadStatus(), pluginConfigWrapper.getDownLoadPercent());
         }
     }
 
-    private void b(int i, float f) {
+    private void c(int i, float f) {
         switch (i) {
             case 1:
-                this.bXG.setVisibility(8);
-                this.bXH.setVisibility(8);
-                this.bXF.setVisibility(0);
-                this.bXF.mu();
+                this.coz.setVisibility(8);
+                this.coA.setVisibility(8);
+                this.coy.setVisibility(0);
+                this.coy.mE();
                 return;
             case 2:
-                this.bXG.setVisibility(8);
-                this.bXH.setVisibility(8);
-                this.bXF.setVisibility(0);
-                this.bXF.mt();
+                this.coz.setVisibility(8);
+                this.coA.setVisibility(8);
+                this.coy.setVisibility(0);
+                this.coy.mD();
                 return;
             case 3:
-                this.bXG.setVisibility(8);
-                this.bXH.setVisibility(0);
-                this.bXF.setVisibility(8);
+                this.coz.setVisibility(8);
+                this.coA.setVisibility(0);
+                this.coy.setVisibility(8);
                 x(f);
                 return;
             case 4:
-                this.bXG.setVisibility(0);
-                this.bXH.setVisibility(8);
-                this.bXF.setVisibility(8);
-                this.bXG.setText(t.plugin_update);
+                this.coz.setVisibility(0);
+                this.coA.setVisibility(8);
+                this.coy.setVisibility(8);
+                this.coz.setText(i.C0057i.plugin_update);
                 return;
             default:
-                this.bXG.setVisibility(0);
-                this.bXH.setVisibility(8);
-                this.bXF.setVisibility(8);
-                this.bXG.setText(t.download);
+                this.coz.setVisibility(0);
+                this.coA.setVisibility(8);
+                this.coy.setVisibility(8);
+                this.coz.setText(i.C0057i.download);
                 return;
         }
     }
 
     private void x(float f) {
-        if (this.bXJ == 0) {
-            this.bXJ = this.bXH.getWidth();
+        if (this.coC == 0) {
+            this.coC = this.coA.getWidth();
         }
-        int i = (int) (this.bXJ * f);
+        int i = (int) (this.coC * f);
         if (i < 0) {
             i = 0;
         }
-        int i2 = i > this.bXJ ? this.bXJ : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bXI.getLayoutParams();
+        int i2 = i > this.coC ? this.coC : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.coB.getLayoutParams();
         layoutParams.width = i2;
-        this.bXI.setLayoutParams(layoutParams);
+        this.coB.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
+        this.coy.a(al.cq(i.e.bg_switch_open), al.cq(i.e.bg_switch_close), al.cq(i.e.btn_handle));
         return true;
     }
 }

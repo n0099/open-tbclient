@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class NotLoginGuideActivityConfig extends c {
+public class NotLoginGuideActivityConfig extends IntentConfig {
     public static String FROM_PAGE = GuildActivityConfig.FROM_PAGE;
     public static String FROM_ACCOUNT = "from_account";
     public static String FROM_LOGO = "form_logo";

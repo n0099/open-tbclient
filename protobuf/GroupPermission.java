@@ -108,7 +108,7 @@ public final class GroupPermission extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GroupPermission> {
+    public static final class Builder extends Message.Builder<GroupPermission> {
         public Integer canCreateNormal;
         public Integer canCreateNormalNum;
         public Integer canCreateOfficial;
@@ -119,6 +119,9 @@ public final class GroupPermission extends Message {
         public String createOfficialTip;
         public String createPersonalTip;
         public Integer isForumManager;
+
+        public Builder() {
+        }
 
         public Builder(GroupPermission groupPermission) {
             super(groupPermission);

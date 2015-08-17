@@ -1,34 +1,18 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bVf;
+public class i implements a.b {
+    final /* synthetic */ PersonInfoActivity clO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(PersonInfoActivity personInfoActivity, int i) {
-        super(i);
-        this.bVf = personInfoActivity;
+    public i(PersonInfoActivity personInfoActivity) {
+        this.clO = personInfoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ad adVar;
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
-            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
-            int error = responseDeleteFriendMessage.getError();
-            String errorString = responseDeleteFriendMessage.getErrorString();
-            if (error == 0) {
-                adVar = this.bVf.bUV;
-                adVar.startLoad();
-            } else {
-                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.bVf.getResources().getString(com.baidu.tieba.t.neterror) : responseDeleteFriendMessage.getErrorString();
-            }
-            this.bVf.showToast(errorString);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

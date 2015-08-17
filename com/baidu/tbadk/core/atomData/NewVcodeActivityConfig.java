@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-public class NewVcodeActivityConfig extends c {
+public class NewVcodeActivityConfig extends IntentConfig {
     public static final String IS_AD = "is_ad";
     public static final String SAVE_KEY = "model";
 

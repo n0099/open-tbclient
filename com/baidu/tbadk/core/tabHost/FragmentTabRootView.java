@@ -31,6 +31,7 @@ public class FragmentTabRootView extends LinearLayout {
     }
 
     private void init() {
+        setDrawingCacheEnabled(false);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setColor(ViewCompat.MEASURED_STATE_MASK);

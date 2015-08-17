@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class GroupLevelActivityConfig extends c {
+public class GroupLevelActivityConfig extends IntentConfig {
     public static final String GROUP_ID = "group_id";
     public static final String IS_MEM = "is_mem";
 

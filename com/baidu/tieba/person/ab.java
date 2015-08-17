@@ -1,51 +1,39 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.x;
+import com.baidu.tieba.im.message.RequestGetLivableForumList;
 /* loaded from: classes.dex */
-class ab implements View.OnClickListener {
-    final /* synthetic */ v bSc;
+class ab implements x.a {
+    final /* synthetic */ r ciI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(v vVar) {
-        this.bSc = vVar;
+    public ab(r rVar) {
+        this.ciI = rVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ag agVar;
-        ag agVar2;
-        ag agVar3;
-        TextView textView;
-        TextView textView2;
-        ag agVar4;
-        ag agVar5;
-        TextView textView3;
-        TextView textView4;
-        ag agVar6;
-        agVar = this.bSc.bRN;
-        if (agVar != null) {
-            agVar2 = this.bSc.bRN;
-            if (!agVar2.Fc()) {
-                agVar5 = this.bSc.bRN;
-                agVar5.setEditState(true);
-                textView3 = this.bSc.awc;
-                textView3.setText(com.baidu.tieba.t.done);
-                textView4 = this.bSc.awc;
-                com.baidu.tbadk.core.util.ay.g(textView4, TbadkCoreApplication.m411getInst().getSkinType());
-                agVar6 = this.bSc.bRN;
-                agVar6.notifyDataSetChanged();
-                return;
+    @Override // com.baidu.tbadk.core.view.x.a
+    public void onListPullRefresh(boolean z) {
+        PersonBarActivity agd;
+        PersonBarActivity agd2;
+        PersonBarActivity agd3;
+        agd = this.ciI.agd();
+        if (agd != null) {
+            this.ciI.civ = 1;
+            agd2 = this.ciI.agd();
+            if (agd2 != null) {
+                agd3 = this.ciI.agd();
+                if (agd3.getRequestCode() == 23011) {
+                    RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
+                    requestGetLivableForumList.setGetLikeForum(1);
+                    requestGetLivableForumList.setPageNo(this.ciI.civ);
+                    requestGetLivableForumList.setPageSize(this.ciI.pageSize);
+                    requestGetLivableForumList.setUserId(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+                    this.ciI.sendMessage(requestGetLivableForumList);
+                    return;
+                }
             }
-            agVar3 = this.bSc.bRN;
-            agVar3.setEditState(false);
-            textView = this.bSc.awc;
-            textView.setText(com.baidu.tieba.t.edit);
-            textView2 = this.bSc.awc;
-            com.baidu.tbadk.core.util.ay.i(textView2, TbadkCoreApplication.m411getInst().getSkinType());
-            agVar4 = this.bSc.bRN;
-            agVar4.notifyDataSetChanged();
+            this.ciI.KF();
         }
     }
 }

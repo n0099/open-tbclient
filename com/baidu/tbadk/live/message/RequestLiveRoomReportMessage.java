@@ -7,7 +7,7 @@ import protobuf.LiveReport.LiveReportReqIdl;
 public class RequestLiveRoomReportMessage extends TbSocketMessage {
     private String background;
     private int create_time;
-    private int create_uid;
+    private long create_uid;
     private String create_uname;
     private long forum_id;
     private String forum_name;
@@ -34,7 +34,7 @@ public class RequestLiveRoomReportMessage extends TbSocketMessage {
         builder.forum_name = this.forum_name;
         builder.group_type = Integer.valueOf(this.group_type);
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.create_uid = Integer.valueOf(this.create_uid);
+        builder.create_uid = Long.valueOf(this.create_uid);
         builder.create_uname = this.create_uname;
         builder.create_time = Integer.valueOf(this.create_time);
         builder.intro = this.intro;
@@ -102,12 +102,12 @@ public class RequestLiveRoomReportMessage extends TbSocketMessage {
         this.thread_id = j;
     }
 
-    public int getCreateId() {
+    public long getCreateId() {
         return this.create_uid;
     }
 
-    public void setCreateId(int i) {
-        this.create_uid = i;
+    public void setCreateId(long j) {
+        this.create_uid = j;
     }
 
     public String getCreateUname() {

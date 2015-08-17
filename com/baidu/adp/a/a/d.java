@@ -1,6 +1,7 @@
 package com.baidu.adp.a.a;
 
 import android.os.Handler;
+import com.baidu.adp.a.a.e;
 import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
@@ -10,15 +11,16 @@ public class d {
     private static int nL = 0;
     private static int nM = 0;
     private static String nN = null;
-    private static f nO = null;
-    private static f nP = null;
+    private static e.a nO = null;
+    private static e.a nP = null;
     public static Handler mHandler = null;
+    @Deprecated
     public static int nQ = 0;
     public static boolean nR = false;
     public static boolean nS = false;
     public static boolean nT = false;
 
-    public static void p(int i) {
+    public static void r(int i) {
         nI = i;
         try {
             if (mHandler != null) {
@@ -29,8 +31,8 @@ public class d {
         }
     }
 
-    public static void a(f fVar) {
-        nO = fVar;
+    public static void a(e.a aVar) {
+        nO = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -40,11 +42,11 @@ public class d {
         }
     }
 
-    public static f dP() {
+    public static e.a dQ() {
         return nP;
     }
 
-    public static double a(double d) {
+    public static double b(double d) {
         return new BigDecimal(d).setScale(2, 4).doubleValue();
     }
 }

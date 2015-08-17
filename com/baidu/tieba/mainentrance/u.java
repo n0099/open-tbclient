@@ -1,81 +1,41 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ay;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class u implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity bCF;
+class u implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(SquareSearchActivity squareSearchActivity) {
-        this.bCF = squareSearchActivity;
+        this.bQZ = squareSearchActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        String str;
-        int i4;
-        int i5;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         boolean z;
-        int i6;
-        int i7;
-        String str2;
-        this.bCF.bCg = charSequence.toString();
-        str = this.bCF.bCg;
-        if (str.trim().length() > 0) {
-            i6 = this.bCF.mMode;
-            if (i6 != 0) {
-                i7 = this.bCF.mMode;
-                if (i7 == 1) {
-                    SquareSearchActivity squareSearchActivity = this.bCF;
-                    str2 = this.bCF.bCg;
-                    squareSearchActivity.z(1, str2);
+        if (this.bQZ.bQt != null && this.bQZ.bQt.trim().length() >= 1) {
+            if (this.bQZ.mMode != 0) {
+                if (this.bQZ.mMode == 3) {
+                    com.baidu.adp.lib.util.k.c(this.bQZ.getPageContext().getPageActivity(), this.bQZ.bQb);
+                    if (!TextUtils.isEmpty(this.bQZ.bQt) && this.bQZ.bQt.trim().length() != 0) {
+                        this.bQZ.bQt = this.bQZ.bQt.trim();
+                        this.bQZ.fX(this.bQZ.bQt);
+                        return;
+                    }
                     return;
                 }
+                this.bQZ.G(1, this.bQZ.bQt);
                 return;
             }
-            this.bCF.Yu();
-            return;
-        }
-        this.bCF.FH();
-        i4 = this.bCF.mMode;
-        if (i4 != 0) {
-            i5 = this.bCF.mMode;
-            if (i5 != 3) {
-                this.bCF.Yr();
-                return;
-            } else {
-                this.bCF.Ys();
+            z = this.bQZ.arn;
+            if (z) {
+                this.bQZ.ZV();
                 return;
             }
-        }
-        z = this.bCF.bCm;
-        if (!z) {
             return;
         }
-        this.bCF.Yq();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        if (editable.toString().trim().length() == 0) {
-            textView3 = this.bCF.bBO;
-            textView3.setVisibility(8);
-        } else {
-            textView = this.bCF.bBO;
-            textView.setVisibility(0);
-        }
-        textView2 = this.bCF.bBP;
-        ay.b(textView2, com.baidu.tieba.n.cp_cont_i, 1);
+        this.bQZ.showToast(this.bQZ.getResources().getString(i.C0057i.write_keyword));
     }
 }

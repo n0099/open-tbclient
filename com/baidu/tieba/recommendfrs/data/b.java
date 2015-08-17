@@ -4,18 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FineFrsPage.FineThreadInfo;
 /* loaded from: classes.dex */
-public class b extends h {
-    private int cbW;
-    private boolean cbX;
+public class b extends i {
+    private long bpG;
+    private int csR;
+    private boolean csS;
+    private long csT;
+    private int csU;
     private String desc;
+    private String forumName;
     private long ftid;
-    private String tag;
     private List<String> thumbnail;
     private String title;
     private int type;
 
     public b a(FineThreadInfo fineThreadInfo) {
         if (fineThreadInfo != null) {
+            if (fineThreadInfo.forder != null) {
+                this.csU = fineThreadInfo.forder.intValue();
+            }
             if (fineThreadInfo.ftid != null) {
                 this.ftid = fineThreadInfo.ftid.longValue();
             }
@@ -29,14 +35,32 @@ public class b extends h {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.cbW = fineThreadInfo.publish_time.intValue();
+                this.csR = fineThreadInfo.publish_time.intValue();
             }
-            this.tag = fineThreadInfo.tag;
+            this.forumName = fineThreadInfo.fromfname;
+            if (fineThreadInfo.threadsnum != null) {
+                this.csT = fineThreadInfo.threadsnum.longValue();
+            }
+            if (fineThreadInfo.zansum != null) {
+                this.bpG = fineThreadInfo.zansum.longValue();
+            }
         }
         return this;
     }
 
-    public long ahx() {
+    public int ajw() {
+        return this.csU;
+    }
+
+    public long ajx() {
+        return this.bpG;
+    }
+
+    public long ajy() {
+        return this.csT;
+    }
+
+    public long ajz() {
         return this.ftid;
     }
 
@@ -48,27 +72,27 @@ public class b extends h {
         return this.type;
     }
 
-    public String qG() {
+    public String getDesc() {
         return this.desc;
     }
 
-    public List<String> ahy() {
+    public List<String> ajA() {
         return this.thumbnail;
     }
 
-    public int ahz() {
-        return this.cbW;
+    public int ajB() {
+        return this.csR;
     }
 
-    public String getTag() {
-        return this.tag;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public boolean ahA() {
-        return this.cbX;
+    public boolean ajC() {
+        return this.csS;
     }
 
-    public void eA(boolean z) {
-        this.cbX = z;
+    public void eR(boolean z) {
+        this.csS = z;
     }
 }

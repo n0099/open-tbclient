@@ -1,35 +1,33 @@
 package com.baidu.tbadk.core.view;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> {
-    final /* synthetic */ c XX;
+class d extends com.baidu.tbadk.core.flow.a.b {
+    private final /* synthetic */ TbPageContext Sn;
+    final /* synthetic */ b acU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.XX = cVar;
+    public d(b bVar, TbPageContext tbPageContext) {
+        this.acU = bVar;
+        this.Sn = tbPageContext;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void m(int i, String str) {
-        TbPageContext<?> tbPageContext;
-        TbPageContext tbPageContext2;
-        String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
-        bi tO = bi.tO();
-        tbPageContext = this.XX.LH;
-        String[] strArr = new String[3];
-        strArr[0] = str;
-        strArr[2] = makeStatisticsParam;
-        tO.b(tbPageContext, strArr);
-        tbPageContext2 = this.XX.LH;
-        TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "square_banner_picture", "click", 1, "loc", new StringBuilder(String.valueOf(i - 1)).toString());
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.e tc() {
+        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
+        eVar.setHeight(this.Sn.getPageActivity().getResources().getDimensionPixelSize(i.d.ds330));
+        return eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void a(int i, com.baidu.tieba.square.a aVar) {
+    @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.c tb() {
+        com.baidu.tbadk.core.flow.a.c tb = super.tb();
+        if (tb != null) {
+            tb.setGravity(85);
+            tb.bV(i.d.ds20);
+            tb.bW(i.d.ds30);
+        }
+        return tb;
     }
 }

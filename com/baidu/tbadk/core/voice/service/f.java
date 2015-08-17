@@ -1,36 +1,29 @@
 package com.baidu.tbadk.core.voice.service;
 
-import android.content.Intent;
-import android.os.Handler;
+import android.media.MediaPlayer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements Runnable {
-    final /* synthetic */ MediaService aaO;
+public class f implements MediaPlayer.OnCompletionListener {
+    final /* synthetic */ MediaService afR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MediaService mediaService) {
-        this.aaO = mediaService;
+        this.afR = mediaService;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        long j;
-        int i;
-        Handler handler;
-        Runnable runnable;
-        int i2;
-        long currentTimeMillis = System.currentTimeMillis();
-        j = this.aaO.mStartRecorderTime;
-        int i3 = (int) (currentTimeMillis - j);
-        i = this.aaO.mElapsedTime;
-        if (i != i3) {
-            this.aaO.mElapsedTime = i3 / 1000;
-            Intent intent = new Intent("com.baidu.recordElapsedTime");
-            i2 = this.aaO.mElapsedTime;
-            intent.putExtra("com.baidu.msg.recordElapsedTime", i2);
-            this.aaO.sendBroadcast(intent);
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        h hVar;
+        Voice voice;
+        h hVar2;
+        hVar = this.afR.mPlayer;
+        if (hVar != null) {
+            voice = this.afR.mVoice;
+            if (voice != null) {
+                hVar2 = this.afR.mPlayer;
+                hVar2.vO();
+                this.afR.stopVoice(null);
+            }
         }
-        handler = this.aaO.mHandler;
-        runnable = this.aaO.mRecordTimeThread;
-        handler.postDelayed(runnable, 200L);
     }
 }
